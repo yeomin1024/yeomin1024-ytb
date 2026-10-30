@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6.2 — 2026-10-29 — **카드에 영상 형식(문제형·테스트형)** (사용자 지시 2026-10-29 "1번 평가판은 사실형으로 하지 말고 문제나 테스트형으로 좀 해봐 왜 다 사실형이야"):
+# VERSION: v1.6.3 — 2026-10-30 — **버린 주제는 평가판에서 빠짐 · 카드에 분석 근거** (사용자 지시 2026-10-30 "1, 2단계만 평가 했으니 다시 업데이트 해봐" — 평가 까닭
+#          "이 주제는 그냥 버리자" · "제목, 썸네일 문구 분석 결과를 참고해서 만든게 맞아? 전혀 아닌거 같아"): 주제 평가(평가.txt)가 나쁨이면 stage_rows 에서 뺌 (기존 편은
+#          기존편_평가.txt 나쁨) · 기획안 `basis`(분석 근거 — 판 번호를 안 올리는 칸, 200자 안) 를 카드에 '분석 근거' 줄로 ·
+#          `refresh --size N` (이번 묶음만 N개 — 4회차는 정답 미리 확인을 통과한 새 주제가 4개뿐이라 약한 주제로 20개를 채우지 않음 · 로그 WARNING · 묶음에 size 기록).
+#          영향: EXTRA_KEYS·lint_extra()·stage_rows()·stage_page_item()·pick_batch(size)·cmd_refresh(size)·main()·PAGE_STAGE.
+# (v1.6.2 — 2026-10-29 — **카드에 영상 형식(문제형·테스트형)** (사용자 지시 2026-10-29 "1번 평가판은 사실형으로 하지 말고 문제나 테스트형으로 좀 해봐 왜 다 사실형이야"):
 #          평가판 카드의 칩이 정답 미리 확인 분류(사실형 = 정답이 지난 실제 숫자)를 보여 줘 영상 형식으로 읽혔음 → 기획안 `form`(문제·테스트·비교 — 판 번호를 안 올리는 칸,
-#          EXTRA_KEYS)을 카드 칩으로 · 분류는 평가판에서 빼고 영상기획안.md 에만. 영향: EXTRA_KEYS·lint_stage()·stage_update()·stage_page_item()·render_plans()·PAGE_STAGE.
+#          EXTRA_KEYS)을 카드 칩으로 · 분류는 평가판에서 빼고 영상기획안.md 에만. 영향: EXTRA_KEYS·lint_stage()·stage_update()·stage_page_item()·render_plans()·PAGE_STAGE.)
 # (v1.6.1 — 2026-10-29 — **이전에 좋음을 준 것은 1단계를 건너뜀** (사용자 지시 2026-10-29 "아니 내가 이전에 좋다고 한것들은 2번에 넣어야지 다시해봐"):
 #          주제 평가(평가.txt — 예전 평가판 'marks')·기존 편 평가(기존편_평가.txt)가 좋음이고 1단계 평가가 아직 하나도 없으면 1단계 통과로 봄 (carried · 1단계 평가판에는 안 보이고
 #          '건너뜀' 줄로만 · 2단계로) — 1단계를 직접 평가하면 그 평가가 이김. 영향: stage_status(carried)·stage_rows()·render_stage_page()·log_stages()·stage_cell()·selftest_stages()·PAGE_STAGE.)
@@ -93,7 +98,7 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.6.2"
+VERSION = "v1.6.3"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
@@ -452,9 +457,9 @@ def batch_done(S):
     return not left
 
 
-def pick_batch(S, Z, W, marks, carry=()):
-    """carry (v1.4) = 앞 묶음에서 이어 가는 좋음 주제 — 먼저 넣고 나머지를 탐색 자리·점수 순으로."""
-    cfg = Z["batch"]
+def pick_batch(S, Z, W, marks, carry=(), size=None):
+    """carry (v1.4) = 앞 묶음에서 이어 가는 좋음 주제 — 먼저 넣고 나머지를 탐색 자리·점수 순으로. v1.6.3 size = 이번 묶음만 다른 크기."""
+    cfg = {**Z["batch"], **({"SIZE": size} if size else {})}
     pool = [it for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨" and not pre_out(it)]
     pool.sort(key=lambda it: -it["score"])
     chosen, per_theme, per_need = [], Counter(), Counter()
@@ -681,7 +686,7 @@ def cmd_revise(topic, path, root=None):
     return finish(topic, P, Z, S, A)
 
 
-def cmd_refresh(topic, root=None):
+def cmd_refresh(topic, root=None, size=None):
     """v1.4 묶음 갈기 — 지금 묶음의 모든 주제가 평가(좋음·나쁨)·작성·뺌 중 하나면: 좋음(미리 계산 통과)은 새 묶음에 이어 가고,
     안 쓴 나머지는 대기로 돌린 뒤 점수 순으로 채움. 20개를 못 채우면 아무것도 바꾸지 않고 몇 개가 더 필요한지 적음."""
     P = paths(topic, root)
@@ -698,14 +703,19 @@ def cmd_refresh(topic, root=None):
     carry = [S["items"][t] for t in ids if S["items"][t].get("rating") == "좋음" and not pre_out(S["items"][t])]
     carry.sort(key=lambda it: -it["score"])
     ready = len(carry) + sum(1 for it in S["items"].values() if it["status"] == "대기" and it.get("rating") != "나쁨" and not pre_out(it))
-    if ready < Z["batch"]["SIZE"]:
-        log("BATCH", logging.WARNING, note=f"쓸 수 있는 주제 {ready}개 < {Z['batch']['SIZE']}개 — 묶음을 갈지 않음",
-            next=f"후보 {Z['batch']['SIZE'] - ready}개 이상을 더 써서 add")
+    need = size or Z["batch"]["SIZE"]
+    if size and size < Z["batch"]["SIZE"]:
+        log("BATCH", logging.WARNING, note=f"이번 묶음만 {size}개 (설정 {Z['batch']['SIZE']}개) — --size", ready=ready)
+    if ready < need:
+        log("BATCH", logging.WARNING, note=f"쓸 수 있는 주제 {ready}개 < {need}개 — 묶음을 갈지 않음",
+            next=f"후보 {need - ready}개 이상을 더 써서 add")
         return finish(topic, P, Z, S, A)
     for t in ids:
         S["items"][t]["status"] = "대기"
     log("BATCH", note="묶음 갈기", old=cur["no"] if cur else 0, carried=",".join(it["id"] for it in carry) or "-", ready=ready)
-    pick_batch(S, Z, W, marks, carry=carry)
+    pick_batch(S, Z, W, marks, carry=carry, size=size)
+    if size:
+        current_batch(S)["size"] = size
     return finish(topic, P, Z, S, A)
 
 
@@ -714,7 +724,7 @@ PKG_KEYS = ("title", "thumb_main", "thumb_sub", "intro", "items", "explain")
 STAGE_KEYS = {1: ("title", "message"), 2: ("thumb_main", "thumb_sub", "intro"), 3: ("items", "explain")}
 STAGE_NAME = {1: "제목 · 전달하고자 하는 내용", 2: "썸네일 문구 · 보조 문구 · 도입부", 3: "대본 내용"}
 # v1.6.2 판 번호를 안 올리는 칸 — form = 영상 형식 (채널 설명 stock/guides/channel.md: 문제 '내 실력은' · 테스트 '나는 어떨까' · 비교 시뮬레이션)
-EXTRA_KEYS = ("form",)
+EXTRA_KEYS = ("form", "basis")             # v1.6.3 basis = 분석 근거 (제목·썸네일 문구가 어느 분석 결과를 따랐나)
 FORMS = {"문제": "문제형", "테스트": "테스트형", "비교": "비교형"}
 
 
@@ -766,7 +776,10 @@ def pkg_ver(pk):
 
 def lint_extra(pk):
     """v1.6.2 판 번호를 안 올리는 칸 검사."""
-    return [f"form '{pk['form']}' — {'·'.join(FORMS)} 중 하나"] if "form" in pk and pk["form"] not in FORMS else []
+    bad = [f"form '{pk['form']}' — {'·'.join(FORMS)} 중 하나"] if "form" in pk and pk["form"] not in FORMS else []
+    if "basis" in pk and (not isinstance(pk["basis"], str) or len(pk["basis"]) > 200):
+        bad.append("basis 는 200자 안 글")
+    return bad
 
 
 def stage_update(pk, entry, why="", at=None):
@@ -1018,12 +1031,17 @@ def stage_rows(S, P, Z):
     B = current_batch(S)
     rows = []
     if B:
-        for i, it in enumerate(sorted((S["items"][t] for t in B["ids"]), key=lambda it: -it["score"]), 1):
+        dropped = [t for t in B["ids"] if S["items"][t].get("rating") == "나쁨"]
+        if dropped:
+            log("STAGE", note="버린 주제 (평가.txt 나쁨) — 평가판에서 뺌", n=len(dropped), ids=",".join(dropped))
+        for i, it in enumerate(sorted((S["items"][t] for t in B["ids"] if S["items"][t].get("rating") != "나쁨"), key=lambda it: -it["score"]), 1):
             pk = it.get("package") or {}
             rows.append({"id": it["id"], "rank": i, "kind": "topic", "label": it["id"], "pkg": pk, "cls": (it.get("precheck") or {}).get("class", ""),
                          "carried": (it.get("picked_why") or "").startswith("좋음"), "status": it["status"],
                          "st": stage_status(pk, sm, it["id"], {"why": it.get("rating_why", "")} if it.get("rating") == "좋음" else None)})
-    for e in load_episodes(P, Z):                   # v1.6.1 기존 편: 기존편_평가.txt 좋음 → 1단계 건너뜀
+    for e in load_episodes(P, Z):                   # v1.6.1 기존 편: 기존편_평가.txt 좋음 → 1단계 건너뜀 · v1.6.3 나쁨 → 뺌
+        if e["rating"] == "나쁨":
+            continue
         rows.append({"id": e["id"], "rank": None, "kind": "episode", "label": e["label"], "pkg": e["full"], "cls": "", "carried": False,
                      "status": "", "st": stage_status(e["full"], sm, e["id"], {"why": e["why"]} if e["rating"] == "좋음" else None)})
     return rows
@@ -1578,6 +1596,7 @@ function card(it){
   const pv=prevs[it.id];
   if(pv){ const h=el("p",{class:"hist"}); h.append(el("b",{},`이전 판 v${pv.v} · ${pv.rating}`), document.createTextNode((pv.why?" — "+pv.why:"")+(it.fixed?` → 고친 것: ${it.fixed}`:""))); li.append(h); }
   else if(it.fixed){ li.append(el("p",{class:"hist"},"고친 것 · "+it.fixed)); }
+  if(it.basis){ const b=el("p",{class:"hist"}); b.append(el("b",{},"분석 근거 · "), document.createTextNode(it.basis)); li.append(b); }
   li.append(actions(it, r, m));
   return li;
 }
@@ -1614,7 +1633,7 @@ function save(it,rating,why){
   }).catch(e=>{ const s3=document.getElementById("s-"+it.id); if(s3) s3.textContent=(e&&(e.code==="not_granted"||e.code==="permission_denied"))?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요"; });
 }
 document.querySelectorAll(".filt button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;document.querySelectorAll(".filt button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render();}));
-$("#offline").textContent=`이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 '${N}단계 T043 좋아, T047 별로'처럼 말하면 됩니다.`;
+const ex=ALL.slice(0,2).map(x=>x.id); $("#offline").textContent=`이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 '${N}단계 ${ex[0]||"T056"} 좋아, ${ex[1]||"T057"} 별로'처럼 말하면 됩니다.`;
 render();
 if(!ALL.length) return;
 (async()=>{
@@ -1646,7 +1665,7 @@ def stage_page_item(r, n):
     """v1.6 단계 평가판 카드 한 장 — 이 단계까지의 칸 (앞 단계 칸은 회색 맥락) · 지금 판 · 이 판 평가 · 앞 판 평가 · 고친 까닭."""
     pk, x = r["pkg"], r["st"][n]
     keys = [k for s in range(1, n + 1) for k in STAGE_KEYS[s]]
-    return {"id": r["id"], "rank": r["rank"] if n == 1 else None, "label": r["label"], "form": FORMS.get(pk.get("form"), ""), "carried": r["carried"] and n == 1,
+    return {"id": r["id"], "rank": r["rank"] if n == 1 else None, "label": r["label"], "form": FORMS.get(pk.get("form"), ""), "basis": pk.get("basis", "") if n <= 2 else "", "carried": r["carried"] and n == 1,
             "v": x["v"], "rating": x["rating"], "why": x["why"], "prev": x["prev"], "fixed": last_fix(pk, n), **{k: pk[k] for k in keys}}
 
 
@@ -1716,11 +1735,13 @@ def render_plans(S, P, Z):
         L += [f"| {r['label']} | " + " | ".join(stage_cell(r["st"][s]) for s in (1, 2, 3)) + " |" for r in rows] + [""]
     def block(head, pk, extra=""):
         out = [f"## {head}", "", f"- **제목**: {pk['title']}"] + ([f"- **형식**: {FORMS[pk['form']]}"] if pk.get("form") in FORMS else []) + (
-               [f"- **전달하고자 하는 내용**: {' '.join(pk['message'])}"] if pk.get("message") else []) + [
-               f"- **썸네일 문구**: {' / '.join(pk['thumb_main'])}", f"- **썸네일 보조 문구**: {pk['thumb_sub']}",
-               f"- **도입부**: {' '.join(pk['intro'])}", "- **내용**:"]
-        out += [f"  {i}. {x['q']} → **{x['a']}**" for i, x in enumerate(pk["items"], 1)]
-        out += [f"- **해설**: {' '.join(pk['explain'])}"] + ([f"- {extra}"] if extra else []) + [""]
+               [f"- **전달하고자 하는 내용**: {' '.join(pk['message'])}"] if pk.get("message") else []) + (
+               [f"- **분석 근거**: {pk['basis']}"] if pk.get("basis") else [])
+        if pk.get("thumb_main"):                    # v1.6.3 1단계만 있는 새 주제는 2·3단계 칸이 없음
+            out += [f"- **썸네일 문구**: {' / '.join(pk['thumb_main'])}", f"- **썸네일 보조 문구**: {pk['thumb_sub']}", f"- **도입부**: {' '.join(pk['intro'])}"]
+        if pk.get("items"):
+            out += ["- **내용**:"] + [f"  {i}. {x['q']} → **{x['a']}**" for i, x in enumerate(pk["items"], 1)] + [f"- **해설**: {' '.join(pk['explain'])}"]
+        out += ([f"- {extra}"] if extra else []) + [""]
         return out
     if B:
         for t in B["ids"]:
@@ -1810,6 +1831,7 @@ def main(argv=None):
     ap.add_argument("topic")
     ap.add_argument("cmd", choices=["material", "add", "mark", "use", "done", "status", "import", "precheck", "revise", "refresh", "package", "import-stage", "selftest"])
     ap.add_argument("args", nargs="*")
+    ap.add_argument("--size", type=int, default=None, help="v1.6.3 refresh — 이번 묶음만 이 크기")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     logging.basicConfig(level=a.log_level, format="%(message)s", stream=sys.stdout)
@@ -1828,7 +1850,7 @@ def main(argv=None):
     elif a.cmd == "revise":
         cmd_revise(a.topic, a.args[0])
     elif a.cmd == "refresh":
-        cmd_refresh(a.topic)
+        cmd_refresh(a.topic, size=a.size)
     elif a.cmd == "package":
         cmd_package(a.topic, a.args[0])
     elif a.cmd == "import-stage":

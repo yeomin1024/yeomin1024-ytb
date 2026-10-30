@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-29 — 3회차 + 기존 3편 다시 (사용자 지시 2026-10-29 "평가판 반영했으니 주제 다시 탐색하고 … 기존 3건(재무제표, 매수 시기, 포트폴리오)도 기준을
+# VERSION: v1.3 — 2026-10-30 — 4회차 (사용자 지시 2026-10-30 "1, 2단계만 평가 했으니 다시 업데이트 해봐"): round4.py 연결 — `--round4` 가 TOPICS4(손절 −10% · 폭락 종목 다음 날 ·
+#          라이벌 5쌍 · 하락장 업종 · 버틴 업종 따라 사기 · 오른 종목 vs 내린 종목 · 하락장 전 회사 특징 · 장중 vs 밤사이)를 계산 → precheck_<날짜>_r4.json.
+# (v1.2 — 2026-10-29 — 3회차 + 기존 3편 다시 (사용자 지시 2026-10-29 "평가판 반영했으니 주제 다시 탐색하고 … 기존 3건(재무제표, 매수 시기, 포트폴리오)도 기준을
 #          리스크를 줄이면서 안정적 수익내는걸 기준으로 해서 다시 구성해봐"): risk.py 연결 — TOPICS3(T022 다시 짬 · T043~T055) · --episodes (기존 3편을 '안정 수익 확률'로 →
-#          precheck/episodes_<날짜>.json) · --selftest-risk.
+#          precheck/episodes_<날짜>.json) · --selftest-risk.)
 # (v1.1 — 2026-10-29 — 2회차 (사용자 지시 2026-10-29 "주식 주제 평가판 평가했는데 다시 주제 탐색해봐"): 새 후보 T027~T039 · 다시 짠 좋음 주제
 #          T003·T011·T012·T022 를 stocks.py(지금 S&P 500 구성 종목 일괄 자료 — bulk.py 캐시)로 계산 · --tag (결과 파일 이름 뒤) · --selftest-stocks ·
 #          옛 T003(가장 오른 10일) 은 T003_r1 로 남김 · NO_DATA 에서 T011·T012·T022 뺌 (이제 계산).
@@ -12,6 +14,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-10-30 | 4회차 — round4.py (TOPICS4 · --round4) | main |
 # | v1.2 | 2026-10-29 | 3회차 — risk.py (TOPICS3 · EPISODES · --episodes · --selftest-risk) | main |
 # | v1.1 | 2026-10-29 | 2회차 — stocks.py 연결(TOPICS2) · --tag · --selftest-stocks · T003_r1 · NO_DATA 줄임 | main · TOPICS · NO_DATA |
 # | v1.0 | 2026-10-29 | 최초 (같은 날 고침: classify_full — 앞 시기 자료가 없으면 정답형 ✗ · T007 JEPI 예외 적음) — 받기(캐시) · 비교 칸(기간 × 시작 시기 × 가정) · 주제 26개 + 기존 2편(포트폴리오 항목) 계산 · JSON | 전부 |
@@ -50,8 +53,9 @@ sys.path.insert(0, str(ROOT / "tools"))
 import calc as T  # noqa: E402  매수 시기 편 calc (month_starts · windows · cash_index · align_irx · load · big_declines)
 import stocks  # noqa: E402  v1.1 2회차 — 지금 S&P 500 구성 종목 자료로 계산하는 주제 (TOPICS2)
 import risk  # noqa: E402  v1.2 3회차 — 안정 수익 확률 · 기존 3편 (TOPICS3 · EPISODES)
+import round4  # noqa: E402  v1.3 4회차 — 내 종목·하락장 대처 (TOPICS4)
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 EARLY, LATE_FROM = (2000, 2008), 2009
 MAIN_MIN, CELL_MIN = 0.60, 0.55
 
@@ -649,6 +653,7 @@ def main():
     ap.add_argument("--selftest-stocks", action="store_true", help="stocks.py 자료·함수 점검만")
     ap.add_argument("--selftest-risk", action="store_true", help="risk.py 안정 수익 판정 점검만")
     ap.add_argument("--episodes", action="store_true", help="기존 3편을 '안정 수익 확률'로 다시 계산 → episodes_<날짜>.json")
+    ap.add_argument("--round4", action="store_true", help="v1.3 4회차 후보만 (round4.TOPICS4) → precheck_<날짜>_r4.json")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args()
     h = logging.StreamHandler(sys.stdout)
@@ -664,6 +669,24 @@ def main():
         return selftest_risk()
     need3 = [t for t in risk.TOPICS3 if not a.only or t in a.only]
     need2 = [t for t in stocks.TOPICS2 if (not a.only or t in a.only) and t not in risk.TOPICS3]
+    if a.round4:                                    # v1.3 4회차 — 주제 ID 는 add 뒤에 정해져 임시 이름(R4_…)으로 저장
+        I, P, F = stocks.Ix(B), stocks.load_bulk(lambda st, **kv: out(st, **kv)), stocks.load_fa()
+        for tid, f in round4.TOPICS4.items():
+            if a.only and tid not in a.only:
+                continue
+            t1 = time.time()
+            try:
+                r = f(B, I, P, F)
+            except Exception as e:
+                warn("TOPIC", id=tid, error=repr(e)[:160], next_step="round4.py 함수·자료 확인")
+                r = {"class": "미확인", "answer": "-", "why": f"계산 실패: {e!r}"[:200]}
+            res[tid] = r
+            out("TOPIC", id=tid, cls=r["class"], seconds=f"{time.time() - t1:.1f}", answer=str(r["answer"])[:260])
+        path = HERE / f"precheck_{date.today().isoformat()}_r4.json"
+        path.write_text(json.dumps({"version": VERSION, "round4": round4.VERSION, "made": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                                    "data_last": B.d[-1].isoformat(), "results": res}, ensure_ascii=False, indent=1, default=str), "utf-8")
+        out("DONE", file=path.relative_to(ROOT), topics=len(res), note="연구·교육용 — 투자 권유 아님")
+        return 0
     if need2 or need3 or a.selftest_stocks or a.episodes:
         I, P, F = stocks.Ix(B), stocks.load_bulk(lambda st, **kv: out(st, **kv)), stocks.load_fa()
         out("LOAD", source="bulk/fa/*.json", symbols=len(F), note="지금 S&P 500 구성 종목 — 생존 편향은 주제마다 bias 칸")

@@ -86,7 +86,7 @@ button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(-
 <section id="topsec" hidden><h2 class="sec" id="toph"></h2><ol class="list" id="list"></ol></section>
 <section id="epsec" hidden><h2 class="sec">기존 편 — 리스크를 줄이며 안정적으로 번 쪽을 정답으로 다시 짠 안</h2><ol class="list" id="eps"></ol></section>
 </div>
-<script id="data" type="application/json">{"skipped": [], "stage": 3, "name": "주식", "names": {"1": "제목 · 전달하고자 하는 내용", "2": "썸네일 문구 · 보조 문구 · 도입부", "3": "대본 내용"}, "urls": ["https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8", "https://claude.ai/artifact/4j6s2o7CAHKx26o7MCZHcB", "https://claude.ai/artifact/XuTyZLGv2sSPEqn6eEzxaL"], "note": "※ 연구·교육용 — 투자 권유가 아님. 숫자는 모두 미리 계산(stock/topics/precheck) 결과이고, 보도에서 가져온 숫자는 대본 전에 원문을 다시 확인합니다. 정답 기준은 '리스크를 줄이면서 안정적으로 번 쪽'(안정 수익 확률)을 따릅니다.", "batch": 3, "made": "2026-10-29", "counts": {"1": 14, "2": 9, "3": 0}, "passed_prev": 0, "waiting": 0, "items": [], "episodes": []}</script>
+<script id="data" type="application/json">{"skipped": [], "stage": 3, "name": "주식", "names": {"1": "제목 · 전달하고자 하는 내용", "2": "썸네일 문구 · 보조 문구 · 도입부", "3": "대본 내용"}, "urls": ["https://claude.ai/artifact/Y5d3kdE2nShVxRgzBBEpV8", "https://claude.ai/artifact/4j6s2o7CAHKx26o7MCZHcB", "https://claude.ai/artifact/XuTyZLGv2sSPEqn6eEzxaL"], "note": "※ 연구·교육용 — 투자 권유가 아님. 숫자는 모두 미리 계산(stock/topics/precheck) 결과이고, 보도에서 가져온 숫자는 대본 전에 원문을 다시 확인합니다. 정답 기준은 '리스크를 줄이면서 안정적으로 번 쪽'(안정 수익 확률)을 따릅니다.", "batch": 4, "made": "2026-10-30", "counts": {"1": 6, "2": 5, "3": 0}, "passed_prev": 0, "waiting": 0, "items": [], "episodes": []}</script>
 <script>
 (function(){
 const D=JSON.parse(document.getElementById("data").textContent);
@@ -160,6 +160,7 @@ function card(it){
   const pv=prevs[it.id];
   if(pv){ const h=el("p",{class:"hist"}); h.append(el("b",{},`이전 판 v${pv.v} · ${pv.rating}`), document.createTextNode((pv.why?" — "+pv.why:"")+(it.fixed?` → 고친 것: ${it.fixed}`:""))); li.append(h); }
   else if(it.fixed){ li.append(el("p",{class:"hist"},"고친 것 · "+it.fixed)); }
+  if(it.basis){ const b=el("p",{class:"hist"}); b.append(el("b",{},"분석 근거 · "), document.createTextNode(it.basis)); li.append(b); }
   li.append(actions(it, r, m));
   return li;
 }
@@ -196,7 +197,7 @@ function save(it,rating,why){
   }).catch(e=>{ const s3=document.getElementById("s-"+it.id); if(s3) s3.textContent=(e&&(e.code==="not_granted"||e.code==="permission_denied"))?"저장 못 함 (권한)":"저장 못 함 — 다시 눌러 주세요"; });
 }
 document.querySelectorAll(".filt button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;document.querySelectorAll(".filt button").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));render();}));
-$("#offline").textContent=`이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 '${N}단계 T043 좋아, T047 별로'처럼 말하면 됩니다.`;
+const ex=ALL.slice(0,2).map(x=>x.id); $("#offline").textContent=`이 화면에서는 저장할 수 없습니다 (로그인이 필요하거나 보기 전용). 평가는 Claude 에게 '${N}단계 ${ex[0]||"T056"} 좋아, ${ex[1]||"T057"} 별로'처럼 말하면 됩니다.`;
 render();
 if(!ALL.length) return;
 (async()=>{

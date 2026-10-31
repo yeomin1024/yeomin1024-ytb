@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-31 — 최초. 쇼츠·롱폼을 채널 목적에 맞게 다시 쓰는 데 쓸 '리스크' 숫자
+# VERSION: v1.1 — 2026-10-31 — A 에 '가장 오래 묶인 기간'(고점 아래에 머문 가장 긴 시간 — 가장 깊은 하락의 회복과 다를 수 있음) 더함
+#          (사용자 지시 "니가 만든 2~4편으로 하지말고 내가 채팅에 쓴걸로" — 3편 '섹터 포트폴리오 분배' 제목 숫자).
+# (v1.0 — 2026-10-31 — 최초.) 쇼츠·롱폼을 채널 목적에 맞게 다시 쓰는 데 쓸 '리스크' 숫자
 #          (사용자 지시 2026-10-31 "… 리스크는 최대한 줄이고 천천히 수익내면서 장기 투자하는거 이게 이 채널의 목적인데 왜 다른 내용이 있는거야 다시 수정해봐").
 #   더 벌었나가 아니라 — 가장 크게 빠진 폭 · 원금(고점) 회복에 걸린 해 · 반 토막(−50%) 난 적이 있나.
 #   A. 업종 하나에만 vs 9개 업종 똑같이(1년마다 맞춤) vs S&P 500 vs 주식 60·채권 40(1년마다 맞춤) — 1999~2026 (채권 AGG 는 2003-09 부터라 같은 기간도 따로)
@@ -20,7 +22,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 DATA, BULK = HERE / "data", HERE / "bulk" / "px"
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.0"
+VERSION = "v1.1"
 NINE = {"XLB": "소재", "XLE": "에너지", "XLF": "금융", "XLI": "산업재", "XLK": "기술", "XLP": "필수소비재", "XLU": "유틸리티", "XLV": "헬스케어", "XLY": "임의소비재"}
 FAMOUS = {"KO": "코카콜라", "PEP": "펩시", "V": "비자", "MA": "마스터카드", "HD": "홈디포", "LOW": "로우스", "XOM": "엑슨모빌", "CVX": "셰브론",
           "AMD": "AMD", "INTC": "인텔", "WMT": "월마트", "TGT": "타깃", "JPM": "JP모건", "BAC": "뱅크오브아메리카", "MCD": "맥도날드", "SBUX": "스타벅스"}
@@ -59,6 +61,23 @@ def drawdown(ds, v):
             "_dd": float(dd[t])}
 
 
+def longest_under(ds, v):
+    """고점 아래에 머문 가장 긴 시간 — (해, 시작 고점 날, 다시 넘은 날 또는 '아직')."""
+    ok = ~np.isnan(v)
+    v, d = v[ok], [x for x, m in zip(ds, ok) if m]
+    peak, pi, best = v[0], 0, (0.0, d[0], d[0])
+    for i in range(1, len(v)):
+        if v[i] >= peak:
+            yrs = (date.fromisoformat(d[i]) - date.fromisoformat(d[pi])).days / 365.25
+            if yrs > best[0]:
+                best = (yrs, d[pi], d[i])
+            peak, pi = v[i], i
+    yrs = (date.fromisoformat(d[-1]) - date.fromisoformat(d[pi])).days / 365.25
+    if yrs > best[0]:
+        best = (yrs, d[pi], "아직")
+    return {"years": round(best[0], 1), "from_peak": best[1], "back": best[2]}
+
+
 def rebal(ds, parts):
     """parts = [(값 배열, 비중)] · 해가 바뀌는 첫 거래일마다 비중을 다시 맞춤."""
     val = np.ones(len(ds))
@@ -86,9 +105,13 @@ def main():
     A = {"window": f"{ds[0]} ~ {ds[-1]}", "업종 하나": {}}
     for k, name in NINE.items():
         A["업종 하나"][name] = drawdown(ds, S[k])
+        A["업종 하나"][name]["longest_under"] = longest_under(ds, S[k])
         log.info("sector=%s %s", name, {x: y for x, y in A["업종 하나"][name].items() if not x.startswith("_")}, extra={"stage": "A_DD"})
     A["S&P 500"] = drawdown(ds, tr)
-    A["9개 업종 똑같이 (1년마다 맞춤)"] = drawdown(ds, rebal(ds, [(S[k], 1 / 9) for k in NINE]))
+    A["S&P 500"]["longest_under"] = longest_under(ds, tr)
+    mix = rebal(ds, [(S[k], 1 / 9) for k in NINE])
+    A["9개 업종 똑같이 (1년마다 맞춤)"] = drawdown(ds, mix)
+    A["9개 업종 똑같이 (1년마다 맞춤)"]["longest_under"] = longest_under(ds, mix)
     dd_one = sorted(v["_dd"] for v in A["업종 하나"].values())
     A["업종 하나 — 범위"] = {"least": f"{dd_one[-1] * 100:.1f}%", "most": f"{dd_one[0] * 100:.1f}%",
                          "half_or_worse": sum(x <= -0.5 for x in dd_one), "n": len(dd_one)}

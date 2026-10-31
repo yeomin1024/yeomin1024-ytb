@@ -1,5 +1,5 @@
 {
- "tool": "purpose_numbers.py v1.0",
+ "tool": "purpose_numbers.py v1.1",
  "rule": "배당 포함 수정 종가 · 가장 크게 빠진 폭 = 그때까지 고점 대비 · 회복 = 그 고점을 다시 넘은 첫날",
  "A_sectors": {
   "window": "1999-01-04 ~ 2026-10-27",
@@ -9,63 +9,108 @@
     "peak": "2008-05-20",
     "trough": "2009-03-02",
     "recovered": "2013-05-08",
-    "years_to_recover": 5.0
+    "years_to_recover": 5.0,
+    "longest_under": {
+     "years": 5.0,
+     "from_peak": "2008-05-20",
+     "back": "2013-05-08"
+    }
    },
    "에너지": {
     "max_dd": "-71.3%",
     "peak": "2014-06-23",
     "trough": "2020-03-18",
     "recovered": "2022-03-04",
-    "years_to_recover": 7.7
+    "years_to_recover": 7.7,
+    "longest_under": {
+     "years": 7.7,
+     "from_peak": "2014-06-23",
+     "back": "2022-03-04"
+    }
    },
    "금융": {
     "max_dd": "-82.7%",
     "peak": "2007-06-01",
     "trough": "2009-03-06",
     "recovered": "2017-07-05",
-    "years_to_recover": 10.1
+    "years_to_recover": 10.1,
+    "longest_under": {
+     "years": 10.1,
+     "from_peak": "2007-06-01",
+     "back": "2017-07-05"
+    }
    },
    "산업재": {
     "max_dd": "-62.3%",
     "peak": "2007-10-09",
     "trough": "2009-03-09",
     "recovered": "2011-04-29",
-    "years_to_recover": 3.6
+    "years_to_recover": 3.6,
+    "longest_under": {
+     "years": 4.0,
+     "from_peak": "2000-12-11",
+     "back": "2004-12-01"
+    }
    },
    "기술": {
     "max_dd": "-82.0%",
     "peak": "2000-03-27",
     "trough": "2002-10-09",
     "recovered": "2017-03-01",
-    "years_to_recover": 16.9
+    "years_to_recover": 16.9,
+    "longest_under": {
+     "years": 16.9,
+     "from_peak": "2000-03-27",
+     "back": "2017-03-01"
+    }
    },
    "필수소비재": {
     "max_dd": "-35.9%",
     "peak": "2000-12-28",
     "trough": "2003-03-10",
     "recovered": "2006-10-26",
-    "years_to_recover": 5.8
+    "years_to_recover": 5.8,
+    "longest_under": {
+     "years": 5.8,
+     "from_peak": "2000-12-28",
+     "back": "2006-10-26"
+    }
    },
    "유틸리티": {
     "max_dd": "-52.3%",
     "peak": "2000-12-13",
     "trough": "2002-10-09",
     "recovered": "2005-02-14",
-    "years_to_recover": 4.2
+    "years_to_recover": 4.2,
+    "longest_under": {
+     "years": 4.5,
+     "from_peak": "2007-12-10",
+     "back": "2012-06-14"
+    }
    },
    "헬스케어": {
     "max_dd": "-39.2%",
     "peak": "2007-12-10",
     "trough": "2009-03-09",
     "recovered": "2011-04-26",
-    "years_to_recover": 3.4
+    "years_to_recover": 3.4,
+    "longest_under": {
+     "years": 5.4,
+     "from_peak": "2000-01-10",
+     "back": "2005-06-17"
+    }
    },
    "임의소비재": {
     "max_dd": "-59.0%",
     "peak": "2007-06-04",
     "trough": "2009-03-09",
     "recovered": "2011-01-27",
-    "years_to_recover": 3.6
+    "years_to_recover": 3.6,
+    "longest_under": {
+     "years": 3.6,
+     "from_peak": "2007-06-04",
+     "back": "2011-01-27"
+    }
    }
   },
   "S&P 500": {
@@ -73,14 +118,24 @@
    "peak": "2007-10-09",
    "trough": "2009-03-09",
    "recovered": "2012-04-02",
-   "years_to_recover": 4.5
+   "years_to_recover": 4.5,
+   "longest_under": {
+    "years": 6.1,
+    "from_peak": "2000-09-01",
+    "back": "2006-10-23"
+   }
   },
   "9개 업종 똑같이 (1년마다 맞춤)": {
    "max_dd": "-52.9%",
    "peak": "2007-10-12",
    "trough": "2009-03-09",
    "recovered": "2011-04-28",
-   "years_to_recover": 3.5
+   "years_to_recover": 3.5,
+   "longest_under": {
+    "years": 3.5,
+    "from_peak": "2007-10-12",
+    "back": "2011-04-28"
+   }
   },
   "업종 하나 — 범위": {
    "least": "-35.9%",

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-01 — 반론 2회차 나머지: 이씨 여윳돈 2년 · 박씨 은행주+2배 · 200일 평균 사고팔기 규칙 · 경고 2년 · 2008 넉 달 나눠 vs 기다림 · −60% 날 뒤 · 정씨 정답 경로.
+# VERSION: v1.7 — 2026-11-01 — 반론 3회차 나머지: 한꺼번에 vs 나눠 2000 이후(20% 넘게 줄어든 몫·안정 몫) · −20% 매도 124번의 원금 · 200일 신호 배당 포함 · 정씨 정답(페이팔 10%).
+# (v1.6 — 2026-11-01 — 반론 3회차: 테슬라 같은 날 · 김씨·정답 경로 지금까지.
+# (v1.5 — 2026-11-01 — 반론 2회차 나머지: 이씨 여윳돈 2년 · 박씨 은행주+2배 · 200일 평균 사고팔기 규칙 · 경고 2년 · 2008 넉 달 나눠 vs 기다림 · −60% 날 뒤 · 정씨 정답 경로.
 # (v1.4 — 2026-11-01 — 반론 2회차: 김씨 1번 = 한꺼번에(손절 항목 뺌 — 손절 뒤 현금은 정의상 안정 기준을 못 넘음) · 2배 지금까지 · 루시드 같은 기간 지수.
 # (v1.3 — 2026-11-01 — 반론 검토 1회차 나머지: 금액은 달러(환율 뺌) · 김씨 4년 경로 · 2배가 더 번 상승기 · 신호 날 전부 매도 vs 보유(2·5년, 모든 신호) ·
 #          유명인 경고 1년 안 가장 크게 빠진 폭 · 정씨 경로(8만 투자 + 2만 남김) · 바닥 나눠 넣기 vs 최고가 회복까지 기다리기 · 하락장 들어선 날 매달 매수 이어 가기 vs 멈춤(4·5년).
@@ -25,7 +27,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.5"
+VERSION = "v1.7"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -104,7 +106,7 @@ def load():
     rate = np.array([irx.at(d) for d in tr.k])
     LEV2 = Ser("2배 상품(재현)", dict(zip(tr.k, np.cumprod(1 + 2 * r - (rate / 100 + 0.009) / 252))))
     S = {"SPX": spx, "TR": tr, "CASH": CASH, "LEV2": LEV2, "VIX": Ser("공포 지수", rd(HERE / "data" / "VIX.csv", "close"))}
-    for sym in ("ARKK", "META", "PYPL", "LCID", "XLK", "XLF", "AGG"):
+    for sym in ("ARKK", "META", "PYPL", "LCID", "XLK", "XLF", "AGG", "TSLA"):
         S[sym] = Ser(sym, rd(HERE / "data" / f"{sym}.csv", "adjclose"))
     log.info("loaded=%s spx=%s~%s", list(S), spx.k[0], spx.k[-1], extra={"stage": "LOAD"})
     return S
@@ -484,12 +486,74 @@ def paths(S):
                 c_ *= cash.v[k + 1] / cash.v[k]
         return round(c_ + u_ * tr.v[ke_], 4)
 
-    put("김씨_정답", split12_2020_02_19_to_2024_01_03=split_to("2020-02-19", 12, "2024-01-03"))
+    put("김씨_정답", split12_2020_02_19_to_2024_01_03=split_to("2020-02-19", 12, "2024-01-03"),
+        split12_to_now=split_to("2020-02-19", 12, tr.k[-1]), kim_path_to_now=round(P["김씨_v1.4"]["steps"][2] * (1 + lev.chg("2022-01-03", lev.k[-1])), 4),
+        tsla_2021_11_16_low=pct(S["TSLA"].low("2021-11-16", S["TSLA"].k[-1])[0]), tsla_2021_11_16_now=pct(S["TSLA"].chg("2021-11-16", S["TSLA"].k[-1])),
+        tsla_prior_1y=pct(S["TSLA"].chg("2020-11-16", "2021-11-16")))
     put("정씨_정답", value_2024_06_13=round(8 * (1 + tr.chg("2020-02-19", "2024-06-13")) + 2 * (c + u * tr.v[ke]), 3), reserve_split4_value=round(c + u * tr.v[ke], 4))
     # 3편 최씨 5번: 2023-10-20 200일 평균 신호 (crash_tests B 목록) — 최고가 대비 · 2년 보유 vs 현금 · 그사이 가장 크게 빠진 폭
     put("3편_최씨_200일", spx_from_peak=pct(spx.peak_before("2023-10-20")[1]), tr_2y=pct(tr.chg("2023-10-20", "2025-10-20")),
         cash_2y=pct(cash.chg("2023-10-20", "2025-10-20")), tr_low_2y=pct(tr.low("2023-10-20", "2025-10-20")[0]),
         months_burry_to_signal=months("2023-01-31", "2023-10-20"))
+
+    # ---------- v1.7 (반론 3회차)
+    # 1편 1번·2편 4번: 한꺼번에 vs 12달 나눠 — 2000년 이후 매달 첫 거래일 시작, 2년·5년, 2000~2008 시작 / 2009 이후 시작
+    #   원금 20% 넘게 줄어든 적 있는 몫 · 안정(끝에 국채 현금보다 더 + 원금 20% 넘게 안 줄어듦) 몫 · 늘어난 돈 가운데 값
+    mstarts = [tr.k[k] for k in range(1, len(tr.k)) if tr.k[k][:7] != tr.k[k - 1][:7] and tr.k[k] >= "2000-01-01"]
+    LS = {}
+    for yy in (2, 5):
+        for era, lo_, hi_ in (("2000~2008", "2000-01-01", "2008-12-31"), ("2009~", "2009-01-01", "2099-12-31")):
+            acc = {"lump": [], "split": []}
+            for d in mstarts:
+                if not (lo_ <= d <= hi_) or f"{int(d[:4]) + yy:04d}{d[4:]}" > tr.k[-1]:
+                    continue
+                cash_end = 1 + cash.chg(d, f"{int(d[:4]) + yy:04d}{d[4:]}")
+                for kind, mm in (("lump", 1), ("split", 12)):
+                    b_ = buy(S, d, years=yy, months=mm)
+                    acc[kind].append((b_["end_value"], b_["worst"], cash_end))
+            LS[f"{yy}년·{era}"] = {kind: {"n": len(v_), "dd20_share": pct(float(np.mean([w < -0.2 for _, w, _ in v_]))),
+                                          "stable_share": pct(float(np.mean([(e_ > c_) and (w >= -0.2) for e_, w, c_ in v_]))),
+                                          "median_gain": pct(float(np.median([e_ - 1 for e_, _, _ in v_])))} for kind, v_ in acc.items()}
+    put("한꺼번에_vs_나눠_2000_이후", rule="매달 첫 거래일 시작 · 나눠 = 12달(안 넣은 돈은 국채) · 원금 20% = 시작 날 원금 대비", **LS)
+    # 2편 5번: −20% 매도 vs 보유 124번 — 매도한 쪽이 원금 아래로 끝난 수 · 보유한 쪽이 원금을 되찾은 수 · 매도 뒤 보유한 쪽의 가장 낮은 값
+    mk = [k for k in range(1, len(tr.k)) if tr.k[k][:7] != tr.k[k - 1][:7] and tr.k[k] >= "1990-01-01"]   # 매도20_vs_보유_5년 과 같은 시작 (위 starts 는 v1.3 에서 신호 날짜로 바뀜)
+    rows20 = []
+    for k0 in mk:
+        e5d = f"{int(tr.k[k0][:4]) + 5:04d}{tr.k[k0][4:]}"
+        if tr.k[-1] < e5d:
+            break
+        e5 = tr.i(e5d)
+        seg = tr.v[k0:e5 + 1] / tr.v[k0]
+        hit = np.nonzero(seg < 0.8)[0]
+        if not len(hit):
+            continue
+        ks = k0 + int(hit[0])
+        rows20.append({"hold": float(seg[-1]), "sold": float(seg[hit[0]] * cash.v[e5] / cash.v[ks]), "hold_min_after": float(seg[hit[0]:].min())})
+    put("매도20_v1.7", n=len(rows20), sold_below_principal=sum(r["sold"] < 1 for r in rows20), hold_back_to_principal=sum(r["hold"] >= 1 for r in rows20),
+        hold_min_after_median=round(float(np.median([r["hold_min_after"] for r in rows20])), 3),
+        hold_min_below_70=pct(float(np.mean([r["hold_min_after"] < 0.7 for r in rows20]))), hold_end_below_principal=sum(r["hold"] < 1 for r in rows20))
+    # 3편: 200일 신호 날부터 바닥까지 — 배당 포함(TR) · 2년 안 TR 이 20% 넘게 빠진 신호
+    bear_sig = {"닷컴": ("1999-09-23", "2002-10-09"), "금융위기": ("2007-08-03", "2009-03-09"), "코로나": ("2020-02-27", "2020-03-23"), "2022": ("2022-01-21", "2022-10-12")}
+    on = pxv < ma
+    st200, last = [], -10 ** 9
+    for i_, x in enumerate(on):
+        if x and not np.isnan(ma[i_]):
+            if i_ - last > 60:
+                st200.append(ds[i_])
+            last = i_
+    put("3편_v1.7", signal_to_trough_tr={k: pct(tr.low(a_, b_)[0]) for k, (a_, b_) in bear_sig.items()},
+        signal_to_trough_price={k: pct(spx.low(a_, b_)[0]) for k, (a_, b_) in bear_sig.items()},
+        tr_dd20_within_2y=[d for d in st200 if f"{int(d[:4]) + 2:04d}{d[4:]}" <= tr.k[-1] and tr.low(d, f"{int(d[:4]) + 2:04d}{d[4:]}")[0] < -0.2],
+        n_signals=len(st200), lev2_vs_tr_drawdown_ratio={k: round(lev.low(a_, b_)[0] / tr.low(a_, b_)[0], 2) for k, (a_, b_) in
+                                                        {"2001-09": ("2001-09-17", "2002-12-31"), "2007-10": ("2007-10-09", "2009-12-31"), "2022": ("2022-01-03", "2022-12-30"),
+                                                         "2018-09-20 2년": ("2018-09-20", "2020-09-20")}.items()},
+        sectors_source="purpose_numbers_2026-10-31.json A_sectors (1999-01-04~): S&P 500 −55.3% · 그보다 깊은 업종 6개(소재·에너지·금융·산업재·기술·임의소비재) · 되찾기 금융 10.1년·기술 16.9년 · S&P 500 4.5년")
+    # 4편 정씨 정답 경로 + 4번 정답(페이팔을 계좌의 10%만큼) — 2022-02-07 에 계좌 10% 를 페이팔로 → 2024-06-13
+    v0207 = 8 * (1 + tr.chg("2020-02-19", "2022-02-07")) + 2 * split_to("2020-03-23", 4, "2022-02-07")
+    put("정씨_정답_v1.7", account_2022_02_07=round(v0207, 3),
+        with_pypl10_2024_06_13=round(v0207 * (0.9 * (1 + tr.chg("2022-02-07", "2024-06-13")) + 0.1 * (1 + S["PYPL"].chg("2022-02-07", "2024-06-13"))), 3),
+        without_pypl_2024_06_13=round(v0207 * (1 + tr.chg("2022-02-07", "2024-06-13")), 3),
+        wait_10pct_2008_10_08_lump=buy(S, "2008-10-08"))
     return P
 
 

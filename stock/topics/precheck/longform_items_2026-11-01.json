@@ -1,5 +1,5 @@
 {
- "tool": "longform_items.py v1.8",
+ "tool": "longform_items.py v1.9",
  "data_last": "2026-10-27",
  "facts": {
   "1": {
@@ -1177,6 +1177,123 @@
    "pypl_2021_07_23_now": "-81.6%",
    "pypl_2022_02_07_now": "-53.3%",
    "kim_correct_path_2022_peak_dd": "-24.5%"
+  },
+  "3편_v1.9": {
+   "rule_sells": 124,
+   "rule_buys": 124,
+   "rule_sells_below_buy": 64,
+   "rule_end_over_cash": 8.5,
+   "cash_from_2007_08_03_now": 1.32,
+   "burry_from_2023_02_01": {
+    "hold_2y": "+51.1%",
+    "cash_2y": "+10.2%",
+    "low_2y": "-6.2%"
+   },
+   "note": "판·산 값 = 신호 다음 날 종가 (배당 포함)"
+  },
+  "200일_규칙_다음날": {
+   "start": "1990-01-03",
+   "end": "2026-10-27",
+   "rule_max_dd": "-21.2%",
+   "hold_max_dd": "-55.3%",
+   "rule_end": 26.88,
+   "hold_end": 44.99,
+   "rule_over_hold": 0.597,
+   "rule_over_cash": 10.1,
+   "trades": 248
+  },
+  "2편_여윳돈_지금": {
+   "now": "2026-10-27",
+   "sold": 0.9462,
+   "lump_hold": 1.7243,
+   "split_hold": 1.9969,
+   "deposit": 1.205
+  },
+  "매도20_v1.9": {
+   "n_starts": 382,
+   "hold_beat_deposit": 57,
+   "sold_beat_deposit": 0
+  },
+  "2편_1번_지금": {
+   "now": "2026-10-27",
+   "a_now": 6.95,
+   "b_now": 17.16,
+   "tax_if_22pct": 0.58,
+   "b_now_after_tax": 16.07,
+   "note": "세금 = 판 6만 달러 가운데 이익 몫(0.78/1.78) × 22% — 어림, 한국 해외 주식 양도세 기본 공제는 뺌"
+  },
+  "4편_v1.9": {
+   "day1_hold_low_from_2020_03_12": "-9.7%",
+   "day1_hold_2y": "+74.9%",
+   "vix40": [
+    {
+     "day": "1998-08-31",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "+0.0%"
+    },
+    {
+     "day": "2001-09-17",
+     "hold_stable": false,
+     "hold_beat_cash": false,
+     "low": "-24.0%"
+    },
+    {
+     "day": "2002-07-22",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-4.9%"
+    },
+    {
+     "day": "2008-09-29",
+     "hold_stable": false,
+     "hold_beat_cash": true,
+     "low": "-38.0%"
+    },
+    {
+     "day": "2010-05-07",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-7.6%"
+    },
+    {
+     "day": "2011-08-08",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-1.4%"
+    },
+    {
+     "day": "2015-08-24",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-2.4%"
+    },
+    {
+     "day": "2020-02-28",
+     "hold_stable": false,
+     "hold_beat_cash": true,
+     "low": "-24.2%"
+    },
+    {
+     "day": "2020-10-28",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-0.0%"
+    }
+   ],
+   "vix40_n": 9,
+   "vix40_hold_stable": 6,
+   "vix40_hold_beat_cash": 8,
+   "pypl10_low": "-20.6%",
+   "pypl10_low_day": "2022-10-14",
+   "pypl10_2024_06_13": "+18.4%",
+   "pypl10_now": "+70.5%",
+   "trap_loss_split": {
+    "sale": 2.131,
+    "pypl": 3.886
+   },
+   "pause_until_peak_2022_2y": 1.192,
+   "note": "vix_days = crash_tests_2026-10-31.json C_vix40 cases 의 날짜 (공포 지수 40 을 석 달 넘게 안 넘다가 처음 넘은 날)"
   }
  }
 }

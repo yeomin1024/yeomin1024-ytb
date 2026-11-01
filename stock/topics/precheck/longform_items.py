@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-11-01 — 반론 4회차: 3편 200일 평균을 1988년부터(신호 29번) · 200일 규칙 다시 · 박씨 묶음 원금 회복·지금 · 2편 한꺼번에 vs 나눠 1990년대 · 1년 보유 손실 몫 · −20% 매도 하락장별.
+# VERSION: v1.9 — 2026-11-01 — 반론 5회차(3편): 200일 규칙 판 횟수·손해 보고 판 수 · 버리 글 다음 날(2023-02-01) 기준 2년.
+# (v1.8 — 2026-11-01 — 반론 4회차: 3편 200일 평균을 1988년부터(신호 29번) · 200일 규칙 다시 · 박씨 묶음 원금 회복·지금 · 2편 한꺼번에 vs 나눠 1990년대 · 1년 보유 손실 몫 · −20% 매도 하락장별.
 # (v1.7 — 2026-11-01 — 반론 3회차 나머지: 한꺼번에 vs 나눠 2000 이후(20% 넘게 줄어든 몫·안정 몫) · −20% 매도 124번의 원금 · 200일 신호 배당 포함 · 정씨 정답(페이팔 10%).
 # (v1.6 — 2026-11-01 — 반론 3회차: 테슬라 같은 날 · 김씨·정답 경로 지금까지.
 # (v1.5 — 2026-11-01 — 반론 2회차 나머지: 이씨 여윳돈 2년 · 박씨 은행주+2배 · 200일 평균 사고팔기 규칙 · 경고 2년 · 2008 넉 달 나눠 vs 기다림 · −60% 날 뒤 · 정씨 정답 경로.
@@ -28,7 +29,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.8"
+VERSION = "v1.9"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -721,6 +722,92 @@ def paths(S):
         now=NOW, arkk_2021_02_12_now=pct(S["ARKK"].chg("2021-02-12", NOW)), tsla_2021_11_16_now=pct(S["TSLA"].chg("2021-11-16", NOW)),
         lcid_2021_11_16_now=pct(S["LCID"].chg("2021-11-16", NOW)), pypl_2021_07_23_now=pct(S["PYPL"].chg("2021-07-23", NOW)), pypl_2022_02_07_now=pct(S["PYPL"].chg("2022-02-07", NOW)),
         kim_correct_path_2022_peak_dd=pct(float(min(0.0, tr.low("2022-01-03", "2022-12-30")[0]))))
+
+    # ---------- v1.9 (반론 5회차 — 3편)
+    # 200일 규칙(3편_v1.8 과 같은 규칙): 판 횟수·산 횟수 · 판 값이 산 값(배당 포함 지수)보다 낮았던 수
+    sells, buys_, below, buy_px, cur = 0, 0, 0, None, None
+    for k in range(i90, len(pxa) - 1):
+        above = bool(pxa[k] > ma_full[k])
+        nxt = spx.k[k + 1]
+        if cur is None:
+            if above:
+                buy_px = tr.at(nxt)
+        elif above != cur:
+            if above:
+                buys_ += 1
+                buy_px = tr.at(nxt)
+            else:
+                sells += 1
+                below += tr.at(nxt) < buy_px
+        cur = above
+    # 버리 'Sell' 글은 2023-01-31 장 마감 뒤 — 팔 수 있는 첫 종가 2023-02-01 기준 2년
+    put("3편_v1.9", rule_sells=sells, rule_buys=buys_, rule_sells_below_buy=int(below), rule_end_over_cash=round(float(rv_[-1]) / (cash.at(spx.k[-1]) / cash.at(spx.k[i90])), 1),
+        cash_from_2007_08_03_now=round(1 + cash.chg("2007-08-03", NOW), 2),
+        burry_from_2023_02_01={"hold_2y": pct(tr.chg("2023-02-01", "2025-02-01")), "cash_2y": pct(cash.chg("2023-02-01", "2025-02-01")), "low_2y": pct(tr.low("2023-02-01", "2025-02-01")[0])},
+        note="판·산 값 = 신호 다음 날 종가 (배당 포함)")
+    # 200일 규칙 — 앞날 정보 없이: k 날 종가로 신호를 보고 k+1 날 종가에 사고팖 (v1.8 은 k 날 종가에 바로 따름 = 같은 종가 체결)
+    hv2, rv2 = [1.0], [1.0]
+    for k in range(i90, len(pxa) - 2):
+        above = pxa[k] > ma_full[k]
+        r_tr = tr.at(spx.k[k + 2]) / tr.at(spx.k[k + 1])
+        r_c = cash.at(spx.k[k + 2]) / cash.at(spx.k[k + 1])
+        hv2.append(hv2[-1] * r_tr)
+        rv2.append(rv2[-1] * (r_tr if above else r_c))
+    hv2, rv2 = np.array(hv2), np.array(rv2)
+    put("200일_규칙_다음날", start=spx.k[i90 + 1], end=spx.k[-1], rule_max_dd=pct(float((rv2 / np.maximum.accumulate(rv2) - 1).min())),
+        hold_max_dd=pct(float((hv2 / np.maximum.accumulate(hv2) - 1).min())), rule_end=round(float(rv2[-1]), 2), hold_end=round(float(hv2[-1]), 2),
+        rule_over_hold=round(float(rv2[-1] / hv2[-1]), 3), rule_over_cash=round(float(rv2[-1]) / (cash.at(spx.k[-1]) / cash.at(spx.k[i90 + 1])), 1), trades=sells + buys_)
+
+    # ---------- v1.9 (반론 5회차 — 2편)
+    # 여윳돈 5만(2022-01-03) — '지금'(2026-10-27) 값: 매도(2022-06-13 한꺼번에 0.7871 → 국채) · 한꺼번에 보유 · 12달 나눠 보유 · 예금만
+    put("2편_여윳돈_지금", now=NOW, sold=round(0.7871 * (1 + cash.chg("2022-06-13", NOW)), 4), lump_hold=round(1 + tr.chg("2022-01-03", NOW), 4),
+        split_hold=split_to("2022-01-03", 12, NOW), deposit=round(1 + cash.chg("2022-01-03", NOW), 4))
+    # −20% 매도 124번 — 분모(5년이 찬 1990년 이후 매달 시작) · 보유가 같은 5년 예금보다 더 남긴 수 · 매도가 예금보다 더 남긴 수
+    n_all, hold_beat, sold_beat = 0, 0, 0
+    for k0 in mk:
+        e5d = f"{int(tr.k[k0][:4]) + 5:04d}{tr.k[k0][4:]}"
+        if tr.k[-1] < e5d:
+            break
+        n_all += 1
+        e5 = tr.i(e5d)
+        seg = tr.v[k0:e5 + 1] / tr.v[k0]
+        hit = np.nonzero(seg < 0.8)[0]
+        if not len(hit):
+            continue
+        ks = k0 + int(hit[0])
+        dep = cash.v[e5] / cash.v[k0]
+        hold_beat += seg[-1] > dep
+        sold_beat += seg[hit[0]] * cash.v[e5] / cash.v[ks] > dep
+    put("매도20_v1.9", n_starts=n_all, hold_beat_deposit=int(hold_beat), sold_beat_deposit=int(sold_beat))
+    # 2편 1번: 계좌 10만(2021-07-23 페이팔 7만 · 지수 3만) — A 그대로 vs B 페이팔 1만만 남기고 6만을 지수로(옮길 때 이익의 22% 세금을 낸다고 해도) → 지금
+    pyg = 0.78 / 1.78        # 1년 만에 78% 오른 주식을 팔 때 판 돈 가운데 이익 몫 (1년 전에 샀다고 봄)
+    tax = 6 * pyg * 0.22
+    a_now = 7 * (1 + S["PYPL"].chg("2021-07-23", NOW)) + 3 * (1 + tr.chg("2021-07-23", NOW))
+    b_now = 1 * (1 + S["PYPL"].chg("2021-07-23", NOW)) + 9 * (1 + tr.chg("2021-07-23", NOW))
+    b_now_tax = 1 * (1 + S["PYPL"].chg("2021-07-23", NOW)) + (9 - tax) * (1 + tr.chg("2021-07-23", NOW))
+    put("2편_1번_지금", now=NOW, a_now=round(a_now, 2), b_now=round(b_now, 2), tax_if_22pct=round(tax, 2), b_now_after_tax=round(b_now_tax, 2),
+        note="세금 = 판 6만 달러 가운데 이익 몫(0.78/1.78) × 22% — 어림, 한국 해외 주식 양도세 기본 공제는 뺌")
+
+    # ---------- v1.9 (반론 5회차 — 4편: 정답 기준 = 안정 먼저(예금보다 더 + 그날보다 20% 넘게 안 줄어듦), 같으면 더 남긴 쪽)
+    # 1번: 2020-03-12 그날 기준 보유의 가장 낮은 값 · 2년 · 공포 지수 40 첫날(crash_tests C_vix40 날짜) 보유의 안정 수
+    vix_days = [c["date"] for c in json.loads((HERE / "crash_tests_2026-10-31.json").read_text(encoding="utf-8"))["C_vix40"]["cases"]]
+    vrows = []
+    for d in vix_days:
+        e2 = f"{int(d[:4]) + 2:04d}{d[4:]}"
+        if e2 > tr.k[-1]:
+            continue
+        lo_, _ = tr.low(d, e2)
+        vrows.append({"day": d, "hold_stable": bool((tr.chg(d, e2) > cash.chg(d, e2)) and lo_ >= -0.2), "hold_beat_cash": bool(tr.chg(d, e2) > cash.chg(d, e2)), "low": pct(lo_)})
+    # 4번: 2022-02-07 계좌 = 지수 90% + 페이팔 10% (그대로 둠) — 그날 기준 가장 낮은 값 · 2024-06-13 · 지금
+    pv = lambda d: 0.9 * tr.at(d) / tr.at("2022-02-07") + 0.1 * S["PYPL"].at(d) / S["PYPL"].at("2022-02-07")
+    pdays = [d for d in tr.k if "2022-02-07" <= d <= NOW]
+    pvals = np.array([pv(d) for d in pdays])
+    put("4편_v1.9", day1_hold_low_from_2020_03_12=pct(tr.low("2020-03-12", "2022-03-12")[0]), day1_hold_2y=pct(tr.chg("2020-03-12", "2022-03-12")),
+        vix40=vrows, vix40_n=len(vrows), vix40_hold_stable=sum(r["hold_stable"] for r in vrows), vix40_hold_beat_cash=sum(r["hold_beat_cash"] for r in vrows),
+        pypl10_low=pct(float(pvals.min() - 1)), pypl10_low_day=pdays[int(np.argmin(pvals))], pypl10_2024_06_13=pct(pv("2024-06-13") - 1), pypl10_now=pct(pv(NOW) - 1),
+        trap_loss_split={"sale": round(8 - 8 * 0.7336, 3), "pypl": round(P["정씨_v1.3"]["cash_on_2022_02_07"] - P["정씨_v1.3"]["trap_2024_06_13"], 3)},
+        pause_until_peak_2022_2y=P["4편_5_하락장_매달"]["rows"][3]["2년"]["pause"],
+        note="vix_days = crash_tests_2026-10-31.json C_vix40 cases 의 날짜 (공포 지수 40 을 석 달 넘게 안 넘다가 처음 넘은 날)")
     return P
 
 

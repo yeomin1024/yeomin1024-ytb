@@ -1,5 +1,23 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-01 — 주식 롱폼 1편 영상 소스 (장면 코드 · 제작안 · ChatGPT 그림 요청 · 썸네일 · 사전 · 업로드)
+
+### 왜 (사용자 지시)
+- "1편만 영상 관련 소스 만들어봐 이미지 chatgpt 말할거 알려주고"
+
+### 바뀐 것
+- `video/episodes/ppalli-test-2026-11/index.html` v1.0 (새): 종이인형극 롱폼 — 틀·부품은 옛 습관 테스트 편 v1.3 (배치 표·인형 무대·카드) 그대로, 장면 L-01~L-49 새로. 그래프 선은 `series.js` (실제 종가).
+- `stock/source/ppalli-test-2026-11/`: `제작안.txt` v1.0 · `images_chatgpt.md` v1.0 (8장) · `thumbnails/thumbnail_1~3.json` · `tts_lexicon.tsv` v1.0 ('정답은 A,'·'정답은 B,' → '에이 번'·'비 번') · `upload.md` v1.0 (대본에서 뺀 과거 자료·가상 인물·투자 권유 아님 문장 → 설명란) · `calc/series.py` v1.0.
+
+### 확인 (로그)
+- `render.mjs sync --estimate`: 104문장 · 자막 105 · 478.6초 · `render.mjs check`: 대표 장면 65 · 문제 0 · 도입 끝 28.8초 · `layout-check`: 칸 29 · 문제 0.
+- still 65장을 직접 보고 고친 것: 해설 5 '그래서' 장면 끝 시각 · 끝 장면 판 머리(KIM·BEST) · 반박 판 'USA · 10,000' · 'CASH → +%' · 선택 5 앱 카드에서 해설 전 티커(MSTR) 뺌.
+
+### 주의
+- 영상(mp4)은 오디오가 생긴 뒤에만 만든다 (video_guide 0번) — 지금은 추정 시각으로 장면·배치만 점검.
+- 주인공 그림이 오기 전에는 옛 편 코드 그림(figures.js)으로 보임 — 그림이 오면 장면 코드 HAVE 에 이름을 더함.
+- ※ 연구·교육용 — 투자 권유가 아님.
+
 ## 2026-11-01 — 주식 롱폼 1편 다섯 습관으로 새로 짬 · 1~4편 해설 머리·정리 (대본 v8)
 
 ### 왜 (사용자 지시)

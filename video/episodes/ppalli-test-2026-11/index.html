@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="end-hold" content="2.5">
+<title>1편 빨리 벌고 싶은 사람 테스트 롱폼</title>
+<!-- VERSION: v1.0 — 2026-11-01 — 1편 「빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트」 대본 v8 (104문장) 종이인형극 롱폼
+     (사용자 지시 2026-11-01 "1편만 영상 관련 소스 만들어봐 이미지 chatgpt 말할거 알려주고").
+     장면 구성 = stock/source/ppalli-test-2026-11/제작안.txt v1.0 (L-01 ~ L-49) · 틀·부품 = video/episodes/simri-test-2026-10/index.html v1.3 (배치 표·종이인형 무대·카드 장면) 그대로.
+     · 도입 6문장 — TEST 다섯 칸 FAIL · NASDAQ ×2.2 (실제 종가 선) · ₩100,000,000 → ₩1,800,000 −98% · 다섯 갈림길 ✕ = ?
+     · 선택 1~5 — 이야기 장면(그때 뉴스·지인) → 'N번째 선택' 번호 카드 → 보기 A·B 카드(한국어 — data-words)
+     · 정답과 해설 — 선택마다 정답 ✓·오답 ✕ 카드 + 날짜·이름 → 오답 길(빨강) vs 정답 길(청록) 실제 종가 선 → 물론 ? → 하지만 ! (숫자·기호) → 그래서 ✓
+     · 끝: 김씨 ₩1,800,000 vs 정답 ₩201,430,000 · 결과 PASS·CAUTION·FAIL · 정리 다섯 ✓ · SLOW · LONG · 인사.
+     그래프 선 = series.js (stock/source/ppalli-test-2026-11/calc/series.py v1.0 — QQQ·ARKK·SMCI·MSTR 수정 종가 · 국채 현금) · 숫자 = stock/topics/precheck/longform_items.py v2.1 nasdaq_1_v21.
+     그림: 있는 것은 HAVE (옛 습관 테스트 편 W-COLLEAGUE·W-CROWD·P-CASH·S-OFFICE·S-HOME-NIGHT) · 주인공 흰둥이(HERO-*)는 ChatGPT 그림이 오기 전까지
+     옛 편 figures.js 코드 그림 — 그림이 올라오면 HAVE 에 이름만 더함 (stock/source/ppalli-test-2026-11/images_chatgpt.md). 남색 한지 = test/puppet/P-PAPER.jpg.
+     장면 시각 = 오디오 문장 시각(K.S·K.E·K.W) — 오디오 전에는 sync --estimate 로 still 점검만 (영상은 오디오 뒤 — video_guide 0번).
+     연구·교육용 영상 — 투자 권유 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+.ts{text-shadow:0 4px 22px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1250px 760px at 55% 52%,rgba(0,0,0,0) 52%,rgba(0,0,0,.5) 100%)}
+.panel2{position:absolute;border-radius:28px;background:rgba(10,16,30,.86);border:3px solid rgba(255,255,255,.16);box-shadow:0 24px 60px -16px rgba(0,0,0,.8)}
+.ncard{position:absolute;left:760px;top:170px;width:400px;height:480px;border-radius:30px;background:#F2E6CF;color:#1B2440;display:grid;place-items:center;font-weight:900;font-size:300px;line-height:1;box-shadow:0 30px 60px -20px rgba(0,0,0,.85);border:10px solid #FFFFFF}
+.prog{position:absolute;right:70px;top:46px;display:flex;gap:12px;z-index:3}
+.prog i{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.18);border:3px solid rgba(255,255,255,.28);display:block}
+.prog i.on{background:#FFD400;border-color:#FFD400}.prog i.done{background:rgba(255,212,0,.4);border-color:rgba(255,212,0,.4)}
+.opt{position:absolute;left:600px;width:1260px;height:208px;border-radius:26px;background:rgba(10,16,30,.9);border:5px solid rgba(255,255,255,.18);display:flex;align-items:center;gap:20px;padding:0 24px;box-shadow:0 20px 50px -18px rgba(0,0,0,.85)}
+.opt .L{flex:0 0 100px;height:100px;border-radius:50%;background:#F4F6FA;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:64px;line-height:1}
+.opt .I{flex:0 0 130px;height:130px;display:grid;place-items:center}
+.opt .T{flex:1;font-weight:900;line-height:1.24;word-break:keep-all;color:#F4F6FA}
+.opt .P{flex:0 0 120px;height:120px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:76px;line-height:1;opacity:0}
+.opt .N{flex:0 0 76px;height:76px;border-radius:18px;background:#FFD400;color:#0C1424;display:grid;place-items:center;font-weight:900;font-size:50px;line-height:1}
+.opt.noicon .I{display:none}
+.opt.sm{height:150px;gap:16px}.opt.sm .L{flex-basis:84px;height:84px;font-size:54px}.opt.sm .I{flex-basis:104px;height:104px}.opt.sm .I svg{width:100px;height:100px}
+.opt.sm .P{flex-basis:88px;height:88px;font-size:48px}.opt.sm .N{flex-basis:64px;height:64px;font-size:42px}
+.tag2{position:absolute;font-weight:900;font-size:46px;line-height:1;padding:14px 26px;border-radius:999px;background:rgba(10,16,30,.9);border:3px solid rgba(255,255,255,.3);white-space:nowrap}
+.app{position:absolute;width:480px;border-radius:30px;background:rgba(10,16,30,.92);border:3px solid rgba(255,255,255,.18);padding:22px 30px 26px;display:grid;gap:8px;box-shadow:0 24px 60px -16px rgba(0,0,0,.8)}
+.app .h{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:38px;color:#9AA7BF}
+.app .v{font-weight:900;font-size:76px;line-height:1.05;white-space:nowrap}
+.btn{position:absolute;font-weight:900;font-size:52px;line-height:1;padding:20px 44px;border-radius:20px;white-space:nowrap;border:5px solid transparent}
+.btn.buy{background:#22C7B0;color:#06231F}.btn.sell{background:#FF4D3D;color:#fff}.btn.off{background:rgba(255,255,255,.12);color:rgba(255,255,255,.45);border-color:rgba(255,255,255,.2)}
+.stamp{position:absolute;font-weight:900;font-size:84px;line-height:1;padding:16px 36px;border:9px solid currentColor;border-radius:20px;white-space:nowrap;background:rgba(10,16,30,.6)}
+.q{position:absolute;font-weight:900;font-size:130px;line-height:1;color:#FFD400}
+.bl{position:absolute;font-weight:900;font-size:46px;white-space:nowrap;text-align:center}
+.bar{position:absolute;border-radius:16px 16px 4px 4px;transform-origin:50% 100%}
+.full{position:absolute;inset:0}
+
+.prog i{width:36px;height:36px}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ppalli-test-2026-11","topic":"stock","duration":478.63,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-01T18:45:21Z","sent":[{"n":1,"part":"도입","text":"당신이 만약 이 테스트를 통과하지 못한다면, 김씨처럼 주식 투자로 큰 손실을 볼 확률이 높습니다.","start":0.3,"end":6.359},{"n":2,"part":"도입","text":"지난 6년 가까이, 나스닥 지수는 두 배 넘게 올랐는데요.","start":6.809,"end":10.301},{"n":3,"part":"도입","text":"같은 기간 김씨는 오히려 1억 원 가운데 98%를 잃고, 180만 원만 남았습니다.","start":10.751,"end":16.357},{"n":4,"part":"도입","text":"도대체 김씨에게는 무슨 일이 있었고, 어떤 선택을 했을까요?","start":16.807,"end":20.601},{"n":5,"part":"도입","text":"지금부터 김씨가 마주했던 다섯 번의 갈림길에서, 당신이라면 어떻게 할지 골라 보세요.","start":21.051,"end":26.506},{"n":6,"part":"도입","text":"틀린 개수만 세어 주시면 됩니다.","start":26.956,"end":28.839},{"n":7,"part":"선택 1","text":"김씨에게는 모아 둔 돈 1억 원이 있습니다.","start":29.839,"end":32.326},{"n":8,"part":"선택 1","text":"1년 만에 2.7배가 된 미국의 한 기술주 ETF가 화제인데요.","start":32.776,"end":36.773},{"n":9,"part":"선택 1","text":"회사 동료도 친구도 이 ETF를 샀다며, 수익을 자랑합니다.","start":37.223,"end":41.168},{"n":10,"part":"선택 1","text":"유튜브에도 이 ETF가 앞으로 더 오른다는 영상이 쏟아집니다.","start":41.618,"end":45.615},{"n":11,"part":"선택 1","text":"여기서 첫 번째 선택입니다.","start":46.065,"end":47.646},{"n":12,"part":"선택 1","text":"A번, 남들처럼 이 기술주 ETF를 매수합니다.","start":48.096,"end":51.437},{"n":13,"part":"선택 1","text":"B번, 여러 회사가 담긴 나스닥 지수를 매수합니다.","start":51.887,"end":55.077},{"n":14,"part":"선택 2","text":"같은 날, 김씨에게는 고민이 하나 더 있습니다.","start":56.077,"end":58.965},{"n":15,"part":"선택 2","text":"1억 원 가운데 얼마를 넣을지인데요.","start":59.415,"end":61.6},{"n":16,"part":"선택 2","text":"주변에선 현금으로 두면 손해라며, 있는 돈을 모두 넣었다는 사람이 많습니다.","start":62.05,"end":66.901},{"n":17,"part":"선택 2","text":"여기서 두 번째 선택입니다.","start":67.351,"end":68.932},{"n":18,"part":"선택 2","text":"A번, 급할 때 쓸 2천만 원은 현금으로 남기고, 8천만 원만 투자합니다.","start":69.382,"end":74.181},{"n":19,"part":"선택 2","text":"B번, 1억 원을 모두 투자합니다.","start":74.631,"end":76.764},{"n":20,"part":"선택 3","text":"1년 넉 달 뒤, 나스닥 지수가 고점보다 30% 넘게 하락했는데요.","start":77.764,"end":82.162},{"n":21,"part":"선택 3","text":"뉴스는 더 떨어진다는 말과 지금이 바닥이라는 말로 엇갈립니다.","start":82.612,"end":86.458},{"n":22,"part":"선택 3","text":"커뮤니티에는 손실 인증 글이 가득합니다.","start":86.908,"end":89.395},{"n":23,"part":"선택 3","text":"어느 쪽을 골랐든, 지금 김씨의 돈은 나스닥 지수에 있다고 하겠습니다.","start":89.845,"end":94.243},{"n":24,"part":"선택 3","text":"여기서 세 번째 선택입니다.","start":94.693,"end":96.274},{"n":25,"part":"선택 3","text":"A번, 그때그때 뉴스와 분위기를 보고, 사고팔지를 정합니다.","start":96.724,"end":100.919},{"n":26,"part":"선택 3","text":"B번, 미리 정해 둔 기준대로, 하락했다고 팔지 않고 보유합니다.","start":101.369,"end":105.564},{"n":27,"part":"선택 4","text":"2년쯤 뒤, AI 열풍이 한창일 때 김씨는 지인 추천으로 한 AI 관련 종목을 샀는데요.","start":106.564,"end":112.472},{"n":28,"part":"선택 4","text":"다섯 달 만에, 산 가격보다 63% 하락했습니다.","start":112.922,"end":116.414},{"n":29,"part":"선택 4","text":"그 회사에 회계 문제가 있다는 보고서가 나왔고, 회사는 실적 보고서 제출을 미뤘습니다.","start":116.864,"end":122.319},{"n":30,"part":"선택 4","text":"어느 쪽을 골랐든, 지금 김씨가 이 종목을 갖고 있다고 하겠습니다.","start":122.769,"end":126.865},{"n":31,"part":"선택 4","text":"여기서 네 번째 선택입니다.","start":127.315,"end":128.896},{"n":32,"part":"선택 4","text":"A번, 실수를 인정하고 매도해, 나스닥 지수로 옮깁니다.","start":129.346,"end":133.239},{"n":33,"part":"선택 4","text":"B번, 원금을 되찾을 때까지 버팁니다.","start":133.689,"end":136.124},{"n":34,"part":"선택 5","text":"석 달 뒤, 비트코인 값이 연일 사상 최고가를 기록하고 있는데요.","start":137.124,"end":141.069},{"n":35,"part":"선택 5","text":"비트코인을 사 모으는 한 회사의 주식은, 1년 만에 9배 넘게 올랐습니다.","start":141.519,"end":146.068},{"n":36,"part":"선택 5","text":"커뮤니티에선 계좌를 이 종목 하나로 채웠다는 인증 글이 넘쳐 납니다.","start":146.518,"end":150.666},{"n":37,"part":"선택 5","text":"어느 쪽을 골랐든, 지금 김씨의 돈은 나스닥 지수에 있다고 하겠습니다.","start":151.116,"end":155.514},{"n":38,"part":"선택 5","text":"여기서 다섯 번째 선택입니다.","start":155.964,"end":157.696},{"n":39,"part":"선택 5","text":"A번, 계좌를 모두 이 종목 하나에 넣습니다.","start":158.146,"end":161.034},{"n":40,"part":"선택 5","text":"B번, 여러 종목과 업종이 담긴 지수에 나눠 둡니다.","start":161.484,"end":164.674},{"n":41,"part":"정답과 해설","text":"선택을 모두 마치셨나요?","start":165.674,"end":167.104},{"n":42,"part":"정답과 해설","text":"이제 김씨가 어떤 오답을 골랐는지, 정답은 무엇이었는지 살펴보겠습니다.","start":167.554,"end":172.254},{"n":43,"part":"정답과 해설","text":"첫 번째 선택의 정답은 B, 여러 회사가 담긴 나스닥 지수를 매수하는 것입니다.","start":172.704,"end":177.555},{"n":44,"part":"정답과 해설","text":"그날은 2021년 2월 12일이고, 그 ETF는 아크 이노베이션이었습니다.","start":178.005,"end":183.309},{"n":45,"part":"정답과 해설","text":"남들처럼 이 ETF를 매수했다면, 그 뒤 81%까지 하락했고 지금도 45% 손실입니다.","start":183.759,"end":190.422},{"n":46,"part":"정답과 해설","text":"나스닥 지수를 매수했다면, 가장 나쁠 때도 22% 하락했고 지금은 두 배 넘게 올랐습니다.","start":190.872,"end":196.931},{"n":47,"part":"정답과 해설","text":"물론 남들이 다 좋다고 하면, 그만한 이유가 있어 보입니다.","start":197.381,"end":201.024},{"n":48,"part":"정답과 해설","text":"하지만 모두가 좋다고 말할 때는, 이미 많이 오른 뒤인 경우가 많습니다.","start":201.474,"end":205.872},{"n":49,"part":"정답과 해설","text":"이 ETF도 1년 만에 2.7배 오른 뒤라, 그만큼 크게 떨어질 위험도 함께 샀습니다.","start":206.322,"end":211.777},{"n":50,"part":"정답과 해설","text":"지수를 사면 화제의 주인공은 못 돼도, 한 상품이 무너질 때 같이 무너지지 않습니다.","start":212.227,"end":217.38},{"n":51,"part":"정답과 해설","text":"그래서 정답은 남을 따라 사지 않고, 지수를 매수하는 쪽입니다.","start":217.83,"end":221.775},{"n":52,"part":"정답과 해설","text":"두 번째 선택의 정답은 A, 급할 때 쓸 2천만 원은 현금으로 남기는 것입니다.","start":222.225,"end":227.076},{"n":53,"part":"정답과 해설","text":"1억 원을 모두 투자했다면, 이듬해 하락장에서 한때 2천2백만 원이 줄었습니다.","start":227.526,"end":232.679},{"n":54,"part":"정답과 해설","text":"그때 갑자기 큰돈이 필요했다면, 손실 난 주식을 팔아 손실을 확정해야 했습니다.","start":233.129,"end":238.131},{"n":55,"part":"정답과 해설","text":"현금 2천만 원을 남겼다면, 같은 때에도 그 돈은 그대로 있었습니다.","start":238.581,"end":242.828},{"n":56,"part":"정답과 해설","text":"물론 현금으로 남긴 돈은, 오르는 동안 이자밖에 벌지 못합니다.","start":243.278,"end":247.223},{"n":57,"part":"정답과 해설","text":"하지만 일자리나 집 문제 같은 최악의 상황은, 하필 시장이 나쁠 때 함께 오기도 합니다.","start":247.673,"end":252.977},{"n":58,"part":"정답과 해설","text":"현금을 남겨 두면, 그때도 주식을 팔지 않고 버틸 수 있습니다.","start":253.427,"end":257.221},{"n":59,"part":"정답과 해설","text":"그래서 정답은 최악의 상황에 대비해, 현금을 남겨 두는 쪽입니다.","start":257.671,"end":261.767},{"n":60,"part":"정답과 해설","text":"세 번째 선택의 정답은 B, 미리 정해 둔 기준대로 팔지 않고 보유하는 것입니다.","start":262.217,"end":267.068},{"n":61,"part":"정답과 해설","text":"그날은 2022년 6월 13일, 나스닥이 고점보다 30% 넘게 하락한 날이었습니다.","start":267.518,"end":273.426},{"n":62,"part":"정답과 해설","text":"김씨는 분위기를 보다 사흘 뒤 모두 매도했고, 1년 반 뒤 최고가를 되찾자 다시 샀습니다.","start":273.876,"end":279.331},{"n":63,"part":"정답과 해설","text":"그랬다면 그날부터 지금까지 91% 올랐지만, 그대로 보유했다면 169% 올랐습니다.","start":279.781,"end":286.293},{"n":64,"part":"정답과 해설","text":"물론 더 떨어질 것 같을 때 팔면, 더 큰 손실을 피할 수 있을 것 같습니다.","start":286.743,"end":290.99},{"n":65,"part":"정답과 해설","text":"실제로 지수는 그 뒤로도 5% 더 하락했습니다.","start":291.44,"end":294.531},{"n":66,"part":"정답과 해설","text":"하지만 기준 없이 분위기를 따르면, 가장 무서울 때 팔고 다 오른 뒤 다시 사기 쉽습니다.","start":294.981,"end":300.285},{"n":67,"part":"정답과 해설","text":"미국 투자자들은 사고파는 때를 잘못 골라, 10년 동안 수익의 15% 가까이를 놓쳤습니다.","start":300.735,"end":306.643},{"n":68,"part":"정답과 해설","text":"미리 기준을 정해 두면, 무서운 순간에도 같은 판단을 할 수 있습니다.","start":307.093,"end":311.34},{"n":69,"part":"정답과 해설","text":"그래서 정답은 미리 정해 둔 기준대로 움직이는 쪽입니다.","start":311.79,"end":315.183},{"n":70,"part":"정답과 해설","text":"네 번째 선택의 정답은 A, 실수를 인정하고 매도해 나스닥 지수로 옮기는 것입니다.","start":315.633,"end":320.937},{"n":71,"part":"정답과 해설","text":"그날은 2024년 8월 28일, 그 종목은 AI 서버를 만드는 슈퍼마이크로컴퓨터였습니다.","start":321.387,"end":327.899},{"n":72,"part":"정답과 해설","text":"버텼다면 그 뒤로 59% 더 하락했고, 지금도 그날보다 21% 아래입니다.","start":328.349,"end":333.955},{"n":73,"part":"정답과 해설","text":"나스닥 지수로 옮겼다면, 가장 나쁠 때도 11% 하락했고 지금은 55% 올라 있습니다.","start":334.405,"end":340.615},{"n":74,"part":"정답과 해설","text":"물론 이미 63% 하락했는데 팔면, 손실이 그대로 확정돼 아깝습니다.","start":341.065,"end":345.916},{"n":75,"part":"정답과 해설","text":"하지만 내가 산 가격은, 그 종목이 앞으로 오를지와 아무 상관이 없습니다.","start":346.366,"end":350.915},{"n":76,"part":"정답과 해설","text":"산 이유가 무너졌다면, 버틸수록 손실은 더 커질 수 있습니다.","start":351.365,"end":355.159},{"n":77,"part":"정답과 해설","text":"미국 개인 투자자 1만 명의 거래를 살펴본 연구가 있는데요.","start":355.609,"end":359.153},{"n":78,"part":"정답과 해설","text":"그들이 판 이익 종목이, 버틴 손실 종목보다 다음 1년간 3%포인트 넘게 더 올랐습니다.","start":359.603,"end":365.36},{"n":79,"part":"정답과 해설","text":"실수를 인정하고 옮기면, 남은 돈으로 다시 시작할 수 있습니다.","start":365.81,"end":369.755},{"n":80,"part":"정답과 해설","text":"그래서 정답은 실수를 인정하고 손절하는 쪽입니다.","start":370.205,"end":373.296},{"n":81,"part":"정답과 해설","text":"다섯 번째 선택의 정답은 B, 여러 종목과 업종이 담긴 지수에 나눠 두는 것입니다.","start":373.746,"end":378.748},{"n":82,"part":"정답과 해설","text":"그날은 2024년 11월 20일, 비트코인을 사 모으는 마이크로스트래티지였습니다.","start":379.198,"end":384.955},{"n":83,"part":"정답과 해설","text":"계좌를 모두 넣었다면, 그 뒤 83%까지 하락했고 지금도 70% 손실입니다.","start":385.405,"end":391.011},{"n":84,"part":"정답과 해설","text":"지수에 나눠 뒀다면, 가장 나쁠 때도 17% 하락했고 지금은 45% 올라 있습니다.","start":391.461,"end":397.369},{"n":85,"part":"정답과 해설","text":"물론 한 종목에 모두 넣으면, 그 종목이 오를 때 가장 크게 법니다.","start":397.819,"end":401.764},{"n":86,"part":"정답과 해설","text":"하지만 그 하나가 틀리면, 계좌 전체가 함께 무너집니다.","start":402.214,"end":405.706},{"n":87,"part":"정답과 해설","text":"1999년 이후 미국 업종 9개 가운데 6개는, 지수보다 더 깊이 빠진 적이 있습니다.","start":406.156,"end":412.064},{"n":88,"part":"정답과 해설","text":"여러 종목과 업종에 나눠 두면, 하나가 무너져도 나머지가 계좌를 지켜 줍니다.","start":412.514,"end":417.365},{"n":89,"part":"정답과 해설","text":"그래서 정답은 여러 종목과 업종에 나눠 두는 쪽입니다.","start":417.815,"end":421.057},{"n":90,"part":"정답과 해설","text":"김씨는 다섯 번 모두 틀린 쪽을 골랐습니다.","start":421.507,"end":423.994},{"n":91,"part":"정답과 해설","text":"그 결과 1억 원은, 지금 180만 원이 됐습니다.","start":424.444,"end":427.483},{"n":92,"part":"정답과 해설","text":"다섯 번 모두 정답을 골랐다면, 김씨의 돈은 지금 2억 원이 넘었습니다.","start":427.933,"end":432.331},{"n":93,"part":"결과","text":"당신은 몇 개를 틀리셨나요?","start":433.331,"end":434.912},{"n":94,"part":"결과","text":"하나도 틀리지 않았다면 통과입니다.","start":435.362,"end":437.547},{"n":95,"part":"결과","text":"남의 말이 아니라, 자기 기준으로 투자하는 사람입니다.","start":437.997,"end":441.489},{"n":96,"part":"결과","text":"한두 개를 틀렸다면 주의입니다.","start":441.939,"end":443.822},{"n":97,"part":"결과","text":"알면서도 가끔 남의 말과 욕심에 흔들리는 사람입니다.","start":444.272,"end":447.514},{"n":98,"part":"결과","text":"세 개 이상 틀렸다면 불통과입니다.","start":447.964,"end":449.998},{"n":99,"part":"결과","text":"김씨처럼, 빨리 벌고 싶은 마음에 남의 말을 따라가는 사람입니다.","start":450.448,"end":454.544},{"n":100,"part":"정리","text":"다섯 정답에는 공통점이 있습니다.","start":455.544,"end":457.578},{"n":101,"part":"정리","text":"남의 말이 아니라 정해 둔 기준대로, 현금을 남기고 나눠 담는 쪽이었다는 겁니다.","start":458.028,"end":463.03},{"n":102,"part":"정리","text":"이 테스트에서 알 수 있듯이, 급할수록 돌아가라는 말처럼 욕심을 버리고 천천히 오래가는 쪽이 주식으로 부자가 될 수 있는 유일한 길이라는 것을 알아두세요.","start":463.48,"end":473.163},{"n":103,"part":"정리","text":"그럼 모두 성공 투자 하시기 바랍니다.","start":473.613,"end":475.798},{"n":104,"part":"정리","text":"시청해주셔서 감사합니다.","start":476.248,"end":477.829}],"subs":[[0.3,6.359,"당신이 만약 이 테스트를 통과하지 못한다면,\n김씨처럼 주식 투자로 큰 손실을 볼 확률이 높습니다."],[6.809,10.301,"지난 6년 가까이, 나스닥 지수는 두 배 넘게 올랐는데요."],[10.751,16.357,"같은 기간 김씨는 오히려 1억 원 가운데 98%를 잃고,\n180만 원만 남았습니다."],[16.807,20.601,"도대체 김씨에게는 무슨 일이 있었고, 어떤 선택을 했을까요?"],[21.051,26.506,"지금부터 김씨가 마주했던 다섯 번의 갈림길에서,\n당신이라면 어떻게 할지 골라 보세요."],[26.956,28.839,"틀린 개수만 세어 주시면 됩니다."],[29.839,32.326,"김씨에게는 모아 둔 돈 1억 원이 있습니다."],[32.776,36.773,"1년 만에 2.7배가 된 미국의 한 기술주 ETF가 화제인데요."],[37.223,41.168,"회사 동료도 친구도 이 ETF를 샀다며, 수익을 자랑합니다."],[41.618,45.615,"유튜브에도 이 ETF가 앞으로 더 오른다는 영상이 쏟아집니다."],[46.065,47.646,"여기서 첫 번째 선택입니다."],[48.096,51.437,"A번, 남들처럼 이 기술주 ETF를 매수합니다."],[51.887,55.077,"B번, 여러 회사가 담긴 나스닥 지수를 매수합니다."],[56.077,58.965,"같은 날, 김씨에게는 고민이 하나 더 있습니다."],[59.415,61.6,"1억 원 가운데 얼마를 넣을지인데요."],[62.05,66.901,"주변에선 현금으로 두면 손해라며,\n있는 돈을 모두 넣었다는 사람이 많습니다."],[67.351,68.932,"여기서 두 번째 선택입니다."],[69.382,74.181,"A번, 급할 때 쓸 2천만 원은 현금으로 남기고, 8천만 원만 투자합니다."],[74.631,76.764,"B번, 1억 원을 모두 투자합니다."],[77.764,82.162,"1년 넉 달 뒤, 나스닥 지수가 고점보다 30% 넘게 하락했는데요."],[82.612,86.458,"뉴스는 더 떨어진다는 말과 지금이 바닥이라는 말로 엇갈립니다."],[86.908,89.395,"커뮤니티에는 손실 인증 글이 가득합니다."],[89.845,94.243,"어느 쪽을 골랐든, 지금 김씨의 돈은 나스닥 지수에 있다고 하겠습니다."],[94.693,96.274,"여기서 세 번째 선택입니다."],[96.724,100.919,"A번, 그때그때 뉴스와 분위기를 보고, 사고팔지를 정합니다."],[101.369,105.564,"B번, 미리 정해 둔 기준대로, 하락했다고 팔지 않고 보유합니다."],[106.564,112.472,"2년쯤 뒤,\nAI 열풍이 한창일 때 김씨는 지인 추천으로 한 AI 관련 종목을 샀는데요."],[112.922,116.414,"다섯 달 만에, 산 가격보다 63% 하락했습니다."],[116.864,122.319,"그 회사에 회계 문제가 있다는 보고서가 나왔고,\n회사는 실적 보고서 제출을 미뤘습니다."],[122.769,126.865,"어느 쪽을 골랐든, 지금 김씨가 이 종목을 갖고 있다고 하겠습니다."],[127.315,128.896,"여기서 네 번째 선택입니다."],[129.346,133.239,"A번, 실수를 인정하고 매도해, 나스닥 지수로 옮깁니다."],[133.689,136.124,"B번, 원금을 되찾을 때까지 버팁니다."],[137.124,141.069,"석 달 뒤, 비트코인 값이 연일 사상 최고가를 기록하고 있는데요."],[141.519,146.068,"비트코인을 사 모으는 한 회사의 주식은,\n1년 만에 9배 넘게 올랐습니다."],[146.518,150.666,"커뮤니티에선 계좌를 이 종목 하나로 채웠다는 인증 글이 넘쳐 납니다."],[151.116,155.514,"어느 쪽을 골랐든, 지금 김씨의 돈은 나스닥 지수에 있다고 하겠습니다."],[155.964,157.696,"여기서 다섯 번째 선택입니다."],[158.146,161.034,"A번, 계좌를 모두 이 종목 하나에 넣습니다."],[161.484,164.674,"B번, 여러 종목과 업종이 담긴 지수에 나눠 둡니다."],[165.674,167.104,"선택을 모두 마치셨나요?"],[167.554,172.254,"이제 김씨가 어떤 오답을 골랐는지,\n정답은 무엇이었는지 살펴보겠습니다."],[172.704,177.555,"첫 번째 선택의 정답은 B,\n여러 회사가 담긴 나스닥 지수를 매수하는 것입니다."],[178.005,183.309,"그날은 2021년 2월 12일이고, 그 ETF는 아크 이노베이션이었습니다."],[183.759,190.422,"남들처럼 이 ETF를 매수했다면,\n그 뒤 81%까지 하락했고 지금도 45% 손실입니다."],[190.872,196.931,"나스닥 지수를 매수했다면,\n가장 나쁠 때도 22% 하락했고 지금은 두 배 넘게 올랐습니다."],[197.381,201.024,"물론 남들이 다 좋다고 하면, 그만한 이유가 있어 보입니다."],[201.474,205.872,"하지만 모두가 좋다고 말할 때는, 이미 많이 오른 뒤인 경우가 많습니다."],[206.322,211.777,"이 ETF도 1년 만에 2.7배 오른 뒤라,\n그만큼 크게 떨어질 위험도 함께 샀습니다."],[212.227,217.38,"지수를 사면 화제의 주인공은 못 돼도,\n한 상품이 무너질 때 같이 무너지지 않습니다."],[217.83,221.775,"그래서 정답은 남을 따라 사지 않고, 지수를 매수하는 쪽입니다."],[222.225,227.076,"두 번째 선택의 정답은 A,\n급할 때 쓸 2천만 원은 현금으로 남기는 것입니다."],[227.526,232.679,"1억 원을 모두 투자했다면,\n이듬해 하락장에서 한때 2천2백만 원이 줄었습니다."],[233.129,238.131,"그때 갑자기 큰돈이 필요했다면,\n손실 난 주식을 팔아 손실을 확정해야 했습니다."],[238.581,242.828,"현금 2천만 원을 남겼다면, 같은 때에도 그 돈은 그대로 있었습니다."],[243.278,247.223,"물론 현금으로 남긴 돈은, 오르는 동안 이자밖에 벌지 못합니다."],[247.673,252.977,"하지만 일자리나 집 문제 같은 최악의 상황은,\n하필 시장이 나쁠 때 함께 오기도 합니다."],[253.427,257.221,"현금을 남겨 두면, 그때도 주식을 팔지 않고 버틸 수 있습니다."],[257.671,261.767,"그래서 정답은 최악의 상황에 대비해, 현금을 남겨 두는 쪽입니다."],[262.217,267.068,"세 번째 선택의 정답은 B,\n미리 정해 둔 기준대로 팔지 않고 보유하는 것입니다."],[267.518,273.426,"그날은 2022년 6월 13일,\n나스닥이 고점보다 30% 넘게 하락한 날이었습니다."],[273.876,279.331,"김씨는 분위기를 보다 사흘 뒤 모두 매도했고,\n1년 반 뒤 최고가를 되찾자 다시 샀습니다."],[279.781,286.293,"그랬다면 그날부터 지금까지 91% 올랐지만,\n그대로 보유했다면 169% 올랐습니다."],[286.743,290.99,"물론 더 떨어질 것 같을 때 팔면, 더 큰 손실을 피할 수 있을 것 같습니다."],[291.44,294.531,"실제로 지수는 그 뒤로도 5% 더 하락했습니다."],[294.981,300.285,"하지만 기준 없이 분위기를 따르면,\n가장 무서울 때 팔고 다 오른 뒤 다시 사기 쉽습니다."],[300.735,306.643,"미국 투자자들은 사고파는 때를 잘못 골라,\n10년 동안 수익의 15% 가까이를 놓쳤습니다."],[307.093,311.34,"미리 기준을 정해 두면, 무서운 순간에도 같은 판단을 할 수 있습니다."],[311.79,315.183,"그래서 정답은 미리 정해 둔 기준대로 움직이는 쪽입니다."],[315.633,320.937,"네 번째 선택의 정답은 A,\n실수를 인정하고 매도해 나스닥 지수로 옮기는 것입니다."],[321.387,327.899,"그날은 2024년 8월 28일,\n그 종목은 AI 서버를 만드는 슈퍼마이크로컴퓨터였습니다."],[328.349,333.955,"버텼다면 그 뒤로 59% 더 하락했고,\n지금도 그날보다 21% 아래입니다."],[334.405,340.615,"나스닥 지수로 옮겼다면,\n가장 나쁠 때도 11% 하락했고 지금은 55% 올라 있습니다."],[341.065,345.916,"물론 이미 63% 하락했는데 팔면, 손실이 그대로 확정돼 아깝습니다."],[346.366,350.915,"하지만 내가 산 가격은,\n그 종목이 앞으로 오를지와 아무 상관이 없습니다."],[351.365,355.159,"산 이유가 무너졌다면, 버틸수록 손실은 더 커질 수 있습니다."],[355.609,359.153,"미국 개인 투자자 1만 명의 거래를 살펴본 연구가 있는데요."],[359.603,365.36,"그들이 판 이익 종목이,\n버틴 손실 종목보다 다음 1년간 3%포인트 넘게 더 올랐습니다."],[365.81,369.755,"실수를 인정하고 옮기면, 남은 돈으로 다시 시작할 수 있습니다."],[370.205,373.296,"그래서 정답은 실수를 인정하고 손절하는 쪽입니다."],[373.746,378.748,"다섯 번째 선택의 정답은 B,\n여러 종목과 업종이 담긴 지수에 나눠 두는 것입니다."],[379.198,384.955,"그날은 2024년 11월 20일,\n비트코인을 사 모으는 마이크로스트래티지였습니다."],[385.405,391.011,"계좌를 모두 넣었다면,\n그 뒤 83%까지 하락했고 지금도 70% 손실입니다."],[391.461,397.369,"지수에 나눠 뒀다면,\n가장 나쁠 때도 17% 하락했고 지금은 45% 올라 있습니다."],[397.819,401.764,"물론 한 종목에 모두 넣으면, 그 종목이 오를 때 가장 크게 법니다."],[402.214,405.706,"하지만 그 하나가 틀리면, 계좌 전체가 함께 무너집니다."],[406.156,412.064,"1999년 이후 미국 업종 9개 가운데 6개는,\n지수보다 더 깊이 빠진 적이 있습니다."],[412.514,417.365,"여러 종목과 업종에 나눠 두면,\n하나가 무너져도 나머지가 계좌를 지켜 줍니다."],[417.815,421.057,"그래서 정답은 여러 종목과 업종에 나눠 두는 쪽입니다."],[421.507,423.994,"김씨는 다섯 번 모두 틀린 쪽을 골랐습니다."],[424.444,427.483,"그 결과 1억 원은, 지금 180만 원이 됐습니다."],[427.933,432.331,"다섯 번 모두 정답을 골랐다면, 김씨의 돈은 지금 2억 원이 넘었습니다."],[433.331,434.912,"당신은 몇 개를 틀리셨나요?"],[435.362,437.547,"하나도 틀리지 않았다면 통과입니다."],[437.997,441.489,"남의 말이 아니라, 자기 기준으로 투자하는 사람입니다."],[441.939,443.822,"한두 개를 틀렸다면 주의입니다."],[444.272,447.514,"알면서도 가끔 남의 말과 욕심에 흔들리는 사람입니다."],[447.964,449.998,"세 개 이상 틀렸다면 불통과입니다."],[450.448,454.544,"김씨처럼, 빨리 벌고 싶은 마음에 남의 말을 따라가는 사람입니다."],[455.544,457.578,"다섯 정답에는 공통점이 있습니다."],[458.028,463.03,"남의 말이 아니라 정해 둔 기준대로,\n현금을 남기고 나눠 담는 쪽이었다는 겁니다."],[463.48,467.978,"이 테스트에서 알 수 있듯이,\n급할수록 돌아가라는 말처럼 욕심을 버리고"],[467.978,473.163,"천천히 오래가는 쪽이 주식으로 부자가 될 수 있는\n유일한 길이라는 것을 알아두세요."],[473.613,475.798,"그럼 모두 성공 투자 하시기 바랍니다."],[476.248,477.829,"시청해주셔서 감사합니다."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script src="../simri-test-2026-10/figures.js"></script>
+<script src="series.js"></script>
+<script>
+(function () {
+"use strict";
+// 화면 영어 허용 목록 (제작안.txt '화면 글자 규칙') — 한글은 자막과 보기 카드(data-words)만
+const WORDS = ["A", "B", "TEST", "FAIL", "PASS", "CAUTION", "NASDAQ", "ETF", "ARKK", "INVEST", "CASH", "ALL", "IN", "NEWS", "AI", "BUY", "SELL", "HOLD",
+  "REPORT", "BTC", "MSTR", "SMCI", "INDEX", "NOW", "KIM", "BEST", "JOB", "HOME", "USA", "WIN", "LOSS", "SLOW", "LONG", "Y", "M", "X", "p"];
+K.init(window.EP, { chip: false, allowWords: WORDS, introPart: "도입" });
+const { S, E, W, el, pop } = K;
+const tl = K.tl;
+const out = (n, at) => K.out(n, at, { y: 0 });
+const { sm, lin, lerp, q12 } = Puppet.u;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF", WH = "#F4F6FA";
+const until = n => S(n) - 0.05;
+const ch = n => S(n) - 0.65;
+const DW = `data-words="보기 A·B — 사용자 지시 2026-10-26 'A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고'"`;
+
+/* ═════════════ 배치 표 (제작안.txt v1.0 — 옛 편 v1.3 틀 · 사용자 지시 2026-10-27 "영상에서 모든 오브젝트별로 배치 위치를 딱 정해서") ═════════════
+   화면 1920×1080 · 모든 물건은 칸 하나에만 — 칸 = [x, y, 가로, 세로] (px). 같은 순간에 보이는 칸끼리는 겹치지 않게 짰다.
+   점검: node video/scripts/layout-check.mjs ppalli-test-2026-11 · 자막 띠(y 884 아래)·진행 점(PROG)에는 장면 물건을 두지 않는다. */
+const LAY = window.LAYOUT = {
+  PROG: [1430, 36, 440, 50],                      // 진행 점 (선택 1~5)
+  // ── 카드 장면 (보기·해설 머리·반론·그래서): 왼쪽 인형 + 오른쪽 ──
+  HERO_L: [170, 398, 320, 472], HEAD_L: [222, 228, 200, 170],
+  DATE: [600, 96, 1260, 130],                     // 날짜·이름 꼬리표 (해설 머리) · 끝 ✕ 다섯
+  ROW1: [600, 250, 1260, 230], ROW2: [600, 510, 1260, 230],   // 보기 A·B 카드
+  PANEL_R: [600, 200, 1260, 600],                 // 반론·반박 판 (숫자·기호)
+  CHART_R: [600, 180, 1260, 620],                 // 오른쪽 그래프 (선택 3 · 정리)
+  CAP_R: [600, 70, 820, 100],                     // 그래프 위 꼬리표 줄 (선택 3)
+  NUM: [760, 170, 400, 480],                      // 'N번째 선택' 번호 카드
+  SHEET: [620, 120, 1180, 620], STAMP_P: [1380, 140, 360, 150],   // 시험지 · 도장
+  BIGR: [600, 200, 1260, 520],                    // 큰 금액 (도입)
+  // ── 이야기 장면 (선택 상황): 주인공 · 둘째 인물 · 뒤 무리 ──
+  HERO: [380, 398, 320, 472], HEAD: [400, 222, 280, 175],
+  MATE: [870, 398, 350, 472], BACK: [1040, 420, 660, 450],
+  TL: [140, 96, 560, 120], TR: [1300, 96, 480, 210], MID_R: [1260, 320, 520, 150], PANEL: [900, 110, 860, 560],
+  // ── 숫자 장면 ──
+  CHART: [180, 230, 1560, 570],                   // 넓은 그래프 (도입)
+  VSL: [120, 240, 820, 560], VSR: [980, 240, 820, 560],   // 오답 길 · 정답 길
+  RA: [600, 240, 1260, 180], RB: [600, 440, 1260, 180], RC: [600, 640, 1260, 180],   // 결과 세 줄
+  CHIPS: [140, 250, 1640, 420],                   // 정리 다섯 칸
+  HERO_C: [780, 420, 360, 450],                   // 인사
+};
+window.LAYOUT_ALLOW = [["STAMP_P", "SHEET"], ["STAMP_P", "BIGR"], ["STAMP_P", "PANEL"]];   // 일부러 겹치는 짝: 시험지·큰 금액 위 도장
+// 종이 인형 무대 자리 (월드 x·바닥 y·깊이 z · 화면 x = 960 + 84x) — 칸 이름과 같음
+const PS = {
+  HERO_L: { at: [-7.6, -0.3, 0.6] }, HERO: { at: [-5.0, -0.3, 0.6] }, MATE: { at: [1.0, -0.3, 0.3] }, BACK: { at: [5.2, -0.3, -0.8] },
+  HERO_C: { at: [0, -0.3, 0.6] },
+};
+
+// ---------- 종이인형 무대 ----------
+// 있는 그림: 옛 습관 테스트 편 그림을 다시 씀 (simri) · 이 편 폴더(puppet/)에 ChatGPT 그림이 오면 HAVE 에 이름을 더함
+const SIMRI = ["W-COLLEAGUE.png", "W-CROWD.png", "P-CASH.png", "S-OFFICE.jpg", "S-HOME-NIGHT.jpg"];
+const HAVE = [];
+const F = (file, kind, draw) => (HAVE.includes(file) ? { f: file, kind } : SIMRI.includes(file) ? { f: "../../simri-test-2026-10/puppet/" + file, kind } : { draw, kind: "sq" });
+const ST = Puppet.stage({ dir: "../../../stock/source/ppalli-test-2026-11/puppet/", files: {
+  PAPER: { f: "../../../../test/puppet/P-PAPER.jpg", kind: "bg" },
+  OFF: F("S-OFFICE.jpg", "bg"), HOME: F("S-HOME-NIGHT.jpg", "bg"),
+  H_PHONE: F("HERO-PHONE.png", "sq", FIG.HERO.PHONE), H_THINK: F("HERO-THINK.png", "sq", FIG.HERO.THINK), H_PROUD: F("HERO-PROUD.png", "sq", FIG.HERO.PROUD),
+  H_SHOCK: F("HERO-SHOCK.png", "sq", FIG.HERO.SHOCK), H_DESP: F("HERO-DESPAIR.png", "sq", FIG.HERO.DESPAIR), H_PLAN: F("HERO-PLAN.png", "sq", FIG.HERO.PLAN),
+  H_BOW: F("HERO-BOW.png", "sq", FIG.HERO.BOW),
+  W_COL: F("W-COLLEAGUE.png", "sq"), W_CROWD: F("W-CROWD.png", "cut"), CASH: F("P-CASH.png", "sq") } });
+el(`<div class="vig"></div>`);
+const BGO = { PAPER: { v: 0.5, y: 3.34 }, OFF: { v: 0.6, y: 1.2 }, HOME: { v: 0.7, y: 1.2 } };
+const DARK = new THREE.Color(0x5d6279), DIM = new THREE.Color(0x3a3f55), WHITE = new THREE.Color(0xffffff);
+const CAM0 = { cam: () => ({ pos: [0, 3.6, 24], look: [0, 3.34, 0] }) };      // 고정 카메라 — 화면 글자 자리와 인형 자리를 맞춤 (x 1 = 84px, 바닥 y −0.3 = 846px)
+const act = (st, key, slot, h, o) => st.actor(key, Object.assign({ h, slot }, PS[slot], o || {}));
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const tint = (a, c) => { a.tint.copy(c === true ? DARK : c || WHITE); return a; };
+const showFrom = (a, t, t0, t1) => { if (t < t0 || (t1 != null && t >= t1)) a.op = 0; return a; };
+// 등장 = 제자리에서 나타남 (불투명 0→1 · 크기 0.9→1, 넘침 없음) — 솟아오름·밀려 들어옴·튀어나옴(넘침)은 칸 밖으로 나가서 쓰지 않음 (v1.3)
+const enter = (a, t, at, d) => { const k = lin(t, at, at + (d || 0.4)); a.op = t < at ? 0 : k; const s2 = 0.9 + 0.1 * sm(k); a.g.scale.set(s2, s2, 1); return a; };
+// 화면(DOM) 글자가 인형 머리를 따라감 — 머리 위 칸(HEAD·HEAD_L·HEAD_M·HEAD_B) 안
+const FOL = [];
+function stick(set, node, at) { gsap.set(node, { xPercent: -50, yPercent: -100 }); FOL.push({ set, node, at }); return node; }
+ST.after(t => {
+  for (const f of FOL) {
+    const v = f.set.built && f.set.fadeAt(t) > 0.001 ? f.at(t) : null;
+    if (!v) { f.node.style.display = "none"; continue; }
+    const [x, y] = ST.project(v);
+    f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = y.toFixed(1) + "px";
+  }
+});
+const headMark = (set, sc, slot, a, html, at, end, size) => {
+  const n = stick(set, el(`<div class="a w9 nw ts" data-slot="${slot}" style="font-size:${size || 110}px;line-height:1">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.3) : null; });
+  if (at != null) pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n;
+};
+// 장면 = 화면 글자 칸(sc) + 인형 무대(st)
+function stage(a, b, bgKey, build, o) {
+  o = o || {};
+  const sc = K.scene(a, b, o.keep ? { keep: true } : undefined);
+  const st = ST.set(a, b, s => { s.BG = s.bg(bgKey, BGO[bgKey]); if (build) build(s); }, CAM0);
+  return { sc, st };
+}
+
+// ---------- 칸 상자 (DOM) — 칸 크기 그대로의 div · 안의 물건은 칸 왼쪽 위 기준 ----------
+function box(sc, name, inner, css) {
+  const [x, y, w, h] = LAY[name];
+  const d = el(`<div class="a" data-slot="${name}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${css || ""}">${inner || ""}</div>`, sc);
+  d._x = x; d._y = y; d._w = w; d._h = h;
+  return d;
+}
+const CEN = "display:flex;align-items:center;justify-content:center;gap:24px;";
+const LEFT = "display:flex;align-items:flex-start;justify-content:flex-start;gap:20px;flex-wrap:wrap;align-content:flex-start;";
+const boxC = (sc, name, inner, at, css) => { const d = box(sc, name, inner, CEN + (css || "")); if (at != null) pop(d, at); return d; };
+const PANEL_CSS = "border-radius:28px;background:rgba(10,16,30,.86);border:3px solid rgba(255,255,255,.16);box-shadow:0 24px 60px -16px rgba(0,0,0,.8);box-sizing:border-box;";
+// 칸 안 선 그래프 (점은 화면 좌표 그대로 — svg 의 viewBox 를 칸에 맞춤)
+function lineIn(g, pts, color, at, dur, w, dash) {
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${p[0]} ${p[1]}`).join(" ");
+  const s = el(`<svg class="a" viewBox="${g._x} ${g._y} ${g._w} ${g._h}" width="${g._w}" height="${g._h}" style="left:0;top:0;overflow:visible" aria-hidden="true"><path d="${d}" fill="none" stroke="${color}" stroke-width="${w || 10}" stroke-linecap="round" stroke-linejoin="round" ${dash ? `stroke-dasharray="${dash}"` : `pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"`}/></svg>`, g);
+  if (!dash) tl.to(s.querySelector("path"), { attr: { "stroke-dashoffset": 0 }, duration: dur || 1.2, ease: "power1.inOut" }, at);
+  else pop(s, at);
+  return s;
+}
+// 칸 안 물건 (화면 좌표 → 칸 좌표)
+const inBox = (g, html, x, y, at, from) => { const n = el(html, g); n.style.left = (x - g._x) + "px"; n.style.top = (y - g._y) + "px"; if (at != null) pop(n, at, from); return n; };
+const tag = (txt2, color) => `<div class="tag2" style="position:relative;${color ? `border-color:${color};color:${color}` : ""}">${txt2}</div>`;
+const stampH = (txt2, color, rot, size) => `<div class="stamp" style="position:relative;color:${color};rotate:${rot == null ? -8 : rot}deg;${size ? `font-size:${size}px` : ""}">${txt2}</div>`;
+const stampIn = (sc, name, txt2, color, at, rot, size) => { const d = box(sc, name, stampH(txt2, color, rot, size), CEN); pop(d, at, { from: { scale: 2.2, y: 0, opacity: 0 }, to: { duration: 0.35, ease: "back.out(2)" } }); return d; };
+const appH = (head, val, colV) => `<div class="app" style="position:relative"><div class="h"><span>${head[0]}</span><span>${head[1] || ""}</span></div><div class="v" style="color:${colV || WH}">${val}</div></div>`;
+const btnH = (t2, kind) => `<div class="btn ${kind}" style="position:relative">${t2}</div>`;
+function bar(g, cx, base, w, h, color, at, label, val, valColor) {      // 막대 (cx·base 는 화면 좌표)
+  const b = inBox(g, `<div class="bar" style="width:${w}px;height:${h}px;background:${color}"></div>`, cx - w / 2, base - h);
+  tl.fromTo(b, { scaleY: 0 }, { scaleY: 1, duration: 0.9, ease: "power2.out" }, at);
+  if (label) inBox(g, `<div class="bl a" style="width:${w + 160}px;color:${N}">${label}</div>`, cx - w / 2 - 80, base + 14, at);
+  if (val) inBox(g, `<div class="bl a ts" style="width:${w + 160}px;color:${valColor || color};font-size:64px">${val}</div>`, cx - w / 2 - 80, base - h - 78, at + 0.5);
+  return b;
+}
+const sheetCells = (parent, n0, left, top, size, stepX, stepY, cols) => Array.from({ length: 10 }, (_, i) =>
+  el(`<div class="a w9 c" style="left:${left + (i % cols) * stepX}px;top:${top + Math.floor(i / cols) * stepY}px;width:${size}px;height:${size}px;border-radius:50%;border:${Math.round(size * 0.05)}px solid #1B2440;font-size:${Math.round(size * 0.47)}px;line-height:${Math.round(size * 0.9)}px">${i + n0}</div>`, parent));
+const SHEET_CSS = "border-radius:28px;background:#F2E6CF;border:10px solid #FFFFFF;color:#1B2440;box-sizing:border-box;box-shadow:0 24px 60px -16px rgba(0,0,0,.8);";
+
+// ---------- 그림 기호 (옛 편 그대로) ----------
+// ---------- 그림 기호 (보기 카드·설명 — 글자 없이 또는 허용 낱말만) ----------
+const sv = (inner, s) => `<svg viewBox="0 0 120 120" width="${s || 120}" height="${s || 120}" aria-hidden="true">${inner}</svg>`;
+const ICON = {
+  buy: (sm2) => sv(`<rect x="${sm2 ? 30 : 6}" y="${sm2 ? 42 : 30}" width="${sm2 ? 60 : 108}" height="${sm2 ? 36 : 60}" rx="12" fill="${G}"/><path d="M${sm2 ? 50 : 40} ${sm2 ? 60 : 60} l${sm2 ? 8 : 14} ${sm2 ? 8 : 14} l${sm2 ? 14 : 26} -${sm2 ? 16 : 28}" fill="none" stroke="#06231F" stroke-width="${sm2 ? 6 : 10}" stroke-linecap="round" stroke-linejoin="round"/>`),
+  look: () => sv(`<rect x="12" y="30" width="54" height="76" rx="6" fill="#5B7DB8"/><rect x="22" y="44" width="12" height="12" fill="#C9D2E2"/><rect x="44" y="44" width="12" height="12" fill="#C9D2E2"/><rect x="22" y="66" width="12" height="12" fill="#C9D2E2"/><rect x="44" y="66" width="12" height="12" fill="#C9D2E2"/><circle cx="80" cy="62" r="22" fill="none" stroke="${Y}" stroke-width="9"/><path d="M96 78 L112 96" stroke="${Y}" stroke-width="11" stroke-linecap="round"/>`),
+  chatX: () => sv(`<path d="M14 20 h92 a8 8 0 0 1 8 8 v50 a8 8 0 0 1 -8 8 h-52 l-22 18 v-18 h-18 a8 8 0 0 1 -8 -8 v-50 a8 8 0 0 1 8 -8z" fill="#C9D2E2"/><path d="M44 36 L76 68 M76 36 L44 68" stroke="${R}" stroke-width="11" stroke-linecap="round"/>`),
+  group: (extra) => sv(`<circle cx="30" cy="44" r="13" fill="#C9D2E2"/><circle cx="60" cy="36" r="15" fill="#C9D2E2"/><circle cx="90" cy="44" r="13" fill="#C9D2E2"/><path d="M10 92 c4-24 36-24 40 0z M38 92 c4-30 40-30 44 0z M70 92 c4-24 36-24 40 0z" fill="#C9D2E2"/>${extra || ""}`),
+  won: () => `<circle cx="96" cy="96" r="20" fill="${Y}"/><path d="M84 88 l6 18 l6-14 l6 14 l6-18 M84 96 h24" fill="none" stroke="#3A2A00" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+  hour: () => `<g transform="translate(78 62)"><path d="M0 0 h36 M0 52 h36 M4 0 c0 18 28 20 28 26 c0 6 -28 8 -28 26 M32 0 c0 18 -28 20 -28 26 c0 6 28 8 28 26" fill="none" stroke="#F2E6CF" stroke-width="5" stroke-linecap="round"/><path d="M10 48 h16 l-8 -9z" fill="${Y}"/></g>`,
+  bars2: () => sv(`<rect x="14" y="38" width="38" height="66" rx="5" fill="${G}"/><rect x="68" y="56" width="38" height="48" rx="5" fill="#C9D2E2"/><path d="M8 108 H112" stroke="#9AA7BF" stroke-width="5"/>`),
+  dice: () => sv(`<rect x="22" y="22" width="76" height="76" rx="16" fill="#F2E6CF"/><circle cx="42" cy="42" r="8" fill="#1B2440"/><circle cx="60" cy="60" r="8" fill="#1B2440"/><circle cx="78" cy="78" r="8" fill="#1B2440"/>`),
+  crown: () => sv(`<path d="M10 92 L18 36 L44 64 L60 18 L76 64 L102 36 L110 92 Z" fill="${Y}" stroke="#7A5A00" stroke-width="5" stroke-linejoin="round"/>`),
+  donut: (f0, f1, col, multi) => {
+    const arc = (a0, a1, c) => { const r = 44, cx = 60, cy = 60, p = a => [cx + r * Math.sin(a * 2 * Math.PI), cy - r * Math.cos(a * 2 * Math.PI)], [x0, y0] = p(a0), [x1, y1] = p(a1);
+      return `<path d="M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 ${a1 - a0 > 0.5 ? 1 : 0} 1 ${x1.toFixed(1)} ${y1.toFixed(1)}" fill="none" stroke="${c}" stroke-width="26"/>`; };
+    let s = `<circle cx="60" cy="60" r="44" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="26"/>` + arc(0, f1, col);
+    if (f0) s += arc(0, f0, col).replace(`stroke="${col}"`, `stroke="${col}" stroke-opacity=".45"`);
+    if (multi) s += arc(f1 + 0.02, f1 + 0.25, "#5B7DB8") + arc(f1 + 0.27, f1 + 0.5, "#9C7BD0") + arc(f1 + 0.52, 0.98, "#C9A46A");
+    return sv(s);
+  },
+  cal: (mode) => {                                       // 달력 칸 5×4 — 점 찍힌 날
+    let s = `<rect x="8" y="14" width="104" height="98" rx="10" fill="#C9D2E2"/><rect x="8" y="14" width="104" height="18" rx="8" fill="#5B7DB8"/>`;
+    const on = { month: [7, 16], day: [...Array(20).keys()], week: [2, 4, 7, 11, 13, 17] }[mode];
+    for (let i = 0; i < 20; i++) { const x = 18 + (i % 5) * 19, y = 40 + Math.floor(i / 5) * 18; s += `<circle cx="${x + 6}" cy="${y + 6}" r="${on.includes(i) ? 7 : 4}" fill="${on.includes(i) ? (mode === "day" ? R : mode === "week" ? Y : G) : "#8A93A6"}"/>`; }
+    return sv(s);
+  },
+  blocks: (mode) => {                                    // BUY·SELL 나눔 (A 매수만 나눔 · B 둘 다 미리 · C 한 번에)
+    const box = (x, y, w, c, dash) => `<rect x="${x}" y="${y}" width="${w}" height="30" rx="6" fill="${dash ? "none" : c}" stroke="${c}" stroke-width="4" ${dash ? 'stroke-dasharray="6 5"' : ""}/>`;
+    if (mode === "A") return sv(box(6, 26, 30, G) + box(44, 26, 30, G) + box(82, 26, 30, G) + box(6, 70, 106, R, true) + `<text x="59" y="100" text-anchor="middle" font-size="40" font-weight="900" fill="${R}">?</text>`);
+    if (mode === "B") return sv(box(6, 26, 50, G) + box(64, 26, 50, G) + box(6, 70, 50, R) + box(64, 70, 50, R) + `<path d="M84 104 l8 8 l18-22" fill="none" stroke="${G}" stroke-width="7" stroke-linecap="round"/>`);
+    return sv(box(6, 26, 108, G) + box(6, 70, 108, R));
+  },
+  holdSell: () => sv(`<rect x="8" y="8" width="40" height="40" rx="8" fill="none" stroke="#C9D2E2" stroke-width="5"/><path d="M16 28 l8 8 l16-18" fill="none" stroke="${G}" stroke-width="6" stroke-linecap="round"/><path d="M54 28 h20" stroke="#C9D2E2" stroke-width="5"/><rect x="78" y="10" width="36" height="34" rx="8" fill="${G}"/><rect x="8" y="66" width="40" height="40" rx="8" fill="none" stroke="#C9D2E2" stroke-width="5"/><path d="M18 76 l20 20 M38 76 l-20 20" stroke="${R}" stroke-width="6" stroke-linecap="round"/><path d="M54 86 h20" stroke="#C9D2E2" stroke-width="5"/><rect x="78" y="70" width="36" height="34" rx="8" fill="${R}"/>`),
+  half: () => sv(`<rect x="14" y="20" width="92" height="80" rx="12" fill="none" stroke="#C9D2E2" stroke-width="5"/><rect x="14" y="20" width="46" height="80" rx="12" fill="${R}"/><path d="M60 14 V106" stroke="${Y}" stroke-width="5" stroke-dasharray="8 6"/>`),
+  waitLine: () => sv(`<path d="M6 30 H114" stroke="${Y}" stroke-width="6" stroke-dasharray="12 8"/><path d="M10 40 L40 62 L64 96 L96 104" fill="none" stroke="${R}" stroke-width="8" stroke-linecap="round"/><path d="M96 104 L96 60" stroke="${G}" stroke-width="6" stroke-dasharray="6 6"/><path d="M86 70 l10 -12 l10 12" fill="none" stroke="${G}" stroke-width="6" stroke-linecap="round"/>`),
+  cashOnly: () => sv(`<rect x="8" y="30" width="50" height="60" rx="10" fill="${G}"/><rect x="66" y="30" width="46" height="60" rx="10" fill="none" stroke="#8A93A6" stroke-width="4" stroke-dasharray="6 6"/><text x="89" y="74" text-anchor="middle" font-size="40" font-weight="900" fill="#8A93A6">?</text>`),
+  updown: () => sv(`<path d="M20 30 l14-18 l14 18z" fill="${G}"/><path d="M20 76 l14 18 l14-18z" fill="${R}"/><rect x="58" y="14" width="22" height="34" rx="4" fill="${G}"/><rect x="84" y="14" width="28" height="34" rx="4" fill="#5B7DB8"/><rect x="58" y="62" width="40" height="34" rx="4" fill="${G}"/><rect x="100" y="62" width="12" height="34" rx="4" fill="#5B7DB8"/>`),
+  allUp: () => sv(`<path d="M10 90 L46 58 L66 70 L104 24" fill="none" stroke="${G}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><path d="M84 22 h22 v22" fill="none" stroke="${G}" stroke-width="9" stroke-linecap="round"/><rect x="8" y="100" width="104" height="12" rx="6" fill="${R}"/>`),
+  myLoan: (k) => sv(`<rect x="10" y="${k === "my" ? 30 : 40}" width="${k === "my" ? 100 : 54}" height="56" rx="10" fill="${G}"/>${k === "my" ? "" : `<rect x="68" y="${k === "small" ? 58 : 40}" width="42" height="${k === "small" ? 38 : 56}" rx="10" fill="${R}"/>`}`),
+  to2x: (k) => sv(`<rect x="8" y="34" width="44" height="52" rx="8" fill="#9BB6A0"/>${k === "part" ? `<rect x="8" y="34" width="44" height="22" rx="8" fill="#5E7A64"/>` : ""}<path d="M58 60 h18" stroke="#C9D2E2" stroke-width="6"/><path d="M70 50 l10 10 l-10 10" fill="none" stroke="#C9D2E2" stroke-width="6"/><rect x="84" y="36" width="30" height="48" rx="8" fill="${R}"/><path d="M90 50 l18 20 M108 50 l-18 20" stroke="#fff" stroke-width="4"/>`),
+  split: () => sv(`<rect x="6" y="42" width="30" height="40" rx="6" fill="${G}"/><rect x="45" y="42" width="30" height="40" rx="6" fill="#5B7DB8"/><rect x="84" y="42" width="30" height="40" rx="6" fill="#C9A46A"/><path d="M20 30 v-14 M60 30 v-14 M100 30 v-14" stroke="#C9D2E2" stroke-width="5" stroke-linecap="round"/>`),
+  bldg: (inner) => sv(`<rect x="22" y="20" width="76" height="92" rx="8" fill="#5B7DB8"/>${inner == null ? `<text x="60" y="88" text-anchor="middle" font-size="70" font-weight="900" fill="#C9D2E2">?</text>` : inner}`),
+  gearCoin: () => `<circle cx="48" cy="58" r="20" fill="none" stroke="#F2E6CF" stroke-width="9" stroke-dasharray="9 6"/><circle cx="48" cy="58" r="7" fill="#F2E6CF"/><circle cx="76" cy="86" r="16" fill="${Y}" stroke="#7A5A00" stroke-width="4"/>`,
+  bubble: () => sv(`<path d="M10 14 h100 a8 8 0 0 1 8 8 v50 a8 8 0 0 1 -8 8 h-56 l-22 22 v-22 h-22 a8 8 0 0 1 -8 -8 v-50 a8 8 0 0 1 8 -8z" fill="#C9D2E2"/>`),
+  paper: () => sv(`<rect x="20" y="70" width="80" height="16" rx="4" fill="#F2E6CF"/><rect x="16" y="54" width="80" height="16" rx="4" fill="#E4D7BC"/><rect x="24" y="38" width="80" height="16" rx="4" fill="#F2E6CF"/><rect x="18" y="22" width="80" height="16" rx="4" fill="#E4D7BC"/>`),
+};
+
+/* ═════════════ 화면 원칙 (제작안.txt) ═════════════
+   한글 = 구운 자막 + A·B 보기 카드(data-words)만 · 그 밖은 숫자·기호·영어 허용 목록(WORDS) · 색 = 뜻 (빨강 손해·오답 · 청록 늘어남·정답 · 노랑 기준·물음)
+   그래프 선 = window.SERIES (calc/series.py v1.0 — 실제 종가) · 숫자 = longform_items.py v2.1 nasdaq_1_v21 */
+const SR = window.SERIES;
+// 칸 안 실제 종가 선 — arr = [[날짜, 값]] · 칸 g 안의 그림 자리 [x, y, w, h] (화면 좌표) · lo·hi = 세로 범위
+function seriesIn(g, arr, area, lo, hi, color, at, dur, w) {
+  const [x, y, ww, hh] = area, n = arr.length;
+  const pts = arr.map(([, v], i) => [+(x + ww * i / (n - 1)).toFixed(1), +(y + hh * (1 - (v - lo) / (hi - lo))).toFixed(1)]);
+  return { path: lineIn(g, pts, color, at, dur || 1.4, w || 9), end: pts[n - 1], pts };
+}
+function baseIn(g, area, lo, hi, at) {                 // 시작 값(1) 노란 점선 = 기준
+  const [x, y, ww, hh] = area, yy = +(y + hh * (1 - (1 - lo) / (hi - lo))).toFixed(1);
+  return lineIn(g, [[x, yy], [x + ww, yy]], Y, at, 0.3, 5, "14 10");
+}
+const won = v => "₩" + Math.round(v).toLocaleString("en-US");
+const dateTag = (d) => tag(d, "#9FB4D8");
+const slice = (arr, a, b) => arr.filter(([d]) => d >= a && d <= b);
+const norm = arr => arr.map(([d, v]) => [d, +(v / arr[0][1]).toFixed(4)]);
+
+// 보기 카드 (A·B) — 칸 ROW1·ROW2 · 한국어는 이 카드에만 (data-words)
+const ITEM = {
+  1: { first: 7, q: 11, opts: [12, 13], ans: 1 }, 2: { first: 14, q: 17, opts: [18, 19], ans: 0 },
+  3: { first: 20, q: 24, opts: [25, 26], ans: 1 }, 4: { first: 27, q: 31, opts: [32, 33], ans: 0 },
+  5: { first: 34, q: 38, opts: [39, 40], ans: 1 },
+};
+const LET = ["A", "B"];
+const txt = n => window.EP.sent[n - 1].text;
+const optText = n => txt(n).replace(/^[AB]번,\s*/, "");
+function optCard(sc, n, k, slot, at, o) {
+  o = o || {};
+  const t2 = optText(ITEM[n].opts[k]), [x, y, w, h] = LAY[slot];
+  const fs = t2.length <= 18 ? 54 : t2.length <= 30 ? 48 : 44;
+  const c = el(`<div class="opt" data-slot="${slot}" ${DW} style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><div class="L">${LET[k]}</div><div class="T" style="font-size:${fs}px">${t2}</div><div class="P"></div></div>`, sc);
+  if (at != null) tl.fromTo(c, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.4, ease: "power3.out" }, at);
+  return c;
+}
+function markCard(c, ok, at) {                           // 정답 ✓ 청록 · 오답 ✕ 빨강 (해설)
+  const p = c.querySelector(".P");
+  p.textContent = ok ? "✓" : "✕"; p.style.background = ok ? G : R; p.style.color = ok ? "#06231F" : "#FFFFFF";
+  tl.fromTo(p, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(2.4)" }, at);
+  tl.to(c, { borderColor: ok ? G : R, duration: 0.3 }, at);
+  if (!ok) tl.to(c, { opacity: 0.55, duration: 0.3 }, at + 0.2);
+}
+
+// ---------- 진행 점 (선택 1~5) — 칸 PROG ----------
+const prog = el(`<div class="prog" data-slot="PROG">${"<i></i>".repeat(5)}</div>`);
+gsap.set(prog, { opacity: 0 });
+const partFirst = p => window.EP.sent.find(s => s.part === p).n;
+tl.to(prog, { opacity: 1, duration: 0.3 }, ch(partFirst("선택 1"))); tl.to(prog, { opacity: 0, duration: 0.3 }, ch(partFirst("정답과 해설")));
+for (let i = 1; i <= 5; i++) tl.set(prog.children, { attr: { class: j => (j < i - 1 ? "done" : j === i - 1 ? "on" : "") } }, ch(partFirst(`선택 ${i}`)));
+
+// 시험지 다섯 칸 (도입·해설 머리)
+function sheet5(sc, at) {
+  const sh = box(sc, "SHEET", "", SHEET_CSS); pop(sh, at);
+  el(`<div class="a w9 nw" style="left:60px;top:36px;font-size:90px;line-height:1.1">TEST</div>`, sh);
+  const cells = Array.from({ length: 5 }, (_, i) => el(`<div class="a w9 c" style="left:${80 + i * 220}px;top:230px;width:170px;height:170px;border-radius:50%;border:9px solid #1B2440;font-size:96px;line-height:152px;box-sizing:border-box">${i + 1}</div>`, sh));
+  return { sh, cells };
+}
+
+/* ═════════════ 도입 (문장 1~6) — 제작안 L-01 ~ L-04 ═════════════ */
+{ // L-01 테스트를 통과하지 못하면 큰 손실 (문장 1) — HERO_L · SHEET
+  const a = 0, b = until(2);
+  let HT;
+  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HT, t, 0.3); idle(HT, t); };
+  const { sh, cells } = sheet5(sc, 0.2);
+  tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.08, duration: 0.3, ease: "back.out(2)" }, 0.5);
+  tl.to(cells, { borderColor: R, color: R, duration: 0.25, stagger: 0.06 }, W(1, "손실") - 0.2);
+  stampIn(sc, "STAMP_P", "FAIL", R, W(1, "손실"), -8);
+  K.cut(E(1) - 0.1, "L-01 TEST · FAIL");
+}
+{ // L-02 6년 가까이 나스닥 두 배 넘게 (문장 2) — TL · CHART
+  const a = until(2), b = until(3);
+  const { sc } = stage(a, b, "PAPER", null);
+  boxC(sc, "TL", tag("NASDAQ", G), S(2) + 0.05, "justify-content:flex-start");
+  const g = box(sc, "CHART"), area = [240, 300, 1300, 420];
+  baseIn(g, area, 0.7, 2.4, S(2) + 0.1);
+  const L1 = seriesIn(g, SR.intro_qqq, area, 0.7, 2.4, G, S(2) + 0.3, E(2) - S(2) - 0.6, 10);
+  inBox(g, `<div class="a w9 nw ts G" style="font-size:96px;line-height:1">×2.2</div>`, 1400, 230, W(2, "두 배"));
+  inBox(g, `<div class="a w7 nw N" style="font-size:40px">2021</div>`, 240, 735, S(2) + 0.3);
+  inBox(g, `<div class="a w7 nw N" style="font-size:40px">2026</div>`, 1440, 735, S(2) + 0.3);
+  K.cut(E(2) - 0.1, "L-02 NASDAQ ×2.2");
+}
+{ // L-03 김씨 1억 → 180만 원 (−98%) (문장 3) — HERO_L · BIGR · STAMP_P
+  const a = until(3), b = until(4);
+  let HD;
+  const { sc, st } = stage(a, b, "PAPER", s => { HD = act(s, "H_DESP", "HERO_L", 4.4).ro(5); });
+  st.update = t => { enter(HD, t, S(3) + 0.1); };
+  const g = boxC(sc, "BIGR", `<div class="w9 nw ts" style="font-size:120px;line-height:1">₩100,000,000</div>`, S(3) + 0.1, "flex-direction:column");
+  K.counter(g.firstChild, 100000000, 1800000, W(3, "180만") - 0.9, 1.0, v => won(v));
+  tl.to(g.firstChild, { color: R, duration: 0.3 }, W(3, "98%") - 0.3);
+  stampIn(sc, "STAMP_P", "−98%", R, W(3, "98%"), -8);
+  K.cut(E(3) - 0.1, "L-03 ₩1,800,000 −98%");
+}
+{ // L-04 무슨 일이? · 다섯 번의 갈림길 · 틀린 개수 (문장 4~6) — HERO_L · HEAD_L · SHEET
+  const a = until(4), b = ch(partFirst("선택 1"));
+  let HT;
+  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HT, t, S(4) + 0.1); idle(HT, t); };
+  headMark(st, sc, "HEAD_L", () => HT, `<span class="Y">?</span>`, S(4) + 0.3, E(4));
+  const { sh, cells } = sheet5(sc, S(5));
+  tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.12, duration: 0.3, ease: "back.out(2)" }, W(5, "다섯"));
+  const cnt = el(`<div class="a w9 nw R" style="right:60px;top:36px;font-size:90px;line-height:1.1">✕ = ?</div>`, sh);
+  pop(cnt, W(6, "틀린"));
+  K.cut(E(4) - 0.1, "L-04 ?"); K.cut(E(6) - 0.1, "L-04 1~5 · ✕ = ?");
+}
+
+/* ═════════════ 선택 1~5 — 공통 틀 (제작안 L-05 ~ L-19) ═════════════ */
+// 'N번째 선택입니다' 문장 = 번호 카드
+function numberCard(n) {
+  const q = ITEM[n].q, a = until(q), b = until(q + 1);
+  const { sc } = stage(a, b, "PAPER", null);
+  const c = box(sc, "NUM", `${n}`, "border-radius:30px;background:#F2E6CF;color:#1B2440;display:grid;place-items:center;font-weight:900;font-size:300px;line-height:1;box-shadow:0 30px 60px -20px rgba(0,0,0,.85);border:10px solid #FFFFFF;box-sizing:border-box");
+  tl.fromTo(c, { rotationY: 90, opacity: 0 }, { rotationY: 0, opacity: 1, duration: 0.5, ease: "back.out(1.6)" }, a + 0.3);
+  K.cut(E(q) - 0.1, `선택 ${n} 번호`);
+}
+// 보기 두 장 — HERO_L(HERO-THINK) + '?' + ROW1·ROW2
+function optionsScene(n, bgKey) {
+  const it = ITEM[n], a = until(it.opts[0]), b = n < 5 ? ch(partFirst(`선택 ${n + 1}`)) : ch(partFirst("정답과 해설"));
+  let HT;
+  const { sc, st } = stage(a, b, bgKey, s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); });
+  st.update = t => { tint(st.BG, DIM); enter(HT, t, a + 0.1); idle(HT, t); };
+  headMark(st, sc, "HEAD_L", () => HT, `<span class="Y">?</span>`, S(it.opts[0]) + 0.2);
+  it.opts.forEach((sn, k) => optCard(sc, n, k, `ROW${k + 1}`, S(sn) + 0.05));
+  K.cut(E(it.opts[1]) - 0.1, `선택 ${n} 보기 A·B`);
+}
+function choice(n, bgKey, story) {
+  story(ch(ITEM[n].first), until(ITEM[n].q));
+  numberCard(n);
+  optionsScene(n, bgKey);
+}
+
+/* L-05 선택 1 — 1억 원 · 1년 2.7배 기술주 ETF · 동료·친구 · 영상 (문장 7~10) — HERO · MATE · BACK · TL · TR · MID_R */
+choice(1, "OFF", (a, b) => {
+  let HP, CO, CR;
+  const { sc, st } = stage(a, b, "OFF", s => { CR = act(s, "W_CROWD", "BACK", 4.0).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3).ro(3); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CO, t, S(9)); idle(CO, t, 1); enter(CR, t, S(9) + 0.3); if (t > S(9) + 0.6) CR.bob(t, 0.1, 2.2); };
+  boxC(sc, "TL", tag("₩100,000,000", WH), S(7) + 0.1, "justify-content:flex-start");
+  const app = boxC(sc, "TR", appH(["ETF", "1Y"], "×2.7", G), W(8, "2.7배") - 0.1);
+  out(app, S(10) - 0.2);
+  const v = boxC(sc, "TR", Array.from({ length: 3 }, () => `<div style="width:136px;height:96px;border-radius:14px;background:#C9D2E2;display:grid;place-items:center"><svg viewBox="0 0 40 40" width="46" height="46"><path d="M12 8 L32 20 L12 32 Z" fill="#1B2440"/></svg></div>`).join(""), S(10) + 0.25, "gap:16px");
+  tl.fromTo(v.children, { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.15, duration: 0.3 }, S(10) + 0.35);
+  K.cut(E(8) - 0.1, "L-05 ETF ×2.7"); K.cut(E(10) - 0.1, "L-05 동료·친구·영상");
+});
+/* L-08 선택 2 — 같은 날 · 1억 원 얼마를? · 다 넣었다는 사람들 (문장 14~16) — HERO · PROP · PANEL · BACK 대신 MID_R */
+choice(2, "HOME", (a, b) => {
+  let HT;
+  const { sc, st } = stage(a, b, "HOME", s => { HT = act(s, "H_THINK", "HERO", 5.0).ro(4); });
+  st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); };
+  const p = box(sc, "PANEL", "", PANEL_CSS); pop(p, S(14) + 0.1);
+  inBox(p, `<div class="a w9 nw" style="font-size:84px;line-height:1">₩100,000,000</div>`, 960, 150, S(14) + 0.2);
+  const bar8 = inBox(p, `<div class="a" style="width:620px;height:150px;border-radius:18px 0 0 18px;background:${G}"></div>`, 960, 320, S(15) + 0.1);
+  const bar2 = inBox(p, `<div class="a" style="width:160px;height:150px;border-radius:0 18px 18px 0;background:${Y}"></div>`, 1580, 320, S(15) + 0.3);
+  inBox(p, `<div class="a w9 nw" style="font-size:56px;line-height:1;color:#06231F">INVEST ?</div>`, 1000, 370, S(15) + 0.4);
+  inBox(p, `<div class="a w9 nw" style="font-size:44px;line-height:1;color:#3A2A00">CASH</div>`, 1592, 375, S(15) + 0.5);
+  tl.to(bar2, { backgroundColor: G, duration: 0.4 }, W(16, "모두") - 0.1);
+  inBox(p, `<div class="a w9 nw ts" style="font-size:72px;line-height:1;color:${Y}">ALL IN ?</div>`, 1180, 540, W(16, "모두"));
+  K.cut(E(15) - 0.1, "L-08 INVEST · CASH ?"); K.cut(E(16) - 0.1, "L-08 ALL IN ?");
+});
+/* L-11 선택 3 — 나스닥 고점보다 30% 넘게 하락 · 엇갈리는 뉴스 · 손실 인증 (문장 20~23) — HERO_L · CAP_R · CHART_R */
+choice(3, "PAPER", (a, b) => {
+  let HS;
+  const { sc, st } = stage(a, b, "PAPER", s => { HS = act(s, "H_SHOCK", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HS, t, a + 0.1); if (t > W(20, "하락")) HS.jitter(t, 0.015); };
+  const g = box(sc, "CHART_R"), area = [660, 300, 1140, 380];
+  const seg = norm(slice(SR.intro_qqq, "2021-12-27", "2022-06-13"));
+  baseIn(g, area, 0.6, 1.05, S(20) + 0.1);
+  seriesIn(g, seg, area, 0.6, 1.05, R, S(20) + 0.3, E(20) - S(20) - 0.4, 10);
+  inBox(g, `<div class="a w9 nw ts R" style="font-size:96px;line-height:1">−32%</div>`, 1520, 640, W(20, "30%"));
+  inBox(g, `<div class="a w9 nw ts" style="font-size:52px;line-height:1;color:#9FB4D8">NASDAQ</div>`, 660, 230, S(20) + 0.2);
+  const cap = box(sc, "CAP_R", "", LEFT);
+  [tag("NEWS ▼", R), tag("NEWS ▲", G), tag("NEWS ▼", R)].forEach((h, i) => pop(el(h, cap), S(21) + 0.15 * i));
+  out(cap, S(22) - 0.3);
+  const cap2 = box(sc, "CAP_R", "", LEFT);
+  ["−32%", "−45%", "−60%"].forEach((v, i) => pop(el(tag(v, R), cap2), S(22) + 0.2 + 0.15 * i));
+  K.cut(E(20) - 0.1, "L-11 NASDAQ −32%"); K.cut(E(21) - 0.1, "L-11 NEWS ▼▲"); K.cut(E(23) - 0.1, "L-11 손실 인증");
+});
+/* L-14 선택 4 — 지인 추천 AI 종목 · 다섯 달 −63% · 회계 문제 보고서 (문장 27~30) — HERO · MATE · TR · MID_R */
+choice(4, "HOME", (a, b) => {
+  let HP, CO;
+  const { sc, st } = stage(a, b, "HOME", s => { HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3).ro(3); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CO, t, W(27, "지인") - 0.2); idle(CO, t, 1); if (t > S(28)) HP.jitter(t, 0.012); };
+  const app = boxC(sc, "TR", appH(["AI", "▲"], "BUY", G), W(27, "AI") - 0.1);
+  out(app, S(28) - 0.1);
+  boxC(sc, "TR", appH(["AI", "5M"], "−63%", R), S(28) + 0.35);
+  boxC(sc, "MID_R", `<svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true"><rect x="22" y="10" width="76" height="100" rx="8" fill="#F2E6CF"/><path d="M36 34 H84 M36 52 H84 M36 70 H70" stroke="#8A93A6" stroke-width="6" stroke-linecap="round"/><path d="M58 70 L94 106 M94 70 L58 106" stroke="${R}" stroke-width="11" stroke-linecap="round"/></svg>${tag("REPORT", R)}`, S(29) + 0.05, PANEL_CSS);
+  K.cut(E(28) - 0.1, "L-14 AI −63%"); K.cut(E(29) - 0.1, "L-14 REPORT ✕");
+});
+/* L-17 선택 5 — 비트코인 최고가 · 사 모으는 회사 1년 9배 · 한 종목 인증 (문장 34~37) — HERO · BACK · TL · TR · MID_R */
+choice(5, "HOME", (a, b) => {
+  let HP, CR;
+  const { sc, st } = stage(a, b, "HOME", s => { CR = act(s, "W_CROWD", "BACK", 4.0).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CR, t, S(36)); if (t > S(36) + 0.3) CR.bob(t, 0.1, 2.4); };
+  boxC(sc, "TL", `<svg viewBox="0 0 120 120" width="110" height="110" aria-hidden="true"><circle cx="60" cy="60" r="50" fill="${Y}" stroke="#7A5A00" stroke-width="7"/><circle cx="60" cy="60" r="32" fill="none" stroke="#7A5A00" stroke-width="5"/></svg>${tag("BTC ▲", G)}`, S(34) + 0.05, "justify-content:flex-start");
+  const app = boxC(sc, "TR", appH(["BTC ▲", "1Y"], "×9.3", G), W(35, "9배") - 0.1);
+  out(app, S(36) - 0.2);
+  const all = box(sc, "TR", "", LEFT);
+  [tag("ALL IN", Y), tag("ALL IN", Y)].forEach((h, i) => pop(el(h, all), S(36) + 0.25 + 0.15 * i));
+  K.cut(E(35) - 0.1, "L-17 BTC 1Y ×9.3"); K.cut(E(36) - 0.1, "L-17 ALL IN");
+});
+
+/* ═════════════ 정답과 해설 (문장 41~92) — 제작안 L-20 ~ L-46 ═════════════ */
+{ // L-20 선택을 마치셨나요 · 오답과 정답을 살펴보자 (문장 41~42) — HERO_L · SHEET
+  const a = ch(41), b = until(43);
+  let HT;
+  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HT, t, S(41) + 0.1); idle(HT, t); };
+  const { cells } = sheet5(sc, S(41) + 0.1);
+  tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.06, duration: 0.3 }, S(41) + 0.3);
+  tl.to(cells, { backgroundColor: "#FFE38A", duration: 0.25, stagger: 0.12 }, S(42) + 0.2);
+  K.cut(E(42) - 0.1, "L-20 TEST 1~5");
+}
+// 해설 머리: 정답 카드 ✓ · 오답 카드 ✕ (+ 날짜·이름 꼬리표 — DATE)
+function ansHead(n, h, a, b, tags) {
+  let HP;
+  const { sc, st } = stage(a, b, "PAPER", s => { HP = act(s, "H_PLAN", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HP, t, S(h) + 0.05); idle(HP, t); };
+  const cards = ITEM[n].opts.map((_, k) => optCard(sc, n, k, `ROW${k + 1}`, S(h) + 0.05 + 0.15 * k));
+  cards.forEach((c, k) => markCard(c, k === ITEM[n].ans, W(h, "정답은") + 0.3));
+  if (tags) { const d = box(sc, "DATE", "", LEFT); tags.forEach(([html, at]) => pop(el(html, d), at)); }
+  K.cut(E(h) - 0.1, `L 해설 ${n} 정답`);
+  if (tags) K.cut(b - 0.2, `L 해설 ${n} 날짜·이름`);
+}
+// 결과 둘: 왼쪽 오답 길(빨강) · 오른쪽 정답 길(청록) — VSL · VSR
+function vsPanel(sc, slot, k, ok, head, at) {
+  const p = box(sc, slot, "", PANEL_CSS); pop(p, at);
+  inBox(p, `<div class="a w9 nw" style="font-size:60px;line-height:1"><span style="display:inline-grid;place-items:center;width:80px;height:80px;border-radius:50%;background:${WH};color:#0C1424;margin-right:18px">${LET[k]}</span><span style="color:${ok ? G : R}">${ok ? "✓" : "✕"}</span> <span class="N" style="font-size:44px">${head}</span></div>`, p._x + 30, p._y + 26, at + 0.1);
+  return p;
+}
+function vsNums(p, items, at0) {                         // [[글, 색, 시각]] — 판 아래쪽 한 줄씩
+  items.forEach(([t2, col, at], i) => inBox(p, `<div class="a w9 nw ts" style="font-size:64px;line-height:1;color:${col}">${t2}</div>`, p._x + 34 + i * 380, p._y + p._h - 96, at));
+}
+function resultVS(n, a, b, spec) {
+  const { sc } = stage(a, b, "PAPER", null);
+  const k0 = ITEM[n].ans, kw = 1 - k0;
+  const L1 = vsPanel(sc, "VSL", kw, false, spec.wHead, a + 0.15), R1 = vsPanel(sc, "VSR", k0, true, spec.rHead, spec.rAt - 0.2);
+  const areaL = [L1._x + 40, L1._y + 140, L1._w - 80, L1._h - 280], areaR = [R1._x + 40, R1._y + 140, R1._w - 80, R1._h - 280];
+  baseIn(L1, areaL, spec.lo, spec.hi, a + 0.3); baseIn(R1, areaR, spec.lo, spec.hi, spec.rAt);
+  seriesIn(L1, spec.w, areaL, spec.lo, spec.hi, R, a + 0.4, spec.wDur || 1.6, 8);
+  seriesIn(R1, spec.r, areaR, spec.lo, spec.hi, G, spec.rAt + 0.1, spec.rDur || 1.6, 8);
+  vsNums(L1, spec.wNums); vsNums(R1, spec.rNums);
+  K.cut(b - 0.2, `L 해설 ${n} 결과`);
+}
+// 반론 → 반박: HERO_L 머리 위 '?' → '!' · 오른쪽 판(PANEL_R)에 숫자·기호
+function rebut(n, a, b, q, butAt, build) {
+  let HT;
+  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); };
+  const m1 = headMark(st, sc, "HEAD_L", () => HT, `<span class="Y">?</span>`, S(q) + 0.15, butAt - 0.1);
+  headMark(st, sc, "HEAD_L", () => HT, `<span class="G">!</span>`, butAt);
+  const p = box(sc, "PANEL_R", "", PANEL_CSS + CEN + "flex-direction:column;gap:30px;"); pop(p, S(q) + 0.1);
+  build(p);
+  K.cut(butAt - 0.2, `L 해설 ${n} 물론`); K.cut(b - 0.2, `L 해설 ${n} 하지만`);
+}
+// 그래서: HERO_L(HERO-PLAN) ✓ + 정답 카드 한 장 (ROW1 자리)
+function soScene(n, a, b, last) {
+  let HP;
+  const { sc, st } = stage(a, b, "PAPER", s => { HP = act(s, "H_PLAN", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  headMark(st, sc, "HEAD_L", () => HP, `<span class="G">✓</span>`, S(last) + 0.2);
+  const k0 = ITEM[n].ans, c = optCard(sc, n, k0, "ROW1", a + 0.2);
+  markCard(c, true, S(last) + 0.2);
+  K.cut(E(last) - 0.1, `L 해설 ${n} 그래서`);
+}
+const big = (t2, col, size) => `<div class="w9 nw ts" style="font-size:${size || 110}px;line-height:1;color:${col || WH}">${t2}</div>`;
+const sub = (t2, col) => `<div class="w7 nw" style="font-size:48px;line-height:1;color:${col || N}">${t2}</div>`;
+
+/* L-21 ~ L-25 해설 1 — 남 따라 사기 · 아크 이노베이션 (문장 43~51) */
+ansHead(1, 43, until(43), until(45), [[dateTag("2021.02.12"), S(44) + 0.1], [tag("ARKK", R), W(44, "아크")]]);
+resultVS(1, until(45), until(47), { lo: 0.15, hi: 2.4, wHead: "ARKK", rHead: "NASDAQ", w: SR.i1_arkk, r: SR.i1_qqq, rAt: S(46),
+  wNums: [["−81%", R, W(45, "81%")], ["NOW −45%", R, W(45, "45%")]], rNums: [["−22%", Y, W(46, "22%")], ["NOW +122%", G, W(46, "두 배")]] });
+rebut(1, until(47), until(50), 47, S(48), p => {
+  const row = el(`<div style="display:flex;gap:26px">${[0, 1, 2].map(() => tag("▲ ▲", G)).join("")}</div>`, p); pop(row, S(47) + 0.2);
+  pop(el(big("×2.7 → −81%", R, 96), p), S(49));
+});
+soScene(1, until(50), until(52), 51);
+
+/* L-26 ~ L-29 해설 2 — 현금 남기기 (문장 52~59) */
+ansHead(2, 52, until(52), until(53), null);
+{ // L-27 모두 투자 → 한때 −₩22,000,000 · 팔아야 했음 · 현금 2천만 원은 그대로 (문장 53~55) — VSL · VSR
+  const a = until(53), b = until(56);
+  const { sc } = stage(a, b, "PAPER", null);
+  const L1 = vsPanel(sc, "VSL", 1, false, "ALL IN", a + 0.15), R1 = vsPanel(sc, "VSR", 0, true, "CASH ₩20,000,000", S(55) - 0.2);
+  const areaL = [L1._x + 40, L1._y + 140, L1._w - 80, L1._h - 280];
+  baseIn(L1, areaL, 0.7, 1.4, a + 0.3);
+  seriesIn(L1, SR.i2_allin, areaL, 0.7, 1.4, R, a + 0.4, 1.6, 8);
+  vsNums(L1, [["−₩22,000,000", R, W(53, "2천2백만")]]);
+  inBox(L1, `<div class="a w9 nw ts" style="font-size:64px;line-height:1;color:${R}">SELL ✕</div>`, L1._x + 500, L1._y + 150, W(54, "팔아"));
+  inBox(R1, `<div class="a" style="width:520px;height:260px;border-radius:22px;background:${Y};display:grid;place-items:center"><div class="w9 nw" style="font-size:76px;color:#3A2A00">CASH</div></div>`, R1._x + 150, R1._y + 160, S(55) + 0.1);
+  vsNums(R1, [["₩20,000,000 ✓", G, W(55, "그대로")]]);
+  K.cut(E(54) - 0.1, "L-27 ALL IN −₩22,000,000 · SELL"); K.cut(E(55) - 0.1, "L-27 CASH 그대로");
+}
+rebut(2, until(56), until(58), 56, S(57), p => {
+  pop(el(big("CASH → +%", N, 96), p), S(56) + 0.2);
+  pop(el(`<div style="display:flex;gap:40px">${big("JOB ✕", R, 84)}${big("HOME ✕", R, 84)}</div>`, p), W(57, "일자리"));
+});
+soScene(2, until(58), until(60), 59);
+
+/* L-30 ~ L-34 해설 3 — 기준 없이 그때그때 (문장 60~69) */
+ansHead(3, 60, until(60), until(62), [[dateTag("2022.06.13"), S(61) + 0.1], [tag("NASDAQ −32%", R), W(61, "30%")]]);
+resultVS(3, until(62), until(64), { lo: 0.6, hi: 2.9, wHead: "SELL → BUY", rHead: "HOLD", w: SR.i3_panic, r: SR.i3_hold, rAt: W(63, "그대로"),
+  wNums: [["NOW +91%", Y, W(63, "91%")]], rNums: [["NOW +169%", G, W(63, "169%")]] });
+rebut(3, until(64), until(68), 64, S(66), p => {
+  pop(el(big("−5%", R, 110), p), S(65));
+  pop(el(sub("USA · 10Y"), p), S(67));
+  pop(el(big("−15%", R, 120), p), W(67, "15%"));
+});
+soScene(3, until(68), until(70), 69);
+
+/* L-35 ~ L-39 해설 4 — 손절 · 슈퍼마이크로컴퓨터 (문장 70~80) */
+ansHead(4, 70, until(70), until(72), [[dateTag("2024.08.28"), S(71) + 0.1], [tag("SMCI", R), W(71, "슈퍼마이크로")]]);
+resultVS(4, until(72), until(74), { lo: 0.3, hi: 1.7, wHead: "HOLD SMCI", rHead: "NASDAQ", w: SR.i4_smci, r: SR.i4_qqq, rAt: S(73),
+  wNums: [["−59%", R, W(72, "59%")], ["NOW −21%", R, W(72, "21%")]], rNums: [["−11%", Y, W(73, "11%")], ["NOW +55%", G, W(73, "55%")]] });
+rebut(4, until(74), until(79), 74, S(75), p => {
+  pop(el(big("−63%", R, 110), p), W(74, "63%"));
+  pop(el(sub("USA · 10,000"), p), S(77));
+  const bars = el(`<div style="display:flex;gap:60px;align-items:flex-end;height:220px"><div style="width:180px;height:200px;border-radius:14px 14px 4px 4px;background:${G}"></div><div style="width:180px;height:140px;border-radius:14px 14px 4px 4px;background:${R}"></div></div>`, p);
+  pop(bars, S(78));
+  pop(el(`<div style="display:flex;gap:40px">${big("SELL WIN", G, 50)}${big("HOLD LOSS", R, 50)}${big("+3%p", Y, 50)}</div>`, p), W(78, "3%포인트"));
+});
+soScene(4, until(79), until(81), 80);
+
+/* L-40 ~ L-44 해설 5 — 분산 · 마이크로스트래티지 (문장 81~89) */
+ansHead(5, 81, until(81), until(83), [[dateTag("2024.11.20"), S(82) + 0.1], [tag("MSTR", R), W(82, "마이크로스트래티지")]]);
+resultVS(5, until(83), until(85), { lo: 0.1, hi: 1.7, wHead: "MSTR", rHead: "INDEX", w: SR.i5_mstr, r: SR.i5_qqq, rAt: S(84),
+  wNums: [["−83%", R, W(83, "83%")], ["NOW −70%", R, W(83, "70%")]], rNums: [["−17%", Y, W(84, "17%")], ["NOW +45%", G, W(84, "45%")]] });
+rebut(5, until(85), until(88), 85, S(86), p => {
+  pop(el(big("1 ▲▲▲", G, 96), p), S(85) + 0.2);
+  const grid = el(`<div style="display:grid;grid-template-columns:repeat(9,74px);gap:16px">${Array.from({ length: 9 }, (_, i) => `<div style="width:74px;height:74px;border-radius:14px;background:${i < 6 ? R : "#5B7DB8"}"></div>`).join("")}</div>`, p);
+  pop(grid, S(87));
+  pop(el(big("6 / 9", R, 96), p), W(87, "6개"));
+});
+soScene(5, until(88), until(90), 89);
+
+{ // L-45 다섯 번 모두 오답 · ₩1,800,000 vs 정답 ₩201,430,000 (문장 90~92) — DATE · VSL · VSR
+  const a = until(90), b = ch(partFirst("결과"));
+  const { sc } = stage(a, b, "PAPER", null);
+  const d = box(sc, "DATE", "", LEFT);
+  for (let i = 0; i < 5; i++) pop(el(`<div class="w9 c" style="width:96px;height:96px;border-radius:50%;background:${R};color:#fff;font-size:64px;line-height:96px">✕</div>`, d), S(90) + 0.12 * i);
+  const L1 = vsPanel(sc, "VSL", 0, false, "KIM", S(91) - 0.2), R1 = vsPanel(sc, "VSR", 1, true, "BEST", S(92) - 0.2);
+  L1.querySelector("span").style.display = "none"; R1.querySelector("span").style.display = "none";
+  const areaL = [L1._x + 40, L1._y + 140, L1._w - 80, L1._h - 280], areaR = [R1._x + 40, R1._y + 140, R1._w - 80, R1._h - 280];
+  const kimN = SR.end_kim.map(([dd, v]) => [dd, v / 10000]), goodN = SR.end_good.map(([dd, v]) => [dd, v / 10000]);
+  baseIn(L1, areaL, 0, 2.2, S(91)); baseIn(R1, areaR, 0, 2.2, S(92));
+  seriesIn(L1, kimN, areaL, 0, 2.2, R, S(91) + 0.1, 1.6, 8);
+  seriesIn(R1, goodN, areaR, 0, 2.2, G, S(92) + 0.1, 1.6, 8);
+  vsNums(L1, [["₩1,800,000", R, W(91, "180만")]]);
+  vsNums(R1, [["₩201,430,000", G, W(92, "2억")]]);
+  K.cut(E(91) - 0.1, "L-45 ₩1,800,000"); K.cut(E(92) - 0.1, "L-45 ₩201,430,000");
+}
+
+/* ═════════════ 결과 (문장 93~99) — 제작안 L-46 ═════════════ */
+{
+  const a = ch(93), b = ch(partFirst("정리"));
+  let HT, HP, HD;
+  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); HP = act(s, "H_PLAN", "HERO_L", 5.0).ro(5); HD = act(s, "H_DESP", "HERO_L", 4.4).ro(5); });
+  st.update = t => {
+    const k = t < S(94) ? 0 : t < S(96) ? 1 : t < S(98) ? 0 : 2;
+    [HT, HP, HD].forEach((x, i) => { enter(x, t, a + 0.1); if (i !== k) x.op = 0; }); idle([HT, HP, HD][k], t);
+  };
+  headMark(st, sc, "HEAD_L", () => HT, `<span class="Y">?</span>`, S(93) + 0.2, S(94) - 0.1);
+  const row = (slot, html, col, at) => { const c = box(sc, slot, html, PANEL_CSS + CEN + `justify-content:space-between;padding:0 50px;border-color:${col}`); pop(c, at); return c; };
+  row("RA", `${big("✕ 0", WH, 80)}${big("PASS", G, 96)}`, G, S(94));
+  row("RB", `${big("✕ 1–2", WH, 80)}${big("CAUTION", Y, 96)}`, Y, S(96));
+  row("RC", `${big("✕ 3+", WH, 80)}${big("FAIL", R, 96)}`, R, S(98));
+  K.cut(E(95) - 0.1, "L-46 PASS"); K.cut(E(97) - 0.1, "L-46 CAUTION"); K.cut(E(99) - 0.1, "L-46 FAIL");
+}
+
+/* ═════════════ 정리 · 마무리 (문장 100~104) — 제작안 L-47 · L-48 ═════════════ */
+{ // L-47 다섯 정답의 공통점 — 따라 사지 않기 · 현금 · 기준 · 손절 · 나눠 담기 (문장 100~101) — CHIPS
+  const a = ch(100), b = until(102);
+  const { sc } = stage(a, b, "PAPER", null);
+  const c = box(sc, "CHIPS", "", CEN + "gap:28px;");
+  const chips = [
+    `<svg viewBox="0 0 120 120" width="150" height="150"><circle cx="40" cy="40" r="14" fill="#C9D2E2"/><circle cx="80" cy="40" r="14" fill="#C9D2E2"/><path d="M14 92 c4-28 48-28 52 0z M54 92 c4-28 48-28 52 0z" fill="#C9D2E2"/><path d="M20 20 L100 100" stroke="${R}" stroke-width="10" stroke-linecap="round"/></svg>`,
+    `<svg viewBox="0 0 120 120" width="150" height="150"><rect x="14" y="34" width="92" height="52" rx="10" fill="${Y}"/><circle cx="60" cy="60" r="14" fill="none" stroke="#7A5A00" stroke-width="6"/></svg>`,
+    `<svg viewBox="0 0 120 120" width="150" height="150"><rect x="26" y="14" width="68" height="94" rx="8" fill="#F2E6CF"/><rect x="44" y="8" width="32" height="14" rx="4" fill="#8A93A6"/><path d="M40 52 l10 10 l20-22 M40 82 h40" stroke="#1B2440" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`,
+    `<svg viewBox="0 0 120 120" width="150" height="150"><circle cx="34" cy="86" r="16" fill="none" stroke="#C9D2E2" stroke-width="7"/><circle cx="86" cy="86" r="16" fill="none" stroke="#C9D2E2" stroke-width="7"/><path d="M44 74 L96 14 M76 74 L24 14" stroke="#C9D2E2" stroke-width="7" stroke-linecap="round"/></svg>`,
+    ICON.split().replace(/width="120" height="120"/, 'width="150" height="150"'),
+  ].map((ic, i) => `<div style="width:290px;height:340px;border-radius:26px;background:rgba(10,16,30,.86);border:4px solid rgba(255,255,255,.18);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px"><div class="w9" style="font-size:56px;color:${Y}">${i + 1}</div>${ic}<div class="w9 G" style="font-size:70px;line-height:1">✓</div></div>`);
+  chips.forEach((h, i) => pop(el(h, c), S(100) + 0.2 + 0.18 * i));
+  K.cut(E(101) - 0.1, "L-47 다섯 정답 ✓");
+}
+{ // L-48 급할수록 돌아가라 · 천천히 오래 (문장 102) — HERO_L · CHART_R
+  const a = until(102), b = until(103);
+  let HP;
+  const { sc, st } = stage(a, b, "PAPER", s => { HP = act(s, "H_PLAN", "HERO_L", 5.0).ro(5); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  const g = box(sc, "CHART_R"), area = [660, 260, 1140, 420];
+  const goodN = SR.end_good.map(([dd, v]) => [dd, v / 10000]);
+  baseIn(g, area, 0.6, 2.2, S(102) + 0.1);
+  seriesIn(g, goodN, area, 0.6, 2.2, G, S(102) + 0.3, Math.max(2, E(102) - S(102) - 1), 10);
+  inBox(g, `<div class="a w9 nw ts G" style="font-size:72px;line-height:1">SLOW · LONG ✓</div>`, 1120, 200, W(102, "천천히"));
+  K.cut(E(102) - 0.1, "L-48 SLOW · LONG");
+}
+{ // L-49 인사 — HERO_C
+  const a = until(103), b = K.D;
+  let HB;
+  const { st } = stage(a, b, "PAPER", s => { HB = act(s, "H_BOW", "HERO_C", 4.6).ro(4); }, { keep: true });
+  st.update = t => { enter(HB, t, S(103) + 0.1); const k = sm(lin(t, S(104), S(104) + 0.6)); HB.g.rotation.z = 0.15 * Math.sin(k * Math.PI); };
+  st.part(Puppet.floaters({ n: 80, x: [-11, 11], z: [-6, 4], hgt: 12, speed: [0.4, 1.0], size: 0.28, inner: "rgba(255,226,160,1)", outer: "rgba(255,180,90,0)" }));
+  K.cut(E(104) - 0.1, "L-49 인사");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

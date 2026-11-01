@@ -1,5 +1,5 @@
 {
- "tool": "longform_items.py v1.7",
+ "tool": "longform_items.py v1.8",
  "data_last": "2026-10-27",
  "facts": {
   "1": {
@@ -927,6 +927,135 @@
     "worst": -0.304,
     "worst_day": "2009-03-09",
     "sold": null
+   }
+  },
+  "3편_v1.8": {
+   "ma_from": "1988-01-04",
+   "signals_from": "1990-01-02",
+   "n_signals": 29,
+   "first_signals": [
+    "1990-01-22",
+    "1990-08-03",
+    "1991-11-19"
+   ],
+   "n_with_2y": 27,
+   "no_dd20_2y": 23,
+   "dd20_2y": [
+    "1999-09-23",
+    "2000-02-18",
+    "2007-08-03",
+    "2020-02-27"
+   ],
+   "hold_better_2y": 23,
+   "sold_better_2y": [
+    "1999-09-23",
+    "2000-02-18",
+    "2007-08-03",
+    "2018-04-02"
+   ],
+   "rule_from": "1990-01-02",
+   "rule_max_dd": "-21.8%",
+   "hold_max_dd": "-55.3%",
+   "rule_trades": 248,
+   "rule_end": 22.78,
+   "hold_end": 44.88,
+   "rule_over_hold": 0.508,
+   "rule_cagr": "+8.9%",
+   "hold_cagr": "+10.9%",
+   "cash_end": 2.67,
+   "bundle_trough": 0.1965,
+   "bundle_back_to_principal": "2013-10-29",
+   "bundle_years_to_back": 6.2,
+   "tr_back_to_0803": "2011-02-11",
+   "tr_years_to_back": 3.5,
+   "bundle_now": 10.53,
+   "tr_now_from_0803": 7.76,
+   "bundle_now_day": "2026-10-27",
+   "sector_recover_note": "purpose_numbers A_sectors: years_to_recover = 그 하락의 고점 → 고점 회복 (바닥부터가 아님)"
+  },
+  "한꺼번에_vs_나눠_1990": {
+   "2년·1990~1999": {
+    "lump": {
+     "n": 120,
+     "stable_n": 109,
+     "stable_share": "+90.8%",
+     "dd20_n": 3
+    },
+    "split": {
+     "n": 120,
+     "stable_n": 106,
+     "stable_share": "+88.3%",
+     "dd20_n": 3
+    }
+   },
+   "2년·1990~": {
+    "lump": {
+     "n": 418,
+     "stable_n": 323,
+     "stable_share": "+77.3%",
+     "dd20_n": 76
+    },
+    "split": {
+     "n": 418,
+     "stable_n": 337,
+     "stable_share": "+80.6%",
+     "dd20_n": 51
+    }
+   },
+   "5년·1990~1999": {
+    "lump": {
+     "n": 120,
+     "stable_n": 90,
+     "stable_share": "+75.0%",
+     "dd20_n": 20
+    },
+    "split": {
+     "n": 120,
+     "stable_n": 89,
+     "stable_share": "+74.2%",
+     "dd20_n": 24
+    }
+   },
+   "5년·1990~": {
+    "lump": {
+     "n": 382,
+     "stable_n": 247,
+     "stable_share": "+64.7%",
+     "dd20_n": 124
+    },
+    "split": {
+     "n": 382,
+     "stable_n": 266,
+     "stable_share": "+69.6%",
+     "dd20_n": 107
+    }
+   }
+  },
+  "1년_보유_손실": {
+   "1990~": {
+    "n": 430,
+    "loss_share": "+16.7%"
+   },
+   "2000~": {
+    "n": 310,
+    "loss_share": "+22.3%"
+   }
+  },
+  "매도20_하락장별": {
+   "닷컴": {
+    "n": 50,
+    "hold_below_principal": 29,
+    "hold_minus_sold_median": 0.14
+   },
+   "금융위기": {
+    "n": 61,
+    "hold_below_principal": 17,
+    "hold_minus_sold_median": 0.26
+   },
+   "코로나": {
+    "n": 13,
+    "hold_below_principal": 0,
+    "hold_minus_sold_median": 1.13
    }
   }
  }

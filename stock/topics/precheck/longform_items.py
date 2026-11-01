@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-11-01 — 반론 3회차 나머지: 한꺼번에 vs 나눠 2000 이후(20% 넘게 줄어든 몫·안정 몫) · −20% 매도 124번의 원금 · 200일 신호 배당 포함 · 정씨 정답(페이팔 10%).
+# VERSION: v1.8 — 2026-11-01 — 반론 4회차: 3편 200일 평균을 1988년부터(신호 29번) · 200일 규칙 다시 · 박씨 묶음 원금 회복·지금 · 2편 한꺼번에 vs 나눠 1990년대 · 1년 보유 손실 몫 · −20% 매도 하락장별.
+# (v1.7 — 2026-11-01 — 반론 3회차 나머지: 한꺼번에 vs 나눠 2000 이후(20% 넘게 줄어든 몫·안정 몫) · −20% 매도 124번의 원금 · 200일 신호 배당 포함 · 정씨 정답(페이팔 10%).
 # (v1.6 — 2026-11-01 — 반론 3회차: 테슬라 같은 날 · 김씨·정답 경로 지금까지.
 # (v1.5 — 2026-11-01 — 반론 2회차 나머지: 이씨 여윳돈 2년 · 박씨 은행주+2배 · 200일 평균 사고팔기 규칙 · 경고 2년 · 2008 넉 달 나눠 vs 기다림 · −60% 날 뒤 · 정씨 정답 경로.
 # (v1.4 — 2026-11-01 — 반론 2회차: 김씨 1번 = 한꺼번에(손절 항목 뺌 — 손절 뒤 현금은 정의상 안정 기준을 못 넘음) · 2배 지금까지 · 루시드 같은 기간 지수.
@@ -27,7 +28,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.7"
+VERSION = "v1.8"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -554,6 +555,98 @@ def paths(S):
         with_pypl10_2024_06_13=round(v0207 * (0.9 * (1 + tr.chg("2022-02-07", "2024-06-13")) + 0.1 * (1 + S["PYPL"].chg("2022-02-07", "2024-06-13"))), 3),
         without_pypl_2024_06_13=round(v0207 * (1 + tr.chg("2022-02-07", "2024-06-13")), 3),
         wait_10pct_2008_10_08_lump=buy(S, "2008-10-08"))
+
+    # ---------- v1.8 (반론 4회차 — 3편)
+    # 200일 평균을 1988년 자료부터 냄 (v1.3 의 ds·ma 는 1990-01-02 부터라 1990-10-15 가 가짜 첫 신호였음) · 신호·2년 결과·200일 규칙 다시
+    pxa = spx.v
+    ma_full = np.array([np.nan] * 199 + [float(pxa[i - 199:i + 1].mean()) for i in range(199, len(pxa))])
+    i90 = spx.i("1990-01-02")
+    if spx.k[i90] < "1990-01-02":
+        i90 += 1
+    on_f = pxa < ma_full
+    # 꺼짐·켜짐을 1988년부터 이어서 세고, 1990-01-02 이후에 처음 켜진 날만 셈 (60거래일 넘게 꺼졌다가 켜진 날)
+    sig_f, last = [], -10 ** 9
+    for i_ in range(199, len(pxa)):
+        if on_f[i_]:
+            if i_ - last > 60 and i_ >= i90:
+                sig_f.append(spx.k[i_])
+            last = i_
+    rows2 = []
+    for d in sig_f:
+        e2 = f"{int(d[:4]) + 2:04d}{d[4:]}"
+        if e2 > tr.k[-1]:
+            continue
+        rows2.append({"day": d, "tr_low_2y": tr.low(d, e2)[0], "hold_2y": 1 + tr.chg(d, e2), "cash_2y": 1 + cash.chg(d, e2)})
+    # 200일 규칙 (평균은 1988년부터) — 1990-01-02 부터: 그날 종가가 평균 위면 다음 날 지수(배당 포함), 아래면 현금
+    hv_, rv_, tr_n, cur = [1.0], [1.0], 0, None
+    for k in range(i90, len(pxa) - 1):
+        above = pxa[k] > ma_full[k]
+        if cur is not None and above != cur:
+            tr_n += 1
+        cur = above
+        a_, b_ = spx.k[k], spx.k[k + 1]
+        hv_.append(hv_[-1] * tr.at(b_) / tr.at(a_))
+        rv_.append(rv_[-1] * (tr.at(b_) / tr.at(a_) if above else cash.at(b_) / cash.at(a_)))
+    hv_, rv_ = np.array(hv_), np.array(rv_)
+    yy_ = (date.fromisoformat(spx.k[-1]) - date.fromisoformat(spx.k[i90])).days / 365.25
+    # 박씨 묶음(금융 반 · 2배 반, 2007-08-03) — 원금 되찾은 날 · 지수(배당 포함) 같은 날부터 원금 되찾은 날 · 지금
+    xf = S["XLF"]
+    common = [d for d in xf.k if d >= "2007-08-03" and d <= lev.k[-1]]
+    bundle = np.array([0.5 * xf.at(d) / xf.at("2007-08-03") + 0.5 * lev.at(d) / lev.at("2007-08-03") for d in common])
+    b_back = next((common[i_] for i_ in range(len(common)) if common[i_] > "2009-03-09" and bundle[i_] >= 1), None)
+    put("3편_v1.8", ma_from="1988-01-04", signals_from="1990-01-02", n_signals=len(sig_f), first_signals=sig_f[:3], n_with_2y=len(rows2),
+        no_dd20_2y=sum(r["tr_low_2y"] >= -0.2 for r in rows2), dd20_2y=[r["day"] for r in rows2 if r["tr_low_2y"] < -0.2],
+        hold_better_2y=sum(r["hold_2y"] > r["cash_2y"] for r in rows2), sold_better_2y=[r["day"] for r in rows2 if r["cash_2y"] >= r["hold_2y"]],
+        rule_from=spx.k[i90], rule_max_dd=pct(float((rv_ / np.maximum.accumulate(rv_) - 1).min())), hold_max_dd=pct(float((hv_ / np.maximum.accumulate(hv_) - 1).min())),
+        rule_trades=tr_n, rule_end=round(float(rv_[-1]), 2), hold_end=round(float(hv_[-1]), 2), rule_over_hold=round(float(rv_[-1] / hv_[-1]), 3),
+        rule_cagr=pct(float(rv_[-1] ** (1 / yy_) - 1)), hold_cagr=pct(float(hv_[-1] ** (1 / yy_) - 1)), cash_end=round(cash.at(spx.k[-1]) / cash.at(spx.k[i90]), 2),
+        bundle_trough=round(float(bundle.min()), 4), bundle_back_to_principal=b_back, bundle_years_to_back=yrs("2007-08-03", b_back) if b_back else None,
+        tr_back_to_0803=tr.back("2007-08-03", tr.at("2007-08-03"), after="2009-03-09"), tr_years_to_back=yrs("2007-08-03", tr.back("2007-08-03", tr.at("2007-08-03"), after="2009-03-09")),
+        bundle_now=round(float(bundle[-1]), 2), tr_now_from_0803=round(1 + tr.chg("2007-08-03", tr.k[-1]), 2), bundle_now_day=common[-1],
+        sector_recover_note="purpose_numbers A_sectors: years_to_recover = 그 하락의 고점 → 고점 회복 (바닥부터가 아님)")
+
+    # ---------- v1.8 (반론 4회차 — 2편·1편)
+    # 한꺼번에 vs 12달 나눠 — 1990~1999 시작 · 1990 이후 전체 (v1.7 은 2000 이후만)
+    m90 = [tr.k[k] for k in range(1, len(tr.k)) if tr.k[k][:7] != tr.k[k - 1][:7] and tr.k[k] >= "1990-01-01"]
+    LS90 = {}
+    for yy in (2, 5):
+        for era, lo_, hi_ in (("1990~1999", "1990-01-01", "1999-12-31"), ("1990~", "1990-01-01", "2099-12-31")):
+            acc = {"lump": [], "split": []}
+            for d in m90:
+                if not (lo_ <= d <= hi_) or f"{int(d[:4]) + yy:04d}{d[4:]}" > tr.k[-1]:
+                    continue
+                cash_end = 1 + cash.chg(d, f"{int(d[:4]) + yy:04d}{d[4:]}")
+                for kind, mm in (("lump", 1), ("split", 12)):
+                    b_ = buy(S, d, years=yy, months=mm)
+                    acc[kind].append((b_["end_value"], b_["worst"], cash_end))
+            LS90[f"{yy}년·{era}"] = {kind: {"n": len(v_), "stable_n": int(sum((e_ > c_) and (w >= -0.2) for e_, w, c_ in v_)),
+                                            "stable_share": pct(float(np.mean([(e_ > c_) and (w >= -0.2) for e_, w, c_ in v_]))),
+                                            "dd20_n": int(sum(w < -0.2 for _, w, _ in v_))} for kind, v_ in acc.items()}
+    put("한꺼번에_vs_나눠_1990", **LS90)
+    # 지수 1년 보유 손실 몫 — 매달 첫 거래일 시작 (배당 포함)
+    one = {}
+    for era, lo_ in (("1990~", "1990-01-01"), ("2000~", "2000-01-01")):
+        v1 = [tr.chg(d, f"{int(d[:4]) + 1:04d}{d[4:]}") for d in m90 if d >= lo_ and f"{int(d[:4]) + 1:04d}{d[4:]}" <= tr.k[-1]]
+        one[era] = {"n": len(v1), "loss_share": pct(float(np.mean([x < 0 for x in v1])))}
+    put("1년_보유_손실", **one)
+    # −20% 매도 124번 — 하락장별 (매도 날로 나눔): 수 · 보유해도 5년 뒤 원금 아래 · 보유 − 매도 가운데 값
+    by = {}
+    for k0 in mk:
+        e5d = f"{int(tr.k[k0][:4]) + 5:04d}{tr.k[k0][4:]}"
+        if tr.k[-1] < e5d:
+            break
+        e5 = tr.i(e5d)
+        seg = tr.v[k0:e5 + 1] / tr.v[k0]
+        hit = np.nonzero(seg < 0.8)[0]
+        if not len(hit):
+            continue
+        ks = k0 + int(hit[0])
+        dsell = tr.k[ks]
+        bear = "닷컴" if dsell < "2005-01-01" else ("금융위기" if dsell < "2015-01-01" else "코로나")
+        hold, sold = float(seg[-1]), float(seg[hit[0]] * cash.v[e5] / cash.v[ks])
+        by.setdefault(bear, []).append((hold, sold))
+    put("매도20_하락장별", **{b: {"n": len(v_), "hold_below_principal": int(sum(h < 1 for h, _ in v_)), "hold_minus_sold_median": round(float(np.median([h - s_ for h, s_ in v_])), 2)}
+                              for b, v_ in by.items()})
     return P
 
 

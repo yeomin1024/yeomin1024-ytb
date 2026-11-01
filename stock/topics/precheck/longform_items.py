@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-31 — 최초. 주식 롱폼 1~4편 대본(사용자 지시 2026-10-31 "롱폼 내용은 1편 쇼츠 처럼 도입부는 좋지 않은 사례인 A씨 사연을 짧게 … 항목 선택지는 …
+# VERSION: v1.1 — 2026-11-01 — 사연 인물 경로(김씨·이씨·박씨·최씨·정씨) 더함 (사용자 지시 2026-11-01 "…항목을 한 사람의 케이스로 다 설명가능하고 시기가 달라서
+#          그렇게 하기 힘들면 여러 사람 케이스로 해 사연 인물은 김씨, 이씨 등 성씨로 하고 … 대표 항목 5개로 줄여"). 함정 답만 고른 경로의 돈 · 항목 사이 기간의 변화.
+# (v1.0 — 2026-10-31 — 최초.) 주식 롱폼 1~4편 대본(사용자 지시 2026-10-31 "롱폼 내용은 1편 쇼츠 처럼 도입부는 좋지 않은 사례인 A씨 사연을 짧게 … 항목 선택지는 …
 #          2가지로만 … 시청자의 통념을 깨부술 수 있는 항목(틀리기 쉽도록) 반전 요소 … 항목의 상황은 예전 그 당시 과거 데이터로 재현하고 정답로 과거 데이터로 참고하면 돼
 #          1~4편까지 롱폼 대본 다시 만들어")의 A씨 사연·항목 40개 숫자 — 대본의 숫자는 모두 이 파일 출력(또는 적힌 다른 계산 파일)에서.
 # 자료(새로 받지 않음): calc/gspc_daily.csv(가격) · sp500tr_daily.csv(배당 포함) · irx_daily.csv(13주 국채) · precheck/data/*.csv · bulk/px/*.csv (adjclose — 분할·배당 반영) · VIX.csv
@@ -18,7 +20,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.0"
+VERSION = "v1.1"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -75,6 +77,10 @@ class Ser:
 
 def yrs(a, b):
     return round((date.fromisoformat(b) - date.fromisoformat(a)).days / 365.25, 1)
+
+
+def months(a, b):
+    return round((date.fromisoformat(b) - date.fromisoformat(a)).days / 30.44, 1)
 
 
 def pct(x):
@@ -221,11 +227,60 @@ def facts(S):
     return F
 
 
+def paths(S):
+    """사연 인물이 함정 답만 골랐을 때의 돈 (원금 1) — 대본 도입·해설의 숫자."""
+    tr, cash, lev, spx = S["TR"], S["CASH"], S["LEV2"], S["SPX"]
+    P = {}
+
+    def put(key, **kw):
+        P[key] = kw
+        log.info("path=%s %s", key, json.dumps(kw, ensure_ascii=False), extra={"stage": "PATH"})
+
+    # 김씨 (1편): 최고가 매수 → −10% 손절(현금) → 기술 펀드 전부 → 전기차 회사 전부 → 2배 상품 전부 → 가장 많이 빠진 기술 펀드 전부
+    d1 = tr.first_below("2020-02-19", -0.10)
+    steps = [("손절 (S&P 500 → 현금)", "TR", "2020-02-19", d1), ("현금 (국채)", "CASH", d1, "2021-02-12"), ("기술 펀드 ARKK", "ARKK", "2021-02-12", "2021-11-16"),
+             ("전기차 회사 LCID", "LCID", "2021-11-16", "2022-01-03"), ("2배 상품", "LEV2", "2022-01-03", "2022-10-12"), ("기술 펀드 ARKK", "ARKK", "2022-10-12", "2024-10-11")]
+    v, rows = 1.0, []
+    for name, sym, a, b in steps:
+        c = S[sym].chg(a, b)
+        v *= 1 + c
+        rows.append({"step": name, "from": a, "to": b, "chg": pct(c), "value": round(v, 4)})
+    put("김씨", steps=rows, value_at_last_choice=rows[4]["value"], value_2y_after=rows[5]["value"],
+        hold_tr_to_last_choice=round(1 + tr.chg("2020-02-19", "2022-10-12"), 4), hold_tr_2y_after=round(1 + tr.chg("2020-02-19", "2024-10-11"), 4),
+        years_to_last_choice=yrs("2020-02-19", "2022-10-12"), months_steps=[months(a, b) for _, _, a, b in steps])
+    # 이씨 (2편): 1억 한꺼번에 2022-01-03 → 2022-06-13 원금 80% 아래 첫날 매도 (facts.2 A씨_2022-01-03 와 같음) + 페이팔 비중
+    # 계좌 1억(페이팔 7천만 · 지수 3천만, 2021-07-23) + 비상금 2천만 · 전세금 8천만(2022-01-03 한꺼번에 1억) → 2022-06-13 모두 매도 (만 원)
+    pyp = 7000 * (1 + S["PYPL"].chg("2021-07-23", "2022-06-13"))
+    idx = 3000 * (1 + tr.chg("2021-07-23", "2022-06-13"))
+    lump = 10000 * (1 + tr.chg("2022-01-03", "2022-06-13"))
+    hold2 = 7000 * (1 + S["PYPL"].chg("2021-07-23", "2024-01-03")) + 3000 * (1 + tr.chg("2021-07-23", "2024-01-03")) + 10000 * (1 + tr.chg("2022-01-03", "2024-01-03"))
+    plan = 3000 * (1 + tr.chg("2021-07-23", "2022-06-13")) + 7000 * (1 + tr.chg("2021-07-23", "2022-06-13"))   # 함정을 피했다면: 페이팔 비중을 지수로 덜어 냄 · 비상금·전세금은 예금
+    put("이씨", pypl_to_2022_06_13=pct(S["PYPL"].chg("2021-07-23", "2022-06-13")), months_jan_to_jun=months("2022-01-03", "2022-06-13"),
+        sold_total_manwon=round(pyp + idx + lump), parts_manwon={"페이팔": round(pyp), "지수": round(idx), "새해 1억": round(lump)}, put_in_manwon=20000,
+        loss_manwon=round(20000 - (pyp + idx + lump)), hold_all_2024_01_03_manwon=round(hold2),
+        no_trap_account_2022_06_13_manwon=round(plan), deposit_cash_2022_06_13_manwon=round(10000 * (1 + cash.chg("2022-01-03", "2022-06-13"))))
+    # 박씨 (3편): 신호 날 2배 상품 → 두 달 뒤 최고가 → 바닥
+    put("박씨", lev_signal_to_peak=pct(lev.chg("2007-08-03", "2007-10-09")), lev_peak_to_trough=pct(lev.chg("2007-10-09", "2009-03-09")),
+        lev_signal_to_trough=pct(lev.chg("2007-08-03", "2009-03-09")), spx_signal_to_peak=pct(spx.chg("2007-08-03", "2007-10-09")))
+    # 최씨 (3편): 금리 역전 날 전부 매도 → 석 달 뒤 다시 매수 → 유명 투자자 '팔아라'
+    put("최씨", spx_inversion_to_rebuy=pct(spx.chg("2022-11-10", "2023-01-31")), tr_inversion_2y=pct(tr.chg("2022-11-10", "2024-11-08")))
+    # 정씨 (4편): 최고가 매수 → 공포에 매도 → 지수가 다시 그 최고가로 → 결제 회사 −60% → 하락장
+    sale = spx.at("2020-03-12")
+    lo, ld = spx.low("2020-08-10", spx.k[-1])
+    put("정씨", sale_value=round(1 + tr.chg("2020-02-19", "2020-03-12"), 4), spx_aug_vs_sale=pct(spx.at("2020-08-10") / sale - 1),
+        spx_min_after_aug_vs_sale=pct(spx.at(ld) / sale - 1), spx_min_after_aug_day=ld, months_mar12_to_aug10=months("2020-03-12", "2020-08-10"), months_mar23_to_aug10=months("2020-03-23", "2020-08-10"),
+        years_aug_to_pypl=yrs("2020-08-10", "2022-02-07"), months_pypl_to_bear=months("2022-02-07", "2022-06-13"),
+        vix_median_1990=round(float(np.median(S["VIX"].v)), 1), vix_on_sale=round(S["VIX"].at("2020-03-12"), 1),
+        spx_price_back_to_peak=spx.back("2020-02-19", spx.at("2020-02-19"), after="2020-03-23"))
+    return P
+
+
 def main():
     S = load()
     F = facts(S)
+    P = paths(S)
     out = HERE / f"longform_items_{date.today().isoformat()}.json"
-    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F}, ensure_ascii=False, indent=1), "utf-8")
+    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P}, ensure_ascii=False, indent=1), "utf-8")
     log.info("file=%s items=%d", out.name, sum(len(v) for v in F.values()), extra={"stage": "DONE"})
 
 

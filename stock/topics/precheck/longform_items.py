@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0 — 2026-11-01 — 1편을 나스닥 100(QQQ)·QLD·ARKK·SMCI(AI 서버)로 (사용자 지시 "S&P500 말고 나스닥 지수로 해 … 전기차 회사라고 하지말고 최근 트렌드인 AI 관련 종목") — nasdaq_1().
+# VERSION: v2.1 — 2026-11-01 — 1편 다섯 습관(남 따라 사기·현금 없음·기준 없음·손절 안 함·분산 안 함) — nasdaq_1_v21() · MSTR 자료.
+# (v2.0 — 2026-11-01 — 1편을 나스닥 100(QQQ)·QLD·ARKK·SMCI(AI 서버)로 (사용자 지시 "S&P500 말고 나스닥 지수로 해 … 전기차 회사라고 하지말고 최근 트렌드인 AI 관련 종목") — nasdaq_1().
 # (v1.9 — 2026-11-01 — 반론 5회차(3편): 200일 규칙 판 횟수·손해 보고 판 수 · 버리 글 다음 날(2023-02-01) 기준 2년.
 # (v1.8 — 2026-11-01 — 반론 4회차: 3편 200일 평균을 1988년부터(신호 29번) · 200일 규칙 다시 · 박씨 묶음 원금 회복·지금 · 2편 한꺼번에 vs 나눠 1990년대 · 1년 보유 손실 몫 · −20% 매도 하락장별.
 # (v1.7 — 2026-11-01 — 반론 3회차 나머지: 한꺼번에 vs 나눠 2000 이후(20% 넘게 줄어든 몫·안정 몫) · −20% 매도 124번의 원금 · 200일 신호 배당 포함 · 정씨 정답(페이팔 10%).
@@ -30,7 +31,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v2.0"
+VERSION = "v2.1"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -883,15 +884,57 @@ def nasdaq_1(S):
     return R
 
 
+def nasdaq_1_v21(S):
+    """v2.1 — 1편을 사용자가 준 다섯 습관으로 (사용자 지시 2026-11-01 "1편을 아래 5가지로 항목 만들어서 재구성하고 …
+    -남들이 좋다고 한 종목을 따라 산다 -최악의 상황에 대비하여 현금을 남겨놓지 않는다 -상황에 따른 매수, 매도 기준이 없다
+    -자신의 실수를 인정하지 않고 손절하지 않는다 -여러 종목, 섹터 등 분배하지 않는다").
+    ① 2021-02-12 ARKK(동료·친구가 산 1년 2.7배 ETF) vs 나스닥 ② 같은 날 1억 전부 vs 2천만 현금 남김 ③ 2022-06-13 나스닥 −30% — 그때그때(김씨: 06-16 매도 → 최고가 회복 2023-12-13 재매수) vs 기준대로 보유
+    ④ 2024-08-28 SMCI(2024-03-13 지인 추천 매수 · 회계 문제 보고서·연간 보고서 지연) 버팀 vs 손절하고 나스닥 ⑤ 2024-11-20 MSTR(비트코인 사 모으는 회사, 1년 9.3배) 전부 vs 지수.
+    금액 = 1억 원 × 달러 기준 변화율 (환율 뺌)."""
+    q, A, cash = S["QQQ"], S["ARKK"], S["CASH"]
+    M, B = S["SMCI"], S["MSTR"]
+    NOW = "2026-10-27"
+    d1, d3, dSell, dBack, dS, d4, d5 = "2021-02-12", "2022-06-13", "2022-06-16", "2023-12-13", "2024-03-13", "2024-08-28", "2024-11-20"
+    R = {}
+
+    def put(key, **kw):
+        R[key] = kw
+        log.info("key=%s %s", key, json.dumps(kw, ensure_ascii=False)[:600], extra={"stage": "NASDAQ1v21"})
+
+    put("1_남따라", arkk_prior_1y=round(1 + A.chg("2020-02-12", d1), 2), arkk_low=pct(A.low(d1, NOW)[0]), arkk_now=pct(A.chg(d1, NOW)),
+        qqq_low=pct(q.low(d1, NOW)[0]), qqq_low_day=q.low(d1, NOW)[1], qqq_now=pct(q.chg(d1, NOW)))
+    put("2_현금", qqq_low_from_d1=pct(q.low(d1, "2022-12-31")[0]), all_in_low_manwon=round(10000 * (1 + q.low(d1, "2022-12-31")[0])),
+        keep_cash_low_manwon=round(8000 * (1 + q.low(d1, "2022-12-31")[0]) + 2000 * (1 + cash.chg(d1, q.low(d1, "2022-12-31")[1]))))
+    put("3_기준", qqq_peak_to_d3=pct(q.chg("2021-12-27", d3)), further_low=pct(q.low(d3, "2022-12-31")[0]), hold_to_now=pct(q.chg(d3, NOW)),
+        panic_to_now=pct((1 + q.chg(d3, dSell)) * (1 + cash.chg(dSell, dBack)) * (1 + q.chg(dBack, NOW)) - 1), years_out=yrs(dSell, dBack),
+        morningstar="Mind the Gap 2024 (미국 · 2023년까지 10년): 투자자 수익이 펀드 수익보다 해마다 약 1.1%p 낮음 = 10년 수익의 약 15%를 놓침")
+    put("4_손절", smci_buy_to_d4=pct(M.chg(dS, d4)), months=months(dS, d4), further_low=pct(M.low(d4, NOW)[0]), further_low_day=M.low(d4, NOW)[1],
+        smci_now=pct(M.chg(d4, NOW)), qqq_low=pct(q.low(d4, NOW)[0]), qqq_now=pct(q.chg(d4, NOW)),
+        odean="Odean 1998 Journal of Finance (미국 할인 증권사 1만 계좌): 판 이익 종목이 들고 있던 손실 종목보다 다음 1년 약 3.4%p 더 오름")
+    put("5_분산", mstr_prior_1y=round(1 + B.chg("2023-11-20", d5), 1), mstr_low=pct(B.low(d5, NOW)[0]), mstr_low_day=B.low(d5, NOW)[1], mstr_now=pct(B.chg(d5, NOW)),
+        qqq_low=pct(q.low(d5, NOW)[0]), qqq_now=pct(q.chg(d5, NOW)), sectors="purpose_numbers_2026-10-31.json A_sectors: 1999년 이후 9개 업종 중 6개가 S&P 500(−55.3%)보다 깊이 빠짐")
+    # 김씨(오답만): 1억 → ARKK → 06-16 모두 매도(국채) → 2023-12-13 나스닥 → 2024-03-13 SMCI(지인 추천) → 버팀 → 2024-11-20 MSTR → 지금
+    w = 10000 * (1 + A.chg(d1, dSell))
+    w *= 1 + cash.chg(dSell, dBack)
+    w *= 1 + q.chg(dBack, dS)
+    w *= 1 + M.chg(dS, d5)
+    w *= 1 + B.chg(d5, NOW)
+    # 정답만: 8천 나스닥 보유 + 2천 현금(국채)
+    g = 8000 * (1 + q.chg(d1, NOW)) + 2000 * (1 + cash.chg(d1, NOW))
+    put("김씨_경로", wrong_now_manwon=round(w), wrong_loss=pct(w / 10000 - 1), correct_now_manwon=round(g), years=yrs(d1, NOW), qqq_same=pct(q.chg(d1, NOW)))
+    return R
+
+
 def main():
     S = load()
-    for sym in ("QQQ", "QLD", "SMCI", "NVDA"):
+    for sym in ("QQQ", "QLD", "SMCI", "NVDA", "MSTR"):
         S[sym] = Ser(sym, rd(HERE / "data" / f"{sym}.csv", "adjclose"))
     F = facts(S)
     P = paths(S)
     N1 = nasdaq_1(S)
+    N2 = nasdaq_1_v21(S)
     out = HERE / f"longform_items_{date.today().isoformat()}.json"
-    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1}, ensure_ascii=False, indent=1), "utf-8")
+    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1, "nasdaq_1편_v2.1": N2}, ensure_ascii=False, indent=1), "utf-8")
     log.info("file=%s items=%d", out.name, sum(len(v) for v in F.values()), extra={"stage": "DONE"})
 
 

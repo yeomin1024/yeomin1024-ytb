@@ -1,5 +1,5 @@
 {
- "tool": "longform_items.py v2.0",
+ "tool": "longform_items.py v2.1",
  "data_last": "2026-10-27",
  "facts": {
   "1": {
@@ -1370,6 +1370,55 @@
    "won": "1억 원 × 값",
    "d5_qqq_now": "+42.6%",
    "d5_qqq_low": "-18.3%"
+  }
+ },
+ "nasdaq_1편_v2.1": {
+  "1_남따라": {
+   "arkk_prior_1y": 2.73,
+   "arkk_low": "-80.9%",
+   "arkk_now": "-45.0%",
+   "qqq_low": "-21.8%",
+   "qqq_low_day": "2022-11-03",
+   "qqq_now": "+121.7%"
+  },
+  "2_현금": {
+   "qqq_low_from_d1": "-21.8%",
+   "all_in_low_manwon": 7818,
+   "keep_cash_low_manwon": 8281
+  },
+  "3_기준": {
+   "qqq_peak_to_d3": "-31.7%",
+   "further_low": "-5.1%",
+   "hold_to_now": "+169.2%",
+   "panic_to_now": "+90.7%",
+   "years_out": 1.5,
+   "morningstar": "Mind the Gap 2024 (미국 · 2023년까지 10년): 투자자 수익이 펀드 수익보다 해마다 약 1.1%p 낮음 = 10년 수익의 약 15%를 놓침"
+  },
+  "4_손절": {
+   "smci_buy_to_d4": "-62.7%",
+   "months": 5.5,
+   "further_low": "-59.4%",
+   "further_low_day": "2024-11-14",
+   "smci_now": "-20.9%",
+   "qqq_low": "-11.3%",
+   "qqq_now": "+54.8%",
+   "odean": "Odean 1998 Journal of Finance (미국 할인 증권사 1만 계좌): 판 이익 종목이 들고 있던 손실 종목보다 다음 1년 약 3.4%p 더 오름"
+  },
+  "5_분산": {
+   "mstr_prior_1y": 9.3,
+   "mstr_low": "-82.6%",
+   "mstr_low_day": "2026-06-26",
+   "mstr_now": "-70.2%",
+   "qqq_low": "-17.1%",
+   "qqq_now": "+44.8%",
+   "sectors": "purpose_numbers_2026-10-31.json A_sectors: 1999년 이후 9개 업종 중 6개가 S&P 500(−55.3%)보다 깊이 빠짐"
+  },
+  "김씨_경로": {
+   "wrong_now_manwon": 180,
+   "wrong_loss": "-98.2%",
+   "correct_now_manwon": 20143,
+   "years": 5.7,
+   "qqq_same": "+121.7%"
   }
  }
 }

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-01 — 사연 인물 경로(김씨·이씨·박씨·최씨·정씨) 더함 (사용자 지시 2026-11-01 "…항목을 한 사람의 케이스로 다 설명가능하고 시기가 달라서
+# VERSION: v1.3 — 2026-11-01 — 반론 검토 1회차 나머지: 금액은 달러(환율 뺌) · 김씨 4년 경로 · 2배가 더 번 상승기 · 신호 날 전부 매도 vs 보유(2·5년, 모든 신호) ·
+#          유명인 경고 1년 안 가장 크게 빠진 폭 · 정씨 경로(8만 투자 + 2만 남김) · 바닥 나눠 넣기 vs 최고가 회복까지 기다리기 · 하락장 들어선 날 매달 매수 이어 가기 vs 멈춤(4·5년).
+# (v1.2 — 2026-11-01 — 반론 검토 1회차 반영: 이씨 돈을 넷으로 나눔(계좌·비상금·전세금·5년 안 쓸 여윳돈) · 페이팔 10% 남김 · −20% 매도 vs 보유 5년(1990년 이후 매달 시작 전부).
+# (v1.1 — 2026-11-01 — 사연 인물 경로(김씨·이씨·박씨·최씨·정씨) 더함 (사용자 지시 2026-11-01 "…항목을 한 사람의 케이스로 다 설명가능하고 시기가 달라서
 #          그렇게 하기 힘들면 여러 사람 케이스로 해 사연 인물은 김씨, 이씨 등 성씨로 하고 … 대표 항목 5개로 줄여"). 함정 답만 고른 경로의 돈 · 항목 사이 기간의 변화.
 # (v1.0 — 2026-10-31 — 최초.) 주식 롱폼 1~4편 대본(사용자 지시 2026-10-31 "롱폼 내용은 1편 쇼츠 처럼 도입부는 좋지 않은 사례인 A씨 사연을 짧게 … 항목 선택지는 …
 #          2가지로만 … 시청자의 통념을 깨부술 수 있는 항목(틀리기 쉽도록) 반전 요소 … 항목의 상황은 예전 그 당시 과거 데이터로 재현하고 정답로 과거 데이터로 참고하면 돼
@@ -20,7 +23,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.1"
+VERSION = "v1.3"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -272,6 +275,135 @@ def paths(S):
         years_aug_to_pypl=yrs("2020-08-10", "2022-02-07"), months_pypl_to_bear=months("2022-02-07", "2022-06-13"),
         vix_median_1990=round(float(np.median(S["VIX"].v)), 1), vix_on_sale=round(S["VIX"].at("2020-03-12"), 1),
         spx_price_back_to_peak=spx.back("2020-02-19", spx.at("2020-02-19"), after="2020-03-23"))
+
+    # 이씨 v1.2 (2편 반론 1회차): 계좌 1억(2021-07-23 페이팔 7천 · 지수 3천) · 비상금 2천 · 전세금 8천 · 여윳돈 5천(5년 넘게 안 씀, 2022-01-03)
+    #   함정: 페이팔 그대로 · 비상금·전세금 2022-01-03 지수에 · 여윳돈 한꺼번에 · 2022-06-13 모두 매도
+    #   함정 없이: 페이팔 10%만(나머지 지수) · 비상금·전세금 예금 · 여윳돈 12개월 나눠 · 보유
+    e = "2022-06-13"
+    trap = (7000 * (1 + S["PYPL"].chg("2021-07-23", e)) + 3000 * (1 + tr.chg("2021-07-23", e)) + 10000 * (1 + tr.chg("2022-01-03", e)) + 5000 * (1 + tr.chg("2022-01-03", e)))
+    sp = buy(S, "2022-01-03", years=2, months=12)
+    i_e = tr.i(e)
+    # 나눠 매수 중 그날 값: buy() 와 같은 일정으로 다시 셈
+    y, m, dd = 2022, 1, "03"
+    sched = [tr.i("2022-01-03")] + [bisect.bisect_left(tr.k, f"{y + (m - 1 + k) // 12:04d}-{(m - 1 + k) % 12 + 1:02d}-{dd}") for k in range(1, 12)]
+    c, u = 1.0, 0.0
+    for k in range(tr.i("2022-01-03"), i_e + 1):
+        if k in sched:
+            u += (1 / 12) / tr.v[k]
+            c -= 1 / 12
+        if k < i_e:
+            c *= cash.v[k + 1] / cash.v[k]
+    split_e = c + u * tr.v[i_e]
+    good = (1000 * (1 + S["PYPL"].chg("2021-07-23", e)) + 9000 * (1 + tr.chg("2021-07-23", e)) + 10000 * (1 + cash.chg("2022-01-03", e)) + 5000 * split_e)
+    put("이씨_v1.2", put_in_manwon=25000, trap_sold_manwon=round(trap), trap_loss_manwon=round(25000 - trap), no_trap_same_day_manwon=round(good),
+        spare_lump_on_day=round(1 + tr.chg("2022-01-03", e), 4), spare_split_on_day=round(split_e, 4), spare_lump_2y=round(1 + tr.chg("2022-01-03", "2024-01-03"), 4),
+        spare_split_2y=sp["end_value"], spare_lump_5y=round(1 + tr.chg("2022-01-03", "2027-01-03") if tr.k[-1] >= "2027-01-03" else 1 + tr.chg("2022-01-03", tr.k[-1]), 4),
+        jeonse_part_on_day_manwon=round(8000 * (1 + tr.chg("2022-01-03", e))), jeonse_part_2022_12_30_manwon=round(8000 * (1 + tr.chg("2022-01-03", "2022-12-30"))),
+        pypl70_half_hit=pct(-0.35))
+    # −20% 매도 vs 보유 — 1990년 이후 매달 첫 거래일에 한꺼번에 산 뒤 5년 안에 원금의 80% 아래로 간 때 전부: 5년 뒤 보유 vs (그날 매도 → 국채)
+    starts = [k for k in range(1, len(tr.k)) if tr.k[k][:7] != tr.k[k - 1][:7] and tr.k[k] >= "1990-01-01"]
+    rows = []
+    for k0 in starts:
+        e5 = tr.i(f"{int(tr.k[k0][:4]) + 5:04d}{tr.k[k0][4:]}")
+        if tr.k[-1] < f"{int(tr.k[k0][:4]) + 5:04d}{tr.k[k0][4:]}":
+            break
+        seg = tr.v[k0:e5 + 1] / tr.v[k0]
+        hit = np.nonzero(seg < 0.8)[0]
+        if not len(hit):
+            continue
+        ks = k0 + int(hit[0])
+        hold = float(seg[-1])
+        sold = float(seg[hit[0]] * cash.v[e5] / cash.v[ks])
+        rows.append((tr.k[k0], hold, sold))
+    hb = [h > s_ for _, h, s_ in rows]
+    put("매도20_vs_보유_5년", n=len(rows), hold_better=sum(hb), share=pct(float(np.mean(hb)) if rows else float("nan")),
+        median_hold=round(float(np.median([h for _, h, _ in rows])), 3), median_sold=round(float(np.median([s_ for _, _, s_ in rows])), 3),
+        sold_better_starts=sorted({d[:7] for (d, h, s_) in rows if s_ >= h})[:40], first=rows[0][0] if rows else None, last=rows[-1][0] if rows else None)
+
+    # ---------- v1.3 (반론 1회차)
+    # 1편 김씨: 2배 상품을 산 뒤 2년(2024-01-03)까지 · 처음 지수를 그대로 · 2배가 더 번 상승기
+    v4 = P["김씨"]["steps"][3]["value"]
+    k_end = "2024-01-03"
+    put("김씨_v1.3", value_2024_01_03=round(v4 * (1 + lev.chg("2022-01-03", k_end)), 4), hold_tr_2024_01_03=round(1 + tr.chg("2020-02-19", k_end), 4),
+        years=yrs("2020-02-19", k_end), lev_bull_2009_2021=pct(lev.chg("2009-03-09", "2021-12-31")), tr_bull_2009_2021=pct(tr.chg("2009-03-09", "2021-12-31")),
+        lev_low_2001=pct(lev.low("2001-09-17", "2003-09-17")[0]), tr_low_2001=pct(tr.low("2001-09-17", "2003-09-17")[0]))
+    # 3편: 신호 날 전부 매도(현금) vs 보유 — 2년·5년 (crash_tests 와 같은 신호 정의: 60거래일 꺼졌다가 처음 켜진 날)
+    vix, tnx = S["VIX"], Ser("10년 국채", rd(HERE / "data" / "TNX.csv", "close"))
+    irx = Ser("13주", rd(CALC / "irx_daily.csv", "close"))
+    ds = [d for d in spx.k if d >= "1990-01-02"]
+    pxv = np.array([spx.at(d) for d in ds])
+    ma = np.array([np.nan] * 199 + [float(pxv[i - 199:i + 1].mean()) for i in range(199, len(pxv))])
+    sigs = {"200일 평균 아래": pxv < ma, "공포 지수 30 넘음": np.array([vix.at(d) > 30 for d in ds]), "장단기 금리 역전": np.array([tnx.at(d) - irx.at(d) < 0 for d in ds])}
+    out = {}
+    for name, on in sigs.items():
+        on = np.where(np.isnan(on.astype(float)), False, on)
+        starts, last = [], -10 ** 9
+        for i, x in enumerate(on):
+            if x:
+                if i - last > 60:
+                    starts.append(ds[i])
+                last = i
+        res = {}
+        for yy in (2, 5):
+            rows = []
+            for d in starts:
+                e = f"{int(d[:4]) + yy:04d}{d[4:]}"
+                if e > tr.k[-1]:
+                    continue
+                rows.append((d, 1 + tr.chg(d, e), 1 + cash.chg(d, e)))
+            res[f"{yy}년"] = {"n": len(rows), "hold_better": sum(h > c for _, h, c in rows), "sold_better": [d for d, h, c in rows if c >= h]}
+        out[name] = {"n_signals": len(starts), **res}
+    put("신호_전부매도_vs_보유", **out)
+    put("3편_추가", tr_from_2007_08_03_low=pct(tr.low("2007-08-03", "2009-12-31")[0]),
+        burry_1y_low=pct(tr.low("2023-01-31", "2024-01-31")[0]),
+        warnings_1y_low={d: pct(tr.low(d, f"{int(d[:4]) + 1}{d[4:]}")[0]) for d in ("2021-01-22", "2022-06-01", "2022-06-03", "2023-01-31", "2023-08-14")})
+    # 4편 정씨: 10만 달러 중 8만 최고가 투자 · 2만 남김 → 함정: 3/12 매도 · 바닥에 기다림 · 최고가 근처에서도 기다림 · 2022-02-07 남은 돈 모두 페이팔 · (매달 매수 멈춤)
+    e4 = "2024-06-13"
+    cash_after = 8 * (1 + tr.chg("2020-02-19", "2020-03-12")) * (1 + cash.chg("2020-03-12", "2022-02-07")) + 2 * (1 + cash.chg("2020-02-19", "2022-02-07"))
+    trap4 = cash_after * (1 + S["PYPL"].chg("2022-02-07", e4))
+    good4 = 8 * (1 + tr.chg("2020-02-19", e4)) + 2 * (1 + tr.chg("2020-03-23", e4))
+    put("정씨_v1.3", invest=8, reserve=2, cash_on_2022_02_07=round(cash_after, 3), trap_2024_06_13=round(trap4, 3), loss=round(10 - trap4, 3),
+        hold_index_2024_06_13=round(good4, 3), years=yrs("2020-02-19", e4), sale_frac=round(1 + tr.chg("2020-02-19", "2020-03-12"), 4))
+    # 4편 2번: 바닥(3/23)부터 넉 달 나눠 vs 최고가로 돌아온 날(TR 2020-08-10)까지 기다렸다 한꺼번에 → 2022-03-23 값
+    s4 = buy(S, "2020-03-23", years=2, months=4)
+    put("4편_2_바닥", split4_2y=s4["end_value"], split4_worst=s4["worst"], wait_to_peak_then_lump_2y=round((1 + cash.chg("2020-03-23", "2020-08-10")) * (1 + tr.chg("2020-08-10", "2022-03-23")), 4),
+        lump_2008_09_29_worst=-0.3798, split_2008_09_29_worst=-0.1036)
+    # 4편 3번: 2020-08-10 부터 12개월 나눠 2년 · 그날보다 10% 아래로 내려간 적
+    s3 = buy(S, "2020-08-10", years=2, months=12)
+    lo3, ld3 = spx.low("2020-08-10", spx.k[-1])
+    put("4편_3_최고가근처", split12_2y=s3["end_value"], split12_worst=s3["worst"], spx_min_after=pct(lo3), spx_min_day=ld3)
+    # 4편 5번: 하락장에 들어선 날(최고가 대비 −20% 첫날)부터 매달 1씩 12번 사기를 이어 감 vs 멈추고 현금 → 최고가 회복 날 한꺼번에 · 4년·5년 뒤 (모은 돈 12 대비)
+    bears = [("2000-03-24", "닷컴"), ("2007-10-09", "금융위기"), ("2020-02-19", "코로나"), ("2022-01-03", "2022")]
+    rows = []
+    for pk, name in bears:
+        lvl = spx.at(pk)
+        d0 = spx.first_below(pk, -0.20)
+        back = spx.back(pk, lvl, after=d0)
+        i0 = tr.i(d0)
+        y, m, dd = int(d0[:4]), int(d0[5:7]), d0[8:]
+        sched = [i0] + [bisect.bisect_left(tr.k, f"{y + (m - 1 + k) // 12:04d}-{(m - 1 + k) % 12 + 1:02d}-{dd}") for k in range(1, 12)]
+        res = {"bear": name, "entry": d0, "back_to_peak": back}
+        for yy in (2, 4, 5):
+            e = f"{int(d0[:4]) + yy:04d}{d0[4:]}"
+            if e > tr.k[-1]:
+                continue
+            ie = tr.i(e)
+            cont = sum(tr.v[ie] / tr.v[k] * 1.0 for k in sched if k <= ie)        # 이어 감: 12번 산 것의 그날 값
+            # 멈춤: 같은 날짜에 넣을 돈을 현금으로 모아 두었다가, 최고가 회복 날(그 전에 끝나면 끝날) 한꺼번에
+            pause = 0.0
+            for k in sched:
+                if k > ie:
+                    continue
+                kb = tr.i(back) if back and back <= e else ie
+                kb = max(kb, k)
+                pause += (cash.v[kb] / cash.v[k]) * (tr.v[ie] / tr.v[kb])
+            res[f"{yy}년"] = {"continue": round(cont / 12, 4), "pause": round(pause / 12, 4)}
+        rows.append(res)
+    put("4편_5_하락장_매달", rows=rows)
+    # 3편 최씨 5번: 2023-10-20 200일 평균 신호 (crash_tests B 목록) — 최고가 대비 · 2년 보유 vs 현금 · 그사이 가장 크게 빠진 폭
+    put("3편_최씨_200일", spx_from_peak=pct(spx.peak_before("2023-10-20")[1]), tr_2y=pct(tr.chg("2023-10-20", "2025-10-20")),
+        cash_2y=pct(cash.chg("2023-10-20", "2025-10-20")), tr_low_2y=pct(tr.low("2023-10-20", "2025-10-20")[0]),
+        months_burry_to_signal=months("2023-01-31", "2023-10-20"))
     return P
 
 

@@ -647,6 +647,80 @@ def paths(S):
         by.setdefault(bear, []).append((hold, sold))
     put("매도20_하락장별", **{b: {"n": len(v_), "hold_below_principal": int(sum(h < 1 for h, _ in v_)), "hold_minus_sold_median": round(float(np.median([h - s_ for h, s_ in v_])), 2)}
                               for b, v_ in by.items()})
+
+    # ---------- v1.8 (반론 4회차 — 4편·1편)
+    # 4편 5번: 하락장에 들어선 날부터 매달 1씩 12번 — 이어 감(가는 길 가장 낮은 값 = 그때까지 넣은 돈 대비) vs 멈추고 예금(매달 넣을 돈을 예금에만)
+    rows5 = []
+    for pk, name in bears:
+        d0 = spx.first_below(pk, -0.20)
+        i0 = tr.i(d0)
+        y, m, dd = int(d0[:4]), int(d0[5:7]), d0[8:]
+        sched = [i0] + [bisect.bisect_left(tr.k, f"{y + (m - 1 + k) // 12:04d}-{(m - 1 + k) % 12 + 1:02d}-{dd}") for k in range(1, 12)]
+        res = {"bear": name, "entry": d0}
+        for yy in (2, 4):
+            e = f"{int(d0[:4]) + yy:04d}{d0[4:]}"
+            if e > tr.k[-1]:
+                continue
+            ie = tr.i(e)
+            units, put_in, worst = 0.0, 0.0, 0.0
+            for k in range(i0, ie + 1):
+                if k in sched:
+                    units += 1 / tr.v[k]
+                    put_in += 1
+                worst = min(worst, units * tr.v[k] / put_in - 1)
+            dep = sum(cash.v[ie] / cash.v[k] for k in sched if k <= ie)
+            n_in = sum(1 for k in sched if k <= ie)
+            res[f"{yy}년"] = {"continue": round(units * tr.v[ie] / n_in, 4), "continue_worst": pct(worst), "deposit_only": round(dep / n_in, 4)}
+        rows5.append(res)
+    put("4편_5_이어감_vs_예금", rows=rows5)
+    # 4편 3번: 최고가 근처(배당 포함 지수가 그때까지 최고가의 98% 이상)인 달 첫 거래일에 시작 — A 1년 12번 나눠 vs B 그날보다 10% 싸지면(첫날) 그때부터 1년 12번 나눠 (그 전엔 국채 현금)
+    def split_path(d_start, trig, e_):
+        """d_start 부터 e_ 까지 — trig 날(없으면 끝까지 현금)부터 12달 나눠 매수 · 끝 값과 가장 낮은 값 (원금 1)."""
+        ks, ke_ = tr.i(d_start), tr.i(e_)
+        sc = set()
+        if trig is not None:
+            kt = tr.i(trig)
+            y_, m_, dd_ = int(tr.k[kt][:4]), int(tr.k[kt][5:7]), tr.k[kt][8:]
+            sc = {kt} | {bisect.bisect_left(tr.k, f"{y_ + (m_ - 1 + j) // 12:04d}-{(m_ - 1 + j) % 12 + 1:02d}-{dd_}") for j in range(1, 12)}
+        c_, u_, left, worst_ = 1.0, 0.0, 12, 1.0
+        for k in range(ks, ke_ + 1):
+            if k in sc and left > 0:
+                amt = c_ / left
+                u_ += amt / tr.v[k]
+                c_ -= amt
+                left -= 1
+            worst_ = min(worst_, c_ + u_ * tr.v[k])
+            if k < ke_:
+                c_ *= cash.v[k + 1] / cash.v[k]
+        return c_ + u_ * tr.v[ke_], worst_ - 1
+    runmax = np.maximum.accumulate(tr.v)
+    NH = {}
+    for yy in (2, 5):
+        for era, lo_, hi_ in (("1990~1999", "1990-01-01", "1999-12-31"), ("2000~2008", "2000-01-01", "2008-12-31"), ("2009~", "2009-01-01", "2099-12-31"), ("1990~", "1990-01-01", "2099-12-31")):
+            a_st, b_st, n_ = 0, 0, 0
+            for d in m90:
+                e_ = f"{int(d[:4]) + yy:04d}{d[4:]}"
+                if not (lo_ <= d <= hi_) or e_ > tr.k[-1] or tr.v[tr.i(d)] < 0.98 * runmax[tr.i(d)]:
+                    continue
+                ce = 1 + cash.chg(d, e_)
+                ea, wa = split_path(d, d, e_)
+                trig = tr.first_below(d, -0.10)
+                eb, wb = split_path(d, trig if trig and trig <= e_ else None, e_)
+                n_ += 1
+                a_st += (ea > ce) and (wa >= -0.2)
+                b_st += (eb > ce) and (wb >= -0.2)
+            NH[f"{yy}년·{era}"] = {"n": n_, "split_now_stable": pct(a_st / n_) if n_ else None, "wait10_then_split_stable": pct(b_st / n_) if n_ else None}
+    put("4편_3_최고가근처_기다렸다나눠", rule="시작 = 배당 포함 지수가 그때까지 최고가의 98% 이상인 달 첫 거래일 · B = 그날보다 10% 아래로 처음 내려간 날부터 12달 나눠(그 전·안 넣은 돈은 국채)", **NH)
+    # 4편 2번: 2008-10-08(9/29 보다 10% 아래 첫날) 한꺼번에 → 2010-09-29 (넉 달 나눠와 같은 끝 날)
+    put("4편_2_10%기다림_같은끝", lump_2008_10_08_to_2010_09_29=round(1 + tr.chg("2008-10-08", "2010-09-29"), 4))
+    # 1편 5번: 2024-01-03 지수 매수 → 2026-10-27 · 2000년 이후 매달 시작 5년 보유가 국채 현금보다 더 남긴 몫 · '지금' = 2026-10-27 종가로 맞춤
+    NOW = "2026-10-27"
+    m5 = [d for d in mstarts if f"{int(d[:4]) + 5:04d}{d[4:]}" <= tr.k[-1]]
+    put("1편_5번_지수_보유", tr_2024_01_03_to_now=pct(tr.chg("2024-01-03", NOW)), tr_low=pct(tr.low("2024-01-03", NOW)[0]), cash=pct(cash.chg("2024-01-03", NOW)),
+        five_year_beat_cash_2000=pct(float(np.mean([tr.chg(d, f"{int(d[:4]) + 5:04d}{d[4:]}") > cash.chg(d, f"{int(d[:4]) + 5:04d}{d[4:]}") for d in m5]))), n=len(m5),
+        now=NOW, arkk_2021_02_12_now=pct(S["ARKK"].chg("2021-02-12", NOW)), tsla_2021_11_16_now=pct(S["TSLA"].chg("2021-11-16", NOW)),
+        lcid_2021_11_16_now=pct(S["LCID"].chg("2021-11-16", NOW)), pypl_2021_07_23_now=pct(S["PYPL"].chg("2021-07-23", NOW)), pypl_2022_02_07_now=pct(S["PYPL"].chg("2022-02-07", NOW)),
+        kim_correct_path_2022_peak_dd=pct(float(min(0.0, tr.low("2022-01-03", "2022-12-30")[0]))))
     return P
 
 

@@ -1057,6 +1057,126 @@
     "hold_below_principal": 0,
     "hold_minus_sold_median": 1.13
    }
+  },
+  "4편_5_이어감_vs_예금": {
+   "rows": [
+    {
+     "bear": "닷컴",
+     "entry": "2001-03-12",
+     "2년": {
+      "continue": 0.714,
+      "continue_worst": "-31.6%",
+      "deposit_only": 1.0273
+     },
+     "4년": {
+      "continue": 1.1035,
+      "continue_worst": "-31.6%",
+      "deposit_only": 1.0542
+     }
+    },
+    {
+     "bear": "금융위기",
+     "entry": "2008-07-09",
+     "2년": {
+      "continue": 1.1876,
+      "continue_worst": "-31.3%",
+      "deposit_only": 1.0025
+     },
+     "4년": {
+      "continue": 1.5539,
+      "continue_worst": "-31.3%",
+      "deposit_only": 1.0039
+     }
+    },
+    {
+     "bear": "코로나",
+     "entry": "2020-03-12",
+     "2년": {
+      "continue": 1.3301,
+      "continue_worst": "-9.7%",
+      "deposit_only": 1.0011
+     },
+     "4년": {
+      "continue": 1.6919,
+      "continue_worst": "-9.7%",
+      "deposit_only": 1.0824
+     }
+    },
+    {
+     "bear": "2022",
+     "entry": "2022-06-13",
+     "2년": {
+      "continue": 1.4038,
+      "continue_worst": "-8.8%",
+      "deposit_only": 1.0774
+     },
+     "4년": {
+      "continue": 1.9695,
+      "continue_worst": "-8.8%",
+      "deposit_only": 1.1682
+     }
+    }
+   ]
+  },
+  "4편_3_최고가근처_기다렸다나눠": {
+   "rule": "시작 = 배당 포함 지수가 그때까지 최고가의 98% 이상인 달 첫 거래일 · B = 그날보다 10% 아래로 처음 내려간 날부터 12달 나눠(그 전·안 넣은 돈은 국채)",
+   "2년·1990~1999": {
+    "n": 75,
+    "split_now_stable": "+89.3%",
+    "wait10_then_split_stable": "+58.7%"
+   },
+   "2년·2000~2008": {
+    "n": 11,
+    "split_now_stable": "+0.0%",
+    "wait10_then_split_stable": "+0.0%"
+   },
+   "2년·2009~": {
+    "n": 82,
+    "split_now_stable": "+87.8%",
+    "wait10_then_split_stable": "+64.6%"
+   },
+   "2년·1990~": {
+    "n": 168,
+    "split_now_stable": "+82.7%",
+    "wait10_then_split_stable": "+57.7%"
+   },
+   "5년·1990~1999": {
+    "n": 75,
+    "split_now_stable": "+76.0%",
+    "wait10_then_split_stable": "+53.3%"
+   },
+   "5년·2000~2008": {
+    "n": 11,
+    "split_now_stable": "+0.0%",
+    "wait10_then_split_stable": "+36.4%"
+   },
+   "5년·2009~": {
+    "n": 72,
+    "split_now_stable": "+97.2%",
+    "wait10_then_split_stable": "+62.5%"
+   },
+   "5년·1990~": {
+    "n": 158,
+    "split_now_stable": "+80.4%",
+    "wait10_then_split_stable": "+56.3%"
+   }
+  },
+  "4편_2_10%기다림_같은끝": {
+   "lump_2008_10_08_to_2010_09_29": 1.2171
+  },
+  "1편_5번_지수_보유": {
+   "tr_2024_01_03_to_now": "+70.1%",
+   "tr_low": "-0.3%",
+   "cash": "+12.5%",
+   "five_year_beat_cash_2000": "+81.7%",
+   "n": 262,
+   "now": "2026-10-27",
+   "arkk_2021_02_12_now": "-45.0%",
+   "tsla_2021_11_16_now": "+15.9%",
+   "lcid_2021_11_16_now": "-99.4%",
+   "pypl_2021_07_23_now": "-81.6%",
+   "pypl_2022_02_07_now": "-53.3%",
+   "kim_correct_path_2022_peak_dd": "-24.5%"
   }
  }
 }

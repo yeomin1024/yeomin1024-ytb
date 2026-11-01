@@ -1,6 +1,6 @@
 # 페르소나 검사 — `stock/source/ppalli-test-2026-11/ppalli-test-2026-11.txt`
 
-`tools/persona_review.py v1.0.1` · 페르소나 `stock/result/outliers/personas.md` (2026-10-28T08:28:02Z · 3명) · 문장 99개 · 길이 어림 5.6분 (H17 6.3음절/초).
+`tools/persona_review.py v1.0.1` · 페르소나 `stock/result/outliers/personas.md` (2026-10-28T08:28:02Z · 3명) · 문장 105개 · 길이 어림 6.1분 (H17 6.3음절/초).
 이 검사는 **알아듣기·원하는 것**만 본다. 숫자·법이 맞는지는 `guides/script_guide.md` 3번이 따로. ※ 연구·교육용.
 
 ## 0. 한눈에

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-11-01 — 반론 5회차(3편): 200일 규칙 판 횟수·손해 보고 판 수 · 버리 글 다음 날(2023-02-01) 기준 2년.
+# VERSION: v2.0 — 2026-11-01 — 1편을 나스닥 100(QQQ)·QLD·ARKK·SMCI(AI 서버)로 (사용자 지시 "S&P500 말고 나스닥 지수로 해 … 전기차 회사라고 하지말고 최근 트렌드인 AI 관련 종목") — nasdaq_1().
+# (v1.9 — 2026-11-01 — 반론 5회차(3편): 200일 규칙 판 횟수·손해 보고 판 수 · 버리 글 다음 날(2023-02-01) 기준 2년.
 # (v1.8 — 2026-11-01 — 반론 4회차: 3편 200일 평균을 1988년부터(신호 29번) · 200일 규칙 다시 · 박씨 묶음 원금 회복·지금 · 2편 한꺼번에 vs 나눠 1990년대 · 1년 보유 손실 몫 · −20% 매도 하락장별.
 # (v1.7 — 2026-11-01 — 반론 3회차 나머지: 한꺼번에 vs 나눠 2000 이후(20% 넘게 줄어든 몫·안정 몫) · −20% 매도 124번의 원금 · 200일 신호 배당 포함 · 정씨 정답(페이팔 10%).
 # (v1.6 — 2026-11-01 — 반론 3회차: 테슬라 같은 날 · 김씨·정답 경로 지금까지.
@@ -29,7 +30,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v1.9"
+VERSION = "v2.0"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -811,12 +812,86 @@ def paths(S):
     return P
 
 
+def nasdaq_1(S):
+    """v2.0 — 1편 김씨를 나스닥 100(QQQ 수정 종가 = 배당 포함)으로 (사용자 지시 2026-11-01 "S&P500 말고 나스닥 지수로 해 그래야 상황을 더 극한으로").
+    선택: ① 2020-02-19 나스닥 최고가 — 한꺼번에 vs 12달 나눠 ② 2021-02-12 ARKK(1년 2.7배) ③ 2021-12-27 나스닥 최고가 — 1배 vs 2배(QLD 실제 ETF)
+    ④ 2024-03-13 SMCI(AI 서버 — 1년 13배) ⑤ 2025-01-02 단타. 금액 = 1억 원에 달러 기준 변화율을 곱함(환율 변화는 뺌 — 설명란에 밝힘)."""
+    q, cash, irx = S["QQQ"], S["CASH"], Ser("13주", rd(CALC / "irx_daily.csv", "close"))
+    NOW = "2026-10-27"
+    R = {}
+
+    def put(key, **kw):
+        R[key] = kw
+        log.info("key=%s %s", key, json.dumps(kw, ensure_ascii=False)[:600], extra={"stage": "NASDAQ1"})
+
+    def split_ser(ser, d0, n, end):
+        """d0 부터 n 달에 나눠 매수(매달 같은 날 또는 다음 거래일 · 안 넣은 돈은 국채) → end 값 · 그사이 가장 낮은 값 (원금 1)."""
+        k0, ke = ser.i(d0), ser.i(end)
+        y_, m_, dd_ = int(d0[:4]), int(d0[5:7]), d0[8:]
+        sc = {k0} | {bisect.bisect_left(ser.k, f"{y_ + (m_ - 1 + j) // 12:04d}-{(m_ - 1 + j) % 12 + 1:02d}-{dd_}") for j in range(1, n)}
+        c, u, worst, wday = 1.0, 0.0, 1.0, ser.k[k0]
+        for k in range(k0, ke + 1):
+            if k in sc:
+                u += (1 / n) / ser.v[k]
+                c -= 1 / n
+            val = c + u * ser.v[k]
+            if val < worst:
+                worst, wday = val, ser.k[k]
+            if k < ke:
+                c *= cash.at(ser.k[k + 1]) / cash.at(ser.k[k])
+        return {"end": round(c + u * ser.v[ke], 4), "worst": pct(worst - 1), "worst_day": wday}
+
+    d1, d2, d3, d4, d5 = "2020-02-19", "2021-02-12", "2021-12-27", "2024-03-13", "2025-01-02"
+    put("날짜", d1=d1, d1_is_peak=q.peak_before(d1)[0] == d1, d3=d3, d3_is_peak=q.peak_before(d3)[0] == d3, d4_smci_peak=S["SMCI"].peak_before("2024-12-31")[0], d5=d5)
+    # ① 한꺼번에 vs 12달 나눠
+    lo1, lo1d = q.low(d1, "2020-12-31")
+    put("1_한꺼번에_vs_나눠", lump_worst=pct(lo1), lump_worst_day=lo1d, lump_back_to_start=q.back(d1, q.at(d1), after=lo1d), months_to_back=months(d1, q.back(d1, q.at(d1), after=lo1d)),
+        split12=split_ser(q, d1, 12, "2021-02-19"), split_first_tranche_share=round(1 / 12, 4), lump_1y=round(1 + q.chg(d1, "2021-02-19"), 4),
+        qqq_prior_1y=pct(q.chg("2019-02-19", d1)), note="나눠 넣기 가장 낮은 값 = 그때까지 넣은 돈 + 아직 안 넣은 국채 현금 전체 대비")
+    # ② ARKK
+    A = S["ARKK"]
+    put("2_ARKK", prior_1y=round(1 + A.chg("2020-02-12", d2), 2), low=pct(A.low(d2, NOW)[0]), low_day=A.low(d2, NOW)[1], now=pct(A.chg(d2, NOW)),
+        qqq_low=pct(q.low(d2, NOW)[0]), qqq_now=pct(q.chg(d2, NOW)))
+    # ③ 1배 vs 2배 — QLD 실제 ETF (2021-12-27 ~) · 2000년 나스닥 2배는 재현(QQQ 하루 수익 × 2 − (13주 금리 + 0.95%)/252)
+    Q2 = S["QLD"]
+    rq = np.concatenate([[0.0], q.v[1:] / q.v[:-1] - 1])
+    rate = np.array([irx.at(d) for d in q.k])
+    syn2 = Ser("나스닥 2배(재현)", dict(zip(q.k, np.cumprod(1 + 2 * rq - (rate / 100 + 0.0095) / 252))))
+    put("3_1배_vs_2배", qld_prior_1y=pct(Q2.chg("2020-12-27", d3)), qqq_prior_1y=pct(q.chg("2020-12-27", d3)),
+        qld_2022_low=pct(Q2.low(d3, "2022-12-31")[0]), qqq_2022_low=pct(q.low(d3, "2022-12-31")[0]),
+        qld_now=pct(Q2.chg(d3, NOW)), qqq_now=pct(q.chg(d3, NOW)), qld_back=Q2.back(d3, Q2.at(d3), after="2022-12-28"), qqq_back=q.back(d3, q.at(d3), after="2022-12-28"),
+        syn2_2000_low=pct(syn2.low("2000-03-27", "2003-12-31")[0]), qqq_2000_low=pct(q.low("2000-03-27", "2003-12-31")[0]),
+        syn2_2000_back=syn2.back("2000-03-27", syn2.at("2000-03-27"), after="2002-10-07"), qqq_2000_back=q.back("2000-03-27", q.at("2000-03-27"), after="2002-10-07"))
+    # ④ SMCI (AI 서버) · 같은 날 나스닥 · 엔비디아
+    M, N = S["SMCI"], S["NVDA"]
+    put("4_SMCI", prior_1y=round(1 + M.chg("2023-03-13", d4), 1), low=pct(M.low(d4, NOW)[0]), low_day=M.low(d4, NOW)[1], now=pct(M.chg(d4, NOW)),
+        qqq_low=pct(q.low(d4, NOW)[0]), qqq_now=pct(q.chg(d4, NOW)), nvda_now=pct(N.chg(d4, NOW)), nvda_low=pct(N.low(d4, NOW)[0]))
+    # 김씨 경로 (함정만) · 정답 경로
+    seq = [(q, d1, d2), (A, d2, d3), (Q2, d3, d4), (M, d4, d5)]
+    v, steps, mx, mxd = 1.0, [], 1.0, d1
+    for ser, a_, b_ in seq:
+        for d in ser.k:
+            if a_ <= d <= b_:
+                x = v * ser.at(d) / ser.at(a_)
+                if x > mx:
+                    mx, mxd = x, d
+        v *= 1 + ser.chg(a_, b_)
+        steps.append(round(v, 4))
+    good = split_ser(q, d1, 12, d5)
+    put("김씨_경로", steps=steps, at_d5=steps[-1], peak=round(mx, 4), peak_day=mxd, years=yrs(d1, d5), kim_to_now_if_held_smci=round(steps[2] * (1 + M.chg(d4, NOW)), 4),
+        correct_at_d5=good["end"], correct_worst=good["worst"], correct_now=split_ser(q, d1, 12, NOW)["end"], won="1억 원 × 값", d5_qqq_now=pct(q.chg(d5, NOW)), d5_qqq_low=pct(q.low(d5, NOW)[0]))
+    return R
+
+
 def main():
     S = load()
+    for sym in ("QQQ", "QLD", "SMCI", "NVDA"):
+        S[sym] = Ser(sym, rd(HERE / "data" / f"{sym}.csv", "adjclose"))
     F = facts(S)
     P = paths(S)
+    N1 = nasdaq_1(S)
     out = HERE / f"longform_items_{date.today().isoformat()}.json"
-    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P}, ensure_ascii=False, indent=1), "utf-8")
+    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1}, ensure_ascii=False, indent=1), "utf-8")
     log.info("file=%s items=%d", out.name, sum(len(v) for v in F.values()), extra={"stage": "DONE"})
 
 

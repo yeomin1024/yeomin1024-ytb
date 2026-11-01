@@ -1,5 +1,5 @@
 {
- "tool": "longform_items.py v1.9",
+ "tool": "longform_items.py v2.0",
  "data_last": "2026-10-27",
  "facts": {
   "1": {
@@ -1294,6 +1294,82 @@
    },
    "pause_until_peak_2022_2y": 1.192,
    "note": "vix_days = crash_tests_2026-10-31.json C_vix40 cases 의 날짜 (공포 지수 40 을 석 달 넘게 안 넘다가 처음 넘은 날)"
+  }
+ },
+ "nasdaq_1편": {
+  "날짜": {
+   "d1": "2020-02-19",
+   "d1_is_peak": true,
+   "d3": "2021-12-27",
+   "d3_is_peak": true,
+   "d4_smci_peak": "2024-03-13",
+   "d5": "2025-01-02"
+  },
+  "1_한꺼번에_vs_나눠": {
+   "lump_worst": "-28.6%",
+   "lump_worst_day": "2020-03-16",
+   "lump_back_to_start": "2020-06-03",
+   "months_to_back": 3.4,
+   "split12": {
+    "end": 1.315,
+    "worst": "-2.6%",
+    "worst_day": "2020-03-20"
+   },
+   "split_first_tranche_share": 0.0833,
+   "lump_1y": 1.4048,
+   "qqq_prior_1y": "+38.7%",
+   "note": "나눠 넣기 가장 낮은 값 = 그때까지 넣은 돈 + 아직 안 넣은 국채 현금 전체 대비"
+  },
+  "2_ARKK": {
+   "prior_1y": 2.73,
+   "low": "-80.9%",
+   "low_day": "2022-12-28",
+   "now": "-45.0%",
+   "qqq_low": "-21.8%",
+   "qqq_now": "+121.7%"
+  },
+  "3_1배_vs_2배": {
+   "qld_prior_1y": "+63.4%",
+   "qqq_prior_1y": "+31.0%",
+   "qld_2022_low": "-63.4%",
+   "qqq_2022_low": "-35.1%",
+   "qld_now": "+99.5%",
+   "qqq_now": "+83.9%",
+   "qld_back": "2024-05-24",
+   "qqq_back": "2023-12-13",
+   "syn2_2000_low": "-98.7%",
+   "qqq_2000_low": "-83.0%",
+   "syn2_2000_back": "2020-08-25",
+   "qqq_2000_back": "2015-02-20"
+  },
+  "4_SMCI": {
+   "prior_1y": 13.3,
+   "low": "-84.8%",
+   "low_day": "2024-11-14",
+   "now": "-70.5%",
+   "qqq_low": "-5.7%",
+   "qqq_now": "+66.2%",
+   "nvda_now": "+140.5%",
+   "nvda_low": "-16.2%"
+  },
+  "김씨_경로": {
+   "steps": [
+    1.4278,
+    0.8883,
+    0.8407,
+    0.2126
+   ],
+   "at_d5": 0.2126,
+   "peak": 1.4278,
+   "peak_day": "2021-02-12",
+   "years": 4.9,
+   "kim_to_now_if_held_smci": 0.2483,
+   "correct_at_d5": 2.0778,
+   "correct_worst": "-2.6%",
+   "correct_now": 2.9617,
+   "won": "1억 원 × 값",
+   "d5_qqq_now": "+42.6%",
+   "d5_qqq_low": "-18.3%"
   }
  }
 }

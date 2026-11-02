@@ -1,5 +1,5 @@
 {
- "tool": "longform_items.py v2.2",
+ "tool": "longform_items.py v2.3",
  "data_last": "2026-10-27",
  "facts": {
   "1": {
@@ -1500,6 +1500,212 @@
    "years": 3.2,
    "qqq_same": "+91.9%",
    "note": "김씨 = 함정 답만 · 정답 = 정답만 (④의 지인 추천 매수는 이야기 전제 — 두 길 모두 산 것으로 셈)"
+  }
+ },
+ "sp_1편_v2.3": {
+  "1_남따라": {
+   "upst_prior_1y": 3.01,
+   "upst_ytd": "+445.3%",
+   "upst_ytd_x": 5.45,
+   "upst_big_days": [
+    [
+     "2023-05-10",
+     0.3463
+    ]
+   ],
+   "upst_low": "-71.1%",
+   "upst_low_day": "2023-11-10",
+   "upst_now": "-67.1%",
+   "sp_low": "-9.7%",
+   "sp_low_day": "2023-10-27",
+   "sp_now": "+76.1%",
+   "spx_price_now": "+68.7%",
+   "years_to_now": 3.2,
+   "castlelake_note": "2023-05-09 1분기 실적과 함께 캐슬레이크(Castlelake)가 업스타트 대출을 최대 40억 달러 사기로 한 계약 발표 → 05-10 +34.6%"
+  },
+  "2_현금": {
+   "all_in_at_peak_manwon": 13729,
+   "all_in_at_low_manwon": 11155,
+   "drop_manwon": 2574,
+   "drop_pct": "-18.7%",
+   "days": 48,
+   "all_in_vs_principal_at_low": "+11.6%",
+   "cash3000_at_low_manwon": 3253
+  },
+  "3_기준": {
+   "spx_peak": "2025-02-19",
+   "sig": "2025-03-13",
+   "peak_to_sig": "-10.1%",
+   "cut": "2025-03-14",
+   "cut_vs_peak": "-8.2%",
+   "spx_low": "-18.9%",
+   "low_day": "2025-04-08",
+   "back_day": "2025-06-27",
+   "ladder_now": "+46.1%",
+   "ladder_low": "-4.2%",
+   "ladder_low_day": "2025-04-08",
+   "ladder_buys": [
+    [
+     "2025-04-04",
+     "-5%"
+    ],
+    [
+     "2025-04-04",
+     "-10%"
+    ],
+    [
+     "2025-06-27",
+     "최고가 회복"
+    ]
+   ],
+   "hold_now": "+42.6%",
+   "hold_low": "-9.7%",
+   "hold_low_day": "2025-04-08",
+   "panic_now": "+15.8%",
+   "panic_sell_vs_sig": "-9.7%",
+   "panic_out_days": 80,
+   "morningstar": "Mind the Gap 2024 (미국 · 2023년까지 10년): 투자자 수익이 펀드 수익보다 해마다 약 1.1%p 낮음 = 10년 수익의 약 15%를 놓침"
+  },
+  "3_기준_여러번": {
+   "n": 12,
+   "rule_smaller_low": 8,
+   "rule_higher_2y": 7,
+   "cases": [
+    {
+     "peak": "1990-01-02",
+     "sig": "1990-01-30",
+     "rule_2y": 1.311,
+     "hold_2y": 1.364,
+     "rule_low": "-9.8%",
+     "hold_low": "-6.1%"
+    },
+    {
+     "peak": "1990-07-16",
+     "sig": "1990-08-17",
+     "rule_2y": 1.39,
+     "hold_2y": 1.37,
+     "rule_low": "-4.8%",
+     "hold_low": "-9.4%"
+    },
+    {
+     "peak": "1997-10-07",
+     "sig": "1997-10-27",
+     "rule_2y": 1.476,
+     "hold_2y": 1.522,
+     "rule_low": "+0.0%",
+     "hold_low": "+0.0%"
+    },
+    {
+     "peak": "1998-07-17",
+     "sig": "1998-08-14",
+     "rule_2y": 1.466,
+     "hold_2y": 1.44,
+     "rule_low": "-5.0%",
+     "hold_low": "-9.9%"
+    },
+    {
+     "peak": "1999-07-16",
+     "sig": "1999-09-29",
+     "rule_2y": 0.802,
+     "hold_2y": 0.841,
+     "rule_low": "-25.6%",
+     "hold_low": "-22.0%"
+    },
+    {
+     "peak": "2000-03-24",
+     "sig": "2000-04-14",
+     "rule_2y": 0.909,
+     "hold_2y": 0.84,
+     "rule_low": "-21.3%",
+     "hold_low": "-27.6%"
+    },
+    {
+     "peak": "2007-10-09",
+     "sig": "2007-11-26",
+     "rule_2y": 0.882,
+     "hold_2y": 0.828,
+     "rule_low": "-46.9%",
+     "hold_low": "-50.3%"
+    },
+    {
+     "peak": "2015-05-21",
+     "sig": "2015-08-24",
+     "rule_2y": 1.249,
+     "hold_2y": 1.345,
+     "rule_low": "-1.8%",
+     "hold_low": "-2.4%"
+    },
+    {
+     "peak": "2018-01-26",
+     "sig": "2018-02-08",
+     "rule_2y": 1.281,
+     "hold_2y": 1.342,
+     "rule_low": "-11.4%",
+     "hold_low": "-7.3%"
+    },
+    {
+     "peak": "2018-09-20",
+     "sig": "2018-11-23",
+     "rule_2y": 1.44,
+     "hold_2y": 1.413,
+     "rule_low": "-11.0%",
+     "hold_low": "-12.7%"
+    },
+    {
+     "peak": "2020-02-19",
+     "sig": "2020-02-27",
+     "rule_2y": 1.635,
+     "hold_2y": 1.519,
+     "rule_low": "-19.1%",
+     "hold_low": "-24.8%"
+    },
+    {
+     "peak": "2022-01-03",
+     "sig": "2022-02-22",
+     "rule_2y": 1.293,
+     "hold_2y": 1.221,
+     "rule_low": "-11.0%",
+     "hold_low": "-16.0%"
+    }
+   ],
+   "note": "같은 규칙 · 2년 뒤까지 · 2025 는 2년이 안 돼 뺌"
+  },
+  "4_손절": {
+   "ai_day_drop": "-25.6%",
+   "further_low": "-52.9%",
+   "further_low_day": "2026-03-27",
+   "ai_now": "-25.4%",
+   "sell_cash_now": "+4.5%",
+   "avoided_low": "-52.9%",
+   "odean": "Odean 1998 Journal of Finance (미국 할인 증권사 1만 계좌): 판 이익 종목이 들고 있던 손실 종목보다 다음 1년 약 3.4%p 더 오름"
+  },
+  "5_분배": {
+   "ionq_prior_1y": 7.7,
+   "ionq_low": "-67.6%",
+   "ionq_now": "-59.9%",
+   "half_now": "-21.2%",
+   "half_low": "-35.9%",
+   "half_low_day": "2026-03-30",
+   "ten_now": "+9.7%",
+   "ten_low": "-10.5%",
+   "ten_low_day": "2026-03-30",
+   "sp_now": "+17.4%",
+   "sectors": "purpose_numbers_2026-10-31.json A_sectors: 1999년 이후 9개 업종 중 6개가 S&P 500(−55.3%)보다 깊이 빠짐"
+  },
+  "김씨_경로": {
+   "wrong_now_manwon": 2634,
+   "wrong_loss": "-73.7%",
+   "wrong_parts_now_manwon": {
+    "AI": 1262,
+    "IONQ": 944,
+    "SP": 428
+   },
+   "correct_now_manwon": 12328,
+   "correct_gain": "+23.3%",
+   "years": 3.2,
+   "sp_tr_same": "+76.1%",
+   "spx_price_same": "+68.7%",
+   "note": "김씨 = 함정 답만 · 정답 = 정답만 (④ 지인 추천 매수는 이야기 전제 — 두 길 모두 · ④ 정답은 판 돈을 현금(국채)으로 둠)"
   }
  }
 }

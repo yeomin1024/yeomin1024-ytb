@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v1.1 — 2026-11-02 — 롱폼 판을 편마다 (1편 대본 v9 · 2~4편 v8 — 피드백판 1편 반영).
+# VERSION: v1.2 — 2026-11-02 — 1편 대본 v10 · 주제 평가판에서 통과한 주제의 대본(stock/topics/board/script_board.json 'extra')도 판에.
+# (v1.1 — 2026-11-02 — 롱폼 판을 편마다 (1편 대본 v9 · 2~4편 v8 — 피드백판 1편 반영).
 # (v1.0 — 2026-11-02 — 주식 1~4편 롱폼·쇼츠 대본을 피드백판(stock/topics/대본피드백판.html)의 SCRIPTS 칸에 채움
 #   (사용자 지시 2026-11-02 "그 1~4편 롱폼, 쇼츠 각각 대본 별로 피드백 남길 수 있도록 아티팩트로 만들어볼래? 대본의 여러 줄을 선택해서 각각 피드백 달 수 있도록").
 #   · 롱폼 = stock/topics/롱폼대본_2026-10-31.md 표의 제목·대본 파일 → 파일의 '-○○' 줄은 장 이름, 나머지 빈 줄 아닌 줄 = 문장 (번호 = 오디오·자막 문장 번호와 같음)
@@ -14,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 BOARD = ROOT / "stock/topics/대본피드백판.html"
 LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
-LONG_VER = {1: "대본 v9", 2: "대본 v8", 3: "대본 v8", 4: "대본 v8"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
+LONG_VER = {1: "대본 v10", 2: "대본 v8", 3: "대본 v8", 4: "대본 v8"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
 SHORT_VER = "쇼츠 v5"
 BEGIN, END = "/*SCRIPTS:BEGIN*/", "/*SCRIPTS:END*/"
 
@@ -73,9 +74,31 @@ def shorts():
     return out
 
 
+def extra():
+    """주제 평가판 통과 주제의 대본 — script_board.json {"extra": [{key, ep, label, kind: long|short, title, ver, file}]} · 대본 파일 꼴은 롱폼과 같음(-장 이름 · 한 줄 한 문장)."""
+    p = ROOT / "stock/topics/board/script_board.json"
+    if not p.exists():
+        return []
+    out = []
+    for e in json.loads(p.read_text("utf-8")).get("extra", []):
+        sec, lines = None, []
+        for raw in (ROOT / e["file"]).read_text(encoding="utf-8").splitlines():
+            t = raw.strip()
+            if not t:
+                continue
+            if t.startswith("-"):
+                sec = t[1:].strip()
+                continue
+            lines.append({"n": len(lines) + 1, "t": t, "sec": sec})
+        out.append(dict(e, lines=lines))
+        log("LOAD", script=e["key"], file=e["file"], lines=len(lines), from_topic=e.get("label", ""))
+    return out
+
+
 def main(argv):
     scripts = longform() + shorts()
     scripts.sort(key=lambda s: (s["ep"], s["kind"] != "long"))
+    scripts += extra()
     data = json.dumps({"scripts": scripts}, ensure_ascii=False, separators=(",", ":"))
     html = BOARD.read_text(encoding="utf-8")
     a, b = html.find(BEGIN), html.find(END)

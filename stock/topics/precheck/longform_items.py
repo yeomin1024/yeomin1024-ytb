@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2 — 2026-11-02 — 1편 대본 v9 (피드백판 1편 롱폼 10건) — nasdaq_1_v22(): 업스타트 · 현금 3천만 · 2025 관세 하락장 기준(비중 절반 → 3번 나눠) · C3.ai 펀더멘털 · 아이온큐 비중 · 김씨 경로 4년 안.
+# VERSION: v2.3 — 2026-11-02 — 1편 대본 v10 (피드백판 2차 5건) — sp_1_v23(): 지수 = S&P 500 · ① 사지 않음 · ③ 판 값보다 5%마다 3분의 1 · ④ 바로 매도(현금).
+# (v2.2 — 2026-11-02 — 1편 대본 v9 (피드백판 1편 롱폼 10건) — nasdaq_1_v22(): 업스타트 · 현금 3천만 · 2025 관세 하락장 기준(비중 절반 → 3번 나눠) · C3.ai 펀더멘털 · 아이온큐 비중 · 김씨 경로 4년 안.
 # (v2.1 — 2026-11-01 — 1편 다섯 습관(남 따라 사기·현금 없음·기준 없음·손절 안 함·분산 안 함) — nasdaq_1_v21() · MSTR 자료.
 # (v2.0 — 2026-11-01 — 1편을 나스닥 100(QQQ)·QLD·ARKK·SMCI(AI 서버)로 (사용자 지시 "S&P500 말고 나스닥 지수로 해 … 전기차 회사라고 하지말고 최근 트렌드인 AI 관련 종목") — nasdaq_1().
 # (v1.9 — 2026-11-01 — 반론 5회차(3편): 200일 규칙 판 횟수·손해 보고 판 수 · 버리 글 다음 날(2023-02-01) 기준 2년.
@@ -32,7 +33,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v2.2"
+VERSION = "v2.3"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -1020,6 +1021,142 @@ def nasdaq_1_v22(S):
     return R
 
 
+def sp_1_v23(S):
+    """v2.3 — 1편 대본 v10 (피드백판 1편 롱폼 2차 5건, 2026-11-02):
+    9번 "왜 주가가 상승했는지 디테일" · 14번 "나스닥도 기술주만 있잖아 s&p500으로" + "그냥 안산다고 해" · 26번 "기간별로 하지말고 평단에서 얼마 하락할때 마다 일정하게 매수"
+    · 32번 "나스닥으로 옮기는 건 빼".
+    → 지수 = S&P 500 (가격 SPX 로 '고점보다 몇 %'·신호를 보고, 돈은 배당 포함 TR 로 셈) · ① B = 사지 않음(그 돈은 S&P 500 지수) · ④ A = 바로 매도(현금 = 국채 이자)
+    · ③ 기준대로 = 처음 고점보다 10% 넘게 하락한 다음 거래일 종가에 절반 매도 → 판 값보다 5%·10%·15% 떨어진 날 종가에 남긴 현금의 3분의 1씩 다시 매수
+      ('평단' = 비중을 줄인 값으로 읽음 — 오래 들고 있던 지수의 실제 평균 매수가는 그때 값보다 훨씬 아래라 걸리지 않음) · 다 채우기 전에 지수가 최고가를 되찾으면 남은 현금을 그날 모두 매수 (판 값만 넘어도 되사게 했더니 사흘 뒤 다 되사 줄인 뜻이 없었음 — 2025-03-17).
+    금액 = 1억 원 × 달러 기준 변화율 (환율·세금·수수료 뺌)."""
+    tr, spx, cash, U, C, I = S["TR"], S["SPX"], S["CASH"], S["UPST"], S["AI"], S["IONQ"]
+    NOW = "2026-10-27"
+    d1, dPk = "2023-08-01", "2025-02-19"
+    dSig = spx.first_below(dPk, -0.10)
+    dCut = spx.k[spx.i(dSig) + 1]
+    dP = spx.low(dPk, "2025-12-31")[1]
+    dB = spx.back(dPk, spx.at(dPk), after=dP)
+    dTip, d4, d5 = "2025-07-01", "2025-08-11", "2025-10-13"
+    R = {}
+
+    def put(key, **kw):
+        R[key] = kw
+        log.info("key=%s %s", key, json.dumps(kw, ensure_ascii=False)[:700], extra={"stage": "SP1v23"})
+
+    def mix_path(parts, a, b):
+        days = [d for d in tr.k if a <= d <= b]
+        vals = [sum(w * s.at(d) / s.at(a) for s, w in parts) for d in days]
+        m = int(np.argmin(vals))
+        return round(vals[-1], 4), round(vals[m], 4), days[m]
+
+    def ladder(a_sig, cut, steps=(0.05, 0.10, 0.15), end=NOW):
+        """신호 날 원금 1 — cut 날 종가에 절반 매도 → 판 SPX 값보다 steps 만큼 떨어진 날 종가에 현금 1/len(steps) 씩 매수 · 최고가를 되찾으면 남은 현금 모두.
+        → (end 값, 가장 낮은 값, 그 날, 매수한 날들)"""
+        u, c, lo, lod, buys, part, cut_px = 1 / tr.at(a_sig), 0.0, 1.0, a_sig, [], None, None
+        todo = list(steps)
+        for d in [x for x in tr.k if a_sig <= x <= end]:
+            if d == cut and cut_px is None:
+                c = u * 0.5 * tr.at(d); u *= 0.5; part = c / len(steps); cut_px = spx.at(d)
+            elif cut_px is not None and c > 1e-12:
+                while todo and spx.at(d) <= cut_px * (1 - todo[0]):
+                    amt = min(part, c); u += amt / tr.at(d); c -= amt; buys.append((d, f"-{todo[0]:.0%}")); todo.pop(0)
+                if todo and spx.at(d) >= spx.at(dPk) and c > 1e-12:          # 최고가를 되찾으면 남은 현금 모두 (판 값만 넘으면 바로 되사서 줄인 뜻이 없어짐 — 첫 계산에서 확인)
+                    u += c / tr.at(d); buys.append((d, "최고가 회복")); c = 0.0; todo = []
+            v = u * tr.at(d) + c
+            if v < lo:
+                lo, lod = v, d
+            if c > 0:
+                c *= 1 + cash.chg(d, tr.k[min(tr.i(d) + 1, len(tr.k) - 1)])
+        return round(u * tr.at(end) + c, 4), round(lo, 4), lod, buys
+
+    def ladder_at(a_sig, cut, peak_day, end, steps=(0.05, 0.10, 0.15)):
+        """ladder 와 같은 규칙 — 최고가 회복 기준을 peak_day 값으로."""
+        u, c, lo, lod, part, cut_px, todo = 1 / tr.at(a_sig), 0.0, 1.0, a_sig, None, None, list(steps)
+        for d in [x for x in tr.k if a_sig <= x <= end]:
+            if d == cut and cut_px is None:
+                c = u * 0.5 * tr.at(d); u *= 0.5; part = c / len(steps); cut_px = spx.at(d)
+            elif cut_px is not None and c > 1e-12:
+                while todo and spx.at(d) <= cut_px * (1 - todo[0]):
+                    amt = min(part, c); u += amt / tr.at(d); c -= amt; todo.pop(0)
+                if todo and spx.at(d) >= spx.at(peak_day) and c > 1e-12:
+                    u += c / tr.at(d); c = 0.0; todo = []
+            v = u * tr.at(d) + c
+            if v < lo:
+                lo, lod = v, d
+            if c > 0:
+                c *= 1 + cash.chg(d, tr.k[min(tr.i(d) + 1, len(tr.k) - 1)])
+        return u * tr.at(end) + c, lo, lod, None
+
+    # ① 남 따라 사기 — 업스타트 vs 사지 않음(S&P 500)
+    big = [(U.k[i], round(float(U.v[i] / U.v[i - 1] - 1), 4)) for i in range(1, len(U.k)) if "2023-01-01" <= U.k[i] <= d1 and U.v[i] / U.v[i - 1] - 1 > 0.30]
+    put("1_남따라", upst_prior_1y=round(1 + U.chg("2022-08-01", d1), 2), upst_ytd=pct(U.chg("2022-12-30", d1)), upst_ytd_x=round(1 + U.chg("2022-12-30", d1), 2), upst_big_days=big,
+        upst_low=pct(U.low(d1, NOW)[0]), upst_low_day=U.low(d1, NOW)[1], upst_now=pct(U.chg(d1, NOW)),
+        sp_low=pct(tr.low(d1, NOW)[0]), sp_low_day=tr.low(d1, NOW)[1], sp_now=pct(tr.chg(d1, NOW)), spx_price_now=pct(spx.chg(d1, NOW)), years_to_now=yrs(d1, NOW),
+        castlelake_note="2023-05-09 1분기 실적과 함께 캐슬레이크(Castlelake)가 업스타트 대출을 최대 40억 달러 사기로 한 계약 발표 → 05-10 +34.6%")
+    # ② 현금 3천만 원 — 2025 봄 하락장 (S&P 500)
+    v_pk, v_lo = 10000 * (1 + tr.chg(d1, dPk)), 10000 * (1 + tr.chg(d1, dP))
+    put("2_현금", all_in_at_peak_manwon=round(v_pk), all_in_at_low_manwon=round(v_lo), drop_manwon=round(v_pk - v_lo), drop_pct=pct(v_lo / v_pk - 1), days=(date.fromisoformat(dP) - date.fromisoformat(dPk)).days,
+        all_in_vs_principal_at_low=pct(v_lo / 10000 - 1), cash3000_at_low_manwon=round(3000 * (1 + cash.chg(d1, dP))))
+    # ③ 위험한 국면 — 기준대로(절반 → 5%마다 3분의 1) vs 그때그때 vs 그대로
+    l_now, l_lo, l_lod, l_buys = ladder(dSig, dCut)
+    panic = (1 + tr.chg(dSig, dP)) * (1 + cash.chg(dP, dB)) * (1 + tr.chg(dB, NOW))
+    put("3_기준", spx_peak=dPk, sig=dSig, peak_to_sig=pct(spx.chg(dPk, dSig)), cut=dCut, cut_vs_peak=pct(spx.chg(dPk, dCut)), spx_low=pct(spx.chg(dPk, dP)), low_day=dP, back_day=dB,
+        ladder_now=pct(l_now - 1), ladder_low=pct(l_lo - 1), ladder_low_day=l_lod, ladder_buys=l_buys,
+        hold_now=pct(tr.chg(dSig, NOW)), hold_low=pct(tr.low(dSig, NOW)[0]), hold_low_day=tr.low(dSig, NOW)[1],
+        panic_now=pct(panic - 1), panic_sell_vs_sig=pct(tr.chg(dSig, dP)), panic_out_days=(date.fromisoformat(dB) - date.fromisoformat(dP)).days,
+        morningstar="Mind the Gap 2024 (미국 · 2023년까지 10년): 투자자 수익이 펀드 수익보다 해마다 약 1.1%p 낮음 = 10년 수익의 약 15%를 놓침")
+    # ③-2 반론 K3(고른 기간) — 1990년 이후 S&P 500 이 고점보다 처음 10% 넘게 빠진 모든 때에 같은 규칙 (2년 뒤까지)
+    many, lo_better, end_better = [], 0, 0
+    i, peak, pk, armed = spx.i("1990-01-02"), None, None, True
+    for d in spx.k[i:]:
+        v = spx.at(d)
+        if peak is None or v >= peak:
+            peak, pk, armed = v, d, True
+        elif armed and v <= peak * 0.9:
+            armed = False
+            end = f"{int(d[:4]) + 2}{d[4:]}"
+            if end > spx.k[-1]:
+                continue
+            dPk_saved = pk
+            r_end, r_lo, _, _ = ladder_at(d, spx.k[spx.i(d) + 1], dPk_saved, end)
+            h_end, h_lo = 1 + tr.chg(d, end), tr.low(d, end)[0]
+            many.append({"peak": dPk_saved, "sig": d, "rule_2y": round(r_end, 3), "hold_2y": round(h_end, 3), "rule_low": pct(r_lo - 1), "hold_low": pct(h_lo)})
+            lo_better += (r_lo - 1) > h_lo
+            end_better += r_end > h_end
+    put("3_기준_여러번", n=len(many), rule_smaller_low=lo_better, rule_higher_2y=end_better, cases=many, note="같은 규칙 · 2년 뒤까지 · 2025 는 2년이 안 돼 뺌")
+    # ④ 펀더멘털 — C3.ai 2025-08-11: 바로 매도(국채) vs 버팀
+    put("4_손절", ai_day_drop=pct(C.chg("2025-08-08", d4)), further_low=pct(C.low(d4, NOW)[0]), further_low_day=C.low(d4, NOW)[1], ai_now=pct(C.chg(d4, NOW)),
+        sell_cash_now=pct(cash.chg(d4, NOW)), avoided_low=pct(C.low(d4, NOW)[0]),
+        odean="Odean 1998 Journal of Finance (미국 할인 증권사 1만 계좌): 판 이익 종목이 들고 있던 손실 종목보다 다음 1년 약 3.4%p 더 오름")
+    # ⑤ 분배 — 아이온큐 비중 (나머지 S&P 500)
+    h_now, h_lo, h_lod = mix_path([(I, 0.5), (tr, 0.5)], d5, NOW)
+    t_now, t_lo, t_lod = mix_path([(I, 0.1), (tr, 0.9)], d5, NOW)
+    put("5_분배", ionq_prior_1y=round(1 + I.chg("2024-10-11", d5), 1), ionq_low=pct(I.low(d5, NOW)[0]), ionq_now=pct(I.chg(d5, NOW)),
+        half_now=pct(h_now - 1), half_low=pct(h_lo - 1), half_low_day=h_lod, ten_now=pct(t_now - 1), ten_low=pct(t_lo - 1), ten_low_day=t_lod, sp_now=pct(tr.chg(d5, NOW)),
+        sectors="purpose_numbers_2026-10-31.json A_sectors: 1999년 이후 9개 업종 중 6개가 S&P 500(−55.3%)보다 깊이 빠짐")
+    # 김씨 (오답만): 1억 → UPST 전부 → dP 모두 매도(국채) → dB S&P 500 → 07-01 계좌 절반 C3.ai → 버팀 → 10-13 계좌 절반을 S&P 에서 아이온큐로 → 지금
+    w = 10000 * (1 + U.chg(d1, dP)) * (1 + cash.chg(dP, dB)) * (1 + tr.chg(dB, dTip))
+    wC, wQ = w / 2, w / 2
+    wC *= 1 + C.chg(dTip, d5); wQ *= 1 + tr.chg(dTip, d5)
+    half = (wC + wQ) / 2
+    wI, wQ = half, wQ - half
+    wC *= 1 + C.chg(d5, NOW); wI *= 1 + I.chg(d5, NOW); wQ *= 1 + tr.chg(d5, NOW)
+    kim = wC + wI + wQ
+    # 정답만: 7천 S&P 500 + 3천 국채 → ③ 기준대로(S&P 몫) → 07-01 주식 몫 절반 C3.ai → 08-11 매도(국채) → 10-13 계좌의 10% 아이온큐(S&P 에서) → 지금
+    g_cash = 3000 * (1 + cash.chg(d1, NOW))
+    g_q = 7000 * (1 + tr.chg(d1, dSig)) * ladder(dSig, dCut, end=dTip)[0]
+    gC, gQ = g_q / 2, g_q / 2
+    gC *= 1 + C.chg(dTip, d4); gQ *= 1 + tr.chg(dTip, d5)
+    gC *= 1 + cash.chg(d4, d5)
+    acct = gQ + gC + 3000 * (1 + cash.chg(d1, d5))
+    gI = 0.1 * acct; gQ -= gI
+    good = gQ * (1 + tr.chg(d5, NOW)) + gI * (1 + I.chg(d5, NOW)) + gC * (1 + cash.chg(d5, NOW)) + g_cash
+    put("김씨_경로", wrong_now_manwon=round(kim), wrong_loss=pct(kim / 10000 - 1), wrong_parts_now_manwon={"AI": round(wC), "IONQ": round(wI), "SP": round(wQ)},
+        correct_now_manwon=round(good), correct_gain=pct(good / 10000 - 1), years=yrs(d1, NOW), sp_tr_same=pct(tr.chg(d1, NOW)), spx_price_same=pct(spx.chg(d1, NOW)),
+        note="김씨 = 함정 답만 · 정답 = 정답만 (④ 지인 추천 매수는 이야기 전제 — 두 길 모두 · ④ 정답은 판 돈을 현금(국채)으로 둠)")
+    return R
+
+
 def main():
     S = load()
     for sym in ("QQQ", "QLD", "SMCI", "NVDA", "MSTR", "UPST", "AI", "IONQ"):
@@ -1029,8 +1166,9 @@ def main():
     N1 = nasdaq_1(S)
     N2 = nasdaq_1_v21(S)
     N3 = nasdaq_1_v22(S)
+    N4 = sp_1_v23(S)
     out = HERE / f"longform_items_{date.today().isoformat()}.json"
-    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1, "nasdaq_1편_v2.1": N2, "nasdaq_1편_v2.2": N3}, ensure_ascii=False, indent=1), "utf-8")
+    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1, "nasdaq_1편_v2.1": N2, "nasdaq_1편_v2.2": N3, "sp_1편_v2.3": N4}, ensure_ascii=False, indent=1), "utf-8")
     log.info("file=%s items=%d", out.name, sum(len(v) for v in F.values()), extra={"stage": "DONE"})
 
 

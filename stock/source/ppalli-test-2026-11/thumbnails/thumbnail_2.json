@@ -1,0 +1,92 @@
+{
+ "_설명": "롱폼 썸네일 실험안 1 (스튜디오 '테스트 및 비교') — 다섯 습관 가운데 첫째 '남 따라 사기'를 앞에 — 글자 없는 그림 images/TH-ART.jpg(images_chatgpt.md v2.0 22번, 16:9 반실사 — 일본 면세 편처럼)를 꽉 채우고 제목 2줄·말풍선은 코드 (사용자 지시 2026-10-26 '썸네일은 이미지 하나만 생성하고 문구는 너가 만드는거야'). 그림이 오면: node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json — 말풍선 꼬리는 그림 속 주인공 머리에 맞춰 x·y·tailPos 조정. · 2026-11-02 TH-ART 이 옴: 얼굴이 x 700~930px 이라 말풍선을 그 왼쪽(오른쪽 끝 x 660)으로 옮김",
+ "out": "thumbnail_2.jpg",
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.56,
+  0.88
+ ],
+ "images": [
+  {
+   "src": "../images/TH-ART.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "bubble",
+   "x": 140,
+   "y": 60,
+   "w": 520,
+   "h": 116,
+   "bg": "Y",
+   "color": "K",
+   "radius": 58,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "나도 따라 샀는데?",
+   "_": "말풍선 — 선택 1 (남들이 좋다고 한 종목)"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    428,
+    1208,
+    120
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "남 따라 사면",
+      "Y"
+     ]
+    ]
+   ],
+   "_": "1줄"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    552,
+    1208,
+    124
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "절대 통과 못하는",
+      "R"
+     ],
+     [
+      " 주식 테스트",
+      "W"
+     ]
+    ]
+   ],
+   "_": "2줄 — 제목 뒤 절반 그대로"
+  }
+ ]
+}

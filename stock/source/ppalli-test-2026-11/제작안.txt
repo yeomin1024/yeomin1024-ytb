@@ -1,0 +1,121 @@
+==================================================
+빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트 — 1편 롱폼 제작안 (v2.1)
+⚠ 2026-11-02 대본이 v11 로 바뀜 (v10 → v11: 보기 'A,'·'B,' · 2번 현금·3번 비율 수치는 해설의 '예를 들어'로 · 정리 공통점 두 줄 삭제 — 108문장). 그 전 v10 (v9 → v10: S&P 500 · ① 사지 않음 · ③ 판 값보다 5%마다 3분의 1 · ④ 바로 매도 — 영상 과정은 stock/guides/quick_board.md 6번). 그 전 v9 (피드백판 1편 10건 — 업스타트·현금 3천만·2025 관세 하락장·C3.ai·아이온큐). 아래 장면 표·장면 코드 v1.3·그래프 선(calc/series.py v1.0)·소품 자리는 아직 대본 v8 기준 —
+  대본이 확정되면 장면 코드·series·장면 표를 v9 로 다시 짬 (선택 5 소품: 코인 → 양자 컴퓨터 그림 1장 필요 · 선택 1 'ETF' 카드 → 종목 · 해설 날짜·이름·숫자 모두).
+대본 + 화면 구성(종이인형극 무대 + 코드 모션그래픽) + 그림 요청
+==================================================
+
+작성 2026-11-01 (Claude) — 사용자 지시 2026-11-01 "1편만 영상 관련 소스 만들어봐 이미지 chatgpt 말할거 알려주고"
+v2.1 2026-11-02 — 사용자 지시 "이미지 다 생성했는데 오디오 없이 영상 만들어 볼래": ChatGPT 그림 22장(main 96fa3e65~2b227884)을 검수
+  (글자 없음 · 투명 · 주인공 방향 맞음 · 썸네일 얼굴이 요청보다 왼쪽 → 말풍선 자리는 썸네일 만들 때 옮김) → 장면 코드 v1.3 (HAVE 21장 · 소품 자리 아래 표) →
+  추정 시각(오디오 전) 소리 없는 미리보기 stock/out/ppalli-test-2026-11/preview_estimated_silent.mp4 (git 에 넣지 않음 · 오디오가 오면 실제 시각으로 다시).
+v2.0 2026-11-02 — 사용자 지시 "아니 일본 면세 영상 만들때 처럼 이미지 만들어 다시 수정해" → 그림 요청을 일본 면세 편 꼴로 다시 (22장):
+  · 사람 = 머리·옷·표정이 있는 종이 인형 (면세 편 주인공·줄 선 사람들처럼 — 흰둥이 아님) · 주인공 김씨 = 남색 정장 + 금빛 넥타이
+  · 대본에 나오는 물건마다 소품 한 장 (면세 편 휴대전화·지폐·영수증처럼) — 숫자·티커는 코드가 소품 위에
+  · 무대 4장 모두 같은 화풍으로 새로 (사무실·밤 거실·지하철·카페) · 썸네일 그림 = 면세 편처럼 반실사 16:9
+v1.1 2026-11-02 — 사용자 지시 "일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘" → 다시 확인한 결과 그림 요청이 모자라 8장 → 13장:
+  · 다시 쓰려던 동료·무리(옛 편 W-COLLEAGUE·W-CROWD)는 머리가 큰 귀여운 비율 — 옛 편에서도 '다시 만듦'이었는데 끝내 안 만들어진 그림 → 어른 비율로 새로 (8·10번)
+  · 일본 축제 편은 이야기 장면마다 자기 무대·인물이 있음 → 선택 3 지하철 무대(S-SUBWAY) · 선택 4 카페 무대(S-CAFE) + 지인(W-FRIEND) 더함
+  · 주인공 PHONE·PLAN 은 오른쪽을 보게 (주인공은 늘 왼쪽 · 동료·카드는 오른쪽) · 동료·지인·무리는 왼쪽을 보게
+  · 장면 코드 v1.1: 새 그림이 오기 전엔 v1.0 무대 그대로(옛 동료는 좌우 뒤집어 주인공 쪽을 봄) · 쓰지 않는 HERO-PROUD 를 뺌
+짝 문서: 대본 ppalli-test-2026-11.txt (v8, 104문장) · 그림 요청 images_chatgpt.md (v2.0 — 22장, 일본 면세 편 꼴) · 썸네일 문구 thumbnails/thumbnail_1~3.json ·
+읽는 소리 사전 tts_lexicon.tsv · 업로드 시트 upload.md · 숫자 stock/topics/precheck/longform_items.py v2.1 (nasdaq_1편_v2.1) · 그래프 선 calc/series.py v1.0 ·
+장면 코드 video/episodes/ppalli-test-2026-11/index.html v1.2 (틀·부품 = 옛 습관 테스트 편 video/episodes/simri-test-2026-10/index.html v1.3)
+※ 연구·교육용 — 투자 권유가 아님.
+
+[순서]
+1. 오디오: 사용자가 Kaggle 셀 하나 (주제 stock) → tts_narration.py all --push 가 이 폴더에 narration.mp3 · tts_narration.json (guides/tts_guide.md).
+2. 그림: images_chatgpt.md 를 ChatGPT 에 (22장 — 무대 4 · 주인공 6 · 동료·지인·무리 3 · 소품 8 · 썸네일 1). 오기 전에는 같은 이름의 코드 그림(옛 편 figures.js)으로 영상이 만들어짐 —
+   그림이 오면 장면 코드의 HAVE 에 파일 이름을 더하고, 소품은 그림의 실제 크기·여백을 보고 아래 [그림] 표의 장면·칸에 넣는다 (Claude).
+3. 오디오가 오면 (Claude): cd video && npm run align-audio -- stock ppalli-test-2026-11 → node video/render/render.mjs sync stock ppalli-test-2026-11 →
+   node video/scripts/layout-check.mjs ppalli-test-2026-11 → render.mjs check → stills 확인 → render.mjs video → 완성 mp4 장면을 직접 봄.
+4. 썸네일: TH-ART.jpg 가 오면 node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json → 그림 속 주인공 머리에 말풍선 꼬리를 맞춤.
+
+[화면 글자 규칙] (옛 편과 같음 — 사용자 지시 2026-10-26 "A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고")
+- 한글 = 구운 자막 + A·B 보기 카드(data-words)만. 그 밖은 숫자·기호·영어 허용 목록:
+  A B TEST FAIL PASS CAUTION NASDAQ ETF ARKK INVEST CASH ALL IN NEWS AI BUY SELL HOLD REPORT BTC MSTR SMCI INDEX NOW KIM BEST JOB HOME USA WIN LOSS SLOW LONG (+ 1Y·5M·10Y·%p)
+- 색 = 뜻: 빨강 손해·오답 ✕ · 청록 늘어남·정답 ✓ · 노랑 기준(노란 점선 = 시작 값)·물음 ?
+- 날짜·회사 이름(티커 ARKK·SMCI·MSTR 포함)은 해설에서만 — 선택 장면엔 'ETF 1Y ×2.7'·'AI 5M −63%'·'BTC ▲ 1Y ×9.3' 같은 숫자뿐
+  (사용자 지시 2026-11-01 "도입부 부터 날짜 같은 정답을 알 수 있는 요소 말하지마 그런건 항목 다 끝나고 나중에 밝히는거야").
+
+[장면 표] (문장 번호 = 대본 v8 · 칸 = 아래 배치 표)
+ L-01  1        TEST 다섯 칸 → 빨강 · FAIL 도장                      HERO_L(THINK) · SHEET · STAMP_P
+ L-02  2        NASDAQ 실제 종가 선 2021→2026 ×2.2                    TL · CHART
+ L-03  3        ₩100,000,000 → ₩1,800,000 (세는 숫자) · −98% 도장     HERO_L(DESPAIR) · BIGR · STAMP_P
+ L-04  4~6      ? · 다섯 칸 1~5 · ✕ = ?                                HERO_L(THINK) · HEAD_L · SHEET
+ L-05  7~10     선택 1 이야기: ₩100,000,000 · ETF 1Y ×2.7 · 동료·무리 · 영상 ▶▶▶   낮 사무실(S-OFFICE) · HERO(PHONE) · MATE(W-COLLEAGUE) · BACK(W-CROWD) · TL · TR
+ L-06  11       번호 카드 1                                            NUM
+ L-07  12~13    보기 A·B                                               HERO_L(THINK) · ? · ROW1 · ROW2
+ L-08  14~16    선택 2 이야기: ₩100,000,000 = INVEST ? + CASH → ALL IN ?   밤 거실(S-HOME-NIGHT) · HERO(THINK) · PANEL
+ L-09·10 17~19  번호 카드 2 · 보기 A·B
+ L-11  20~23    선택 3 이야기: NASDAQ 고점→6/13 실제 선 −32% · NEWS ▼▲ · −32%·−45%·−60%   지하철(S-SUBWAY, 어둡게) · HERO_L(SHOCK) · CHART_R · CAP_R
+ L-12·13 24~26  번호 카드 3 · 보기 A·B
+ L-14  27~30    선택 4 이야기: 지인 · AI BUY → AI 5M −63% · 보고서 ✕ REPORT   카페(S-CAFE) · HERO(PHONE) · MATE(W-FRIEND) · TR · MID_R
+ L-15·16 31~33  번호 카드 4 · 보기 A·B
+ L-17  34~37    선택 5 이야기: 동전 BTC ▲ · BTC ▲ 1Y ×9.3 · ALL IN · 무리   밤 거실(S-HOME-NIGHT) · HERO(PHONE) · BACK(W-CROWD) · TL · TR
+ L-18·19 38~40  번호 카드 5 · 보기 A·B
+ L-20  41~42    TEST 다섯 칸 노랑 (살펴보기)                          HERO_L(THINK) · SHEET
+ 해설 1~5 (같은 틀 네 장면):
+   머리  정답 ✓·오답 ✕ 카드 + 날짜·이름 꼬리표                        HERO_L(PLAN) · ROW1 · ROW2 · DATE
+   결과  오답 길(빨강) vs 정답 길(청록) 실제 종가 선 + 숫자              VSL · VSR
+   반론  '물론' ? → '하지만' ! + 숫자·기호 판                          HERO_L(THINK) · HEAD_L · PANEL_R
+   그래서 정답 카드 한 장 ✓                                             HERO_L(PLAN) · HEAD_L · ROW1
+ L-21~25  43~51  1 아크: 2021.02.12 ARKK · ARKK −81% NOW −45% vs NASDAQ −22% NOW +122% · ▲▲ → ×2.7 → −81%
+ L-26~29  52~59  2 현금: ALL IN −₩22,000,000 · SELL ✕ vs CASH ₩20,000,000 ✓ · CASH → +% → JOB ✕ HOME ✕
+ L-30~34  60~69  3 기준: 2022.06.13 NASDAQ −32% · SELL → BUY NOW +91% vs HOLD NOW +169% · −5% → USA · 10Y −15% (Morningstar)
+ L-35~39  70~80  4 손절: 2024.08.28 SMCI · −59% NOW −21% vs NASDAQ −11% NOW +55% · −63% → USA · 10,000 · SELL WIN > HOLD LOSS +3%p (Odean)
+ L-40~44  81~89  5 분산: 2024.11.20 MSTR · −83% NOW −70% vs INDEX −17% NOW +45% · 1 ▲▲▲ → 업종 9칸 중 6 빨강 6 / 9
+ L-45  90~92    ✕ 다섯 · KIM 실제 길 ₩1,800,000 vs BEST ₩201,430,000          DATE · VSL · VSR
+ L-46  93~99    ? → ✕ 0 PASS · ✕ 1–2 CAUTION · ✕ 3+ FAIL (인형 PLAN·THINK·DESPAIR)   HERO_L · RA · RB · RC
+ L-47  100~101  다섯 칸 ✓ (따라 사지 않기·현금·기준·손절·나눠 담기 그림)       CHIPS
+ L-48  102      정답 길 실제 선 · SLOW · LONG ✓                               HERO_L(PLAN) · CHART_R
+ L-49  103~104  인사 (BOW) · 반짝이                                            HERO_C
+
+[배치 표] (장면 코드 LAY 그대로 · 같은 순간에 보이는 칸끼리 겹치지 않음 · 일부러 겹치는 짝: STAMP_P × SHEET·BIGR·PANEL)
+ 화면 1920×1080 · 인형 칸은 무대 자리(화면 x = 960 + 84x) · 자막 띠 y 884 아래·진행 점 PROG 에는 장면 물건 없음.
+ | PROG    | x 1430~1870 · y 36~86   | 진행 점 (선택 1~5) |
+ | HERO_L  | x 170~490 · y 398~870   | 카드 장면 인형 (x −7.6) |      | HEAD_L | x 222~422 · y 228~398 | 머리 위 ? ! ✓ |
+ | DATE    | x 600~1860 · y 96~226   | 날짜·이름 꼬리표 · 끝 ✕ 다섯 |
+ | ROW1    | x 600~1860 · y 250~480  | 보기 A 카드 · 그래서 정답 카드 | | ROW2 | x 600~1860 · y 510~740 | 보기 B 카드 |
+ | PANEL_R | x 600~1860 · y 200~800  | 반론·반박 판 |                  | CHART_R | x 600~1860 · y 180~800 | 오른쪽 그래프 |
+ | CAP_R   | x 600~1420 · y 70~170   | 그래프 위 꼬리표 줄 |              | NUM | x 760~1160 · y 170~650 | 번호 카드 |
+ | SHEET   | x 620~1800 · y 120~740  | 시험지 |                           | STAMP_P | x 1380~1740 · y 140~290 | 도장 |
+ | BIGR    | x 600~1860 · y 200~720  | 큰 금액 |
+ | HERO    | x 380~700 · y 398~870   | 이야기 장면 주인공 (x −5.0) |   | MATE | x 870~1220 · y 398~870 | 동료·지인 (x 1.0) |
+ | BACK    | x 1040~1700 · y 420~870 | 뒤 무리 (x 5.2) |
+ | TL      | x 140~700 · y 96~216    | 왼쪽 위 꼬리표 | | TR | x 1300~1780 · y 96~306 | 앱 카드·영상·ALL IN | | MID_R | x 1260~1780 · y 320~470 | 보고서 |
+ | PANEL   | x 900~1760 · y 110~670  | 선택 2 금액 판 |
+ | CHART   | x 180~1740 · y 230~800  | 도입 그래프 |  | VSL | x 120~940 · y 240~800 | 오답 길 | | VSR | x 980~1800 · y 240~800 | 정답 길 |
+ | RA·RB·RC| x 600~1860 · y 240~420 / 440~620 / 640~820 | 결과 세 줄 |
+ | CHIPS   | x 140~1780 · y 250~670  | 정리 다섯 칸 |  | HERO_C | x 780~1140 · y 420~870 | 인사 (x 0) |
+
+[그림] (images_chatgpt.md v2.0 — 일본 면세 편 꼴: 빈 무대 1장 + 오린 인형·소품 한 장에 하나 · 숫자·해설 장면은 남색 한지)
+ 무대 4 (새로)  S-OFFICE 선택 1 · S-HOME-NIGHT 선택 2·5 · S-SUBWAY 선택 3 (어둡게 깔고 그래프) · S-CAFE 선택 4
+ 주인공 6       HERO-PHONE(기준) 선택 1·4·5 · HERO-THINK 도입·보기·선택 2·해설 물론 · HERO-SHOCK 선택 3 · HERO-DESPAIR 도입·불통과 · HERO-PLAN 해설·통과·정리 · HERO-BOW 인사
+ 사람 3         W-COLLEAGUE 선택 1 (MATE) · W-FRIEND 선택 4 (MATE) · W-CROWD 선택 1·5 (BACK) · 선택 2 문장 16 '모두 넣었다는 사람'
+ 소품 8        (v2.1 자리 잡음 — 칸 안 DOM 그림 propH, 숫자·티커는 코드가 옆·위에)
+   P-MONEY     L-03 도입 ₩100,000,000 → ₩1,800,000 (더미가 줄어듦) · L-05 TL ₩100,000,000 · L-08 PANEL 8천만 + 2천만 (두 더미) · 해설 2 현금 2천만 원 · L-45 KIM vs BEST
+   M-PHONE     v2.1 안 씀 — 주인공 그림(HERO-PHONE·SHOCK)이 휴대전화를 들고, 앱 카드(TR)가 그 화면 숫자
+   P-LAPTOP    L-05 TR 영상 ▶▶▶ (문장 10) · L-11 CAP_R 손실 인증 (22) · L-17 커뮤니티 인증 (36)
+   P-NEWSPAPER L-11 CAP_R NEWS ▼▲ (21)
+   P-SERVER    L-14 'AI 관련 종목' (27) · 해설 4 날짜·이름 장면 (AI 서버 회사)
+   P-REPORT    L-14 MID_R REPORT ✕ (29)
+   P-COINS     L-17 TL BTC ▲ (34) · 해설 5 날짜·이름 장면
+   P-JOBBOX·P-HOUSE  해설 2 '하지만 일자리나 집 문제 같은 최악의 상황은…' (JOB ✕ HOME ✕ 대신)
+ 썸네일 1       TH-ART 16:9 반실사 (글자 없음 — 문구 3안은 thumbnails/thumbnail_1~3.json, 꽉 채움)
+ 다시 씀        test/puppet/P-PAPER.jpg (남색 한지) · test/puppet/M-PHONE.png (빈 휴대전화)
+ 쓰지 않음      옛 습관 테스트 편 W-COLLEAGUE·W-CROWD·S-OFFICE·S-HOME-NIGHT (새 그림이 오기 전 자리만 채움)
+
+[점검 기록] (오디오 전 — 추정 시각 sync --estimate, 478.6초)
+ - render.mjs check: 대표 장면 65 · 0.5초 표본 1,022 · 문제 0 · 페이지 오류 0 · 도입 끝 28.8초 (30초 안)
+ - layout-check: 칸 29 · 대표 장면 65 · 문제 0
+ - still 65장을 직접 봄 → 고친 것 4: 해설 5 '그래서' 장면 끝 시각(다음 장면과 붙임) · 끝 장면 판 머리 KIM·BEST · 반박 판 'USA · 10,000' · 'CASH → +%'
+ - 오디오가 오면 실제 시각으로 다시 sync → 같은 점검.
+ - v1.1 (2026-11-02, 그림이 오기 전 — 무대는 v1.0 과 같고 동료만 좌우 뒤집음): layout-check · render check 다시 (아래 결과는 커밋 메시지에)
+ - v2.0 (2026-11-02, 그림 요청만 바뀜 — 장면은 v1.1 그대로): layout-check 문제 0. 소품 자리는 그림이 온 뒤 넣고 다시 점검.
+ - v2.1 (2026-11-02, 그림 22장 반영 · 장면 코드 v1.3): layout-check 처음 문제 2 (좌절 인형이 HERO_L 칸보다 7px 넓음 → 높이 4.4 → 4.0, 결과 장면 3.8) → 0 ·
+   still 65장 직접 봄 → 고친 것 2: 지하철 무대 위 그래프 글자가 빨간 의자와 겹쳐 안 읽힘 → CHART_R 에 어두운 판 · 선택 1 동료가 무리와 겹침 → MATE x 1.0 → 0.5, 무리 높이 3.8.
+   L-03 지폐 더미가 1억 → 180만 원과 함께 줄어듦 · L-05 노트북 화면에 ▶ 세 칸 · L-11 신문·노트북 · L-14 AI 서버 → 보고서 ✕ · L-17 코인·노트북 · 해설 2 지폐·상자 ✕·집 ✕ · 해설 4 서버 · 해설 5 코인 · 정리 2번 칸 지폐.
+ - 미리보기 렌더 (2026-11-02): render.mjs v1.20 video --estimated-preview --workers 3 → stock/out/ppalli-test-2026-11/preview_estimated_silent.mp4
+   (1920×1080 · 30fps · 14,359프레임 · 478.6초 · 73.8MB · 소리 없음 · 2,557초 걸림) · 완성 mp4 에서 8초마다 60장 + 조각 이음매(159.4·159.7·319.0·319.3초)를 직접 봄 — 문제 없음.
+   사용자에게 720p 사본(10.4MB)을 보냄. 오디오가 오면 align-audio → sync → 같은 점검 → render.mjs video (최종본).

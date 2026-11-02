@@ -1,0 +1,1424 @@
+{
+ "tool": "longform_items.py v2.1",
+ "data_last": "2026-10-27",
+ "facts": {
+  "1": {
+   "A씨_ARKK": {
+    "sym": "ARKK",
+    "day": "2021-02-12",
+    "prior_1y": "+172.7%",
+    "low": "-80.9%",
+    "low_day": "2022-12-28",
+    "now": "-44.1%",
+    "now_day": "2026-10-28",
+    "back": null,
+    "sp500_same_low": "-6.8%",
+    "sp500_same_now": "+112.8%"
+   },
+   "1_LCID": {
+    "sym": "LCID",
+    "day": "2021-11-16",
+    "prior_1y": "+472.4%",
+    "low": "-99.4%",
+    "low_day": "2026-10-19",
+    "now": "-99.4%",
+    "now_day": "2026-10-28",
+    "back": null,
+    "sp500_same_low": "-22.8%",
+    "sp500_same_now": "+76.3%"
+   },
+   "2_LEV2_2007-10-09": {
+    "lev_back": "2013-09-18",
+    "tr_back": "2012-04-02",
+    "lev_low": "-84.3%",
+    "tr_low": "-55.3%",
+    "lev_2y": "-61.4%",
+    "tr_2y": "-28.2%"
+   },
+   "3_stop": {
+    "buy_day": "2020-02-19",
+    "stop_day": "2020-02-27",
+    "stop_value": "-12.0%",
+    "hold_low": "-33.8%",
+    "hold_back": "2020-08-10",
+    "hold_1y": "+17.4%",
+    "stop_1y": "-11.9%"
+   },
+   "5_lump_split_2022-01-03": {
+    "lump": {
+     "start": "2022-01-03",
+     "end": "2024-01-03",
+     "end_value": 1.0137,
+     "worst": -0.2449,
+     "worst_day": "2022-10-12",
+     "sold": null
+    },
+    "split": {
+     "start": "2022-01-03",
+     "end": "2024-01-03",
+     "end_value": 1.1758,
+     "worst": -0.1116,
+     "worst_day": "2022-10-12",
+     "sold": null
+    }
+   },
+   "6_META": {
+    "sym": "META",
+    "day": "2021-09-07",
+    "prior_1y": "+35.2%",
+    "low": "-76.7%",
+    "low_day": "2022-11-03",
+    "now": "+61.8%",
+    "now_day": "2026-10-28",
+    "back": "2024-01-19",
+    "sp500_same_low": "-19.5%",
+    "sp500_same_now": "+83.8%"
+   },
+   "7_1y_20pct": {
+    "n": 9022,
+    "ge20": "+30.4%",
+    "lt0": "+16.6%",
+    "median": "+14.1%"
+   },
+   "8_2000": {
+    "tr_1y": "-6.3%",
+    "tr_12y": "+9.5%",
+    "tr_now": "+765.6%"
+   },
+   "9_2022_daily": {
+    "down_days": 143,
+    "days": 251,
+    "tr_2022": "-18.1%"
+   },
+   "10_ARKK_vs_TR_2022-10-12": {
+    "arkk_2y": "+30.2%",
+    "tr_2y": "+67.7%",
+    "arkk_low": "-17.9%",
+    "tr_low": "+0.0%",
+    "arkk_from_peak": "-76.7%",
+    "tr_from_peak": "-24.5%"
+   }
+  },
+  "2": {
+   "A씨_2022-01-03": {
+    "r": {
+     "start": "2022-01-03",
+     "end": "2024-01-03",
+     "end_value": 0.8411,
+     "worst": -0.2129,
+     "worst_day": "2022-06-13",
+     "sold": [
+      "2022-06-13",
+      0.7871
+     ]
+    },
+    "hold": {
+     "start": "2022-01-03",
+     "end": "2024-01-03",
+     "end_value": 1.0137,
+     "worst": -0.2449,
+     "worst_day": "2022-10-12",
+     "sold": null
+    }
+   },
+   "1_2021": {
+    "ath_2021": 70,
+    "tr_2021": "+28.7%",
+    "tr_2022": "-18.1%",
+    "low_2022": "-25.4%"
+   },
+   "2_2024-01-19": {
+    "low_after": "+0.0%",
+    "low_day": "2024-01-19",
+    "now": "+59.6%",
+    "tr_now": "+65.3%"
+   },
+   "3_2020-02-19": {
+    "lump": {
+     "start": "2020-02-19",
+     "end": "2022-02-18",
+     "end_value": 1.3259,
+     "worst": -0.3379,
+     "worst_day": "2020-03-23",
+     "sold": null
+    },
+    "split": {
+     "start": "2020-02-19",
+     "end": "2022-02-18",
+     "end_value": 1.3899,
+     "worst": -0.0335,
+     "worst_day": "2020-03-23",
+     "sold": null
+    }
+   },
+   "4_2000_tech": {
+    "xlk_prior_1y": "+80.3%",
+    "xlk_low": "-82.0%",
+    "xlk_back": "2017-03-01",
+    "tr_low": "-47.4%",
+    "tr_back": "2006-10-23"
+   },
+   "5_PYPL_peak": {
+    "sym": "PYPL",
+    "day": "2021-07-23",
+    "prior_1y": "+77.5%",
+    "low": "-87.3%",
+    "low_day": "2026-02-12",
+    "now": "-81.5%",
+    "now_day": "2026-10-28",
+    "back": null,
+    "sp500_same_low": "-17.4%",
+    "sp500_same_now": "+88.6%"
+   },
+   "6_2007-10-09_6040": {
+    "note": "purpose_numbers_2026-10-31.json A '2003-09 부터' — 주식만 −55.3% 4.5년 · 주식 60·채권 40 −34.0% 3.1년 (고점 2007-10-09)"
+   },
+   "8_2018-09-20_lev": {
+    "lev_low": "-36.3%",
+    "tr_low": "-19.4%",
+    "lev_low_2y": "-46.3%",
+    "tr_low_2y": "-21.3%"
+   }
+  },
+  "3": {
+   "A씨_XLF_2007-08-03": {
+    "xlf_from_peak": "-15.2%",
+    "low": "-79.6%",
+    "low_day": "2009-03-06",
+    "back": "2016-11-10",
+    "spx_from_peak": "-7.7%",
+    "vix": 25.2
+   },
+   "2_2022-11-10_역전": {
+    "spx_from_peak": "-17.5%",
+    "tr_2y": "+56.3%",
+    "tr_low": "-4.1%",
+    "vix": 23.5
+   },
+   "3_2018-12-21_VIX30": {
+    "spx_from_peak": "-17.5%",
+    "tr_2y": "+58.9%",
+    "tr_low": "-5.1%",
+    "vix": 30.1
+   },
+   "5_2015-08-24": {
+    "spx_from_peak": "-11.2%",
+    "tr_2y": "+34.5%",
+    "tr_low": "-2.4%",
+    "vix": 40.7
+   },
+   "1_2007-08-03_200일": {
+    "spx_from_peak": "-7.7%",
+    "to_trough": "-52.8%"
+   },
+   "4_2000-04-14_tech": {
+    "xlk_from_peak": "-23.3%",
+    "xlk_low": "-76.6%",
+    "xlk_low_day": "2002-10-09",
+    "spx_low": "-42.7%"
+   },
+   "6_2006-08-01_역전": {
+    "rise_to_peak": "+23.2%",
+    "months": 14,
+    "peak_to_trough": "-56.8%"
+   },
+   "10_2015-07-08_200일": {
+    "spx_from_peak": "-3.9%",
+    "tr_2y": "+23.7%",
+    "tr_low": "-9.5%"
+   },
+   "5_2023-01-31_버리": {
+    "date": "2023-01-31",
+    "who": "버리 '팔아라'(1월 31일 기준)",
+    "start": "2023-01-31",
+    "end": "2024-01-31",
+    "hold_10k": 12082,
+    "sell_cash_10k": 10510,
+    "winner": "버틴 사람",
+    "gap": 1572,
+    "spx_from_peak": "-15.0%"
+   },
+   "7_2022-01-21_lev": {
+    "spx_from_peak": "-8.3%",
+    "lev_low": "-36.3%",
+    "tr_low": "-17.7%"
+   }
+  },
+  "4": {
+   "A씨_2020-02-19": {
+    "r": {
+     "start": "2020-02-19",
+     "end": "2022-02-18",
+     "end_value": 0.7346,
+     "worst": -0.2664,
+     "worst_day": "2020-03-12",
+     "sold": [
+      "2020-03-12",
+      0.7336
+     ]
+    },
+    "hold": {
+     "start": "2020-02-19",
+     "end": "2022-02-18",
+     "end_value": 1.3259,
+     "worst": -0.3379,
+     "worst_day": "2020-03-23",
+     "sold": null
+    },
+    "sale_vix": 75.5,
+    "tr_back": "2020-08-10"
+   },
+   "1_2008-09-29": {
+    "vix": 46.7,
+    "lump": {
+     "start": "2008-09-29",
+     "end": "2010-09-29",
+     "end_value": 1.0845,
+     "worst": -0.3798,
+     "worst_day": "2009-03-09",
+     "sold": null
+    },
+    "split": {
+     "start": "2008-09-29",
+     "end": "2010-09-29",
+     "end_value": 1.3383,
+     "worst": -0.1036,
+     "worst_day": "2009-03-09",
+     "sold": null
+    }
+   },
+   "2_2020-03-23": {
+    "vix": 61.6,
+    "spx_from_peak": "-33.9%",
+    "lump": {
+     "start": "2020-03-23",
+     "end": "2022-03-23",
+     "end_value": 2.0548,
+     "worst": 0.0,
+     "worst_day": "2020-03-23",
+     "sold": null
+    },
+    "cash_2y": "+0.2%"
+   },
+   "3_2008-10-10": {
+    "spx_from_peak": "-42.5%",
+    "lump": {
+     "start": "2008-10-10",
+     "end": "2010-10-08",
+     "end_value": 1.3575,
+     "worst": -0.2377,
+     "worst_day": "2009-03-09",
+     "sold": null
+    },
+    "split": {
+     "start": "2008-10-10",
+     "end": "2010-10-08",
+     "end_value": 1.3544,
+     "worst": -0.0937,
+     "worst_day": "2009-03-09",
+     "sold": null
+    }
+   },
+   "4_2009-03-09": {
+    "vix": 49.7,
+    "spx_from_peak": "-56.8%",
+    "lump": {
+     "start": "2009-03-09",
+     "end": "2011-03-09",
+     "end_value": 2.0344,
+     "worst": 0.0,
+     "worst_day": "2009-03-09",
+     "sold": null
+    },
+    "back_to_2007_peak_tr": "2012-04-02"
+   },
+   "6_2022-06-13": {
+    "spx_from_peak": "-21.8%",
+    "split": {
+     "start": "2022-06-13",
+     "end": "2024-06-13",
+     "end_value": 1.4195,
+     "worst": -0.0241,
+     "worst_day": "2022-10-14",
+     "sold": null
+    },
+    "cash_2y": "+9.3%"
+   },
+   "7_2001-09-17_lev": {
+    "vix": 41.8,
+    "lev_low": "-47.3%",
+    "tr_low": "-24.0%",
+    "lev_2y": "-10.3%",
+    "tr_2y": "+2.1%"
+   },
+   "8_PYPL_-60": {
+    "sym": "PYPL",
+    "day": "2022-02-07",
+    "prior_1y": "-54.9%",
+    "low": "-67.7%",
+    "low_day": "2026-02-12",
+    "now": "-52.9%",
+    "now_day": "2026-10-28",
+    "back": null,
+    "sp500_same_low": "-19.3%",
+    "sp500_same_now": "+84.2%"
+   },
+   "9_2020-08-10": {
+    "tr_to_2021_end": "+44.8%",
+    "tr_now": "+151.3%"
+   },
+   "10_2025-04-08": {
+    "vix": 52.3,
+    "spx_from_peak": "-18.9%",
+    "tr_now": "+57.9%",
+    "spx_low_after": "+0.0%",
+    "spx_back": "2025-06-27"
+   }
+  }
+ },
+ "paths": {
+  "김씨": {
+   "steps": [
+    {
+     "step": "손절 (S&P 500 → 현금)",
+     "from": "2020-02-19",
+     "to": "2020-02-27",
+     "chg": "-12.0%",
+     "value": 0.8801
+    },
+    {
+     "step": "현금 (국채)",
+     "from": "2020-02-27",
+     "to": "2021-02-12",
+     "chg": "+0.1%",
+     "value": 0.8811
+    },
+    {
+     "step": "기술 펀드 ARKK",
+     "from": "2021-02-12",
+     "to": "2021-11-16",
+     "chg": "-24.1%",
+     "value": 0.6692
+    },
+    {
+     "step": "전기차 회사 LCID",
+     "from": "2021-11-16",
+     "to": "2022-01-03",
+     "chg": "-26.3%",
+     "value": 0.4933
+    },
+    {
+     "step": "2배 상품",
+     "from": "2022-01-03",
+     "to": "2022-10-12",
+     "chg": "-46.5%",
+     "value": 0.2639
+    },
+    {
+     "step": "기술 펀드 ARKK",
+     "from": "2022-10-12",
+     "to": "2024-10-11",
+     "chg": "+30.2%",
+     "value": 0.3436
+    }
+   ],
+   "value_at_last_choice": 0.2639,
+   "value_2y_after": 0.3436,
+   "hold_tr_to_last_choice": 1.102,
+   "hold_tr_2y_after": 1.8485,
+   "years_to_last_choice": 2.6,
+   "months_steps": [
+    0.3,
+    11.5,
+    9.1,
+    1.6,
+    9.3,
+    24.0
+   ]
+  },
+  "이씨": {
+   "pypl_to_2022_06_13": "-76.1%",
+   "months_jan_to_jun": 5.3,
+   "sold_total_manwon": 12126,
+   "parts_manwon": {
+    "페이팔": 1673,
+    "지수": 2583,
+    "새해 1억": 7871
+   },
+   "put_in_manwon": 20000,
+   "loss_manwon": 7874,
+   "hold_all_2024_01_03_manwon": 14793,
+   "no_trap_account_2022_06_13_manwon": 8610,
+   "deposit_cash_2022_06_13_manwon": 10025
+  },
+  "박씨": {
+   "lev_signal_to_peak": "+18.4%",
+   "lev_peak_to_trough": "-84.3%",
+   "lev_signal_to_trough": "-81.4%",
+   "spx_signal_to_peak": "+9.2%"
+  },
+  "최씨": {
+   "spx_inversion_to_rebuy": "+3.0%",
+   "tr_inversion_2y": "+56.3%"
+  },
+  "정씨": {
+   "sale_value": 0.7336,
+   "spx_aug_vs_sale": "+35.5%",
+   "spx_min_after_aug_vs_sale": "+30.5%",
+   "spx_min_after_aug_day": "2020-09-23",
+   "months_mar12_to_aug10": 5.0,
+   "months_mar23_to_aug10": 4.6,
+   "years_aug_to_pypl": 1.5,
+   "months_pypl_to_bear": 4.1,
+   "vix_median_1990": 17.6,
+   "vix_on_sale": 75.5,
+   "spx_price_back_to_peak": "2020-08-18"
+  },
+  "이씨_v1.2": {
+   "put_in_manwon": 25000,
+   "trap_sold_manwon": 16062,
+   "trap_loss_manwon": 8938,
+   "no_trap_same_day_manwon": 22656,
+   "spare_lump_on_day": 0.7871,
+   "spare_split_on_day": 0.9288,
+   "spare_lump_2y": 1.0137,
+   "spare_split_2y": 1.1758,
+   "spare_lump_5y": 1.7243,
+   "jeonse_part_on_day_manwon": 6297,
+   "jeonse_part_2022_12_30_manwon": 6510,
+   "pypl70_half_hit": "-35.0%"
+  },
+  "매도20_vs_보유_5년": {
+   "n": 124,
+   "hold_better": 122,
+   "share": "+98.4%",
+   "median_hold": 1.044,
+   "median_sold": 0.8,
+   "sold_better_starts": [
+    "2000-04",
+    "2004-03"
+   ],
+   "first": "1998-03-02",
+   "last": "2020-03-02"
+  },
+  "김씨_v1.3": {
+   "value_2024_01_03": 0.4303,
+   "hold_tr_2024_01_03": 1.4794,
+   "years": 3.9,
+   "lev_bull_2009_2021": "+4546.2%",
+   "tr_bull_2009_2021": "+812.0%",
+   "lev_low_2001": "-47.3%",
+   "tr_low_2001": "-24.0%"
+  },
+  "신호_전부매도_vs_보유": {
+   "200일 평균 아래": {
+    "n_signals": 28,
+    "2년": {
+     "n": 26,
+     "hold_better": 22,
+     "sold_better": [
+      "1999-09-23",
+      "2000-02-18",
+      "2007-08-03",
+      "2018-04-02"
+     ]
+    },
+    "5년": {
+     "n": 24,
+     "hold_better": 19,
+     "sold_better": [
+      "1998-08-27",
+      "1999-09-23",
+      "2000-02-18",
+      "2004-07-16",
+      "2005-10-05"
+     ]
+    }
+   },
+   "공포 지수 30 넘음": {
+    "n_signals": 22,
+    "2년": {
+     "n": 20,
+     "hold_better": 13,
+     "sold_better": [
+      "2000-04-14",
+      "2000-10-12",
+      "2001-09-07",
+      "2007-08-15",
+      "2007-11-12",
+      "2008-09-15",
+      "2021-12-01"
+     ]
+    },
+    "5년": {
+     "n": 17,
+     "hold_better": 13,
+     "sold_better": [
+      "1997-10-27",
+      "1998-08-04",
+      "2000-04-14",
+      "2000-10-12"
+     ]
+    }
+   },
+   "장단기 금리 역전": {
+    "n_signals": 5,
+    "2년": {
+     "n": 5,
+     "hold_better": 3,
+     "sold_better": [
+      "2000-07-27",
+      "2006-08-01"
+     ]
+    },
+    "5년": {
+     "n": 4,
+     "hold_better": 3,
+     "sold_better": [
+      "2000-07-27"
+     ]
+    }
+   }
+  },
+  "3편_추가": {
+   "tr_from_2007_08_03_low": "-50.9%",
+   "burry_1y_low": "-5.2%",
+   "warnings_1y_low": {
+    "2021-01-22": "-3.3%",
+    "2022-06-01": "-12.2%",
+    "2022-06-03": "-12.4%",
+    "2023-01-31": "-5.2%",
+    "2023-08-14": "-8.0%"
+   }
+  },
+  "정씨_v1.3": {
+   "invest": 8,
+   "reserve": 2,
+   "cash_on_2022_02_07": 7.88,
+   "trap_2024_06_13": 3.994,
+   "loss": 6.006,
+   "hold_index_2024_06_13": 18.95,
+   "years": 4.3,
+   "sale_frac": 0.7336
+  },
+  "4편_2_바닥": {
+   "split4_2y": 1.672,
+   "split4_worst": 0.0,
+   "wait_to_peak_then_lump_2y": 1.3593,
+   "lump_2008_09_29_worst": -0.3798,
+   "split_2008_09_29_worst": -0.1036
+  },
+  "4편_3_최고가근처": {
+   "split12_2y": 1.1329,
+   "split12_worst": -0.0151,
+   "spx_min_after": "-3.7%",
+   "spx_min_day": "2020-09-23"
+  },
+  "4편_5_하락장_매달": {
+   "rows": [
+    {
+     "bear": "닷컴",
+     "entry": "2001-03-12",
+     "back_to_peak": "2007-05-30",
+     "2년": {
+      "continue": 0.714,
+      "pause": 1.0273
+     },
+     "4년": {
+      "continue": 1.1035,
+      "pause": 1.0542
+     },
+     "5년": {
+      "continue": 1.2003,
+      "pause": 1.0909
+     }
+    },
+    {
+     "bear": "금융위기",
+     "entry": "2008-07-09",
+     "back_to_peak": "2013-03-28",
+     "2년": {
+      "continue": 1.1876,
+      "pause": 1.0025
+     },
+     "4년": {
+      "continue": 1.5539,
+      "pause": 1.0039
+     },
+     "5년": {
+      "continue": 1.9414,
+      "pause": 1.0641
+     }
+    },
+    {
+     "bear": "코로나",
+     "entry": "2020-03-12",
+     "back_to_peak": "2020-08-18",
+     "2년": {
+      "continue": 1.3301,
+      "pause": 1.2248
+     },
+     "4년": {
+      "continue": 1.6919,
+      "pause": 1.5579
+     },
+     "5년": {
+      "continue": 1.8552,
+      "pause": 1.7083
+     }
+    },
+    {
+     "bear": "2022",
+     "entry": "2022-06-13",
+     "back_to_peak": "2024-01-19",
+     "2년": {
+      "continue": 1.4038,
+      "pause": 1.192
+     },
+     "4년": {
+      "continue": 1.9695,
+      "pause": 1.6724
+     }
+    }
+   ]
+  },
+  "김씨_v1.4": {
+   "steps": [
+    1.1824,
+    0.898,
+    0.662,
+    0.5775
+   ],
+   "value_2024_01_03": 0.5775,
+   "hold_tr_2024_01_03": 1.4794,
+   "lump_2020_02_19": {
+    "start": "2020-02-19",
+    "end": "2022-02-18",
+    "end_value": 1.3259,
+    "worst": -0.3379,
+    "worst_day": "2020-03-23",
+    "sold": null
+   },
+   "split_2020_02_19": {
+    "start": "2020-02-19",
+    "end": "2022-02-18",
+    "end_value": 1.3899,
+    "worst": -0.0335,
+    "worst_day": "2020-03-23",
+    "sold": null
+   },
+   "lev_now": "+104.9%",
+   "tr_now": "+72.4%",
+   "lev_back": "2024-02-22",
+   "lcid_same_tr_low": "-22.8%",
+   "lcid_same_tr_now": "+76.3%",
+   "lev_2001_09_17_low": "-47.3%",
+   "tr_2001_09_17_low": "-24.0%"
+  },
+  "2편_v1.5": {
+   "irx_2021_12_31": 0.03,
+   "tr_low_from_2021_12_31": "-24.0%",
+   "spare_lump_sold_2y": 0.8412,
+   "spare_split_hold_2y": 1.1758,
+   "tr_2021_07_23_now_price": "+75.0%"
+  },
+  "박씨_v1.5": {
+   "bank_half_lev_half_to_trough": 0.1965,
+   "xlf_from_signal_low": "-79.6%",
+   "xlf_from_peak_2007_10_09_low": "-81.8%",
+   "lev_from_2007_10_09_low": "-84.3%",
+   "tr_from_2007_10_09_low": "-55.3%",
+   "months_signal_to_trough": 19.2
+  },
+  "200일_규칙": {
+   "start": "1990-10-16",
+   "end": "2026-10-27",
+   "hold_max_dd": "-55.3%",
+   "rule_max_dd": "-21.8%",
+   "hold_cagr": "+11.6%",
+   "rule_cagr": "+9.3%",
+   "trades": 235,
+   "note": "신호는 그날 종가로 보고 다음 날부터 따름(앞날 정보 없음) · 세금·수수료 뺌"
+  },
+  "경고_2년": {
+   "2021-01-22": {
+    "hold_2y": "+6.6%",
+    "cash_2y": "+2.2%",
+    "low_2y": "-4.4%"
+   },
+   "2022-06-01": {
+    "hold_2y": "+32.9%",
+    "cash_2y": "+9.2%",
+    "low_2y": "-12.2%"
+   },
+   "2022-06-03": {
+    "hold_2y": "+32.8%",
+    "cash_2y": "+9.2%",
+    "low_2y": "-12.4%"
+   },
+   "2023-01-31": {
+    "hold_2y": "+52.7%",
+    "cash_2y": "+10.2%",
+    "low_2y": "-5.2%"
+   },
+   "2023-08-14": {
+    "hold_2y": "+48.2%",
+    "cash_2y": "+9.8%",
+    "low_2y": "-8.0%"
+   }
+  },
+  "4편_2008_넉달": {
+   "split4": {
+    "start": "2008-09-29",
+    "end": "2010-09-29",
+    "end_value": 1.3015,
+    "worst": -0.2555,
+    "worst_day": "2009-03-09",
+    "sold": null
+   },
+   "wait_cash_2y": "+0.3%",
+   "lump": {
+    "start": "2008-09-29",
+    "end": "2010-09-29",
+    "end_value": 1.0845,
+    "worst": -0.3798,
+    "worst_day": "2009-03-09",
+    "sold": null
+   }
+  },
+  "−60%_날_뒤": {
+   "PYPL": {
+    "day": "2022-02-07",
+    "further_low": "-67.7%",
+    "now": "-52.9%",
+    "tr_low": "-19.3%",
+    "tr_now": "+84.2%"
+   },
+   "META": {
+    "day": "2022-09-14",
+    "further_low": "-41.3%",
+    "now": "+308.2%",
+    "tr_low": "-9.2%",
+    "tr_now": "+107.2%"
+   }
+  },
+  "김씨_정답": {
+   "split12_2020_02_19_to_2024_01_03": 1.5508,
+   "split12_to_now": 2.6373,
+   "kim_path_to_now": 1.3564,
+   "tsla_2021_11_16_low": "-69.3%",
+   "tsla_2021_11_16_now": "+15.0%",
+   "tsla_prior_1y": "+158.5%"
+  },
+  "정씨_정답": {
+   "value_2024_06_13": 17.982,
+   "reserve_split4_value": 2.1132
+  },
+  "3편_최씨_200일": {
+   "spx_from_peak": "-11.9%",
+   "tr_2y": "+63.9%",
+   "cash_2y": "+9.6%",
+   "tr_low_2y": "-2.5%",
+   "months_burry_to_signal": 8.6
+  },
+  "한꺼번에_vs_나눠_2000_이후": {
+   "rule": "매달 첫 거래일 시작 · 나눠 = 12달(안 넣은 돈은 국채) · 원금 20% = 시작 날 원금 대비",
+   "2년·2000~2008": {
+    "lump": {
+     "n": 108,
+     "dd20_share": "+50.9%",
+     "stable_share": "+44.4%",
+     "median_gain": "+3.9%"
+    },
+    "split": {
+     "n": 108,
+     "dd20_share": "+40.7%",
+     "stable_share": "+53.7%",
+     "median_gain": "+13.8%"
+    }
+   },
+   "2년·2009~": {
+    "lump": {
+     "n": 190,
+     "dd20_share": "+9.5%",
+     "stable_share": "+87.4%",
+     "median_gain": "+31.1%"
+    },
+    "split": {
+     "n": 190,
+     "dd20_share": "+2.1%",
+     "stable_share": "+91.1%",
+     "median_gain": "+25.0%"
+    }
+   },
+   "5년·2000~2008": {
+    "lump": {
+     "n": 108,
+     "dd20_share": "+83.3%",
+     "stable_share": "+15.7%",
+     "median_gain": "+11.1%"
+    },
+    "split": {
+     "n": 108,
+     "dd20_share": "+73.1%",
+     "stable_share": "+25.0%",
+     "median_gain": "+11.0%"
+    }
+   },
+   "5년·2009~": {
+    "lump": {
+     "n": 154,
+     "dd20_share": "+9.1%",
+     "stable_share": "+90.9%",
+     "median_gain": "+94.7%"
+    },
+    "split": {
+     "n": 154,
+     "dd20_share": "+2.6%",
+     "stable_share": "+97.4%",
+     "median_gain": "+80.8%"
+    }
+   }
+  },
+  "매도20_v1.7": {
+   "n": 124,
+   "sold_below_principal": 124,
+   "hold_back_to_principal": 78,
+   "hold_min_after_median": 0.616,
+   "hold_min_below_70": "+76.6%",
+   "hold_end_below_principal": 46
+  },
+  "3편_v1.7": {
+   "signal_to_trough_tr": {
+    "닷컴": "-36.8%",
+    "금융위기": "-50.9%",
+    "코로나": "-24.8%",
+    "2022": "-17.7%"
+   },
+   "signal_to_trough_price": {
+    "닷컴": "-39.3%",
+    "금융위기": "-52.8%",
+    "코로나": "-24.9%",
+    "2022": "-18.7%"
+   },
+   "tr_dd20_within_2y": [
+    "1999-09-23",
+    "2000-02-18",
+    "2007-08-03",
+    "2020-02-27"
+   ],
+   "n_signals": 28,
+   "lev2_vs_tr_drawdown_ratio": {
+    "2001-09": 1.97,
+    "2007-10": 1.53,
+    "2022": 1.9,
+    "2018-09-20 2년": 2.17
+   },
+   "sectors_source": "purpose_numbers_2026-10-31.json A_sectors (1999-01-04~): S&P 500 −55.3% · 그보다 깊은 업종 6개(소재·에너지·금융·산업재·기술·임의소비재) · 되찾기 금융 10.1년·기술 16.9년 · S&P 500 4.5년"
+  },
+  "정씨_정답_v1.7": {
+   "account_2022_02_07": 14.284,
+   "with_pypl10_2024_06_13": 16.908,
+   "without_pypl_2024_06_13": 17.982,
+   "wait_10pct_2008_10_08_lump": {
+    "start": "2008-10-08",
+    "end": "2010-10-08",
+    "end_value": 1.2395,
+    "worst": -0.304,
+    "worst_day": "2009-03-09",
+    "sold": null
+   }
+  },
+  "3편_v1.8": {
+   "ma_from": "1988-01-04",
+   "signals_from": "1990-01-02",
+   "n_signals": 29,
+   "first_signals": [
+    "1990-01-22",
+    "1990-08-03",
+    "1991-11-19"
+   ],
+   "n_with_2y": 27,
+   "no_dd20_2y": 23,
+   "dd20_2y": [
+    "1999-09-23",
+    "2000-02-18",
+    "2007-08-03",
+    "2020-02-27"
+   ],
+   "hold_better_2y": 23,
+   "sold_better_2y": [
+    "1999-09-23",
+    "2000-02-18",
+    "2007-08-03",
+    "2018-04-02"
+   ],
+   "rule_from": "1990-01-02",
+   "rule_max_dd": "-21.8%",
+   "hold_max_dd": "-55.3%",
+   "rule_trades": 248,
+   "rule_end": 22.78,
+   "hold_end": 44.88,
+   "rule_over_hold": 0.508,
+   "rule_cagr": "+8.9%",
+   "hold_cagr": "+10.9%",
+   "cash_end": 2.67,
+   "bundle_trough": 0.1965,
+   "bundle_back_to_principal": "2013-10-29",
+   "bundle_years_to_back": 6.2,
+   "tr_back_to_0803": "2011-02-11",
+   "tr_years_to_back": 3.5,
+   "bundle_now": 10.53,
+   "tr_now_from_0803": 7.76,
+   "bundle_now_day": "2026-10-27",
+   "sector_recover_note": "purpose_numbers A_sectors: years_to_recover = 그 하락의 고점 → 고점 회복 (바닥부터가 아님)"
+  },
+  "한꺼번에_vs_나눠_1990": {
+   "2년·1990~1999": {
+    "lump": {
+     "n": 120,
+     "stable_n": 109,
+     "stable_share": "+90.8%",
+     "dd20_n": 3
+    },
+    "split": {
+     "n": 120,
+     "stable_n": 106,
+     "stable_share": "+88.3%",
+     "dd20_n": 3
+    }
+   },
+   "2년·1990~": {
+    "lump": {
+     "n": 418,
+     "stable_n": 323,
+     "stable_share": "+77.3%",
+     "dd20_n": 76
+    },
+    "split": {
+     "n": 418,
+     "stable_n": 337,
+     "stable_share": "+80.6%",
+     "dd20_n": 51
+    }
+   },
+   "5년·1990~1999": {
+    "lump": {
+     "n": 120,
+     "stable_n": 90,
+     "stable_share": "+75.0%",
+     "dd20_n": 20
+    },
+    "split": {
+     "n": 120,
+     "stable_n": 89,
+     "stable_share": "+74.2%",
+     "dd20_n": 24
+    }
+   },
+   "5년·1990~": {
+    "lump": {
+     "n": 382,
+     "stable_n": 247,
+     "stable_share": "+64.7%",
+     "dd20_n": 124
+    },
+    "split": {
+     "n": 382,
+     "stable_n": 266,
+     "stable_share": "+69.6%",
+     "dd20_n": 107
+    }
+   }
+  },
+  "1년_보유_손실": {
+   "1990~": {
+    "n": 430,
+    "loss_share": "+16.7%"
+   },
+   "2000~": {
+    "n": 310,
+    "loss_share": "+22.3%"
+   }
+  },
+  "매도20_하락장별": {
+   "닷컴": {
+    "n": 50,
+    "hold_below_principal": 29,
+    "hold_minus_sold_median": 0.14
+   },
+   "금융위기": {
+    "n": 61,
+    "hold_below_principal": 17,
+    "hold_minus_sold_median": 0.26
+   },
+   "코로나": {
+    "n": 13,
+    "hold_below_principal": 0,
+    "hold_minus_sold_median": 1.13
+   }
+  },
+  "4편_5_이어감_vs_예금": {
+   "rows": [
+    {
+     "bear": "닷컴",
+     "entry": "2001-03-12",
+     "2년": {
+      "continue": 0.714,
+      "continue_worst": "-31.6%",
+      "deposit_only": 1.0273
+     },
+     "4년": {
+      "continue": 1.1035,
+      "continue_worst": "-31.6%",
+      "deposit_only": 1.0542
+     }
+    },
+    {
+     "bear": "금융위기",
+     "entry": "2008-07-09",
+     "2년": {
+      "continue": 1.1876,
+      "continue_worst": "-31.3%",
+      "deposit_only": 1.0025
+     },
+     "4년": {
+      "continue": 1.5539,
+      "continue_worst": "-31.3%",
+      "deposit_only": 1.0039
+     }
+    },
+    {
+     "bear": "코로나",
+     "entry": "2020-03-12",
+     "2년": {
+      "continue": 1.3301,
+      "continue_worst": "-9.7%",
+      "deposit_only": 1.0011
+     },
+     "4년": {
+      "continue": 1.6919,
+      "continue_worst": "-9.7%",
+      "deposit_only": 1.0824
+     }
+    },
+    {
+     "bear": "2022",
+     "entry": "2022-06-13",
+     "2년": {
+      "continue": 1.4038,
+      "continue_worst": "-8.8%",
+      "deposit_only": 1.0774
+     },
+     "4년": {
+      "continue": 1.9695,
+      "continue_worst": "-8.8%",
+      "deposit_only": 1.1682
+     }
+    }
+   ]
+  },
+  "4편_3_최고가근처_기다렸다나눠": {
+   "rule": "시작 = 배당 포함 지수가 그때까지 최고가의 98% 이상인 달 첫 거래일 · B = 그날보다 10% 아래로 처음 내려간 날부터 12달 나눠(그 전·안 넣은 돈은 국채)",
+   "2년·1990~1999": {
+    "n": 75,
+    "split_now_stable": "+89.3%",
+    "wait10_then_split_stable": "+58.7%"
+   },
+   "2년·2000~2008": {
+    "n": 11,
+    "split_now_stable": "+0.0%",
+    "wait10_then_split_stable": "+0.0%"
+   },
+   "2년·2009~": {
+    "n": 82,
+    "split_now_stable": "+87.8%",
+    "wait10_then_split_stable": "+64.6%"
+   },
+   "2년·1990~": {
+    "n": 168,
+    "split_now_stable": "+82.7%",
+    "wait10_then_split_stable": "+57.7%"
+   },
+   "5년·1990~1999": {
+    "n": 75,
+    "split_now_stable": "+76.0%",
+    "wait10_then_split_stable": "+53.3%"
+   },
+   "5년·2000~2008": {
+    "n": 11,
+    "split_now_stable": "+0.0%",
+    "wait10_then_split_stable": "+36.4%"
+   },
+   "5년·2009~": {
+    "n": 72,
+    "split_now_stable": "+97.2%",
+    "wait10_then_split_stable": "+62.5%"
+   },
+   "5년·1990~": {
+    "n": 158,
+    "split_now_stable": "+80.4%",
+    "wait10_then_split_stable": "+56.3%"
+   }
+  },
+  "4편_2_10%기다림_같은끝": {
+   "lump_2008_10_08_to_2010_09_29": 1.2171
+  },
+  "1편_5번_지수_보유": {
+   "tr_2024_01_03_to_now": "+70.1%",
+   "tr_low": "-0.3%",
+   "cash": "+12.5%",
+   "five_year_beat_cash_2000": "+81.7%",
+   "n": 262,
+   "now": "2026-10-27",
+   "arkk_2021_02_12_now": "-45.0%",
+   "tsla_2021_11_16_now": "+15.9%",
+   "lcid_2021_11_16_now": "-99.4%",
+   "pypl_2021_07_23_now": "-81.6%",
+   "pypl_2022_02_07_now": "-53.3%",
+   "kim_correct_path_2022_peak_dd": "-24.5%"
+  },
+  "3편_v1.9": {
+   "rule_sells": 124,
+   "rule_buys": 124,
+   "rule_sells_below_buy": 64,
+   "rule_end_over_cash": 8.5,
+   "cash_from_2007_08_03_now": 1.32,
+   "burry_from_2023_02_01": {
+    "hold_2y": "+51.1%",
+    "cash_2y": "+10.2%",
+    "low_2y": "-6.2%"
+   },
+   "note": "판·산 값 = 신호 다음 날 종가 (배당 포함)"
+  },
+  "200일_규칙_다음날": {
+   "start": "1990-01-03",
+   "end": "2026-10-27",
+   "rule_max_dd": "-21.2%",
+   "hold_max_dd": "-55.3%",
+   "rule_end": 26.88,
+   "hold_end": 44.99,
+   "rule_over_hold": 0.597,
+   "rule_over_cash": 10.1,
+   "trades": 248
+  },
+  "2편_여윳돈_지금": {
+   "now": "2026-10-27",
+   "sold": 0.9462,
+   "lump_hold": 1.7243,
+   "split_hold": 1.9969,
+   "deposit": 1.205
+  },
+  "매도20_v1.9": {
+   "n_starts": 382,
+   "hold_beat_deposit": 57,
+   "sold_beat_deposit": 0
+  },
+  "2편_1번_지금": {
+   "now": "2026-10-27",
+   "a_now": 6.95,
+   "b_now": 17.16,
+   "tax_if_22pct": 0.58,
+   "b_now_after_tax": 16.07,
+   "note": "세금 = 판 6만 달러 가운데 이익 몫(0.78/1.78) × 22% — 어림, 한국 해외 주식 양도세 기본 공제는 뺌"
+  },
+  "4편_v1.9": {
+   "day1_hold_low_from_2020_03_12": "-9.7%",
+   "day1_hold_2y": "+74.9%",
+   "vix40": [
+    {
+     "day": "1998-08-31",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "+0.0%"
+    },
+    {
+     "day": "2001-09-17",
+     "hold_stable": false,
+     "hold_beat_cash": false,
+     "low": "-24.0%"
+    },
+    {
+     "day": "2002-07-22",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-4.9%"
+    },
+    {
+     "day": "2008-09-29",
+     "hold_stable": false,
+     "hold_beat_cash": true,
+     "low": "-38.0%"
+    },
+    {
+     "day": "2010-05-07",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-7.6%"
+    },
+    {
+     "day": "2011-08-08",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-1.4%"
+    },
+    {
+     "day": "2015-08-24",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-2.4%"
+    },
+    {
+     "day": "2020-02-28",
+     "hold_stable": false,
+     "hold_beat_cash": true,
+     "low": "-24.2%"
+    },
+    {
+     "day": "2020-10-28",
+     "hold_stable": true,
+     "hold_beat_cash": true,
+     "low": "-0.0%"
+    }
+   ],
+   "vix40_n": 9,
+   "vix40_hold_stable": 6,
+   "vix40_hold_beat_cash": 8,
+   "pypl10_low": "-20.6%",
+   "pypl10_low_day": "2022-10-14",
+   "pypl10_2024_06_13": "+18.4%",
+   "pypl10_now": "+70.5%",
+   "trap_loss_split": {
+    "sale": 2.131,
+    "pypl": 3.886
+   },
+   "pause_until_peak_2022_2y": 1.192,
+   "note": "vix_days = crash_tests_2026-10-31.json C_vix40 cases 의 날짜 (공포 지수 40 을 석 달 넘게 안 넘다가 처음 넘은 날)"
+  }
+ },
+ "nasdaq_1편": {
+  "날짜": {
+   "d1": "2020-02-19",
+   "d1_is_peak": true,
+   "d3": "2021-12-27",
+   "d3_is_peak": true,
+   "d4_smci_peak": "2024-03-13",
+   "d5": "2025-01-02"
+  },
+  "1_한꺼번에_vs_나눠": {
+   "lump_worst": "-28.6%",
+   "lump_worst_day": "2020-03-16",
+   "lump_back_to_start": "2020-06-03",
+   "months_to_back": 3.4,
+   "split12": {
+    "end": 1.315,
+    "worst": "-2.6%",
+    "worst_day": "2020-03-20"
+   },
+   "split_first_tranche_share": 0.0833,
+   "lump_1y": 1.4048,
+   "qqq_prior_1y": "+38.7%",
+   "note": "나눠 넣기 가장 낮은 값 = 그때까지 넣은 돈 + 아직 안 넣은 국채 현금 전체 대비"
+  },
+  "2_ARKK": {
+   "prior_1y": 2.73,
+   "low": "-80.9%",
+   "low_day": "2022-12-28",
+   "now": "-45.0%",
+   "qqq_low": "-21.8%",
+   "qqq_now": "+121.7%"
+  },
+  "3_1배_vs_2배": {
+   "qld_prior_1y": "+63.4%",
+   "qqq_prior_1y": "+31.0%",
+   "qld_2022_low": "-63.4%",
+   "qqq_2022_low": "-35.1%",
+   "qld_now": "+99.5%",
+   "qqq_now": "+83.9%",
+   "qld_back": "2024-05-24",
+   "qqq_back": "2023-12-13",
+   "syn2_2000_low": "-98.7%",
+   "qqq_2000_low": "-83.0%",
+   "syn2_2000_back": "2020-08-25",
+   "qqq_2000_back": "2015-02-20"
+  },
+  "4_SMCI": {
+   "prior_1y": 13.3,
+   "low": "-84.8%",
+   "low_day": "2024-11-14",
+   "now": "-70.5%",
+   "qqq_low": "-5.7%",
+   "qqq_now": "+66.2%",
+   "nvda_now": "+140.5%",
+   "nvda_low": "-16.2%"
+  },
+  "김씨_경로": {
+   "steps": [
+    1.4278,
+    0.8883,
+    0.8407,
+    0.2126
+   ],
+   "at_d5": 0.2126,
+   "peak": 1.4278,
+   "peak_day": "2021-02-12",
+   "years": 4.9,
+   "kim_to_now_if_held_smci": 0.2483,
+   "correct_at_d5": 2.0778,
+   "correct_worst": "-2.6%",
+   "correct_now": 2.9617,
+   "won": "1억 원 × 값",
+   "d5_qqq_now": "+42.6%",
+   "d5_qqq_low": "-18.3%"
+  }
+ },
+ "nasdaq_1편_v2.1": {
+  "1_남따라": {
+   "arkk_prior_1y": 2.73,
+   "arkk_low": "-80.9%",
+   "arkk_now": "-45.0%",
+   "qqq_low": "-21.8%",
+   "qqq_low_day": "2022-11-03",
+   "qqq_now": "+121.7%"
+  },
+  "2_현금": {
+   "qqq_low_from_d1": "-21.8%",
+   "all_in_low_manwon": 7818,
+   "keep_cash_low_manwon": 8281
+  },
+  "3_기준": {
+   "qqq_peak_to_d3": "-31.7%",
+   "further_low": "-5.1%",
+   "hold_to_now": "+169.2%",
+   "panic_to_now": "+90.7%",
+   "years_out": 1.5,
+   "morningstar": "Mind the Gap 2024 (미국 · 2023년까지 10년): 투자자 수익이 펀드 수익보다 해마다 약 1.1%p 낮음 = 10년 수익의 약 15%를 놓침"
+  },
+  "4_손절": {
+   "smci_buy_to_d4": "-62.7%",
+   "months": 5.5,
+   "further_low": "-59.4%",
+   "further_low_day": "2024-11-14",
+   "smci_now": "-20.9%",
+   "qqq_low": "-11.3%",
+   "qqq_now": "+54.8%",
+   "odean": "Odean 1998 Journal of Finance (미국 할인 증권사 1만 계좌): 판 이익 종목이 들고 있던 손실 종목보다 다음 1년 약 3.4%p 더 오름"
+  },
+  "5_분산": {
+   "mstr_prior_1y": 9.3,
+   "mstr_low": "-82.6%",
+   "mstr_low_day": "2026-06-26",
+   "mstr_now": "-70.2%",
+   "qqq_low": "-17.1%",
+   "qqq_now": "+44.8%",
+   "sectors": "purpose_numbers_2026-10-31.json A_sectors: 1999년 이후 9개 업종 중 6개가 S&P 500(−55.3%)보다 깊이 빠짐"
+  },
+  "김씨_경로": {
+   "wrong_now_manwon": 180,
+   "wrong_loss": "-98.2%",
+   "correct_now_manwon": 20143,
+   "years": 5.7,
+   "qqq_same": "+121.7%"
+  }
+ }
+}

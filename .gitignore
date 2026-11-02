@@ -47,3 +47,5 @@ stock/data/*.csv.gz
 **/out/**/clips_placeholder/
 **/out/**/assemble_graph.txt
 **/out/**/notice.png
+# 정답 미리 확인 — S&P 500 구성 종목 일괄 캐시 (stock/topics/precheck/bulk.py — 약 500 종목 × 26년, 목록·받은 날은 bulk_manifest.json)
+stock/topics/precheck/bulk/

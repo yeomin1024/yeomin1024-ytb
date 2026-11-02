@@ -1,0 +1,208 @@
+<title>주식 주제 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v1.2 — 2026-11-02 — 카드마다 오른쪽(휴대폰은 위)에 '이 주제 판정' 칸 — 큰 통과·보류·탈락 버튼 (전엔 카드 맨 아래 작은 버튼) — 사용자 지시 "통과 평가판에 통과 버튼 만들어".
+     (v1.1 — 2026-11-02 — 3단계로 나눔 (사용자 지시 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자"): 이 판은 롱폼 칸만(전달 내용·방식·제목·썸네일 문구·보조) — 쇼츠 칸은 롱폼 대본이 통과한 뒤 쇼츠 평가판에서.
+     (v1.0 — 2026-11-02 — 주식 새 편 주제 평가판: 롱폼(전달 내용·전달 방식·제목·썸네일 문구·썸네일 보조 문구) + 쇼츠(제목·썸네일 문구·보조 문구·전달 내용·방식)
+     (사용자 지시 2026-11-02 "주제 탐색(…)도 평가 아티팩트 만들고 통과된것만 대본 평가 아티팩트로 넘겨 그리고 피드백 삭제 버튼도 있어야 할듯
+      그리고 처음 평가판에 올라가기 전에는 일반, 반론 페르소나로 점검은 거쳐야해").
+     주제 글 = 아래 TOPICS 칸 (tools/topic_board.py 가 stock/topics/board/topics_*.json 에서 채움 — 손으로 고치지 않음 · 점검 = tools/board_check.py package).
+     db: verdicts/<주제 id> {id, batch, verdict: pass|hold|fail, note, updatedAt} · feedback {topic, batch, field, text, createdAt, updatedAt, status(new|done), reply}.
+     통과(pass) → Claude 가 대본(롱폼·쇼츠)을 쓰고 board_check script 통과 뒤 대본 피드백판(https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz)에 올림.
+     연구·교육용 — 투자 권유가 아님. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 배치: 위 = 걸러 보기 · 아래 = 주제 카드 한 줄에 하나(넓으면 롱폼·쇼츠 두 칸) · 칸마다 피드백 · 카드 아래 판정 */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#1B2320; --muted:#5C6A65; --line:#DCE3E0;
+  --accent:#0E7466; --accent-ink:#FFFFFF; --accent-soft:#DDF1EC;
+  --pass:#2B7A55; --hold:#8A6A00; --fail:#B83227; --mark:#E0A800; --thumb:#141A2B; --thumb-ink:#FFFFFF; --thumb-y:#FFD400; --thumb-r:#FF5A4A;
+  --shadow:0 10px 30px -18px rgba(20,40,35,.45);
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --pass:#62C793; --hold:#E2C15A; --fail:#FF6E5E; --mark:#E8BC34; --thumb:#0B0F1A; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --pass:#62C793; --hold:#E2C15A; --fail:#FF6E5E; --mark:#E8BC34; --thumb:#0B0F1A; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:16px}
+header.top{display:grid;gap:6px}
+header.top h1{font-size:clamp(20px,2.4vw,26px);margin:0;text-wrap:balance}
+header.top p{margin:0;color:var(--muted);font-size:14px;max-width:72ch}
+.status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.ok .dot{background:var(--pass)} .status.bad .dot{background:var(--fail)}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.fbtn{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font:600 13px var(--f-body);cursor:pointer}
+.fbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.fbtn .c{font-family:var(--f-mono);margin-left:6px;opacity:.8}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:grid;min-width:0}
+.card .hd{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:14px 18px;border-bottom:1px solid var(--line)}
+.card .id{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.card h2{margin:0;font-size:17px;flex:1 1 280px;min-width:0;text-wrap:balance}
+.chip{font-size:12px;font-weight:700;border-radius:999px;padding:2px 10px;border:1px solid currentColor;white-space:nowrap}
+.chip.pass{color:var(--pass)} .chip.hold{color:var(--hold)} .chip.fail{color:var(--fail)} .chip.none{color:var(--muted)} .chip.chk{color:var(--accent)}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 280px;align-items:start}
+.vside{margin:12px 18px 14px 0;padding:14px;border:1px solid var(--line);border-radius:14px;display:grid;gap:10px;position:sticky;top:12px;background:var(--surface,transparent)}
+.vside h3{margin:0;font-size:14px}
+.vside .btn.v{width:100%;padding:13px 14px;font-size:17px;font-weight:700;border-width:2px}
+.vside .btn.v.pass{border-color:var(--pass);color:var(--pass)} .vside .btn.v.fail{border-color:var(--fail);color:var(--fail)}
+.vside .now{font-size:13px;color:var(--muted)}
+.col{padding:12px 18px 14px;display:grid;gap:4px;align-content:start;min-width:0}
+.col + .col{border-left:1px solid var(--line)}
+.col h3{margin:4px 0 6px;font-size:12px;letter-spacing:.08em;color:var(--muted);font-family:var(--f-mono)}
+.mock{background:var(--thumb);color:var(--thumb-ink);border-radius:12px;padding:14px 16px;display:grid;gap:4px;margin-bottom:6px;aspect-ratio:16/7;align-content:end;max-width:100%}
+.mock.v{aspect-ratio:9/12;max-width:220px;align-content:center;text-align:center}
+.mock .l{font-weight:700;font-size:clamp(16px,2.2vw,22px);line-height:1.2;text-wrap:balance}
+.mock .l:first-child{color:var(--thumb-y)}
+.mock .s{font-size:13px;color:#C9D2E2;order:-1}
+.mock.v .s{order:0}
+.f{border-top:1px dashed var(--line);padding:8px 0 6px;display:grid;gap:4px}
+.f:first-of-type{border-top:0}
+.f .lab{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--muted)}
+.f .val{word-break:keep-all;overflow-wrap:anywhere;white-space:pre-line}
+.f.big .val{font-weight:700;font-size:16px}
+.addfb{border:0;background:none;color:var(--accent);font:600 12px var(--f-body);cursor:pointer;padding:2px 4px}
+.fblist{display:grid;gap:6px}
+.fb{background:var(--accent-soft);border-radius:8px;padding:6px 10px;font-size:13.5px;display:grid;gap:4px}
+.fb .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.fb .when{font-size:11.5px;color:var(--muted);margin-right:auto}
+.fb .reply{font-size:12.5px;color:var(--muted)}
+.fb.done{opacity:.75}
+.ed{display:grid;gap:6px}
+textarea{width:100%;min-height:70px;resize:vertical;border:1px solid var(--line);border-radius:10px;padding:8px 10px;font:14px/1.5 var(--f-body);color:var(--ink);background:var(--bg)}
+.btn{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:9px;padding:6px 12px;font:600 13px var(--f-body);cursor:pointer}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.del{color:var(--fail);border-color:var(--fail);padding:2px 10px;font-size:12px}
+.btn.v{min-width:96px}
+.btn.v.pass[aria-pressed="true"]{background:var(--pass);border-color:var(--pass);color:#fff}
+.btn.v.hold[aria-pressed="true"]{background:var(--hold);border-color:var(--hold);color:#1B2320}
+.btn.v.fail[aria-pressed="true"]{background:var(--fail);border-color:var(--fail);color:#fff}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.foot{border-top:1px solid var(--line);padding:12px 18px;display:grid;gap:8px}
+.foot .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.small{font-size:12.5px;color:var(--muted)}
+details.chk summary{cursor:pointer;font-size:12.5px;color:var(--muted)}
+details.chk ul{margin:6px 0 0;padding-left:18px;font-size:12.5px;color:var(--muted)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;font-weight:600;z-index:30}
+.btn:focus-visible,.fbtn:focus-visible,.addfb:focus-visible,textarea:focus-visible{outline:3px solid var(--mark);outline-offset:2px}
+@media (max-width:820px){.cols{grid-template-columns:minmax(0,1fr)} .vside{order:-1;margin:12px 18px 0;position:static} .vside .vbtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px} .vside .btn.v{min-width:0;padding:12px 6px;font-size:15px} .col + .col{border-left:0;border-top:1px solid var(--line)}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1>주식 주제 평가판</h1>
+    <p><b>1단계 주제</b> → 2단계 <a href="https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz" target="_blank" rel="noopener">대본 평가판</a> → 3단계 <a href="https://claude.ai/artifact/Mjfwm81meE2vyHH71UqAt2" target="_blank" rel="noopener">쇼츠 평가판</a>. 새 편 주제마다 전달 내용·방식, 제목, 썸네일 문구를 보고 <b>통과 · 보류 · 탈락</b>을 골라 주세요. 칸마다 '피드백'을 눌러 의견을 남기고, '삭제'로 지울 수 있습니다. 통과한 주제만 Claude 가 롱폼 대본을 써서 대본 평가판으로 넘기고, 쇼츠는 롱폼 대본이 통과한 뒤 쇼츠 평가판에서 봅니다. 여기 올라온 주제는 모두 일반·반론 페르소나 점검을 거쳤습니다.</p>
+    <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+  </header>
+  <div class="filters" id="filters" role="group" aria-label="걸러 보기"></div>
+  <div id="cards" class="wrap" style="gap:18px"></div>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const DATA = /*TOPICS:BEGIN*/{"batches":[{"name":"묶음 2026-11-02","file":"stock/topics/board/topics_2026-11-02.json","packages":[{"id":"B01","persona":"P1","theme":"빚내서 투자","message":"빌린 돈으로 투자하면 지수가 크게 빠질 때 이자와 반대매매 때문에 회복할 기회 자체를 잃는다 — 빚 없이, 잃어도 버틸 수 있는 돈으로만 투자해야 한다.","approach":"테스트형 · 이씨의 실제 날짜 이야기, 다섯 갈림길: ① 마이너스 통장으로 더 매수 vs 여윳돈만 ② 2배 상품 오래 보유 vs 1배 지수 ③ 담보 비율 경고 — 대출을 더 받아 버티기 vs 비중 줄이기 ④ 대출 이자 vs 기대 수익 ⑤ 하락장 대출 물타기 vs 현금 범위 안 분할 매수. 정답 판정 = 원금 20% 넘게 줄어든 적·회복 기간. S&P 500 배당 포함·2배 상품 종가.","title":"빚내서 투자하는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["빚내서 산 주식","폭락 한 번에 끝?"],"thumb_sub":"이자만 내다 끝났다..","verify":"2000·2008·2020·2022 네 하락장에서 같은 규칙(2배 보유·대출 매수)으로 정답이 뒤집히는지 · 반대매매 기준은 담보 비율 가정을 밝힘","basis":"제목 = 1~4편 꼴(사용자 승인) · 썸네일 주요 = 손해·경고+질문(손해·경고형 배수 22.9 · 질문형 25.4%) · 보조 = 속마음 말(배수 338 '원금만 돌려줘..' 꼴)","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 4 · P2 3 · P3 5 (가장 가까운 P3: ['주식', '배당', '매수', '상품', '비중'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 18자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (29자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 2000·2008·2020·2022 네 하락장에서 같은 규칙(2배 보유·대출 매수)으로 정답이 뒤집히는지 · 반대매매 기준은 담보 비율 가정을 밝힘","분석 근거(data_insights 5-1): 있음"]}},{"id":"B02","persona":"P2","theme":"배당률 함정","message":"배당률이 높아 보이는 종목·상품은 주가가 빠져서 그렇게 보이는 경우가 많다 — 배당금보다 원금이 더 줄 수 있으니, 배당률이 아니라 배당을 포함한 총수익과 원금 하락을 봐야 한다.","approach":"테스트형 · 박씨 다섯 갈림길: ① 배당률 아주 높은 종목 vs 배당을 꾸준히 늘린 지수 ② 매달 분배금을 주는 커버드콜 ETF(오를 때 이익 일부를 넘기고 분배금을 받는 상품)에 전부 vs 지수와 나눠 ③ 배당 삭감 발표 날 — 버팀 vs 매도 ④ 배당 받으려고 배당일 직전 매수 vs 그냥 보유 ⑤ 배당금을 생활비로 vs 다시 투자. 정답 판정 = 배당 포함 총수익·원금 20% 넘게 줄어든 적. 실제 미국 종목·ETF 수정 종가.","title":"배당률만 보고 사는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["배당은 받는데","원금은 왜 줄지?"],"thumb_sub":"매달 들어오는데...","verify":"2010년 이후 해마다 배당률 상위 묶음 vs 지수 (그해 종목 목록으로 — 지금 남은 종목만 쓰면 생존 편향이라 미확인) · 커버드콜 ETF는 상장 뒤 모든 하락장","basis":"썸네일 주요 = 질문형(25.4%) · 보조 = 속마음 말 · 페르소나 P2가 원하는 말(배당·커버드콜·분배금)","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":["일반: 어려운 말 ['커버드콜'] (대본에서 풀이 필요)"],"ok":["일반: 페르소나 원하는 말 — P1 8 · P2 8 · P3 6 (가장 가까운 P1: ['커버드콜', 'ETF', '배당', '매수', '주식'])","일반: 썸네일 주요 문구 16자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (31자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 2010년 이후 해마다 배당률 상위 묶음 vs 지수 (그해 종목 목록으로 — 지금 남은 종목만 쓰면 생존 편향이라 미확인) · 커버드콜 ETF는 상장 뒤 모든 하락장","분석 근거(data_insights 5-1): 있음"]}},{"id":"B03","persona":"P1","theme":"세금·수수료","message":"자주 사고팔수록, 보수가 비싼 상품일수록, 계좌를 잘못 고를수록 확실하게 빠지는 돈이 늘어난다 — 오르고 내리는 건 몰라도 비용은 줄일 수 있다.","approach":"테스트형 · 최씨(같은 1억 원·10년) 다섯 갈림길: ① 매주 갈아타기 vs 그대로 보유(매매·환전 비용) ② 보수 비싼 상품 vs 같은 지수 싼 ETF ③ 해외 주식 차익을 한 해에 몰아 실현 vs 기본 공제 안에서 나눠 ④ 일반 계좌 vs 세금 혜택 계좌(ISA·연금저축) ⑤ 손실 종목 정리 시점. 정답 판정 = 같은 수익에서 손에 남는 돈. 세금은 오늘 시행 중인 법령 원문(tools/law_text.py).","title":"세금과 수수료를 모르는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["똑같이 벌었는데","손에 남는 돈은?"],"thumb_sub":"벌어도 남는 게 없다..","verify":"보수 차이는 같은 지수·여러 기간으로 · 세금은 오늘 시행 중인 법령 원문 · 매매 비용은 가정을 밝힘","basis":"썸네일 주요 = 질문형(25.4%) · 보조 = 속마음 말 · 페르소나 P1·P2가 원하는 말(ISA·연금계좌)","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 5 · P2 4 · P3 6 (가장 가까운 P3: ['ETF', '주식', '상품', '연금', '연금저축'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 17자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (33자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 보수 차이는 같은 지수·여러 기간으로 · 세금은 오늘 시행 중인 법령 원문 · 매매 비용은 가정을 밝힘","분석 근거(data_insights 5-1): 있음"]}},{"id":"B04","persona":"P1","theme":"계좌 매일 확인 (예전 좋음 T046)","message":"같은 투자도 계좌를 자주 볼수록 손실로 보이는 날이 많아지고, 그 불안이 사고팔기를 부른다 — 정한 날에만 보는 것이 덜 잃는 길이다.","approach":"테스트형 · 정씨 다섯 갈림길: ① 하루에도 여러 번 앱 확인 vs 정한 날만 ② 빨간 날 알림 켜기 vs 끄기 ③ 하루 크게 빠진 날 바로 매도 vs 계획대로 ④ 남의 수익 인증 보고 종목 바꾸기 vs 그대로 ⑤ 한 달에 한 번 점검 vs 수시로. 정답 판정 = 원금 20% 넘게 줄어든 적·매매 횟수. 확인 주기마다 손실로 보인 날의 몫은 S&P 500 배당 포함 실제 종가.","title":"계좌를 매일 보는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["계좌 매일 보면","손실인 날 몇 %?"],"thumb_sub":"오늘도 마이너스…","verify":"2000년 이후 모든 날·달·해를 시작점으로 확인 주기마다 손실로 보인 몫 (T046 미리 계산 다시 확인)","basis":"예전 2단계 통과안(T046) 문구 그대로 · 썸네일 주요 = 숫자+질문(숫자형 52.6%·질문형 25.4%) · 보조 = 속마음 말","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 4 · P2 4 · P3 3 (가장 가까운 P1: ['배당', '주식', '매도', '계좌'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 18자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (30자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 2000년 이후 모든 날·달·해를 시작점으로 확인 주기마다 손실로 보인 몫 (T046 미리 계산 다시 확인)","분석 근거(data_insights 5-1): 있음"]}},{"id":"B05","persona":"P2","theme":"환율","message":"미국 주식은 달러로 오르내리고 원화로 바꿀 때 환율이 한 번 더 움직인다 — 주가가 올라도 원화로는 손해일 수 있으니, 환전을 나눠 하고 환율이 수익을 바꾼다는 걸 알고 있어야 한다.","approach":"테스트형 · 한씨 다섯 갈림길: ① 환율이 높을 때 한 번에 환전 vs 나눠 환전 ② 환헤지 상품 vs 환노출 상품(같은 지수) ③ 원화가 강해지자 놀라 매도 vs 계획대로 ④ 달러 예금으로 기다리기 vs 바로 지수 ⑤ 쓸 날이 가까운 돈의 환전 시점. 정답 판정 = 원화 기준 원금 20% 넘게 줄어든 적. 원·달러 환율 실제 종가.","title":"환율을 무시하는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["주가는 올랐는데","원화로는 손해?"],"thumb_sub":"환율 때문이라고?","verify":"2000년 이후 매달 시작한 모든 구간에서 달러·원화 수익이 갈린 몫 · 환헤지 상품은 실제 상품 종가(없으면 재현을 밝힘)","basis":"썸네일 주요 = 질문형(25.4%) · 보조 = 꼬리표·속마음 · 페르소나 P2가 원하는 말(환율)","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":["일반: 어려운 말 ['헤지'] (대본에서 풀이 필요)"],"ok":["일반: 페르소나 원하는 말 — P1 3 · P2 3 · P3 2 (가장 가까운 P1: ['주식', '매도', '지수'])","일반: 썸네일 주요 문구 16자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (29자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 2000년 이후 매달 시작한 모든 구간에서 달러·원화 수익이 갈린 몫 · 환헤지 상품은 실제 상품 종가(없으면 재현을 밝힘)","분석 근거(data_insights 5-1): 있음"]}},{"id":"B06","persona":"P3","theme":"은퇴 직전 큰 하락","message":"은퇴 직전·직후에 큰 하락을 맞으면 같은 평균 수익이라도 돈이 훨씬 빨리 바닥난다 — 쓸 날이 가까울수록 몇 년 치 생활비를 현금·채권으로 떼어 두는 게 덜 잃는 길이다.","approach":"테스트형 · 윤씨(은퇴 1년 전) 다섯 갈림길: ① 은퇴 직전에도 주식 100% vs 몇 년 치 생활비 현금 ② 하락장에도 해마다 같은 금액 인출 vs 인출 줄이기 ③ 은퇴 자금으로 고배당·테마 vs 지수 ④ 폭락 날 전부 매도 vs 현금에서 생활비 ⑤ 연금 계좌 한꺼번에 인출 vs 나눠. 정답 판정 = 돈이 바닥나는 해·원금 20% 넘게 줄어든 적. 실제 은퇴 시작 연도 경로.","title":"은퇴 앞두고 욕심내는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["은퇴 직전 폭락","노후 자금은?"],"thumb_sub":"이렇게 빨리 줄 줄은..","verify":"1990년 이후 해마다 은퇴를 시작한 모든 경우 (인출 비율 가정을 밝힘) · 하락장 직전 시작이 다른 해보다 나쁜지","basis":"썸네일 주요 = 손해·경고+질문 · 보조 = 속마음 말 · 페르소나 P2·P3가 원하는 말(은퇴·연금)","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 7 · P2 4 · P3 5 (가장 가까운 P1: ['배당', '주식', '매도', '지수', '은퇴'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 15자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (32자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 1990년 이후 해마다 은퇴를 시작한 모든 경우 (인출 비율 가정을 밝힘) · 하락장 직전 시작이 다른 해보다 나쁜지","분석 근거(data_insights 5-1): 있음"]}},{"id":"B07","persona":"P3","theme":"비중 되돌리기","message":"많이 오른 자산이 계좌의 대부분이 되면 위험도 같이 커진다 — 정해 둔 비중으로 1년에 한 번 되돌리는 것만으로 큰 하락의 깊이를 줄일 수 있다.","approach":"테스트형 · 서씨 다섯 갈림길: ① 많이 올라 주식 몫이 커진 계좌 그대로 vs 정한 비중으로 되돌리기 ② 수시로 조정 vs 1년에 한 번 ③ 하락장에 싸진 주식 더 사서 비중 맞추기 vs 멈춤 ④ 한 종목이 계좌의 큰 몫 — 그대로 vs 줄이기 ⑤ 채권·현금 몫 없음 vs 일부. 정답 판정 = 원금 20% 넘게 줄어든 적·가장 크게 빠진 폭. S&P 500·채권 ETF 실제 종가.","title":"비중 조절을 모르는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["많이 올라서","더 위험해졌다?"],"thumb_sub":"팔기는 아까운데..","verify":"1990년 이후 모든 시작 연도 · 되돌리는 주기(1·3·12달)마다 정답이 같은지","basis":"썸네일 주요 = 질문형(25.4%) · 보조 = 속마음 말 · 페르소나 P3가 원하는 말(비중)","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 3 · P2 3 · P3 4 (가장 가까운 P3: ['ETF', '주식', '비중', '계좌'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 14자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (31자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 1990년 이후 모든 시작 연도 · 되돌리는 주기(1·3·12달)마다 정답이 같은지","분석 근거(data_insights 5-1): 있음"]}},{"id":"B08","persona":"P1","theme":"손실 계산","message":"−50%를 메우려면 +100%가 필요하듯 손실은 이익보다 회복이 훨씬 어렵다 — 크게 버는 것보다 크게 잃지 않는 게 먼저인 까닭을 계산으로 보여 준다.","approach":"문제형+테스트형 · 다섯 문제: ① +50% 뒤 −50%면 원금은? ② 평균 수익이 같은 두 계좌 중 오르내림이 큰 쪽의 실제 결과 ③ 2배 상품의 오르내림 장 결과(재현) ④ −30% 손실을 회복하는 데 걸린 기간(실제 하락장) ⑤ 덜 빠진 계좌 vs 더 많이 오른 계좌, 10년 뒤. 정답 판정 = 산수(①②)·실제 종가(③④⑤).","title":"수익률 계산을 모르는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["50% 오르고 50% 빠지면","본전일까?"],"thumb_sub":"당연히 본전 아냐?","verify":"①②는 산수(어느 기간이든 같음) · ④⑤는 1990년 이후 모든 −30% 하락","calc":"산수: 1.5 × 0.5 = 0.75 → −25% · 1 ÷ 0.5 = 2 → +100% (어느 기간이든 같음)","basis":"제목·썸네일 주요 = 숫자형+질문형(숫자형 52.6%·질문형 25.4%) · 보조 = 속마음 말","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 2 · P2 2 · P3 4 (가장 가까운 P3: ['주식', '수익률', '상품', '계좌'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 20자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (32자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 ['thumb_main'] · 계산 근거 있음","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: ①②는 산수(어느 기간이든 같음) · ④⑤는 1990년 이후 모든 −30% 하락","분석 근거(data_insights 5-1): 있음"]}},{"id":"B09","persona":"P1","theme":"곧 쓸 돈","message":"1~2년 안에 쓸 돈을 주식에 넣으면 필요한 그때 하락장을 만나 손해를 확정할 확률이 높다 — 쓸 날까지 남은 기간에 맞춰 주식 몫을 정해야 한다.","approach":"테스트형 · 장씨 다섯 갈림길: ① 1년 뒤 전세금을 주식에 vs 예금 ② 3년 뒤 결혼 자금의 주식 몫 ③ 10년 뒤 자녀 학비의 주식 몫 ④ 쓸 날이 다가오는데 손실 중 — 버팀 vs 미리 옮겨 둠 ⑤ 비상금 따로 vs 전부 투자. 정답 판정 = 쓸 날에 원금보다 적었던 몫(1990년 이후 모든 시작일).","title":"곧 쓸 돈을 주식에 넣는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["1년 뒤 쓸 돈","주식에 넣으면?"],"thumb_sub":"딱 필요할 때 빠졌다..","verify":"1990년 이후 매달 시작한 모든 1·3·5·10년 구간 (지난 계산의 1년 보유 손실 몫 다시 확인)","basis":"썸네일 주요 = 숫자+질문(숫자형 52.6%·질문형 25.4%) · 보조 = 속마음 말","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":["반론 K5 숫자 칸 ['thumb_main'] · 계산 근거 없음 — 숫자는 대본 계산 때 확인"],"ok":["일반: 페르소나 원하는 말 — P1 2 · P2 1 · P3 1 (가장 가까운 P1: ['주식', '시작'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 16자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (34자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 1990년 이후 매달 시작한 모든 1·3·5·10년 구간 (지난 계산의 1년 보유 손실 몫 다시 확인)","분석 근거(data_insights 5-1): 있음"]}},{"id":"B10","persona":"P1","theme":"폭락만 기다림","message":"폭락이 오면 사겠다며 현금만 쥐고 기다리면 기다리는 동안 오른 만큼을 놓치고, 막상 폭락이 와도 못 사는 경우가 많다 — 정해 둔 계획대로 나눠 들어가는 게 덜 잃는 길이다.","approach":"테스트형 · 오씨 다섯 갈림길: ① '10% 빠지면 산다'며 현금 대기 vs 지금부터 12달 나눠 ② 폭락이 왔는데 더 빠질 때까지 대기 vs 계획대로 ③ 지수가 최고가 — 대기 vs 나눠 ④ 비관 뉴스에 대기 연장 vs 계획 ⑤ 기다린 현금 이자 vs 지수. 정답 판정 = 2년 뒤 원금 대비·원금 20% 넘게 줄어든 적. 1990년 이후 모든 시작일.","title":"폭락만 기다리는 사람은 절대 통과 못하는 주식 테스트","thumb_main":["폭락 오면 산다더니","지금도 현금?"],"thumb_sub":"그때 살 걸..","verify":"1990년 이후 모든 시작일 · 기다리는 하락폭 5·10·20%마다 정답이 같은지 (timing_cases.py 결과 다시 확인)","basis":"썸네일 주요 = 질문형(25.4%) · 보조 = 속마음 말","check":{"tool":"board_check.py v1.1","at":"2026-11-02T07:24:06Z","pass":true,"fail":[],"warn":[],"ok":["일반: 페르소나 원하는 말 — P1 3 · P2 1 · P3 1 (가장 가까운 P1: ['주식', '지수', '시작'])","일반: 어려운 말 없음 (대본에서 풀이 필요)","일반: 썸네일 주요 문구 17자 (성공 중앙값 22 — 26 넘으면 줄임)","일반: 제목 화면 2줄 안 ✅ (29자)","반론 K8 권유·과장 낱말: 없음","반론 K2 결과론 낱말: 없음","채널 목적(덜 잃기·장기): 맞음","반론 K5 숫자 칸 없음 · 계산 근거 없음 — 숫자는 대본 계산 때 확인","반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: 있음","반론 K3 다른 기간·다른 하락장으로 확인할 길: 1990년 이후 모든 시작일 · 기다리는 하락폭 5·10·20%마다 정답이 같은지 (timing_cases.py 결과 다시 확인)","분석 근거(data_insights 5-1): 있음"]}}]}]}/*TOPICS:END*/;
+(function () {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const T = DATA.batches.flatMap(b => b.packages.map(p => Object.assign({ batch: b.name }, p)));
+  const st = { db: null, canWrite: true, verdicts: {}, fb: [], filter: "all", open: null, delAsk: null, busy: false };
+  const LONG = [["message", "전달 내용", "big"], ["approach", "전달 방식"], ["title", "제목", "big"], ["thumb_main", "썸네일 문구"], ["thumb_sub", "썸네일 보조 문구"]];
+  const VLAB = { pass: "통과 (대본으로)", hold: "보류", fail: "탈락" };   // 쇼츠 칸(s_*)은 3단계 쇼츠 평가판에서
+  const txt = v => Array.isArray(v) ? v.join("\n") : (v || "");
+  const when = iso => { try { const d = new Date(iso); return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`; } catch (e) { return ""; } };
+  let toastT; const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2200); };
+  const ro = () => !st.db || !st.canWrite;
+  const vOf = id => (st.verdicts[id] || {}).verdict || "";
+
+  function renderFilters() {
+    const n = k => k === "all" ? T.length : k === "none" ? T.filter(t => !vOf(t.id)).length : T.filter(t => vOf(t.id) === k).length;
+    $("filters").innerHTML = [["all", "전체"], ["none", "평가 전"], ["pass", "통과"], ["hold", "보류"], ["fail", "탈락"]]
+      .map(([k, l]) => `<button class="fbtn" type="button" data-k="${k}" aria-pressed="${st.filter === k}">${l}<span class="c">${n(k)}</span></button>`).join("");
+  }
+  $("filters").addEventListener("click", e => { const b = e.target.closest(".fbtn"); if (b) { st.filter = b.dataset.k; renderAll(); } });
+
+  function field(t, key, lab, big) {
+    const items = st.fb.filter(f => f.topic === t.id && f.field === key).sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+    const open = st.open === t.id + "|" + key;
+    return `<div class="f ${big ? "big" : ""}"><div class="lab"><span>${esc(lab)}</span>${ro() ? "" : `<button class="addfb" type="button" data-act="open" data-id="${t.id}" data-k="${key}">${open ? "닫기" : "피드백"}</button>`}</div>
+      <div class="val">${esc(txt(t[key]))}</div>
+      <div class="fblist">${items.map(f => `<div class="fb ${f.status === "done" ? "done" : ""}"><div class="row"><span class="when">${when(f.updatedAt || f.createdAt)}${f.status === "done" ? " · 반영함" : ""}</span>${ro() ? "" : st.delAsk === f.id ? `<button class="btn del" type="button" data-act="delok" data-fid="${esc(f.id)}">정말 삭제</button><button class="btn" type="button" data-act="delno">취소</button>` : `<button class="btn del" type="button" data-act="del" data-fid="${esc(f.id)}">삭제</button>`}</div><div>${esc(f.text)}</div>${f.reply ? `<div class="reply"><b>Claude</b> ${esc(f.reply)}</div>` : ""}</div>`).join("")}</div>
+      ${open ? `<div class="ed"><textarea id="ta-${t.id}-${key}" aria-label="${esc(lab)} 피드백" placeholder="이 칸에 대한 의견"></textarea><div class="row" style="display:flex;gap:8px"><button class="btn pri" type="button" data-act="save" data-id="${t.id}" data-k="${key}">피드백 저장</button></div></div>` : ""}
+    </div>`;
+  }
+  function mock(lines, sub, v) { return `<div class="mock ${v ? "v" : ""}" aria-hidden="true">${(lines || []).map(l => `<div class="l">${esc(l)}</div>`).join("")}<div class="s">${esc(sub)}</div></div>`; }
+  function card(t) {
+    const v = vOf(t.id), note = (st.verdicts[t.id] || {}).note || "", ck = t.check || {};
+    return `<article class="card" data-id="${t.id}">
+      <div class="hd"><span class="id">${esc(t.id)} · ${esc(t.batch)}</span><h2>${esc(t.theme)}</h2>
+        <span class="chip chk" title="tools/board_check.py">점검 ${ck.pass ? "통과" : "—"}${ck.warn && ck.warn.length ? ` · 확인 ${ck.warn.length}` : ""}</span>
+        <span class="chip ${v || "none"}">${v ? esc(VLAB[v]) : "평가 전"}</span></div>
+      <div class="cols">
+        <div class="col"><h3>롱폼</h3>${mock(t.thumb_main, t.thumb_sub)}${LONG.map(([k, l, b]) => field(t, k, l, b)).join("")}</div>
+        <aside class="vside" aria-label="이 주제 판정"><h3>이 주제 판정</h3>
+          <div class="vbtns" style="display:grid;gap:8px">${["pass", "hold", "fail"].map(k => `<button class="btn v ${k}" type="button" data-act="verdict" data-id="${t.id}" data-v="${k}" aria-pressed="${v === k}" ${ro() ? "disabled" : ""}>${v === k ? "✓ " : ""}${VLAB[k]}</button>`).join("")}</div>
+          <div class="now">${v ? "지금: " + esc(VLAB[v]) : "아직 평가하지 않음"}${ro() ? " · 저장소 연결 전에는 누를 수 없습니다" : ""}</div>
+          ${v && !ro() ? `<button class="btn" type="button" data-act="unset" data-id="${t.id}">평가 지우기</button>` : ""}
+        </aside>
+      </div>
+      <div class="foot">
+        <div class="small">정답 확인 방법: ${esc(t.verify)}${t.basis ? ` · 분석 근거: ${esc(t.basis)}` : ""}</div>
+        <details class="chk"><summary>평가판 전 점검 결과 (일반·반론 페르소나)</summary><ul>${[...(ck.fail || []).map(x => "❌ " + x), ...(ck.warn || []).map(x => "⚠ " + x), ...(ck.ok || []).map(x => "✅ " + x)].map(x => `<li>${esc(x)}</li>`).join("")}</ul></details>
+        ${v && v !== "pass" && note ? `<div class="small">메모: ${esc(note)}</div>` : ""}
+      </div></article>`;
+  }
+  function renderCards() {
+    const list = T.filter(t => st.filter === "all" || (st.filter === "none" ? !vOf(t.id) : vOf(t.id) === st.filter));
+    $("cards").innerHTML = list.length ? list.map(card).join("") : `<p class="small">이 조건에 맞는 주제가 없습니다.</p>`;
+  }
+  function renderAll() { renderFilters(); renderCards(); }
+
+  $("cards").addEventListener("click", async e => {
+    const b = e.target.closest("[data-act]"); if (!b || st.busy) return;
+    const act = b.dataset.act, id = b.dataset.id, key = b.dataset.k;
+    if (act === "open") { st.open = st.open === id + "|" + key ? null : id + "|" + key; renderCards(); const ta = $(`ta-${id}-${key}`); if (ta) ta.focus(); return; }
+    if (act === "del") { st.delAsk = b.dataset.fid; renderCards(); return; }
+    if (act === "delno") { st.delAsk = null; renderCards(); return; }
+    st.busy = true; b.disabled = true;
+    const t = T.find(x => x.id === id), now = new Date().toISOString();
+    try {
+      if (act === "save") {
+        const v = ($(`ta-${id}-${key}`).value || "").trim(); if (!v) { st.busy = false; b.disabled = false; return; }
+        await st.db.collection("feedback").add({ topic: id, batch: t.batch, field: key, text: v, createdAt: now, updatedAt: now, status: "new", reply: "" });
+        st.open = null; toast("피드백을 저장했습니다");
+      } else if (act === "delok") {
+        await st.db.doc("feedback/" + b.dataset.fid).delete(); st.delAsk = null; toast("피드백을 삭제했습니다");
+      } else if (act === "verdict") {
+        await st.db.doc("verdicts/" + id).set({ id, batch: t.batch, verdict: b.dataset.v, note: "", updatedAt: now }); toast(VLAB[b.dataset.v] + "(으)로 저장했습니다");
+      } else if (act === "unset") {
+        await st.db.doc("verdicts/" + id).delete(); toast("평가를 지웠습니다");
+      }
+    } catch (err) { toast(err && err.code === "invalid_argument" ? "이 화면에서는 저장할 권한이 없습니다" : "저장하지 못했습니다. 다시 눌러 주세요."); }
+    st.busy = false; renderAll();
+  });
+
+  renderAll();
+  (async () => {
+    const use = window.claude && window.claude.use ? n => window.claude.use(n) : () => Promise.resolve(null);
+    let db = null, user = null;
+    try { [db, user] = await Promise.all([use("db"), use("user")]); } catch (e) { db = null; }
+    if (!db) { $("status").className = "status bad"; $("status-t").textContent = "저장소에 연결하지 못했습니다 — 주제는 볼 수 있지만 평가·피드백은 저장되지 않습니다."; return; }
+    st.db = db;
+    try { if (user && user.can && (await user.can("data.write")) === false) st.canWrite = false; } catch (e) { /* 모름 */ }
+    $("status").className = "status " + (st.canWrite ? "ok" : ""); $("status-t").textContent = st.canWrite ? "저장소 연결됨 — 평가·피드백은 바로 저장되고 Claude 가 읽습니다." : "보기 전용 — 이 화면에서는 저장할 수 없습니다.";
+    db.collection("verdicts").onSnapshot(s => { st.verdicts = Object.fromEntries(s.docs.map(d => [d.id, d.data()])); renderAll(); }, () => {});
+    db.collection("feedback").onSnapshot(s => { st.fb = s.docs.map(d => Object.assign({ id: d.id }, d.data())); if (!document.activeElement || document.activeElement.tagName !== "TEXTAREA") renderAll(); }, () => {});
+    renderAll();
+  })();
+})();
+</script>

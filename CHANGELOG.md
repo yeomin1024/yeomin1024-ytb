@@ -1,5 +1,25 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 주식 롱폼 1편 그림 요청 v2.0 — 일본 면세 편 꼴 (22장)
+
+### 왜 (사용자 지시)
+- "아니 일본 면세 영상 만들때 처럼 이미지 만들어 다시 수정해"
+
+### 면세 편(`test/source/myeonse-hwangeup-2026-10/images_chatgpt.md` v6.3 · `test/puppet/M-*`)과 v1.1 의 차이
+- 면세 편 사람은 머리·옷·표정이 있는 종이 인형(주인공 4자세 · 줄 선 사람 6명 무리 · 점원·세관원) — v1.1 은 흰둥이.
+- 면세 편은 대본에 나오는 물건마다 소품 한 장(단말기·영수증·휴대전화·지폐·카드·여권·비행기 …, 25장 중 17장) — v1.1 은 소품 0장(모두 코드 카드).
+- 면세 편 썸네일 그림은 반실사 16:9 — v1.1 은 종이 그림 3:2.
+
+### 바뀐 것
+- `stock/source/ppalli-test-2026-11/images_chatgpt.md` v1.1 → v2.0: 22장 = 무대 4 (S-OFFICE·S-HOME-NIGHT·S-SUBWAY·S-CAFE — 모두 새로) · 주인공 김씨 6 (남색 정장 + 금빛 넥타이, 5번이 기준) · 동료·지인·무리 6명 · 소품 8 (P-LAPTOP·P-MONEY·P-NEWSPAPER·P-SERVER·P-REPORT·P-COINS·P-JOBBOX·P-HOUSE) · TH-ART 16:9. 화풍·CUTOUT·잘림 검사·저장 코드는 면세 편 그대로 (사람 문장만 '작은 얼굴로 표정'). 휴대전화는 면세 편 `M-PHONE.png` 를 다시 씀.
+- `thumbnails/thumbnail_1~3.json`: TH-ART 가 16:9 라 crop 을 뺌 (꽉 채움).
+- `제작안.txt` v2.0: [그림] 표 = 그림마다 장면·칸·문장 번호 (소품 자리는 그림이 온 뒤 넣음).
+- `video/episodes/ppalli-test-2026-11/index.html` v1.2: 머리 주석만 (장면은 v1.1 그대로 — 소품은 그림의 실제 크기를 보고 넣음).
+- `CLAUDE.md` 주식 절: '롱폼 1편 그림 = 일본 면세 편 꼴' 한 줄.
+
+### 확인 (로그)
+- `[DONE] video=ppalli-test-2026-11 samples=65 problems=0 page_errors=0` (layout-check)
+
 ## 2026-11-02 — 주식 롱폼 1편 그림 요청 다시 확인 → v1.1 (8장 → 13장)
 
 ### 왜 (사용자 지시)

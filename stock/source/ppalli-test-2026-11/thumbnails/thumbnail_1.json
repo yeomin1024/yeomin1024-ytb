@@ -1,5 +1,5 @@
 {
- "_설명": "롱폼 썸네일 본안 (제목을 줄인 말 그대로) — 글자 없는 그림 images/TH-ART.jpg(images_chatgpt.md 8번, 3:2)을 16:9 로 자르고 제목 2줄·말풍선은 코드 (사용자 지시 2026-10-26 '썸네일은 이미지 하나만 생성하고 문구는 너가 만드는거야'). 그림이 오면: node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json — 말풍선 꼬리는 그림 속 주인공 머리에 맞춰 x·y·tailPos 조정.",
+ "_설명": "롱폼 썸네일 본안 (제목을 줄인 말 그대로) — 글자 없는 그림 images/TH-ART.jpg(images_chatgpt.md v2.0 22번, 16:9 반실사 — 일본 면세 편처럼)를 꽉 채우고 제목 2줄·말풍선은 코드 (사용자 지시 2026-10-26 '썸네일은 이미지 하나만 생성하고 문구는 너가 만드는거야'). 그림이 오면: node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json — 말풍선 꼬리는 그림 속 주인공 머리에 맞춰 x·y·tailPos 조정.",
  "out": "thumbnail_1.jpg",
  "size": [
   1280,
@@ -12,12 +12,6 @@
  "images": [
   {
    "src": "../images/TH-ART.jpg",
-   "crop": [
-    0,
-    80,
-    1536,
-    864
-   ],
    "box": [
     0,
     0,

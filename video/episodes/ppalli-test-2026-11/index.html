@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="end-hold" content="2.5">
 <title>1편 빨리 벌고 싶은 사람 테스트 롱폼</title>
-<!-- VERSION: v1.1 — 2026-11-02 — 그림 요청 v1.1 에 맞춤 (사용자 지시 2026-11-02 "일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘"):
+<!-- VERSION: v1.2 — 2026-11-02 — 그림 요청 v2.0 (일본 면세 편 꼴 22장 — 사용자 지시 "아니 일본 면세 영상 만들때 처럼 이미지 만들어 다시 수정해"):
+       사람은 머리·옷·표정이 있는 종이 인형(흰둥이 아님) · 무대 S-OFFICE·S-HOME-NIGHT 도 이 편 폴더에 새로 (HAVE 에 들면 옛 편 무대 대신) ·
+       소품 P-LAPTOP·P-MONEY·P-NEWSPAPER·P-SERVER·P-REPORT·P-COINS·P-JOBBOX·P-HOUSE + 면세 편 M-PHONE 은 그림이 온 뒤 자리를 잡아 넣음
+       (그림의 실제 크기·여백을 보고 칸에 맞춤 — 제작안 v2.0 [그림] 표). 그 전까지 장면은 v1.1 그대로.
+     이전 v1.1 — 2026-11-02 — 그림 요청 v1.1 에 맞춤 (사용자 지시 2026-11-02 "일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘"):
        얼굴 없는 흰둥이 W-COLLEAGUE·W-CROWD 는 이 편 폴더의 새 그림(어른 비율)을 먼저 씀 — 오기 전엔 옛 그림(귀여운 비율, 동료는 좌우 뒤집음) ·
        선택 3 무대 S-SUBWAY(지하철) · 선택 4 무대 S-CAFE(카페) + 지인 W-FRIEND — 그림이 오기 전엔 v1.0 무대(남색 한지·밤 거실·동료 그림) 그대로 ·
        쓰지 않는 HERO-PROUD 를 무대 목록에서 뺌.
@@ -116,7 +120,8 @@ const PS = {
 
 // ---------- 종이인형 무대 ----------
 // 있는 그림: 옛 습관 테스트 편 그림을 다시 씀 (simri) · 이 편 폴더(puppet/)에 ChatGPT 그림이 오면 HAVE 에 이름을 더함
-// v1.1: 그림 요청 v1.1 (13장) — HERO 6 · W-COLLEAGUE·W-CROWD(어른 비율로 새로) · W-FRIEND · S-SUBWAY · S-CAFE (+ 기준표·썸네일)
+// v1.2: 그림 요청 v2.0 (22장, 일본 면세 편 꼴) — 무대 4 (S-OFFICE·S-HOME-NIGHT·S-SUBWAY·S-CAFE) · 주인공 6 · 동료·지인·무리 · 소품 8 (자리는 그림이 온 뒤) · 썸네일
+// F: 이 편 폴더(HAVE) → 옛 습관 테스트 편(SIMRI) → 코드 그림 순서
 const SIMRI = ["W-COLLEAGUE.png", "W-CROWD.png", "P-CASH.png", "S-OFFICE.jpg", "S-HOME-NIGHT.jpg"];
 const HAVE = [];
 const F = (file, kind, draw) => (HAVE.includes(file) ? { f: file, kind } : SIMRI.includes(file) ? { f: "../../simri-test-2026-10/puppet/" + file, kind } : { draw, kind: "sq" });

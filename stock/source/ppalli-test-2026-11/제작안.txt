@@ -1,23 +1,27 @@
 ==================================================
-빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트 — 1편 롱폼 제작안 (v1.1)
+빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트 — 1편 롱폼 제작안 (v2.0)
 대본 + 화면 구성(종이인형극 무대 + 코드 모션그래픽) + 그림 요청
 ==================================================
 
 작성 2026-11-01 (Claude) — 사용자 지시 2026-11-01 "1편만 영상 관련 소스 만들어봐 이미지 chatgpt 말할거 알려주고"
+v2.0 2026-11-02 — 사용자 지시 "아니 일본 면세 영상 만들때 처럼 이미지 만들어 다시 수정해" → 그림 요청을 일본 면세 편 꼴로 다시 (22장):
+  · 사람 = 머리·옷·표정이 있는 종이 인형 (면세 편 주인공·줄 선 사람들처럼 — 흰둥이 아님) · 주인공 김씨 = 남색 정장 + 금빛 넥타이
+  · 대본에 나오는 물건마다 소품 한 장 (면세 편 휴대전화·지폐·영수증처럼) — 숫자·티커는 코드가 소품 위에
+  · 무대 4장 모두 같은 화풍으로 새로 (사무실·밤 거실·지하철·카페) · 썸네일 그림 = 면세 편처럼 반실사 16:9
 v1.1 2026-11-02 — 사용자 지시 "일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘" → 다시 확인한 결과 그림 요청이 모자라 8장 → 13장:
   · 다시 쓰려던 동료·무리(옛 편 W-COLLEAGUE·W-CROWD)는 머리가 큰 귀여운 비율 — 옛 편에서도 '다시 만듦'이었는데 끝내 안 만들어진 그림 → 어른 비율로 새로 (8·10번)
   · 일본 축제 편은 이야기 장면마다 자기 무대·인물이 있음 → 선택 3 지하철 무대(S-SUBWAY) · 선택 4 카페 무대(S-CAFE) + 지인(W-FRIEND) 더함
   · 주인공 PHONE·PLAN 은 오른쪽을 보게 (주인공은 늘 왼쪽 · 동료·카드는 오른쪽) · 동료·지인·무리는 왼쪽을 보게
   · 장면 코드 v1.1: 새 그림이 오기 전엔 v1.0 무대 그대로(옛 동료는 좌우 뒤집어 주인공 쪽을 봄) · 쓰지 않는 HERO-PROUD 를 뺌
-짝 문서: 대본 ppalli-test-2026-11.txt (v8, 104문장) · 그림 요청 images_chatgpt.md (v1.1 — 13장) · 썸네일 문구 thumbnails/thumbnail_1~3.json ·
+짝 문서: 대본 ppalli-test-2026-11.txt (v8, 104문장) · 그림 요청 images_chatgpt.md (v2.0 — 22장, 일본 면세 편 꼴) · 썸네일 문구 thumbnails/thumbnail_1~3.json ·
 읽는 소리 사전 tts_lexicon.tsv · 업로드 시트 upload.md · 숫자 stock/topics/precheck/longform_items.py v2.1 (nasdaq_1편_v2.1) · 그래프 선 calc/series.py v1.0 ·
-장면 코드 video/episodes/ppalli-test-2026-11/index.html v1.1 (틀·부품 = 옛 습관 테스트 편 video/episodes/simri-test-2026-10/index.html v1.3)
+장면 코드 video/episodes/ppalli-test-2026-11/index.html v1.2 (틀·부품 = 옛 습관 테스트 편 video/episodes/simri-test-2026-10/index.html v1.3)
 ※ 연구·교육용 — 투자 권유가 아님.
 
 [순서]
 1. 오디오: 사용자가 Kaggle 셀 하나 (주제 stock) → tts_narration.py all --push 가 이 폴더에 narration.mp3 · tts_narration.json (guides/tts_guide.md).
-2. 그림: images_chatgpt.md 를 ChatGPT 에 (13장 — 주인공 흰둥이 7 · 얼굴 없는 흰둥이 3 · 빈 무대 2 · 썸네일 그림 1). 오기 전에는 같은 이름의 코드 그림(옛 편 figures.js)으로 영상이 만들어짐 —
-   그림이 오면 장면 코드의 HAVE 에 파일 이름만 더함.
+2. 그림: images_chatgpt.md 를 ChatGPT 에 (22장 — 무대 4 · 주인공 6 · 동료·지인·무리 3 · 소품 8 · 썸네일 1). 오기 전에는 같은 이름의 코드 그림(옛 편 figures.js)으로 영상이 만들어짐 —
+   그림이 오면 장면 코드의 HAVE 에 파일 이름을 더하고, 소품은 그림의 실제 크기·여백을 보고 아래 [그림] 표의 장면·칸에 넣는다 (Claude).
 3. 오디오가 오면 (Claude): cd video && npm run align-audio -- stock ppalli-test-2026-11 → node video/render/render.mjs sync stock ppalli-test-2026-11 →
    node video/scripts/layout-check.mjs ppalli-test-2026-11 → render.mjs check → stills 확인 → render.mjs video → 완성 mp4 장면을 직접 봄.
 4. 썸네일: TH-ART.jpg 가 오면 node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json → 그림 속 주인공 머리에 말풍선 꼬리를 맞춤.
@@ -80,15 +84,22 @@ v1.1 2026-11-02 — 사용자 지시 "일본 축제 영상처럼 종이인형극
  | RA·RB·RC| x 600~1860 · y 240~420 / 440~620 / 640~820 | 결과 세 줄 |
  | CHIPS   | x 140~1780 · y 250~670  | 정리 다섯 칸 |  | HERO_C | x 780~1140 · y 420~870 | 인사 (x 0) |
 
-[그림] (images_chatgpt.md v1.1 — 일본 축제 편과 같은 종이인형극: 빈 무대 1장 + 오린 인형 한 장에 하나 · 숫자·해설 장면은 남색 한지)
- 만들 것 13장:
-   주인공(얼굴 있음) 7 — HERO-SHEET (기준표) · HERO-PHONE(→) · HERO-THINK · HERO-SHOCK · HERO-DESPAIR · HERO-PLAN(→) · HERO-BOW
-   얼굴 없는 흰둥이 3 — W-COLLEAGUE(←, 어른 비율로 새로) · W-FRIEND(←, 새로) · W-CROWD(←, 어른 비율로 새로)
-   빈 무대 2 — S-SUBWAY (선택 3) · S-CAFE (선택 4)
-   썸네일 1 — TH-ART (글자 없음)
- 다시 씀: 빈 무대 S-OFFICE · S-HOME-NIGHT (옛 습관 테스트 편 stock/source/simri-test-2026-10/puppet/ — 종이 질감·어른 무대라 그대로) · 남색 한지 test/puppet/P-PAPER.jpg
- 다시 쓰지 않음: 옛 W-COLLEAGUE·W-CROWD (머리가 큰 귀여운 비율 — 새 그림이 오기 전 자리만 채움, 동료는 좌우 뒤집음)
- 그림 → 무대 자리: 선택 1 낮 사무실 (주인공 PHONE · 동료 · 무리) · 선택 2 밤 거실 (THINK) · 선택 3 지하철 (SHOCK) · 선택 4 카페 (PHONE · 지인) · 선택 5 밤 거실 (PHONE · 무리)
+[그림] (images_chatgpt.md v2.0 — 일본 면세 편 꼴: 빈 무대 1장 + 오린 인형·소품 한 장에 하나 · 숫자·해설 장면은 남색 한지)
+ 무대 4 (새로)  S-OFFICE 선택 1 · S-HOME-NIGHT 선택 2·5 · S-SUBWAY 선택 3 (어둡게 깔고 그래프) · S-CAFE 선택 4
+ 주인공 6       HERO-PHONE(기준) 선택 1·4·5 · HERO-THINK 도입·보기·선택 2·해설 물론 · HERO-SHOCK 선택 3 · HERO-DESPAIR 도입·불통과 · HERO-PLAN 해설·통과·정리 · HERO-BOW 인사
+ 사람 3         W-COLLEAGUE 선택 1 (MATE) · W-FRIEND 선택 4 (MATE) · W-CROWD 선택 1·5 (BACK) · 선택 2 문장 16 '모두 넣었다는 사람'
+ 소품 8 + 1     (그림이 온 뒤 자리를 잡음 — 숫자·티커는 코드가 소품 위에)
+   P-MONEY     L-03 도입 ₩100,000,000 → ₩1,800,000 (더미가 줄어듦) · L-05 TL ₩100,000,000 · L-08 PANEL 8천만 + 2천만 (두 더미) · 해설 2 현금 2천만 원 · L-45 KIM vs BEST
+   M-PHONE     (면세 편 그림 다시 씀) L-05 TR 'ETF 1Y ×2.7' · L-14 TR 'AI 5M −63%' · L-17 TR 'BTC ▲ 1Y ×9.3' — 화면 칸에 코드 숫자
+   P-LAPTOP    L-05 TR 영상 ▶▶▶ (문장 10) · L-11 CAP_R 손실 인증 (22) · L-17 커뮤니티 인증 (36)
+   P-NEWSPAPER L-11 CAP_R NEWS ▼▲ (21)
+   P-SERVER    L-14 'AI 관련 종목' (27) · 해설 4 날짜·이름 장면 (AI 서버 회사)
+   P-REPORT    L-14 MID_R REPORT ✕ (29)
+   P-COINS     L-17 TL BTC ▲ (34) · 해설 5 날짜·이름 장면
+   P-JOBBOX·P-HOUSE  해설 2 '하지만 일자리나 집 문제 같은 최악의 상황은…' (JOB ✕ HOME ✕ 대신)
+ 썸네일 1       TH-ART 16:9 반실사 (글자 없음 — 문구 3안은 thumbnails/thumbnail_1~3.json, 꽉 채움)
+ 다시 씀        test/puppet/P-PAPER.jpg (남색 한지) · test/puppet/M-PHONE.png (빈 휴대전화)
+ 쓰지 않음      옛 습관 테스트 편 W-COLLEAGUE·W-CROWD·S-OFFICE·S-HOME-NIGHT (새 그림이 오기 전 자리만 채움)
 
 [점검 기록] (오디오 전 — 추정 시각 sync --estimate, 478.6초)
  - render.mjs check: 대표 장면 65 · 0.5초 표본 1,022 · 문제 0 · 페이지 오류 0 · 도입 끝 28.8초 (30초 안)
@@ -96,3 +107,4 @@ v1.1 2026-11-02 — 사용자 지시 "일본 축제 영상처럼 종이인형극
  - still 65장을 직접 봄 → 고친 것 4: 해설 5 '그래서' 장면 끝 시각(다음 장면과 붙임) · 끝 장면 판 머리 KIM·BEST · 반박 판 'USA · 10,000' · 'CASH → +%'
  - 오디오가 오면 실제 시각으로 다시 sync → 같은 점검.
  - v1.1 (2026-11-02, 그림이 오기 전 — 무대는 v1.0 과 같고 동료만 좌우 뒤집음): layout-check · render check 다시 (아래 결과는 커밋 메시지에)
+ - v2.0 (2026-11-02, 그림 요청만 바뀜 — 장면은 v1.1 그대로): layout-check 문제 0. 소품 자리는 그림이 온 뒤 넣고 다시 점검.

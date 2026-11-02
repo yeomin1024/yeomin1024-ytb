@@ -1,0 +1,4 @@
+{
+ "about": "쇼츠 평가판(3단계)에 올리는 쇼츠 — 대본 평가판(2단계)에서 롱폼이 '통과 (쇼츠로)'(db verdicts/<key>.verdict == pass)인 편만, Claude 가 한 줄씩 더함 (stock/guides/quick_board.md). 꼴: 1~4편 = {key:'e1-short', md_ep:1, from:'md', long_key:'e1-long'} · 새 편 = {key:'B01-short', ep:'B01', label:'B01 빚내서 투자', from:'file', file:'<쇼츠 대본.txt>', fields_from:'stock/topics/board/topics_2026-11-02.json#B01', long_key:'B01-long'} · 올리기 전 board_check script --kind short + package --stage shorts.",
+ "items": []
+}

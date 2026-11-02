@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-# VERSION: v1.0 — 2026-11-02 — 주식 주제 평가판(stock/topics/주제평가판.html)의 TOPICS 칸을 기획안 묶음(stock/topics/board/topics_*.json)에서 채움
+# VERSION: v1.1 — 2026-11-02 — 주제 평가판은 롱폼 칸만 (쇼츠 칸 s_*·check_shorts 는 판 데이터에서 뺌 — 쇼츠는 3단계 쇼츠 평가판에서,
+#   사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자").
+# (v1.0 — 2026-11-02 — 주식 주제 평가판(stock/topics/주제평가판.html)의 TOPICS 칸을 기획안 묶음(stock/topics/board/topics_*.json)에서 채움
 #   (사용자 지시 2026-11-02 "주제 탐색(…)도 평가 아티팩트 만들고 통과된것만 대본 평가 아티팩트로 넘겨" · "처음 평가판에 올라가기 전에는 일반, 반론 페르소나로 점검은 거쳐야해").
 #   · 점검(tools/board_check.py package … --write)을 안 거쳤거나 ❌ 가 남은 기획안은 판에 올리지 않음 (로그에 남김).
 #   · 판에서 사용자가 고른 판정·피드백은 아티팩트 db(verdicts·feedback) — Claude 가 ArtifactData 로 읽음 (stock/guides/quick_board.md).
@@ -31,7 +33,7 @@ def main(argv):
             if not ck.get("pass"):
                 skipped.append((f.name, pk.get("id"), "점검 안 함" if not ck else "점검 ❌"))
                 continue
-            ok.append(pk)
+            ok.append({k: v for k, v in pk.items() if not (k.startswith("s_") or k == "check_shorts")})
         name = "묶음 " + f.stem.replace("topics_", "")
         batches.append({"name": name, "file": str(f.relative_to(ROOT)), "packages": ok})
         log("LOAD", file=str(f.relative_to(ROOT)), packages=len(D["packages"]), on_board=len(ok))

@@ -1,6 +1,7 @@
-# 주식 — 평가판 두 장으로 주제 → 대본 → 영상 (새 세션은 이 파일 하나로)
+# 주식 — 평가판 세 장으로 주제 → 대본 → 쇼츠 → 영상 (새 세션은 이 파일 하나로)
 
-VERSION: v1.0 — 2026-11-02 — 사용자 지시 2026-11-02 "피드백했으니 수정하고 주제 탐색(전달 내용 및 전달 방식, 제목, 썸네일 문구, 썸네일 보조 문구, 쇼츠 제목, 쇼츠 썸네일 문구, 쇼츠 썸네일 보조 문구, 쇼츠 전달내용 및 전달방식)도 평가 아티팩트 만들고 통과된것만 대본 평가 아티팩트로 넘겨 그리고 피드백 삭제 버튼도 있어야 할듯 그리고 처음 평가판에 올라가기 전에는 일반, 반론 페르소나로 점검은 거쳐야해 토큰 최대한 아끼는 방식으로 하고 피드백한 내용이나 영상 관련 과정은 새 세션에서 똑같이 할 수 있도록 지시사항 파일에 다 남겨야해".
+VERSION: v1.1 — 2026-11-02 — **3단계로 나눔**: 1 주제 평가판(롱폼 칸만) → 2 대본 평가판(롱폼 대본) → 3 쇼츠 평가판(롱폼이 통과한 편의 쇼츠) — 사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자 다시 수정해줘".
+(v1.0 — 2026-11-02 — 사용자 지시 2026-11-02 "피드백했으니 수정하고 주제 탐색(전달 내용 및 전달 방식, 제목, 썸네일 문구, 썸네일 보조 문구, 쇼츠 제목, 쇼츠 썸네일 문구, 쇼츠 썸네일 보조 문구, 쇼츠 전달내용 및 전달방식)도 평가 아티팩트 만들고 통과된것만 대본 평가 아티팩트로 넘겨 그리고 피드백 삭제 버튼도 있어야 할듯 그리고 처음 평가판에 올라가기 전에는 일반, 반론 페르소나로 점검은 거쳐야해 토큰 최대한 아끼는 방식으로 하고 피드백한 내용이나 영상 관련 과정은 새 세션에서 똑같이 할 수 있도록 지시사항 파일에 다 남겨야해".
 ※ 연구·교육용 — 투자 권유가 아님.
 
 **이 파일 + 맡은 편 폴더만 읽는다.** status.md 전체·analysis.md 전체·옛 요약본은 읽지 않는다 (`quick_flow.md` '읽지 않는 것' 표 그대로).
@@ -9,24 +10,33 @@ VERSION: v1.0 — 2026-11-02 — 사용자 지시 2026-11-02 "피드백했으니
 
 | 단계 | 하는 것 | 명령·판 |
 |---|---|---|
-| 1 | 주제 기획안 10개 (롱폼 5칸 + 쇼츠 4칸 + 확인 방법·근거) | `stock/topics/board/topics_<날짜>.json` (꼴 = 2번) |
-| 2 | 판에 올리기 전 점검 — 일반·반론 페르소나 (규칙 · 토큰 0) | `python3 tools/board_check.py package stock <파일> --write` → ❌ 0 까지 고침 |
-| 3 | 주제 평가판에 올림 | `python3 tools/topic_board.py` → Artifact 다시 올림(같은 파일) — **주제 평가판 https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN** |
-| 4 | 사용자 판정·피드백 읽기 | `ArtifactData query verdicts` · `query feedback where status == new` (주제 판) |
-| 5 | 통과(pass)한 주제만 대본 — 계산 코드 → 롱폼·쇼츠 대본 | `stock/topics/precheck/longform_items.py` 에 편 함수 · 대본 꼴 = 4번 |
-| 6 | 대본 판에 올리기 전 점검 | `python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"` → ❌ 0 |
-| 7 | 대본 피드백판에 올림 | `stock/topics/board/script_board.json` 'extra' 에 한 줄 → `python3 tools/script_feedback_board.py` → Artifact 다시 올림 — **대본 피드백판 https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz** |
-| 8 | 대본 피드백 반영 반복 | `ArtifactData query feedback where status == new` (대본 판) → 고침 → 계산 다시 → 6번 → 판 다시 → 피드백마다 status=done·reply |
-| 9 | 영상 | 6번 '영상 과정' (그림 ChatGPT → 장면 코드 → 오디오 → 렌더 → 썸네일) |
+| 1 | 주제 기획안 10개 (롱폼 5칸 + 쇼츠 4칸 + 확인 방법·근거 — 쇼츠 칸은 지금 써 두고 3단계에서 보임) | `stock/topics/board/topics_<날짜>.json` (꼴 = 2번) |
+| 2 | 판에 올리기 전 점검 — 일반·반론 페르소나 (규칙 · 토큰 0) | `python3 tools/board_check.py package stock <파일> --write` (롱폼 칸) → ❌ 0 까지 고침 |
+| 3 | **1단계 주제 평가판**에 올림 (롱폼 칸만 보임) | `python3 tools/topic_board.py` → Artifact 다시 올림(같은 파일) — **https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN** |
+| 4 | 판정·피드백 읽기 | 주제 판 `ArtifactData list verdicts` · `query feedback where status == new` |
+| 5 | 주제 판 통과(pass)만 **롱폼 대본** — 계산 코드 → 대본 | `stock/topics/precheck/longform_items.py` 에 편 함수 · 대본 꼴 = 4번 |
+| 6 | 롱폼 대본 점검 | `python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"` → ❌ 0 |
+| 7 | **2단계 대본 평가판**에 올림 (롱폼만) | `stock/topics/board/script_board.json` 'extra' 에 한 줄 `{key:'B01-long', ep:'B01', label:'B01 빚내서 투자', kind:'long', title, ver:'대본 v1', file}` → `python3 tools/script_feedback_board.py` → Artifact 다시 올림 — **https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz** |
+| 8 | 롱폼 피드백 반영 반복 | 대본 판 `query feedback where status == new` → 고침 → 계산 다시 → 6번 → 판 다시 → 피드백마다 status=done·reply |
+| 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)')인 편만 **쇼츠 대본** | 쇼츠 대본 파일(한 줄 한 문장, `-장 이름` 줄 가능) · 꼴 = 2번 s_message · 쇼츠 칸 점검 `board_check.py package stock <파일> --stage shorts --write` · 대본 점검 `board_check.py script stock <쇼츠.txt> --kind short` → ❌ 0 |
+| 10 | **3단계 쇼츠 평가판**에 올림 | `stock/topics/board/shorts_board.json` 'items' 에 한 줄 → `python3 tools/script_feedback_board.py` (두 판을 함께 만듦) → Artifact 다시 올림 — **https://claude.ai/artifact/Mjfwm81meE2vyHH71UqAt2** |
+| 11 | 쇼츠 피드백 반영 반복 | 쇼츠 판 `query feedback where status == new` — 칸 피드백(`field` = s_title·s_thumb_main·s_thumb_sub·s_message)은 기획안 json 의 그 칸을, 줄 피드백(`lines`)은 쇼츠 대본을 고침 → 9번 점검 → 판 다시 |
+| 12 | 쇼츠 판 `verdicts/<key>.verdict == pass`('통과 (영상으로)') → 영상 | 6번 '영상 과정' (그림 ChatGPT → 장면 코드 → 오디오 → 렌더 → 썸네일) |
 
-판 둘 다 db 를 씀 (`capabilities {db, user}`) — 판을 다시 올릴 때 같은 파일 경로로 (주소 그대로, 피드백 그대로).
+판 셋 다 db 를 씀 (`capabilities {db, user}`) — 판마다 db 가 따로(주소가 다름). 다시 올릴 때 같은 파일 경로로 (주소 그대로, 피드백 그대로).
+
+**shorts_board.json 'items' 꼴** (Claude 가 대본 판 verdicts 를 읽고 더함):
+- 1~4편(쇼츠안_2026-10-30.md 에 대본·제목이 있음): `{"key":"e1-short","md_ep":1,"from":"md","long_key":"e1-long"}` — 칸은 그 md 의 `## N편 — 제목` · `- 썸네일 문구:` · `- 썸네일 보조 문구:` · `- 쇼츠 전달 내용:` · 머리 `- 틀:` 에서 (없는 칸은 '아직 없음 — 이 판의 피드백으로 만듦').
+- 새 편: `{"key":"B01-short","ep":"B01","label":"B01 빚내서 투자","from":"file","file":"<쇼츠 대본.txt>","fields_from":"stock/topics/board/topics_2026-11-02.json#B01","long_key":"B01-long","ver":"v1"}` — 칸은 기획안 s_* (기획안 `check_shorts.pass` 아니면 판에 안 올라감).
+- 쇼츠 대본 판(v)을 올리면 그 줄 `ver` 를 올림(1~4편은 도구의 `SHORT_VER`).
 
 ## 1. 판에서 읽고 답하기 (토큰 아끼기)
 
-- **새 것만 읽는다**: `ArtifactData action=query collection=feedback query={where:[["status","==","new"]]}` — 반영한 것은 다시 읽지 않음. 주제 판은 `verdicts` 를 `list`.
+- **새 것만 읽는다**: `ArtifactData action=query collection=feedback query={where:[["status","==","new"]]}` — 반영한 것은 다시 읽지 않음. 판정은 판마다 `verdicts` 를 `list` (주제 판 {id, verdict pass|hold|fail} · 대본·쇼츠 판 {key, ver, verdict pass|hold}).
+- 판 셋을 다 읽을 일은 드묾 — 사용자가 "○○ 판 평가했어"라고 하면 그 판만.
 - **반영했으면 한 번에 답한다**: `ArtifactData action=batch` 로 피드백마다 `update {status:"done", reply:"<무엇을 어떻게 — 대본 몇 번 줄 · 숫자>", updatedAt}` (`if_version` = 읽은 version).
 - 사용자가 판에서 지운 피드백은 다시 만들지 않는다. 판의 '삭제' = db 문서 지움.
-- 대본이 새 판(v)이 되면 `tools/script_feedback_board.py` 의 `LONG_VER` 를 올림 → 옛 판 피드백은 줄로 이동하지 않고 인용·판 이름만 보임.
+- 대본이 새 판(v)이 되면 `tools/script_feedback_board.py` 의 `LONG_VER`(새 편은 script_board.json 의 `ver`) 를 올림 → 옛 판 피드백은 줄로 이동하지 않고 인용·판 이름만 보임. 판정(verdicts)은 판(v)이 바뀌어도 남음 — 대본을 크게 고쳤으면 reply 에 '다시 판정해 주세요'.
 
 ## 2. 주제 기획안 꼴 (`topics_<날짜>.json` 의 `packages` 한 줄)
 

@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-02 — 평가판에 처음 올리기 전 점검 (일반 페르소나 + 반론 페르소나) — 토큰을 쓰지 않는 규칙 점검
+# VERSION: v1.1 — 2026-11-02 — 3단계 판(주제 → 대본 → 쇼츠)에 맞춤: package --stage topic|shorts (판마다 그 칸만) · script --kind short (해설·설명란 점검 뺌).
+# (v1.0 — 2026-11-02 — 평가판에 처음 올리기 전 점검 (일반 페르소나 + 반론 페르소나) — 토큰을 쓰지 않는 규칙 점검
 #   사용자 지시 2026-11-02 "처음 평가판에 올라가기 전에는 일반, 반론 페르소나로 점검은 거쳐야해 토큰 최대한 아끼는 방식으로 하고".
 #   · 일반 페르소나 = stock/result/outliers/personas.json (tools/persona_review.py 의 review — 풀이 없는 어려운 말·50자 넘는 문장·광고·겁주기 + 페르소나가 원하는 말)
 #   · 반론 페르소나 = stock/result/outliers/rebuttal_persona.md 0번 표의 K1~K8 질문을 규칙으로 (낱말·꼴·숫자 대조) — 규칙이 못 보는 것은 '사람 확인' 줄로 남김
 #   · 결과: 통과(✅) · 고칠 것(❌ — 고친 뒤 다시) · 사람 확인(⚠ — Claude 가 그 줄만 읽고 판단) → 판의 카드에 '점검' 칸으로 붙음
 #   연구·교육용 도구 — 투자 권유가 아님.
 r"""
-  python3 tools/board_check.py script  stock <대본.txt> [--calc <json>] [--upload <upload.md>] [--allow "<사용자 문장 일부>" …]
-  python3 tools/board_check.py package stock <기획안.json> [--write]      # 주제 평가판 기획안 (stock/topics/board/topics_*.json)
+  python3 tools/board_check.py script  stock <대본.txt> [--kind long|short] [--calc <json>] [--upload <upload.md>] [--allow "<사용자 문장 일부>" …]
+  python3 tools/board_check.py package stock <기획안.json> [--stage topic|shorts] [--write]   # topic → 주제 평가판(롱폼 칸) · shorts → 쇼츠 평가판(쇼츠 칸)
 끝 코드: ❌ 가 하나라도 있으면 1.
 """
 import contextlib
@@ -21,7 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.0"
+VERSION = "v1.1"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌
@@ -67,7 +68,7 @@ def pct_ok(n, vals):
     return False
 
 
-def check_script(topic, script, calc=None, upload=None, allow=()):
+def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     import persona_review as PR
     with contextlib.redirect_stdout(io.StringIO()):
         R = PR.review(topic, script)
@@ -87,6 +88,14 @@ def check_script(topic, script, calc=None, upload=None, allow=()):
     (fails if k8 else oks).append(f"반론 K8 권유·과장: {k8 or '없음'}")
     k2 = [(i, s) for i, s in enumerate(sents, 1) if K2.search(s)]
     (fails if k2 else oks).append(f"반론 K2 결과론: {k2 or '없음'}")
+    if kind == "short":                                   # 쇼츠: 해설·보기·설명란이 없음 → K6·K7·K2/K4 설명란 점검 뺌
+        if calc:
+            vals = numbers_in_calc(calc)
+            loose = [(i, m.group(0)) for i, s in enumerate(sents, 1) for m in re.finditer(r"(\d+(?:\.\d+)?)\s?%", s) if float(m.group(1)) == int(float(m.group(1))) and not pct_ok(int(float(m.group(1))), vals)]
+            (warns if loose else oks).append(f"반론 K5 계산 출력에 없는 % (사람 확인): {loose or '없음'}")
+        else:
+            warns.append("반론 K5: --calc 없음 — 숫자 대조 못 함")
+        return fails, warns, oks
     # ── K6 지키기 어려움 인정 — 해설마다 '물론 …' 반론 줄
     heads = [i for i, s in enumerate(sents) if re.match(r"(첫|두|세|네|다섯) 번째 선택의 정답은", s)]
     miss = []
@@ -143,17 +152,18 @@ def check_script(topic, script, calc=None, upload=None, allow=()):
     return fails, warns, oks
 
 
-FIELDS = [("message", "전달 내용"), ("approach", "전달 방식"), ("title", "제목"), ("thumb_main", "썸네일 문구"), ("thumb_sub", "썸네일 보조 문구"),
-          ("s_title", "쇼츠 제목"), ("s_thumb_main", "쇼츠 썸네일 문구"), ("s_thumb_sub", "쇼츠 썸네일 보조 문구"), ("s_message", "쇼츠 전달 내용·방식")]
+FIELDS_TOPIC = [("message", "전달 내용"), ("approach", "전달 방식"), ("title", "제목"), ("thumb_main", "썸네일 문구"), ("thumb_sub", "썸네일 보조 문구")]
+FIELDS_SHORTS = [("s_title", "쇼츠 제목"), ("s_thumb_main", "쇼츠 썸네일 문구"), ("s_thumb_sub", "쇼츠 썸네일 보조 문구"), ("s_message", "쇼츠 전달 내용·방식")]
 
 
 def txt(v):
     return " / ".join(v) if isinstance(v, list) else str(v or "")
 
 
-def check_package(topic, pk, personas, adv):
+def check_package(topic, pk, personas, adv, stage="topic"):
     import title_fit as TF
     fails, warns, oks = [], [], []
+    FIELDS = FIELDS_TOPIC if stage == "topic" else FIELDS_SHORTS
     miss = [lab for k, lab in FIELDS if not txt(pk.get(k)).strip()]
     if miss:
         fails.append(f"빈 칸: {miss}")
@@ -164,9 +174,9 @@ def check_package(topic, pk, personas, adv):
     (oks if best[1] else warns).append(f"일반: 페르소나 원하는 말 — " + " · ".join(f"{k} {len(v)}" for k, v in hit.items()) + (f" (가장 가까운 {best[0]}: {best[1][:5]})" if best[1] else " — 아무도 안 걸림(사람 확인)"))
     hard = [t for t in adv if t in allt]
     (warns if hard else oks).append(f"일반: 어려운 말 {hard or '없음'} (대본에서 풀이 필요)")
-    tm = txt(pk.get("thumb_main")).replace(" / ", "")
+    tm = txt(pk.get("thumb_main" if stage == "topic" else "s_thumb_main")).replace(" / ", "")
     (warns if len(tm) > 26 else oks).append(f"일반: 썸네일 주요 문구 {len(tm)}자 (성공 중앙값 22 — 26 넘으면 줄임)")
-    for key, sh in (("title", False), ("s_title", True)):
+    for key, sh in ((("title", False),) if stage == "topic" else (("s_title", True),)):
         t = txt(pk.get(key))
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):
@@ -179,11 +189,14 @@ def check_package(topic, pk, personas, adv):
     (fails if k2 else oks).append(f"반론 K2 결과론 낱말: {k2 or '없음'}")
     off = OFF.search(allt)
     (fails if off else oks).append(f"채널 목적(덜 잃기·장기): {'❌ ' + off.group(0) if off else '맞음'}")
-    nums = [k for k in ("title", "thumb_main", "thumb_sub", "s_title", "s_thumb_main", "s_thumb_sub") if re.search(r"\d", txt(pk.get(k)))]
+    nums = [k for k, _ in FIELDS if k not in ("message", "approach", "s_message") and re.search(r"\d", txt(pk.get(k)))]
     (warns if nums and not pk.get("calc") else oks).append(f"반론 K5 숫자 칸 {nums or '없음'} · 계산 근거 {'있음' if pk.get('calc') else '없음 — 숫자는 대본 계산 때 확인'}")
-    (oks if COND.search(txt(pk.get("approach"))) else warns).append("반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: " + ("있음" if COND.search(txt(pk.get("approach"))) else "안 보임(사람 확인)"))
-    (oks if txt(pk.get("verify")).strip() else fails).append(f"반론 K3 다른 기간·다른 하락장으로 확인할 길: {txt(pk.get('verify')) or '없음'}")
-    (oks if txt(pk.get("basis")).strip() else warns).append("분석 근거(data_insights 5-1): " + ("있음" if txt(pk.get("basis")).strip() else "없음"))
+    if stage == "topic":
+        (oks if COND.search(txt(pk.get("approach"))) else warns).append("반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: " + ("있음" if COND.search(txt(pk.get("approach"))) else "안 보임(사람 확인)"))
+        (oks if txt(pk.get("verify")).strip() else fails).append(f"반론 K3 다른 기간·다른 하락장으로 확인할 길: {txt(pk.get('verify')) or '없음'}")
+        (oks if txt(pk.get("basis")).strip() else warns).append("분석 근거(data_insights 5-1): " + ("있음" if txt(pk.get("basis")).strip() else "없음"))
+    else:
+        (oks if "구독하고 확인하세요" in txt(pk.get("s_message")) or "공통 끝 멘트" in txt(pk.get("s_message")) else warns).append("쇼츠 공통 끝 멘트: " + ("있음" if "끝 멘트" in txt(pk.get("s_message")) or "구독하고" in txt(pk.get("s_message")) else "안 보임"))
     return fails, warns, oks
 
 
@@ -196,8 +209,8 @@ def main(argv):
     allow = [argv[i + 1] for i, a in enumerate(argv) if a == "--allow"]
     log("START", tool=f"board_check.py {VERSION}", mode=mode, topic=topic, path=path)
     if mode == "script":
-        f, w, o = check_script(topic, path, opt("--calc"), opt("--upload"), allow)
-        out = Path(path).resolve().with_name("board_check.md")
+        f, w, o = check_script(topic, path, opt("--calc"), opt("--upload"), allow, opt("--kind") or "long")
+        out = Path(path).resolve().with_name("board_check.md" if (opt("--kind") or "long") == "long" else "board_check_shorts.md")
         md = [f"# 평가판 전 점검 — {Path(path).name} ({time.strftime('%Y-%m-%d')}, board_check.py {VERSION})", "", f"결과: {'❌ 고칠 것 ' + str(len(f)) if f else '✅ 통과'} · ⚠ 사람 확인 {len(w)}", ""]
         md += [f"- ❌ {x}" for x in f] + [f"- ⚠ {x}" for x in w] + [f"- ✅ {x}" for x in o]
         out.write_text("\n".join(md) + "\n", "utf-8")
@@ -214,9 +227,10 @@ def main(argv):
     adv = list(dict.fromkeys((k.get("advanced") or []) + (k.get("advanced_en") or [])))
     D = json.loads(Path(path).read_text("utf-8"))
     bad = 0
+    stage = opt("--stage") or "topic"
     for pk in D["packages"]:
-        f, w, o = check_package(topic, pk, personas, adv)
-        pk["check"] = {"tool": f"board_check.py {VERSION}", "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "pass": not f,
+        f, w, o = check_package(topic, pk, personas, adv, stage)
+        pk["check" if stage == "topic" else "check_shorts"] = {"tool": f"board_check.py {VERSION}", "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "pass": not f,
                        "fail": f, "warn": w, "ok": o}
         bad += bool(f)
         log("CHECK", id=pk.get("id"), result="통과" if not f else "고칠 것", fails=len(f), warns=len(w))

@@ -1,4 +1,4 @@
-# 평가판 전 점검 — ppalli-test-2026-11.txt (2026-11-02, board_check.py v1.0)
+# 평가판 전 점검 — ppalli-test-2026-11.txt (2026-11-02, board_check.py v1.1)
 
 결과: ✅ 통과 · ⚠ 사람 확인 1
 

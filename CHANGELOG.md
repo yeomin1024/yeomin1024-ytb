@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 주식: 평가판 세 단계 (주제 → 대본 → 쇼츠)
+
+### 왜 (사용자 지시)
+- "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자 다시 수정해줘"
+
+### 바뀐 것
+- **쇼츠 평가판 (새, 3단계)** `stock/topics/쇼츠평가판.html` → https://claude.ai/artifact/Mjfwm81meE2vyHH71UqAt2 (db verdicts·feedback) — 대본 평가판에서 롱폼이 '통과 (쇼츠로)'인 편만, Claude 가 `stock/topics/board/shorts_board.json` 'items' 에 더함. 편마다 쇼츠 제목·썸네일 문구·보조 문구·전달 내용·방식 칸 피드백 + 쇼츠 대본 줄 피드백 + 판정 '통과 (영상으로)'·'보류'. 지금은 빈 판(통과한 롱폼 없음).
+- **대본 평가판 (2단계)** `대본피드백판.html` — 롱폼만(1~4편 + 통과 주제의 롱폼). 편마다 판정 '통과 (쇼츠로)'·'보류' (db verdicts/<key>). 쇼츠 4편은 이 판에서 빠짐 (롱폼이 통과하면 쇼츠 판으로).
+- 두 판은 틀 하나 `stock/topics/board/script_board.template.html` v2.0 (자리표 {{TITLE}}·{{H1}}·{{INTRO}} · DATA.board) — `tools/script_feedback_board.py` v2.0 이 한 번에 만듦 (`--items <목록>` = 시험, 판 파일은 안 씀).
+- **주제 평가판 (1단계)** v1.1 — 롱폼 칸만 보임 · 세 판 링크 · `tools/topic_board.py` v1.1 이 쇼츠 칸(s_*·check_shorts)을 판 데이터에서 뺌 (34,459 → 21,996 바이트).
+- `tools/board_check.py` v1.1 — `package --stage topic|shorts`(쇼츠 칸은 `check_shorts`·`board_check_shorts.md`) · `script --kind long|short`.
+- `stock/topics/쇼츠안_2026-10-30.md` 1편에 '쇼츠 전달 내용 (Claude — 대본 줄을 한 줄로)' 한 줄 (쇼츠 판 칸용 — 사용자 문구는 그대로).
+- 지시사항: `stock/guides/quick_board.md` v1.1 (단계 12줄 · shorts_board.json 꼴) · CLAUDE.md 주식 줄 '평가판 세 장' · `quick_flow.md` 안내 줄.
+
+### 확인 (로그)
+- `python3 tools/script_feedback_board.py` → `[DATA] board="long" scripts=4 lines=411` · `[DATA] board="short" scripts=0` · 자리표 남은 것 0.
+- 시험 목록(1·4편 md 쇼츠): `board="short" scripts=2 lines=23 fields=8` → 브라우저(1360·400px, 밝음·어둠) 칸 4개·대본 12줄·판정 버튼, 가로 넘침 0 · 오류 0. 주제 판 카드 10개 넘침 0 · 오류 0.
+- 세 판 db: 대본 판 feedback status=new 0 · 주제 판 verdicts 0.
+
 ## 2026-11-02 — 주식: 1편 대본 v10 · 주제 평가판 · 평가판 전 점검 도구 · 대본 피드백판 삭제 버튼 · 새 세션 지시사항 quick_board
 
 ### 왜 (사용자 지시)

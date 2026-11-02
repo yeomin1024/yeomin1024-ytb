@@ -1,6 +1,7 @@
 <title>{{TITLE}}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v2.0 — 2026-11-02 — 판 하나의 틀로 두 판(대본 평가판 · 쇼츠 평가판) — 사용자 지시 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자".
+<!-- VERSION: v2.1 — 2026-11-02 — 판정 버튼을 크게 — 대본 위 + 오른쪽 맨 위 '이 편 판정' 칸에 큰 초록 '통과' 버튼(누르면 꽉 찬 초록·✓) — 사용자 지시 "통과 평가판에 통과 버튼 만들어".
+     (v2.0 — 2026-11-02 — 판 하나의 틀로 두 판(대본 평가판 · 쇼츠 평가판) — 사용자 지시 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자".
        · DATA.board = 판마다 이름·안내·판정 글 (tools/script_feedback_board.py 가 채움) · 편마다 판정(통과·보류) = db verdicts/<key> {key, ver, verdict, updatedAt}
        · 쇼츠 판은 편마다 칸(제목·썸네일 문구·보조 문구·전달 내용·방식)에도 피드백 = feedback {script, field, quote, text, …} (lines 빈 배열).
      (v1.2 — 2026-11-02 — 피드백마다 빨간 '삭제' 버튼(확인 한 번) — 사용자 지시 "피드백 삭제 버튼도 있어야 할듯" · 주제 평가판에서 통과한 주제의 대본도 같은 판에 (편 이름표 = label).
@@ -104,6 +105,11 @@ textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line)
 .item .reply b{color:var(--accent)}
 /* 판정 · 칸 */
 .vrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.btn.v{padding:10px 18px;font-size:15px;font-weight:700}
+.btn.v.pass{border:2px solid var(--done);color:var(--done)}
+.btn.v.hold{border:2px solid var(--line)}
+.vbox .vrow{margin-top:0} .vbox .btn.v{flex:1 1 140px;padding:14px 16px;font-size:17px}
+.vbox .vnow{font-size:13px;color:var(--muted)}
 .btn.v[aria-pressed="true"].pass{background:var(--done);border-color:var(--done);color:#fff}
 .btn.v[aria-pressed="true"].hold{background:var(--head);border-color:var(--head);color:#1B2320}
 .vchip{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 8px;border:1px solid currentColor}
@@ -155,6 +161,10 @@ textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line)
     </article>
 
     <aside class="side">
+      <section class="box vbox" id="vbox" aria-label="이 편 판정" hidden>
+        <h3>이 편 판정</h3>
+        <div class="vrow" id="side-verdict"></div>
+      </section>
       <section class="box composer" id="composer" aria-label="피드백 쓰기">
         <h3>피드백 쓰기</h3>
         <p class="hint" id="c-hint">대본에서 피드백할 줄을 눌러 고르세요.</p>
@@ -229,7 +239,7 @@ const DATA = /*SCRIPTS:BEGIN*/{"scripts":[]}/*SCRIPTS:END*/;
   // ---------- 대본 ----------
   function renderScript() {
     const s = byKey[st.key];
-    if (!s) { $("sc-title").textContent = B.h1 || ""; $("sc-meta").textContent = B.empty || ""; $("lines").innerHTML = ""; $("fields").hidden = true; return; }
+    if (!s) { $("vbox").hidden = true; $("sc-title").textContent = B.h1 || ""; $("sc-meta").textContent = B.empty || ""; $("lines").innerHTML = ""; $("fields").hidden = true; return; }
     renderVerdict(); renderFields();
     $("sc-kind").textContent = `${s.label || s.ep + "편"} · ${s.kind === "long" ? "롱폼" : "쇼츠"} · ${s.ver}`;
     $("sc-title").textContent = s.title;
@@ -263,10 +273,14 @@ const DATA = /*SCRIPTS:BEGIN*/{"scripts":[]}/*SCRIPTS:END*/;
   // ---------- 판정 (통과·보류) ----------
   function renderVerdict() {
     const s = byKey[st.key], v = vOf(s.key), ro = !st.db || !st.canWrite;
-    $("sc-verdict").innerHTML = ["pass", "hold"].map(k => `<button class="btn sm v ${k}" type="button" data-v="${k}" aria-pressed="${v === k}" ${ro ? "disabled" : ""}>${esc(VLAB[k])}</button>`).join("")
-      + (v && !ro ? `<button class="btn sm" type="button" data-v="">판정 지우기</button>` : "") + `<span class="hint">${esc(B.verdict_hint || "")}</span>`;
+    const btns = ["pass", "hold"].map(k => `<button class="btn v ${k}" type="button" data-v="${k}" aria-pressed="${v === k}" ${ro ? "disabled" : ""}>${v === k ? "✓ " : ""}${esc(VLAB[k])}</button>`).join("");
+    const now = v ? `지금: ${esc(VLAB[v])}` + (st.verdicts[s.key] && st.verdicts[s.key].ver && st.verdicts[s.key].ver !== s.ver ? ` (${esc(st.verdicts[s.key].ver)}에 준 판정)` : "") : "아직 판정하지 않음";
+    const clear = v && !ro ? `<button class="btn sm" type="button" data-v="">판정 지우기</button>` : "";
+    $("sc-verdict").innerHTML = btns + clear + `<span class="hint">${esc(B.verdict_hint || "")}</span>`;
+    $("side-verdict").innerHTML = btns + `<div class="vnow" style="flex-basis:100%">${now}${ro ? " · 저장소 연결 전에는 누를 수 없습니다" : ""}</div>` + clear;
+    $("vbox").hidden = false;
   }
-  $("sc-verdict").addEventListener("click", async e => {
+  async function onVerdict(e) {
     const b = e.target.closest("[data-v]"); if (!b || !st.db) return;
     const s = byKey[st.key]; b.disabled = true;
     try {
@@ -274,7 +288,9 @@ const DATA = /*SCRIPTS:BEGIN*/{"scripts":[]}/*SCRIPTS:END*/;
       else { await st.db.doc("verdicts/" + s.key).delete(); toast("판정을 지웠습니다"); }
     } catch (err) { toast("저장하지 못했습니다. 다시 눌러 주세요."); }
     b.disabled = false;
-  });
+  }
+  $("sc-verdict").addEventListener("click", onVerdict);
+  $("side-verdict").addEventListener("click", onVerdict);
   // ---------- 칸 (쇼츠 제목·썸네일 문구 …) ----------
   function renderFields() {
     const s = byKey[st.key], F = s.fields || [], ro = !st.db || !st.canWrite;

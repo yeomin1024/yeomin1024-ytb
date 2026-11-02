@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-02 — 3단계 판(주제 → 대본 → 쇼츠)에 맞춤: package --stage topic|shorts (판마다 그 칸만) · script --kind short (해설·설명란 점검 뺌).
+# VERSION: v1.2 — 2026-11-02 — 저장소 밖 파일(시험·임시 대본)도 점검 — 결과 파일 경로를 저장소 기준으로 못 바꾸면 그대로 씀 (전엔 ValueError 로 멈춤) ·
+#   광고 점검에서 --allow 문장과 쇼츠 공통 끝 멘트(「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」 — 사용자가 정한 줄)는 뺌.
+# (v1.1 — 2026-11-02 — 3단계 판(주제 → 대본 → 쇼츠)에 맞춤: package --stage topic|shorts (판마다 그 칸만) · script --kind short (해설·설명란 점검 뺌).
 # (v1.0 — 2026-11-02 — 평가판에 처음 올리기 전 점검 (일반 페르소나 + 반론 페르소나) — 토큰을 쓰지 않는 규칙 점검
 #   사용자 지시 2026-11-02 "처음 평가판에 올라가기 전에는 일반, 반론 페르소나로 점검은 거쳐야해 토큰 최대한 아끼는 방식으로 하고".
 #   · 일반 페르소나 = stock/result/outliers/personas.json (tools/persona_review.py 의 review — 풀이 없는 어려운 말·50자 넘는 문장·광고·겁주기 + 페르소나가 원하는 말)
@@ -26,6 +28,7 @@ VERSION = "v1.1"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌
+SHORT_END = "채널 구독하고 확인하세요"   # 쇼츠 공통 끝 멘트 (stock/topics/쇼츠안_2026-10-30.md 머리 — 사용자가 정한 줄)
 K8 = re.compile(r"무조건|반드시|100\s?%\s?(수익|보장)|확실히 (번|오른)|(?<!절대 통과 )절대(?! 통과)|사세요|파세요|매수하세요|매도하세요|추천 ?종목|수익 보장|대박|떡상|인생 역전")
 # K2 결과론·앞으로도
 K2 = re.compile(r"앞으로도 (반드시|꼭|계속)|항상 (오른|이긴)|늘 (오른|이긴)|영원히")
@@ -80,8 +83,12 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
         fails.append(f"일반: 풀이 없는 어려운 말 {un}")
     longs = [(i, n) for i, s, n in R["long"] if not any(a in s for a in allow)]
     (fails if longs else oks).append(f"일반: 50자 넘는 문장 {longs or '없음 (사용자 문장은 뺌)'}")
-    if R["ads"] or R["scares"]:
-        fails.append(f"일반: 광고 {len(R['ads'])} · 겁주기 {len(R['scares'])}")
+    # 사용자가 정한 문장(--allow)과 쇼츠 공통 끝 멘트(쇼츠안 머리 — 사용자 지시)는 광고로 세지 않음
+    ads = [(i, x) for i, x in R["ads"] if not any(a in x for a in allow) and not (kind == "short" and SHORT_END in x)]
+    if ads or R["scares"]:
+        fails.append(f"일반: 광고 {[i for i, _ in ads]} · 겁주기 {[i for i, _ in R['scares']]}")
+    elif R["ads"]:
+        oks.append(f"일반: 광고 없음 (사용자 문장·쇼츠 공통 끝 멘트 {len(R['ads'])}개는 뺌)")
     oks.append(f"일반: 약 {R['est_min']:.1f}분 · 페르소나마다 원하는 말 " + ", ".join(f"{r['p']['id']} {len(r['covered'])}/{len(r['wants'])}" for r in R["rows"]))
     # ── 반론 K8·K2
     k8 = [(i, s) for i, s in enumerate(sents, 1) if K8.search(s) and not any(a in s for a in allow)]
@@ -214,7 +221,7 @@ def main(argv):
         md = [f"# 평가판 전 점검 — {Path(path).name} ({time.strftime('%Y-%m-%d')}, board_check.py {VERSION})", "", f"결과: {'❌ 고칠 것 ' + str(len(f)) if f else '✅ 통과'} · ⚠ 사람 확인 {len(w)}", ""]
         md += [f"- ❌ {x}" for x in f] + [f"- ⚠ {x}" for x in w] + [f"- ✅ {x}" for x in o]
         out.write_text("\n".join(md) + "\n", "utf-8")
-        log("DONE", fails=len(f), warns=len(w), out=str(out.relative_to(ROOT)))
+        log("DONE", fails=len(f), warns=len(w), out=(str(out.relative_to(ROOT)) if out.is_relative_to(ROOT) else str(out)))
         for x in f + w:
             print("   ", x[:300])
         return 1 if f else 0

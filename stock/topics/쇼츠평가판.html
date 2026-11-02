@@ -1,6 +1,7 @@
 <title>주식 쇼츠 평가판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v2.0 — 2026-11-02 — 판 하나의 틀로 두 판(대본 평가판 · 쇼츠 평가판) — 사용자 지시 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자".
+<!-- VERSION: v2.1 — 2026-11-02 — 판정 버튼을 크게 — 대본 위 + 오른쪽 맨 위 '이 편 판정' 칸에 큰 초록 '통과' 버튼(누르면 꽉 찬 초록·✓) — 사용자 지시 "통과 평가판에 통과 버튼 만들어".
+     (v2.0 — 2026-11-02 — 판 하나의 틀로 두 판(대본 평가판 · 쇼츠 평가판) — 사용자 지시 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자".
        · DATA.board = 판마다 이름·안내·판정 글 (tools/script_feedback_board.py 가 채움) · 편마다 판정(통과·보류) = db verdicts/<key> {key, ver, verdict, updatedAt}
        · 쇼츠 판은 편마다 칸(제목·썸네일 문구·보조 문구·전달 내용·방식)에도 피드백 = feedback {script, field, quote, text, …} (lines 빈 배열).
      (v1.2 — 2026-11-02 — 피드백마다 빨간 '삭제' 버튼(확인 한 번) — 사용자 지시 "피드백 삭제 버튼도 있어야 할듯" · 주제 평가판에서 통과한 주제의 대본도 같은 판에 (편 이름표 = label).
@@ -104,6 +105,11 @@ textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line)
 .item .reply b{color:var(--accent)}
 /* 판정 · 칸 */
 .vrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.btn.v{padding:10px 18px;font-size:15px;font-weight:700}
+.btn.v.pass{border:2px solid var(--done);color:var(--done)}
+.btn.v.hold{border:2px solid var(--line)}
+.vbox .vrow{margin-top:0} .vbox .btn.v{flex:1 1 140px;padding:14px 16px;font-size:17px}
+.vbox .vnow{font-size:13px;color:var(--muted)}
 .btn.v[aria-pressed="true"].pass{background:var(--done);border-color:var(--done);color:#fff}
 .btn.v[aria-pressed="true"].hold{background:var(--head);border-color:var(--head);color:#1B2320}
 .vchip{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 8px;border:1px solid currentColor}
@@ -155,6 +161,10 @@ textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line)
     </article>
 
     <aside class="side">
+      <section class="box vbox" id="vbox" aria-label="이 편 판정" hidden>
+        <h3>이 편 판정</h3>
+        <div class="vrow" id="side-verdict"></div>
+      </section>
       <section class="box composer" id="composer" aria-label="피드백 쓰기">
         <h3>피드백 쓰기</h3>
         <p class="hint" id="c-hint">대본에서 피드백할 줄을 눌러 고르세요.</p>
@@ -185,7 +195,7 @@ textarea{width:100%;min-height:96px;resize:vertical;border:1px solid var(--line)
 <div class="toast" id="toast" hidden></div>
 
 <script>
-const DATA = /*SCRIPTS:BEGIN*/{"board":{"h1":"주식 쇼츠 평가판","verdict":{"pass":"통과 (영상으로)","hold":"보류"},"verdict_hint":"통과하면 오디오·영상 만들기로 넘어갑니다","empty":"아직 롱폼 대본이 통과한 편이 없습니다. 대본 평가판에서 '통과 (쇼츠로)'를 누르면 Claude 가 그 편의 쇼츠를 여기에 올립니다."},"scripts":[]}/*SCRIPTS:END*/;
+const DATA = /*SCRIPTS:BEGIN*/{"board":{"h1":"주식 쇼츠 평가판","verdict":{"pass":"통과 (영상으로)","hold":"보류"},"verdict_hint":"통과하면 오디오·영상 만들기로 넘어갑니다","empty":"아직 롱폼 대본이 통과한 편이 없습니다. 대본 평가판에서 '통과 (쇼츠로)'를 누르면 Claude 가 그 편의 쇼츠를 여기에 올립니다."},"scripts":[{"key":"e1-short","ep":1,"label":"1편","kind":"short","title":"'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.","ver":"v5","file":"stock/topics/쇼츠안_2026-10-30.md 1편","long_key":"e1-long","fields":[["s_title","쇼츠 제목","'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.",true],["s_thumb_main","쇼츠 썸네일 문구",["'이 생각'으로 주식 투자를 하면","당신은 99% 손해 봅니다"],true],["s_thumb_sub","쇼츠 썸네일 보조 문구","빨리 벌고 싶었을 뿐인데..",false],["s_message","쇼츠 전달 내용·방식","'이 생각' = \"주식으로 돈을 빠르게 벌고 싶다\" — 그 욕심이 수익엔 매수 금액을 늘리고 손실엔 더 자주·더 크게 매매하게 만들어, 큰 하락이 오면 할 수 있는 게 없다. 욕심을 버리고 리스크에 대비하며 천천히.\n방식: 제목 잇기 → 반전 '이 ○○' → \"무슨 소리냐고요?\" → 이유 → 실제 숫자 → 강조(그때는 할 수 있는 게 없음) → 속담 → 무엇을 할지 → 결론 = 채널 목적(욕심을 버리고 · 리스크에 대비하며 · 천천히) → 공통 끝 멘트 「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」",false],["s_check","점검 결과 (Claude — 일반·반론 페르소나 규칙)","❌ 쇼츠 제목 34자 — 홈 Shorts 칸(좁은 폰)에서 3줄로 잘림 · 사용자 문구라 그대로 둠 — 줄인다면 「'이 생각'으로 주식 하면 당신은 99% 손해 봅니다.」(30자, 모든 화면 2줄 ✅) · ⚠ 썸네일 문구 32자 (성공 중앙값 22) · ⚠ '99%'는 계산 근거가 없는 말 — 반론 페르소나(K5·K8)가 과장으로 볼 수 있음 · ✅ 대본 50자 넘는 문장·광고·겁주기·권유 낱말 없음 (사용자 문장·공통 끝 멘트는 뺌)",false]],"lines":[{"n":1,"role":"제목 잇기","t":"이 생각을 가지고 주식 투자를 하면 당신은 99% 손해 볼겁니다.","sec":null},{"n":2,"role":"지르는 반전","t":"바로 주식으로 돈을 빠르게 벌고 싶다는 생각입니다.","sec":null},{"n":3,"role":"시청자 반응","t":"아니 그럼 돈벌려고 주식하지 도대체 무슨 소리냐고요?","sec":null},{"n":4,"role":"이유 — 욕심","t":"돈을 벌고 싶다는 생각이 있으면 점점 욕심이 생기기 마련입니다.","sec":null},{"n":5,"role":"이유 — 수익을 보면","t":"수익을 보면 더 벌고 싶어서 매수 금액을 점점 늘리고,","sec":null},{"n":6,"role":"이유 — 손실을 보면","t":"손실을 보면 빨리 복구하고 싶은 마음에 더 자주, 더 크게 매수와 매도를 반복하게 됩니다.","sec":null},{"n":7,"role":"이유 — 큰 하락이 오면","t":"결국 큰 하락이 오면, 더 매수할 돈은 이미 다 썼고 매도하자니 손실이 너무 큽니다.","sec":null},{"n":8,"role":"강조 — 할 수 있는 게 없음","t":"그때는 떨어지는 계좌를 지켜보는 것 말고, 할 수 있는 게 아무것도 없습니다.","sec":null},{"n":9,"role":"속담","t":"급할 수록 돌아가라 라는 말이 있듯이,","sec":null},{"n":10,"role":"결론 (목적)","t":"욕심을 버리고 리스크를 대비하면서 천천히 수익낸다면 당신은 어느순간 승리자가 되어 있을겁니다.","sec":null},{"n":11,"role":"공통 끝 멘트","t":"실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.","sec":null}]}]}/*SCRIPTS:END*/;
 (function () {
   "use strict";
   const $ = id => document.getElementById(id);
@@ -229,7 +239,7 @@ const DATA = /*SCRIPTS:BEGIN*/{"board":{"h1":"주식 쇼츠 평가판","verdict"
   // ---------- 대본 ----------
   function renderScript() {
     const s = byKey[st.key];
-    if (!s) { $("sc-title").textContent = B.h1 || ""; $("sc-meta").textContent = B.empty || ""; $("lines").innerHTML = ""; $("fields").hidden = true; return; }
+    if (!s) { $("vbox").hidden = true; $("sc-title").textContent = B.h1 || ""; $("sc-meta").textContent = B.empty || ""; $("lines").innerHTML = ""; $("fields").hidden = true; return; }
     renderVerdict(); renderFields();
     $("sc-kind").textContent = `${s.label || s.ep + "편"} · ${s.kind === "long" ? "롱폼" : "쇼츠"} · ${s.ver}`;
     $("sc-title").textContent = s.title;
@@ -263,10 +273,14 @@ const DATA = /*SCRIPTS:BEGIN*/{"board":{"h1":"주식 쇼츠 평가판","verdict"
   // ---------- 판정 (통과·보류) ----------
   function renderVerdict() {
     const s = byKey[st.key], v = vOf(s.key), ro = !st.db || !st.canWrite;
-    $("sc-verdict").innerHTML = ["pass", "hold"].map(k => `<button class="btn sm v ${k}" type="button" data-v="${k}" aria-pressed="${v === k}" ${ro ? "disabled" : ""}>${esc(VLAB[k])}</button>`).join("")
-      + (v && !ro ? `<button class="btn sm" type="button" data-v="">판정 지우기</button>` : "") + `<span class="hint">${esc(B.verdict_hint || "")}</span>`;
+    const btns = ["pass", "hold"].map(k => `<button class="btn v ${k}" type="button" data-v="${k}" aria-pressed="${v === k}" ${ro ? "disabled" : ""}>${v === k ? "✓ " : ""}${esc(VLAB[k])}</button>`).join("");
+    const now = v ? `지금: ${esc(VLAB[v])}` + (st.verdicts[s.key] && st.verdicts[s.key].ver && st.verdicts[s.key].ver !== s.ver ? ` (${esc(st.verdicts[s.key].ver)}에 준 판정)` : "") : "아직 판정하지 않음";
+    const clear = v && !ro ? `<button class="btn sm" type="button" data-v="">판정 지우기</button>` : "";
+    $("sc-verdict").innerHTML = btns + clear + `<span class="hint">${esc(B.verdict_hint || "")}</span>`;
+    $("side-verdict").innerHTML = btns + `<div class="vnow" style="flex-basis:100%">${now}${ro ? " · 저장소 연결 전에는 누를 수 없습니다" : ""}</div>` + clear;
+    $("vbox").hidden = false;
   }
-  $("sc-verdict").addEventListener("click", async e => {
+  async function onVerdict(e) {
     const b = e.target.closest("[data-v]"); if (!b || !st.db) return;
     const s = byKey[st.key]; b.disabled = true;
     try {
@@ -274,7 +288,9 @@ const DATA = /*SCRIPTS:BEGIN*/{"board":{"h1":"주식 쇼츠 평가판","verdict"
       else { await st.db.doc("verdicts/" + s.key).delete(); toast("판정을 지웠습니다"); }
     } catch (err) { toast("저장하지 못했습니다. 다시 눌러 주세요."); }
     b.disabled = false;
-  });
+  }
+  $("sc-verdict").addEventListener("click", onVerdict);
+  $("side-verdict").addEventListener("click", onVerdict);
   // ---------- 칸 (쇼츠 제목·썸네일 문구 …) ----------
   function renderFields() {
     const s = byKey[st.key], F = s.fields || [], ro = !st.db || !st.canWrite;

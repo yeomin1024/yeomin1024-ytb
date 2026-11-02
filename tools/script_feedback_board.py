@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v2.0 — 2026-11-02 — 판을 둘로 나눔: 대본 평가판(2단계 · 롱폼만) · 쇼츠 평가판(3단계 · 롱폼이 통과한 편의 쇼츠만)
+# VERSION: v2.1 — 2026-11-02 — 쇼츠 판에 '점검 결과' 칸(쇼츠안 md 의 '- 점검:' 줄 · 새 편은 기획안 check_shorts 의 ❌·⚠) · 1편 대본 v11.
+# (v2.0 — 2026-11-02 — 판을 둘로 나눔: 대본 평가판(2단계 · 롱폼만) · 쇼츠 평가판(3단계 · 롱폼이 통과한 편의 쇼츠만)
 #   (사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자 다시 수정해줘").
 #   · 틀 하나 stock/topics/board/script_board.template.html → 판 둘 (자리표 {{TITLE}}·{{H1}}·{{INTRO}} · DATA.board = 판 이름·판정 글·빈 판 글)
 #   · 대본 평가판 = 롱폼대본_2026-10-31.md 표의 1~4편 + script_board.json 'extra'(주제 평가판에서 통과한 주제의 롱폼)
@@ -30,7 +31,7 @@ LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS_MD = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
 EXTRA = ROOT / "stock/topics/board/script_board.json"
 SHORTS_ITEMS = ROOT / "stock/topics/board/shorts_board.json"
-LONG_VER = {1: "대본 v10", 2: "대본 v8", 3: "대본 v8", 4: "대본 v8"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
+LONG_VER = {1: "대본 v11", 2: "대본 v8", 3: "대본 v8", 4: "대본 v8"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
 SHORT_VER = "v5"                                                       # 쇼츠안_2026-10-30.md 의 판
 URL = {
     "topic": "https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN",
@@ -145,6 +146,8 @@ def shortform(items_path):
                       ["s_thumb_main", "쇼츠 썸네일 문구", _thumb(b.get("썸네일 문구")), True],
                       ["s_thumb_sub", "쇼츠 썸네일 보조 문구", b.get("썸네일 보조 문구") or b.get("보조 문구") or NO_VALUE, False],
                       ["s_message", "쇼츠 전달 내용·방식", msg, False]]
+            if b.get("점검"):
+                fields.append(["s_check", "점검 결과 (Claude — 일반·반론 페르소나 규칙)", b["점검"], False])
             out.append({"key": it["key"], "ep": ep, "label": it.get("label", f"{ep}편"), "kind": "short", "title": e["title"],
                         "ver": it.get("ver", SHORT_VER), "file": f"{SHORTS_MD.relative_to(ROOT)} {ep}편", "long_key": it.get("long_key", f"e{ep}-long"),
                         "fields": fields, "lines": e["lines"]})
@@ -160,6 +163,9 @@ def shortform(items_path):
                       ["s_thumb_main", "쇼츠 썸네일 문구", pk.get("s_thumb_main") or NO_VALUE, True],
                       ["s_thumb_sub", "쇼츠 썸네일 보조 문구", pk.get("s_thumb_sub") or NO_VALUE, False],
                       ["s_message", "쇼츠 전달 내용·방식", pk.get("s_message") or NO_VALUE, False]]
+            ck = pk.get("check_shorts") or {}
+            notes = [f"❌ {x}" for x in ck.get("fail", [])] + [f"⚠ {x}" for x in ck.get("warn", [])]
+            fields.append(["s_check", "점검 결과 (Claude — 일반·반론 페르소나 규칙)", " · ".join(notes) or "❌·⚠ 없음", False])
             out.append({"key": it["key"], "ep": it.get("ep", pid), "label": it.get("label", pid), "kind": "short",
                         "title": pk.get("s_title", ""), "ver": it.get("ver", "v1"), "file": it["file"],
                         "long_key": it.get("long_key", f"{pid}-long"), "fields": fields, "lines": read_lines(ROOT / it["file"])})

@@ -1,5 +1,24 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 주식 롱폼 1편 그림 요청 다시 확인 → v1.1 (8장 → 13장)
+
+### 왜 (사용자 지시)
+- "아니 일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘"
+
+### 확인한 것 (일본 축제 편 `test/puppet/images_chatgpt.md`·`video/episodes/ilbon-chukje-2026-10/index.html` 과 견줌)
+- 화풍·투명 인형 규칙(CUTOUT)·남색 한지(숫자 장면)는 일본 축제 편과 같음.
+- 모자란 것: ① 다시 쓰려던 동료·무리(`simri-test-2026-10/puppet/W-COLLEAGUE.png`·`W-CROWD.png`)는 머리가 큰 **귀여운 비율** — 옛 편 그림 요청 v1.3 에서 '다시 만듦'이었으나 만들어지지 않음 (2026-10-26 '귀엽지 않은 어른 비율' 지시와 어긋남) · ② 일본 축제 편은 이야기 장면마다 무대·인물이 따로 있는데 선택 3 은 무대 없음(남색 한지), 선택 4 는 '지인'인데 회사 동료 그림을 밤 거실에 세움 · ③ 주인공 PHONE·PLAN 이 왼쪽을 봄(주인공은 늘 화면 왼쪽이라 동료·카드에 등을 짐) · ④ 장면 코드에 요청하지 않은 HERO-PROUD 가 남음(쓰지는 않음).
+
+### 바뀐 것
+- `stock/source/ppalli-test-2026-11/images_chatgpt.md` v1.0 → v1.1: 13장 — 주인공 7 (PHONE·PLAN 오른쪽) · 얼굴 없는 흰둥이 3 (W-COLLEAGUE·W-CROWD 어른 비율로 새로 · W-FRIEND 새로, 모두 왼쪽) · 빈 무대 2 (S-SUBWAY·S-CAFE) · TH-ART. '얼굴 없는 흰둥이' 문단(옛 편 그대로)과 문단 붙이는 표를 더함.
+- `video/episodes/ppalli-test-2026-11/index.html` v1.0 → v1.1: 선택 3 무대 `BG3`(S-SUBWAY, 어둡게 0.45) · 선택 4 무대 `BG4`(S-CAFE) + `W_FRIEND` — 그림이 `HAVE` 에 들기 전엔 v1.0 무대 그대로 · 옛 동료 그림은 좌우 뒤집어 주인공 쪽을 봄 · HERO-PROUD 뺌 · `[STAGE]` 콘솔 로그(어떤 그림을 쓰는지).
+- `stock/source/ppalli-test-2026-11/제작안.txt` v1.0 → v1.1: 장면 표 무대·인물 이름 · [그림] 13장.
+
+### 확인 (로그)
+- `[DONE] video=ppalli-test-2026-11 samples=65 problems=0 page_errors=0` (layout-check)
+- `[CHECK] video=ppalli-test-2026-11 cuts=65 samples=1022 problems=0 page_errors=0` (render check, 추정 시각)
+- still 45.4초(선택 1)·116.2초(선택 4): 동료가 주인공 쪽을 봄.
+
 ## 2026-11-01 — 주식 롱폼 1편 영상 소스 (장면 코드 · 제작안 · ChatGPT 그림 요청 · 썸네일 · 사전 · 업로드)
 
 ### 왜 (사용자 지시)

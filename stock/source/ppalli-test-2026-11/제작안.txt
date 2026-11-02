@@ -1,17 +1,22 @@
 ==================================================
-빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트 — 1편 롱폼 제작안 (v1.0)
+빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트 — 1편 롱폼 제작안 (v1.1)
 대본 + 화면 구성(종이인형극 무대 + 코드 모션그래픽) + 그림 요청
 ==================================================
 
 작성 2026-11-01 (Claude) — 사용자 지시 2026-11-01 "1편만 영상 관련 소스 만들어봐 이미지 chatgpt 말할거 알려주고"
-짝 문서: 대본 ppalli-test-2026-11.txt (v8, 104문장) · 그림 요청 images_chatgpt.md (v1.0 — 8장) · 썸네일 문구 thumbnails/thumbnail_1~3.json ·
+v1.1 2026-11-02 — 사용자 지시 "일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘" → 다시 확인한 결과 그림 요청이 모자라 8장 → 13장:
+  · 다시 쓰려던 동료·무리(옛 편 W-COLLEAGUE·W-CROWD)는 머리가 큰 귀여운 비율 — 옛 편에서도 '다시 만듦'이었는데 끝내 안 만들어진 그림 → 어른 비율로 새로 (8·10번)
+  · 일본 축제 편은 이야기 장면마다 자기 무대·인물이 있음 → 선택 3 지하철 무대(S-SUBWAY) · 선택 4 카페 무대(S-CAFE) + 지인(W-FRIEND) 더함
+  · 주인공 PHONE·PLAN 은 오른쪽을 보게 (주인공은 늘 왼쪽 · 동료·카드는 오른쪽) · 동료·지인·무리는 왼쪽을 보게
+  · 장면 코드 v1.1: 새 그림이 오기 전엔 v1.0 무대 그대로(옛 동료는 좌우 뒤집어 주인공 쪽을 봄) · 쓰지 않는 HERO-PROUD 를 뺌
+짝 문서: 대본 ppalli-test-2026-11.txt (v8, 104문장) · 그림 요청 images_chatgpt.md (v1.1 — 13장) · 썸네일 문구 thumbnails/thumbnail_1~3.json ·
 읽는 소리 사전 tts_lexicon.tsv · 업로드 시트 upload.md · 숫자 stock/topics/precheck/longform_items.py v2.1 (nasdaq_1편_v2.1) · 그래프 선 calc/series.py v1.0 ·
-장면 코드 video/episodes/ppalli-test-2026-11/index.html v1.0 (틀·부품 = 옛 습관 테스트 편 video/episodes/simri-test-2026-10/index.html v1.3)
+장면 코드 video/episodes/ppalli-test-2026-11/index.html v1.1 (틀·부품 = 옛 습관 테스트 편 video/episodes/simri-test-2026-10/index.html v1.3)
 ※ 연구·교육용 — 투자 권유가 아님.
 
 [순서]
 1. 오디오: 사용자가 Kaggle 셀 하나 (주제 stock) → tts_narration.py all --push 가 이 폴더에 narration.mp3 · tts_narration.json (guides/tts_guide.md).
-2. 그림: images_chatgpt.md 를 ChatGPT 에 (8장 — 주인공 흰둥이 7 + 썸네일 그림 1). 오기 전에는 같은 이름의 코드 그림(옛 편 figures.js)으로 영상이 만들어짐 —
+2. 그림: images_chatgpt.md 를 ChatGPT 에 (13장 — 주인공 흰둥이 7 · 얼굴 없는 흰둥이 3 · 빈 무대 2 · 썸네일 그림 1). 오기 전에는 같은 이름의 코드 그림(옛 편 figures.js)으로 영상이 만들어짐 —
    그림이 오면 장면 코드의 HAVE 에 파일 이름만 더함.
 3. 오디오가 오면 (Claude): cd video && npm run align-audio -- stock ppalli-test-2026-11 → node video/render/render.mjs sync stock ppalli-test-2026-11 →
    node video/scripts/layout-check.mjs ppalli-test-2026-11 → render.mjs check → stills 확인 → render.mjs video → 완성 mp4 장면을 직접 봄.
@@ -29,16 +34,16 @@
  L-02  2        NASDAQ 실제 종가 선 2021→2026 ×2.2                    TL · CHART
  L-03  3        ₩100,000,000 → ₩1,800,000 (세는 숫자) · −98% 도장     HERO_L(DESPAIR) · BIGR · STAMP_P
  L-04  4~6      ? · 다섯 칸 1~5 · ✕ = ?                                HERO_L(THINK) · HEAD_L · SHEET
- L-05  7~10     선택 1 이야기: ₩100,000,000 · ETF 1Y ×2.7 · 동료·무리 · 영상 ▶▶▶   낮 사무실 · HERO(PHONE) · MATE(동료) · BACK(무리) · TL · TR
+ L-05  7~10     선택 1 이야기: ₩100,000,000 · ETF 1Y ×2.7 · 동료·무리 · 영상 ▶▶▶   낮 사무실(S-OFFICE) · HERO(PHONE) · MATE(W-COLLEAGUE) · BACK(W-CROWD) · TL · TR
  L-06  11       번호 카드 1                                            NUM
  L-07  12~13    보기 A·B                                               HERO_L(THINK) · ? · ROW1 · ROW2
- L-08  14~16    선택 2 이야기: ₩100,000,000 = INVEST ? + CASH → ALL IN ?   밤 거실 · HERO(THINK) · PANEL
+ L-08  14~16    선택 2 이야기: ₩100,000,000 = INVEST ? + CASH → ALL IN ?   밤 거실(S-HOME-NIGHT) · HERO(THINK) · PANEL
  L-09·10 17~19  번호 카드 2 · 보기 A·B
- L-11  20~23    선택 3 이야기: NASDAQ 고점→6/13 실제 선 −32% · NEWS ▼▲ · −32%·−45%·−60%   HERO_L(SHOCK) · CHART_R · CAP_R
+ L-11  20~23    선택 3 이야기: NASDAQ 고점→6/13 실제 선 −32% · NEWS ▼▲ · −32%·−45%·−60%   지하철(S-SUBWAY, 어둡게) · HERO_L(SHOCK) · CHART_R · CAP_R
  L-12·13 24~26  번호 카드 3 · 보기 A·B
- L-14  27~30    선택 4 이야기: 지인 · AI BUY → AI 5M −63% · 보고서 ✕ REPORT   밤 거실 · HERO(PHONE) · MATE · TR · MID_R
+ L-14  27~30    선택 4 이야기: 지인 · AI BUY → AI 5M −63% · 보고서 ✕ REPORT   카페(S-CAFE) · HERO(PHONE) · MATE(W-FRIEND) · TR · MID_R
  L-15·16 31~33  번호 카드 4 · 보기 A·B
- L-17  34~37    선택 5 이야기: 동전 BTC ▲ · BTC ▲ 1Y ×9.3 · ALL IN · 무리   밤 거실 · HERO(PHONE) · BACK · TL · TR
+ L-17  34~37    선택 5 이야기: 동전 BTC ▲ · BTC ▲ 1Y ×9.3 · ALL IN · 무리   밤 거실(S-HOME-NIGHT) · HERO(PHONE) · BACK(W-CROWD) · TL · TR
  L-18·19 38~40  번호 카드 5 · 보기 A·B
  L-20  41~42    TEST 다섯 칸 노랑 (살펴보기)                          HERO_L(THINK) · SHEET
  해설 1~5 (같은 틀 네 장면):
@@ -75,13 +80,19 @@
  | RA·RB·RC| x 600~1860 · y 240~420 / 440~620 / 640~820 | 결과 세 줄 |
  | CHIPS   | x 140~1780 · y 250~670  | 정리 다섯 칸 |  | HERO_C | x 780~1140 · y 420~870 | 인사 (x 0) |
 
-[그림] (images_chatgpt.md v1.0)
- 만들 것 8장: HERO-SHEET (기준표) · HERO-PHONE · HERO-THINK · HERO-SHOCK · HERO-DESPAIR · HERO-PLAN · HERO-BOW · TH-ART (썸네일, 글자 없음)
- 다시 씀 (옛 습관 테스트 편 — stock/source/simri-test-2026-10/puppet/): W-COLLEAGUE · W-CROWD · S-OFFICE · S-HOME-NIGHT · (P-CASH 는 이번 장면에서 안 씀)
- 남색 한지 test/puppet/P-PAPER.jpg
+[그림] (images_chatgpt.md v1.1 — 일본 축제 편과 같은 종이인형극: 빈 무대 1장 + 오린 인형 한 장에 하나 · 숫자·해설 장면은 남색 한지)
+ 만들 것 13장:
+   주인공(얼굴 있음) 7 — HERO-SHEET (기준표) · HERO-PHONE(→) · HERO-THINK · HERO-SHOCK · HERO-DESPAIR · HERO-PLAN(→) · HERO-BOW
+   얼굴 없는 흰둥이 3 — W-COLLEAGUE(←, 어른 비율로 새로) · W-FRIEND(←, 새로) · W-CROWD(←, 어른 비율로 새로)
+   빈 무대 2 — S-SUBWAY (선택 3) · S-CAFE (선택 4)
+   썸네일 1 — TH-ART (글자 없음)
+ 다시 씀: 빈 무대 S-OFFICE · S-HOME-NIGHT (옛 습관 테스트 편 stock/source/simri-test-2026-10/puppet/ — 종이 질감·어른 무대라 그대로) · 남색 한지 test/puppet/P-PAPER.jpg
+ 다시 쓰지 않음: 옛 W-COLLEAGUE·W-CROWD (머리가 큰 귀여운 비율 — 새 그림이 오기 전 자리만 채움, 동료는 좌우 뒤집음)
+ 그림 → 무대 자리: 선택 1 낮 사무실 (주인공 PHONE · 동료 · 무리) · 선택 2 밤 거실 (THINK) · 선택 3 지하철 (SHOCK) · 선택 4 카페 (PHONE · 지인) · 선택 5 밤 거실 (PHONE · 무리)
 
 [점검 기록] (오디오 전 — 추정 시각 sync --estimate, 478.6초)
  - render.mjs check: 대표 장면 65 · 0.5초 표본 1,022 · 문제 0 · 페이지 오류 0 · 도입 끝 28.8초 (30초 안)
  - layout-check: 칸 29 · 대표 장면 65 · 문제 0
  - still 65장을 직접 봄 → 고친 것 4: 해설 5 '그래서' 장면 끝 시각(다음 장면과 붙임) · 끝 장면 판 머리 KIM·BEST · 반박 판 'USA · 10,000' · 'CASH → +%'
  - 오디오가 오면 실제 시각으로 다시 sync → 같은 점검.
+ - v1.1 (2026-11-02, 그림이 오기 전 — 무대는 v1.0 과 같고 동료만 좌우 뒤집음): layout-check · render check 다시 (아래 결과는 커밋 메시지에)

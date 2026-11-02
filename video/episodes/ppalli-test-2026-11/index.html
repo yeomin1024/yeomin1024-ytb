@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="end-hold" content="2.5">
 <title>1편 빨리 벌고 싶은 사람 테스트 롱폼</title>
-<!-- VERSION: v1.0 — 2026-11-01 — 1편 「빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트」 대본 v8 (104문장) 종이인형극 롱폼
+<!-- VERSION: v1.1 — 2026-11-02 — 그림 요청 v1.1 에 맞춤 (사용자 지시 2026-11-02 "일본 축제 영상처럼 종이인형극에 필요한 이미지 생성한거 맞아? 다시 확인해서 알려줘"):
+       얼굴 없는 흰둥이 W-COLLEAGUE·W-CROWD 는 이 편 폴더의 새 그림(어른 비율)을 먼저 씀 — 오기 전엔 옛 그림(귀여운 비율, 동료는 좌우 뒤집음) ·
+       선택 3 무대 S-SUBWAY(지하철) · 선택 4 무대 S-CAFE(카페) + 지인 W-FRIEND — 그림이 오기 전엔 v1.0 무대(남색 한지·밤 거실·동료 그림) 그대로 ·
+       쓰지 않는 HERO-PROUD 를 무대 목록에서 뺌.
+     이전 v1.0 — 2026-11-01 — 1편 「빨리 벌고 싶은 사람은 절대 통과 못하는 주식 테스트」 대본 v8 (104문장) 종이인형극 롱폼
      (사용자 지시 2026-11-01 "1편만 영상 관련 소스 만들어봐 이미지 chatgpt 말할거 알려주고").
      장면 구성 = stock/source/ppalli-test-2026-11/제작안.txt v1.0 (L-01 ~ L-49) · 틀·부품 = video/episodes/simri-test-2026-10/index.html v1.3 (배치 표·종이인형 무대·카드 장면) 그대로.
      · 도입 6문장 — TEST 다섯 칸 FAIL · NASDAQ ×2.2 (실제 종가 선) · ₩100,000,000 → ₩1,800,000 −98% · 다섯 갈림길 ✕ = ?
@@ -112,18 +116,26 @@ const PS = {
 
 // ---------- 종이인형 무대 ----------
 // 있는 그림: 옛 습관 테스트 편 그림을 다시 씀 (simri) · 이 편 폴더(puppet/)에 ChatGPT 그림이 오면 HAVE 에 이름을 더함
+// v1.1: 그림 요청 v1.1 (13장) — HERO 6 · W-COLLEAGUE·W-CROWD(어른 비율로 새로) · W-FRIEND · S-SUBWAY · S-CAFE (+ 기준표·썸네일)
 const SIMRI = ["W-COLLEAGUE.png", "W-CROWD.png", "P-CASH.png", "S-OFFICE.jpg", "S-HOME-NIGHT.jpg"];
 const HAVE = [];
 const F = (file, kind, draw) => (HAVE.includes(file) ? { f: file, kind } : SIMRI.includes(file) ? { f: "../../simri-test-2026-10/puppet/" + file, kind } : { draw, kind: "sq" });
-const ST = Puppet.stage({ dir: "../../../stock/source/ppalli-test-2026-11/puppet/", files: {
+const NEW_COL = HAVE.includes("W-COLLEAGUE.png");              // 새 동료 = 왼쪽(주인공 쪽)을 봄 · 옛 그림은 오른쪽을 봐서 뒤집음
+const HAS_FRIEND = HAVE.includes("W-FRIEND.png");               // 지인 그림이 오기 전엔 동료 그림
+const BG3 = HAVE.includes("S-SUBWAY.jpg") ? "SUB" : "PAPER";    // 선택 3 무대 (오기 전엔 남색 한지 — v1.0)
+const BG4 = HAVE.includes("S-CAFE.jpg") ? "CAFE" : "HOME";      // 선택 4 무대 (오기 전엔 밤 거실 — v1.0)
+const ST = Puppet.stage({ dir: "../../../stock/source/ppalli-test-2026-11/puppet/", files: Object.assign({
   PAPER: { f: "../../../../test/puppet/P-PAPER.jpg", kind: "bg" },
   OFF: F("S-OFFICE.jpg", "bg"), HOME: F("S-HOME-NIGHT.jpg", "bg"),
-  H_PHONE: F("HERO-PHONE.png", "sq", FIG.HERO.PHONE), H_THINK: F("HERO-THINK.png", "sq", FIG.HERO.THINK), H_PROUD: F("HERO-PROUD.png", "sq", FIG.HERO.PROUD),
+  H_PHONE: F("HERO-PHONE.png", "sq", FIG.HERO.PHONE), H_THINK: F("HERO-THINK.png", "sq", FIG.HERO.THINK),
   H_SHOCK: F("HERO-SHOCK.png", "sq", FIG.HERO.SHOCK), H_DESP: F("HERO-DESPAIR.png", "sq", FIG.HERO.DESPAIR), H_PLAN: F("HERO-PLAN.png", "sq", FIG.HERO.PLAN),
   H_BOW: F("HERO-BOW.png", "sq", FIG.HERO.BOW),
-  W_COL: F("W-COLLEAGUE.png", "sq"), W_CROWD: F("W-CROWD.png", "cut"), CASH: F("P-CASH.png", "sq") } });
+  W_COL: F("W-COLLEAGUE.png", "sq"), W_CROWD: F("W-CROWD.png", "cut"),
+  W_FRIEND: HAS_FRIEND ? F("W-FRIEND.png", "sq") : F("W-COLLEAGUE.png", "sq") },
+  BG3 === "SUB" ? { SUB: F("S-SUBWAY.jpg", "bg") } : {}, BG4 === "CAFE" ? { CAFE: F("S-CAFE.jpg", "bg") } : {}) });
+console.info(`[STAGE] puppet have=${HAVE.length} new_colleague=${NEW_COL} friend=${HAS_FRIEND} bg3=${BG3} bg4=${BG4}`);
 el(`<div class="vig"></div>`);
-const BGO = { PAPER: { v: 0.5, y: 3.34 }, OFF: { v: 0.6, y: 1.2 }, HOME: { v: 0.7, y: 1.2 } };
+const BGO = { PAPER: { v: 0.5, y: 3.34 }, OFF: { v: 0.6, y: 1.2 }, HOME: { v: 0.7, y: 1.2 }, SUB: { v: 0.45, y: 1.2 }, CAFE: { v: 0.65, y: 1.2 } };   // SUB 는 그래프가 올라가서 더 어둡게
 const DARK = new THREE.Color(0x5d6279), DIM = new THREE.Color(0x3a3f55), WHITE = new THREE.Color(0xffffff);
 const CAM0 = { cam: () => ({ pos: [0, 3.6, 24], look: [0, 3.34, 0] }) };      // 고정 카메라 — 화면 글자 자리와 인형 자리를 맞춤 (x 1 = 84px, 바닥 y −0.3 = 846px)
 const act = (st, key, slot, h, o) => st.actor(key, Object.assign({ h, slot }, PS[slot], o || {}));
@@ -375,7 +387,7 @@ function choice(n, bgKey, story) {
 /* L-05 선택 1 — 1억 원 · 1년 2.7배 기술주 ETF · 동료·친구 · 영상 (문장 7~10) — HERO · MATE · BACK · TL · TR · MID_R */
 choice(1, "OFF", (a, b) => {
   let HP, CO, CR;
-  const { sc, st } = stage(a, b, "OFF", s => { CR = act(s, "W_CROWD", "BACK", 4.0).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3).ro(3); });
+  const { sc, st } = stage(a, b, "OFF", s => { CR = act(s, "W_CROWD", "BACK", 4.0).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3, { flip: !NEW_COL }).ro(3); });
   st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CO, t, S(9)); idle(CO, t, 1); enter(CR, t, S(9) + 0.3); if (t > S(9) + 0.6) CR.bob(t, 0.1, 2.2); };
   boxC(sc, "TL", tag("₩100,000,000", WH), S(7) + 0.1, "justify-content:flex-start");
   const app = boxC(sc, "TR", appH(["ETF", "1Y"], "×2.7", G), W(8, "2.7배") - 0.1);
@@ -400,9 +412,9 @@ choice(2, "HOME", (a, b) => {
   K.cut(E(15) - 0.1, "L-08 INVEST · CASH ?"); K.cut(E(16) - 0.1, "L-08 ALL IN ?");
 });
 /* L-11 선택 3 — 나스닥 고점보다 30% 넘게 하락 · 엇갈리는 뉴스 · 손실 인증 (문장 20~23) — HERO_L · CAP_R · CHART_R */
-choice(3, "PAPER", (a, b) => {
+choice(3, BG3, (a, b) => {
   let HS;
-  const { sc, st } = stage(a, b, "PAPER", s => { HS = act(s, "H_SHOCK", "HERO_L", 5.0).ro(5); });
+  const { sc, st } = stage(a, b, BG3, s => { HS = act(s, "H_SHOCK", "HERO_L", 5.0).ro(5); });
   st.update = t => { enter(HS, t, a + 0.1); if (t > W(20, "하락")) HS.jitter(t, 0.015); };
   const g = box(sc, "CHART_R"), area = [660, 300, 1140, 380];
   const seg = norm(slice(SR.intro_qqq, "2021-12-27", "2022-06-13"));
@@ -418,9 +430,9 @@ choice(3, "PAPER", (a, b) => {
   K.cut(E(20) - 0.1, "L-11 NASDAQ −32%"); K.cut(E(21) - 0.1, "L-11 NEWS ▼▲"); K.cut(E(23) - 0.1, "L-11 손실 인증");
 });
 /* L-14 선택 4 — 지인 추천 AI 종목 · 다섯 달 −63% · 회계 문제 보고서 (문장 27~30) — HERO · MATE · TR · MID_R */
-choice(4, "HOME", (a, b) => {
+choice(4, BG4, (a, b) => {
   let HP, CO;
-  const { sc, st } = stage(a, b, "HOME", s => { HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3).ro(3); });
+  const { sc, st } = stage(a, b, BG4, s => { HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_FRIEND", "MATE", 4.3, { flip: !HAS_FRIEND && !NEW_COL }).ro(3); });
   st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CO, t, W(27, "지인") - 0.2); idle(CO, t, 1); if (t > S(28)) HP.jitter(t, 0.012); };
   const app = boxC(sc, "TR", appH(["AI", "▲"], "BUY", G), W(27, "AI") - 0.1);
   out(app, S(28) - 0.1);

@@ -24,6 +24,14 @@
    "long_key": "e3-long",
    "label": "3편",
    "note": "대본 평가판 verdicts/e3-long = pass (사용자, 2026-11-02 08:42) · 있는 내용 그대로 — 새 롱폼과 안 맞음(점검 칸)"
+  },
+  {
+   "key": "e4-short",
+   "md_ep": 4,
+   "from": "md",
+   "long_key": "e4-long",
+   "label": "4편",
+   "note": "사용자 채팅 2026-11-02 '4편도 쇼츠 평가판에 올려' — 대본 평가판 verdicts/e4-long = pass (Claude 가 기록)"
   }
  ]
 }

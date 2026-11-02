@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v2.4 — 2026-11-02 — 주식 쇼츠안 v6 (SHORT_VER — 쇼츠 판 피드백 8건).
+# VERSION: v2.5 — 2026-11-02 — 주식 쇼츠안 v7 (SHORT_VER).
+# (v2.4 — 2026-11-02 — 주식 쇼츠안 v6 (SHORT_VER — 쇼츠 판 피드백 8건).
 # (v2.3 — 2026-11-02 — 주제 인자 (재테크도 — 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"):
 #   주제마다 판 파일·주소·이름 (TOPICS) — 재테크는 옛 편 표(롱폼대본·쇼츠안 md) 없이 script_board.json 'extra'·shorts_board.json 'items' 만.
 #   틀은 주식 틀 그대로 (stock/topics/board/script_board.template.html — 글은 자리표로 채움). 주제를 빼면 stock (옛 명령 그대로).
@@ -37,7 +38,7 @@ SHORTS_MD = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
 EXTRA = ROOT / "stock/topics/board/script_board.json"
 SHORTS_ITEMS = ROOT / "stock/topics/board/shorts_board.json"
 LONG_VER = {1: "대본 v11", 2: "대본 v10", 3: "대본 v10", 4: "대본 v10"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
-SHORT_VER = "v6"                                                       # 쇼츠안_2026-10-30.md 의 판
+SHORT_VER = "v7"                                                       # 쇼츠안_2026-10-30.md 의 판
 URL = {
     "topic": "https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN",
     "long": "https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz",

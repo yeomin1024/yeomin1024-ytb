@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v2.1 — 2026-11-02 — 쇼츠 판에 '점검 결과' 칸(쇼츠안 md 의 '- 점검:' 줄 · 새 편은 기획안 check_shorts 의 ❌·⚠) · 1편 대본 v11.
+# VERSION: v2.2 — 2026-11-02 — 쇼츠 판에서 '전달 내용·방식' 칸을 뺌 — 쇼츠는 대본으로 평가 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") · 대본 줄이 없는 쇼츠는 판에 올리지 않음.
+# (v2.1 — 2026-11-02 — 쇼츠 판에 '점검 결과' 칸(쇼츠안 md 의 '- 점검:' 줄 · 새 편은 기획안 check_shorts 의 ❌·⚠) · 1편 대본 v11.
 # (v2.0 — 2026-11-02 — 판을 둘로 나눔: 대본 평가판(2단계 · 롱폼만) · 쇼츠 평가판(3단계 · 롱폼이 통과한 편의 쇼츠만)
 #   (사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자 다시 수정해줘").
 #   · 틀 하나 stock/topics/board/script_board.template.html → 판 둘 (자리표 {{TITLE}}·{{H1}}·{{INTRO}} · DATA.board = 판 이름·판정 글·빈 판 글)
@@ -140,12 +141,9 @@ def shortform(items_path):
             if ep not in md:
                 fail(stage="shorts_md", ep=ep, file=str(SHORTS_MD.relative_to(ROOT)), next="'## N편 — 제목' 머리가 있는지 확인")
             e, b = md[ep], md[ep]["bullets"]
-            how = common.get("틀", "")
-            msg = (b.get("쇼츠 전달 내용") or "(따로 적힌 전달 내용 없음 — 대본 줄 참고)") + (f"\n방식: {how}" if how else "")
             fields = [["s_title", "쇼츠 제목", e["title"], True],
                       ["s_thumb_main", "쇼츠 썸네일 문구", _thumb(b.get("썸네일 문구")), True],
-                      ["s_thumb_sub", "쇼츠 썸네일 보조 문구", b.get("썸네일 보조 문구") or b.get("보조 문구") or NO_VALUE, False],
-                      ["s_message", "쇼츠 전달 내용·방식", msg, False]]
+                      ["s_thumb_sub", "쇼츠 썸네일 보조 문구", b.get("썸네일 보조 문구") or b.get("보조 문구") or NO_VALUE, False]]   # v2.2 전달 내용 칸 없음 — 대본으로 평가
             if b.get("점검"):
                 fields.append(["s_check", "점검 결과 (Claude — 일반·반론 페르소나 규칙)", b["점검"], False])
             out.append({"key": it["key"], "ep": ep, "label": it.get("label", f"{ep}편"), "kind": "short", "title": e["title"],
@@ -161,8 +159,7 @@ def shortform(items_path):
                 continue
             fields = [["s_title", "쇼츠 제목", pk.get("s_title") or NO_VALUE, True],
                       ["s_thumb_main", "쇼츠 썸네일 문구", pk.get("s_thumb_main") or NO_VALUE, True],
-                      ["s_thumb_sub", "쇼츠 썸네일 보조 문구", pk.get("s_thumb_sub") or NO_VALUE, False],
-                      ["s_message", "쇼츠 전달 내용·방식", pk.get("s_message") or NO_VALUE, False]]
+                      ["s_thumb_sub", "쇼츠 썸네일 보조 문구", pk.get("s_thumb_sub") or NO_VALUE, False]]   # v2.2 전달 내용 칸 없음
             ck = pk.get("check_shorts") or {}
             notes = [f"❌ {x}" for x in ck.get("fail", [])] + [f"⚠ {x}" for x in ck.get("warn", [])]
             fields.append(["s_check", "점검 결과 (Claude — 일반·반론 페르소나 규칙)", " · ".join(notes) or "❌·⚠ 없음", False])
@@ -172,6 +169,10 @@ def shortform(items_path):
         else:
             fail(stage="shorts_items", key=it.get("key"), issue="from 은 md 또는 file", file=str(items_path))
         s = out[-1]
+        if not s["lines"]:
+            out.pop()
+            log("SKIP", board="short", key=it["key"], why="쇼츠 대본 줄이 없음 — 쇼츠는 대본으로 평가", next="쇼츠 대본을 쓴 뒤 다시")
+            continue
         log("LOAD", board="short", script=s["key"], long_key=s["long_key"], lines=len(s["lines"]), fields=len(s["fields"]))
     return out
 
@@ -194,7 +195,7 @@ BOARDS = {
     },
     "short": {
         "out": OUT_SHORT, "title": "주식 쇼츠 평가판", "h1": "주식 쇼츠 평가판",
-        "intro": lambda: links("short") + ". 롱폼 대본이 통과한 편의 쇼츠만 올라옵니다. 쇼츠 제목·썸네일 문구·보조 문구·전달 내용 칸마다 '피드백'을 누르거나, "
+        "intro": lambda: links("short") + ". 롱폼 대본이 통과한 편의 쇼츠만 올라옵니다. 쇼츠 제목·썸네일 문구·보조 문구 칸마다 '피드백'을 누르거나, "
                  "대본 줄을 골라 의견을 남기세요. '삭제'로 지울 수 있습니다. 마음에 들면 <b>통과 (영상으로)</b> — Claude 가 오디오·영상 단계로 넘깁니다. "
                  "연구·교육용 — 투자 권유가 아닙니다.",
         "verdict": {"pass": "통과 (영상으로)", "hold": "보류"},

@@ -1,6 +1,7 @@
 # 주식 — 평가판 세 장으로 주제 → 대본 → 쇼츠 → 영상 (새 세션은 이 파일 하나로)
 
-VERSION: v1.4 — 2026-11-02 — 규칙 17 (편끼리 도입·넘어가는 말·결과 문장을 다르게) · 쇼츠 판에 올릴 때 있는 쇼츠 내용 그대로(규칙 18).
+VERSION: v1.5 — 2026-11-02 — **쇼츠 판 = 제목·썸네일 문구·보조 칸 + 쇼츠 대본** (전달 내용 칸 뺌 — 사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자").
+(v1.4 — 2026-11-02 — 규칙 17 (편끼리 도입·넘어가는 말·결과 문장을 다르게) · 쇼츠 판에 올릴 때 있는 쇼츠 내용 그대로(규칙 18).
 (v1.3 — 2026-11-02 — 2~4편 주제 정의(규칙 14~16 — 사용자가 판에서 정해 줌) · 편마다 계산 파일 `precheck/longform_ep<N>.py` · 해설 문구 겹치지 않게.
 (v1.2 — 2026-11-02 — 1편 3차 피드백 규칙 11~13 (보기 'A,' · 보기에 수치 없이 · 정리 공통점 지움) · 판정 버튼 크게(세 판) · 쇼츠 판 '점검 결과' 칸 · 소품 추가 요청 꼴(6번 1-1).
 (v1.1 — 2026-11-02 — **3단계로 나눔**: 1 주제 평가판(롱폼 칸만) → 2 대본 평가판(롱폼 대본) → 3 쇼츠 평가판(롱폼이 통과한 편의 쇼츠) — 사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자 다시 수정해줘".
@@ -21,15 +22,15 @@ VERSION: v1.4 — 2026-11-02 — 규칙 17 (편끼리 도입·넘어가는 말·
 | 6 | 롱폼 대본 점검 | `python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"` → ❌ 0 |
 | 7 | **2단계 대본 평가판**에 올림 (롱폼만) | `stock/topics/board/script_board.json` 'extra' 에 한 줄 `{key:'B01-long', ep:'B01', label:'B01 빚내서 투자', kind:'long', title, ver:'대본 v1', file}` → `python3 tools/script_feedback_board.py` → Artifact 다시 올림 — **https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz** |
 | 8 | 롱폼 피드백 반영 반복 | 대본 판 `query feedback where status == new` → 고침 → 계산 다시 → 6번 → 판 다시 → 피드백마다 status=done·reply |
-| 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)')인 편만 **쇼츠 대본** | 쇼츠 대본 파일(한 줄 한 문장, `-장 이름` 줄 가능) · 꼴 = 2번 s_message · 쇼츠 칸 점검 `board_check.py package stock <파일> --stage shorts --write` · 대본 점검 `board_check.py script stock <쇼츠.txt> --kind short` → ❌ 0 |
+| 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)')인 편만 **쇼츠 대본** | 쇼츠 대본 파일(한 줄 한 문장, `-장 이름` 줄 가능) · 꼴 = 2번 '쇼츠 대본 꼴' 줄 · **쇼츠 판엔 전달 내용 칸이 없고 대본으로 평가** · 쇼츠 칸(제목·썸네일 문구·보조) 점검 `board_check.py package stock <파일> --stage shorts --write` · 대본 점검 `board_check.py script stock <쇼츠.txt> --kind short` → ❌ 0 |
 | 10 | **3단계 쇼츠 평가판**에 올림 | `stock/topics/board/shorts_board.json` 'items' 에 한 줄 → `python3 tools/script_feedback_board.py` (두 판을 함께 만듦) → Artifact 다시 올림 — **https://claude.ai/artifact/Mjfwm81meE2vyHH71UqAt2** |
-| 11 | 쇼츠 피드백 반영 반복 | 쇼츠 판 `query feedback where status == new` — 칸 피드백(`field` = s_title·s_thumb_main·s_thumb_sub·s_message)은 기획안 json 의 그 칸을, 줄 피드백(`lines`)은 쇼츠 대본을 고침 → 9번 점검 → 판 다시 |
+| 11 | 쇼츠 피드백 반영 반복 | 쇼츠 판 `query feedback where status == new` — 칸 피드백(`field` = s_title·s_thumb_main·s_thumb_sub)은 기획안 json 의 그 칸을, 줄 피드백(`lines`)은 쇼츠 대본을 고침 → 9번 점검 → 판 다시 |
 | 12 | 쇼츠 판 `verdicts/<key>.verdict == pass`('통과 (영상으로)') → 영상 | 6번 '영상 과정' (그림 ChatGPT → 장면 코드 → 오디오 → 렌더 → 썸네일) |
 
 판 셋 다 db 를 씀 (`capabilities {db, user}`) — 판마다 db 가 따로(주소가 다름). 다시 올릴 때 같은 파일 경로로 (주소 그대로, 피드백 그대로).
 
 **shorts_board.json 'items' 꼴** (Claude 가 대본 판 verdicts 를 읽고 더함):
-- 1~4편(쇼츠안_2026-10-30.md 에 대본·제목이 있음): `{"key":"e1-short","md_ep":1,"from":"md","long_key":"e1-long"}` — 칸은 그 md 의 `## N편 — 제목` · `- 썸네일 문구:` · `- 썸네일 보조 문구:` · `- 쇼츠 전달 내용:` · 머리 `- 틀:` 에서 (없는 칸은 '아직 없음 — 이 판의 피드백으로 만듦').
+- 1~4편(쇼츠안_2026-10-30.md 에 대본·제목이 있음): `{"key":"e1-short","md_ep":1,"from":"md","long_key":"e1-long"}` — 칸은 그 md 의 `## N편 — 제목` · `- 썸네일 문구:` · `- 썸네일 보조 문구:` 에서 + 표의 대본 줄 (전달 내용은 판에 안 보임) (없는 칸은 '아직 없음 — 이 판의 피드백으로 만듦').
 - 새 편: `{"key":"B01-short","ep":"B01","label":"B01 빚내서 투자","from":"file","file":"<쇼츠 대본.txt>","fields_from":"stock/topics/board/topics_2026-11-02.json#B01","long_key":"B01-long","ver":"v1"}` — 칸은 기획안 s_* (기획안 `check_shorts.pass` 아니면 판에 안 올라감).
 - 쇼츠 대본 판(v)을 올리면 그 줄 `ver` 를 올림(1~4편은 도구의 `SHORT_VER`).
 
@@ -51,7 +52,7 @@ VERSION: v1.4 — 2026-11-02 — 규칙 17 (편끼리 도입·넘어가는 말·
 | title | **「…사람은 절대 통과 못하는 주식 테스트」** (1~4편 사용자 승인 꼴) · 화면 2줄 안 |
 | thumb_main · thumb_sub | 2줄(손해·경고 또는 질문, 22자 안팎) · 보조 = 속마음 말 또는 꼬리표 (`stock/guides/data_insights.md` 5-1) |
 | s_title · s_thumb_main · s_thumb_sub | 「'이 ○○' … 하면 당신은 …」 (2~4편 사용자 쇼츠 제목 꼴) · 쇼츠 화면 2줄 안 |
-| s_message | 1편 쇼츠 꼴: 제목 잇기 → 반전 '이 ○○' → '…무슨 소리냐고요?' → 이유 → 실제 숫자 → 강조(그때는 할 수 있는 게 없음) → 속담 → 무엇을 → 결론(욕심을 버리고·대비하며·천천히) → 공통 끝 멘트 「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」 (`stock/topics/쇼츠안_2026-10-30.md` 머리) |
+| s_message (쇼츠 대본 꼴 — 판엔 안 보임) | 쇼츠는 판에 **대본**으로 올림. 대본 꼴 = 1편 쇼츠 꼴: 제목 잇기 → 반전 '이 ○○' → '…무슨 소리냐고요?' → 이유 → 실제 숫자 → 강조(그때는 할 수 있는 게 없음) → 속담 → 무엇을 → 결론(욕심을 버리고·대비하며·천천히) → 공통 끝 멘트 「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」 (`stock/topics/쇼츠안_2026-10-30.md` 머리) |
 | verify | 다른 기간·다른 하락장으로 정답이 뒤집히는지 볼 길 (반론 K3) — 없으면 ❌ |
 | basis · calc | 분석 근거(5-1 숫자) · 칸에 숫자를 썼으면 그 계산(산수면 산수) — 없으면 ⚠ |
 

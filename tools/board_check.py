@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-02 — K7(해설 정답 ↔ 보기) 이 새 보기 꼴 'A, …' 도 읽음 (전엔 'A번, …' 만 — 새 꼴에선 늘 '없음'으로 지나감).
+# VERSION: v1.4 — 2026-11-02 — 쇼츠 칸에서 '전달 내용·방식'(s_message) 뺌 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") — 공통 끝 멘트는 쇼츠 대본 점검(script --kind short)에서 마지막 줄로 봄.
+# (v1.3 — 2026-11-02 — K7(해설 정답 ↔ 보기) 이 새 보기 꼴 'A, …' 도 읽음 (전엔 'A번, …' 만 — 새 꼴에선 늘 '없음'으로 지나감).
 # (v1.2 — 2026-11-02 — 저장소 밖 파일(시험·임시 대본)도 점검 — 결과 파일 경로를 저장소 기준으로 못 바꾸면 그대로 씀 (전엔 ValueError 로 멈춤) ·
 #   광고 점검에서 --allow 문장과 쇼츠 공통 끝 멘트(「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」 — 사용자가 정한 줄)는 뺌.
 # (v1.1 — 2026-11-02 — 3단계 판(주제 → 대본 → 쇼츠)에 맞춤: package --stage topic|shorts (판마다 그 칸만) · script --kind short (해설·설명란 점검 뺌).
@@ -97,6 +98,7 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     k2 = [(i, s) for i, s in enumerate(sents, 1) if K2.search(s)]
     (fails if k2 else oks).append(f"반론 K2 결과론: {k2 or '없음'}")
     if kind == "short":                                   # 쇼츠: 해설·보기·설명란이 없음 → K6·K7·K2/K4 설명란 점검 뺌
+        (oks if any(SHORT_END in x for x in sents[-2:]) else fails).append("쇼츠 공통 끝 멘트(마지막 줄 「…채널 구독하고 확인하세요.」): " + ("있음" if any(SHORT_END in x for x in sents[-2:]) else "없음"))
         if calc:
             vals = numbers_in_calc(calc)
             loose = [(i, m.group(0)) for i, s in enumerate(sents, 1) for m in re.finditer(r"(\d+(?:\.\d+)?)\s?%", s) if float(m.group(1)) == int(float(m.group(1))) and not pct_ok(int(float(m.group(1))), vals)]
@@ -161,7 +163,7 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
 
 
 FIELDS_TOPIC = [("message", "전달 내용"), ("approach", "전달 방식"), ("title", "제목"), ("thumb_main", "썸네일 문구"), ("thumb_sub", "썸네일 보조 문구")]
-FIELDS_SHORTS = [("s_title", "쇼츠 제목"), ("s_thumb_main", "쇼츠 썸네일 문구"), ("s_thumb_sub", "쇼츠 썸네일 보조 문구"), ("s_message", "쇼츠 전달 내용·방식")]
+FIELDS_SHORTS = [("s_title", "쇼츠 제목"), ("s_thumb_main", "쇼츠 썸네일 문구"), ("s_thumb_sub", "쇼츠 썸네일 보조 문구")]   # v1.4 전달 내용 칸 없음 — 쇼츠는 대본(script --kind short)으로 점검
 
 
 def txt(v):
@@ -203,8 +205,6 @@ def check_package(topic, pk, personas, adv, stage="topic"):
         (oks if COND.search(txt(pk.get("approach"))) else warns).append("반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: " + ("있음" if COND.search(txt(pk.get("approach"))) else "안 보임(사람 확인)"))
         (oks if txt(pk.get("verify")).strip() else fails).append(f"반론 K3 다른 기간·다른 하락장으로 확인할 길: {txt(pk.get('verify')) or '없음'}")
         (oks if txt(pk.get("basis")).strip() else warns).append("분석 근거(data_insights 5-1): " + ("있음" if txt(pk.get("basis")).strip() else "없음"))
-    else:
-        (oks if "구독하고 확인하세요" in txt(pk.get("s_message")) or "공통 끝 멘트" in txt(pk.get("s_message")) else warns).append("쇼츠 공통 끝 멘트: " + ("있음" if "끝 멘트" in txt(pk.get("s_message")) or "구독하고" in txt(pk.get("s_message")) else "안 보임"))
     return fails, warns, oks
 
 

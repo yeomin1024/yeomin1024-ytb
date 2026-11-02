@@ -1,5 +1,19 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 주식: 쇼츠 평가판에서 '전달 내용' 칸 뺌 — 쇼츠는 대본으로 평가
+
+### 왜 (사용자 지시)
+- "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자 수정해서 알려줘"
+
+### 바뀐 것
+- `tools/script_feedback_board.py` v2.2 — 쇼츠 칸 = 쇼츠 제목·썸네일 문구·보조 문구 (+ 점검 결과) · 그 아래 쇼츠 대본 줄 · 대본 줄이 없는 쇼츠는 판에 올리지 않음 · 판 안내 글.
+- `tools/board_check.py` v1.4 — 쇼츠 칸 점검에서 s_message 뺌 · 공통 끝 멘트는 쇼츠 대본 점검(`script --kind short`)에서 마지막 줄로 확인(없으면 ❌).
+- 쇼츠 평가판 다시 올림 (1~3편, 칸 12개 = 3칸×3편 + 점검 3) · `quick_board.md` v1.5 · CLAUDE.md 주식 줄.
+
+### 확인 (로그)
+- `script_feedback_board.py` → `board="short" scripts=3 lines=35 fields=12` · 브라우저 칸 4개(제목·문구·보조·점검)·대본 12줄·통과 버튼, 넘침 0·오류 0.
+- `board_check.py script … --kind short` (1편 쇼츠): fails=0 · '쇼츠 공통 끝 멘트: 있음' · `package --stage shorts` 10개 fail=0.
+
 ## 2026-11-02 — 주식: 2~4편 대본 v10 (편끼리 멘트 겹치지 않게) · 2·3편 쇼츠 → 쇼츠 평가판
 
 ### 왜 (사용자 지시)

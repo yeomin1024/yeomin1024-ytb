@@ -1,5 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
+버전: v3.31 — 2026-11-02 — **주식 쇼츠 v6** (쇼츠 판 피드백 8건): 끝 멘트 「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 모두 · 2편 시기와 상관없는 말 · 3편 = 장단기 금리차 역전으로 다시 · 2·3편 썸네일 문구·보조 Claude 안 · quick_board v1.6 규칙 19~21. 다음 = 사용자: 쇼츠 판 판정.
 버전: v3.30 — 2026-11-02 — **재테크 평가판 세 장** (사용자 지시 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"): 주제 https://claude.ai/artifact/EtFeGPhdVV9GXyTSzU8o1G (기획안 E01~E10 — 점검 ❌ 0) · 대본 https://claude.ai/artifact/6SbgVekYkvvh2vWXrDrFtk · 쇼츠 https://claude.ai/artifact/UJA5kHCvhHTx9VosVviSAN (빈 판) · 반론 페르소나 `economic/result/outliers/rebuttal_persona.md` · 도구 `board_check.py` v1.5·`topic_board.py` v1.2·`script_feedback_board.py` v2.3 (주제 인자 — 주식 결과 그대로) · `economic/guides/quick_board.md` v1.1 (주식 v3.29 쇼츠 판 변경 — 전달 내용 칸 없음, 쇼츠는 대본으로 — 같이 따름).
 버전: v3.29 — 2026-11-02 — **주식 쇼츠 평가판 = 제목·썸네일 문구·보조 칸 + 쇼츠 대본** (전달 내용 칸 뺌 — 사용자 지시) · script_feedback_board v2.2 · board_check v1.4 · quick_board v1.5.
 버전: v3.28 — 2026-11-02 — **주식 2~4편 대본 v10 (편끼리 도입·결과 멘트 다르게) · 2·3편 쇼츠 → 쇼츠 평가판 (있는 내용 그대로, 3편은 새 롱폼과 안 맞음 — 점검 칸)** · quick_board v1.4 규칙 17·18. 다음 = 사용자: 쇼츠 판 1~3편 판정·피드백 · 4편 롱폼 판정.

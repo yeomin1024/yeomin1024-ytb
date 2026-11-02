@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.1 — 2026-11-01 — 1편 다섯 습관(남 따라 사기·현금 없음·기준 없음·손절 안 함·분산 안 함) — nasdaq_1_v21() · MSTR 자료.
+# VERSION: v2.2 — 2026-11-02 — 1편 대본 v9 (피드백판 1편 롱폼 10건) — nasdaq_1_v22(): 업스타트 · 현금 3천만 · 2025 관세 하락장 기준(비중 절반 → 3번 나눠) · C3.ai 펀더멘털 · 아이온큐 비중 · 김씨 경로 4년 안.
+# (v2.1 — 2026-11-01 — 1편 다섯 습관(남 따라 사기·현금 없음·기준 없음·손절 안 함·분산 안 함) — nasdaq_1_v21() · MSTR 자료.
 # (v2.0 — 2026-11-01 — 1편을 나스닥 100(QQQ)·QLD·ARKK·SMCI(AI 서버)로 (사용자 지시 "S&P500 말고 나스닥 지수로 해 … 전기차 회사라고 하지말고 최근 트렌드인 AI 관련 종목") — nasdaq_1().
 # (v1.9 — 2026-11-01 — 반론 5회차(3편): 200일 규칙 판 횟수·손해 보고 판 수 · 버리 글 다음 날(2023-02-01) 기준 2년.
 # (v1.8 — 2026-11-01 — 반론 4회차: 3편 200일 평균을 1988년부터(신호 29번) · 200일 규칙 다시 · 박씨 묶음 원금 회복·지금 · 2편 한꺼번에 vs 나눠 1990년대 · 1년 보유 손실 몫 · −20% 매도 하락장별.
@@ -31,7 +32,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v2.1"
+VERSION = "v2.2"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -925,16 +926,111 @@ def nasdaq_1_v21(S):
     return R
 
 
+def nasdaq_1_v22(S):
+    """v2.2 — 1편 대본 v9 (사용자 피드백판 2026-11-02, 1편 롱폼 10건):
+    도입 = 4년 안·−70% 안팎 · ① ETF 말고 기술주 종목 · ② 현금 더 (2천 → 3천만 원) · ③ 정답 = 위험한 국면에서 기준대로 비중을 줄이고 나눠 다시 매수
+    · ④ 펀더멘털에 문제가 생긴 그날 매도 · ⑤ 분배(한 종목 비중)에 중점 — 1번(종목 따라 사기)과 겹치지 않게.
+    ① 2023-08-01 업스타트(UPST, 1년 3.0배) vs 나스닥 ② 같은 날 1억 전부 vs 3천만 원 현금 남김
+    ③ 2025-03-10 나스닥(QQQ)이 고점(2025-02-19)보다 처음 10% 넘게 하락한 날 — 그때그때(김씨: 2025-04-08 바닥에서 모두 매도 → 최고가를 되찾은 2025-06-24 다시 매수)
+       vs 기준대로(다음 거래일 03-11 종가에 주식 절반 매도 → 04-01·05-01·06-02 세 번에 나눠 다시 매수, 기다리는 현금은 국채 이자)
+    ④ 2025-07-01 지인 추천으로 C3.ai(AI) 매수(계좌의 절반) → 2025-08-11 예상보다 훨씬 적은 매출 예비 발표·한 해 전망 철회로 하루 −25.6% — 그날 종가에 매도해 나스닥 vs 버팀
+    ⑤ 2025-10-13 아이온큐(IONQ, 양자 컴퓨터, 1년 7.6배 · 그해 최고가) — 계좌의 절반 vs 10%까지만(나머지 나스닥). 비중은 산 뒤 다시 맞추지 않음.
+    금액 = 1억 원 × 달러 기준 변화율 (환율·세금·수수료 뺌) · 현금 = 13주 국채 이자."""
+    q, cash, U, C, I = S["QQQ"], S["CASH"], S["UPST"], S["AI"], S["IONQ"]
+    NOW = "2026-10-27"
+    d1, dPk, dSig, dCut, dRe, dP, dB = "2023-08-01", "2025-02-19", "2025-03-10", "2025-03-11", ("2025-04-01", "2025-05-01", "2025-06-02"), "2025-04-08", "2025-06-24"
+    dTip, d4, d5 = "2025-07-01", "2025-08-11", "2025-10-13"
+    R = {}
+
+    def put(key, **kw):
+        R[key] = kw
+        log.info("key=%s %s", key, json.dumps(kw, ensure_ascii=False)[:700], extra={"stage": "NASDAQ1v22"})
+
+    def mix_path(parts, a, b):
+        """parts = [(Ser, 무게)] — a 날 산 뒤 그대로 둠 → b 날 값 · 가장 낮은 값과 그 날 (원금 1)."""
+        days = [d for d in q.k if a <= d <= b]
+        vals = [sum(w * s.at(d) / s.at(a) for s, w in parts) for d in days]
+        m = int(np.argmin(vals))
+        return round(vals[-1], 4), round(vals[m], 4), days[m]
+
+    def rule(a_sig, cut, re_days, frac=0.5, end=NOW):
+        """신호 날 원금 1 — cut 날 종가에 frac 매도(국채) → re_days 에 같은 몫으로 다시 매수. → (end 값, 가장 낮은 값, 그 날)."""
+        u, c, part, lo, lod = 1 / q.at(a_sig), 0.0, None, 1.0, a_sig
+        for d in [x for x in q.k if a_sig <= x <= end]:
+            if d == q.day(cut) and c == 0.0:
+                c = u * frac * q.at(d); u *= 1 - frac; part = c / len(re_days)
+            if part and d in {q.day(x) if q.day(x) >= x else q.k[q.i(x) + 1] for x in re_days} and c > 1e-12:
+                u += part / q.at(d); c -= part
+            v = u * q.at(d) + c
+            if v < lo:
+                lo, lod = v, d
+            if c > 0:
+                nxt = q.k[min(q.i(d) + 1, len(q.k) - 1)]
+                c *= 1 + cash.chg(d, nxt)
+        return round(u * q.at(end) + c, 4), round(lo, 4), lod
+
+    # ① 남 따라 사기
+    put("1_남따라", upst_prior_1y=round(1 + U.chg("2022-08-01", d1), 2), upst_low=pct(U.low(d1, NOW)[0]), upst_low_day=U.low(d1, NOW)[1], upst_now=pct(U.chg(d1, NOW)),
+        qqq_low=pct(q.low(d1, NOW)[0]), qqq_low_day=q.low(d1, NOW)[1], qqq_now=pct(q.chg(d1, NOW)), years_to_now=yrs(d1, NOW))
+    # ② 현금 3천만 원 — 2025 봄 하락장 (최고가 02-19 → 바닥 04-08)
+    v_pk, v_lo = 10000 * (1 + q.chg(d1, dPk)), 10000 * (1 + q.chg(d1, dP))
+    put("2_현금", all_in_at_peak_manwon=round(v_pk), all_in_at_low_manwon=round(v_lo), drop_manwon=round(v_pk - v_lo), drop_pct=pct(v_lo / v_pk - 1), days=(date.fromisoformat(dP) - date.fromisoformat(dPk)).days,
+        all_in_vs_principal_at_low=pct(v_lo / 10000 - 1), cash3000_at_low_manwon=round(3000 * (1 + cash.chg(d1, dP))), invest7000_drop_manwon=round(0.7 * (v_pk - v_lo)))
+    # ③ 위험한 국면 — 기준대로 비중 절반 줄이고 나눠 다시 vs 그때그때(바닥 매도·최고가 회복 뒤 재매수) vs 그대로
+    r_now, r_lo, r_lod = rule(dSig, dCut, dRe)
+    panic = (1 + q.chg(dSig, dP)) * (1 + cash.chg(dP, dB)) * (1 + q.chg(dB, NOW))
+    put("3_기준", qqq_peak=dPk, peak_to_sig=pct(q.chg(dPk, dSig)), sig_is_first_minus10=q.first_below(dPk, -0.10) == dSig,
+        rule_now=pct(r_now - 1), rule_low=pct(r_lo - 1), rule_low_day=r_lod, hold_now=pct(q.chg(dSig, NOW)), hold_low=pct(q.low(dSig, NOW)[0]), hold_low_day=q.low(dSig, NOW)[1],
+        panic_now=pct(panic - 1), panic_sell_vs_sig=pct(q.chg(dSig, dP)), panic_out_days=(date.fromisoformat(dB) - date.fromisoformat(dP)).days, back_day_is_new_high=q.at(dB) >= q.at(dPk),
+        rule_1y=pct(rule(dSig, dCut, dRe, end="2026-03-10")[0] - 1), hold_1y=pct(q.chg(dSig, "2026-03-10")),
+        morningstar="Mind the Gap 2024 (미국 · 2023년까지 10년): 투자자 수익이 펀드 수익보다 해마다 약 1.1%p 낮음 = 10년 수익의 약 15%를 놓침")
+    # ④ 펀더멘털 — C3.ai 2025-08-11
+    put("4_손절", ai_tip_to_before=pct(C.chg(dTip, "2025-08-08")), ai_day_drop=pct(C.chg("2025-08-08", d4)), ai_tip_to_d4=pct(C.chg(dTip, d4)),
+        further_low=pct(C.low(d4, NOW)[0]), further_low_day=C.low(d4, NOW)[1], ai_now=pct(C.chg(d4, NOW)), qqq_low=pct(q.low(d4, NOW)[0]), qqq_now=pct(q.chg(d4, NOW)),
+        odean="Odean 1998 Journal of Finance (미국 할인 증권사 1만 계좌): 판 이익 종목이 들고 있던 손실 종목보다 다음 1년 약 3.4%p 더 오름")
+    # ⑤ 분배 — 아이온큐 비중
+    h_now, h_lo, h_lod = mix_path([(I, 0.5), (q, 0.5)], d5, NOW)
+    t_now, t_lo, t_lod = mix_path([(I, 0.1), (q, 0.9)], d5, NOW)
+    put("5_분배", ionq_prior_1y=round(1 + I.chg("2024-10-11", d5), 1), ionq_is_peak_2025=I.peak_before("2025-12-31")[0] == d5, ionq_low=pct(I.low(d5, NOW)[0]), ionq_low_day=I.low(d5, NOW)[1], ionq_now=pct(I.chg(d5, NOW)),
+        half_now=pct(h_now - 1), half_low=pct(h_lo - 1), half_low_day=h_lod, ten_now=pct(t_now - 1), ten_low=pct(t_lo - 1), ten_low_day=t_lod,
+        qqq_now=pct(q.chg(d5, NOW)), sectors="purpose_numbers_2026-10-31.json A_sectors: 1999년 이후 9개 업종 중 6개가 S&P 500(−55.3%)보다 깊이 빠짐")
+    # 김씨 (오답만): 1억 → UPST 전부 → 04-08 모두 매도(국채) → 06-24 나스닥 → 07-01 계좌 절반 C3.ai → 버팀 → 10-13 계좌 절반을 나스닥에서 아이온큐로 → 지금
+    w = 10000 * (1 + U.chg(d1, dP)) * (1 + cash.chg(dP, dB)) * (1 + q.chg(dB, dTip))
+    wC, wQ = w / 2, w / 2
+    wC *= 1 + C.chg(dTip, d5); wQ *= 1 + q.chg(dTip, d5)
+    half = (wC + wQ) / 2
+    wI, wQ = half, wQ - half
+    kim_d5 = wC + wI + wQ
+    wC *= 1 + C.chg(d5, NOW); wI *= 1 + I.chg(d5, NOW); wQ *= 1 + q.chg(d5, NOW)
+    kim = wC + wI + wQ
+    # 정답만: 7천 나스닥 + 3천 국채 → ③ 기준대로(나스닥 몫) → 07-01 주식 몫 절반 C3.ai → 08-11 매도·나스닥 → 10-13 계좌의 10% 아이온큐(나스닥에서) → 지금
+    g_cash = 3000 * (1 + cash.chg(d1, NOW))
+    g_q = 7000 * (1 + q.chg(d1, dSig))
+    g_q *= rule(dSig, dCut, dRe, end=dTip)[0]
+    gC, gQ = g_q / 2, g_q / 2
+    gC *= 1 + C.chg(dTip, d4); gQ *= 1 + q.chg(dTip, d4)
+    gQ += gC
+    gQ *= 1 + q.chg(d4, d5)
+    acct = gQ + 3000 * (1 + cash.chg(d1, d5))
+    gI = 0.1 * acct; gQ -= gI
+    good = gQ * (1 + q.chg(d5, NOW)) + gI * (1 + I.chg(d5, NOW)) + g_cash
+    put("김씨_경로", wrong_now_manwon=round(kim), wrong_loss=pct(kim / 10000 - 1), wrong_at_d5_manwon=round(kim_d5), wrong_parts_now_manwon={"AI": round(wC), "IONQ": round(wI), "QQQ": round(wQ)},
+        correct_now_manwon=round(good), correct_gain=pct(good / 10000 - 1), years=yrs(d1, NOW), qqq_same=pct(q.chg(d1, NOW)),
+        note="김씨 = 함정 답만 · 정답 = 정답만 (④의 지인 추천 매수는 이야기 전제 — 두 길 모두 산 것으로 셈)")
+    return R
+
+
 def main():
     S = load()
-    for sym in ("QQQ", "QLD", "SMCI", "NVDA", "MSTR"):
+    for sym in ("QQQ", "QLD", "SMCI", "NVDA", "MSTR", "UPST", "AI", "IONQ"):
         S[sym] = Ser(sym, rd(HERE / "data" / f"{sym}.csv", "adjclose"))
     F = facts(S)
     P = paths(S)
     N1 = nasdaq_1(S)
     N2 = nasdaq_1_v21(S)
+    N3 = nasdaq_1_v22(S)
     out = HERE / f"longform_items_{date.today().isoformat()}.json"
-    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1, "nasdaq_1편_v2.1": N2}, ensure_ascii=False, indent=1), "utf-8")
+    out.write_text(json.dumps({"tool": f"longform_items.py {VERSION}", "data_last": S["TR"].k[-1], "facts": F, "paths": P, "nasdaq_1편": N1, "nasdaq_1편_v2.1": N2, "nasdaq_1편_v2.2": N3}, ensure_ascii=False, indent=1), "utf-8")
     log.info("file=%s items=%d", out.name, sum(len(v) for v in F.values()), extra={"stage": "DONE"})
 
 

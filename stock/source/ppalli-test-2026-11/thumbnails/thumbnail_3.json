@@ -1,5 +1,5 @@
 {
- "_설명": "롱폼 썸네일 실험안 2 — 손해 숫자를 앞에 (도입 문장 3) — 글자 없는 그림 images/TH-ART.jpg(images_chatgpt.md v2.0 22번, 16:9 반실사 — 일본 면세 편처럼)를 꽉 채우고 제목 2줄·말풍선은 코드 (사용자 지시 2026-10-26 '썸네일은 이미지 하나만 생성하고 문구는 너가 만드는거야'). 그림이 오면: node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json — 말풍선 꼬리는 그림 속 주인공 머리에 맞춰 x·y·tailPos 조정. · 2026-11-02 TH-ART 이 옴: 얼굴이 x 700~930px 이라 말풍선을 그 왼쪽(오른쪽 끝 x 660)으로 옮김",
+ "_설명": "롱폼 썸네일 실험안 2 — 손해 숫자를 앞에 (도입 문장 3) — 글자 없는 그림 images/TH-ART.jpg(images_chatgpt.md v2.0 22번, 16:9 반실사 — 일본 면세 편처럼)를 꽉 채우고 제목 2줄·말풍선은 코드 (사용자 지시 2026-10-26 '썸네일은 이미지 하나만 생성하고 문구는 너가 만드는거야'). 그림이 오면: node video/render/thumb.mjs stock/source/ppalli-test-2026-11/thumbnails/thumbnail_{1,2,3}.json — 말풍선 꼬리는 그림 속 주인공 머리에 맞춰 x·y·tailPos 조정. · 2026-11-02 TH-ART 이 옴: 얼굴이 x 700~930px 이라 말풍선을 그 왼쪽(오른쪽 끝 x 660)으로 옮김 · 2026-11-02 대본 v9: 김씨 길 180만 → 2천7백만 원",
  "out": "thumbnail_3.jpg",
  "size": [
   1280,
@@ -63,7 +63,7 @@
       "W"
      ],
      [
-      "180만 원",
+      "2천7백만 원",
       "R"
      ]
     ]

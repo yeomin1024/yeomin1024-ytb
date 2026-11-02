@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v1.0 — 2026-11-02 — 주식 1~4편 롱폼·쇼츠 대본을 피드백판(stock/topics/대본피드백판.html)의 SCRIPTS 칸에 채움
+# VERSION: v1.1 — 2026-11-02 — 롱폼 판을 편마다 (1편 대본 v9 · 2~4편 v8 — 피드백판 1편 반영).
+# (v1.0 — 2026-11-02 — 주식 1~4편 롱폼·쇼츠 대본을 피드백판(stock/topics/대본피드백판.html)의 SCRIPTS 칸에 채움
 #   (사용자 지시 2026-11-02 "그 1~4편 롱폼, 쇼츠 각각 대본 별로 피드백 남길 수 있도록 아티팩트로 만들어볼래? 대본의 여러 줄을 선택해서 각각 피드백 달 수 있도록").
 #   · 롱폼 = stock/topics/롱폼대본_2026-10-31.md 표의 제목·대본 파일 → 파일의 '-○○' 줄은 장 이름, 나머지 빈 줄 아닌 줄 = 문장 (번호 = 오디오·자막 문장 번호와 같음)
 #   · 쇼츠 = stock/topics/쇼츠안_2026-10-30.md 의 '## N편 — 제목' 아래 표 (# · 역할 · 대본)
@@ -13,7 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 BOARD = ROOT / "stock/topics/대본피드백판.html"
 LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
-LONG_VER, SHORT_VER = "대본 v8", "쇼츠 v5"
+LONG_VER = {1: "대본 v9", 2: "대본 v8", 3: "대본 v8", 4: "대본 v8"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
+SHORT_VER = "쇼츠 v5"
 BEGIN, END = "/*SCRIPTS:BEGIN*/", "/*SCRIPTS:END*/"
 
 
@@ -39,7 +41,7 @@ def longform():
                 sec = t[1:].strip()
                 continue
             lines.append({"n": len(lines) + 1, "t": t, "sec": sec})
-        out.append({"key": f"e{ep}-long", "ep": int(ep), "kind": "long", "title": title.strip(), "ver": LONG_VER, "file": rel, "lines": lines})
+        out.append({"key": f"e{ep}-long", "ep": int(ep), "kind": "long", "title": title.strip(), "ver": LONG_VER[int(ep)], "file": rel, "lines": lines})
         log("LOAD", script=f"e{ep}-long", file=rel, sentences=len(lines), sections=len({l["sec"] for l in lines}))
     return out
 

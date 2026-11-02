@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.2 — 2026-10-28 — 안내 문구를 주제마다 (settings [page] NOTE_DOC · NOTE_PAGE, 없으면 예전 주식 글 그대로) — 역사 주제탐색.md·평가판에
+# VERSION: v1.3 — 2026-11-02 — 칸 하나 더: complaint (꼬집을 제도 한 줄 — 채널 컨셉 '불편한 제도를 꼬집으며 정보 전달', 사용자 지시 2026-11-02
+#          "아 약간 불편한 제도가 많아 나라 욕하면서 정보 전달하는 컨셉으로 갈건데 수정해볼래" — 재테크). 설정 [concept] REQUIRE_COMPLAINT = true 인 주제만
+#          필수(없으면 뺌) · 사람·정당 이름이 들면 뺌 ([concept] NO_TARGET) · 주제탐색.md 자세히·평가판 카드·material 칸 표에 보임. 다른 주제는 설정이 없어 그대로.
+#          · 꼬집을 제도가 없는 이번 묶음·대기 주제 = 상태 '컨셉 밖' (concept_filter — 번호 그대로, 문서 8번에 보임).
+#          영향: lint()·cmd_add()·concept_filter()·finish()·render()·render_page()·PAGE·cmd_material().
+# (v1.2.2) — 2026-10-28 — 안내 문구를 주제마다 (settings [page] NOTE_DOC · NOTE_PAGE, 없으면 예전 주식 글 그대로) — 역사 주제탐색.md·평가판에
 #          '투자 권유가 아님 · 계산(calc/)으로 확정'이 찍혀서. 영향: load_settings()·render()·render_page().
 # (v1.2.1 — 2026-10-28 — '자료에 기간(연도)' 검사를 주제마다 (settings [clarity] YEAR, 없으면 예전 그대로 (19|20)\d\d) — 역사 후보의 1653년·18세기·
 #          기원전이 '연도 없음'으로 빠져서 (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 … 요약본까지" — history). 영향: lint() 한 줄.)
@@ -53,11 +58,11 @@ try:
 except ModuleNotFoundError:            # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.2.2"
+VERSION = "v1.3"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("topics")
 FIELDS = ("title", "question", "conclusion", "decide", "data", "format", "persona", "theme", "needs", "market", "data_kind")
-STATUS = ("이번 묶음", "대기", "작성중", "작성함")
+STATUS = ("이번 묶음", "대기", "작성중", "작성함", "컨셉 밖")   # v1.3 컨셉 밖 = 꼬집을 제도가 없어 묶음에서 뺌 (REQUIRE_COMPLAINT 주제만)
 GOOD = re.compile(r"^(좋음|좋아|좋다|good|👍|o|ㅇ|\+)$", re.I)
 BAD = re.compile(r"^(나쁨|나빠|별로|bad|👎|x|ㄴ|-)$", re.I)
 SYN = {"spy": "s&p500", "s&p": "s&p500", "voo": "s&p500", "s&p500": "s&p500", "에스앤피": "s&p500", "qqq": "나스닥", "나스닥100": "나스닥",
@@ -293,6 +298,11 @@ def lint(c, Z, A):
         bad.append("결론에 숫자·판정 말 없음")
     if c.get("decide") and not re.search(cl["DECIDE"], str(c["decide"])):
         bad.append("판정 규칙에 기준(비교·문턱) 없음")
+    cp = Z.get("concept") or {}                                                                  # v1.3 채널 컨셉 (재테크)
+    if cp.get("REQUIRE_COMPLAINT") and not str(c.get("complaint") or "").strip():
+        bad.append("꼬집을 제도(complaint) 칸 없음 — 채널 컨셉")
+    if c.get("complaint") and cp.get("NO_TARGET") and re.search(cp["NO_TARGET"], str(c["complaint"]) + str(c.get("title", ""))):
+        bad.append("사람·정당을 탓함 (complaint·title) — 상대는 제도·조항만")
     if c.get("data") and not re.search(cl.get("YEAR") or r"(19|20)\d\d", str(c["data"])):     # v1.2.1 주제마다 (역사 = 세기·기원전·세 자리 해)
         bad.append("자료에 기간(연도) 없음")
     if c.get("persona") and c["persona"] not in A["personas"]:
@@ -474,7 +484,7 @@ def cmd_add(topic, pool_path, root=None):
         tid = f"T{S['next_id']:03d}"
         S["next_id"] += 1
         it = {k: c.get(k) for k in FIELDS}
-        it.update({"id": tid, "items": c.get("items") or [], "why": c.get("why", ""), "status": "대기", "pool": str(pool_path),
+        it.update({"id": tid, "items": c.get("items") or [], "why": c.get("why", ""), "complaint": c.get("complaint", ""), "status": "대기", "pool": str(pool_path),
                    "added": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
                    "nearest_used": {"src": e_used["src"] if e_used else "-", "sim": round(s_used, 3), "words": round(j_used, 3), "chars": round(o_used, 3)}})
         S["items"][tid] = it
@@ -484,8 +494,23 @@ def cmd_add(topic, pool_path, root=None):
     return finish(topic, P, Z, S, A, refresh_ok=True)
 
 
+def concept_filter(Z, S):
+    """v1.3: [concept] REQUIRE_COMPLAINT 이면 꼬집을 제도(complaint)가 없는 이번 묶음·대기 주제를 '컨셉 밖'으로 (번호는 그대로 — 요약본이 가리키는 ID 가 바뀌지 않게).
+    이번 묶음에서 빠진 자리는 다음 갱신 때 채워짐. → 뺀 수."""
+    if not (Z.get("concept") or {}).get("REQUIRE_COMPLAINT"):
+        return 0
+    n = 0
+    for it in S["items"].values():
+        if it["status"] in ("이번 묶음", "대기") and not str(it.get("complaint") or "").strip():
+            it["status"] = "컨셉 밖"
+            n += 1
+            log("CHECK", logging.WARNING, id=it["id"], title=it["title"][:40], result="컨셉 밖", why="꼬집을 제도(complaint) 없음")
+    return n
+
+
 def finish(topic, P, Z, S, A, refresh_ok=False):
     hit = scan_sources(P, S)
+    concept_filter(Z, S)
     marks = read_marks(P)
     W, g, b = score_all(S, Z, A, marks)
     log("LEARN", topic=topic, marks=len(marks), good=sum(1 for m in marks.values() if m["rating"] == "좋음"),
@@ -607,6 +632,7 @@ def cmd_material(topic, root=None):
          "## 후보 한 개의 칸 (모두 필수 — 빠지면 뺌)", "",
          "| 칸 | 내용 |", "|---|---|",
          "| title | 주제 한 줄 (영상 제목 아님) |", "| question | 시청자가 묻는 것 한 문장 |",
+         *([f"| complaint | **{FIELD_HELP.get('complaint', '꼬집을 제도 한 줄')}** (필수 — 채널 컨셉) |"] if (Z.get("concept") or {}).get("REQUIRE_COMPLAINT") else []),
          "| conclusion | **예상 결론 한 문장 — 숫자·판정으로** ('…보다 …가 더 남았다', 'N년 이상이면 손실 0%'). 애매한 말 금지: " + Z["clarity"]["VAGUE"].replace("\\s?", " ").replace("|", "·")[:160] + " |",
          "| decide | 판정 규칙 — 자료가 어느 쪽으로 나와도 결론이 하나로 정해지는 기준 ('A가 B보다 높은 구간이 50% 넘으면 A, 아니면 B') |",
          f"| data | {FIELD_HELP['data']} |",
@@ -679,6 +705,7 @@ def render(S, Z, A, W, g, b, marks, done):
             sp = it["score_parts"]
             L += [f"### {i}. {it['id']} {it['title']}", "",
                   f"- **질문**: {it['question']}",
+                  *([f"- **꼬집는 제도**: {it['complaint']}"] if it.get("complaint") else []),
                   f"- **결론 (예상)**: {it['conclusion']}",
                   f"- **판정 규칙**: {it['decide']}",
                   f"- **자료**: {it['data']} · {it['data_kind']} · {it['market']}"]
@@ -729,6 +756,10 @@ def render(S, Z, A, W, g, b, marks, done):
     fin = [it for it in S["items"].values() if it["status"] in ("작성중", "작성함")]
     if fin:
         L += ["## 7. 쓰는·쓴 주제", ""] + [f"- {it['id']} {it['status']} `{it.get('folder', '-')}` {it['title']}" for it in fin] + [""]
+    out_c = [it for it in S["items"].values() if it["status"] == "컨셉 밖"]
+    if out_c:
+        L += [f"## 8. 컨셉 밖 {len(out_c)}개 (꼬집을 제도가 없어 묶음에서 뺌 — `settings.toml [concept]`)", ""]
+        L += [f"- {it['id']} {it['title']}" for it in out_c] + [""]
     L += ["## 한계", "",
           "- 주제 글은 Claude 가 재료(`material.md`)를 읽고 쓴다 — 도구는 거르고·점수 매기고·뽑는다. 결론은 계산 전 **예상**.",
           "- 겹침은 낱말 닮음이다 — 같은 실험을 다른 말로 쓰면 못 잡을 수 있어 '가장 닮은 쓴 주제'를 함께 보인다.",
@@ -817,6 +848,7 @@ function render(){
     meta.append(el("span",{class:"rank"},it.rank+"위"),el("span",{class:"id"},it.id),el("span",{class:"chip"},it.format),el("span",{class:"chip"},it.persona));
     if(it.status!=="이번 묶음") meta.append(el("span",{class:"chip"},it.status));
     li.append(meta, el("h2",{},it.title));
+    if(it.complaint){const q=el("p",{class:"concl"}); q.append(el("span",{},"꼬집는 제도")); q.append(document.createTextNode(it.complaint)); li.append(q);}
     const c=el("p",{class:"concl"}); c.append(el("span",{},"결론(예상)")); c.append(document.createTextNode(it.conclusion)); li.append(c);
     const d=el("details"); d.append(el("summary",{},"질문 · 판정 규칙 · 자료 · 근거"));
     const dl=el("dl"); [["질문",it.question],["판정 규칙",it.decide],["자료",it.data],["근거",it.basis],["점수",it.score]].forEach(([k,v])=>{if(v){dl.append(el("dt",{},k),el("dd",{},String(v)));}});
@@ -875,7 +907,7 @@ def render_page(S, A):
             needs = [A["needs"][n] for n in it.get("needs") or [] if n in A["needs"]]
             basis = " · ".join([f"{n['pick']} {n['topic'][:40]} 👍{n['likes']:,}" for n in needs] +
                                ([f"닮은 성공 사례: {it['success_match']['title'][:50]}"] if it.get("success_match") and it["success_match"]["sim"] >= 0.08 else []))
-            items.append({"rank": i, "id": it["id"], "title": it["title"], "conclusion": it["conclusion"], "question": it["question"], "decide": it["decide"],
+            items.append({"rank": i, "id": it["id"], "title": it["title"], "complaint": it.get("complaint", ""), "conclusion": it["conclusion"], "question": it["question"], "decide": it["decide"],
                           "data": it["data"], "format": it["format"], "persona": f"{pp.get('id', '?')} {pp.get('name', it['persona'])}", "status": it["status"],
                           "score": f"{it['score']:.2f}", "basis": basis or it.get("why", ""), "rating": it.get("rating"), "why": it.get("rating_why", "")})
     data = {"batch": B["no"] if B else 0, "made": (B["made"][:10] if B else "-"), "analysis": str(A["analysis_made"])[:10], "items": items}

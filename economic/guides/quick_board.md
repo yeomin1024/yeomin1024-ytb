@@ -1,6 +1,7 @@
 # 재테크 — 평가판 세 장으로 주제 → 대본 → 쇼츠 → 영상 (새 세션은 이 파일 하나로)
 
-VERSION: v1.0 — 2026-11-02 — 최초 (사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"). 주식 `stock/guides/quick_board.md` v1.4 의 판 세 장·점검·db 읽기를 그대로 쓰고, 재테크에서 다른 것만 여기에 적음.
+VERSION: v1.1 — 2026-11-02 — **쇼츠 판 = 쇼츠 제목·썸네일 문구·보조 칸 + 쇼츠 대본** (주식 v1.5 와 같이 — 전달 내용 칸 뺌, 주식 사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") · `board_check.py` v1.5 · `script_feedback_board.py` v2.3.
+(v1.0 — 2026-11-02 — 최초, 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해" — 주식 `stock/guides/quick_board.md` v1.4 의 판 세 장·점검·db 읽기를 그대로 쓰고, 재테크에서 다른 것만 여기에 적음.)
 ※ 정보 제공용 — 세무·법률 상담이 아님.
 
 **이 파일 + 맡은 편 폴더만 읽는다.** 공통 꼴(판에서 읽고 답하기·피드백 반영 반복·삭제)은 `stock/guides/quick_board.md` 1번이 기준. 대본 문장 규칙은 `economic/guides/quick_script.md`(v1.4 — 컨셉 말투) · 제목·썸네일·쇼츠는 `quick_package.md`(v1.2).
@@ -18,7 +19,7 @@ VERSION: v1.0 — 2026-11-02 — 최초 (사용자 지시 2026-11-02 "지시사�
 | 6 | 롱폼 대본 점검 | `python3 tools/board_check.py script economic <대본.txt> --calc <json> --upload <upload.md>` → ❌ 0 (+ `tools/persona_review.py economic`) |
 | 7 | **2단계 대본 평가판** | `economic/topics/board/script_board.json` 'extra' 에 한 줄 `{key:'E01-long', ep:'E01', label:'E01 연금저축 1,500만 원 문턱', kind:'long', title, ver:'대본 v1', file}` → `python3 tools/script_feedback_board.py economic` → Artifact 다시 올림 — **https://claude.ai/artifact/6SbgVekYkvvh2vWXrDrFtk** |
 | 8 | 롱폼 피드백 반영 반복 | 주식 판과 같음 (반영 → 계산 다시 → 6번 → 판 다시 → status=done·reply) |
-| 9 | 대본 판 `verdicts/<key>.verdict == pass` 인 편만 **쇼츠 대본** (프롤로그형) | 쇼츠 대본 파일 · 쇼츠 칸 점검 `--stage shorts` · 대본 점검 `board_check.py script economic <쇼츠.txt> --kind short` → ❌ 0 |
+| 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)') 인 편만 **쇼츠 대본** (프롤로그형 — 기획안 s_message 를 대본으로 늘림) | 쇼츠 대본 파일(한 줄 한 문장) · **쇼츠 판엔 전달 내용 칸이 없고 대본으로 평가** · 쇼츠 칸(제목·썸네일 문구·보조) 점검 `board_check.py package economic <파일> --stage shorts --write` · 대본 점검 `board_check.py script economic <쇼츠.txt> --kind short` (끝 멘트 「…아래 영상에서 확인하세요.」 를 마지막 두 줄에서 확인 — 없으면 ❌) → ❌ 0 |
 | 10 | **3단계 쇼츠 평가판** | `economic/topics/board/shorts_board.json` 'items' 에 `{key:'E01-short', ep:'E01', label, from:'file', file, fields_from:'economic/topics/board/topics_2026-11-02.json#E01', long_key:'E01-long', ver:'v1'}` → `script_feedback_board.py economic` → 다시 올림 — **https://claude.ai/artifact/UJA5kHCvhHTx9VosVviSAN** |
 | 11 | 쇼츠 피드백 반영 반복 → 쇼츠 판 통과 | 영상 = `quick_package.md` 4번·`guides/video_guide.md` (오디오 먼저 → 영상 → 썸네일) |
 
@@ -37,11 +38,11 @@ VERSION: v1.0 — 2026-11-02 — 최초 (사용자 지시 2026-11-02 "지시사�
 | approach (전달 방식) | 사연형·비교형 · 인물(성씨)·나이·소득·재산 조건 · 조항 원문 꼬집기 → 계산 → 할 일 → 바뀌어야 할 점 |
 | title · thumb_main · thumb_sub | 제목 = 호기심 + 해소, 화면 2줄 (`title_fit`), '하는 법·이유·때문·이것·이때' ✗ · 분노 말투('이게 말이 됩니까')는 근거 약함(13개) → 섞어서 시험 · 썸네일 주요 2줄 · 보조 = 니즈 낱말 꼬리표 |
 | s_title · s_thumb_main · s_thumb_sub | 1인칭 경험 + 당부 (「…손해봤어요. 꼭 보세요」) · '노후·은퇴·퇴직·N가지·얼마·비교·차이·vs' ✗ |
-| s_message | 프롤로그형: 첫 문장 핵심(누가·무엇 때문에·얼마) → 경위(각색) → 걸린 것 → '지금이라도 …?' → 끝 멘트 **「…, 아래 영상에서 확인하세요.」** |
+| s_message (쇼츠 대본 꼴 — 판엔 안 보임) | 쇼츠는 판에 **대본**으로 올림. 대본 꼴 = 프롤로그형: 첫 문장 핵심(누가·무엇 때문에·얼마) → 경위(각색) → 걸린 것 → '지금이라도 …?' → 끝 멘트 **「…, 아래 영상에서 확인하세요.」** (끝 멘트는 대본 점검 `--kind short` 이 확인) |
 | verify | 사실 확인 길 — 법 조문·시행일·올해 기준 금액 + 다른 가정(나이·소득·가구)이면 뒤집히나 — 없으면 ❌ |
 | basis · calc | 재테크 분석 근거(댓글 니즈 K···, 성공 사례, 반론 K··) · 숫자를 계산했으면 calc 경로 (법에 적힌 숫자는 ⚠ 로 남고 대본 단계에서 원문 확인) |
 
-## 3. 점검 규칙 (`tools/board_check.py` v1.4 + `economic/board_rules.toml`)
+## 3. 점검 규칙 (`tools/board_check.py` v1.5 + `economic/board_rules.toml`)
 - 일반 페르소나 `economic/result/outliers/personas.json` · 반론 페르소나 `economic/result/outliers/rebuttal_persona.md` (K5 숫자·법 오류 27% · K1 조건마다 25% · K4 빠진 비용 16% · K3 가정 골랐다 14% · K8 낚시·과장 10% — 좋아요 몫, 2026-11-02 댓글 26개).
 - 재테크에서 더한 ❌: 꼬집는 제도 빈칸 · 컨셉 밖(금리·환율·증시 전망·종목·코인·부동산 투자) · 사람·정당 탓 · 비속어 · 제목·쇼츠 제목에서 피할 말.
 - ⚠ 는 Claude 가 그 줄만 읽고 판단 — 어려운 말(IRP·피부양자·종합과세…)은 대본에서 '쉽게 말해' 한 문장, 법 숫자(30%·500만 원·16.5%)는 대본 단계 원문 확인.

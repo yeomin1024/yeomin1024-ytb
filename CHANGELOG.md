@@ -8,12 +8,17 @@
 ### 바꾼 것
 | 파일 (버전) | 내용 |
 |---|---|
-| `economic/guides/quick_board.md` (v1.0, 새로) | 재테크 판 세 장 순서·기획안 꼴(complaint 칸)·점검 규칙·대본 꼴 — 새 세션은 이 파일 하나로 |
+| `economic/guides/quick_board.md` (v1.1, 새로 — v1.1 = 주식 쇼츠 판 변경(전달 내용 칸 없음, 쇼츠는 대본으로)을 같이 따름) | 재테크 판 세 장 순서·기획안 꼴(complaint 칸)·점검 규칙·대본 꼴 — 새 세션은 이 파일 하나로 |
 | `economic/rebuttal.toml` (v1.0) · `economic/result/outliers/rebuttal_persona.md`·`.json`·`rebuttal_picks.tsv` | 재테크 반론 페르소나 — 후보 260 중 Claude 가 내용 반론 26개 (K5 숫자·법 오류 · K1 조건마다 · K4 빠진 비용 · K3 가정 · K8 낚시·과장 · K6 절차 · K2 바뀌는 제도) |
 | `economic/board_rules.toml` (v1.0) · `tools/board_check.py` (v1.5 — 주식 v1.4 위에) | 주제마다 점검 규칙 파일 — 재테크: complaint 필수 · 컨셉 밖 · 사람·정당 탓 · 비속어 · 제목 피할 말 · 쇼츠 끝 멘트 '아래 영상에서 확인하세요' — 주식 기획안 10개 점검 결과 그대로 (시험함) |
 | `tools/topic_board.py` (v1.2) · `tools/script_feedback_board.py` (v2.3 — 주식 v2.2 위에) | 주제 인자 (빼면 stock) — 주식 판 파일 변화 없음 (시험함) |
 | `economic/topics/board/` | topics_2026-11-02.json 기획안 E01~E10 (점검 ❌ 0) · script_board.json · shorts_board.json (빈 목록) · urls.json |
 | `economic/topics/주제평가판.html`·`대본평가판.html`·`쇼츠평가판.html` | 주제 https://claude.ai/artifact/EtFeGPhdVV9GXyTSzU8o1G · 대본 https://claude.ai/artifact/6SbgVekYkvvh2vWXrDrFtk · 쇼츠 https://claude.ai/artifact/UJA5kHCvhHTx9VosVviSAN |
+
+### 확인 (로그)
+- 주식 결과 그대로 (주식 커밋 6645978c 와 합친 뒤): `topic_board.py --check` → `changed=False` · `script_feedback_board.py --check` → long·short 모두 `changed=False` · `board_check.py package stock …topics_2026-11-02.json`(주제·쇼츠 단계) 주식 v1.4 와 비교 → `diffs vs stock v1.4 = 0` · `script stock …simri-test-2026-10-shorts.txt --kind short` 출력 같음(버전 글자만 다름).
+- 재테크: `board_check.py package economic …topics_2026-11-02.json --write` → `packages=10 fail=0` (⚠ = 어려운 말 풀이·법 숫자 원문 확인 — 대본 단계) · `--stage shorts --write` → `packages=10 fail=0`.
+- 판 세 장 다시 만듦: `topic_board.py economic` → `topics=10` · `script_feedback_board.py economic` → long·short `scripts=0` (빈 판, 주소 연결 채움).
 
 ## 2026-11-02 — 주식: 쇼츠 평가판에서 '전달 내용' 칸 뺌 — 쇼츠는 대본으로 평가
 

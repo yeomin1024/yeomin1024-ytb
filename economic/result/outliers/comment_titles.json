@@ -1,11 +1,11 @@
 {
  "tool": "comment_title_ideas.py v1.1",
  "topic": "economic",
- "generated": "2026-10-28T10:22+00:00",
- "titles_searched": 14607,
+ "generated": "2026-11-02T08:25+00:00",
+ "titles_searched": 15607,
  "titles_by_country": {
-  "그 밖": 671,
-  "한국": 13882,
+  "그 밖": 687,
+  "한국": 14866,
   "미국": 54
  },
  "picks": [
@@ -27,10 +27,10 @@
      "id": "FaXpSwJHEbc",
      "title": "100만 명이 선택한 국민연금 조기 수령 , 나도 해야 할까? 조기수령과 연기연금의 숨겨진 진실을 알려드립니다",
      "channel": "누룽지 - 정보를 구수하고 빠삭하게 알려드림",
-     "subs": 68700,
+     "subs": 69700,
      "views": 1528651,
      "vpd": 3517.9,
-     "age_days": 434.6,
+     "age_days": 439.5,
      "published": "2025-08-19",
      "country": "한국",
      "minutes": 23.2
@@ -42,7 +42,7 @@
      "subs": 286000,
      "views": 455260,
      "vpd": 388.3,
-     "age_days": 1172.4,
+     "age_days": 1177.3,
      "published": "2023-08-13",
      "country": "한국",
      "minutes": 6.1
@@ -51,10 +51,10 @@
      "id": "mCwA1tJSU6I",
      "title": "늦게 받을수록 더 준다는데… 사람들이 손해 보고도 국민연금을 당겨 받는 이유 | 이영주 대표 [얘기좀합시다]",
      "channel": "머니인더트랩",
-     "subs": 113000,
+     "subs": 120000,
      "views": 450614,
      "vpd": 12489.6,
-     "age_days": 36.1,
+     "age_days": 41.0,
      "published": "2026-09-22",
      "country": "한국",
      "minutes": 33.8
@@ -64,9 +64,9 @@
      "title": "65세에 국민연금 받지 마세요 | 조기수령,연기수령 뭐가 맞는지 알려드립니다 |평생 월 수십만원 손해 보는 5가지 함정",
      "channel": "만약에 머니",
      "subs": 33800,
-     "views": 328922,
-     "vpd": 1838.7,
-     "age_days": 188.0,
+     "views": 330398,
+     "vpd": 1712.6,
+     "age_days": 192.9,
      "published": "2026-04-23",
      "country": "한국",
      "minutes": 23.8
@@ -92,10 +92,10 @@
      "id": "3A_oSFAnxxs",
      "title": "존리 대표│연금저축보험, 절대 해지하지 마세요! 존리가 알려주는 노후 투자의 정답",
      "channel": "새멋TV",
-     "subs": 61600,
+     "subs": 66000,
      "views": 60630,
      "vpd": 665.7,
-     "age_days": 91.1,
+     "age_days": 96.0,
      "published": "2026-07-29",
      "country": "한국",
      "minutes": 11.9
@@ -107,7 +107,7 @@
      "subs": 75500,
      "views": 53482,
      "vpd": 322.1,
-     "age_days": 166.1,
+     "age_days": 171.0,
      "published": "2026-05-15",
      "country": "한국",
      "minutes": 9.0
@@ -117,9 +117,9 @@
      "title": "50대 연금저축보험 해지해야 할까? 연금저축펀드 수익률 차이와 ETF 투자 방법 총정리",
      "channel": "만약에 머니",
      "subs": 33800,
-     "views": 3264,
-     "vpd": 16.1,
-     "age_days": 208.0,
+     "views": 3272,
+     "vpd": 15.4,
+     "age_days": 212.9,
      "published": "2026-04-03",
      "country": "한국",
      "minutes": 17.1
@@ -137,9 +137,9 @@
    "comment": "소액만 하고 목돈 안모아본 사람들 댓글이 대부분이네요 ㅋㅋㅋ 저도 1억 채웠는데 해지 안합니다. 해지하지마세요. 경험들도 안해봤으면서 돈 모이면 연금저축으로 이전해라 얼마빼고 일부 돈 뺼수잇다 이러는데 전혀 아닙니다. 연말정산 자기들이 직접 하는게 아니라 회사서 일괄로 하기때문에 세액공제 조금씩은 다 받아져잇습니다.(안받앗다고 주장하는 사람들 나중에 다 몰랐다가 통수맞음) 중도인출시에도 과세금만 따로 뺄수 잇는게 아니라 일정 비율 섞여 인출 처리 되기때문에 세액공제 금액이 적더라도 비율만큼 15.6% 붙는다고 봐야합니다. 연금수령도 25년 한참 남았는데 미련하게 연금저축으로 세금좀 아껴보겟다고 목돈 옮겼다가 나중에 돈 필요 하면 세금 탈탈 털립니다. 그건 만기시 몇백~ 천정도 수준 모은 사람들 이야기입니다.",
    "topic": "ISA 만기 때 해지하지 않고 계속 vs 연금계좌로 옮기기",
    "match": "ISA.{0,12}(만기|해지|연장)",
-   "matches": 26,
-   "same_country": 26,
-   "recent_same_country": 18,
+   "matches": 27,
+   "same_country": 27,
+   "recent_same_country": 19,
    "top": [
     {
      "id": "eEwZi_lweM4",
@@ -148,7 +148,7 @@
      "subs": 1280000,
      "views": 858716,
      "vpd": 1593.3,
-     "age_days": 539.0,
+     "age_days": 543.9,
      "published": "2025-05-07",
      "country": "한국",
      "minutes": 34.0
@@ -160,7 +160,7 @@
      "subs": 1280000,
      "views": 742553,
      "vpd": 1430.9,
-     "age_days": 519.0,
+     "age_days": 523.9,
      "published": "2025-05-27",
      "country": "한국",
      "minutes": 33.5
@@ -172,7 +172,7 @@
      "subs": 243000,
      "views": 464942,
      "vpd": 673.6,
-     "age_days": 690.3,
+     "age_days": 695.2,
      "published": "2024-12-07",
      "country": "한국",
      "minutes": 14.1
@@ -184,13 +184,13 @@
      "subs": 1280000,
      "views": 464464,
      "vpd": 1272.7,
-     "age_days": 365.0,
+     "age_days": 369.9,
      "published": "2025-10-28",
      "country": "한국",
      "minutes": 24.3
     }
    ],
-   "newest": "2026-10-18"
+   "newest": "2026-11-01"
   },
   {
    "pick": "K04",
@@ -213,7 +213,7 @@
      "subs": 87200,
      "views": 298511,
      "vpd": 289.0,
-     "age_days": 1032.9,
+     "age_days": 1037.8,
      "published": "2023-12-30",
      "country": "한국",
      "minutes": 73.9
@@ -225,7 +225,7 @@
      "subs": 165000,
      "views": 29453,
      "vpd": 335.2,
-     "age_days": 87.9,
+     "age_days": 92.8,
      "published": "2026-08-01",
      "country": "한국",
      "minutes": 34.2
@@ -243,8 +243,8 @@
    "comment": "보험회사 연금저축은 하지마세요 15년 가까이 납입했는데 수익 거의 없고 보험회사가 가져가는게 5백만원쯤 됩니다",
    "topic": "연금저축 보험·신탁·펀드 중 어디 — 보험사 연금저축 수익·수수료",
    "match": "연금저축.{0,6}(보험|펀드|신탁)",
-   "matches": 59,
-   "same_country": 59,
+   "matches": 60,
+   "same_country": 60,
    "recent_same_country": 24,
    "top": [
     {
@@ -254,7 +254,7 @@
      "subs": 1280000,
      "views": 2911500,
      "vpd": 1128.9,
-     "age_days": 2579.1,
+     "age_days": 2584.0,
      "published": "2019-10-06",
      "country": "한국",
      "minutes": 22.0
@@ -266,7 +266,7 @@
      "subs": 7840,
      "views": 1611119,
      "vpd": 693.8,
-     "age_days": 2322.2,
+     "age_days": 2327.2,
      "published": "2020-06-19",
      "country": "한국",
      "minutes": 4.1
@@ -278,7 +278,7 @@
      "subs": 3090000,
      "views": 1559493,
      "vpd": 709.8,
-     "age_days": 2197.1,
+     "age_days": 2202.1,
      "published": "2020-10-22",
      "country": "한국",
      "minutes": 7.7
@@ -290,7 +290,7 @@
      "subs": 1280000,
      "views": 1534078,
      "vpd": 617.5,
-     "age_days": 2484.5,
+     "age_days": 2489.4,
      "published": "2020-01-08",
      "country": "한국",
      "minutes": 14.2
@@ -319,7 +319,7 @@
      "subs": 889000,
      "views": 239169,
      "vpd": 1778.4,
-     "age_days": 134.5,
+     "age_days": 139.4,
      "published": "2026-06-15",
      "country": "한국",
      "minutes": 8.0
@@ -331,7 +331,7 @@
      "subs": 1730,
      "views": 2983,
      "vpd": 62.9,
-     "age_days": 56.5,
+     "age_days": 61.4,
      "published": "2026-09-01",
      "country": "한국",
      "minutes": 28.0
@@ -341,9 +341,9 @@
      "title": "65세 이상이면 무조건 보세요! 기초연금 감액 없이 받는 방법 (2026년 기초연금 선정기준 완전정리)",
      "channel": "만약에 머니",
      "subs": 33800,
-     "views": 2406,
-     "vpd": 11.0,
-     "age_days": 224.0,
+     "views": 2410,
+     "vpd": 10.5,
+     "age_days": 228.9,
      "published": "2026-03-18",
      "country": "한국",
      "minutes": 14.0
@@ -361,9 +361,9 @@
    "comment": "늦게 많이 받아봐야 건강보험료 많이 나오고 기초연금 감액되고 무조건 일찍받는게 답이다!!!",
    "topic": "늦게 받으면 건보료가 늘고 기초연금이 깎인다 — 연기·조기와 건보료",
    "match": "국민연금.{0,25}(건보료|건강보험)|(건보료|건강보험료).{0,25}국민연금",
-   "matches": 2,
-   "same_country": 2,
-   "recent_same_country": 0,
+   "matches": 3,
+   "same_country": 3,
+   "recent_same_country": 1,
    "top": [
     {
      "id": "3Xc5nEMJ3o8",
@@ -372,7 +372,7 @@
      "subs": 133000,
      "views": 41828,
      "vpd": 235.8,
-     "age_days": 183.5,
+     "age_days": 188.4,
      "published": "2026-04-27",
      "country": "한국",
      "minutes": 29.6
@@ -382,15 +382,27 @@
      "title": "2026년 국민연금 개혁안 총정리. 조기수령후 건보료 폭탄 피하고 S&P 500 ETF으로 노후 월급 만드는 법",
      "channel": "만약에 머니",
      "subs": 33800,
-     "views": 4821,
-     "vpd": 21.1,
-     "age_days": 234.0,
+     "views": 4823,
+     "vpd": 20.2,
+     "age_days": 238.9,
      "published": "2026-03-08",
      "country": "한국",
      "minutes": 16.1
+    },
+    {
+     "id": "rPBBeRIrwpo",
+     "title": "“국민연금 수령 후 건보료 폭탄!” 배당은 이렇게 받으세요",
+     "channel": "은퇴머니 - 은퇴 현금흐름 설계",
+     "subs": 30000,
+     "views": 4531,
+     "vpd": 929.5,
+     "age_days": 4.9,
+     "published": "2026-10-28",
+     "country": "한국",
+     "minutes": 8.9
     }
    ],
-   "newest": "2026-04-27"
+   "newest": "2026-10-28"
   },
   {
    "pick": "K08",
@@ -402,9 +414,9 @@
    "comment": "퇴직하고 지역보험가입자로서의 배당금 관리 궁금해요. 건보료나 종합 소득세에 대한 내용도 말해주셨음 좋겠어요.",
    "topic": "퇴직 뒤 지역가입자의 배당금 — 건보료·종합소득세",
    "match": "배당.{0,20}(건보료|건강보험)|(건보료|건강보험료).{0,20}배당",
-   "matches": 19,
-   "same_country": 19,
-   "recent_same_country": 16,
+   "matches": 20,
+   "same_country": 20,
+   "recent_same_country": 17,
    "top": [
     {
      "id": "yRDpbgaZahc",
@@ -413,7 +425,7 @@
      "subs": 30000,
      "views": 757998,
      "vpd": 5069.2,
-     "age_days": 149.6,
+     "age_days": 154.5,
      "published": "2026-05-31",
      "country": "한국",
      "minutes": 11.4
@@ -425,7 +437,7 @@
      "subs": 57100,
      "views": 131118,
      "vpd": 745.3,
-     "age_days": 182.1,
+     "age_days": 187.0,
      "published": "2026-04-29",
      "country": "한국",
      "minutes": 13.3
@@ -437,7 +449,7 @@
      "subs": 172000,
      "views": 101053,
      "vpd": 998.3,
-     "age_days": 101.3,
+     "age_days": 106.2,
      "published": "2026-07-19",
      "country": "한국",
      "minutes": 27.3
@@ -446,16 +458,16 @@
      "id": "bR3b9oggCkw",
      "title": "'단기간 10조 몰렸다' 연 17%배당, 세금 0원, 건보료 0원. 은퇴자들이 몰래 6조 쏟아부은 '이' ETF (배당의 만장 풀버전) #노후준비 #은퇴 #ETF",
      "channel": "연금박사 이영주",
-     "subs": 446000,
+     "subs": 448000,
      "views": 78389,
      "vpd": 11314.3,
-     "age_days": 16.0,
+     "age_days": 20.9,
      "published": "2026-10-12",
      "country": "한국",
      "minutes": 44.3
     }
    ],
-   "newest": "2026-10-21"
+   "newest": "2026-10-28"
   },
   {
    "pick": "K09",
@@ -467,18 +479,18 @@
    "comment": "항상 깔끔한 영상 잘 보고 있습니다. 올해 etf 수익실현해서 ISA계좌로 옮겼는데, 금융소득이 2천을 살짝 넘겨서 종합금융소득세를 냈어요. 미국 주식 세금도 너무 많이 내는데, 올해 정말 세금 폭탄 맞아서 좌절하고 있느었는데 마침 관심있는 정보를 올려주셨네요. 세금 관련 영상 더 올려주시면 좋겠네요.",
    "topic": "금융소득 2,000만 원을 넘기면 — 금융소득종합과세",
    "match": "금융소득.{0,10}(2천|2,000|종합)|금융소득종합과세",
-   "matches": 9,
-   "same_country": 9,
-   "recent_same_country": 6,
+   "matches": 10,
+   "same_country": 10,
+   "recent_same_country": 7,
    "top": [
     {
      "id": "6ZTQdRN1oI8",
      "title": "금융소득 2,000만원 넘었나? 1분 만에 확인하는 법",
      "channel": "김성일 TV",
      "subs": 28800,
-     "views": 355095,
-     "vpd": 1859.1,
-     "age_days": 196.1,
+     "views": 359674,
+     "vpd": 1789.2,
+     "age_days": 201.0,
      "published": "2026-04-15",
      "country": "한국",
      "minutes": 6.1
@@ -490,7 +502,7 @@
      "subs": 172000,
      "views": 309714,
      "vpd": 291.1,
-     "age_days": 1064.0,
+     "age_days": 1068.9,
      "published": "2023-11-29",
      "country": "한국",
      "minutes": 13.9
@@ -502,7 +514,7 @@
      "subs": 172000,
      "views": 224874,
      "vpd": 1875.7,
-     "age_days": 119.9,
+     "age_days": 124.8,
      "published": "2026-06-30",
      "country": "한국",
      "minutes": 17.2
@@ -514,13 +526,13 @@
      "subs": 165000,
      "views": 209912,
      "vpd": 149.4,
-     "age_days": 1405.2,
+     "age_days": 1410.1,
      "published": "2022-12-23",
      "country": "한국",
      "minutes": 17.9
     }
    ],
-   "newest": "2026-10-16"
+   "newest": "2026-10-28"
   },
   {
    "pick": "K10",
@@ -540,10 +552,10 @@
      "id": "PLPKCxIpZiE",
      "title": "\"월급 250만원, 저러면 이렇게 1억 모읍니다\" 적은 돈으로 쉽고 빠르게 부자되는 법.  (김경필 머니트레이너 2부)",
      "channel": "지식인사이드",
-     "subs": 4130000,
+     "subs": 4150000,
      "views": 2132686,
      "vpd": 2099.1,
-     "age_days": 1016.0,
+     "age_days": 1020.9,
      "published": "2024-01-16",
      "country": "한국",
      "minutes": 16.1
@@ -555,7 +567,7 @@
      "subs": 2730000,
      "views": 1255924,
      "vpd": 983.3,
-     "age_days": 1277.3,
+     "age_days": 1282.2,
      "published": "2023-04-30",
      "country": "한국",
      "minutes": 87.2
@@ -567,7 +579,7 @@
      "subs": 1210000,
      "views": 720457,
      "vpd": 472.4,
-     "age_days": 1525.1,
+     "age_days": 1530.0,
      "published": "2022-08-25",
      "country": "한국",
      "minutes": 17.0
@@ -579,7 +591,7 @@
      "subs": 1850000,
      "views": 422889,
      "vpd": 404.2,
-     "age_days": 1046.3,
+     "age_days": 1051.2,
      "published": "2023-12-17",
      "country": "한국",
      "minutes": 27.2
@@ -608,7 +620,7 @@
      "subs": 15800,
      "views": 28,
      "vpd": 4.7,
-     "age_days": 15.0,
+     "age_days": 19.9,
      "published": "2026-10-13",
      "country": "한국",
      "minutes": 9.8
@@ -635,9 +647,9 @@
      "title": "임의가입으로 국민연금 수령액을 50% 올리는 방법! 은퇴플래너의 가이드",
      "channel": "은퇴할수있을까",
      "subs": 2140,
-     "views": 34428,
-     "vpd": 208.7,
-     "age_days": 170.1,
+     "views": 35585,
+     "vpd": 203.3,
+     "age_days": 175.0,
      "published": "2026-05-11",
      "country": "한국",
      "minutes": 13.1
@@ -647,9 +659,9 @@
      "title": "국민연금 임의가입 얼마나 내야 할까요?",
      "channel": "은퇴할수있을까",
      "subs": 2140,
-     "views": 11017,
-     "vpd": 76.1,
-     "age_days": 149.9,
+     "views": 12059,
+     "vpd": 77.9,
+     "age_days": 154.8,
      "published": "2026-05-31",
      "country": "한국",
      "minutes": 1.6
@@ -660,8 +672,8 @@
      "channel": "Jungestate",
      "subs": 3370,
      "views": 1838,
-     "vpd": 11.1,
-     "age_days": 170.4,
+     "vpd": 10.5,
+     "age_days": 175.3,
      "published": "2026-05-11",
      "country": "한국",
      "minutes": 1.2
@@ -672,8 +684,8 @@
      "channel": "Jungestate",
      "subs": 3370,
      "views": 1733,
-     "vpd": 9.8,
-     "age_days": 182.4,
+     "vpd": 9.3,
+     "age_days": 187.3,
      "published": "2026-04-29",
      "country": "한국",
      "minutes": 1.2
@@ -718,7 +730,7 @@
      "subs": 27800,
      "views": 849384,
      "vpd": 2676.6,
-     "age_days": 317.4,
+     "age_days": 322.3,
      "published": "2025-12-15",
      "country": "한국",
      "minutes": 8.1
@@ -730,7 +742,7 @@
      "subs": 296000,
      "views": 711942,
      "vpd": 78475.8,
-     "age_days": 9.1,
+     "age_days": 14.0,
      "published": "2026-10-19",
      "country": "한국",
      "minutes": 20.2
@@ -742,7 +754,7 @@
      "subs": 1210000,
      "views": 479821,
      "vpd": 1873.2,
-     "age_days": 256.2,
+     "age_days": 261.1,
      "published": "2026-02-14",
      "country": "한국",
      "minutes": 70.2
@@ -754,7 +766,7 @@
      "subs": 1030000,
      "views": 18813,
      "vpd": 3198.2,
-     "age_days": 15.0,
+     "age_days": 19.9,
      "published": "2026-10-13",
      "country": "한국",
      "minutes": 145.7
@@ -783,7 +795,7 @@
      "subs": 286000,
      "views": 455260,
      "vpd": 388.3,
-     "age_days": 1172.4,
+     "age_days": 1177.3,
      "published": "2023-08-13",
      "country": "한국",
      "minutes": 6.1
@@ -795,7 +807,7 @@
      "subs": 172000,
      "views": 307321,
      "vpd": 294.1,
-     "age_days": 1044.9,
+     "age_days": 1049.8,
      "published": "2023-12-18",
      "country": "한국",
      "minutes": 13.5
@@ -807,7 +819,7 @@
      "subs": 103000,
      "views": 204917,
      "vpd": 770.3,
-     "age_days": 266.0,
+     "age_days": 271.0,
      "published": "2026-02-04",
      "country": "한국",
      "minutes": 18.3
@@ -819,7 +831,7 @@
      "subs": 243000,
      "views": 54336,
      "vpd": 312.4,
-     "age_days": 174.0,
+     "age_days": 178.9,
      "published": "2026-05-07",
      "country": "한국",
      "minutes": 10.0
@@ -848,7 +860,7 @@
      "subs": 1890000,
      "views": 707375,
      "vpd": 507.1,
-     "age_days": 1395.0,
+     "age_days": 1399.9,
      "published": "2023-01-02",
      "country": "한국",
      "minutes": 13.7
@@ -857,10 +869,10 @@
      "id": "KEWQXEtfpTI",
      "title": "주택연금 개정! 5억짜리 집은 얼마 받을까?",
      "channel": "연금박사 이영주",
-     "subs": 446000,
+     "subs": 448000,
      "views": 414023,
      "vpd": 4264.1,
-     "age_days": 97.1,
+     "age_days": 102.0,
      "published": "2026-07-23",
      "country": "한국",
      "minutes": 10.0
@@ -872,7 +884,7 @@
      "subs": 959000,
      "views": 273537,
      "vpd": 80130.8,
-     "age_days": 12.5,
+     "age_days": 17.4,
      "published": "2026-10-15",
      "country": "한국",
      "minutes": 12.7
@@ -884,7 +896,7 @@
      "subs": 296000,
      "views": 266666,
      "vpd": 2162.7,
-     "age_days": 123.3,
+     "age_days": 128.2,
      "published": "2026-06-27",
      "country": "한국",
      "minutes": 12.1
@@ -904,7 +916,7 @@
    "match": "다운\\s?사이징|집.{0,6}(줄여|줄이|옮겨)",
    "matches": 4,
    "same_country": 4,
-   "recent_same_country": 4,
+   "recent_same_country": 3,
    "top": [
     {
      "id": "N1AIWaCQyoM",
@@ -913,7 +925,7 @@
      "subs": 541000,
      "views": 129461,
      "vpd": 7147.0,
-     "age_days": 18.1,
+     "age_days": 23.1,
      "published": "2026-10-10",
      "country": "한국",
      "minutes": 10.0
@@ -925,7 +937,7 @@
      "subs": 20000,
      "views": 35128,
      "vpd": 350.4,
-     "age_days": 112.4,
+     "age_days": 117.3,
      "published": "2026-07-08",
      "country": "한국",
      "minutes": 19.6
@@ -935,9 +947,9 @@
      "title": "집 팔았더니 연금이 0원?! 🚨호주에서 다운사이징 함부로 하면 큰일 나는 이유",
      "channel": "Jungestate",
      "subs": 3370,
-     "views": 18601,
-     "vpd": 107.5,
-     "age_days": 178.2,
+     "views": 18633,
+     "vpd": 101.7,
+     "age_days": 183.1,
      "published": "2026-05-03",
      "country": "한국",
      "minutes": 15.6
@@ -949,7 +961,7 @@
      "subs": 342,
      "views": 847,
      "vpd": 155.3,
-     "age_days": 14.6,
+     "age_days": 19.5,
      "published": "2026-10-13",
      "country": "한국",
      "minutes": 13.5
@@ -978,7 +990,7 @@
      "subs": 5300000,
      "views": 2615065,
      "vpd": 8329.8,
-     "age_days": 314.0,
+     "age_days": 318.9,
      "published": "2025-12-18",
      "country": "한국",
      "minutes": 12.5
@@ -987,10 +999,10 @@
      "id": "2aRAQ8HNFpM",
      "title": "\"공무원 연금이 많다고요? 저희도 할 말 있습니다!\" 퇴직 교사가 직접 얘기하는 공무원 연금",
      "channel": "누룽지 - 정보를 구수하고 빠삭하게 알려드림",
-     "subs": 68700,
+     "subs": 69700,
      "views": 980289,
      "vpd": 2853.6,
-     "age_days": 343.6,
+     "age_days": 348.5,
      "published": "2025-11-18",
      "country": "한국",
      "minutes": 17.0
@@ -1002,7 +1014,7 @@
      "subs": 5470000,
      "views": 427166,
      "vpd": 10176.7,
-     "age_days": 48.1,
+     "age_days": 53.0,
      "published": "2026-09-10",
      "country": "한국",
      "minutes": 26.4
@@ -1014,7 +1026,7 @@
      "subs": 1790,
      "views": 30694,
      "vpd": 2598.6,
-     "age_days": 11.8,
+     "age_days": 16.8,
      "published": "2026-10-16",
      "country": "한국",
      "minutes": 34.0
@@ -1032,10 +1044,34 @@
    "comment": "영상에서 청년희망적금 만기 이야기하셨는데 혹시 만기되고 나서 추천하실만한 방향이 있으신지 궁금해요! 청년도약계좌로도 환승이 가능하다던데 짠부님은 어떻게 생각하시는지 의견도 궁금합니다 !!",
    "topic": "청년희망적금 만기 뒤 — 청년도약계좌·청년미래적금 갈아타기",
    "match": "청년\\s?(도약|희망|미래)|도약\\s?계좌",
-   "matches": 7,
-   "same_country": 7,
+   "matches": 9,
+   "same_country": 9,
    "recent_same_country": 7,
    "top": [
+    {
+     "id": "2er5s6PVJe0",
+     "title": "투자를 위한 종잣돈 모으기ㅣ#장병내일준비적금 #군인공제회저축 #병회원저축 #군인적금 #청년도약계좌 #군인월급",
+     "channel": "금융투자아카데미",
+     "subs": 43900,
+     "views": 516783,
+     "vpd": 1541.2,
+     "age_days": 335.3,
+     "published": "2025-12-02",
+     "country": "한국",
+     "minutes": 33.1
+    },
+    {
+     "id": "QyndR-Qr2g4",
+     "title": "돈은 어떻게? 모으고, 불리고, 지키기ㅣ#자립준비청년 #청년내일저축계좌 #청년도약계좌",
+     "channel": "금융투자아카데미",
+     "subs": 43900,
+     "views": 205007,
+     "vpd": 431.3,
+     "age_days": 475.4,
+     "published": "2025-07-15",
+     "country": "한국",
+     "minutes": 29.0
+    },
     {
      "id": "nvlJfvFeiKg",
      "title": "요즘 20대들이 6월만 벼르는 이유 (청년미래적금 최종 정리‼️)",
@@ -1043,7 +1079,7 @@
      "subs": 502000,
      "views": 204226,
      "vpd": 1222.8,
-     "age_days": 167.0,
+     "age_days": 172.0,
      "published": "2026-05-14",
      "country": "한국",
      "minutes": 6.8
@@ -1055,34 +1091,10 @@
      "subs": 1280000,
      "views": 117440,
      "vpd": 910.8,
-     "age_days": 129.0,
+     "age_days": 133.9,
      "published": "2026-06-21",
      "country": "한국",
      "minutes": 44.6
-    },
-    {
-     "id": "nKdlH5lO6pk",
-     "title": "무조건 당장 가입‼️ 50만➡️2250만원 | 청년미래적금 최종 확정 내용 총정리 | 최신 금리 & 은행까지 모두 확인 | 청년도약계좌 갈아타기, 내가 받을 수 있는 돈? | 새니",
-     "channel": "새니 SENI",
-     "subs": 182000,
-     "views": 64770,
-     "vpd": 412.8,
-     "age_days": 163.0,
-     "published": "2026-05-18",
-     "country": "한국",
-     "minutes": 23.7
-    },
-    {
-     "id": "5mfRLppavrc",
-     "title": "청년미래적금 가입 전에 꼭 보세요!",
-     "channel": "청년개미",
-     "subs": 15800,
-     "views": 2071,
-     "vpd": 13.0,
-     "age_days": 165.0,
-     "published": "2026-05-16",
-     "country": "한국",
-     "minutes": 6.9
     }
    ],
    "newest": "2026-10-13"
@@ -1099,7 +1111,7 @@
    "match": "(미성년|자녀|아이).{0,10}(계좌|증여)|증여세",
    "matches": 25,
    "same_country": 25,
-   "recent_same_country": 23,
+   "recent_same_country": 21,
    "top": [
     {
      "id": "EJajY-ZEliM",
@@ -1108,7 +1120,7 @@
      "subs": 1280000,
      "views": 442039,
      "vpd": 1412.5,
-     "age_days": 313.0,
+     "age_days": 317.9,
      "published": "2025-12-19",
      "country": "한국",
      "minutes": 33.7
@@ -1120,7 +1132,7 @@
      "subs": 747000,
      "views": 290884,
      "vpd": 2501.1,
-     "age_days": 116.3,
+     "age_days": 121.2,
      "published": "2026-07-04",
      "country": "한국",
      "minutes": 19.4
@@ -1132,7 +1144,7 @@
      "subs": 747000,
      "views": 258473,
      "vpd": 2931.1,
-     "age_days": 88.2,
+     "age_days": 93.1,
      "published": "2026-08-01",
      "country": "한국",
      "minutes": 17.2
@@ -1144,7 +1156,7 @@
      "subs": 4960,
      "views": 142316,
      "vpd": 9470.3,
-     "age_days": 15.1,
+     "age_days": 20.0,
      "published": "2026-10-13",
      "country": "한국",
      "minutes": 10.7
@@ -1173,7 +1185,7 @@
      "subs": 1150000,
      "views": 412027,
      "vpd": 1872.6,
-     "age_days": 220.1,
+     "age_days": 225.0,
      "published": "2026-03-22",
      "country": "한국",
      "minutes": 11.8
@@ -1183,9 +1195,9 @@
      "title": "슈퍼 isa 통장 드디어 출시예정, 종합과세·건보료까지 비껴가는 5중 절세의 진짜 정체 (국민성장 ISA, 청년형 ISA)",
      "channel": "머니톡 마니업",
      "subs": 1080,
-     "views": 272,
-     "vpd": 1.7,
-     "age_days": 163.5,
+     "views": 274,
+     "vpd": 1.6,
+     "age_days": 168.4,
      "published": "2026-05-17",
      "country": "한국",
      "minutes": 13.4
@@ -1203,9 +1215,9 @@
    "comment": "기존에 혼자살때 돈을 분배하고 저축하고 주식하고 잘 분배했던거 같은데, 부부가 되고나서 소득을 합치고 나니 용돈이 적어서인지 계속 빵꾸나네요ㅠㅠ 혼자 살땐 신용카드도 잘 안썼거든요... 근데 결혼 관련한 명목으로 신용카드 사용량도 늘다보니 감도 안오는 상태로 긁고 있구요... 필요하기는 또 필요한 물건들이지만요... 책도 받고싶지만 정말 김경필 선생님의 조언이 궁금합니다... 그냥 어쩔수없는 개념으로 용돈 빵뀨 안나게 조절하는거 뿐이 방법일까요??😢",
    "topic": "신혼부부 돈 관리 — 합칠까 나눌까",
    "match": "신혼|부부.{0,6}(돈|통장|월급).{0,6}(합치|관리|따로)",
-   "matches": 32,
-   "same_country": 32,
-   "recent_same_country": 28,
+   "matches": 38,
+   "same_country": 38,
+   "recent_same_country": 32,
    "top": [
     {
      "id": "wCBFOzu5RUs",
@@ -1214,7 +1226,7 @@
      "subs": 9520,
      "views": 3069065,
      "vpd": 1669.5,
-     "age_days": 1838.4,
+     "age_days": 1843.3,
      "published": "2021-10-16",
      "country": "한국",
      "minutes": 10.7
@@ -1226,7 +1238,7 @@
      "subs": 77900,
      "views": 1076278,
      "vpd": 34824.9,
-     "age_days": 30.9,
+     "age_days": 35.9,
      "published": "2026-09-27",
      "country": "한국",
      "minutes": 44.6
@@ -1238,25 +1250,25 @@
      "subs": 26500,
      "views": 870432,
      "vpd": 1250.7,
-     "age_days": 696.0,
+     "age_days": 700.9,
      "published": "2024-12-01",
      "country": "한국",
      "minutes": 10.9
     },
     {
-     "id": "54WxXQRib4M",
-     "title": "48만 경제유튜버가 충격받은 신혼부부 돈관리법",
-     "channel": "시골쥐의 도시생활",
-     "subs": 502000,
-     "views": 291521,
-     "vpd": 1056.4,
-     "age_days": 276.0,
-     "published": "2026-01-25",
+     "id": "rervUK6Ww5A",
+     "title": "나 내쫓고 신혼집 차리려던 언니, 땡전 한 푼 없이 고시원으로 추방시킴",
+     "channel": "리얼톡툰",
+     "subs": 15400,
+     "views": 308789,
+     "vpd": 7490.9,
+     "age_days": 41.2,
+     "published": "2026-09-22",
      "country": "한국",
-     "minutes": 9.4
+     "minutes": 11.9
     }
    ],
-   "newest": "2026-10-25"
+   "newest": "2026-10-27"
   },
   {
    "pick": "K23",
@@ -1268,8 +1280,8 @@
    "comment": "짠부님 카카오뱅크랑 케이뱅크도 상품 많잖아요. 카뱅은 매일 적금 8%짜리랑 26주 풍차돌리기도 사람들 많이하고... 토스-카뱅-케이뱅크 셋중에 어떤식으로 예적금 해나가면 좋은지 비교해주세요.",
    "topic": "예적금 어디에 — 파킹통장·적금 비교",
    "match": "파킹\\s?통장|예적금|적금.{0,6}(비교|추천|금리)",
-   "matches": 34,
-   "same_country": 34,
+   "matches": 35,
+   "same_country": 35,
    "recent_same_country": 19,
    "top": [
     {
@@ -1279,7 +1291,7 @@
      "subs": 2120000,
      "views": 1232510,
      "vpd": 2720.8,
-     "age_days": 453.0,
+     "age_days": 457.9,
      "published": "2025-08-01",
      "country": "한국",
      "minutes": 16.1
@@ -1291,7 +1303,7 @@
      "subs": 2120000,
      "views": 1113386,
      "vpd": 1075.4,
-     "age_days": 1035.3,
+     "age_days": 1040.2,
      "published": "2023-12-28",
      "country": "한국",
      "minutes": 21.8
@@ -1303,7 +1315,7 @@
      "subs": 1150000,
      "views": 1060779,
      "vpd": 6030.9,
-     "age_days": 182.0,
+     "age_days": 186.9,
      "published": "2026-04-29",
      "country": "한국",
      "minutes": 14.9
@@ -1312,16 +1324,16 @@
      "id": "A5PW2ikr63k",
      "title": "예적금, 그냥 넣고 있었다면 손해예요. 이자 2배 받는 법 알려드릴게요!",
      "channel": "보보스_부르주아 보헤미안",
-     "subs": 73900,
+     "subs": 73800,
      "views": 939047,
      "vpd": 1658.8,
-     "age_days": 566.1,
+     "age_days": 571.0,
      "published": "2025-04-10",
      "country": "한국",
      "minutes": 14.3
     }
    ],
-   "newest": "2026-10-24"
+   "newest": "2026-10-30"
   },
   {
    "pick": "K24",
@@ -1341,10 +1353,10 @@
      "id": "V4mCCBmoCdc",
      "title": "국채 금리 5% 시대에 현명하게 미국주식 하는 법",
      "channel": "PLUS TV (플러스 TV)",
-     "subs": 166000,
+     "subs": 169000,
      "views": 1349081,
      "vpd": 103203.7,
-     "age_days": 13.1,
+     "age_days": 18.0,
      "published": "2026-10-15",
      "country": "한국",
      "minutes": 33.2
@@ -1356,7 +1368,7 @@
      "subs": 1280000,
      "views": 618023,
      "vpd": 21893.4,
-     "age_days": 28.3,
+     "age_days": 33.2,
      "published": "2026-09-30",
      "country": "한국",
      "minutes": 6.6
@@ -1365,10 +1377,10 @@
      "id": "W8gLNcBmLLE",
      "title": "[이슈읽기] \"'큰손'들은 조용히 돈의 방향을 틀었다\"...국채금리 5.2%까지 급등, 지금 놓치면 안 될 '매크로 시그널' / 교양이를 부탁해",
      "channel": "교양이를 부탁해",
-     "subs": 504000,
+     "subs": 508000,
      "views": 556621,
      "vpd": 17212.3,
-     "age_days": 32.4,
+     "age_days": 37.3,
      "published": "2026-09-26",
      "country": "한국",
      "minutes": 39.1
@@ -1377,10 +1389,10 @@
      "id": "FofrXdi0mXY",
      "title": "1억 넣으면 월100만원 '따박따박' 꽂히는미국 국채 월배당ETF투자법. 직장인도 가능(월가 출신 교수 노트)",
      "channel": "여운봉 부자사관학교",
-     "subs": 177000,
+     "subs": 178000,
      "views": 326207,
      "vpd": 1067.7,
-     "age_days": 305.6,
+     "age_days": 310.5,
      "published": "2025-12-26",
      "country": "한국",
      "minutes": 22.8
@@ -1406,10 +1418,10 @@
      "id": "zOLKaMiqMzw",
      "title": "“나 빼고 다 받는다.” 기초연금 억울하게 탈락하는 5가지 경우 (이영주 대표 2부)",
      "channel": "지식인사이드",
-     "subs": 4130000,
+     "subs": 4150000,
      "views": 3136944,
      "vpd": 3703.6,
-     "age_days": 847.0,
+     "age_days": 852.0,
      "published": "2024-07-03",
      "country": "한국",
      "minutes": 16.4
@@ -1421,7 +1433,7 @@
      "subs": 228000,
      "views": 2417383,
      "vpd": 10271.7,
-     "age_days": 235.4,
+     "age_days": 240.3,
      "published": "2026-03-07",
      "country": "한국",
      "minutes": 19.9
@@ -1433,7 +1445,7 @@
      "subs": 27800,
      "views": 849384,
      "vpd": 2676.6,
-     "age_days": 317.4,
+     "age_days": 322.3,
      "published": "2025-12-15",
      "country": "한국",
      "minutes": 8.1
@@ -1445,7 +1457,7 @@
      "subs": 2830000,
      "views": 664567,
      "vpd": 1235.0,
-     "age_days": 538.1,
+     "age_days": 543.0,
      "published": "2025-05-08",
      "country": "한국",
      "minutes": 23.1
@@ -1463,8 +1475,8 @@
    "comment": "대학생 자녀를 주주로 포함시켜 월 50만원 정도의 배당을 받게 한다면, 대학생 자녀도 건보료나 소득세를 내야 하나요? 만약 내야 한다면, 배당을 한 달에 얼마 정도 받아야 건보료나 소득세를 안 낼 수 있을까요?",
    "topic": "대학생 자녀 소득(배당)이 있으면 — 피부양자·건보료 기준",
    "match": "(자녀|대학생|아이).{0,20}(건보료|피부양자|소득세)|피부양자",
-   "matches": 11,
-   "same_country": 11,
+   "matches": 12,
+   "same_country": 12,
    "recent_same_country": 8,
    "top": [
     {
@@ -1472,9 +1484,9 @@
      "title": "배당 연 1억 받아도 건보료 0원? 피부양자 지키는 2가지 전략 (2026)",
      "channel": "술술 경제학",
      "subs": 17600,
-     "views": 60141,
-     "vpd": 338.1,
-     "age_days": 184.0,
+     "views": 60170,
+     "vpd": 318.5,
+     "age_days": 188.9,
      "published": "2026-04-27",
      "country": "한국",
      "minutes": 23.4
@@ -1486,7 +1498,7 @@
      "subs": 3710,
      "views": 20528,
      "vpd": 93.7,
-     "age_days": 219.0,
+     "age_days": 224.0,
      "published": "2026-03-23",
      "country": "한국",
      "minutes": 22.0
@@ -1496,9 +1508,9 @@
      "title": "국민연금 언제 받을까? 배당금·피부양자까지 [몰아보기]",
      "channel": "은퇴머니 - 은퇴 현금흐름 설계",
      "subs": 30000,
-     "views": 15975,
-     "vpd": 592.3,
-     "age_days": 32.1,
+     "views": 16002,
+     "vpd": 432.5,
+     "age_days": 37.0,
      "published": "2026-09-26",
      "country": "한국",
      "minutes": 28.1
@@ -1507,16 +1519,276 @@
      "id": "ZQn83JXolVM",
      "title": "자녀에게 국내 ETF 증여했다가 세금·건보료까지 내는 이유 | 황혜린 세무사 | 연금받는형",
      "channel": "연금 받는 형",
-     "subs": 21900,
-     "views": 4631,
-     "vpd": 311.9,
-     "age_days": 20.0,
+     "subs": 22700,
+     "views": 4745,
+     "vpd": 190.7,
+     "age_days": 24.9,
      "published": "2026-10-08",
      "country": "한국",
      "minutes": 27.6
     }
    ],
-   "newest": "2026-10-21"
+   "newest": "2026-10-28"
+  },
+  {
+   "pick": "K27",
+   "country": "한국",
+   "kind": "주장·믿음",
+   "likes": 419,
+   "video_id": "EohbxcEnCYw",
+   "video_title": "연금저축, IRP, ISA만 있으면 저축 계좌 필요없다고? ㄷㄷ💰ㅣ타이머 / 14F",
+   "comment": "수입이 많은 사람이나 IRP 필요하지... 유동현금 부족한 사람은 만들어봤자 깨서 세금만 더 많이 냅니다 집 살 계획이 있다면 절대 돈 넣지 마세요",
+   "topic": "IRP 깨면 세금만 더 — 집 살 계획·현금이 모자란 사람의 IRP",
+   "match": "IRP.{0,15}(해지|중도|인출|깨)|IRP.{0,10}(필요|하지 마)",
+   "matches": 9,
+   "same_country": 9,
+   "recent_same_country": 8,
+   "top": [
+    {
+     "id": "YoChWtVN-34",
+     "title": "연금계좌(연금저축,IRP) 1,500만원 초과 인출해도 16.5% 세금 안 내는 방법이 있습니다. [김범곤의 연금수업]",
+     "channel": "김범곤의 연금수업",
+     "subs": 103000,
+     "views": 204917,
+     "vpd": 770.3,
+     "age_days": 271.0,
+     "published": "2026-02-04",
+     "country": "한국",
+     "minutes": 18.3
+    },
+    {
+     "id": "Uv3FpJVvy8A",
+     "title": "연금저축·IRP, 세금 가장 적게 내는 인출 순서 | 황혜린 세무사 | 연금받는형",
+     "channel": "연금 받는 형",
+     "subs": 22700,
+     "views": 59981,
+     "vpd": 2512.1,
+     "age_days": 23.9,
+     "published": "2026-10-09",
+     "country": "한국",
+     "minutes": 28.9
+    },
+    {
+     "id": "aKOThY4Z65g",
+     "title": "퇴직금 받은 IRP계좌 해지하고 일반계좌로 옮기렵니다. [김범곤의 연금수업]",
+     "channel": "김범곤의 연금수업",
+     "subs": 103000,
+     "views": 41648,
+     "vpd": 355.9,
+     "age_days": 122.0,
+     "published": "2026-07-03",
+     "country": "한국",
+     "minutes": 13.7
+    },
+    {
+     "id": "R43dx4U6_1U",
+     "title": "국내주식형 커버드콜 월배당 ETF 3개로 완성하는 IRP 여유생활비 인출법 1억 월 127만원 공개",
+     "channel": "김범곤의 연금수업",
+     "subs": 103000,
+     "views": 38221,
+     "vpd": 2122.2,
+     "age_days": 23.0,
+     "published": "2026-10-10",
+     "country": "한국",
+     "minutes": 20.2
+    }
+   ],
+   "newest": "2026-10-14"
+  },
+  {
+   "pick": "K28",
+   "country": "한국",
+   "kind": "주장·믿음",
+   "likes": 518,
+   "video_id": "5ywzBxk-CIk",
+   "video_title": "부부가 국민연금 받으면 최악의 상황 옵니다 (엠코글로벌 신승식 교육본부장)",
+   "comment": "유족연금 반드시 개혁해야한다",
+   "topic": "부부가 둘 다 국민연금 받다 한 사람이 떠나면 — 유족연금",
+   "match": "유족\\s?연금|부부.{0,10}국민연금",
+   "matches": 4,
+   "same_country": 4,
+   "recent_same_country": 4,
+   "top": [
+    {
+     "id": "EndsWPoJmqc",
+     "title": "부부 국민연금, 받는 순서 하나로 수천만원 갈립니다 | 외벌이·맞벌이 완전히 다릅니다",
+     "channel": "만약에 머니",
+     "subs": 33800,
+     "views": 142995,
+     "vpd": 929.0,
+     "age_days": 153.9,
+     "published": "2026-06-01",
+     "country": "한국",
+     "minutes": 15.5
+    },
+    {
+     "id": "Ii2N_x82pyE",
+     "title": "\"남편 유족연금 하나도 안쓰고 있어\" 암 투병 2달 전까지 일하다 가신 영감님을 만난다면 뭘 해드리고 싶나요?",
+     "channel": "할티비",
+     "subs": 44300,
+     "views": 71820,
+     "vpd": 5553.9,
+     "age_days": 23.0,
+     "published": "2026-10-10",
+     "country": "한국",
+     "minutes": 11.9
+    },
+    {
+     "id": "_b2hu5UsSZc",
+     "title": "증여, 기초연금, 유족연금 제대로 알고 있나. 노후에 내 돈 지키는 최소한의 3가지 방법.",
+     "channel": "머니랩 : 내 돈 지키는 투자법",
+     "subs": 382,
+     "views": 655,
+     "vpd": 10.4,
+     "age_days": 63.0,
+     "published": "2026-08-31",
+     "country": "한국",
+     "minutes": 7.8
+    },
+    {
+     "id": "-G7cYGfXQMI",
+     "title": "배우자가 먼저 떠나면 국민연금은 얼마가 남을까 — 유족연금의 불편한 진실",
+     "channel": "Ah Gong Talks Money",
+     "subs": 5820,
+     "views": 127,
+     "vpd": 3.3,
+     "age_days": 39.1,
+     "published": "2026-09-24",
+     "country": "한국",
+     "minutes": 16.7
+    }
+   ],
+   "newest": "2026-10-10"
+  },
+  {
+   "pick": "K29",
+   "country": "한국",
+   "kind": "주장·믿음",
+   "likes": 359,
+   "video_id": "dpeAk8_oRNs",
+   "video_title": "적은 돈을 큰 돈으로 불리는 가장 확실한 투자 전략ㅣ지식인초대석 EP.39 (오건영 단장 2부)",
+   "comment": "폭락에 버티는 방법은 애초에 투자시 말 그대로 없어도 되는 돈, 혹은 몇개월치 생활비를 여유자금으로 빼놓고 투자해야 폭락이 와도 버틸 수 있습니다... 절대 자산의 대부분을 투자하지 마세요. 빼고싶지 않아도 손실중에 눈물 머금고 빼야하는 경우가 생깁니다.",
+   "topic": "비상금·여유자금은 생활비 몇 달 치 — 투자 전에 떼어 둘 돈",
+   "match": "비상금|여유\\s?자금|생활비.{0,6}개월",
+   "matches": 7,
+   "same_country": 7,
+   "recent_same_country": 6,
+   "top": [
+    {
+     "id": "bui_7OGbgoc",
+     "title": "여유자금을 활용하는 방법 - [조랩] 재테크 공부 #15",
+     "channel": "조랩 Cholab",
+     "subs": 13100,
+     "views": 229547,
+     "vpd": 73.1,
+     "age_days": 3145.9,
+     "published": "2018-03-23",
+     "country": "한국",
+     "minutes": 5.3
+    },
+    {
+     "id": "mWXpJAKW3Hk",
+     "title": "비상금 1,000만 원이 당신의 삶을 바꾸는 이유",
+     "channel": "돈의 통찰",
+     "subs": 3920,
+     "views": 29198,
+     "vpd": 292.1,
+     "age_days": 100.0,
+     "published": "2026-07-25",
+     "country": "한국",
+     "minutes": 20.6
+    },
+    {
+     "id": "QTnWCugz_T4",
+     "title": "비상금 꼭 챙기는 사람들, 사실 이런 사람들입니다 (불안해서가 아닙니다)",
+     "channel": "심리잔고",
+     "subs": 144,
+     "views": 19871,
+     "vpd": 1989.9,
+     "age_days": 14.9,
+     "published": "2026-10-18",
+     "country": "한국",
+     "minutes": 12.8
+    },
+    {
+     "id": "8qoSiv91mhs",
+     "title": "상품권 모아 비상금처럼 쓰는 50대 주부의 살림 노하우",
+     "channel": "안여사네 작은집",
+     "subs": 1960,
+     "views": 8784,
+     "vpd": 282.3,
+     "age_days": 31.1,
+     "published": "2026-10-02",
+     "country": "한국",
+     "minutes": 14.2
+    }
+   ],
+   "newest": "2026-10-30"
+  },
+  {
+   "pick": "K30",
+   "country": "한국",
+   "kind": "질문·요청",
+   "likes": 737,
+   "video_id": "xOxwk-xYps0",
+   "video_title": "\"S&P500 이걸로 사면 됩니다\" 잘못사면 3배 차이나는 이유 (주식 사는 방법, 어플 검색하는 방법)",
+   "comment": "속도가 너무 좋다 ㅋㅋㅋㅋ 속시원해요... ㅎㅎ 미래에셋 만들었는데.. 통장이 4개가 생겼어요... 이것도 알려주세요... 종합_주식, 종합_CMA(주식),종합_CMA, 연금저축...",
+   "topic": "증권사 통장이 4개 — 종합·CMA·연금저축은 무엇이 다른가",
+   "match": "CMA|통장\\s?쪼개|파킹",
+   "matches": 29,
+   "same_country": 29,
+   "recent_same_country": 16,
+   "top": [
+    {
+     "id": "d-_Gx75lQdA",
+     "title": "김경필 작가ㅣ\"월급 받으면 바로 여기에 송금하세요\" 가만히 있어도 1억 모이는 통장 쪼개기 기술 공개합니다 (3부) / 경제일타강사",
+     "channel": "경제야놀자",
+     "subs": 379000,
+     "views": 2296406,
+     "vpd": 1921.6,
+     "age_days": 1200.0,
+     "published": "2023-07-21",
+     "country": "한국",
+     "minutes": 23.6
+    },
+    {
+     "id": "Sk1JarcNNNs",
+     "title": "남는 현금은 모두 CMA에 넣어둬야 하는 이유 | 계좌공부ㅣCMAㅣver.2025",
+     "channel": "박곰희TV",
+     "subs": 1280000,
+     "views": 1258116,
+     "vpd": 1966.1,
+     "age_days": 644.9,
+     "published": "2025-01-26",
+     "country": "한국",
+     "minutes": 10.0
+    },
+    {
+     "id": "hkOHTeYBA7M",
+     "title": "(광고x) \"적금 제발 그만 하세요\" 1억 빨리 모으려면 무조건 '이 통장' 만드세요. 파킹통장, CMA 아닙니다 #돈쭐남 #김경필",
+     "channel": "부티플 - 부의 배수를 높여라",
+     "subs": 1210000,
+     "views": 587505,
+     "vpd": 1142.1,
+     "age_days": 519.4,
+     "published": "2025-06-01",
+     "country": "한국",
+     "minutes": 13.7
+    },
+    {
+     "id": "zYBnZLfg6DM",
+     "title": "광고❌ “통장에 100~500만 원 있다면 여기에 넣으세요” 적금보다 쉬운 매달 돈 주는파킹통장 추천",
+     "channel": "김짠부",
+     "subs": 1150000,
+     "views": 529416,
+     "vpd": 2688.1,
+     "age_days": 201.9,
+     "published": "2026-04-14",
+     "country": "한국",
+     "minutes": 11.4
+    }
+   ],
+   "newest": "2026-10-30"
   }
  ]
 }

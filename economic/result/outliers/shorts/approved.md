@@ -1,78 +1,87 @@
-# 받은 쇼츠 전부 — 재테크 (258개, 업로드 최근 순)
+# 받은 쇼츠 전부 — 재테크 (326개, 업로드 최근 순)
 
 웹 화면 [쇼츠]에서 승인해 자료(설명·자막·표지·댓글 전부)를 받은 쇼츠. 폴더 `S_<영상ID>` 에 원문. ※ 연구·교육용.
 
 | 올린 날 | 제목 | 채널 | 구독자 | 조회수 | 배수 | 채널 평소 대비 | 길이 | 성공 # | 뺀 까닭 | 글 출처 | 댓글 | 폴더 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| 2026-10-21 | [국민연금을 생각하는 두 세대의 차이](https://www.youtube.com/shorts/ii2HVHNwFzY) | 쇼도독 | 31,900 | 1,331,069 | ×41.73 | ×23.9 | 15초 | 6 |  | 없음 | 392 | [`S_ii2HVHNwFzY`](S_ii2HVHNwFzY) |
-| 2026-10-19 | [곽상준 증시각도기 ∣ 주식 유투버들 입으로만 투자하는 사람들이 너무 많아요 #…](https://www.youtube.com/shorts/5k9Wf6IvO3Y) | 케이닷 | 9,540 | 79,206 | ×8.3 | ×4.1 | 30초 | 38 |  | 없음 | 26 | [`S_5k9Wf6IvO3Y`](S_5k9Wf6IvO3Y) |
+| 2026-10-31 | [챗GPT가 알려준 부자 되는 법이 이상하다](https://www.youtube.com/shorts/BQfQmAnSSZU) | KNOW? | 32,300 | 1,093,275 | ×33.85 | – | 5초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 162 | [`S_BQfQmAnSSZU`](S_BQfQmAnSSZU) |
+| 2026-10-30 | [연금저축펀드 제발 2만 원씩이라도 넣으세요](https://www.youtube.com/shorts/zDtc6d3QVA0) | 김짠부 | 1,150,000 | 142,569 | ×0.12 | – | 89초 |  |  | 설명 | 63 | [`S_zDtc6d3QVA0`](S_zDtc6d3QVA0) |
+| 2026-10-27 | [재산을 빨리 불리는 1 to 10 법칙 💰 부자 되는 10가지 돈 관리 습관 …](https://www.youtube.com/shorts/BhDFC4BBvw4) | 내 새끼에게 들려주는 이… | 8,850 | 639,523 | ×72.26 | – | 6초 | 4 |  | 설명 | 3 | [`S_BhDFC4BBvw4`](S_BhDFC4BBvw4) |
+| 2026-10-26 | ["제발 그 생각 접으세요!" 도시계획 박사가 경고하는 노후 최악의 집 TOP …](https://www.youtube.com/shorts/6LWAizK3SaE) | 너와 나의 경제학교 | 36,400 | 150,958 | ×4.15 | ×1.6 | 146초 | 43 |  | 설명 | 91 | [`S_6LWAizK3SaE`](S_6LWAizK3SaE) |
+| 2026-10-21 | [시골 말고 여기 가세요! 노년에 살기 좋은 대한민국 TOP3](https://www.youtube.com/shorts/-zUqrCYfffE) | 너와 나의 경제학교 | 36,400 | 848,370 | ×23.31 | ×8.9 | 149초 | 25 |  | 설명 | 891 | [`S_-zUqrCYfffE`](S_-zUqrCYfffE) |
+| 2026-10-21 | [외국인이 보면 깜짝 놀라는 한국 노후의 진짜 모습 5가지! 우리만 당연하게 여…](https://www.youtube.com/shorts/bQy8gGednXY) | 따순이 | 12,300 | 496,388 | ×40.36 | ×15.1 | 143초 | 14 |  | 설명 | 110 | [`S_bQy8gGednXY`](S_bQy8gGednXY) |
+| 2026-10-21 | [국민연금을 생각하는 두 세대의 차이](https://www.youtube.com/shorts/ii2HVHNwFzY) | 쇼도독 | 31,900 | 1,331,069 | ×41.73 | ×23.9 | 15초 | 7 |  | 없음 | 392 | [`S_ii2HVHNwFzY`](S_ii2HVHNwFzY) |
+| 2026-10-20 | [1억도 필요없고 5천만 모으세요 ∣ 절세미녀](https://www.youtube.com/shorts/B9HxeZRzIm8) | 절세미녀 김희연 회계사 | 198,000 | 430,396 | ×2.17 | – | 83초 |  |  | 설명 | 378 | [`S_B9HxeZRzIm8`](S_B9HxeZRzIm8) |
+| 2026-10-19 | [곽상준 증시각도기 ∣ 주식 유투버들 입으로만 투자하는 사람들이 너무 많아요 #…](https://www.youtube.com/shorts/5k9Wf6IvO3Y) | 케이닷 | 9,540 | 79,206 | ×8.3 | ×4.1 | 30초 | 44 |  | 없음 | 26 | [`S_5k9Wf6IvO3Y`](S_5k9Wf6IvO3Y) |
 | 2026-10-19 | [황현희가 주식 초보에게 권한 책 2권 ∣ 코스톨라니 · 하워드 막스](https://www.youtube.com/shorts/GJAy-J7m3wY) | 60초책소개 | 589 | 155,694 | ×264.34 | ×99.1 | 50초 | 2 |  | 설명 | 36 | [`S_GJAy-J7m3wY`](S_GJAy-J7m3wY) |
-| 2026-10-18 | [40년 친구 둘이 짜고 내 노후자금을 털어갔습니다 #shorts #노후사연 #…](https://www.youtube.com/shorts/t70jWeJL51Q) | 반전그리고감동 | 1,710 | 73,638 | ×43.06 | ×10.8 | 96초 | 15 |  | 설명 | 3 | [`S_t70jWeJL51Q`](S_t70jWeJL51Q) |
+| 2026-10-18 | [40년 친구 둘이 짜고 내 노후자금을 털어갔습니다 #shorts #노후사연 #…](https://www.youtube.com/shorts/t70jWeJL51Q) | 반전그리고감동 | 1,710 | 73,638 | ×43.06 | ×10.8 | 96초 | 18 |  | 설명 | 3 | [`S_t70jWeJL51Q`](S_t70jWeJL51Q) |
+| 2026-10-17 | [평생 가난을 벗어나는 기적의 돈 관리 습관](https://www.youtube.com/shorts/eeIabsvQmRI) | 100세 다이어리 | 13,500 | 275,994 | ×20.44 | ×6.1 | 9초 | 32 |  | 설명 | 9 | [`S_eeIabsvQmRI`](S_eeIabsvQmRI) |
 | 2026-10-13 | [함익병 '노후자금보다 건강테크'](https://www.youtube.com/shorts/tHODQvOwSxw) | 김 씨 네 | 14,400 | 103,726 | ×7.2 | ×1.5 | 42초 |  | 돈 이야기 아님 — 다른 뜻(눈으로… | 없음 | 23 | [`S_tHODQvOwSxw`](S_tHODQvOwSxw) |
-| 2026-10-12 | [주식 차트보는법이 어려워도 넘쳐나는 캔들 차트 중에 이거 하나는 외우세요](https://www.youtube.com/shorts/rAAtXjvHdFE) | 머니벌크업ㅣ주식PT | 26,200 | 234,628 | ×8.96 | ×5.9 | 29초 | 52 |  | 설명 | 8 | [`S_rAAtXjvHdFE`](S_rAAtXjvHdFE) |
-| 2026-10-11 | [집도 노후 자금도 가져가더니 “요양원 가!”… 엄마가 꺼낸 한 장](https://www.youtube.com/shorts/tOQJdF4i4g0) | 반전톡톡 | 12,200 | 69,560 | ×5.7 | ×3.7 | 31초 | 64 |  | 설명 | 11 | [`S_tOQJdF4i4g0`](S_tOQJdF4i4g0) |
-| 2026-10-10 | [부자들은 절대 말 안 해주는 '돈 보는 눈' 8가지 💰 이거 모르면 평생 제자리](https://www.youtube.com/shorts/0IaHSLA6WdQ) | 이태백TV | 6,790 | 247,169 | ×36.4 | ×11.1 | 7초 | 25 |  | 설명 | 2 | [`S_0IaHSLA6WdQ`](S_0IaHSLA6WdQ) |
+| 2026-10-12 | [주식 차트보는법이 어려워도 넘쳐나는 캔들 차트 중에 이거 하나는 외우세요](https://www.youtube.com/shorts/rAAtXjvHdFE) | 머니벌크업ㅣ주식PT | 26,200 | 234,628 | ×8.96 | ×5.9 | 29초 | 58 |  | 설명 | 8 | [`S_rAAtXjvHdFE`](S_rAAtXjvHdFE) |
+| 2026-10-11 | [집도 노후 자금도 가져가더니 “요양원 가!”… 엄마가 꺼낸 한 장](https://www.youtube.com/shorts/tOQJdF4i4g0) | 반전톡톡 | 12,200 | 69,560 | ×5.7 | ×3.7 | 31초 | 70 |  | 설명 | 11 | [`S_tOQJdF4i4g0`](S_tOQJdF4i4g0) |
+| 2026-10-10 | [부자들은 절대 말 안 해주는 '돈 보는 눈' 8가지 💰 이거 모르면 평생 제자리](https://www.youtube.com/shorts/0IaHSLA6WdQ) | 이태백TV | 6,790 | 247,169 | ×36.4 | ×11.1 | 7초 | 29 |  | 설명 | 2 | [`S_0IaHSLA6WdQ`](S_0IaHSLA6WdQ) |
 | 2026-10-10 | [한국의 천재 외과의사가 국내주식에서 260배를 불린 방법 (RSI, 볼린저밴드…](https://www.youtube.com/shorts/qZoFFprNl9A) | 머니벌크업ㅣ주식PT | 26,200 | 70,891 | ×2.71 | ×1.8 | 53초 |  |  | 설명 | 21 | [`S_qZoFFprNl9A`](S_qZoFFprNl9A) |
 | 2026-10-10 | [8년동안 32조원을 번 미국의 한 기관투자자 출신의 사업가가 말하는 '종목을 …](https://www.youtube.com/shorts/A9Z1xA8w7a0) | 수익탐정사무소 | 21,300 | 438,581 | ×20.59 | ×0.7 | 58초 |  |  | 설명 | 116 | [`S_A9Z1xA8w7a0`](S_A9Z1xA8w7a0) |
-| 2026-10-10 | [중국 경제 최악인데… 오히려 무서운 이유 (Feat. 김효진 신영증권 박사) …](https://www.youtube.com/shorts/gAt0rGwBIZg) | 핀플 - Finple | 47,400 | 1,330,703 | ×28.07 | ×341.0 | 52초 | 28 |  | 설명 | 69 | [`S_gAt0rGwBIZg`](S_gAt0rGwBIZg) |
+| 2026-10-10 | [중국 경제 최악인데… 오히려 무서운 이유 (Feat. 김효진 신영증권 박사) …](https://www.youtube.com/shorts/gAt0rGwBIZg) | 핀플 - Finple | 47,400 | 1,330,703 | ×28.07 | ×341.0 | 52초 | 33 |  | 설명 | 69 | [`S_gAt0rGwBIZg`](S_gAt0rGwBIZg) |
 | 2026-10-09 | [노후 자금 넉넉하게 모이는 이름 글자](https://www.youtube.com/shorts/vb2qFDG_1No) | 운수대통 | 9,220 | 192,461 | ×20.87 | ×2.9 | 9초 |  | 돈 이야기 아님 — 운세·사주(이름… | 없음 | 6 | [`S_vb2qFDG_1No`](S_vb2qFDG_1No) |
-| 2026-10-09 | [돈을 모으고 싶게 만드는 저금통의 비밀](https://www.youtube.com/shorts/iuYzXlP-Pqo) | 발견했음 | 11,600 | 1,791,686 | ×154.46 | ×43.0 | 17초 | 5 |  | 설명 | 231 | [`S_iuYzXlP-Pqo`](S_iuYzXlP-Pqo) |
+| 2026-10-09 | [돈을 모으고 싶게 만드는 저금통의 비밀](https://www.youtube.com/shorts/iuYzXlP-Pqo) | 발견했음 | 11,600 | 1,791,686 | ×154.46 | ×43.0 | 17초 | 6 |  | 설명 | 231 | [`S_iuYzXlP-Pqo`](S_iuYzXlP-Pqo) |
 | 2026-10-09 | [재건축으로 38억 벌었지만 연금없이 전세사는 86세 어르신 #노후준비 #시니어…](https://www.youtube.com/shorts/McLwrXL_5oQ) | 아니모 인생기록관 | 24,100 | 703,971 | ×29.21 | ×29.2 | 55초 |  | 뺀 주제(전세) | 설명 | 108 | [`S_McLwrXL_5oQ`](S_McLwrXL_5oQ) |
 | 2026-10-08 | [홍콩의 한 천재 대학생이 180만 원으로 시작해 1년에 969% 수익을 낸 방…](https://www.youtube.com/shorts/aZDVXXmgZWY) | 부자컨닝 | 4,150 | 95,416 | ×22.99 | ×1.4 | 60초 |  |  | 설명 | 26 | [`S_aZDVXXmgZWY`](S_aZDVXXmgZWY) |
 | 2026-10-08 | [구치소에서 영치금으로 재테크하는 윤석열 부부에 서영교 극대노 일갈](https://www.youtube.com/shorts/NA7gXVum_N4) | 잼프사이다 | 16,300 | 212,266 | ×13.02 | ×5.5 | 26초 |  | 돈 이야기 아님 — 정치(윤석열) | 없음 | 181 | [`S_NA7gXVum_N4`](S_NA7gXVum_N4) |
 | 2026-10-07 | [파란만장뒤에 행복한 노후 #선우용여](https://www.youtube.com/shorts/4LJCpvJDzUw) | 웃참실패 | 22,500 | 240,749 | ×10.7 | ×1.4 | 53초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 27 | [`S_4LJCpvJDzUw`](S_4LJCpvJDzUw) |
 | 2026-10-07 | [청년 사회초년생 재테크 티어](https://www.youtube.com/shorts/ZDrVLO2hcwo) | 프쌤 ∣ 프라임로드 | 244 | 378,750 | ×1552.25 | ×313.3 | 34초 | 1 |  | 자막 | 27 | [`S_ZDrVLO2hcwo`](S_ZDrVLO2hcwo) |
 | 2026-10-07 | [노후가 편안하려면 이렇게 하세요 #shorts #인생조언 #인생명언](https://www.youtube.com/shorts/fa-osTzf8SE) | 진실수호 | 22,300 | 220,970 | ×9.91 | ×61.5 | 32초 |  | 돈 이야기 아님 — 명언·인생조언(… | 설명 | 27 | [`S_fa-osTzf8SE`](S_fa-osTzf8SE) |
-| 2026-10-06 | [미국의 한 천재 공학생이 2700만원으로 670억을 만든 방법](https://www.youtube.com/shorts/je8tikzSnNc) | 트레이딩 돋보기 | 3,100 | 119,551 | ×38.56 | ×28.1 | 72초 | 26 |  | 설명 | 21 | [`S_je8tikzSnNc`](S_je8tikzSnNc) |
+| 2026-10-06 | [미국의 한 천재 공학생이 2700만원으로 670억을 만든 방법](https://www.youtube.com/shorts/je8tikzSnNc) | 트레이딩 돋보기 | 3,100 | 119,551 | ×38.56 | ×28.1 | 72초 | 30 |  | 설명 | 21 | [`S_je8tikzSnNc`](S_je8tikzSnNc) |
 | 2026-10-06 | [주식초보도 검색기없이 쉽게 단타 매매하는법 *차트보는법 몰라도 이 영상으로 끝…](https://www.youtube.com/shorts/5MZdRAkL3Wg) | 머니벌크업ㅣ주식PT | 26,200 | 112,422 | ×4.29 | ×2.8 | 58초 |  |  | 설명 | 19 | [`S_5MZdRAkL3Wg`](S_5MZdRAkL3Wg) |
 | 2026-10-06 | [삼성전자 하이닉스 주가가 오늘 떨어질 수 밖에 없었던 진짜 이유 (나스닥100…](https://www.youtube.com/shorts/N0OI559clt4) | 머니벌크업ㅣ주식PT | 26,200 | 266,319 | ×10.16 | ×6.7 | 70초 |  |  | 설명 | 35 | [`S_N0OI559clt4`](S_N0OI559clt4) |
 | 2026-10-06 | [미국의 천재 수학자가 주식투자로 27조를 벌어들인 방법 (이동평균선 볼린저밴드…](https://www.youtube.com/shorts/ZynjBEIci2k) | 머니벌크업ㅣ주식PT | 26,200 | 81,423 | ×3.11 | ×2.0 | 59초 |  |  | 설명 | 14 | [`S_ZynjBEIci2k`](S_ZynjBEIci2k) |
-| 2026-10-06 | [신문 광고로 뽑은 초보들이 주식으로 2,350억을 번 방법?! *볼린저밴드 r…](https://www.youtube.com/shorts/vLt9UEu2O1A) | 억대비법노트 | 11,400 | 364,329 | ×31.96 | ×48.8 | 54초 | 29 |  | 설명 | 53 | [`S_vLt9UEu2O1A`](S_vLt9UEu2O1A) |
+| 2026-10-06 | [신문 광고로 뽑은 초보들이 주식으로 2,350억을 번 방법?! *볼린저밴드 r…](https://www.youtube.com/shorts/vLt9UEu2O1A) | 억대비법노트 | 11,400 | 364,329 | ×31.96 | ×48.8 | 54초 | 34 |  | 설명 | 53 | [`S_vLt9UEu2O1A`](S_vLt9UEu2O1A) |
 | 2026-10-06 | [젊었을땐 아무도 몰라요. 자기가 늙어서 80이 된다는 사실을... #노후준비 …](https://www.youtube.com/shorts/hfNTHAncU-M) | 아니모 인생기록관 | 24,100 | 405,374 | ×16.82 | ×16.8 | 22초 |  | 돈 이야기 아님 — 명언·인생조언(… | 설명 | 267 | [`S_hfNTHAncU-M`](S_hfNTHAncU-M) |
-| 2026-10-05 | [미국의 한 천재 23살 트레이더가 고등학생 때 시작해 38억을 벌어들인 방법?…](https://www.youtube.com/shorts/6kEAWGmEaQQ) | 부자컨닝 | 4,150 | 185,953 | ×44.81 | ×2.7 | 58초 | 23 |  | 설명 | 29 | [`S_6kEAWGmEaQQ`](S_6kEAWGmEaQQ) |
-| 2026-10-05 | [90살 일본 할아버지가 주식으로 256억을 모은 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/dik0MXlceok) | 억대비법노트 | 11,400 | 329,009 | ×28.86 | ×44.1 | 59초 | 24 |  | 설명 | 42 | [`S_dik0MXlceok`](S_dik0MXlceok) |
+| 2026-10-05 | [돈 잘 모으는 사람들의 습관. #부자 #습관](https://www.youtube.com/shorts/fyLTndJqstg) | 하루를담은지혜 | 18,500 | 56,538 | ×3.06 | ×30.1 | 7초 | 88 |  | 설명 | 1 | [`S_fyLTndJqstg`](S_fyLTndJqstg) |
+| 2026-10-05 | [미국의 한 천재 23살 트레이더가 고등학생 때 시작해 38억을 벌어들인 방법?…](https://www.youtube.com/shorts/6kEAWGmEaQQ) | 부자컨닝 | 4,150 | 185,953 | ×44.81 | ×2.7 | 58초 | 27 |  | 설명 | 29 | [`S_6kEAWGmEaQQ`](S_6kEAWGmEaQQ) |
+| 2026-10-05 | [90살 일본 할아버지가 주식으로 256억을 모은 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/dik0MXlceok) | 억대비법노트 | 11,400 | 329,009 | ×28.86 | ×44.1 | 59초 | 28 |  | 설명 | 42 | [`S_dik0MXlceok`](S_dik0MXlceok) |
 | 2026-10-04 | [망한 변두리 여관을 "비행기 퍼스트클래스"로 바꾼다? #부동산 #호스텔 #돈버…](https://www.youtube.com/shorts/zceO9pBFy3Q) | 월급만으로 부족해 | 20,900 | 398,714 | ×19.08 | ×161.5 | 90초 |  | 뺀 주제(부동산) | 없음 | 13 | [`S_zceO9pBFy3Q`](S_zceO9pBFy3Q) |
-| 2026-10-04 | [반도체 종목 고르기 어렵다면?😎 ETF 컨닝하는 법 (진짜 쉬움) #shorts](https://www.youtube.com/shorts/YJrBQncA0Xo) | 1분썰배달 | 25,400 | 105,839 | ×4.17 | ×3.3 | 40초 | 56 |  | 설명 | 2 | [`S_YJrBQncA0Xo`](S_YJrBQncA0Xo) |
-| 2026-10-04 | [시간대마다 다른 이평선, 어떻게 쓰라는 걸까?](https://www.youtube.com/shorts/8xdGnUwP0wI) | 트레이딩팩토리 | 26,500 | 123,016 | ×4.64 | ×19.2 | 73초 | 75 |  | 설명 | 8 | [`S_8xdGnUwP0wI`](S_8xdGnUwP0wI) |
+| 2026-10-04 | [반도체 종목 고르기 어렵다면?😎 ETF 컨닝하는 법 (진짜 쉬움) #shorts](https://www.youtube.com/shorts/YJrBQncA0Xo) | 1분썰배달 | 25,400 | 105,839 | ×4.17 | ×3.3 | 40초 | 62 |  | 설명 | 2 | [`S_YJrBQncA0Xo`](S_YJrBQncA0Xo) |
+| 2026-10-04 | [시간대마다 다른 이평선, 어떻게 쓰라는 걸까?](https://www.youtube.com/shorts/8xdGnUwP0wI) | 트레이딩팩토리 | 26,500 | 123,016 | ×4.64 | ×19.2 | 73초 | 81 |  | 설명 | 8 | [`S_8xdGnUwP0wI`](S_8xdGnUwP0wI) |
 | 2026-10-03 | [회전율 100%, 월 1,800만 원 버는 캡슐호텔이 '강남'에 있다? #부동…](https://www.youtube.com/shorts/myLC83vf6-c) | 월급만으로 부족해 | 20,900 | 189,029 | ×9.04 | ×76.6 | 66초 |  | 뺀 주제(부동산) | 없음 | 11 | [`S_myLC83vf6-c`](S_myLC83vf6-c) |
-| 2026-10-03 | [미국의 천재 투자자가 주식으로 2조원을 벌어들인 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/vkfckEFnRW0) | 머니언즈 | 4,580 | 257,945 | ×56.32 | ×2.9 | 56초 | 22 |  | 설명 | 61 | [`S_vkfckEFnRW0`](S_vkfckEFnRW0) |
-| 2026-10-03 | [미국의 한 천재 아빠 개발자가 9.6억을 벌어들인 방법?! *볼린저밴드 rsi…](https://www.youtube.com/shorts/Zc7DZYNl1Fs) | 부자컨닝 | 4,150 | 177,750 | ×42.83 | ×2.5 | 58초 | 27 |  | 설명 | 54 | [`S_Zc7DZYNl1Fs`](S_Zc7DZYNl1Fs) |
+| 2026-10-03 | [미국의 천재 투자자가 주식으로 2조원을 벌어들인 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/vkfckEFnRW0) | 머니언즈 | 4,580 | 257,945 | ×56.32 | ×2.9 | 56초 | 26 |  | 설명 | 61 | [`S_vkfckEFnRW0`](S_vkfckEFnRW0) |
+| 2026-10-03 | [미국의 한 천재 아빠 개발자가 9.6억을 벌어들인 방법?! *볼린저밴드 rsi…](https://www.youtube.com/shorts/Zc7DZYNl1Fs) | 부자컨닝 | 4,150 | 177,750 | ×42.83 | ×2.5 | 58초 | 31 |  | 설명 | 54 | [`S_Zc7DZYNl1Fs`](S_Zc7DZYNl1Fs) |
 | 2026-10-03 | [주식초보도 물린 주식 쉽게 탈출하는 방법](https://www.youtube.com/shorts/yVKnkH78VuA) | 머니벌크업ㅣ주식PT | 26,200 | 259,535 | ×9.91 | ×6.5 | 60초 |  |  | 설명 | 26 | [`S_yVKnkH78VuA`](S_yVKnkH78VuA) |
-| 2026-10-03 | [1억 있다면 이 ETF 사라 10억 만들기 너무 쉽다 #김민우](https://www.youtube.com/shorts/iDP3Lt_qBxQ) | 원픽리포트 | 39,000 | 172,877 | ×4.43 | ×84.6 | 49초 | 78 |  | 설명 | 29 | [`S_iDP3Lt_qBxQ`](S_iDP3Lt_qBxQ) |
+| 2026-10-03 | [1억 있다면 이 ETF 사라 10억 만들기 너무 쉽다 #김민우](https://www.youtube.com/shorts/iDP3Lt_qBxQ) | 원픽리포트 | 39,000 | 172,877 | ×4.43 | ×84.6 | 49초 | 84 |  | 설명 | 29 | [`S_iDP3Lt_qBxQ`](S_iDP3Lt_qBxQ) |
 | 2026-10-02 | [자식에게 돈 안 받아도 노후 생활비가 끊이지 않는 띠 3가지](https://www.youtube.com/shorts/Wdi_kFr--7U) | 오늘의복운 | 9,980 | 554,502 | ×55.56 | ×14.5 | 41초 |  | 돈 이야기 아님 — 운세·사주(띠) | 없음 | 38 | [`S_Wdi_kFr--7U`](S_Wdi_kFr--7U) |
-| 2026-10-02 | [(60만 조회)잔액 3만 원에 무시당한 할머니 #사이다사연 #노후이야기 #반전…](https://www.youtube.com/shorts/nVvrFUXQ2LI) | 스토리 한바다 | 9,300 | 744,859 | ×80.09 | ×86.7 | 124초 | 16 |  | 자막 | 44 | [`S_nVvrFUXQ2LI`](S_nVvrFUXQ2LI) |
+| 2026-10-02 | [(60만 조회)잔액 3만 원에 무시당한 할머니 #사이다사연 #노후이야기 #반전…](https://www.youtube.com/shorts/nVvrFUXQ2LI) | 스토리 한바다 | 9,300 | 744,859 | ×80.09 | ×86.7 | 124초 | 19 |  | 자막 | 44 | [`S_nVvrFUXQ2LI`](S_nVvrFUXQ2LI) |
 | 2026-10-02 | [주식초보도 쉽게 AI로 종목 찾는 방법, 프롬프트 꼭 나에게 공유해두세요](https://www.youtube.com/shorts/_f9iN8G_Gto) | 머니벌크업ㅣ주식PT | 26,200 | 161,724 | ×6.17 | ×4.0 | 56초 |  |  | 설명 | 22 | [`S__f9iN8G_Gto`](S__f9iN8G_Gto) |
-| 2026-10-01 | [70 이후에는 목숨보다 중요해지는 5가지 #shorts #인간관계 #철학 #니…](https://www.youtube.com/shorts/tRCeNAJfEDA) | 인간본질 | 10,700 | 312,327 | ×29.19 | ×14.4 | 73초 |  | 돈 이야기 아님 — 명언·인생조언(… | 없음 | 29 | [`S_tRCeNAJfEDA`](S_tRCeNAJfEDA) |
-| 2026-10-01 | [염승환 이사의 10월 포트폴리오 전략은?](https://www.youtube.com/shorts/CBSmWQHJtX8) | 부자노트 | 7,760 | 120,858 | ×15.57 | ×34.4 | 61초 | 46 |  | 설명 | 5 | [`S_CBSmWQHJtX8`](S_CBSmWQHJtX8) |
-| 2026-09-30 | [월급 300만원 직장인의 현실](https://www.youtube.com/shorts/pJOcLINElM8) | 너의생각은머니 | 9,370 | 1,373,318 | ×146.57 | ×35.2 | 29초 | 8 |  | 설명 | 2,435 | [`S_pJOcLINElM8`](S_pJOcLINElM8) |
+| 2026-10-01 | [70 이후에는 목숨보다 중요해지는 5가지 #shorts #인간관계 #철학 #니…](https://www.youtube.com/shorts/tRCeNAJfEDA) | 인간본질 | 10,700 | 312,327 | ×29.19 | ×13.6 | 73초 |  | 돈 이야기 아님 — 명언·인생조언(… | 없음 | 29 | [`S_tRCeNAJfEDA`](S_tRCeNAJfEDA) |
+| 2026-10-01 | [염승환 이사의 10월 포트폴리오 전략은?](https://www.youtube.com/shorts/CBSmWQHJtX8) | 부자노트 | 7,760 | 120,858 | ×15.57 | ×34.4 | 61초 | 52 |  | 설명 | 5 | [`S_CBSmWQHJtX8`](S_CBSmWQHJtX8) |
+| 2026-09-30 | [월급 300만원 직장인의 현실](https://www.youtube.com/shorts/pJOcLINElM8) | 너의생각은머니 | 9,370 | 1,373,318 | ×146.57 | ×35.2 | 29초 | 9 |  | 설명 | 2,435 | [`S_pJOcLINElM8`](S_pJOcLINElM8) |
 | 2026-09-30 | [미국의 천재 수학자가 주식으로 130억을 벌어들 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/C4LAhjVA_4M) | 머니언즈 | 4,580 | 98,942 | ×21.6 | ×1.0 | 54초 |  |  | 설명 | 33 | [`S_C4LAhjVA_4M`](S_C4LAhjVA_4M) |
-| 2026-09-30 | [돈 없는 노후가 무서운 진짜 이유 #에세이 #명언 #인생조언 #좋은글 #좋은말…](https://www.youtube.com/shorts/ZJ95-thV2dY) | 시니어 인생극장 | 27,000 | 804,237 | ×29.79 | ×178.0 | 63초 | 33 |  | 설명 | 265 | [`S_ZJ95-thV2dY`](S_ZJ95-thV2dY) |
+| 2026-09-30 | [돈 없는 노후가 무서운 진짜 이유 #에세이 #명언 #인생조언 #좋은글 #좋은말…](https://www.youtube.com/shorts/ZJ95-thV2dY) | 시니어 인생극장 | 27,000 | 804,237 | ×29.79 | ×178.0 | 63초 | 38 |  | 설명 | 265 | [`S_ZJ95-thV2dY`](S_ZJ95-thV2dY) |
 | 2026-09-30 | [주식투자 고수들이 절대 안알려주는 차트보는법](https://www.youtube.com/shorts/pjrmVUBPdqk) | 머니벌크업ㅣ주식PT | 26,200 | 127,370 | ×4.86 | ×3.2 | 55초 |  |  | 설명 | 4 | [`S_pjrmVUBPdqk`](S_pjrmVUBPdqk) |
 | 2026-09-30 | [주식초보들이 반드시 외워야할 올라갈 주식 차트보는법](https://www.youtube.com/shorts/XO4X7YP76CM) | 머니벌크업ㅣ주식PT | 26,200 | 126,040 | ×4.81 | ×3.2 | 9초 |  |  | 설명 | 10 | [`S_XO4X7YP76CM`](S_XO4X7YP76CM) |
-| 2026-09-30 | [25년간 112조원을 번 미국의 한 천재 컴퓨터과학자 출신의 전설적인 투자자가…](https://www.youtube.com/shorts/QtG0BNW0Wn4) | 수익탐정사무소 | 21,300 | 2,848,671 | ×133.74 | ×5.3 | 55초 | 10 |  | 설명 | 682 | [`S_QtG0BNW0Wn4`](S_QtG0BNW0Wn4) |
+| 2026-09-30 | [25년간 112조원을 번 미국의 한 천재 컴퓨터과학자 출신의 전설적인 투자자가…](https://www.youtube.com/shorts/QtG0BNW0Wn4) | 수익탐정사무소 | 21,300 | 2,848,671 | ×133.74 | ×5.3 | 55초 | 11 |  | 설명 | 682 | [`S_QtG0BNW0Wn4`](S_QtG0BNW0Wn4) |
 | 2026-09-29 | [황현희가 주식 전에 꼭 읽으라는 책 2권 ∣ 코스톨라니·하워드 막스](https://www.youtube.com/shorts/uxN_PJ4DKko) | 하루1분책방 | 10,000 | 5,265,498 | ×526.55 | ×262.7 | 35초 | 3 |  | 자막 | 1,054 | [`S_uxN_PJ4DKko`](S_uxN_PJ4DKko) |
 | 2026-09-29 | [노후에 초라해지는 최악의 습관 #명언 #노년 #노후 #60대](https://www.youtube.com/shorts/cXCKk6N-MKo) | 현자의만화방 | 15,700 | 186,516 | ×11.88 | ×33.2 | 75초 |  | 돈 이야기 아님 — 명언·인생조언(… | 설명 | 66 | [`S_cXCKk6N-MKo`](S_cXCKk6N-MKo) |
-| 2026-09-29 | [미국의 한 천재 노가다꾼이 1년 반만에 100억을 만든 방법](https://www.youtube.com/shorts/njKPA5fsXfA) | 트레이딩 돋보기 | 3,100 | 232,823 | ×75.1 | ×54.7 | 80초 | 20 |  | 설명 | 49 | [`S_njKPA5fsXfA`](S_njKPA5fsXfA) |
+| 2026-09-29 | [미국의 한 천재 노가다꾼이 1년 반만에 100억을 만든 방법](https://www.youtube.com/shorts/njKPA5fsXfA) | 트레이딩 돋보기 | 3,100 | 232,823 | ×75.1 | ×54.7 | 80초 | 23 |  | 설명 | 49 | [`S_njKPA5fsXfA`](S_njKPA5fsXfA) |
 | 2026-09-28 | [실버타운 입주자가 공개한 생활비의 비밀 #실버타운 #은퇴준비 #노후대비 #재테…](https://www.youtube.com/shorts/iJiNIlvjEeg) | 예능쌤 | 4,500 | 176,704 | ×39.27 | ×5.6 | 26초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 없음 | 2 | [`S_iJiNIlvjEeg`](S_iJiNIlvjEeg) |
 | 2026-09-27 | [미국의 천재 퀀트트레이더가 주식으로 1200억을 벌어들인 방법?! *볼린저밴드…](https://www.youtube.com/shorts/t2djHbBGlq0) | 수익탐정사무소 | 21,300 | 535,700 | ×25.15 | ×0.9 | 57초 |  |  | 설명 | 100 | [`S_t2djHbBGlq0`](S_t2djHbBGlq0) |
 | 2026-09-25 | [주식초보에서 고수가 되면 깨닫는 투자원칙 10가지](https://www.youtube.com/shorts/r_tIdkNXUuQ) | 머니벌크업ㅣ주식PT | 26,200 | 83,516 | ×3.19 | ×2.1 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 2 | [`S_r_tIdkNXUuQ`](S_r_tIdkNXUuQ) |
-| 2026-09-24 | [10년뒤 가장 많이 오를 한국주식 5개](https://www.youtube.com/shorts/7GmdLIilQio) | 파고테크 | 8,840 | 1,503,674 | ×170.1 | ×236.2 | 27초 | 9 |  | 자막 | 360 | [`S_7GmdLIilQio`](S_7GmdLIilQio) |
+| 2026-09-24 | [10년뒤 가장 많이 오를 한국주식 5개](https://www.youtube.com/shorts/7GmdLIilQio) | 파고테크 | 8,840 | 1,503,674 | ×170.1 | ×236.2 | 27초 | 10 |  | 자막 | 360 | [`S_7GmdLIilQio`](S_7GmdLIilQio) |
 | 2026-09-24 | [주식초보도 절대 돈을 잃지않는 매매 방법](https://www.youtube.com/shorts/vM7ZGlWA_4E) | 머니벌크업ㅣ주식PT | 26,200 | 299,833 | ×11.44 | ×7.5 | 85초 |  |  | 설명 | 38 | [`S_vM7ZGlWA_4E`](S_vM7ZGlWA_4E) |
-| 2026-09-23 | [주식초보는 이걸 제대로 알아야 주식투자로 수익 나기 시작합니다](https://www.youtube.com/shorts/BNnyRRfZNPI) | 머니벌크업ㅣ주식PT | 26,200 | 408,563 | ×15.59 | ×10.2 | 19초 | 54 |  | 설명 | 20 | [`S_BNnyRRfZNPI`](S_BNnyRRfZNPI) |
-| 2026-09-23 | [황현희가 먼저 읽으라는 주식 공부 책 두 권](https://www.youtube.com/shorts/m2P-zzfJAAg) | bazuru | 19,700 | 174,449 | ×8.86 | ×0.1 | 15초 | 62 |  | 설명 | 10 | [`S_m2P-zzfJAAg`](S_m2P-zzfJAAg) |
+| 2026-09-23 | [주식초보는 이걸 제대로 알아야 주식투자로 수익 나기 시작합니다](https://www.youtube.com/shorts/BNnyRRfZNPI) | 머니벌크업ㅣ주식PT | 26,200 | 408,563 | ×15.59 | ×10.2 | 19초 | 60 |  | 설명 | 20 | [`S_BNnyRRfZNPI`](S_BNnyRRfZNPI) |
+| 2026-09-23 | [황현희가 먼저 읽으라는 주식 공부 책 두 권](https://www.youtube.com/shorts/m2P-zzfJAAg) | bazuru | 19,700 | 174,449 | ×8.86 | ×0.1 | 15초 | 68 |  | 설명 | 10 | [`S_m2P-zzfJAAg`](S_m2P-zzfJAAg) |
 | 2026-09-23 | [증여세 내지 마세요, 자녀에게 공짜로 주는 법](https://www.youtube.com/shorts/IjlC4LX4I6c) | 재발공명 | 39,500 | 1,754,198 | ×44.41 | – | 127초 |  | 뺀 주제(5. 부동산) | 설명 | 282 | [`S_IjlC4LX4I6c`](S_IjlC4LX4I6c) |
-| 2026-09-22 | [3분기 배당 받으려면? 삼성전자 '이 날'까지 보유! / #채널A #short…](https://www.youtube.com/shorts/nd0DWCIHXZI) | 경제시그널 | 28,300 | 387,639 | ×13.7 | ×187.6 | 35초 | 58 |  | 설명 | 20 | [`S_nd0DWCIHXZI`](S_nd0DWCIHXZI) |
+| 2026-09-22 | [3분기 배당 받으려면? 삼성전자 '이 날'까지 보유! / #채널A #short…](https://www.youtube.com/shorts/nd0DWCIHXZI) | 경제시그널 | 28,300 | 387,639 | ×13.7 | ×187.6 | 35초 | 64 |  | 설명 | 20 | [`S_nd0DWCIHXZI`](S_nd0DWCIHXZI) |
 | 2026-09-22 | [500억 부자들의 특이한 투자 방법](https://www.youtube.com/shorts/dbEJMNSfIB8) | 폭룡숏 | 19,700 | 753,128 | ×38.23 | ×1.9 | 119초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 9 | [`S_dbEJMNSfIB8`](S_dbEJMNSfIB8) |
-| 2026-09-22 | [대출받아 집짓고 6천짜리 리스차 끄는 무일푼 남친. #jtbc #연애전쟁 #사랑](https://www.youtube.com/shorts/9KX85VWcjEI) | 꿀영 | 7,470 | 2,111,528 | ×282.67 | ×21.2 | 59초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 1,103 | [`S_9KX85VWcjEI`](S_9KX85VWcjEI) |
+| 2026-09-22 | [대출받아 집짓고 6천짜리 리스차 끄는 무일푼 남친. #jtbc #연애전쟁 #사랑](https://www.youtube.com/shorts/9KX85VWcjEI) | 꿀영 | 7,470 | 2,111,528 | ×282.67 | ×22.3 | 59초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 1,103 | [`S_9KX85VWcjEI`](S_9KX85VWcjEI) |
 | 2026-09-22 | [명품 재테크 대성공한 키드밀리](https://www.youtube.com/shorts/-TMKgnH053s) | 미소나무 | 20,200 | 644,337 | ×31.9 | ×2.8 | 26초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 94 | [`S_-TMKgnH053s`](S_-TMKgnH053s) |
 | 2026-09-22 | [미국의 한 천재 여성유튜버가 1년만에 100억을 벌어들인 방법 *볼린저밴드 r…](https://www.youtube.com/shorts/eNMgLVBeD54) | 수익탐정사무소 | 21,300 | 1,413,352 | ×66.35 | ×2.6 | 56초 |  |  | 설명 | 326 | [`S_eNMgLVBeD54`](S_eNMgLVBeD54) |
-| 2026-09-22 | [QLD 20년 수량 축적 시뮬레이션](https://www.youtube.com/shorts/r03hQ823IQE) | 운동찬_경제근육 | 21,900 | 133,557 | ×6.1 | ×24.6 | 62초 | 76 |  | 설명 | 57 | [`S_r03hQ823IQE`](S_r03hQ823IQE) |
-| 2026-09-21 | [대학 교수 연금 400만원 택도 없이 부족한 이유](https://www.youtube.com/shorts/JMhHKjA9SrA) | 할티비 | 44,300 | 978,434 | ×22.09 | ×70.7 | 35초 | 41 |  | 없음 | 2,310 | [`S_JMhHKjA9SrA`](S_JMhHKjA9SrA) |
+| 2026-09-22 | [QLD 20년 수량 축적 시뮬레이션](https://www.youtube.com/shorts/r03hQ823IQE) | 운동찬_경제근육 | 21,900 | 133,557 | ×6.1 | ×24.6 | 62초 | 82 |  | 설명 | 57 | [`S_r03hQ823IQE`](S_r03hQ823IQE) |
+| 2026-09-21 | [대학 교수 연금 400만원 택도 없이 부족한 이유](https://www.youtube.com/shorts/JMhHKjA9SrA) | 할티비 | 44,300 | 978,434 | ×22.09 | ×70.7 | 35초 | 47 |  | 없음 | 2,310 | [`S_JMhHKjA9SrA`](S_JMhHKjA9SrA) |
 | 2026-09-21 | [40년차 트레이더가 밝힌 주식 매수하면 안되는 시간](https://www.youtube.com/shorts/YSi-7TI3k5U) | 머니벌크업ㅣ주식PT | 26,200 | 219,230 | ×8.37 | ×5.5 | 41초 |  |  | 설명 | 15 | [`S_YSi-7TI3k5U`](S_YSi-7TI3k5U) |
 | 2026-09-20 | [추석 이벤트 코인으로 돈 버는 꿀통 [메이플플래닛]](https://www.youtube.com/shorts/-tA4JRuVeiQ) | 뚱다라 | 1,730 | 91,085 | ×52.65 | ×2.5 | 64초 |  | 뺀 주제(코인) | 없음 | 21 | [`S_-tA4JRuVeiQ`](S_-tA4JRuVeiQ) |
 | 2026-09-18 | [[리센느] 노후 준비 끝난 걸그룹](https://www.youtube.com/shorts/oDmGpoIP1EQ) | 리센느며들다 | 8,770 | 9,997,732 | ×1139.99 | ×99.9 | 58초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 2,876 | [`S_oDmGpoIP1EQ`](S_oDmGpoIP1EQ) |
-| 2026-09-18 | [미국의 천재 수학자가 주식으로 2조원을 벌어드린 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/OuThkqQS55E) | 머니언즈 | 4,580 | 512,612 | ×111.92 | ×5.8 | 58초 | 18 |  | 자막 | 180 | [`S_OuThkqQS55E`](S_OuThkqQS55E) |
-| 2026-09-18 | [미국의 한 천재 수학자가 주식으로 580억을 벌어들인 방법?! *볼린저밴드 r…](https://www.youtube.com/shorts/CMYGYvWbbi8) | 수익탐정사무소 | 21,300 | 2,941,762 | ×138.11 | ×5.5 | 56초 | 13 |  | 자막 | 2,088 | [`S_CMYGYvWbbi8`](S_CMYGYvWbbi8) |
+| 2026-09-18 | [미국의 천재 수학자가 주식으로 2조원을 벌어드린 방법?! *볼린저밴드 rsi …](https://www.youtube.com/shorts/OuThkqQS55E) | 머니언즈 | 4,580 | 512,612 | ×111.92 | ×5.8 | 58초 | 21 |  | 자막 | 180 | [`S_OuThkqQS55E`](S_OuThkqQS55E) |
+| 2026-09-18 | [미국의 한 천재 수학자가 주식으로 580억을 벌어들인 방법?! *볼린저밴드 r…](https://www.youtube.com/shorts/CMYGYvWbbi8) | 수익탐정사무소 | 21,300 | 2,941,762 | ×138.11 | ×5.5 | 56초 | 16 |  | 자막 | 2,088 | [`S_CMYGYvWbbi8`](S_CMYGYvWbbi8) |
 | 2026-09-18 | [노후가 평안해지는 나이는 언제...? #사주](https://www.youtube.com/shorts/5icniY4v5AE) | 강남 돼지보살 | 34,200 | 463,650 | ×13.56 | ×6.6 | 8초 |  | 돈 이야기 아님 — 운세·사주(사주) | 설명 | 31 | [`S_5icniY4v5AE`](S_5icniY4v5AE) |
 | 2026-09-17 | [1년째 공실인데 월세를 안 깎는 이유](https://www.youtube.com/shorts/K7q5EtzDMew) | 위온어스 | 8,980 | 266,578 | ×29.69 | ×179.4 | 124초 |  | 뺀 주제(5. 부동산) | 없음 | 112 | [`S_K7q5EtzDMew`](S_K7q5EtzDMew) |
 | 2026-09-17 | [전세계 부자들이 줄서서 사가는 한국 기차](https://www.youtube.com/shorts/yNY1YQNc6eY) | 인생속으로 | 133,000 | 3,229,212 | ×24.28 | – | 107초 |  | 뺀 주제(전세) | 없음 | 631 | [`S_yNY1YQNc6eY`](S_yNY1YQNc6eY) |
@@ -80,18 +89,18 @@
 | 2026-09-16 | [100억 자산가의 경고... 이럴거면 "주식 하지 마세요" ∣ 함익병 원장 ∣…](https://www.youtube.com/shorts/nGxEwhsW5rA) | 펜앤경제TV | 127,000 | 3,927,305 | ×30.92 | – | 101초 |  |  | 설명 | 1,422 | [`S_nGxEwhsW5rA`](S_nGxEwhsW5rA) |
 | 2026-09-15 | [미국의 천재 투자자가 주식으로 320억을 벌어드린 방법 *볼린저밴드 rsi m…](https://www.youtube.com/shorts/lP75ikRlwzU) | 머니언즈 | 4,580 | 317,854 | ×69.4 | ×3.6 | 56초 |  |  | 설명 | 84 | [`S_lP75ikRlwzU`](S_lP75ikRlwzU) |
 | 2026-09-15 | [아들아 살아보니 인생은 이렇구나 #아버지조언 #노후자금 #재태크](https://www.youtube.com/shorts/JZ5T_-gEGGg) | 인생이야기 | 4,230 | 59,856 | ×14.15 | ×16.6 | 6초 |  | 돈 이야기 아님 — 명언·인생조언(… | 없음 | 3 | [`S_JZ5T_-gEGGg`](S_JZ5T_-gEGGg) |
-| 2026-09-14 | [아내 몰래 모은 1억을 투자한 최후](https://www.youtube.com/shorts/p1XNfFPKq8k) | 킴호수호수 | 9,180 | 903,601 | ×98.43 | ×44.7 | 62초 | 12 |  | 설명 | 129 | [`S_p1XNfFPKq8k`](S_p1XNfFPKq8k) |
+| 2026-09-14 | [아내 몰래 모은 1억을 투자한 최후](https://www.youtube.com/shorts/p1XNfFPKq8k) | 킴호수호수 | 9,180 | 903,601 | ×98.43 | ×44.7 | 62초 | 15 |  | 설명 | 129 | [`S_p1XNfFPKq8k`](S_p1XNfFPKq8k) |
 | 2026-09-14 | [주식 오래 한 사람들이 결국 깨닫는 투자 원칙 10가지 #주식투자 #재테크 #…](https://www.youtube.com/shorts/HpOLbLM9AOk) | 만복보감 | 2,300 | 904,296 | ×393.17 | ×222.4 | 12초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 26 | [`S_HpOLbLM9AOk`](S_HpOLbLM9AOk) |
 | 2026-09-14 | [미국의 천재 심리학자가 주식으로 380억을 벌어드린 방법?! *볼린저밴드 rs…](https://www.youtube.com/shorts/5uQxLMSGWIA) | 수익탐정사무소 | 21,300 | 1,398,610 | ×65.66 | ×2.6 | 52초 |  |  | 설명 | 1,006 | [`S_5uQxLMSGWIA`](S_5uQxLMSGWIA) |
 | 2026-09-14 | [심권호 연금 폭로! 21세 연하 충격 맞습니다! 심권호 현실 부러움 뒤집었다!…](https://www.youtube.com/shorts/19vbhAVRsGE) | gfsdefjsrn lu… | 33,800 | 1,524,722 | ×45.11 | ×38.5 | 65초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 76 | [`S_19vbhAVRsGE`](S_19vbhAVRsGE) |
-| 2026-09-12 | [돈을 모아야 하는 진짜 이유](https://www.youtube.com/shorts/GKDGhk0uUrk) | 한아름 | 4,630 | 673,907 | ×145.55 | ×283.8 | 51초 | 14 |  | 자막 | 324 | [`S_GKDGhk0uUrk`](S_GKDGhk0uUrk) |
-| 2026-09-12 | [주식 절대 매수하면 안되는 시간이 따로 있어요](https://www.youtube.com/shorts/RuTivHU6IoI) | 자본주의 게임 프맨 | 36,500 | 987,415 | ×27.05 | ×18.8 | 174초 | 40 |  | 없음 | 160 | [`S_RuTivHU6IoI`](S_RuTivHU6IoI) |
+| 2026-09-12 | [돈을 모아야 하는 진짜 이유](https://www.youtube.com/shorts/GKDGhk0uUrk) | 한아름 | 4,630 | 673,907 | ×145.55 | ×283.8 | 51초 | 17 |  | 자막 | 324 | [`S_GKDGhk0uUrk`](S_GKDGhk0uUrk) |
+| 2026-09-12 | [주식 절대 매수하면 안되는 시간이 따로 있어요](https://www.youtube.com/shorts/RuTivHU6IoI) | 자본주의 게임 프맨 | 36,500 | 987,415 | ×27.05 | ×18.8 | 174초 | 46 |  | 없음 | 160 | [`S_RuTivHU6IoI`](S_RuTivHU6IoI) |
 | 2026-09-12 | [박진영이 말하는 진짜 부자들의 마음가짐#박진영 #돈버는법 #shorts](https://www.youtube.com/shorts/TGS3Ke5RNn8) | 사과파이 | 42,800 | 231,512 | ×5.41 | ×2.5 | 44초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 83 | [`S_TGS3Ke5RNn8`](S_TGS3Ke5RNn8) |
 | 2026-09-10 | [노년 계획이 없다는 양희은 #선우용여](https://www.youtube.com/shorts/MWLOFUtUdjM) | 핫이슈알림톡톡 | 15,400 | 2,884,862 | ×187.33 | ×230.8 | 67초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 891 | [`S_MWLOFUtUdjM`](S_MWLOFUtUdjM) |
 | 2026-09-09 | [반도체 ETF 리밸런싱으로 삼성·하이닉스 기계적 매도 📉 20% 한도 초과 이슈](https://www.youtube.com/shorts/epOZvLX2JE8) | 1분썰배달 | 25,400 | 251,920 | ×9.92 | ×7.8 | 52초 |  |  | 설명 | 36 | [`S_epOZvLX2JE8`](S_epOZvLX2JE8) |
 | 2026-09-09 | [건축학자가 폭로한 노후에 30평 아파트가 지옥인 이유](https://www.youtube.com/shorts/cpNK963SS-Q) | 이슈필름 | 24,200 | 808,254 | ×33.4 | ×42.9 | 37초 |  | 뺀 주제(아파트) | 없음 | 1,606 | [`S_cpNK963SS-Q`](S_cpNK963SS-Q) |
 | 2026-09-08 | [재테크 강연대상이 신세계 손녀일 때](https://www.youtube.com/shorts/gNNhiknw81s) | 아이돌다이뜌 | 8,010 | 5,062,488 | ×632.02 | ×41.8 | 21초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 517 | [`S_gNNhiknw81s`](S_gNNhiknw81s) |
-| 2026-09-08 | [9월부터 노령연금 이렇게 달라집니다.](https://www.youtube.com/shorts/Y7tGvYdOSKI) | 노후 복지번역기 | 47,800 | 649,390 | ×13.59 | ×11.3 | 49초 | 61 |  | 설명 | 25 | [`S_Y7tGvYdOSKI`](S_Y7tGvYdOSKI) |
+| 2026-09-08 | [9월부터 노령연금 이렇게 달라집니다.](https://www.youtube.com/shorts/Y7tGvYdOSKI) | 노후 복지번역기 | 47,800 | 649,390 | ×13.59 | ×11.3 | 49초 | 67 |  | 설명 | 25 | [`S_Y7tGvYdOSKI`](S_Y7tGvYdOSKI) |
 | 2026-09-07 | [금방 2배가 되는 ETF가 있다고요?🧐](https://www.youtube.com/shorts/XljEBwDZzAk) | 다산북스TV | 43,400 | 286,303 | ×6.6 | ×182.6 | 110초 |  | 조회수 부풀림 의심(좋아요 0.2%… | 설명 | 8 | [`S_XljEBwDZzAk`](S_XljEBwDZzAk) |
 | 2026-09-07 | [신입 주식 브로커가 감사팀을 찍어 누르는 방법](https://www.youtube.com/shorts/uD7AeUTeAYs) | 영콕드콕 | 19,900 | 4,287,817 | ×215.47 | ×8.7 | 73초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 272 | [`S_uD7AeUTeAYs`](S_uD7AeUTeAYs) |
 | 2026-09-06 | [미국 주식 하라는 투자 고수 이서진](https://www.youtube.com/shorts/2_vIx14EWRk) | 퍼댕댕 | 17,700 | 761,850 | ×43.04 | ×7.0 | 64초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 123 | [`S_2_vIx14EWRk`](S_2_vIx14EWRk) |
@@ -108,37 +117,37 @@
 | 2026-08-29 | [돈이 안 모이는 집의 소름 돋는 공통점#돈모으기 #재테크습관 #미니멀라이프 #…](https://www.youtube.com/shorts/-G2hvzMGlMQ) | 선단만금TV | 38,400 | 493,104 | ×12.84 | ×25.4 | 21초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 1 | [`S_-G2hvzMGlMQ`](S_-G2hvzMGlMQ) |
 | 2026-08-28 | [존리가 말하는 노후 자산 배분법](https://www.youtube.com/shorts/wxGY38OOcV4) | 베가북스 | 13,400 | 66,768 | ×4.98 | ×60.6 | 93초 |  |  | 설명 | 15 | [`S_wxGY38OOcV4`](S_wxGY38OOcV4) |
 | 2026-08-27 | [노후차를 새 차처럼 만드는 3가지 꿀팁](https://www.youtube.com/shorts/0Ato7X_Ao2c) | MyCarFML | 42,500 | 1,589,176 | ×37.39 | ×21.9 | 64초 |  | 돈 이야기 아님 — 다른 뜻(노후차) | 없음 | 246 | [`S_0Ato7X_Ao2c`](S_0Ato7X_Ao2c) |
-| 2026-08-26 | [레전드라는 인터넷 방송 강제 주식 매각 사건](https://www.youtube.com/shorts/I7E0ONtT-78) | 짧주 | 40,400 | 799,221 | ×19.78 | ×1.4 | 44초 | 53 |  | 없음 | 158 | [`S_I7E0ONtT-78`](S_I7E0ONtT-78) |
-| 2026-08-24 | [국민연금 부족하다더니, 이 거지같은 법은 뭐야](https://www.youtube.com/shorts/5TEguSMjE5k) | 어르신든든 | 17,500 | 833,362 | ×47.62 | ×251.7 | 57초 | 32 |  | 설명 | 4,265 | [`S_5TEguSMjE5k`](S_5TEguSMjE5k) |
+| 2026-08-26 | [레전드라는 인터넷 방송 강제 주식 매각 사건](https://www.youtube.com/shorts/I7E0ONtT-78) | 짧주 | 40,400 | 799,221 | ×19.78 | ×1.4 | 44초 | 59 |  | 없음 | 158 | [`S_I7E0ONtT-78`](S_I7E0ONtT-78) |
+| 2026-08-24 | [국민연금 부족하다더니, 이 거지같은 법은 뭐야](https://www.youtube.com/shorts/5TEguSMjE5k) | 어르신든든 | 17,500 | 833,362 | ×47.62 | ×251.7 | 57초 | 37 |  | 설명 | 4,265 | [`S_5TEguSMjE5k`](S_5TEguSMjE5k) |
 | 2026-08-23 | [지디의 자산 관리 방식에 깜짝 놀란 유재석](https://www.youtube.com/shorts/P0Lbsg2ZEWo) | 유느님이조 | 23,000 | 132,403 | ×5.76 | ×1.5 | 40초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 17 | [`S_P0Lbsg2ZEWo`](S_P0Lbsg2ZEWo) |
 | 2026-08-23 | [나 주식할거야 / ㅂㅅ아 끊어ㅋㅋㅋ🤣 #김원훈 #웃긴영상 #웃긴 #웃긴짤 #유…](https://www.youtube.com/shorts/trM20L5aElw) | 유머돌고래 | 2,890 | 4,244,966 | ×1468.85 | ×7369.7 | 23초 |  | 돈 이야기 아님 — 연예·예능·드라… | 자막 | 397 | [`S_trM20L5aElw`](S_trM20L5aElw) |
 | 2026-08-22 | [은퇴 3년 전, 2배 수익보다 중요한 것… 노후자금 3천만 원 이렇게 굴리세요](https://www.youtube.com/shorts/WAANGiA_gHI) | 연금 받는 형 | 22,700 | 209,100 | ×9.21 | ×18.6 | 50초 |  |  | 설명 | 7 | [`S_WAANGiA_gHI`](S_WAANGiA_gHI) |
 | 2026-08-22 | [통장에 1억이 생겼다면 이렇게 투자하세요💰 #1억모으기 #재테크 #자산배분 #…](https://www.youtube.com/shorts/WHbDRjvujQE) | obne music 오브… | 8,250 | 113,376 | ×13.74 | ×9.2 | 11초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 4 | [`S_WHbDRjvujQE`](S_WHbDRjvujQE) |
 | 2026-08-22 | [생계급여 수급자 적금! 희망저축계좌 말고 "이것"도 있습니다](https://www.youtube.com/shorts/vnTA0DN2m2o) | 노후 복지번역기 | 47,800 | 339,587 | ×7.1 | ×5.9 | 39초 |  |  | 설명 | 35 | [`S_vnTA0DN2m2o`](S_vnTA0DN2m2o) |
-| 2026-08-22 | [같은 10억인데 건보료는 천차만별… 노후자산을 어디에 두느냐가 중요한 이유](https://www.youtube.com/shorts/i48U96XfOfU) | 연금 받는 형 | 22,700 | 1,162,120 | ×51.19 | ×103.5 | 49초 | 36 |  | 설명 | 273 | [`S_i48U96XfOfU`](S_i48U96XfOfU) |
+| 2026-08-22 | [같은 10억인데 건보료는 천차만별… 노후자산을 어디에 두느냐가 중요한 이유](https://www.youtube.com/shorts/i48U96XfOfU) | 연금 받는 형 | 22,700 | 1,162,120 | ×51.19 | ×103.5 | 49초 | 41 |  | 설명 | 273 | [`S_i48U96XfOfU`](S_i48U96XfOfU) |
 | 2026-08-22 | [김수용 주식창 보고 감탄하는 김원훈 #넷플릭스 #개미김원훈 #TVbMs](https://www.youtube.com/shorts/_j_XomjPKEA) | 시작컴퍼니 | 41,400 | 2,640,039 | ×63.77 | ×100.3 | 47초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 939 | [`S__j_XomjPKEA`](S__j_XomjPKEA) |
 | 2026-08-22 | [룩삼이 산 주식 공개](https://www.youtube.com/shorts/L3dOLxbhTU4) | LookSam | 657,000 | 3,052,900 | ×4.65 | – | 48초 |  |  | 설명 | 336 | [`S_L3dOLxbhTU4`](S_L3dOLxbhTU4) |
 | 2026-08-22 | [똑같이 1억 2천만 원 투자했는데 14억? QLD 거치식이 적립식을 압도한 이유](https://www.youtube.com/shorts/wcLcTUQo5b8) | 운동찬_경제근육 | 21,900 | 101,610 | ×4.64 | ×18.7 | 51초 |  |  | 설명 | 47 | [`S_wcLcTUQo5b8`](S_wcLcTUQo5b8) |
-| 2026-08-21 | [햄버거는 남이 굽게 하고 부자가 된 52살 외판원](https://www.youtube.com/shorts/at2JkiYIKoM) | 백방 | 12,800 | 97,417 | ×7.61 | ×4.0 | 168초 | 83 |  | 설명 | 13 | [`S_at2JkiYIKoM`](S_at2JkiYIKoM) |
-| 2026-08-21 | [대기업 맞벌이 한달에 얼마쓸까? (저축시트 공유) #short](https://www.youtube.com/shorts/9i-_U_a6CmY) | 디형 | 8,620 | 330,508 | ×38.34 | ×84.5 | 49초 | 42 |  | 설명 | 146 | [`S_9i-_U_a6CmY`](S_9i-_U_a6CmY) |
+| 2026-08-21 | [햄버거는 남이 굽게 하고 부자가 된 52살 외판원](https://www.youtube.com/shorts/at2JkiYIKoM) | 백방 | 12,800 | 97,417 | ×7.61 | ×4.0 | 168초 | 91 |  | 설명 | 13 | [`S_at2JkiYIKoM`](S_at2JkiYIKoM) |
+| 2026-08-21 | [대기업 맞벌이 한달에 얼마쓸까? (저축시트 공유) #short](https://www.youtube.com/shorts/9i-_U_a6CmY) | 디형 | 8,620 | 330,508 | ×38.34 | ×84.5 | 49초 | 48 |  | 설명 | 146 | [`S_9i-_U_a6CmY`](S_9i-_U_a6CmY) |
 | 2026-08-21 | [ETF 전법? 4·4·2만 기억하세요](https://www.youtube.com/shorts/gXYm-mpwsaQ) | 다산북스TV | 43,400 | 179,514 | ×4.14 | ×114.5 | 97초 |  |  | 설명 | 24 | [`S_gXYm-mpwsaQ`](S_gXYm-mpwsaQ) |
-| 2026-08-20 | [국민연금 30% 덜 받아도… 전문가가 당겨 받겠다는 이유](https://www.youtube.com/shorts/ksrtne78VHU) | 연금 받는 형 | 22,700 | 792,389 | ×34.91 | ×70.6 | 53초 | 48 |  | 설명 | 486 | [`S_ksrtne78VHU`](S_ksrtne78VHU) |
+| 2026-08-20 | [국민연금 30% 덜 받아도… 전문가가 당겨 받겠다는 이유](https://www.youtube.com/shorts/ksrtne78VHU) | 연금 받는 형 | 22,700 | 792,389 | ×34.91 | ×70.6 | 53초 | 54 |  | 설명 | 486 | [`S_ksrtne78VHU`](S_ksrtne78VHU) |
 | 2026-08-18 | [금리 올린 범인, 연준이 아니다 #shortvideo #미국주식 #미국금리 #…](https://www.youtube.com/shorts/xPfGSkMRHoc) | 3CURAS HOUSE | 26,200 | 176,813 | ×6.75 | ×19.7 | 137초 |  |  | 없음 | 51 | [`S_xPfGSkMRHoc`](S_xPfGSkMRHoc) |
 | 2026-08-17 | [노후 현실​#노후대책 #노후준비 #인생조언 #노후현실 #부모자식 #경제적자립](https://www.youtube.com/shorts/vdQ1dsleelw) | 발길 닿는 곳마다 로드 | 16,800 | 232,212 | ×13.82 | ×224.0 | 14초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 5 | [`S_vdQ1dsleelw`](S_vdQ1dsleelw) |
 | 2026-08-17 | [워렌 버핏이 자녀에게 남긴 10가지 충고](https://www.youtube.com/shorts/_VjSZxOXG-g) | 오렌지노트🍊 | 15,900 | 62,322 | ×3.92 | ×2.2 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 1 | [`S__VjSZxOXG-g`](S__VjSZxOXG-g) |
-| 2026-08-17 | [1천만원이 22억 된다! 미친 복리의 마법 "이것" 사야하는 이유. #ETF …](https://www.youtube.com/shorts/ldzE1_3ELhk) | 신들린 타점 - 제우스 | 7,090 | 121,716 | ×17.17 | ×112.9 | 132초 | 63 |  | 설명 | 26 | [`S_ldzE1_3ELhk`](S_ldzE1_3ELhk) |
-| 2026-08-14 | [투자서로 읽기 시작해 ‘인생 책’으로 덮는 책, '찰리 멍거 바이블 완결판'](https://www.youtube.com/shorts/C662murw7x4) | 에프엔미디어 | 3,840 | 805,218 | ×209.69 | ×586.0 | 42초 | 17 |  | 설명 | 144 | [`S_C662murw7x4`](S_C662murw7x4) |
+| 2026-08-17 | [1천만원이 22억 된다! 미친 복리의 마법 "이것" 사야하는 이유. #ETF …](https://www.youtube.com/shorts/ldzE1_3ELhk) | 신들린 타점 - 제우스 | 7,090 | 121,716 | ×17.17 | ×112.9 | 132초 | 69 |  | 설명 | 26 | [`S_ldzE1_3ELhk`](S_ldzE1_3ELhk) |
+| 2026-08-14 | [투자서로 읽기 시작해 ‘인생 책’으로 덮는 책, '찰리 멍거 바이블 완결판'](https://www.youtube.com/shorts/C662murw7x4) | 에프엔미디어 | 3,840 | 805,218 | ×209.69 | ×586.0 | 42초 | 20 |  | 설명 | 144 | [`S_C662murw7x4`](S_C662murw7x4) |
 | 2026-08-14 | [지창욱 미국주식 수익에 유재석 빵 터진 이유 ㅋㅋ](https://www.youtube.com/shorts/IzGd0N6JfIU) | 숏우리 | 7,840 | 312,579 | ×39.87 | ×9.2 | 36초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 52 | [`S_IzGd0N6JfIU`](S_IzGd0N6JfIU) |
 | 2026-08-13 | [의외로 간단한 부자되는 습관 7가지 #에세이 #갱여운 #명언 #인생조언 #성공…](https://www.youtube.com/shorts/4ZdlgV0Ae1g) | 북플릭스 | 30,600 | 1,527,153 | ×49.91 | ×23.5 | 86초 |  | 뺀 주제(부동산) | 설명 | 224 | [`S_4ZdlgV0Ae1g`](S_4ZdlgV0Ae1g) |
 | 2026-08-13 | [돈! 돈! 돈! 모으기 vs 불리기 vs 쓰기 돈복 있는 팔자 모음 #재물운 …](https://www.youtube.com/shorts/_-9SSH9QxGc) | 인생박사 | 7,070 | 209,109 | ×29.58 | ×175.6 | 6초 |  | 돈 이야기 아님 — 운세·사주(돈복) | 설명 | 13 | [`S__-9SSH9QxGc`](S__-9SSH9QxGc) |
-| 2026-08-12 | [7억원 투자를 한순간에 판단으로 날려버린 이유](https://www.youtube.com/shorts/4WiioHABLuc) | 샤크상품 | 9,010 | 7,415,999 | ×823.09 | ×237.0 | 59초 | 4 |  | 자막 | 598 | [`S_4WiioHABLuc`](S_4WiioHABLuc) |
-| 2026-08-11 | [알아야 할 노후 생활 지원 제도 10가지#노후준비 #노인복지 #어르신지원제도 …](https://www.youtube.com/shorts/HG7brS2aj5I) | 발길 닿는 곳마다 로드 | 16,800 | 725,535 | ×43.19 | ×700.0 | 14초 | 43 |  | 설명 | 18 | [`S_HG7brS2aj5I`](S_HG7brS2aj5I) |
-| 2026-08-10 | [지금 주식 시장을 떠나면 안되는 이유](https://www.youtube.com/shorts/zcD5YBqtLRM) | 시사탐정김민 | 26,300 | 372,608 | ×14.17 | ×30.0 | 59초 | 68 |  | 설명 | 190 | [`S_zcD5YBqtLRM`](S_zcD5YBqtLRM) |
+| 2026-08-12 | [7억원 투자를 한순간에 판단으로 날려버린 이유](https://www.youtube.com/shorts/4WiioHABLuc) | 샤크상품 | 9,010 | 7,415,999 | ×823.09 | ×237.0 | 59초 | 5 |  | 자막 | 598 | [`S_4WiioHABLuc`](S_4WiioHABLuc) |
+| 2026-08-11 | [알아야 할 노후 생활 지원 제도 10가지#노후준비 #노인복지 #어르신지원제도 …](https://www.youtube.com/shorts/HG7brS2aj5I) | 발길 닿는 곳마다 로드 | 16,800 | 725,535 | ×43.19 | ×700.0 | 14초 | 49 |  | 설명 | 18 | [`S_HG7brS2aj5I`](S_HG7brS2aj5I) |
+| 2026-08-10 | [지금 주식 시장을 떠나면 안되는 이유](https://www.youtube.com/shorts/zcD5YBqtLRM) | 시사탐정김민 | 26,300 | 372,608 | ×14.17 | ×30.0 | 59초 | 74 |  | 설명 | 190 | [`S_zcD5YBqtLRM`](S_zcD5YBqtLRM) |
 | 2026-08-09 | [🌕돈 모으기 1등 돈 불리기 1등 돈 쓰는 복 1등 운세](https://www.youtube.com/shorts/SW_Na31K5YA) | 풍수운세_사주 운명 돈복 | 13,300 | 86,943 | ×6.54 | ×80.2 | 7초 |  | 돈 이야기 아님 — 운세·사주(운세) | 설명 | 12 | [`S_SW_Na31K5YA`](S_SW_Na31K5YA) |
 | 2026-08-07 | [수급 깨진 코스피, 개인 다 빠져나간 이유](https://www.youtube.com/shorts/gLUDzO_cGpw) | 시사탐정김민 | 26,300 | 288,554 | ×10.97 | ×23.2 | 62초 |  |  | 설명 | 345 | [`S_gLUDzO_cGpw`](S_gLUDzO_cGpw) |
 | 2026-08-07 | [돈 모으기 최고! 돈 불리기 최고! 돈 쓰는 복 최고!](https://www.youtube.com/shorts/LiT_oCnbQMw) | 황금용꿈 | 26,400 | 147,701 | ×5.59 | ×3.8 | 10초 |  | 돈 이야기 아님 — 운세·사주(용꿈) | 없음 | 49 | [`S_LiT_oCnbQMw`](S_LiT_oCnbQMw) |
-| 2026-08-06 | [평균 나이 75세, 한달 생활비 얼마나 들까요? #노후생활 #생활비 #노후생활비](https://www.youtube.com/shorts/d6bCjlKaSj8) | 순시미 SOONSEEME | 2,320 | 100,532 | ×43.33 | ×59.9 | 31초 | 45 |  | 설명 | 16 | [`S_d6bCjlKaSj8`](S_d6bCjlKaSj8) |
-| 2026-08-06 | [주식으로 돈 버는 단 한가지 방법](https://www.youtube.com/shorts/RoODmAMBIog) | 장사의신 팬클럽 | 15,000 | 232,201 | ×15.48 | ×4.4 | 154초 | 73 |  | 설명 | 82 | [`S_RoODmAMBIog`](S_RoODmAMBIog) |
+| 2026-08-06 | [평균 나이 75세, 한달 생활비 얼마나 들까요? #노후생활 #생활비 #노후생활비](https://www.youtube.com/shorts/d6bCjlKaSj8) | 순시미 SOONSEEME | 2,320 | 100,532 | ×43.33 | ×59.9 | 31초 | 51 |  | 설명 | 16 | [`S_d6bCjlKaSj8`](S_d6bCjlKaSj8) |
+| 2026-08-06 | [주식으로 돈 버는 단 한가지 방법](https://www.youtube.com/shorts/RoODmAMBIog) | 장사의신 팬클럽 | 15,000 | 232,201 | ×15.48 | ×4.4 | 154초 | 79 |  | 설명 | 82 | [`S_RoODmAMBIog`](S_RoODmAMBIog) |
 | 2026-08-04 | [이효리의 자산관리](https://www.youtube.com/shorts/YgHcLqY41So) | 유머너부리 | 3,320 | 226,936 | ×68.35 | ×30.7 | 16초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 없음 | 2 | [`S_YgHcLqY41So`](S_YgHcLqY41So) |
 | 2026-08-04 | [60 넘어 유통기한 ‘이것’ 절대 버리지 마세요. 돈 벌어줍니다 #노후현실 #…](https://www.youtube.com/shorts/PQqTOONkjls) | 행복한 시니어통 | 50,500 | 700,147 | ×13.86 | ×28.1 | 9초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 1 | [`S_PQqTOONkjls`](S_PQqTOONkjls) |
 | 2026-08-03 | [나이 들수록 가장 중요한 습관 1가지](https://www.youtube.com/shorts/jiCW8NdaBS0) | ALVY | 109,000 | 3,002,667 | ×27.55 | – | 59초 |  | 돈 이야기 아님 — 명언·인생조언(… | 설명 | 520 | [`S_jiCW8NdaBS0`](S_jiCW8NdaBS0) |
@@ -148,17 +157,17 @@
 | 2026-07-31 | [사면된 박근혜가 받고 있는 대통령연금은?](https://www.youtube.com/shorts/k5vGyevkP5M) | Korea_ltv123 | 43,900 | 4,450,747 | ×101.38 | ×33.8 | 65초 |  | 돈 이야기 아님 — 정치(박근혜) | 설명 | 1,888 | [`S_k5vGyevkP5M`](S_k5vGyevkP5M) |
 | 2026-07-31 | [국민연금 200조 증발! 내 노후자금은 안전할까? #쇼츠 #정치이슈](https://www.youtube.com/shorts/eeXSzptYdrg) | 지금이슈(Issue No… | 19,400 | 84,785 | ×4.37 | ×58.7 | 60초 |  |  | 없음 | 88 | [`S_eeXSzptYdrg`](S_eeXSzptYdrg) |
 | 2026-07-31 | ['염승환과 아이들' 8월 주식 투자전략 대공개](https://www.youtube.com/shorts/hPPrJ0hKK3M) | 경제통마늘 | 14,100 | 119,766 | ×8.49 | ×40.4 | 51초 |  |  | 없음 | 25 | [`S_hPPrJ0hKK3M`](S_hPPrJ0hKK3M) |
-| 2026-07-31 | ["이름만 ETF, 사실은 도박 상품?" 단일 종목 레버리지 ETF 승인 책임자…](https://www.youtube.com/shorts/CJS3jZOSgj8) | 세상스낵 | 5,790 | 78,651 | ×13.58 | ×52.6 | 53초 | 72 |  | 설명 | 134 | [`S_CJS3jZOSgj8`](S_CJS3jZOSgj8) |
-| 2026-07-30 | [8월대전망 낋여왔어요 빈센트 vs. 알상무 #장르만여의도 #코스피 #코스닥 #…](https://www.youtube.com/shorts/1XXaH0SyQw0) | 케이닷 | 9,540 | 188,285 | ×19.74 | ×9.4 | 76초 | 66 |  | 없음 | 112 | [`S_1XXaH0SyQw0`](S_1XXaH0SyQw0) |
+| 2026-07-31 | ["이름만 ETF, 사실은 도박 상품?" 단일 종목 레버리지 ETF 승인 책임자…](https://www.youtube.com/shorts/CJS3jZOSgj8) | 세상스낵 | 5,790 | 78,651 | ×13.58 | ×52.6 | 53초 | 78 |  | 설명 | 134 | [`S_CJS3jZOSgj8`](S_CJS3jZOSgj8) |
+| 2026-07-30 | [8월대전망 낋여왔어요 빈센트 vs. 알상무 #장르만여의도 #코스피 #코스닥 #…](https://www.youtube.com/shorts/1XXaH0SyQw0) | 케이닷 | 9,540 | 188,285 | ×19.74 | ×9.4 | 76초 | 72 |  | 없음 | 112 | [`S_1XXaH0SyQw0`](S_1XXaH0SyQw0) |
 | 2026-07-30 | [주식투자를 한다면 꼭 읽어봐야 할 책은? #주식추천도서 #황현희 #주식관련책](https://www.youtube.com/shorts/QFP_JfEamds) | 이홍렬TV | 48,700 | 194,875 | ×4.0 | ×14.5 | 23초 |  |  | 설명 | 35 | [`S_QFP_JfEamds`](S_QFP_JfEamds) |
 | 2026-07-29 | [이런 주식 시장에서 진짜로 무서운 거](https://www.youtube.com/shorts/H2tSz7BNw24) | 짧주 | 40,400 | 749,276 | ×18.55 | ×1.3 | 21초 |  |  | 없음 | 200 | [`S_H2tSz7BNw24`](S_H2tSz7BNw24) |
 | 2026-07-29 | ["전 국민 전멸했는데 견딜 만하다고?!" 개미들 피눈물 흘리는데 한가한 소리만…](https://www.youtube.com/shorts/0WeEzSHA7KY) | 뇌즙 | 21,600 | 180,731 | ×8.37 | ×4.9 | 88초 |  |  | 설명 | 511 | [`S_0WeEzSHA7KY`](S_0WeEzSHA7KY) |
-| 2026-07-29 | [개인 투자자의 무덤이 된 코스닥…수백만 투자자 폭발한 이유](https://www.youtube.com/shorts/-yOHXbtp0HA) | 인포스탁데일리 | 28,800 | 1,204,729 | ×41.83 | ×1984.7 | 64초 | 51 |  | 설명 | 5,138 | [`S_-yOHXbtp0HA`](S_-yOHXbtp0HA) |
-| 2026-07-29 | [계속되는 폭락장 현타 씨게 온 정프로](https://www.youtube.com/shorts/7N0IEPDJXBE) | 이슈바이럴 | 44,600 | 2,160,625 | ×48.44 | ×180.5 | 76초 | 44 |  | 없음 | 2,582 | [`S_7N0IEPDJXBE`](S_7N0IEPDJXBE) |
-| 2026-07-29 | [삼전·닉스 쏠림, 코스피의 구조적 함정](https://www.youtube.com/shorts/I9E5odAI-4s) | 시사탐정김민 | 26,300 | 583,140 | ×22.17 | ×46.9 | 51초 | 67 |  | 설명 | 152 | [`S_I9E5odAI-4s`](S_I9E5odAI-4s) |
+| 2026-07-29 | [개인 투자자의 무덤이 된 코스닥…수백만 투자자 폭발한 이유](https://www.youtube.com/shorts/-yOHXbtp0HA) | 인포스탁데일리 | 28,800 | 1,204,729 | ×41.83 | ×1984.7 | 64초 | 57 |  | 설명 | 5,138 | [`S_-yOHXbtp0HA`](S_-yOHXbtp0HA) |
+| 2026-07-29 | [계속되는 폭락장 현타 씨게 온 정프로](https://www.youtube.com/shorts/7N0IEPDJXBE) | 이슈바이럴 | 44,600 | 2,160,625 | ×48.44 | ×180.5 | 76초 | 50 |  | 없음 | 2,582 | [`S_7N0IEPDJXBE`](S_7N0IEPDJXBE) |
+| 2026-07-29 | [삼전·닉스 쏠림, 코스피의 구조적 함정](https://www.youtube.com/shorts/I9E5odAI-4s) | 시사탐정김민 | 26,300 | 583,140 | ×22.17 | ×46.9 | 51초 | 73 |  | 설명 | 152 | [`S_I9E5odAI-4s`](S_I9E5odAI-4s) |
 | 2026-07-28 | [그림으로 용돈벌기 6일차](https://www.youtube.com/shorts/K8MU-wh62MI) | 날아람 | 4,660 | 123,445 | ×26.49 | ×12.6 | 21초 |  |  | 없음 | 22 | [`S_K8MU-wh62MI`](S_K8MU-wh62MI) |
-| 2026-07-28 | [삼성전자 20만 원 초반, 그리고 나스닥 붕괴의 진실 #shorts](https://www.youtube.com/shorts/FA_1Nj7bb8g) | 켄즈차트랩 | 8,230 | 133,809 | ×16.26 | ×13.8 | 57초 | 74 |  | 설명 | 83 | [`S_FA_1Nj7bb8g`](S_FA_1Nj7bb8g) |
-| 2026-07-27 | [주식 초보, 이렇게만 투자하세요🔥](https://www.youtube.com/shorts/Fx3vItigpoA) | 1분 자기계발 | 1,970 | 1,103,868 | ×560.34 | ×775.7 | 53초 | 7 |  | 자막 | 343 | [`S_Fx3vItigpoA`](S_Fx3vItigpoA) |
+| 2026-07-28 | [삼성전자 20만 원 초반, 그리고 나스닥 붕괴의 진실 #shorts](https://www.youtube.com/shorts/FA_1Nj7bb8g) | 켄즈차트랩 | 8,230 | 133,809 | ×16.26 | ×13.8 | 57초 | 80 |  | 설명 | 83 | [`S_FA_1Nj7bb8g`](S_FA_1Nj7bb8g) |
+| 2026-07-27 | [주식 초보, 이렇게만 투자하세요🔥](https://www.youtube.com/shorts/Fx3vItigpoA) | 1분 자기계발 | 1,970 | 1,103,868 | ×560.34 | ×775.7 | 53초 | 8 |  | 자막 | 343 | [`S_Fx3vItigpoA`](S_Fx3vItigpoA) |
 | 2026-07-27 | [미국 부자가 느낀 한국 여자들 특징 ㄷㄷ](https://www.youtube.com/shorts/YQdY_hINh0c) | 미제 조셉 | 67,200 | 4,555,866 | ×67.8 | – | 68초 |  |  | 설명 | 2,736 | [`S_YQdY_hINh0c`](S_YQdY_hINh0c) |
 | 2026-07-27 | [현재 논란중인 저축만해서 반포 아파트를 산 아나운서](https://www.youtube.com/shorts/Iqc9J0zCUG0) | 숏구리 | 10,300 | 53,709 | ×5.21 | ×1.2 | 29초 |  | 뺀 주제(아파트) | 없음 | 101 | [`S_Iqc9J0zCUG0`](S_Iqc9J0zCUG0) |
 | 2026-07-27 | [💜 2026년 65세부터 받는 혜택 TOP12 #shorts #노후준비](https://www.youtube.com/shorts/DPdbTZz7X0s) | 따뜻한 랭킹킹 | 1,550 | 310,352 | ×200.23 | ×16.6 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 15 | [`S_DPdbTZz7X0s`](S_DPdbTZz7X0s) |
@@ -168,30 +177,31 @@
 | 2026-07-25 | [코스피 30% 폭락 후 진짜 바닥까지 걸린 시간 📉 과거 4번 사례 분석](https://www.youtube.com/shorts/srMLGzv_APM) | 1분썰배달 | 25,400 | 284,179 | ×11.19 | ×8.8 | 36초 |  |  | 설명 | 31 | [`S_srMLGzv_APM`](S_srMLGzv_APM) |
 | 2026-07-25 | [누구는 돈 버는데 당신이 못 버는 이유 #주식 #투자 #재테크](https://www.youtube.com/shorts/1O7mFwYXJ2M) | The Rich Pers… | 9,440 | 119,193 | ×12.63 | ×110.2 | 112초 |  |  | 설명 | 33 | [`S_1O7mFwYXJ2M`](S_1O7mFwYXJ2M) |
 | 2026-07-24 | [평온한 말년을 위한 명언 #노후준비 #은퇴준비](https://www.youtube.com/shorts/1F06g-yfbXI) | 중년의경제학 | 23,600 | 304,709 | ×12.91 | ×21.4 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 6 | [`S_1F06g-yfbXI`](S_1F06g-yfbXI) |
-| 2026-07-24 | [그림으로 용돈 벌기 2일차](https://www.youtube.com/shorts/n9QZ8UTdkfI) | 날아람 | 4,660 | 159,217 | ×34.17 | ×16.3 | 22초 | 59 |  | 설명 | 29 | [`S_n9QZ8UTdkfI`](S_n9QZ8UTdkfI) |
+| 2026-07-24 | [그림으로 용돈 벌기 2일차](https://www.youtube.com/shorts/n9QZ8UTdkfI) | 날아람 | 4,660 | 159,217 | ×34.17 | ×16.3 | 22초 | 65 |  | 설명 | 29 | [`S_n9QZ8UTdkfI`](S_n9QZ8UTdkfI) |
 | 2026-07-24 | [돌아온 니니의 초심](https://www.youtube.com/shorts/WM790WyliQw) | 머니코믹스 Money C… | 1,440,000 | 2,221,955 | ×1.54 | – | 63초 |  |  | 없음 | 1,571 | [`S_WM790WyliQw`](S_WM790WyliQw) |
 | 2026-07-23 | [노년에도 팔자 좋은 사람 특징 12가지 #노후준비 #팔자좋은사람 #노년의지혜](https://www.youtube.com/shorts/3Wmw2N1fwv4) | 인생보물창고 | 41,100 | 385,132 | ×9.37 | ×4.4 | 7초 |  | 돈 이야기 아님 — 운세·사주(팔자) | 설명 | 40 | [`S_3Wmw2N1fwv4`](S_3Wmw2N1fwv4) |
-| 2026-07-23 | [삼전닉스 당장 팔아야 하는 이유 (SK하이닉스 출신 이주완 애널리스트) #삼성…](https://www.youtube.com/shorts/CvITGjGqilo) | 뉴스레드 | 6,190 | 223,628 | ×36.13 | ×9.6 | 55초 | 55 |  | 설명 | 169 | [`S_CvITGjGqilo`](S_CvITGjGqilo) |
-| 2026-07-21 | [그림으로 용돈 벌기 1일차](https://www.youtube.com/shorts/h4mXRvNwZYg) | 날아람 | 4,660 | 482,187 | ×103.47 | ×49.4 | 26초 | 31 |  | 없음 | 62 | [`S_h4mXRvNwZYg`](S_h4mXRvNwZYg) |
-| 2026-07-21 | [이재용만큼 부자인데 누군지 모르는 남자](https://www.youtube.com/shorts/9NgZC011N7M) | 노빠꾸소개맨 | 24,200 | 2,256,524 | ×93.24 | ×75.8 | 58초 | 34 |  | 설명 | 1,105 | [`S_9NgZC011N7M`](S_9NgZC011N7M) |
-| 2026-07-21 | [남편 22년+ 아내 35년. 대기업 다닌 은퇴부부는 한달에 연금 합쳐서 얼마받…](https://www.youtube.com/shorts/reOynxlg-2Y) | 아니모 인생기록관 | 24,100 | 470,043 | ×19.5 | ×19.5 | 34초 | 70 |  | 설명 | 68 | [`S_reOynxlg-2Y`](S_reOynxlg-2Y) |
-| 2026-07-20 | [밈이 돼버렸다는 주식시장의 이 말](https://www.youtube.com/shorts/5IX1wEo5RTc) | 짧주 | 40,400 | 1,482,380 | ×36.69 | ×2.6 | 42초 | 57 |  | 없음 | 900 | [`S_5IX1wEo5RTc`](S_5IX1wEo5RTc) |
+| 2026-07-23 | [삼전닉스 당장 팔아야 하는 이유 (SK하이닉스 출신 이주완 애널리스트) #삼성…](https://www.youtube.com/shorts/CvITGjGqilo) | 뉴스레드 | 6,190 | 223,628 | ×36.13 | ×9.6 | 55초 | 61 |  | 설명 | 169 | [`S_CvITGjGqilo`](S_CvITGjGqilo) |
+| 2026-07-21 | [그림으로 용돈 벌기 1일차](https://www.youtube.com/shorts/h4mXRvNwZYg) | 날아람 | 4,660 | 482,187 | ×103.47 | ×49.4 | 26초 | 36 |  | 없음 | 62 | [`S_h4mXRvNwZYg`](S_h4mXRvNwZYg) |
+| 2026-07-21 | [이재용만큼 부자인데 누군지 모르는 남자](https://www.youtube.com/shorts/9NgZC011N7M) | 노빠꾸소개맨 | 24,200 | 2,256,524 | ×93.24 | ×75.8 | 58초 | 39 |  | 설명 | 1,105 | [`S_9NgZC011N7M`](S_9NgZC011N7M) |
+| 2026-07-21 | [남편 22년+ 아내 35년. 대기업 다닌 은퇴부부는 한달에 연금 합쳐서 얼마받…](https://www.youtube.com/shorts/reOynxlg-2Y) | 아니모 인생기록관 | 24,100 | 470,043 | ×19.5 | ×19.5 | 34초 | 76 |  | 설명 | 68 | [`S_reOynxlg-2Y`](S_reOynxlg-2Y) |
+| 2026-07-20 | [밈이 돼버렸다는 주식시장의 이 말](https://www.youtube.com/shorts/5IX1wEo5RTc) | 짧주 | 40,400 | 1,482,380 | ×36.69 | ×2.6 | 42초 | 63 |  | 없음 | 900 | [`S_5IX1wEo5RTc`](S_5IX1wEo5RTc) |
 | 2026-07-18 | [레버리지 ETF 왜 빠지는지 아세요? 📉 청소·배달로 모은 돈 날린 사람들 실…](https://www.youtube.com/shorts/aVbmBSfTK-c) | 1분썰배달 | 25,400 | 382,555 | ×15.06 | ×11.9 | 29초 |  |  | 설명 | 535 | [`S_aVbmBSfTK-c`](S_aVbmBSfTK-c) |
-| 2026-07-17 | [10억을 예금에 넣어두면 생기는 일](https://www.youtube.com/shorts/f5a8DJUtyRw) | 돈에 미친 세무사, 돈미… | 48,800 | 12,882,667 | ×263.99 | ×298.7 | 61초 | 19 |  | 없음 | 7,715 | [`S_f5a8DJUtyRw`](S_f5a8DJUtyRw) |
-| 2026-07-17 | [외국인 투자자들이 인버스로 양쪽 다 수익 내는 구조 30초 정리 📊](https://www.youtube.com/shorts/oNYck-rhY40) | 1분썰배달 | 25,400 | 2,099,915 | ×82.67 | ×65.3 | 47초 | 35 |  | 설명 | 1,976 | [`S_oNYck-rhY40`](S_oNYck-rhY40) |
+| 2026-07-18 | [노후 대비를 망치는 가장 큰 실수](https://www.youtube.com/shorts/x9UrcioWNoQ) | 호극장 | 2,800 | 1,205,576 | ×430.56 | ×12.8 | 52초 | 12 |  | 설명 | 426 | [`S_x9UrcioWNoQ`](S_x9UrcioWNoQ) |
+| 2026-07-17 | [10억을 예금에 넣어두면 생기는 일](https://www.youtube.com/shorts/f5a8DJUtyRw) | 돈에 미친 세무사, 돈미… | 48,800 | 12,882,667 | ×263.99 | ×298.7 | 61초 | 22 |  | 없음 | 7,715 | [`S_f5a8DJUtyRw`](S_f5a8DJUtyRw) |
+| 2026-07-17 | [외국인 투자자들이 인버스로 양쪽 다 수익 내는 구조 30초 정리 📊](https://www.youtube.com/shorts/oNYck-rhY40) | 1분썰배달 | 25,400 | 2,099,915 | ×82.67 | ×65.3 | 47초 | 40 |  | 설명 | 1,976 | [`S_oNYck-rhY40`](S_oNYck-rhY40) |
 | 2026-07-17 | [10분에 50k버는 돈 복사 공장 만들기! [코블버스1.7]](https://www.youtube.com/shorts/3zpptgG6J-k) | 코블민 | 17,600 | 224,057 | ×12.73 | ×3.4 | 34초 |  | 뺀 주제(9. 코인) | 설명 | 212 | [`S_3zpptgG6J-k`](S_3zpptgG6J-k) |
 | 2026-07-17 | [코스피 30% 폭락인데 전문가들 계좌 보니 충격적인 일 벌어졌음 📉](https://www.youtube.com/shorts/-bi7c6mn6lE) | 1분썰배달 | 25,400 | 393,438 | ×15.49 | ×12.2 | 43초 |  |  | 설명 | 92 | [`S_-bi7c6mn6lE`](S_-bi7c6mn6lE) |
 | 2026-07-17 | [삼성전자 나스닥 ADR 검토설 부인했는데 하루 만에 또 터진 이유](https://www.youtube.com/shorts/uJNIt7O3Z6E) | 1분썰배달 | 25,400 | 132,645 | ×5.22 | ×4.1 | 48초 |  |  | 설명 | 61 | [`S_uJNIt7O3Z6E`](S_uJNIt7O3Z6E) |
-| 2026-07-16 | [시장 자영업자들의 현실적 노후연금 #shorts #노후 #국민연금 #전통시장](https://www.youtube.com/shorts/dLWNseCKOxM) | 순시미 SOONSEEME | 2,320 | 549,964 | ×237.05 | ×326.2 | 49초 | 21 |  | 설명 | 50 | [`S_dLWNseCKOxM`](S_dLWNseCKOxM) |
-| 2026-07-14 | [삼성·하이닉스만 보는 투자자들의 실수 #반도체 #포트폴리오](https://www.youtube.com/shorts/_-sp5N7HWNk) | The Rich Pers… | 9,440 | 192,825 | ×20.43 | ×178.2 | 64초 | 71 |  | 설명 | 62 | [`S__-sp5N7HWNk`](S__-sp5N7HWNk) |
+| 2026-07-16 | [시장 자영업자들의 현실적 노후연금 #shorts #노후 #국민연금 #전통시장](https://www.youtube.com/shorts/dLWNseCKOxM) | 순시미 SOONSEEME | 2,320 | 549,964 | ×237.05 | ×326.2 | 49초 | 24 |  | 설명 | 50 | [`S_dLWNseCKOxM`](S_dLWNseCKOxM) |
+| 2026-07-14 | [삼성·하이닉스만 보는 투자자들의 실수 #반도체 #포트폴리오](https://www.youtube.com/shorts/_-sp5N7HWNk) | The Rich Pers… | 9,440 | 192,825 | ×20.43 | ×178.2 | 64초 | 77 |  | 설명 | 62 | [`S__-sp5N7HWNk`](S__-sp5N7HWNk) |
 | 2026-07-14 | [류현진이 메이저리그 갔다오고 노후 걱정 없는 이유](https://www.youtube.com/shorts/eOty7yBWi6Y) | 숏슬리 | 8,940 | 894,360 | ×100.04 | ×23.2 | 54초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 270 | [`S_eOty7yBWi6Y`](S_eOty7yBWi6Y) |
 | 2026-07-14 | [QLD 같은 성장주만으로도 노후 준비는 충분히 가능합니다](https://www.youtube.com/shorts/2dVzciVZyHE) | 운동찬_경제근육 | 21,900 | 76,175 | ×3.48 | ×14.0 | 37초 |  |  | 설명 | 67 | [`S_2dVzciVZyHE`](S_2dVzciVZyHE) |
 | 2026-07-13 | [종목기도회 EP.02 현대차 #현대차 #국내주식 #장기투자](https://www.youtube.com/shorts/p060zw1uOMo) | 장투교 최병욱 전도사 | 17,800 | 61,927 | ×3.48 | ×6.4 | 134초 |  |  | 없음 | 200 | [`S_p060zw1uOMo`](S_p060zw1uOMo) |
-| 2026-07-13 | [레버리지 ETF 긴급 규제 나오나?#레버리지ETF #삼성전자 #SK하이닉스 #…](https://www.youtube.com/shorts/Jw_Sd-NEhwM) | 팩트빌더 | 24,300 | 398,975 | ×16.42 | ×23.7 | 38초 | 77 |  | 설명 | 1,522 | [`S_Jw_Sd-NEhwM`](S_Jw_Sd-NEhwM) |
+| 2026-07-13 | [레버리지 ETF 긴급 규제 나오나?#레버리지ETF #삼성전자 #SK하이닉스 #…](https://www.youtube.com/shorts/Jw_Sd-NEhwM) | 팩트빌더 | 24,300 | 398,975 | ×16.42 | ×23.7 | 38초 | 83 |  | 설명 | 1,522 | [`S_Jw_Sd-NEhwM`](S_Jw_Sd-NEhwM) |
 | 2026-07-13 | [나스닥 12.7% 대폭등터졌다! SK하이닉스 미국 상장 대박에도 국내 주가만 …](https://www.youtube.com/shorts/287FR-RhXl0) | 뇌즙 | 21,600 | 128,090 | ×5.93 | ×3.5 | 111초 |  |  | 설명 | 131 | [`S_287FR-RhXl0`](S_287FR-RhXl0) |
 | 2026-07-09 | [박시동 경제평론가 ∣ 삼성전자 주가 전망 ∣ 삼성전자 레버리지 etf ∣ 삼성…](https://www.youtube.com/shorts/ei_NoLWE0Rw) | 정치인사이드 | 70,600 | 3,589,370 | ×50.84 | – | 25초 |  |  | 없음 | 2,810 | [`S_ei_NoLWE0Rw`](S_ei_NoLWE0Rw) |
-| 2026-07-09 | [레버리지 ETF, 결국 상폐 이야기까지 나왔습니다](https://www.youtube.com/shorts/CjDIweMntSo) | 머니눈치 | 2,140 | 891,999 | ×416.82 | ×45.3 | 54초 | 11 |  | 없음 | 1,493 | [`S_CjDIweMntSo`](S_CjDIweMntSo) |
-| 2026-07-09 | [100조 펀드매니저가 믿는 단 '한 가지' 지표 #자산배분 #거시경제 #기술분석](https://www.youtube.com/shorts/aG3AZ-UYoXw) | 박재훈의 투자농장 | 21,800 | 268,610 | ×12.32 | ×28.6 | 84초 | 82 |  | 설명 | 86 | [`S_aG3AZ-UYoXw`](S_aG3AZ-UYoXw) |
+| 2026-07-09 | [레버리지 ETF, 결국 상폐 이야기까지 나왔습니다](https://www.youtube.com/shorts/CjDIweMntSo) | 머니눈치 | 2,140 | 891,999 | ×416.82 | ×45.3 | 54초 | 13 |  | 없음 | 1,493 | [`S_CjDIweMntSo`](S_CjDIweMntSo) |
+| 2026-07-09 | [100조 펀드매니저가 믿는 단 '한 가지' 지표 #자산배분 #거시경제 #기술분석](https://www.youtube.com/shorts/aG3AZ-UYoXw) | 박재훈의 투자농장 | 21,800 | 268,610 | ×12.32 | ×28.6 | 84초 | 90 |  | 설명 | 86 | [`S_aG3AZ-UYoXw`](S_aG3AZ-UYoXw) |
 | 2026-07-07 | ["드러누워서라도 막았어야"... 단일종목 레버리지 후폭풍 #뉴스공장 #정준희](https://www.youtube.com/shorts/NHtOVk8Id3I) | 시사탐정김민 | 26,300 | 433,163 | ×16.47 | ×34.8 | 63초 |  |  | 설명 | 361 | [`S_NHtOVk8Id3I`](S_NHtOVk8Id3I) |
 | 2026-07-07 | [연금저축에 당장 담아야 할 필수 ETF 3가지 💼 #etf투자](https://www.youtube.com/shorts/kaXBlnLYI5o) | 빽담화TV | 27,100 | 206,731 | ×7.63 | ×81.0 | 72초 |  |  | 설명 | 101 | [`S_kaXBlnLYI5o`](S_kaXBlnLYI5o) |
 | 2026-07-03 | [스타일 리스트 김성일의 대단한 투자 실력 #이미숙](https://www.youtube.com/shorts/YrsawA00qYU) | 스마일타임 | 47,000 | 4,167,828 | ×88.68 | ×120.0 | 30초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 없음 | 199 | [`S_YrsawA00qYU`](S_YrsawA00qYU) |
@@ -209,46 +219,48 @@
 | 2026-06-22 | [현재 노후에 구축아파트가 신축보다 좋은 빼박증거 3가지](https://www.youtube.com/shorts/_lC6vPLpVrc) | 이슈필름 | 24,200 | 1,841,290 | ×76.09 | ×97.8 | 44초 |  | 뺀 주제(아파트) | 없음 | 1,208 | [`S__lC6vPLpVrc`](S__lC6vPLpVrc) |
 | 2026-06-21 | [요즘 단체로 멘붕온 노후준비족 근황 #노후준비 #자산관리 #은퇴준비](https://www.youtube.com/shorts/huBYfHyHA9Y) | 어른의금융수업 | 20,400 | 155,442 | ×7.62 | ×11.9 | 50초 |  |  | 설명 | 42 | [`S_huBYfHyHA9Y`](S_huBYfHyHA9Y) |
 | 2026-06-20 | [롤 포함 모든 스포츠에서 투자 철수한다는 사우디 ㄷㄷ](https://www.youtube.com/shorts/xEhSQcVQBf4) | 롤요밍 | 4,940 | 4,496,652 | ×910.25 | ×168.7 | 8초 |  | 돈 이야기 아님 — 다른 뜻(눈으로… | 없음 | 1,113 | [`S_xEhSQcVQBf4`](S_xEhSQcVQBf4) |
-| 2026-06-19 | [삼성전자와 SK하이닉스, 지금이 바닥인 이유 #투자전략 #삼성전자](https://www.youtube.com/shorts/EnxVRjkvLSE) | The Rich Pers… | 9,440 | 569,173 | ×60.29 | ×526.0 | 55초 | 50 |  | 설명 | 136 | [`S_EnxVRjkvLSE`](S_EnxVRjkvLSE) |
+| 2026-06-19 | [삼성전자와 SK하이닉스, 지금이 바닥인 이유 #투자전략 #삼성전자](https://www.youtube.com/shorts/EnxVRjkvLSE) | The Rich Pers… | 9,440 | 569,173 | ×60.29 | ×526.0 | 55초 | 56 |  | 설명 | 136 | [`S_EnxVRjkvLSE`](S_EnxVRjkvLSE) |
 | 2026-06-19 | [영범이 인생 잡아먹고 비참한 노후를 맞이한 영범엄마 #영범이엄마 #폭싹속았수다…](https://www.youtube.com/shorts/jnjKqRdHPys) | 행복씨네마 | 9,370 | 3,757,157 | ×400.98 | ×100.5 | 80초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 875 | [`S_jnjKqRdHPys`](S_jnjKqRdHPys) |
 | 2026-06-18 | [피 같은 내 돈을 지키려던 저축왕 짱구의 최후 ㅋㅋ](https://www.youtube.com/shorts/UsiEqJcIukU) | 짱꾸우웅 | 14,200 | 1,259,398 | ×88.69 | ×12.1 | 60초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 57 | [`S_UsiEqJcIukU`](S_UsiEqJcIukU) |
-| 2026-06-16 | [황혼이혼 했는데, 간섭없고 스트레스 안받고. 지금 너무 좋습니다. #노후 #이…](https://www.youtube.com/shorts/IOcIhSp4Mtw) | 아니모 인생기록관 | 24,100 | 1,542,441 | ×64.0 | ×63.1 | 55초 | 49 |  | 설명 | 855 | [`S_IOcIhSp4Mtw`](S_IOcIhSp4Mtw) |
+| 2026-06-16 | [황혼이혼 했는데, 간섭없고 스트레스 안받고. 지금 너무 좋습니다. #노후 #이…](https://www.youtube.com/shorts/IOcIhSp4Mtw) | 아니모 인생기록관 | 24,100 | 1,542,441 | ×64.0 | ×63.1 | 55초 | 55 |  | 설명 | 855 | [`S_IOcIhSp4Mtw`](S_IOcIhSp4Mtw) |
 | 2026-06-13 | [주식 빨간불 떴을 때 당장 '이 행동' 멈추세요 #주식 #파이어족 #투자전략 …](https://www.youtube.com/shorts/nwXHbE7sXyE) | 와이스트릿 - 지식과 자… | 1,010,000 | 3,610,579 | ×3.57 | – | 31초 |  |  | 없음 | 970 | [`S_nwXHbE7sXyE`](S_nwXHbE7sXyE) |
 | 2026-06-12 | [하루만에 4,000% 폭등한 미국주식 근황](https://www.youtube.com/shorts/a4U4ZzMsfWc) | 군림보 | 1,530,000 | 3,598,985 | ×2.35 | – | 45초 |  |  | 설명 | 1,094 | [`S_a4U4ZzMsfWc`](S_a4U4ZzMsfWc) |
 | 2026-06-10 | [스페이스X 상장되면 한국 주식 시장으로 돈 몰려오는 진짜 이유 ㄷㄷ 📈#12시…](https://www.youtube.com/shorts/fN3YinTphN8) | 뇌즙 | 21,600 | 970,337 | ×44.92 | ×26.3 | 59초 |  |  | 설명 | 358 | [`S_fN3YinTphN8`](S_fN3YinTphN8) |
-| 2026-06-09 | [이광수 대표의 일침! "지금 당장 주식 다 팔아라" 폭락론에 절대 속지 마세요…](https://www.youtube.com/shorts/BWndtyZgurI) | 뇌즙 | 21,600 | 1,859,711 | ×86.1 | ×50.5 | 100초 | 39 |  | 설명 | 1,098 | [`S_BWndtyZgurI`](S_BWndtyZgurI) |
+| 2026-06-09 | [이광수 대표의 일침! "지금 당장 주식 다 팔아라" 폭락론에 절대 속지 마세요…](https://www.youtube.com/shorts/BWndtyZgurI) | 뇌즙 | 21,600 | 1,859,711 | ×86.1 | ×50.5 | 100초 | 45 |  | 설명 | 1,098 | [`S_BWndtyZgurI`](S_BWndtyZgurI) |
 | 2026-06-05 | [박정수가 주식 공부하기 싫다고 하자 존리가 꺼낸 이 투자법!!!! #박정수 #…](https://www.youtube.com/shorts/cFsgvXkU6Us) | 웬만해선 정수를 막을 수… | 46,100 | 275,822 | ×5.98 | ×0.8 | 55초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 24 | [`S_cFsgvXkU6Us`](S_cFsgvXkU6Us) |
 | 2026-06-04 | [이재명 정부의 경고! "부동산 개혁 없이 주식시장 성공 없다"#12시에만나요 …](https://www.youtube.com/shorts/GQLmZG6GeQU) | 뇌즙 | 21,600 | 3,884,435 | ×179.83 | ×105.4 | 116초 |  | 뺀 주제(부동산) | 설명 | 1,215 | [`S_GQLmZG6GeQU`](S_GQLmZG6GeQU) |
 | 2026-06-03 | [이런 데 돈 쓰지 마세요 #노후준비 #인생조언 #재테크](https://www.youtube.com/shorts/CrB9KRU7Qq4) | 오늘의쉼표 | 21,300 | 677,626 | ×31.81 | ×42.1 | 7초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 6 | [`S_CrB9KRU7Qq4`](S_CrB9KRU7Qq4) |
-| 2026-06-03 | [삼성전자가 로봇 시장을 통째로 먹는 방법 #삼성전자 #로봇관련주 #피지컬AI …](https://www.youtube.com/shorts/-lkcdwcv7yM) | 뇌즙 | 21,600 | 3,094,394 | ×143.26 | ×83.9 | 77초 | 30 |  | 설명 | 440 | [`S_-lkcdwcv7yM`](S_-lkcdwcv7yM) |
-| 2026-06-01 | [삼성전자, 하이닉스 지금 사도 늦지 않았을까? 🤔 #염승환 #주식 #재테크](https://www.youtube.com/shorts/JCDePyn_0-s) | 돈에안기자(TV조선경제채… | 28,400 | 489,048 | ×17.22 | ×255.3 | 54초 | 80 |  | 설명 | 36 | [`S_JCDePyn_0-s`](S_JCDePyn_0-s) |
+| 2026-06-03 | [삼성전자가 로봇 시장을 통째로 먹는 방법 #삼성전자 #로봇관련주 #피지컬AI …](https://www.youtube.com/shorts/-lkcdwcv7yM) | 뇌즙 | 21,600 | 3,094,394 | ×143.26 | ×83.9 | 77초 | 35 |  | 설명 | 440 | [`S_-lkcdwcv7yM`](S_-lkcdwcv7yM) |
+| 2026-06-01 | [삼성전자, 하이닉스 지금 사도 늦지 않았을까? 🤔 #염승환 #주식 #재테크](https://www.youtube.com/shorts/JCDePyn_0-s) | 돈에안기자(TV조선경제채… | 28,400 | 489,048 | ×17.22 | ×255.3 | 54초 | 87 |  | 설명 | 36 | [`S_JCDePyn_0-s`](S_JCDePyn_0-s) |
 | 2026-06-01 | [계속 되는 지붕 없는 코스피 고수의 덕목 분산 투자 수사니신흥 인간지표를 꿈꾸…](https://www.youtube.com/shorts/f1CtL4OlY8Y) | Studio x B.B.… | 28,000 | 91,752 | ×3.28 | ×9.1 | 59초 |  |  | 없음 | 6 | [`S_f1CtL4OlY8Y`](S_f1CtL4OlY8Y) |
 | 2026-05-31 | [【#예능썰】 입이 떡 벌어지는 이효리 재테크 ㄷㄷ ∣ 라디오스타 ∣ TVPP …](https://www.youtube.com/shorts/PHcYhO4jGxk) | TV-People | 4,270,000 | 5,600,225 | ×1.31 | – | 63초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 646 | [`S_PHcYhO4jGxk`](S_PHcYhO4jGxk) |
 | 2026-05-29 | [20대 전문 투자자도 골드바 선택!3억 투자 경험자의 자산관리 비결✨#골드바 …](https://www.youtube.com/shorts/4HQX1sHJaMA) | 헤이골드금거래소 | 27,300 | 202,346 | ×7.41 | ×2.1 | 39초 |  |  | 없음 | 49 | [`S_4HQX1sHJaMA`](S_4HQX1sHJaMA) |
-| 2026-05-28 | [S&P500 vs 나스닥100](https://www.youtube.com/shorts/lg0r2ZOcyXU) | 디히치 | 25,200 | 1,312,045 | ×52.07 | ×217.0 | 26초 | 60 |  | 설명 | 456 | [`S_lg0r2ZOcyXU`](S_lg0r2ZOcyXU) |
+| 2026-05-28 | [S&P500 vs 나스닥100](https://www.youtube.com/shorts/lg0r2ZOcyXU) | 디히치 | 25,200 | 1,312,045 | ×52.07 | ×217.0 | 26초 | 66 |  | 설명 | 456 | [`S_lg0r2ZOcyXU`](S_lg0r2ZOcyXU) |
 | 2026-05-25 | [🎉47만뷰🎉뇌가 늙지 않는 비밀 노후에 치매 절대 안 걸리는 사람들의 5가지 …](https://www.youtube.com/shorts/jbfA5sTRAr0) | 지금이 가장 좋은 때 | 37,400 | 622,437 | ×16.64 | ×28.5 | 144초 |  | 돈 이야기 아님 — 명언·인생조언(… | 설명 | 46 | [`S_jbfA5sTRAr0`](S_jbfA5sTRAr0) |
-| 2026-05-24 | [ISA에 담으면 좋은 ETF 3가지](https://www.youtube.com/shorts/VlB7Svn3St4) | 부자람지 ∣ 신혼부부 재… | 1,570 | 120,631 | ×76.84 | ×50.3 | 39초 | 47 |  | 없음 | 14 | [`S_VlB7Svn3St4`](S_VlB7Svn3St4) |
+| 2026-05-24 | [ISA에 담으면 좋은 ETF 3가지](https://www.youtube.com/shorts/VlB7Svn3St4) | 부자람지 ∣ 신혼부부 재… | 1,570 | 120,631 | ×76.84 | ×50.3 | 39초 | 53 |  | 없음 | 14 | [`S_VlB7Svn3St4`](S_VlB7Svn3St4) |
+| 2026-05-23 | [etf를 왜 사? #매불쇼 #이광수 #etf](https://www.youtube.com/shorts/R3XvurhdhEA) | 슬기로운 정치세상 | 11,700 | 271,770 | ×23.23 | ×169.2 | 57초 | 85 |  | 설명 | 41 | [`S_R3XvurhdhEA`](S_R3XvurhdhEA) |
 | 2026-05-21 | [물리학 교수가 말한 주식 투자 전략 📈 결국 답은 바이앤홀드?](https://www.youtube.com/shorts/NqSumD8duxY) | 1분썰배달 | 25,400 | 242,676 | ×9.55 | ×7.6 | 28초 |  |  | 설명 | 14 | [`S_NqSumD8duxY`](S_NqSumD8duxY) |
 | 2026-05-21 | [70세이후 돈보다 더 무서운 것 4가지 #노후준비 #중년건강 #시니어생활 #백…](https://www.youtube.com/shorts/Z_-vR9My_uc) | 백세 건강길잡이 | 31,300 | 166,377 | ×5.32 | ×25.5 | 143초 |  | 돈 이야기 아님 — 다른 뜻(눈으로… | 설명 | 16 | [`S_Z_-vR9My_uc`](S_Z_-vR9My_uc) |
 | 2026-05-20 | [해운대구 할머니의 노후 생활비 ∣ 老HOW(노하우) #노인인터뷰 #interv…](https://www.youtube.com/shorts/l3Bnp74v0A0) | 부산일보 피플 | 11,000 | 167,502 | ×15.23 | ×4.7 | 155초 |  |  | 설명 | 16 | [`S_l3Bnp74v0A0`](S_l3Bnp74v0A0) |
-| 2026-05-20 | [2억 밑으로는 집중!](https://www.youtube.com/shorts/cl_ExiUxDK8) | 광수쌤 투자한수 | 40,800 | 1,358,883 | ×33.31 | ×69.6 | 124초 | 69 |  | 없음 | 948 | [`S_cl_ExiUxDK8`](S_cl_ExiUxDK8) |
-| 2026-05-19 | ["2억 밑으론 제발..." 당신이 주식으로 돈을 못 버는 결정적인 이유 (분산…](https://www.youtube.com/shorts/2_Is4E0pWRk) | 1분브리핑룸 | 4,760 | 184,754 | ×38.81 | – | 43초 | 65 |  | 설명 | 107 | [`S_2_Is4E0pWRk`](S_2_Is4E0pWRk) |
+| 2026-05-20 | [2억 밑으로는 집중!](https://www.youtube.com/shorts/cl_ExiUxDK8) | 광수쌤 투자한수 | 40,800 | 1,358,883 | ×33.31 | ×69.6 | 124초 | 75 |  | 없음 | 948 | [`S_cl_ExiUxDK8`](S_cl_ExiUxDK8) |
+| 2026-05-19 | ["2억 밑으론 제발..." 당신이 주식으로 돈을 못 버는 결정적인 이유 (분산…](https://www.youtube.com/shorts/2_Is4E0pWRk) | 1분브리핑룸 | 4,760 | 184,754 | ×38.81 | – | 43초 | 71 |  | 설명 | 107 | [`S_2_Is4E0pWRk`](S_2_Is4E0pWRk) |
 | 2026-05-16 | [늙어서 팔자 좋은 사람 공통점 5가지 #노후준비 #시니어라이프 #인생후반전 #…](https://www.youtube.com/shorts/VyYLWXdTf6s) | 지혜로운 백세 | 41,400 | 240,384 | ×5.81 | ×115.2 | 92초 |  | 돈 이야기 아님 — 운세·사주(팔자) | 설명 | 45 | [`S_VyYLWXdTf6s`](S_VyYLWXdTf6s) |
 | 2026-05-16 | [지창욱 주식 투자 철학에 반응 터진 유재석ㅋㅋ](https://www.youtube.com/shorts/GXP3TpCsIUU) | 유느님이조 | 23,000 | 3,237,448 | ×140.76 | ×35.3 | 54초 |  | 돈 이야기 아님 — 연예·예능·드라… | 없음 | 453 | [`S_GXP3TpCsIUU`](S_GXP3TpCsIUU) |
-| 2026-05-15 | ["나스닥과 코스피가 폭락한 이유 지금 체크할 투자 포인트 정리" #주식 #투자…](https://www.youtube.com/shorts/C4HZt_dEJ6Y) | 1분 투자 지식 | 16,100 | 329,220 | ×20.45 | ×52.4 | 158초 | 79 |  | 설명 | 38 | [`S_C4HZt_dEJ6Y`](S_C4HZt_dEJ6Y) |
+| 2026-05-15 | ["나스닥과 코스피가 폭락한 이유 지금 체크할 투자 포인트 정리" #주식 #투자…](https://www.youtube.com/shorts/C4HZt_dEJ6Y) | 1분 투자 지식 | 16,100 | 329,220 | ×20.45 | ×52.4 | 158초 | 86 |  | 설명 | 38 | [`S_C4HZt_dEJ6Y`](S_C4HZt_dEJ6Y) |
 | 2026-05-14 | ["많아서 좀 팔아야겠어" 국민연금 리밸런싱?](https://www.youtube.com/shorts/NWzotD91Xb0) | 일개주권자 | 41,500 | 640,666 | ×15.44 | ×54.9 | 25초 |  |  | 설명 | 195 | [`S_NWzotD91Xb0`](S_NWzotD91Xb0) |
 | 2026-05-14 | [졸부 부러워하는 서민 vs 졸부 가여워하는 재벌 #shorts](https://www.youtube.com/shorts/VBXbVTxzm5c) | 숏플레이 | 648,000 | 5,124,970 | ×7.91 | – | 61초 |  | 뺀 주제(5. 부동산) | 설명 | 509 | [`S_VBXbVTxzm5c`](S_VBXbVTxzm5c) |
-| 2026-05-13 | [나이대별 순자산 기준 30대 편](https://www.youtube.com/shorts/2mZ0k67Fjl4) | 법대로하네 | 18,100 | 340,517 | ×18.81 | ×182.8 | 49초 | 81 |  | 없음 | 386 | [`S_2mZ0k67Fjl4`](S_2mZ0k67Fjl4) |
+| 2026-05-13 | [나이대별 순자산 기준 30대 편](https://www.youtube.com/shorts/2mZ0k67Fjl4) | 법대로하네 | 18,100 | 340,517 | ×18.81 | ×182.8 | 49초 | 89 |  | 없음 | 386 | [`S_2mZ0k67Fjl4`](S_2mZ0k67Fjl4) |
 | 2026-05-13 | [교사 은퇴 후 사학연금 얼마나 받을까? ∣ 老HOW(노하우) #노인인터뷰 #i…](https://www.youtube.com/shorts/vTljBOIywv4) | 부산일보 피플 | 11,000 | 83,052 | ×7.55 | ×2.3 | 117초 |  |  | 설명 | 11 | [`S_vTljBOIywv4`](S_vTljBOIywv4) |
 | 2026-05-12 | [삼성전자·SK하이닉스 다음은 AI 메모리 시장 휩쓸 핵심 기업들#AI반도체 #…](https://www.youtube.com/shorts/k3JCLJPXHDQ) | 주식투자AtoZ | 9,930 | 133,120 | ×13.41 | ×4.1 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 1 | [`S_k3JCLJPXHDQ`](S_k3JCLJPXHDQ) |
 | 2026-05-09 | [국내 로봇관련주 분야별 핵심 종목 완벽 분류!#로봇관련주 #주식공부 #국내주식…](https://www.youtube.com/shorts/j6Ab05MqqO8) | 주식투자AtoZ | 9,930 | 606,799 | ×61.11 | ×18.5 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 7 | [`S_j6Ab05MqqO8`](S_j6Ab05MqqO8) |
 | 2026-05-08 | [주식 대박 난.. 남편 ;;](https://www.youtube.com/shorts/zlk8BbNbLOg) | 83부부 | 1,150,000 | 6,376,934 | ×5.55 | – | 158초 |  |  | 설명 | 974 | [`S_zlk8BbNbLOg`](S_zlk8BbNbLOg) |
-| 2026-05-06 | [볼린저밴드 rsi macd 거래량 이동평균선 만큼 투자전략이 중요한이유](https://www.youtube.com/shorts/nbGqu_wQ0Xo) | 트레이딩센세 | 7,660 | 952,634 | ×124.36 | ×2.1 | 56초 | 37 |  | 없음 | 270 | [`S_nbGqu_wQ0Xo`](S_nbGqu_wQ0Xo) |
+| 2026-05-06 | [볼린저밴드 rsi macd 거래량 이동평균선 만큼 투자전략이 중요한이유](https://www.youtube.com/shorts/nbGqu_wQ0Xo) | 트레이딩센세 | 7,660 | 952,634 | ×124.36 | ×2.1 | 56초 | 42 |  | 없음 | 270 | [`S_nbGqu_wQ0Xo`](S_nbGqu_wQ0Xo) |
 | 2026-05-06 | [수급비 저축했는데 자격 박탈?! 진짜 함정은 금액이 아닙니다.](https://www.youtube.com/shorts/kmNAOEGh0cI) | 노후 복지번역기 | 47,800 | 331,927 | ×6.94 | ×5.8 | 65초 |  |  | 설명 | 8 | [`S_kmNAOEGh0cI`](S_kmNAOEGh0cI) |
 | 2026-05-05 | [그래서 주식 언제 팔면 될까요?](https://www.youtube.com/shorts/Yq-E_Yyg3q8) | 광수쌤 투자한수 | 40,800 | 3,671,314 | ×89.98 | ×188.1 | 110초 |  |  | 없음 | 1,794 | [`S_Yq-E_Yyg3q8`](S_Yq-E_Yyg3q8) |
 | 2026-05-05 | [통계물리학으로 주식 수익 올리는 법 #유퀴즈온더블럭](https://www.youtube.com/shorts/d_Od8eWFjOk) | 디글 :Diggle | 4,310,000 | 6,427,942 | ×1.49 | – | 51초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 1,082 | [`S_d_Od8eWFjOk`](S_d_Od8eWFjOk) |
 | 2026-05-04 | [1억 있다면 이 시스템부터 복사하세요. QLD와 배당 ETF의 황금 비율](https://www.youtube.com/shorts/QtASlVQkp2Y) | 운동찬_경제근육 | 21,900 | 941,630 | ×43.0 | ×173.7 | 47초 |  |  | 설명 | 354 | [`S_QtASlVQkp2Y`](S_QtASlVQkp2Y) |
 | 2026-05-04 | [통장 잔고 바닥나서 은퇴 준비하던 40대 무명 배우가 대한민국을 뒤집어버린 사연](https://www.youtube.com/shorts/vycw91X_Aro) | 굿리뷰 | 16,100 | 2,436,426 | ×151.33 | ×30.9 | 46초 |  |  | 설명 | 481 | [`S_vycw91X_Aro`](S_vycw91X_Aro) |
+| 2026-05-04 | [베트남 '참전용사'가 노후를 즐기는 방법](https://www.youtube.com/shorts/QrFkdmNgbns) | 우주유목민 | 29,800 | 3,897,020 | ×130.77 | ×4.1 | 34초 |  |  | 설명 | 1,388 | [`S_QrFkdmNgbns`](S_QrFkdmNgbns) |
 | 2026-05-03 | [(🚨신동엽썰) 김경식은 "재테크의 귀재", 길가다 홧 김에 계약했을 뿐인데..…](https://www.youtube.com/shorts/_5oIhmMczy0) | MOVIESTARWA | 83,300 | 6,833,481 | ×82.03 | – | 51초 |  |  | 설명 | 779 | [`S__5oIhmMczy0`](S__5oIhmMczy0) |
 | 2026-05-03 | [매년 1억 모으는 신혼부부 월급날 루틴](https://www.youtube.com/shorts/wF313BFzqyI) | 워르천 | 1,880 | 314,345 | ×167.2 | ×93.7 | 29초 |  |  | 설명 | 3,213 | [`S_wF313BFzqyI`](S_wF313BFzqyI) |
 | 2026-05-03 | [은행 VIP들만 몰래 한다는 60대 노후자금 3대장 #자산관리 #은퇴준비 #재…](https://www.youtube.com/shorts/lIb99bZbKGw) | 어른의금융수업 | 20,400 | 759,444 | ×37.23 | ×58.0 | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 29 | [`S_lIb99bZbKGw`](S_lIb99bZbKGw) |
@@ -262,3 +274,59 @@
 | 2026-04-20 | [1년에 100만원 환급받는 #연금저축 계좌 만드는 법 #연금저축펀드](https://www.youtube.com/shorts/qUnEju-qk2g) | 털팽이TV | 39,600 | 122,077 | ×3.08 | ×6.9 | 36초 |  |  | 없음 | 3 | [`S_qUnEju-qk2g`](S_qUnEju-qk2g) |
 | 2026-04-20 | [자가 없고 주식 몰빵한 김원훈 대리의 오전 루틴 #snl #snl코리아 #예능…](https://www.youtube.com/shorts/eCnqOdQola0) | 쇼몬클립 | 40,500 | 1,612,683 | ×39.82 | ×87.9 | 60초 |  | 돈 이야기 아님 — 연예·예능·드라… | 설명 | 330 | [`S_eCnqOdQola0`](S_eCnqOdQola0) |
 | 2026-04-19 | [골프가 노후를 말아먹습니다. 자산 전문가들이 말리는 진짜 이유](https://www.youtube.com/shorts/aNztn8Te8ao) | 파크골프채널 | 11,600 | 697,950 | ×60.17 | ×43.7 | 165초 |  |  | 설명 | 802 | [`S_aNztn8Te8ao`](S_aNztn8Te8ao) |
+| 2026-03-31 | [퇴사 후 따로 신청안하면 건보료 연금 폭탄 맞는 이유!](https://www.youtube.com/shorts/xCM-ZIZPyrc) | 꿀팁한상 | 62,100 | 7,250,157 | ×116.75 | – | 50초 |  |  | 설명 | 1,292 | [`S_xCM-ZIZPyrc`](S_xCM-ZIZPyrc) |
+| 2026-01-11 | [부자 되는 사람들의 공통점](https://www.youtube.com/shorts/nmygd6CEMD0) | 함익병 | 277,000 | 3,758,576 | ×13.57 | – | 133초 |  |  | 없음 | 2,078 | [`S_nmygd6CEMD0`](S_nmygd6CEMD0) |
+| 2025-12-23 | [맞벌이 부부의 월급날루틴 “빠르게 1억 모으기“](https://www.youtube.com/shorts/-vPbgWEJg_g) | 재테콩 | 7,180 | 2,104,218 | ×293.07 | – | 30초 |  |  | 설명 | 362 | [`S_-vPbgWEJg_g`](S_-vPbgWEJg_g) |
+| 2025-12-09 | [국민연금 65세 말고 이때 받으세요!](https://www.youtube.com/shorts/wmbcCaIbT3M) | 재테크읽어주는 파일럿 | 1,280,000 | 3,530,058 | ×2.76 | – | 89초 |  |  | 없음 | 630 | [`S_wmbcCaIbT3M`](S_wmbcCaIbT3M) |
+| 2025-11-26 | [매달 50만원만 모아도 노후 자금 충분합니다 (ETF 포트폴리오 공개)](https://www.youtube.com/shorts/uz7mF0NAV9I) | 슬기로운정보 | 88,000 | 3,578,521 | ×40.67 | – | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 62 | [`S_uz7mF0NAV9I`](S_uz7mF0NAV9I) |
+| 2025-10-29 | [주식으로 성공한 부자들의 어마어마한 핵심 노하우](https://www.youtube.com/shorts/iacwbUHyqv4) | 좋은미래만들기 | 138,000 | 5,448,584 | ×39.48 | – | 49초 |  |  | 설명 | 945 | [`S_iacwbUHyqv4`](S_iacwbUHyqv4) |
+| 2025-10-28 | [65세 이상이면 꼭 알아야 할 소식! 이재명 정부 시니어 지원금 4가지 #시니…](https://www.youtube.com/shorts/6cWIjXrB5n8) | 황혼이야기Y | 265,000 | 8,731,317 | ×32.95 | – | 45초 |  | 돈 이야기 아님 — 정치(이재명) | 없음 | 2,137 | [`S_6cWIjXrB5n8`](S_6cWIjXrB5n8) |
+| 2025-10-26 | [주식 투자 마이너스(-)되도 계속 갖고 있는 사람들의 결말](https://www.youtube.com/shorts/M0fHTKInPNc) | 좋은미래만들기 | 138,000 | 2,473,689 | ×17.93 | – | 37초 |  |  | 설명 | 672 | [`S_M0fHTKInPNc`](S_M0fHTKInPNc) |
+| 2025-09-27 | [조용한 복리효과를 내는 4가지 ETF 포트폴리오](https://www.youtube.com/shorts/4wCo2ubeIKs) | 시드업 | 39,300 | 3,599,570 | ×91.59 | ×130.3 | 42초 |  |  | 없음 | 385 | [`S_4wCo2ubeIKs`](S_4wCo2ubeIKs) |
+| 2025-09-19 | [무조건 기억하세요! 주식 가장 중요한 원칙 하나](https://www.youtube.com/shorts/BxdqeNVORNc) | 좋은미래만들기 | 138,000 | 4,278,446 | ×31.0 | – | 108초 |  |  | 설명 | 982 | [`S_BxdqeNVORNc`](S_BxdqeNVORNc) |
+| 2025-09-18 | [최고의 ETF ... ?](https://www.youtube.com/shorts/WMIgCtSC8Xk) | 라보링 | 16,900 | 5,208,774 | ×308.21 | ×228.4 | 43초 |  |  | 설명 | 404 | [`S_WMIgCtSC8Xk`](S_WMIgCtSC8Xk) |
+| 2025-09-11 | [(전)구글 임원의 포트폴리오](https://www.youtube.com/shorts/82jyf64ERac) | 라보링 | 16,900 | 4,215,218 | ×249.42 | ×184.8 | 31초 |  |  | 설명 | 668 | [`S_82jyf64ERac`](S_82jyf64ERac) |
+| 2025-09-07 | [노년에 쓰지 말아야 할 돈 #노후준비 #현실조언 #돈관리](https://www.youtube.com/shorts/mf3hUNUQIy8) | 늘푸른 지혜의 숲 | 53,900 | 3,173,091 | ×58.87 | – | 7초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 76 | [`S_mf3hUNUQIy8`](S_mf3hUNUQIy8) |
+| 2025-08-18 | [1억 이렇게 하세요 11억 금방입니다 #홍춘욱 #재테크 #isa #투자](https://www.youtube.com/shorts/FmYvr-s1MW4) | 부티플 - 부의 배수를 … | 1,210,000 | 2,454,489 | ×2.03 | – | 49초 |  |  | 설명 | 362 | [`S_FmYvr-s1MW4`](S_FmYvr-s1MW4) |
+| 2025-08-13 | [배신 안 하는 미국지수 ETF 3대장은? #shorts](https://www.youtube.com/shorts/Tva_FHRbXTk) | 14F 일사에프 | 2,390,000 | 4,078,710 | ×1.71 | – | 88초 |  |  | 없음 | 677 | [`S_Tva_FHRbXTk`](S_Tva_FHRbXTk) |
+| 2025-07-28 | [주식투자 무조건 성공하는 성격](https://www.youtube.com/shorts/7q9NHm32wYw) | 위대한투자자 | 13,800 | 2,803,804 | ×203.17 | – | 37초 |  |  | 없음 | 1,002 | [`S_7q9NHm32wYw`](S_7q9NHm32wYw) |
+| 2025-07-22 | [워렌 버핏이 1천만원으로 주식한다면?](https://www.youtube.com/shorts/HN2dIZYyGKU) | 위대한투자자 | 13,800 | 3,361,234 | ×243.57 | – | 31초 |  |  | 없음 | 800 | [`S_HN2dIZYyGKU`](S_HN2dIZYyGKU) |
+| 2025-07-17 | [워런버핏의 주식 싸게 사는 법](https://www.youtube.com/shorts/W4jipfPzDw8) | 김줍줍 | 10,600 | 2,950,288 | ×278.33 | – | 17초 |  |  | 없음 | 494 | [`S_W4jipfPzDw8`](S_W4jipfPzDw8) |
+| 2025-07-12 | [앞으로 이 1가지 있으면 돈 불어날 겁니다 #이광수 #저축 #주식투자 #정부지…](https://www.youtube.com/shorts/FcogrxM00Js) | 부티플 - 부의 배수를 … | 1,210,000 | 2,876,686 | ×2.38 | – | 52초 |  |  | 설명 | 837 | [`S_FcogrxM00Js`](S_FcogrxM00Js) |
+| 2025-07-07 | [(이재명 정부 노인정책) 기초연금 중단! '이런 사람'은 이제 못받습니다!](https://www.youtube.com/shorts/N9Za8HytlO0) | 뮤즈의시간 | 294,000 | 3,227,429 | ×10.98 | – | 60초 |  | 돈 이야기 아님 — 정치(이재명) | 없음 | 1,314 | [`S_N9Za8HytlO0`](S_N9Za8HytlO0) |
+| 2025-06-19 | [100만 원 있다면 여기에 넣으세요 #박성현 #재테크 #배당etf #배당주](https://www.youtube.com/shorts/clYsFw6L-q4) | 부티플 - 부의 배수를 … | 1,210,000 | 11,341,100 | ×9.37 | – | 42초 |  |  | 설명 | 766 | [`S_clYsFw6L-q4`](S_clYsFw6L-q4) |
+| 2025-06-10 | ['이것' 4주만 사세요 노후에 놀고 먹습니다 #포메뽀꼬 #노후준비 #미국주식 …](https://www.youtube.com/shorts/3HgmLDqUFro) | 부티플 - 부의 배수를 … | 1,210,000 | 3,287,315 | ×2.72 | – | 60초 |  |  | 설명 | 763 | [`S_3HgmLDqUFro`](S_3HgmLDqUFro) |
+| 2025-05-18 | [매달 50만원씩 사라 "10억 만들기 너무 쉽다" #존리 #경제위기 #미국주식…](https://www.youtube.com/shorts/P7pX21_5lcA) | 부티플 - 부의 배수를 … | 1,210,000 | 4,343,806 | ×3.59 | – | 58초 |  |  | 설명 | 1,100 | [`S_P7pX21_5lcA`](S_P7pX21_5lcA) |
+| 2025-04-02 | [중산층이라고 믿고 있었는데… 착각이었습니다](https://www.youtube.com/shorts/r12i3IzYnKg) | 의사 김준현TV - Dr… | 47,300 | 5,774,397 | ×122.08 | ×1504.5 | 50초 |  |  | 없음 | 3,394 | [`S_r12i3IzYnKg`](S_r12i3IzYnKg) |
+| 2025-03-02 | [대한민국 0.01% 22살에 1억 모은 생활의 달인 레전드 출연자](https://www.youtube.com/shorts/GILtg-IhHlk) | 썰미닛 | 37,400 | 4,918,679 | ×131.52 | ×100.0 | 44초 |  |  | 설명 | 1,527 | [`S_GILtg-IhHlk`](S_GILtg-IhHlk) |
+| 2025-01-19 | [S&P500 딱 이만큼만 사두세요 "은퇴 후 평생 놀고먹을 수 있습니다" #김…](https://www.youtube.com/shorts/irGYt5Ouhao) | 부티플 - 부의 배수를 … | 1,210,000 | 5,755,992 | ×4.76 | – | 54초 |  |  | 설명 | 986 | [`S_irGYt5Ouhao`](S_irGYt5Ouhao) |
+| 2025-01-07 | [부자가 되는 길, 반드시 피해야 할 함정☝️](https://www.youtube.com/shorts/n0iuSorAOjM) | 미엠지 Me:MZ | 174,000 | 3,787,419 | ×21.77 | – | 57초 |  |  | 설명 | 1,055 | [`S_n0iuSorAOjM`](S_n0iuSorAOjM) |
+| 2024-12-05 | [노후에 가장 좋은 취미, 압도적 1위는 '…](https://www.youtube.com/shorts/avyB-4O8lp8) | 신사임당 저장소(건강) | 40,300 | 3,170,787 | ×78.68 | ×2057.6 | 172초 |  |  | 설명 | 564 | [`S_avyB-4O8lp8`](S_avyB-4O8lp8) |
+| 2024-11-29 | [삼성역 30대 직장인 현실 저축액](https://www.youtube.com/shorts/utfw86RrMVE) | 싱글파이어 | 514,000 | 3,688,271 | ×7.18 | – | 21초 |  |  | 설명 | 1,526 | [`S_utfw86RrMVE`](S_utfw86RrMVE) |
+| 2024-10-15 | [ISA와 IRP 쉽게 구분하는 방법🏦ㅣ경제 유튜버 슈카ㅣ유민상의 배고픈 라디오](https://www.youtube.com/shorts/Ox0Ub_BeLrg) | SBS Radio 에라오 | 1,710,000 | 4,528,910 | ×2.65 | – | 59초 |  |  | 설명 | 350 | [`S_Ox0Ub_BeLrg`](S_Ox0Ub_BeLrg) |
+| 2024-09-18 | [#ISA 투자 종목! 이거 5가지만 알면 끝입니다. #할미언니](https://www.youtube.com/shorts/3I3OxzaituU) | 할미언니 | 289,000 | 2,522,155 | ×8.73 | – | 60초 |  |  | 없음 | 297 | [`S_3I3OxzaituU`](S_3I3OxzaituU) |
+| 2024-08-29 | [순자산 1억 넘으면 돈이 폭발적으로 모이는 이유](https://www.youtube.com/shorts/pcWmS1qANPU) | 머니치트키 | 108,000 | 4,143,397 | ×38.36 | – | 39초 |  |  | 없음 | 3,071 | [`S_pcWmS1qANPU`](S_pcWmS1qANPU) |
+| 2024-08-23 | [매월 배당금으로 100만원 만드는 방법](https://www.youtube.com/shorts/cA1q-ETU4vc) | 머니치트키 | 108,000 | 2,418,539 | ×22.39 | – | 39초 |  |  | 없음 | 782 | [`S_cA1q-ETU4vc`](S_cA1q-ETU4vc) |
+| 2024-07-04 | [주식 초보가 절대 돈을 잃지 않는 방법](https://www.youtube.com/shorts/P8qcySTDZhc) | 주식부엉 | 27,700 | 2,530,126 | ×91.34 | – | 24초 |  |  | 없음 | 449 | [`S_P8qcySTDZhc`](S_P8qcySTDZhc) |
+| 2024-06-14 | [60대 의사가 말하는 적금의 현실?!😱 ∣ 돈값하는 인터뷰 18화](https://www.youtube.com/shorts/tMgW5li4OF8) | MBN News | 2,600,000 | 5,637,260 | ×2.17 | – | 32초 |  |  | 설명 | 1,852 | [`S_tMgW5li4OF8`](S_tMgW5li4OF8) |
+| 2024-06-12 | [월 100만원씩 ISA에서 S&P500 ETF 투자하면 3년 후 얼마가 될까?…](https://www.youtube.com/shorts/mJL4HU5YS4Y) | 서대리TV | 243,000 | 2,513,787 | ×10.34 | – | 37초 |  |  | 없음 | 429 | [`S_mJL4HU5YS4Y`](S_mJL4HU5YS4Y) |
+| 2024-06-03 | [20대 평균 통장 잔고는? #대학생 #대힉교 #20 #29 #20대 #잔고 #…](https://www.youtube.com/shorts/wIlTGUVtvG0) | Uni-ON 유니온 | 680 | 3,644,423 | ×5359.45 | – | 24초 |  |  | 없음 | 1,788 | [`S_wIlTGUVtvG0`](S_wIlTGUVtvG0) |
+| 2024-05-10 | [약 5년 동안 연금저축펀드에서 ETF만 계속 샀더니..](https://www.youtube.com/shorts/i97dYdf-wzQ) | 서대리TV | 243,000 | 3,346,027 | ×13.77 | – | 11초 |  |  | 없음 | 208 | [`S_i97dYdf-wzQ`](S_i97dYdf-wzQ) |
+| 2024-03-06 | [3000만원이 있다면 해야 할 일](https://www.youtube.com/shorts/jfC7NGq91_c) | 부투스쿨 TV | 306,000 | 2,146,462 | ×7.01 | – | 60초 |  |  | 설명 | 708 | [`S_jfC7NGq91_c`](S_jfC7NGq91_c) |
+| 2024-02-07 | [현금 이만큼 있다면 당장 은퇴해도 됩니다](https://www.youtube.com/shorts/WBSISITEFng) | 월급쟁이부자들TV | 2,120,000 | 1,942,034 | ×0.92 | – | 25초 |  |  | 없음 | 716 | [`S_WBSISITEFng`](S_WBSISITEFng) |
+| 2024-01-03 | [금 투자하는 가장 좋은 방법!🥇ㅣ경제 유튜버 슈카ㅣ유민상의 배고픈 라디오](https://www.youtube.com/shorts/bXiiecsxzT0) | SBS Radio 에라오 | 1,710,000 | 8,238,944 | ×4.82 | – | 58초 |  |  | 설명 | 2,356 | [`S_bXiiecsxzT0`](S_bXiiecsxzT0) |
+| 2023-10-27 | [mz허세녀의 1억 저축기](https://www.youtube.com/shorts/ipyQQ6eK4k0) | 소요 soyo | 319,000 | 6,134,715 | ×19.23 | – | 51초 |  |  | 없음 | 1,607 | [`S_ipyQQ6eK4k0`](S_ipyQQ6eK4k0) |
+| 2023-08-24 | [가장 확실한 노후준비 '딱 1개만' 알려드릴게요 (김경필 머니트레이너)](https://www.youtube.com/shorts/C5rreYEZGao) | 김작가 TV | 2,730,000 | 2,924,185 | ×1.07 | – | 56초 |  |  | 없음 | 763 | [`S_C5rreYEZGao`](S_C5rreYEZGao) |
+| 2023-07-17 | [수입의 몇%를 저축하는 게 적당할까? [세대별 반응] ∣ 일생노답 #shorts](https://www.youtube.com/shorts/WL75egZOkPo) | 앤드 스튜디오 - AND… | 390,000 | 2,493,304 | ×6.39 | – | 38초 |  |  | 설명 | 1,307 | [`S_WL75egZOkPo`](S_WL75egZOkPo) |
+| 2023-07-10 | [매월 50만원씩 이렇게 하세요 1억 금방 모아요 #두지영 #1억](https://www.youtube.com/shorts/0k4CElXR7d4) | 부티플 - 부의 배수를 … | 1,210,000 | 3,661,953 | ×3.03 | – | 50초 |  |  | 설명 | 833 | [`S_0k4CElXR7d4`](S_0k4CElXR7d4) |
+| 2023-05-03 | [찰리 멍거 “주식으로 부자되려면 걍 닥치고 이것만 해라” #shorts](https://www.youtube.com/shorts/5N0jh7wDssI) | 타민더마켓 | 136,000 | 2,855,902 | ×21.0 | – | 30초 |  |  | 설명 | 1,256 | [`S_5N0jh7wDssI`](S_5N0jh7wDssI) |
+| 2023-03-25 | [월급200대 20대에 2억 모은 직장인이 월급 날 반드시 지키는 루틴](https://www.youtube.com/shorts/uEdE4TadoY4) | 시나쓰 유튜브SHINASU | 64,500 | 5,406,254 | ×83.82 | – | 47초 |  |  | 설명 | 2,278 | [`S_uEdE4TadoY4`](S_uEdE4TadoY4) |
+| 2023-03-25 | [부자 되고 싶다면 현금 '이 정도'까지 모으세요 #shorts #부자되는법 #…](https://www.youtube.com/shorts/XRMVD2LBu1g) | 월급쟁이부자들TV | 2,120,000 | 2,584,667 | ×1.22 | – | 56초 |  |  | 설명 | 832 | [`S_XRMVD2LBu1g`](S_XRMVD2LBu1g) |
+| 2023-03-22 | [국민연금 미리 받기60세부터 #shorts](https://www.youtube.com/shorts/dDeOADMSiFI) | 방송대 지식+ | 924,000 | 3,297,630 | ×3.57 | – | 36초 |  |  | 설명 | 1,223 | [`S_dDeOADMSiFI`](S_dDeOADMSiFI) |
+| 2023-03-05 | [[월 200대 직장인] 쥐꼬리 월급관리방법](https://www.youtube.com/shorts/CjrjNLTzvvg) | 알맞음 | 2,990 | 2,812,851 | ×940.75 | ×1468.9 | 61초 |  |  | 없음 | 984 | [`S_CjrjNLTzvvg`](S_CjrjNLTzvvg) |
+| 2023-02-05 | [노후를 망치는 치명적인 실수 ‘3가지’ ❗](https://www.youtube.com/shorts/Yqmkk7gDkW4) | 지식인사이드 | 4,150,000 | 4,633,051 | ×1.12 | – | 32초 |  |  | 없음 | 2,218 | [`S_Yqmkk7gDkW4`](S_Yqmkk7gDkW4) |
+| 2023-01-13 | [대부분의 사람들이 부자 되기 힘든 이유#shorts #부자되는법 #삼프로tv …](https://www.youtube.com/shorts/OUW-wvJ1LyM) | 월급쟁이부자들TV | 2,120,000 | 4,527,132 | ×2.14 | – | 49초 |  |  | 설명 | 1,730 | [`S_OUW-wvJ1LyM`](S_OUW-wvJ1LyM) |
+| 2022-10-14 | [월급쟁이가 부자 될 수 없는 이유 #shorts #부자되는법 #월급 (쇼츠 황…](https://www.youtube.com/shorts/6huoMFqELII) | 월급쟁이부자들TV | 2,120,000 | 3,523,023 | ×1.66 | – | 44초 |  |  | 설명 | 2,993 | [`S_6huoMFqELII`](S_6huoMFqELII) |
+| 2022-08-23 | [주식 하락장 대처법](https://www.youtube.com/shorts/Xn3rtYF0Dss) | 머니코믹스 Money C… | 1,440,000 | 4,050,328 | ×2.81 | – | 54초 |  |  | 없음 | 1,634 | [`S_Xn3rtYF0Dss`](S_Xn3rtYF0Dss) |
+| 2022-08-04 | [부자가 되는 가장 현실적인 자산 배분 방법 #shorts #켈리최](https://www.youtube.com/shorts/5rXT8Qt-JXY) | KELLY CHOI | 503,000 | 3,278,093 | ×6.52 | – | 52초 |  |  | 설명 | 0 | [`S_5rXT8Qt-JXY`](S_5rXT8Qt-JXY) |
+| 2022-05-17 | [주식으로 돈 번 사람들의 유일한 공통점은? 현직 애널리스트피셜 (Feat.이광…](https://www.youtube.com/shorts/RDEO7tKznSM) | 메디치미디어 | 271,000 | 5,170,312 | ×19.08 | – | 60초 |  |  | 설명 | 2,069 | [`S_RDEO7tKznSM`](S_RDEO7tKznSM) |

@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 주식 롱폼 1편: ChatGPT 그림 22장 반영 + 오디오 전 소리 없는 미리보기
+
+### 왜 (사용자 지시)
+- "이미지 다 생성했는데 오디오 없이 영상 만들어 볼래"
+- ⚠️ 영상 규칙은 '오디오 먼저' — 사용자가 직접 오디오 없이 만들라고 해서 `render.mjs --estimated-preview`(추정 시각 · 소리 없음 · 최종본 아님)로만 만듦. 오디오가 오면 실제 시각으로 다시 sync·렌더.
+
+### 바뀐 것
+- main 의 그림 커밋 22개(96fa3e65~2b227884)를 작업 브랜치에 merge. 검수: 글자·로고 없음(썸네일·클립보드 확대) · 투명 PNG 모두 귀퉁이 알파 0 · 주인공 PHONE·THINK·SHOCK·PLAN 오른쪽, BOW 왼쪽, 동료·지인 왼쪽.
+- `video/episodes/ppalli-test-2026-11/index.html` v1.3: HAVE 21장 · 소품 도우미 `propH`(알파 상자로 잘라 칸 안 DOM 그림 + 종이 그림자) · `laptopPlay` · 소품 자리 11곳 (제작안 v2.1) · 좌절 인형 높이 4.4 → 4.0/3.8 · 지하철 그래프에 어두운 판 · MATE x 0.5 · 선택 1 무리 높이 3.8.
+- `stock/source/ppalli-test-2026-11/제작안.txt` v2.1.
+
+### 확인 (로그)
+- layout-check: `problems=2` (H_DESP 칸 밖 7px) → 고친 뒤 `problems=0`
+- still 65장 직접 봄 → 고친 것 2 (지하철 그래프 글자 대비 · 동료·무리 겹침)
+
 ## 2026-11-02 — 주식 롱폼 1편 그림 요청 v2.0 — 일본 면세 편 꼴 (22장)
 
 ### 왜 (사용자 지시)

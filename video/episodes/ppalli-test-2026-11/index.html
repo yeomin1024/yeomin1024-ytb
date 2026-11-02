@@ -5,7 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="end-hold" content="2.5">
 <title>1편 빨리 벌고 싶은 사람 테스트 롱폼</title>
-<!-- VERSION: v1.2 — 2026-11-02 — 그림 요청 v2.0 (일본 면세 편 꼴 22장 — 사용자 지시 "아니 일본 면세 영상 만들때 처럼 이미지 만들어 다시 수정해"):
+<!-- VERSION: v1.3 — 2026-11-02 — ChatGPT 그림 22장이 옴 (사용자 지시 "이미지 다 생성했는데 오디오 없이 영상 만들어 볼래"):
+       HAVE 에 21장(무대 4 · 주인공 6 · 동료·지인·무리 · 소품 8) → 무대·인형은 새 그림으로 · 소품은 칸 안 DOM 그림(propH — 알파 상자로 자름):
+       L-03 지폐 더미가 1억 → 180만 원과 함께 줄어듦 · L-05 TL 지폐 + 노트북 화면에 영상 ▶ · L-08 PANEL 지폐 · L-11 신문 + NEWS ▼▲ / 노트북 + 손실 인증 ·
+       L-14 MID_R AI 서버 → 보고서 · L-17 TL 코인 · TR 노트북 + ALL IN · 해설 2 지폐(CASH)·상자·집 ✕ · 해설 4 서버 · 해설 5 코인 · 정리 2번 칸 지폐.
+       면세 편 M-PHONE 은 쓰지 않음 (주인공 그림이 휴대전화를 듦 · 숫자는 앱 카드).
+     이전 v1.2 — 2026-11-02 — 그림 요청 v2.0 (일본 면세 편 꼴 22장 — 사용자 지시 "아니 일본 면세 영상 만들때 처럼 이미지 만들어 다시 수정해"):
        사람은 머리·옷·표정이 있는 종이 인형(흰둥이 아님) · 무대 S-OFFICE·S-HOME-NIGHT 도 이 편 폴더에 새로 (HAVE 에 들면 옛 편 무대 대신) ·
        소품 P-LAPTOP·P-MONEY·P-NEWSPAPER·P-SERVER·P-REPORT·P-COINS·P-JOBBOX·P-HOUSE + 면세 편 M-PHONE 은 그림이 온 뒤 자리를 잡아 넣음
        (그림의 실제 크기·여백을 보고 칸에 맞춤 — 제작안 v2.0 [그림] 표). 그 전까지 장면은 v1.1 그대로.
@@ -114,7 +119,7 @@ const LAY = window.LAYOUT = {
 window.LAYOUT_ALLOW = [["STAMP_P", "SHEET"], ["STAMP_P", "BIGR"], ["STAMP_P", "PANEL"]];   // 일부러 겹치는 짝: 시험지·큰 금액 위 도장
 // 종이 인형 무대 자리 (월드 x·바닥 y·깊이 z · 화면 x = 960 + 84x) — 칸 이름과 같음
 const PS = {
-  HERO_L: { at: [-7.6, -0.3, 0.6] }, HERO: { at: [-5.0, -0.3, 0.6] }, MATE: { at: [1.0, -0.3, 0.3] }, BACK: { at: [5.2, -0.3, -0.8] },
+  HERO_L: { at: [-7.6, -0.3, 0.6] }, HERO: { at: [-5.0, -0.3, 0.6] }, MATE: { at: [0.5, -0.3, 0.3] }, BACK: { at: [5.2, -0.3, -0.8] },
   HERO_C: { at: [0, -0.3, 0.6] },
 };
 
@@ -123,7 +128,10 @@ const PS = {
 // v1.2: 그림 요청 v2.0 (22장, 일본 면세 편 꼴) — 무대 4 (S-OFFICE·S-HOME-NIGHT·S-SUBWAY·S-CAFE) · 주인공 6 · 동료·지인·무리 · 소품 8 (자리는 그림이 온 뒤) · 썸네일
 // F: 이 편 폴더(HAVE) → 옛 습관 테스트 편(SIMRI) → 코드 그림 순서
 const SIMRI = ["W-COLLEAGUE.png", "W-CROWD.png", "P-CASH.png", "S-OFFICE.jpg", "S-HOME-NIGHT.jpg"];
-const HAVE = [];
+const HAVE = ["S-OFFICE.jpg", "S-HOME-NIGHT.jpg", "S-SUBWAY.jpg", "S-CAFE.jpg",
+  "HERO-PHONE.png", "HERO-THINK.png", "HERO-SHOCK.png", "HERO-DESPAIR.png", "HERO-PLAN.png", "HERO-BOW.png",
+  "W-COLLEAGUE.png", "W-FRIEND.png", "W-CROWD.png",
+  "P-LAPTOP.png", "P-MONEY.png", "P-NEWSPAPER.png", "P-SERVER.png", "P-REPORT.png", "P-COINS.png", "P-JOBBOX.png", "P-HOUSE.png"];   // v1.3 ChatGPT 그림 (main 2b227884)
 const F = (file, kind, draw) => (HAVE.includes(file) ? { f: file, kind } : SIMRI.includes(file) ? { f: "../../simri-test-2026-10/puppet/" + file, kind } : { draw, kind: "sq" });
 const NEW_COL = HAVE.includes("W-COLLEAGUE.png");              // 새 동료 = 왼쪽(주인공 쪽)을 봄 · 옛 그림은 오른쪽을 봐서 뒤집음
 const HAS_FRIEND = HAVE.includes("W-FRIEND.png");               // 지인 그림이 오기 전엔 동료 그림
@@ -182,6 +190,16 @@ function box(sc, name, inner, css) {
 const CEN = "display:flex;align-items:center;justify-content:center;gap:24px;";
 const LEFT = "display:flex;align-items:flex-start;justify-content:flex-start;gap:20px;flex-wrap:wrap;align-content:flex-start;";
 const boxC = (sc, name, inner, at, css) => { const d = box(sc, name, inner, CEN + (css || "")); if (at != null) pop(d, at); return d; };
+// v1.3 소품 그림 (DOM) — 그림의 알파 상자(PB, 0~1)만 보이게 잘라 높이 h(px)로 · 종이 그림자 · 칸 밖으로 나가지 않게 overflow hidden
+const PDIR = "../../../stock/source/ppalli-test-2026-11/puppet/";
+const PB = { "P-COINS": [0.1, 0.251, 0.898, 0.748], "P-HOUSE": [0.12, 0.1, 0.879, 0.898], "P-JOBBOX": [0.1, 0.111, 0.898, 0.887], "P-LAPTOP": [0.1, 0.176, 0.898, 0.822],
+  "P-MONEY": [0.214, 0.1, 0.784, 0.898], "P-NEWSPAPER": [0.1, 0.183, 0.898, 0.815], "P-REPORT": [0.161, 0.1, 0.838, 0.898], "P-SERVER": [0.32, 0.1, 0.679, 0.898] };
+function propH(name, h, extra, cls) {
+  const [x0, y0, x1, y1] = PB[name], k = h / ((y1 - y0) * 1024), w = Math.round((x1 - x0) * 1024 * k), S0 = Math.round(1024 * k);
+  return `<div class="prop ${cls || ""}" style="position:relative;flex:0 0 auto;width:${w + 8}px;height:${h + 8}px;overflow:hidden"><img src="${PDIR}${name}.png" alt="" style="position:absolute;left:${-Math.round(x0 * 1024 * k)}px;top:${-Math.round(y0 * 1024 * k)}px;width:${S0}px;height:${S0}px;filter:drop-shadow(5px 7px 0 rgba(0,0,0,.38))">${extra || ""}</div>`;
+}
+// 노트북 화면 위 ▶ 세 칸 (화면 = 알파 상자 안 x 0.157~0.877 · y 0.06~0.58)
+const laptopPlay = h => { const w = Math.round(h * 0.798 / 0.646); return propH("P-LAPTOP", h, `<div class="lp" style="position:absolute;left:${Math.round(w * 0.2)}px;top:${Math.round(h * 0.13)}px;width:${Math.round(w * 0.62)}px;height:${Math.round(h * 0.36)}px;display:flex;gap:${Math.round(h * 0.04)}px;align-items:center;justify-content:center">${Array.from({ length: 3 }, () => `<div style="width:${Math.round(h * 0.2)}px;height:${Math.round(h * 0.15)}px;border-radius:6px;background:${R};display:grid;place-items:center"><svg viewBox="0 0 40 40" width="${Math.round(h * 0.1)}" height="${Math.round(h * 0.1)}"><path d="M12 8 L32 20 L12 32 Z" fill="#fff"/></svg></div>`).join("")}</div>`); };
 const PANEL_CSS = "border-radius:28px;background:rgba(10,16,30,.86);border:3px solid rgba(255,255,255,.16);box-shadow:0 24px 60px -16px rgba(0,0,0,.8);box-sizing:border-box;";
 // 칸 안 선 그래프 (점은 화면 좌표 그대로 — svg 의 viewBox 를 칸에 맞춤)
 function lineIn(g, pts, color, at, dur, w, dash) {
@@ -343,11 +361,13 @@ function sheet5(sc, at) {
 { // L-03 김씨 1억 → 180만 원 (−98%) (문장 3) — HERO_L · BIGR · STAMP_P
   const a = until(3), b = until(4);
   let HD;
-  const { sc, st } = stage(a, b, "PAPER", s => { HD = act(s, "H_DESP", "HERO_L", 4.4).ro(5); });
+  const { sc, st } = stage(a, b, "PAPER", s => { HD = act(s, "H_DESP", "HERO_L", 4.0).ro(5); });
   st.update = t => { enter(HD, t, S(3) + 0.1); };
-  const g = boxC(sc, "BIGR", `<div class="w9 nw ts" style="font-size:120px;line-height:1">₩100,000,000</div>`, S(3) + 0.1, "flex-direction:column");
-  K.counter(g.firstChild, 100000000, 1800000, W(3, "180만") - 0.9, 1.0, v => won(v));
-  tl.to(g.firstChild, { color: R, duration: 0.3 }, W(3, "98%") - 0.3);
+  const g = boxC(sc, "BIGR", `${propH("P-MONEY", 300)}<div class="w9 nw ts num" style="font-size:120px;line-height:1">₩100,000,000</div>`, S(3) + 0.1, "flex-direction:column");
+  const num = g.querySelector(".num"), money = g.querySelector(".prop img");
+  K.counter(num, 100000000, 1800000, W(3, "180만") - 0.9, 1.0, v => won(v));
+  tl.to(money, { scale: 0.18, transformOrigin: "50% 92%", duration: 1.0, ease: "power2.in" }, W(3, "180만") - 0.9);   // v1.3 지폐 더미가 함께 줄어듦
+  tl.to(num, { color: R, duration: 0.3 }, W(3, "98%") - 0.3);
   stampIn(sc, "STAMP_P", "−98%", R, W(3, "98%"), -8);
   K.cut(E(3) - 0.1, "L-03 ₩1,800,000 −98%");
 }
@@ -392,13 +412,13 @@ function choice(n, bgKey, story) {
 /* L-05 선택 1 — 1억 원 · 1년 2.7배 기술주 ETF · 동료·친구 · 영상 (문장 7~10) — HERO · MATE · BACK · TL · TR · MID_R */
 choice(1, "OFF", (a, b) => {
   let HP, CO, CR;
-  const { sc, st } = stage(a, b, "OFF", s => { CR = act(s, "W_CROWD", "BACK", 4.0).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3, { flip: !NEW_COL }).ro(3); });
+  const { sc, st } = stage(a, b, "OFF", s => { CR = act(s, "W_CROWD", "BACK", 3.8).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); CO = act(s, "W_COL", "MATE", 4.3, { flip: !NEW_COL }).ro(3); });
   st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CO, t, S(9)); idle(CO, t, 1); enter(CR, t, S(9) + 0.3); if (t > S(9) + 0.6) CR.bob(t, 0.1, 2.2); };
-  boxC(sc, "TL", tag("₩100,000,000", WH), S(7) + 0.1, "justify-content:flex-start");
+  boxC(sc, "TL", propH("P-MONEY", 104) + tag("₩100,000,000", WH), S(7) + 0.1, "justify-content:flex-start;gap:18px");
   const app = boxC(sc, "TR", appH(["ETF", "1Y"], "×2.7", G), W(8, "2.7배") - 0.1);
   out(app, S(10) - 0.2);
-  const v = boxC(sc, "TR", Array.from({ length: 3 }, () => `<div style="width:136px;height:96px;border-radius:14px;background:#C9D2E2;display:grid;place-items:center"><svg viewBox="0 0 40 40" width="46" height="46"><path d="M12 8 L32 20 L12 32 Z" fill="#1B2440"/></svg></div>`).join(""), S(10) + 0.25, "gap:16px");
-  tl.fromTo(v.children, { y: 30, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.15, duration: 0.3 }, S(10) + 0.35);
+  const v = boxC(sc, "TR", laptopPlay(196), S(10) + 0.2);                 // v1.3 노트북 화면에 영상 ▶ 세 칸
+  tl.fromTo(v.querySelectorAll(".lp > div"), { scale: 0.3, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.18, duration: 0.3, ease: "back.out(2)" }, S(10) + 0.45);
   K.cut(E(8) - 0.1, "L-05 ETF ×2.7"); K.cut(E(10) - 0.1, "L-05 동료·친구·영상");
 });
 /* L-08 선택 2 — 같은 날 · 1억 원 얼마를? · 다 넣었다는 사람들 (문장 14~16) — HERO · PROP · PANEL · BACK 대신 MID_R */
@@ -408,6 +428,7 @@ choice(2, "HOME", (a, b) => {
   st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); };
   const p = box(sc, "PANEL", "", PANEL_CSS); pop(p, S(14) + 0.1);
   inBox(p, `<div class="a w9 nw" style="font-size:84px;line-height:1">₩100,000,000</div>`, 960, 150, S(14) + 0.2);
+  inBox(p, `<div class="a">${propH("P-MONEY", 124)}</div>`, 1620, 128, S(14) + 0.35);      // v1.3 지폐 더미
   const bar8 = inBox(p, `<div class="a" style="width:620px;height:150px;border-radius:18px 0 0 18px;background:${G}"></div>`, 960, 320, S(15) + 0.1);
   const bar2 = inBox(p, `<div class="a" style="width:160px;height:150px;border-radius:0 18px 18px 0;background:${Y}"></div>`, 1580, 320, S(15) + 0.3);
   inBox(p, `<div class="a w9 nw" style="font-size:56px;line-height:1;color:#06231F">INVEST ?</div>`, 1000, 370, S(15) + 0.4);
@@ -421,16 +442,17 @@ choice(3, BG3, (a, b) => {
   let HS;
   const { sc, st } = stage(a, b, BG3, s => { HS = act(s, "H_SHOCK", "HERO_L", 5.0).ro(5); });
   st.update = t => { enter(HS, t, a + 0.1); if (t > W(20, "하락")) HS.jitter(t, 0.015); };
-  const g = box(sc, "CHART_R"), area = [660, 300, 1140, 380];
+  const g = box(sc, "CHART_R", "", PANEL_CSS), area = [660, 300, 1140, 380];   // v1.3 지하철 무대 위라 어두운 판
   const seg = norm(slice(SR.intro_qqq, "2021-12-27", "2022-06-13"));
   baseIn(g, area, 0.6, 1.05, S(20) + 0.1);
   seriesIn(g, seg, area, 0.6, 1.05, R, S(20) + 0.3, E(20) - S(20) - 0.4, 10);
   inBox(g, `<div class="a w9 nw ts R" style="font-size:96px;line-height:1">−32%</div>`, 1520, 640, W(20, "30%"));
   inBox(g, `<div class="a w9 nw ts" style="font-size:52px;line-height:1;color:#9FB4D8">NASDAQ</div>`, 660, 230, S(20) + 0.2);
   const cap = box(sc, "CAP_R", "", LEFT);
-  [tag("NEWS ▼", R), tag("NEWS ▲", G), tag("NEWS ▼", R)].forEach((h, i) => pop(el(h, cap), S(21) + 0.15 * i));
+  [propH("P-NEWSPAPER", 92), tag("NEWS ▼", R), tag("NEWS ▲", G)].forEach((h, i) => pop(el(h, cap), S(21) + 0.15 * i));   // v1.3 신문 + 엇갈린 두 말
   out(cap, S(22) - 0.3);
   const cap2 = box(sc, "CAP_R", "", LEFT);
+  pop(el(propH("P-LAPTOP", 92), cap2), S(22) + 0.05);                       // v1.3 커뮤니티 = 노트북
   ["−32%", "−45%", "−60%"].forEach((v, i) => pop(el(tag(v, R), cap2), S(22) + 0.2 + 0.15 * i));
   K.cut(E(20) - 0.1, "L-11 NASDAQ −32%"); K.cut(E(21) - 0.1, "L-11 NEWS ▼▲"); K.cut(E(23) - 0.1, "L-11 손실 인증");
 });
@@ -442,7 +464,9 @@ choice(4, BG4, (a, b) => {
   const app = boxC(sc, "TR", appH(["AI", "▲"], "BUY", G), W(27, "AI") - 0.1);
   out(app, S(28) - 0.1);
   boxC(sc, "TR", appH(["AI", "5M"], "−63%", R), S(28) + 0.35);
-  boxC(sc, "MID_R", `<svg viewBox="0 0 120 120" width="120" height="120" aria-hidden="true"><rect x="22" y="10" width="76" height="100" rx="8" fill="#F2E6CF"/><path d="M36 34 H84 M36 52 H84 M36 70 H70" stroke="#8A93A6" stroke-width="6" stroke-linecap="round"/><path d="M58 70 L94 106 M94 70 L58 106" stroke="${R}" stroke-width="11" stroke-linecap="round"/></svg>${tag("REPORT", R)}`, S(29) + 0.05, PANEL_CSS);
+  const srv = boxC(sc, "MID_R", propH("P-SERVER", 132) + tag("AI", G), W(27, "AI") + 0.1, PANEL_CSS);   // v1.3 AI 서버
+  out(srv, S(29) - 0.15);
+  boxC(sc, "MID_R", propH("P-REPORT", 132, `<svg viewBox="0 0 120 120" width="70" height="70" style="position:absolute;right:0;bottom:0" aria-hidden="true"><path d="M20 20 L100 100 M100 20 L20 100" stroke="${R}" stroke-width="16" stroke-linecap="round"/></svg>`) + tag("REPORT", R), S(29) + 0.05, PANEL_CSS);
   K.cut(E(28) - 0.1, "L-14 AI −63%"); K.cut(E(29) - 0.1, "L-14 REPORT ✕");
 });
 /* L-17 선택 5 — 비트코인 최고가 · 사 모으는 회사 1년 9배 · 한 종목 인증 (문장 34~37) — HERO · BACK · TL · TR · MID_R */
@@ -450,11 +474,13 @@ choice(5, "HOME", (a, b) => {
   let HP, CR;
   const { sc, st } = stage(a, b, "HOME", s => { CR = act(s, "W_CROWD", "BACK", 4.0).ro(2); HP = act(s, "H_PHONE", "HERO", 5.0).ro(4); });
   st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CR, t, S(36)); if (t > S(36) + 0.3) CR.bob(t, 0.1, 2.4); };
-  boxC(sc, "TL", `<svg viewBox="0 0 120 120" width="110" height="110" aria-hidden="true"><circle cx="60" cy="60" r="50" fill="${Y}" stroke="#7A5A00" stroke-width="7"/><circle cx="60" cy="60" r="32" fill="none" stroke="#7A5A00" stroke-width="5"/></svg>${tag("BTC ▲", G)}`, S(34) + 0.05, "justify-content:flex-start");
+  boxC(sc, "TL", propH("P-COINS", 96) + tag("BTC ▲", G), S(34) + 0.05, "justify-content:flex-start;gap:18px");   // v1.3 코인 더미
   const app = boxC(sc, "TR", appH(["BTC ▲", "1Y"], "×9.3", G), W(35, "9배") - 0.1);
   out(app, S(36) - 0.2);
-  const all = box(sc, "TR", "", LEFT);
-  [tag("ALL IN", Y), tag("ALL IN", Y)].forEach((h, i) => pop(el(h, all), S(36) + 0.25 + 0.15 * i));
+  const all = box(sc, "TR", "", CEN + "gap:20px;");                          // v1.3 노트북(커뮤니티) + ALL IN 둘
+  pop(el(propH("P-LAPTOP", 120), all), S(36) + 0.1);
+  const col = el(`<div style="display:flex;flex-direction:column;gap:12px"></div>`, all);
+  [tag("ALL IN", Y), tag("ALL IN", Y)].forEach((h, i) => pop(el(h, col), S(36) + 0.3 + 0.15 * i));
   K.cut(E(35) - 0.1, "L-17 BTC 1Y ×9.3"); K.cut(E(36) - 0.1, "L-17 ALL IN");
 });
 
@@ -545,13 +571,15 @@ ansHead(2, 52, until(52), until(53), null);
   seriesIn(L1, SR.i2_allin, areaL, 0.7, 1.4, R, a + 0.4, 1.6, 8);
   vsNums(L1, [["−₩22,000,000", R, W(53, "2천2백만")]]);
   inBox(L1, `<div class="a w9 nw ts" style="font-size:64px;line-height:1;color:${R}">SELL ✕</div>`, L1._x + 500, L1._y + 150, W(54, "팔아"));
-  inBox(R1, `<div class="a" style="width:520px;height:260px;border-radius:22px;background:${Y};display:grid;place-items:center"><div class="w9 nw" style="font-size:76px;color:#3A2A00">CASH</div></div>`, R1._x + 150, R1._y + 160, S(55) + 0.1);
+  inBox(R1, `<div class="a" style="display:flex;align-items:center;gap:40px">${propH("P-MONEY", 250)}${big("CASH", Y, 96)}</div>`, R1._x + 200, R1._y + 150, S(55) + 0.1);   // v1.3 지폐 더미
   vsNums(R1, [["₩20,000,000 ✓", G, W(55, "그대로")]]);
   K.cut(E(54) - 0.1, "L-27 ALL IN −₩22,000,000 · SELL"); K.cut(E(55) - 0.1, "L-27 CASH 그대로");
 }
 rebut(2, until(56), until(58), 56, S(57), p => {
   pop(el(big("CASH → +%", N, 96), p), S(56) + 0.2);
-  pop(el(`<div style="display:flex;gap:40px">${big("JOB ✕", R, 84)}${big("HOME ✕", R, 84)}</div>`, p), W(57, "일자리"));
+  const jh = el(`<div style="display:flex;gap:56px;align-items:center"></div>`, p);          // v1.3 상자(일자리) ✕ · 집 ✕
+  pop(el(`<div style="display:flex;gap:18px;align-items:center">${propH("P-JOBBOX", 220)}${big("✕", R, 110)}</div>`, jh), W(57, "일자리"));
+  pop(el(`<div style="display:flex;gap:18px;align-items:center">${propH("P-HOUSE", 220)}${big("✕", R, 110)}</div>`, jh), W(57, "집"));
 });
 soScene(2, until(58), until(60), 59);
 
@@ -567,7 +595,7 @@ rebut(3, until(64), until(68), 64, S(66), p => {
 soScene(3, until(68), until(70), 69);
 
 /* L-35 ~ L-39 해설 4 — 손절 · 슈퍼마이크로컴퓨터 (문장 70~80) */
-ansHead(4, 70, until(70), until(72), [[dateTag("2024.08.28"), S(71) + 0.1], [tag("SMCI", R), W(71, "슈퍼마이크로")]]);
+ansHead(4, 70, until(70), until(72), [[dateTag("2024.08.28"), S(71) + 0.1], [tag("SMCI", R), W(71, "슈퍼마이크로")], [propH("P-SERVER", 118), W(71, "서버")]]);
 resultVS(4, until(72), until(74), { lo: 0.3, hi: 1.7, wHead: "HOLD SMCI", rHead: "NASDAQ", w: SR.i4_smci, r: SR.i4_qqq, rAt: S(73),
   wNums: [["−59%", R, W(72, "59%")], ["NOW −21%", R, W(72, "21%")]], rNums: [["−11%", Y, W(73, "11%")], ["NOW +55%", G, W(73, "55%")]] });
 rebut(4, until(74), until(79), 74, S(75), p => {
@@ -580,7 +608,7 @@ rebut(4, until(74), until(79), 74, S(75), p => {
 soScene(4, until(79), until(81), 80);
 
 /* L-40 ~ L-44 해설 5 — 분산 · 마이크로스트래티지 (문장 81~89) */
-ansHead(5, 81, until(81), until(83), [[dateTag("2024.11.20"), S(82) + 0.1], [tag("MSTR", R), W(82, "마이크로스트래티지")]]);
+ansHead(5, 81, until(81), until(83), [[dateTag("2024.11.20"), S(82) + 0.1], [tag("MSTR", R), W(82, "마이크로스트래티지")], [propH("P-COINS", 96), W(82, "비트코인")]]);
 resultVS(5, until(83), until(85), { lo: 0.1, hi: 1.7, wHead: "MSTR", rHead: "INDEX", w: SR.i5_mstr, r: SR.i5_qqq, rAt: S(84),
   wNums: [["−83%", R, W(83, "83%")], ["NOW −70%", R, W(83, "70%")]], rNums: [["−17%", Y, W(84, "17%")], ["NOW +45%", G, W(84, "45%")]] });
 rebut(5, until(85), until(88), 85, S(86), p => {
@@ -612,7 +640,7 @@ soScene(5, until(88), until(90), 89);
 {
   const a = ch(93), b = ch(partFirst("정리"));
   let HT, HP, HD;
-  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); HP = act(s, "H_PLAN", "HERO_L", 5.0).ro(5); HD = act(s, "H_DESP", "HERO_L", 4.4).ro(5); });
+  const { sc, st } = stage(a, b, "PAPER", s => { HT = act(s, "H_THINK", "HERO_L", 5.0).ro(5); HP = act(s, "H_PLAN", "HERO_L", 5.0).ro(5); HD = act(s, "H_DESP", "HERO_L", 3.8).ro(5); });
   st.update = t => {
     const k = t < S(94) ? 0 : t < S(96) ? 1 : t < S(98) ? 0 : 2;
     [HT, HP, HD].forEach((x, i) => { enter(x, t, a + 0.1); if (i !== k) x.op = 0; }); idle([HT, HP, HD][k], t);
@@ -632,7 +660,7 @@ soScene(5, until(88), until(90), 89);
   const c = box(sc, "CHIPS", "", CEN + "gap:28px;");
   const chips = [
     `<svg viewBox="0 0 120 120" width="150" height="150"><circle cx="40" cy="40" r="14" fill="#C9D2E2"/><circle cx="80" cy="40" r="14" fill="#C9D2E2"/><path d="M14 92 c4-28 48-28 52 0z M54 92 c4-28 48-28 52 0z" fill="#C9D2E2"/><path d="M20 20 L100 100" stroke="${R}" stroke-width="10" stroke-linecap="round"/></svg>`,
-    `<svg viewBox="0 0 120 120" width="150" height="150"><rect x="14" y="34" width="92" height="52" rx="10" fill="${Y}"/><circle cx="60" cy="60" r="14" fill="none" stroke="#7A5A00" stroke-width="6"/></svg>`,
+    propH("P-MONEY", 150),                                                    // v1.3 현금 = 지폐 더미
     `<svg viewBox="0 0 120 120" width="150" height="150"><rect x="26" y="14" width="68" height="94" rx="8" fill="#F2E6CF"/><rect x="44" y="8" width="32" height="14" rx="4" fill="#8A93A6"/><path d="M40 52 l10 10 l20-22 M40 82 h40" stroke="#1B2440" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`,
     `<svg viewBox="0 0 120 120" width="150" height="150"><circle cx="34" cy="86" r="16" fill="none" stroke="#C9D2E2" stroke-width="7"/><circle cx="86" cy="86" r="16" fill="none" stroke="#C9D2E2" stroke-width="7"/><path d="M44 74 L96 14 M76 74 L24 14" stroke="#C9D2E2" stroke-width="7" stroke-linecap="round"/></svg>`,
     ICON.split().replace(/width="120" height="120"/, 'width="150" height="150"'),

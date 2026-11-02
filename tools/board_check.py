@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-02 — 쇼츠 칸에서 '전달 내용·방식'(s_message) 뺌 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") — 공통 끝 멘트는 쇼츠 대본 점검(script --kind short)에서 마지막 줄로 봄.
+# VERSION: v1.5 — 2026-11-02 — 주제마다 규칙 파일 <주제>/board_rules.toml (없으면 주식 규칙 그대로): 채널 목적 밖(OFF)·조건(COND)·쇼츠 끝 멘트·
+#   칸 이름 · 꼭 있어야 할 칸(REQUIRE — 재테크 complaint) · 사람·정당 탓(NO_TARGET) · 비속어(PROFANITY) · 제목·쇼츠 제목에서 피할 말 — 재테크 평가판
+#   (사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"). 영향: rules()·check_package()·check_script()·main().
+# (v1.4 — 2026-11-02 — 쇼츠 칸에서 '전달 내용·방식'(s_message) 뺌 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") — 공통 끝 멘트는 쇼츠 대본 점검(script --kind short)에서 마지막 줄로 봄.)
 # (v1.3 — 2026-11-02 — K7(해설 정답 ↔ 보기) 이 새 보기 꼴 'A, …' 도 읽음 (전엔 'A번, …' 만 — 새 꼴에선 늘 '없음'으로 지나감).
 # (v1.2 — 2026-11-02 — 저장소 밖 파일(시험·임시 대본)도 점검 — 결과 파일 경로를 저장소 기준으로 못 바꾸면 그대로 씀 (전엔 ValueError 로 멈춤) ·
 #   광고 점검에서 --allow 문장과 쇼츠 공통 끝 멘트(「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」 — 사용자가 정한 줄)는 뺌.
@@ -26,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.1"
+VERSION = "v1.5"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌
@@ -42,6 +45,27 @@ COND = re.compile(r"년|달|개월|쓸 일|급할 때|비상금|은퇴|월급|�
 def log(stage, **kv):
     ts = time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime())
     print(f"[{stage}] [{ts}] " + " ".join(f"{k}={json.dumps(v, ensure_ascii=False) if isinstance(v, str) else v}" for k, v in kv.items()))
+
+
+def rules(topic):
+    """v1.4: <주제>/board_rules.toml — 없으면 주식 규칙(위 상수) 그대로."""
+    p = ROOT / topic / "board_rules.toml"
+    R = {"OFF": OFF, "COND": COND, "SHORT_END": SHORT_END, "PURPOSE": "채널 목적(덜 잃기·장기)", "COND_LABEL": "반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나",
+         "VERIFY_LABEL": "반론 K3 다른 기간·다른 하락장으로 확인할 길", "BASIS_LABEL": "분석 근거(data_insights 5-1)", "REQUIRE": [], "NO_TARGET": None,
+         "PROFANITY": None, "TITLE_BANNED": None, "SHORTS_TITLE_BANNED": None, "FIELD_NAMES": {}, "SHORT_END_PKG": None}
+    if p.is_file():
+        import tomllib
+        d = tomllib.loads(p.read_text("utf-8"))
+        for k in ("OFF", "COND", "NO_TARGET", "PROFANITY", "TITLE_BANNED", "SHORTS_TITLE_BANNED"):
+            if d.get(k):
+                R[k] = re.compile(d[k])
+        for k in ("SHORT_END", "PURPOSE", "COND_LABEL", "VERIFY_LABEL", "BASIS_LABEL"):
+            if d.get(k):
+                R[k] = d[k]
+        R["SHORT_END_PKG"] = d.get("SHORT_END") or None
+        R["REQUIRE"] = d.get("REQUIRE") or []
+        R["FIELD_NAMES"] = d.get("FIELD_NAMES") or {}
+    return R
 
 
 def numbers_in_calc(path):
@@ -86,7 +110,8 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     longs = [(i, n) for i, s, n in R["long"] if not any(a in s for a in allow)]
     (fails if longs else oks).append(f"일반: 50자 넘는 문장 {longs or '없음 (사용자 문장은 뺌)'}")
     # 사용자가 정한 문장(--allow)과 쇼츠 공통 끝 멘트(쇼츠안 머리 — 사용자 지시)는 광고로 세지 않음
-    ads = [(i, x) for i, x in R["ads"] if not any(a in x for a in allow) and not (kind == "short" and SHORT_END in x)]
+    RL = rules(topic)
+    ads = [(i, x) for i, x in R["ads"] if not any(a in x for a in allow) and not (kind == "short" and RL["SHORT_END"] in x)]
     if ads or R["scares"]:
         fails.append(f"일반: 광고 {[i for i, _ in ads]} · 겁주기 {[i for i, _ in R['scares']]}")
     elif R["ads"]:
@@ -97,8 +122,13 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     (fails if k8 else oks).append(f"반론 K8 권유·과장: {k8 or '없음'}")
     k2 = [(i, s) for i, s in enumerate(sents, 1) if K2.search(s)]
     (fails if k2 else oks).append(f"반론 K2 결과론: {k2 or '없음'}")
+    for lab, rx in (("사람·정당 탓", RL["NO_TARGET"]), ("비속어", RL["PROFANITY"])):     # v1.4 주제 규칙 (재테크)
+        if rx:
+            hit = [(i, s[:40]) for i, s in enumerate(sents, 1) if rx.search(s)]
+            (fails if hit else oks).append(f"채널 선 — {lab}: {hit or '없음'}")
     if kind == "short":                                   # 쇼츠: 해설·보기·설명란이 없음 → K6·K7·K2/K4 설명란 점검 뺌
-        (oks if any(SHORT_END in x for x in sents[-2:]) else fails).append("쇼츠 공통 끝 멘트(마지막 줄 「…채널 구독하고 확인하세요.」): " + ("있음" if any(SHORT_END in x for x in sents[-2:]) else "없음"))
+        end = RL["SHORT_END"]                          # v1.5 주제마다 (주식 '채널 구독하고 확인하세요' · 재테크 '아래 영상에서 확인하세요')
+        (oks if any(end in x for x in sents[-2:]) else fails).append(f"쇼츠 공통 끝 멘트(마지막 줄 「…{end}.」): " + ("있음" if any(end in x for x in sents[-2:]) else "없음"))
         if calc:
             vals = numbers_in_calc(calc)
             loose = [(i, m.group(0)) for i, s in enumerate(sents, 1) for m in re.finditer(r"(\d+(?:\.\d+)?)\s?%", s) if float(m.group(1)) == int(float(m.group(1))) and not pct_ok(int(float(m.group(1))), vals)]
@@ -172,8 +202,11 @@ def txt(v):
 
 def check_package(topic, pk, personas, adv, stage="topic"):
     import title_fit as TF
+    RL = rules(topic)
     fails, warns, oks = [], [], []
     FIELDS = FIELDS_TOPIC if stage == "topic" else FIELDS_SHORTS
+    if stage == "topic":
+        FIELDS = [(k, RL["FIELD_NAMES"].get(k, k)) for k in RL["REQUIRE"]] + FIELDS      # v1.4 꼭 있어야 할 칸 (재테크 complaint)
     miss = [lab for k, lab in FIELDS if not txt(pk.get(k)).strip()]
     if miss:
         fails.append(f"빈 칸: {miss}")
@@ -192,19 +225,27 @@ def check_package(topic, pk, personas, adv, stage="topic"):
         with contextlib.redirect_stdout(buf):
             ok = TF.report(t, sh) if t else False
         (oks if ok else fails).append(f"일반: {'쇼츠 ' if sh else ''}제목 화면 2줄 안 {'✅' if ok else '❌ 잘림'} ({len(t)}자)")
+        bx = RL["SHORTS_TITLE_BANNED" if sh else "TITLE_BANNED"]
+        if bx:
+            mb = bx.search(t)
+            (fails if mb else oks).append(f"일반: {'쇼츠 ' if sh else ''}제목에서 피할 말 {'❌ ' + mb.group(0) if mb else '없음'}")
     # 반론
     k8 = [k for k, _ in FIELDS if K8.search(txt(pk.get(k)))]
     (fails if k8 else oks).append(f"반론 K8 권유·과장 낱말: {k8 or '없음'}")
     k2 = [k for k, _ in FIELDS if K2.search(txt(pk.get(k)))]
     (fails if k2 else oks).append(f"반론 K2 결과론 낱말: {k2 or '없음'}")
-    off = OFF.search(allt)
-    (fails if off else oks).append(f"채널 목적(덜 잃기·장기): {'❌ ' + off.group(0) if off else '맞음'}")
+    off = RL["OFF"].search(allt)
+    (fails if off else oks).append(f"{RL['PURPOSE']}: {'❌ ' + off.group(0) if off else '맞음'}")
+    for lab, rx in (("사람·정당 탓", RL["NO_TARGET"]), ("비속어", RL["PROFANITY"])):     # v1.4 주제 규칙 (재테크 채널 선)
+        if rx:
+            m = rx.search(allt)
+            (fails if m else oks).append(f"채널 선 — {lab}: {'❌ ' + m.group(0) if m else '없음'}")
     nums = [k for k, _ in FIELDS if k not in ("message", "approach", "s_message") and re.search(r"\d", txt(pk.get(k)))]
     (warns if nums and not pk.get("calc") else oks).append(f"반론 K5 숫자 칸 {nums or '없음'} · 계산 근거 {'있음' if pk.get('calc') else '없음 — 숫자는 대본 계산 때 확인'}")
     if stage == "topic":
-        (oks if COND.search(txt(pk.get("approach"))) else warns).append("반론 K1 조건(돈 쓸 때·기간·비중)을 보기에 못 박았나: " + ("있음" if COND.search(txt(pk.get("approach"))) else "안 보임(사람 확인)"))
-        (oks if txt(pk.get("verify")).strip() else fails).append(f"반론 K3 다른 기간·다른 하락장으로 확인할 길: {txt(pk.get('verify')) or '없음'}")
-        (oks if txt(pk.get("basis")).strip() else warns).append("분석 근거(data_insights 5-1): " + ("있음" if txt(pk.get("basis")).strip() else "없음"))
+        (oks if RL["COND"].search(txt(pk.get("approach"))) else warns).append(f"{RL['COND_LABEL']}: " + ("있음" if RL["COND"].search(txt(pk.get("approach"))) else "안 보임(사람 확인)"))
+        (oks if txt(pk.get("verify")).strip() else fails).append(f"{RL['VERIFY_LABEL']}: {txt(pk.get('verify')) or '없음'}")
+        (oks if txt(pk.get("basis")).strip() else warns).append(f"{RL['BASIS_LABEL']}: " + ("있음" if txt(pk.get("basis")).strip() else "없음"))
     return fails, warns, oks
 
 

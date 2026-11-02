@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-# VERSION: v2.2 — 2026-11-02 — 쇼츠 판에서 '전달 내용·방식' 칸을 뺌 — 쇼츠는 대본으로 평가 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") · 대본 줄이 없는 쇼츠는 판에 올리지 않음.
+# VERSION: v2.3 — 2026-11-02 — 주제 인자 (재테크도 — 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"):
+#   주제마다 판 파일·주소·이름 (TOPICS) — 재테크는 옛 편 표(롱폼대본·쇼츠안 md) 없이 script_board.json 'extra'·shorts_board.json 'items' 만.
+#   틀은 주식 틀 그대로 (stock/topics/board/script_board.template.html — 글은 자리표로 채움). 주제를 빼면 stock (옛 명령 그대로).
+# (v2.2 — 2026-11-02 — 쇼츠 판에서 '전달 내용·방식' 칸을 뺌 — 쇼츠는 대본으로 평가 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") · 대본 줄이 없는 쇼츠는 판에 올리지 않음.)
 # (v2.1 — 2026-11-02 — 쇼츠 판에 '점검 결과' 칸(쇼츠안 md 의 '- 점검:' 줄 · 새 편은 기획안 check_shorts 의 ❌·⚠) · 1편 대본 v11.
 # (v2.0 — 2026-11-02 — 판을 둘로 나눔: 대본 평가판(2단계 · 롱폼만) · 쇼츠 평가판(3단계 · 롱폼이 통과한 편의 쇼츠만)
 #   (사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자 다시 수정해줘").
@@ -15,7 +18,7 @@
 #   · 대본 파일의 '-○○' 줄은 장 이름, 나머지 빈 줄 아닌 줄 = 문장 (번호 = 오디오·자막 문장 번호와 같음)
 #   · 대본이 바뀌면 이 도구를 다시 돌리고 같은 주소로 다시 올림 — 저장된 피드백(db)은 그대로 (피드백의 ver 칸으로 어느 판에 단 것인지 구분).
 #   연구·교육용 도구 — 투자 권유가 아님.
-# 사용: python3 tools/script_feedback_board.py [--check] [--items <쇼츠 목록.json>]
+# 사용: python3 tools/script_feedback_board.py [주제] [--check] [--items <쇼츠 목록.json>]   (주제 = stock 기본 · economic)
 #   --check = 파일을 쓰지 않고 셈만 · --items = 쇼츠 목록을 다른 파일로 (시험용 — 판 파일은 쓰지 않음)
 import html as H
 import json
@@ -39,6 +42,17 @@ URL = {
     "long": "https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz",
     "short": "https://claude.ai/artifact/Mjfwm81meE2vyHH71UqAt2",
 }
+# v2.2 주제마다 (stock 은 위 상수 그대로)
+TOPICS = {
+    "economic": {
+        "OUT_LONG": ROOT / "economic/topics/대본평가판.html", "OUT_SHORT": ROOT / "economic/topics/쇼츠평가판.html",
+        "LONG_INDEX": None, "SHORTS_MD": None,
+        "EXTRA": ROOT / "economic/topics/board/script_board.json", "SHORTS_ITEMS": ROOT / "economic/topics/board/shorts_board.json",
+        "LONG_VER": {}, "NAME": "재테크", "NOTE": "정보 제공용 — 세무·법률 상담이 아닙니다.",
+        "URL": {"topic": "", "long": "", "short": ""},     # economic/topics/board/urls.json 에서 채움 (판을 처음 올린 뒤)
+    },
+}
+TOPIC, NAME, NOTE = "stock", "주식", "연구·교육용 — 투자 권유가 아닙니다."
 BEGIN, END = "/*SCRIPTS:BEGIN*/", "/*SCRIPTS:END*/"
 NO_VALUE = "(아직 없음 — 이 판의 피드백으로 만듦)"
 
@@ -70,8 +84,11 @@ def read_lines(path):
 # ---------------- 2단계 대본 평가판 (롱폼) ----------------
 def longform():
     out = []
-    rows = re.findall(r"^\|\s*([1-4])\s*\|\s*([^|]+?)\s*\|\s*`([^`]+\.txt)`", LONG_INDEX.read_text(encoding="utf-8"), re.M)
-    if len(rows) != 4:
+    if LONG_INDEX is None:                     # v2.2 옛 편 표가 없는 주제 (재테크) — extra 만
+        rows = []
+    else:
+        rows = re.findall(r"^\|\s*([1-4])\s*\|\s*([^|]+?)\s*\|\s*`([^`]+\.txt)`", LONG_INDEX.read_text(encoding="utf-8"), re.M)
+    if LONG_INDEX is not None and len(rows) != 4:
         fail(stage="longform_index", found=len(rows), file=str(LONG_INDEX.relative_to(ROOT)), next="표 꼴(| 편 | 제목 | `대본` |)이 바뀌었는지 확인")
     for ep, title, rel in rows:
         lines = read_lines(ROOT / rel)
@@ -155,7 +172,7 @@ def shortform(items_path):
             if pk is None:
                 fail(stage="shorts_fields", key=it["key"], fields_from=it["fields_from"], next="기획안 id 확인")
             if not (pk.get("check_shorts") or {}).get("pass"):
-                log("SKIP", board="short", key=it["key"], why="쇼츠 기획안 점검 안 함·❌", next=f"python3 tools/board_check.py package stock {src} --stage shorts --write")
+                log("SKIP", board="short", key=it["key"], why="쇼츠 기획안 점검 안 함·❌", next=f"python3 tools/board_check.py package {TOPIC} {src} --stage shorts --write")
                 continue
             fields = [["s_title", "쇼츠 제목", pk.get("s_title") or NO_VALUE, True],
                       ["s_thumb_main", "쇼츠 썸네일 문구", pk.get("s_thumb_main") or NO_VALUE, True],
@@ -180,7 +197,7 @@ def shortform(items_path):
 # ---------------- 판 만들기 ----------------
 def links(here):
     names = [("topic", "1단계 주제 평가판"), ("long", "2단계 대본 평가판"), ("short", "3단계 쇼츠 평가판")]
-    return " → ".join(f"<b>{H.escape(n)}</b>" if k == here else f'<a href="{URL[k]}" target="_blank" rel="noopener">{H.escape(n)}</a>' for k, n in names)
+    return " → ".join(f"<b>{H.escape(n)}</b>" if k == here or not URL.get(k) else f'<a href="{URL[k]}" target="_blank" rel="noopener">{H.escape(n)}</a>' for k, n in names)
 
 
 BOARDS = {
@@ -219,7 +236,33 @@ def build(kind, scripts, tpl):
     return page[: a + len(BEGIN)] + data + page[b:], data
 
 
+def set_topic(topic):
+    """v2.2: 주제마다 판 파일·주소·이름. stock 은 맨 위 상수 그대로."""
+    global TOPIC, NAME, NOTE, OUT_LONG, OUT_SHORT, LONG_INDEX, SHORTS_MD, EXTRA, SHORTS_ITEMS, LONG_VER, URL
+    if topic == "stock":
+        return
+    if topic not in TOPICS:
+        fail(stage="topic", topic=topic, next="TOPICS 에 주제를 더함")
+    c = TOPICS[topic]
+    TOPIC, NAME, NOTE = topic, c["NAME"], c["NOTE"]
+    OUT_LONG, OUT_SHORT, LONG_INDEX, SHORTS_MD = c["OUT_LONG"], c["OUT_SHORT"], c["LONG_INDEX"], c["SHORTS_MD"]
+    EXTRA, SHORTS_ITEMS, LONG_VER = c["EXTRA"], c["SHORTS_ITEMS"], c["LONG_VER"]
+    URL = dict(c["URL"])
+    up = ROOT / topic / "topics/board/urls.json"
+    if up.exists():
+        URL.update(json.loads(up.read_text("utf-8")))
+    for k, b in BOARDS.items():
+        b["out"] = OUT_LONG if k == "long" else OUT_SHORT
+        b["title"] = b["title"].replace("주식", NAME)
+        b["h1"] = b["h1"].replace("주식", NAME)
+        intro = b["intro"]
+        b["intro"] = (lambda f=intro: f().replace("연구·교육용 — 투자 권유가 아닙니다.", NOTE))
+    log("TOPIC", topic=topic, out_long=str(OUT_LONG.relative_to(ROOT)), out_short=str(OUT_SHORT.relative_to(ROOT)), urls=",".join(k for k, v in URL.items() if v))
+
+
 def main(argv):
+    topic = next((a for i, a in enumerate(argv) if not a.startswith("-") and (i == 0 or argv[i - 1] != "--items")), "stock")
+    set_topic(topic)
     check = "--check" in argv
     items = Path(argv[argv.index("--items") + 1]).resolve() if "--items" in argv else SHORTS_ITEMS
     if items != SHORTS_ITEMS:

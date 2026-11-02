@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 재테크 평가판 세 장 (주제 → 대본 → 쇼츠) — stock/guides/quick_board.md 대로
+
+### 왜 (사용자 지시)
+- "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `economic/guides/quick_board.md` (v1.0, 새로) | 재테크 판 세 장 순서·기획안 꼴(complaint 칸)·점검 규칙·대본 꼴 — 새 세션은 이 파일 하나로 |
+| `economic/rebuttal.toml` (v1.0) · `economic/result/outliers/rebuttal_persona.md`·`.json`·`rebuttal_picks.tsv` | 재테크 반론 페르소나 — 후보 260 중 Claude 가 내용 반론 26개 (K5 숫자·법 오류 · K1 조건마다 · K4 빠진 비용 · K3 가정 · K8 낚시·과장 · K6 절차 · K2 바뀌는 제도) |
+| `economic/board_rules.toml` (v1.0) · `tools/board_check.py` (v1.5 — 주식 v1.4 위에) | 주제마다 점검 규칙 파일 — 재테크: complaint 필수 · 컨셉 밖 · 사람·정당 탓 · 비속어 · 제목 피할 말 · 쇼츠 끝 멘트 '아래 영상에서 확인하세요' — 주식 기획안 10개 점검 결과 그대로 (시험함) |
+| `tools/topic_board.py` (v1.2) · `tools/script_feedback_board.py` (v2.3 — 주식 v2.2 위에) | 주제 인자 (빼면 stock) — 주식 판 파일 변화 없음 (시험함) |
+| `economic/topics/board/` | topics_2026-11-02.json 기획안 E01~E10 (점검 ❌ 0) · script_board.json · shorts_board.json (빈 목록) · urls.json |
+| `economic/topics/주제평가판.html`·`대본평가판.html`·`쇼츠평가판.html` | 주제 https://claude.ai/artifact/EtFeGPhdVV9GXyTSzU8o1G · 대본 https://claude.ai/artifact/6SbgVekYkvvh2vWXrDrFtk · 쇼츠 https://claude.ai/artifact/UJA5kHCvhHTx9VosVviSAN |
+
 ## 2026-11-02 — 주식: 쇼츠 평가판에서 '전달 내용' 칸 뺌 — 쇼츠는 대본으로 평가
 
 ### 왜 (사용자 지시)

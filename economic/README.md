@@ -104,6 +104,13 @@ python3 tools/cloud_run.py economic analyze                     # 롱폼·쇼츠
 - `analyze`: 사례 709 · 성공 193 (전 260 — 기준이 바뀐 것) · 비교 집단 1,810 (전 1,659) · 하루 조회수 상위 74 · 조회수 상위 159 · 쇼츠 성공 89 · 비교 574
 - 뒤이어 (할당량 0): `target_check.py` · `content_analysis.py` (성공 썸네일 193장 분류) · `pc_transcribe.py list` (856개) · 페르소나 3명 · 댓글 니즈 26 · 주제 탐색 20개 · 요약본 세 편 — `economic/topics/README.md`
 
+### 이어서 (2026-11-02 16:49~17:27 한국 — 사용자 지시 "주식 주제 처럼 각각 평가판을 만드는 방식으로 똑같이 해봐 분석 후 주제 탐색 평가판 만들어")
+
+- `resume` (7,832단위): 롱폼 88개 댓글 · 채널 기준선 · 쇼츠 기간 없는 검색 34 → 분석 저절로 다시: 성공 189 (10-28 193 — 180일을 넘긴 영상) · 비교 집단 1,824
+- 쇼츠 추천 129개 중 종목·단타·차트·코인·부동산·시장 뉴스·정치·예능·명언 61개 체크 풀기 → 68개 승인 (1,366단위) → 쇼츠 성공 91 · 비교 656 · 남은 할당량 566
+- target_check · content_analysis (성공 189장 모두 분류돼 있음) · transcript_todo 919 · 댓글 니즈 K27~K30 · 주제 탐색 후보 10개 더해 20개 다시 (`economic/topics/`)
+- 10-28 뒤 새 영상 검색은 할당량 초기화 뒤 (`explore --weeks 26`)
+
 ## 다음 할 일
 1. **분석:** 2026-10-16 부터 **클라우드가 매일 이어서** (위 '클라우드에서 분석' — 예약 작업). PC `run_analyzer.ps1` 은 그동안 켜지 않는다. (예전: [`guides/pc_analysis.md`](../guides/pc_analysis.md) — PC 에서 한 번 실행, 할당량이 모자라면 다음 날 한국 오후 4~5시 초기화 뒤 자동으로 이어서.)
 2. 분석이 끝나면(GitHub `economic/result/pc_progress.json`의 `complete: true`) Claude에게: "economic 분석 끝났어, 결과로 지시사항이랑 주제 만들어줘" → `guides/pipeline.md` 2단계부터.

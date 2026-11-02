@@ -8,6 +8,22 @@
    "long_key": "e1-long",
    "label": "1편",
    "note": "2026-11-02 사용자 채팅 '1편 … 쇼츠로 넘겨' — 대본 평가판 verdicts/e1-long = pass"
+  },
+  {
+   "key": "e2-short",
+   "md_ep": 2,
+   "from": "md",
+   "long_key": "e2-long",
+   "label": "2편",
+   "note": "대본 평가판 verdicts/e2-long = pass (사용자, 2026-11-02 08:39) · 있는 내용 그대로"
+  },
+  {
+   "key": "e3-short",
+   "md_ep": 3,
+   "from": "md",
+   "long_key": "e3-long",
+   "label": "3편",
+   "note": "대본 평가판 verdicts/e3-long = pass (사용자, 2026-11-02 08:42) · 있는 내용 그대로 — 새 롱폼과 안 맞음(점검 칸)"
   }
  ]
 }

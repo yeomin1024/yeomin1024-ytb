@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-02 — 저장소 밖 파일(시험·임시 대본)도 점검 — 결과 파일 경로를 저장소 기준으로 못 바꾸면 그대로 씀 (전엔 ValueError 로 멈춤) ·
+# VERSION: v1.3 — 2026-11-02 — K7(해설 정답 ↔ 보기) 이 새 보기 꼴 'A, …' 도 읽음 (전엔 'A번, …' 만 — 새 꼴에선 늘 '없음'으로 지나감).
+# (v1.2 — 2026-11-02 — 저장소 밖 파일(시험·임시 대본)도 점검 — 결과 파일 경로를 저장소 기준으로 못 바꾸면 그대로 씀 (전엔 ValueError 로 멈춤) ·
 #   광고 점검에서 --allow 문장과 쇼츠 공통 끝 멘트(「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」 — 사용자가 정한 줄)는 뺌.
 # (v1.1 — 2026-11-02 — 3단계 판(주제 → 대본 → 쇼츠)에 맞춤: package --stage topic|shorts (판마다 그 칸만) · script --kind short (해설·설명란 점검 뺌).
 # (v1.0 — 2026-11-02 — 평가판에 처음 올리기 전 점검 (일반 페르소나 + 반론 페르소나) — 토큰을 쓰지 않는 규칙 점검
@@ -117,7 +118,7 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     for s in sents:
         if re.match(r"여기서 .+ 번째 선택입니다", s):
             q += 1
-        m = re.match(r"([AB])번, (.+)", s)
+        m = re.match(r"([AB])번?, (.+)", s)   # 보기 꼴 'A, …'(2026-11-02 사용자 지시) · 옛 'A번, …' 둘 다
         if m and q:
             opts[(q, m.group(1))] = m.group(2)
     bad7, letters = [], []

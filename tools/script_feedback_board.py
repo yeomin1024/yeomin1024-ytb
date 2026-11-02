@@ -31,7 +31,7 @@ LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS_MD = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
 EXTRA = ROOT / "stock/topics/board/script_board.json"
 SHORTS_ITEMS = ROOT / "stock/topics/board/shorts_board.json"
-LONG_VER = {1: "대본 v11", 2: "대본 v8", 3: "대본 v8", 4: "대본 v8"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
+LONG_VER = {1: "대본 v11", 2: "대본 v9", 3: "대본 v9", 4: "대본 v9"}   # 대본 파일엔 판 표시를 못 넣음(TTS 가 읽음) — 대본을 고치면 여기도
 SHORT_VER = "v5"                                                       # 쇼츠안_2026-10-30.md 의 판
 URL = {
     "topic": "https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN",

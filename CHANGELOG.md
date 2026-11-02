@@ -1,5 +1,26 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-02 — 재테크 제목을 더 자극적으로: 따옴표 속 시청자 말 + 따옴표 밖 사실
+
+### 왜 (사용자 지시)
+- "아니 제목좀 더 자극적으로 해봐 댓글보면 나라가 일을 안한다 도둑놈이다 이렇게 말하던데 좀 참고해보라고"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/anger_words.py` (v1.0, 새로) · `economic/anger_words.toml` (v1.0) | 댓글 갈래(A 나라가 일을 안 한다 · B 떼어 간다·도둑 · C 이게 나라냐 · D 성실히 낸 사람만 바보 · E 폭탄 · P 정치 이름)별 위 댓글 좋아요 배수 + 제목 꼴별 성공 몫 — 읽기만, 같은 댓글 id 한 번만 (comments.jsonl 에 겹쳐 적힌 줄 83,152 — comments.csv 는 겹침 없음) |
+| `economic/result/outliers/anger_words.md` | 결과: D ×3.27 · A ×2.54 · B2 ×1.88 · B ×1.71 · E ×1.70 · C ×1.26 · P ×0.43 / 따옴표로 시작하는 제목 208개 성공 33.2% (비교 19.5%) · '안 알려 준다·모르면' 64개 10.9% · 따옴표 속 분노 말 1개(표본 적음) |
+| `economic/guides/channel.md` v2.1 | 화내는 상대에 '나라' · 제목 = 따옴표 속 시청자 말 + 따옴표 밖 사실 · 선: 따옴표 밖 단정·'놈'·'정부가' ✗ · 3번 근거 숫자 |
+| `economic/guides/quick_package.md` v1.3 · `economic/guides/quick_board.md` v1.2 · CLAUDE.md 재테크 컨셉 줄 | 같은 규칙 (분노 제목 '실험안만' → 본안 R1, 올린 뒤 클릭률로 판정) |
+| `economic/board_rules.toml` v1.1 | PROFANITY 에 '놈' ('도둑놈' ✗, '도둑' ✓) |
+| `economic/topics/board/topics_2026-11-02.json` | E01~E10 제목·썸네일 주요 문구(일부 보조) 다시 — 옛 것은 `title_prev` · basis 에 갈래·배수 · verify 에 반론 K8(따옴표 밖 사실을 대본이 보여 주나) |
+| 주제 평가판 https://claude.ai/artifact/EtFeGPhdVV9GXyTSzU8o1G | 다시 올림 (판 v3) · db `verdicts/E01`(탈락, 옛 제목) note 에 '새 제목으로 다시 골라 주세요' |
+
+### 확인 (로그)
+- `anger_words.py economic` → `videos=709 comments=419478 top_level=305124 duplicates_skipped=83152 base_like_mean=10.77` · 9초.
+- `title_fit.py` 10개 모두 ✅ (29~36자, 좁은 PC 다음 동영상 2줄) · `board_check.py package economic … --write` → `packages=10 fail=0` (주제·쇼츠 단계) · 비속어 규칙: '"나라가 도둑놈이네"' → 걸림, '"나라가 도둑이네"' → 안 걸림.
+- 판: 제목 10개 표시 · 넘침 0 · 오류 0 (390px).
+
 ## 2026-11-02 — 주식: 쇼츠 v6 (쇼츠 평가판 피드백 8건)
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,7 @@
 # 재테크 평가판 전 점검 규칙 — tools/board_check.py v1.4 가 읽음 (없는 칸은 주식 규칙 그대로)
-# VERSION: v1.0 — 2026-11-02 — 최초 (사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해" ·
-#   채널 컨셉 economic/guides/channel.md v2.0 '불편한 제도를 꼬집으며 정보 전달' · 반론 페르소나 economic/result/outliers/rebuttal_persona.md K1~K8).
+# VERSION: v1.1 — 2026-11-02 — PROFANITY 에 '놈' (사용자 지시 "제목좀 더 자극적으로 … 나라가 일을 안한다 도둑놈이다" — 제목은 '도둑'까지, '도둑놈'의 '놈'은 광고 제한 걱정으로 뺌 · economic/guides/channel.md v2.1 2번).
+# (v1.0 — 2026-11-02 — 최초 (사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해" ·
+#   채널 컨셉 economic/guides/channel.md v2.0 '불편한 제도를 꼬집으며 정보 전달' · 반론 페르소나 economic/result/outliers/rebuttal_persona.md K1~K8)).
 # ※ 정보 제공용 — 세무·법률 상담이 아님.
 
 # 채널 컨셉 밖 (channel.md 1번 '빼는 것') — 있으면 ❌
@@ -12,7 +13,7 @@ REQUIRE = ["complaint"]
 
 # 채널 선 (channel.md 2번) — 있으면 ❌
 NO_TARGET = '민주당|국민의힘|국힘|정권|대통령|이재명|윤석열|문재인|좌파|우파|빨갱|매국|틀딱|청년들이|노인들이|외국인\s?(때문|탓)|조선족'
-PROFANITY = '씨발|시발|ㅅㅂ|개새|좆|존나|ㅈㄴ|병신|ㅂㅅ|미친놈|미친년|개같|엿같|지랄'
+PROFANITY = '씨발|시발|ㅅㅂ|개새|좆|존나|ㅈㄴ|병신|ㅂㅅ|미친놈|미친년|개같|엿같|지랄|놈'
 
 # 제목에서 피할 말 (quick_package 1번) · 쇼츠 제목에서 빼는 말 (quick_package 4번 — '노후·은퇴·퇴직' 4.0% vs 14.4%)
 TITLE_BANNED = '하는\s?법|이유|때문|이것|이때'

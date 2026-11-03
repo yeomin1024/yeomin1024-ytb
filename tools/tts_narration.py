@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.16 — 2026-10-25 — 목소리·크기를 고르게: 사용자 지시 2026-10-25 "오디오가 자꾸 소리가 갑자기 작아지고 목소리도 아예 달라지는
+# VERSION: v1.17 — 2026-11-03 — '삑' 나는 문장 줄이기: 사용자 지시 2026-11-03 "근데 왜 자꾸 목소리가 삑나는거야? 한번에 완벽하게 못해?".
+#          주식 1~4편 오디오(v1.16)에서 검사를 못 넘은 15문장을 보니 9개가 'A, …'·'B, …'·'정답은 B, …' (알파벳+쉼표 — 감탄사 '에이,'처럼
+#          읽혀 높이가 튐, tts_guide 5-1 과 같은 원인) · 2개가 80자 넘는 정리 문장(문장 중간 목소리 바뀜) · 1개가 아주 짧은 문장.
+#          ① 위험한 꼴(알파벳+쉼표 · 55음절 넘는 문장 · 6음절 안 짧은 문장)은 시도를 3번 → 8번 (통과하면 바로 멈춤 — 보통 문장은 그대로 3번).
+#          ② 55음절 넘는 문장은 가운데에 가까운 쉼표에서 둘로 나눠 따로 만든 뒤 0.28초 쉼으로 이음 (자막·대본은 그대로 한 문장).
+#          ③ --redo 는 저장소 오디오에 그 문장만 새로 끼움 (새 Kaggle 세션에서도 — 전엔 같은 세션 캐시가 없으면 영상 전체를 다시 만들었음),
+#             새 시드는 전과 겹치지 않게 101번째 시도부터.
+#          연구·교육용 도구.
+# (v1.16) — 2026-10-25 — 목소리·크기를 고르게: 사용자 지시 2026-10-25 "오디오가 자꾸 소리가 갑자기 작아지고 목소리도 아예 달라지는
 #          부분이 있는데 좀 일정하게 되도록 고쳐봐". 기존 오디오 4편을 재 보니 문장 전체 크기는 ±3dB 안인데, 문장 안에서 ① 끝이 9~13dB 작아진
 #          채(속삭이듯) 0.75~2초 이어지는 곳(면세 18번·축제 41번 등)과 ② 1초 창 하나의 스펙트럼 모양이 크게 다른 곳(목소리가 바뀜 — 면세 11·19·44번 등)이 있었음.
 #          ① 목소리 지문(voice_print): 말소리 크기·높이·멜 24칸 스펙트럼 모양(크기 뺀 dB)·1초 창 모양·0.25초 크기.
@@ -153,7 +161,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.16"
+VERSION = "v1.17"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -166,6 +174,43 @@ CARD_GAP_MIN = srt_tool.CARD_GAP_MIN   # 3.5초 — align-audio.mjs 와 같은 �
 MIN_RATE, MAX_RATE = 2.5, 8.0  # 문장 말 속도(읽는 음절/초) 허용 범위. 성공 영상 4.2~5.5 (stock/guides/data_insights.md 2번)
 SHORT_SYL = 6                # 이보다 짧은 문장("감사합니다.")은 속도 대신 길이 4초 이하만 본다
 MAX_INNER_SIL = 1.8          # 문장 안 무음이 이보다 길면 이상(말을 멈추고 딴소리·잡음일 수 있음)
+RISKY_TRIES = 8              # v1.17 위험한 꼴은 이만큼까지 시도 (통과하면 바로 멈춤)
+LONG_SYL = 55                # v1.17 이보다 긴 문장은 쉼표에서 둘로 나눠 만든다
+SPLIT_GAP = 0.28             # v1.17 나눠 만든 조각 사이 쉼(초) — 쉼표 쉼과 비슷하게
+SPLIT_MIN_SYL = 12           # v1.17 나눈 조각은 둘 다 이 음절 이상
+REDO_SEED_JUMP = 100         # v1.17 새 세션 --redo 는 이 번호 다음 시도부터 (처음 만든 시드와 겹치지 않게)
+SPLIT_ENDINGS = ("처럼", "면서", "는데", "지만", "니까", "려면", "으면", "듯이", "며", "고")   # v1.17 쉼표가 없을 때 나눌 곳
+RISKY_RES = (re.compile(r"^\s*[A-Ca-c]\s*,"), re.compile(r"(정답은|보기)\s*[A-Ca-c]\s*,"))
+
+
+def risky_reason(text, syl):
+    """v1.17: 검사 탈락이 잦은 꼴이면 그 까닭(문자열), 아니면 None — 주식 1~4편 v1.16 보고 15문장 중 9개 알파벳+쉼표, 2개 긴 문장, 1개 짧은 문장."""
+    if any(r.search(text) for r in RISKY_RES):
+        return "알파벳+쉼표"
+    if syl > LONG_SYL:
+        return "긴 문장"
+    if syl < SHORT_SYL:
+        return "짧은 문장"
+    return None
+
+
+def split_long(text, syl):
+    """v1.17: 55음절 넘는 문장 → 가운데에 가장 가까운 쉼표(또는 '…처럼·…려면·…며' 같은 이음 끝)에서 [앞, 뒤] (둘 다 12음절 이상일 때만). 아니면 [text]."""
+    if syl <= LONG_SYL:
+        return [text]
+    best = None
+    cuts = [m.start() + 1 for m in re.finditer(r",", text)]                 # 쉼표 뒤
+    cuts += [m.start() for m in re.finditer(r"\s", text)                   # 말할 때 자연히 쉬는 이음 끝 뒤 (…말처럼 / …않으려면 / …지키며)
+             if text[: m.start()].split() and text[: m.start()].split()[-1].endswith(SPLIT_ENDINGS)]
+    for c in sorted(set(cuts)):
+        a, b = text[:c].strip(), text[c:].strip()
+        sa, sb = srt_tool.syllables(a), srt_tool.syllables(b)
+        if min(sa, sb) < SPLIT_MIN_SYL:
+            continue
+        d = abs(sa - sb)
+        if best is None or d < best[0]:
+            best = (d, a, b)
+    return [best[1], best[2]] if best else [text]
 SIL_DB = -45.0               # 10ms 구간 RMS가 이 값 이하면 무음 (앞뒤 자르기·문장 안 무음)
 TRIM_PAD = 0.06              # 앞뒤를 자를 때 남기는 여유(초) — 숨소리·첫소리가 잘리지 않게
 TARGET_RMS_DB = -18.0        # 말소리 구간 RMS 목표
@@ -1013,6 +1058,8 @@ def level_even(clips, roles, sr):
 # ----------------------------------------------------------------------------- 문장 하나 만들기 (캐시·검사·다시)
 def cache_key(engine, text, spec):
     d = dict(engine.describe(spec), text=text, instruct=spec["instruct"], seed=spec["seed"], cache=CACHE_VERSION)
+    if len(split_long(text, srt_tool.syllables(text))) > 1:     # v1.17 나눠 만드는 긴 문장만 새 키 (다른 문장 캐시는 그대로)
+        d["split"] = 1
     if spec.get("pace"):
         d["pace"] = spec["pace"]
     return hashlib.sha1(json.dumps(d, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()[:16]
@@ -1027,51 +1074,40 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
     if old and wav_p.is_file() and not redo:
         log("CACHE", level=logging.DEBUG, item=label, role=role, key=key, dur=old["dur"], ok=old["ok"])
         return dict(old, wav=str(wav_p), cached=True)
-    # 시드: 역할 기본 시드 + 글 내용 해시(문장 위치가 바뀌어도 같은 글은 같은 시드) + 시도 번호. redo 는 전에 쓴 시도 다음부터.
+    # 시드: 역할 기본 시드 + 글 내용 해시(문장 위치가 바뀌어도 같은 글은 같은 시드) + 시도 번호. redo 는 전에 쓴 시도 다음부터
+    # (v1.17: 캐시가 없는 새 세션 redo 는 101번째 시도부터 — 처음 만든 시드를 되풀이하지 않게).
     seed0 = spec["seed"] + int(key[:6], 16) % 1_000_000 * 10
-    start = (max(old.get("tried", [0])) + 1) if (old and redo) else 1
-    max_new = int(FRAME_HZ * max(syl, 4) / 2.0) + 50     # 2음절/초보다 느리면 끊는다(그보다 느리면 어차피 검사 탈락)
-    best, tried = None, list(old.get("tried", [])) if (old and redo) else []
-    for attempt in range(start, start + args.max_tries):
-        seed = seed0 + attempt
-        tried.append(attempt)
-        t0 = time.time()
-        res = engine.synth(text, spec, seed, max_new)
-        gen_s = time.time() - t0
-        if res is None:
-            log("TTS", logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, ok=False, issues="생성 오류")
-            continue
-        x, sr = res
-        nonfinite = not np.isfinite(x).all()
-        x = trim(np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0), sr)
-        ok, issues, warns, m = check(x, sr, syl, nonfinite)
+    start = (max(old.get("tried", [0])) + 1) if (old and redo) else (1 + REDO_SEED_JUMP if redo else 1)
+    risk = risky_reason(text, syl)
+    tries = max(args.max_tries, RISKY_TRIES) if risk else args.max_tries      # v1.17 위험한 꼴은 더 시도
+    parts = split_long(text, syl)                                             # v1.17 긴 문장은 둘로
+    tried = list(old.get("tried", [])) if (old and redo) else []
+    if len(parts) > 1:
+        log("SPLIT", item=label, role=role, syl=syl, parts=len(parts), a=parts[0][-20:], b=parts[1][:20], gap_s=SPLIT_GAP)
+    takes = []
+    for pi, ptxt in enumerate(parts):
+        psyl = syl if len(parts) == 1 else srt_tool.syllables(ptxt)
+        pseed0 = seed0 if len(parts) == 1 else seed0 + 7919 * (pi + 1)
+        b = best_take(engine, f"{label}" + (f".{pi + 1}" if len(parts) > 1 else ""), ptxt, spec, psyl, role, consist,
+                      pseed0, start, tries, tried if pi == 0 else [], risk)
+        if b is None:
+            die("TTS", f"{label}: {tries}번 모두 생성 오류", "로그의 오류를 보고 --dtype float32 / 런타임 재시작 후 다시", text=ptxt)
+        takes.append(b)
+    if len(takes) == 1:
+        best = takes[0]
+    else:                                                                      # 조각 잇기 → 문장 전체로 다시 검사
+        sr = takes[0][2]
+        x = np.concatenate([np.concatenate([t[1], silence(SPLIT_GAP, sr)]) if i < len(takes) - 1 else t[1] for i, t in enumerate(takes)])
+        ok, issues, warns, m = check(x, sr, syl, False)
         m["f0"] = f0_median(x, sr) if x.size else 0.0
-        f0_dev = 0.0
-        f0_ref = spec.get("f0_center") or spec.get("ref_f0")       # v1.15 가운데 높이(f0_center)가 있으면 그것과 비교
-        if spec["engine"] == "clone" and syl >= SHORT_SYL and f0_ref:   # 진행자: 기준 목소리 높이와 같은가
-            f0_dev = abs(m["f0"] / f0_ref - 1) if m["f0"] else 1.0
-            if f0_dev > spec["f0_tol"]:
-                issues.append(f"목소리 높이 {m['f0']:.0f}Hz (기준 {f0_ref:.0f}Hz ±{spec['f0_tol']:.0%})")
-                ok = False
-        c_dev = 0.0
-        if consist and syl >= SHORT_SYL and x.size:                   # v1.16 같은 목소리 문장들과 크기·끝 흐림·모양 비교
-            c_iss, c_dev, c_m = consist_issues(voice_print(x, sr), consist)
-            m.update(c_m)
-            m["consist_dev"] = c_dev
-            if c_iss:
-                issues += c_iss
-                ok = False
-        log("TTS", level=logging.INFO if ok else logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, syl=syl,
-            dur=m["dur"], rate=m["rate"], inner_sil=m["inner_sil"], f0=m["f0"], gen_s=gen_s, rtf=gen_s / max(m["dur"], 1e-6),
-            ok=ok, issues=";".join(issues) or "-", warns=";".join(warns) or "-")
-        score = (0 if ok else 1, abs(math.log(max(m["rate"], 1e-3) / RATE_REF)) + max(0.0, m["inner_sil"] - MAX_INNER_SIL) + f0_dev
-                 + c_dev)
-        if best is None or score < best[0]:
-            best = (score, x, sr, attempt, seed, ok, issues, warns, m, gen_s)
-        if ok:
-            break
-    if best is None:
-        die("TTS", f"{label}: {args.max_tries}번 모두 생성 오류", "로그의 오류를 보고 --dtype float32 / 런타임 재시작 후 다시", text=text)
+        for k in ("consist_dev", "level_dev", "fade_s", "shape_d", "win_d"):
+            vals = [t[8][k] for t in takes if k in t[8]]
+            if vals:
+                m[k] = max(vals)
+        p_issues = [f"조각{i + 1}: {iss}" for i, t in enumerate(takes) for iss in t[6]]
+        ok = ok and all(t[5] for t in takes)
+        best = (0 if ok else 1, x, sr, max(t[3] for t in takes), takes[0][4], ok, issues + p_issues,
+                warns + [f"나눠 만듦 {len(takes)}조각"], m, sum(t[9] for t in takes))
     _, x, sr, attempt, seed, ok, issues, warns, m, gen_s = best
     pace_factor = 1.0
     pc = spec.get("pace")
@@ -1105,6 +1141,52 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
         log("QA", logging.WARNING, item=label, role=role, chosen_attempt=attempt, issues=";".join(issues),
             note="모든 시도가 검사 탈락 — 가장 나은 것을 씀, 귀로 확인")
     return dict(meta, wav=str(wav_p), cached=False)
+
+
+def best_take(engine, label, text, spec, syl, role, consist, seed0, start, tries, tried, risk=None):
+    """v1.17: 시드를 바꿔 tries 번까지 만들고 검사 → 가장 나은 시도 (score, x, sr, attempt, seed, ok, issues, warns, m, gen_s).
+    통과하면 바로 멈춤. 모두 생성 오류면 None. (v1.16 make_sentence 안의 시도 묶음을 그대로 옮김 — 검사·점수 같음)"""
+    max_new = int(FRAME_HZ * max(syl, 4) / 2.0) + 50     # 2음절/초보다 느리면 끊는다(그보다 느리면 어차피 검사 탈락)
+    best = None
+    for attempt in range(start, start + tries):
+        seed = seed0 + attempt
+        tried.append(attempt)
+        t0 = time.time()
+        res = engine.synth(text, spec, seed, max_new)
+        gen_s = time.time() - t0
+        if res is None:
+            log("TTS", logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, ok=False, issues="생성 오류")
+            continue
+        x, sr = res
+        nonfinite = not np.isfinite(x).all()
+        x = trim(np.nan_to_num(x, nan=0.0, posinf=0.0, neginf=0.0), sr)
+        ok, issues, warns, m = check(x, sr, syl, nonfinite)
+        m["f0"] = f0_median(x, sr) if x.size else 0.0
+        f0_dev = 0.0
+        f0_ref = spec.get("f0_center") or spec.get("ref_f0")       # v1.15 가운데 높이(f0_center)가 있으면 그것과 비교
+        if spec["engine"] == "clone" and syl >= SHORT_SYL and f0_ref:   # 진행자: 기준 목소리 높이와 같은가
+            f0_dev = abs(m["f0"] / f0_ref - 1) if m["f0"] else 1.0
+            if f0_dev > spec["f0_tol"]:
+                issues.append(f"목소리 높이 {m['f0']:.0f}Hz (기준 {f0_ref:.0f}Hz ±{spec['f0_tol']:.0%})")
+                ok = False
+        c_dev = 0.0
+        if consist and syl >= SHORT_SYL and x.size:                   # v1.16 같은 목소리 문장들과 크기·끝 흐림·모양 비교
+            c_iss, c_dev, c_m = consist_issues(voice_print(x, sr), consist)
+            m.update(c_m)
+            m["consist_dev"] = c_dev
+            if c_iss:
+                issues += c_iss
+                ok = False
+        log("TTS", level=logging.INFO if ok else logging.WARNING, item=label, role=role, attempt=attempt, seed=seed, syl=syl,
+            dur=m["dur"], rate=m["rate"], inner_sil=m["inner_sil"], f0=m["f0"], gen_s=gen_s, rtf=gen_s / max(m["dur"], 1e-6),
+            ok=ok, issues=";".join(issues) or "-", warns=";".join(warns) or "-", risky=risk or "-", tries=tries)
+        score = (0 if ok else 1, abs(math.log(max(m["rate"], 1e-3) / RATE_REF)) + max(0.0, m["inner_sil"] - MAX_INNER_SIL) + f0_dev
+                 + c_dev)
+        if best is None or score < best[0]:
+            best = (score, x, sr, attempt, seed, ok, issues, warns, m, gen_s)
+        if ok:
+            break
+    return best
 
 
 def consist_pass(engine, cache_dir, items, metas, args, vid, centers=None):
@@ -1352,7 +1434,7 @@ def patch_report(old_text, vid, items, timing, total, new, base, voices):
             ln = re.sub(r"^- 길이 [0-9:.]+", f"- 길이 {mmss(total)}", ln)
         out.append(ln)
     sec = ["", f"## 부분 다시 만들기 ({VERSION} — {now[:10]})", "",
-           "글이 바뀐 문장만 새로 만들어 저장소 오디오의 그 자리에 넣었다. 다른 문장은 소리·길이·쉼이 예전 그대로이고, "
+           "글이 바뀐 문장(또는 --redo · v1.16 검사 못 넘은 문장 — v1.17)만 새로 만들어 저장소 오디오의 그 자리에 넣었다. 다른 문장은 소리·길이·쉼이 예전 그대로이고, "
            "뒤 문장의 시작 시각만 길이 차이만큼 밀린다. 새 문장 크기는 다른 문장들의 말소리 크기 중간값에 맞췄다.", "",
            "| 번호 | 예전 글 | 새 글 | 길이(초) 예전 → 새 | 맞춘 이득(dB) | 확인 |", "|---|---|---|---|---|---|"]
     for n, d in sorted(new.items()):
@@ -1361,6 +1443,9 @@ def patch_report(old_text, vid, items, timing, total, new, base, voices):
                    f"{'; '.join(m['issues'] + m['warns']) or '✅'} |")
     sec += ["", "귀로 확인: " + ", ".join(f"{n}번({mmss(timing[n][0])})" for n in sorted(new)) + " — 앞뒤 문장과 목소리·크기가 이어지는지.",
             "전부 다시 만들려면 `python tools/tts_narration.py all --full --push` (또는 build … --full).", ""]
+    still = [n for n, d in sorted(new.items()) if not d["meta"]["ok"]]          # v1.17 그래도 못 넘은 문장 → 바로 쓸 명령
+    if still:
+        sec[-1:-1] = [f"그래도 검사 못 넘은 문장 {ranges(still)} → 들어 보고 어색하면 `python tools/tts_narration.py build <주제> {vid} --redo {','.join(map(str, still))} --push`"]
     tail_at = next((i for i, ln in enumerate(out) if ln.startswith("다시 만들기: ")), len(out))
     return "\n".join(out[:tail_at] + sec + out[tail_at:]) + "\n"
 
@@ -1389,7 +1474,33 @@ def patch_centers(src, old_items, items, changed, vid, args, sr=24000):
     return out
 
 
-def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt):
+def redo_patchable(topic, vid, rows, cards, args):
+    """v1.17: --redo 를 저장소 오디오에 끼울 수 있으면 None, 아니면 까닭 — 저장소 오디오가 지금 대본·목소리·쉼으로 만든 것이어야 함."""
+    src = src_dir(topic, vid)
+    mp3, meta_p = src / "narration.mp3", src / META_NAME
+    if getattr(args, "full", False):
+        return "--full"
+    if not mp3.is_file() or not meta_p.is_file():
+        return "저장소에 narration.mp3·메타 없음"
+    meta = json.loads(meta_p.read_text("utf-8"))
+    if meta.get("script_sha1") != script_sha(rows, cards):
+        return "저장소 오디오가 옛 대본으로 만든 것"
+    bad = voice_mismatch(meta, topic, vid)
+    if bad:
+        return f"목소리가 바뀜({','.join(bad)})"
+    old = meta.get("items") or []
+    if len(old) != len(rows) or any(not isinstance(o.get("start"), (int, float)) for o in old):
+        return "메타 문장 수·시각이 맞지 않음"
+    g = meta.get("gaps") or {}
+    if (g.get("lead_in"), g.get("part"), g.get("tail")) != (args.lead_in, args.part_gap, args.tail):
+        return "쉼 설정(--lead-in·--part-gap·--tail)이 다름"
+    voices = load_voices(topic, vid, args, quiet=True)
+    if any((meta.get("voices") or {}).get(r, {}).get("gap") != v["gap"] for r, v in voices.items()):
+        return "문장 쉼(gap) 설정이 다름"
+    return None
+
+
+def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt, redo=False):
     """저장소 narration.mp3 에서 바뀐 문장(changed)만 새로 만든 문장으로 바꿔 넣는다 → build_episode 와 같은 결과 dict.
     못 하면(디코드 실패·길이 불일치) None — 부르는 쪽이 전부 다시 만든다."""
     src = src_dir(topic, vid)
@@ -1404,7 +1515,7 @@ def patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, chang
         it = items[n - 1]
         log("PATCH", video=vid, n=n, old_text=old_items[n - 1]["text"], new_text=it["text"])
         m = make_sentence(engine, P["cache"], f"S{n:03d}", it["tts"], it["spec"], it["syl"], args, role=it["role"],
-                          consist=centers.get(it["role"]))
+                          consist=centers.get(it["role"]), redo=redo)     # v1.17 redo = 새 시드
         x, sr = read_wav(m["wav"])
         new[n] = {"meta": m, "x": x, "sr": sr, "old_text": old_items[n - 1]["text"],
                   "old_dur": old_items[n - 1]["end"] - old_items[n - 1]["start"]}
@@ -1520,6 +1631,15 @@ def build_episode(engine, topic, vid, args, root, txt=None):
 
     k, K = (int(v) for v in getattr(args, "shard", "0/1").split("/"))   # all 은 문장을 나누지 않는다(영상 단위 --split)
     redo = parse_nums(getattr(args, "redo", ""))
+    if K == 1 and redo and not getattr(args, "assemble_only", False):
+        # v1.17: --redo = 저장소 오디오(지금 대본으로 만든 것)에 그 문장만 새 시드로 끼움 — 새 Kaggle 세션에서도 영상 전체를 다시 만들지 않음
+        why_no = redo_patchable(topic, vid, rows, cards, args)
+        if why_no is None:
+            res = patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, sorted(redo), txt, redo=True)
+            if res:
+                return res
+            why_no = "부분 다시 만들기 실패 (위 [PATCH] 경고)"
+        log("PATCH", logging.WARNING, video=vid, mode="전부 만들기 (redo 문장은 새 시드)", why=why_no)
     if K == 1 and not redo and not getattr(args, "assemble_only", False):
         # v1.8: 글만 조금 바뀐 대본 → 바뀐 문장만 만들어 저장소 오디오에 끼운다 (다른 문장 소리·시각은 그대로, GPU 시간 절약)
         changed, why = patch_candidate(topic, vid, rows, cards, args)
@@ -1677,7 +1797,12 @@ def write_report(path, topic, vid, args, items, metas, timing, cards, total_s, v
     lines += ["", "## 귀로 확인할 문장", ""]
     lines += [f"- {it['n']}번 ({mmss(timing[it['n']][0])}, {voices[it['role']]['name']}): {it['text']} — "
               f"{'; '.join(metas[it['n']]['issues'] + metas[it['n']]['warns'])}" for it in bad] or ["- 없음 (그래도 사연 파트는 한 번 들어 보기)"]
-    lines += ["", "다시 만들기: `python tools/tts_narration.py build <주제> <영상ID> --redo 12,15 --push` (새 시드로 그 문장만, 같은 Kaggle 세션 안에서)", ""]
+    fail = [it["n"] for it in items if not metas[it["n"]]["ok"]]           # v1.17 검사 못 넘은 문장 → 바로 쓸 명령
+    if fail:
+        lines += ["", f"다시 만들기 (검사 못 넘은 {len(fail)}문장): `python tools/tts_narration.py build {topic} {vid} --redo {','.join(map(str, fail))} --push`"
+                  " — 저장소 오디오에 그 문장만 새 시드로 끼움 (새 Kaggle 세션에서도, v1.17)", ""]
+    else:
+        lines += ["", "다시 만들기: `python tools/tts_narration.py build <주제> <영상ID> --redo 12,15 --push` (그 문장만 새 시드로 — 저장소 오디오에 끼움, v1.17)", ""]
     Path(path).write_text("\n".join(lines), "utf-8")
 
 
@@ -1739,6 +1864,29 @@ def no_tts_reason(topic, vid):
     return None
 
 
+def auto_redo(topic, vid, args):
+    """v1.17: 저장소 오디오를 만든 도구가 v1.16 이하이고 그 보고서(tts_report.md)에 검사 못 넘은 문장이 있으면 그 번호 목록, 아니면 None.
+    v1.17 이 다시 만든 오디오는 메타의 tool 이 v1.17 이라 다시 하지 않음 (끝없이 되풀이하지 않게). --no-auto-redo 로 끔."""
+    if getattr(args, "no_auto_redo", False):
+        return None
+    src = src_dir(topic, vid)
+    meta_p, rep_p = src / META_NAME, src / "tts_report.md"
+    if not meta_p.is_file() or not rep_p.is_file():
+        return None
+    tool = json.loads(meta_p.read_text("utf-8")).get("tool", "")
+    m = re.search(r"v(\d+)\.(\d+)", tool)
+    if not m or (int(m.group(1)), int(m.group(2))) >= (1, 17):
+        return None
+    fails = []
+    for ln in rep_p.read_text("utf-8").splitlines():
+        c = [x.strip() for x in ln.strip().strip("|").split("|")]
+        if len(c) >= 9 and c[0].isdigit() and "✅" not in c[-1]:
+            fails.append(int(c[0]))
+    if not fails or len(fails) > max(1, int(PATCH_MAX_FRAC * 200)):
+        return None
+    return fails
+
+
 def repo_status(topic, vid, rows, cards):
     """저장소 상태 → (상태, 메모). made 여부는 따로 본다."""
     src = src_dir(topic, vid)
@@ -1789,6 +1937,9 @@ def discover(args, root):
             action, why = "skip", "주제 보류(⏸ README) — --include-hold 로 포함"
         elif st in ("uploaded", "no_tts"):     # v1.12: --force 여도 만들지 않음
             action, why = "skip", note
+        elif st == "has_audio" and not args.force and auto_redo(topic, vid, args):
+            fails = auto_redo(topic, vid, args)                # v1.17: 옛 도구(v1.16 이하)가 검사를 못 넘긴 문장만 새 시드로 — 한 번만
+            action, why = "make", note + f" — v1.16 보고서에서 검사 못 넘은 문장 {ranges(fails)}만 v1.17 로 다시 (저장소 오디오에 끼움)"
         elif st == "has_audio" and not args.force:
             action, why = "skip", note + " — 다시 만들려면 --force"
         elif st == "stale" and args.keep_stale:
@@ -1804,11 +1955,14 @@ def discover(args, root):
             why += (f" — 바뀐 문장 {ranges(patch)}만 다시 (나머지는 저장소 오디오 그대로)" if patch else f" — 전부 다시 ({pwhy})")
             if patch:
                 syl = sum(srt_tool.syllables(rows[n - 1][0]) for n in patch)
+        redo_auto = auto_redo(topic, vid, args) if (action == "make" and st == "has_audio") else None
+        if redo_auto:
+            syl = sum(srt_tool.syllables(rows[n - 1][0]) for n in redo_auto)
         plan.append({"topic": topic, "video": vid, "action": action, "status": st, "why": why, "sentences": len(rows),
-                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch})
+                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch, "redo": redo_auto})
         lvl = logging.WARNING if st == "stale" else logging.INFO
         log("PLAN", level=lvl, video=vid, topic=topic, action=action, status=st, sentences=len(rows),
-            mode=("patch " + ranges(patch)) if patch else ("full" if action == "make" else "-"), est_audio_min=syl / 4.8 / 60, why=why)
+            mode=("patch " + ranges(patch)) if patch else (("redo " + ranges(redo_auto)) if redo_auto else ("full" if action == "make" else "-")), est_audio_min=syl / 4.8 / 60, why=why)
     return plan
 
 
@@ -1862,7 +2016,11 @@ def cmd_all(args):
     for i, p in enumerate(mine, 1):
         log("BATCH", n=i, of=len(mine), video=p["video"], topic=p["topic"], elapsed_min=(time.time() - t0) / 60)
         try:
-            res = build_episode(engine, p["topic"], p["video"], args, root)
+            if p.get("redo"):                                  # v1.17 검사 못 넘은 문장만 (build --redo 와 같은 길)
+                a2 = argparse.Namespace(**vars(args)); a2.redo = ",".join(map(str, p["redo"]))
+                res = build_episode(engine, p["topic"], p["video"], a2, root)
+            else:
+                res = build_episode(engine, p["topic"], p["video"], args, root)
             if args.push:   # 영상 하나가 끝날 때마다 바로 올린다 (세션이 끊겨도 끝난 영상은 저장소에 남게)
                 try:
                     res["pushed"] = push_results(root, [(p["topic"], p["video"])], token, args)
@@ -2843,6 +3001,7 @@ def main():
     common.add_argument("--attn", default="auto", choices=["auto", "sdpa", "eager", "flash_attention_2"])
     common.add_argument("--seed", type=int, default=None, help="모든 역할의 기본 시드를 이것으로 (기본: voices/*.json 의 seed)")
     common.add_argument("--max-tries", type=int, default=3)
+    common.add_argument("--no-auto-redo", action="store_true", help="v1.17: all 이 옛 도구 보고서의 검사 못 넘은 문장을 자동으로 다시 만들지 않게")
     common.add_argument("--temperature", type=float, default=None, help="비우면 모델 기본값 (역할별은 voices/*.json 의 generation)")
     common.add_argument("--top-p", type=float, default=None)
     common.add_argument("--top-k", type=int, default=None)

@@ -1,5 +1,17 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-03 — 주식 1~4편 보기·정답 'A번, …' (TTS 목소리 튐 막기)
+
+### 왜 (사용자 지시)
+- "그럼 '번'을 붙여" — 'A, …'·'B, …'·'정답은 B, …' 문장이 1~4편 오디오 검사 탈락 15문장 중 9개 (감탄사 '에이,'처럼 읽혀 높이가 튐 — `guides/tts_guide.md` 5-1·5-2). 그 전 지시 "A번 하지말고 A, 이렇게해"(1편 v11)를 이 지시로 바꿈.
+
+### 무엇을
+- 대본 4개: 보기 줄 'A, …'→'A번, …'·'B, …'→'B번, …' (편마다 10줄) · '정답은 A, …'→'정답은 A번, …' (편마다 5줄) = 편마다 15문장, 모두 60문장. 1편 대본 v13 · 2~4편 v12 (`tools/script_feedback_board.py` LONG_VER) · 대본 평가판 다시 올림 (https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz).
+- 읽기 사전 `tts_lexicon.tsv` 4개: 'A번'→'에이 번' · 'B번'→'비 번' (2~4편 v1.1 · 1편 v1.4).
+- `stock/guides/quick_board.md` v2.2 규칙 11 · `stock/topics/롱폼대본_2026-10-31.md` v2.7 · `guides/tts_guide.md` 5-2.
+- `tools/tts_narration.py` v1.17 더함: 글이 바뀐 대본(patch)에도 v1.16 보고서의 검사 못 넘은 문장을 같은 patch 에 새 시드로 (`patch_extra`) — 평소 셀 한 번에 편마다 바뀐 15문장 + 1편 6·46 · 3편 113·114 · 4편 113 만 다시 만듦 (약 6분 분량, 나머지 문장은 저장소 오디오 그대로). 가짜 엔진 시험: 1편 changed 15 + extra 6·46 → patch 17문장.
+- `board_check.py script` 4편 — 바꾸기 전·뒤 같음 (❌ 는 사용자 정리 문장 50자 넘음뿐).
+
 ## 2026-11-03 — TTS '삑' 나는 문장 줄이기 — tts_narration v1.17
 
 ### 왜 (사용자 지시)

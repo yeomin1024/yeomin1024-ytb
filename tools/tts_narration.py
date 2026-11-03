@@ -1643,8 +1643,12 @@ def build_episode(engine, topic, vid, args, root, txt=None):
     if K == 1 and not redo and not getattr(args, "assemble_only", False):
         # v1.8: 글만 조금 바뀐 대본 → 바뀐 문장만 만들어 저장소 오디오에 끼운다 (다른 문장 소리·시각은 그대로, GPU 시간 절약)
         changed, why = patch_candidate(topic, vid, rows, cards, args)
+        extra = [n for n in (getattr(args, "patch_extra", None) or []) if changed and n not in changed]
         if changed:
-            res = patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, changed, txt)
+            if extra:                                    # v1.17 검사 못 넘은 문장도 같은 patch 에 (새 시드)
+                log("PATCH", video=vid, changed=ranges(changed), extra=ranges(extra), note="글이 바뀐 문장 + v1.16 검사 못 넘은 문장")
+            res = patch_episode(engine, topic, vid, args, P, rows, cards, items, voices, sorted(set(changed) | set(extra)), txt,
+                                redo=bool(extra))
             if res:
                 return res
             why = "부분 다시 만들기 실패 (위 [PATCH] 경고)"
@@ -1950,16 +1954,23 @@ def discover(args, root):
             action, why = "make", note + (" → 지금 대본으로 다시 만듦" if st == "stale" else "")
         syl = sum(srt_tool.syllables(t) for t, _ in rows)
         patch = None
+        extra = None
         if action == "make" and st == "stale":   # v1.8: 글만 조금 바뀌었으면 그 문장만
             patch, pwhy = patch_candidate(topic, vid, rows, cards, args)
             why += (f" — 바뀐 문장 {ranges(patch)}만 다시 (나머지는 저장소 오디오 그대로)" if patch else f" — 전부 다시 ({pwhy})")
+            if patch:                            # v1.17: 같은 길에 v1.16 보고서의 검사 못 넘은 문장도 새 시드로
+                extra = [n for n in (auto_redo(topic, vid, args) or []) if n not in patch] or None
+                if extra:
+                    why += f" + 검사 못 넘은 문장 {ranges(extra)}"
             if patch:
                 syl = sum(srt_tool.syllables(rows[n - 1][0]) for n in patch)
         redo_auto = auto_redo(topic, vid, args) if (action == "make" and st == "has_audio") else None
         if redo_auto:
             syl = sum(srt_tool.syllables(rows[n - 1][0]) for n in redo_auto)
+        if extra:
+            syl += sum(srt_tool.syllables(rows[n - 1][0]) for n in extra)
         plan.append({"topic": topic, "video": vid, "action": action, "status": st, "why": why, "sentences": len(rows),
-                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch, "redo": redo_auto})
+                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch, "redo": redo_auto, "extra": extra})
         lvl = logging.WARNING if st == "stale" else logging.INFO
         log("PLAN", level=lvl, video=vid, topic=topic, action=action, status=st, sentences=len(rows),
             mode=("patch " + ranges(patch)) if patch else (("redo " + ranges(redo_auto)) if redo_auto else ("full" if action == "make" else "-")), est_audio_min=syl / 4.8 / 60, why=why)
@@ -2018,6 +2029,9 @@ def cmd_all(args):
         try:
             if p.get("redo"):                                  # v1.17 검사 못 넘은 문장만 (build --redo 와 같은 길)
                 a2 = argparse.Namespace(**vars(args)); a2.redo = ",".join(map(str, p["redo"]))
+                res = build_episode(engine, p["topic"], p["video"], a2, root)
+            elif p.get("extra"):                               # v1.17 바뀐 문장 + 검사 못 넘은 문장 (같은 patch 에)
+                a2 = argparse.Namespace(**vars(args)); a2.patch_extra = p["extra"]
                 res = build_episode(engine, p["topic"], p["video"], a2, root)
             else:
                 res = build_episode(engine, p["topic"], p["video"], args, root)

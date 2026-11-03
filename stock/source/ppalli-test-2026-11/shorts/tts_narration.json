@@ -1,0 +1,145 @@
+{
+ "tool": "tts_narration.py v1.16",
+ "created": "2026-11-03T10:36:41",
+ "topic": "stock",
+ "id": "ppalli-test-2026-11-shorts",
+ "script": "stock/source/ppalli-test-2026-11/shorts/ppalli-test-2026-11-shorts.txt",
+ "script_sha1": "bb80354c77d3f458",
+ "sentences": 11,
+ "seconds": 48.67,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "50cadf7c6444f49d",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {
+   "temperature": 0.55
+  }
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 5701,
+   "gap": 0.38,
+   "generation": {
+    "temperature": 0.55
+   },
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "50cadf7c6444f49d",
+   "ref_f0": 145.5,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "6b2a2800ef56d6f8"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "",
+   "text": "이 생각을 가지고 주식 투자를 하면 당신은 99% 손해 볼겁니다.",
+   "start": 0.3,
+   "end": 4.72
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "",
+   "text": "바로 주식으로 돈을 빠르게 벌고 싶다는 생각입니다.",
+   "start": 5.1,
+   "end": 7.97
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "",
+   "text": "아니 그럼 돈벌려고 주식하지 도대체 무슨 소리냐고요?",
+   "start": 8.35,
+   "end": 11.464
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "",
+   "text": "돈을 벌고 싶다는 생각이 있으면 점점 욕심이 생기기 마련입니다.",
+   "start": 11.844,
+   "end": 15.474
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "",
+   "text": "수익을 보면 더 벌고 싶어서 매수 금액을 점점 늘리고,",
+   "start": 15.854,
+   "end": 19.032
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "",
+   "text": "손실을 보면 빨리 복구하고 싶은 마음에 더 자주, 더 크게 매수와 매도를 반복하게 됩니다.",
+   "start": 19.412,
+   "end": 24.681
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "",
+   "text": "결국 큰 하락이 오면, 더 매수할 돈은 이미 다 썼고 매도하자니 손실이 너무 큽니다.",
+   "start": 25.061,
+   "end": 30.261
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "",
+   "text": "그때는 떨어지는 계좌를 지켜보는 것 말고, 할 수 있는 게 아무것도 없습니다.",
+   "start": 30.641,
+   "end": 35.101
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "",
+   "text": "급할 수록 돌아가라 라는 말이 있듯이,",
+   "start": 35.481,
+   "end": 37.541
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "",
+   "text": "욕심을 버리고 리스크를 대비하면서 천천히 수익낸다면 당신은 어느순간 승리자가 되어 있을겁니다.",
+   "start": 37.921,
+   "end": 44.291
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "",
+   "text": "다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.",
+   "start": 44.671,
+   "end": 47.871
+  }
+ ],
+ "voice_sha1": "67155a53ae90a91a"
+}

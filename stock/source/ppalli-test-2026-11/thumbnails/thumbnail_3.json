@@ -1,5 +1,5 @@
 {
- "_설명": "실험안 — 그림만 종이 인형극 TH-PUPPET 로 (2026-11-03) · 문구는 예전 실험안 그대로 (사용자 피드백 전)",
+ "_설명": "실험안 — 그림 = images/TH-PHOTO.jpg (실사 · 얼굴 안 보임 — stock/source/images_chatgpt_2026-11-03_thumbs.md) · 문구는 예전 실험안 그대로 (사용자 피드백 전)",
  "out": "thumbnail_3.jpg",
  "size": [
   1280,
@@ -11,7 +11,7 @@
  ],
  "images": [
   {
-   "src": "../images/TH-PUPPET.jpg",
+   "src": "../images/TH-PHOTO.jpg",
    "box": [
     0,
     0,

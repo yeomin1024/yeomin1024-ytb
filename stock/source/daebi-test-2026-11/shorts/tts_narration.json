@@ -1,0 +1,153 @@
+{
+ "tool": "tts_narration.py v1.16",
+ "created": "2026-11-03T10:33:17",
+ "topic": "stock",
+ "id": "daebi-test-2026-11-shorts",
+ "script": "stock/source/daebi-test-2026-11/shorts/daebi-test-2026-11-shorts.txt",
+ "script_sha1": "eac3541f98c503b4",
+ "sentences": 12,
+ "seconds": 53.76,
+ "engine": {
+  "engine": "qwen3-tts-clone",
+  "model": "Qwen/Qwen3-TTS-12Hz-1.7B-Base",
+  "ref": "50cadf7c6444f49d",
+  "mode": "icl",
+  "language": "Korean",
+  "dtype": "float32",
+  "gen": {
+   "temperature": 0.55
+  }
+ },
+ "voices": {
+  "host": {
+   "name": "진행자",
+   "parts": [
+    "*"
+   ],
+   "engine": "clone",
+   "lock": true,
+   "speaker": "Sohee",
+   "instruct": "",
+   "part_instruct": {},
+   "seed": 5701,
+   "gap": 0.38,
+   "generation": {
+    "temperature": 0.55
+   },
+   "ref_audio": "voices/ref/host.wav",
+   "ref_sha": "50cadf7c6444f49d",
+   "ref_f0": 145.5,
+   "files": [
+    "voices/host.json"
+   ]
+  }
+ },
+ "voice_ids": {
+  "host": "6b2a2800ef56d6f8"
+ },
+ "gaps": {
+  "lead_in": 0.3,
+  "part": 1.0,
+  "tail": 0.8,
+  "cards": []
+ },
+ "items": [
+  {
+   "n": 1,
+   "role": "host",
+   "part": "",
+   "text": "이 생각을 가지고 주식 투자하면, 당신은 절대 폭락을 피하지 못할 겁니다.",
+   "start": 0.3,
+   "end": 4.79
+  },
+  {
+   "n": 2,
+   "role": "host",
+   "part": "",
+   "text": "바로 상승장에서 수익을 냈을 때 본인이 주식을 잘한다고 생각하는 것입니다.",
+   "start": 5.17,
+   "end": 9.53
+  },
+  {
+   "n": 3,
+   "role": "host",
+   "part": "",
+   "text": "수익을 냈으면 잘한 거지, 그게 왜 문제냐고요?",
+   "start": 9.91,
+   "end": 12.91
+  },
+  {
+   "n": 4,
+   "role": "host",
+   "part": "",
+   "text": "상승장에선 대부분의 종목이 함께 올라서, 실력과 운이 잘 구분되지 않습니다.",
+   "start": 13.29,
+   "end": 18.148
+  },
+  {
+   "n": 5,
+   "role": "host",
+   "part": "",
+   "text": "지금 S&P 500에 속한 회사 가운데, 2020년에 2배 넘게 오른 곳은 14개였습니다.",
+   "start": 18.528,
+   "end": 24.147
+  },
+  {
+   "n": 6,
+   "role": "host",
+   "part": "",
+   "text": "그 가운데 9개는, 2년 안에 주가가 반 토막 났습니다.",
+   "start": 24.527,
+   "end": 28.157
+  },
+  {
+   "n": 7,
+   "role": "host",
+   "part": "",
+   "text": "운을 실력으로 믿으면, 한 종목에 더 크게 걸고 빚까지 내게 됩니다.",
+   "start": 28.537,
+   "end": 32.871
+  },
+  {
+   "n": 8,
+   "role": "host",
+   "part": "",
+   "text": "그러다 폭락이 오면, 번 돈은 물론 원금까지 한꺼번에 무너집니다.",
+   "start": 33.251,
+   "end": 37.589
+  },
+  {
+   "n": 9,
+   "role": "host",
+   "part": "",
+   "text": "벼는 익을수록 고개를 숙인다는 말처럼,",
+   "start": 37.969,
+   "end": 40.267
+  },
+  {
+   "n": 10,
+   "role": "host",
+   "part": "",
+   "text": "수익이 날수록 운이 좋았다고 여기고, 번 돈의 일부는 지켜 두세요.",
+   "start": 40.647,
+   "end": 44.986
+  },
+  {
+   "n": 11,
+   "role": "host",
+   "part": "",
+   "text": "그렇게 겸손하게 천천히 가는 사람만, 폭락이 와도 무너지지 않습니다.",
+   "start": 45.366,
+   "end": 49.379
+  },
+  {
+   "n": 12,
+   "role": "host",
+   "part": "",
+   "text": "다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.",
+   "start": 49.759,
+   "end": 52.959
+  }
+ ],
+ "voice_sha1": "67155a53ae90a91a"
+}

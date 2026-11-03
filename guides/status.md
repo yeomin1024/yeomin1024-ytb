@@ -1,5 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
+버전: v3.40 — 2026-11-03 — **주식 1편 롱폼 최종 렌더** (실제 내레이션): `stock/out/ppalli-test-2026-11/final_1080p.mp4` 8:12 · −14.14 LUFS · check 0 · 완성 mp4 를 Claude 가 봄 (컨테이너에만 — git·Drive 아님) · TTS 기준 못 넘은 문장 6·16·46 (사용자 확인 뒤 --redo).
 버전: v3.39 — 2026-11-03 — **주식 1편 영상 장면 v2.0** (대본 v12 · 배치 표 다시 — 이야기 장면 = 왼쪽 사람 + 오른쪽 카드 하나 · 배경 위에 떠 있는 물건 없음): `video/episodes/ppalli-test-2026-11/index.html` · `calc/series.py` v2.0 · 제작안 v3.0 · layout-check 0 · 1편 내레이션 오면 sync → video.
 버전: v3.38 — 2026-11-03 — **주식 1~4편 썸네일 그림 다시 — 네 장이 서로 다르게** (아침 지하철 · 오후 카페 · 흐린 낮 책상 탑뷰 · 새벽 창가 역광): 요청 `stock/source/images_chatgpt_2026-11-03_thumbs2.md` → `images/TH-PHOTO2.jpg` · json 6개 · quick_board 규칙 24.
 버전: v3.37 — 2026-11-03 — **주식 1~4편 썸네일 그림 = 실사 · 얼굴 안 보이는 뒷모습** (실제 장소·주식 앱 · 과장 ✗ — 종이 인형극 썸네일 버림): 요청 `stock/source/images_chatgpt_2026-11-03_thumbs.md` 4장 `images/TH-PHOTO.jpg` · 썸네일 json 6개가 그 그림을 씀 · quick_board 규칙 24.

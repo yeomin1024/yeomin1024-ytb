@@ -11,7 +11,7 @@
 - `video/episodes/ppalli-test-2026-11/index.html` v2.0 — 장면 L-01~L-45 (대본 v12 108문장) · **배치 표 v2.0**: 이야기 장면 = 왼쪽 무대에 사람만(바닥 선 y 846 · 주인공 x 360 · 상대 x 720 마주 봄) + 오른쪽 카드 하나(CARD — 소품·이름·큰 숫자·작은 그래프는 카드 안 칸 C_IMG·C_HEAD·C_VAL·C_LOW 에만) · 같은 칸 바뀜은 앞 것이 먼저 빠짐 · 그래프 꼬리표는 선이 지나지 않는 쪽 · 반론 판 내용은 문장마다 바뀌고 판 크기에 맞게 키움.
 - 점검: `layout-check` 78장면 문제 0 · `render check` (허용 낱말 'S&P' 더함) · still 78장을 Claude 가 직접 보고 고침 (기준선 꼬리표 자리 · 빈 카드 아래 칸 · 반론 판 크기 · 모두 투자 그래프 눈금 · 매도 꼬리표 · 문장 96 빈 화면).
 - `stock/source/ppalli-test-2026-11/제작안.txt` v3.0 — 배치 원칙 · 배치 표 · 장면 표 · 점검 기록.
-- 1편 내레이션은 아직 main 에 없음 → 추정 시각(sync --estimate) 소리 없는 미리보기만. 오디오가 오면 `sync` → `check` → `video` 로 최종본.
+- 1편 내레이션(main fcce2629)이 온 뒤: SRT (`srt_tool build` → `align-audio`) → `sync` → `check` 문제 0 → `video` → `final_1080p.mp4` 8:12 · −14.14 LUFS · −1.63 dBTP. 완성 mp4 를 10초마다 뽑아 Claude 가 봄. TTS 기준 못 넘은 문장 6·16·46 은 사용자 확인 뒤 `--redo`.
 
 ## 2026-11-03 — 주식: 1~4편 썸네일 그림 다시 — 네 장이 서로 다른 장소·시간·구도 (TH-PHOTO2)
 

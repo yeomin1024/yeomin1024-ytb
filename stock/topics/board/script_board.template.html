@@ -1,6 +1,7 @@
 <title>{{TITLE}}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v2.1 — 2026-11-02 — 판정 버튼을 크게 — 대본 위 + 오른쪽 맨 위 '이 편 판정' 칸에 큰 초록 '통과' 버튼(누르면 꽉 찬 초록·✓) — 사용자 지시 "통과 평가판에 통과 버튼 만들어".
+<!-- VERSION: v2.2 — 2026-11-03 — 편마다 `kindLabel`(예 'X 글'·'스레드 글')이 있으면 그 이름으로 보임 — SNS 평가판도 같은 틀 (사용자 지시 "대본 당 트위터, 스레드 글 작성해서 평가판 만들어봐").
+     (v2.1 — 2026-11-02 — 판정 버튼을 크게 — 대본 위 + 오른쪽 맨 위 '이 편 판정' 칸에 큰 초록 '통과' 버튼(누르면 꽉 찬 초록·✓) — 사용자 지시 "통과 평가판에 통과 버튼 만들어".
      (v2.0 — 2026-11-02 — 판 하나의 틀로 두 판(대본 평가판 · 쇼츠 평가판) — 사용자 지시 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자".
        · DATA.board = 판마다 이름·안내·판정 글 (tools/script_feedback_board.py 가 채움) · 편마다 판정(통과·보류) = db verdicts/<key> {key, ver, verdict, updatedAt}
        · 쇼츠 판은 편마다 칸(제목·썸네일 문구·보조 문구 — v2.2 부터 전달 내용 칸 없음, 쇼츠는 대본으로 평가)에도 피드백 = feedback {script, field, quote, text, …} (lines 빈 배열).
@@ -225,7 +226,7 @@ const DATA = /*SCRIPTS:BEGIN*/{"scripts":[]}/*SCRIPTS:END*/;
   function renderPicker() {
     $("picker").innerHTML = S.map(s => {
       const v = vOf(s.key);
-      return `<div class="ep"><div class="n">${esc(s.label || s.ep + "편")}${v ? ` <span class="vchip ${v}">${esc(VLAB[v])}</span>` : ""}</div><div class="t">${esc(s.title)}</div><div class="ks"><button class="kbtn" type="button" data-key="${s.key}" aria-pressed="${s.key === st.key}"><span>${s.kind === "long" ? "롱폼 대본" : "쇼츠"}</span><span class="c">${fbOf(s.key).length || ""}</span></button></div></div>`;
+      return `<div class="ep"><div class="n">${esc(s.label || s.ep + "편")}${v ? ` <span class="vchip ${v}">${esc(VLAB[v])}</span>` : ""}</div><div class="t">${esc(s.title)}</div><div class="ks"><button class="kbtn" type="button" data-key="${s.key}" aria-pressed="${s.key === st.key}"><span>${esc(s.kindLabel || (s.kind === "long" ? "롱폼 대본" : "쇼츠"))}</span><span class="c">${fbOf(s.key).length || ""}</span></button></div></div>`;
     }).join("") || `<p class="empty">${esc(B.empty || "아직 올라온 것이 없습니다.")}</p>`;
   }
   $("picker").addEventListener("click", e => { const b = e.target.closest(".kbtn"); if (b) go(b.dataset.key); });
@@ -241,7 +242,7 @@ const DATA = /*SCRIPTS:BEGIN*/{"scripts":[]}/*SCRIPTS:END*/;
     const s = byKey[st.key];
     if (!s) { $("vbox").hidden = true; $("sc-title").textContent = B.h1 || ""; $("sc-meta").textContent = B.empty || ""; $("lines").innerHTML = ""; $("fields").hidden = true; return; }
     renderVerdict(); renderFields();
-    $("sc-kind").textContent = `${s.label || s.ep + "편"} · ${s.kind === "long" ? "롱폼" : "쇼츠"} · ${s.ver}`;
+    $("sc-kind").textContent = `${s.label || s.ep + "편"} · ${s.kindLabel || (s.kind === "long" ? "롱폼" : "쇼츠")} · ${s.ver}`;
     $("sc-title").textContent = s.title;
     $("sc-meta").textContent = `${s.lines.length}줄 · ${s.file}`;
     let html = "", lastSec = null;
@@ -395,7 +396,7 @@ const DATA = /*SCRIPTS:BEGIN*/{"scripts":[]}/*SCRIPTS:END*/;
   }
   $("l-copy").addEventListener("click", async () => {
     const s = byKey[st.key], items = fbOf(st.key).slice().sort((a, b) => minLine(a) - minLine(b));
-    const txt = `[${s.label || s.ep + "편"} ${s.kind === "long" ? "롱폼" : "쇼츠"} · ${s.ver}] ${s.title}\n\n` + items.map(f => `■ ${f.field ? fieldLab(s, f.field) : ranges(f.lines) + "번"}${f.status === "done" ? " (반영함)" : ""}\n${(f.quote || "").split("\n").map(x => "> " + x).join("\n")}\n피드백: ${f.text}`).join("\n\n");
+    const txt = `[${s.label || s.ep + "편"} ${s.kindLabel || (s.kind === "long" ? "롱폼" : "쇼츠")} · ${s.ver}] ${s.title}\n\n` + items.map(f => `■ ${f.field ? fieldLab(s, f.field) : ranges(f.lines) + "번"}${f.status === "done" ? " (반영함)" : ""}\n${(f.quote || "").split("\n").map(x => "> " + x).join("\n")}\n피드백: ${f.text}`).join("\n\n");
     try { await navigator.clipboard.writeText(txt); toast("피드백을 복사했습니다"); $("copyout").hidden = true; }
     catch (e) { const o = $("copyout"); o.value = txt; o.hidden = false; o.focus(); o.select(); toast("아래 칸의 글을 직접 복사하세요"); }
   });

@@ -1,5 +1,21 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-03 — 주식: 평가판 세션 = 한 세션에 판 하나 (지시서 셋)
+
+### 왜 (사용자 지시)
+- "내가 새 세션 3개에서 각각 '지시사항 읽고 주제 평가판, 대본 평가판, 쇼츠 평가판 만들어라고 하면 구조로 만들어' 라고만 해도 지금처럼 할수 있게해줘 세션당 평가판 하나야 그리고 주제는 분석결과도 참고하는거야 알지?"
+
+### 바뀐 것
+- **`stock/guides/board_1_topic.md` (새)** — 주제 평가판 세션: 시작 명령 · 판 상태별 할 일(새 피드백·보류·탈락·통과·새 묶음) · **분석 결과 읽기 7가지**(channel 0~1 · analysis 0번 · 페르소나 0번 표 · 댓글 니즈 1번 · 요즘 댓글 묶음 '한국 1~4주' · 콘텐츠 분석 · 5-1 · 이미 쓴 것) → 기획안 `basis` 에 근거 · 점검 · 판 갱신(다른 세션은 read 뒤 url) · 끝.
+- **`board_2_script.md` (새)** — 대본 평가판 세션: 주제 판 verdicts pass − script_board.json extra = 새 대본 · 계산 파일 `longform_<id>.py` · 대본 꼴·규칙은 quick_board 4·5번 · `--only long`.
+- **`board_3_shorts.md` (새)** — 쇼츠 평가판 세션: 대본 판 pass − shorts_board.json = 새 쇼츠 · 규칙 19~22(대표 항목·끝 멘트) · 새 편 쇼츠 칸은 이 세션 파일 `shorts_pk.json` · `--only short`.
+- `tools/script_feedback_board.py` v2.6 `--only long|short` (세션마다 자기 판 파일만 씀) · `tools/board_check.py` 로그 버전 v1.6.
+- CLAUDE.md 주식 줄 '평가판 세션 = 한 세션에 판 하나'(말 → 지시서, 주제를 안 밝히면 주식) · `quick_board.md` v1.8 · `quick_flow.md` 안내 줄.
+
+### 확인 (로그)
+- `script_feedback_board.py --only long|short --check` → 그 판만 `changed=False` · 재테크 `economic --only short --check` 그대로.
+- `board_check.py package stock <shorts_pk 꼴 시험 파일> --stage shorts` → 통과 (persona·theme 없는 쇼츠 칸만 파일도 됨).
+
 ## 2026-11-02 — 주식: 쇼츠 v7 (2편 대표 항목으로 · 4편 쇼츠 판에)
 
 ### 왜 (사용자 지시)

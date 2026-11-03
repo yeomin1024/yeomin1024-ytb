@@ -30,7 +30,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.5"
+VERSION = "v1.6"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌

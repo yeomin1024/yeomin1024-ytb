@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v2.5 — 2026-11-02 — 주식 쇼츠안 v7 (SHORT_VER).
+# VERSION: v2.6 — 2026-11-03 — `--only long|short` — 한 세션에 판 하나 (사용자 지시 "새 세션 3개에서 … 세션당 평가판 하나야") — 다른 판 파일은 건드리지 않음.
+# (v2.5 — 2026-11-02 — 주식 쇼츠안 v7 (SHORT_VER).
 # (v2.4 — 2026-11-02 — 주식 쇼츠안 v6 (SHORT_VER — 쇼츠 판 피드백 8건).
 # (v2.3 — 2026-11-02 — 주제 인자 (재테크도 — 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"):
 #   주제마다 판 파일·주소·이름 (TOPICS) — 재테크는 옛 편 표(롱폼대본·쇼츠안 md) 없이 script_board.json 'extra'·shorts_board.json 'items' 만.
@@ -20,7 +21,7 @@
 #   · 대본 파일의 '-○○' 줄은 장 이름, 나머지 빈 줄 아닌 줄 = 문장 (번호 = 오디오·자막 문장 번호와 같음)
 #   · 대본이 바뀌면 이 도구를 다시 돌리고 같은 주소로 다시 올림 — 저장된 피드백(db)은 그대로 (피드백의 ver 칸으로 어느 판에 단 것인지 구분).
 #   연구·교육용 도구 — 투자 권유가 아님.
-# 사용: python3 tools/script_feedback_board.py [주제] [--check] [--items <쇼츠 목록.json>]   (주제 = stock 기본 · economic)
+# 사용: python3 tools/script_feedback_board.py [주제] [--only long|short] [--check] [--items <쇼츠 목록.json>]   (주제 = stock 기본 · economic · --only = 그 판만 씀)
 #   --check = 파일을 쓰지 않고 셈만 · --items = 쇼츠 목록을 다른 파일로 (시험용 — 판 파일은 쓰지 않음)
 import html as H
 import json
@@ -263,7 +264,11 @@ def set_topic(topic):
 
 
 def main(argv):
-    topic = next((a for i, a in enumerate(argv) if not a.startswith("-") and (i == 0 or argv[i - 1] != "--items")), "stock")
+    topic = next((a for i, a in enumerate(argv) if not a.startswith("-") and (i == 0 or argv[i - 1] not in ("--items", "--only"))), "stock")
+    only = argv[argv.index("--only") + 1] if "--only" in argv else None      # v2.6 long | short — 세션마다 자기 판 하나만 씀
+    if only not in (None, "long", "short"):
+        log("ERROR", stage="args", only=only, next="--only long 또는 --only short")
+        sys.exit(1)
     set_topic(topic)
     check = "--check" in argv
     items = Path(argv[argv.index("--items") + 1]).resolve() if "--items" in argv else SHORTS_ITEMS
@@ -276,6 +281,8 @@ def main(argv):
         if s["long_key"] not in long_keys:
             log("WARN", board="short", script=s["key"], issue="짝 롱폼이 대본 평가판에 없음", long_key=s["long_key"])
     for kind, scripts in sets.items():
+        if only and kind != only:
+            continue
         page, data = build(kind, scripts, tpl)
         out = BOARDS[kind]["out"]
         old = out.read_text(encoding="utf-8") if out.exists() else ""

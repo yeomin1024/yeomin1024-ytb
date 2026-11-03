@@ -1,5 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
+버전: v3.38 — 2026-11-03 — **주식 1~4편 썸네일 그림 다시 — 네 장이 서로 다르게** (아침 지하철 · 오후 카페 · 흐린 낮 책상 탑뷰 · 새벽 창가 역광): 요청 `stock/source/images_chatgpt_2026-11-03_thumbs2.md` → `images/TH-PHOTO2.jpg` · json 6개 · quick_board 규칙 24.
 버전: v3.37 — 2026-11-03 — **주식 1~4편 썸네일 그림 = 실사 · 얼굴 안 보이는 뒷모습** (실제 장소·주식 앱 · 과장 ✗ — 종이 인형극 썸네일 버림): 요청 `stock/source/images_chatgpt_2026-11-03_thumbs.md` 4장 `images/TH-PHOTO.jpg` · 썸네일 json 6개가 그 그림을 씀 · quick_board 규칙 24.
 버전: v3.36 — 2026-11-03 — **주식 SNS 평가판** (편마다 X·스레드 글 — 10문항 · 정답·점수는 댓글): `tools/sns_posts.py` · https://claude.ai/artifact/YTmRoWuT9QDCuqfBhoKLJv · "SNS 평가판 만들어" → `stock/guides/board_4_sns.md`.
 버전: v3.35 — 2026-11-03 — **주식 롱폼 1~4편·쇼츠 1·2편 영상화 준비**: 주제 판 E1~E4 제목·썸네일 문구(사용자) · 대본 선택 장면 '당신은 ~' (1편 v12·2~4편 v11) · 오디오 대상 6개(Kaggle 셀 — 다른 주식 편은 NO_TTS) · 그림 18장 요청 `stock/source/images_chatgpt_2026-11-03.md` · 썸네일 = 종이 인형극. 다음 = 사용자: Kaggle 오디오 · ChatGPT 그림 → Claude: 장면 코드·렌더.

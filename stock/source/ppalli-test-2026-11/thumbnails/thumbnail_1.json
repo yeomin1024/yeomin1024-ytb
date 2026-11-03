@@ -1,5 +1,5 @@
 {
- "_설명": "롱폼 썸네일 본안 — 문구 = 주제 평가판 사용자 문구 그대로 (2026-11-03) · 그림 = images/TH-PHOTO.jpg (실사 · 얼굴 안 보임 — stock/source/images_chatgpt_2026-11-03_thumbs.md)",
+ "_설명": "롱폼 썸네일 본안 — 문구 = 주제 평가판 사용자 문구 그대로 (2026-11-03) · 그림 = images/TH-PHOTO2.jpg (실사 · 얼굴 안 보임 · 편마다 장소·시간·구도가 다름 — stock/source/images_chatgpt_2026-11-03_thumbs2.md)",
  "out": "thumbnail_1.jpg",
  "size": [
   1280,
@@ -11,7 +11,7 @@
  ],
  "images": [
   {
-   "src": "../images/TH-PHOTO.jpg",
+   "src": "../images/TH-PHOTO2.jpg",
    "box": [
     0,
     0,

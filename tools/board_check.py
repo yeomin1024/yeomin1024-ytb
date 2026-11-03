@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-11-02 — 주식 쇼츠 공통 끝 멘트가 「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 로 바뀜 (사용자 지시 "…로 변경해 모두") — 주식 규칙의 SHORT_END 만 바꿈 (재테크 규칙 그대로).
+# VERSION: v1.7 — 2026-11-03 — 기획안 `user_fields`(사용자가 준 칸) 의 제목 2줄 넘침은 ❌ 대신 ⚠ — 사용자 문구는 한 글자도 안 바꾸므로 판에서 빠지지 않게 (주제 판 피드백 2026-11-03 E2·E3 제목).
+# (v1.6 — 2026-11-02 — 주식 쇼츠 공통 끝 멘트가 「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 로 바뀜 (사용자 지시 "…로 변경해 모두") — 주식 규칙의 SHORT_END 만 바꿈 (재테크 규칙 그대로).
 # (v1.5 — 2026-11-02 — 주제마다 규칙 파일 <주제>/board_rules.toml (없으면 주식 규칙 그대로): 채널 목적 밖(OFF)·조건(COND)·쇼츠 끝 멘트·
 #   칸 이름 · 꼭 있어야 할 칸(REQUIRE — 재테크 complaint) · 사람·정당 탓(NO_TARGET) · 비속어(PROFANITY) · 제목·쇼츠 제목에서 피할 말 — 재테크 평가판
 #   (사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"). 영향: rules()·check_package()·check_script()·main().
@@ -30,7 +31,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.6"
+VERSION = "v1.7"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌
@@ -225,7 +226,8 @@ def check_package(topic, pk, personas, adv, stage="topic"):
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):
             ok = TF.report(t, sh) if t else False
-        (oks if ok else fails).append(f"일반: {'쇼츠 ' if sh else ''}제목 화면 2줄 안 {'✅' if ok else '❌ 잘림'} ({len(t)}자)")
+        user = key in (pk.get("user_fields") or [])      # v1.7 사용자가 준 문구 — 고치지 않으므로 ⚠ (사람 확인)로만
+        (oks if ok else (warns if user else fails)).append(f"일반: {'쇼츠 ' if sh else ''}제목 화면 2줄 안 {'✅' if ok else ('⚠ 잘림 — 사용자 제목이라 그대로' if user else '❌ 잘림')} ({len(t)}자)")
         bx = RL["SHORTS_TITLE_BANNED" if sh else "TITLE_BANNED"]
         if bx:
             mb = bx.search(t)

@@ -1,0 +1,115 @@
+{
+ "_설명": "롱폼 썸네일 본안 — 문구 = 주제 평가판 사용자 문구 그대로 (2026-11-03) · 그림 = images/TH-PUPPET.jpg (종이 인형극, stock/source/images_chatgpt_2026-11-03.md — 그림이 오면 node video/render/thumb.mjs 로)",
+ "out": "thumbnail_1.jpg",
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.56,
+  0.88
+ ],
+ "images": [
+  {
+   "src": "../images/TH-PUPPET.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "bubble",
+   "x": 60,
+   "y": 46,
+   "w": 620,
+   "h": 116,
+   "bg": "W",
+   "color": "K",
+   "radius": 58,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "그 때 살껄...",
+   "_": "말풍선 1 — 사용자 보조 문구 앞 절반"
+  },
+  {
+   "kind": "bubble",
+   "x": 76,
+   "y": 196,
+   "w": 584,
+   "h": 108,
+   "bg": "Y",
+   "color": "K",
+   "radius": 54,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "손실만 봤네...",
+   "_": "말풍선 2 — 사용자 보조 문구 뒤 절반"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    428,
+    1208,
+    120
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "폭락 공포에 매수 못하는",
+      "Y"
+     ],
+     [
+      " 사람들은",
+      "W"
+     ]
+    ]
+   ],
+   "_": "1줄 — 사용자 썸네일 문구 1줄 (노랑 = 핵심 낱말)"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    552,
+    1208,
+    124
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "통과하지 못하는",
+      "R"
+     ],
+     [
+      " 테스트",
+      "W"
+     ]
+    ]
+   ],
+   "_": "2줄 — 사용자 썸네일 문구 2줄 (빨강 = 나쁜 결과)"
+  }
+ ]
+}

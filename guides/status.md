@@ -1,5 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
+버전: v3.35 — 2026-11-03 — **주식 롱폼 1~4편·쇼츠 1·2편 영상화 준비**: 주제 판 E1~E4 제목·썸네일 문구(사용자) · 대본 선택 장면 '당신은 ~' (1편 v12·2~4편 v11) · 오디오 대상 6개(Kaggle 셀 — 다른 주식 편은 NO_TTS) · 그림 18장 요청 `stock/source/images_chatgpt_2026-11-03.md` · 썸네일 = 종이 인형극. 다음 = 사용자: Kaggle 오디오 · ChatGPT 그림 → Claude: 장면 코드·렌더.
 버전: v3.34 — 2026-11-03 — **주식 주제 평가판에 1~4편(E1~E4) 올림** (사용자 지시 "주식 주제 평가판에 대본 4개 올려봐 피드백하게") — `topics_1-4편.json` · 피드백이 대본에 닿으면 reply '대본 반영 필요' → 대본 세션.
 버전: v3.33 — 2026-11-03 — **주식 평가판 세션 = 한 세션에 판 하나**: '주제 평가판 만들어' → `stock/guides/board_1_topic.md`(분석 결과로 기획안) · '대본 평가판' → `board_2_script.md` · '쇼츠 평가판' → `board_3_shorts.md` · `script_feedback_board.py --only` · CLAUDE.md.
 버전: v3.32 — 2026-11-02 — **재테크 제목을 더 자극적으로 — `"시청자 말" + 사실`** (사용자 지시 "아니 제목좀 더 자극적으로 해봐 댓글보면 나라가 일을 안한다 도둑놈이다 이렇게 말하던데 좀 참고해보라고"): 새 도구 `tools/anger_words.py economic` → `economic/result/outliers/anger_words.md` (성실히 낸 게 죄 ×3.27 · 나라가 일을 안 한다 ×2.54 · 떼어 간다·도둑 ×1.7~1.9 · 정치 이름 ×0.43 · 따옴표 제목 성공 33.2%/208개) · 기획안 E01~E10 제목·썸네일 문구 다시 (옛 것 `title_prev`) · 점검 fail 0 · 주제 평가판 다시 올림 https://claude.ai/artifact/EtFeGPhdVV9GXyTSzU8o1G (E01 탈락은 옛 제목 — 메모 남김) · channel.md v2.1 · quick_package v1.3 · quick_board(재테크) v1.2 · board_rules v1.1('놈'). 다음 = 사용자: 주제 평가판 판정.

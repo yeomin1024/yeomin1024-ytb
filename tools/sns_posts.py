@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# VERSION: v1.2 — 2026-11-04 — 판 피드백 4건: 케이스 수치 금지 검사(check) · 소개 글 자극 문구(make). 이전 v1.1 — 판 피드백 2건: 보기 A/B → 나쁜 케이스 10개 해당 개수 판정(make·check·item_text) · 본문 '댓글' 언급 금지 검사 · 호기심 멘트(CLOSER). 이전 v1.0 — 2026-11-03 — 롱폼 편마다 X(트위터)·스레드 글을 만들고 SNS 평가판(stock/topics/SNS평가판.html)을 채움
+# VERSION: v1.3 — 2026-11-04 — 판 피드백: 통과 기준은 본문에서 숨기고 댓글에서 공개(make·check). 이전 v1.2 — 판 피드백 4건: 케이스 수치 금지 검사(check) · 소개 글 자극 문구(make). 이전 v1.1 — 판 피드백 2건: 보기 A/B → 나쁜 케이스 10개 해당 개수 판정(make·check·item_text) · 본문 '댓글' 언급 금지 검사 · 호기심 멘트(CLOSER). 이전 v1.0 — 2026-11-03 — 롱폼 편마다 X(트위터)·스레드 글을 만들고 SNS 평가판(stock/topics/SNS평가판.html)을 채움
 #   (사용자 지시 2026-11-03 "대본 당 트위터, 스레드 글 작성해서 평가판 만들어봐 항목은 10가지 정도로 확장하고 점수 및 결과는 댓글에 넣는 방식으로").
 #   · 원본 = stock/topics/sns/sns_<날짜>.json (편마다 제목·문항 10개 {q, A, B, ans}·결과 유형 3개) — 글은 이 도구가 짬 (손으로 고치지 않음)
 #   · X  : 글 하나 = 가중 글자 280 이하 (한글·한자 등은 2, 영문·숫자·기호는 1 — X 셈법) → 첫 글(테스트 소개) + 문항 글 + 댓글(정답·점수 / 결과 유형·링크)
@@ -70,11 +70,11 @@ def make(ep, link):
     t1, t2, t3 = ep["types"]
     chunks = [item_text(i, b) for i, b in enumerate(bad, 1)]
     n = len(bad)
-    x_head = f"[주식 테스트] {ep['title']}\n\n아래 {n}개 중 5개 이상 해당되면, 당신은 앞으로 주식으로 망할 확률이 높습니다.\n0~1개만 통과. 지금 솔직하게 세어 보세요."
+    x_head = f"[주식 테스트] {ep['title']}\n\n아래 {n}개 중 몇 개나 해당되는지에 따라, 당신이 앞으로 주식으로 망할 확률이 높은지 갈립니다.\n지금 솔직하게 세어 보세요."
     x_posts = [x_head] + pack("", chunks + [CLOSER], X_MAX, xlen)
     x_comments = [f"해당 개수로 보는 결과\n\n{score}\n\n통과: {t1}\n주의: {t2}\n불통과: {t3}",
                   f"왜 이 행동이 위험한지, 실제 숫자로 푼 해설 ▶ {link}\n※ 투자 권유가 아닌 테스트입니다."]
-    th_head = f"[주식 테스트] {ep['title']}\n\n아래 {n}개 중 5개 이상 해당되면, 당신은 앞으로 주식으로 망할 확률이 높습니다. 0~1개만 통과입니다. 지금 솔직하게 세어 보세요."
+    th_head = f"[주식 테스트] {ep['title']}\n\n아래 {n}개 중 몇 개나 해당되는지에 따라, 당신이 앞으로 주식으로 망할 확률이 높은지 갈립니다. 지금 솔직하게 세어 보세요."
     th_posts = pack(th_head, chunks + [CLOSER], TH_MAX, len)
     th_comments = [f"해당 개수로 보는 결과\n\n{score}\n\n통과: {t1}\n주의: {t2}\n불통과: {t3}\n\n왜 이 행동이 위험한지, 실제 숫자로 푼 해설 ▶ {link}\n※ 투자 권유가 아닌 테스트입니다."]
     return {"x": (x_posts, x_comments), "threads": (th_posts, th_comments), "answers": score}
@@ -89,6 +89,8 @@ def check(ep, out):
         bad.append(f"나쁜 케이스 {len(ep['bad'])}개 (10개여야 함)")
     for plat, (posts, comms), lim, meas in (("x", out["x"], X_MAX, xlen), ("threads", out["threads"], TH_MAX, len)):
         for k, p in enumerate(posts, 1):
+            if re.search(r"\d\s*개\s*(이상|이하|만)|0~1|\d~\d개", p.split("\n", 1)[-1]):
+                bad.append(f"{plat} 본문 글 {k} 에 통과 기준 노출 (판 피드백 2026-11-04 — 기준은 댓글에서 공개)")
             if "댓글" in p:
                 bad.append(f"{plat} 본문 글 {k} 에 '댓글' 직접 언급 (판 피드백 2026-11-04)")
         for k, p in enumerate(posts + comms, 1):

@@ -1,5 +1,20 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-04 — 주식 1편 롱폼·쇼츠 영상 (새 음성)
+
+### 왜 (사용자 지시)
+- "지금 음성 만들었으니 1편 롱폽, 쇼츠 만들어 영상" — Kaggle 새 음성(1편 대본 v16, tts_narration v1.17)이 main 에 옴.
+
+### 무엇을
+- 롱폼: `srt_tool build --layout long` → `align-audio` (자막 90 · 끝 7:11.5) → `render.mjs sync` (433.97초) → `layout-check` 67장면 문제 0 → `render check` 934곳 문제 0 → `render video`.
+  - TTS 보고: 6번 문장 「틀린 개수만 세어 주시면 됩니다.」 높이 171Hz(기준 151Hz +13%, 3번 시도 중 가장 나은 것) · 87번(사용자 정리 문장) 두 조각 — 나머지 ✅.
+  - 업로드 시트 v1.7: 챕터 시각 채움 · 챕터 제목 2개를 정답이 안 보이게 ('현금 남기기' → '얼마를 넣을까' · '손절' → '실적이 무너진 날').
+- 쇼츠 (처음): `video/episodes/ppalli-test-2026-11-shorts/index.html` v1.0 — 쇼츠 대본 11문장(사용자 문구 그대로) · 세 칸(위 검정 기호·영어 낱말 · 가운데 1편 종이인형 무대 · 아래 자막) · 배치 표 15칸 · 숫자는 대본의 99% 만(그래프·막대는 숫자 없는 그림) · 끝 = 롱폼 카드 ▶ + SUBSCRIBE.
+  - 세로 썸네일 `stock/source/ppalli-test-2026-11/shorts/thumbnails/thumbnail_1.json` — 롱폼과 같은 실사 TH-PHOTO2 가운데(휴대폰) 자름 + 쇼츠 판 문구(2줄 · 말풍선) · `cover_check` ✅ (아래 정장이 '빈 띠'로 잡혀 그림자 빼고 위로 자름).
+  - SRT `--layout shorts` (자막 14) · align · sync (50.77초) · layout-check 문제 0 · render check 115곳 문제 0 · still 14장 봄 (버튼·꼬리표가 칸 밖으로 늘어나던 것 고침 — `.btn.a` 등 절대 자리).
+- `video/render/puppet.js` v1.4: `S.boxes()` 에 무대 캔버스 자리(left·top) 더함 — 쇼츠 가운데 칸 무대(top 691)의 인형을 위 칸 물건과 겹친다고 잘못 보던 것 (롱폼은 자리 0 이라 그대로).
+- mp4 는 git 에 넣지 않음 (컨테이너 `video/out/`).
+
 ## 2026-11-04 — 주식 주제 평가판 묶음 2 (B11~B20) — tools: topic_ideas.py v1.6.4 material · board_check.py v1.8 · topic_board.py
 
 ### 왜

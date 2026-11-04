@@ -1,4 +1,6 @@
-// VERSION: v1.3 — 2026-10-27 — 배치 점검용 (움직임·그림은 그대로): actor 에 key·slot(옵션 o.slot — 장면 파일의 배치 표 이름)을 남기고,
+// VERSION: v1.4 — 2026-11-04 — S.boxes() 화면 상자에 무대 캔버스 자리(opt.left·top)를 더함 — 쇼츠처럼 무대가 화면 가운데 칸(top 691)에 있을 때
+//   배치 점검(layout-check)이 인형을 위 칸 물건과 겹친다고 잘못 보던 것 (1편 쇼츠, 사용자 지시 2026-11-04 "지금 음성 만들었으니 1편 롱폽, 쇼츠 만들어 영상"). 그림·움직임은 그대로.
+// (v1.3) — 2026-10-27 — 배치 점검용 (움직임·그림은 그대로): actor 에 key·slot(옵션 o.slot — 장면 파일의 배치 표 이름)을 남기고,
 //   S.boxes() = 지금 보이는 인형마다 화면 상자 {key, slot, rect:[x0,y0,x1,y1]} (배경 빼고) · 만든 무대는 Puppet.stages 에 — video/scripts/layout-check.mjs 가 읽음
 //   (사용자 지시 2026-10-27 "영상에서 모든 오브젝트별로 배치 위치를 딱 정해서 자꾸 뭔가 어긋나잖아").
 // (v1.2) — 2026-10-26 — 코드 그림: files 의 spec 에 f(파일)가 없고 draw(g, w, h) 가 있으면 <img> 를 만들지 않고 그 함수가 그린 캔버스를 씀
@@ -147,7 +149,8 @@
           a.m.updateMatrixWorld(true);
           const ps = [[-1, -1], [1, -1], [1, 1], [-1, 1]].map(([sx, sy]) => S.project(new THREE.Vector3(sx * a.wd / 2, sy * a.ht / 2, 0).applyMatrix4(a.m.matrixWorld)));
           const xs = ps.map(p => p[0]), ys = ps.map(p => p[1]);
-          out.push({ key: a.key || "?", slot: a.slot || null, op: +a.mat.opacity.toFixed(2), rect: [Math.min(...xs), Math.min(...ys), Math.max(...xs), Math.max(...ys)].map(v => Math.round(v)) });
+          const ox = opt.left || 0, oy = opt.top || 0;                // v1.4 무대 캔버스 자리만큼 옮김 (쇼츠 가운데 칸 무대 — top 691)
+          out.push({ key: a.key || "?", slot: a.slot || null, op: +a.mat.opacity.toFixed(2), rect: [Math.min(...xs) + ox, Math.min(...ys) + oy, Math.max(...xs) + ox, Math.max(...ys) + oy].map(v => Math.round(v)) });
         }
       }
       return out;

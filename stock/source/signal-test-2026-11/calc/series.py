@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# VERSION: v1.1 — 2026-11-04 — 박씨 길 ④ = D4 부터 1년(365일) 현금 대기 뒤 다시 매수 (longform_ep3 v1.1 · longform_ep3_2026-11-04.json — 대본 문장 79 '1년 동안'과 맞춤) · 박씨 끝 '3천1백만 원'.
 # VERSION: v1.0 — 2026-11-04 — 3편(signal-test-2026-11 · 지표로 국면 읽기 테스트) 대본 v17 영상의 그래프 선·화면 숫자.
 #   숫자 출처 = stock/topics/precheck/longform_ep3.py v1.0 (longform_ep3_2026-11-02.json 'ep3') — 같은 자료·같은 날짜·같은 규칙으로 다시 셈.
 #   여기서는 화면 선 모양(지표 선·주가 선·계기판 작은 선)과 화면에 쓰는 글(TXT — 반올림한 숫자)만 뽑고,
@@ -23,10 +24,10 @@ ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT / "stock/topics/precheck"))
 import longform_items as L  # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("series_ep3")
-CALC_JSON = ROOT / "stock/topics/precheck/longform_ep3_2026-11-02.json"
+CALC_JSON = ROOT / "stock/topics/precheck/longform_ep3_2026-11-04.json"
 SCRIPT = ROOT / "stock/source/signal-test-2026-11/signal-test-2026-11.txt"
 DST = ROOT / "video/episodes/signal-test-2026-11/series.js"
 D1, D2, D3, D4, D5 = "2022-01-03", "2022-03-08", "2022-11-10", "2023-07-26", "2024-08-05"
@@ -88,7 +89,7 @@ def main():
             f *= (1 + (irx.at(x) / 100 + LOAN_SPREAD)) ** ((date.fromisoformat(y) - date.fromisoformat(x)).days / 365)
         return f
 
-    reentry = spx.back(D1, spx.at(D1), after="2022-10-12")
+    reentry = plus(D4, 365)   # v1.1 박씨는 D4 부터 1년 현금으로 기다린 뒤 다시 매수 (longform_ep3 v1.1 park_re · 대본 문장 79)
     sh0, ix0, loan = 8000.0, 2000.0, 3000.0
     sh2, ix2 = sh0 * shop.at(D2) / shop.at(D1), ix0 * tr.at(D2) / tr.at(D1)
     sh2b = sh2 + loan
@@ -132,7 +133,7 @@ def main():
             return a_sh2 * shop.at(d) / shop.at(D2) + a_ix2 * tr.at(d) / tr.at(D2) + a_c * cash.at(d) / cash.at(D2)
         return a_sh4 * shop.at(d) / shop.at(D4) + a_ix4b * tr.at(d) / tr.at(D4)
 
-    out = {"made": "2026-11-04", "tool": f"series.py {VERSION}", "src": "longform_ep3.py v1.0 자료·규칙", "data_last": tr.k[-1],
+    out = {"made": "2026-11-04", "tool": f"series.py {VERSION}", "src": "longform_ep3.py v1.1 자료·규칙", "data_last": tr.k[-1],
            "dates": {"d1": D1, "d2": D2, "d3": D3, "d4": D4, "d5": D5, "end": END, "reentry": reentry}}
     N = lambda ser, a, b, base, step=1: thin([[d, r4(ser.at(d) / ser.at(base))] for d in days(ser, a, b)], step)  # noqa: E731
     V = lambda ser, a, b, step=1, nd=3: thin([[d, round(ser.at(d), nd)] for d in days(ser, a, b)], step)  # noqa: E731
@@ -263,7 +264,7 @@ def main():
     out["end_good"] = thin([[d, round(good(d))] for d in days(tr, D1, END)], 5)
 
     # ── 화면 글 (반올림 — JS 는 이 글만 씀)
-    mil = lambda manwon: f"₩{int(round(manwon * 10000 / 1e6) * 1e6):,}"  # noqa: E731   백만 원 단위 (대본 '3천4백만 원')
+    mil = lambda manwon: f"₩{int(round(manwon * 10000 / 1e6) * 1e6):,}"  # noqa: E731   백만 원 단위 (대본 '3천1백만 원')
     TXT = {
         "park0": "₩100,000,000", "park_end": mil(c_end), "spx_4y": pct(spx.chg(D1, END)),
         "alloc_g": f"₩{int(sh0 * 10000):,}", "alloc_i": f"₩{int(ix0 * 10000):,}", "shop_span": ym(mon("2019-12-31", D1)), "oil_span": ym(mon(D1, D2)),
@@ -340,7 +341,7 @@ def main():
     txt = SCRIPT.read_text("utf-8")
     num = lambda s: float(s.replace("−", "-").replace("+", "").replace("%", "").replace("×", "").replace("$", "").replace("₩", "").replace(",", ""))  # noqa: E731
     sc = [  # (화면 글 키, 대본 낱말, 맞는지)
-        ("park_end", "3천4백만 원", TXT["park_end"] == "₩34,000,000"),
+        ("park_end", "3천1백만 원", TXT["park_end"] == "₩31,000,000"),
         ("alloc", "8천만 원은 한 성장주에, 2천만 원은", TXT["alloc_g"] == "₩80,000,000" and TXT["alloc_i"] == "₩20,000,000"),
         ("shop_span", "2년 만에 3배", TXT["shop_span"] == "2Y"),
         ("oil_span", "두 달 만에 60%", TXT["oil_span"] == "2M"),

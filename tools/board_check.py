@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-11-04 — K9 새로: 질문 두 줄 뒤 '선택해 보세요.' → '3, 2, 1.' → '이때는 …옳은 선택입니다.' (사용자 지시 2026-11-04 "매수 하시겠습니까? 선택 항목 다음에 선택해보세요. 멘트 추가하고 3, 2, 1 카운트 후에 정답 얘기하도록수정해 다른 대본도 그렇게 하고" — quick_board 규칙 41) · K7 은 그 두 줄을 건너뛰고 보기를 찾음.
+# VERSION: v1.10 — 2026-11-04 — 정답 줄 말머리를 편마다 다르게 읽음(ANS_RE) · K10 새로: 같은 묶음 다른 편과 똑같은 문장 ❌ · 같은 말머리 ⚠ · 글 겹침 15% ⚠ (유튜브 '진정성 없는 콘텐츠' 막기 — 사용자 지시 "2~4편 1은 최대한 형식을 유지하면서 다르게 할 수 있는 부분은 다르게해 3은 수정하고 2는 영상 만들 때 최대한 피하도록 해" · "그리고 정책에 위반되지 않게 지시사항에도 반영하고").
+# (v1.9) — 2026-11-04 — K9 새로: 질문 두 줄 뒤 '선택해 보세요.' → '3, 2, 1.' → '이때는 …옳은 선택입니다.' (사용자 지시 2026-11-04 "매수 하시겠습니까? 선택 항목 다음에 선택해보세요. 멘트 추가하고 3, 2, 1 카운트 후에 정답 얘기하도록수정해 다른 대본도 그렇게 하고" — quick_board 규칙 41) · K7 은 그 두 줄을 건너뛰고 보기를 찾음.
 # (v1.8) — 2026-11-04 — K6·K7 질문형 선택(바로 정답·해설)도 읽음 (아래 줄).
 # (v1.7) — 2026-11-03 — 기획안 `user_fields`(사용자가 준 칸) 의 제목 2줄 넘침은 ❌ 대신 ⚠ — 사용자 문구는 한 글자도 안 바꾸므로 판에서 빠지지 않게 (주제 판 피드백 2026-11-03 E2·E3 제목).
 # (v1.6 — 2026-11-02 — 주식 쇼츠 공통 끝 멘트가 「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 로 바뀜 (사용자 지시 "…로 변경해 모두") — 주식 규칙의 SHORT_END 만 바꿈 (재테크 규칙 그대로).
@@ -45,6 +46,52 @@ K2 = re.compile(r"앞으로도 (반드시|꼭|계속)|항상 (오른|이긴)|늘
 # 채널 목적 밖 (stock/guides/channel.md 1번 — 단타·타이밍·종목/업종 맞히기·'더 벌었나')
 OFF = re.compile(r"단타|스캘핑|급등주 찾|종목 맞히|업종 맞히|수익률 대결|누가 더 벌|타이밍 맞히|바닥 맞히")
 COND = re.compile(r"년|달|개월|쓸 일|급할 때|비상금|은퇴|월급|목돈|나이|기간|조건|계좌의|비중")
+
+
+SERIES_OK = {"선택해 보세요.", "3, 2, 1.", "그럼 모두 성공 투자 하시기 바랍니다.", "시청해주셔서 감사합니다."}   # v1.10 시리즈 표시 — 편마다 같아도 됨
+OPENER_RES = {"질문": r"^(.{0,12}?)당신은 .+\?$", "정답": r"^(\S+(?: \S+)?는) .+것이 옳은 선택입니다\.$", "결론": r"^(\S+) 옳은 선택은 ", "날짜": r"^(\S+) \d{4}년 \d{1,2}월 \d{1,2}일[,은이]"}
+
+
+def series_overlap(path, sents):
+    """v1.10: 같은 묶음(폴더 이름 끝 '-<꼴>-YYYY-MM' 이 같은 다른 대본)과 비교 — 같은 문장(시리즈 표시 빼고) ❌ ·
+    같은 말머리(질문·정답·결론·날짜) ⚠ · 5글자 조각 겹침 15% 넘으면 ⚠. (사용자 지시 2026-11-04 '정책에 위반되지 않게')"""
+    p = Path(path).resolve()
+    m = re.search(r"(-[a-z]+-\d{4}-\d{2})$", p.parent.name)
+    if not m or p.stem != p.parent.name:
+        return [], []
+    sibs = [q / f"{q.name}.txt" for q in sorted(p.parent.parent.glob(f"*{m.group(1)}")) if q != p.parent and (q / f"{q.name}.txt").is_file()]
+    if not sibs:
+        return [], []
+    norm = lambda t: re.sub(r"\s+", "", t)
+    grams = lambda ts: {norm(t)[i:i + 5] for t in ts for i in range(max(0, len(norm(t)) - 4))}
+    def openers(ss):
+        out = {}
+        for k, rx in OPENER_RES.items():
+            for i, t in enumerate(ss):
+                if k == "질문" and not (i + 1 < len(ss) and ss[i + 1].startswith("아니면 ")):   # 선택 질문만 (결과 질문 '이 테스트에서 당신은' 은 뺌)
+                    continue
+                mm = re.match(rx, t)
+                if mm and mm.group(1).strip():
+                    out.setdefault(k, set()).add(mm.group(1).strip())
+        return out
+    mine = [t for t in sents if t not in SERIES_OK]
+    myop, g0 = openers(sents), grams(mine)
+    fails, warns = [], []
+    for q in sibs:
+        other = [l.strip() for l in q.read_text("utf-8").splitlines() if l.strip() and not l.startswith("-")]
+        same = sorted(set(mine) & set(other))
+        if same:
+            fails.append(f"반론 K10 시리즈 겹침: {q.parent.name} 와 똑같은 문장 {len(same)}개 {same[:3]} — 편마다 다르게 (규칙 43)")
+        op = openers(other)
+        dup = {k: sorted(myop.get(k, set()) & op.get(k, set())) for k in OPENER_RES}
+        dup = {k: v for k, v in dup.items() if v}
+        if dup:
+            warns.append(f"반론 K10 말머리가 {q.parent.name} 와 같음 {dup} — 편마다 다른 말머리로 (규칙 43)")
+        g1 = grams([t for t in other if t not in SERIES_OK])
+        jac = len(g0 & g1) / max(1, len(g0 | g1))
+        if jac > 0.15:
+            warns.append(f"반론 K10 글 겹침 {jac:.0%} ({q.parent.name}) — 15% 넘음")
+    return fails, warns
 
 
 def log(stage, **kv):
@@ -142,9 +189,10 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
             warns.append("반론 K5: --calc 없음 — 숫자 대조 못 함")
         return fails, warns, oks
     COUNT_LINES = ("선택해 보세요.", "3, 2, 1.")             # v1.9 질문과 정답 사이 (규칙 41)
+    ANS_RE = r"^.+것이 옳은 선택입니다\.$"                    # v1.10 정답 줄 (말머리 '이때는'·'이럴 때는'·'이 국면에서는' … 편마다)
     # ── K6 지키기 어려움 인정 — 해설마다 '물론 …' 반론 줄
     heads = [i for i, s in enumerate(sents) if re.match(r"(첫|두|세|네|다섯) 번째 선택의 정답은", s)
-             or re.match(r"이때는 .+옳은 선택입니다\.$", s)]          # v1.8 질문형 선택 → 바로 정답·해설 (2026-11-04)
+             or re.match(ANS_RE, s)]                               # v1.8 질문형 선택 → 바로 정답·해설 · v1.10 말머리는 편마다 다름
     miss = []
     for k, h in enumerate(heads):
         end = heads[k + 1] if k + 1 < len(heads) else len(sents)
@@ -163,15 +211,15 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     bad7, letters = [], []
     words = lambda t: set(re.findall(r"[가-힣A-Za-z0-9%]{2,}", t))
     for k, h in enumerate(heads):
-        if sents[h].startswith("이때는") and h >= 2:          # v1.8 질문형: 바로 앞 두 줄 '여기서 당신은 …?' / '아니면 …?' 가 보기
+        if re.match(ANS_RE, sents[h]) and h >= 2:            # v1.8 질문형: 바로 앞 두 줄 '(말머리) 당신은 …?' / '아니면 …?' 가 보기
             j = h                                              # v1.9 그 사이 '선택해 보세요.' · '3, 2, 1.' (규칙 41) 은 건너뜀
             while j > 2 and sents[j - 1] in COUNT_LINES:
                 j -= 1
-            qa, qb = re.match(r"여기서 당신은 (.+)\?$", sents[j - 2]), re.match(r"아니면 (.+)\?$", sents[j - 1])
+            qa, qb = re.match(r"^.{0,12}?당신은 (.+)\?$", sents[j - 2]), re.match(r"아니면 (.+)\?$", sents[j - 1])   # v1.10 말머리 편마다
             if not (qa and qb):
                 bad7.append((k + 1, "?", "질문 두 줄이 정답 바로 앞에 없음"))
                 continue
-            w = words(sents[h][3:].replace("옳은 선택입니다", ""))
+            w = words(re.sub(r"^\S+(?: \S+)?(?:는|에는|서는) ", "", sents[h]).replace("옳은 선택입니다", ""))
             sa, sb = len(w & words(qa.group(1))), len(w & words(qb.group(1)))
             letters.append("A" if sa > sb else "B")
             if max(sa, sb) == 0 or sa == sb:
@@ -187,12 +235,17 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
             bad7.append((k + 1, m.group(1), o))
     (warns if bad7 else oks).append(f"반론 K7 해설 정답 ↔ 보기 말이 다름(사람 확인): {bad7 or '없음'} · 정답 글자 {''.join(letters)}")
     # ── K9 (v1.9) 질문 뒤 '선택해 보세요.' → '3, 2, 1.' → 정답 (quick_board 규칙 41 — 사용자 지시 2026-11-04)
-    qheads = [h for h in heads if sents[h].startswith("이때는")]
+    qheads = [h for h in heads if re.match(ANS_RE, sents[h])]
     miss9 = [k + 1 for k, h in enumerate(qheads) if h < 2 or tuple(sents[h - 2:h]) != COUNT_LINES]
     if qheads:
         (fails if miss9 else oks).append(f"반론 K9 질문 뒤 '선택해 보세요.' · '3, 2, 1.' 없음: {miss9 or '없음'} (선택 {len(qheads)}개)")
     if letters and len(set(letters)) == 1:
         fails.append("반론 K7: 정답이 모두 같은 글자 — 섞어야 함")
+    # ── K10 (v1.10) 시리즈 겹침 — 유튜브 '진정성 없는 콘텐츠'(틀로 찍어 거의 같은 영상) 막기 (quick_board 규칙 43)
+    k10f, k10w = series_overlap(script, sents) if kind == "long" else ([], [])
+    fails += k10f; warns += k10w
+    if not (k10f or k10w):
+        oks.append("반론 K10 시리즈 겹침: 다른 편과 같은 문장·같은 말머리 없음 (시리즈 표시 문장 제외)")
     # ── K5 숫자 — 대본 퍼센트가 계산 출력에 있는가
     if calc:
         vals = numbers_in_calc(calc)

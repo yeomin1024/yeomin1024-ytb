@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-11-03 — 기획안 `user_fields`(사용자가 준 칸) 의 제목 2줄 넘침은 ❌ 대신 ⚠ — 사용자 문구는 한 글자도 안 바꾸므로 판에서 빠지지 않게 (주제 판 피드백 2026-11-03 E2·E3 제목).
+# VERSION: v1.8 — 2026-11-04 — K6·K7 질문형 선택(바로 정답·해설)도 읽음 (아래 줄).
+# (v1.7) — 2026-11-03 — 기획안 `user_fields`(사용자가 준 칸) 의 제목 2줄 넘침은 ❌ 대신 ⚠ — 사용자 문구는 한 글자도 안 바꾸므로 판에서 빠지지 않게 (주제 판 피드백 2026-11-03 E2·E3 제목).
 # (v1.6 — 2026-11-02 — 주식 쇼츠 공통 끝 멘트가 「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 로 바뀜 (사용자 지시 "…로 변경해 모두") — 주식 규칙의 SHORT_END 만 바꿈 (재테크 규칙 그대로).
 # (v1.5 — 2026-11-02 — 주제마다 규칙 파일 <주제>/board_rules.toml (없으면 주식 규칙 그대로): 채널 목적 밖(OFF)·조건(COND)·쇼츠 끝 멘트·
 #   칸 이름 · 꼭 있어야 할 칸(REQUIRE — 재테크 complaint) · 사람·정당 탓(NO_TARGET) · 비속어(PROFANITY) · 제목·쇼츠 제목에서 피할 말 — 재테크 평가판
 #   (사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"). 영향: rules()·check_package()·check_script()·main().
 # (v1.4 — 2026-11-02 — 쇼츠 칸에서 '전달 내용·방식'(s_message) 뺌 (사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") — 공통 끝 멘트는 쇼츠 대본 점검(script --kind short)에서 마지막 줄로 봄.)
+# v1.8 — 2026-11-04 — 질문형 선택('여기서 당신은 …하시겠습니까?' / '아니면 …?' → '이때는 …옳은 선택입니다.' → 해설) — K6·K7 이 새 꼴도 읽음 (quick_board 규칙 25).
 # (v1.3 — 2026-11-02 — K7(해설 정답 ↔ 보기) 이 새 보기 꼴 'A, …' 도 읽음 (전엔 'A번, …' 만 — 새 꼴에선 늘 '없음'으로 지나감).
 # (v1.2 — 2026-11-02 — 저장소 밖 파일(시험·임시 대본)도 점검 — 결과 파일 경로를 저장소 기준으로 못 바꾸면 그대로 씀 (전엔 ValueError 로 멈춤) ·
 #   광고 점검에서 --allow 문장과 쇼츠 공통 끝 멘트(「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 — 사용자가 정한 줄, 2026-11-02 바뀜)는 뺌.
@@ -31,7 +33,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.7"
+VERSION = "v1.8"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌
@@ -139,7 +141,8 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
             warns.append("반론 K5: --calc 없음 — 숫자 대조 못 함")
         return fails, warns, oks
     # ── K6 지키기 어려움 인정 — 해설마다 '물론 …' 반론 줄
-    heads = [i for i, s in enumerate(sents) if re.match(r"(첫|두|세|네|다섯) 번째 선택의 정답은", s)]
+    heads = [i for i, s in enumerate(sents) if re.match(r"(첫|두|세|네|다섯) 번째 선택의 정답은", s)
+             or re.match(r"이때는 .+옳은 선택입니다\.$", s)]          # v1.8 질문형 선택 → 바로 정답·해설 (2026-11-04)
     miss = []
     for k, h in enumerate(heads):
         end = heads[k + 1] if k + 1 < len(heads) else len(sents)
@@ -156,8 +159,20 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
         if m and q:
             opts[(q, m.group(1))] = m.group(2)
     bad7, letters = [], []
+    words = lambda t: set(re.findall(r"[가-힣A-Za-z0-9%]{2,}", t))
     for k, h in enumerate(heads):
-        m = re.search(r"정답은 ([AB]), (.+)", sents[h])
+        if sents[h].startswith("이때는") and h >= 2:          # v1.8 질문형: 바로 앞 두 줄 '여기서 당신은 …?' / '아니면 …?' 가 보기
+            qa, qb = re.match(r"여기서 당신은 (.+)\?$", sents[h - 2]), re.match(r"아니면 (.+)\?$", sents[h - 1])
+            if not (qa and qb):
+                bad7.append((k + 1, "?", "질문 두 줄이 정답 바로 앞에 없음"))
+                continue
+            w = words(sents[h][3:].replace("옳은 선택입니다", ""))
+            sa, sb = len(w & words(qa.group(1))), len(w & words(qb.group(1)))
+            letters.append("A" if sa > sb else "B")
+            if max(sa, sb) == 0 or sa == sb:
+                bad7.append((k + 1, "?", "정답 말이 어느 보기와 같은지 모름"))
+            continue
+        m = re.search(r"정답은 ([AB])번?, (.+)", sents[h])
         if not m:
             continue
         letters.append(m.group(1))

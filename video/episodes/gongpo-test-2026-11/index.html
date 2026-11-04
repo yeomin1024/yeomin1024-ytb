@@ -1,0 +1,843 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="end-hold" content="2.5">
+<title>4편 폭락장 계획 매수 테스트 롱폼</title>
+<!-- VERSION: v1.1 — 2026-11-04 — 문장 25 끝 숫자 C1_SOLD_LABEL "+58%" (계산 버그 고침 — longform_ep4 v1.1 · series.py v1.1).
+     VERSION: v1.0 — 2026-11-04 — 4편(정씨 · 공포 지수 36 폭락장에서 계획대로 매수할 수 있나) 대본 v17 (108문장) 첫 장면 파일.
+       화면 장치 = '계획 수첩' — 사용자 지시 2026-11-04 "2~4편 1은 최대한 형식을 유지하면서 다르게 할 수 있는 부분은 다르게해" ·
+       "그리고 정책에 위반되지 않게 지시사항에도 반영하고" (stock/guides/quick_board.md 규칙 43 — 1편 장면 파일을 복사하지 않음).
+     ■ 1편과 다른 것 (규칙 43 — 같게 둔 것은 시리즈 주인공 인형 · 구운 자막 · 3·2·1 카운트 동그라미 · 진행 점 꼴뿐)
+       ① 바탕: 1편 사무실·밤 집·지하철·카페·종이 바탕 ✗ → 4편 탕비실(S-BREAKROOM)·의원 대기실(S-CLINIC)·가을 공원(S-PARK) + 코드로 그린 어두운 나무 책상(DESK)
+       ② 보기: 1편 왼쪽 주인공 + 오른쪽 어두운 둥근 줄 두 개(ROW1·ROW2) ✗ → 4편 가운데-왼쪽 줄 공책 한 장(스프링·파란 줄·빨간 여백 줄) 위 체크박스 두 줄
+          (☐ A · ☐ B — 명조체 글씨) · 주인공은 오른쪽 · 정답 = 상자에 청록 ✓, 오답 = 빨간 취소선
+       ③ 편 중심 장치: 오른쪽 위 공포 지수(VIX) 반원 계기 — 장면 날짜의 실제 값으로 바늘이 움직임 (1편에 없음)
+       ④ 이야기 장면: 1편 왼쪽 무대 + 오른쪽 어두운 카드(CARD) ✗ → 4편 왼쪽에 테이프로 붙인 크림색 메모지(MEMO) + 가운데-오른쪽 인형
+       ⑤ 그래프: 1편 어두운 둥근 판 ✗ → 4편 크림색 모눈종이 + 남색 지수 선 · 빨간 오답 길 · 노란 점선 '계획 가격'(최고가 −10·−15·−20·−25%) · 청록 BUY 도장
+          · 오른쪽 세로 꼬리표 줄(SIDE — 크림색 라벨, 왼쪽 색 띠)
+       ⑥ 반론 통계: 1편 판 안 큰 기호 ✗ → 4편 공책 위 점·티커 표(17번 중 16번 · 하락장 4번 중 2번 · 24곳 중 15곳 · 10번 중 6번 · 3번 모두)
+       ⑦ 도입: 1편 시험지 5칸 + FAIL 도장 ✗ → 4편 공책 'FEAR ✕ / PLAN ✓' → 계획 네 줄 → 공포에 지워짐 · 정씨 계좌 vs 지수 모눈 그래프 · 빈 체크박스 다섯 줄
+       ⑧ 결과: 1편 어두운 줄 셋 PASS·CAUTION·FAIL ✗ → 4편 공책 세 줄 + 고무도장 하나가 바뀌며 찍힘 · 정리 = 공원 노을 + 메모지 그래프 · 인사 = 공원 + 주황 빛 알갱이
+       ⑨ 강조색: 진홍 #B3202A · 호박 · 공책 남색 잉크 (1편 흰 글자 + 노랑 테두리 카드)
+     ■ 숫자 = window.SERIES (stock/source/gongpo-test-2026-11/calc/series.py v1.0 — longform_ep4.py 다시 돌려 계산 json 과 모두 같음을 확인)
+       (v1.0 때 알려진 차이: 대본 문장 25 '45%'(json sold_to_end 0.4513)는 주식 수 감소를 두 번 곱한 값 — v1.1 에서 고침.)
+         화면 선 끝 숫자 = "+58%" (v1.1 — 계산 json 이 주식 수 감소를 두 번 곱하던 버그를 longform_ep4 v1.1 에서 고침, 대본 문장 25 45% → 58%).
+     ■ 배치 표 = window.LAYOUT (아래) · 점검 node video/scripts/layout-check.mjs gongpo-test-2026-11 (문제 0) · 대표 장면 still 을 Claude 가 봄.
+     연구·교육용 영상 — 투자 권유 아님. -->
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+@font-face{font-family:"Noto Serif KR";font-weight:700;src:url(../../public/fonts/NotoSerifKR-700.ttf) format("truetype")}
+@font-face{font-family:"Noto Serif KR";font-weight:900;src:url(../../public/fonts/NotoSerifKR-900.ttf) format("truetype")}
+.serif{font-family:"Noto Serif KR","Noto Sans KR",serif}
+.vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1300px 820px at 50% 46%,rgba(0,0,0,0) 55%,rgba(10,4,0,.42) 100%)}
+.prog{position:absolute;display:flex;gap:12px;align-items:center;z-index:3}
+.prog i{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.18);border:3px solid rgba(255,255,255,.28);display:block}
+.prog i.on{background:#FFD400;border-color:#FFD400}.prog i.done{background:rgba(255,212,0,.4);border-color:rgba(255,212,0,.4)}
+/* 공책 한 장 — 스프링 · 파란 줄 · 빨간 여백 줄 */
+.page{position:absolute;inset:0;border-radius:14px;background-color:#F6EFDD;
+  background-image:linear-gradient(90deg,transparent 116px,rgba(179,32,42,.55) 116px,rgba(179,32,42,.55) 120px,transparent 120px),
+    linear-gradient(180deg,#F6EFDD 0,#F6EFDD 96px,transparent 96px),
+    repeating-linear-gradient(180deg,transparent 0,transparent 62px,rgba(64,105,170,.30) 62px,rgba(64,105,170,.30) 65px);
+  box-shadow:0 30px 56px -18px rgba(0,0,0,.78),inset 0 0 0 2px rgba(120,90,50,.18)}
+.rings{position:absolute;left:40px;right:40px;top:6px;height:46px}
+/* 체크박스 보기 줄 (한국어는 이 줄에만 — data-words) */
+.ck{position:absolute;display:flex;align-items:center;gap:22px;padding:0 18px 0 6px;color:#1B2A4A}
+.ck .bx{flex:0 0 86px;height:86px;border:7px solid #1B2A4A;border-radius:10px;background:rgba(255,255,255,.5);position:relative}
+.ck .bx svg{position:absolute;left:-6px;top:-22px;width:112px;height:112px;overflow:visible}
+.ck .L{flex:0 0 auto;font-weight:900;font-size:66px;line-height:1}
+.ck .T{flex:1;font-weight:900;line-height:1.32;word-break:keep-all;--sk:0;text-decoration:line-through;text-decoration-thickness:8px;text-decoration-color:rgba(179,32,42,var(--sk))}
+/* 메모지 (이야기 장면 왼쪽) */
+.memo{position:absolute;inset:16px;border-radius:4px;background:#FBF4DF;box-shadow:0 24px 46px -16px rgba(0,0,0,.8);transform:rotate(-1deg)}
+.memo .tape{position:absolute;left:50%;top:-14px;width:190px;height:46px;margin-left:-95px;background:rgba(236,224,186,.82);transform:rotate(2.5deg);box-shadow:0 2px 5px rgba(0,0,0,.18)}
+/* 모눈종이 그래프 */
+.graph{position:absolute;inset:0;border-radius:8px;background-color:#F3EBD6;
+  background-image:linear-gradient(rgba(27,42,74,.08) 2px,transparent 2px),linear-gradient(90deg,rgba(27,42,74,.08) 2px,transparent 2px);
+  background-size:48px 48px;box-shadow:0 30px 56px -18px rgba(0,0,0,.78),inset 0 0 0 2px rgba(120,90,50,.18)}
+/* 오른쪽 꼬리표 (크림 라벨 + 왼쪽 색 띠) */
+.lab{display:flex;align-items:center;gap:14px;font-weight:900;font-size:46px;line-height:1;padding:14px 24px 14px 18px;border-radius:8px;background:#F6EFDD;color:#1B2A4A;border-left:16px solid #1B2A4A;white-space:nowrap;box-shadow:0 14px 28px -12px rgba(0,0,0,.75)}
+.stp{display:inline-block;font-weight:900;line-height:1;border:9px solid currentColor;border-radius:16px;padding:14px 30px;letter-spacing:3px;white-space:nowrap;background:rgba(246,239,221,.35)}
+.bstp{display:inline-block;font-weight:900;font-size:36px;line-height:1;border:5px solid #0E8F7E;color:#0E8F7E;border-radius:10px;padding:6px 12px;background:rgba(246,239,221,.92);white-space:nowrap}
+.bar4{height:72px;border-radius:8px;display:flex;align-items:center;padding:0 18px;font-weight:900;font-size:38px;color:#FBF4DF;white-space:nowrap}
+.dotc{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:36px;line-height:1;color:#FBF4DF}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"gongpo-test-2026-11","topic":"stock","duration":512.2,"audio":"../../../stock/source/gongpo-test-2026-11/narration.mp3","thumb":null,"synced":"2026-11-04T13:51:06Z","tts":"2026-11-04T12:32:22","script_sha1":"fa526f64d5d2c36e","sent":[{"n":1,"part":"도입","text":"폭락장에서 계좌를 가르는 건 공포를 느끼느냐가 아니라, 계획이 있느냐입니다.","start":0.3,"end":4.801},{"n":2,"part":"도입","text":"정씨도 폭락이 오면 사려고 현금을 남기고, 매수 계획까지 적어 둔 사람인데요.","start":5.181,"end":9.892},{"n":3,"part":"도입","text":"그런데 막상 폭락이 오자, 계획 대신 공포를 따랐습니다.","start":10.272,"end":13.875},{"n":4,"part":"도입","text":"그 결과 4년 뒤, 1억 원은 3천5백만 원 남짓만 남았습니다.","start":14.255,"end":18.279},{"n":5,"part":"도입","text":"지수는 그 폭락을 딛고, 같은 4년 동안 40% 넘게 올랐는데 말이죠.","start":18.659,"end":23.493},{"n":6,"part":"도입","text":"공포 앞에서 정씨가 내린 다섯 번의 결정을, 당신이라면 어떻게 했을지 골라 보세요.","start":23.873,"end":29.103},{"n":7,"part":"도입","text":"공포에 진 결정이 몇 개인지 세어 두시면 됩니다.","start":29.483,"end":32.438},{"n":8,"part":"도입","text":"공포가 처음 덮친 그날, 정씨의 자리에 당신이 서 보겠습니다.","start":32.818,"end":36.834},{"n":9,"part":"선택 1","text":"당신에게는 5년 넘게 쓸 일이 없는 1억 원이 있습니다.","start":37.834,"end":41.114},{"n":10,"part":"선택 1","text":"지수가 사상 최고가이던 날, 당신은 6천만 원을 S&P 500 지수에 넣었습니다.","start":41.495,"end":46.633},{"n":11,"part":"선택 1","text":"나머지 4천만 원은, 폭락이 오면 사려고 현금으로 남겼는데요.","start":47.013,"end":51.053},{"n":12,"part":"선택 1","text":"얼마나 떨어지면 얼마씩 살지, 매수 계획도 적어 두었습니다.","start":51.433,"end":54.89},{"n":13,"part":"선택 1","text":"두 달 뒤, 전쟁 소식에 지수가 최고가보다 12% 넘게 하락했습니다.","start":55.27,"end":59.929},{"n":14,"part":"선택 1","text":"미국 주식이 얼마나 출렁일지 보여 주는 지수를, 공포 지수라고 부릅니다.","start":60.309,"end":64.781},{"n":15,"part":"선택 1","text":"그 공포 지수가, 평소의 두 배 가까운 36까지 치솟았습니다.","start":65.161,"end":69.329},{"n":16,"part":"선택 1","text":"넣은 6천만 원은 5천2백만 원대로 줄었고, 뉴스엔 더 떨어진다는 전망뿐입니다.","start":69.709,"end":74.807},{"n":17,"part":"선택 1","text":"이 순간 당신은 더 잃기 전에 모두 매도하고, 공포가 가라앉으면 다시 매수하시겠습니까?","start":75.187,"end":80.91},{"n":18,"part":"선택 1","text":"아니면 매도하지 않고, 적어 둔 매수 계획을 꺼내 보시겠습니까?","start":81.29,"end":84.989},{"n":19,"part":"선택 1","text":"선택해 보세요.","start":85.369,"end":86.309},{"n":20,"part":"선택 1","text":"3, 2, 1.","start":86.689,"end":88.869},{"n":21,"part":"선택 1","text":"이 상황에서는 매도하지 않고 적어 둔 매수 계획을 꺼내 보는 것이 옳은 선택입니다.","start":89.249,"end":94.256},{"n":22,"part":"선택 1","text":"그때가 2022년 3월 7일, 러시아가 우크라이나를 침공한 지 열하루 뒤였습니다.","start":94.636,"end":100.011},{"n":23,"part":"선택 1","text":"정씨와 똑같이 모두 매도하고, 공포 지수가 20 아래로 내려오자 다시 샀다고 하겠습니다.","start":100.391,"end":105.766},{"n":24,"part":"선택 1","text":"그사이 지수가 9% 올라, 같은 돈으로 살 수 있는 주식은 8% 줄었을 것입니다.","start":106.146,"end":111.514},{"n":25,"part":"선택 1","text":"그래서 2025년 말까지도 45% 오르는 데 그쳤을 것입니다.","start":111.894,"end":116.374},{"n":26,"part":"선택 1","text":"매도하지 않았다면, 같은 때 72% 올랐을 겁니다.","start":116.754,"end":120.564},{"n":27,"part":"선택 1","text":"물론 그날 팔면, 그 뒤에 이어진 하락은 잠시 피할 수 있습니다.","start":120.944,"end":124.764},{"n":28,"part":"선택 1","text":"하지만 공포가 가라앉았다고 느낄 때는, 대개 값이 이미 올라 있습니다.","start":125.144,"end":129.523},{"n":29,"part":"선택 1","text":"1990년 이후 공포 지수가 35를 넘은 열일곱 번 중 열여섯 번이 그랬습니다.","start":129.903,"end":134.981},{"n":30,"part":"선택 1","text":"계획은 예를 들어 이렇습니다.","start":135.361,"end":137.189},{"n":31,"part":"선택 1","text":"최고가보다 10%, 15%, 20%, 25% 내려갈 때마다 현금의 4분의 1씩 삽니다.","start":137.569,"end":144.572},{"n":32,"part":"선택 1","text":"그러니 옳은 선택은 공포가 클수록 팔지 않고, 적어 둔 매수 계획을 꺼내는 것입니다.","start":144.952,"end":149.872},{"n":33,"part":"선택 2","text":"3주 뒤, 공포 지수가 평소 수준인 20 아래로 내려왔는데요.","start":150.872,"end":154.749},{"n":34,"part":"선택 2","text":"지수도 그사이 9% 가까이 반등했습니다.","start":155.129,"end":157.957},{"n":35,"part":"선택 2","text":"커뮤니티엔 빚을 내서 산 사람이 벌써 크게 벌었다는 인증 글이 올라옵니다.","start":158.337,"end":162.737},{"n":36,"part":"선택 2","text":"증권사 앱에는, 신용으로 돈을 빌려 더 살 수 있다는 안내가 뜹니다.","start":163.117,"end":167.308},{"n":37,"part":"선택 2","text":"이 순간 당신은 빚 없이, 투자용으로 정해 둔 돈 안에서만 매수하시겠습니까?","start":167.688,"end":172.604},{"n":38,"part":"선택 2","text":"아니면 신용으로 돈을 빌려, 더 많이 매수하시겠습니까?","start":172.984,"end":176.56},{"n":39,"part":"선택 2","text":"선택해 보세요.","start":176.94,"end":177.88},{"n":40,"part":"선택 2","text":"3, 2, 1.","start":178.26,"end":180.44},{"n":41,"part":"선택 2","text":"이 상황에서는 빚 없이 정해 둔 돈 안에서만 매수하는 것이 옳은 선택입니다.","start":180.82,"end":185.67},{"n":42,"part":"선택 2","text":"정씨와 똑같이 3월 28일 다시 사면서, 같은 금액을 신용으로 빌려 더 샀다고 하겠습니다.","start":186.05,"end":191.656},{"n":43,"part":"선택 2","text":"그 뒤 지수가 22% 하락하자, 빚까지 넣은 돈은 절반 가까이 줄었을 것입니다.","start":192.036,"end":197.525},{"n":44,"part":"선택 2","text":"빚이 없었다면, 같은 때 줄어든 돈은 21%였을 겁니다.","start":197.905,"end":201.912},{"n":45,"part":"선택 2","text":"빌린 돈 대비 주식 값도 151%까지 내려갔을 것입니다.","start":202.292,"end":206.152},{"n":46,"part":"선택 2","text":"증권사가 강제로 파는 140% 선의 바로 위죠.","start":206.532,"end":209.882},{"n":47,"part":"선택 2","text":"물론 지수가 오르기만 하면, 빌린 만큼 더 벌 수 있습니다.","start":210.262,"end":213.902},{"n":48,"part":"선택 2","text":"하지만 빚은 떨어질 때 손실을 두 배로 키우고, 이자는 하루도 빠짐없이 붙습니다.","start":214.282,"end":219.149},{"n":49,"part":"선택 2","text":"1990년 이후 하락장 네 번을 보면, 첫날 빚내 산 지수는 두 번 강제로 팔렸습니다.","start":219.529,"end":225.139},{"n":50,"part":"선택 2","text":"그러니 옳은 선택은 정해 둔 돈 안에서만 매수해, 더 떨어져도 버틸 힘을 남기는 것입니다.","start":225.519,"end":231.074},{"n":51,"part":"선택 3","text":"6주 뒤, 지수는 다시 최고가보다 17% 아래로 내려갔습니다.","start":232.074,"end":236.383},{"n":52,"part":"선택 3","text":"이때 코로나 백신으로 유명해진 한 제약사 주식은, 1년도 안 돼 72% 하락해 있었는데요.","start":236.763,"end":242.661},{"n":53,"part":"선택 3","text":"이렇게 싼 가격은 다시 없다며, 지금 사면 몇 배를 번다는 말이 돕니다.","start":243.041,"end":247.285},{"n":54,"part":"선택 3","text":"이 순간 당신은 이 종목은 매수하지 않고, 지수에 그대로 두시겠습니까?","start":247.665,"end":252.159},{"n":55,"part":"선택 3","text":"아니면 지수의 일부를 팔아, 이 종목을 매수하시겠습니까?","start":252.539,"end":256.369},{"n":56,"part":"선택 3","text":"선택해 보세요.","start":256.749,"end":257.689},{"n":57,"part":"선택 3","text":"3, 2, 1.","start":258.069,"end":260.249},{"n":58,"part":"선택 3","text":"이 상황에서는 이 종목은 매수하지 않고 지수에 그대로 두는 것이 옳은 선택입니다.","start":260.629,"end":265.649},{"n":59,"part":"선택 3","text":"그때가 2022년 5월 9일, 그 종목은 모더나였습니다.","start":266.029,"end":270.008},{"n":60,"part":"선택 3","text":"정씨와 똑같이 지수 절반을 팔아 모더나를 샀다면, 그해 말 잠깐 55% 반등했을 것입니다.","start":270.388,"end":276.105},{"n":61,"part":"선택 3","text":"그러나 2025년 말에는 그날보다 78% 아래일 것입니다.","start":276.485,"end":280.705},{"n":62,"part":"선택 3","text":"지수에 두었다면, 가장 나쁠 때도 10% 하락에 그치고 81% 올라 있었을 겁니다.","start":281.085,"end":286.643},{"n":63,"part":"선택 3","text":"물론 넷플릭스처럼, 그날 크게 하락해 있다가 다섯 배 넘게 오른 종목도 있습니다.","start":287.023,"end":291.983},{"n":64,"part":"선택 3","text":"하지만 많이 하락한 종목 가운데 어느 것이 살아날지는, 그날 알 수 없습니다.","start":292.363,"end":297.022},{"n":65,"part":"선택 3","text":"지금 S&P 500 회사 중, 그날 가장 많이 하락해 있던 24곳을 보면 이렇습니다.","start":297.402,"end":302.586},{"n":66,"part":"선택 3","text":"그 가운데 15곳은 그 뒤 2년 안에, 30% 넘게 더 하락한 적이 있었습니다.","start":302.966,"end":308.412},{"n":67,"part":"선택 3","text":"그러니 옳은 선택은 싸 보이는 한 종목보다, 여러 종목이 담긴 지수를 지키는 것입니다.","start":308.792,"end":313.786},{"n":68,"part":"선택 4","text":"석 달 뒤, 지수가 앞서 찍은 바닥보다 17% 반등했습니다.","start":314.786,"end":318.956},{"n":69,"part":"선택 4","text":"방송에선 하락장은 끝났다는 전문가 의견이 이어집니다.","start":319.336,"end":322.772},{"n":70,"part":"선택 4","text":"당신에게는 아직 넣지 않은 현금이 남아 있습니다.","start":323.152,"end":325.779},{"n":71,"part":"선택 4","text":"이 순간 당신은 바닥은 지났다고 보고, 남은 현금을 한 번에 매수하시겠습니까?","start":326.159,"end":330.834},{"n":72,"part":"선택 4","text":"아니면 계획에 적어 둔 다음 가격이 올 때까지 기다리시겠습니까?","start":331.214,"end":335.138},{"n":73,"part":"선택 4","text":"선택해 보세요.","start":335.518,"end":336.458},{"n":74,"part":"선택 4","text":"3, 2, 1.","start":336.838,"end":339.018},{"n":75,"part":"선택 4","text":"이 상황에서는 계획에 적어 둔 다음 가격까지 기다리는 것이 옳은 선택입니다.","start":339.398,"end":344.048},{"n":76,"part":"선택 4","text":"그때가 2022년 8월 12일, 6월 바닥보다 17% 가까이 오른 날이었습니다.","start":344.428,"end":350.028},{"n":77,"part":"선택 4","text":"정씨와 똑같이 현금을 그날 한 번에 넣었다면, 두 달 뒤 바닥에서 16% 줄었을 것입니다.","start":350.408,"end":356.039},{"n":78,"part":"선택 4","text":"계획에 적은 다음 가격, 최고가보다 25% 아래는 9월 30일에 왔습니다.","start":356.419,"end":361.455},{"n":79,"part":"선택 4","text":"그날 값은, 한 번에 넣은 날보다 16% 쌌습니다.","start":361.835,"end":365.335},{"n":80,"part":"선택 4","text":"3년여 뒤, 한 번에 넣은 돈은 68% 늘었을 것이고 기다린 돈은 두 배가 됐을 겁니다.","start":365.715,"end":371.284},{"n":81,"part":"선택 4","text":"물론 그 반등이 진짜 바닥이었다면, 기다리는 동안 더 올라 버렸을 수도 있습니다.","start":371.664,"end":376.572},{"n":82,"part":"선택 4","text":"하지만 하락장의 반등은, 바닥이 끝났다는 뜻이 아닌 경우가 많습니다.","start":376.952,"end":381.529},{"n":83,"part":"선택 4","text":"닷컴 거품 이후 하락장에서 15% 넘게 반등한 열 번 중 여섯 번은, 새 바닥이 왔습니다.","start":381.909,"end":387.916},{"n":84,"part":"선택 4","text":"그러니 옳은 선택은 반등에도 한 번에 넣지 않고, 계획한 다음 가격을 기다리는 것입니다.","start":388.296,"end":393.596},{"n":85,"part":"선택 5","text":"한 달 반 뒤, 지수가 다시 미끄러지며 전에 찍은 바닥 아래로 내려갔습니다.","start":394.596,"end":398.973},{"n":86,"part":"선택 5","text":"최고가보다 24% 아래이고, 물가가 잡히지 않는다는 뉴스에 공포가 다시 커집니다.","start":399.353,"end":404.682},{"n":87,"part":"선택 5","text":"그동안 산 주식도 모두 손실입니다.","start":405.062,"end":407.232},{"n":88,"part":"선택 5","text":"커뮤니티엔 계획대로 사 봐야 소용없다는 글이 넘칩니다.","start":407.612,"end":410.844},{"n":89,"part":"선택 5","text":"이 순간 당신은 생활에 지장 없는 돈인지 확인하고, 계획대로 이어 가시겠습니까?","start":411.224,"end":416.283},{"n":90,"part":"선택 5","text":"아니면 계획이 틀렸다며, 지수를 모두 매도하고 멈추시겠습니까?","start":416.663,"end":420.62},{"n":91,"part":"선택 5","text":"선택해 보세요.","start":421,"end":421.94},{"n":92,"part":"선택 5","text":"3, 2, 1.","start":422.32,"end":424.5},{"n":93,"part":"선택 5","text":"이 상황에서는 생활에 지장 없는지 확인하고 계획대로 이어 가는 것이 옳은 선택입니다.","start":424.88,"end":429.741},{"n":94,"part":"선택 5","text":"그때가 2022년 9월 26일, 지수가 6월 바닥을 다시 깬 날이었습니다.","start":430.121,"end":435.433},{"n":95,"part":"선택 5","text":"정씨와 똑같이 모두 매도하고 멈췄다면, 3년여간 이자로 16% 느는 데 그쳤을 것입니다.","start":435.813,"end":441.601},{"n":96,"part":"선택 5","text":"계획대로 이어 갔다면, 그 뒤 2% 더 하락했다가 96% 올랐을 겁니다.","start":441.981,"end":447.375},{"n":97,"part":"선택 5","text":"물론 바닥을 다시 깨면, 계획 자체가 틀린 것처럼 느껴집니다.","start":447.755,"end":451.524},{"n":98,"part":"선택 5","text":"하지만 계획은 바닥을 맞히려는 게 아니라, 버틸 만큼만 나눠 사려는 것이었습니다.","start":451.904,"end":456.674},{"n":99,"part":"선택 5","text":"같은 하락장들에서 바닥을 다시 깬 세 번 모두, 4년 뒤엔 보유가 더 나았습니다.","start":457.054,"end":462.152},{"n":100,"part":"선택 5","text":"그 돈이 곧 써야 할 돈이라면, 그때는 계획보다 생활을 먼저 지켜야 합니다.","start":462.532,"end":467.257},{"n":101,"part":"선택 5","text":"그러니 옳은 선택은 바닥이 다시 깨져도 여윳돈이라면, 처음 계획을 이어 가는 것입니다.","start":467.637,"end":473.002},{"n":102,"part":"결과","text":"이 테스트에서 당신이 공포에 진 결정은 몇 개였나요?","start":474.002,"end":477.312},{"n":103,"part":"결과","text":"하나도 없었다면 폭락 속에서도 여윳돈으로 계획대로 사는 사람으로, 통과입니다.","start":477.692,"end":482.652},{"n":104,"part":"결과","text":"한두 개였다면 계획은 있지만 공포나 반등에 가끔 흔들리는 사람으로, 주의입니다.","start":483.032,"end":488.312},{"n":105,"part":"결과","text":"세 개 이상이면 정씨처럼 공포에 사지 못해 손실을 볼 확률이 높은 사람으로, 불통과입니다.","start":488.692,"end":494.434},{"n":106,"part":"정리","text":"이 테스트에서 알 수 있듯이, 비 온 뒤에 땅이 굳는다는 말처럼 폭락 속에서도 계획을 지키며 사는 쪽이 주식으로 부자가 되는 길이라는 것을 알아두세요.","start":495.434,"end":504.801},{"n":107,"part":"정리","text":"그럼 모두 성공 투자 하시기 바랍니다.","start":505.181,"end":507.391},{"n":108,"part":"정리","text":"시청해주셔서 감사합니다.","start":507.771,"end":509.301}],"subs":[[0.2,5.181,"폭락장에서 계좌를 가르는 건 공포를 느끼느냐가 아니라,\n계획이 있느냐입니다."],[5.181,10.272,"정씨도 폭락이 오면 사려고 현금을 남기고,\n매수 계획까지 적어 둔 사람인데요."],[10.272,14.255,"그런데 막상 폭락이 오자, 계획 대신 공포를 따랐습니다."],[14.255,18.659,"그 결과 4년 뒤, 1억 원은 3천5백만 원 남짓만 남았습니다."],[18.659,23.873,"지수는 그 폭락을 딛고, 같은 4년 동안 40% 넘게 올랐는데 말이죠."],[23.873,29.483,"공포 앞에서 정씨가 내린 다섯 번의 결정을,\n당신이라면 어떻게 했을지 골라 보세요."],[29.483,32.818,"공포에 진 결정이 몇 개인지 세어 두시면 됩니다."],[32.818,37.834,"공포가 처음 덮친 그날, 정씨의 자리에 당신이 서 보겠습니다."],[37.834,41.495,"당신에게는 5년 넘게 쓸 일이 없는 1억 원이 있습니다."],[41.495,47.013,"지수가 사상 최고가이던 날,\n당신은 6천만 원을 S&P 500 지수에 넣었습니다."],[47.013,51.433,"나머지 4천만 원은, 폭락이 오면 사려고 현금으로 남겼는데요."],[51.433,55.27,"얼마나 떨어지면 얼마씩 살지, 매수 계획도 적어 두었습니다."],[55.27,60.309,"두 달 뒤, 전쟁 소식에 지수가 최고가보다 12% 넘게 하락했습니다."],[60.309,65.161,"미국 주식이 얼마나 출렁일지 보여 주는 지수를,\n공포 지수라고 부릅니다."],[65.161,69.709,"그 공포 지수가, 평소의 두 배 가까운 36까지 치솟았습니다."],[69.709,75.187,"넣은 6천만 원은 5천2백만 원대로 줄었고,\n뉴스엔 더 떨어진다는 전망뿐입니다."],[75.187,81.29,"이 순간 당신은 더 잃기 전에 모두 매도하고,\n공포가 가라앉으면 다시 매수하시겠습니까?"],[81.29,85.369,"아니면 매도하지 않고, 적어 둔 매수 계획을 꺼내 보시겠습니까?"],[85.369,86.689,"선택해 보세요."],[86.689,89.249,"3, 2, 1."],[89.249,94.636,"이 상황에서는 매도하지 않고\n적어 둔 매수 계획을 꺼내 보는 것이 옳은 선택입니다."],[94.636,100.391,"그때가 2022년 3월 7일,\n러시아가 우크라이나를 침공한 지 열하루 뒤였습니다."],[100.391,106.146,"정씨와 똑같이 모두 매도하고,\n공포 지수가 20 아래로 내려오자 다시 샀다고 하겠습니다."],[106.146,111.894,"그사이 지수가 9% 올라,\n같은 돈으로 살 수 있는 주식은 8% 줄었을 것입니다."],[111.894,116.754,"그래서 2025년 말까지도 45% 오르는 데 그쳤을 것입니다."],[116.754,120.944,"매도하지 않았다면, 같은 때 72% 올랐을 겁니다."],[120.944,125.144,"물론 그날 팔면, 그 뒤에 이어진 하락은 잠시 피할 수 있습니다."],[125.144,129.903,"하지만 공포가 가라앉았다고 느낄 때는, 대개 값이 이미 올라 있습니다."],[129.903,135.361,"1990년 이후 공포 지수가 35를 넘은\n열일곱 번 중 열여섯 번이 그랬습니다."],[135.361,137.569,"계획은 예를 들어 이렇습니다."],[137.569,144.952,"최고가보다 10%, 15%, 20%,\n25% 내려갈 때마다 현금의 4분의 1씩 삽니다."],[144.952,150.872,"그러니 옳은 선택은 공포가 클수록 팔지 않고,\n적어 둔 매수 계획을 꺼내는 것입니다."],[150.872,155.129,"3주 뒤, 공포 지수가 평소 수준인 20 아래로 내려왔는데요."],[155.129,158.337,"지수도 그사이 9% 가까이 반등했습니다."],[158.337,163.117,"커뮤니티엔 빚을 내서 산 사람이\n벌써 크게 벌었다는 인증 글이 올라옵니다."],[163.117,167.688,"증권사 앱에는, 신용으로 돈을 빌려 더 살 수 있다는 안내가 뜹니다."],[167.688,172.984,"이 순간 당신은 빚 없이,\n투자용으로 정해 둔 돈 안에서만 매수하시겠습니까?"],[172.984,176.94,"아니면 신용으로 돈을 빌려, 더 많이 매수하시겠습니까?"],[176.94,178.26,"선택해 보세요."],[178.26,180.82,"3, 2, 1."],[180.82,186.05,"이 상황에서는 빚 없이 정해 둔 돈 안에서만\n매수하는 것이 옳은 선택입니다."],[186.05,192.036,"정씨와 똑같이 3월 28일 다시 사면서,\n같은 금액을 신용으로 빌려 더 샀다고 하겠습니다."],[192.036,197.905,"그 뒤 지수가 22% 하락하자,\n빚까지 넣은 돈은 절반 가까이 줄었을 것입니다."],[197.905,202.292,"빚이 없었다면, 같은 때 줄어든 돈은 21%였을 겁니다."],[202.292,206.532,"빌린 돈 대비 주식 값도 151%까지 내려갔을 것입니다."],[206.532,210.262,"증권사가 강제로 파는 140% 선의 바로 위죠."],[210.262,214.282,"물론 지수가 오르기만 하면, 빌린 만큼 더 벌 수 있습니다."],[214.282,219.529,"하지만 빚은 떨어질 때 손실을 두 배로 키우고,\n이자는 하루도 빠짐없이 붙습니다."],[219.529,225.519,"1990년 이후 하락장 네 번을 보면,\n첫날 빚내 산 지수는 두 번 강제로 팔렸습니다."],[225.519,232.074,"그러니 옳은 선택은 정해 둔 돈 안에서만 매수해,\n더 떨어져도 버틸 힘을 남기는 것입니다."],[232.074,236.763,"6주 뒤, 지수는 다시 최고가보다 17% 아래로 내려갔습니다."],[236.763,243.041,"이때 코로나 백신으로 유명해진 한 제약사 주식은,\n1년도 안 돼 72% 하락해 있었는데요."],[243.041,247.665,"이렇게 싼 가격은 다시 없다며, 지금 사면 몇 배를 번다는 말이 돕니다."],[247.665,252.539,"이 순간 당신은 이 종목은 매수하지 않고, 지수에 그대로 두시겠습니까?"],[252.539,256.749,"아니면 지수의 일부를 팔아, 이 종목을 매수하시겠습니까?"],[256.749,258.069,"선택해 보세요."],[258.069,260.629,"3, 2, 1."],[260.629,266.029,"이 상황에서는 이 종목은 매수하지 않고\n지수에 그대로 두는 것이 옳은 선택입니다."],[266.029,270.388,"그때가 2022년 5월 9일, 그 종목은 모더나였습니다."],[270.388,276.485,"정씨와 똑같이 지수 절반을 팔아 모더나를 샀다면,\n그해 말 잠깐 55% 반등했을 것입니다."],[276.485,281.085,"그러나 2025년 말에는 그날보다 78% 아래일 것입니다."],[281.085,287.023,"지수에 두었다면,\n가장 나쁠 때도 10% 하락에 그치고 81% 올라 있었을 겁니다."],[287.023,292.363,"물론 넷플릭스처럼,\n그날 크게 하락해 있다가 다섯 배 넘게 오른 종목도 있습니다."],[292.363,297.402,"하지만 많이 하락한 종목 가운데 어느 것이 살아날지는,\n그날 알 수 없습니다."],[297.402,302.966,"지금 S&P 500 회사 중,\n그날 가장 많이 하락해 있던 24곳을 보면 이렇습니다."],[302.966,308.792,"그 가운데 15곳은 그 뒤 2년 안에,\n30% 넘게 더 하락한 적이 있었습니다."],[308.792,314.786,"그러니 옳은 선택은 싸 보이는 한 종목보다,\n여러 종목이 담긴 지수를 지키는 것입니다."],[314.786,319.336,"석 달 뒤, 지수가 앞서 찍은 바닥보다 17% 반등했습니다."],[319.336,323.152,"방송에선 하락장은 끝났다는 전문가 의견이 이어집니다."],[323.152,326.159,"당신에게는 아직 넣지 않은 현금이 남아 있습니다."],[326.159,331.214,"이 순간 당신은 바닥은 지났다고 보고,\n남은 현금을 한 번에 매수하시겠습니까?"],[331.214,335.518,"아니면 계획에 적어 둔 다음 가격이 올 때까지 기다리시겠습니까?"],[335.518,336.838,"선택해 보세요."],[336.838,339.398,"3, 2, 1."],[339.398,344.428,"이 상황에서는 계획에 적어 둔 다음 가격까지\n기다리는 것이 옳은 선택입니다."],[344.428,350.408,"그때가 2022년 8월 12일,\n6월 바닥보다 17% 가까이 오른 날이었습니다."],[350.408,356.419,"정씨와 똑같이 현금을 그날 한 번에 넣었다면,\n두 달 뒤 바닥에서 16% 줄었을 것입니다."],[356.419,361.835,"계획에 적은 다음 가격, 최고가보다 25% 아래는 9월 30일에 왔습니다."],[361.835,365.715,"그날 값은, 한 번에 넣은 날보다 16% 쌌습니다."],[365.715,371.664,"3년여 뒤, 한 번에 넣은 돈은 68% 늘었을 것이고\n기다린 돈은 두 배가 됐을 겁니다."],[371.664,376.952,"물론 그 반등이 진짜 바닥이었다면,\n기다리는 동안 더 올라 버렸을 수도 있습니다."],[376.952,381.909,"하지만 하락장의 반등은, 바닥이 끝났다는 뜻이 아닌 경우가 많습니다."],[381.909,388.296,"닷컴 거품 이후 하락장에서 15% 넘게 반등한 열 번 중 여섯 번은,\n새 바닥이 왔습니다."],[388.296,394.596,"그러니 옳은 선택은 반등에도 한 번에 넣지 않고,\n계획한 다음 가격을 기다리는 것입니다."],[394.596,399.353,"한 달 반 뒤, 지수가 다시 미끄러지며\n전에 찍은 바닥 아래로 내려갔습니다."],[399.353,405.062,"최고가보다 24% 아래이고,\n물가가 잡히지 않는다는 뉴스에 공포가 다시 커집니다."],[405.062,407.612,"그동안 산 주식도 모두 손실입니다."],[407.612,411.224,"커뮤니티엔 계획대로 사 봐야 소용없다는 글이 넘칩니다."],[411.224,416.663,"이 순간 당신은 생활에 지장 없는 돈인지 확인하고,\n계획대로 이어 가시겠습니까?"],[416.663,421,"아니면 계획이 틀렸다며, 지수를 모두 매도하고 멈추시겠습니까?"],[421,422.32,"선택해 보세요."],[422.32,424.88,"3, 2, 1."],[424.88,430.121,"이 상황에서는 생활에 지장 없는지 확인하고\n계획대로 이어 가는 것이 옳은 선택입니다."],[430.121,435.813,"그때가 2022년 9월 26일, 지수가 6월 바닥을 다시 깬 날이었습니다."],[435.813,441.981,"정씨와 똑같이 모두 매도하고 멈췄다면,\n3년여간 이자로 16% 느는 데 그쳤을 것입니다."],[441.981,447.755,"계획대로 이어 갔다면, 그 뒤 2% 더 하락했다가 96% 올랐을 겁니다."],[447.755,451.904,"물론 바닥을 다시 깨면, 계획 자체가 틀린 것처럼 느껴집니다."],[451.904,457.054,"하지만 계획은 바닥을 맞히려는 게 아니라,\n버틸 만큼만 나눠 사려는 것이었습니다."],[457.054,462.532,"같은 하락장들에서 바닥을 다시 깬 세 번 모두,\n4년 뒤엔 보유가 더 나았습니다."],[462.532,467.637,"그 돈이 곧 써야 할 돈이라면,\n그때는 계획보다 생활을 먼저 지켜야 합니다."],[467.637,474.002,"그러니 옳은 선택은 바닥이 다시 깨져도 여윳돈이라면,\n처음 계획을 이어 가는 것입니다."],[474.002,477.692,"이 테스트에서 당신이 공포에 진 결정은 몇 개였나요?"],[477.692,483.032,"하나도 없었다면 폭락 속에서도 여윳돈으로 계획대로 사는 사람으로,\n통과입니다."],[483.032,488.692,"한두 개였다면 계획은 있지만 공포나 반등에 가끔 흔들리는 사람으로,\n주의입니다."],[488.692,495.434,"세 개 이상이면 정씨처럼 공포에\n사지 못해 손실을 볼 확률이 높은 사람으로, 불통과입니다."],[495.434,501.708,"이 테스트에서 알 수 있듯이,\n비 온 뒤에 땅이 굳는다는 말처럼 폭락 속에서도 계획을 지키며"],[501.708,505.181,"사는 쪽이 주식으로 부자가 되는 길이라는 것을 알아두세요."],[505.181,507.771,"그럼 모두 성공 투자 하시기 바랍니다."],[507.771,509.701,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script src="series.js"></script>
+<script>
+(function () {
+"use strict";
+// 화면 영어 허용 목록 — 한글은 자막과 보기 줄(data-words)만 · 나머지는 숫자·기호·아래 낱말
+const SR = window.SERIES;
+const WORDS = ["A", "B", "S&P", "VIX", "FEAR", "PLAN", "BUY", "SELL", "CASH", "INDEX", "JEONG", "HIGH", "NEWS", "LOAN", "CALL", "MRNA", "NFLX",
+  "END", "NEW", "LOW", "BOTTOM", "WAIT", "ALL", "IN", "HOLD", "STOP", "LIFE", "PASS", "CAUTION", "FAIL", "WAR", "DAYS", "DAY", "SHARES", "RALLY", "Y", "AVG", "BEAR", "NO",
+  ...SR.syms24.map(x => x[0])];
+document.fonts && document.fonts.load('900 60px "Noto Serif KR"', "가A0").catch(() => {});
+// 도입 36.8초 (35초 넘음) — 대본 v17 은 대본 평가판을 통과해 내레이션까지 만든 대본이라 도입을 그대로 씀 (render.mjs v1.22 introOk = 경고로만)
+K.init(window.EP, { chip: false, allowWords: WORDS, introPart: "도입", introOk: true });
+const { el, pop } = K;
+const tl = K.tl;
+const out = (n, at) => K.out(n, at, { y: 0 });
+const { sm, lin, q12, rnd } = Puppet.u;
+const S = n => K.S(n), E = n => K.E(n), W = (n, w, k) => K.W(n, w, k);
+const until = n => S(n) - 0.05, ch = n => S(n) - 0.65;
+// 문장 번호는 글로 찾음 (대본이 바뀌어도 번호를 손으로 고치지 않게) — 한 문장에만 있는 글
+const SENT = window.EP.sent;
+const N = frag => { const m = SENT.filter(s => s.text.includes(frag)); if (m.length !== 1) throw new Error(`문장 찾기 '${frag}' → ${m.length}개`); return m[0].n; };
+const txt = n => SENT[n - 1].text;
+// 색: 어두운 바탕 위(밝은 색) · 종이 위(잉크 색)
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", WH = "#F4F6FA";
+const NAVY = "#1B2A4A", CRIM = "#B3202A", TEAL = "#0E8F7E", AMB = "#A86F00", LINE_Y = "#D29A00", IDX = "#1F3A68";
+const DW = `data-words="보기 A·B — 사용자 지시 2026-10-26 'A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고'"`;
+const C1_SOLD_LABEL = "+58%";   // 대본 문장 25 '58%' (v1.1 — longform_ep4 v1.1 sold_to_end 0.5824 · series.js c1_sold_label)
+
+/* ═════════════ 배치 표 v1.0 — 화면 1920×1080 · 칸 = [x, y, 가로, 세로] · 자막 띠(y 884 아래)에는 물건을 두지 않음 ═════════════
+   ① 늘 보이는 것: 진행 점 PROG(왼쪽 위) · 공포 지수 계기 GAUGE(오른쪽 위 — 장면 물건은 이 칸을 비워 둠)
+   ② 수첩 장면(보기·계획·반론·결과) = 공책 NOTE(가운데-왼쪽) + 주인공 HERO_R(오른쪽, 발 y 846) — 공책 안 칸: 머리 줄 N_TOP · 카운트 COUNT ·
+      보기 두 줄 N_A·N_B 또는 본문 N_BODY 또는 결과 줄 R1~R3 + 도장 STAMP
+   ③ 이야기 장면 = 바탕 그림 + 왼쪽 메모지 MEMO(안 칸 M_TOP·M_MID·M_LOW 또는 M_BIG) + 주인공 HERO_S · 상대 MATE_S · 무리 CROWD_S (모두 발 y 846)
+   ④ 그래프 장면 = 모눈종이 CHART(왼쪽) + 오른쪽 꼬리표 줄 SIDE(계기 아래)
+   같은 칸에서 차례로 바뀌는 것은 앞 것이 0.2초 먼저 빠짐. */
+const LAY = window.LAYOUT = {
+  PROG: [96, 40, 300, 48], GAUGE: [1500, 30, 380, 240],
+  NOTE: [96, 112, 1200, 756],
+  N_TOP: [250, 180, 820, 100], COUNT: [1104, 150, 170, 160],
+  N_A: [170, 318, 1090, 236], N_B: [170, 572, 1090, 236], N_BODY: [170, 300, 1090, 540],
+  R1: [170, 320, 640, 150], R2: [170, 495, 640, 150], R3: [170, 670, 640, 150], STAMP: [830, 380, 440, 360],
+  HERO_R: [1420, 330, 400, 540],
+  MEMO: [110, 130, 780, 700], M_TOP: [150, 168, 700, 100], M_MID: [150, 288, 700, 270], M_LOW: [150, 572, 700, 236], M_BIG: [150, 288, 700, 520],
+  HERO_S: [1080, 330, 360, 540], MATE_S: [1450, 350, 380, 520], CROWD_S: [1380, 540, 500, 320],
+  CHART: [96, 112, 1330, 756], SIDE: [1470, 300, 410, 560],
+  HERO_C: [760, 330, 400, 540],
+};
+window.LAYOUT_ALLOW = [["NOTE", "N_TOP"], ["NOTE", "COUNT"], ["NOTE", "N_A"], ["NOTE", "N_B"], ["NOTE", "N_BODY"],
+  ["NOTE", "R1"], ["NOTE", "R2"], ["NOTE", "R3"], ["NOTE", "STAMP"],
+  ["MEMO", "M_TOP"], ["MEMO", "M_MID"], ["MEMO", "M_LOW"], ["MEMO", "M_BIG"]];   // 일부러 겹치는 짝 = 종이 위에 쓴 것
+// 종이 인형 자리 (월드 x = (화면 가운데 x − 960) ÷ 84 · 바닥 y −0.3 = 화면 846px)
+const PS = { HERO_R: { at: [7.86, -0.3, 0.6] }, HERO_S: { at: [3.57, -0.3, 0.6] }, MATE_S: { at: [8.0, -0.3, 0.3] }, CROWD_S: { at: [8.1, -0.3, -0.2] }, HERO_C: { at: [0, -0.3, 0.6] } };
+
+// ---------- 종이인형 무대 — 4편 바탕 3장 + 책상(코드) · 4편 주인공 새 자세 2장 · 1편 주인공·사람 그림 ----------
+const P4 = "../../../stock/source/gongpo-test-2026-11/puppet/", P1 = "../../ppalli-test-2026-11/puppet/";
+const F = (file, kind) => ({ f: file, kind });
+function drawDesk(g, w, h) {                       // 어두운 호두나무 책상 (나뭇결 · 판 이음 · 가장자리 어둡게)
+  const gr = g.createLinearGradient(0, 0, 0, h); gr.addColorStop(0, "#402C1F"); gr.addColorStop(1, "#22150D");
+  g.fillStyle = gr; g.fillRect(0, 0, w, h);
+  for (let i = 0; i < 160; i++) {
+    const y0 = rnd(i, 1) * h, dark = rnd(i, 2) > 0.45;
+    g.strokeStyle = dark ? `rgba(18,9,4,${0.10 + 0.16 * rnd(i, 3)})` : `rgba(120,84,56,${0.06 + 0.10 * rnd(i, 3)})`;
+    g.lineWidth = 1 + 4 * rnd(i, 4); g.beginPath();
+    for (let x = 0; x <= w; x += 48) g.lineTo(x, y0 + 7 * Math.sin(x / (160 + 140 * rnd(i, 5)) + i) + 3 * Math.sin(x / 37 + i * 2));
+    g.stroke();
+  }
+  g.fillStyle = "rgba(0,0,0,.28)"; [0.27, 0.58, 0.86].forEach(k => g.fillRect(0, k * h, w, 3));
+  const v = g.createRadialGradient(w * 0.42, h * 0.38, h * 0.12, w * 0.5, h * 0.5, h * 0.95);
+  v.addColorStop(0, "rgba(255,214,160,.12)"); v.addColorStop(1, "rgba(0,0,0,.5)"); g.fillStyle = v; g.fillRect(0, 0, w, h);
+}
+const ST = Puppet.stage({ dir: P4, files: {
+  DESK: { kind: "bg", draw: drawDesk, cw: 1536, ch: 1024 },
+  BREAK: F("S-BREAKROOM.jpg", "bg"), CLINIC: F("S-CLINIC.jpg", "bg"), PARK: F("S-PARK.jpg", "bg"),
+  H_WRITE: F("HERO-WRITE.png", "sq"), H_ENDURE: F("HERO-ENDURE.png", "sq"),
+  H_PHONE: F(P1 + "HERO-PHONE.png", "sq"), H_THINK: F(P1 + "HERO-THINK.png", "sq"), H_SHOCK: F(P1 + "HERO-SHOCK.png", "sq"),
+  H_BOW: F(P1 + "HERO-BOW.png", "sq"),
+  W_COL: F(P1 + "W-COLLEAGUE.png", "sq"), W_FRIEND: F(P1 + "W-FRIEND.png", "sq"), W_CROWD: F(P1 + "W-CROWD.png", "cut") } });
+console.info("[STAGE] bg=DESK(코드),BREAK,CLINIC,PARK hero=WRITE,ENDURE(4편)+PHONE,THINK,SHOCK,BOW(1편) people=COL,FRIEND,CROWD");
+el(`<div class="vig"></div>`);
+const BGO = { DESK: { v: 0.5, y: 3.0 }, BREAK: { v: 0.66, y: 1.2 }, CLINIC: { v: 0.64, y: 1.2 }, PARK: { v: 0.8, y: 1.0 } };
+const CAM0 = { cam: () => ({ pos: [0, 3.6, 24], look: [0, 3.34, 0] }) };
+const act = (st, key, slot, h, o) => st.actor(key, Object.assign({ h, slot }, PS[slot], o || {}));
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const enter = (a, t, at, d) => { const k = lin(t, at, at + (d || 0.4)); a.op = t < at ? 0 : k; const s2 = 0.9 + 0.1 * sm(k); a.g.scale.set(s2, s2, 1); return a; };
+const showOnly = (list, k) => list.forEach((x, i) => { if (i !== k) x.op = 0; });
+const pick = (t, marks) => { let k = 0; marks.forEach((m, i) => { if (t >= m) k = i + 1; }); return k; };   // 시각 목록 → 몇 번째 자세
+function poses(st, a, keys, slot, marks, h) {    // 같은 자리에서 자세만 바뀌는 주인공 (marks = 바뀌는 시각)
+  let A = [];
+  const prev = st.buildFn;
+  st.buildFn = s => { prev(s); A = keys.map(k => act(s, k, slot, h || 5.6).ro(5)); };
+  return t => { A.forEach(x => enter(x, t, a + 0.1)); const k = pick(t, marks); showOnly(A, k); idle(A[k], t); };
+}
+function stage(a, b, bgKey, build, o) {
+  o = o || {};
+  const sc = K.scene(a, b, o.keep ? { keep: true } : undefined);
+  const st = ST.set(a, b, s => { s.BG = s.bg(bgKey, BGO[bgKey]); if (build) build(s); }, CAM0);
+  return { sc, st };
+}
+
+// ---------- 칸 상자 (DOM) ----------
+function box(sc, name, inner, css) {
+  const [x, y, w, h] = LAY[name];
+  const d = el(`<div class="a" data-slot="${name}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${css || ""}">${inner || ""}</div>`, sc);
+  d._x = x; d._y = y; d._w = w; d._h = h;
+  return d;
+}
+const CEN = "display:flex;align-items:center;justify-content:center;gap:24px;";
+const COL = "display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:18px;";
+const boxC = (sc, name, inner, at, css) => { const d = box(sc, name, inner, CEN + (css || "")); if (at != null) pop(d, at, { from: { y: 0, scale: 0.94 } }); return d; };
+function seq(sc, slot, steps, css) {               // 같은 칸에서 차례로 — 다음 것이 나오기 0.2초 전에 앞 것이 빠짐
+  return steps.map(([at, html], i) => { const d = boxC(sc, slot, html, at, css); if (i + 1 < steps.length) out(d, steps[i + 1][0] - 0.2); return d; });
+}
+const PB = { "P-GAUGE": [0.125, 0.29, 0.875, 0.71], "P-PLANNOTE": [0.255, 0.149, 0.744, 0.85], "P-DEBTBALL": [0.175, 0.362, 0.825, 0.637], "P-VACCINE": [0.175, 0.254, 0.825, 0.746] };   // 알파 상자 (PIL — 불투명 40 넘는 곳)
+function prop(name, h, extra, maxW) {
+  const [x0, y0, x1, y1] = PB[name];
+  let k = h / ((y1 - y0) * 1024), w = Math.round((x1 - x0) * 1024 * k);
+  if (maxW && w > maxW) { k *= maxW / w; w = maxW; h = Math.round((y1 - y0) * 1024 * k); }
+  const S0 = Math.round(1024 * k);
+  return `<div style="position:relative;flex:0 0 auto;width:${w}px;height:${h}px;overflow:hidden"><img src="${P4}${name}.png" alt="" style="position:absolute;left:${-Math.round(x0 * 1024 * k)}px;top:${-Math.round(y0 * 1024 * k)}px;width:${S0}px;height:${S0}px;max-width:none;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))">${extra || ""}</div>`;
+}
+const crossSvg = s => `<svg viewBox="0 0 120 120" width="${s}" height="${s}" style="position:absolute;right:0;bottom:0" aria-hidden="true"><path d="M22 22 L98 98 M98 22 L22 98" stroke="${CRIM}" stroke-width="15" stroke-linecap="round"/></svg>`;
+const ink = (t, c, s, x) => `<div class="w9 nw" style="font-size:${s || 100}px;line-height:1;color:${c || NAVY};${x || ""}">${t}</div>`;
+const SANS = t => String(t).replace(/[✓✕]/g, m => `<span style="font-family:'Noto Sans KR',sans-serif">${m}</span>`);   // 명조체의 ✓ 는 √ 처럼 보임 → 고딕
+const inkS = (t, c, s, x) => `<div class="serif w9 nw" style="font-size:${s || 100}px;line-height:1.05;color:${c || NAVY};${x || ""}">${SANS(t)}</div>`;
+const row = (items, gap) => `<div style="display:flex;align-items:center;justify-content:center;gap:${gap || 36}px">${items.join("")}</div>`;
+const colm = (items, gap) => `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:${gap || 26}px">${items.join("")}</div>`;
+const lab = (t, c, x) => `<div class="lab" style="border-left-color:${c || NAVY};color:${c || NAVY};${x || ""}">${t}</div>`;
+const won = v => "₩" + Math.round(v).toLocaleString("en-US");
+const pct = (v, d) => (v >= 0 ? "+" : "−") + Math.abs(v * 100).toFixed(d || 0) + "%";
+const ymd = d => d.replace(/-/g, ".");
+const valOn = (arr, d) => { let v = arr[0][1]; for (const [dd, vv] of arr) { if (dd > d) break; v = vv; } return v; };
+
+// ---------- 그래프 (모눈종이 · 남색 지수 · 빨간 오답 · 노란 점선 계획 가격 · 청록 BUY 도장) ----------
+function lineIn(g, pts, color, at, dur, w, dash) {
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${p[0]} ${p[1]}`).join(" ");
+  const s = el(`<svg class="a" viewBox="${g._x} ${g._y} ${g._w} ${g._h}" width="${g._w}" height="${g._h}" style="left:0;top:0;overflow:visible" aria-hidden="true"><path d="${d}" fill="none" stroke="${color}" stroke-width="${w || 9}" stroke-linecap="round" stroke-linejoin="round" ${dash ? `stroke-dasharray="${dash}"` : 'pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"'}/></svg>`, g);
+  if (!dash) tl.to(s.querySelector("path"), { attr: { "stroke-dashoffset": 0 }, duration: dur || 1.2, ease: "power1.inOut" }, at);
+  else pop(s, at, { from: { y: 0, scale: 1 } });
+  return s;
+}
+const inBox = (g, html, x, y, at, from) => { const n = el(html, g); n.style.position = "absolute"; n.style.left = (x - g._x) + "px"; n.style.top = (y - g._y) + "px"; if (at != null) pop(n, at, from || { from: { y: 0, scale: 0.9 } }); return n; };
+function plot(g, d0, d1, lo, hi, pad) {
+  pad = Object.assign({ l: 120, t: 64, r: 90, b: 120 }, pad);
+  const area = [g._x + pad.l, g._y + pad.t, g._w - pad.l - pad.r, g._h - pad.t - pad.b];
+  const t0 = Date.parse(d0), t1 = Date.parse(d1);
+  const X = d => +(area[0] + area[2] * (Date.parse(d) - t0) / (t1 - t0)).toFixed(1);
+  const Yv = v => +(area[1] + area[3] * (1 - (v - lo) / (hi - lo))).toFixed(1);
+  const P = {
+    area, X, Y: Yv,
+    line: (rows, col, at, dur, w) => lineIn(g, rows.map(([d, v]) => [X(d), Yv(v)]), col, at, dur, w),
+    hline: (v, col, at, w, dash) => lineIn(g, [[area[0], Yv(v)], [area[0] + area[2], Yv(v)]], col, at, 0.3, w || 5, dash || "18 12"),
+    dot: (d, v, col, at, s) => inBox(g, `<div class="a" style="width:${s || 30}px;height:${s || 30}px;border-radius:50%;background:${col};box-shadow:0 0 0 6px rgba(246,239,221,.9)"></div>`, X(d) - (s || 30) / 2, Yv(v) - (s || 30) / 2, at),
+    // 꼬리표: where = up(점 위) · down(점 아래) · left(점 왼쪽) · right(점 오른쪽)
+    tag: (html, d, v, at, where, gap) => {
+      const x = X(d), y = Yv(v), gp = gap == null ? 26 : gap;
+      const css = { up: "transform:translate(-50%,-100%)", down: "transform:translate(-50%,0)", left: "transform:translate(-100%,-50%)", right: "transform:translate(0,-50%)" }[where || "up"];
+      const n = el(`<div class="a" style="${css}">${html}</div>`, g);
+      n.style.left = (x - g._x + (where === "left" ? -gp : where === "right" ? gp : 0)) + "px";
+      n.style.top = (y - g._y + (where === "up" ? -gp : where === "down" ? gp : 0)) + "px";
+      if (at != null) pop(n, at, { from: { opacity: 0, scale: 0.9, y: 0 } });
+      return n;
+    },
+    // 떨어진 꼬리표: 빈 곳(tx 날짜, ty 값)에 글을 두고 점까지 점선
+    callout: (html, d, v, tx, ty, at, col) => {
+      lineIn(g, [[X(d), Yv(v)], [X(tx), Yv(ty)]], col || NAVY, at, 0.3, 4, "10 8");
+      return inBox(g, `<div class="a" style="transform:translate(-50%,-50%);padding:6px 14px;border-radius:10px;background:rgba(243,235,214,.96)">${html}</div>`, X(tx), Yv(ty), at);
+    },
+    axis: (labels, at) => labels.forEach(([d, t2, al]) => inBox(g, `<div class="a w7 nw" style="font-size:38px;color:#5A6378;${al === "r" ? "transform:translateX(-100%)" : al === "c" ? "transform:translateX(-50%)" : ""}">${t2}</div>`, X(d), area[1] + area[3] + 26, at)),
+    planLevels: (at, levels, labelSide) => (levels || SR.plan_levels).forEach((lv, i) => {
+      if (lv < lo || lv > hi) return;
+      P.hline(lv, LINE_Y, at + i * 0.08, 4, "14 12");
+      inBox(g, `<div class="a w9 nw" style="font-size:36px;color:${AMB};transform:translate(-100%,-50%)">${pct(lv - 1)}</div>`, area[0] - 12, Yv(lv), at + i * 0.08);
+    }),
+  };
+  return P;
+}
+const fmtStp = t2 => `<div class="bstp" style="transform:rotate(-8deg)">${t2}</div>`;
+function chartScene(a, b) {                        // 모눈종이 + 오른쪽 꼬리표 줄 (책상 위)
+  const { sc } = stage(a, b, "DESK", null);
+  const g = box(sc, "CHART", `<div class="graph"></div>`); pop(g, a + 0.05, { from: { y: 0, scale: 0.98 } });
+  const side = box(sc, "SIDE", "", COL); pop(side, a + 0.1, { from: { y: 0 } });
+  const add = (html, at) => pop(el(html, side), at, { from: { opacity: 0, x: 30, y: 0 } });
+  return { sc, g, side, add };
+}
+
+// ---------- 공책 ----------
+const RINGS = `<svg class="rings" viewBox="0 0 1120 46" preserveAspectRatio="none" aria-hidden="true">${Array.from({ length: 18 }, (_, i) => { const x = 22 + i * 63.5; return `<circle cx="${x}" cy="32" r="8" fill="#3A3226"/><path d="M${x - 9} 31 C${x - 9} 4 ${x + 9} 4 ${x + 9} 31" fill="none" stroke="#9AA0AA" stroke-width="6" stroke-linecap="round"/>`; }).join("")}</svg>`;
+function notePage(sc, at) { const n = box(sc, "NOTE", `<div class="page">${RINGS}</div>`); pop(n, at, { from: { y: 0, scale: 0.98 } }); return n; }
+const optText = n => txt(n).replace(/^이 순간 당신은\s*/, "").replace(/^아니면\s*/, "");
+const LET = ["A", "B"];
+function optLine(sc, n, j, slot, at) {             // ☐ A 질문 그대로 (명조체 · 남색 잉크)
+  const t2 = optText(n), fs = t2.length <= 22 ? 58 : t2.length <= 30 ? 54 : 50;
+  const [x, y, w, h] = LAY[slot];
+  const c = el(`<div class="ck serif" data-slot="${slot}" ${DW} style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><div class="bx"><svg viewBox="0 0 112 112" aria-hidden="true"><path d="M14 58 L44 88 L104 8" fill="none" stroke="${TEAL}" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg></div><div class="L">${LET[j]}</div><div class="T" style="font-size:${fs}px">${t2}</div></div>`, sc);
+  if (at != null) tl.fromTo(c, { opacity: 0, x: -14 }, { opacity: 1, x: 0, duration: 0.45, ease: "power3.out" }, at);
+  return c;
+}
+function markLine(c, ok, at) {
+  if (ok) {
+    tl.to(c.querySelector(".bx path"), { attr: { "stroke-dashoffset": 0 }, duration: 0.45, ease: "power2.out" }, at);
+    tl.to(c.querySelector(".bx"), { borderColor: TEAL, duration: 0.25 }, at);
+  } else {
+    tl.fromTo(c.querySelector(".T"), { "--sk": 0 }, { "--sk": 1, duration: 0.3, ease: "none", immediateRender: false }, at);
+    tl.to(c, { opacity: 0.62, duration: 0.3 }, at + 0.25);
+  }
+}
+const COUNT_HTML = d => `<div class="w9 nw" style="width:150px;height:150px;border-radius:50%;border:8px solid ${Y};color:${Y};background:rgba(10,16,30,.92);font-size:100px;line-height:134px;text-align:center;box-sizing:border-box;box-shadow:0 18px 40px -14px rgba(0,0,0,.8)">${d}</div>`;
+function countdown(sc, cn) {                       // '3, 2, 1.' = '삼.|이.|일.' 세 조각 + 쉼 0.6초 (tts_narration v1.18), 짧은 문장 ×1.05 → 조각 i 시작 = c0 + i·(길이 + 0.6÷1.05)/3
+  const c0 = S(cn), cdur = Math.max(0.6, E(cn) - c0), BEAT = 0.6 / 1.05, step = (cdur + BEAT) / 3;
+  ["3", "2", "1"].forEach((d, i) => {
+    const t0 = c0 + step * i - 0.05, t1 = i < 2 ? c0 + step * (i + 1) - 0.05 : E(cn) + 0.15;
+    const nd = box(sc, "COUNT", COUNT_HTML(d), CEN);
+    tl.fromTo(nd, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "none" }, t0);
+    tl.fromTo(nd.firstElementChild, { scale: 0.5 }, { scale: 1, duration: 0.22, ease: "back.out(2)" }, t0);
+    tl.to(nd, { opacity: 0, duration: 0.08, ease: "none" }, t1 - 0.1);
+  });
+  return c0 + step + 0.25;                          // still 시각 ('2' 가 보일 때)
+}
+function noteBody(sc, steps, scale) {              // 공책 본문 칸 — 문장마다 안이 바뀜 (쌓지 않음)
+  steps.forEach(([at, html, k], i) => {
+    const d = box(sc, "N_BODY", `<div style="transform:scale(${k || scale || 1});transform-origin:50% 50%">${html}</div>`, CEN);
+    pop(d, at, { from: { y: 0, scale: 0.96 } });
+    if (i + 1 < steps.length) out(d, steps[i + 1][0] - 0.2);
+  });
+}
+
+// ---------- 메모지 (이야기 장면) ----------
+function memo(sc, at) { const m = box(sc, "MEMO", `<div class="memo"><div class="tape"></div></div>`); pop(m, at, { from: { y: 0, scale: 0.96 } }); return m; }
+function mini(sc, rows, at, o) {                   // 메모지 아래 칸 작은 그래프 (o: lo, hi, col, dur, marks [[날짜, 색, 시각]], hl 기준선, dates [왼쪽, 오른쪽 글])
+  const g = box(sc, o.slot || "M_LOW", "", ""); pop(g, at, { from: { y: 0, scale: 0.97 } });
+  const P = plot(g, rows[0][0], rows[rows.length - 1][0], o.lo, o.hi, { l: 40, t: 22, r: 40, b: 70 });
+  if (o.hl != null) P.hline(o.hl, LINE_Y, at + 0.05, 4, "14 10");
+  P.line(rows, o.col || IDX, at + 0.1, o.dur || 1.2, 8);
+  (o.marks || []).forEach(([d, c, t2]) => P.dot(d, valOn(rows, d), c, t2, 26));
+  if (o.dates) { inBox(g, `<div class="a w7 nw" style="font-size:36px;color:#5A6378">${o.dates[0]}</div>`, g._x + 40, g._y + g._h - 52, at + 0.1);
+    inBox(g, `<div class="a w7 nw" style="font-size:36px;color:#5A6378;transform:translateX(-100%)">${o.dates[1]}</div>`, g._x + g._w - 40, g._y + g._h - 52, at + 0.1); }
+  return { g, P };
+}
+const barRow = (label, val, w, col, txtCol) => `<div style="display:flex;align-items:center;gap:20px"><div class="bar4" style="width:${w}px;background:${col};color:${txtCol || "#FBF4DF"}">${label}</div>${ink(val, NAVY, 46)}</div>`;
+
+// ---------- 공포 지수 계기 (오른쪽 위 — 늘 같은 칸) ----------
+const GCX = 190, GCY = 166, GR = 130;
+const gAng = v => -90 + 180 * Math.max(0, Math.min(1, (v - 10) / 40));
+const gPt = (v, r) => { const t = gAng(v) * Math.PI / 180; return [GCX + r * Math.sin(t), GCY - r * Math.cos(t)]; };
+const gArc = (v0, v1, r) => { const [x0, y0] = gPt(v0, r), [x1, y1] = gPt(v1, r); return `M${x0.toFixed(1)} ${y0.toFixed(1)} A${r} ${r} 0 0 1 ${x1.toFixed(1)} ${y1.toFixed(1)}`; };
+const [ax0, ay0] = gPt(SR.vix_avg, GR - 24), [ax1, ay1] = gPt(SR.vix_avg, GR + 24);
+const gauge = el(`<div class="a" data-slot="GAUGE" style="left:${LAY.GAUGE[0]}px;top:${LAY.GAUGE[1]}px;width:${LAY.GAUGE[2]}px;height:${LAY.GAUGE[3]}px;z-index:3">
+  <svg width="380" height="240" viewBox="0 0 380 240" aria-hidden="true" style="position:absolute;left:0;top:0">
+    <rect x="4" y="4" width="372" height="232" rx="22" fill="#F6EFDD" stroke="${NAVY}" stroke-width="6"/>
+    <path d="${gArc(10, 20, GR)}" fill="none" stroke="${G}" stroke-width="26"/><path d="${gArc(20, 30, GR)}" fill="none" stroke="#E9A93A" stroke-width="26"/><path d="${gArc(30, 50, GR)}" fill="none" stroke="${CRIM}" stroke-width="26"/>
+    <path d="M${ax0.toFixed(1)} ${ay0.toFixed(1)} L${ax1.toFixed(1)} ${ay1.toFixed(1)}" stroke="${LINE_Y}" stroke-width="6" stroke-dasharray="7 5"/>
+    <g class="ndl"><path d="M${GCX - 8} ${GCY} L${GCX} ${GCY - 116} L${GCX + 8} ${GCY} Z" fill="${NAVY}"/></g><circle cx="${GCX}" cy="${GCY}" r="15" fill="${NAVY}"/></svg>
+  <div class="a w9 nw" style="left:24px;top:182px;font-size:38px;line-height:1;color:${NAVY}">VIX</div>
+  <div class="a w9 nw gv" style="right:24px;top:172px;font-size:54px;line-height:1"></div></div>`);
+const ndl = gauge.querySelector(".ndl"), gv = gauge.querySelector(".gv");
+const gCol = v => (v < 20 ? TEAL : v < 30 ? AMB : CRIM);
+const gShow = v => { gv.textContent = v.toFixed(2); gv.style.color = gCol(v); };
+let gNow = SR.vix.peak;
+gsap.set(ndl, { svgOrigin: `${GCX} ${GCY}`, rotation: gAng(gNow) }); gShow(gNow);
+function gTo(v, at, dur) {                          // 바늘·숫자 = 그 장면 날짜의 실제 공포 지수 (series.js vix)
+  const from = gNow, o = { v: from };
+  tl.fromTo(ndl, { rotation: gAng(from) }, { rotation: gAng(v), duration: dur || 0.9, ease: "back.out(1.6)", immediateRender: false }, at);
+  tl.fromTo(o, { v: from }, { v, duration: dur || 0.9, ease: "power2.out", immediateRender: false, onUpdate: () => gShow(o.v) }, at);
+  gNow = v;
+}
+const gPulse = at => tl.fromTo(gauge, { scale: 1 }, { scale: 1.04, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, at);
+
+// ---------- 진행 점 (선택 1~5 — 시리즈 꼴 그대로, 자리만 왼쪽 위) ----------
+const prog = el(`<div class="prog" data-slot="PROG" style="left:${LAY.PROG[0]}px;top:${LAY.PROG[1] + 6}px">${"<i></i>".repeat(5)}</div>`);
+gsap.set(prog, { opacity: 0 });
+
+// ---------- 선택 1~5 문장 (글로 찾음) ----------
+const norm = t => t.replace(/[\s,?.]/g, "");
+const common = (a, b) => { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; };
+const IT = {};
+for (let k = 1; k <= 5; k++) {
+  const ps = SENT.filter(s => s.part === `선택 ${k}`), f = pre => { const s = ps.find(x => x.text.startsWith(pre)); return s ? s.n : null; };
+  const it = IT[k] = { first: ps[0].n, last: ps[ps.length - 1].n, qa: f("이 순간 당신은 "), qb: f("아니면 "), say: f("선택해 보세요."), cnt: f("3, 2, 1."),
+    ans: f("이 상황에서는"), date: f("그때가"), wrong: f("정씨와 똑같이"), mul: f("물론"), but: f("하지만"), so: f("그러니 옳은 선택은") };
+  const core = norm(txt(it.ans).replace(/^이 상황에서는\s*/, ""));
+  it.right = common(core, norm(optText(it.qa))) >= common(core, norm(optText(it.qb))) ? 0 : 1;   // 0 = A(앞 보기) · 1 = B
+  for (const key of ["qa", "qb", "say", "cnt", "ans", "wrong", "mul", "but", "so"]) if (!it[key]) throw new Error(`선택 ${k} ${key} 문장 없음`);
+}
+console.info("[ITEMS] 정답 글자 " + [1, 2, 3, 4, 5].map(k => LET[IT[k].right]).join(""));   // board_check: BAABA
+const firstOf = p => SENT.find(s => s.part === p).n;
+const nRes = firstOf("결과"), nEnd = firstOf("정리");
+const nextFirst = k => ch(k < 5 ? IT[k + 1].first : nRes);
+tl.to(prog, { opacity: 1, duration: 0.3 }, ch(IT[1].first)); tl.to(prog, { opacity: 0, duration: 0.3 }, ch(nRes));
+for (let i = 1; i <= 5; i++) tl.set(prog.children, { attr: { class: j => (j < i - 1 ? "done" : j === i - 1 ? "on" : "") } }, ch(IT[i].first));
+gsap.set(gauge, { opacity: 0 });
+tl.to(gauge, { opacity: 1, duration: 0.4 }, 0.3); tl.to(gauge, { opacity: 0, duration: 0.3 }, ch(nRes));
+
+/* ═════════════ 질문·정답 (수첩) — 공책 체크박스 두 줄 · 오른쪽 주인공 생각 → 계획 ═════════════ */
+const DATE_TAGS = {     // 날짜 문장 뒤 머리 줄 꼬리표 [html, 문장 속 낱말]
+  1: [[lab(`WAR +${SR.dates.war_days} DAYS`, CRIM, "font-size:40px"), "열하루"]],
+  3: [[lab("MRNA", CRIM, "font-size:40px"), "모더나"], [prop("P-VACCINE", 84, "", 120), "모더나"]],
+  4: [[lab("+17%", TEAL, "font-size:40px"), "17%"]],
+  5: [[lab("NEW LOW", CRIM, "font-size:40px"), "6월 바닥"]],
+};
+const DATE_OF = { 1: SR.dates.d1, 3: SR.dates.d2, 4: SR.dates.d4, 5: SR.dates.d5 };
+function qaScene(k) {
+  const it = IT[k], a = until(it.qa), b = until(it.wrong), flip = W(it.ans, "옳은");
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, a, ["H_THINK", k % 2 ? "H_WRITE" : "H_ENDURE"], "HERO_R", [flip]);
+  notePage(sc, a + 0.02);
+  const heads = [[a + 0.15, inkS(`${k} / 5`, NAVY, 66)]];
+  if (it.date) heads.push([S(it.date) + 0.05, `<div style="display:flex;align-items:center;gap:22px">${inkS(ymd(DATE_OF[k]), NAVY, 62)}</div>`]);
+  const hd = seq(sc, "N_TOP", heads, "justify-content:flex-start;");
+  if (it.date) (DATE_TAGS[k] || []).forEach(([html, w2]) => pop(el(html, hd[hd.length - 1].firstElementChild), W(it.date, w2), { from: { opacity: 0, scale: 0.9, y: 0 } }));
+  const lines = [it.qa, it.qb].map((n, j) => optLine(sc, n, j, j ? "N_B" : "N_A", S(n) + 0.05));
+  // '선택해 보세요.' — 두 상자 테두리 노랑 + 살짝 커졌다 작아짐 · '3, 2, 1.' — 공책 오른쪽 위 여백에 큰 숫자
+  const bxs = lines.map(c => c.querySelector(".bx"));
+  tl.to(bxs, { borderColor: "#E0A800", duration: 0.3 }, S(it.say));
+  tl.fromTo(bxs, { scale: 1 }, { scale: 1.1, duration: 0.3, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, S(it.say) + 0.05);
+  const cAt = countdown(sc, it.cnt);
+  tl.to(bxs, { borderColor: NAVY, duration: 0.2 }, flip - 0.05);
+  lines.forEach((c, j) => markLine(c, j === it.right, flip + 0.1));
+  K.cut(E(it.qb) - 0.1, `선택 ${k} 질문 두 줄`); K.cut(E(it.say) - 0.1, `선택 ${k} 선택해 보세요`); K.cut(cAt, `선택 ${k} 3·2·1`); K.cut(E(it.ans) - 0.1, `선택 ${k} 옳은 선택`);
+  if (it.date) K.cut(E(it.date) - 0.1, `선택 ${k} 날짜`);
+}
+/* 그러니 옳은 선택은 … — 공책에 옳은 줄 하나(✓) + 아래 줄에 한 줄 요약 기호 · 주인공 버팀 */
+const SO_SUM = {
+  1: row([inkS("VIX ▲", CRIM, 84), inkS("→", NAVY, 80), inkS("PLAN ✓", TEAL, 84)]),
+  2: row([inkS("LOAN ✕", CRIM, 84), inkS("CASH ✓", TEAL, 84)], 70),
+  3: row([inkS("1 ✕", CRIM, 84), inkS("INDEX ✓", TEAL, 84)], 70),
+  4: row([inkS("ALL IN ✕", CRIM, 80), inkS("WAIT ✓", TEAL, 80)], 70),
+  5: row([inkS("NEW LOW", CRIM, 76), inkS("→", NAVY, 76), inkS("PLAN ✓", TEAL, 80)]),
+};
+function soScene(k) {
+  const it = IT[k], a = until(it.so), b = nextFirst(k);
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, a, ["H_ENDURE"], "HERO_R", []);
+  notePage(sc, a + 0.02);
+  boxC(sc, "N_TOP", inkS(`✓ ${k} / 5`, TEAL, 66), a + 0.12, "justify-content:flex-start;");
+  const c = optLine(sc, it.right ? it.qb : it.qa, it.right, "N_A", a + 0.2);
+  markLine(c, true, W(it.so, "옳은") + 0.1);
+  boxC(sc, "N_B", SO_SUM[k], W(it.so, "옳은") + 0.6);
+  K.cut(E(it.so) - 0.1, `선택 ${k} 그러니`);
+}
+/* 물론 → 하지만 → 통계 — 공책 본문 + 주인공 생각 → 버팀 */
+function rebut(k, a, b, steps) {
+  const it = IT[k];
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, a, ["H_THINK", "H_ENDURE"], "HERO_R", [S(it.but)]);
+  notePage(sc, a + 0.02);
+  boxC(sc, "N_TOP", inkS(`${k} / 5`, "#7A8296", 56), a + 0.12, "justify-content:flex-start;");
+  noteBody(sc, steps);
+  K.cut(S(it.but) - 0.2, `해설 ${k} 물론`); K.cut(E(it.but) - 0.1, `해설 ${k} 하지만`); K.cut(b - 0.55, `해설 ${k} 통계`);
+}
+// 통계 점 줄 (공책 위): items = [[해, 맞음?]] — 맞음(공포 쪽 결과) = 빨간 점 ▲/▼, 아님 = 남색
+function dotGrid(items, perRow, mark, other, head) {
+  const rows = [];
+  for (let i = 0; i < items.length; i += perRow) rows.push(items.slice(i, i + perRow));
+  const cell = ([yr, hit]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:6px;width:${perRow > 8 ? 108 : 124}px"><div class="dotc" style="background:${hit ? CRIM : "#5E6B85"}">${hit ? mark : other}</div><div class="w7 nw" style="font-size:36px;line-height:1;color:#4A5468">${yr}</div></div>`;
+  return colm([head, ...rows.map(r => `<div style="display:flex;gap:0">${r.map(cell).join("")}</div>`)], 18);
+}
+
+/* ═════════════ 도입 (정씨 — 계획은 있었지만 공포를 따름) ═════════════ */
+const n1 = N("계좌를 가르는"), n2 = N("매수 계획까지 적어 둔"), n3 = N("계획 대신 공포를"), n4 = N("3천5백만 원"), n5 = N("40% 넘게 올랐"),
+  n6 = N("다섯 번의 결정"), n7 = N("몇 개인지 세어"), n8 = N("정씨의 자리에 당신이");
+{ // I-1 FEAR ✕ / PLAN ✓ → 정씨의 계획 네 줄 → 공포에 지워짐 (문장 1~3) — NOTE · N_TOP · N_BODY · HERO_R · 계기
+  const a = 0, b = until(n4);
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, 0.1, ["H_ENDURE", "H_WRITE", "H_SHOCK"], "HERO_R", [S(n2), W(n3, "공포를")]);
+  notePage(sc, 0.15);
+  boxC(sc, "N_TOP", inkS("PLAN", NAVY, 72), 0.3, "justify-content:flex-start;");
+  const s1 = box(sc, "N_BODY", row([inkS("FEAR", CRIM, 150, "--sk:0;text-decoration:line-through;text-decoration-thickness:12px;text-decoration-color:rgba(179,32,42,var(--sk))"), inkS("PLAN ✓", TEAL, 150)], 90), CEN);
+  pop(s1, 0.4, { from: { y: 0 } });
+  const fw = s1.firstElementChild.children[0], pw = s1.firstElementChild.children[1];
+  gsap.set(pw, { opacity: 0 });
+  tl.fromTo(fw, { "--sk": 0 }, { "--sk": 1, duration: 0.3, immediateRender: false }, W(n1, "아니라"));
+  tl.to(pw, { opacity: 1, duration: 0.35 }, W(n1, "계획이"));
+  out(s1, S(n2) - 0.2);
+  const plan = box(sc, "N_BODY", "", "display:flex;flex-direction:column;justify-content:center;gap:4px;padding-left:40px;");
+  pop(plan, S(n2), { from: { y: 0 } });
+  const rowsP = SR.plan_levels.map((lv, i) => el(`<div style="display:flex;align-items:center;gap:30px;height:116px">${inkS(pct(lv - 1), AMB, 74, "width:250px;text-align:right;--sk:0;text-decoration:line-through;text-decoration-thickness:10px;text-decoration-color:rgba(179,32,42,var(--sk))")}${inkS("→", NAVY, 66)}${inkS("BUY ¼", TEAL, 74, "--sk:0;text-decoration:line-through;text-decoration-thickness:10px;text-decoration-color:rgba(179,32,42,var(--sk))")}</div>`, plan));
+  rowsP.forEach((r, i) => tl.fromTo(r, { opacity: 0, x: -20 }, { opacity: 1, x: 0, duration: 0.35, immediateRender: false }, W(n2, "매수 계획") + i * 0.22));
+  gsap.set(rowsP, { opacity: 0 });
+  rowsP.forEach((r, i) => tl.fromTo(r.querySelectorAll(".serif"), { "--sk": 0 }, { "--sk": 1, duration: 0.25, immediateRender: false }, W(n3, "공포를") + i * 0.12));
+  rowsP.forEach((r, i) => tl.to(r, { opacity: 0.55, duration: 0.3 }, W(n3, "공포를") + 0.4 + i * 0.12));
+  gTo(SR.vix.d1, W(n3, "막상"), 1.0);
+  K.cut(E(n1) - 0.1, "I-1 FEAR ✕ PLAN ✓"); K.cut(E(n2) - 0.1, "I-1 계획 네 줄"); K.cut(E(n3) - 0.1, "I-1 공포에 지워짐 · VIX 36");
+}
+{ // I-2 정씨 ₩100,000,000 → ₩35,620,000 · 지수 +43% (문장 4~5) — CHART · SIDE
+  const a = until(n4), b = until(n6);
+  const { g, side, add } = chartScene(a, b);
+  const P = plot(g, SR.dates.peak, SR.end, 0.25, 1.55, { r: 230 });
+  P.hline(1, LINE_Y, a + 0.2, 5, "18 12");
+  P.axis([[SR.dates.peak, "2022.01"], [SR.end, "2025.12", "r"]], a + 0.2);
+  P.line(SR.intro_jeong, CRIM, S(n4) + 0.2, Math.max(1.4, W(n4, "3천5백만") - S(n4) - 0.2), 9);
+  SR.jeong_marks.forEach(([d, v], i) => P.dot(d, v, CRIM, S(n4) + 0.4 + i * 0.25, 22));
+  P.tag(ink("JEONG", CRIM, 46), SR.end, SR.intro_jeong[SR.intro_jeong.length - 1][1], W(n4, "3천5백만"), "right", 18);
+  P.line(SR.intro_idx, IDX, S(n5) + 0.1, Math.max(1.2, W(n5, "40%") - S(n5)), 9);
+  P.tag(ink("S&amp;P 500", IDX, 44), SR.end, SR.intro_idx[SR.intro_idx.length - 1][1], W(n5, "40%") - 0.2, "right", 18);
+  add(lab("JEONG", CRIM), S(n4) + 0.1);
+  const num = el(`<div class="lab" style="border-left-color:${CRIM};color:${NAVY};font-size:44px">₩100,000,000</div>`, side);
+  pop(num, S(n4) + 0.3, { from: { opacity: 0, x: 30, y: 0 } });
+  const jEnd = SR.intro_jeong[SR.intro_jeong.length - 1][1];
+  K.counter(num, 100000000, jEnd * 100000000, W(n4, "3천5백만") - 0.7, 1.0, v => won(Math.round(v / 10000) * 10000));
+  tl.to(num, { color: CRIM, duration: 0.3 }, W(n4, "3천5백만") + 0.3);
+  add(lab(pct(jEnd - 1), CRIM, "font-size:60px"), W(n4, "3천5백만") + 0.3);
+  add(lab("S&amp;P 500", IDX), S(n5) + 0.1);
+  add(lab(pct(SR.intro_idx[SR.intro_idx.length - 1][1] - 1), TEAL, "font-size:60px"), W(n5, "40%"));
+  K.cut(E(n4) - 0.1, "I-2 정씨 ₩35,620,000"); K.cut(E(n5) - 0.1, "I-2 지수 +43%");
+}
+{ // I-3 다섯 번의 결정 · 공포에 진 결정을 셈 · 첫 결정 (문장 6~8) — NOTE · N_TOP · N_BODY · HERO_R
+  const a = until(n6), b = ch(IT[1].first);
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, a, ["H_THINK", "H_PHONE"], "HERO_R", [S(n8)]);
+  notePage(sc, a + 0.02);
+  const hd = seq(sc, "N_TOP", [[a + 0.15, inkS("PLAN", NAVY, 72)], [W(n7, "공포에"), row([inkS("FEAR ✕", CRIM, 72), inkS("= ?", NAVY, 72)], 24)]], "justify-content:flex-start;");
+  const body = box(sc, "N_BODY", "", "display:flex;flex-direction:column;justify-content:center;gap:2px;padding-left:40px;");
+  pop(body, a + 0.1, { from: { y: 0 } });
+  const rws = [1, 2, 3, 4, 5].map(i => el(`<div style="display:flex;align-items:center;gap:26px;height:100px;padding:0 16px;border-radius:10px"><div style="width:70px;height:70px;border:7px solid ${NAVY};border-radius:9px;background:rgba(255,255,255,.5)"></div>${inkS(String(i), NAVY, 66)}<div style="width:560px;border-bottom:5px dotted rgba(27,42,74,.45);height:40px"></div></div>`, body));
+  gsap.set(rws, { opacity: 0 });
+  rws.forEach((r, i) => tl.fromTo(r, { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.3, immediateRender: false }, W(n6, "다섯") + i * 0.18));
+  tl.to(rws[0], { backgroundColor: "rgba(255,212,0,.45)", duration: 0.35 }, W(n8, "처음"));
+  K.cut(E(n6) - 0.1, "I-3 다섯 줄"); K.cut(E(n7) - 0.1, "I-3 FEAR ✕ = ?"); K.cut(E(n8) - 0.1, "I-3 첫 줄");
+}
+
+/* ═════════════ 선택 1 — 공포 지수 36 · 모두 매도 vs 계획을 꺼냄 ═════════════ */
+{ // 이야기: 1억 원 · 최고가 날 6천만 S&P 500 · 4천만 현금 · 계획 · −12% · 공포 지수 36 · ₩52,690,000 (탕비실)
+  const s9 = N("5년 넘게"), s10 = N("6천만 원을 S&P"), s11 = N("나머지 4천만"), s12 = N("얼마나 떨어지면 얼마씩"), s13 = N("12% 넘게 하락"),
+    s14 = N("공포 지수라고 부릅니다"), s15 = N("평소의 두 배"), s16 = N("5천2백만");
+  const a = ch(IT[1].first), b = until(IT[1].qa);
+  const { sc, st } = stage(a, b, "BREAK", null);
+  st.update = poses(st, a, ["H_PHONE", "H_SHOCK"], "HERO_S", [S(s16)]);
+  gTo(SR.vix.peak, a, 0.6);
+  memo(sc, a + 0.1);
+  seq(sc, "M_TOP", [[S(s9) + 0.1, lab("5Y+", NAVY)], [S(s10) + 0.05, lab("S&amp;P 500 · HIGH", IDX)], [S(s13) + 0.05, lab("S&amp;P 500", IDX)], [S(s14) + 0.05, lab("VIX", CRIM)], [S(s16) + 0.05, lab("NEWS ▼ ▼", CRIM)]]);
+  const mid = seq(sc, "M_MID", [[S(s9) + 0.15, ink("₩100,000,000", NAVY, 84)], [S(s12) + 0.05, row([prop("P-PLANNOTE", 240), inkS("PLAN", NAVY, 86)], 40)],
+    [W(s13, "12%"), ink(pct(SR.c1_pre[SR.c1_pre.length - 1][1] - 1), CRIM, 150)], [S(s14) + 0.1, prop("P-GAUGE", 200, "", 460)],
+    [W(s15, "36"), row([ink(SR.vix.d1.toFixed(2), CRIM, 140)])], [S(s16) + 0.1, ink("₩60,000,000", NAVY, 84)]]);
+  const mn = mid[mid.length - 1].firstElementChild;
+  K.counter(mn, 60000000, SR.nums.j_d1 * 100000000, W(s16, "5천2백만") - 0.6, 0.9, v => won(Math.round(v / 10000) * 10000));
+  tl.to(mn, { color: CRIM, duration: 0.3 }, W(s16, "5천2백만") + 0.2);
+  // 아래 칸: 6천만 지수 · 4천만 현금 막대 → 작은 그래프(최고가 → 03-07) → 평소 19.5 vs 36.45 막대
+  const low1 = box(sc, "M_LOW", "", "display:flex;flex-direction:column;justify-content:center;gap:22px;padding-left:20px;");
+  pop(low1, S(s10) + 0.2, { from: { y: 0 } }); out(low1, S(s13) - 0.2);
+  const bi = el(barRow("INDEX", "₩60,000,000", 360, IDX), low1), bc = el(barRow("CASH", "₩40,000,000", 240, "#C98A12"), low1);
+  tl.fromTo(bi, { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, S(s10) + 0.25); gsap.set(bc, { opacity: 0 });
+  tl.fromTo(bc, { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, W(s11, "4천만"));
+  const m13 = mini(sc, SR.c1_pre, S(s13) + 0.1, { lo: 0.85, hi: 1.02, col: CRIM, dur: Math.max(1, W(s13, "12%") - S(s13)), dates: ["2022.01.03", "03.07"],
+    marks: [[SR.dates.peak, LINE_Y, S(s13) + 0.15], [SR.dates.d1, CRIM, W(s13, "12%")]] });
+  out(m13.g, S(s15) - 0.2);
+  const low3 = box(sc, "M_LOW", "", "display:flex;flex-direction:column;justify-content:center;gap:22px;padding-left:20px;");
+  pop(low3, W(s15, "평소"), { from: { y: 0 } }); out(low3, S(s16) - 0.2);
+  el(barRow("AVG", SR.vix_avg.toFixed(1), Math.round(250 * SR.vix_avg / 20), "#C98A12", "#2A1C00"), low3);
+  const b36 = el(barRow("VIX", SR.vix.d1.toFixed(2), Math.round(250 * SR.vix.d1 / 20), CRIM), low3);
+  gsap.set(b36, { opacity: 0 }); tl.fromTo(b36, { opacity: 0 }, { opacity: 1, duration: 0.3, immediateRender: false }, W(s15, "36"));
+  const m16 = mini(sc, SR.c1_pre, S(s16) + 0.15, { lo: 0.85, hi: 1.02, col: CRIM, dur: 0.6, dates: ["2022.01.03", "03.07"], marks: [[SR.dates.d1, CRIM, S(s16) + 0.3]] });
+  gPulse(S(s14) + 0.2); gTo(SR.vix.d1, W(s15, "36") - 0.3, 1.1);
+  K.cut(E(s9) - 0.1, "1 이야기 ₩100,000,000"); K.cut(E(s11) - 0.1, "1 이야기 INDEX · CASH"); K.cut(E(s12) - 0.1, "1 이야기 PLAN");
+  K.cut(E(s13) - 0.1, "1 이야기 −12%"); K.cut(E(s14) - 0.1, "1 이야기 VIX 계기"); K.cut(E(s15) - 0.1, "1 이야기 VIX 36.45"); K.cut(E(s16) - 0.1, "1 이야기 ₩52,690,000");
+}
+qaScene(1);
+{ // 해설 1-a: 03-07 모두 매도 → 공포 지수 20 아래(03-28) 재매수 · 그사이 +9% · 주식 −8% (문장 23~24) — 확대 그래프
+  const s23 = IT[1].wrong, s24 = N("8% 줄었을"), a = until(s23), b = until(s24 + 1);
+  const { g, add } = chartScene(a, b);
+  const z = SR.c1_zoom, P = plot(g, z[0][0], z[z.length - 1][0], 0.84, 1.0);
+  P.planLevels(a + 0.2, [0.90, 0.85]);
+  P.line(z, IDX, a + 0.3, 1.3, 9);
+  P.axis([[z[0][0], "2022.02"], [z[z.length - 1][0], "2022.04", "r"]], a + 0.3);
+  const v1 = valOn(z, SR.dates.d1), v2 = valOn(z, SR.dates.d1b);
+  P.dot(SR.dates.d1, v1, CRIM, W(s23, "모두 매도"), 34); P.tag(ink("SELL", CRIM, 50), SR.dates.d1, v1, W(s23, "모두 매도"), "down", 36);
+  P.dot(SR.dates.d1b, v2, CRIM, W(s23, "다시 샀다"), 34); P.tag(ink("BUY", CRIM, 50), SR.dates.d1b, v2, W(s23, "다시 샀다"), "up", 84);
+  const x2 = P.X(SR.dates.d1b), y1 = P.Y(v1), y2 = P.Y(v2);
+  inBox(g, `<div class="a" style="width:0;height:${Math.round(y1 - y2 - 40)}px;border-left:6px dashed ${CRIM}"></div>`, x2 + 40, y2 + 20, W(s24, "9%"));
+  inBox(g, `<div class="a" style="width:${Math.round(x2 + 40 - P.X(SR.dates.d1))}px;height:0;border-top:6px dashed ${CRIM}"></div>`, P.X(SR.dates.d1), y1, W(s24, "9%"));
+  inBox(g, ink(pct(SR.c2_pre[SR.c2_pre.length - 1][1] - 1), CRIM, 64), x2 + 62, (y1 + y2) / 2 - 32, W(s24, "9%"));
+  gTo(SR.vix.d1b, W(s23, "20 아래"), 1.0);
+  add(lab("JEONG", CRIM), a + 0.3); add(lab(`SELL ${ymd(SR.dates.d1).slice(5)}`, CRIM), W(s23, "모두 매도")); add(lab(`BUY ${ymd(SR.dates.d1b).slice(5)}`, CRIM), W(s23, "다시 샀다"));
+  add(lab(`SHARES ${pct(SR.nums.shares)}`, CRIM, "font-size:42px"), W(s24, "8%"));
+  K.cut(E(s23) - 0.1, "해설 1 SELL → BUY"); K.cut(E(s24) - 0.1, "해설 1 +9% · SHARES −8%");
+}
+{ // 해설 1-b: 2025년 말까지 — 매도 후 재매수(바른 길) vs 매도하지 않음 +72% (문장 25~26)
+  const s25 = N("45% 오르는 데"), s26 = N("같은 때 72%"), a = until(s25), b = until(IT[1].mul);
+  const { g, add } = chartScene(a, b);
+  const P = plot(g, SR.dates.d1, SR.end, 0.72, 1.82, { r: 230 });
+  P.hline(1, LINE_Y, a + 0.2, 5);
+  P.axis([[SR.dates.d1, "2022.03"], [SR.end, "2025.12", "r"]], a + 0.2);
+  P.line(SR.c1_sold, CRIM, S(s25) + 0.1, Math.max(1.4, E(s25) - S(s25) - 0.6), 9);
+  const se = SR.c1_sold[SR.c1_sold.length - 1][1], he = SR.c1_hold[SR.c1_hold.length - 1][1];
+  P.tag(ink(C1_SOLD_LABEL || "JEONG", CRIM, 50), SR.end, se, E(s25) - 0.6, "right", 18);
+  P.line(SR.c1_hold, IDX, S(s26) + 0.1, Math.max(1.2, W(s26, "72%") - S(s26)), 9);
+  P.tag(ink(pct(he - 1), TEAL, 72), SR.end, he, W(s26, "72%"), "right", 18);
+  add(lab("JEONG", CRIM), S(s25) + 0.05); add(lab("SELL → BUY", CRIM, "font-size:42px"), S(s25) + 0.3);
+  add(lab("HOLD", IDX), S(s26) + 0.05); add(lab(pct(he - 1), TEAL, "font-size:60px"), W(s26, "72%"));
+  K.cut(E(s25) - 0.1, "해설 1 2025.12 재매수 길"); K.cut(E(s26) - 0.1, "해설 1 HOLD +72%");
+}
+rebut(1, until(IT[1].mul), until(N("예를 들어 이렇습니다")), [
+  [S(IT[1].mul) + 0.15, row([inkS("SELL", CRIM, 110), inkS("→", NAVY, 100), inkS("▼", CRIM, 120), inkS("✓", TEAL, 120)], 44)],
+  [S(IT[1].but) + 0.05, colm([row([inkS("VIX", NAVY, 100), inkS("&lt; 20", TEAL, 100)], 26), row([inkS("BUY", CRIM, 100), inkS("▲", CRIM, 110)], 26)], 30)],
+  [S(N("열일곱 번 중")) + 0.05, dotGrid(SR.vix17, 9, "▲", "▼", row([inkS("VIX &gt; 35", NAVY, 60), inkS(`${SR.vix17.filter(x => x[1]).length} / ${SR.vix17.length}`, CRIM, 70)], 50)), 1.1],
+]);
+{ // 계획 예: 최고가보다 −10·−15·−20·−25% 마다 현금 ¼ (문장 30~31) — NOTE · N_TOP · N_BODY · HERO_R
+  const s30 = N("예를 들어 이렇습니다"), s31 = N("4분의 1씩"), a = until(s30), b = until(IT[1].so);
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, a, ["H_WRITE"], "HERO_R", []);
+  notePage(sc, a + 0.02);
+  boxC(sc, "N_TOP", row([inkS("PLAN", NAVY, 72), prop("P-PLANNOTE", 92)], 26), a + 0.15, "justify-content:flex-start;");
+  const body = box(sc, "N_BODY", "", "display:flex;flex-direction:column;justify-content:center;gap:4px;padding-left:40px;");
+  pop(body, a + 0.1, { from: { y: 0 } });
+  const rws = SR.plan_levels.map(lv => el(`<div style="display:flex;align-items:center;gap:30px;height:116px"><div style="width:62px;height:62px;border:6px solid ${NAVY};border-radius:8px;flex:0 0 auto"></div><div class="tx" style="display:flex;align-items:center;gap:30px">${inkS(pct(lv - 1), AMB, 74, "width:240px;text-align:right")}${inkS("→", NAVY, 66)}${inkS("BUY", TEAL, 74)}${inkS("¼ CASH", NAVY, 66)}</div></div>`, body));
+  const txs = rws.map(r => r.querySelector(".tx"));
+  gsap.set(txs, { opacity: 0 });
+  ["10%", "15%", "20%", "25%"].forEach((w2, i) => tl.fromTo(txs[i], { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.35, immediateRender: false }, W(s31, w2)));
+  K.cut(E(s30) - 0.1, "계획 머리"); K.cut(E(s31) - 0.1, "계획 네 줄");
+}
+soScene(1);
+
+/* ═════════════ 선택 2 — 공포 지수 20 아래 · +9% · 빚 없이 vs 신용으로 더 ═════════════ */
+{ // 이야기 (공원 — 친구가 빚내 번 자랑)
+  const s33 = IT[2].first, s34 = N("9% 가까이 반등"), s35 = N("인증 글이 올라옵니다"), s36 = N("신용으로 돈을 빌려 더 살 수");
+  const a = ch(s33), b = until(IT[2].qa);
+  const { sc, st } = stage(a, b, "PARK", s => { st.FR = act(s, "W_FRIEND", "MATE_S", 5.2).ro(4); });
+  const hero = poses(st, a, ["H_PHONE", "H_THINK"], "HERO_S", [S(s36)]);
+  st.update = t => { hero(t); enter(st.FR, t, S(s35)); idle(st.FR, t, 1); };
+  gPulse(W(s33, "20 아래"));
+  memo(sc, a + 0.1);
+  seq(sc, "M_TOP", [[S(s33) + 0.1, lab("VIX", TEAL)], [S(s34) + 0.05, lab("S&amp;P 500", IDX)], [S(s35) + 0.05, lab("LOAN", CRIM)], [S(s36) + 0.05, lab("LOAN · BUY", CRIM)]]);
+  seq(sc, "M_MID", [[W(s33, "20 아래"), ink("&lt; 20", TEAL, 170)], [W(s34, "9%"), ink(pct(SR.c2_pre[SR.c2_pre.length - 1][1] - 1), TEAL, 160)],
+    [S(s35) + 0.1, row([ink("LOAN", CRIM, 96), ink("→", NAVY, 90), ink("▲ ▲", TEAL, 110)], 30)], [S(s36) + 0.1, row([prop("P-DEBTBALL", 170, "", 330), ink("×2", CRIM, 130)], 40)]]);
+  const m = mini(sc, SR.c2_pre, S(s34) + 0.1, { lo: 0.97, hi: 1.11, col: TEAL, dur: Math.max(1, W(s34, "9%") - S(s34)), dates: ["03.07", "03.28"],
+    marks: [[SR.dates.d1, CRIM, S(s34) + 0.15], [SR.dates.d1b, TEAL, W(s34, "9%")]] });
+  out(m.g, S(s35) - 0.2);
+  // 증권사 앱 안내 (아래 칸) — 신용 매수 버튼
+  const app = box(sc, "M_LOW", `<div style="display:flex;align-items:center;gap:26px;padding:22px 30px;border-radius:26px;background:#1B2A4A;box-shadow:0 14px 30px -12px rgba(0,0,0,.6)">${ink("LOAN", "#F6EFDD", 60)}<div class="w9 nw" style="font-size:52px;line-height:1;padding:16px 30px;border-radius:14px;background:${R};color:#fff">BUY ×2</div></div>`, CEN);
+  pop(app, W(s36, "안내"), { from: { y: 0, scale: 0.9 } });
+  K.cut(E(s33) - 0.1, "2 이야기 VIX < 20"); K.cut(E(s34) - 0.1, "2 이야기 +9%"); K.cut(E(s35) - 0.1, "2 이야기 LOAN 자랑"); K.cut(E(s36) - 0.1, "2 이야기 신용 안내");
+}
+qaScene(2);
+{ // 해설 2-a: 03-28 다시 사며 같은 금액 신용 · 지수 −22% · 빚까지 −46.5% · 빚 없으면 −21% (문장 42~44)
+  const s42 = IT[2].wrong, s43 = N("절반 가까이"), s44 = N("줄어든 돈은 21%"), a = until(s42), b = until(s44 + 1);
+  const { g, add } = chartScene(a, b);
+  const own = SR.c2_own, lev = SR.c2_lev, P = plot(g, own[0][0], own[own.length - 1][0], 0.45, 1.12);
+  P.hline(1, LINE_Y, a + 0.2, 5);
+  P.axis([[own[0][0], "2022.03.28"], [own[own.length - 1][0], "2022.12", "r"]], a + 0.2);
+  const lmin = lev.reduce((m, r) => (r[1] < m[1] ? r : m)), omin = own.reduce((m, r) => (r[1] < m[1] ? r : m));
+  P.dot(own[0][0], 1, CRIM, W(s42, "신용으로"), 34); inBox(g, ink("BUY + LOAN", CRIM, 50), P.area[0] - 10, P.Y(1) - 92, W(s42, "신용으로"));
+  P.line(lev, CRIM, S(s43) + 0.05, Math.max(1.2, W(s43, "절반") - S(s43)), 9);
+  P.dot(lmin[0], lmin[1], CRIM, W(s43, "절반"), 30); P.tag(ink(pct(lmin[1] - 1, 1), CRIM, 64), lmin[0], lmin[1], W(s43, "절반"), "down", 30);
+  P.line(own, IDX, S(s44) + 0.05, Math.max(1.0, W(s44, "21%") - S(s44)), 9);
+  P.dot(omin[0], omin[1], IDX, W(s44, "21%"), 30); P.tag(ink(pct(omin[1] - 1), IDX, 64), omin[0], omin[1], W(s44, "21%"), "down", 22);
+  add(row([lab("JEONG", CRIM)]), a + 0.2); add(lab(`BUY ${ymd(SR.dates.d1b).slice(5)}`, CRIM), W(s42, "3월 28일")); add(lab("+ LOAN", CRIM), W(s42, "신용으로"));
+  add(lab(`S&amp;P 500 ${pct(SR.nums.c2_spx_low)}`, IDX), W(s43, "22%"));
+  add(lab("NO LOAN", IDX), S(s44) + 0.05);
+  K.cut(E(s42) - 0.1, "해설 2 BUY + LOAN"); K.cut(E(s43) - 0.1, "해설 2 LOAN −46.5%"); K.cut(E(s44) - 0.1, "해설 2 NO LOAN −21%");
+}
+{ // 해설 2-b: 담보 비율(주식 값 ÷ 빌린 돈과 이자) 151% · 강제로 파는 140% 선 (문장 45~46)
+  const s45 = N("151%까지"), s46 = N("140% 선"), a = until(s45), b = until(IT[2].mul);
+  const { g, add } = chartScene(a, b);
+  const r = SR.c2_ratio, P = plot(g, r[0][0], r[r.length - 1][0], 1.30, 2.06);
+  P.axis([[r[0][0], "2022.03.28"], [r[r.length - 1][0], "2022.12", "r"]], a + 0.2);
+  P.line(r, CRIM, S(s45) + 0.05, Math.max(1.2, W(s45, "151%") - S(s45)), 9);
+  const rmin = r.reduce((m, x) => (x[1] < m[1] ? x : m));
+  P.dot(rmin[0], rmin[1], CRIM, W(s45, "151%"), 30); P.tag(ink(Math.round(rmin[1] * 100) + "%", CRIM, 56), rmin[0], rmin[1], W(s45, "151%"), "down", 12);
+  P.hline(SR.call, CRIM, W(s46, "140%"), 7, "22 14");
+  inBox(g, ink(`CALL ${Math.round(SR.call * 100)}%`, CRIM, 56), P.area[0] + 14, P.Y(SR.call) - 70, W(s46, "140%"));
+  add(lab("LOAN", CRIM), a + 0.2); add(`<div style="padding-left:6px">${prop("P-DEBTBALL", 120, "", 300)}</div>`, a + 0.4);
+  add(lab(Math.round(rmin[1] * 100) + "%", CRIM, "font-size:60px"), W(s45, "151%")); add(lab(`CALL ${Math.round(SR.call * 100)}%`, CRIM), W(s46, "140%"));
+  K.cut(E(s45) - 0.1, "해설 2 151%"); K.cut(E(s46) - 0.1, "해설 2 CALL 140%");
+}
+rebut(2, until(IT[2].mul), until(IT[2].so), [
+  [S(IT[2].mul) + 0.15, row([inkS("▲", TEAL, 130), inkS("LOAN", NAVY, 100), inkS("×2", TEAL, 130)], 40)],
+  [S(IT[2].but) + 0.05, colm([row([inkS("▼", CRIM, 130), inkS("×2", CRIM, 130)], 30), row([prop("P-DEBTBALL", 120, "", 280), inkS("+% DAY", CRIM, 84)], 30)], 30)],
+  [S(N("하락장 네 번")) + 0.05, colm([row([inkS("LOAN · BEAR", NAVY, 60), inkS(`${SR.bears4.filter(x => x[1]).length} / ${SR.bears4.length}`, CRIM, 70)], 50),
+    ...SR.bears4.map(([yr, call]) => row([inkS(yr, NAVY, 64, "width:180px"), call ? `<div class="stp" style="font-size:52px;color:${CRIM};transform:rotate(-6deg);padding:8px 22px;border-width:7px">CALL</div>` : inkS("—", "#7A8296", 64, "width:200px;text-align:center")], 50))], 14), 1.12],
+]);
+soScene(2);
+
+/* ═════════════ 선택 3 — 지수 −17% · 백신 제약사 −72% · 지수에 그대로 vs 그 종목 ═════════════ */
+{ // 이야기 (의원 대기실)
+  const s51 = IT[3].first, s52 = N("코로나 백신으로"), s53 = N("몇 배를 번다");
+  const a = ch(s51), b = until(IT[3].qa);
+  const { sc, st } = stage(a, b, "CLINIC", s => { st.CR = act(s, "W_CROWD", "CROWD_S", 3.3).ro(3); });
+  const hero = poses(st, a, ["H_PHONE", "H_THINK"], "HERO_S", [S(s53)]);
+  st.update = t => { hero(t); enter(st.CR, t, S(s53)); if (t > S(s53) + 0.4) st.CR.bob(t, 0.08, 2.2); };
+  gTo(SR.vix.d2, S(s51) + 0.3, 1.0);
+  memo(sc, a + 0.1);
+  seq(sc, "M_TOP", [[S(s51) + 0.1, lab("S&amp;P 500", IDX)], [S(s52) + 0.05, lab("? · 1Y", CRIM)], [S(s53) + 0.05, lab("NEWS", AMB)]]);
+  seq(sc, "M_MID", [[W(s51, "17%"), ink(pct(SR.c3_pre[SR.c3_pre.length - 1][1] - 1), CRIM, 150)], [W(s52, "72%"), row([prop("P-VACCINE", 210, "", 300), ink(pct(SR.c3_mrna_pre[SR.c3_mrna_pre.length - 1][1] - 1), CRIM, 130)], 30)],
+    [S(s53) + 0.1, row([ink("×2 ?", AMB, 120), ink("×3 ?", AMB, 120)], 50)]]);
+  const m1 = mini(sc, SR.c3_pre, S(s51) + 0.1, { lo: 0.8, hi: 1.02, col: CRIM, dur: Math.max(1, W(s51, "17%") - S(s51)), dates: ["2022.01", "05.09"], marks: [[SR.dates.d2, CRIM, W(s51, "17%")]] });
+  out(m1.g, S(s52) - 0.2);
+  mini(sc, SR.c3_mrna_pre, S(s52) + 0.1, { lo: 0.2, hi: 1.05, col: CRIM, dur: Math.max(1, W(s52, "72%") - S(s52)), dates: ["2021.08", "2022.05"], marks: [[SR.c3_mrna_pre[0][0], LINE_Y, S(s52) + 0.15], [SR.dates.d2, CRIM, W(s52, "72%")]] });
+  K.cut(E(s51) - 0.1, "3 이야기 −17%"); K.cut(E(s52) - 0.1, "3 이야기 백신 −72%"); K.cut(E(s53) - 0.1, "3 이야기 ×3 ?");
+}
+qaScene(3);
+{ // 해설 3: 모더나 — 그해 말 +55% → 2025년 말 −78% · 지수 가장 나쁠 때 −10% → +81% (문장 60~62)
+  const s60 = IT[3].wrong, s61 = N("78% 아래"), s62 = N("81% 올라"), a = until(s60), b = until(IT[3].mul);
+  const { g, add } = chartScene(a, b);
+  const mr = SR.c3_mrna, ix = SR.c3_idx, P = plot(g, SR.dates.d2, SR.end, 0.08, 1.95, { r: 230 });
+  P.hline(1, LINE_Y, a + 0.2, 5);
+  P.axis([[SR.dates.d2, "2022.05"], [SR.end, "2025.12", "r"]], a + 0.2);
+  P.line(mr, CRIM, S(s60) + 0.3, Math.max(2, W(s61, "78%") - S(s60) - 0.3), 8);
+  const mmax = mr.filter(r => r[0] <= "2023-01-31").reduce((m, r) => (r[1] > m[1] ? r : m)), me = mr[mr.length - 1];
+  P.dot(mmax[0], mmax[1], CRIM, W(s60, "55%"), 28); P.tag(ink(pct(mmax[1] - 1), CRIM, 64), mmax[0], mmax[1], W(s60, "55%"), "right", 26);
+  P.dot(me[0], me[1], CRIM, W(s61, "78%"), 28); P.tag(ink(pct(me[1] - 1), CRIM, 70), me[0], me[1], W(s61, "78%"), "right", 18);
+  P.line(ix, IDX, S(s62) + 0.05, Math.max(1.2, W(s62, "81%") - S(s62)), 9);
+  const imin = ix.reduce((m, r) => (r[1] < m[1] ? r : m)), ie = ix[ix.length - 1];
+  P.dot(imin[0], imin[1], IDX, W(s62, "10%"), 26); P.callout(ink(pct(imin[1] - 1), IDX, 56), imin[0], imin[1], "2023-03-01", 0.42, W(s62, "10%"), IDX);
+  P.tag(ink(pct(ie[1] - 1), TEAL, 70), ie[0], ie[1], W(s62, "81%"), "right", 18);
+  add(lab("JEONG", CRIM), a + 0.2); add(row([lab("MRNA", CRIM), prop("P-VACCINE", 80, "", 110)]), S(s60) + 0.3);
+  add(lab("INDEX", IDX), S(s62) + 0.05);
+  K.cut(W(s61, "78%") - 0.3, "해설 3 MRNA +55%"); K.cut(E(s61) - 0.1, "해설 3 MRNA −78%"); K.cut(E(s62) - 0.1, "해설 3 INDEX +81%");
+}
+rebut(3, until(IT[3].mul), until(IT[3].so), [
+  [S(IT[3].mul) + 0.15, colm([inkS("NFLX", NAVY, 110), row([inkS(pct(SR.nflx.from_peak), CRIM, 100), inkS("→", NAVY, 90), inkS("×" + (1 + SR.nflx.to_end).toFixed(1), TEAL, 110)], 34)], 30)],
+  [S(IT[3].but) + 0.05, row([inkS("?", AMB, 170), inkS("?", AMB, 170), inkS("?", AMB, 170)], 70)],
+  [S(N("24곳을")) + 0.05, (() => {
+    const cells = SR.syms24.map(([s2, hit]) => `<div class="w9 nw syc" data-hit="${hit ? 1 : 0}" style="width:176px;text-align:center;font-size:46px;line-height:1.45;color:${NAVY};--sk:0;text-decoration:line-through;text-decoration-thickness:6px;text-decoration-color:rgba(179,32,42,var(--sk))">${s2}</div>`);
+    const rowsH = []; for (let i = 0; i < 24; i += 6) rowsH.push(`<div style="display:flex">${cells.slice(i, i + 6).join("")}</div>`);
+    return colm([row([inkS("S&amp;P 500", NAVY, 56), inkS("24", NAVY, 64), inkS(`<span class="h15" style="opacity:0;color:${CRIM}">${SR.syms24.filter(x => x[1]).length} / 24 · −30%</span>`, CRIM, 60)], 34), ...rowsH], 10);
+  })()],
+]);
+{ // 24곳 중 15곳 — 2년 안 30% 넘게 더 하락: 빨간 취소선 (문장 66)
+  const s66 = N("30% 넘게 더 하락"), at = W(s66, "15곳");
+  const grid = Array.from(document.querySelectorAll(".syc")).slice(-24);
+  grid.forEach((c, i) => { if (c.dataset.hit === "1") { tl.fromTo(c, { "--sk": 0 }, { "--sk": 1, duration: 0.2, immediateRender: false }, at + i * 0.04); tl.to(c, { color: CRIM, duration: 0.2 }, at + i * 0.04); } });
+  tl.to(document.querySelectorAll(".h15"), { opacity: 1, duration: 0.3 }, at);
+  K.cut(E(s66) - 0.1, "해설 3 15 / 24"); K.cut(E(N("24곳을")) - 0.1, "해설 3 24곳");
+}
+soScene(3);
+
+/* ═════════════ 선택 4 — 6월 바닥보다 +17% · 하락장 끝? · 한 번에 vs 다음 계획 가격 ═════════════ */
+{ // 이야기 (탕비실 — 동료가 방송 이야기)
+  const s68 = IT[4].first, s69 = N("하락장은 끝났다는"), s70 = N("아직 넣지 않은 현금");
+  const a = ch(s68), b = until(IT[4].qa);
+  const { sc, st } = stage(a, b, "BREAK", s => { st.CO = act(s, "W_COL", "MATE_S", 5.2).ro(4); });
+  const hero = poses(st, a, ["H_PHONE", "H_THINK"], "HERO_S", [S(s70)]);
+  st.update = t => { hero(t); enter(st.CO, t, S(s69)); idle(st.CO, t, 1); };
+  gTo(SR.vix.d4, S(s68) + 0.3, 1.0);
+  memo(sc, a + 0.1);
+  seq(sc, "M_TOP", [[S(s68) + 0.1, lab("S&amp;P 500", IDX)], [S(s69) + 0.05, lab("NEWS", AMB)], [S(s70) + 0.05, lab("CASH", "#C98A12")]]);
+  seq(sc, "M_MID", [[W(s68, "17%"), ink(pct(SR.nums.c4_rally), TEAL, 150)],
+    [S(s69) + 0.1, row([ink("BEAR", NAVY, 110), ink("END ?", AMB, 120)], 34)], [S(s70) + 0.1, row([ink("CASH", "#C98A12", 120), ink("?", AMB, 140)], 34)]]);
+  const c4 = SR.c4_pre;
+  mini(sc, c4, S(s68) + 0.1, { lo: 0.74, hi: 0.92, col: IDX, dur: Math.max(1, W(s68, "17%") - S(s68)), dates: ["2022.05", "08.12"],
+    marks: [[SR.dates.june_low, CRIM, S(s68) + 0.6], [SR.dates.d4, TEAL, W(s68, "17%")]] });
+  K.cut(E(s68) - 0.1, "4 이야기 +17%"); K.cut(E(s69) - 0.1, "4 이야기 END ?"); K.cut(E(s70) - 0.1, "4 이야기 CASH");
+}
+qaScene(4);
+{ // 해설 4: 08-12 한 번에 → 바닥 −16% · 계획 다음 가격 −25% = 09-30 · 16% 쌈 · +68% vs ×2 (문장 77~80)
+  const s77 = IT[4].wrong, s78 = N("9월 30일에"), s79 = N("16% 쌌습니다"), s80 = N("68% 늘었을"), a = until(s77), b = until(IT[4].mul);
+  const { g, add } = chartScene(a, b);
+  const w4 = SR.c4_win, P = plot(g, w4[0][0], w4[w4.length - 1][0], 0.68, 0.97, { l: 150 });
+  P.planLevels(a + 0.2);
+  P.line(w4, IDX, a + 0.3, 1.5, 9);
+  P.axis([[w4[0][0], "2022.06"], [w4[w4.length - 1][0], "2022.12", "r"]], a + 0.3);
+  const v4 = valOn(w4, SR.dates.d4), vb = valOn(w4, SR.dates.bottom), vn = valOn(w4, SR.dates.next);
+  P.dot(SR.dates.d4, v4, CRIM, W(s77, "한 번에"), 34); P.tag(ink("ALL IN", CRIM, 50), SR.dates.d4, v4, W(s77, "한 번에"), "up", 64);
+  P.dot(SR.dates.bottom, vb, CRIM, W(s77, "16%"), 30); P.callout(ink(pct(vb / v4 - 1), CRIM, 64), SR.dates.bottom, vb, "2022-11-22", 0.705, W(s77, "16%"), CRIM);
+  P.dot(SR.dates.next, vn, TEAL, W(s78, "9월 30일"), 30); P.callout(fmtStp("BUY"), SR.dates.next, vn, "2022-07-08", 0.705, W(s78, "9월 30일"), TEAL);
+  inBox(g, ink(pct(vn / v4 - 1), TEAL, 64, "transform:translateY(-50%)"), P.X("2022-07-08") + 90, P.Y(0.705), W(s79, "16%"));
+  add(lab("JEONG", CRIM), a + 0.2); add(lab(`ALL IN ${ymd(SR.dates.d4).slice(5)}`, CRIM, "font-size:42px"), W(s77, "한 번에"));
+  add(lab(`PLAN ${pct(SR.plan_levels[3] - 1)}`, AMB), W(s78, "25%")); add(lab(`BUY ${ymd(SR.dates.next).slice(5)}`, TEAL), W(s78, "9월 30일"));
+  add(lab(`ALL IN ${pct(SR.nums.c4_allin_end)}`, CRIM), W(s80, "68%")); add(lab(`WAIT ×${(1 + SR.nums.c4_plan_end).toFixed(1)}`, TEAL, "font-size:52px"), W(s80, "두 배"));
+  K.cut(E(s77) - 0.1, "해설 4 ALL IN −16%"); K.cut(E(s78) - 0.1, "해설 4 BUY 09.30"); K.cut(E(s79) - 0.1, "해설 4 −16% 쌈"); K.cut(E(s80) - 0.1, "해설 4 +68% · ×2.0");
+}
+rebut(4, until(IT[4].mul), until(IT[4].so), [
+  [S(IT[4].mul) + 0.15, row([inkS("WAIT", NAVY, 110), inkS("→", NAVY, 100), inkS("▲", CRIM, 130), inkS("?", AMB, 130)], 40)],
+  [S(IT[4].but) + 0.05, row([inkS("▲ 15%", TEAL, 110), inkS("≠", NAVY, 110), inkS("END", CRIM, 110)], 40)],
+  [S(N("열 번 중 여섯 번")) + 0.05, dotGrid(SR.rallies10, 5, "▼", "▲", row([inkS("RALLY 15%", NAVY, 58), inkS(`${SR.rallies10.filter(x => x[1]).length} / ${SR.rallies10.length}`, CRIM, 70), inkS("NEW LOW", CRIM, 50)], 36)), 1.3],
+]);
+soScene(4);
+
+/* ═════════════ 선택 5 — 6월 바닥 다시 깸 · −24% · 계획대로 vs 모두 매도 ═════════════ */
+{ // 이야기 (공원 노을 — 커뮤니티 무리)
+  const s85 = IT[5].first, s86 = N("최고가보다 24% 아래이고"), s87 = N("그동안 산 주식도"), s88 = N("소용없다는 글");
+  const a = ch(s85), b = until(IT[5].qa);
+  const { sc, st } = stage(a, b, "PARK", s => { st.CR = act(s, "W_CROWD", "CROWD_S", 3.3).ro(3); });
+  const hero = poses(st, a, ["H_SHOCK", "H_THINK"], "HERO_S", [S(s88)]);
+  st.update = t => { hero(t); st.BG.tint.setRGB(0.86, 0.8, 0.82); enter(st.CR, t, S(s88)); if (t > S(s88) + 0.4) st.CR.bob(t, 0.08, 2.4); };
+  gTo(SR.vix.d5, S(s85) + 0.3, 1.0);
+  memo(sc, a + 0.1);
+  seq(sc, "M_TOP", [[S(s85) + 0.1, lab("S&amp;P 500", IDX)], [S(s86) + 0.05, lab("NEWS ▼", CRIM)], [S(s87) + 0.05, lab("BUY", CRIM)], [S(s88) + 0.05, lab("PLAN ?", AMB)]]);
+  const c5 = SR.c5_pre, jl = valOn(c5, SR.dates.june_low);
+  seq(sc, "M_MID", [[S(s85) + 0.2, ink("NEW LOW", CRIM, 120)], [W(s86, "24%"), ink(pct(c5[c5.length - 1][1] - 1), CRIM, 150)],
+    [S(s87) + 0.1, row(SR.plan_levels.slice(0, 3).map(lv => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px">${ink(pct(lv - 1), NAVY, 52)}${ink("▼", CRIM, 70)}</div>`), 60)],
+    [S(s88) + 0.1, row([prop("P-PLANNOTE", 230, crossSvg(120)), ink("?", AMB, 150)], 40)]]);
+  mini(sc, c5, S(s85) + 0.1, { lo: 0.74, hi: 0.91, col: IDX, hl: jl, dur: Math.max(1.2, E(s85) - S(s85) - 0.6), dates: ["2022.06", "09.26"],
+    marks: [[SR.dates.june_low, LINE_Y, S(s85) + 0.4], [SR.dates.d5, CRIM, E(s85) - 0.4]] });
+  K.cut(E(s85) - 0.1, "5 이야기 NEW LOW"); K.cut(E(s86) - 0.1, "5 이야기 −24%"); K.cut(E(s87) - 0.1, "5 이야기 BUY ▼"); K.cut(E(s88) - 0.1, "5 이야기 PLAN ✕");
+}
+qaScene(5);
+{ // 해설 5: 09-26 모두 매도·멈춤 → 이자 +16% · 계획대로 −2% → +96% (문장 95~96)
+  const s95 = IT[5].wrong, s96 = N("96% 올랐을"), a = until(s95), b = until(IT[5].mul);
+  const { g, add } = chartScene(a, b);
+  const hd = SR.c5_hold, cs = SR.c5_cash, P = plot(g, SR.dates.d5, SR.end, 0.85, 2.08, { r: 230 });
+  P.hline(1, LINE_Y, a + 0.2, 5);
+  P.axis([[SR.dates.d5, "2022.09"], [SR.end, "2025.12", "r"]], a + 0.2);
+  P.line(cs, CRIM, S(s95) + 0.2, Math.max(1.2, W(s95, "16%") - S(s95) - 0.2), 9);
+  P.tag(ink(pct(cs[cs.length - 1][1] - 1), CRIM, 70), SR.end, cs[cs.length - 1][1], W(s95, "16%"), "right", 18);
+  P.line(hd, IDX, S(s96) + 0.05, Math.max(1.2, W(s96, "96%") - S(s96)), 9);
+  const hmin = hd.reduce((m, r) => (r[1] < m[1] ? r : m));
+  P.dot(hmin[0], hmin[1], IDX, W(s96, "2%"), 26); P.tag(ink(pct(hmin[1] - 1), IDX, 56), hmin[0], hmin[1], W(s96, "2%"), "down", 20);
+  P.tag(ink(pct(hd[hd.length - 1][1] - 1), TEAL, 72), SR.end, hd[hd.length - 1][1], W(s96, "96%"), "right", 18);
+  add(lab("JEONG", CRIM), a + 0.2); add(lab("SELL · STOP", CRIM), W(s95, "매도")); add(lab("CASH", CRIM), W(s95, "이자"));
+  add(lab("PLAN · HOLD", IDX), S(s96) + 0.05);
+  K.cut(E(s95) - 0.1, "해설 5 CASH +16%"); K.cut(E(s96) - 0.1, "해설 5 HOLD +96%");
+}
+rebut(5, until(IT[5].mul), until(IT[5].so), [
+  [S(IT[5].mul) + 0.15, row([prop("P-PLANNOTE", 260), inkS("?", AMB, 170)], 50)],
+  [S(IT[5].but) + 0.05, colm([row([inkS("BOTTOM", NAVY, 100), inkS("✕", CRIM, 110)], 30), row([inkS("¼ ¼ ¼ ¼", TEAL, 100), inkS("✓", TEAL, 110)], 30)], 34)],
+  [S(N("세 번 모두")) + 0.05, (() => {
+    const mx = Math.max(...SR.cases3.map(c => c[1]));
+    const bw = v => Math.max(14, Math.round(600 * v / mx));   // 막대 길이 = 4년 뒤 늘어난 비율 (숫자는 쓰지 않음 — 대본은 '세 번 모두')
+    const line = ([yr, h, c]) => `<div style="display:flex;align-items:center;gap:24px;width:820px">${inkS(yr, NAVY, 58, "width:160px")}<div style="display:flex;flex-direction:column;gap:8px"><div style="height:40px;width:${bw(h)}px;border-radius:6px;background:${IDX}"></div><div style="height:40px;width:${bw(c)}px;border-radius:6px;background:#C98A12"></div></div></div>`;
+    const key = (c, t2) => `<div style="display:flex;align-items:center;gap:12px"><div style="width:44px;height:36px;border-radius:6px;background:${c}"></div>${inkS(t2, c === IDX ? IDX : AMB, 52)}</div>`;
+    return colm([row([inkS("4Y", NAVY, 60), inkS(`HOLD ${SR.cases3.filter(c => c[1] > c[2]).length} / ${SR.cases3.length}`, TEAL, 64)], 40), row([key(IDX, "HOLD"), key("#C98A12", "CASH")], 50), ...SR.cases3.map(line)], 16);
+  })(), 0.92],
+  [S(N("곧 써야 할 돈이라면")) + 0.05, row([inkS("LIFE", TEAL, 120), inkS("&gt;", NAVY, 110), inkS("PLAN", NAVY, 120)], 40)],
+]);
+K.cut(E(N("세 번 모두")) - 0.1, "해설 5 3 / 3");
+soScene(5);
+
+/* ═════════════ 결과 — 공책 세 줄 + 고무도장 (PASS · CAUTION · FAIL) ═════════════ */
+{
+  const a = ch(nRes), b = ch(nEnd), r1 = nRes + 1, r2 = nRes + 2, r3 = nRes + 3;
+  const { sc, st } = stage(a, b, "DESK", null);
+  st.update = poses(st, a, ["H_THINK", "H_ENDURE", "H_THINK", "H_SHOCK"], "HERO_R", [S(r1), S(r2), S(r3)]);
+  notePage(sc, a + 0.02);
+  boxC(sc, "N_TOP", row([inkS("FEAR ✕", CRIM, 72), inkS("= ?", NAVY, 72)], 24), S(nRes) + 0.1, "justify-content:flex-start;");
+  const rowR = (slot, t2, at) => boxC(sc, slot, inkS(t2, NAVY, 76), at, "justify-content:flex-start;padding-left:30px;border-radius:12px;");
+  const rr = [rowR("R1", "FEAR ✕ 0", S(r1)), rowR("R2", "FEAR ✕ 1–2", S(r2)), rowR("R3", "FEAR ✕ 3+", S(r3))];
+  const hl = ["rgba(34,199,176,.28)", "rgba(255,212,0,.35)", "rgba(179,32,42,.22)"];
+  rr.forEach((r, i) => { tl.to(r, { backgroundColor: hl[i], duration: 0.3 }, S([r1, r2, r3][i]) + 0.2); if (i < 2) tl.to(r, { backgroundColor: "rgba(0,0,0,0)", opacity: 0.6, duration: 0.3 }, S([r2, r3][i]) - 0.1); });
+  [["PASS", TEAL, r1, -10], ["CAUTION", AMB, r2, -7], ["FAIL", CRIM, r3, -12]].forEach(([w2, c, n, rot], i, arr) => {
+    const d = box(sc, "STAMP", `<div class="stp" style="font-size:${w2.length > 4 ? 76 : 104}px;color:${c};transform:rotate(${rot}deg)">${w2}</div>`, CEN);
+    const at = W(n, ["통과", "주의", "불통과"][i]);
+    tl.fromTo(d, { opacity: 0 }, { opacity: 1, duration: 0.12, ease: "none", immediateRender: false }, at);   // 칸 상자는 그대로 · 안의 도장만 쾅
+    tl.fromTo(d.firstElementChild, { scale: 1.6 }, { scale: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, at);
+    gsap.set(d, { opacity: 0 });
+    if (i + 1 < arr.length) tl.to(d, { opacity: 0, duration: 0.2 }, S(arr[i + 1][2]) - 0.1);
+  });
+  K.cut(E(nRes) - 0.1, "결과 FEAR ✕ = ?"); K.cut(E(r1) - 0.1, "결과 PASS"); K.cut(E(r2) - 0.1, "결과 CAUTION"); K.cut(E(r3) - 0.1, "결과 FAIL");
+}
+
+/* ═════════════ 정리 · 인사 (공원 노을) ═════════════ */
+{ // 비 온 뒤에 땅이 굳는다 — 계획대로 산 길 vs 정씨 (메모지 그래프)
+  const a = ch(nEnd), b = until(nEnd + 1);
+  const { sc, st } = stage(a, b, "PARK", null);
+  st.update = poses(st, a, ["H_ENDURE"], "HERO_S", []);
+  memo(sc, a + 0.1);
+  boxC(sc, "M_TOP", row([lab("PLAN ✓", TEAL), lab("FEAR", CRIM)], 24), a + 0.3);
+  const g = box(sc, "M_BIG", "", ""); pop(g, a + 0.3, { from: { y: 0 } });
+  const P = plot(g, SR.dates.peak, SR.end, 0.25, 1.75, { l: 40, t: 30, r: 40, b: 80 });
+  P.hline(1, LINE_Y, a + 0.4, 4);
+  P.line(SR.intro_jeong, CRIM, a + 0.5, 1.6, 8);
+  P.line(SR.good, TEAL, W(nEnd, "계획을 지키며"), Math.max(1.6, E(nEnd) - W(nEnd, "계획을 지키며") - 1.2), 10);
+  inBox(g, `<div class="a w7 nw" style="font-size:36px;color:#5A6378">2022.01</div>`, g._x + 40, g._y + g._h - 60, a + 0.4);
+  inBox(g, `<div class="a w7 nw" style="font-size:36px;color:#5A6378;transform:translateX(-100%)">2025.12</div>`, g._x + g._w - 40, g._y + g._h - 60, a + 0.4);
+  K.cut(E(nEnd) - 0.1, "정리 PLAN ✓");
+}
+{ // 인사 — HERO_C · 주황 빛 알갱이 (노을)
+  const a = until(nEnd + 1), b = K.D;
+  const { st } = stage(a, b, "PARK", null, { keep: true });
+  st.update = poses(st, a, ["H_BOW"], "HERO_C", [], 5.2);
+  const bow = st.update;
+  st.update = t => { bow(t); st.BG.tint.setRGB(0.92, 0.88, 0.88); const k = sm(lin(t, S(nEnd + 2), S(nEnd + 2) + 0.6)); st.actors[1] && (st.actors[1].g.rotation.z = 0.15 * Math.sin(k * Math.PI)); };
+  st.part(Puppet.floaters({ n: 70, x: [-11, 11], z: [-6, 4], hgt: 12, speed: [0.3, 0.8], size: 0.32, inner: "rgba(255,170,90,1)", outer: "rgba(230,90,40,0)" }));
+  K.cut(E(nEnd + 2) - 0.1, "인사");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

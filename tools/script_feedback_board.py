@@ -38,7 +38,7 @@ LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS_MD = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
 EXTRA = ROOT / "stock/topics/board/script_board.json"
 SHORTS_ITEMS = ROOT / "stock/topics/board/shorts_board.json"
-LONG_VER = {1: "대본 v17", 2: "대본 v17", 3: "대본 v17", 4: "대본 v17"}   # 2~4편 v17 = 말머리 편마다 다르게 · 3편 1편과 같은 문장 고침 (quick_board 규칙 43)
+LONG_VER = {1: "대본 v17", 2: "대본 v17", 3: "대본 v17", 4: "대본 v18"}   # 4편 v18 = 문장 25 45% → 58% (계산 버그 — longform_ep4 v1.1) · 2~4편 v17 = 말머리 편마다 다르게 · 3편 1편과 같은 문장 고침 (quick_board 규칙 43)
 # 이전: 1편 v17·2~4편 v16 = 질문 뒤 '선택해 보세요.' · '3, 2, 1.' (quick_board 규칙 41) · 2~4편 v15 = 판 피드백 5건(질문 구체 행동·하락·역전·지표 결론, quick_board 규칙 36~39) · 1편 v16 = 판 피드백 2건(규칙 34·35) · v15·v14 = 1편 피드백 11건을 모든 편에 (2026-11-04, quick_board 규칙 26~33) · v14·v13 = 질문형 선택 + 바로 정답·해설 · v13·v12 = \'A번,\'
 SHORT_VER = "v7"                                                       # 쇼츠안_2026-10-30.md 의 판
 URL = {

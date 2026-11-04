@@ -1,5 +1,17 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-04 — 4편 계산 버그 고침 (문장 25 45% → 58%) · 4편 롱폼 장면 파일 v1.1
+
+- **무엇**: 4편(정씨 · 폭락장 계획 매수) 문장 25 「그래서 2025년 말까지도 45% 오르는 데 그쳤을 것입니다.」의 45% 는 계산 버그 — 판 뒤 다시 산 길의 끝 값이 주식 수 감소(−8%)를 두 번 곱함. 바른 값 +58%.
+- **왜**: 4편 장면을 만들던 에이전트가 그래프 선 끝 값(+58%)과 계산 json(0.4513)이 다른 것을 찾음 → 식 확인: 옛 식 = 1.725 × 0.917² − 1, 바른 식 = 1.725 × 0.917 − 1.
+- **바뀐 곳**:
+  - `stock/topics/precheck/longform_ep4.py` v1.1 — `ep4()` 의 `sold_to_end` 식 (옛 값은 `sold_to_end_v10_bug` 로 남김) → `longform_ep4_2026-11-04.json` (다른 값은 모두 같음).
+  - `stock/source/gongpo-test-2026-11/gongpo-test-2026-11.txt` 대본 v18 — 문장 25 만 (`board_check` ❌ 0, 사용자 문장 「비 온 뒤에 땅이 굳는다…」는 `--allow`).
+  - `stock/source/gongpo-test-2026-11/calc/series.py` v1.1 — 새 json · 알려진 차이(KNOWN) 없앰 → `CHECK c1_sold_end` (0.5824 = 0.5824) · `c1_sold_label "+58%"`.
+  - `video/episodes/gongpo-test-2026-11/index.html` v1.1 — `C1_SOLD_LABEL = "+58%"`.
+  - `tools/script_feedback_board.py` LONG_VER 4 → 대본 v18, 대본 평가판 다시 올림.
+- **남은 일**: 4편 오디오는 평소 Kaggle 셀 한 번 (바뀐 문장 1개 → 그 문장만 다시) 뒤 SRT·렌더. 4편 도입 36.8초(> 35초) — 장면 파일 `introOk: true` 는 사용자 확인 필요.
+
 ## 2026-11-04 — 유튜브 '진정성 없는 콘텐츠' 막기 (2~4편 말머리 편마다 · K10)
 
 ### 왜 (사용자 지시)

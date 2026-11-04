@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>1편 쇼츠 이 생각</title>
-<!-- VERSION: v1.0 — 2026-11-04 — 1편 쇼츠 「'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.」 (쇼츠 대본 11문장 — 쇼츠 판 사용자 문구 그대로,
+<!-- VERSION: v1.1 — 2026-11-04 — 화면 영어 → 쉬운 한국어 (사용자 지시 2026-11-04 "영어를 왤케 많이 넣었어 되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해"):
+       영어는 BUY·SELL 만 · FAST → 빠르게 · MORE → 욕심 · CASH → 현금 · LOSS → 손실 · RISK → 리스크 대비 · SLOW → 천천히 · WIN → 승리 · SUBSCRIBE → 구독 (대본 말 그대로).
+       한국어 칸은 data-words(KO) — 예전 '한글은 구운 자막에만' 규칙을 바꿈. 장면 시각·배치 표 그대로.
+     이전 v1.0 — 2026-11-04 — 1편 쇼츠 「'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.」 (쇼츠 대본 11문장 — 쇼츠 판 사용자 문구 그대로,
        음성 stock/source/ppalli-test-2026-11/shorts/narration.mp3). 사용자 지시 2026-11-04 "지금 음성 만들었으니 1편 롱폽, 쇼츠 만들어 영상".
      · 첫 문장 = 쇼츠 썸네일 (shorts/thumbnails/thumbnail_1.jpg — 롱폼과 같은 실사 그림 TH-PHOTO2 가운데를 세로로 자름 + 문구는 코드, thumb.mjs) · 업로드 썸네일 = 0초 장면.
      · 꼴 = 세 칸 (주식 종이인형극 쇼츠와 같음): 위 칸 y 0~691 검정 + 기호·영어 투자 낱말 · 가운데 칸 y 691~1382 종이인형 무대(1편 인형 — 시리즈 주인공 하나) · 아래 칸 구운 자막.
@@ -48,8 +51,11 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <script>
 (function () {
 "use strict";
-const WORDS = ["FAST", "MORE", "BUY", "SELL", "CASH", "LOSS", "SLOW", "WIN", "SUBSCRIBE", "RISK"];
-K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });   // 한글은 구운 자막에만
+// v1.1 화면 영어 = BUY·SELL 만 (사용자 지시 2026-11-04 "되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해") — 그 밖의 낱말은 한국어 칸(KO)
+const WORDS = ["BUY", "SELL"];
+K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });
+const KO = `data-words="쉬운 한국어 칸 — 사용자 지시 2026-11-04 '정 꼭 문구가 필요하면 그냥 한국어로 해'"`;
+const ko = s => (/[가-힣]/.test(s) ? " " + KO : "");     // 한국어가 든 칸에만 붙임
 const { S, E, W, el, pop } = K;
 const tl = K.tl;
 const out = (n, at) => K.out(n, at, { y: 0 });
@@ -130,8 +136,8 @@ function lineIn(g, pts, color, at, dur, w) {     // g 칸 안에 선 (화면 좌
   return s;
 }
 const inBox = (g, html, x, y, at, from) => { const n = el(html, g); n.style.left = (x - g._x) + "px"; n.style.top = (y - g._y) + "px"; if (at != null) pop(n, at, from); return n; };
-const tag = (t2, color, size) => `<div class="tag2" style="${color ? `border-color:${color};color:${color};` : ""}${size ? `font-size:${size}px;` : ""}">${t2}</div>`;
-const stampH = (t2, color, rot) => `<div class="stamp" style="color:${color};rotate:${rot == null ? -8 : rot}deg">${t2}</div>`;
+const tag = (t2, color, size) => `<div class="tag2"${ko(t2)} style="${color ? `border-color:${color};color:${color};` : ""}${size ? `font-size:${size}px;` : ""}">${t2}</div>`;
+const stampH = (t2, color, rot) => `<div class="stamp"${ko(t2)} style="color:${color};rotate:${rot == null ? -8 : rot}deg">${t2}</div>`;
 const press = (n, at) => { tl.to(n, { scale: 0.86, duration: 0.12, ease: "power2.in" }, at); tl.to(n, { scale: 1, duration: 0.25, ease: "back.out(3)" }, at + 0.12); };
 const ARROW_UP = c => `<svg viewBox="0 0 100 100" width="150" height="150" aria-hidden="true"><path d="M50 12 L88 62 L64 62 L64 90 L36 90 L36 62 L12 62 Z" fill="${c}"/></svg>`;
 const ARROW_DN = c => `<svg viewBox="0 0 100 100" width="150" height="150" aria-hidden="true"><path d="M50 88 L88 38 L64 38 L64 10 L36 10 L36 38 L12 38 Z" fill="${c}"/></svg>`;
@@ -149,7 +155,7 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   const { sc, st } = stage(a, b, "SUB", s => { HP = act(s, "H_PHONE", "P_C", 4.4).ro(5); });
   st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
   boxC(sc, "T_MAIN", propH("P-MONEY", 330), S(2) + 0.1);
-  boxC(sc, "T_TAG", tag("FAST »", Y), W(2, "빠르게") - 0.1);
+  boxC(sc, "T_TAG", tag("빠르게 »", Y), W(2, "빠르게") - 0.1);
   headMark(st, sc, "HEAD_C", () => HP, `<span class="Y">₩</span>`, W(2, "벌고"));
   K.cut(E(2) - 0.1, "S-02 ₩ FAST");
 }
@@ -173,7 +179,7 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); };
   const c = boxC(sc, "T_MAIN", propH("P-COINS", 200), S(4) + 0.1);
   tl.fromTo(c.firstElementChild, { scale: 0.7 }, { scale: 1.45, duration: Math.max(0.6, E(4) - W(4, "점점")), ease: "power1.in" }, W(4, "점점"));
-  boxC(sc, "T_TAG", tag("MORE", Y), W(4, "욕심") - 0.1);
+  boxC(sc, "T_TAG", tag("욕심", Y), W(4, "욕심") - 0.1);
   K.cut(E(4) - 0.1, "S-04 MORE");
 }
 /* S-05 수익 → 매수 금액을 점점 늘림 — 막대 넷 + BUY (문장 5) */
@@ -224,8 +230,8 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   const [x, y, w, h] = LAY.T_CHART;
   const P = [[0, 0.30], [0.12, 0.24], [0.22, 0.30], [0.34, 0.18], [0.46, 0.26], [0.56, 0.20], [0.64, 0.36], [0.74, 0.58], [0.84, 0.70], [1, 0.90]];
   lineIn(g, P.map(([u, v]) => [x + 60 + (w - 120) * u, y + 50 + (h - 100) * v]), R, S(7) + 0.1, Math.max(0.6, tC - 0.45 - S(7)), 12);   // "결국 큰 하락이 오면" 동안
-  const cash = boxC(sc, "T_L", `<div class="app"><div class="h">CASH</div><div class="v R">₩0</div></div>`, tC);
-  const sell = boxC(sc, "T_R", `<div style="display:grid;gap:30px;justify-items:center"><div class="btn sell">SELL</div>${tag("LOSS ▼", R)}</div>`, W(7, "매도하자니") - 0.2);
+  const cash = boxC(sc, "T_L", `<div class="app"><div class="h" ${KO}>현금</div><div class="v R">₩0</div></div>`, tC);
+  const sell = boxC(sc, "T_R", `<div style="display:grid;gap:30px;justify-items:center"><div class="btn sell">SELL</div>${tag("손실 ▼", R)}</div>`, W(7, "매도하자니") - 0.2);
   tl.fromTo(sell.querySelector(".btn"), { x: 0 }, { x: 10, duration: 0.07, yoyo: true, repeat: 5, ease: "none" }, W(7, "손실이"));
   K.cut(tC - 0.35, "S-07 하락 그래프");
   K.cut(E(7) - 0.1, "S-07 CASH ₩0 · SELL LOSS");
@@ -271,9 +277,9 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   const [x, y, w, h] = LAY.T_CHART;
   const P = [[0, 0.86], [0.1, 0.80], [0.18, 0.83], [0.3, 0.70], [0.4, 0.73], [0.52, 0.58], [0.6, 0.61], [0.72, 0.46], [0.82, 0.48], [0.92, 0.36], [1, 0.30]];
   lineIn(g, P.map(([u, v]) => [x + 60 + (w - 120) * u, y + 40 + (h - 80) * v]), G, W(10, "천천히") - 0.6, Math.max(1.6, W(10, "승리자") - W(10, "천천히")), 12);
-  inBox(g, tag("RISK ▼", G, 46).replace('class="tag2"', 'class="tag2 a"'), x + 40, y + 34, W(10, "리스크") - 0.1);
-  inBox(g, tag("SLOW", Y, 46).replace('class="tag2"', 'class="tag2 a"'), x + 380, y + 34, W(10, "천천히") - 0.1);
-  inBox(g, stampH("WIN", Y, -8).replace('class="stamp"', 'class="stamp a"'), x + 520, y + 250, W(10, "승리자") - 0.1, { from: { scale: 2.2, y: 0, opacity: 0 } });
+  inBox(g, tag("리스크 대비", G, 46).replace('class="tag2"', 'class="tag2 a"'), x + 40, y + 34, W(10, "리스크") - 0.1);
+  inBox(g, tag("천천히", Y, 46).replace('class="tag2"', 'class="tag2 a"'), x + 400, y + 34, W(10, "천천히") - 0.1);
+  inBox(g, stampH("승리", Y, -8).replace('class="stamp"', 'class="stamp a"'), x + 520, y + 250, W(10, "승리자") - 0.1, { from: { scale: 2.2, y: 0, opacity: 0 } });
   headMark(st, sc, "HEAD_C", () => HP, `<span class="G">✓</span>`, W(10, "승리자"));
   K.cut(E(10) - 0.1, "S-10 SLOW → WIN");
 }
@@ -285,7 +291,7 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   st.update = t => { enter(HB, t, a + 0.1); };
   const card = box(sc, "E_CARD", `<div class="card a" style="inset:0"><img alt="" src="../../../stock/source/ppalli-test-2026-11/thumbnails/thumbnail_1.jpg"><div class="play"><svg viewBox="0 0 60 60" width="64" height="64" aria-hidden="true"><path d="M18 10 L50 30 L18 50 Z" fill="#fff"/></svg></div></div>`);
   pop(card, S(11) + 0.05, { from: { scale: 0.85, y: 0 } });
-  const btn = boxC(sc, "E_BTN", `<div class="btn sub">SUBSCRIBE</div>`, W(11, "구독하고") - 0.2);
+  const btn = boxC(sc, "E_BTN", `<div class="btn sub" ${KO}>구독</div>`, W(11, "구독하고") - 0.2);
   press(btn.firstElementChild, W(11, "구독하고") + 0.2);
   K.cut(E(11) - 0.1, "S-11 카드 ▶ · SUBSCRIBE");
   K.cut(K.D - 0.3, "끝 화면");

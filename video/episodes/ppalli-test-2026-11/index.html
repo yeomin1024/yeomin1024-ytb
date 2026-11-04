@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="end-hold" content="2.5">
 <title>1편 주식 투자 실패하는 사람 테스트 롱폼</title>
-<!-- VERSION: v3.1 — 2026-11-04 — 대본 v17 (99문장): 선택마다 질문 두 줄 뒤 '선택해 보세요.'(보기 카드 테두리 노랑) · '3, 2, 1.'(읽는 소리 '삼. 이. 일.' 조각마다 카드 위 큰 숫자 3 → 2 → 1, 칸 COUNT) → '이때는 …옳은 선택'.
+<!-- VERSION: v3.2 — 2026-11-04 — 화면 영어 → 쉬운 한국어 (사용자 지시 2026-11-04 "영어를 왤케 많이 넣었어 되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해"):
+       영어는 BUY·SELL·S&P 500·AI·보기 글자 A·B·회사 이름 C3.ai 만 · 그 밖의 낱말은 대본 말 그대로 짧은 한국어(김씨·당신·테스트·통과·주의·불통과·대출·뉴스·손실·현금·투자·모두·최고가·기준·지금·버팀·이익·천천히·오래 …)
+       또는 뺌 · 종목 이름 = 업스타트·아이온큐 · 기간 1Y → 1년. 한국어 칸은 data-words(KO) — 예전 규칙(2026-10-26 'A,B,C 선택 항목 말고는 자막 외에 한글 문구 쓰지 말고')을 바꿈. 장면 시각·배치 표 그대로.
+     이전 v3.1 — 2026-11-04 — 대본 v17 (99문장): 선택마다 질문 두 줄 뒤 '선택해 보세요.'(보기 카드 테두리 노랑) · '3, 2, 1.'(읽는 소리 '삼. 이. 일.' 조각마다 카드 위 큰 숫자 3 → 2 → 1, 칸 COUNT) → '이때는 …옳은 선택'.
        문장 번호는 v16 번호 그대로 쓰고 NS() 가 v17 번호로 (OLD_ANS). 사용자 지시 2026-11-04 "매수 하시겠습니까? 선택 항목 다음에 선택해보세요. 멘트 추가하고 3, 2, 1 카운트 후에 정답 얘기하도록수정해 다른 대본도 그렇게 하고".
      이전 v3.0 — 2026-11-04 — 대본 v16 (89문장): 선택마다 이야기 → 질문 두 줄('여기서 당신은 …하시겠습니까?' / '아니면 …?' — 보기 카드에 질문 그대로)
        → '이때는 …옳은 선택' (머리 위 ? → ✓ · 카드 ✓·✕) → 날짜·종목 꼬리표 → 그 선택의 해설 (오답 결과 그래프 · 물론/하지만 판 · 그래서 ✓) — 'N번째 선택' 번호 카드·정답과 해설 장면·김씨 결과 장면 없앰.
@@ -66,9 +69,11 @@
 <script>
 (function () {
 "use strict";
-// 화면 영어 허용 목록 (제작안.txt '화면 글자 규칙') — 한글은 자막과 보기 카드(data-words)만
-const WORDS = ["A", "B", "S&P", "TEST", "FAIL", "PASS", "CAUTION", "KIM", "YOU", "AI", "LOAN", "UPST", "IONQ", "QUANTUM", "NEWS", "LOSS", "WIN", "REPORT", "DAY", "DAYS",
-  "SAME", "INVEST", "CASH", "ALL", "IN", "HIGH", "BUY", "SELL", "HOLD", "RULE", "TOP", "STOCK", "INDEX", "MY", "PRICE", "RESTART", "NOW", "BEST", "USA", "SLOW", "LONG", "Y", "p"];
+// 화면 영어 허용 목록 v3.2 (사용자 지시 2026-11-04 "되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해")
+//   BUY·SELL · 지수 이름 S&P 500 · AI(대본도 'AI' — 우리말로 굳은 말) · 보기 글자 A·B · 회사 이름 C3.ai(대본 표기 — 'C'·'ai') — 그 밖의 낱말은 한국어 칸(KO)
+const WORDS = ["A", "B", "C", "S&P", "AI", "BUY", "SELL"];
+const KO = `data-words="쉬운 한국어 칸 — 사용자 지시 2026-11-04 '정 꼭 문구가 필요하면 그냥 한국어로 해'"`;
+const ko = s => (/[가-힣]/.test(s) ? " " + KO : "");     // 한국어가 든 칸에만 붙임
 K.init(window.EP, { chip: false, allowWords: WORDS, introPart: "도입" });
 // v3.1 대본 v17 — 선택마다 질문 두 줄 뒤 '선택해 보세요.' · '3, 2, 1.' 두 문장이 들어감 (quick_board 규칙 41).
 //   이 파일의 문장 번호는 대본 v16 번호(옛 번호) 그대로 쓰고 NS() 가 v17 번호로 바꿈 — 새 두 문장은 SAY(n)·CNT(n) (선택 n).
@@ -159,7 +164,7 @@ ST.after(t => {
   }
 });
 const headMark = (set, sc, slot, a, html, at, end, size) => {
-  const n = stick(set, el(`<div class="a w9 nw ts" data-slot="${slot}" style="font-size:${size || 110}px;line-height:1">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.3) : null; });
+  const n = stick(set, el(`<div class="a w9 nw ts" data-slot="${slot}"${ko(html)} style="font-size:${size || 110}px;line-height:1">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.3) : null; });
   if (at != null) pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n;
 };
 function stage(a, b, bgKey, build, o) {
@@ -198,16 +203,16 @@ function lineIn(g, pts, color, at, dur, w, dash) {
   return s;
 }
 const inBox = (g, html, x, y, at, from) => { const n = el(html, g); n.style.left = (x - g._x) + "px"; n.style.top = (y - g._y) + "px"; if (at != null) pop(n, at, from); return n; };
-const tag = (txt2, color, size) => `<div class="tag2" style="position:relative;${color ? `border-color:${color};color:${color};` : ""}${size ? `font-size:${size}px;` : ""}">${txt2}</div>`;
-const stampH = (txt2, color, rot, size) => `<div class="stamp" style="position:relative;color:${color};rotate:${rot == null ? -8 : rot}deg;${size ? `font-size:${size}px` : ""}">${txt2}</div>`;
+const tag = (txt2, color, size) => `<div class="tag2"${ko(txt2)} style="position:relative;${color ? `border-color:${color};color:${color};` : ""}${size ? `font-size:${size}px;` : ""}">${txt2}</div>`;
+const stampH = (txt2, color, rot, size) => `<div class="stamp"${ko(txt2)} style="position:relative;color:${color};rotate:${rot == null ? -8 : rot}deg;${size ? `font-size:${size}px` : ""}">${txt2}</div>`;
 const stampIn = (sc, name, txt2, color, at, rot, size) => { const d = box(sc, name, stampH(txt2, color, rot, size), CEN); pop(d, at, { from: { scale: 2.2, y: 0, opacity: 0 }, to: { duration: 0.35, ease: "back.out(2)" } }); return d; };
-const big = (t2, col, size) => `<div class="w9 nw ts" style="font-size:${size || 110}px;line-height:1;color:${col || WH}">${t2}</div>`;
-const sub = (t2, col, size) => `<div class="w7 nw" style="font-size:${size || 48}px;line-height:1;color:${col || N}">${t2}</div>`;
+const big = (t2, col, size) => `<div class="w9 nw ts"${ko(t2)} style="font-size:${size || 110}px;line-height:1;color:${col || WH}">${t2}</div>`;
+const sub = (t2, col, size) => `<div class="w7 nw"${ko(t2)} style="font-size:${size || 48}px;line-height:1;color:${col || N}">${t2}</div>`;
 const dot = (c, s) => `<div style="width:${s || 34}px;height:${s || 34}px;border-radius:50%;background:${c};box-shadow:0 0 0 6px rgba(0,0,0,.35)"></div>`;
 const xMark = s => `<svg viewBox="0 0 120 120" width="${s}" height="${s}" style="position:absolute;right:-6px;bottom:-6px" aria-hidden="true"><circle cx="60" cy="60" r="54" fill="rgba(10,16,30,.85)"/><path d="M32 32 L88 88 M88 32 L32 88" stroke="${R}" stroke-width="16" stroke-linecap="round"/></svg>`;
 
 /* ═════════════ 화면 원칙 ═════════════
-   한글 = 구운 자막 + A·B 보기 카드(data-words)만 · 그 밖은 숫자·기호·영어 허용 목록(WORDS) · 색 = 뜻 (빨강 손해·오답 · 청록 늘어남·정답 · 노랑 기준·물음)
+   v3.2 낱말 = 짧은 한국어(KO 칸 — 대본 말 그대로) · 영어는 BUY·SELL·S&P 500·AI·A·B·C3.ai 만(WORDS) · 숫자·기호 · 색 = 뜻 (빨강 손해·오답 · 청록 늘어남·정답 · 노랑 기준·물음)
    그래프 선 = window.SERIES (calc/series.py v2.0 — 실제 종가, 끝 값을 계산 json 과 맞춰 봄) · 숫자 = longform_items.py sp_1_v23 */
 const SR = window.SERIES, DT = SR.dates;
 const won = v => "₩" + Math.round(v).toLocaleString("en-US");
@@ -271,7 +276,7 @@ for (let i = 1; i <= 5; i++) tl.set(prog.children, { attr: { class: j => (j < i 
 const SHEET_CSS = "border-radius:28px;background:#F2E6CF;border:10px solid #FFFFFF;color:#1B2440;box-sizing:border-box;box-shadow:0 24px 60px -16px rgba(0,0,0,.8);";
 function sheet5(sc, at) {
   const sh = box(sc, "SHEET", "", SHEET_CSS); pop(sh, at);
-  el(`<div class="a w9 nw" style="left:60px;top:40px;font-size:90px;line-height:1.1">TEST</div>`, sh);
+  el(`<div class="a w9 nw" ${KO} style="left:60px;top:40px;font-size:90px;line-height:1.1">테스트</div>`, sh);
   const cells = Array.from({ length: 5 }, (_, i) => el(`<div class="a w9 c" style="left:${70 + i * 222}px;top:250px;width:176px;height:176px;border-radius:50%;border:9px solid #1B2440;font-size:96px;line-height:158px;box-sizing:border-box">${i + 1}</div>`, sh));
   return { sh, cells };
 }
@@ -297,7 +302,7 @@ const CL = LAY.C_LOW, CL_AREA = [CL[0] + 40, CL[1] + 40, CL[2] - 80, CL[3] - 80]
   const { cells } = sheet5(sc, 0.2);
   tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.08, duration: 0.3, ease: "back.out(2)" }, 0.5);
   tl.to(cells, { borderColor: R, color: R, duration: 0.25, stagger: 0.06 }, W(1, "손실") - 0.2);
-  stampIn(sc, "STAMP_P", "FAIL", R, W(1, "손실"), -8);
+  stampIn(sc, "STAMP_P", "불통과", R, W(1, "손실"), -8, 76);
   K.cut(E(1) - 0.1, "L-01 TEST · FAIL");
 }
 { // L-02 S&P 500 +76% · 김씨 ₩100,000,000 → ₩26,340,000 −74% (문장 2~3) — TOPBAR · CHART
@@ -311,7 +316,7 @@ const CL = LAY.C_LOW, CL_AREA = [CL[0] + 40, CL[1] + 40, CL[2] - 80, CL[3] - 80]
   inBox(g, `<div class="a w9 nw ts G" style="font-size:44px;line-height:1">S&amp;P 500</div>`, area[0] + area[2] + 40, sp.end[1] - 92, S(2) + 0.4);
   inBox(g, `<div class="a w9 nw ts G" style="font-size:96px;line-height:1">+76%</div>`, area[0] + area[2] + 40, sp.end[1] - 40, W(2, "70%"));
   const km = seriesIn(g, SR.intro_kim, area, lo, hi, R, S(3) + 0.2, Math.max(1.2, E(3) - S(3) - 0.8), 10);
-  inBox(g, `<div class="a w9 nw ts R" style="font-size:44px;line-height:1">KIM</div>`, area[0] + area[2] + 40, km.end[1] - 120, S(3) + 0.3);
+  inBox(g, `<div class="a w9 nw ts R" ${KO} style="font-size:44px;line-height:1">김씨</div>`, area[0] + area[2] + 40, km.end[1] - 120, S(3) + 0.3);
   const num = inBox(g, `<div class="a w9 nw ts" style="font-size:60px;line-height:1;color:${WH}">₩100,000,000</div>`, area[0] + area[2] + 40, km.end[1] - 64, S(3) + 0.3);
   K.counter(num, 100000000, 26340000, W(3, "74%") - 0.6, 1.0, v => won(v));
   tl.to(num, { color: R, duration: 0.3 }, W(3, "74%") + 0.3);
@@ -329,8 +334,8 @@ const CL = LAY.C_LOW, CL_AREA = [CL[0] + 40, CL[1] + 40, CL[2] - 80, CL[3] - 80]
   const { sh, cells } = sheet5(sc, S(5));
   tl.fromTo(cells, { scale: 0.4, opacity: 0 }, { scale: 1, opacity: 1, stagger: 0.12, duration: 0.3, ease: "back.out(2)" }, W(5, "다섯"));
   pop(el(`<div class="a w9 nw R" style="right:60px;top:40px;font-size:90px;line-height:1.1">✕ = ?</div>`, sh), W(6, "틀린"));
-  headMark(st, sc, "HEAD_L", () => HT, `<span class="R" style="font-size:72px">KIM</span>`, S(7) + 0.05, W(7, "김씨가") + 0.1);
-  headMark(st, sc, "HEAD_L", () => HT, `<span class="Y" style="font-size:72px">YOU</span>`, W(7, "김씨가") + 0.35);
+  headMark(st, sc, "HEAD_L", () => HT, `<span class="R" style="font-size:72px">김씨</span>`, S(7) + 0.05, W(7, "김씨가") + 0.1);
+  headMark(st, sc, "HEAD_L", () => HT, `<span class="Y" style="font-size:72px">당신</span>`, W(7, "김씨가") + 0.35);
   K.cut(E(4) - 0.1, "L-03 ?"); K.cut(E(6) - 0.1, "L-03 1~5 · ✕ = ?"); K.cut(E(7) - 0.1, "L-03 YOU");
 }
 
@@ -377,7 +382,7 @@ choice(1, "OFF", (a, b) => {
   storyCard(sc, S(8));
   cardSeq(sc, "C_IMG", [[S(8) + 0.1, propH("P-MONEY", 260)], [S(9) + 0.05, propH("P-LOAN", 260)], [S(13) + 0.05, propH("P-LAPTOP", 200, "", 280)]]);
   cardSeq(sc, "C_LOW", [[S(8) + 0.2, big("₩100,000,000", WH, 96)]]).forEach(d => out(d, S(9) - 0.2));
-  cardSeq(sc, "C_HEAD", [[S(8) + 0.15, tag("MY CASH", "#9FB4D8", 54)], [S(9) + 0.15, tag("AI · LOAN", "#9FB4D8", 54)], [S(13) + 0.1, tag("▶ ▶ ▶", Y, 54)]]);
+  cardSeq(sc, "C_HEAD", [[S(8) + 0.15, tag("모아 둔 돈", "#9FB4D8", 54)], [S(9) + 0.15, tag("AI · 대출", "#9FB4D8", 54)], [S(13) + 0.1, tag("▶ ▶ ▶", Y, 54)]]);
   { // 카드 아래 칸: 업스타트 2022.08 → 2023.08 (1년 3배 · 2023년 1월부터 5배 · 2023.05.10 하루 +35%) — 점·꼬리표는 선 위쪽 빈 곳
     const low = box(sc, "C_LOW", "", ""); pop(low, S(9) + 0.1);
     const pre = SR.i1_pre, lo = 0.3, hi = 3.3, A2 = [CL_AREA[0], CL_AREA[1] + 30, CL_AREA[2], CL_AREA[3] - 40];
@@ -395,10 +400,10 @@ choice(1, "OFF", (a, b) => {
     inBox(low, `<div class="a">${dot(G, 26)}</div>`, xb - 13, yb - 13, W(11, "35%"));
     inBox(low, `<div class="a w9 nw ts G" style="font-size:44px;line-height:1">+35%</div>`, xb - 150, yb - 70, W(11, "35%"));
   }
-  cardSeq(sc, "C_VAL", [[W(9, "3배"), big("1Y ×3", G, 100)], [W(10, "5배"), big("×5", G, 130)], [W(11, "35%"), big("+35%", G, 120)], [S(13) + 0.1, big("▲ ▲", G, 110)]]);
+  cardSeq(sc, "C_VAL", [[W(9, "3배"), big("1년 ×3", G, 100)], [W(10, "5배"), big("×5", G, 130)], [W(11, "35%"), big("+35%", G, 120)], [S(13) + 0.1, big("▲ ▲", G, 110)]]);
   headMark(st, sc, "HEAD_M", () => CO, `<span class="G" style="font-size:80px">+%</span>`, W(12, "수익") , E(12));
   K.cut(E(8) - 0.1, "L-04 ₩100,000,000"); K.cut(E(10) - 0.1, "L-04 AI · LOAN ×5"); K.cut(E(11) - 0.1, "L-04 +35%"); K.cut(E(12) - 0.1, "L-04 동료 +%"); K.cut(E(13) - 0.1, "L-04 영상 ▶");
-}, [[dateTag("2023.08.01"), S(17) + 0.1], [tag("UPST", R), W(17, "업스타트")], [propH("P-LOAN", 100), W(17, "업스타트") + 0.15]]);
+}, [[dateTag("2023.08.01"), S(17) + 0.1], [tag("업스타트", R), W(17, "업스타트")], [propH("P-LOAN", 100), W(17, "업스타트") + 0.15]]);
 
 /* L-07 선택 2 — 같은 날 · 1억 원 중 얼마를? · 다 넣었다는 사람들 (문장 23~25) — HERO · CROWD · CARD */
 choice(2, "OFF", (a, b) => {
@@ -407,12 +412,12 @@ choice(2, "OFF", (a, b) => {
   st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); enter(CR, t, S(25)); if (t > S(25) + 0.4) CR.bob(t, 0.08, 2.2); };
   storyCard(sc, S(23));
   boxC(sc, "C_IMG", propH("P-MONEY", 260), S(23) + 0.1);
-  boxC(sc, "C_HEAD", tag("SAME DAY", "#9FB4D8", 54), S(23) + 0.2);
-  cardSeq(sc, "C_VAL", [[W(24, "얼마를"), big("?", Y, 150)], [W(25, "모두") + 0.1, big("ALL IN", Y, 96)]]);
+  boxC(sc, "C_HEAD", tag("같은 날", "#9FB4D8", 54), S(23) + 0.2);
+  cardSeq(sc, "C_VAL", [[W(24, "얼마를"), big("?", Y, 150)], [W(25, "모두") + 0.1, big("모두", Y, 120)]]);
   const low = box(sc, "C_LOW", "", ""); pop(low, S(23) + 0.2);
   inBox(low, `<div class="a w9 nw ts" style="width:${CL[2]}px;text-align:center;font-size:92px;line-height:1">₩100,000,000</div>`, CL[0], CL[1] + 16, S(23) + 0.25);
-  inBox(low, `<div class="a" style="width:520px;height:140px;border-radius:20px 0 0 20px;background:${G};display:grid;place-items:center"><div class="w9 nw" style="font-size:56px;color:#06231F">INVEST</div></div>`, CL[0] + 15, CL[1] + 150, S(24) + 0.2);
-  const barC = inBox(low, `<div class="a" style="width:220px;height:140px;border-radius:0 20px 20px 0;background:${Y};display:grid;place-items:center"><div class="w9 nw cash" style="font-size:52px;color:#3A2A00">CASH</div></div>`, CL[0] + 535, CL[1] + 150, S(24) + 0.35);
+  inBox(low, `<div class="a" style="width:520px;height:140px;border-radius:20px 0 0 20px;background:${G};display:grid;place-items:center"><div class="w9 nw" ${KO} style="font-size:60px;color:#06231F">투자</div></div>`, CL[0] + 15, CL[1] + 150, S(24) + 0.2);
+  const barC = inBox(low, `<div class="a" style="width:220px;height:140px;border-radius:0 20px 20px 0;background:${Y};display:grid;place-items:center"><div class="w9 nw cash" ${KO} style="font-size:56px;color:#3A2A00">현금</div></div>`, CL[0] + 535, CL[1] + 150, S(24) + 0.35);
   tl.to(barC, { backgroundColor: G, duration: 0.4 }, W(25, "모두") - 0.1);
   tl.to(barC.querySelector(".cash"), { opacity: 0, duration: 0.2 }, W(25, "모두") - 0.1);
   K.cut(E(24) - 0.1, "L-07 INVEST · CASH ?"); K.cut(E(25) - 0.1, "L-07 ALL IN");
@@ -425,13 +430,13 @@ choice(3, "SUB", (a, b) => {
   st.update = t => { enter(HS, t, a + 0.1); if (t > W(36, "하락")) HS.jitter(t, 0.012); else idle(HS, t); };
   storyCard(sc, S(36));
   cardSeq(sc, "C_IMG", [[S(36) + 0.1, propH("P-CONTAINERS", 250, "", 290)], [S(37) + 0.05, propH("P-NEWSPAPER", 230, "", 290)], [S(38) + 0.05, propH("P-LAPTOP", 200, "", 280)]]);
-  cardSeq(sc, "C_HEAD", [[S(36) + 0.2, tag("S&amp;P 500", "#9FB4D8", 54)], [S(37) + 0.1, tag("NEWS", "#9FB4D8", 54)], [S(38) + 0.1, tag("LOSS", R, 54)]]);
+  cardSeq(sc, "C_HEAD", [[S(36) + 0.2, tag("S&amp;P 500", "#9FB4D8", 54)], [S(37) + 0.1, tag("뉴스", "#9FB4D8", 54)], [S(38) + 0.1, tag("커뮤니티", "#9FB4D8", 54)]]);
   cardSeq(sc, "C_VAL", [[W(36, "10%"), big("−10%", R, 120)], [S(37) + 0.2, big("▼ ▲ ?", Y, 100)], [S(38) + 0.2, big("▼ ▼ ▼", R, 100)]]);
   const low = box(sc, "C_LOW", "", ""); pop(low, S(36) + 0.15); out(low, S(37) - 0.2);
   const seg = slice(SR.i3_spx, "2025-01-21", DT.sig);
   baseAt(low, CL_AREA, 0.86, 1.03, 1, S(36) + 0.2);
   seriesIn(low, seg, CL_AREA, 0.86, 1.03, R, S(36) + 0.3, Math.max(1, W(36, "10%") - S(36) - 0.2), 9);
-  cardSeq(sc, "C_LOW", [[S(37) + 0.15, tag("NEWS ▼", R, 60) + tag("NEWS ▲", G, 60)], [S(38) + 0.15, tag("LOSS", R, 56) + tag("LOSS", R, 56) + tag("LOSS", R, 56)]]);
+  cardSeq(sc, "C_LOW", [[S(37) + 0.15, tag("뉴스 ▼", R, 60) + tag("뉴스 ▲", G, 60)], [S(38) + 0.15, tag("손실", R, 60) + tag("손실", R, 60) + tag("손실", R, 60)]]);
   K.cut(E(36) - 0.1, "L-10 S&P 500 −10%"); K.cut(E(37) - 0.1, "L-10 NEWS ▼▲"); K.cut(E(38) - 0.1, "L-10 LOSS");
 }, [[dateTag("2025.03.13"), S(42) + 0.1], [tag("S&amp;P 500 −10%", R), W(42, "10%")], [propH("P-CONTAINERS", 100, "", 120), W(42, "10%") + 0.15]]);
 
@@ -446,7 +451,7 @@ choice(4, "CAFE", (a, b) => {
   };
   storyCard(sc, S(53));
   cardSeq(sc, "C_IMG", [[S(53) + 0.1, propH("P-SERVER", 270, "", 200)], [S(54) + 0.05, propH("P-REPORT", 250, xMark(110), 280)], [S(55) + 0.05, propH("P-CRACK", 270, "", 220)]]);
-  cardSeq(sc, "C_HEAD", [[S(53) + 0.2, tag("AI", "#9FB4D8", 60)], [S(54) + 0.1, tag("REPORT", R, 54)], [S(56) + 0.05, tag("1 DAY", "#9FB4D8", 54)]]);
+  cardSeq(sc, "C_HEAD", [[S(53) + 0.2, tag("AI 종목", "#9FB4D8", 56)], [S(54) + 0.1, tag("실적 발표", R, 54)], [S(56) + 0.05, tag("하루", "#9FB4D8", 54)]]);
   cardSeq(sc, "C_VAL", [[W(53, "절반"), big("50%", Y, 120)], [S(54) + 0.3, big("▼", R, 130)], [W(56, "25%"), big("−25%", R, 120)]]);
   const acc = box(sc, "C_LOW", "", ""); pop(acc, W(53, "절반")); out(acc, S(56) - 0.2);    // 계좌 = 절반 AI · 절반 S&P 500
   inBox(acc, `<div class="a" style="width:690px;height:150px;border-radius:20px;overflow:hidden;display:flex"><div style="flex:1;background:${Y};display:grid;place-items:center"><div class="w9 nw" style="font-size:56px;color:#3A2A00">AI 50%</div></div><div style="flex:1;background:#5B6478;display:grid;place-items:center"><div class="w9 nw" style="font-size:50px;color:${WH}">S&amp;P 500</div></div></div>`, CL[0] + 40, CL[1] + 80, W(53, "절반") + 0.1);
@@ -455,7 +460,7 @@ choice(4, "CAFE", (a, b) => {
   baseAt(low, CL_AREA, 0.6, 1.5, pre[0][1], S(56) + 0.15);
   seriesIn(low, pre, CL_AREA, 0.6, 1.5, R, S(56) + 0.2, Math.max(1, W(56, "25%") - S(56)), 9);
   K.cut(E(53) - 0.1, "L-13 AI 50%"); K.cut(E(54) - 0.1, "L-13 REPORT ▼"); K.cut(E(55) - 0.1, "L-13 기둥 금"); K.cut(E(56) - 0.1, "L-13 −25%");
-}, [[dateTag("2025.08.11"), S(60) + 0.1], [tag("AI", R), W(60, "C3.ai")], [propH("P-SERVER", 100, "", 80), W(60, "C3.ai") + 0.15]]);
+}, [[dateTag("2025.08.11"), S(60) + 0.1], [tag("C3.ai", R), W(60, "C3.ai")], [propH("P-SERVER", 100, "", 80), W(60, "C3.ai") + 0.15]]);
 
 /* L-16 선택 5 — 양자 컴퓨터 최고가 · 1년 7배 · 계좌 절반 인증 (문장 70~72) — HERO · CROWD · CARD */
 choice(5, "HOME", (a, b) => {
@@ -464,28 +469,28 @@ choice(5, "HOME", (a, b) => {
   st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); enter(CR, t, S(72)); if (t > S(72) + 0.4) CR.bob(t, 0.08, 2.4); };
   storyCard(sc, S(70));
   boxC(sc, "C_IMG", propH("P-QUANTUM", 270, "", 240), S(70) + 0.1);
-  boxC(sc, "C_HEAD", tag("QUANTUM", "#9FB4D8", 54), S(70) + 0.2);
-  cardSeq(sc, "C_VAL", [[W(70, "최고가"), big("HIGH ▲", G, 92)], [W(71, "7배"), big("1Y ×7", G, 104)]]);
+  boxC(sc, "C_HEAD", tag("양자 컴퓨터", "#9FB4D8", 54), S(70) + 0.2);
+  cardSeq(sc, "C_VAL", [[W(70, "최고가"), big("최고가 ▲", G, 84)], [W(71, "7배"), big("1년 ×7", G, 104)]]);
   { const low = box(sc, "C_LOW", "", ""); pop(low, S(70) + 0.15); out(low, W(72, "절반") - 0.2);
     const pre = SR.i5_pre, lo = 0.5, hi = 8.3, A2 = [CL_AREA[0], CL_AREA[1] + 10, CL_AREA[2], CL_AREA[3] - 30];
     baseAt(low, A2, lo, hi, 1, S(70) + 0.2);
     seriesIn(low, pre, A2, lo, hi, G, S(70) + 0.25, Math.max(1, W(71, "7배") - S(70)), 8);
     inBox(low, `<div class="a w7 nw N" style="font-size:36px">2024.10</div>`, A2[0], A2[1] + A2[3] + 4, S(70) + 0.3);
     inBox(low, `<div class="a w7 nw N" style="font-size:36px">2025.10</div>`, A2[0] + A2[2] - 140, A2[1] + A2[3] + 4, S(70) + 0.3); }
-  cardSeq(sc, "C_LOW", [[W(72, "절반"), tag("50% IN", Y, 50) + tag("50% IN", Y, 50) + tag("50% IN", Y, 50)]], "gap:16px;");
+  cardSeq(sc, "C_LOW", [[W(72, "절반"), tag("50%", Y, 56) + tag("50%", Y, 56) + tag("50%", Y, 56)]], "gap:16px;");
   K.cut(E(70) - 0.1, "L-16 QUANTUM HIGH"); K.cut(E(71) - 0.1, "L-16 1Y ×7"); K.cut(E(72) - 0.1, "L-16 50% IN");
-}, [[dateTag("2025.10.13"), S(76) + 0.1], [tag("IONQ", R), W(76, "아이온큐")], [propH("P-QUANTUM", 100, "", 90), W(76, "아이온큐") + 0.15]]);
+}, [[dateTag("2025.10.13"), S(76) + 0.1], [tag("아이온큐", R), W(76, "아이온큐")], [propH("P-QUANTUM", 100, "", 90), W(76, "아이온큐") + 0.15]]);
 
 
 // ---------- 해설 부품 ----------
 function vsPanel(sc, slot, k, ok, head, at) {
   const p = box(sc, slot, "", PANEL_CSS); pop(p, at);
   const letter = k == null ? "" : `<span style="display:inline-grid;place-items:center;width:80px;height:80px;border-radius:50%;background:${WH};color:#0C1424;margin-right:18px">${LET[k]}</span>`;
-  inBox(p, `<div class="a w9 nw" style="font-size:60px;line-height:1;display:flex;align-items:center">${letter}<span style="color:${ok ? G : R};margin-right:18px">${ok ? "✓" : "✕"}</span><span class="N" style="font-size:48px">${head}</span></div>`, p._x + 34, p._y + 30, at + 0.1);
+  inBox(p, `<div class="a w9 nw" style="font-size:60px;line-height:1;display:flex;align-items:center">${letter}<span style="color:${ok ? G : R};margin-right:18px">${ok ? "✓" : "✕"}</span><span class="N"${ko(head)} style="font-size:48px">${head}</span></div>`, p._x + 34, p._y + 30, at + 0.1);
   return p;
 }
 function vsNums(p, items) {                       // [[글, 색, 시각]] — 판 아래쪽 한 줄 (왼쪽부터 390px 간격)
-  items.forEach(([t2, col, at], i) => inBox(p, `<div class="a w9 nw ts" style="font-size:62px;line-height:1;color:${col}">${t2}</div>`, p._x + 40 + i * 390, p._y + p._h - 96, at));
+  items.forEach(([t2, col, at], i) => inBox(p, `<div class="a w9 nw ts"${ko(t2)} style="font-size:62px;line-height:1;color:${col}">${t2}</div>`, p._x + 40 + i * 390, p._y + p._h - 96, at));
 }
 const vsArea = p => [p._x + 50, p._y + 150, p._w - 100, p._h - 290];
 const rangeOf = (arr, padLo, padHi) => { const v = arr.map(x => x[1]); return [Math.min(...v, 1) * (padLo || 0.92), Math.max(...v, 1) * (padHi || 1.06)]; };
@@ -538,15 +543,15 @@ function soScene(n, a, b, last) {
   K.cut(E(last) - 0.1, `해설 ${n} 그래서`);
 }
 const row = (items, gap) => `<div style="display:flex;align-items:center;justify-content:center;gap:${gap || 40}px">${items.join("")}</div>`;
-const barPair = (specs, hMax) => `<div style="display:flex;align-items:flex-end;gap:90px;height:${hMax + 70}px">${specs.map(([v, col, lab, h]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><div class="w9 nw ts" style="font-size:60px;line-height:1;color:${col}">${v}</div><div style="width:190px;height:${h}px;border-radius:14px 14px 4px 4px;background:${col}"></div><div class="w7 nw" style="font-size:44px;line-height:1;color:${N}">${lab}</div></div>`).join("")}</div>`;
+const barPair = (specs, hMax) => `<div style="display:flex;align-items:flex-end;gap:90px;height:${hMax + 70}px">${specs.map(([v, col, lab, h]) => `<div style="display:flex;flex-direction:column;align-items:center;gap:12px"><div class="w9 nw ts"${ko(v)} style="font-size:60px;line-height:1;color:${col}">${v}</div><div style="width:190px;height:${h}px;border-radius:14px 14px 4px 4px;background:${col}"></div><div class="w7 nw"${ko(lab)} style="font-size:44px;line-height:1;color:${N}">${lab}</div></div>`).join("")}</div>`;
 const nextFirst = n => (n < 5 ? ch(ITEM[n + 1].first) : ch(partFirst("결과")));
 
 /* ═════════════ 해설 1 — 남 따라 사기 · 업스타트 (문장 18~22) ═════════════ */
-wrongWide(1, until(18), until(19), { head: "UPST", w: SR.i1_upst, nums: [["−71%", R, W(18, "71%")], ["NOW −67%", R, W(18, "67%")]] });
+wrongWide(1, until(18), until(19), { head: "업스타트", w: SR.i1_upst, nums: [["−71%", R, W(18, "71%")], ["지금 −67%", R, W(18, "67%")]] });
 rebut(1, until(19), until(22), 19, S(20), [
   [S(19) + 0.2, `<img src="${PDIR}W-CROWD.png" alt="" style="height:300px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))">` + row([tag("▲ BUY", G, 56), tag("▲ BUY", G, 56), tag("▲ BUY", G, 56)], 26), 1.3],
-  [S(20) + 0.1, row([big("ALL ▲", Y, 100), big("=", N, 100), big("TOP ?", R, 100)]), 1.45],
-  [S(21) + 0.05, row([big("1Y ×3", G, 100), big("→", N, 100), big("−71%", R, 110)]), 1.4],
+  [S(20) + 0.1, row([big("모두 ▲", Y, 100), big("=", N, 100), big("고점 ?", R, 100)]), 1.45],
+  [S(21) + 0.05, row([big("1년 ×3", G, 100), big("→", N, 100), big("−71%", R, 110)]), 1.4],
 ]);
 soScene(1, until(22), nextFirst(1), 22);
 
@@ -567,15 +572,15 @@ soScene(1, until(22), nextFirst(1), 22);
   inBox(g, `<div class="a">${dot(R, 34)}</div>`, xl - 17, yl - 17, W(29, "10%"));
   inBox(g, `<div class="a w9 nw ts R" style="font-size:72px;line-height:1;transform:translateX(-100%)">−10%</div>`, xl - 34, yl - 20, W(29, "10%"));
   const tb = box(sc, "TOPBAR", "", LEFT); pop(tb, S(30));
-  pop(el(tag("KIM", R, 52), tb), S(30) + 0.05);
-  pop(el(tag("ALL IN −10%", R, 52), tb), W(30, "10%"));
+  pop(el(tag("김씨", R, 52), tb), S(30) + 0.05);
+  pop(el(tag("모두 투자 −10%", R, 52), tb), W(30, "10%"));
   pop(el(tag("SELL ✕", R, 52), tb), W(31, "팔아야"));
   K.cut(E(29) - 0.1, "해설 2 S&P 500 −10%"); K.cut(E(30) - 0.1, "해설 2 ALL IN −10%"); K.cut(E(31) - 0.1, "해설 2 SELL ✕");
 }
 rebut(2, until(32), until(35), 32, S(33), [
   [S(32) + 0.2, row([propH("P-MONEY", 200), big("→", N, 100), big("+%", N, 120)]), 1.6],
   [S(33) + 0.1, row([`<div style="position:relative">${propH("P-JOBBOX", 220, xMark(90))}</div>`, `<div style="position:relative">${propH("P-HOUSE", 220, xMark(90))}</div>`, big("+ ▼", R, 110)], 50), 1.5],
-  [S(34) + 0.05, row([propH("P-MONEY", 200), big("→", N, 100), big("HOLD ✓", G, 110)]), 1.5],
+  [S(34) + 0.05, row([propH("P-MONEY", 200), big("→", N, 100), big("보유 ✓", G, 110)]), 1.5],
 ]);
 soScene(2, until(35), nextFirst(2), 35);
 
@@ -586,7 +591,7 @@ soScene(2, until(35), nextFirst(2), 35);
   const g = box(sc, "CHART", "", PANEL_CSS), area = [g._x + 80, g._y + 90, g._w - 160, g._h - 200];
   const spx = SR.i3_spx, lo = 0.78, hi = 1.04, X = dateAxis(area, spx[0][0], spx[spx.length - 1][0]);
   baseAt(g, area, lo, hi, 1, a + 0.2);
-  inBox(g, `<div class="a w7 nw" style="font-size:40px;color:${Y}">HIGH</div>`, area[0] + area[2] - 110, yAt(area, lo, hi, 1) - 54, a + 0.25);
+  inBox(g, `<div class="a w7 nw" ${KO} style="font-size:40px;color:${Y}">최고가</div>`, area[0] + area[2] - 130, yAt(area, lo, hi, 1) + 10, a + 0.25);   // v3.2 기준선 오른쪽 끝 아래 (끝 무렵 선은 기준선 위라 아래가 빔)
   seriesAt(g, spx, area, lo, hi, X, "#9FB4D8", a + 0.3, 1.4, 9);
   inBox(g, `<div class="a w7 nw N" style="font-size:40px">2025.01</div>`, area[0], area[1] + area[3] + 22, a + 0.3);
   inBox(g, `<div class="a w7 nw N" style="font-size:40px">2025.08</div>`, area[0] + area[2] - 150, area[1] + area[3] + 22, a + 0.3);
@@ -599,20 +604,20 @@ soScene(2, until(35), nextFirst(2), 35);
     if (end) { out(m, end); out(tg, end); }
   };
   // 김씨처럼 (문장 43~44)
-  const tb1 = box(sc, "TOPBAR", "", LEFT); pop(tb1, S(43)); pop(el(tag("KIM", R, 52), tb1), S(43) + 0.05);
-  pop(el(tag("NOW +16%", R, 52), tb1), W(44, "16%")); out(tb1, S(45) - 0.2);
+  const tb1 = box(sc, "TOPBAR", "", LEFT); pop(tb1, S(43)); pop(el(tag("김씨", R, 52), tb1), S(43) + 0.05);
+  pop(el(tag("지금 +16%", R, 52), tb1), W(44, "16%")); out(tb1, S(45) - 0.2);
   mark(DT.low, R, "SELL 100%", W(43, "4월 8일"), S(45) - 0.2, "left");
   mark(DT.back, Y, "BUY", W(44, "다시"), S(45) - 0.2, "up");
   const [xl] = P(DT.low), [xb] = P(DT.back), yb = area[1] + area[3] + 92;      // 날짜 글자(2025.01·2025.08) 사이 · 점·꼬리표와 안 겹침
   const br = inBox(g, `<div class="a" style="width:${xb - xl}px;height:0;border-top:6px dashed ${R}"></div>`, xl, yb, W(44, "80일"));
-  const bt = inBox(g, `<div class="a w9 nw ts R" style="font-size:48px;line-height:1;transform:translateX(-50%)">80 DAYS · CASH</div>`, (xl + xb) / 2, yb - 62, W(44, "80일"));
+  const bt = inBox(g, `<div class="a w9 nw ts R" ${KO} style="font-size:48px;line-height:1;transform:translateX(-50%)">80일 · 현금</div>`, (xl + xb) / 2, yb - 62, W(44, "80일"));
   out(br, S(45) - 0.2); out(bt, S(45) - 0.2);
   // 기준대로 (문장 45~49)
   const tb2 = box(sc, "TOPBAR", "", LEFT); pop(tb2, S(45));
-  pop(el(tag("RULE ?", Y, 44), tb2), S(45) + 0.05);
+  pop(el(tag("기준 ?", Y, 44), tb2), S(45) + 0.05);
   pop(el(tag("SELL 50%", R, 44), tb2), W(46, "절반"));
   pop(el(tag("−5% → BUY ⅓", G, 44), tb2), W(46, "5%"));
-  pop(el(tag("NOW +46%", G, 44), tb2), W(49, "46%"));   // 넷이 한 줄 (TOPBAR 1310px)
+  pop(el(tag("지금 +46%", G, 44), tb2), W(49, "46%"));   // 넷이 한 줄 (TOPBAR 1310px)
   mark(DT.cut, R, "SELL 50%", W(46, "절반"), null, "left");
   mark("2025-04-04", G, "BUY ⅔", W(47, "4월 4일"), null, "down");
   mark(DT.back, G, "BUY ⅓", W(48, "최고가"), null, "up");
@@ -620,27 +625,27 @@ soScene(2, until(35), nextFirst(2), 35);
 }
 rebut(3, until(50), until(52), 50, S(51), [
   [S(50) + 0.2, row([big("▼", R, 140), big("?", Y, 160)]), 1.6],
-  [S(51) + 0.05, row([big("RULE", Y, 110), big("=", N, 100), big("✓", G, 140)]), 1.6],
+  [S(51) + 0.05, row([big("기준", Y, 110), big("=", N, 100), big("✓", G, 140)]), 1.6],
 ]);
 soScene(3, until(52), nextFirst(3), 52);
 
 /* ═════════════ 해설 4 — 펀더멘탈 문제면 바로 손절 · C3.ai (문장 61~69) ═════════════ */
-resultVS(4, until(61), until(63), { lo: 0.35, hi: 1.15, wHead: "HOLD", rHead: "SELL", w: SR.i4_hold, r: SR.i4_sell, rAt: S(62),
-  wNums: [["−53%", R, W(61, "53%")], ["NOW −25%", R, W(61, "25%")]], rNums: [["CASH ✓", G, W(62, "피할")]],
+resultVS(4, until(61), until(63), { lo: 0.35, hi: 1.15, wHead: "버팀", rHead: "바로 매도", w: SR.i4_hold, r: SR.i4_sell, rAt: S(62),
+  wNums: [["−53%", R, W(61, "53%")], ["지금 −25%", R, W(61, "25%")]], rNums: [["현금 ✓", G, W(62, "피할")]],
   extra: (L1, R1) => inBox(R1, `<div class="a w9 nw ts" style="font-size:96px;line-height:1;color:${N};text-decoration:line-through;text-decoration-color:${G};text-decoration-thickness:10px">−53%</div>`, R1._x + 260, R1._y + 400, W(62, "53%")) });
 rebut(4, until(63), until(69), 63, S(64), [
   [S(63) + 0.2, row([big("−25%", R, 120), big("→", N, 100), big("SELL ?", Y, 110)]), 1.35],
-  [S(64) + 0.05, row([big("MY PRICE", Y, 90), big("≠", N, 110), big("▲ ▼", "#9FB4D8", 110)]), 1.35],
+  [S(64) + 0.05, row([big("내가 산 가격", Y, 84), big("≠", N, 110), big("▲ ▼", "#9FB4D8", 110)]), 1.35],
   [S(65) + 0.05, row([propH("P-CRACK", 300, "", 240), big("▼ ▼", R, 120)], 60), 1.4],
-  [S(66) + 0.05, row([sub("USA", N, 56), big("10,000", WH, 120)]), 1.5],
-  [S(67) + 0.05, `<div style="display:flex;flex-direction:column;align-items:center;gap:26px">${barPair([["WIN", G, "SELL", 260], ["LOSS", R, "HOLD", 200]], 270)}${big("+3%p", Y, 80)}</div>`, 1.15],
-  [S(68) + 0.05, row([big("SELL", R, 100), big("→", N, 100), big("RESTART ✓", G, 100)]), 1.2],
+  [S(66) + 0.05, row([sub("미국", N, 64), big("10,000", WH, 120)]), 1.5],
+  [S(67) + 0.05, `<div style="display:flex;flex-direction:column;align-items:center;gap:26px">${barPair([["이익", G, "판 종목", 260], ["손실", R, "버틴 종목", 200]], 270)}${big("+3%p", Y, 80)}</div>`, 1.15],
+  [S(68) + 0.05, row([big("SELL", R, 100), big("→", N, 100), big("다시 시작 ✓", G, 100)]), 1.2],
 ]);
 soScene(4, until(69), nextFirst(4), 69);
 
 /* ═════════════ 해설 5 — 한 종목 10%까지 · 아이온큐 (문장 77~82) ═════════════ */
-resultVS(5, until(77), until(79), { lo: 0.55, hi: 1.25, wHead: "IONQ 50%", rHead: "IONQ 10%", w: SR.i5_half, r: SR.i5_ten, rAt: S(78),
-  wNums: [["−36%", R, W(77, "36%")], ["NOW −21%", R, W(77, "21%")]], rNums: [["−11%", Y, W(78, "11%")], ["NOW +10%", G, W(78, "10%", 1)]] });
+resultVS(5, until(77), until(79), { lo: 0.55, hi: 1.25, wHead: "아이온큐 50%", rHead: "아이온큐 10%", w: SR.i5_half, r: SR.i5_ten, rAt: S(78),
+  wNums: [["−36%", R, W(77, "36%")], ["지금 −21%", R, W(77, "21%")]], rNums: [["−11%", Y, W(78, "11%")], ["지금 +10%", G, W(78, "10%", 1)]] });
 rebut(5, until(79), until(82), 79, S(80), [
   [S(79) + 0.2, row([big("50%", Y, 120), big("→", N, 100), big("▲ ▲", G, 120)]), 1.6],
   [S(80) + 0.05, row([big("1 ✕", R, 120), big("→", N, 100), big("50% ▼", R, 120)]), 1.5],
@@ -659,9 +664,9 @@ soScene(5, until(82), nextFirst(5), 82);
   };
   headMark(st, sc, "HEAD_L", () => HT, `<span class="Y">?</span>`, S(83) + 0.2, S(84) - 0.1);
   const rowC = (slot, html, col, at) => { const c = box(sc, slot, html, PANEL_CSS + CEN + `justify-content:space-between;padding:0 56px;border-color:${col}`); pop(c, at); return c; };
-  rowC("RA", `${big("✕ 0", WH, 84)}${big("PASS", G, 100)}`, G, S(84));
-  rowC("RB", `${big("✕ 1–2", WH, 84)}${big("CAUTION", Y, 100)}`, Y, S(85));
-  rowC("RC", `${big("✕ 3+", WH, 84)}${big("FAIL", R, 100)}`, R, S(86));
+  rowC("RA", `${big("✕ 0", WH, 84)}${big("통과", G, 100)}`, G, S(84));
+  rowC("RB", `${big("✕ 1–2", WH, 84)}${big("주의", Y, 100)}`, Y, S(85));
+  rowC("RC", `${big("✕ 3+", WH, 84)}${big("불통과", R, 100)}`, R, S(86));
   K.cut(E(84) - 0.1, "결과 PASS"); K.cut(E(85) - 0.1, "결과 CAUTION"); K.cut(E(86) - 0.1, "결과 FAIL");
 }
 
@@ -677,7 +682,7 @@ soScene(5, until(82), nextFirst(5), 82);
   baseAt(g, area, 0.1, 1.6, 1, S(87) + 0.1);
   seriesIn(g, kimN, area, 0.1, 1.6, "rgba(255,77,61,.45)", S(87) + 0.2, 1.4, 7);
   seriesIn(g, goodN, area, 0.1, 1.6, G, W(87, "천천히"), Math.max(2, E(87) - W(87, "천천히") - 1.5), 10);
-  inBox(g, `<div class="a w9 nw ts G" style="font-size:76px;line-height:1">SLOW · LONG ✓</div>`, g._x + 70, g._y + 40, W(87, "천천히"));
+  inBox(g, `<div class="a w9 nw ts G" ${KO} style="font-size:76px;line-height:1">천천히 · 오래 ✓</div>`, g._x + 70, g._y + 40, W(87, "천천히"));
   K.cut(E(87) - 0.1, "정리 SLOW · LONG");
 }
 { // 인사 — HERO_C

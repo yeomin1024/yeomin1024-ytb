@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# VERSION: v1.2 — 2026-11-04 — 화면 글 기간을 쉬운 한국어로 (3Y 7M → 3년 7개월 · 2M → 2개월 · 3W → 3주) — 사용자 지시 2026-11-04 "영어를 왤케 많이 넣었어 … 정 꼭 문구가 필요하면 그냥 한국어로 해" · 대본 숫자 맞춰 보기의 기대 글도 같이 바꿈 (숫자 기준은 그대로).
 # VERSION: v1.1 — 2026-11-04 — 박씨 길 ④ = D4 부터 1년(365일) 현금 대기 뒤 다시 매수 (longform_ep3 v1.1 · longform_ep3_2026-11-04.json — 대본 문장 79 '1년 동안'과 맞춤) · 박씨 끝 '3천1백만 원'.
 # VERSION: v1.0 — 2026-11-04 — 3편(signal-test-2026-11 · 지표로 국면 읽기 테스트) 대본 v17 영상의 그래프 선·화면 숫자.
 #   숫자 출처 = stock/topics/precheck/longform_ep3.py v1.0 (longform_ep3_2026-11-02.json 'ep3') — 같은 자료·같은 날짜·같은 규칙으로 다시 셈.
@@ -24,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT / "stock/topics/precheck"))
 import longform_items as L  # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("series_ep3")
 CALC_JSON = ROOT / "stock/topics/precheck/longform_ep3_2026-11-04.json"
@@ -48,9 +49,9 @@ def mon(a, b):
 
 
 def ym(n):
-    """달 수 → '3Y 7M' 꼴."""
+    """달 수 → '3년 7개월' 꼴 (v1.2 — 화면은 쉬운 한국어)."""
     y, m = divmod(n, 12)
-    return " ".join(([f"{y}Y"] if y else []) + ([f"{m}M"] if m or not y else []))
+    return " ".join(([f"{y}년"] if y else []) + ([f"{m}개월"] if m or not y else []))
 
 
 def pct(x, nd=0, sign=True):
@@ -278,7 +279,7 @@ def main():
         "oil_d4": pct(oil.chg(D2, D4)), "spx_low_d4": pct(spx.chg("2022-10-12", D4)), "spx_d4": pct(spx.chg(D1, D4)),
         "cash_1y": pct(cash.chg(D4, d4_1y)), "tr_low4": pct(tl4, 1), "tr_low4_m": ym(mon(D4, tl4d)), "tr_1y": pct(tr.chg(D4, d4_1y)),
         "inv_left": ym(mon(D4, [r["end"] for r in rows if r["start"] == D3][0])),
-        "jobs": f"{JOBS_QUOTE:.1f}%", "spx_d5": pct(pk5_chg, 1), "spx_d5_w": f"{round((date.fromisoformat(D5) - date.fromisoformat(pk5)).days / 7)}W",
+        "jobs": f"{JOBS_QUOTE:.1f}%", "spx_d5": pct(pk5_chg, 1), "spx_d5_w": f"{round((date.fromisoformat(D5) - date.fromisoformat(pk5)).days / 7)}주",
         "oil_d5": pct(oil.chg(D2, D5)), "tnx_pk5": f"{tnx.at(pk5):.1f}%", "tnx_d5": f"{tnx.at(D5):.1f}%",
         "cash_end": pct(cash.chg(D5, END)), "back_days": f"{(date.fromisoformat(back5) - date.fromisoformat(D5)).days}", "tr_end": pct(tr.chg(D5, END)),
         "end_m": ym(mon(D5, END)), "drops_n": f"{len(ev)}", "drops_ok": f"{sum(1 for e in ev if e['low'] > -0.2)}",
@@ -343,13 +344,13 @@ def main():
     sc = [  # (화면 글 키, 대본 낱말, 맞는지)
         ("park_end", "3천1백만 원", TXT["park_end"] == "₩31,000,000"),
         ("alloc", "8천만 원은 한 성장주에, 2천만 원은", TXT["alloc_g"] == "₩80,000,000" and TXT["alloc_i"] == "₩20,000,000"),
-        ("shop_span", "2년 만에 3배", TXT["shop_span"] == "2Y"),
-        ("oil_span", "두 달 만에 60%", TXT["oil_span"] == "2M"),
+        ("shop_span", "2년 만에 3배", TXT["shop_span"] == "2년"),
+        ("oil_span", "두 달 만에 60%", TXT["oil_span"] == "2개월"),
         ("spx_4y", "40% 넘게 올랐습니다", 40 <= num(TXT["spx_4y"]) < 50),
         ("shop_2y", "3배 넘게 오른", num(TXT["shop_2y"]) >= 3),
         ("tnx_x", "바닥의 3배가 넘었습니다", num(TXT["tnx_x"]) >= 3),
         ("shop_low", "81%까지 하락", TXT["shop_low"] == "−81%"),
-        ("shop_back", "3년 7개월", TXT["shop_back"] == "3Y 7M"),
+        ("shop_back", "3년 7개월", TXT["shop_back"] == "3년 7개월"),
         ("tr_low", "24% 하락했다가", TXT["tr_low"] == "−24%"),
         ("tr_back", "2년이 안 돼", mon(D1, t_back) < 24),
         ("hike_max", "많아야 18% 하락", TXT["hike_max"] == "−18%"),
@@ -360,9 +361,9 @@ def main():
         ("shop_d2", "성장주는 62% 하락", TXT["shop_d2"] == "−62%"),
         ("oil_d2", "123달러를 넘은", 123 <= oil.at(D2) < 124),
         ("shop_half", "반 토막", TXT["shop_half"] == "−50%"),
-        ("shop_half_m", "일곱 달 뒤", TXT["shop_half_m"] == "7M"),
+        ("shop_half_m", "일곱 달 뒤", TXT["shop_half_m"] == "7개월"),
         ("irx", "0.4%에서 4%로", TXT["irx_d2"] == "0.4%" and TXT["irx_d3"] == "4%"),
-        ("irx_m", "여덟 달 새", TXT["irx_m"] == "8M"),
+        ("irx_m", "여덟 달 새", TXT["irx_m"] == "8개월"),
         ("rally", "11% 다시 오르기도", TXT["rally"] == "+11%"),
         ("spx_d3", "최고가보다 18% 아래", TXT["spx_d3"] == "−18%"),
         ("cash_2y", "이자로 10% 느는", TXT["cash_2y"] == "+10%"),
@@ -375,16 +376,16 @@ def main():
         ("spx_low_d4", "바닥에서 28% 올랐지만", TXT["spx_low_d4"] == "+28%"),
         ("spx_d4", "최고가보다는 5% 아래", TXT["spx_d4"] == "−5%"),
         ("cash_1y", "이자로 5% 느는", TXT["cash_1y"] == "+5%"),
-        ("tr_low4", "석 달 뒤 10% 가까이 하락", 9 <= -num(TXT["tr_low4"]) < 10 and TXT["tr_low4_m"] == "3M"),
+        ("tr_low4", "석 달 뒤 10% 가까이 하락", 9 <= -num(TXT["tr_low4"]) < 10 and TXT["tr_low4_m"] == "3개월"),
         ("tr_1y", "20% 늘었을", TXT["tr_1y"] == "+20%"),
         ("inv_left", "1년 넘게 이어졌습니다", mon(D4, inv3["end"]) > 12),
         ("last_up", "다섯 번 중 네 번", sum(1 for h in hl if h["spx_1y"] > 0) == 4 and len(hl) == 5),
         ("jobs", "4.3%로 올랐다는", TXT["jobs"] == "4.3%"),
-        ("spx_d5", "3주 만에 8% 넘게", 8 <= -num(TXT["spx_d5"]) < 9 and TXT["spx_d5_w"] == "3W"),
+        ("spx_d5", "3주 만에 8% 넘게", 8 <= -num(TXT["spx_d5"]) < 9 and TXT["spx_d5_w"] == "3주"),
         ("oil_d5", "고점보다 41% 낮았습니다", TXT["oil_d5"] == "−41%"),
         ("tnx_5", "4.2%에서 3.8%로", TXT["tnx_pk5"] == "4.2%" and TXT["tnx_d5"] == "3.8%"),
         ("cash_end", "이자로 6% 느는", TXT["cash_end"] == "+6%"),
-        ("end_m", "1년 5개월", TXT["end_m"] == "1Y 5M"),
+        ("end_m", "1년 5개월", TXT["end_m"] == "1년 5개월"),
         ("back_days", "45일 만에", TXT["back_days"] == "45"),
         ("tr_end", "34% 올라", TXT["tr_end"] == "+34%"),
         ("drops", "열여덟 번", TXT["drops_n"] == "18"),

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0 — 2026-11-03 — 1편 대본 v12 (S&P 500 · 업스타트 · 현금 · 2025 기준대로 · C3.ai · 아이온큐) 영상 그래프 선
+# VERSION: v2.1 — 2026-11-04 — 대본 v16: 선택 2 그래프 = 그날 바로 뒤 S&P 500 −10% (i2_near) · 계산 json longform_items_2026-11-04.
+# (v2.0) — 2026-11-03 — 1편 대본 v12 (S&P 500 · 업스타트 · 현금 · 2025 기준대로 · C3.ai · 아이온큐) 영상 그래프 선
 #   (사용자 지시 2026-11-03 "1편만 영상 만들어봐 각 요소가 어색하지 않은 위치에 있어야 하니까 위치 배치 정확히 정해서 해").
 #   숫자 출처 = stock/topics/precheck/longform_items.py sp_1_v23 (longform_items_2026-11-02.json 'sp_1편_v2.3') — 같은 자료·같은 날짜·같은 규칙.
 #   여기서는 화면 선 모양만 뽑고, 끝 값이 계산 json 과 같은지 맞춰 봄 (다르면 끝 코드 1).
@@ -21,7 +22,7 @@ import longform_items as L  # noqa: E402
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("series")
 NOW = "2026-10-27"
-CALC_JSON = ROOT / "stock/topics/precheck/longform_items_2026-11-02.json"
+CALC_JSON = ROOT / "stock/topics/precheck/longform_items_2026-11-04.json"
 
 
 def main():
@@ -121,6 +122,8 @@ def main():
     # ⑤ 앞 — 아이온큐 그날까지 1년 (선택 5 카드 안 작은 그래프: 1년 7배)
     q0 = "2024-10-11"
     out["i5_pre"] = [[d, round(I.at(d) / I.at(q0), 4)] for d in [x for x in I.k if q0 <= x <= d5]]
+    # ② v2.1 (대본 v16) — 그날(d1) 바로 뒤 하락: S&P 500 가격(그날 1) 2023-07-03 ~ 2023-12-29 — 석 달도 안 돼 −10%
+    out["i2_near"] = [[d, round(spx.at(d) / spx.at(d1), 4)] for d in days("2023-07-03", "2023-12-29")]
     # ② 2025 봄 하락 — 모두 투자(만 원) · 현금 3천만 원(만 원)
     w0, w1 = "2025-01-21", "2025-04-30"
     out["i2_allin"] = [[d, round(10000 * (1 + tr.chg(d1, d)))] for d in days(w0, w1)]
@@ -160,6 +163,7 @@ def main():
         ("i4_ai_now", pc(out["i4_hold"][-1][1]), J["4_손절"]["ai_now"]),
         ("i5_half_now", pc(out["i5_half"][-1][1]), J["5_분배"]["half_now"]),
         ("i5_ten_now", pc(out["i5_ten"][-1][1]), J["5_분배"]["ten_now"]),
+        ("i2_near_low", pc(min(v for d, v in out["i2_near"] if d >= d1)), J["2_현금"]["near_spx_low"]),
         ("i1_pre_1y", round(out["i1_pre"][-1][1], 2), J["1_남따라"]["upst_prior_1y"]),
         ("i5_pre_1y", round(out["i5_pre"][-1][1], 1), J["5_분배"]["ionq_prior_1y"]),
     ]

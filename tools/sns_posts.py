@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# VERSION: v1.0 — 2026-11-03 — 롱폼 편마다 X(트위터)·스레드 글을 만들고 SNS 평가판(stock/topics/SNS평가판.html)을 채움
+# VERSION: v1.1 — 2026-11-04 — 판 피드백 2건: 보기 A/B → 나쁜 케이스 10개 해당 개수 판정(make·check·item_text) · 본문 '댓글' 언급 금지 검사 · 호기심 멘트(CLOSER). 이전 v1.0 — 2026-11-03 — 롱폼 편마다 X(트위터)·스레드 글을 만들고 SNS 평가판(stock/topics/SNS평가판.html)을 채움
 #   (사용자 지시 2026-11-03 "대본 당 트위터, 스레드 글 작성해서 평가판 만들어봐 항목은 10가지 정도로 확장하고 점수 및 결과는 댓글에 넣는 방식으로").
 #   · 원본 = stock/topics/sns/sns_<날짜>.json (편마다 제목·문항 10개 {q, A, B, ans}·결과 유형 3개) — 글은 이 도구가 짬 (손으로 고치지 않음)
 #   · X  : 글 하나 = 가중 글자 280 이하 (한글·한자 등은 2, 영문·숫자·기호는 1 — X 셈법) → 첫 글(테스트 소개) + 문항 글 + 댓글(정답·점수 / 결과 유형·링크)
@@ -39,8 +39,8 @@ def xlen(s):
     return n
 
 
-def item_text(i, it):
-    return f"{i}. {it['q']}\nA. {it['A']}\nB. {it['B']}"
+def item_text(i, bad):
+    return f"{i}. {bad}"
 
 
 def pack(head, chunks, limit, measure, sep="\n\n"):
@@ -58,30 +58,35 @@ def pack(head, chunks, limit, measure, sep="\n\n"):
     return posts
 
 
+# v2 (2026-11-04) 판 피드백: 보기 A/B ✗ → 나쁜 케이스 10개 중 해당 개수로 판정 · 본문엔 '댓글' 말 ✗, 호기심·군중 심리 멘트.
+# 판정 구간은 v1 과 같음(맞힌 수 9↑/6~8/5↓ = 해당 수 0~1/2~4/5↑). 통계 숫자·'대부분'류 단정은 쓰지 않음(근거 없는 주장 ✗).
+CLOSER = "당신은 몇 개 해당되나요? 숫자 하나만 남겨 보세요. 다른 사람들은 몇 개씩 나왔는지 궁금합니다."
+
+
 def make(ep, link):
-    items = ep["items"]
-    ans = " ".join(f"{i}{it['ans']}" for i, it in enumerate(items, 1))
-    score = "맞힌 문제마다 10점 · 90점 이상 통과 · 60~80점 주의 · 50점 이하 불통과"
+    bad = ep["bad"]
+    score = "해당 0~1개 통과 · 2~4개 주의 · 5개 이상 불통과"
     t1, t2, t3 = ep["types"]
-    chunks = [item_text(i, it) for i, it in enumerate(items, 1)]
-    # X — 첫 글은 소개만, 문항은 한도 안에서 묶음, 댓글 둘
-    x_head = f"[주식 테스트] {ep['title']}\n\n문제 {len(items)}개 · 당신이라면 A, B 중 무엇을 고를까요?\n답을 적어 두고, 정답과 점수는 댓글에서 확인하세요."
-    x_posts = [x_head] + pack("", chunks, X_MAX, xlen)
-    x_comments = [f"정답\n{ans}\n\n{score}\n\n몇 점 나왔는지 남겨 주세요.",
-                  f"통과: {t1}\n주의: {t2}\n불통과: {t3}\n\n실제 숫자로 푼 해설 ▶ {link}\n※ 투자 권유가 아닌 테스트입니다."]
-    # 스레드 — 첫 글에 소개 + 앞 문항, 이어 쓰는 글, 댓글 하나
-    th_head = f"[주식 테스트] {ep['title']}\n\n문제 {len(items)}개, 당신이라면 A와 B 중 무엇을 고를지 적어 두세요. 정답과 점수는 댓글에 있습니다."
-    th_posts = pack(th_head, chunks, TH_MAX, len)
-    th_comments = [f"정답\n{ans}\n\n{score}\n\n통과: {t1}\n주의: {t2}\n불통과: {t3}\n\n실제 숫자로 푼 해설 ▶ {link}\n몇 점 나왔는지 댓글로 남겨 주세요. ※ 투자 권유가 아닌 테스트입니다."]
-    return {"x": (x_posts, x_comments), "threads": (th_posts, th_comments), "answers": ans}
+    chunks = [item_text(i, b) for i, b in enumerate(bad, 1)]
+    n = len(bad)
+    x_head = f"[주식 테스트] {ep['title']}\n\n아래 {n}개 중 몇 개나 해당될까요?\n0~1개면 통과. 솔직하게 세어 보세요."
+    x_posts = [x_head] + pack("", chunks + [CLOSER], X_MAX, xlen)
+    x_comments = [f"해당 개수로 보는 결과\n\n{score}\n\n통과: {t1}\n주의: {t2}\n불통과: {t3}",
+                  f"왜 이 행동이 위험한지, 실제 숫자로 푼 해설 ▶ {link}\n※ 투자 권유가 아닌 테스트입니다."]
+    th_head = f"[주식 테스트] {ep['title']}\n\n아래 {n}개 중 몇 개나 해당되는지 세어 보세요. 0~1개면 통과입니다."
+    th_posts = pack(th_head, chunks + [CLOSER], TH_MAX, len)
+    th_comments = [f"해당 개수로 보는 결과\n\n{score}\n\n통과: {t1}\n주의: {t2}\n불통과: {t3}\n\n왜 이 행동이 위험한지, 실제 숫자로 푼 해설 ▶ {link}\n※ 투자 권유가 아닌 테스트입니다."]
+    return {"x": (x_posts, x_comments), "threads": (th_posts, th_comments), "answers": score}
 
 
 def check(ep, out):
     bad = []
-    letters = [it["ans"] for it in ep["items"]]
-    if len(set(letters)) < 2 or max(letters.count("A"), letters.count("B")) > 7:
-        bad.append(f"정답 글자 몰림 {''.join(letters)}")
+    if len(ep["bad"]) != 10:
+        bad.append(f"나쁜 케이스 {len(ep['bad'])}개 (10개여야 함)")
     for plat, (posts, comms), lim, meas in (("x", out["x"], X_MAX, xlen), ("threads", out["threads"], TH_MAX, len)):
+        for k, p in enumerate(posts, 1):
+            if "댓글" in p:
+                bad.append(f"{plat} 본문 글 {k} 에 '댓글' 직접 언급 (판 피드백 2026-11-04)")
         for k, p in enumerate(posts + comms, 1):
             if meas(p) > lim:
                 bad.append(f"{plat} 글 {k} {meas(p)}/{lim} 넘침")
@@ -106,7 +111,7 @@ def board_entry(ep, plat, posts, comms, ver, meas, lim, ans):
     name = "X 글" if plat == "x" else "스레드 글"
     return {"key": f"e{ep['ep']}-{plat}", "ep": ep["ep"], "label": f"{ep['ep']}편", "kind": "sns", "kindLabel": name,
             "title": ep["title"], "ver": ver, "file": f"stock/topics/sns/sns_posts.md {ep['ep']}편 {name}",
-            "fields": [["answers", "정답 (댓글에)", ans, False],
+            "fields": [["answers", "판정 기준 (댓글에)", ans, False],
                        ["count", "글 수", f"본문 {len(posts)}개 + 댓글 {len(comms)}개 · {'가중 280' if plat == 'x' else '500자'} 한도", False]],
             "lines": lines}
 
@@ -144,7 +149,7 @@ def main(argv):
         return 1
     SFB.BOARDS["sns"] = {
         "out": OUT_BOARD, "title": "주식 SNS 평가판", "h1": "주식 SNS 평가판 — X·스레드",
-        "intro": lambda: ("롱폼 1~4편마다 X(트위터)·스레드에 올릴 글입니다 — 문제 10개는 본문에, 정답·점수·결과는 댓글에. "
+        "intro": lambda: ("롱폼 1~4편마다 X(트위터)·스레드에 올릴 글입니다 — 나쁜 케이스 10개는 본문에, 해당 개수별 결과는 댓글에. "
                           "줄을 골라(Shift 로 여러 줄) 또는 칸마다 '피드백'을 남기고, 마음에 들면 <b>통과 (올림)</b>. "
                           "'삭제'로 피드백을 지울 수 있습니다. 연구·교육용 — 투자 권유가 아닙니다."),
         "verdict": {"pass": "통과 (올림)", "hold": "보류"},

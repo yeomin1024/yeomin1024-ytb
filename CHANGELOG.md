@@ -1,5 +1,19 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-04 — 카운트를 '삼. 이. 일.' 끊어서 (tts_narration v1.18)
+
+### 왜 (사용자 지시)
+- "그냥 삼. 이. 일. 끊어서 음성 생성하도록 해 다른 대본도 그렇게 하고"
+
+### 무엇을
+- `tools/tts_narration.py` v1.18: 읽는 소리에 `|` 가 있으면 조각마다 따로 만들고 0.6초(BEAT_GAP) 쉼으로 이음 (`split_parts` — 긴 문장 나누기 v1.17 과 같은 길 · 캐시 키에 쉼 길이) · 자막·대본은 그대로.
+- 주식 1~4편 `tts_lexicon.tsv`: `3, 2, 1.` → `삼.|이.|일.` (그 전 '셋, 둘, 하나.' 버림).
+- 1편 장면 v3.1: 숫자 3·2·1 = 조각 시작 시각 (문장 시작 + i·(길이 + 0.6÷1.05)/3) · layout-check 0 · render check 0.
+- `guides/tts_guide.md` v1.19 5-3 · `stock/guides/quick_board.md` v2.8 규칙 41.
+
+### 확인 (가짜 소리 — 저장소에 올리지 않음, GITHUB_TOKEN 지움 · --out-dir 작업 폴더)
+- `build stock ppalli-test-2026-11 --fake --full`: S017 `[SPLIT] parts=3 a=삼. b=이. gap_s=0.6 kind="끊어 읽기"` · 조각마다 risky="짧은 문장" tries=8 · 문장 길이 2.33초 · 둘째 조각 시작 0.971초 ↔ 장면 식 0.965초.
+
 ## 2026-11-04 — 주식 1~4편: 질문 뒤 '선택해 보세요.' · '3, 2, 1.' → 정답
 
 ### 왜 (사용자 지시)

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.17 — 2026-11-03 — '삑' 나는 문장 줄이기: 사용자 지시 2026-11-03 "근데 왜 자꾸 목소리가 삑나는거야? 한번에 완벽하게 못해?".
+# VERSION: v1.18 — 2026-11-04 — 끊어 읽기: TTS 글(읽는 소리 사전을 거친 글)에 '|' 가 있으면 그 자리에서 조각으로 나눠 따로 만들고
+#          BEAT_GAP(0.6초) 쉼으로 이음 — 사용자 지시 2026-11-04 "그냥 삼. 이. 일. 끊어서 음성 생성하도록 해 다른 대본도 그렇게 하고" (주식 1~4편 선택마다 '3, 2, 1.' → 사전 '삼.|이.|일.').
+#          자막·대본은 그대로 한 문장 · 조각마다 시도·고르기는 v1.17 나눠 만들기와 같음 (짧은 조각 = 위험한 꼴 → 8번까지).
+# (v1.17) — 2026-11-03 — '삑' 나는 문장 줄이기: 사용자 지시 2026-11-03 "근데 왜 자꾸 목소리가 삑나는거야? 한번에 완벽하게 못해?".
 #          주식 1~4편 오디오(v1.16)에서 검사를 못 넘은 15문장을 보니 9개가 'A, …'·'B, …'·'정답은 B, …' (알파벳+쉼표 — 감탄사 '에이,'처럼
 #          읽혀 높이가 튐, tts_guide 5-1 과 같은 원인) · 2개가 80자 넘는 정리 문장(문장 중간 목소리 바뀜) · 1개가 아주 짧은 문장.
 #          ① 위험한 꼴(알파벳+쉼표 · 55음절 넘는 문장 · 6음절 안 짧은 문장)은 시도를 3번 → 8번 (통과하면 바로 멈춤 — 보통 문장은 그대로 3번).
@@ -178,6 +181,7 @@ RISKY_TRIES = 8              # v1.17 위험한 꼴은 이만큼까지 시도 (�
 LONG_SYL = 55                # v1.17 이보다 긴 문장은 쉼표에서 둘로 나눠 만든다
 SPLIT_GAP = 0.28             # v1.17 나눠 만든 조각 사이 쉼(초) — 쉼표 쉼과 비슷하게
 SPLIT_MIN_SYL = 12           # v1.17 나눈 조각은 둘 다 이 음절 이상
+BEAT_MARK, BEAT_GAP = "|", 0.6   # v1.18 끊어 읽기 표시 (읽는 소리 사전에서만 씀) · 조각 사이 쉼(초) — 카운트 '삼 · 이 · 일'
 REDO_SEED_JUMP = 100         # v1.17 새 세션 --redo 는 이 번호 다음 시도부터 (처음 만든 시드와 겹치지 않게)
 SPLIT_ENDINGS = ("처럼", "면서", "는데", "지만", "니까", "려면", "으면", "듯이", "며", "고")   # v1.17 쉼표가 없을 때 나눌 곳
 RISKY_RES = (re.compile(r"^\s*[A-Ca-c]\s*,"), re.compile(r"(정답은|보기)\s*[A-Ca-c]\s*,"))
@@ -192,6 +196,16 @@ def risky_reason(text, syl):
     if syl < SHORT_SYL:
         return "짧은 문장"
     return None
+
+
+def split_parts(text, syl):
+    """v1.18: (조각 목록, 조각 사이 쉼) — '|' 끊어 읽기가 먼저(BEAT_GAP), 아니면 긴 문장 나누기(SPLIT_GAP)."""
+    if BEAT_MARK in text:
+        parts = [t.strip() for t in text.split(BEAT_MARK) if t.strip()]
+        if len(parts) > 1:
+            return parts, BEAT_GAP
+        return [text.replace(BEAT_MARK, " ").strip()], SPLIT_GAP
+    return split_long(text, syl), SPLIT_GAP
 
 
 def split_long(text, syl):
@@ -1058,8 +1072,11 @@ def level_even(clips, roles, sr):
 # ----------------------------------------------------------------------------- 문장 하나 만들기 (캐시·검사·다시)
 def cache_key(engine, text, spec):
     d = dict(engine.describe(spec), text=text, instruct=spec["instruct"], seed=spec["seed"], cache=CACHE_VERSION)
-    if len(split_long(text, srt_tool.syllables(text))) > 1:     # v1.17 나눠 만드는 긴 문장만 새 키 (다른 문장 캐시는 그대로)
+    parts_k, gap_k = split_parts(text, srt_tool.syllables(text))
+    if len(parts_k) > 1:                                         # v1.17 나눠 만드는 긴 문장만 새 키 (다른 문장 캐시는 그대로)
         d["split"] = 1
+        if gap_k != SPLIT_GAP:                                   # v1.18 끊어 읽기 (쉼 길이도 키에)
+            d["beat_gap"] = gap_k
     if spec.get("pace"):
         d["pace"] = spec["pace"]
     return hashlib.sha1(json.dumps(d, ensure_ascii=False, sort_keys=True).encode("utf-8")).hexdigest()[:16]
@@ -1080,10 +1097,11 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
     start = (max(old.get("tried", [0])) + 1) if (old and redo) else (1 + REDO_SEED_JUMP if redo else 1)
     risk = risky_reason(text, syl)
     tries = max(args.max_tries, RISKY_TRIES) if risk else args.max_tries      # v1.17 위험한 꼴은 더 시도
-    parts = split_long(text, syl)                                             # v1.17 긴 문장은 둘로
+    parts, pgap = split_parts(text, syl)                                      # v1.17 긴 문장은 둘로 · v1.18 '|' 끊어 읽기
     tried = list(old.get("tried", [])) if (old and redo) else []
     if len(parts) > 1:
-        log("SPLIT", item=label, role=role, syl=syl, parts=len(parts), a=parts[0][-20:], b=parts[1][:20], gap_s=SPLIT_GAP)
+        log("SPLIT", item=label, role=role, syl=syl, parts=len(parts), a=parts[0][-20:], b=parts[1][:20], gap_s=pgap,
+            kind="끊어 읽기" if pgap == BEAT_GAP else "긴 문장")
     takes = []
     for pi, ptxt in enumerate(parts):
         psyl = syl if len(parts) == 1 else srt_tool.syllables(ptxt)
@@ -1097,7 +1115,7 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
         best = takes[0]
     else:                                                                      # 조각 잇기 → 문장 전체로 다시 검사
         sr = takes[0][2]
-        x = np.concatenate([np.concatenate([t[1], silence(SPLIT_GAP, sr)]) if i < len(takes) - 1 else t[1] for i, t in enumerate(takes)])
+        x = np.concatenate([np.concatenate([t[1], silence(pgap, sr)]) if i < len(takes) - 1 else t[1] for i, t in enumerate(takes)])
         ok, issues, warns, m = check(x, sr, syl, False)
         m["f0"] = f0_median(x, sr) if x.size else 0.0
         for k in ("consist_dev", "level_dev", "fade_s", "shape_d", "win_d"):

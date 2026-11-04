@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.18 — 2026-11-04 — 끊어 읽기: TTS 글(읽는 소리 사전을 거친 글)에 '|' 가 있으면 그 자리에서 조각으로 나눠 따로 만들고
+# VERSION: v1.18.1 — 2026-11-04 — 끊어 읽기 조각의 말소리 크기를 서로 맞춤(가운데값으로, ±6dB) · 보고서 도구 버전 글(VERSION)이 v1.17 로 남던 것 고침.
+#          1편 v17 첫 음성의 카운트 '삼·이·일' 이 −20.3 · −26.1 · −21.4 dB ('이'만 약 6dB 작음).
+# (v1.18) — 2026-11-04 — 끊어 읽기: TTS 글(읽는 소리 사전을 거친 글)에 '|' 가 있으면 그 자리에서 조각으로 나눠 따로 만들고
 #          BEAT_GAP(0.6초) 쉼으로 이음 — 사용자 지시 2026-11-04 "그냥 삼. 이. 일. 끊어서 음성 생성하도록 해 다른 대본도 그렇게 하고" (주식 1~4편 선택마다 '3, 2, 1.' → 사전 '삼.|이.|일.').
 #          자막·대본은 그대로 한 문장 · 조각마다 시도·고르기는 v1.17 나눠 만들기와 같음 (짧은 조각 = 위험한 꼴 → 8번까지).
 # (v1.17) — 2026-11-03 — '삑' 나는 문장 줄이기: 사용자 지시 2026-11-03 "근데 왜 자꾸 목소리가 삑나는거야? 한번에 완벽하게 못해?".
@@ -164,7 +166,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.17"
+VERSION = "v1.18.1"
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -206,6 +208,18 @@ def split_parts(text, syl):
             return parts, BEAT_GAP
         return [text.replace(BEAT_MARK, " ").strip()], SPLIT_GAP
     return split_long(text, syl), SPLIT_GAP
+
+
+def beat_level_db(x, sr):
+    """v1.18.1: 조각 말소리 크기(dB) — 10ms 구간 RMS 가운데 가장 큰 구간에서 20dB 안의 구간만 평균 (앞뒤 무음·숨소리 빼고)."""
+    f = max(1, int(sr * 0.01))
+    n = len(x) // f
+    if n == 0:
+        return -99.0
+    r = np.sqrt(np.mean(x[: n * f].reshape(n, f) ** 2, axis=1) + 1e-12)
+    d = 20 * np.log10(r)
+    keep = r[d > d.max() - 20]
+    return float(20 * np.log10(np.sqrt(np.mean(keep ** 2)) + 1e-12))
 
 
 def split_long(text, syl):
@@ -1115,6 +1129,20 @@ def make_sentence(engine, cache_dir, label, text, spec, syl, args, redo=False, r
         best = takes[0]
     else:                                                                      # 조각 잇기 → 문장 전체로 다시 검사
         sr = takes[0][2]
+        if pgap == BEAT_GAP:                                                   # v1.18.1 끊어 읽기 조각은 말소리 크기를 서로 맞춤
+            lv = [beat_level_db(t[1], sr) for t in takes]                      #   (1편 v17 첫 음성: '삼' −20.3 · '이' −26.1 · '일' −21.4 dB)
+            tgt = float(np.median(lv))
+            fixed, gains = [], []
+            for t, l in zip(takes, lv):
+                g = max(-LEVEL_FIX_MAX_DB, min(LEVEL_FIX_MAX_DB, tgt - l))
+                y = t[1] * (10 ** (g / 20))
+                pk = float(np.max(np.abs(y))) if y.size else 0.0
+                if pk > 0.98:
+                    y = y * (0.98 / pk)
+                fixed.append((t[0], y) + tuple(t[2:]))
+                gains.append(round(g, 1))
+            log("BEAT", item=label, role=role, levels=",".join(f"{l:.1f}" for l in lv), target=round(tgt, 1), gains=",".join(map(str, gains)))
+            takes = fixed
         x = np.concatenate([np.concatenate([t[1], silence(pgap, sr)]) if i < len(takes) - 1 else t[1] for i, t in enumerate(takes)])
         ok, issues, warns, m = check(x, sr, syl, False)
         m["f0"] = f0_median(x, sr) if x.size else 0.0

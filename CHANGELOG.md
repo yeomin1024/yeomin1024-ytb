@@ -1,5 +1,17 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-04 — 쇼츠 첫 장면 세 칸 · tts v1.18.1 조각 크기 맞춤 · 1편 v17 음성 렌더 · 10분마다 음성 확인
+
+### 왜 (사용자 지시)
+- "10분 단위로 음성 체크해서 있으면 영상 만들어 그리고 쇼츠 처음 썸네일 면세처럼 문구랑 이미지 위치 나눠야지 … 내가 피드백하는 내용들 지시사항에 반영하고 있지?"
+
+### 무엇을
+- 1편 쇼츠 썸네일 v2 = 세 칸 (위 검정 + 문구 2줄 · 가운데 실사 TH-PHOTO2 y 680~1371 · 아래 검정 = 첫 자막 자리 · 말풍선) — `thumbnail_1.json` · `thumbnail_1.md`(COVER_LAYOUT: band) · cover_check ✅. 규칙: CLAUDE.md 썸네일 절 · `guides/thumbnail_guide.md` v3.16 · `stock/guides/quick_board.md` v2.9 규칙 42.
+- 1편 새 음성(대본 v17, 7:31.3, 07:49): SRT 자막 100 · align · sync(453.37초) · layout-check 77장면 0 → render check → 롱폼·쇼츠 렌더.
+  - 카운트 '삼·이·일' 조각 크기: −20.3 · −26.1 · −21.4 dB ('이'가 약 6dB 작음) · 높이 96~113Hz (끝을 내리는 말투).
+- `tools/tts_narration.py` v1.18.1: 끊어 읽기 조각의 말소리 크기를 가운데값으로 맞춤(±6dB, `beat_level_db`) — 지금 음성에 넣으면 '이' +5.0dB · 보고서 도구 버전 글이 v1.17 로 남던 것 고침. 가짜 소리로 확인 (저장소에 안 올림).
+- 10분마다 음성 확인: send_later `trig_01Ne87CReFwB8DwxA5n6cFA5` (1편 새 음성 → 다시 렌더 · 2~4편 음성 → 알림).
+
 ## 2026-11-04 — 카운트를 '삼. 이. 일.' 끊어서 (tts_narration v1.18)
 
 ### 왜 (사용자 지시)

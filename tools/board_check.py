@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-11-04 — K6·K7 질문형 선택(바로 정답·해설)도 읽음 (아래 줄).
+# VERSION: v1.9 — 2026-11-04 — K9 새로: 질문 두 줄 뒤 '선택해 보세요.' → '3, 2, 1.' → '이때는 …옳은 선택입니다.' (사용자 지시 2026-11-04 "매수 하시겠습니까? 선택 항목 다음에 선택해보세요. 멘트 추가하고 3, 2, 1 카운트 후에 정답 얘기하도록수정해 다른 대본도 그렇게 하고" — quick_board 규칙 41) · K7 은 그 두 줄을 건너뛰고 보기를 찾음.
+# (v1.8) — 2026-11-04 — K6·K7 질문형 선택(바로 정답·해설)도 읽음 (아래 줄).
 # (v1.7) — 2026-11-03 — 기획안 `user_fields`(사용자가 준 칸) 의 제목 2줄 넘침은 ❌ 대신 ⚠ — 사용자 문구는 한 글자도 안 바꾸므로 판에서 빠지지 않게 (주제 판 피드백 2026-11-03 E2·E3 제목).
 # (v1.6 — 2026-11-02 — 주식 쇼츠 공통 끝 멘트가 「다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.」 로 바뀜 (사용자 지시 "…로 변경해 모두") — 주식 규칙의 SHORT_END 만 바꿈 (재테크 규칙 그대로).
 # (v1.5 — 2026-11-02 — 주제마다 규칙 파일 <주제>/board_rules.toml (없으면 주식 규칙 그대로): 채널 목적 밖(OFF)·조건(COND)·쇼츠 끝 멘트·
@@ -140,6 +141,7 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
         else:
             warns.append("반론 K5: --calc 없음 — 숫자 대조 못 함")
         return fails, warns, oks
+    COUNT_LINES = ("선택해 보세요.", "3, 2, 1.")             # v1.9 질문과 정답 사이 (규칙 41)
     # ── K6 지키기 어려움 인정 — 해설마다 '물론 …' 반론 줄
     heads = [i for i, s in enumerate(sents) if re.match(r"(첫|두|세|네|다섯) 번째 선택의 정답은", s)
              or re.match(r"이때는 .+옳은 선택입니다\.$", s)]          # v1.8 질문형 선택 → 바로 정답·해설 (2026-11-04)
@@ -162,7 +164,10 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
     words = lambda t: set(re.findall(r"[가-힣A-Za-z0-9%]{2,}", t))
     for k, h in enumerate(heads):
         if sents[h].startswith("이때는") and h >= 2:          # v1.8 질문형: 바로 앞 두 줄 '여기서 당신은 …?' / '아니면 …?' 가 보기
-            qa, qb = re.match(r"여기서 당신은 (.+)\?$", sents[h - 2]), re.match(r"아니면 (.+)\?$", sents[h - 1])
+            j = h                                              # v1.9 그 사이 '선택해 보세요.' · '3, 2, 1.' (규칙 41) 은 건너뜀
+            while j > 2 and sents[j - 1] in COUNT_LINES:
+                j -= 1
+            qa, qb = re.match(r"여기서 당신은 (.+)\?$", sents[j - 2]), re.match(r"아니면 (.+)\?$", sents[j - 1])
             if not (qa and qb):
                 bad7.append((k + 1, "?", "질문 두 줄이 정답 바로 앞에 없음"))
                 continue
@@ -181,6 +186,11 @@ def check_script(topic, script, calc=None, upload=None, allow=(), kind="long"):
         if a and len(a & b) / len(a) < 0.25:
             bad7.append((k + 1, m.group(1), o))
     (warns if bad7 else oks).append(f"반론 K7 해설 정답 ↔ 보기 말이 다름(사람 확인): {bad7 or '없음'} · 정답 글자 {''.join(letters)}")
+    # ── K9 (v1.9) 질문 뒤 '선택해 보세요.' → '3, 2, 1.' → 정답 (quick_board 규칙 41 — 사용자 지시 2026-11-04)
+    qheads = [h for h in heads if sents[h].startswith("이때는")]
+    miss9 = [k + 1 for k, h in enumerate(qheads) if h < 2 or tuple(sents[h - 2:h]) != COUNT_LINES]
+    if qheads:
+        (fails if miss9 else oks).append(f"반론 K9 질문 뒤 '선택해 보세요.' · '3, 2, 1.' 없음: {miss9 or '없음'} (선택 {len(qheads)}개)")
     if letters and len(set(letters)) == 1:
         fails.append("반론 K7: 정답이 모두 같은 글자 — 섞어야 함")
     # ── K5 숫자 — 대본 퍼센트가 계산 출력에 있는가

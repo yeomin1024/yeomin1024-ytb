@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.3 — 2026-11-02 — 1편 대본 v10 (피드백판 2차 5건) — sp_1_v23(): 지수 = S&P 500 · ① 사지 않음 · ③ 판 값보다 5%마다 3분의 1 · ④ 바로 매도(현금).
+# VERSION: v2.4 — 2026-11-04 — sp_1_v23 '2_현금'에 그날 바로 뒤 하락(near_low·near_days·near_spx_low) — 1편 대본 판 v15 피드백 "하락장 날짜랑 너무 차이 나잖아 별로 차이 안나게 설정해야 의미가 있지".
+# (v2.3) — 2026-11-02 — 1편 대본 v10 (피드백판 2차 5건) — sp_1_v23(): 지수 = S&P 500 · ① 사지 않음 · ③ 판 값보다 5%마다 3분의 1 · ④ 바로 매도(현금).
 # (v2.2 — 2026-11-02 — 1편 대본 v9 (피드백판 1편 롱폼 10건) — nasdaq_1_v22(): 업스타트 · 현금 3천만 · 2025 관세 하락장 기준(비중 절반 → 3번 나눠) · C3.ai 펀더멘털 · 아이온큐 비중 · 김씨 경로 4년 안.
 # (v2.1 — 2026-11-01 — 1편 다섯 습관(남 따라 사기·현금 없음·기준 없음·손절 안 함·분산 안 함) — nasdaq_1_v21() · MSTR 자료.
 # (v2.0 — 2026-11-01 — 1편을 나스닥 100(QQQ)·QLD·ARKK·SMCI(AI 서버)로 (사용자 지시 "S&P500 말고 나스닥 지수로 해 … 전기차 회사라고 하지말고 최근 트렌드인 AI 관련 종목") — nasdaq_1().
@@ -33,7 +34,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 CALC = HERE.parent.parent / "source" / "timing-test-2026-10" / "calc"
-VERSION = "v2.3"
+VERSION = "v2.4"
 logging.basicConfig(level=logging.INFO, format="[%(stage)s] %(message)s")
 log = logging.getLogger("longform_items")
 
@@ -1096,7 +1097,10 @@ def sp_1_v23(S):
     # ② 현금 3천만 원 — 2025 봄 하락장 (S&P 500)
     v_pk, v_lo = 10000 * (1 + tr.chg(d1, dPk)), 10000 * (1 + tr.chg(d1, dP))
     put("2_현금", all_in_at_peak_manwon=round(v_pk), all_in_at_low_manwon=round(v_lo), drop_manwon=round(v_pk - v_lo), drop_pct=pct(v_lo / v_pk - 1), days=(date.fromisoformat(dP) - date.fromisoformat(dPk)).days,
-        all_in_vs_principal_at_low=pct(v_lo / 10000 - 1), cash3000_at_low_manwon=round(3000 * (1 + cash.chg(d1, dP))))
+        all_in_vs_principal_at_low=pct(v_lo / 10000 - 1), cash3000_at_low_manwon=round(3000 * (1 + cash.chg(d1, dP))),
+        # v2.4 (2026-11-04 대본 판 1편 v15 피드백 "하락장 날짜랑 너무 차이 나잖아 별로 차이 안나게") — 그날(d1) 바로 뒤 하락: 모두 넣었다면
+        near_low=pct(tr.low(d1, "2023-12-31")[0]), near_low_day=tr.low(d1, "2023-12-31")[1],
+        near_days=(date.fromisoformat(tr.low(d1, "2023-12-31")[1]) - date.fromisoformat(d1)).days, near_spx_low=pct(spx.low(d1, "2023-12-31")[0]))
     # ③ 위험한 국면 — 기준대로(절반 → 5%마다 3분의 1) vs 그때그때 vs 그대로
     l_now, l_lo, l_lod, l_buys = ladder(dSig, dCut)
     panic = (1 + tr.chg(dSig, dP)) * (1 + cash.chg(dP, dB)) * (1 + tr.chg(dB, NOW))

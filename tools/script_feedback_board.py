@@ -38,7 +38,7 @@ LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS_MD = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
 EXTRA = ROOT / "stock/topics/board/script_board.json"
 SHORTS_ITEMS = ROOT / "stock/topics/board/shorts_board.json"
-LONG_VER = {1: "대본 v15", 2: "대본 v14", 3: "대본 v14", 4: "대본 v14"}   # v15·v14 = 1편 피드백 11건을 모든 편에 (2026-11-04, quick_board 규칙 26~33) · v14·v13 = 질문형 선택 + 바로 정답·해설 · v13·v12 = \'A번,\'
+LONG_VER = {1: "대본 v16", 2: "대본 v14", 3: "대본 v14", 4: "대본 v14"}   # 1편 v16 = 판 피드백 2건(규칙 34·35) · v15·v14 = 1편 피드백 11건을 모든 편에 (2026-11-04, quick_board 규칙 26~33) · v14·v13 = 질문형 선택 + 바로 정답·해설 · v13·v12 = \'A번,\'
 SHORT_VER = "v7"                                                       # 쇼츠안_2026-10-30.md 의 판
 URL = {
     "topic": "https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN",

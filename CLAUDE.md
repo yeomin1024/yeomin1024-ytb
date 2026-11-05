@@ -47,7 +47,7 @@
 
 ## 업로드 (`guides/upload_guide.md`)
 - **재테크는 이 클라우드 환경에서 바로**: 키(`YOUTUBE_CLIENT_ID`·`SECRET`·`REFRESH_TOKEN`) = 부자백서 UCJ1gjiL7VuAhMQSfAhxAefg (`economic/youtube_channel.json`, 도구는 키의 채널이 다르면 멈춤 — 주식 환경 키 = STOCK LAB). 렌더 `node video/render/render.mjs video economic <영상ID>`(새 컨테이너면 글꼴·gsap 먼저 — status 4번) → 썸네일 검수 → `python tools/youtube_upload.py economic <영상ID> --dry-run` → `--publish-at <시각>` (비공개 + 예약 공개, `youtube.json` 을 main 에). **올리기 전에 채널 업로드 목록을 읽어 두 번 올리지 않는다.** 쇼츠 영상ID = `<영상ID>-shorts`.
-- 롱폼과 짝 쇼츠는 같은 시각에 공개, 짝끼리 1시간 간격. 할당량(영상 약 2,050단위·하루 10,000·한국 16시 초기화, 예약은 올린 뒤에만)이 모자라면 롱폼부터, 짝 쇼츠가 늦어지면 이미 올린 롱폼 공개 시각을 옮김(videos.update — 합성 콘텐츠 칸 같이) — 12번. 쇼츠 썸네일은 공개 뒤 `i.ytimg.com/vi/<ID>/oardefault.jpg` 로 확인, 안 보이면 사용자가 앱에서 0초 장면. Drive 권한은 없음(mp4 는 컨테이너에만).
+- 롱폼과 짝 쇼츠는 같은 시각에 공개, 짝끼리 1시간 간격. 할당량(영상 약 2,050단위·하루 10,000·한국 16시 초기화, 예약은 올린 뒤에만)이 모자라면 롱폼부터, 짝 쇼츠가 늦어지면 이미 올린 롱폼 공개 시각을 옮김(videos.update — 합성 콘텐츠 칸 같이) — 12번. 쇼츠 썸네일은 유튜브 처리가 끝난 뒤 보내야 세로 썸네일로 붙음(`youtube_upload.py` v1.15 가 기다림 — 이미 올린 건 `--thumbnail-only`) · 공개 뒤 `i.ytimg.com/vi/<ID>/oardefault.jpg` 로 확인, 안 보이면 사용자가 앱에서 0초 장면. Drive 권한은 없음(mp4 는 컨테이너에만).
 - '변경되거나 합성된 콘텐츠' = **예** (AI 음성) — 업로드 시트에 적고 도구가 등록.
 - PC 업로더 길(`run_uploader.ps1` → `tools/pc_upload.py`, Drive 원본, 예약 기본 +1시간, 하루 최대 4개) — 11번.
 

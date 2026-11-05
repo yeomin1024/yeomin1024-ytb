@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.14 — 2026-11-05 — **이미 올린 영상의 썸네일만 바꾸기 `--thumbnail-only`** (thumbnails.set 50단위 — 영상·제목·자막·예약 시각 그대로).
+# VERSION: v1.15 — 2026-11-05 — **쇼츠 썸네일은 유튜브 처리가 끝난 뒤에** (사용자 지시 "그리고 왜 쇼츠 썸네일은 적용 안되는거야?"): 올리자마자(처리 전) thumbnails.set 을 하면 성공으로 답해도
+#          쇼츠 세로 썸네일(snippet.thumbnails.shortsAspectRatio 720×1280)이 생기지 않음 — 2편 쇼츠 H0k8gbYeIYo 실측, 처리 뒤 다시 보내니 생김.
+#          → 쇼츠는 processingDetails 가 succeeded 일 때까지 기다린 뒤(15초마다, 최대 10분, 1단위씩) 보내고, shortsAspectRatio 가 생겼는지 확인 (없으면 한 번 더, 그래도 없으면 경고).
+# (v1.14) — 2026-11-05 — **이미 올린 영상의 썸네일만 바꾸기 `--thumbnail-only`** (thumbnails.set 50단위 — 영상·제목·자막·예약 시각 그대로).
 #          사용자 지시 2026-11-05 "썸네일 보조 문구가 사람 가리지 않게 해" — 말풍선 자리를 옮겨 다시 만든 썸네일을 이미 올린 1편에 반영.
 # (v1.13.2) — 2026-10-19 — 썸네일이 끝까지 읽히는지 확인 (깨진 그림은 없는 것으로 — ChatGPT 가 올린 PNG 4장이 786,444바이트에서 잘림).
 # (v1.13.1) — 2026-10-18 — 설명란 챕터 머리 '■ 챕터 (Chapters)' 처럼 뒤에 글이 붙어도 읽음 (주식 설명란 한국어 + 아래 영어 — 사용자 지시 2026-10-18 "…챕터는 각각 챕터 옆에 괄호 안에 영어로 번역해서 넣어…").
@@ -538,6 +541,51 @@ def prepare_thumbnail(img, out_dir, size=(1280, 720)):
     return out
 
 
+def wait_processed(token, video_id, timeout=600, every=15):
+    """(v1.15) 유튜브 처리(processingDetails)가 끝날 때까지 기다림 — videos.list 1단위씩. → True(끝남)·False(실패·시간 넘김)."""
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        _, _, r = request("GET", f"{API}/videos?part=processingDetails,status&id={video_id}", token)
+        it = (r.get("items") or [{}])[0]
+        ps = it.get("processingDetails", {}).get("processingStatus"); us = it.get("status", {}).get("uploadStatus")
+        if ps == "succeeded" or us == "processed":
+            log("THUMBNAIL", wait="처리 끝", processing=ps, upload=us, seconds=round(time.time() - t0))
+            return True
+        if ps == "failed" or us in ("failed", "rejected"):
+            log("THUMBNAIL", level="warn", wait="처리 실패", processing=ps, upload=us)
+            return False
+        log("THUMBNAIL", wait="쇼츠 처리 기다림", processing=ps, upload=us)
+        time.sleep(every)
+    log("THUMBNAIL", level="warn", wait="시간 넘김", seconds=timeout)
+    return False
+
+
+def shorts_thumb_ok(token, video_id):
+    """(v1.15) 쇼츠 세로 썸네일(shortsAspectRatio)이 등록됐는지."""
+    _, _, r = request("GET", f"{API}/videos?part=snippet&id={video_id}", token)
+    th = ((r.get("items") or [{}])[0].get("snippet") or {}).get("thumbnails") or {}
+    return "shortsAspectRatio" in th
+
+
+def set_thumbnail(token, vid, video_id, img):
+    """(v1.15) 썸네일 보내기 — 쇼츠는 처리가 끝난 뒤 보내고 세로 썸네일이 생겼는지 확인 (없으면 30초 뒤 한 번 더)."""
+    if is_shorts(vid):
+        wait_processed(token, video_id)
+    upload_thumbnail(token, video_id, img)
+    if not is_shorts(vid):
+        return True
+    for k in range(2):
+        time.sleep(10)
+        if shorts_thumb_ok(token, video_id):
+            log("THUMBNAIL", check="쇼츠 세로 썸네일 등록됨 (shortsAspectRatio)")
+            return True
+        if k == 0:
+            time.sleep(20); upload_thumbnail(token, video_id, img)
+    log("THUMBNAIL", level="warn", check="쇼츠 세로 썸네일이 안 보임",
+        next=f"몇 분 뒤 python3 tools/youtube_upload.py <주제> {vid} --thumbnail-only · 그래도 안 되면 앱에서 0초 장면")
+    return False
+
+
 def find_video(topic, vid):
     """올릴 영상 기본 경로: 렌더 원본 out/<영상ID>/final_1080p.mp4 (git 에 없음 — PC 는 Drive 에서 받아 --video 로)."""
     return ROOT / topic / "out" / vid / "final_1080p.mp4"
@@ -604,7 +652,7 @@ def thumbnail_only(topic, vid, dry_run=False, video=None):
         return None
     token = access_token()
     check_channel(topic, token)
-    upload_thumbnail(token, st["videoId"], img)
+    set_thumbnail(token, vid, st["videoId"], img)              # v1.15 쇼츠는 처리 뒤 + 세로 썸네일 확인
     st["thumbnail"] = img.name
     st["thumbnailUpdatedAt"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     state_path.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", "utf-8")
@@ -730,7 +778,7 @@ def run(topic, vid, dry_run=False, privacy="private", force=False, no_captions=F
         log("CAPTIONS", status="skip", reason="업로드 시트 '자막 올리기: 아니요' (주식 — 전 세계 대상, 사용자 지시 2026-10-15)")
     if not no_thumbnail and thumbs:                              # v1.12 썸네일(50)을 자막보다 먼저 — 자막에서 할당량이 끝나도 썸네일은 올라감
         try:
-            upload_thumbnail(token, video_id, thumbs[0])
+            set_thumbnail(token, vid, video_id, thumbs[0])       # v1.15 쇼츠는 처리 뒤
             result["thumbnail"] = thumbs[0].name
             log("THUMBNAIL", status="ok", file=thumbs[0].name)
         except Exception as e:

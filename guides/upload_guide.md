@@ -204,6 +204,7 @@ powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -UnregisterTask       
 - 쇼츠 썸네일: 그림에 빈 띠가 있으면 완성 영상 0초 장면을 올린다 (`youtube_upload.py` v1.10 — `shorts_guide.md` 4번 9항).
 - **짝 쇼츠가 늦어지면 롱폼 공개 시각을 옮긴다** (사용자 지시 2026-10-17 "연금 꺼내기, ISA도 16시 초기화 될때 올리도록 하고 왜 자꾸 쇼츠 썸네일 안올려 올리도록 해"): 이미 올린 롱폼은 `videos.update?part=status` 로 `privacyStatus=private`·`publishAt=<새 시각>` — **status 의 다른 칸(`selfDeclaredMadeForKids` false · `embeddable` true · `containsSyntheticMedia` true · `license` youtube · `publicStatsViewable` true)을 같이 보낸다** (빠진 칸은 기본값으로 돌아가 '합성 콘텐츠'가 꺼질 수 있음). 50단위. 응답의 status 로 확인하고 `youtube.json` 에 `publishAtHistory`.
 - 쇼츠 썸네일은 API 가 성공해도 안 보일 수 있다 → 공개 뒤 `i.ytimg.com/vi/<영상ID>/oardefault.jpg` 로 확인 (`shorts_guide.md` 4번 9항).
+- **쇼츠 썸네일은 유튜브 처리가 끝난 뒤에 보낸다** (2026-11-05 사용자 지시 "그리고 왜 쇼츠 썸네일은 적용 안되는거야?"): 올리자마자 보내면 API 는 성공이라 답해도 쇼츠 세로 썸네일(`snippet.thumbnails.shortsAspectRatio` 720×1280)이 생기지 않음 (2편 쇼츠 `H0k8gbYeIYo` 실측 — 처리 뒤 다시 보내니 생김). `youtube_upload.py` v1.15 가 처리를 기다린 뒤 보내고 세로 썸네일을 확인 · 이미 올린 쇼츠는 `--thumbnail-only`.
 - 2026-10-17 실제: 기초연금 롱폼 `xVU2cBNrdlM`(22:26 공개 확인)·쇼츠 `fgsHQFygl8M`(23:05) · 은퇴 롱폼 `PTauP66F9_8`(10-18 11:00) — 나머지는 `guides/status.md` 2-2 0-7.
 
 ## 변경 이력

@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-05 — 2편 롱폼 썸네일 '사람들은' · 쇼츠 썸네일이 안 붙던 까닭 (youtube_upload v1.15)
+
+- 사용자 지시 "2편 롱폼 썸네일 문구 수익나도 결국 손실인 사람들은 ~ 이렇게 변경해 사람들은 붙여야해" → 2편 본안 1줄째 「수익나도 결국 손실인 사람들은」(손실 빨강) · 2줄째 「0점 맞는 테스트」 — 한국어 + 9개 언어 10장 다시 그려 직접 봄 → `EV12LtESXuI` 에 `--thumbnail-only` (50단위).
+- 사용자 지시 "그리고 왜 쇼츠 썸네일은 적용 안되는거야?" → 2편 쇼츠 `H0k8gbYeIYo` 는 올린 지 4초 만에(유튜브 처리 전) 썸네일을 보내 API 는 성공이었지만 쇼츠 세로 썸네일(shortsAspectRatio)이 없었음 (16:9 자동 썸네일만). 1편 쇼츠는 처리 뒤 다시 보내 있었음. 처리 뒤 `--thumbnail-only` 로 다시 보내니 shortsAspectRatio 720×1280 생김 (videos.list 로 확인).
+- `tools/youtube_upload.py` v1.15: `wait_processed`(15초마다·최대 10분) · `shorts_thumb_ok` · `set_thumbnail` — 쇼츠는 처리 뒤 보내고 세로 썸네일 확인, 없으면 30초 뒤 한 번 더, 그래도 없으면 경고. 업로드와 `--thumbnail-only` 둘 다.
+- `guides/upload_guide.md` · CLAUDE.md 업로드 줄 · `stock/guides/quick_board.md` 규칙 40 · 2편 시트 v1.12.
+
 ## 2026-11-05 — 1편 롱폼 문장 8 앞 잡음 지움
 
 - 사용자 지시 "야 1편 롱폼에서 지금부터 김씨가 되어보겠습니다 대사 다음 대사로 넘어가기전 무슨 이상한 소리가 잠깐 나오는데 어떻게 수정해".

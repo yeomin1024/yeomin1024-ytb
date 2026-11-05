@@ -1,5 +1,14 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-05 — 1편 언어별 제목·설명·자막 올림 · 썸네일 말풍선이 사람을 가리지 않게
+
+- 사용자 지시 "1편에 언어별 제목·설명 반영해 그리고 자막 겹쳐도 자막 올려 그리고 썸네일 보조 문구가 사람 가리지 않게 해 그리고 완성한 쇼츠 2편 정보 제목 등 보여줘봐".
+- 1편 롱폼 `2l2FLcM0wfs`·쇼츠 `RmchNZCLNuk`: `--update-meta`(언어별 제목·설명 9개) · `--captions-only`(ko + en·hi·id·pt·es-419·ja·de·vi·tr) — `youtube.json` captionTracks 10개씩.
+- 썸네일 말풍선 자리(사람 머리·몸·손·화면 밖): 1~4편 본안 한국어 + 언어별 9장, 1편 2·3안, 1편 쇼츠 — JSON 43개 `_자리` 칸 · `video/render/thumb.mjs` v1.3(말풍선 "\n" 두 줄) · 다시 그려 모두 직접 봄 · 쇼츠 `cover_check --layout band` ✅.
+- `tools/youtube_upload.py` v1.14 `--thumbnail-only` (thumbnails.set 50단위) → 1편 두 영상 썸네일 다시 올림.
+- 규칙: `stock/guides/quick_board.md` v3.6 규칙 47 (+ 46 자막 겹침 = 올림) · `guides/thumbnail_guide.md` v3.17 13-5 · CLAUDE.md 썸네일 줄.
+- ⚠ 1편 쇼츠 영상 0초 장면(영상에 구운 첫 화면)은 옛 말풍선 자리 — 영상을 다시 올려야만 바뀜.
+
 ## 2026-11-04 — 1~4편 화면 글 쉬운 한국어 · 2~4편 새 음성 · 최종 렌더
 
 - 사용자 지시 "10분 간격으로 음성 확인하고 음성 생성된거는 다시 영상 렌더해 그리고 영어를 왤케 많이 넣었어 … 그리고 1편은 각각 일주일 후로 자동 예약 걸어서 업로드 해".

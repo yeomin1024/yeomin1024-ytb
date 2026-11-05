@@ -1,3 +1,4 @@
+// VERSION: v1.3 — 2026-11-05 — 말풍선 글 "\n" = 두 줄 (좁은 빈 자리에 — 사용자 지시 "썸네일 보조 문구가 사람 가리지 않게 해").
 // VERSION: v1.2 — 2026-11-05 — 외국어 썸네일 spec.lang (언어 글꼴 NL — get-fonts.mjs 가 받음) · 힌디어는 데바나가리 + 라틴.
 // VERSION: v1.1 — 2026-10-25 — 말풍선 꼬리 자리 tailPos(0~1, 말풍선 왼쪽 끝부터 비율)·꼬리 길이 tailLen(px) — 그림 속 인물 머리를 정확히 가리키게
 //   (글자 없는 썸네일 그림이 와서 말풍선이 얼굴을 덮지 않게 옮기면서).
@@ -59,7 +60,7 @@ function page(spec, dir) {
       const len = b.tailLen ? `border-top-width:${b.tailLen}px;bottom:-${b.tailLen - 10}px;` : "";
       const tail = b.kind === "bubble" ? `<i class="tail ${b.tail || "left"}" style="${pos}${len}border-top-color:${col(b.bg)}"></i>` : "";
       return `<div class="${b.kind}" id="b${i}" data-kind="box" data-fill='${JSON.stringify(b.fill || [0.9, 0.68])}' style="left:${b.x}px;top:${b.y}px;width:${b.w}px;height:${b.h}px;background:${col(b.bg)};color:${col(b.color)};border-radius:${b.radius == null ? 22 : b.radius}px">
-        <span class="bt">${esc(b.text)}</span>${tail}</div>`;
+        <span class="bt">${esc(b.text).replace(/\n/g, "<br>")}</span>${tail}</div>`;   // v1.3 "\n" = 말풍선 두 줄
     }
     fail("THUMB", `모르는 블록 ${b.kind}`, "lines · tag · bubble");
   }).join("");
@@ -74,7 +75,7 @@ body{position:relative;font-family:${spec.lang && fontFor(spec.lang) ? `"NL",${s
 .ln{white-space:nowrap;letter-spacing:-0.01em}
 .lines span{paint-order:stroke fill;-webkit-text-stroke-color:#000;stroke-linejoin:round}
 .tag,.bubble{position:absolute;display:grid;place-items:center;box-sizing:border-box}
-.bt{white-space:nowrap;line-height:1;letter-spacing:-0.01em}
+.bt{display:inline-block;text-align:center;white-space:nowrap;line-height:1.08;letter-spacing:-0.01em}
 .tail{position:absolute;bottom:-34px;width:0;height:0;border-left:26px solid transparent;border-right:26px solid transparent;border-top:44px solid}
 .tail.left{left:18%;transform:skewX(18deg)}.tail.right{right:18%;transform:skewX(-18deg)}
 </style></head><body>${imgs}${shade}${blocks}</body></html>`;

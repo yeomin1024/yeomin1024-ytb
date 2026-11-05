@@ -9,7 +9,17 @@
   "containsSyntheticMedia": true,
   "uploadedAt": "2026-11-05T01:51:38+00:00",
   "title": "'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.",
-  "localizations": [],
+  "localizations": [
+    "de",
+    "en",
+    "es-419",
+    "hi",
+    "id",
+    "ja",
+    "pt",
+    "tr",
+    "vi"
+  ],
   "videoFile": "ppalli-test-2026-11-shorts.mp4",
   "videoSha256": "c6efbafbdb70a979ef5e0bd1dbab41f9644f40742796b165939bc213b8012b40",
   "chapters": null,
@@ -21,10 +31,20 @@
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
   ],
   "captionTracks": {
-    "ko": "AUieDaaENtWjmUMIT1SdrgPe8XsPUDxVq8ts9mFWA3orya6Dl5cvw9fcel4"
+    "ko": "AUieDaaENtWjmUMIT1SdrgPe8XsPUDxVq8ts9mFWA3orya6Dl5cvw9fcel4",
+    "en": "AUieDaYBbg9KobhyGAVenW_jUenyGW0SOUVLwfj0j5glS6h7C6bpHzwv",
+    "hi": "AUieDaam7T8SheffJtTpAusywhzoCTvh3KYCjJk7vON_b56Pw1-yh7ED3yeMo41EO3PtAf8",
+    "id": "AUieDaZq4P-M9phavJNMyjmvOlljFd5qFUzelheYcq5kF36bDYeNye4fd0e1mjGnq3e2",
+    "pt": "AUieDaZk9oZNxXJa9SBd9zHhJlYEFOsDQ2ohNyTolmhszYGSKR5eDECSpa7e",
+    "es-419": "AUieDabMAgGgCbDQ5vqwxA6MYMQtkTP1avbPsfPYQSGWyxn-qgZQMCwTX1WI4SqwF11dKRGot0FZTvmwc6Otsg",
+    "ja": "AUieDaYrprGp-HGRSQ1C8tNnSfw5zybGZWyDkt6aZMZG2tNf7kUZPwhWQrA",
+    "de": "AUieDabCnIr1EoBsFiIfwcU-RxsaYUxm3FjngI8Frq66HGqfwt4vmYIy",
+    "vi": "AUieDaZWUqlGK-p4rDLdkhcYyNxJwpDLXgxJn4nu8pgWY07WAkRiJ-9W2aXHsoQlDw",
+    "tr": "AUieDaa7SRzbfbXDeFYI9VITrMXPfKJsXVxtLEbFpeO4gwRdaiqds28_OQ"
   },
   "captionsPending": [],
   "defaultLanguage": "ko",
   "defaultAudioLanguage": "ko",
-  "metaUpdatedAt": "2026-11-05T05:02:34+00:00"
+  "metaUpdatedAt": "2026-11-05T05:47:17+00:00",
+  "thumbnailUpdatedAt": "2026-11-05T05:54:36+00:00"
 }

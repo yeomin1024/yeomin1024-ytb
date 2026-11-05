@@ -9,7 +9,17 @@
   "containsSyntheticMedia": true,
   "uploadedAt": "2026-11-05T01:51:23+00:00",
   "title": "주식 투자 실패하는 사람들은 절대 통과 못하는 테스트",
-  "localizations": [],
+  "localizations": [
+    "de",
+    "en",
+    "es-419",
+    "hi",
+    "id",
+    "ja",
+    "pt",
+    "tr",
+    "vi"
+  ],
   "videoFile": "ppalli-test-2026-11.mp4",
   "videoSha256": "ad550d95af8716414d44f4652fdbe123a298dfee02d7c0113797d0e89817f6ab",
   "chapters": [
@@ -30,10 +40,20 @@
     "공개된 뒤 '테스트 및 비교'에 썸네일 3개 등록 — 비공개 영상은 테스트 불가"
   ],
   "captionTracks": {
-    "ko": "AUieDaavTzAwll4efxSS8xoCZ3blFLn4Epn2mgky3yhSj6F6XzSuKvwcir8"
+    "ko": "AUieDaavTzAwll4efxSS8xoCZ3blFLn4Epn2mgky3yhSj6F6XzSuKvwcir8",
+    "en": "AUieDablwauVANbk4tKk-87xH7I3Jzn_O4j49glR_oaX8DioqzpfakGB",
+    "hi": "AUieDaYRDgARbMOXFguicyeoVA2rvgHQe_ewHmOktGDhG5AomIrZOA413N-B-RfeZCm0XbA",
+    "id": "AUieDaYjPuA28LUY-InW8Q8PFjDGBAwyFuc6S9sp1aUgWDMjlFJtlCbo6Ysbl5BEqgmQ",
+    "pt": "AUieDaY1HLk9MD6BxWSZR_8XAp1WWRX_U3HQZ_ILiudyKeYpdt6TiCxZkLyq",
+    "es-419": "AUieDaaOHx0r_OANO_X_6wquMcB-XuJRyTusV4wY9ZsAGVXfalQZs51QnRyY7C8f4hFahuu-1s9DHeBlv_D5pA",
+    "ja": "AUieDaZL-G3xNC4VNH7aEpnqToA964yXhrXd8Cbr_aLSpdDRDdc8_JjP5wk",
+    "de": "AUieDaag8rpdlqdMVdtGRFr6-o_2wngd6DiVizJAZeWdsWfUw7Jq6wYL",
+    "vi": "AUieDaZ81dinstxF5S9n5P4kvF4HQEhmDrDPGpEkUn0xoWmRLmR6xLf94ndsq1uJ-g",
+    "tr": "AUieDaaEvhhmQ7VTqEF1pmxI9P9sJB_27JbijKYqq2rBZlYRZ-uzGCbYXA"
   },
   "captionsPending": [],
   "defaultLanguage": "ko",
   "defaultAudioLanguage": "ko",
-  "metaUpdatedAt": "2026-11-05T02:44:52+00:00"
+  "metaUpdatedAt": "2026-11-05T05:47:16+00:00",
+  "thumbnailUpdatedAt": "2026-11-05T05:54:33+00:00"
 }

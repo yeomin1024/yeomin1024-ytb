@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.13.2 — 2026-10-19 — 썸네일이 끝까지 읽히는지 확인 (깨진 그림은 없는 것으로 — ChatGPT 가 올린 PNG 4장이 786,444바이트에서 잘림).
+# VERSION: v1.14 — 2026-11-05 — **이미 올린 영상의 썸네일만 바꾸기 `--thumbnail-only`** (thumbnails.set 50단위 — 영상·제목·자막·예약 시각 그대로).
+#          사용자 지시 2026-11-05 "썸네일 보조 문구가 사람 가리지 않게 해" — 말풍선 자리를 옮겨 다시 만든 썸네일을 이미 올린 1편에 반영.
+# (v1.13.2) — 2026-10-19 — 썸네일이 끝까지 읽히는지 확인 (깨진 그림은 없는 것으로 — ChatGPT 가 올린 PNG 4장이 786,444바이트에서 잘림).
 # (v1.13.1) — 2026-10-18 — 설명란 챕터 머리 '■ 챕터 (Chapters)' 처럼 뒤에 글이 붙어도 읽음 (주식 설명란 한국어 + 아래 영어 — 사용자 지시 2026-10-18 "…챕터는 각각 챕터 옆에 괄호 안에 영어로 번역해서 넣어…").
 # (v1.13) — 2026-10-18 — **이미 올린 영상의 제목·설명·태그·언어만 바꾸기 `--update-meta`** (videos.update part=snippet,localizations — 50단위, 영상·공개 시각·
 #          자막은 그대로) · 업로드 설정 '| 오디오 언어 | ko |' (없으면 기본 언어 — 주식은 설명·제목 기본 언어 en, 내레이션 ko) · 설명란 챕터 머리
@@ -574,6 +576,42 @@ def captions_only(topic, vid, dry_run=False):
     return st
 
 
+def thumbnail_only(topic, vid, dry_run=False, video=None):
+    """(v1.14) 이미 올린 영상(youtube.json)의 썸네일만 다시 올림 (thumbnails.set 50단위). 영상·제목·설명·자막·공개 상태·예약 시각은 그대로.
+    고를 그림은 업로드 때와 같음 — titles.md 짝 썸네일(기본 1), 쇼츠는 세로 720×1280 + 배치 검사(cover_check) ❌ 이면 영상 0초 장면."""
+    src = src_dir(topic, vid)
+    out = ROOT / topic / "out" / vid
+    state_path = src / "youtube.json"
+    if not state_path.exists():
+        raise SystemExit(f"[THUMBNAIL] ❌ {vid}: youtube.json 없음 — 아직 안 올린 영상은 보통 업로드로")
+    st = json.loads(state_path.read_text("utf-8"))
+    thumb_size = (720, 1280) if is_shorts(vid) else (1280, 720)
+    n = paired_thumbnail(topic, vid)
+    thumb_src = find_thumbnail(topic, vid, n)
+    if not thumb_src:
+        raise SystemExit(f"[THUMBNAIL] ❌ {vid}: thumbnail_{n} 그림 없음 ({src.relative_to(ROOT)}/thumbnails/)")
+    if is_shorts(vid):
+        thumb_src = shorts_cover_frame(thumb_src, Path(video) if video else find_video(topic, vid), out / "thumbnails")
+    img = prepare_thumbnail(thumb_src, out / "thumbnails", thumb_size)
+    if not img:
+        raise SystemExit(f"[THUMBNAIL] ❌ {vid}: 썸네일을 규격으로 바꾸지 못함 ({thumb_src.name})")
+    if img.stat().st_size > THUMB_MAX:
+        raise SystemExit(f"[THUMBNAIL] ❌ {vid}: {img.name} {img.stat().st_size / 1e6:.1f}MB > 2MB")
+    log("THUMBNAIL", video=vid, youtube_id=st["videoId"], source=str(thumb_src.relative_to(ROOT)) if thumb_src.is_relative_to(ROOT) else str(thumb_src),
+        file=img.name, bytes=img.stat().st_size, units=QUOTA["thumbnail"])
+    if dry_run:
+        log("DRY-RUN", updated="안 함")
+        return None
+    token = access_token()
+    check_channel(topic, token)
+    upload_thumbnail(token, st["videoId"], img)
+    st["thumbnail"] = img.name
+    st["thumbnailUpdatedAt"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    state_path.write_text(json.dumps(st, ensure_ascii=False, indent=2) + "\n", "utf-8")
+    log("DONE", video=vid, thumbnail=img.name, state=str(state_path.relative_to(ROOT)))
+    return st
+
+
 def update_meta(topic, vid, dry_run=False):
     """(v1.13) 이미 올린 영상(youtube.json)의 제목·설명(챕터 다시 계산)·태그·기본/오디오 언어·언어별 제목·설명만 바꿈.
     videos.update part=snippet,localizations (50단위) — 영상·썸네일·공개 상태·예약 시각·자막은 건드리지 않음 (part=status 를 보내지 않음).
@@ -723,6 +761,7 @@ def main(argv=None):
     ap.add_argument("--no-thumbnail", action="store_true")
     ap.add_argument("--update-meta", action="store_true", help="(v1.13) 이미 올린 영상의 제목·설명·태그·언어만 바꿈 (50단위)")
     ap.add_argument("--captions-only", action="store_true", help="(v1.12) 이미 올린 영상에 아직 안 올린 언어 자막만 (할당량으로 나눠 올릴 때)")
+    ap.add_argument("--thumbnail-only", action="store_true", help="(v1.14) 이미 올린 영상의 썸네일만 다시 올림 (50단위)")
     ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")
     a = ap.parse_args(argv)
     if a.check_auth:
@@ -733,6 +772,8 @@ def main(argv=None):
         log("WARN", privacy=a.privacy, note="지시사항 기본은 비공개(private)")
     if a.captions_only:
         return captions_only(a.topic, a.video_id, a.dry_run)
+    if a.thumbnail_only:
+        return thumbnail_only(a.topic, a.video_id, a.dry_run, a.video)
     if a.update_meta:
         return update_meta(a.topic, a.video_id, a.dry_run)
     run(a.topic, a.video_id, a.dry_run, a.privacy, a.force, a.no_captions, a.no_thumbnail, a.video, parse_publish_at(a.publish_at))

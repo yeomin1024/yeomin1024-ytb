@@ -118,7 +118,7 @@ python tools/srt_tool.py upload stock/source/gongpo-test-2026-11/gongpo-test-202
 | 항목 | 값 |
 |---|---|
 | 공개 상태 | 비공개로 올린 뒤 예약 공개 |
-| 썸네일 | (아직 없음 — 4편 썸네일 문구·그림은 대본 통과 뒤) |
+| 썸네일 | `thumbnails/thumbnail_1.jpg` (본안 — 실사 TH-PHOTO2 + 문구 `thumb.mjs`) · 실험안 2·3 은 아직 없음 · 언어별 본안 `thumbnails/<언어>/thumbnail_1.jpg` (API 로는 못 올림) |
 | 자막 | `gongpo-test-2026-11.srt` (오디오 뒤 `align-audio` 로 맞춘 것) |
 | 자막 올리기 | 언어별 (한국어 `gongpo-test-2026-11.srt` + `subs/gongpo-test-2026-11.<언어>.srt` 9개 — 화면에는 굽지 않음) |
 | 기본 언어 | ko |

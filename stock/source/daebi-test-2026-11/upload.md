@@ -114,7 +114,7 @@ python tools/srt_tool.py upload stock/source/daebi-test-2026-11/daebi-test-2026-
 | 항목 | 값 |
 |---|---|
 | 공개 상태 | 비공개로 올린 뒤 예약 공개 |
-| 썸네일 | (아직 없음) |
+| 썸네일 | `thumbnails/thumbnail_1.jpg` (본안 — 실사 TH-PHOTO2 + 문구 `thumb.mjs`) · 실험안 2·3 은 아직 없음 · 언어별 본안 `thumbnails/<언어>/thumbnail_1.jpg` (API 로는 못 올림) |
 | 자막 | `daebi-test-2026-11.srt` (오디오 뒤 `align-audio` 로 맞춘 것) |
 | 카테고리 | 교육 |
 | 동영상 언어 | 한국어 |

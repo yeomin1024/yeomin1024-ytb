@@ -122,7 +122,7 @@ python tools/srt_tool.py upload stock/source/signal-test-2026-11/signal-test-202
 | 항목 | 값 |
 |---|---|
 | 공개 상태 | 비공개로 올린 뒤 예약 공개 |
-| 썸네일 | (아직 없음 — 영상 단계에서) |
+| 썸네일 | `thumbnails/thumbnail_1.jpg` (본안 — 실사 TH-PHOTO2 + 문구 `thumb.mjs`) · 실험안 2·3 은 아직 없음 · 언어별 본안 `thumbnails/<언어>/thumbnail_1.jpg` (API 로는 못 올림) |
 | 자막 | `signal-test-2026-11.srt` (오디오 뒤 `align-audio` 로 맞춘 것) |
 | 자막 올리기 | 언어별 — 한국어 SRT + `subs/` 9개 언어 SRT (자막 10개 × 400단위 = 4,000) |
 | 카테고리 | 교육 |

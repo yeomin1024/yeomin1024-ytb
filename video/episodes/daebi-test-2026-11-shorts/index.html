@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2편 쇼츠 오를 때 드는 생각</title>
+<!-- VERSION: v1.0 — 2026-11-05 — 2편 쇼츠 첫 장면 파일 「이 생각을 가지고 주식 투자하면, 당신은 절대 폭락을 피하지 못할 겁니다.」 (쇼츠 대본 12문장 — 손대지 않음,
+       음성 stock/source/daebi-test-2026-11/shorts/narration.mp3 · 자막 같은 폴더 .srt). 1편 쇼츠(ppalli-test-2026-11-shorts v1.1)의 '방법'만 따르고 '모습'은 2편 롱폼(daebi-test-2026-11 v1.1)을 따름
+       — stock/guides/quick_board.md 규칙 43 (유튜브 '진정성 없는 콘텐츠' 막기 — 1편 장면·배경·카드를 복사하지 않음) · 규칙 44 (화면 글 = 쉬운 영어만, 그 밖은 짧은 한국어).
+     ── 1편 쇼츠와 다른 것 ──
+       ① 화면 꼴 = 위 검정 칸 + 가운데 무대 띠 + 아래 검정 칸(세 칸) 대신 2편 배경 그림이 화면 끝까지 (재택 방 낮 S-WFH · 가을 동네 식당 S-DINNER · 눈 내린 연말 거리 S-YEAREND)
+          + 2편 롱폼과 같은 자줏빛 테두리 어둡게(vignette) · 아래쪽만 살짝 어둡게(구운 자막·유튜브 글 자리). 1편 지하철·사무실·밤 거실·카페·종이 배경은 쓰지 않음.
+       ② 중심 화면 장치 = 주인공 머리에서 피어오르는 크림색 '생각 말풍선'(꼬리 동그라미가 머리로) — 말풍선 테두리 색이 뜻(금색 물음 · 진홍 손해 · 청록 옳음)
+          (1편 위 칸 검정 바탕 꼬리표·돈 그림·BUY/SELL 단추 대신).
+       ③ 숫자·그래프 = 크림색 '공책 쪽'(옅은 모눈 · 위 구멍 · 진홍 선 · 손해 구간 옅은 칠 · 금색 점선 기준 · 메모지 꼬리표) — 1편 어두운 둥근 판 대신.
+          14개 → 9개 = 롱폼 점 격자를 세로로 (5·5·4) · '반 토막' 때 진홍 점 위쪽 반이 떨어져 나감 · 숫자는 series.js(SERIES.num c1_n2x·c1_half)에서.
+       ④ 폭락 그래프 = 롱폼 이씨 계좌 선(SERIES.intro_lee — 번 돈 청록 칠 → 원금 아래 진홍 칠) · 끝 '천천히 가는 사람' = 롱폼 정리의 대비한 길(SERIES.end_right, 청록) — 숫자 글 없이 선 모양만.
+       ⑤ '벼는 익을수록 고개를 숙인다' = 코드로 그린 벼 세 포기가 초록 → 금색으로 익으며 고개를 숙임 + 주인공 뽐내기(HERO-PROUD) → 인사(HERO-BOW) (1편 ✕·✓ 길 그림 대신).
+       ⑥ 주인공 자세 = 2편 새 자세(HERO-PROUD·HERO-EAGER) + 1편 인형 자세 — 무대 띠 가운데 작은 인형 대신 화면 아래 가운데 크게(키 약 605px).
+       ⑦ 끝 = 생각 말풍선 안 롱폼 썸네일(테이프 붙인 크림 테두리 사진 + ▶) + 왼쪽 진홍 '구독' 메모지 단추 · 눈 내리는 연말 거리 · 주인공 오른쪽(HERO-EAGER)
+          (1편 종이 배경 + 가운데 카드 + 빨간 알약 단추 + 인사 인형 대신).
+       같게 둔 것(시리즈 표시·방법): 주인공 인형 · 구운 자막 꼴(#cc 46px · 아래 390px) · 첫 문장 = 쇼츠 썸네일(K.cover) · 끝 화면 2.5초(end-hold)와 카드 ▶ + 구독 누름 · 배치 표(window.LAYOUT).
+     화면 영어 = 'S&P 500' 하나 (WORDS) · 한국어 칸은 data-words(KO) — 상승장 대신 ▲ ▲ ▲ · 실력 · 운 · 한 종목 · 빚 · 번 돈 · 원금 · 구독 (대본 낱말 그대로).
+     배치 표 = window.LAYOUT — node video/scripts/layout-check.mjs daebi-test-2026-11-shorts 문제 0 뒤 렌더.
+     장면 시각 = 실제 오디오 문장 시각(K.S·K.E·K.W). 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+@font-face{font-family:"Noto Serif KR";font-weight:900;src:url(../../public/fonts/NotoSerifKR-900.ttf) format("truetype")}
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#120A10}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.sf{font-family:"Noto Serif KR","Noto Sans KR",serif;font-weight:900;line-height:1;letter-spacing:-1px;white-space:nowrap}
+.sb{font-weight:900;line-height:1;white-space:nowrap}
+/* 2편 테두리 어둡게 (롱폼 .vig2 를 세로로) · 아래쪽 어둡게 (구운 자막·유튜브 제목 자리 — 그림은 화면 끝까지) */
+.vig3{position:absolute;inset:0;pointer-events:none;background:radial-gradient(1000px 1560px at 50% 44%,rgba(0,0,0,0) 56%,rgba(26,10,16,.46) 100%)}
+.foot{position:absolute;left:0;right:0;top:1350px;bottom:0;pointer-events:none;background:linear-gradient(rgba(18,10,16,0),rgba(18,10,16,.5) 40%,rgba(18,10,16,.74))}
+/* 생각 말풍선 */
+.bub .cl{position:absolute;left:0;top:0;overflow:visible;filter:drop-shadow(0 18px 20px rgba(0,0,0,.42))}
+.bub .bin{position:absolute;display:flex;align-items:center;justify-content:center;gap:28px;text-align:center;color:#2A2630}
+.okb{position:absolute;width:116px;height:116px;border-radius:50%;background:#22C7B0;color:#06231F;border:7px solid #FFF7E6;display:grid;place-items:center;font-weight:900;font-size:68px;line-height:1;box-shadow:0 8px 16px rgba(0,0,0,.35)}
+.okb.q{background:#D9A441;color:#2A2630}
+/* 메모지 (명조 굵은 글꼴 · 테이프) */
+.stk{position:relative;display:inline-flex;align-items:center;gap:16px;padding:22px 34px 18px;background:#FFF1C9;color:#2A2630;border:5px solid #2A2630;border-radius:7px;box-shadow:8px 11px 0 rgba(0,0,0,.26);white-space:nowrap;font-weight:900;line-height:1}
+.stk::before{content:"";position:absolute;left:50%;top:-16px;width:112px;height:30px;margin-left:-56px;rotate:-4deg;background:rgba(255,255,255,.62);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+/* 공책 쪽 */
+.nb{border-radius:10px 10px 26px 26px;background-color:#FBF6EA;background-image:linear-gradient(rgba(110,100,85,.13) 2px,transparent 2px),linear-gradient(90deg,rgba(110,100,85,.13) 2px,transparent 2px);background-size:48px 48px;box-shadow:0 30px 70px -20px rgba(0,0,0,.8);border:3px solid #E3DAC6}
+.nb.sm{background-size:32px 32px;border-radius:8px;border:4px solid #2A2630;box-shadow:7px 10px 0 rgba(0,0,0,.26)}
+.nb .holes{position:absolute;left:46px;right:46px;top:16px;display:flex;justify-content:space-between}
+.nb .holes i{width:24px;height:24px;border-radius:50%;background:#34323C;box-shadow:inset 0 3px 4px rgba(0,0,0,.7);display:block}
+.note{position:absolute;padding:14px 24px 12px;font-weight:900;font-size:58px;line-height:1.05;white-space:nowrap;box-shadow:5px 8px 0 rgba(0,0,0,.16);border-radius:4px}
+.note.r{background:#F8D2CC;color:#8E1720}.note.g{background:#CBEFE7;color:#0B6F61}.note.y{background:#FCE6AE;color:#7A5300}
+.dotc{position:absolute;width:40px;height:40px;border-radius:50%;border:7px solid #FBF6EA;box-shadow:0 0 0 3px #2A2630}
+/* 반 토막 점 — 위·아래 반원 두 조각 + 떨어져 나간 자리(점선) */
+.hd{position:relative;flex:0 0 auto;width:112px;height:112px}
+.hd i{position:absolute;left:0;width:112px;display:block}
+.hd .g{top:0;height:112px;border-radius:50%;border:5px dashed rgba(42,38,48,.38)}
+.hd .tp{top:0;height:56px;border-radius:56px 56px 0 0;border:5px solid #2A2630;border-bottom:none;background:#22C7B0}
+.hd .bt{top:56px;height:56px;border-radius:0 0 56px 56px;border:5px solid #2A2630;border-top:none;background:#22C7B0}
+/* 끝: 롱폼 썸네일 사진 (테이프 · 크림 테두리) · 구독 메모지 단추 */
+.photo{position:relative;flex:0 0 auto;border:12px solid #FFF7E6;outline:5px solid #2A2630;border-radius:6px;box-shadow:10px 14px 0 rgba(0,0,0,.28);background:#2A2630}
+.photo img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.photo::before{content:"";position:absolute;left:50%;top:-30px;width:150px;height:36px;margin-left:-75px;rotate:3deg;background:rgba(255,255,255,.66);box-shadow:0 1px 2px rgba(0,0,0,.15);z-index:2}
+.photo .play{position:absolute;left:50%;top:50%;width:128px;height:128px;margin:-64px 0 0 -64px;border-radius:50%;background:rgba(42,38,48,.72);border:6px solid #FFF7E6;display:grid;place-items:center}
+.subb{position:relative;display:inline-flex;align-items:center;gap:20px;padding:24px 44px 22px;background:#B3202A;color:#FFF7E6;border:6px solid #2A2630;border-radius:10px;box-shadow:9px 12px 0 rgba(0,0,0,.32);font-weight:900;font-size:78px;line-height:1;white-space:nowrap}
+.subb::before{content:"";position:absolute;left:50%;top:-18px;width:120px;height:32px;margin-left:-60px;rotate:-3deg;background:rgba(255,255,255,.6);box-shadow:0 1px 2px rgba(0,0,0,.15)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script src="../daebi-test-2026-11/series.js"></script>
+<script>
+(function () {
+"use strict";
+// 화면 영어 = 지수 이름 'S&P 500' 하나 (규칙 44 — 사용자 지시 2026-11-04 "되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해")
+const WORDS = ["S&P"];
+K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });
+document.fonts.load('900 100px "Noto Serif KR"', "0123456789/×−%");
+const KO = `data-words="쉬운 한국어 칸 — 사용자 지시 2026-11-04 '정 꼭 문구가 필요하면 그냥 한국어로 해'"`;
+const KOif = t => (/[가-힣]/.test(t) ? KO : "");      // 한글이 든 칸만 data-words
+const { S, E, W, el } = K;
+const tl = K.tl;
+const { sm, lin, lerp, q12, rnd } = Puppet.u;
+const SR = window.SERIES, NUM = SR.num, DT = SR.dates;      // 2편 롱폼 계산 (stock/source/daebi-test-2026-11/calc/series.py v1.0)
+const CR = "#B3202A", TE = "#22C7B0", TED = "#0E8F7D", GO = "#D9A441", GOD = "#93650E", INK = "#2A2630", CREAM = "#FFF7E6";
+const until = n => S(n) - 0.05;
+
+/* ═════════════ 배치 표 v1.0 (1080×1920) — 칸 = [x, y, 가로, 세로] ═════════════
+   위 150px(유튜브 머리말)·아래 y 1384(구운 자막 띠 위)·오른쪽 60px 안에만 장면 물건.
+   ① 말풍선 장면 = 생각 말풍선(BUB — 몸통 y 178~578 · 꼬리 동그라미 셋이 y 695 까지) + 주인공(HERO — 가운데 x 540 · 발 y 1340 · 머리 y 735)
+   ② 공책 장면 = 공책 쪽(NOTE y 170~1020) + 작은 주인공(HERO_SM — 공책 아래 가운데 · 머리 y 1050 아래)
+   ③ 끝 장면 = 큰 말풍선(BUB_END — 꼬리 → 오른쪽 주인공 머리) + 주인공 오른쪽(HERO_END — x 761) + 구독 단추 왼쪽(SUB)
+   같은 시각에 말풍선과 공책을 같이 쓰지 않음. 점검: node video/scripts/layout-check.mjs daebi-test-2026-11-shorts */
+const LAY = window.LAYOUT = {
+  COVER: [0, 0, 1080, 1920],                              // 첫 문장 썸네일 그림 (K.cover)
+  BUB: [50, 170, 980, 540],
+  HERO: [380, 715, 320, 650],
+  NOTE: [60, 170, 960, 850],
+  HERO_SM: [380, 1030, 320, 335],
+  BUB_END: [40, 160, 1000, 600],
+  HERO_END: [620, 790, 290, 575],
+  SUB: [70, 1100, 380, 170],
+};
+window.LAYOUT_ALLOW = [];
+
+// ---------- 종이인형 무대 — 화면 전체 (2편 배경 3 · 2편 새 자세 2 + 1편 주인공 자세 — 규칙 43: 주인공 인형은 네 편 같음) ----------
+// 카메라 고정: 눈높이 YC · z 16 · 화각 30° → 인형 깊이(z 0.6)에서 1 = 232.65px · 배경 깊이(z −24)에서 1 = 89.57px
+//   화면 y = 960 − (월드 y − YC) × 232.65 → 발(월드 y −0.3) = 화면 y 1340
+const YC = 1.334, PXH = 232.65;
+const CAM = { cam: () => ({ pos: [0, YC, 16], look: [0, YC, 0] }) };
+const DDIR = "../../../stock/source/daebi-test-2026-11/puppet/", E1 = "../../ppalli-test-2026-11/puppet/", E1DIR = "../../../stock/source/ppalli-test-2026-11/puppet/";
+const F = (file, kind) => ({ f: file, kind });
+el(`<div class="vig3"></div>`);                          // 2편 테두리 어둡게 (첫 문장 그림 밑 — 덮지 않음)
+el(`<div class="foot"></div>`);
+const ST = Puppet.stage({ dir: DDIR, w: 1080, h: 1920, top: 0, clear: 0x120A10, files: {
+  WFH: F("S-WFH.jpg", "bg"), DIN: F("S-DINNER.jpg", "bg"), YEND: F("S-YEAREND.jpg", "bg"),
+  H_PROUD: F("HERO-PROUD.png", "sq"), H_EAGER: F("HERO-EAGER.png", "sq"),
+  H_THINK: F(E1 + "HERO-THINK.png", "sq"), H_PLAN: F(E1 + "HERO-PLAN.png", "sq"), H_SHOCK: F(E1 + "HERO-SHOCK.png", "sq"),
+  H_DESP: F(E1 + "HERO-DESPAIR.png", "sq"), H_BOW: F(E1 + "HERO-BOW.png", "sq") } });
+// 배경 = 가로 36 (화면에 가로 약 3분의 1이 보임 — x 로 ±12 옮겨 같은 그림도 다른 곳) · 그림 v 줄(바닥이 시작하는 줄)이 월드 y 에 · 화면 위·아래 끝까지 덮음
+const BGO = { WFH: { w: 36, v: 0.66, y: -1.79 }, DIN: { w: 36, v: 0.55, y: -0.79 }, YEND: { w: 36, v: 0.64, y: -1.79 } };
+const PS = { HERO: [0, -0.3, 0.6], HERO_SM: [0, -0.3, 0.6], HERO_END: [0.95, -0.3, 0.6] };
+const HH = 2.6;                                          // 주인공 키 (월드) ≈ 605px
+const act = (s, key, slot, h, o) => s.actor(key, Object.assign({ h, slot, at: PS[slot] }, o || {}));
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const enter = (a, t, at, d) => { const k = lin(t, at, at + (d || 0.4)); a.op = t < at ? 0 : k; const s2 = 0.9 + 0.1 * sm(k); a.g.scale.set(s2, s2, 1); return a; };
+function heroRun(list, t, a, sched) {            // sched = [[시각, 자세 번호], …] — 그 시각부터 그 자세만 보임
+  let k = 0; for (const [t0, i] of sched) if (t >= t0) k = i;
+  list.forEach((x, i) => { enter(x, t, a + 0.1); if (i !== k) x.op = 0; });
+  return idle(list[k], t);
+}
+const DARK = 0x2a2c3e;
+function stage(a, b, bgKey, build, o) {
+  o = o || {};
+  const sc = K.scene(a, b, o.keep ? { keep: true } : undefined);
+  const st = ST.set(a, b, s => {
+    s.BG = s.bg(bgKey, Object.assign({}, BGO[bgKey], { x: o.bgx || 0 }));
+    if (o.tint) s.BG.tint.set(o.tint);
+    if (build) build(s);
+  }, CAM);
+  return { sc, st };
+}
+
+// ---------- 칸 상자·부품 (DOM) — 2편 롱폼 부품을 세로 크기로 (약 1.15배) ----------
+function box(sc, name, inner, css) {
+  const [x, y, w, h] = LAY[name];
+  const d = el(`<div class="a" data-slot="${name}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${css || ""}">${inner || ""}</div>`, sc);
+  d._x = x; d._y = y; d._w = w; d._h = h;
+  return d;
+}
+const popIn = (n, at, o) => tl.fromTo(n, { opacity: 0, scale: (o && o.s0) || 0.7 }, { opacity: 1, scale: 1, duration: 0.38, ease: "power3.out" }, at);
+const fadeIn = (n, at, d) => tl.fromTo(n, { opacity: 0 }, { opacity: 1, duration: d || 0.3, ease: "none" }, at);
+const row = (...xs) => `<div style="display:flex;align-items:center;justify-content:center;gap:30px">${xs.join("")}</div>`;
+const col = (...xs) => `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px">${xs.join("")}</div>`;
+const sn = (t, c, size) => `<span class="sf" style="font-size:${size || 150}px;color:${c || INK}">${t}</span>`;          // 큰 숫자 (명조)
+const ss = (t, c, size, cls) => `<span class="sb${cls ? " " + cls : ""}" ${KOif(t)} style="font-size:${size || 64}px;color:${c || INK}">${t}</span>`;   // 굵은 글 (한글이면 data-words)
+const stk = (html, o) => { o = o || {}; return `<div class="stk${o.cls ? " " + o.cls : ""}" style="rotate:${o.rot == null ? -2.5 : o.rot}deg;${o.bg ? `background:${o.bg};` : ""}${o.css || ""}">${html}</div>`; };
+// 소품 그림 — 알파 상자만 보이게 잘라 높이 h(px)로 (2편 롱폼 PROP 와 같은 상자)
+const PROP = { "P-BANKBOOK": [DDIR, 1024, 1024, [0.175, 0.222, 0.825, 0.777]], "P-COINS": [E1DIR, 1024, 1024, [0.1, 0.251, 0.899, 0.749]] };
+function prop(name, h, cls) {
+  const [dir, NW, NH, [x0, y0, x1, y1]] = PROP[name];
+  const k = h / ((y1 - y0) * NH), w = Math.round((x1 - x0) * NW * k);
+  return `<div class="${cls || ""}" style="position:relative;flex:0 0 auto;width:${w}px;height:${Math.round(h)}px;overflow:hidden"><img src="${dir}${name}.png" alt="" style="position:absolute;left:${-Math.round(x0 * NW * k)}px;top:${-Math.round(y0 * NH * k)}px;width:${Math.round(NW * k)}px;height:${Math.round(NH * k)}px;filter:drop-shadow(0 5px 8px rgba(0,0,0,.35))"></div>`;
+}
+
+// ---------- 생각 말풍선 (SVG 구름 + 꼬리 동그라미 — 겉 테두리 색은 .ol 하나로 바꿈 · 2편 롱폼 cloudSVG 그대로) ----------
+let SEED = 11;
+function cloudSVG(Wd, Ht, body, tails, fill, stroke, sw) {
+  const [bx, by, bw, bh] = body, R = Math.min(64, Math.min(bw, bh) * 0.21), s = SEED++;
+  const C0 = [], rr = k => R * (0.86 + 0.14 * rnd(s, k));
+  const nx = Math.max(1, Math.ceil((bw - 2 * R) / (1.25 * R))), ny = Math.max(1, Math.ceil((bh - 2 * R) / (1.25 * R)));
+  for (let i = 0; i <= nx; i++) { const x = bx + R + (bw - 2 * R) * i / nx; C0.push([x, by + R, rr(i)], [x, by + bh - R, rr(i + 50)]); }
+  for (let j = 1; j < ny; j++) { const y = by + R + (bh - 2 * R) * j / ny; C0.push([bx + R, y, rr(j + 100)], [bx + bw - R, y, rr(j + 150)]); }
+  const cs = (list, inf) => list.map(([x, y, r]) => `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(r + inf).toFixed(1)}"/>`).join("");
+  const rect = inf => `<rect x="${(bx + R * 0.6 - inf).toFixed(1)}" y="${(by + R * 0.6 - inf).toFixed(1)}" width="${(bw - 1.2 * R + 2 * inf).toFixed(1)}" height="${(bh - 1.2 * R + 2 * inf).toFixed(1)}" rx="${(R * 0.5).toFixed(1)}"/>`;
+  return `<svg class="cl" viewBox="0 0 ${Wd} ${Ht}" width="${Wd}" height="${Ht}" aria-hidden="true"><g class="ol" style="fill:${stroke}">${cs(C0, sw)}${cs(tails, sw)}${rect(sw)}</g><g style="fill:${fill}">${cs(C0, 0)}${cs(tails, 0)}${rect(0)}</g></svg>`;
+}
+// 몸통 · 꼬리 (칸 안 좌표) — 꼬리 끝 = 주인공 머리 바로 위 (가운데 주인공 머리 = 화면 (540, 735) · 끝 장면 주인공 머리 = (761, 805))
+const BUB_BODY = [8, 8, 964, 400], BUB_TAILS = [[490, 432, 25], [497, 480, 17], [502, 515, 10]];
+const END_BODY = [8, 8, 984, 470], END_TAILS = [[640, 507, 25], [674, 551, 17], [700, 582, 10]];
+function bubble(sc, slot, o) {
+  const [X, Y, Wd, Ht] = LAY[slot];
+  const body = o.body || BUB_BODY, tails = o.tails || BUB_TAILS;
+  const pad = o.pad || [70, 46], cb = [body[0] + pad[0], body[1] + pad[1], body[2] - 2 * pad[0], body[3] - 2 * pad[1]];
+  const d = el(`<div class="a bub" data-slot="${slot}" style="left:${X}px;top:${Y}px;width:${Wd}px;height:${Ht}px">${cloudSVG(Wd, Ht, body, tails, CREAM, INK, 7)}<div class="bin" style="left:${cb[0]}px;top:${cb[1]}px;width:${cb[2]}px;height:${cb[3]}px;${o.css || ""}">${o.html || ""}</div></div>`, sc);
+  d._x = X; d._y = Y; d._w = Wd; d._h = Ht; d.bin = d.querySelector(".bin"); d.ol = d.querySelector(".ol");
+  d.bin._x = X + cb[0]; d.bin._y = Y + cb[1]; d.bin._w = cb[2]; d.bin._h = cb[3];
+  const tip = tails[tails.length - 1];
+  gsap.set(d, { transformOrigin: `${tip[0].toFixed(0)}px ${tip[1].toFixed(0)}px` });       // 머리 쪽 꼬리 끝에서 부풀어 나옴
+  if (o.at != null) tl.fromTo(d, { opacity: 0, scale: 0.35 }, { opacity: 1, scale: 1, duration: 0.45, ease: "power3.out" }, o.at);
+  return d;
+}
+const olTo = (d, c, at) => tl.to(d.ol, { fill: c, duration: 0.3 }, at);
+const badge = (d, sym, cls, at) => { const n = el(`<div class="okb${cls ? " " + cls : ""}" style="left:${d._w - 150}px;top:-6px">${sym}</div>`, d); popIn(n, at, { s0: 0.3 }); return n; };
+// 말풍선 안 내용을 차례로 바꿈 — steps = [[시각, html, fn?], …] (fn(노드, 시각) — 그 안 움직임)
+function seqIn(parent, steps, end) {
+  return steps.map(([at, html, fn], i) => {
+    const n = el(`<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px">${html}</div>`, parent);
+    n._x = parent._x; n._y = parent._y; n._w = parent._w; n._h = parent._h;
+    tl.fromTo(n, { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.35, ease: "power3.out" }, at);
+    const t1 = i + 1 < steps.length ? steps[i + 1][0] - 0.2 : end;
+    if (t1 != null) tl.to(n, { opacity: 0, duration: 0.2 }, t1);
+    if (fn) fn(n, at);
+    return n;
+  });
+}
+
+// ---------- 공책 쪽 그래프 (2편 롱폼 lineChart — 기준선 위 '번 돈' 청록 칠을 더함) ----------
+function notebook(sc, slot, at, holes) {
+  const d = box(sc, slot, holes ? `<div class="holes">${"<i></i>".repeat(holes)}</div>` : "", "");
+  d.classList.add("nb");
+  tl.fromTo(d, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, at);
+  return d;
+}
+let CID = 0;
+function lineChart(p, area, arr, lo, hi, o) {     // o = {col, w, at, dur, gain: 기준선 위 칠 색, loss: 기준선 아래 칠 색, base}
+  const [x, y, w, h] = area, t = d => Date.parse(d), d0 = t(arr[0][0]), d1 = t(arr[arr.length - 1][0]);
+  const X = d => x + w * (t(d) - d0) / (d1 - d0), yv = v => y + h * (1 - (v - lo) / (hi - lo));
+  const pts = arr.map(([d, v]) => [X(d), yv(v)]), n = pts.length;
+  const ox = p._x, oy = p._y, f1 = v => v.toFixed(1);
+  const P = pts.map((q, i) => `${i ? "L" : "M"}${f1(q[0] - ox)} ${f1(q[1] - oy)}`).join(" ");
+  const id = `clp${++CID}`, by = yv(o.base == null ? 1 : o.base) - oy;
+  const close = `${P} L${f1(pts[n - 1][0] - ox)} ${f1(by)} L${f1(pts[0][0] - ox)} ${f1(by)} Z`;
+  let A = "";
+  if (o.gain) A += `<clipPath id="${id}g"><rect x="-10" y="-400" width="${p._w + 20}" height="${f1(by + 400)}"/></clipPath><path class="fg" clip-path="url(#${id}g)" d="${close}" fill="${o.gain}"/>`;
+  if (o.loss) A += `<clipPath id="${id}b"><rect x="-10" y="${f1(by)}" width="${p._w + 20}" height="${p._h + 400}"/></clipPath><path class="fl" clip-path="url(#${id}b)" d="${close}" fill="${o.loss}"/>`;
+  const s = el(`<svg class="a" width="${p._w}" height="${p._h}" viewBox="0 0 ${p._w} ${p._h}" style="left:0;top:0;overflow:visible${o.op != null ? `;opacity:${o.op}` : ""}" aria-hidden="true"><defs><clipPath id="${id}"><rect x="${f1(x - ox - 24)}" y="-300" width="0" height="${p._h + 600}"/></clipPath></defs><g clip-path="url(#${id})">${A}<path d="${P}" fill="none" stroke="${o.col}" stroke-width="${o.w || 9}" stroke-linecap="round" stroke-linejoin="round"/></g></svg>`, p);
+  if (o.at == null) gsap.set(s.querySelector(`#${id} rect`), { attr: { width: w + 48 } });
+  else tl.fromTo(s.querySelector(`#${id} rect`), { attr: { width: 0 } }, { attr: { width: w + 48 }, duration: o.dur || 1.4, ease: "power1.inOut" }, o.at);
+  return { pts, yv, s, X };
+}
+function baseLine(p, area, yv, at, v) {
+  const yy = yv(v == null ? 1 : v);
+  const s = el(`<svg class="a" width="${p._w}" height="${p._h}" style="left:0;top:0;overflow:visible" aria-hidden="true"><line x1="${area[0] - p._x}" y1="${yy - p._y}" x2="${area[0] + area[2] - p._x}" y2="${yy - p._y}" stroke="${GO}" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 12"/></svg>`, p);
+  fadeIn(s, at); return s;
+}
+function dotAt(p, x, y, c, at) { const n = el(`<div class="dotc" style="left:${(x - p._x - 20).toFixed(1)}px;top:${(y - p._y - 20).toFixed(1)}px;background:${c}"></div>`, p); popIn(n, at, { s0: 0.3 }); return n; }
+const ANC = { ul: ["-100%,-100%", -18, -24], ur: ["0,-100%", 18, -24], dl: ["-100%,0", -18, 24], dr: ["0,0", 18, 24], r: ["0,-50%", 30, 0], l: ["-100%,-50%", -30, 0], u: ["-50%,-100%", 0, -28], d: ["-50%,0", 0, 28] };
+function noteAt(p, html, cls, x, y, at, pos) {
+  const [tf, dx, dy] = ANC[pos || "u"];
+  const n = el(`<div class="note ${cls}" ${KOif(html)} style="left:${(x - p._x + dx).toFixed(1)}px;top:${(y - p._y + dy).toFixed(1)}px;transform:translate(${tf})">${html}</div>`, p);
+  fadeIn(n, at, 0.25); return n;
+}
+const press = (n, at) => { tl.to(n, { scale: 0.86, duration: 0.12, ease: "power2.in" }, at); tl.to(n, { scale: 1, duration: 0.25, ease: "back.out(3)" }, at + 0.12); };
+
+/* ═════════════ 화면 원칙 ═════════════
+   글 = 구운 자막 + 짧은 한국어 메모지(KO — 대본 낱말 그대로) · 영어는 'S&P 500' 만 · 그림·숫자·화살표로 말하는 것은 글을 더하지 않음 ('상승장' = ▲ ▲ ▲)
+   색 = 뜻 (2편 롱폼과 같음): 진홍 #B3202A 손해 · 청록 #22C7B0 옳음·늘어남 · 금색(황토) #D9A441 기준선(점선)·물음
+   숫자 = series.js num (14 · 9 — 롱폼 선택 1 반론과 같은 값) · 선 = 롱폼 계산 선 그대로 (숫자 글 없이 모양만) */
+
+/* S-01 첫 문장 = 쇼츠 썸네일 그림 (shorts/thumbnails/thumbnail_1.jpg — 세 칸 band). 확대 없음 · 업로드 썸네일 = 0초 장면 */
+const CV = K.cover(until(2), { zoom: 1 });
+CV.querySelectorAll("img").forEach(i => { i.dataset.slot = "COVER"; });
+K.cut(0.1, "S-01 0초 그림 = 쇼츠 썸네일");
+K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
+
+/* S-02·03 상승장에서 번 돈 = 내 실력? → 그게 왜 문제냐고요 — 재택 방 낮(책상 쪽) · 뽐내는 주인공 → 생각하는 주인공 (문장 2~3) */
+{
+  const a = until(2), b = until(4), q = W(3, "문제냐고요") - 0.15;
+  let P;
+  const { sc, st } = stage(a, b, "WFH", s => { P = [act(s, "H_PROUD", "HERO", HH).ro(5), act(s, "H_THINK", "HERO", HH).ro(5)]; }, { bgx: 11 });
+  st.update = t => { heroRun(P, t, a, [[0, 0], [S(3), 1]]); };
+  const d = bubble(sc, "BUB", { at: a + 0.15 });
+  const up = (size, mb) => `<span class="sb up" style="font-size:${size}px;color:${TE};margin-bottom:${mb}px">▲</span>`;
+  seqIn(d.bin, [
+    [W(2, "상승장에서") - 0.1, `<div style="display:flex;align-items:flex-end;gap:34px">${up(130, 0)}${up(130, 60)}${up(130, 120)}</div>`, (n, at) => {
+      tl.fromTo(n.querySelectorAll(".up"), { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.3, stagger: 0.18, ease: "back.out(2)", immediateRender: false }, at + 0.05);   // 계단처럼 차례로 오름
+    }],
+    [W(2, "수익을") - 0.1, row(prop("P-BANKBOOK", 200), ss("▲", TE, 140))],
+    [W(2, "잘한다고") - 0.15, row(prop("P-BANKBOOK", 130), ss("▲", TE, 100), ss("=", INK, 110), ss("실력", TED, 170))],
+  ]);
+  olTo(d, GO, q);
+  badge(d, "?", "q", q + 0.05);
+  K.cut(W(2, "수익을") - 0.2, "S-02 ▲ ▲ ▲ 상승장");
+  K.cut(E(2) - 0.1, "S-02 통장 ▲ = 실력");
+  K.cut(E(3) - 0.1, "S-03 ? (금색)");
+}
+/* S-04 대부분 함께 오름 → 실력과 운이 안 갈림 — 가을 식당(가운데 등불) · 생각하는 주인공 (문장 4) */
+{
+  const a = until(4), b = until(5), t2 = W(4, "실력과") - 0.15, mix = W(4, "구분되지");
+  let HT;
+  const { sc, st } = stage(a, b, "DIN", s => { HT = act(s, "H_THINK", "HERO", HH).ro(5); });
+  st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); };
+  const d = bubble(sc, "BUB", { at: a + 0.15 });
+  const ARW = Array.from({ length: 12 }, (_, i) => i === 8 ? ss("▼", CR, 92, "ar") : ss("▲", TE, 92, "ar"));   // 12 종목 가운데 하나만 ▼ ('대부분')
+  seqIn(d.bin, [
+    [S(4) + 0.05, `<div style="display:grid;grid-template-columns:repeat(6,96px);gap:26px 40px;justify-items:center">${ARW.join("")}</div>`, (n) => {
+      const ar = n.querySelectorAll(".ar"), t0 = W(4, "대부분의"), t1 = W(4, "올라서");
+      tl.fromTo(ar, { opacity: 0, scale: 0.4 }, { opacity: 1, scale: 1, duration: 0.25, stagger: Math.max(0.04, (t1 - t0) / 14), ease: "back.out(2)", immediateRender: false }, t0);
+      tl.to(Array.from(ar).filter((_, i) => i !== 8), { y: -22, duration: 0.22, yoyo: true, repeat: 1, ease: "sine.out" }, W(4, "함께"));   // 함께 들썩
+    }],
+    [t2, `<div style="position:relative;width:760px;height:300px">
+        <div class="a sk1" style="left:70px;top:70px">${stk(ss("실력", TED, 120), { rot: -4, bg: "#CBEFE7" })}</div>
+        <div class="a sk2" style="left:500px;top:84px">${stk(ss("운", GOD, 120), { rot: 5, bg: "#FCE6AE" })}</div>
+        <div class="a qm" style="left:338px;top:-22px">${ss("?", GOD, 150)}</div></div>`, (n) => {
+      tl.to(n.querySelector(".sk1"), { x: 120, rotate: 3, duration: 0.5, ease: "power2.inOut" }, mix);          // 둘이 겹쳐 갈리지 않음
+      tl.to(n.querySelector(".sk2"), { x: -150, rotate: -4, duration: 0.5, ease: "power2.inOut" }, mix);
+      gsap.set(n.querySelector(".qm"), { opacity: 0 }); popIn(n.querySelector(".qm"), mix + 0.35, { s0: 0.3 });
+    }],
+  ]);
+  olTo(d, GO, mix);
+  K.cut(t2 - 0.25, "S-04 ▲ 열한 개 함께");
+  K.cut(E(4) - 0.1, "S-04 실력 · 운 겹침 ?");
+}
+/* S-05·06 S&P 500 · 2020년 2배 넘게 = 14 → 그 가운데 9개 반 토막 — 공책 쪽 점 격자(세로 5·5·4) · 식당 어둡게 (문장 5~6) */
+{
+  const a = until(5), b = until(7), t9 = W(6, "9개는"), cut = W(6, "반 토막");
+  const N2 = +NUM.c1_n2x, NH = +NUM.c1_half;                 // 14 · 9 — series.js (롱폼 선택 1 반론과 같은 값)
+  let P;
+  const { sc, st } = stage(a, b, "DIN", s => { P = [act(s, "H_THINK", "HERO_SM", 1.3).ro(5), act(s, "H_SHOCK", "HERO_SM", 1.3).ro(5)]; }, { bgx: 10, tint: DARK });
+  st.update = t => { const cur = heroRun(P, t, a, [[0, 0], [cut, 1]]); if (t > cut) cur.jitter(t, 0.012); };
+  const nb = notebook(sc, "NOTE", a + 0.1, 10);
+  const hdr = el(`<div class="a" style="left:0;width:100%;top:74px;display:flex;justify-content:center;align-items:center;gap:30px"></div>`, nb);
+  [[stk(ss("S&amp;P 500", INK, 62), { rot: -2 }), W(5, "S&P")], [stk(ss(DT.d1.slice(0, 4), INK, 62), { rot: 2, bg: "#E9E3D6" }), W(5, "2020년에")],
+    [stk(ss("×2+", TED, 66), { rot: -1.5, bg: "#CBEFE7" }), W(5, "2배")]].forEach(([h, at]) => { const n = el(`<div>${h}</div>`, hdr); popIn(n, at); });
+  const grid = el(`<div class="a" style="left:${(960 - 680) / 2}px;top:236px;width:680px;display:flex;flex-wrap:wrap;justify-content:center;gap:30px 30px">${Array.from({ length: N2 }, () => `<div class="hd"><i class="g"></i><i class="tp"></i><i class="bt"></i></div>`).join("")}</div>`, nb);
+  const dots = Array.from(grid.children), red = dots.slice(0, NH);
+  gsap.set(dots.map(x => x.querySelector(".g")), { opacity: 0 });
+  tl.fromTo(dots, { opacity: 0, scale: 0.3 }, { opacity: 1, scale: 1, duration: 0.25, stagger: 0.05, ease: "back.out(2)" }, W(5, "오른"));
+  tl.to(red.flatMap(x => [x.querySelector(".tp"), x.querySelector(".bt")]), { backgroundColor: CR, duration: 0.22, stagger: 0.035 }, t9);
+  tl.set(red.map(x => x.querySelector(".g")), { opacity: 1 }, cut - 0.02);
+  tl.to(red.map(x => x.querySelector(".tp")), { y: -50, x: 22, rotation: -32, opacity: 0, duration: 0.5, stagger: 0.04, ease: "power2.in" }, cut);   // 위쪽 반이 떨어져 나감 = 반 토막
+  const num = el(`<div class="a" style="left:0;width:100%;top:${236 + 3 * 112 + 2 * 30 + 50}px;height:200px">
+      <div class="w1" style="position:absolute;inset:0;display:flex;justify-content:center;align-items:center">${sn(String(N2), TED, 200)}</div>
+      <div class="w2" style="position:absolute;inset:0;display:flex;justify-content:center;align-items:center;gap:40px">${sn(`${NH} / ${N2}`, CR, 160)}<div class="m50">${stk(ss("−50%", CR, 76), { rot: 3, bg: "#F8D2CC" })}</div></div></div>`, nb);
+  popIn(num.querySelector(".w1"), W(5, "14개"), { s0: 0.5 });
+  gsap.set(num.querySelector(".w2"), { opacity: 0 });
+  tl.to(num.querySelector(".w1"), { opacity: 0, duration: 0.15 }, t9 - 0.05); fadeIn(num.querySelector(".w2"), t9 + 0.1);
+  gsap.set(num.querySelector(".m50"), { opacity: 0 }); popIn(num.querySelector(".m50"), cut + 0.2, { s0: 0.4 });
+  K.cut(E(5) - 0.1, "S-05 S&P 500 2020 ×2+ = 14");
+  K.cut(t9 + 0.9, "S-06 9 / 14 진홍");
+  K.cut(E(6) - 0.1, "S-06 반 토막 −50%");
+}
+/* S-07 운을 실력으로 → 한 종목에 더 크게 → 빚까지 — 눈 내린 연말 거리(가운데 문) · 들뜬 주인공(HERO-EAGER) (문장 7) */
+{
+  const a = until(7), b = until(8), t2 = W(7, "한 종목에") - 0.15, t3 = W(7, "빚까지") - 0.15;
+  let HE;
+  const { sc, st } = stage(a, b, "YEND", s => { HE = act(s, "H_EAGER", "HERO", HH).ro(5); });
+  st.update = t => { enter(HE, t, a + 0.1); idle(HE, t); if (t > t3) HE.jitter(t, 0.01); };
+  const d = bubble(sc, "BUB", { at: a + 0.15 });
+  seqIn(d.bin, [
+    [S(7) + 0.05, `<div style="display:flex;align-items:center;gap:36px">${stk(ss("운", GOD, 120), { rot: -4, bg: "#FCE6AE" })}<div class="t2" style="display:flex;align-items:center;gap:36px">${ss("→", INK, 120)}${stk(ss("실력", TED, 120), { rot: 3, bg: "#CBEFE7" })}</div></div>`, (n) => {
+      gsap.set(n.querySelector(".t2"), { opacity: 0 }); fadeIn(n.querySelector(".t2"), W(7, "실력으로") - 0.1);
+    }],
+    [t2, col(prop("P-COINS", 150, "cn"), stk(ss("한 종목", INK, 70), { rot: -2 })), (n) => {
+      tl.fromTo(n.querySelector(".cn"), { scale: 0.85 }, { scale: 1.3, duration: Math.max(0.5, t3 - W(7, "크게") - 0.1), ease: "power1.in", immediateRender: false }, W(7, "크게") - 0.1);   // 더 크게 걸고
+    }],
+    [t3, row(prop("P-COINS", 160), ss("+", INK, 120), col(prop("P-BANKBOOK", 130), stk(ss("빚", CR, 84), { rot: 3, bg: "#F8D2CC" })))],
+  ]);
+  olTo(d, CR, t3 + 0.1);
+  K.cut(t2 - 0.25, "S-07 운 → 실력");
+  K.cut(t3 - 0.25, "S-07 한 종목 크게");
+  K.cut(E(7) - 0.1, "S-07 + 빚 (진홍)");
+}
+/* S-08 폭락 → 번 돈은 물론 원금까지 — 공책 쪽 그래프 (롱폼 이씨 계좌 선 SERIES.intro_lee · 숫자 글 없이) · 연말 거리 어둡게 (문장 8) */
+{
+  const a = until(8), b = until(9), tg = W(8, "번 돈은"), tw = W(8, "원금까지"), tf = W(8, "무너집니다");
+  let P;
+  const { sc, st } = stage(a, b, "YEND", s => { P = [act(s, "H_SHOCK", "HERO_SM", 1.3).ro(5), act(s, "H_DESP", "HERO_SM", 0.95).ro(5)]; }, { bgx: -11, tint: DARK });
+  st.update = t => { const cur = heroRun(P, t, a, [[0, 0], [tf, 1]]); if (t < tf && t > W(8, "폭락이")) cur.jitter(t, 0.012); };
+  const nb = notebook(sc, "NOTE", a + 0.1, 10);
+  const area = [nb._x + 80, nb._y + 190, nb._w - 160, nb._h - 290], lo = 0, hi = 1.45;
+  const L = lineChart(nb, area, SR.intro_lee, lo, hi, { col: CR, w: 10, at: S(8) + 0.2, dur: Math.max(1.6, tf - S(8) - 0.1), gain: "rgba(34,199,176,.30)", loss: "rgba(179,32,42,.17)" });
+  baseLine(nb, area, L.yv, a + 0.35);
+  const ex = area[0] + area[2], by = L.yv(1);
+  const won = noteAt(nb, "원금", "y", ex, by, a + 0.45, "ul");                       // 기준선 오른쪽 끝 위 (선은 그때 기준선 아래 — 안 겹침)
+  let mx = SR.intro_lee[0]; for (const p of SR.intro_lee) if (p[1] > mx[1]) mx = p;   // 가장 높았던 날 (번 돈)
+  const [gx, gy] = [L.pts[SR.intro_lee.indexOf(mx)][0], L.pts[SR.intro_lee.indexOf(mx)][1]];
+  const gain = noteAt(nb, "번 돈", "g", gx, gy, tg, "ur");
+  tl.to([gain, L.s.querySelector(".fg")], { opacity: 0.25, duration: 0.35 }, W(8, "물론"));   // 번 돈은 물론
+  tl.to(won, { backgroundColor: "#F8D2CC", color: "#8E1720", duration: 0.25 }, tw);           // 원금까지
+  tl.fromTo(won, { x: 0 }, { x: 9, duration: 0.07, yoyo: true, repeat: 5, ease: "none", immediateRender: false }, tw + 0.25);
+  tl.to(L.s.querySelector(".fl"), { fill: "rgba(179,32,42,.34)", duration: 0.4 }, tf);       // 한꺼번에 무너짐
+  let mn = SR.intro_lee[0]; for (const p of SR.intro_lee) if (p[1] < mn[1]) mn = p;
+  const lp = L.pts[SR.intro_lee.indexOf(mn)];
+  dotAt(nb, lp[0], lp[1], CR, tf);
+  K.cut(tg - 0.1, "S-08 폭락 선");
+  K.cut(tw + 0.4, "S-08 번 돈 흐림 · 원금 진홍");
+  K.cut(E(8) - 0.1, "S-08 무너짐");
+}
+/* S-09 벼는 익을수록 고개를 숙인다 — 가을 식당 창(단풍) · 코드로 그린 벼 세 포기가 익으며 고개 숙임 · 뽐내던 주인공 → 인사 (문장 9) */
+{
+  const a = until(9), b = until(10), bow = W(9, "숙인다는");
+  let P;
+  const { sc, st } = stage(a, b, "DIN", s => { P = [act(s, "H_PROUD", "HERO", HH).ro(5), act(s, "H_BOW", "HERO", 2.45).ro(5)]; }, { bgx: -10 });
+  st.update = t => { heroRun(P, t, a, [[0, 0], [bow, 1]]); };
+  const d = bubble(sc, "BUB", { at: a + 0.15 });
+  // 벼 한 포기: 줄기(Q 곡선) + 잎 둘 + 이삭(낟알 9) — 끝(이삭 붙은 곳)이 옆으로 휘고 이삭이 아래로 돌며 초록 → 금색
+  const XS = [150, 330, 510], GR = [[0, -18], [-14, -34], [14, -50], [-14, -66], [14, -82], [-13, -98], [13, -114], [-10, -130], [0, -146]];
+  const stalk = (x, i) => `<g>
+      <path class="stem" d="M${x} 300 Q${x} 190 ${x} 96" fill="none" stroke="#6E9B3E" stroke-width="9" stroke-linecap="round"/>
+      <path d="M${x} 250 Q${x - 60} 210 ${x - 92} 228" fill="none" stroke="#7FAE4A" stroke-width="10" stroke-linecap="round"/>
+      <path d="M${x} 210 Q${x + 58} 170 ${x + 86} 186" fill="none" stroke="#7FAE4A" stroke-width="10" stroke-linecap="round"/>
+      <g class="pan" transform="translate(${x},96) rotate(0)"><line x1="0" y1="0" x2="0" y2="-150" stroke="#6E9B3E" stroke-width="6" stroke-linecap="round"/>
+        <g class="gr" style="fill:#8DBB55">${GR.map(([gx, gy]) => `<ellipse cx="${gx}" cy="${gy}" rx="12" ry="19" transform="rotate(${gx * 1.6} ${gx} ${gy})" stroke="#2A2630" stroke-width="3"/>`).join("")}</g></g></g>`;
+  const rice = `<svg width="660" height="310" viewBox="0 0 660 310" aria-hidden="true" style="overflow:visible">${XS.map(stalk).join("")}</svg>`;
+  seqIn(d.bin, [[S(9) + 0.05, rice, (n) => {
+    const t0 = W(9, "익을수록") - 0.1, dur = Math.max(0.8, bow + 0.5 - t0);
+    n.querySelectorAll(".stem").forEach((p, i) => { const x = XS[i]; tl.fromTo(p, { attr: { d: `M${x} 300 Q${x} 190 ${x} 96` } }, { attr: { d: `M${x} 300 Q${x + 6} 170 ${x + 58} 118` }, duration: dur, ease: "power1.inOut", immediateRender: false }, t0 + 0.08 * i); });
+    n.querySelectorAll(".pan").forEach((g, i) => { const x = XS[i]; tl.fromTo(g, { attr: { transform: `translate(${x},96) rotate(0)` } }, { attr: { transform: `translate(${x + 58},118) rotate(128)` }, duration: dur, ease: "power1.inOut", immediateRender: false }, t0 + 0.08 * i); });
+    tl.to(n.querySelectorAll(".gr"), { fill: "#E2B04A", duration: dur * 0.8, ease: "none" }, t0);
+    tl.to(n.querySelectorAll(".stem"), { stroke: "#B8A24A", duration: dur, ease: "none" }, t0);
+  }]]);
+  K.cut(W(9, "익을수록") - 0.05, "S-09 벼 초록");
+  K.cut(E(9) - 0.1, "S-09 벼 숙임 · 인사");
+}
+/* S-10 수익 = 운 → 번 돈의 일부는 지켜 두세요 — 재택 방 낮(창 쪽) · 계획하는 주인공 (문장 10) */
+{
+  const a = until(10), b = until(11), t2 = W(10, "번 돈의") - 0.15, keep = W(10, "지켜");
+  let HP;
+  const { sc, st } = stage(a, b, "WFH", s => { HP = act(s, "H_PLAN", "HERO", HH).ro(5); }, { bgx: -7 });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  const d = bubble(sc, "BUB", { at: a + 0.15 });
+  seqIn(d.bin, [
+    [S(10) + 0.05, `<div style="display:flex;align-items:center;gap:30px">${prop("P-BANKBOOK", 180)}${ss("▲", TE, 120)}<div class="lk" style="display:flex;align-items:center;gap:30px">${ss("=", INK, 120)}${stk(ss("운", GOD, 120), { rot: 4, bg: "#FCE6AE" })}</div></div>`, (n) => {
+      gsap.set(n.querySelector(".lk"), { opacity: 0 }); popIn(n.querySelector(".lk"), W(10, "운이") - 0.1);
+    }],
+    [t2, `<div style="display:flex;align-items:center;gap:34px">${prop("P-COINS", 150)}<div class="mv" style="display:flex;align-items:center;gap:34px">${ss("→", TED, 120)}${prop("P-BANKBOOK", 190)}</div></div>`, (n) => {
+      gsap.set(n.querySelector(".mv"), { opacity: 0 }); popIn(n.querySelector(".mv"), W(10, "일부는") - 0.1);
+    }],
+  ]);
+  olTo(d, TE, keep);
+  badge(d, "✓", "", keep + 0.05);
+  K.cut(t2 - 0.25, "S-10 통장 ▲ = 운");
+  K.cut(E(10) - 0.1, "S-10 동전 → 통장 ✓");
+}
+/* S-11 겸손하게 천천히 가는 사람 → 폭락이 와도 안 무너짐 — 눈 내린 연말 거리(왼쪽 가게) · 천천히 걷는 주인공 + 말풍선 안 작은 공책
+   (청록 = 롱폼 정리의 대비한 길 SERIES.end_right · 옅은 진홍 = S-08 의 무너진 길 · 금색 점선 = 원금) (문장 11) */
+{
+  const a = until(11), b = until(12), ok = W(11, "무너지지");
+  let HP;
+  const { sc, st } = stage(a, b, "YEND", s => { HP = act(s, "H_PLAN", "HERO", HH).ro(5); }, { bgx: 10 });
+  st.update = t => { enter(HP, t, a + 0.1); HP.g.position.x = HP.home.x + lerp(-0.2, 0, sm(lin(t, a, a + 2.4))); HP.bob(t, 0.035, 1.4); };   // 천천히 걸음
+  const snow = st.part(Puppet.floaters({ n: 90, x: [-5.5, 5.5], z: [-8, 5], hgt: 11, speed: [-0.8, -0.3], size: 0.18, inner: "rgba(255,255,255,1)", outer: "rgba(255,255,255,0)", opacity: 0.85 }));
+  snow.obj.position.y = 8.5;
+  const d = bubble(sc, "BUB", { at: a + 0.15 });
+  const w = 800, h = 296, cx = d.bin._x + (d.bin._w - w) / 2, cy = d.bin._y + (d.bin._h - h) / 2;
+  const card = el(`<div class="nb sm" style="position:absolute;left:${cx - d.bin._x}px;top:${cy - d.bin._y}px;width:${w}px;height:${h}px"></div>`, d.bin);
+  card._x = cx; card._y = cy; card._w = w; card._h = h;
+  fadeIn(card, a + 0.3);
+  const area = [cx + 36, cy + 30, w - 72, h - 60], lo = 0, hi = 1.7;
+  lineChart(card, area, SR.intro_lee, lo, hi, { col: CR, w: 6, op: 0.28 });          // 무너진 길 (옅게 · 처음부터)
+  const R2 = lineChart(card, area, SR.end_right, lo, hi, { col: TE, w: 10, at: S(11) + 0.3, dur: Math.max(1.6, ok - S(11) - 0.3) });
+  baseLine(card, area, R2.yv, a + 0.35);
+  let mn = SR.end_right[0]; for (const p of SR.end_right) if (p[0] > "2022" && p[1] < mn[1]) mn = p;   // 폭락 때 가장 낮은 날 (2022)
+  const lp = R2.pts[SR.end_right.indexOf(mn)];
+  const dn = el(`<div class="sb" style="position:absolute;left:${(lp[0] - cx - 34).toFixed(1)}px;top:${(lp[1] - cy + 18).toFixed(1)}px;font-size:66px;color:${CR}">▼</div>`, card);
+  popIn(dn, W(11, "폭락이"), { s0: 0.3 });
+  const e = R2.pts[R2.pts.length - 1];
+  dotAt(card, e[0], e[1], TE, ok);
+  olTo(d, TE, ok);
+  badge(d, "✓", "", ok + 0.05);
+  K.cut(W(11, "폭락이") + 0.3, "S-11 천천히 · 폭락 ▼");
+  K.cut(E(11) - 0.1, "S-11 안 무너짐 ✓");
+}
+/* S-12 다른 테스트 → 구독 — 눈 내린 연말 거리(오른쪽 가게) · 말풍선 안 롱폼 썸네일 ▶ + 왼쪽 구독 메모지 단추 · 들뜬 주인공 오른쪽 (문장 12 · 끝 화면) */
+{
+  const a = until(12), b = K.D, tsub = W(12, "구독하고");
+  let HE;
+  const { sc, st } = stage(a, b, "YEND", s => { HE = act(s, "H_EAGER", "HERO_END", 2.3).ro(5); }, { bgx: -10, keep: true });
+  st.update = t => { enter(HE, t, a + 0.1); idle(HE, t); };
+  const snow = st.part(Puppet.floaters({ n: 90, x: [-5.5, 5.5], z: [-8, 5], hgt: 11, speed: [-0.8, -0.3], size: 0.18, inner: "rgba(255,255,255,1)", outer: "rgba(255,255,255,0)", opacity: 0.85 }));
+  snow.obj.position.y = 8.5;
+  const pw = 640, ph = 360;
+  const d = bubble(sc, "BUB_END", { body: END_BODY, tails: END_TAILS, pad: [60, 40], at: S(12) + 0.05,
+    html: `<div class="photo" style="width:${pw}px;height:${ph}px;rotate:-2deg"><img alt="" src="../../../stock/source/daebi-test-2026-11/thumbnails/thumbnail_1.jpg"><div class="play"><svg viewBox="0 0 60 60" width="60" height="60" aria-hidden="true"><path d="M18 10 L50 30 L18 50 Z" fill="#FFF7E6"/></svg></div></div>` });
+  tl.fromTo(d.querySelector(".play"), { scale: 1 }, { scale: 1.12, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, W(12, "테스트가"));
+  const sb = box(sc, "SUB", `<div class="subb" ${KO} style="rotate:-3deg">구독</div>`, "display:flex;align-items:center;justify-content:center;");
+  popIn(sb, tsub - 0.25, { s0: 0.5 });
+  press(sb.firstElementChild, tsub + 0.25);
+  K.cut(tsub - 0.35, "S-12 롱폼 썸네일 ▶");
+  K.cut(E(12) - 0.1, "S-12 구독 누름");
+  K.cut(K.D - 0.3, "끝 화면");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

@@ -6163,3 +6163,7 @@ Kaggle 노트북(`youtube_topic_analyzer.ipynb`, v1.2.0) → **`youtube_topic_an
 - 모의 YouTube 데이터 + 로컬 git 원격으로 Stage 0~8 전체 실행: 공개/비공개 저장소, 기존 결과 교체, 다른 폴더 보존, 쿼터 부족 시나리오
 - 실제 네트워크: 쇼츠 판별, 자막 API, yt-dlp 자막·영상 다운로드, ffmpeg 재인코딩, faster-whisper 동작 확인
 - pandas 2.2.3 / 3.0.6 모두 경고 없이 동작
+
+## 2026-11-05 — 주식 1편 롱폼·쇼츠 업로드
+- 사용자 지시 "이제 깃허브에 영상올렸으니까 다시 업로드해" — `stock/videos/` 영상으로 `youtube_upload.py stock … --publish-at 2026-11-12T08:00:00Z` (dry-run 문제 없음 → 업로드).
+- 롱폼 `2l2FLcM0wfs` · 쇼츠 `RmchNZCLNuk` — 비공개 + 예약 공개(한국 11-12 17시), 썸네일·자막 ok.

@@ -1,6 +1,7 @@
 # daebi-test-2026-11 업로드 시트
 
-버전: v1.8 — 2026-11-05 — 외국어 설정 (사용자 지시 "외국어 자막, 제목, 썸네일 등 외국어 설정에 필요한 것들 생성하고 지시사항에 반영해 이건 영상이 렌더까지 완료되면 하는거야" — `stock/guides/quick_board.md` 규칙 46): 6번 언어별 제목·설명 9개(en·hi·id·pt·es-419·ja·de·vi·tr — 지금 제목·설명란 번역, 챕터 시각 그대로) · 자막 대본·SRT `subs/daebi-test-2026-11.<언어>.txt·srt` 9개 · 언어별 썸네일 `thumbnails/<언어>/thumbnail_1.jpg` 9장 · 설정표 '기본 언어 ko'·'자막 올리기 언어별' — 섹션 번호 6~8 → 7~9.
+버전: v1.9 — 2026-11-05 — 제목 다시 (사용자 지시 "주식 투자 수익나도 결국엔 손실, 테스트 살려서 제목 다시 변경해봐"): 「주식 투자 수익나도 결국엔 손실, 당신의 생각 5개 테스트」 (title_fit 2줄 ✅ 32자 · 1편 「…절대 통과 못하는 테스트」 꼴은 피함) · 6번 언어별 제목 9개 같이.
+이전 v1.8 — 2026-11-05 — 외국어 설정 (사용자 지시 "외국어 자막, 제목, 썸네일 등 외국어 설정에 필요한 것들 생성하고 지시사항에 반영해 이건 영상이 렌더까지 완료되면 하는거야" — `stock/guides/quick_board.md` 규칙 46): 6번 언어별 제목·설명 9개(en·hi·id·pt·es-419·ja·de·vi·tr — 지금 제목·설명란 번역, 챕터 시각 그대로) · 자막 대본·SRT `subs/daebi-test-2026-11.<언어>.txt·srt` 9개 · 언어별 썸네일 `thumbnails/<언어>/thumbnail_1.jpg` 9장 · 설정표 '기본 언어 ko'·'자막 올리기 언어별' — 섹션 번호 6~8 → 7~9.
 이전 v1.7 — 2026-11-05 — 설명란 줄임·태그 늘림 (사용자 지시 "김씨는 실제 숫자로 만든 가상의 인물입니다. 내레이션은 AI 음성이고, 그림은 AI로 만든 연출입니다. 다섯 가지 선택, 계산기준빼고 태그도 더 추가 하는걸로 설명 만들자 지시사항에도 반영해" — `stock/guides/quick_board.md` 규칙 45): '다섯 가지 선택'·'계산 기준'·'○씨는 가상의 인물'·'AI 음성/그림' 줄 뺌 · 태그 23개(편 낱말 + 실제 영상 태그 `stock/tag_candidates.md`).
 이전 v1.6 — 2026-11-04 — 챕터 시각 = 새 음성(바뀐 문장 하나 — Kaggle 2026-11-04) 기준.
 이전 v1.5 — 2026-11-04 — 대본: 선택마다 질문 뒤 '선택해 보세요.' · '3, 2, 1.' (사용자 지시 "매수 하시겠습니까? 선택 항목 다음에 선택해보세요. 멘트 추가하고 3, 2, 1 카운트 후에 정답 얘기하도록수정해 다른 대본도 그렇게 하고") — 문장 10개 늘어 챕터 번호 다시.
@@ -14,10 +15,10 @@
 > 업로드 채널 = 주식 채널(STOCK LAB) — 도구는 키의 채널이 다르면 멈춤. 영상 소스(장면 코드·그림)는 아직 없음.
 > 연구·교육용 콘텐츠 — 투자 상담이나 권유가 아님.
 
-## 1. 제목 (2026-11-04 새 제목 — 사용자 지시 "1편이랑 안겹치개 제목도 변경해봐" · 옛 제목 「주식 투자 수익나도 결국엔 손실인 사람들은 절대 통과 못하는 테스트」)
+## 1. 제목 (2026-11-05 다시 — 사용자 지시 "주식 투자 수익나도 결국엔 손실, 테스트 살려서 제목 다시 변경해봐" · 11-04 제목 「수익 나도 결국 손실 보는 생각 5개, 당신은 몇 개인가요?」 · 11-03 제목 「주식 투자 수익나도 결국엔 손실인 사람들은 절대 통과 못하는 테스트」)
 
 ```
-수익 나도 결국 손실 보는 생각 5개, 당신은 몇 개인가요?
+주식 투자 수익나도 결국엔 손실, 당신의 생각 5개 테스트
 ```
 
 ## 2. 설명란 (그대로 복사)
@@ -69,39 +70,39 @@ python tools/srt_tool.py upload stock/source/daebi-test-2026-11/daebi-test-2026-
 ```
 {
  "en": {
-  "title": "5 thoughts that turn stock gains into losses: how many do you have?",
+  "title": "Stock gains that still end in losses: a test of your 5 thoughts",
   "description": "Over 4 years, the S&P 500 rose more than 50%, yet Mr. Lee lost 68% of his 100 million won.\nFacing the five thoughts Mr. Lee had while stocks were rising, test what you would have done. Just count how many times you thought the same way he did.\n\n■ Chapters\n0:00 What happened to Mr. Lee\n0:37 Thought 1: Why you made big gains\n2:02 Thought 2: Money you made\n3:23 Thought 3: Big companies\n4:47 Thought 4: Record highs keep coming\n6:18 Thought 5: 1/4 of the peak\n7:30 Your result\n7:51 Wrap-up\n\n■ Please note\nThis test is not an official exam; we built it ourselves from real historical data. It is all past data, and there is no guarantee the future will be the same.\nThis video is not investment advice and does not mean you should buy or sell any particular stock.\n\n#StockTest #USStocks"
  },
  "hi": {
-  "title": "मुनाफ़े के बाद भी घाटा कराने वाले 5 विचार, आपमें कितने हैं?",
+  "title": "शेयर निवेश में मुनाफ़ा होकर भी आख़िर में घाटा: आपके 5 विचारों का टेस्ट",
   "description": "4 साल में S&P 500 इंडेक्स 50% से ज़्यादा बढ़ा, फिर भी मिस्टर ली ने अपने 10 करोड़ वॉन में से 68% गँवा दिए।\nतेज़ी के दौरान मिस्टर ली के मन में आए पाँच विचारों के सामने आप क्या करते, यह टेस्ट करके देखिए। बस गिनिए कि आपने कितनी बार मिस्टर ली जैसा सोचा।\n\n■ चैप्टर\n0:00 मिस्टर ली के साथ क्या हुआ\n0:37 विचार 1: बड़ी कमाई की वजह\n2:02 विचार 2: कमाया हुआ पैसा\n3:23 विचार 3: बड़ी कंपनी\n4:47 विचार 4: लगातार नए रिकॉर्ड\n6:18 विचार 5: रिकॉर्ड भाव का 1/4\n7:30 आपका नतीजा\n7:51 सार\n\n■ ध्यान दें\nयह टेस्ट कोई आधिकारिक परीक्षा नहीं है, इसे हमने असली पुराने डेटा से खुद बनाया है। यह सब पुराना डेटा है, और आगे भी ऐसा ही होगा इसकी कोई गारंटी नहीं।\nयह वीडियो निवेश सलाह नहीं है, और इसका मतलब किसी खास शेयर को खरीदने या बेचने की सलाह नहीं है।\n\n#शेयरटेस्ट #अमेरिकीशेयर"
  },
  "id": {
-  "title": "5 pikiran yang bikin untung saham berujung rugi, kamu punya berapa?",
+  "title": "Investasi saham untung tapi akhirnya rugi: tes 5 pikiranmu",
   "description": "Selama 4 tahun indeks S&P 500 naik lebih dari 50%, tapi Pak Lee kehilangan 68% dari 100 juta won miliknya.\nDi depan lima pikiran yang muncul pada Pak Lee saat saham naik, tes apa yang akan kamu lakukan. Cukup hitung berapa kali kamu berpikir sama seperti Pak Lee.\n\n■ Bab\n0:00 Apa yang terjadi pada Pak Lee\n0:37 Pikiran 1: Alasan untung besar\n2:02 Pikiran 2: Uang hasil untung\n3:23 Pikiran 3: Perusahaan besar\n4:47 Pikiran 4: Rekor tertinggi terus berlanjut\n6:18 Pikiran 5: 1/4 dari harga tertinggi\n7:30 Hasilmu\n7:51 Rangkuman\n\n■ Perlu diketahui\nTes ini bukan ujian resmi, melainkan kami buat sendiri dari data historis nyata. Semuanya data masa lalu, dan tidak ada jaminan masa depan akan sama.\nVideo ini bukan ajakan investasi, dan bukan berarti kamu harus membeli atau menjual saham tertentu.\n\n#TesSaham #SahamAS"
  },
  "pt": {
-  "title": "5 pensamentos que transformam lucro em prejuízo: quantos você tem?",
+  "title": "Lucro na bolsa que no fim vira prejuízo: teste dos seus 5 pensamentos",
   "description": "Em 4 anos, o índice S&P 500 subiu mais de 50%, mas o Sr. Lee perdeu 68% dos seus 100 milhões de wons.\nDiante dos cinco pensamentos que o Sr. Lee teve enquanto as ações subiam, teste o que você teria feito. É só contar quantas vezes você pensou igual a ele.\n\n■ Capítulos\n0:00 O que aconteceu com o Sr. Lee\n0:37 Pensamento 1: Por que você ganhou tanto\n2:02 Pensamento 2: O dinheiro que você ganhou\n3:23 Pensamento 3: Grandes empresas\n4:47 Pensamento 4: Máximas sem parar\n6:18 Pensamento 5: 1/4 da máxima\n7:30 Seu resultado\n7:51 Resumo\n\n■ Aviso\nEste teste não é uma prova oficial; nós o criamos com dados históricos reais. Tudo são dados do passado, e não há garantia de que o futuro será igual.\nEste vídeo não é recomendação de investimento e não significa que você deva comprar ou vender qualquer ação específica.\n\n#TesteDeAções #AçõesAmericanas"
  },
  "es-419": {
-  "title": "5 pensamientos que convierten ganancias en pérdidas: ¿cuántos tienes?",
+  "title": "Ganar en la bolsa y al final perder: test de tus 5 pensamientos",
   "description": "En 4 años, el índice S&P 500 subió más de 50%, pero el señor Lee perdió 68% de sus 100 millones de wones.\nFrente a los cinco pensamientos que tuvo el señor Lee mientras las acciones subían, pon a prueba lo que tú habrías hecho. Solo cuenta cuántas veces pensaste igual que él.\n\n■ Capítulos\n0:00 Qué le pasó al señor Lee\n0:37 Pensamiento 1: Por qué ganaste tanto\n2:02 Pensamiento 2: El dinero que ganaste\n3:23 Pensamiento 3: Las grandes empresas\n4:47 Pensamiento 4: Máximos sin parar\n6:18 Pensamiento 5: 1/4 del máximo\n7:30 Tu resultado\n7:51 Resumen\n\n■ Aviso\nEsta prueba no es un examen oficial; la creamos nosotros con datos históricos reales. Todo son datos del pasado, y no hay garantía de que el futuro sea igual.\nEste video no es una recomendación de inversión ni significa que debas comprar o vender una acción en particular.\n\n#TestDeAcciones #AccionesDeEEUU"
  },
  "ja": {
-  "title": "利益が出ても結局損する5つの考え、あなたはいくつ当てはまる？",
+  "title": "株式投資で利益が出ても結局は損失、あなたの5つの考えテスト",
   "description": "4年間でS&P 500指数は50%以上上がったのに、イさんは1億ウォンのうち68%を失いました。\n株が上がるときにイさんが抱いた五つの考えを前に、あなたならどうしたかテストしてみてください。イさんと同じ考えを何回したか数えるだけです。\n\n■ チャプター\n0:00 イさんに何が\n0:37 考え1 大きく稼げた理由\n2:02 考え2 稼いだお金\n3:23 考え3 大企業\n4:47 考え4 続く最高値\n6:18 考え5 最高値の4分の1\n7:30 あなたの結果\n7:51 まとめ\n\n■ お知らせ\nこのテストは公式の試験ではなく、実際の過去データをもとに独自に作ったものです。すべて過去のデータで、今後も同じになる保証はありません。\nこの動画は投資の勧誘ではなく、特定の銘柄の売買を勧めるものでもありません。\n\n#株テスト #米国株"
  },
  "de": {
-  "title": "5 Gedanken, die aus Gewinnen Verluste machen – wie viele hast du?",
+  "title": "Aktiengewinne, die am Ende Verluste werden: Test deiner 5 Gedanken",
   "description": "In 4 Jahren stieg der S&P 500 um über 50 %, doch Herr Lee verlor 68 % seiner 100 Millionen Won.\nTeste anhand der fünf Gedanken, die Herr Lee bei steigenden Kursen hatte, was du getan hättest. Zähl einfach, wie oft du wie Herr Lee gedacht hast.\n\n■ Kapitel\n0:00 Was mit Herrn Lee geschah\n0:37 Gedanke 1: Warum du so viel verdient hast\n2:02 Gedanke 2: Verdientes Geld\n3:23 Gedanke 3: Große Konzerne\n4:47 Gedanke 4: Rekordhoch um Rekordhoch\n6:18 Gedanke 5: 1/4 des Höchststands\n7:30 Dein Ergebnis\n7:51 Fazit\n\n■ Hinweis\nDieser Test ist keine offizielle Prüfung, sondern von uns selbst aus echten historischen Daten erstellt. Alles sind vergangene Daten, und es gibt keine Garantie, dass es künftig genauso kommt.\nDieses Video ist keine Anlageberatung und keine Aufforderung, bestimmte Aktien zu kaufen oder zu verkaufen.\n\n#AktienTest #USAktien"
  },
  "vi": {
-  "title": "5 suy nghĩ khiến có lời rồi vẫn lỗ, bạn mắc mấy cái?",
+  "title": "Đầu tư cổ phiếu có lời mà cuối cùng vẫn lỗ: bài test 5 suy nghĩ của bạn",
   "description": "Trong 4 năm, chỉ số S&P 500 tăng hơn 50%, nhưng anh Lee đã mất 68% trong số 100 triệu won.\nTrước năm suy nghĩ anh Lee đã có khi giá tăng, hãy thử xem bạn sẽ làm gì. Chỉ cần đếm xem bạn đã nghĩ giống anh Lee bao nhiêu lần.\n\n■ Chương\n0:00 Chuyện gì đã xảy ra với anh Lee\n0:37 Suy nghĩ 1: Vì sao lời lớn\n2:02 Suy nghĩ 2: Tiền lời\n3:23 Suy nghĩ 3: Công ty lớn\n4:47 Suy nghĩ 4: Đỉnh mới liên tục\n6:18 Suy nghĩ 5: 1/4 giá đỉnh\n7:30 Kết quả của bạn\n7:51 Tổng kết\n\n■ Lưu ý\nBài test này không phải kỳ thi chính thức, mà do chúng tôi tự làm từ dữ liệu thực tế trong quá khứ. Tất cả đều là dữ liệu quá khứ, và không có gì đảm bảo tương lai sẽ giống vậy.\nVideo này không phải lời khuyên đầu tư, cũng không có nghĩa là bạn nên mua hay bán bất kỳ cổ phiếu cụ thể nào.\n\n#TestChứngKhoán #CổPhiếuMỹ"
  },
  "tr": {
-  "title": "Kâr etseniz de sonunda zarar ettiren 5 düşünce: sizde kaç tane var?",
+  "title": "Borsada kâr edip sonunda zarar etmek: 5 düşüncenizin testi",
   "description": "4 yılda S&P 500 endeksi %50'den fazla yükseldi, ama Lee Bey 100 milyon wonunun %68'ini kaybetti.\nHisseler yükselirken Lee Bey'in aklından geçen beş düşünce karşısında siz olsanız ne yapardınız, test edin. Lee Bey'le aynı düşünceye kaç kez kapıldığınızı saymanız yeterli.\n\n■ Bölümler\n0:00 Lee Bey'e ne oldu\n0:37 Düşünce 1: Büyük kazancın nedeni\n2:02 Düşünce 2: Kazanılan para\n3:23 Düşünce 3: Büyük şirket\n4:47 Düşünce 4: Ardı ardına zirveler\n6:18 Düşünce 5: Zirvenin 1/4'ü\n7:30 Sonucunuz\n7:51 Özet\n\n■ Bilgilendirme\nBu test resmî bir sınav değildir; gerçek geçmiş verilerle kendimiz hazırladık. Hepsi geçmiş verilerdir ve geleceğin de aynı olacağının garantisi yoktur.\nBu video yatırım tavsiyesi değildir; belirli bir hisseyi alın ya da satın anlamına gelmez.\n\n#BorsaTesti #ABDHisseleri"
  }
 }

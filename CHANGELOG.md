@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-05 — 2편 롱폼 제목 다시 「주식 투자 수익나도 결국엔 손실, 당신의 생각 5개 테스트」
+
+- 사용자 지시 "주식 투자 수익나도 결국엔 손실, 테스트 살려서 제목 다시 변경해봐" — 11-03 제목의 '주식 투자 수익나도 결국엔 손실'·'테스트'를 살리고, 1편 「…절대 통과 못하는 테스트」 꼴은 피함 (`stock/guides/quick_board.md` 규칙 40). 32자, `title_fit.py` 모바일·PC 2줄 ✅.
+- `stock/source/daebi-test-2026-11/upload.md` v1.9 (1번 제목 · 6번 언어별 제목 9개) · `shorts/upload.md` v1.4 (설명란 ▶ 줄의 롱폼 제목 · 언어별 설명 9개) — 두 시트 `youtube_upload.py --dry-run` 문제 없음.
+- `stock/topics/board/topics_1-4편.json` · `stock/topics/롱폼대본_2026-10-31.md` · `stock/topics/sns/sns_2026-11-03.json` → `tools/sns_posts.py` (sns_posts.md·SNS평가판.html, 문제 0) · quick_board 규칙 40 예시.
+- 썸네일 문구(「수익 나도 손실 보는 생각 / 5개 중 몇 개인가요?」)는 새 제목과 같은 말이라 그대로.
+
 ## 2026-11-05 — 1편 언어별 제목·설명·자막 올림 · 썸네일 말풍선이 사람을 가리지 않게
 
 - 사용자 지시 "1편에 언어별 제목·설명 반영해 그리고 자막 겹쳐도 자막 올려 그리고 썸네일 보조 문구가 사람 가리지 않게 해 그리고 완성한 쇼츠 2편 정보 제목 등 보여줘봐".

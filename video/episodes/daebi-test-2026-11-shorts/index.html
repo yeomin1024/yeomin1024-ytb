@@ -223,7 +223,7 @@ function notebook(sc, slot, at, holes) {
   return d;
 }
 let CID = 0;
-function lineChart(p, area, arr, lo, hi, o) {     // o = {col, w, at, dur, gain: 기준선 위 칠 색, loss: 기준선 아래 칠 색, base}
+function lineChart(p, area, arr, lo, hi, o) {     // o = {col, w, at, dur, ease, op, gain: 기준선 위 칠 색, loss: 기준선 아래 칠 색, base} — at 없으면 처음부터 다 보임
   const [x, y, w, h] = area, t = d => Date.parse(d), d0 = t(arr[0][0]), d1 = t(arr[arr.length - 1][0]);
   const X = d => x + w * (t(d) - d0) / (d1 - d0), yv = v => y + h * (1 - (v - lo) / (hi - lo));
   const pts = arr.map(([d, v]) => [X(d), yv(v)]), n = pts.length;
@@ -236,7 +236,7 @@ function lineChart(p, area, arr, lo, hi, o) {     // o = {col, w, at, dur, gain:
   if (o.loss) A += `<clipPath id="${id}b"><rect x="-10" y="${f1(by)}" width="${p._w + 20}" height="${p._h + 400}"/></clipPath><path class="fl" clip-path="url(#${id}b)" d="${close}" fill="${o.loss}"/>`;
   const s = el(`<svg class="a" width="${p._w}" height="${p._h}" viewBox="0 0 ${p._w} ${p._h}" style="left:0;top:0;overflow:visible${o.op != null ? `;opacity:${o.op}` : ""}" aria-hidden="true"><defs><clipPath id="${id}"><rect x="${f1(x - ox - 24)}" y="-300" width="0" height="${p._h + 600}"/></clipPath></defs><g clip-path="url(#${id})">${A}<path d="${P}" fill="none" stroke="${o.col}" stroke-width="${o.w || 9}" stroke-linecap="round" stroke-linejoin="round"/></g></svg>`, p);
   if (o.at == null) gsap.set(s.querySelector(`#${id} rect`), { attr: { width: w + 48 } });
-  else tl.fromTo(s.querySelector(`#${id} rect`), { attr: { width: 0 } }, { attr: { width: w + 48 }, duration: o.dur || 1.4, ease: "power1.inOut" }, o.at);
+  else tl.fromTo(s.querySelector(`#${id} rect`), { attr: { width: 0 } }, { attr: { width: w + 48 }, duration: o.dur || 1.4, ease: o.ease || "power1.inOut" }, o.at);
   return { pts, yv, s, X };
 }
 function baseLine(p, area, yv, at, v) {
@@ -302,9 +302,9 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
     [t2, `<div style="position:relative;width:760px;height:300px">
         <div class="a sk1" style="left:70px;top:70px">${stk(ss("실력", TED, 120), { rot: -4, bg: "#CBEFE7" })}</div>
         <div class="a sk2" style="left:500px;top:84px">${stk(ss("운", GOD, 120), { rot: 5, bg: "#FCE6AE" })}</div>
-        <div class="a qm" style="left:388px;top:-30px">${ss("?", GOD, 150)}</div></div>`, (n) => {
-      tl.to(n.querySelector(".sk1"), { x: 95, rotate: 3, duration: 0.5, ease: "power2.inOut" }, mix);           // 둘이 붙어 겹침 = 잘 갈리지 않음
-      tl.to(n.querySelector(".sk2"), { x: -110, rotate: -4, duration: 0.5, ease: "power2.inOut" }, mix);
+        <div class="a qm" style="left:384px;top:-34px">${ss("?", GOD, 150)}</div></div>`, (n) => {
+      tl.to(n.querySelector(".sk1"), { x: 70, rotate: 3, duration: 0.5, ease: "power2.inOut" }, mix);           // 둘이 맞붙음 = 잘 갈리지 않음 (글자는 가리지 않게 테두리만 겹침)
+      tl.to(n.querySelector(".sk2"), { x: -90, rotate: -4, duration: 0.5, ease: "power2.inOut" }, mix);
       gsap.set(n.querySelector(".qm"), { opacity: 0 }); popIn(n.querySelector(".qm"), mix + 0.35, { s0: 0.3 });
     }],
   ]);
@@ -370,7 +370,7 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   st.update = t => { const cur = heroRun(P, t, a, [[0, 0], [tf, 1]]); if (t < tf && t > W(8, "폭락이")) cur.jitter(t, 0.012); };
   const nb = notebook(sc, "NOTE", a + 0.1, 10);
   const area = [nb._x + 80, nb._y + 190, nb._w - 160, nb._h - 290], lo = 0, hi = 1.45;
-  const L = lineChart(nb, area, SR.intro_lee, lo, hi, { col: CR, w: 10, at: S(8) + 0.2, dur: Math.max(1.6, tf - S(8) - 0.1), gain: "rgba(34,199,176,.30)", loss: "rgba(179,32,42,.17)" });
+  const L = lineChart(nb, area, SR.intro_lee, lo, hi, { col: CR, w: 10, at: S(8) + 0.05, dur: Math.max(1.6, tf - S(8)), ease: "none", gain: "rgba(34,199,176,.30)", loss: "rgba(179,32,42,.17)" });   // 고르게 그림 — 떨어지기 시작(2021 중반 ≈ 가로 20%)이 '폭락이' 때
   baseLine(nb, area, L.yv, a + 0.35);
   const ex = area[0] + area[2], by = L.yv(1);
   const won = noteAt(nb, "원금", "y", ex, by, a + 0.45, "ul");                       // 기준선 오른쪽 끝 위 (선은 그때 기준선 아래 — 안 겹침)
@@ -384,7 +384,7 @@ K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
   let mn = SR.intro_lee[0]; for (const p of SR.intro_lee) if (p[1] < mn[1]) mn = p;
   const lp = L.pts[SR.intro_lee.indexOf(mn)];
   dotAt(nb, lp[0], lp[1], CR, tf);
-  K.cut(tg - 0.1, "S-08 폭락 선");
+  K.cut(tg - 0.1, "S-08 폭락 선 (떨어지기 시작)");
   K.cut(tw + 0.4, "S-08 번 돈 흐림 · 원금 진홍");
   K.cut(E(8) - 0.1, "S-08 무너짐");
 }

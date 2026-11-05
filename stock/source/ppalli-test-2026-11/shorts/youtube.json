@@ -23,5 +23,8 @@
   "captionTracks": {
     "ko": "AUieDaaENtWjmUMIT1SdrgPe8XsPUDxVq8ts9mFWA3orya6Dl5cvw9fcel4"
   },
-  "captionsPending": []
+  "captionsPending": [],
+  "defaultLanguage": "ko",
+  "defaultAudioLanguage": "ko",
+  "metaUpdatedAt": "2026-11-05T02:44:53+00:00"
 }

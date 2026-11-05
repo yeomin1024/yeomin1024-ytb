@@ -1,0 +1,116 @@
+{
+ "_설명": "롱폼 썸네일 본안의 de 판 (2026-11-05 외국어 설정 — 사용자 지시 \"외국어 자막, 제목, 썸네일 등 외국어 설정에 필요한 것들 생성하고 지시사항에 반영해 이건 영상이 렌더까지 완료되면 하는거야\") — ../thumbnail_1.json 과 같은 자리·색, 글만 번역 · thumb.mjs v1.2 lang 글꼴",
+ "out": "thumbnail_1.jpg",
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.56,
+  0.88
+ ],
+ "images": [
+  {
+   "src": "../../images/TH-PHOTO2.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "bubble",
+   "x": 60,
+   "y": 46,
+   "w": 620,
+   "h": 116,
+   "bg": "W",
+   "color": "K",
+   "radius": 58,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "Hätte ich gekauft...",
+   "_": "말풍선 1 — 사용자 보조 문구 앞 절반"
+  },
+  {
+   "kind": "bubble",
+   "x": 76,
+   "y": 196,
+   "w": 584,
+   "h": 108,
+   "bg": "Y",
+   "color": "K",
+   "radius": 54,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "Nur Verluste...",
+   "_": "말풍선 2 — 사용자 보조 문구 뒤 절반"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    428,
+    1208,
+    120
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "Angstindex 36",
+      "R"
+     ],
+     [
+      " im Crash",
+      "W"
+     ]
+    ]
+   ],
+   "_": "1줄 — 새 제목 앞 절반 (빨강 = 나쁜 결과)"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    552,
+    1208,
+    124
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "Kannst du ",
+      "W"
+     ],
+     [
+      "noch kaufen?",
+      "Y"
+     ]
+    ]
+   ],
+   "_": "2줄 — 새 제목 뒤 절반 (노랑 = 시청자에게 묻는 말)"
+  }
+ ],
+ "lang": "de"
+}

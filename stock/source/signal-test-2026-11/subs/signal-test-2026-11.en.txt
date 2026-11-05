@@ -1,0 +1,125 @@
+-도입
+Economic indicators like rates, oil and jobs are the stock market's weather forecast.
+Mr. Park read this forecast backwards, and in 4 years his 100 million won shrank to 31 million won.
+Over the same 4 years, the S&P 500 rose more than 40%.
+What Mr. Park missed wasn't the date of a crash, but which phase the market had entered.
+Now look at the five indicators Mr. Park faced, and pick which phase the market was in each time.
+Keep count of how many phases you get right.
+Now imagine you're Mr. Park, and let's go back to the day you first bought stocks.
+
+-선택 1
+You started investing with 100 million won you had saved.
+You put 80 million won of it into one growth stock and 20 million won into the S&P 500.
+With online shopping booming after COVID, that growth stock had risen more than 3x in 2 years.
+The S&P 500 had also just hit a record high.
+But the news said the Fed planned to raise interest rates this year.
+Treasuries are IOUs a government issues to borrow, and their interest rate is the Treasury yield.
+The 10-year Treasury yield was already more than 3 times its low.
+People around you say, "Stocks are at a record high. Why worry?"
+Do you keep your growth stock as it is, since it's still a rising phase?
+Or do you cut back on your growth stock, since it's a phase of rising rates?
+Make your choice.
+3, 2, 1.
+In this phase, cutting back on the growth stock is the right choice.
+The date was January 3, 2022, and the growth stock was Shopify, the online-store software company.
+If you had held on like Mr. Park, it would have fallen as much as 81%.
+Getting back to break-even would also have taken 3 years and 7 months.
+Say you had kept only 20% of your account in the growth stock and moved the rest into the index.
+The money moved into the index would have dropped 24% at worst, then recovered in under 2 years.
+Of course, since 1994, rising rates haven't always sent stocks sharply lower.
+In the five times rate hikes began, the index fell at most 18% within a year and a half.
+But over the same periods, the tech-heavy Nasdaq 100 fell deeper three times out of four.
+The more a growth stock is priced on future earnings, the harder it swings when rates rise.
+So the right choice is to cut back on expensive growth stocks first when rates rise.
+
+-선택 2
+Two months later, oil prices soared to their highest level in over 13 years.
+The price of a barrel of oil had jumped more than 60% in two months.
+Oil prices signal both consumer prices and where the economy is heading.
+Meanwhile, the S&P 500 had fallen 13%, and your growth stock 62%.
+More and more people say there'll never be another chance to buy this cheap, and even borrow to buy.
+Do you build up cash with no debt, since this is a phase where oil is pushing up inflation?
+Or, since it has already fallen a lot, do you take out a loan to buy more of the growth stock?
+Make your choice.
+3, 2, 1.
+In this phase, building up cash with no debt is the right choice.
+The date was March 8, 2022, the day WTI crude topped $123 a barrel.
+If you had borrowed to buy more like Mr. Park, that money would have been cut in half seven months later.
+The 3-month T-bill yield, which moves with loan rates, also rose from 0.4% to 4% in eight months.
+Of course, stocks did bounce back 11% over the following month.
+But when oil pushes up inflation, rates tend to rise faster.
+Borrowing then leaves you with rising interest and losses at once.
+So the right choice is to expect rates to rise when oil soars, and to build up cash.
+
+-선택 3
+Eight months later, this time the signal came from the bond market.
+The yield on 10-year Treasuries fell below the yield on three-month bills.
+Normally, the longer you lend, the more you earn.
+This is called a yield-curve inversion, and it's widely seen as a recession signal.
+The S&P 500 is 18% below its record high.
+The news is all about a coming recession, and more people around you say they've sold everything.
+Do you decide the inversion makes a recession certain, sell everything and wait?
+Or do you take it only as a warning of higher risk, and hold to your planned allocation?
+Make your choice.
+3, 2, 1.
+In this phase, taking it only as a warning and holding to your planned allocation is the right choice.
+The date was November 10, 2022, the day the yield curve inverted.
+If you had sold everything and waited like Mr. Park, you'd have gained just 10% in interest over 2 years.
+Holding the index, you might have dropped another 4%, but you'd have been up 56% 2 years later.
+Of course, a big bear market has often followed this signal.
+Since 1990, three of the four inversions were followed by a bear market.
+But the decline started anywhere from one month to 14 months later.
+And after the 2022 inversion, no bear market came.
+An inversion doesn't give you the date of a drop; it's just a warning that risk has grown.
+So the right choice is to read an inversion as a warning, not a sell signal, and keep your allocation.
+
+-선택 4
+About eight months later, oil prices were down 36% from their peak.
+The 3-month T-bill yield, which had soared over the past year, had barely risen in the last three months.
+But the yield curve was still inverted, so the recession signal was still on.
+Stocks are up 28% from the bottom, but still 5% below their record high.
+Your account still has cash you haven't put into stocks.
+Do you wait in cash until the recession signal goes off?
+Or, since rates and oil have calmed down, do you buy back in up to your planned allocation?
+Make your choice.
+3, 2, 1.
+In this phase, buying back in up to your planned allocation is the right choice.
+The date was July 26, 2023, the day of the last hike in that rate-hiking cycle.
+If you had waited in cash for a year like Mr. Park, you'd have gained just 5% in interest.
+The money you put back in would have dropped nearly 10% three months later, then been up 20% after a year.
+The yield-curve inversion went on for more than a year after that.
+Of course, buying while the recession signal is still on feels uneasy.
+But since 1995, in four of the five times rate hikes stopped, stocks were higher a year later.
+Rather than waiting for the inversion to end, what matters is seeing rates and oil calm down.
+So the right choice is to return to your planned allocation once rate hikes stop and oil calms down.
+
+-선택 5
+A year later, most of your money is in the S&P 500.
+Then a report says the U.S. unemployment rate has risen to 4.3%.
+With fewer jobs, spending falls too, and news floods in that a recession has begun.
+Stocks fell more than 8% in 3 weeks.
+Do you look at several indicators together and hold as planned?
+Or, since a recession has begun, do you sell everything?
+Make your choice.
+3, 2, 1.
+In this phase, looking at several indicators together and holding as planned is the right choice.
+The date was August 5, 2024, the day stocks plunged after the unemployment report.
+Looking at other indicators that day, oil was 41% below its 2022 peak.
+The 10-year Treasury yield was also falling, from 4.2% to 3.8% in 3 weeks.
+If you had sold everything like Mr. Park, you'd have gained just 6% in interest over 1 year and 5 months.
+Holding, you'd have regained the record high in 45 days and been up 34% after 1 year and 5 months.
+Of course, this could have been the real start of a recession.
+But since 1990, stocks have fallen more than 8% within a month from near a record high eighteen times.
+Fourteen of those did not turn into a bear market of more than 20%.
+So the right choice is not to panic-sell over unemployment alone, but to look at oil and rates too.
+
+-결과
+How many phases did you get right in this test?
+If you got all five, you read phases from indicators and adjust your allocation to risk: you pass.
+If you got three or four, you tend to ignore signals or overreact to a single one: caution.
+If you got two or fewer, like Mr. Park, you're likely to miss warning signs and lose money: you fail.
+
+-정리
+As this test shows, don't lock the barn door after the horse has bolted: reading the phase, not the date, from indicators and cutting risk in advance is the way to get rich with stocks.
+I wish you all successful investing.
+Thank you for watching.

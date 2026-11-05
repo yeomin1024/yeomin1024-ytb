@@ -1,0 +1,805 @@
+1
+00:00:00,300 --> 00:00:02,697
+Indikator ekonomi seperti
+suku bunga, harga minyak,
+
+2
+00:00:02,697 --> 00:00:05,140
+dan lapangan kerja adalah
+ramalan cuaca pasar saham.
+
+3
+00:00:05,520 --> 00:00:07,543
+Pak Park membaca ramalan ini terbalik,
+
+4
+00:00:07,543 --> 00:00:10,685
+dan dalam 4 tahun uangnya 100
+juta won tinggal 31 juta won.
+
+5
+00:00:11,065 --> 00:00:15,434
+Dalam 4 tahun yang sama,
+S&P 500 naik lebih dari 40%.
+
+6
+00:00:15,814 --> 00:00:18,522
+Yang terlewat oleh Pak Park
+bukan tanggal kejatuhan pasar,
+
+7
+00:00:18,522 --> 00:00:20,670
+melainkan fase apa yang
+sedang dimasuki pasar.
+
+8
+00:00:21,050 --> 00:00:24,056
+Sekarang lihat lima indikator
+yang muncul di depan Pak Park,
+
+9
+00:00:24,056 --> 00:00:25,860
+lalu pilih pasar sedang di fase apa.
+
+10
+00:00:26,240 --> 00:00:29,023
+Hitung berapa fase yang berhasil
+Anda tebak dengan benar.
+
+11
+00:00:29,403 --> 00:00:31,181
+Sekarang bayangkan Anda adalah Pak Park,
+
+12
+00:00:31,181 --> 00:00:33,492
+dan mari kembali ke hari
+pertama Anda membeli saham.
+
+13
+00:00:34,492 --> 00:00:37,684
+Anda mulai berinvestasi dengan
+100 juta won hasil tabungan.
+
+14
+00:00:38,064 --> 00:00:41,518
+Dari situ, 80 juta won Anda
+masukkan ke satu saham pertumbuhan,
+
+15
+00:00:41,518 --> 00:00:42,999
+dan 20 juta won ke S&P 500.
+
+16
+00:00:43,379 --> 00:00:45,679
+Seiring belanja online yang
+melonjak setelah COVID,
+
+17
+00:00:45,679 --> 00:00:48,611
+saham pertumbuhan itu naik lebih
+dari 3 kali lipat dalam 2 tahun.
+
+18
+00:00:48,991 --> 00:00:52,218
+S&P 500 juga kebetulan baru
+mencetak rekor tertinggi.
+
+19
+00:00:52,598 --> 00:00:54,593
+Tapi di berita, bank sentral AS, The Fed,
+
+20
+00:00:54,593 --> 00:00:56,928
+mengumumkan akan menaikkan
+suku bunga tahun ini.
+
+21
+00:00:57,308 --> 00:01:00,614
+Obligasi negara adalah surat utang yang
+diterbitkan pemerintah saat meminjam uang,
+
+22
+00:01:00,614 --> 00:01:02,308
+dan bunganya disebut imbal hasil obligasi.
+
+23
+00:01:02,688 --> 00:01:06,678
+Imbal hasil obligasi AS tenor 10 tahun
+sudah lebih dari 3 kali titik terendahnya.
+
+24
+00:01:07,058 --> 00:01:10,416
+Orang-orang di sekitar Anda bilang,
+"Harga saham lagi rekor, kenapa khawatir?"
+
+25
+00:01:10,796 --> 00:01:14,788
+Apakah Anda tetap menahan saham
+pertumbuhan itu, karena masih fase naik?
+
+26
+00:01:15,168 --> 00:01:19,148
+Atau Anda kurangi porsi saham pertumbuhan,
+karena ini fase suku bunga naik?
+
+27
+00:01:19,528 --> 00:01:20,468
+Tentukan pilihan Anda.
+
+28
+00:01:20,848 --> 00:01:23,028
+3, 2, 1.
+
+29
+00:01:23,408 --> 00:01:26,968
+Di fase ini, mengurangi porsi saham
+pertumbuhan adalah pilihan yang benar.
+
+30
+00:01:27,348 --> 00:01:30,650
+Tanggalnya 3 Januari 2022, dan saham
+pertumbuhan itu adalah Shopify,
+
+31
+00:01:30,650 --> 00:01:32,544
+perusahaan perangkat lunak toko online.
+
+32
+00:01:32,924 --> 00:01:37,023
+Kalau Anda bertahan seperti Pak Park,
+saham itu akan turun sampai 81%.
+
+33
+00:01:37,403 --> 00:01:40,642
+Untuk balik modal pun
+butuh 3 tahun 7 bulan.
+
+34
+00:01:41,022 --> 00:01:44,410
+Misalnya Anda hanya menyisakan
+20% rekening di saham pertumbuhan,
+
+35
+00:01:44,410 --> 00:01:46,182
+dan memindahkan sisanya ke indeks.
+
+36
+00:01:46,562 --> 00:01:49,854
+Uang yang dipindah ke indeks
+paling parah turun 24%,
+
+37
+00:01:49,854 --> 00:01:52,577
+lalu balik modal dalam
+kurang dari 2 tahun.
+
+38
+00:01:52,957 --> 00:01:58,187
+Memang, sejak 1994, kenaikan suku bunga
+tidak selalu membuat saham turun tajam.
+
+39
+00:01:58,567 --> 00:02:00,868
+Dalam lima kali awal kenaikan suku bunga,
+
+40
+00:02:00,868 --> 00:02:04,067
+indeks turun paling banyak
+18% dalam satu setengah tahun.
+
+41
+00:02:04,447 --> 00:02:07,045
+Tapi di periode yang sama,
+Nasdaq 100 yang banyak berisi
+
+42
+00:02:07,045 --> 00:02:09,597
+saham teknologi turun lebih
+dalam tiga dari empat kali.
+
+43
+00:02:09,977 --> 00:02:12,935
+Makin mahal saham pertumbuhan
+dihargai atas laba masa depannya,
+
+44
+00:02:12,935 --> 00:02:15,094
+makin besar guncangannya
+saat suku bunga naik.
+
+45
+00:02:15,474 --> 00:02:18,062
+Jadi pilihan yang benar
+adalah, saat suku bunga naik,
+
+46
+00:02:18,062 --> 00:02:20,406
+kurangi dulu porsi saham
+pertumbuhan yang mahal.
+
+47
+00:02:21,406 --> 00:02:23,705
+Dua bulan kemudian, harga
+minyak dunia melonjak
+
+48
+00:02:23,705 --> 00:02:25,906
+ke level tertinggi dalam
+lebih dari 13 tahun.
+
+49
+00:02:26,286 --> 00:02:29,964
+Harga satu barel minyak naik lebih
+dari 60% hanya dalam dua bulan.
+
+50
+00:02:30,344 --> 00:02:32,189
+Harga minyak dunia adalah indikator yang
+
+51
+00:02:32,189 --> 00:02:34,402
+menunjukkan harga barang
+sekaligus arah ekonomi.
+
+52
+00:02:34,782 --> 00:02:40,737
+Sementara itu, S&P 500 turun 13%,
+dan saham pertumbuhan Anda turun 62%.
+
+53
+00:02:41,117 --> 00:02:44,688
+Makin banyak orang bilang kesempatan
+beli semurah ini tak akan datang lagi,
+
+54
+00:02:44,688 --> 00:02:46,449
+bahkan sampai berutang untuk membeli.
+
+55
+00:02:46,829 --> 00:02:49,355
+Apakah Anda menambah
+uang tunai tanpa utang,
+
+56
+00:02:49,355 --> 00:02:52,054
+karena ini fase harga
+minyak mendorong inflasi?
+
+57
+00:02:52,434 --> 00:02:54,048
+Atau, karena sudah turun banyak,
+
+58
+00:02:54,048 --> 00:02:57,174
+Anda pinjam uang untuk membeli
+lebih banyak saham pertumbuhan?
+
+59
+00:02:57,554 --> 00:02:58,494
+Tentukan pilihan Anda.
+
+60
+00:02:58,874 --> 00:03:01,054
+3, 2, 1.
+
+61
+00:03:01,434 --> 00:03:04,824
+Di fase ini, menambah uang tunai
+tanpa utang adalah pilihan yang benar.
+
+62
+00:03:05,204 --> 00:03:11,099
+Tanggalnya 8 Maret 2022, hari ketika
+minyak WTI tembus 123 dolar per barel.
+
+63
+00:03:11,479 --> 00:03:14,201
+Kalau Anda berutang untuk
+menambah saham seperti Pak Park,
+
+64
+00:03:14,201 --> 00:03:16,594
+uang itu akan tinggal
+separuh tujuh bulan kemudian.
+
+65
+00:03:16,974 --> 00:03:20,618
+Imbal hasil T-bill 3 bulan, yang
+bergerak bersama bunga pinjaman,
+
+66
+00:03:20,618 --> 00:03:23,196
+juga naik dari 0,4% ke
+4% dalam delapan bulan.
+
+67
+00:03:23,576 --> 00:03:27,638
+Memang, sebulan setelahnya,
+harga saham sempat naik lagi 11%.
+
+68
+00:03:28,018 --> 00:03:32,378
+Tapi kalau harga minyak mendorong inflasi,
+suku bunga cenderung naik lebih cepat.
+
+69
+00:03:32,758 --> 00:03:34,825
+Berutang di saat seperti
+itu berarti menanggung
+
+70
+00:03:34,825 --> 00:03:36,628
+bunga yang membengkak sekaligus kerugian.
+
+71
+00:03:37,008 --> 00:03:39,644
+Jadi pilihan yang benar adalah
+menganggap suku bunga ikut
+
+72
+00:03:39,644 --> 00:03:42,048
+naik saat minyak melonjak,
+lalu menambah uang tunai.
+
+73
+00:03:43,048 --> 00:03:46,726
+Delapan bulan kemudian, kali ini
+sinyal datang dari pasar obligasi.
+
+74
+00:03:47,106 --> 00:03:49,656
+Imbal hasil obligasi
+tenor 10 tahun jadi lebih
+
+75
+00:03:49,656 --> 00:03:51,985
+rendah daripada obligasi tenor tiga bulan.
+
+76
+00:03:52,365 --> 00:03:55,015
+Biasanya, makin lama meminjamkan,
+makin besar bunganya.
+
+77
+00:03:55,395 --> 00:04:00,015
+Ini disebut inversi kurva imbal hasil,
+dan banyak dianggap sebagai sinyal resesi.
+
+78
+00:04:00,395 --> 00:04:03,915
+S&P 500 berada 18% di
+bawah rekor tertingginya.
+
+79
+00:04:04,295 --> 00:04:06,330
+Berita hanya membahas
+resesi yang segera datang,
+
+80
+00:04:06,330 --> 00:04:09,255
+dan makin banyak orang di sekitar
+Anda bilang sudah menjual semuanya.
+
+81
+00:04:09,635 --> 00:04:13,461
+Apakah Anda yakin resesi pasti
+datang karena kurvanya terbalik,
+
+82
+00:04:13,461 --> 00:04:15,405
+lalu menjual semua dan menunggu?
+
+83
+00:04:15,785 --> 00:04:18,135
+Atau Anda anggap itu hanya
+peringatan bahwa risiko naik,
+
+84
+00:04:18,135 --> 00:04:20,402
+dan tetap memegang sesuai
+porsi yang sudah ditetapkan?
+
+85
+00:04:20,782 --> 00:04:21,722
+Tentukan pilihan Anda.
+
+86
+00:04:22,102 --> 00:04:24,282
+3, 2, 1.
+
+87
+00:04:24,662 --> 00:04:27,179
+Di fase ini, menganggapnya
+hanya peringatan dan memegang
+
+88
+00:04:27,179 --> 00:04:29,652
+sesuai porsi yang ditetapkan
+adalah pilihan yang benar.
+
+89
+00:04:30,032 --> 00:04:35,042
+Tanggalnya 10 November 2022, hari
+ketika kurva imbal hasil terbalik.
+
+90
+00:04:35,422 --> 00:04:38,195
+Kalau Anda menjual semua dan
+menunggu seperti Pak Park,
+
+91
+00:04:38,195 --> 00:04:40,968
+dalam 2 tahun uang Anda hanya
+bertambah 10% dari bunga.
+
+92
+00:04:41,348 --> 00:04:45,225
+Kalau indeks tetap dipegang,
+mungkin sempat turun 4% lagi,
+
+93
+00:04:45,225 --> 00:04:47,698
+tapi 2 tahun kemudian sudah naik 56%.
+
+94
+00:04:48,078 --> 00:04:51,418
+Memang, sering kali pasar bearish besar
+benar-benar datang setelah sinyal ini.
+
+95
+00:04:51,798 --> 00:04:56,451
+Sejak 1990, tiga dari empat
+inversi diikuti pasar bearish.
+
+96
+00:04:56,831 --> 00:05:01,581
+Tapi waktu mulai turunnya berbeda-beda,
+dari satu bulan sampai 14 bulan kemudian.
+
+97
+00:05:01,961 --> 00:05:05,357
+Dan setelah inversi 2022,
+pasar bearish tidak datang.
+
+98
+00:05:05,737 --> 00:05:08,237
+Inversi kurva bukan tanggal
+datangnya penurunan,
+
+99
+00:05:08,237 --> 00:05:10,425
+hanya peringatan bahwa risiko makin besar.
+
+100
+00:05:10,805 --> 00:05:14,218
+Jadi pilihan yang benar adalah
+membaca inversi sebagai peringatan,
+
+101
+00:05:14,218 --> 00:05:16,131
+bukan sinyal jual, dan menjaga porsi.
+
+102
+00:05:17,131 --> 00:05:18,818
+Sekitar delapan bulan kemudian,
+
+103
+00:05:18,818 --> 00:05:21,539
+harga minyak dunia sudah
+turun 36% dari puncaknya.
+
+104
+00:05:21,919 --> 00:05:25,043
+Imbal hasil T-bill 3 bulan
+yang melonjak dalam setahun,
+
+105
+00:05:25,043 --> 00:05:27,259
+tiga bulan terakhir hanya naik sedikit.
+
+106
+00:05:27,639 --> 00:05:32,749
+Tapi kurva imbal hasil masih terbalik,
+jadi sinyal resesi belum padam.
+
+107
+00:05:33,129 --> 00:05:38,248
+Harga saham sudah naik 28% dari dasar,
+tapi masih 5% di bawah rekor tertinggi.
+
+108
+00:05:38,628 --> 00:05:41,985
+Di rekening Anda masih ada uang
+tunai yang belum dimasukkan ke saham.
+
+109
+00:05:42,365 --> 00:05:46,695
+Apakah Anda menunggu dalam bentuk
+tunai sampai sinyal resesi padam?
+
+110
+00:05:47,075 --> 00:05:49,719
+Atau, karena suku bunga
+dan minyak sudah tenang,
+
+111
+00:05:49,719 --> 00:05:52,307
+Anda membeli lagi sesuai
+porsi yang ditetapkan?
+
+112
+00:05:52,687 --> 00:05:53,627
+Tentukan pilihan Anda.
+
+113
+00:05:54,007 --> 00:05:56,187
+3, 2, 1.
+
+114
+00:05:56,567 --> 00:06:00,847
+Di fase ini, membeli lagi sesuai porsi
+yang ditetapkan adalah pilihan yang benar.
+
+115
+00:06:01,227 --> 00:06:06,891
+Tanggalnya 26 Juli 2023, hari kenaikan
+suku bunga terakhir di siklus itu.
+
+116
+00:06:07,271 --> 00:06:10,403
+Kalau Anda menunggu dalam tunai
+selama setahun seperti Pak Park,
+
+117
+00:06:10,403 --> 00:06:12,360
+uang Anda hanya bertambah 5% dari bunga.
+
+118
+00:06:12,740 --> 00:06:16,341
+Uang yang dibelikan lagi sempat
+turun hampir 10% tiga bulan kemudian,
+
+119
+00:06:16,341 --> 00:06:18,220
+lalu setahun kemudian bertambah 20%.
+
+120
+00:06:18,600 --> 00:06:22,540
+Inversi kurva imbal hasil masih
+berlanjut lebih dari setahun setelahnya.
+
+121
+00:06:22,920 --> 00:06:26,394
+Memang, membeli lagi saat sinyal resesi
+masih menyala terasa mencemaskan.
+
+122
+00:06:26,774 --> 00:06:30,234
+Tapi sejak 1995, dari lima kali
+kenaikan suku bunga berhenti,
+
+123
+00:06:30,234 --> 00:06:32,787
+empat kali harga saham
+naik setahun kemudian.
+
+124
+00:06:33,167 --> 00:06:34,770
+Daripada menunggu inversi selesai,
+
+125
+00:06:34,770 --> 00:06:37,976
+yang penting adalah melihat suku
+bunga dan minyak yang mulai tenang.
+
+126
+00:06:38,356 --> 00:06:41,389
+Jadi pilihan yang benar adalah
+kembali ke porsi yang ditetapkan
+
+127
+00:06:41,389 --> 00:06:44,181
+saat kenaikan suku bunga
+berhenti dan harga minyak tenang.
+
+128
+00:06:45,181 --> 00:06:49,190
+Setahun kemudian, sebagian
+besar uang Anda ada di S&P 500.
+
+129
+00:06:49,570 --> 00:06:53,407
+Lalu keluar pengumuman bahwa tingkat
+pengangguran AS naik ke 4,3%.
+
+130
+00:06:53,787 --> 00:06:56,052
+Kalau lapangan kerja
+berkurang, belanja ikut turun,
+
+131
+00:06:56,052 --> 00:06:58,361
+dan berita bahwa resesi
+sudah dimulai pun membanjir.
+
+132
+00:06:58,741 --> 00:07:01,448
+Harga saham turun lebih
+dari 8% dalam 3 minggu.
+
+133
+00:07:01,828 --> 00:07:03,795
+Apakah Anda melihat beberapa indikator
+
+134
+00:07:03,795 --> 00:07:06,072
+sekaligus dan tetap
+memegang sesuai rencana?
+
+135
+00:07:06,452 --> 00:07:10,221
+Atau, karena resesi sudah
+dimulai, Anda menjual semuanya?
+
+136
+00:07:10,601 --> 00:07:11,541
+Tentukan pilihan Anda.
+
+137
+00:07:11,921 --> 00:07:14,101
+3, 2, 1.
+
+138
+00:07:14,481 --> 00:07:17,027
+Di fase ini, melihat beberapa
+indikator sekaligus dan
+
+139
+00:07:17,027 --> 00:07:19,429
+memegang sesuai rencana
+adalah pilihan yang benar.
+
+140
+00:07:19,809 --> 00:07:21,430
+Tanggalnya 5 Agustus 2024,
+
+141
+00:07:21,430 --> 00:07:25,233
+hari ketika saham anjlok setelah
+data pengangguran diumumkan.
+
+142
+00:07:25,613 --> 00:07:27,906
+Kalau melihat indikator lain hari itu,
+
+143
+00:07:27,906 --> 00:07:31,103
+harga minyak dunia 41% lebih
+rendah dari puncak 2022.
+
+144
+00:07:31,483 --> 00:07:34,426
+Imbal hasil obligasi
+AS 10 tahun juga sedang
+
+145
+00:07:34,426 --> 00:07:37,035
+turun dari 4,2% ke 3,8% dalam 3 minggu.
+
+146
+00:07:37,415 --> 00:07:39,627
+Kalau Anda menjual semua seperti Pak Park,
+
+147
+00:07:39,627 --> 00:07:42,893
+dalam 1 tahun 5 bulan uang Anda
+hanya bertambah 6% dari bunga.
+
+148
+00:07:43,273 --> 00:07:46,876
+Kalau tetap dipegang, rekor
+tertinggi kembali dalam 45 hari,
+
+149
+00:07:46,876 --> 00:07:49,458
+dan setelah 1 tahun 5
+bulan sudah naik 34%.
+
+150
+00:07:49,838 --> 00:07:52,668
+Memang, saat itu bisa saja
+benar-benar awal resesi.
+
+151
+00:07:53,048 --> 00:07:56,116
+Tapi sejak 1990, saham sudah
+delapan belas kali turun
+
+152
+00:07:56,116 --> 00:07:59,299
+lebih dari 8% dalam sebulan
+dari dekat rekor tertinggi.
+
+153
+00:07:59,679 --> 00:08:01,714
+Empat belas di antaranya
+tidak berlanjut jadi
+
+154
+00:08:01,714 --> 00:08:03,794
+pasar bearish dengan
+penurunan lebih dari 20%.
+
+155
+00:08:04,174 --> 00:08:07,549
+Jadi pilihan yang benar adalah tidak panik
+menjual karena angka pengangguran saja,
+
+156
+00:08:07,549 --> 00:08:09,195
+tapi juga melihat minyak dan suku bunga.
+
+157
+00:08:10,195 --> 00:08:13,274
+Dalam tes ini, berapa fase
+yang Anda tebak dengan benar?
+
+158
+00:08:13,654 --> 00:08:16,164
+Kalau benar kelimanya,
+Anda membaca fase dari
+
+159
+00:08:16,164 --> 00:08:18,953
+indikator dan mengatur
+porsi sesuai risiko: lulus.
+
+160
+00:08:19,333 --> 00:08:20,628
+Kalau benar tiga atau empat,
+
+161
+00:08:20,628 --> 00:08:22,386
+Anda cenderung mengabaikan sinyal atau
+
+162
+00:08:22,386 --> 00:08:24,513
+bereaksi berlebihan pada
+satu sinyal: waspada.
+
+163
+00:08:24,893 --> 00:08:27,113
+Kalau benar dua atau
+kurang, seperti Pak Park,
+
+164
+00:08:27,113 --> 00:08:30,780
+Anda kemungkinan besar rugi karena tak
+mengenali sinyal bahaya: tidak lulus.
+
+165
+00:08:31,780 --> 00:08:33,491
+Seperti terlihat dari tes ini,
+
+166
+00:08:33,491 --> 00:08:36,970
+agar tidak menyesal setelah nasi
+menjadi bubur, bacalah fase,
+
+167
+00:08:36,970 --> 00:08:40,393
+bukan tanggal, dari indikator
+dan kurangi risiko lebih awal;
+
+168
+00:08:40,393 --> 00:08:42,560
+itulah jalan menjadi kaya lewat saham.
+
+169
+00:08:42,940 --> 00:08:45,150
+Semoga sukses berinvestasi
+untuk Anda semua.
+
+170
+00:08:45,530 --> 00:08:47,060
+Terima kasih sudah menonton.

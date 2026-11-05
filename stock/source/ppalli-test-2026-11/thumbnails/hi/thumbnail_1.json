@@ -1,0 +1,112 @@
+{
+ "_설명": "롱폼 본안 썸네일 hi — 한국어 thumbnail_1.json 과 같은 배치·색 뜻(노랑 = 누구 이야기 · 빨강 = 나쁜 결과), 문구만 번역 (사용자 지시 2026-11-05 \"외국어 자막, 제목, 썸네일 등 …\") · thumb.mjs v1.2 lang 글꼴",
+ "out": "thumbnail_1.jpg",
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.56,
+  0.88
+ ],
+ "images": [
+  {
+   "src": "../../images/TH-PHOTO2.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
+ "blocks": [
+  {
+   "kind": "bubble",
+   "x": 60,
+   "y": 46,
+   "w": 640,
+   "h": 116,
+   "bg": "W",
+   "color": "K",
+   "radius": 58,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "-50%, -70% नुकसान"
+  },
+  {
+   "kind": "bubble",
+   "x": 244,
+   "y": 196,
+   "w": 416,
+   "h": 108,
+   "bg": "Y",
+   "color": "K",
+   "radius": 54,
+   "fill": [
+    0.88,
+    0.58
+   ],
+   "tail": "right",
+   "tailPos": 0.84,
+   "tailLen": 54,
+   "text": "क्या मैं भी?"
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    428,
+    1208,
+    120
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "शेयरों में नाकाम",
+      "Y"
+     ],
+     [
+      " लोग",
+      "W"
+     ]
+    ]
+   ]
+  },
+  {
+   "kind": "lines",
+   "box": [
+    36,
+    552,
+    1208,
+    124
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.05,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "यह टेस्ट",
+      "W"
+     ],
+     [
+      " कभी पास नहीं कर पाते",
+      "R"
+     ]
+    ]
+   ]
+  }
+ ],
+ "lang": "hi"
+}

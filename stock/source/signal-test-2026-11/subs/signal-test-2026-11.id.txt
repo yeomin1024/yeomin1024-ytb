@@ -1,0 +1,125 @@
+-도입
+Indikator ekonomi seperti suku bunga, harga minyak, dan lapangan kerja adalah ramalan cuaca pasar saham.
+Pak Park membaca ramalan ini terbalik, dan dalam 4 tahun uangnya 100 juta won tinggal 31 juta won.
+Dalam 4 tahun yang sama, S&P 500 naik lebih dari 40%.
+Yang terlewat oleh Pak Park bukan tanggal kejatuhan pasar, melainkan fase apa yang sedang dimasuki pasar.
+Sekarang lihat lima indikator yang muncul di depan Pak Park, lalu pilih pasar sedang di fase apa.
+Hitung berapa fase yang berhasil Anda tebak dengan benar.
+Sekarang bayangkan Anda adalah Pak Park, dan mari kembali ke hari pertama Anda membeli saham.
+
+-선택 1
+Anda mulai berinvestasi dengan 100 juta won hasil tabungan.
+Dari situ, 80 juta won Anda masukkan ke satu saham pertumbuhan, dan 20 juta won ke S&P 500.
+Seiring belanja online yang melonjak setelah COVID, saham pertumbuhan itu naik lebih dari 3 kali lipat dalam 2 tahun.
+S&P 500 juga kebetulan baru mencetak rekor tertinggi.
+Tapi di berita, bank sentral AS, The Fed, mengumumkan akan menaikkan suku bunga tahun ini.
+Obligasi negara adalah surat utang yang diterbitkan pemerintah saat meminjam uang, dan bunganya disebut imbal hasil obligasi.
+Imbal hasil obligasi AS tenor 10 tahun sudah lebih dari 3 kali titik terendahnya.
+Orang-orang di sekitar Anda bilang, "Harga saham lagi rekor, kenapa khawatir?"
+Apakah Anda tetap menahan saham pertumbuhan itu, karena masih fase naik?
+Atau Anda kurangi porsi saham pertumbuhan, karena ini fase suku bunga naik?
+Tentukan pilihan Anda.
+3, 2, 1.
+Di fase ini, mengurangi porsi saham pertumbuhan adalah pilihan yang benar.
+Tanggalnya 3 Januari 2022, dan saham pertumbuhan itu adalah Shopify, perusahaan perangkat lunak toko online.
+Kalau Anda bertahan seperti Pak Park, saham itu akan turun sampai 81%.
+Untuk balik modal pun butuh 3 tahun 7 bulan.
+Misalnya Anda hanya menyisakan 20% rekening di saham pertumbuhan, dan memindahkan sisanya ke indeks.
+Uang yang dipindah ke indeks paling parah turun 24%, lalu balik modal dalam kurang dari 2 tahun.
+Memang, sejak 1994, kenaikan suku bunga tidak selalu membuat saham turun tajam.
+Dalam lima kali awal kenaikan suku bunga, indeks turun paling banyak 18% dalam satu setengah tahun.
+Tapi di periode yang sama, Nasdaq 100 yang banyak berisi saham teknologi turun lebih dalam tiga dari empat kali.
+Makin mahal saham pertumbuhan dihargai atas laba masa depannya, makin besar guncangannya saat suku bunga naik.
+Jadi pilihan yang benar adalah, saat suku bunga naik, kurangi dulu porsi saham pertumbuhan yang mahal.
+
+-선택 2
+Dua bulan kemudian, harga minyak dunia melonjak ke level tertinggi dalam lebih dari 13 tahun.
+Harga satu barel minyak naik lebih dari 60% hanya dalam dua bulan.
+Harga minyak dunia adalah indikator yang menunjukkan harga barang sekaligus arah ekonomi.
+Sementara itu, S&P 500 turun 13%, dan saham pertumbuhan Anda turun 62%.
+Makin banyak orang bilang kesempatan beli semurah ini tak akan datang lagi, bahkan sampai berutang untuk membeli.
+Apakah Anda menambah uang tunai tanpa utang, karena ini fase harga minyak mendorong inflasi?
+Atau, karena sudah turun banyak, Anda pinjam uang untuk membeli lebih banyak saham pertumbuhan?
+Tentukan pilihan Anda.
+3, 2, 1.
+Di fase ini, menambah uang tunai tanpa utang adalah pilihan yang benar.
+Tanggalnya 8 Maret 2022, hari ketika minyak WTI tembus 123 dolar per barel.
+Kalau Anda berutang untuk menambah saham seperti Pak Park, uang itu akan tinggal separuh tujuh bulan kemudian.
+Imbal hasil T-bill 3 bulan, yang bergerak bersama bunga pinjaman, juga naik dari 0,4% ke 4% dalam delapan bulan.
+Memang, sebulan setelahnya, harga saham sempat naik lagi 11%.
+Tapi kalau harga minyak mendorong inflasi, suku bunga cenderung naik lebih cepat.
+Berutang di saat seperti itu berarti menanggung bunga yang membengkak sekaligus kerugian.
+Jadi pilihan yang benar adalah menganggap suku bunga ikut naik saat minyak melonjak, lalu menambah uang tunai.
+
+-선택 3
+Delapan bulan kemudian, kali ini sinyal datang dari pasar obligasi.
+Imbal hasil obligasi tenor 10 tahun jadi lebih rendah daripada obligasi tenor tiga bulan.
+Biasanya, makin lama meminjamkan, makin besar bunganya.
+Ini disebut inversi kurva imbal hasil, dan banyak dianggap sebagai sinyal resesi.
+S&P 500 berada 18% di bawah rekor tertingginya.
+Berita hanya membahas resesi yang segera datang, dan makin banyak orang di sekitar Anda bilang sudah menjual semuanya.
+Apakah Anda yakin resesi pasti datang karena kurvanya terbalik, lalu menjual semua dan menunggu?
+Atau Anda anggap itu hanya peringatan bahwa risiko naik, dan tetap memegang sesuai porsi yang sudah ditetapkan?
+Tentukan pilihan Anda.
+3, 2, 1.
+Di fase ini, menganggapnya hanya peringatan dan memegang sesuai porsi yang ditetapkan adalah pilihan yang benar.
+Tanggalnya 10 November 2022, hari ketika kurva imbal hasil terbalik.
+Kalau Anda menjual semua dan menunggu seperti Pak Park, dalam 2 tahun uang Anda hanya bertambah 10% dari bunga.
+Kalau indeks tetap dipegang, mungkin sempat turun 4% lagi, tapi 2 tahun kemudian sudah naik 56%.
+Memang, sering kali pasar bearish besar benar-benar datang setelah sinyal ini.
+Sejak 1990, tiga dari empat inversi diikuti pasar bearish.
+Tapi waktu mulai turunnya berbeda-beda, dari satu bulan sampai 14 bulan kemudian.
+Dan setelah inversi 2022, pasar bearish tidak datang.
+Inversi kurva bukan tanggal datangnya penurunan, hanya peringatan bahwa risiko makin besar.
+Jadi pilihan yang benar adalah membaca inversi sebagai peringatan, bukan sinyal jual, dan menjaga porsi.
+
+-선택 4
+Sekitar delapan bulan kemudian, harga minyak dunia sudah turun 36% dari puncaknya.
+Imbal hasil T-bill 3 bulan yang melonjak dalam setahun, tiga bulan terakhir hanya naik sedikit.
+Tapi kurva imbal hasil masih terbalik, jadi sinyal resesi belum padam.
+Harga saham sudah naik 28% dari dasar, tapi masih 5% di bawah rekor tertinggi.
+Di rekening Anda masih ada uang tunai yang belum dimasukkan ke saham.
+Apakah Anda menunggu dalam bentuk tunai sampai sinyal resesi padam?
+Atau, karena suku bunga dan minyak sudah tenang, Anda membeli lagi sesuai porsi yang ditetapkan?
+Tentukan pilihan Anda.
+3, 2, 1.
+Di fase ini, membeli lagi sesuai porsi yang ditetapkan adalah pilihan yang benar.
+Tanggalnya 26 Juli 2023, hari kenaikan suku bunga terakhir di siklus itu.
+Kalau Anda menunggu dalam tunai selama setahun seperti Pak Park, uang Anda hanya bertambah 5% dari bunga.
+Uang yang dibelikan lagi sempat turun hampir 10% tiga bulan kemudian, lalu setahun kemudian bertambah 20%.
+Inversi kurva imbal hasil masih berlanjut lebih dari setahun setelahnya.
+Memang, membeli lagi saat sinyal resesi masih menyala terasa mencemaskan.
+Tapi sejak 1995, dari lima kali kenaikan suku bunga berhenti, empat kali harga saham naik setahun kemudian.
+Daripada menunggu inversi selesai, yang penting adalah melihat suku bunga dan minyak yang mulai tenang.
+Jadi pilihan yang benar adalah kembali ke porsi yang ditetapkan saat kenaikan suku bunga berhenti dan harga minyak tenang.
+
+-선택 5
+Setahun kemudian, sebagian besar uang Anda ada di S&P 500.
+Lalu keluar pengumuman bahwa tingkat pengangguran AS naik ke 4,3%.
+Kalau lapangan kerja berkurang, belanja ikut turun, dan berita bahwa resesi sudah dimulai pun membanjir.
+Harga saham turun lebih dari 8% dalam 3 minggu.
+Apakah Anda melihat beberapa indikator sekaligus dan tetap memegang sesuai rencana?
+Atau, karena resesi sudah dimulai, Anda menjual semuanya?
+Tentukan pilihan Anda.
+3, 2, 1.
+Di fase ini, melihat beberapa indikator sekaligus dan memegang sesuai rencana adalah pilihan yang benar.
+Tanggalnya 5 Agustus 2024, hari ketika saham anjlok setelah data pengangguran diumumkan.
+Kalau melihat indikator lain hari itu, harga minyak dunia 41% lebih rendah dari puncak 2022.
+Imbal hasil obligasi AS 10 tahun juga sedang turun dari 4,2% ke 3,8% dalam 3 minggu.
+Kalau Anda menjual semua seperti Pak Park, dalam 1 tahun 5 bulan uang Anda hanya bertambah 6% dari bunga.
+Kalau tetap dipegang, rekor tertinggi kembali dalam 45 hari, dan setelah 1 tahun 5 bulan sudah naik 34%.
+Memang, saat itu bisa saja benar-benar awal resesi.
+Tapi sejak 1990, saham sudah delapan belas kali turun lebih dari 8% dalam sebulan dari dekat rekor tertinggi.
+Empat belas di antaranya tidak berlanjut jadi pasar bearish dengan penurunan lebih dari 20%.
+Jadi pilihan yang benar adalah tidak panik menjual karena angka pengangguran saja, tapi juga melihat minyak dan suku bunga.
+
+-결과
+Dalam tes ini, berapa fase yang Anda tebak dengan benar?
+Kalau benar kelimanya, Anda membaca fase dari indikator dan mengatur porsi sesuai risiko: lulus.
+Kalau benar tiga atau empat, Anda cenderung mengabaikan sinyal atau bereaksi berlebihan pada satu sinyal: waspada.
+Kalau benar dua atau kurang, seperti Pak Park, Anda kemungkinan besar rugi karena tak mengenali sinyal bahaya: tidak lulus.
+
+-정리
+Seperti terlihat dari tes ini, agar tidak menyesal setelah nasi menjadi bubur, bacalah fase, bukan tanggal, dari indikator dan kurangi risiko lebih awal; itulah jalan menjadi kaya lewat saham.
+Semoga sukses berinvestasi untuk Anda semua.
+Terima kasih sudah menonton.

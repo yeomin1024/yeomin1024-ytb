@@ -1,6 +1,7 @@
 # daebi-test-2026-11-shorts 업로드 시트 (주식 쇼츠)
 
-버전: v1.5 — 2026-11-05 — 설명란 ▶ 줄의 롱폼 제목 = 「주식 투자 수익나도 결국엔 손실인 사람 전원 탈락 테스트」 (사용자 지시 "아니 '절대 통과 못하는' 이렇게 시청자 자극할 수 있도록 해야해 일단 의미는 같지만 단어만 다르게 변경해봐") · 언어별 설명 9개 같이.
+버전: v1.6 — 2026-11-05 — 설명란 ▶ 줄의 롱폼 제목 = 「주식 투자 수익나도 결국엔 손실인 사람들은 0점 맞는 테스트」 (사용자 지시 "사람들은 까지는 똑같이 쓰고 '0점 맞는' 단순하지만 자극적인 표현으로 변하는 걸로 하자 2편은 내가 말한걸로 변경하고 나머지 다른 표현 찾아") · 언어별 설명 9개.
+이전 v1.5 — 2026-11-05 — 설명란 ▶ 줄의 롱폼 제목 = 「주식 투자 수익나도 결국엔 손실인 사람 전원 탈락 테스트」 (사용자 지시 "아니 '절대 통과 못하는' 이렇게 시청자 자극할 수 있도록 해야해 일단 의미는 같지만 단어만 다르게 변경해봐") · 언어별 설명 9개 같이.
 이전 v1.4 — 2026-11-05 — 설명란 ▶ 줄의 롱폼 제목을 새 제목으로 (사용자 지시 "주식 투자 수익나도 결국엔 손실, 테스트 살려서 제목 다시 변경해봐") · 언어별 설명 9개 같이.
 이전 v1.3 — 2026-11-05 — 외국어 설정 (사용자 지시 "외국어 자막, 제목, 썸네일 등 외국어 설정에 필요한 것들 생성하고 지시사항에 반영해 이건 영상이 렌더까지 완료되면 하는거야" — `stock/guides/quick_board.md` 규칙 46): 5번 언어별 제목·설명 9개(지금 제목·설명란 번역 · ▶ 줄의 롱폼 제목은 롱폼 시트 6번의 그 언어 제목) · 자막 대본·SRT `subs/daebi-test-2026-11-shorts.<언어>.txt·srt` 9개 · 설정표 '기본 언어 ko'·'자막 올리기 언어별' · 썸네일은 0초 장면이라 언어별 없음 — 섹션 번호 5~6 → 6~7.
 이전 v1.2 — 2026-11-05 — 쇼츠 설명란은 원래 꼴로 되돌림 (사용자 지시 "쇼츠는 다시 원래했던 설명으로 지시사항 수정하고 다시 설명 보여줘" — 규칙 45 는 롱폼만) · 태그는 늘린 것 그대로.
@@ -24,7 +25,7 @@
 
 ```
 상승장에서 번 돈을 내 실력이라고 믿는 생각이, 폭락에서 어떻게 계좌를 무너뜨리는지 짧게 담았습니다.
-▶ 다섯 가지 생각 가운데 당신은 몇 개인지, 테스트 전체는 아래 '관련 동영상'에서 확인하세요 — 주식 투자 수익나도 결국엔 손실인 사람 전원 탈락 테스트
+▶ 다섯 가지 생각 가운데 당신은 몇 개인지, 테스트 전체는 아래 '관련 동영상'에서 확인하세요 — 주식 투자 수익나도 결국엔 손실인 사람들은 0점 맞는 테스트
 
 ■ 알려 드립니다
 과거 자료로 만든 연구·교육용 영상이며, 투자 권유가 아닙니다. 2020년에 2배 넘게 오른 회사 수는 지금 S&P 500에 속한 회사만 센 것입니다. 내레이션은 AI 음성이고, 그림은 AI로 만든 연출입니다.
@@ -50,39 +51,39 @@
 {
  "en": {
   "title": "Invest with 'this thought' and you'll never escape a crash.",
-  "description": "A short look at how believing that money made in a bull market is your own skill can wreck your account in a crash.\n▶ Which of the five thoughts do you have? Take the full test in the related video below: People whose stock gains end in losses all fail this test\n\n■ Please note\nA research and educational video made from past data, not investment advice. The number of companies that rose more than 2x in 2020 counts only companies in today's S&P 500. The narration is an AI voice, and the images are AI-made illustrations.\n#Stocks #StockTest"
+  "description": "A short look at how believing that money made in a bull market is your own skill can wreck your account in a crash.\n▶ Which of the five thoughts do you have? Take the full test in the related video below: People whose stock gains end in losses score 0 on this test\n\n■ Please note\nA research and educational video made from past data, not investment advice. The number of companies that rose more than 2x in 2020 counts only companies in today's S&P 500. The narration is an AI voice, and the images are AI-made illustrations.\n#Stocks #StockTest"
  },
  "hi": {
   "title": "'इस सोच' के साथ शेयरों में निवेश करेंगे, तो क्रैश से कभी नहीं बचेंगे।",
-  "description": "तेज़ी के बाज़ार में कमाए पैसे को अपना हुनर मानने की सोच, क्रैश में आपका खाता कैसे डुबो देती है, यह छोटे में दिखाया है।\n▶ पाँच विचारों में से आपमें कितने हैं, पूरा टेस्ट नीचे जुड़े वीडियो में देखिए: शेयर में मुनाफ़े के बाद भी आख़िर में घाटा उठाने वाले सब इस टेस्ट में फ़ेल\n\n■ ध्यान दें\nयह पुराने डेटा से बना शोध और शिक्षा का वीडियो है, निवेश सलाह नहीं। 2020 में 2 गुना से ज़्यादा बढ़ी कंपनियों की गिनती सिर्फ़ आज की S&P 500 कंपनियों में से है। आवाज़ AI की है, और चित्र AI से बनाए गए हैं।\n#शेयरबाज़ार #शेयरटेस्ट"
+  "description": "तेज़ी के बाज़ार में कमाए पैसे को अपना हुनर मानने की सोच, क्रैश में आपका खाता कैसे डुबो देती है, यह छोटे में दिखाया है।\n▶ पाँच विचारों में से आपमें कितने हैं, पूरा टेस्ट नीचे जुड़े वीडियो में देखिए: शेयर में मुनाफ़े के बाद भी आख़िर में घाटा उठाने वाले इस टेस्ट में 0 नंबर लाते हैं\n\n■ ध्यान दें\nयह पुराने डेटा से बना शोध और शिक्षा का वीडियो है, निवेश सलाह नहीं। 2020 में 2 गुना से ज़्यादा बढ़ी कंपनियों की गिनती सिर्फ़ आज की S&P 500 कंपनियों में से है। आवाज़ AI की है, और चित्र AI से बनाए गए हैं।\n#शेयरबाज़ार #शेयरटेस्ट"
  },
  "id": {
   "title": "Investasi saham dengan 'pikiran ini', kamu tak akan lolos dari pasar anjlok.",
-  "description": "Singkatnya, bagaimana pikiran bahwa uang dari pasar naik adalah hasil keahlianmu bisa menghancurkan akunmu saat pasar anjlok.\n▶ Dari lima pikiran itu, kamu punya berapa? Tes lengkapnya ada di video tertaut di bawah: Yang untung saham tapi akhirnya rugi, semuanya gagal di tes ini\n\n■ Perlu diketahui\nVideo riset dan edukasi dari data masa lalu, bukan ajakan investasi. Jumlah perusahaan yang naik lebih dari 2 kali lipat pada 2020 hanya menghitung perusahaan yang kini ada di S&P 500. Narasinya suara AI, dan gambarnya ilustrasi buatan AI.\n#Saham #TesSaham"
+  "description": "Singkatnya, bagaimana pikiran bahwa uang dari pasar naik adalah hasil keahlianmu bisa menghancurkan akunmu saat pasar anjlok.\n▶ Dari lima pikiran itu, kamu punya berapa? Tes lengkapnya ada di video tertaut di bawah: Yang untung saham tapi akhirnya rugi dapat nilai 0 di tes ini\n\n■ Perlu diketahui\nVideo riset dan edukasi dari data masa lalu, bukan ajakan investasi. Jumlah perusahaan yang naik lebih dari 2 kali lipat pada 2020 hanya menghitung perusahaan yang kini ada di S&P 500. Narasinya suara AI, dan gambarnya ilustrasi buatan AI.\n#Saham #TesSaham"
  },
  "pt": {
   "title": "Investindo com 'este pensamento', você nunca vai escapar de um crash.",
-  "description": "Mostramos rapidinho como achar que o dinheiro ganho na alta vem do seu talento pode destruir sua conta num crash.\n▶ Quantos dos cinco pensamentos você tem? Faça o teste completo no vídeo vinculado abaixo: Quem lucra na bolsa mas acaba no prejuízo: todos reprovam neste teste\n\n■ Aviso\nVídeo de pesquisa e educação feito com dados do passado; não é recomendação de investimento. O número de empresas que subiram mais de 2 vezes em 2020 conta só as empresas que estão hoje no S&P 500. A narração é voz de IA, e as imagens são ilustrações feitas com IA.\n#Ações #TesteDeAções"
+  "description": "Mostramos rapidinho como achar que o dinheiro ganho na alta vem do seu talento pode destruir sua conta num crash.\n▶ Quantos dos cinco pensamentos você tem? Faça o teste completo no vídeo vinculado abaixo: Quem lucra na bolsa mas acaba no prejuízo tira 0 neste teste\n\n■ Aviso\nVídeo de pesquisa e educação feito com dados do passado; não é recomendação de investimento. O número de empresas que subiram mais de 2 vezes em 2020 conta só as empresas que estão hoje no S&P 500. A narração é voz de IA, e as imagens são ilustrações feitas com IA.\n#Ações #TesteDeAções"
  },
  "es-419": {
   "title": "Si inviertes con 'este pensamiento', nunca escaparás de un desplome.",
-  "description": "Te mostramos en corto cómo creer que el dinero ganado en un mercado alcista viene de tu habilidad puede hundir tu cuenta en un desplome.\n▶ ¿Cuántos de los cinco pensamientos tienes? Haz la prueba completa en el video vinculado abajo: Quienes ganan en la bolsa pero al final pierden: todos reprueban este test\n\n■ Aviso\nVideo de investigación y educación hecho con datos del pasado; no es recomendación de inversión. El número de empresas que subieron más de 2 veces en 2020 solo cuenta las empresas que hoy están en el S&P 500. La narración es una voz de IA y las imágenes son ilustraciones hechas con IA.\n#Acciones #TestDeAcciones"
+  "description": "Te mostramos en corto cómo creer que el dinero ganado en un mercado alcista viene de tu habilidad puede hundir tu cuenta en un desplome.\n▶ ¿Cuántos de los cinco pensamientos tienes? Haz la prueba completa en el video vinculado abajo: Quienes ganan en la bolsa pero al final pierden sacan 0 en este test\n\n■ Aviso\nVideo de investigación y educación hecho con datos del pasado; no es recomendación de inversión. El número de empresas que subieron más de 2 veces en 2020 solo cuenta las empresas que hoy están en el S&P 500. La narración es una voz de IA y las imágenes son ilustraciones hechas con IA.\n#Acciones #TestDeAcciones"
  },
  "ja": {
   "title": "「この考え」で株式投資をすると、あなたは絶対に暴落を避けられません。",
-  "description": "上昇相場で稼いだお金を自分の実力だと信じる考えが、暴落でどう口座を崩すのかを短くまとめました。\n▶ 五つの考えのうちあなたはいくつ当てはまるか、テストの全編は下のリンクの動画で確認してください — 株式投資で利益が出ても結局は損失の人、全員不合格のテスト\n\n■ お知らせ\n過去のデータで作った研究・教育用の動画で、投資の勧誘ではありません。2020年に2倍を超えて上がった企業の数は、今のS&P 500に属する企業だけを数えたものです。ナレーションはAI音声で、絵はAIで作った演出です。\n#株 #株テスト"
+  "description": "上昇相場で稼いだお金を自分の実力だと信じる考えが、暴落でどう口座を崩すのかを短くまとめました。\n▶ 五つの考えのうちあなたはいくつ当てはまるか、テストの全編は下のリンクの動画で確認してください — 株式投資で利益が出ても結局は損失の人は0点を取るテスト\n\n■ お知らせ\n過去のデータで作った研究・教育用の動画で、投資の勧誘ではありません。2020年に2倍を超えて上がった企業の数は、今のS&P 500に属する企業だけを数えたものです。ナレーションはAI音声で、絵はAIで作った演出です。\n#株 #株テスト"
  },
  "de": {
   "title": "Mit „diesem Gedanken“ an der Börse entkommst du keinem Crash.",
-  "description": "Kurz gezeigt: Wie der Glaube, im Bullenmarkt verdientes Geld sei dein eigenes Können, dein Depot im Crash ruinieren kann.\n▶ Wie viele der fünf Gedanken hast du? Den ganzen Test findest du im verlinkten Video unten: Wer mit Aktien Gewinne macht und am Ende verliert, fällt bei diesem Test durch\n\n■ Hinweis\nForschungs- und Bildungsvideo auf Basis vergangener Daten, keine Anlageberatung. Die Zahl der Firmen, die 2020 auf mehr als das 2-Fache stiegen, zählt nur Firmen, die heute im S&P 500 sind. Die Stimme ist eine KI-Stimme, die Bilder sind mit KI erstellte Illustrationen.\n#Aktien #AktienTest"
+  "description": "Kurz gezeigt: Wie der Glaube, im Bullenmarkt verdientes Geld sei dein eigenes Können, dein Depot im Crash ruinieren kann.\n▶ Wie viele der fünf Gedanken hast du? Den ganzen Test findest du im verlinkten Video unten: Wer mit Aktien Gewinne macht und am Ende verliert, bekommt 0 Punkte in diesem Test\n\n■ Hinweis\nForschungs- und Bildungsvideo auf Basis vergangener Daten, keine Anlageberatung. Die Zahl der Firmen, die 2020 auf mehr als das 2-Fache stiegen, zählt nur Firmen, die heute im S&P 500 sind. Die Stimme ist eine KI-Stimme, die Bilder sind mit KI erstellte Illustrationen.\n#Aktien #AktienTest"
  },
  "vi": {
   "title": "Đầu tư với 'suy nghĩ này', bạn chắc chắn không tránh được cú sập.",
-  "description": "Tóm tắt ngắn cách suy nghĩ rằng tiền kiếm được trong thị trường tăng là nhờ thực lực của mình có thể làm tài khoản sụp đổ khi thị trường sập.\n▶ Trong năm suy nghĩ, bạn mắc mấy cái? Xem toàn bộ bài test ở video liên kết bên dưới: Có lời cổ phiếu mà cuối cùng vẫn lỗ: ai như vậy đều trượt bài test này\n\n■ Lưu ý\nVideo nghiên cứu và giáo dục làm từ dữ liệu quá khứ, không phải lời khuyên đầu tư. Số công ty tăng hơn 2 lần trong năm 2020 chỉ tính các công ty hiện thuộc S&P 500. Lời thuyết minh là giọng AI, hình ảnh là minh họa tạo bằng AI.\n#ChứngKhoán #TestChứngKhoán"
+  "description": "Tóm tắt ngắn cách suy nghĩ rằng tiền kiếm được trong thị trường tăng là nhờ thực lực của mình có thể làm tài khoản sụp đổ khi thị trường sập.\n▶ Trong năm suy nghĩ, bạn mắc mấy cái? Xem toàn bộ bài test ở video liên kết bên dưới: Có lời cổ phiếu mà cuối cùng vẫn lỗ: người như vậy được 0 điểm ở bài test này\n\n■ Lưu ý\nVideo nghiên cứu và giáo dục làm từ dữ liệu quá khứ, không phải lời khuyên đầu tư. Số công ty tăng hơn 2 lần trong năm 2020 chỉ tính các công ty hiện thuộc S&P 500. Lời thuyết minh là giọng AI, hình ảnh là minh họa tạo bằng AI.\n#ChứngKhoán #TestChứngKhoán"
  },
  "tr": {
   "title": "'Bu düşünceyle' borsaya yatırım yaparsanız çöküşten asla kaçamazsınız.",
-  "description": "Yükselen piyasada kazanılan parayı kendi yeteneğiniz sanmanın, çöküşte hesabınızı nasıl batırdığını kısaca anlattık.\n▶ Beş düşünceden sizde kaç tane var? Testin tamamı aşağıdaki bağlantılı videoda: Borsada kâr edip sonunda zarar edenlerin hepsi bu testten kalıyor\n\n■ Bilgilendirme\nGeçmiş verilerle hazırlanmış araştırma ve eğitim videosudur, yatırım tavsiyesi değildir. 2020'de 2 kattan fazla yükselen şirket sayısı yalnızca bugün S&P 500'de yer alan şirketleri sayar. Seslendirme yapay zekâ sesi, görseller ise yapay zekâyla hazırlanmış çizimlerdir.\n#Borsa #BorsaTesti"
+  "description": "Yükselen piyasada kazanılan parayı kendi yeteneğiniz sanmanın, çöküşte hesabınızı nasıl batırdığını kısaca anlattık.\n▶ Beş düşünceden sizde kaç tane var? Testin tamamı aşağıdaki bağlantılı videoda: Borsada kâr edip sonunda zarar edenler bu testten 0 alıyor\n\n■ Bilgilendirme\nGeçmiş verilerle hazırlanmış araştırma ve eğitim videosudur, yatırım tavsiyesi değildir. 2020'de 2 kattan fazla yükselen şirket sayısı yalnızca bugün S&P 500'de yer alan şirketleri sayar. Seslendirme yapay zekâ sesi, görseller ise yapay zekâyla hazırlanmış çizimlerdir.\n#Borsa #BorsaTesti"
  }
 }
 ```

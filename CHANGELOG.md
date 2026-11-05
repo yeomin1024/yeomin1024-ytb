@@ -1,5 +1,9 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-05 — X 올리기 도구 `tools/sns_post_x.py` v1.0
+- 통과한 X 글을 OAuth 1.0a 로 게시(스레드 잇기·댓글=루트 답글). dry-run 기본·`--publish`·게이트(통과 ver·링크 자리·글자 수)·`posted.json` 중복 방지·`--check-auth`. 가짜 서버로 시험(서명·잇기·429 뒤 이어 올리기·재실행). `approved.json` x.e1-x=v4(사용자 통과 지시).
+- 지침: `sns_autopost.md` v1.1(X 이용 준비·환경 변수 4개) · `board_4_sns.md` v1.6.
+
 ## 2026-11-05 — SNS 자동 게시 조사
 - `stock/guides/sns_autopost.md` 신규(조사만): X(종량제·링크 글 $0.20)·스레드(250/일)·인스타(비즈니스·심사·100/일, 영상/그림)·틱톡(감사 전 비공개). `board_4_sns.md` v1.5 4번에 링크.
 

@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-05 — 2편 롱폼·쇼츠 예약 업로드 (2026-11-13 17:00 KST)
+
+- 사용자 지시 "2편도 롱폽, 쇼츠도 같은 날짜로 예약 업로드 해봐" — 롱폼·쇼츠 같은 시각, 날짜는 1편(11-12 17:00) 다음 날 같은 시각 (`guides/upload_guide.md` — 하루 롱폼 1 + 짝 쇼츠 1).
+- 올리기 전 채널 업로드 목록(playlistItems) 확인 — 2편 없음. `--dry-run` 두 편 문제 없음.
+- `python3 tools/youtube_upload.py stock daebi-test-2026-11 --publish-at 2026-11-13T17:00:00+09:00` → `EV12LtESXuI` (8분 8초) · 쇼츠 → `H0k8gbYeIYo` (56초). 둘 다 썸네일 ok · 자막 ko·en·hi·id·pt·es-419·ja·de·vi·tr 10개 · 언어별 제목·설명 9개 · 비공개 + publishAt 2026-11-13T08:00:00Z (videos.list 로 확인).
+- 기록: 두 `youtube.json` · 시트 결과 칸 · `stock/uploaded_videos.md` v1.2.
+
 ## 2026-11-05 — 2~4편 제목 「…사람들은 + 단순하고 자극적인 말 + 테스트」
 
 - 사용자 지시 "사람들은 까지는 똑같이 쓰고 '0점 맞는' 단순하지만 자극적인 표현으로 변하는 걸로 하자 2편은 내가 말한걸로 변경하고 나머지 다른 표현 찾아".

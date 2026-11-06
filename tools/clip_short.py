@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-06 — 사용자 지시 "클립 만들었어 확인해서 최종 영상 보여줘" (주식 쇼츠 애니메이션 bandoche-bunbae-2026-11 —
+# VERSION: v1.1 — 2026-11-06 — 자막 줄바꿈: 단위 낱말(원·만·%·배·명·개) 앞에서는 끊지 않음 ('2,000만 / 원' — 새 쇼츠 대본 v1.0 문장 15).
+# 이전 v1.0 — 2026-11-06 — 사용자 지시 "클립 만들었어 확인해서 최종 영상 보여줘" (주식 쇼츠 애니메이션 bandoche-bunbae-2026-11 —
 #          내레이션 없이 AI 클립을 이어 붙이는 꼴, 2026-11-06 "이미지를 영상화해 짧은 영상을 이어 붙이는 식으로"): 대본 전 장면 계획
 #          (scene_clips v1.4 timing=clips)으로 세로 쇼츠 한 편을 만든다 — 클립마다 깨끗한 구간(use_from·use_to)·pingpong·화면 시간
 #          (show_sec, 짧으면 1.35배까지 늦추고 마지막 장면을 멈춤) → 1080x1920 30fps · 그래프 장면(format=duo_chart)은 장면 80% 아래 붙임 +
@@ -34,12 +35,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import scene_clips as sc  # noqa: E402
 
 ROOT = sc.ROOT
-VERSION = "v1.0"
+VERSION = "v1.1"
 W, H, FPS = 1080, 1920, 30
 MAX_SLOW = sc.MAX_SLOW                       # 1.35 — assemble_video 와 같음
 FONT = ROOT / "video" / "public" / "fonts" / "NotoSansKR-700.ttf"
 FONT_B = ROOT / "video" / "public" / "fonts" / "NotoSansKR-900.ttf"
 # 자막 — video_guide 6번 쇼츠 (#cc left 540 · bottom 400 → 아래 끝 y 1520 · 띠 870 · 46px · 2줄까지)
+NO_BREAK_BEFORE = ("원", "만", "%", "배", "명", "개")   # 이 낱말 앞에서는 줄을 바꾸지 않음 (v1.1)
 CAP = dict(size=46, max_w=870, bottom=1520, pad_x=18, pad_y=12, line=1.32)
 # 그래프 장면 — 위에 그래프 카드 (안전 구역 위 150). 클립 "scale"(<1)이면 장면을 줄여 아래에 붙이고 양옆은 흐린 배경
 PANEL = (60, 150, 1020, 580)                 # x0 y0 x1 y1
@@ -68,6 +70,8 @@ def wrap(text: str, f: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
     words = text.split(" ")
     best = None
     for i in range(1, len(words)):
+        if words[i].startswith(NO_BREAK_BEFORE):                     # '2,000만 / 원' 처럼 단위만 다음 줄로 가지 않게
+            continue
         a, b = " ".join(words[:i]), " ".join(words[i:])
         la, lb = f.getlength(a), f.getlength(b)
         if la <= max_w and lb <= max_w and (best is None or abs(la - lb) < best[0]):

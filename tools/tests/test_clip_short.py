@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-06 — tools/clip_short.py v1.0 시험: 자막 줄바꿈(한 줄·두 줄·두 줄 넘으면 멈춤) · 화면 시간 맞추기(늦춤 1.35배 한도·
+# VERSION: v1.1 — 2026-11-06 — clip_short v1.1 단위 앞 줄바꿈 금지 시험 더함.
+# 이전 v1.0 — 2026-11-06 — tools/clip_short.py v1.0 시험: 자막 줄바꿈(한 줄·두 줄·두 줄 넘으면 멈춤) · 화면 시간 맞추기(늦춤 1.35배 한도·
 #          마지막 장면 멈춤·pingpong) · 그래프 날짜 · 이름표가 카드 안 (글꼴 필요 — 없으면 건너뜀: node video/scripts/get-fonts.mjs)
 r"""
   python3 -m unittest tools.tests.test_clip_short -v     (저장소 최상위에서)
@@ -38,6 +39,8 @@ class TestClipShort(unittest.TestCase):
         two = cs.wrap("폭락이 오자 A는 원금까지 잃었고, B는 여전히 수익입니다", f, 834)
         self.assertEqual(len(two), 2)
         self.assertTrue(all(f.getlength(t) <= 834 for t in two))
+        money = cs.wrap("넣은 5,500만 원 중 2,000만 원 넘게 잃었습니다.", f, 834)   # v1.1 — 단위 앞에서 끊지 않음
+        self.assertFalse(any(line.startswith(cs.NO_BREAK_BEFORE) for line in money[1:]), money)
         with self.assertRaises(SystemExit):
             cs.wrap("아주 긴 자막 " * 12, f, 834)                               # 두 줄로도 넘으면 멈춤 (자막 2줄까지)
 

@@ -1,6 +1,6 @@
 # bandoche-bunbae-2026-11 쇼츠 — 모션그래픽 그림 17장 (ChatGPT용 · 1번부터 차례로 모두)
 
-작성: v1.1 — 2026-11-06 — 3번 S-ROOM-B 국면 계기판을 날씨 그림 대신 색(초록·노랑·빨강)으로 (사용자 지시 "잠깐 국면 계기판은 날씨로 하지말고 그냥 색으로 표현해 수정해서 다시 알려줘 명령") · 이전 v1.0 — 2026-11-06 — 사용자 지시 "배경, 캐릭터, 물체 요소 이미지 만들어서 모션그래픽으로 적절하게 상황 표현해 특히 캐릭터는 행동, 상태, 심리 등 변화 별로 이미지 요소를 만들어서 최대한 자연스럽게 표현해야해 진짜 애니메이션 처럼" (쇼츠 대본 `stock/source/bandoche-bunbae-2026-11/shorts/bandoche-bunbae-2026-11-shorts.txt` v1.0 — 19문장, 표의 '쓰는 대본 문장'은 그 줄 번호)
+작성: v1.2 — 2026-11-06 — 날씨 요소를 모두 뺌 (사용자 지시 "야 날씨 요소를 그냥 없애 직관적으로 그냥 표현하라고 다시 수정해서 알려줘"): 11번 B-REACT 3 = 우산 → 지폐 다발을 작은 금고에 넣음 · 17번 P-FX 3 = 폭풍 구름 → 금이 가 부서지는 AI 칩 · 1번 S-VS 오른쪽 구름 → 격자·빛 점 · 3번 S-ROOM-B '맑은' 말 뺌 · 할 일 6에 '날씨 요소 금지' · 이전 v1.1 — 2026-11-06 — 3번 S-ROOM-B 국면 계기판을 날씨 그림 대신 색(초록·노랑·빨강)으로 (사용자 지시 "잠깐 국면 계기판은 날씨로 하지말고 그냥 색으로 표현해 수정해서 다시 알려줘 명령") · 이전 v1.0 — 2026-11-06 — 사용자 지시 "배경, 캐릭터, 물체 요소 이미지 만들어서 모션그래픽으로 적절하게 상황 표현해 특히 캐릭터는 행동, 상태, 심리 등 변화 별로 이미지 요소를 만들어서 최대한 자연스럽게 표현해야해 진짜 애니메이션 처럼" (쇼츠 대본 `stock/source/bandoche-bunbae-2026-11/shorts/bandoche-bunbae-2026-11-shorts.txt` v1.0 — 19문장, 표의 '쓰는 대본 문장'은 그 줄 번호)
 
 쓰임: Claude 가 이 그림들을 잘라 **코드 모션그래픽**(배경 위에 인물·소품을 움직이고, 자세 그림을 바꿔 끼우고, 숫자·티커·그래프는 코드로)으로 영상을 만든다. 인물은 **한 장에 같은 사람의 연속 동작 3개**(자세 시트)로 그려 같은 얼굴·옷이 유지되게 한다 — Claude 가 칸마다 잘라 쓴다. 그림 속 글자·숫자는 없다 (티커 NVDA·SOXL 등, 수익률, A·B 이름, 그래프는 모두 코드).
 
@@ -16,13 +16,13 @@
 | 8 | `stock/source/bandoche-bunbae-2026-11/puppet/A-PANIC.png` | 가로 1536×1024 · 투명 · 자세 3 | A 불안 → 충격 → 비명 | 12 · 13 |
 | 9 | `stock/source/bandoche-bunbae-2026-11/puppet/A-RUIN.png` | 가로 1536×1024 · 투명 · 자세 3 | A 무너짐: 다리 풀림 → 무릎 꿇고 통곡 → 웅크려 흐느낌 | 13 · 14 · 15 |
 | 10 | `stock/source/bandoche-bunbae-2026-11/puppet/B-CALM.png` | 가로 1536×1024 · 투명 · 자세 3 | B 차분: 서 있기 → 동전 하나 놓기 → 차 마시기 | 4 · 5 · 10 |
-| 11 | `stock/source/bandoche-bunbae-2026-11/puppet/B-REACT.png` | 가로 1536×1024 · 투명 · 자세 3 | B 반응: 못마땅한 곁눈질 → 태블릿 확인 → 우산 쓰고 차분 | 6 · 12 · 13~15 |
+| 11 | `stock/source/bandoche-bunbae-2026-11/puppet/B-REACT.png` | 가로 1536×1024 · 투명 · 자세 3 | B 반응: 못마땅한 곁눈질 → 태블릿 확인 → 지폐를 금고에 넣으며 차분 (현금으로 지킴) | 6 · 12 · 13~15 |
 | 12 | `stock/source/bandoche-bunbae-2026-11/puppet/B-WIN.png` | 가로 1536×1024 · 투명 · 자세 3 | B 승리: 팔짱 미소 → 엄지 척 → 트로피 들기 | 16 · 17 · 18 |
 | 13 | `stock/source/bandoche-bunbae-2026-11/puppet/A-FACE.png` | 가로 1536×1024 · 투명 · 얼굴 3 | A 얼굴: 탐욕 반짝 → 공포 → 오열 | 9 · 11 · 13 · 15 |
 | 14 | `stock/source/bandoche-bunbae-2026-11/puppet/B-FACE.png` | 가로 1536×1024 · 투명 · 얼굴 3 | B 얼굴: 차분 → 못마땅 → 자신감 | 6 · 16 · 17 |
 | 15 | `stock/source/bandoche-bunbae-2026-11/puppet/P-AI.png` | 가로 1536×1024 · 투명 · 소품 4 | AI 칩 · 금화 더미 · 지폐 다발 · 빈 화면 폰 | 3 · 8~9 |
 | 16 | `stock/source/bandoche-bunbae-2026-11/puppet/P-SECTOR.png` | 가로 1536×1024 · 투명 · 배지 8 | 업종 배지 7 (기술·헬스케어·금융·필수소비재·에너지·산업·현금) + 방패 | 4 · 10 · 16 |
-| 17 | `stock/source/bandoche-bunbae-2026-11/puppet/P-FX.png` | 가로 1536×1024 · 투명 · 소품 4 | AI 거품 · 터지는 거품 · 폭풍 구름 · 트로피 | 12 · 14 · 17 |
+| 17 | `stock/source/bandoche-bunbae-2026-11/puppet/P-FX.png` | 가로 1536×1024 · 투명 · 소품 4 | AI 거품 · 터지는 거품 · 부서지는 AI 칩 · 트로피 | 12 · 14 · 17 |
 
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.
@@ -62,7 +62,8 @@
        return bool(ok)
    # 5~14번: check(경로, cols=3) · 15·17번: check(경로, cols=4, margin=0.02) · 16번: check(경로, cols=4, rows=2, margin=0.02)
    ```
-6. **글자·숫자·로고·워터마크를 하나도 넣지 않는다** — 화면·폰·지폐·간판·배지·트로피에도 없음. 실제 회사(엔비디아·샌디스크 등)·은행·게임의 이름·로고·색을 닮게 그리지 않는다. 만든 뒤 확대해 글자가 보이면 다시 만든다.
+6. **날씨 요소(해·구름·비·번개·우산·하늘 풍경)는 하나도 그리지 않는다** — 상황은 사람의 행동·표정과 물건(돈·칩·금고·배지)으로만 직관적으로 보인다.
+   **글자·숫자·로고·워터마크를 하나도 넣지 않는다** — 화면·폰·지폐·간판·배지·트로피에도 없음. 실제 회사(엔비디아·샌디스크 등)·은행·게임의 이름·로고·색을 닮게 그리지 않는다. 만든 뒤 확대해 글자가 보이면 다시 만든다.
 7. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`1. stock/source/bandoche-bunbae-2026-11/puppet/S-VS.jpg`). 그림 안에는 쓰지 않는다.
 8. **다 만들면 저장소에 넣는다 — 저장 경로 그대로.**
    - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치, 경로는 표의 파일 이름 그대로 (대소문자·하이픈까지 같게).
@@ -121,7 +122,7 @@ SHEET: landscape 1536x1024. The canvas is divided into equal invisible cells (3 
 **저장 경로: `stock/source/bandoche-bunbae-2026-11/puppet/S-VS.jpg`** — JPEG 700KB 이하 · 세로 1024×1536
 
 ```
-Portrait 1024x1536. A full-bleed background that fills the whole canvas edge to edge: a flashy mobile-game "versus" arena split vertically down the middle by a jagged bright energy seam. LEFT half: hot neon orange and red with glowing abstract circuit-board lines and sparks (an AI-chip power vibe). RIGHT half: calm cool teal and sky blue with soft clouds, gentle light rays and a few small green leaves (a calm, balanced vibe). At the bottom of each half a round glossy pedestal platform where a character will stand (left pedestal centered at about 27% width, right one at about 73% width, both at about 80% of the height). Keep the top 25% simple and open (a title goes there) and the center seam area clear. No people, no text, no letters, no "VS" letters, no numbers, no logos.
+Portrait 1024x1536. A full-bleed background that fills the whole canvas edge to edge: a flashy mobile-game "versus" arena split vertically down the middle by a jagged bright energy seam. LEFT half: hot neon orange and red with glowing abstract circuit-board lines and sparks (an AI-chip power vibe). RIGHT half: calm cool teal and soft blue with neat, evenly spaced glowing grid lines and soft round light dots (an orderly, balanced vibe). At the bottom of each half a round glossy pedestal platform where a character will stand (left pedestal centered at about 27% width, right one at about 73% width, both at about 80% of the height). Keep the top 25% simple and open (a title goes there) and the center seam area clear. No people, no text, no letters, no "VS" letters, no numbers, no logos, no weather (no sky, clouds, sun, rain or lightning).
 ```
 
 ## 2. S-ROOM-A — 배경: A 의 방
@@ -137,7 +138,7 @@ Portrait 1024x1536. A full-bleed background, no people: A's bright, slightly mes
 **저장 경로: `stock/source/bandoche-bunbae-2026-11/puppet/S-ROOM-B.jpg`** — JPEG 700KB 이하 · 세로 1024×1536
 
 ```
-Portrait 1024x1536. A full-bleed background, no people: B's tidy sunny home study like the reference scene — a large window with soft daylight and green trees outside, a light wooden desk against the right wall with a potted plant and a cup of tea, bookshelves with plain spines. High on the left wall (upper-left quarter) hangs a big semicircular gauge meter (like a speedometer) in a simple round frame: its arc is divided into three plain flat color zones — green on the left, yellow in the middle, red on the right — with NO needle (the pivot at the bottom center is a plain empty circle), no pictures, no icons, no tick labels and no numbers. The middle of the floor (center, from about 55% to 95% of the height) is open and empty — a character will stand there. No people, no text, no numbers, no logos.
+Portrait 1024x1536. A full-bleed background, no people: B's tidy, bright home study like the reference scene — a large window with plain soft white light and green trees outside, a light wooden desk against the right wall with a potted plant and a cup of tea, bookshelves with plain spines. High on the left wall (upper-left quarter) hangs a big semicircular gauge meter (like a speedometer) in a simple round frame: its arc is divided into three plain flat color zones — green on the left, yellow in the middle, red on the right — with NO needle (the pivot at the bottom center is a plain empty circle), no pictures, no icons, no tick labels and no numbers. The middle of the floor (center, from about 55% to 95% of the height) is open and empty — a character will stand there. No people, no text, no numbers, no logos, no weather pictures (no sun, clouds, rain or lightning anywhere).
 ```
 
 ## 4. S-DUO — 배경: 그래프 무대
@@ -201,7 +202,7 @@ Three poses of B, left to right: (1) standing calmly upright with hands clasped 
 **저장 경로: `stock/source/bandoche-bunbae-2026-11/puppet/B-REACT.png`** — PNG 투명 700KB 이하 · 가로 1536×1024 · 검사 `check(경로, cols=3)`
 
 ```
-Three poses of B, left to right: (1) holding a teacup halfway up, giving a long annoyed side-eye toward his right (the viewer's left), lips pressed into a flat displeased line, one eyebrow twitching — annoyed but composed; (2) checking a small tablet held in one hand (its screen faces away from the viewer), calm and focused, the other hand lightly touching his chin; (3) standing calmly under an open navy-blue umbrella held over his head with one hand, relaxed shoulders and a steady small smile — calm in a storm (no rain drawn).
+Three poses of B, left to right: (1) holding a teacup halfway up, giving a long annoyed side-eye toward his right (the viewer's left), lips pressed into a flat displeased line, one eyebrow twitching — annoyed but composed; (2) checking a small tablet held in one hand (its screen faces away from the viewer), calm and focused, the other hand lightly touching his chin; (3) calmly placing a thick bundle of plain green banknotes into a small open steel safe standing on the floor beside him (keeping his money safe as cash), relaxed shoulders and a steady small smile; no text or numbers on the safe or the notes.
 ```
 
 ## 12. B-WIN — B 승리 (자세 3)
@@ -244,10 +245,10 @@ Four separate objects in four equal columns, left to right: (1) a glossy black-a
 Eight round glossy game-style badge tokens of the same size and style (thick colored rim, soft highlight), arranged in 4 columns x 2 rows, each with one simple picture in the middle and no text: top row left to right — (1) a laptop (technology, blue rim), (2) a red heart with a white plus sign (healthcare, red rim), (3) a classical bank building with columns (finance, purple rim), (4) a shopping basket with bread and a milk bottle (consumer staples, green rim); bottom row left to right — (5) a lightning bolt beside an oil drop (energy, orange rim), (6) a big gear (industrials, gray rim), (7) a neat stack of green banknotes (cash, gold rim), (8) a sturdy shield (protection, teal rim).
 ```
 
-## 17. P-FX — 소품: AI 거품 · 터지는 거품 · 폭풍 구름 · 트로피 (4개)
+## 17. P-FX — 소품: AI 거품 · 터지는 거품 · 부서지는 AI 칩 · 트로피 (4개)
 
 **저장 경로: `stock/source/bandoche-bunbae-2026-11/puppet/P-FX.png`** — PNG 투명 700KB 이하 · 가로 1536×1024 · 검사 `check(경로, cols=4, margin=0.02)`
 
 ```
-Four separate objects in four equal columns, left to right: (1) a big shiny iridescent soap bubble with a small glowing computer chip floating inside it (an "AI bubble"); (2) the same bubble bursting — a ring of popping droplets and splash fragments flying outward, the little chip falling; (3) a dark gray storm cloud with heavy rain streaks below it and a yellow lightning bolt; (4) a plain shiny golden trophy cup with two handles, no text or engraving.
+Four separate objects in four equal columns, left to right: (1) a big shiny iridescent soap bubble with a small glowing computer chip floating inside it (an "AI bubble"); (2) the same bubble bursting — a ring of popping droplets and splash fragments flying outward, the little chip falling; (3) the same glossy black-and-gold computer chip block as in the P-AI sheet, now cracked straight through the middle and breaking apart, small fragments and a few gold pins flying off, its glow gone dull gray; (4) a plain shiny golden trophy cup with two handles, no text or engraving.
 ```

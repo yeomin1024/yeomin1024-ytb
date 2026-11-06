@@ -1,0 +1,5210 @@
+{
+ "version": "v1.6",
+ "made": "2026-11-06",
+ "note": "연구·교육용 — 투자 권유 아님. 지수는 가격, 펀드는 조정 종가. LEV3 는 가정 계산.",
+ "now": {
+  "day": "2026-11-05",
+  "nasdaq_peak": "2026-10-06",
+  "nasdaq_dd_pct": -11.9
+ },
+ "sensitivity": {
+  "D100": {
+   "D_pct": 10.0,
+   "episodes": 20,
+   "now_features": {
+    "days_from_peak": 22,
+    "sp_dd": -0.0595,
+    "worst_day": -0.0552,
+    "runup_1y": 0.2116
+   },
+   "rank": [
+    [
+     1.7,
+     "2020-09-08"
+    ],
+    [
+     1.899,
+     "2018-10-24"
+    ],
+    [
+     1.996,
+     "2024-08-02"
+    ],
+    [
+     2.137,
+     "2019-06-03"
+    ],
+    [
+     2.361,
+     "2022-01-19"
+    ],
+    [
+     2.424,
+     "2025-03-06"
+    ],
+    [
+     2.579,
+     "2021-03-08"
+    ],
+    [
+     2.67,
+     "2015-08-24"
+    ]
+   ],
+   "top1_drop_one_feature": {
+    "days_from_peak": "2020-09-08",
+    "sp_dd": "2020-02-27",
+    "worst_day": "2019-06-03",
+    "runup_1y": "2020-09-08"
+   },
+   "top1_stable": false,
+   "questions": {
+    "Q3_hold_beats_cash_end_1y": [
+     16,
+     3,
+     0,
+     19
+    ],
+    "Q3_hold_beats_cash_end_3y": [
+     15,
+     2,
+     0,
+     17
+    ],
+    "Q4_lev3_deeper_than_hold_1y": [
+     18,
+     0,
+     1,
+     19
+    ],
+    "Q4_lev3_deeper_than_hold_3y": [
+     17,
+     0,
+     0,
+     17
+    ],
+    "Q5_mix_shallower_than_hold_1y": [
+     17,
+     1,
+     1,
+     19
+    ],
+    "Q5_mix_shallower_than_hold_3y": [
+     16,
+     1,
+     0,
+     17
+    ],
+    "Q6_hold_beats_rebuy_end_1y": [
+     16,
+     3,
+     0,
+     19
+    ],
+    "Q6_hold_beats_rebuy_end_3y": [
+     14,
+     3,
+     0,
+     17
+    ],
+    "Q7_mix_beats_cash_end_1y": [
+     16,
+     3,
+     0,
+     19
+    ],
+    "Q7_mix_beats_cash_end_3y": [
+     15,
+     2,
+     0,
+     17
+    ]
+   },
+   "rows": [
+    {
+     "hit": "2000-03-30",
+     "1y": {
+      "HOLD": {
+       "end": 0.365,
+       "min": 0.363,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.056,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.422,
+       "min": 0.42,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.919,
+       "min": 0.894,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.016,
+       "min": 0.016,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 0.243,
+       "min": 0.187,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.1,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.281,
+       "min": 0.216,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.842,
+       "min": 0.771,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.001,
+       "min": 0.001,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2004-03-22",
+     "1y": {
+      "HOLD": {
+       "end": 1.063,
+       "min": 0.946,
+       "recover_days": 108,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.017,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.941,
+       "min": 0.941,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.053,
+       "min": 0.979,
+       "recover_days": 47,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.093,
+       "min": 0.808,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.308,
+       "min": 0.946,
+       "recover_days": 108,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.104,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.157,
+       "min": 0.904,
+       "recover_days": 302,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.263,
+       "min": 0.979,
+       "recover_days": 47,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.753,
+       "min": 0.808,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2005-04-14",
+     "1y": {
+      "HOLD": {
+       "end": 1.189,
+       "min": 0.976,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.037,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.033,
+       "min": 0.991,
+       "recover_days": 182,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.081,
+       "min": 0.992,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.582,
+       "min": 0.928,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.289,
+       "min": 0.976,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.125,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.12,
+       "min": 0.877,
+       "recover_days": 366,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.214,
+       "min": 0.992,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.586,
+       "min": 0.928,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2006-06-12",
+     "1y": {
+      "HOLD": {
+       "end": 1.262,
+       "min": 0.955,
+       "recover_days": 45,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.049,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.121,
+       "min": 0.997,
+       "recover_days": 103,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.164,
+       "min": 0.993,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.858,
+       "min": 0.858,
+       "recover_days": 45,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 0.99,
+       "min": 0.689,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.086,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.88,
+       "min": 0.612,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.969,
+       "min": 0.782,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.438,
+       "min": 0.163,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2007-11-21",
+     "1y": {
+      "HOLD": {
+       "end": 0.52,
+       "min": 0.52,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.017,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.517,
+       "min": 0.517,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.709,
+       "min": 0.709,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.091,
+       "min": 0.091,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.092,
+       "min": 0.52,
+       "recover_days": 598,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.019,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.086,
+       "min": 0.517,
+       "recover_days": 598,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.044,
+       "min": 0.68,
+       "recover_days": 594,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.567,
+       "min": 0.08,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2010-05-07",
+     "1y": {
+      "HOLD": {
+       "end": 1.3,
+       "min": 0.939,
+       "recover_days": 45,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.14,
+       "min": 0.988,
+       "recover_days": 117,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.16,
+       "min": 0.961,
+       "recover_days": 45,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.968,
+       "min": 0.795,
+       "recover_days": 53,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.651,
+       "min": 0.939,
+       "recover_days": 45,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.002,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.448,
+       "min": 0.978,
+       "recover_days": 327,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.399,
+       "min": 0.961,
+       "recover_days": 45,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 3.121,
+       "min": 0.795,
+       "recover_days": 53,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2011-08-04",
+     "1y": {
+      "HOLD": {
+       "end": 1.223,
+       "min": 0.924,
+       "recover_days": 17,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.0,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.1,
+       "min": 0.997,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.135,
+       "min": 0.956,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.538,
+       "min": 0.756,
+       "recover_days": 28,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.808,
+       "min": 0.924,
+       "recover_days": 17,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.627,
+       "min": 0.997,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.425,
+       "min": 0.956,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 4.402,
+       "min": 0.756,
+       "recover_days": 28,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2012-05-18",
+     "1y": {
+      "HOLD": {
+       "end": 1.227,
+       "min": 0.993,
+       "recover_days": 10,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.022,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.185,
+       "min": 0.995,
+       "recover_days": 12,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.708,
+       "min": 0.975,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.89,
+       "min": 0.993,
+       "recover_days": 10,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.575,
+       "min": 0.971,
+       "recover_days": 281,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.437,
+       "min": 0.995,
+       "recover_days": 12,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.516,
+       "min": 0.975,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2012-11-14",
+     "1y": {
+      "HOLD": {
+       "end": 1.365,
+       "min": 0.997,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.0,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.135,
+       "min": 0.942,
+       "recover_days": 163,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.189,
+       "min": 0.999,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.398,
+       "min": 0.99,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.862,
+       "min": 0.997,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.548,
+       "min": 0.942,
+       "recover_days": 163,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.357,
+       "min": 0.999,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.159,
+       "min": 0.99,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2015-08-24",
+     "1y": {
+      "HOLD": {
+       "end": 1.207,
+       "min": 0.984,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.002,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.024,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.13,
+       "min": 0.991,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.564,
+       "min": 0.881,
+       "recover_days": 121,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.891,
+       "min": 0.984,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.024,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.604,
+       "min": 0.993,
+       "recover_days": 305,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.355,
+       "min": 0.991,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.224,
+       "min": 0.881,
+       "recover_days": 121,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2018-10-24",
+     "1y": {
+      "HOLD": {
+       "end": 1.194,
+       "min": 0.87,
+       "recover_days": 58,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.022,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.151,
+       "min": 0.996,
+       "recover_days": 151,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.142,
+       "min": 0.942,
+       "recover_days": 53,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.472,
+       "min": 0.627,
+       "recover_days": 68,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 2.34,
+       "min": 0.87,
+       "recover_days": 58,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.028,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 2.255,
+       "min": 0.996,
+       "recover_days": 151,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.548,
+       "min": 0.942,
+       "recover_days": 53,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 6.675,
+       "min": 0.627,
+       "recover_days": 68,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2019-06-03",
+     "1y": {
+      "HOLD": {
+       "end": 1.397,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.013,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.174,
+       "min": 0.842,
+       "recover_days": 216,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.134,
+       "min": 0.92,
+       "recover_days": 206,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.926,
+       "min": 0.79,
+       "recover_days": 206,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.832,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.016,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.539,
+       "min": 0.842,
+       "recover_days": 216,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.326,
+       "min": 0.92,
+       "recover_days": 206,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.985,
+       "min": 0.79,
+       "recover_days": 206,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2020-02-27",
+     "1y": {
+      "HOLD": {
+       "end": 1.536,
+       "min": 0.823,
+       "recover_days": 32,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.553,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.194,
+       "min": 0.846,
+       "recover_days": 43,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.41,
+       "min": 0.473,
+       "recover_days": 50,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.453,
+       "min": 0.823,
+       "recover_days": 32,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.028,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.469,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.189,
+       "min": 0.846,
+       "recover_days": 43,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.317,
+       "min": 0.473,
+       "recover_days": 50,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2020-09-08",
+     "1y": {
+      "HOLD": {
+       "end": 1.417,
+       "min": 0.979,
+       "recover_days": 13,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.0,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.197,
+       "min": 0.94,
+       "recover_days": 130,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.21,
+       "min": 0.983,
+       "recover_days": 14,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.495,
+       "min": 0.926,
+       "recover_days": 13,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.42,
+       "min": 0.976,
+       "recover_days": 546,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.055,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.2,
+       "min": 0.825,
+       "recover_days": 644,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.166,
+       "min": 0.983,
+       "recover_days": 14,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.626,
+       "min": 0.574,
+       "recover_days": 645,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2021-03-08",
+     "1y": {
+      "HOLD": {
+       "end": 1.088,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.904,
+       "min": 0.904,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.061,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.132,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.492,
+       "min": 0.877,
+       "recover_days": 480,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.081,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.239,
+       "min": 0.729,
+       "recover_days": 570,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.197,
+       "min": 0.921,
+       "recover_days": 434,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.97,
+       "min": 0.454,
+       "recover_days": 560,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2022-01-19",
+     "1y": {
+      "HOLD": {
+       "end": 0.777,
+       "min": 0.714,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.022,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.876,
+       "min": 0.805,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.902,
+       "min": 0.826,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.34,
+       "min": 0.268,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.475,
+       "min": 0.714,
+       "recover_days": 351,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.126,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.662,
+       "min": 0.805,
+       "recover_days": 320,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.208,
+       "min": 0.826,
+       "recover_days": 477,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.883,
+       "min": 0.268,
+       "recover_days": 502,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2023-10-25",
+     "1y": {
+      "HOLD": {
+       "end": 1.424,
+       "min": 0.981,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.051,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.22,
+       "min": 0.971,
+       "recover_days": 52,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.281,
+       "min": 0.993,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.609,
+       "min": 0.943,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 2.005,
+       "min": 0.981,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.135,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.717,
+       "min": 0.971,
+       "recover_days": 52,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.562,
+       "min": 0.993,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.364,
+       "min": 0.943,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2024-08-02",
+     "1y": {
+      "HOLD": {
+       "end": 1.271,
+       "min": 0.931,
+       "recover_days": 171,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.044,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.106,
+       "min": 0.81,
+       "recover_days": 194,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.13,
+       "min": 0.966,
+       "recover_days": 171,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.707,
+       "min": 0.721,
+       "recover_days": 182,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.459,
+       "min": 0.931,
+       "recover_days": 171,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.093,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 1.269,
+       "min": 0.81,
+       "recover_days": 194,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.257,
+       "min": 0.966,
+       "recover_days": 171,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 2.183,
+       "min": 0.721,
+       "recover_days": 182,
+       "below80": true,
+       "stable": false,
+       "full": false
+      }
+     }
+    },
+    {
+     "hit": "2025-03-06",
+     "1y": {
+      "HOLD": {
+       "end": 1.251,
+       "min": 0.854,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.039,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.21,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.14,
+       "min": 0.92,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.666,
+       "min": 0.597,
+       "recover_days": 46,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.337,
+       "min": 0.854,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.065,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 1.293,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.197,
+       "min": 0.92,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 1.808,
+       "min": 0.597,
+       "recover_days": 46,
+       "below80": true,
+       "stable": false,
+       "full": false
+      }
+     }
+    },
+    {
+     "hit": "2026-03-26",
+     "1y": {
+      "HOLD": {
+       "end": 1.13,
+       "min": 0.973,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.023,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 0.965,
+       "min": 0.965,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.088,
+       "min": 0.989,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 1.292,
+       "min": 0.92,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.13,
+       "min": 0.973,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.023,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 0.965,
+       "min": 0.965,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.088,
+       "min": 0.989,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 1.292,
+       "min": 0.92,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      }
+     }
+    }
+   ],
+   "events": [
+    {
+     "hit": "2000-03-30",
+     "peak": "2000-03-10",
+     "days_from_peak": 14,
+     "ix_dd": -0.117,
+     "sp_dd": -0.0259,
+     "worst_day": -0.0409,
+     "runup_1y": 1.1199
+    },
+    {
+     "hit": "2004-03-22",
+     "peak": "2004-01-26",
+     "days_from_peak": 39,
+     "ix_dd": -0.1133,
+     "sp_dd": -0.0539,
+     "worst_day": -0.0252,
+     "runup_1y": 0.6048
+    },
+    {
+     "hit": "2005-04-14",
+     "peak": "2004-12-30",
+     "days_from_peak": 72,
+     "ix_dd": -0.1063,
+     "sp_dd": -0.0516,
+     "worst_day": -0.0206,
+     "runup_1y": 0.0838
+    },
+    {
+     "hit": "2006-06-12",
+     "peak": "2006-04-19",
+     "days_from_peak": 37,
+     "ix_dd": -0.1179,
+     "sp_dd": -0.0666,
+     "worst_day": -0.0224,
+     "runup_1y": 0.2269
+    },
+    {
+     "hit": "2007-11-21",
+     "peak": "2007-10-31",
+     "days_from_peak": 15,
+     "ix_dd": -0.1039,
+     "sp_dd": -0.0948,
+     "worst_day": -0.027,
+     "runup_1y": 0.2096
+    },
+    {
+     "hit": "2010-05-07",
+     "peak": "2010-04-23",
+     "days_from_peak": 10,
+     "ix_dd": -0.1045,
+     "sp_dd": -0.0874,
+     "worst_day": -0.0344,
+     "runup_1y": 0.5314
+    },
+    {
+     "hit": "2011-08-04",
+     "peak": "2011-04-29",
+     "days_from_peak": 67,
+     "ix_dd": -0.1104,
+     "sp_dd": -0.1199,
+     "worst_day": -0.0508,
+     "runup_1y": 0.1675
+    },
+    {
+     "hit": "2012-05-18",
+     "peak": "2012-03-26",
+     "days_from_peak": 38,
+     "ix_dd": -0.1101,
+     "sp_dd": -0.0873,
+     "worst_day": -0.0225,
+     "runup_1y": 0.1384
+    },
+    {
+     "hit": "2012-11-14",
+     "peak": "2012-09-14",
+     "days_from_peak": 41,
+     "ix_dd": -0.1059,
+     "sp_dd": -0.0752,
+     "worst_day": -0.0248,
+     "runup_1y": 0.2213
+    },
+    {
+     "hit": "2015-08-24",
+     "peak": "2015-07-20",
+     "days_from_peak": 25,
+     "ix_dd": -0.1327,
+     "sp_dd": -0.1115,
+     "worst_day": -0.0382,
+     "runup_1y": 0.1775
+    },
+    {
+     "hit": "2018-10-24",
+     "peak": "2018-08-29",
+     "days_from_peak": 39,
+     "ix_dd": -0.1235,
+     "sp_dd": -0.0937,
+     "worst_day": -0.0443,
+     "runup_1y": 0.2869
+    },
+    {
+     "hit": "2019-06-03",
+     "peak": "2019-05-03",
+     "days_from_peak": 20,
+     "ix_dd": -0.1018,
+     "sp_dd": -0.0684,
+     "worst_day": -0.0341,
+     "runup_1y": 0.1497
+    },
+    {
+     "hit": "2020-02-27",
+     "peak": "2020-02-19",
+     "days_from_peak": 6,
+     "ix_dd": -0.1274,
+     "sp_dd": -0.1203,
+     "worst_day": -0.0461,
+     "runup_1y": 0.3113
+    },
+    {
+     "hit": "2020-09-08",
+     "peak": "2020-09-02",
+     "days_from_peak": 3,
+     "ix_dd": -0.1003,
+     "sp_dd": -0.0695,
+     "worst_day": -0.0496,
+     "runup_1y": 0.5114
+    },
+    {
+     "hit": "2021-03-08",
+     "peak": "2021-02-12",
+     "days_from_peak": 15,
+     "ix_dd": -0.1054,
+     "sp_dd": -0.0288,
+     "worst_day": -0.0352,
+     "runup_1y": 0.4514
+    },
+    {
+     "hit": "2022-01-19",
+     "peak": "2021-11-19",
+     "days_from_peak": 40,
+     "ix_dd": -0.1069,
+     "sp_dd": -0.055,
+     "worst_day": -0.0334,
+     "runup_1y": 0.3488
+    },
+    {
+     "hit": "2023-10-25",
+     "peak": "2023-07-19",
+     "days_from_peak": 69,
+     "ix_dd": -0.107,
+     "sp_dd": -0.0876,
+     "worst_day": -0.0243,
+     "runup_1y": 0.2639
+    },
+    {
+     "hit": "2024-08-02",
+     "peak": "2024-07-10",
+     "days_from_peak": 17,
+     "ix_dd": -0.1004,
+     "sp_dd": -0.0566,
+     "worst_day": -0.0364,
+     "runup_1y": 0.3626
+    },
+    {
+     "hit": "2025-03-06",
+     "peak": "2024-12-16",
+     "days_from_peak": 53,
+     "ix_dd": -0.1043,
+     "sp_dd": -0.066,
+     "worst_day": -0.0356,
+     "runup_1y": 0.3667
+    },
+    {
+     "hit": "2026-03-26",
+     "peak": "2025-10-29",
+     "days_from_peak": 101,
+     "ix_dd": -0.1065,
+     "sp_dd": -0.0719,
+     "worst_day": -0.0239,
+     "runup_1y": 0.2938
+    }
+   ],
+   "top5_more_drop20_1y": 1
+  },
+  "D119": {
+   "D_pct": 11.9,
+   "episodes": 16,
+   "now_features": {
+    "days_from_peak": 22,
+    "sp_dd": -0.0595,
+    "worst_day": -0.0552,
+    "runup_1y": 0.2116
+   },
+   "rank": [
+    [
+     1.457,
+     "2018-10-24"
+    ],
+    [
+     1.585,
+     "2024-08-05"
+    ],
+    [
+     1.844,
+     "2008-01-04"
+    ],
+    [
+     1.861,
+     "2022-01-21"
+    ],
+    [
+     1.926,
+     "2015-08-24"
+    ],
+    [
+     1.938,
+     "2025-03-10"
+    ],
+    [
+     2.07,
+     "2020-02-27"
+    ],
+    [
+     2.28,
+     "2006-06-13"
+    ]
+   ],
+   "top1_drop_one_feature": {
+    "days_from_peak": "2018-10-24",
+    "sp_dd": "2020-02-27",
+    "worst_day": "2006-06-13",
+    "runup_1y": "2018-10-24"
+   },
+   "top1_stable": false,
+   "questions": {
+    "Q3_hold_beats_cash_end_1y": [
+     12,
+     3,
+     0,
+     15
+    ],
+    "Q3_hold_beats_cash_end_3y": [
+     11,
+     2,
+     0,
+     13
+    ],
+    "Q4_lev3_deeper_than_hold_1y": [
+     13,
+     0,
+     2,
+     15
+    ],
+    "Q4_lev3_deeper_than_hold_3y": [
+     11,
+     0,
+     2,
+     13
+    ],
+    "Q5_mix_shallower_than_hold_1y": [
+     12,
+     2,
+     1,
+     15
+    ],
+    "Q5_mix_shallower_than_hold_3y": [
+     10,
+     2,
+     1,
+     13
+    ],
+    "Q6_hold_beats_rebuy_end_1y": [
+     12,
+     3,
+     0,
+     15
+    ],
+    "Q6_hold_beats_rebuy_end_3y": [
+     10,
+     3,
+     0,
+     13
+    ],
+    "Q7_mix_beats_cash_end_1y": [
+     12,
+     3,
+     0,
+     15
+    ],
+    "Q7_mix_beats_cash_end_3y": [
+     11,
+     2,
+     0,
+     13
+    ]
+   },
+   "rows": [
+    {
+     "hit": "2000-04-03",
+     "1y": {
+      "HOLD": {
+       "end": 0.337,
+       "min": 0.337,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.056,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.374,
+       "min": 0.374,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.877,
+       "min": 0.877,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.012,
+       "min": 0.012,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 0.247,
+       "min": 0.195,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.099,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.274,
+       "min": 0.216,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.826,
+       "min": 0.76,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.002,
+       "min": 0.001,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2004-05-10",
+     "1y": {
+      "HOLD": {
+       "end": 1.042,
+       "min": 0.937,
+       "recover_days": 80,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.02,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.931,
+       "min": 0.903,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.083,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.035,
+       "min": 0.798,
+       "recover_days": 85,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.372,
+       "min": 0.937,
+       "recover_days": 80,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.11,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.226,
+       "min": 0.903,
+       "recover_days": 268,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.334,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.052,
+       "min": 0.798,
+       "recover_days": 85,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2005-04-15",
+     "1y": {
+      "HOLD": {
+       "end": 1.204,
+       "min": 0.999,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.037,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.022,
+       "min": 0.991,
+       "recover_days": 181,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.09,
+       "min": 0.999,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.644,
+       "min": 0.996,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.317,
+       "min": 0.999,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.125,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.118,
+       "min": 0.876,
+       "recover_days": 365,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.224,
+       "min": 0.999,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.691,
+       "min": 0.996,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2006-06-13",
+     "1y": {
+      "HOLD": {
+       "end": 1.275,
+       "min": 0.959,
+       "recover_days": 44,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.049,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.128,
+       "min": 0.997,
+       "recover_days": 102,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.176,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.918,
+       "min": 0.869,
+       "recover_days": 44,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 0.974,
+       "min": 0.691,
+       "recover_days": 752,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.086,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.862,
+       "min": 0.612,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.963,
+       "min": 0.787,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.416,
+       "min": 0.165,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2008-01-04",
+     "1y": {
+      "HOLD": {
+       "end": 0.643,
+       "min": 0.529,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.013,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.626,
+       "min": 0.515,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.809,
+       "min": 0.702,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.163,
+       "min": 0.098,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.163,
+       "min": 0.529,
+       "recover_days": 556,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.016,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.133,
+       "min": 0.515,
+       "recover_days": 571,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.067,
+       "min": 0.673,
+       "recover_days": 572,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.696,
+       "min": 0.087,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2010-05-20",
+     "1y": {
+      "HOLD": {
+       "end": 1.325,
+       "min": 0.961,
+       "recover_days": 33,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.135,
+       "min": 0.988,
+       "recover_days": 108,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.183,
+       "min": 0.978,
+       "recover_days": 32,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.112,
+       "min": 0.867,
+       "recover_days": 34,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.714,
+       "min": 0.961,
+       "recover_days": 33,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.002,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.468,
+       "min": 0.978,
+       "recover_days": 318,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.435,
+       "min": 0.978,
+       "recover_days": 32,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 3.544,
+       "min": 0.867,
+       "recover_days": 34,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2011-08-08",
+     "1y": {
+      "HOLD": {
+       "end": 1.33,
+       "min": 0.989,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.0,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.118,
+       "min": 0.997,
+       "recover_days": 117,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.189,
+       "min": 0.998,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.005,
+       "min": 0.941,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.962,
+       "min": 0.989,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.649,
+       "min": 0.997,
+       "recover_days": 117,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.5,
+       "min": 0.998,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.693,
+       "min": 0.941,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2012-06-01",
+     "1y": {
+      "HOLD": {
+       "end": 1.208,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.0,
+       "min": 1.0,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.167,
+       "min": 0.999,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.64,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.883,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.558,
+       "min": 0.971,
+       "recover_days": 272,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.425,
+       "min": 0.999,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.47,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2015-08-24",
+     "1y": {
+      "HOLD": {
+       "end": 1.207,
+       "min": 0.984,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.002,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.024,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.13,
+       "min": 0.991,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.564,
+       "min": 0.881,
+       "recover_days": 121,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.891,
+       "min": 0.984,
+       "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.024,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.604,
+       "min": 0.993,
+       "recover_days": 305,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.355,
+       "min": 0.991,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.224,
+       "min": 0.881,
+       "recover_days": 121,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2018-10-24",
+     "1y": {
+      "HOLD": {
+       "end": 1.194,
+       "min": 0.87,
+       "recover_days": 58,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.022,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.151,
+       "min": 0.996,
+       "recover_days": 151,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.142,
+       "min": 0.942,
+       "recover_days": 53,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.472,
+       "min": 0.627,
+       "recover_days": 68,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 2.34,
+       "min": 0.87,
+       "recover_days": 58,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.028,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 2.255,
+       "min": 0.996,
+       "recover_days": 151,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.548,
+       "min": 0.942,
+       "recover_days": 53,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 6.675,
+       "min": 0.627,
+       "recover_days": 68,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2020-02-27",
+     "1y": {
+      "HOLD": {
+       "end": 1.536,
+       "min": 0.823,
+       "recover_days": 32,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.553,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.194,
+       "min": 0.846,
+       "recover_days": 43,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.41,
+       "min": 0.473,
+       "recover_days": 50,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.453,
+       "min": 0.823,
+       "recover_days": 32,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.028,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.469,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.189,
+       "min": 0.846,
+       "recover_days": 43,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.317,
+       "min": 0.473,
+       "recover_days": 50,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2022-01-21",
+     "1y": {
+      "HOLD": {
+       "end": 0.826,
+       "min": 0.744,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.022,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.893,
+       "min": 0.805,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.925,
+       "min": 0.84,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.41,
+       "min": 0.304,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.514,
+       "min": 0.744,
+       "recover_days": 339,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.127,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.638,
+       "min": 0.805,
+       "recover_days": 318,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.227,
+       "min": 0.84,
+       "recover_days": 372,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.037,
+       "min": 0.304,
+       "recover_days": 476,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2023-10-26",
+     "1y": {
+      "HOLD": {
+       "end": 1.451,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.051,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.219,
+       "min": 0.971,
+       "recover_days": 51,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.288,
+       "min": 0.997,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.769,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 2.016,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.135,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.693,
+       "min": 0.971,
+       "recover_days": 51,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.564,
+       "min": 0.997,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.457,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2024-08-05",
+     "1y": {
+      "HOLD": {
+       "end": 1.315,
+       "min": 0.96,
+       "recover_days": 170,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.044,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.109,
+       "min": 0.81,
+       "recover_days": 193,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.15,
+       "min": 0.984,
+       "recover_days": 170,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.893,
+       "min": 0.792,
+       "recover_days": 170,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.503,
+       "min": 0.96,
+       "recover_days": 170,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.092,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 1.268,
+       "min": 0.81,
+       "recover_days": 193,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.28,
+       "min": 0.984,
+       "recover_days": 170,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 2.398,
+       "min": 0.792,
+       "recover_days": 170,
+       "below80": true,
+       "stable": false,
+       "full": false
+      }
+     }
+    },
+    {
+     "hit": "2025-03-10",
+     "1y": {
+      "HOLD": {
+       "end": 1.292,
+       "min": 0.881,
+       "recover_days": 33,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.039,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.21,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.147,
+       "min": 0.931,
+       "recover_days": 37,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.844,
+       "min": 0.661,
+       "recover_days": 38,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.38,
+       "min": 0.881,
+       "recover_days": 33,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.065,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 1.292,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.21,
+       "min": 0.931,
+       "recover_days": 37,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 2.002,
+       "min": 0.661,
+       "recover_days": 38,
+       "below80": true,
+       "stable": false,
+       "full": false
+      }
+     }
+    },
+    {
+     "hit": "2026-03-27",
+     "1y": {
+      "HOLD": {
+       "end": 1.153,
+       "min": 0.992,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.023,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 0.965,
+       "min": 0.965,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.1,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 1.373,
+       "min": 0.977,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": false
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.153,
+       "min": 0.992,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.023,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 0.965,
+       "min": 0.965,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.1,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 1.373,
+       "min": 0.977,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": false
+      }
+     }
+    }
+   ],
+   "events": [
+    {
+     "hit": "2000-04-03",
+     "peak": "2000-03-10",
+     "days_from_peak": 16,
+     "ix_dd": -0.1634,
+     "sp_dd": -0.0141,
+     "worst_day": -0.0764,
+     "runup_1y": 1.1199
+    },
+    {
+     "hit": "2004-05-10",
+     "peak": "2004-01-26",
+     "days_from_peak": 73,
+     "ix_dd": -0.1197,
+     "sp_dd": -0.061,
+     "worst_day": -0.0252,
+     "runup_1y": 0.6048
+    },
+    {
+     "hit": "2005-04-15",
+     "peak": "2004-12-30",
+     "days_from_peak": 73,
+     "ix_dd": -0.124,
+     "sp_dd": -0.0675,
+     "worst_day": -0.0206,
+     "runup_1y": 0.0838
+    },
+    {
+     "hit": "2006-06-13",
+     "peak": "2006-04-19",
+     "days_from_peak": 38,
+     "ix_dd": -0.1259,
+     "sp_dd": -0.077,
+     "worst_day": -0.0224,
+     "runup_1y": 0.2269
+    },
+    {
+     "hit": "2008-01-04",
+     "peak": "2007-10-31",
+     "days_from_peak": 44,
+     "ix_dd": -0.124,
+     "sp_dd": -0.0981,
+     "worst_day": -0.0377,
+     "runup_1y": 0.2096
+    },
+    {
+     "hit": "2010-05-20",
+     "peak": "2010-04-23",
+     "days_from_peak": 19,
+     "ix_dd": -0.1289,
+     "sp_dd": -0.1197,
+     "worst_day": -0.0411,
+     "runup_1y": 0.5314
+    },
+    {
+     "hit": "2011-08-08",
+     "peak": "2011-04-29",
+     "days_from_peak": 69,
+     "ix_dd": -0.1795,
+     "sp_dd": -0.179,
+     "worst_day": -0.069,
+     "runup_1y": 0.1675
+    },
+    {
+     "hit": "2012-06-01",
+     "peak": "2012-03-26",
+     "days_from_peak": 47,
+     "ix_dd": -0.1201,
+     "sp_dd": -0.0994,
+     "worst_day": -0.0282,
+     "runup_1y": 0.1384
+    },
+    {
+     "hit": "2015-08-24",
+     "peak": "2015-07-20",
+     "days_from_peak": 25,
+     "ix_dd": -0.1327,
+     "sp_dd": -0.1115,
+     "worst_day": -0.0382,
+     "runup_1y": 0.1775
+    },
+    {
+     "hit": "2018-10-24",
+     "peak": "2018-08-29",
+     "days_from_peak": 39,
+     "ix_dd": -0.1235,
+     "sp_dd": -0.0937,
+     "worst_day": -0.0443,
+     "runup_1y": 0.2869
+    },
+    {
+     "hit": "2020-02-27",
+     "peak": "2020-02-19",
+     "days_from_peak": 6,
+     "ix_dd": -0.1274,
+     "sp_dd": -0.1203,
+     "worst_day": -0.0461,
+     "runup_1y": 0.3113
+    },
+    {
+     "hit": "2022-01-21",
+     "peak": "2021-11-19",
+     "days_from_peak": 42,
+     "ix_dd": -0.1425,
+     "sp_dd": -0.0831,
+     "worst_day": -0.0334,
+     "runup_1y": 0.3488
+    },
+    {
+     "hit": "2023-10-26",
+     "peak": "2023-07-19",
+     "days_from_peak": 70,
+     "ix_dd": -0.1227,
+     "sp_dd": -0.0984,
+     "worst_day": -0.0243,
+     "runup_1y": 0.2639
+    },
+    {
+     "hit": "2024-08-05",
+     "peak": "2024-07-10",
+     "days_from_peak": 18,
+     "ix_dd": -0.1312,
+     "sp_dd": -0.0849,
+     "worst_day": -0.0364,
+     "runup_1y": 0.3626
+    },
+    {
+     "hit": "2025-03-10",
+     "peak": "2024-12-16",
+     "days_from_peak": 55,
+     "ix_dd": -0.1341,
+     "sp_dd": -0.0862,
+     "worst_day": -0.04,
+     "runup_1y": 0.3667
+    },
+    {
+     "hit": "2026-03-27",
+     "peak": "2025-10-29",
+     "days_from_peak": 102,
+     "ix_dd": -0.1256,
+     "sp_dd": -0.0874,
+     "worst_day": -0.0239,
+     "runup_1y": 0.2938
+    }
+   ],
+   "top5_more_drop20_1y": 2
+  },
+  "D150": {
+   "D_pct": 15.0,
+   "episodes": 10,
+   "now_features": {
+    "days_from_peak": 22,
+    "sp_dd": -0.0595,
+    "worst_day": -0.0552,
+    "runup_1y": 0.2116
+   },
+   "rank": [
+    [
+     1.653,
+     "2022-01-25"
+    ],
+    [
+     1.742,
+     "2008-01-15"
+    ],
+    [
+     1.891,
+     "2025-04-03"
+    ],
+    [
+     2.084,
+     "2018-12-17"
+    ],
+    [
+     2.347,
+     "2010-06-29"
+    ],
+    [
+     2.815,
+     "2011-08-08"
+    ],
+    [
+     2.863,
+     "2020-03-09"
+    ],
+    [
+     3.283,
+     "2016-02-05"
+    ]
+   ],
+   "top1_drop_one_feature": {
+    "days_from_peak": "2025-04-03",
+    "sp_dd": "2020-03-09",
+    "worst_day": "2022-01-25",
+    "runup_1y": "2022-01-25"
+   },
+   "top1_stable": false,
+   "questions": {
+    "Q3_hold_beats_cash_end_1y": [
+     7,
+     3,
+     0,
+     10
+    ],
+    "Q3_hold_beats_cash_end_3y": [
+     8,
+     1,
+     0,
+     9
+    ],
+    "Q4_lev3_deeper_than_hold_1y": [
+     10,
+     0,
+     0,
+     10
+    ],
+    "Q4_lev3_deeper_than_hold_3y": [
+     9,
+     0,
+     0,
+     9
+    ],
+    "Q5_mix_shallower_than_hold_1y": [
+     9,
+     1,
+     0,
+     10
+    ],
+    "Q5_mix_shallower_than_hold_3y": [
+     8,
+     1,
+     0,
+     9
+    ],
+    "Q6_hold_beats_rebuy_end_1y": [
+     8,
+     2,
+     0,
+     10
+    ],
+    "Q6_hold_beats_rebuy_end_3y": [
+     7,
+     2,
+     0,
+     9
+    ],
+    "Q7_mix_beats_cash_end_1y": [
+     7,
+     3,
+     0,
+     10
+    ],
+    "Q7_mix_beats_cash_end_3y": [
+     8,
+     1,
+     0,
+     9
+    ]
+   },
+   "rows": [
+    {
+     "hit": "2000-04-03",
+     "1y": {
+      "HOLD": {
+       "end": 0.337,
+       "min": 0.337,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.056,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.374,
+       "min": 0.374,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.877,
+       "min": 0.877,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.012,
+       "min": 0.012,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 0.247,
+       "min": 0.195,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.099,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.274,
+       "min": 0.216,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.826,
+       "min": 0.76,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.002,
+       "min": 0.001,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2004-08-05",
+     "1y": {
+      "HOLD": {
+       "end": 1.193,
+       "min": 0.966,
+       "recover_days": 9,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.024,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.03,
+       "min": 0.9,
+       "recover_days": 208,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.115,
+       "min": 0.995,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.578,
+       "min": 0.899,
+       "recover_days": 9,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.463,
+       "min": 0.966,
+       "recover_days": 9,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.119,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.263,
+       "min": 0.9,
+       "recover_days": 208,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.306,
+       "min": 0.995,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.51,
+       "min": 0.899,
+       "recover_days": 9,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2008-01-15",
+     "1y": {
+      "HOLD": {
+       "end": 0.617,
+       "min": 0.55,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.012,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.578,
+       "min": 0.515,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.778,
+       "min": 0.71,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.144,
+       "min": 0.111,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.238,
+       "min": 0.55,
+       "recover_days": 492,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.015,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.159,
+       "min": 0.515,
+       "recover_days": 564,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.087,
+       "min": 0.681,
+       "recover_days": 558,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.846,
+       "min": 0.098,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2010-06-29",
+     "1y": {
+      "HOLD": {
+       "end": 1.303,
+       "min": 0.979,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.096,
+       "min": 0.987,
+       "recover_days": 81,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.174,
+       "min": 0.989,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.033,
+       "min": 0.938,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.706,
+       "min": 0.979,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.002,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.435,
+       "min": 0.978,
+       "recover_days": 291,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.42,
+       "min": 0.989,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 3.552,
+       "min": 0.938,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2011-08-08",
+     "1y": {
+      "HOLD": {
+       "end": 1.33,
+       "min": 0.989,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.0,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.118,
+       "min": 0.997,
+       "recover_days": 117,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.189,
+       "min": 0.998,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.005,
+       "min": 0.941,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.962,
+       "min": 0.989,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.649,
+       "min": 0.997,
+       "recover_days": 117,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.5,
+       "min": 0.998,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 5.693,
+       "min": 0.941,
+       "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2016-02-05",
+     "1y": {
+      "HOLD": {
+       "end": 1.297,
+       "min": 0.982,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.003,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.102,
+       "min": 0.992,
+       "recover_days": 191,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.148,
+       "min": 0.986,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.045,
+       "min": 0.945,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.764,
+       "min": 0.982,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.034,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.499,
+       "min": 0.992,
+       "recover_days": 191,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.323,
+       "min": 0.986,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 4.109,
+       "min": 0.945,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2018-12-17",
+     "1y": {
+      "HOLD": {
+       "end": 1.342,
+       "min": 0.914,
+       "recover_days": 13,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.021,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.228,
+       "min": 0.993,
+       "recover_days": 115,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.204,
+       "min": 0.956,
+       "recover_days": 12,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.171,
+       "min": 0.758,
+       "recover_days": 14,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 2.508,
+       "min": 0.914,
+       "recover_days": 13,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.025,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 2.294,
+       "min": 0.993,
+       "recover_days": 115,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.597,
+       "min": 0.956,
+       "recover_days": 12,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 8.417,
+       "min": 0.758,
+       "recover_days": 14,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2020-03-09",
+     "1y": {
+      "HOLD": {
+       "end": 1.62,
+       "min": 0.875,
+       "recover_days": 20,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.001,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.541,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.245,
+       "min": 0.873,
+       "recover_days": 23,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.889,
+       "min": 0.589,
+       "recover_days": 25,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.539,
+       "min": 0.875,
+       "recover_days": 20,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.029,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.464,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.221,
+       "min": 0.873,
+       "recover_days": 23,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.618,
+       "min": 0.589,
+       "recover_days": 25,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2022-01-25",
+     "1y": {
+      "HOLD": {
+       "end": 0.856,
+       "min": 0.759,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.023,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 0.909,
+       "min": 0.805,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "MIX": {
+       "end": 0.936,
+       "min": 0.845,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "LEV3": {
+       "end": 0.457,
+       "min": 0.322,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.546,
+       "min": 0.759,
+       "recover_days": 336,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.127,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.641,
+       "min": 0.805,
+       "recover_days": 316,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.235,
+       "min": 0.845,
+       "recover_days": 367,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 2.174,
+       "min": 0.322,
+       "recover_days": 471,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     }
+    },
+    {
+     "hit": "2025-04-03",
+     "1y": {
+      "HOLD": {
+       "end": 1.312,
+       "min": 0.923,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "CASH": {
+       "end": 1.039,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": true
+      },
+      "REBUY": {
+       "end": 1.17,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "MIX": {
+       "end": 1.155,
+       "min": 0.949,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "LEV3": {
+       "end": 1.951,
+       "min": 0.775,
+       "recover_days": 4,
+       "below80": true,
+       "stable": false,
+       "full": true
+      }
+     },
+     "3y": {
+      "HOLD": {
+       "end": 1.446,
+       "min": 0.923,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "CASH": {
+       "end": 1.062,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": false,
+       "full": false
+      },
+      "REBUY": {
+       "end": 1.288,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "MIX": {
+       "end": 1.236,
+       "min": 0.949,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "LEV3": {
+       "end": 2.348,
+       "min": 0.775,
+       "recover_days": 4,
+       "below80": true,
+       "stable": false,
+       "full": false
+      }
+     }
+    }
+   ],
+   "events": [
+    {
+     "hit": "2000-04-03",
+     "peak": "2000-03-10",
+     "days_from_peak": 16,
+     "ix_dd": -0.1634,
+     "sp_dd": -0.0141,
+     "worst_day": -0.0764,
+     "runup_1y": 1.1199
+    },
+    {
+     "hit": "2004-08-05",
+     "peak": "2004-01-26",
+     "days_from_peak": 133,
+     "ix_dd": -0.1542,
+     "sp_dd": -0.0666,
+     "worst_day": -0.0252,
+     "runup_1y": 0.6048
+    },
+    {
+     "hit": "2008-01-15",
+     "peak": "2007-10-31",
+     "days_from_peak": 51,
+     "ix_dd": -0.1544,
+     "sp_dd": -0.1177,
+     "worst_day": -0.0377,
+     "runup_1y": 0.2096
+    },
+    {
+     "hit": "2010-06-29",
+     "peak": "2010-04-23",
+     "days_from_peak": 46,
+     "ix_dd": -0.1561,
+     "sp_dd": -0.1446,
+     "worst_day": -0.0411,
+     "runup_1y": 0.5314
+    },
+    {
+     "hit": "2011-08-08",
+     "peak": "2011-04-29",
+     "days_from_peak": 69,
+     "ix_dd": -0.1795,
+     "sp_dd": -0.179,
+     "worst_day": -0.069,
+     "runup_1y": 0.1675
+    },
+    {
+     "hit": "2016-02-05",
+     "peak": "2015-07-20",
+     "days_from_peak": 139,
+     "ix_dd": -0.164,
+     "sp_dd": -0.1177,
+     "worst_day": -0.0382,
+     "runup_1y": 0.1775
+    },
+    {
+     "hit": "2018-12-17",
+     "peak": "2018-08-29",
+     "days_from_peak": 75,
+     "ix_dd": -0.1672,
+     "sp_dd": -0.1313,
+     "worst_day": -0.0443,
+     "runup_1y": 0.2869
+    },
+    {
+     "hit": "2020-03-09",
+     "peak": "2020-02-19",
+     "days_from_peak": 13,
+     "ix_dd": -0.1901,
+     "sp_dd": -0.1889,
+     "worst_day": -0.0729,
+     "runup_1y": 0.3113
+    },
+    {
+     "hit": "2022-01-25",
+     "peak": "2021-11-19",
+     "days_from_peak": 44,
+     "ix_dd": -0.1568,
+     "sp_dd": -0.0918,
+     "worst_day": -0.0334,
+     "runup_1y": 0.3488
+    },
+    {
+     "hit": "2025-04-03",
+     "peak": "2024-12-16",
+     "days_from_peak": 73,
+     "ix_dd": -0.1796,
+     "sp_dd": -0.1217,
+     "worst_day": -0.0597,
+     "runup_1y": 0.3667
+    }
+   ],
+   "top5_more_drop20_1y": 2
+  }
+ },
+ "classes": {
+  "Q3_hold_beats_cash_end": {
+   "cells": [
+    [
+     16,
+     3,
+     0,
+     19
+    ],
+    [
+     15,
+     2,
+     0,
+     17
+    ],
+    [
+     12,
+     3,
+     0,
+     15
+    ],
+    [
+     11,
+     2,
+     0,
+     13
+    ],
+    [
+     7,
+     3,
+     0,
+     10
+    ],
+    [
+     8,
+     1,
+     0,
+     9
+    ]
+   ],
+   "class_strict": "조건부형",
+   "class_repo": "정답형",
+   "weakest_share": 0.7,
+   "base_share": 0.846
+  },
+  "Q4_lev3_deeper_than_hold": {
+   "cells": [
+    [
+     18,
+     0,
+     1,
+     19
+    ],
+    [
+     17,
+     0,
+     0,
+     17
+    ],
+    [
+     13,
+     0,
+     2,
+     15
+    ],
+    [
+     11,
+     0,
+     2,
+     13
+    ],
+    [
+     10,
+     0,
+     0,
+     10
+    ],
+    [
+     9,
+     0,
+     0,
+     9
+    ]
+   ],
+   "class_strict": "정답형",
+   "class_repo": "정답형",
+   "weakest_share": 0.846,
+   "base_share": 0.846
+  },
+  "Q5_mix_shallower_than_hold": {
+   "cells": [
+    [
+     17,
+     1,
+     1,
+     19
+    ],
+    [
+     16,
+     1,
+     0,
+     17
+    ],
+    [
+     12,
+     2,
+     1,
+     15
+    ],
+    [
+     10,
+     2,
+     1,
+     13
+    ],
+    [
+     9,
+     1,
+     0,
+     10
+    ],
+    [
+     8,
+     1,
+     0,
+     9
+    ]
+   ],
+   "class_strict": "조건부형",
+   "class_repo": "정답형",
+   "weakest_share": 0.769,
+   "base_share": 0.769
+  },
+  "Q6_hold_beats_rebuy_end": {
+   "cells": [
+    [
+     16,
+     3,
+     0,
+     19
+    ],
+    [
+     14,
+     3,
+     0,
+     17
+    ],
+    [
+     12,
+     3,
+     0,
+     15
+    ],
+    [
+     10,
+     3,
+     0,
+     13
+    ],
+    [
+     8,
+     2,
+     0,
+     10
+    ],
+    [
+     7,
+     2,
+     0,
+     9
+    ]
+   ],
+   "class_strict": "조건부형",
+   "class_repo": "정답형",
+   "weakest_share": 0.769,
+   "base_share": 0.769
+  },
+  "Q7_mix_beats_cash_end": {
+   "cells": [
+    [
+     16,
+     3,
+     0,
+     19
+    ],
+    [
+     15,
+     2,
+     0,
+     17
+    ],
+    [
+     12,
+     3,
+     0,
+     15
+    ],
+    [
+     11,
+     2,
+     0,
+     13
+    ],
+    [
+     7,
+     3,
+     0,
+     10
+    ],
+    [
+     8,
+     1,
+     0,
+     9
+    ]
+   ],
+   "class_strict": "조건부형",
+   "class_repo": "정답형",
+   "weakest_share": 0.7,
+   "base_share": 0.846
+  }
+ },
+ "stable_3y": {
+  "D100": {
+   "HOLD": "13/17",
+   "MIX": "14/17",
+   "LEV3": "6/17",
+   "REBUY": "12/17",
+   "CASH": "0/17",
+   "median_min": {
+    "HOLD": 0.939,
+    "MIX": 0.956,
+    "LEV3": 0.756,
+    "REBUY": 0.904
+   },
+   "worst_min": {
+    "HOLD": 0.187,
+    "MIX": 0.68,
+    "LEV3": 0.001,
+    "REBUY": 0.216
+   }
+  },
+  "D119": {
+   "HOLD": "9/13",
+   "MIX": "10/13",
+   "LEV3": "6/13",
+   "REBUY": "9/13",
+   "CASH": "0/13",
+   "median_min": {
+    "HOLD": 0.937,
+    "MIX": 0.978,
+    "LEV3": 0.798,
+    "REBUY": 0.971
+   },
+   "worst_min": {
+    "HOLD": 0.195,
+    "MIX": 0.673,
+    "LEV3": 0.001,
+    "REBUY": 0.216
+   }
+  },
+  "D150": {
+   "HOLD": "6/9",
+   "MIX": "7/9",
+   "LEV3": "4/9",
+   "REBUY": "7/9",
+   "CASH": "0/9",
+   "median_min": {
+    "HOLD": 0.914,
+    "MIX": 0.956,
+    "LEV3": 0.758,
+    "REBUY": 0.978
+   },
+   "worst_min": {
+    "HOLD": 0.195,
+    "MIX": 0.681,
+    "LEV3": 0.001,
+    "REBUY": 0.216
+   }
+  }
+ },
+ "kospi_8pct_days": [
+  {
+   "day": "2000-04-17",
+   "drop": -11.63,
+   "next_day": 5.59,
+   "more_drop_1m": -2.2,
+   "after_1y": -17.4
+  },
+  {
+   "day": "2000-09-18",
+   "drop": -8.06,
+   "next_day": -1.11,
+   "more_drop_1m": -11.2,
+   "after_1y": -18.1
+  },
+  {
+   "day": "2001-09-12",
+   "drop": -12.02,
+   "next_day": 4.97,
+   "more_drop_1m": -1.4,
+   "after_1y": 38.3
+  },
+  {
+   "day": "2008-10-16",
+   "drop": -9.44,
+   "next_day": -2.73,
+   "more_drop_1m": -22.7,
+   "after_1y": 36.7
+  },
+  {
+   "day": "2008-10-24",
+   "drop": -10.57,
+   "next_day": 0.82,
+   "more_drop_1m": 0.0,
+   "after_1y": 74.7
+  },
+  {
+   "day": "2020-03-19",
+   "drop": -8.39,
+   "next_day": 7.44,
+   "more_drop_1m": 0.0,
+   "after_1y": 108.3
+  },
+  {
+   "day": "2024-08-05",
+   "drop": -8.77,
+   "next_day": 3.3,
+   "more_drop_1m": 0.0,
+   "after_1y": 28.7
+  },
+  {
+   "day": "2026-03-04",
+   "drop": -12.06,
+   "next_day": 9.63,
+   "more_drop_1m": -0.8,
+   "after_1y": null
+  },
+  {
+   "day": "2026-06-08",
+   "drop": -8.29,
+   "next_day": 8.18,
+   "more_drop_1m": 0.0,
+   "after_1y": null
+  },
+  {
+   "day": "2026-06-23",
+   "drop": -9.99,
+   "next_day": 3.26,
+   "more_drop_1m": -20.6,
+   "after_1y": null
+  },
+  {
+   "day": "2026-07-13",
+   "drop": -8.95,
+   "next_day": 0.73,
+   "more_drop_1m": -17.8,
+   "after_1y": null
+  },
+  {
+   "day": "2026-07-28",
+   "drop": -10.84,
+   "next_day": -5.98,
+   "more_drop_1m": -7.1,
+   "after_1y": null
+  }
+ ],
+ "kospi_now": {
+  "peak": "2026-06-22",
+  "peak_close": 9114.5498046875,
+  "now": "2026-11-06",
+  "close": 5059.68994140625,
+  "dd_pct": -44.5,
+  "runup_1y_to_peak_pct": 201.6
+ },
+ "kospi_40pct_events": [
+  {
+   "hit": "2000-09-15",
+   "peak": "2000-01-04",
+   "days_from_peak": 170,
+   "runup_1y_pct": 80.2,
+   "more_drop_pct": -25.4,
+   "after_1y_pct": -24.8,
+   "after_3y_pct": 22.2,
+   "peak_again": "2005-07-14",
+   "years_to_peak_again": 4.8
+  },
+  {
+   "hit": "2003-03-05",
+   "peak": "2002-04-18",
+   "days_from_peak": 216,
+   "runup_1y_pct": 73.6,
+   "more_drop_pct": -8.0,
+   "after_1y_pct": 51.7,
+   "after_3y_pct": 138.6,
+   "peak_again": "2005-02-07",
+   "years_to_peak_again": 1.9
+  },
+  {
+   "hit": "2008-10-16",
+   "peak": "2007-10-31",
+   "days_from_peak": 236,
+   "runup_1y_pct": 51.3,
+   "more_drop_pct": -22.7,
+   "after_1y_pct": 36.7,
+   "after_3y_pct": 55.6,
+   "peak_again": "2011-01-03",
+   "years_to_peak_again": 2.2
+  },
+  {
+   "hit": "2026-11-05",
+   "peak": "2026-06-22",
+   "days_from_peak": 92,
+   "runup_1y_pct": 201.6,
+   "more_drop_pct": -6.0,
+   "after_1y_pct": null,
+   "after_3y_pct": null,
+   "peak_again": null,
+   "years_to_peak_again": null
+  }
+ ],
+ "kospi_2026_06_23": {
+  "close": 8203.83984375,
+  "next_day_pct": 3.26,
+  "min_after": 5059.69,
+  "min_after_pct": -38.3,
+  "now_vs_pct": -38.3
+ }
+}

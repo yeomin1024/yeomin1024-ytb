@@ -1,6 +1,7 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.40 — 2026-11-06 — **이번 주 분석 → 제목 후보** (`topics/week_scan.py` · `topics/precheck/crash_week_2026_11.py` · `topics/제목_이번주_2026-11-06.md` · 승인 517개 더해 사례 1,240 · 성공 사례 209) — 사용자 지시 "분석 코드 돌려서 이번주 성공사례 찾아서 … 제목 찾되 최근 상황에서 소재를 발견해서".
+VERSION: v1.41 — 2026-11-06 — **폭락 대처 편 요약본** (`source/crash-plan-2026-11/` 요약본·calc v1.6 · 주제 T060 정답형) — 사용자 지시 "폭락 대처 방법 전달 주제로 … 요약본 구성해봐".
+이전 v1.40 — 2026-11-06 — **이번 주 분석 → 제목 후보** (`topics/week_scan.py` · `topics/precheck/crash_week_2026_11.py` · `topics/제목_이번주_2026-11-06.md` · 승인 517개 더해 사례 1,240 · 성공 사례 209) — 사용자 지시 "분석 코드 돌려서 이번주 성공사례 찾아서 … 제목 찾되 최근 상황에서 소재를 발견해서".
 이전 v1.39 — 2026-10-30 — **단계 평가 4회차** (`topics/precheck/round4.py` · `topics/pool/2026-10-30.json` · `topics/packages/2026-10-30_*.json` · `guides/data_insights.md` 5-1) — 사용자 지시 "1, 2단계만 평가 했으니 다시 업데이트 해봐".
 이전 v1.38 — 2026-10-29 — **1단계 14개를 문제형·테스트형으로** (`topics/packages/2026-10-29_stage1_v2.json` · `topics/precheck/t048_sell_vs_hold.py` · `tools/topic_ideas.py` v1.6.2) — 사용자 지시 "1번 평가판은 사실형으로 하지 말고 문제나 테스트형으로 좀 해봐 왜 다 사실형이야".
 이전 v1.37 — 2026-10-29 — **이전 평가 좋음 9개는 2단계로** (`topics/packages/2026-10-29_s2.json` · `topics/기존편_평가.txt` · `tools/topic_ideas.py` v1.6.1) — 사용자 지시 "아니 내가 이전에 좋다고 한것들은 2번에 넣어야지 다시해봐".

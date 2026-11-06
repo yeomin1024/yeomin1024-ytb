@@ -78,3 +78,6 @@ text = "배당 ETF vs 지수 배당세 15% 떼고 매달 1000달러 SCHD vs SPY 
 [[used]]
 id = "reobeoriji-2026-10"
 text = "레버리지 1배 2배 3배 매달 500달러 27년 QLD TQQQ QQQ보다 더 남을까 적립"
+
+[summary]               # v1.x 2026-11-06 — 요약본 편 목록 (tools/summary_ideas.py · 글자 = 안 ID 머리) — 폭락 대처 편 C 더함
+EPISODES = {F = "jaemu-test-2026-10", P = "portfolio-test-2026-10", M = "timing-test-2026-10", C = "crash-plan-2026-11"}

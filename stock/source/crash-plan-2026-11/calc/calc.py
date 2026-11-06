@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-11-06 — 사연 숫자(김씨 1억 = QQQ 7천 + TQQQ 3천). (v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v1.8 — 2026-11-06 — 버핏 9 대 1(B9010). (v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.8 | 2026-11-06 | B9010 = 버핏 2013년 서한의 90(S&P 500)·10(단기 국채) — 대처 여섯째 · Q8 · 사연 '같은 날 9 대 1 이었다면' (사용자 지시 "…경력을 언급해야지 … 실질적인 대처 방법을 제목에 … 대본도 써봐") | paths · main |
 # | v1.7 | 2026-11-06 | 사연 — 나스닥 고점 날 1억(QQQ 7천만 + TQQQ 3천만)이 지금 얼마인가 (전문가 중심 편 — 사용자 지시 "…사연 + 과거 사례 비교 + 전문가 + 문제…") | main |
 # | v1.6 | 2026-11-06 | 코스피 직전 1년 상승 = 달력 365일 (지금 245거래일·과거 252거래일로 서로 다르게 세던 것) · 옛 고점 되찾은 해 = 달력 날수 | main |
 # | v1.5 | 2026-11-06 | 분류를 저장소 기준(README 정답 미리 확인 3 — 가장 약한 칸 ≥55%·기본 칸 ≥60%)과 엄격 기준(한 번도 안 짐) 둘 다 · 대처마다 안정 수익 확률(채널 정답 기준) | main |
@@ -22,6 +23,7 @@
 # 대처 다섯 (사건 날 종가에 정함 — 그날까지 알려진 값만, 미리 보기 없음):
 #   HOLD 나스닥100(QQQ, 조정 종가) 그대로 · CASH 전부 팔고 예금(미국 13주 국채 이자 ^IRX, 전날 금리) ·
 #   REBUY 팔았다가 QQQ 가 판 뒤 가장 낮은 값보다 20% 오른 첫날 다시 사기 · MIX 주식 60(SPY) + 채권 40(VBMFX) 으로 줄이고 달마다 비율 맞춤 ·
+#   B9010 (v1.8) 버핏 9 대 1 — SPY 90 + 단기 국채 10, 달마다 비율 맞춤 ·
 #   LEV3 나스닥100 3배(QQQ 하루 수익 × 3 − 연 0.95% — 가정한 계산 상품, 실제 TQQQ 는 2010년부터라 그 전도 같은 식으로)
 # 잣대 (채널 목적 '덜 잃었나'): 그날 값 = 1 → 1년·3년 안 가장 낮은 값(더 빠진 폭) · 그날 값을 되찾은 날 · 3년 뒤 값 · 안정 수익(3년 뒤 예금보다 더 남고
 #   한 번도 0.8 아래로 안 감 — precheck/risk.py stable 과 같음).
@@ -41,7 +43,7 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v1.7"
+VERSION = "v1.8"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
 SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
@@ -175,7 +177,14 @@ def paths(i0, H, qqq, spy, bnd, irx, days):
         if days[k][:7] != days[k - 1][:7]:              # 달이 바뀐 첫 거래일에 60·40 으로
             s_u, b_u = 0.6 * v / spy[k], 0.4 * v / bnd[k]
         mix.append(v)
-    return {"HOLD": hold, "CASH": cash, "REBUY": reb, "MIX": mix, "LEV3": lev}
+    # v1.8: B9010 = 버핏 2013년 주주 서한 '90%는 아주 싼 S&P 500 인덱스 펀드, 10%는 단기 국채' — SPY 90 + 단기 국채(13주 국채 이자 = CASH 길) 10, 달마다 비율 맞춤
+    b9, su, cu = [1.0], 0.9 / spy[i0], 0.1 / cash[0]
+    for k in range(i0 + 1, i0 + n + 1):
+        v = su * spy[k] + cu * cash[k - i0]
+        if days[k][:7] != days[k - 1][:7]:
+            su, cu = 0.9 * v / spy[k], 0.1 * v / cash[k - i0]
+        b9.append(v)
+    return {"HOLD": hold, "CASH": cash, "REBUY": reb, "MIX": mix, "LEV3": lev, "B9010": b9}
 
 
 def measure(p, cash, horizon):
@@ -221,6 +230,7 @@ QUESTIONS = {                                  # (잣대, 방향, a, b) — a �
     "Q5_mix_shallower_than_hold": ("min", +1, "MIX", "HOLD"),
     "Q6_hold_beats_rebuy_end": ("end", +1, "HOLD", "REBUY"),
     "Q7_mix_beats_cash_end": ("end", +1, "MIX", "CASH"),
+    "Q8_b9010_shallower_than_hold": ("min", +1, "B9010", "HOLD"),      # v1.8
 }
 
 
@@ -314,9 +324,9 @@ def main(argv=None):
     stab = {}
     for key, s in sens.items():
         full = [r for r in s["rows"] if r["3y"]["HOLD"]["full"]]
-        stab[key] = {k: f"{sum(r['3y'][k]['stable'] for r in full)}/{len(full)}" for k in ("HOLD", "MIX", "LEV3", "REBUY", "CASH")}
-        stab[key]["median_min"] = {k: round(st.median(r["3y"][k]["min"] for r in full), 3) for k in ("HOLD", "MIX", "LEV3", "REBUY")}
-        stab[key]["worst_min"] = {k: min(r["3y"][k]["min"] for r in full) for k in ("HOLD", "MIX", "LEV3", "REBUY")}
+        stab[key] = {k: f"{sum(r['3y'][k]['stable'] for r in full)}/{len(full)}" for k in ("HOLD", "MIX", "LEV3", "REBUY", "CASH", "B9010")}
+        stab[key]["median_min"] = {k: round(st.median(r["3y"][k]["min"] for r in full), 3) for k in ("HOLD", "MIX", "LEV3", "REBUY", "B9010")}
+        stab[key]["worst_min"] = {k: min(r["3y"][k]["min"] for r in full) for k in ("HOLD", "MIX", "LEV3", "REBUY", "B9010")}
         L("RESULT", "stable_3y %s %s median_min=%s worst_min=%s", key, {k: v for k, v in stab[key].items() if isinstance(v, str)},
           stab[key]["median_min"], stab[key]["worst_min"])
     res["sensitivity"] = sens
@@ -362,6 +372,11 @@ def main(argv=None):
                     "tqqq_share_of_loss_pct": round(100 * (3000 - tv) / (10_000 - qv - tv), 1),
                     "day_qqq_pct": round(100 * (q[d1] / q[days[-2]] - 1), 1), "day_tqqq_pct": round(100 * (t3[d1] / t3[days[-2]] - 1), 1),
                     "unit": "만 원", "note": "가상 인물 · 실제 ETF 조정 종가 · 세금·수수료·환율 빼고"}
+    sp = raw["SPY"]
+    irx_d0 = raw["^IRX"].get(d0) or 0.0
+    b9_now = 10_000 * (0.9 * sp[d1] / sp[d0] + 0.1 * (1 + irx_d0 / 100) ** (21 / 252))      # 한 달(약 21거래일) 국채 이자 — 달 안이라 비율 맞춤 없음
+    res["story"]["b9010_now"] = round(b9_now)
+    res["story"]["b9010_note"] = "같은 날 1억을 S&P 500(SPY) 90 + 단기 국채 10 으로 넣었다면 (국채 = 그날 13주 국채 이자로 21거래일)"
     L("RESULT", "story=%s", res["story"])
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")
     L("END", "saved=%s seconds=%.1f", OUT.name, time.time() - t0)

@@ -1,5 +1,5 @@
 {
- "version": "v1.7",
+ "version": "v1.8",
  "made": "2026-11-06",
  "note": "연구·교육용 — 투자 권유 아님. 지수는 가격, 펀드는 조정 종가. LEV3 는 가정 계산.",
  "now": {
@@ -118,6 +118,18 @@
      2,
      0,
      17
+    ],
+    "Q8_b9010_shallower_than_hold_1y": [
+     12,
+     6,
+     1,
+     19
+    ],
+    "Q8_b9010_shallower_than_hold_3y": [
+     10,
+     7,
+     0,
+     17
     ]
    },
    "rows": [
@@ -163,6 +175,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.818,
+       "min": 0.783,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -201,6 +221,14 @@
       "LEV3": {
        "end": 0.001,
        "min": 0.001,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.656,
+       "min": 0.584,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -250,6 +278,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.08,
+       "min": 0.981,
+       "recover_days": 103,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -289,6 +325,14 @@
        "end": 1.753,
        "min": 0.808,
        "recover_days": 119,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.352,
+       "min": 0.981,
+       "recover_days": 103,
        "below80": false,
        "stable": true,
        "full": true
@@ -337,6 +381,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.122,
+       "min": 0.985,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -375,6 +427,14 @@
       "LEV3": {
        "end": 1.586,
        "min": 0.928,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.237,
+       "min": 0.985,
        "recover_days": 5,
        "below80": false,
        "stable": true,
@@ -424,6 +484,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.227,
+       "min": 0.99,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -462,6 +530,14 @@
       "LEV3": {
        "end": 0.438,
        "min": 0.163,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.848,
+       "min": 0.623,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -511,6 +587,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.582,
+       "min": 0.582,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -549,6 +633,14 @@
       "LEV3": {
        "end": 0.567,
        "min": 0.08,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.926,
+       "min": 0.535,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -598,6 +690,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.206,
+       "min": 0.931,
+       "recover_days": 54,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -639,6 +739,14 @@
        "recover_days": 53,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.496,
+       "min": 0.931,
+       "recover_days": 54,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -685,6 +793,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.166,
+       "min": 0.927,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -726,6 +842,14 @@
        "recover_days": 28,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.609,
+       "min": 0.927,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -772,6 +896,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.274,
+       "min": 0.989,
+       "recover_days": 12,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -811,6 +943,14 @@
        "end": 5.516,
        "min": 0.975,
        "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.654,
+       "min": 0.989,
+       "recover_days": 12,
        "below80": false,
        "stable": true,
        "full": true
@@ -859,6 +999,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.309,
+       "min": 0.998,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -897,6 +1045,14 @@
       "LEV3": {
        "end": 5.159,
        "min": 0.99,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.537,
+       "min": 0.998,
        "recover_days": 2,
        "below80": false,
        "stable": true,
@@ -946,6 +1102,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.162,
+       "min": 0.979,
+       "recover_days": 120,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -985,6 +1149,14 @@
        "end": 5.224,
        "min": 0.881,
        "recover_days": 121,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.534,
+       "min": 0.979,
+       "recover_days": 120,
        "below80": false,
        "stable": true,
        "full": true
@@ -1033,6 +1205,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.146,
+       "min": 0.901,
+       "recover_days": 58,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -1074,6 +1254,14 @@
        "recover_days": 68,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.723,
+       "min": 0.887,
+       "recover_days": 356,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -1120,6 +1308,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.136,
+       "min": 0.85,
+       "recover_days": 215,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -1161,6 +1357,14 @@
        "recover_days": 206,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.51,
+       "min": 0.85,
+       "recover_days": 215,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -1207,6 +1411,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.274,
+       "min": 0.779,
+       "recover_days": 56,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -1246,6 +1458,14 @@
        "end": 1.317,
        "min": 0.473,
        "recover_days": 50,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.365,
+       "min": 0.779,
+       "recover_days": 56,
        "below80": true,
        "stable": false,
        "full": true
@@ -1294,6 +1514,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.332,
+       "min": 0.975,
+       "recover_days": 14,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -1336,6 +1564,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.373,
+       "min": 0.975,
+       "recover_days": 14,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      }
     },
@@ -1376,6 +1612,14 @@
       },
       "LEV3": {
        "end": 1.132,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.103,
        "min": 1.0,
        "recover_days": 0,
        "below80": false,
@@ -1423,6 +1667,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.371,
+       "min": 0.965,
+       "recover_days": 408,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      }
     },
@@ -1468,6 +1720,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.905,
+       "min": 0.819,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -1509,6 +1769,14 @@
        "recover_days": 502,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.38,
+       "min": 0.819,
+       "recover_days": 353,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -1555,6 +1823,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.366,
+       "min": 0.985,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -1593,6 +1869,14 @@
       "LEV3": {
        "end": 5.364,
        "min": 0.943,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.788,
+       "min": 0.985,
        "recover_days": 4,
        "below80": false,
        "stable": true,
@@ -1642,6 +1926,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.186,
+       "min": 0.95,
+       "recover_days": 171,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -1683,6 +1975,14 @@
        "recover_days": 182,
        "below80": true,
        "stable": false,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.378,
+       "min": 0.95,
+       "recover_days": 171,
+       "below80": false,
+       "stable": true,
        "full": false
       }
      }
@@ -1729,6 +2029,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.182,
+       "min": 0.883,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -1770,6 +2078,14 @@
        "recover_days": 46,
        "below80": true,
        "stable": false,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.28,
+       "min": 0.883,
+       "recover_days": 46,
+       "below80": false,
+       "stable": true,
        "full": false
       }
      }
@@ -1816,6 +2132,14 @@
        "below80": false,
        "stable": true,
        "full": false
+      },
+      "B9010": {
+       "end": 1.13,
+       "min": 0.982,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
       }
      },
      "3y": {
@@ -1854,6 +2178,14 @@
       "LEV3": {
        "end": 1.292,
        "min": 0.92,
+       "recover_days": 3,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.13,
+       "min": 0.982,
        "recover_days": 3,
        "below80": false,
        "stable": true,
@@ -2156,6 +2488,18 @@
      2,
      0,
      13
+    ],
+    "Q8_b9010_shallower_than_hold_1y": [
+     8,
+     6,
+     1,
+     15
+    ],
+    "Q8_b9010_shallower_than_hold_3y": [
+     5,
+     7,
+     1,
+     13
     ]
    },
    "rows": [
@@ -2201,6 +2545,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.766,
+       "min": 0.766,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -2239,6 +2591,14 @@
       "LEV3": {
        "end": 0.002,
        "min": 0.001,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.639,
+       "min": 0.575,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -2288,6 +2648,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.085,
+       "min": 0.987,
+       "recover_days": 68,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2329,6 +2697,14 @@
        "recover_days": 85,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.426,
+       "min": 0.987,
+       "recover_days": 68,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -2375,6 +2751,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.136,
+       "min": 0.997,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2413,6 +2797,14 @@
       "LEV3": {
        "end": 1.691,
        "min": 0.996,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.255,
+       "min": 0.997,
        "recover_days": 4,
        "below80": false,
        "stable": true,
@@ -2462,6 +2854,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.247,
+       "min": 1.0,
+       "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2500,6 +2900,14 @@
       "LEV3": {
        "end": 0.416,
        "min": 0.165,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.839,
+       "min": 0.63,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -2549,6 +2957,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.704,
+       "min": 0.581,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -2587,6 +3003,14 @@
       "LEV3": {
        "end": 0.696,
        "min": 0.087,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.975,
+       "min": 0.534,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -2636,6 +3060,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.248,
+       "min": 0.959,
+       "recover_days": 33,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2675,6 +3107,14 @@
        "end": 3.544,
        "min": 0.867,
        "recover_days": 34,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.568,
+       "min": 0.959,
+       "recover_days": 33,
        "below80": false,
        "stable": true,
        "full": true
@@ -2723,6 +3163,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.248,
+       "min": 0.986,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2762,6 +3210,14 @@
        "end": 5.693,
        "min": 0.941,
        "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.735,
+       "min": 0.986,
+       "recover_days": 40,
        "below80": false,
        "stable": true,
        "full": true
@@ -2810,6 +3266,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.255,
+       "min": 1.0,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2849,6 +3313,14 @@
        "end": 5.47,
        "min": 1.0,
        "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.649,
+       "min": 1.0,
+       "recover_days": 2,
        "below80": false,
        "stable": true,
        "full": true
@@ -2897,6 +3369,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.162,
+       "min": 0.979,
+       "recover_days": 120,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -2936,6 +3416,14 @@
        "end": 5.224,
        "min": 0.881,
        "recover_days": 121,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.534,
+       "min": 0.979,
+       "recover_days": 120,
        "below80": false,
        "stable": true,
        "full": true
@@ -2984,6 +3472,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.146,
+       "min": 0.901,
+       "recover_days": 58,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -3025,6 +3521,14 @@
        "recover_days": 68,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.723,
+       "min": 0.887,
+       "recover_days": 356,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -3071,6 +3575,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.274,
+       "min": 0.779,
+       "recover_days": 56,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -3110,6 +3622,14 @@
        "end": 1.317,
        "min": 0.473,
        "recover_days": 50,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.365,
+       "min": 0.779,
+       "recover_days": 56,
        "below80": true,
        "stable": false,
        "full": true
@@ -3158,6 +3678,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.939,
+       "min": 0.842,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -3199,6 +3727,14 @@
        "recover_days": 476,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.412,
+       "min": 0.842,
+       "recover_days": 342,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -3245,6 +3781,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.385,
+       "min": 0.996,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -3284,6 +3828,14 @@
        "end": 5.457,
        "min": 1.0,
        "recover_days": 0,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.8,
+       "min": 0.996,
+       "recover_days": 2,
        "below80": false,
        "stable": true,
        "full": true
@@ -3332,6 +3884,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.217,
+       "min": 0.976,
+       "recover_days": 170,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -3373,6 +3933,14 @@
        "recover_days": 170,
        "below80": true,
        "stable": false,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.415,
+       "min": 0.976,
+       "recover_days": 170,
+       "below80": false,
+       "stable": true,
        "full": false
       }
      }
@@ -3419,6 +3987,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.202,
+       "min": 0.9,
+       "recover_days": 38,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -3460,6 +4036,14 @@
        "recover_days": 38,
        "below80": true,
        "stable": false,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.305,
+       "min": 0.9,
+       "recover_days": 38,
+       "below80": false,
+       "stable": true,
        "full": false
       }
      }
@@ -3506,6 +4090,14 @@
        "below80": false,
        "stable": true,
        "full": false
+      },
+      "B9010": {
+       "end": 1.148,
+       "min": 0.997,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": false
       }
      },
      "3y": {
@@ -3544,6 +4136,14 @@
       "LEV3": {
        "end": 1.373,
        "min": 0.977,
+       "recover_days": 2,
+       "below80": false,
+       "stable": true,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.148,
+       "min": 0.997,
        "recover_days": 2,
        "below80": false,
        "stable": true,
@@ -3810,6 +4410,18 @@
      1,
      0,
      9
+    ],
+    "Q8_b9010_shallower_than_hold_1y": [
+     7,
+     3,
+     0,
+     10
+    ],
+    "Q8_b9010_shallower_than_hold_3y": [
+     5,
+     4,
+     0,
+     9
     ]
    },
    "rows": [
@@ -3855,6 +4467,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.766,
+       "min": 0.766,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -3893,6 +4513,14 @@
       "LEV3": {
        "end": 0.002,
        "min": 0.001,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 0.639,
+       "min": 0.575,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -3942,6 +4570,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.15,
+       "min": 0.987,
+       "recover_days": 8,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -3981,6 +4617,14 @@
        "end": 2.51,
        "min": 0.899,
        "recover_days": 9,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.407,
+       "min": 0.987,
+       "recover_days": 8,
        "below80": false,
        "stable": true,
        "full": true
@@ -4029,6 +4673,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.659,
+       "min": 0.592,
+       "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -4068,6 +4720,14 @@
        "end": 0.846,
        "min": 0.098,
        "recover_days": null,
+       "below80": true,
+       "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.005,
+       "min": 0.545,
+       "recover_days": 755,
        "below80": true,
        "stable": false,
        "full": true
@@ -4116,6 +4776,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.24,
+       "min": 0.983,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -4154,6 +4822,14 @@
       "LEV3": {
        "end": 3.552,
        "min": 0.938,
+       "recover_days": 5,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.574,
+       "min": 0.983,
        "recover_days": 5,
        "below80": false,
        "stable": true,
@@ -4203,6 +4879,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.248,
+       "min": 0.986,
+       "recover_days": 40,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -4242,6 +4926,14 @@
        "end": 5.693,
        "min": 0.941,
        "recover_days": 11,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.735,
+       "min": 0.986,
+       "recover_days": 40,
        "below80": false,
        "stable": true,
        "full": true
@@ -4290,6 +4982,14 @@
        "below80": false,
        "stable": true,
        "full": true
+      },
+      "B9010": {
+       "end": 1.218,
+       "min": 0.976,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -4328,6 +5028,14 @@
       "LEV3": {
        "end": 4.109,
        "min": 0.945,
+       "recover_days": 6,
+       "below80": false,
+       "stable": true,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.47,
+       "min": 0.976,
        "recover_days": 6,
        "below80": false,
        "stable": true,
@@ -4377,6 +5085,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.249,
+       "min": 0.931,
+       "recover_days": 13,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -4418,6 +5134,14 @@
        "recover_days": 14,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.819,
+       "min": 0.917,
+       "recover_days": 319,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -4464,6 +5188,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.391,
+       "min": 0.836,
+       "recover_days": 22,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -4505,6 +5237,14 @@
        "recover_days": 25,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.451,
+       "min": 0.836,
+       "recover_days": 22,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -4551,6 +5291,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 0.956,
+       "min": 0.848,
+       "recover_days": null,
+       "below80": false,
+       "stable": false,
+       "full": true
       }
      },
      "3y": {
@@ -4592,6 +5340,14 @@
        "recover_days": 471,
        "below80": true,
        "stable": false,
+       "full": true
+      },
+      "B9010": {
+       "end": 1.423,
+       "min": 0.848,
+       "recover_days": 340,
+       "below80": false,
+       "stable": true,
        "full": true
       }
      }
@@ -4638,6 +5394,14 @@
        "below80": true,
        "stable": false,
        "full": true
+      },
+      "B9010": {
+       "end": 1.221,
+       "min": 0.933,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
+       "full": true
       }
      },
      "3y": {
@@ -4679,6 +5443,14 @@
        "recover_days": 4,
        "below80": true,
        "stable": false,
+       "full": false
+      },
+      "B9010": {
+       "end": 1.353,
+       "min": 0.933,
+       "recover_days": 4,
+       "below80": false,
+       "stable": true,
        "full": false
       }
      }
@@ -4999,6 +5771,50 @@
    "class_repo": "정답형",
    "weakest_share": 0.7,
    "base_share": 0.846
+  },
+  "Q8_b9010_shallower_than_hold": {
+   "cells": [
+    [
+     12,
+     6,
+     1,
+     19
+    ],
+    [
+     10,
+     7,
+     0,
+     17
+    ],
+    [
+     8,
+     6,
+     1,
+     15
+    ],
+    [
+     5,
+     7,
+     1,
+     13
+    ],
+    [
+     7,
+     3,
+     0,
+     10
+    ],
+    [
+     5,
+     4,
+     0,
+     9
+    ]
+   ],
+   "class_strict": "조건부형",
+   "class_repo": "조건부형",
+   "weakest_share": 0.385,
+   "base_share": 0.385
   }
  },
  "stable_3y": {
@@ -5008,17 +5824,20 @@
    "LEV3": "6/17",
    "REBUY": "12/17",
    "CASH": "0/17",
+   "B9010": "13/17",
    "median_min": {
     "HOLD": 0.939,
     "MIX": 0.956,
     "LEV3": 0.756,
-    "REBUY": 0.904
+    "REBUY": 0.904,
+    "B9010": 0.931
    },
    "worst_min": {
     "HOLD": 0.187,
     "MIX": 0.68,
     "LEV3": 0.001,
-    "REBUY": 0.216
+    "REBUY": 0.216,
+    "B9010": 0.535
    }
   },
   "D119": {
@@ -5027,17 +5846,20 @@
    "LEV3": "6/13",
    "REBUY": "9/13",
    "CASH": "0/13",
+   "B9010": "9/13",
    "median_min": {
     "HOLD": 0.937,
     "MIX": 0.978,
     "LEV3": 0.798,
-    "REBUY": 0.971
+    "REBUY": 0.971,
+    "B9010": 0.959
    },
    "worst_min": {
     "HOLD": 0.195,
     "MIX": 0.673,
     "LEV3": 0.001,
-    "REBUY": 0.216
+    "REBUY": 0.216,
+    "B9010": 0.534
    }
   },
   "D150": {
@@ -5046,17 +5868,20 @@
    "LEV3": "4/9",
    "REBUY": "7/9",
    "CASH": "0/9",
+   "B9010": "7/9",
    "median_min": {
     "HOLD": 0.914,
     "MIX": 0.956,
     "LEV3": 0.758,
-    "REBUY": 0.978
+    "REBUY": 0.978,
+    "B9010": 0.917
    },
    "worst_min": {
     "HOLD": 0.195,
     "MIX": 0.681,
     "LEV3": 0.001,
-    "REBUY": 0.216
+    "REBUY": 0.216,
+    "B9010": 0.545
    }
   }
  },
@@ -5222,6 +6047,8 @@
   "day_qqq_pct": -6.5,
   "day_tqqq_pct": -18.9,
   "unit": "만 원",
-  "note": "가상 인물 · 실제 ETF 조정 종가 · 세금·수수료·환율 빼고"
+  "note": "가상 인물 · 실제 ETF 조정 종가 · 세금·수수료·환율 빼고",
+  "b9010_now": 9471,
+  "b9010_note": "같은 날 1억을 S&P 500(SPY) 90 + 단기 국채 10 으로 넣었다면 (국채 = 그날 13주 국채 이자로 21거래일)"
  }
 }

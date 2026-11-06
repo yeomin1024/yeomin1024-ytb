@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-11-06 — 코스피 1년 상승·회복 해를 달력으로. (v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v1.7 — 2026-11-06 — 사연 숫자(김씨 1억 = QQQ 7천 + TQQQ 3천). (v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.7 | 2026-11-06 | 사연 — 나스닥 고점 날 1억(QQQ 7천만 + TQQQ 3천만)이 지금 얼마인가 (전문가 중심 편 — 사용자 지시 "…사연 + 과거 사례 비교 + 전문가 + 문제…") | main |
 # | v1.6 | 2026-11-06 | 코스피 직전 1년 상승 = 달력 365일 (지금 245거래일·과거 252거래일로 서로 다르게 세던 것) · 옛 고점 되찾은 해 = 달력 날수 | main |
 # | v1.5 | 2026-11-06 | 분류를 저장소 기준(README 정답 미리 확인 3 — 가장 약한 칸 ≥55%·기본 칸 ≥60%)과 엄격 기준(한 번도 안 짐) 둘 다 · 대처마다 안정 수익 확률(채널 정답 기준) | main |
 # | v1.4 | 2026-11-06 | 코스피 — 1년 최고가에서 처음 40% 넘게 빠진 사건과 그 뒤 · 2026-06-23 하루 −10% 다음 날 이후 | main |
@@ -40,10 +41,10 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
-SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX"]
+SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
 START = "2000-01-01"
 Y1, Y3 = 252, 756
 LEV_FEE = 0.0095
@@ -352,6 +353,16 @@ def main(argv=None):
     L("RESULT", "kospi_40pct_events=%s", [(k["hit"], k["runup_1y_pct"], k["more_drop_pct"], k["years_to_peak_again"]) for k in kev])
     L("RESULT", "kospi_2026_06_23=%s", res["kospi_2026_06_23"])
     L("RESULT", "kospi_now=%s kospi_8pct_days=%d", res["kospi_now"], len(res["kospi_8pct_days"]))
+    # v1.7: 사연 — 가상 인물 김씨: 나스닥 고점 날(10-06) 1억 = 나스닥100 ETF(QQQ) 7천만 원 + 3배 레버리지(TQQQ) 3천만 원 → 지금(조정 종가)
+    q, t3 = raw["QQQ"], raw["TQQQ"]
+    d0, d1 = days[pk], days[-1]
+    qv, tv = 7_000 * q[d1] / q[d0], 3_000 * t3[d1] / t3[d0]          # 만 원
+    res["story"] = {"start": d0, "end": d1, "qqq_in": 7000, "tqqq_in": 3000, "qqq_now": round(qv), "tqqq_now": round(tv), "total_now": round(qv + tv),
+                    "loss_total": round(10_000 - qv - tv), "loss_qqq": round(7000 - qv), "loss_tqqq": round(3000 - tv),
+                    "tqqq_share_of_loss_pct": round(100 * (3000 - tv) / (10_000 - qv - tv), 1),
+                    "day_qqq_pct": round(100 * (q[d1] / q[days[-2]] - 1), 1), "day_tqqq_pct": round(100 * (t3[d1] / t3[days[-2]] - 1), 1),
+                    "unit": "만 원", "note": "가상 인물 · 실제 ETF 조정 종가 · 세금·수수료·환율 빼고"}
+    L("RESULT", "story=%s", res["story"])
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")
     L("END", "saved=%s seconds=%.1f", OUT.name, time.time() - t0)
 

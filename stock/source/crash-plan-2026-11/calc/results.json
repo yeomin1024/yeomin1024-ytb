@@ -1,5 +1,5 @@
 {
- "version": "v1.6",
+ "version": "v1.7",
  "made": "2026-11-06",
  "note": "연구·교육용 — 투자 권유 아님. 지수는 가격, 펀드는 조정 종가. LEV3 는 가정 계산.",
  "now": {
@@ -5206,5 +5206,22 @@
   "min_after": 5059.69,
   "min_after_pct": -38.3,
   "now_vs_pct": -38.3
+ },
+ "story": {
+  "start": "2026-10-06",
+  "end": "2026-11-05",
+  "qqq_in": 7000,
+  "tqqq_in": 3000,
+  "qqq_now": 5962,
+  "tqqq_now": 1797,
+  "total_now": 7759,
+  "loss_total": 2241,
+  "loss_qqq": 1038,
+  "loss_tqqq": 1203,
+  "tqqq_share_of_loss_pct": 53.7,
+  "day_qqq_pct": -6.5,
+  "day_tqqq_pct": -18.9,
+  "unit": "만 원",
+  "note": "가상 인물 · 실제 ETF 조정 종가 · 세금·수수료·환율 빼고"
  }
 }

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.2 — 2026-11-06 — 김씨 계좌 그대로(3배 23.2%) 칸 · 60/40 vs 그대로 갈린 사건 · 3배 3년 뒤 값 반올림 없이. (v2.1 김씨 1억 되찾기 · 그대로 vs 60/40 잔고 · 3배 안정 수익 ⊂ 그대로 · v2.0 한 잣대 · v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v2.3 — 2026-11-06 — kim_mix 에 3년 안 가장 낮은 값 C 와 비교 · 2008년 최저값. (v2.2 김씨 계좌 그대로(3배 23.2%) 칸 · 60/40 vs 그대로 갈린 사건 · 3배 3년 뒤 값 반올림 없이 · v2.1 김씨 1억 되찾기 · 그대로 vs 60/40 잔고 · 3배 안정 수익 ⊂ 그대로 · v2.0 한 잣대 · v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.3 | 2026-11-06 | 반론 검토 5회차: kim_mix 칸마다 min_deeper_than_c·min_same_as_c (3년 안 가장 낮은 값을 C 와 비교 — 문턱 0.8 과 상관없음) · min_2008_manwon | main |
 # | v2.2 | 2026-11-06 | 반론 검토 4회차: counts_D119_3y 에 stable_mix_only·stable_hold_only (60/40 과 그대로가 잣대에서 갈린 사건) · kim_mix (김씨 계좌 그대로 3배 23.2% · 40% · 50% — 비율 맞추지 않음) · lev3_3y_end_raw_2000 (반올림 없이) · kim_c_2008_min_manwon | main |
 # | v2.1 | 2026-11-06 | 반론 검토 3회차: counts_D119_3y 에 kim_recover_1억 (3년 뒤 ×1.289 이상) · hold_end_beats_mix · lev3_stable_subset_of_hold · lev3_synthetic_hits · lev3_3y_end · lev3_check.qqq_x | main |
 # | v2.0 | 2026-11-06 | 반론 검토 2회차: counts_D119_3y (3년 안 20% 넘게 준 적 · 안정 수익 · 3배가 3년 뒤 더 남은 횟수) · lev3_check (TQQQ 첫날~지금 가정 3배 vs 실제) · story.qqq_only_now | main |
@@ -47,7 +48,7 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v2.2"
+VERSION = "v2.3"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
 SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
@@ -372,12 +373,17 @@ def main(argv=None):
     kim_w = 1_797 / 7_759                                    # story.tqqq_now / story.total_now
     c["kim_mix"] = {}
     for w in (round(kim_w, 4), 0.4, 0.5):
-        cnt = {"stable": 0, "below80": 0}
+        cnt = {"stable": 0, "below80": 0, "min_deeper_than_c": 0, "min_same_as_c": 0}
         for r in full:
             i0 = days.index(r["hit"])
             P = paths(i0, Y3, S["QQQ"], S["SPY"], S["VBMFX"], S["^IRX"], days, S.get("TQQQ"))
             m = measure([(1 - w) * h + w * l for h, l in zip(P["HOLD"], P["LEV3"])], P["CASH"], Y3)
             cnt["stable"] += m["stable"]; cnt["below80"] += m["below80"]
+            # v2.3 (반론 검토 5회차): 3년 안 가장 낮은 값을 C(= 그대로, 나스닥100만)와 비교 — 문턱 0.8 과 상관없는 비교
+            c_min = measure(P["HOLD"], P["CASH"], Y3)["min"]
+            cnt["min_deeper_than_c"] += m["min"] < c_min; cnt["min_same_as_c"] += m["min"] == c_min
+            if r["hit"] == "2008-01-04":
+                cnt["min_2008_manwon"] = round(7_759 * m["min"])
             if r["hit"] == "2000-04-03" and w == 0.5:
                 c["lev3_3y_end_raw_2000"] = round(P["LEV3"][Y3], 5)
             if r["hit"] == "2008-01-04" and w == 0.5:

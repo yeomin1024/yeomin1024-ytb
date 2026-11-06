@@ -1,5 +1,5 @@
 {
- "version": "v2.2",
+ "version": "v2.3",
  "made": "2026-11-06",
  "note": "연구·교육용 — 투자 권유 아님. 지수는 가격, 펀드는 조정 종가. LEV3 는 가정 계산.",
  "now": {
@@ -6001,15 +6001,24 @@
   "kim_mix": {
    "lev3_23.2pct": {
     "stable": 8,
-    "below80": 5
+    "below80": 5,
+    "min_deeper_than_c": 11,
+    "min_same_as_c": 2,
+    "min_2008_manwon": 3329
    },
    "lev3_40.0pct": {
     "stable": 7,
-    "below80": 6
+    "below80": 6,
+    "min_deeper_than_c": 11,
+    "min_same_as_c": 2,
+    "min_2008_manwon": 2747
    },
    "lev3_50.0pct": {
     "stable": 7,
-    "below80": 6
+    "below80": 6,
+    "min_deeper_than_c": 11,
+    "min_same_as_c": 2,
+    "min_2008_manwon": 2398
    }
   },
   "lev3_3y_end_raw_2000": 0.00129,

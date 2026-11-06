@@ -1,5 +1,14 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-06 — 반도체 쇼츠 모션그래픽 영상 (미리보기 — 소리 없음·추정 시각)
+
+- 사용자 지시 "그림 올렸으니 영상 만들어서 보여줘".
+- 그림 17장 (ChatGPT 커밋 `be640c20`~`a92aac30`): 검사 코드 모두 OK (투명 · 칸 넘음 없음) · Claude 가 모두 봄 — 글자 없음 · A·B 얼굴·옷 같음 · 자세가 연속 동작.
+- `stock/source/bandoche-bunbae-2026-11/puppet/slice.py` v1.1: 시트를 칸마다 잘라 `cut/` 46장 (256색 PNG 1.5MB) + `manifest.json/js` (기준점 = 발 선 가운데) · 시트 배율 = 첫 자세 키 (A-BUY ×1.38 · B-WIN ×0.81 …) · A-RUIN 은 서 있는 첫 자세가 없어 A-HAPPY 옆에 놓고 머리 크기로 ×1.07 (가운데값 ×1.17 은 11% 커 보임) · v1.1 = 칸을 내용 폭으로 (칸 전체 폭이면 두 인물 상자가 겹치고 화면 밖).
+- `video/episodes/bandoche-bunbae-2026-11-shorts/index.html` v1.0 + `data.js` (calc/result.json 일별 A·B · KEY — A 손실 −₩20,410,500 = −37.11% × ₩55,000,000): 장면 9개 (대결 → 시작 ₩10,000,000 → A 방 티커 → B 서재 배지·계기판 → 그래프 2025-10 +114%/+10%·조롱·2월 흔들림 → A 방 SOXL·SNDK·불타기 9번 → B 금고 → 그래프 186% → 거품 터짐 → 0% → 부서지는 칩 −37% → 우는 얼굴 + 손실 금액 → B +28%·최대 하락 −4% → 트로피 → 방패·엄지). 그래프 선 이름표 A·B 만(한글 없음) · 계기판 바늘 = B 실제 국면 (2025-04·05·2026-04 빨강).
+- 점검: render check 문제 0 (날짜 글자 안전 구역 · 금액 글자 오른쪽 버튼 자리 고침) · layout-check 0 (처음 78 — 나중 물건이 미리 보이던 것·인물 그림 투명 여백·배지·돈 더미 칸) · 0.5초마다 0 · Claude 가 still 19장과 완성 mp4 를 봄 → 고친 것: 글꼴이 명조로 나옴('Noto Sans' 정의 없음 → 'Noto Sans KR') · 수익률·금액 어두운 알약 바탕 · '−0%' → '0%' · 끝 화면이 어두워짐(마지막 배경 keep) · 계기판 바늘이 판 밖으로 돎(GSAP 는 SVG 에 CSS transform-origin 을 안 씀 → svgOrigin) · 바늘 굵게.
+- 결과 `stock/out/bandoche-bunbae-2026-11-shorts/preview_estimated_silent.mp4` (1080x1920 · 30fps · 68.7초 · 23MB · 소리 없음 — git 밖). 내레이션은 아직 없음 (사용자 Kaggle TTS 셀 → sync → video).
+
 ## 2026-11-06 — 반도체 쇼츠 그림 요청 v1.2: 날씨 요소 모두 뺌
 
 - 사용자 지시 "야 날씨 요소를 그냥 없애 직관적으로 그냥 표현하라고 다시 수정해서 알려줘".

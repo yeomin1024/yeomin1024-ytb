@@ -1,5 +1,5 @@
 {
-  "version": "v1.2 — 2026-11-06 — 주식 쇼츠 애니메이션 bandoche-bunbae-2026-11 클립 8개 작업 추가 (꺼 둠 — ChatGPT 그림 8장이 main 에 들어오고 scene_clips check 문제 0 이면 Claude 가 disabled 를 지움). 이전 v1.1 — 2026-10-21 — 국민연금 롱폼·쇼츠 클립 36개 받음(scene_clips fetch) → 두 작업 끔 (다시 만들 클립이 생기면 그 작업만 다시 켬). 이전 v1.0 — 2026-10-20 — 국민연금 롱폼 29 + 쇼츠 7 (Release 에 같은 클립이 있으면 건너뛰고, 그림이 바뀐 클립만 다시)",
+  "version": "v1.3 — 2026-11-06 — bandoche-bunbae-2026-11 쇼츠 클립 8개 켬 (ChatGPT 2D 그림 8장 + 설정표 main 에 · scene_clips check 문제 0 · Claude 가 8장 모두 직접 봄 — 통과). 이전 v1.2 — 2026-11-06 — 주식 쇼츠 애니메이션 bandoche-bunbae-2026-11 클립 8개 작업 추가 (꺼 둠 — ChatGPT 그림 8장이 main 에 들어오고 scene_clips check 문제 0 이면 Claude 가 disabled 를 지움).",
   "about": "Kaggle 고정 셀(videogen/README.md 2-5)이 읽는 할 일 목록 — Claude 가 고친다. jobs 를 위에서부터 차례로: settings = 설정 JSON 경로(저장소 기준). 끄려면 \"disabled\": true, 다 다시 만들려면 \"force\": true, 설정 덮어쓰기는 \"overrides\": {...}.",
   "jobs": [
     {
@@ -14,8 +14,7 @@
     },
     {
       "name": "bandoche-bunbae-2026-11 쇼츠 (반도체만 vs 나눠 담기)",
-      "settings": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/videogen.json",
-      "disabled": true
+      "settings": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/videogen.json"
     }
   ]
 }

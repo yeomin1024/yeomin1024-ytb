@@ -1,6 +1,6 @@
 # bandoche-bunbae-2026-11 쇼츠 — 모션그래픽 그림 17장 (ChatGPT용 · 1번부터 차례로 모두)
 
-작성: v1.0 — 2026-11-06 — 사용자 지시 "배경, 캐릭터, 물체 요소 이미지 만들어서 모션그래픽으로 적절하게 상황 표현해 특히 캐릭터는 행동, 상태, 심리 등 변화 별로 이미지 요소를 만들어서 최대한 자연스럽게 표현해야해 진짜 애니메이션 처럼" (쇼츠 대본 `stock/source/bandoche-bunbae-2026-11/shorts/bandoche-bunbae-2026-11-shorts.txt` v1.0 — 19문장, 표의 '쓰는 대본 문장'은 그 줄 번호)
+작성: v1.1 — 2026-11-06 — 3번 S-ROOM-B 국면 계기판을 날씨 그림 대신 색(초록·노랑·빨강)으로 (사용자 지시 "잠깐 국면 계기판은 날씨로 하지말고 그냥 색으로 표현해 수정해서 다시 알려줘 명령") · 이전 v1.0 — 2026-11-06 — 사용자 지시 "배경, 캐릭터, 물체 요소 이미지 만들어서 모션그래픽으로 적절하게 상황 표현해 특히 캐릭터는 행동, 상태, 심리 등 변화 별로 이미지 요소를 만들어서 최대한 자연스럽게 표현해야해 진짜 애니메이션 처럼" (쇼츠 대본 `stock/source/bandoche-bunbae-2026-11/shorts/bandoche-bunbae-2026-11-shorts.txt` v1.0 — 19문장, 표의 '쓰는 대본 문장'은 그 줄 번호)
 
 쓰임: Claude 가 이 그림들을 잘라 **코드 모션그래픽**(배경 위에 인물·소품을 움직이고, 자세 그림을 바꿔 끼우고, 숫자·티커·그래프는 코드로)으로 영상을 만든다. 인물은 **한 장에 같은 사람의 연속 동작 3개**(자세 시트)로 그려 같은 얼굴·옷이 유지되게 한다 — Claude 가 칸마다 잘라 쓴다. 그림 속 글자·숫자는 없다 (티커 NVDA·SOXL 등, 수익률, A·B 이름, 그래프는 모두 코드).
 
@@ -8,7 +8,7 @@
 |---|---|---|---|---|
 | 1 | `stock/source/bandoche-bunbae-2026-11/puppet/S-VS.jpg` | 세로 1024×1536 · 꽉 찬 배경 | 대결 무대 (왼쪽 주황 네온 · 오른쪽 청록) | 1 (누가 더 벌었을까요?) |
 | 2 | `stock/source/bandoche-bunbae-2026-11/puppet/S-ROOM-A.jpg` | 세로 1024×1536 · 꽉 찬 배경 | A 의 방 (사람 없음) | 3 · 8~9 |
-| 3 | `stock/source/bandoche-bunbae-2026-11/puppet/S-ROOM-B.jpg` | 세로 1024×1536 · 꽉 찬 배경 | B 의 서재 (사람 없음 · 바늘 없는 날씨 다이얼) | 4 · 10 · 18~19 |
+| 3 | `stock/source/bandoche-bunbae-2026-11/puppet/S-ROOM-B.jpg` | 세로 1024×1536 · 꽉 찬 배경 | B 의 서재 (사람 없음 · 바늘 없는 색 계기판 초록·노랑·빨강) | 4 · 10 · 18~19 |
 | 4 | `stock/source/bandoche-bunbae-2026-11/puppet/S-DUO.jpg` | 세로 1024×1536 · 꽉 찬 배경 | 그래프 무대 (위 큰 빈 화면 + 아래 둘이 설 바닥) | 2 · 5~7 · 11~17 |
 | 5 | `stock/source/bandoche-bunbae-2026-11/puppet/A-HAPPY.png` | 가로 1536×1024 · 투명 · 자세 3 | A 신남: 서 있기 → 손가락 총 → 점프 환호 | 3 · 5 · 11 |
 | 6 | `stock/source/bandoche-bunbae-2026-11/puppet/A-BUY.png` | 가로 1536×1024 · 투명 · 자세 3 | A 매수: 폰 두드림 → 밀어 넣기 → 두 팔 벌려 올인 | 3 · 8 · 9 |
@@ -137,7 +137,7 @@ Portrait 1024x1536. A full-bleed background, no people: A's bright, slightly mes
 **저장 경로: `stock/source/bandoche-bunbae-2026-11/puppet/S-ROOM-B.jpg`** — JPEG 700KB 이하 · 세로 1024×1536
 
 ```
-Portrait 1024x1536. A full-bleed background, no people: B's tidy sunny home study like the reference scene — a large window with soft daylight and green trees outside, a light wooden desk against the right wall with a potted plant and a cup of tea, bookshelves with plain spines. High on the left wall (upper-left quarter) hangs a big round gauge dial like a weather meter with three pictures around its rim — a sun on the left, a white cloud at the top, a dark storm cloud with lightning on the right — and NO needle (the center is a plain empty circle). The middle of the floor (center, from about 55% to 95% of the height) is open and empty — a character will stand there. No people, no text, no numbers, no logos.
+Portrait 1024x1536. A full-bleed background, no people: B's tidy sunny home study like the reference scene — a large window with soft daylight and green trees outside, a light wooden desk against the right wall with a potted plant and a cup of tea, bookshelves with plain spines. High on the left wall (upper-left quarter) hangs a big semicircular gauge meter (like a speedometer) in a simple round frame: its arc is divided into three plain flat color zones — green on the left, yellow in the middle, red on the right — with NO needle (the pivot at the bottom center is a plain empty circle), no pictures, no icons, no tick labels and no numbers. The middle of the floor (center, from about 55% to 95% of the height) is open and empty — a character will stand there. No people, no text, no numbers, no logos.
 ```
 
 ## 4. S-DUO — 배경: 그래프 무대

@@ -45,6 +45,7 @@ stock/data/*.csv.gz
 **/out/**/overlay/
 **/out/**/qa/
 **/out/**/clips/
+**/out/**/tmp_clip_short/
 **/out/**/clips_placeholder/
 **/out/**/assemble_graph.txt
 **/out/**/notice.png

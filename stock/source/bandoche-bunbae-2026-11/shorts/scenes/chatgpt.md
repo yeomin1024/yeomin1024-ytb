@@ -1,6 +1,6 @@
 # bandoche-bunbae-2026-11 장면 그림 8장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)
 
-자동 생성 — `python3 tools/scene_clips.py build` v1.4.0 (2026-11-06 10:52). 이 파일은 고치지 말고 `stock/source/bandoche-bunbae-2026-11/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
+자동 생성 — `python3 tools/scene_clips.py build` v1.4.0 (2026-11-06 12:23). 이 파일은 고치지 말고 `stock/source/bandoche-bunbae-2026-11/shorts/scenes/plan.json` 을 고친 뒤 다시 만든다.
 
 이 파일 주소(최신): https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/stock/source/bandoche-bunbae-2026-11/shorts/scenes/chatgpt.md
 

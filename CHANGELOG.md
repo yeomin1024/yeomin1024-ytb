@@ -1,5 +1,11 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-06 — 반도체 쇼츠 그림 요청 v1.2: 날씨 요소 모두 뺌
+
+- 사용자 지시 "야 날씨 요소를 그냥 없애 직관적으로 그냥 표현하라고 다시 수정해서 알려줘".
+- `stock/source/bandoche-bunbae-2026-11/images_chatgpt.md` v1.1 → v1.2 (커밋 `a2cf1261`): 11번 B-REACT 자세 3 = 우산 → 지폐 다발을 작은 금고에 넣음(현금으로 지킴 — B 규칙의 현금 늘리기 그대로) · 17번 P-FX 3 = 폭풍 구름 → P-AI 의 AI 칩이 금 가 부서짐 · 1번 S-VS 오른쪽 구름·빛줄기 → 고른 격자·빛 점 + 'no weather' · 3번 S-ROOM-B 'sunny·daylight' → 'bright·plain soft white light' + 'no weather pictures' · 할 일 6 = 날씨 요소(해·구름·비·번개·우산·하늘 풍경) 금지, 상황은 행동·표정·물건으로. 남은 날씨 낱말 0 (금지 문장 빼고).
+- `guides/status.md`: 같은 날 다른 세션이 v3.84 를 써 번호가 겹침 → 이 편 v1.1 줄을 v3.85 로, 이번 줄 v3.86.
+
 ## 2026-11-06 — 반도체 쇼츠 그림 요청 v1.1: 국면 계기판 = 색
 
 - 사용자 지시 "잠깐 국면 계기판은 날씨로 하지말고 그냥 색으로 표현해 수정해서 다시 알려줘 명령".

@@ -1,0 +1,104 @@
+{
+ "id": "duRcMneoLxc",
+ "title": "Mon portefeuille après 2 ANS d’investissement en ETF",
+ "channel": "Rémi Lux - Investir en Bourse",
+ "channel_id": "UCOurEFFDgU1kD86-YpltL3w",
+ "subs": 30400,
+ "views": 44385,
+ "ratio": 1.46,
+ "age_days": 12,
+ "views_per_day": 3693.1,
+ "minutes": 19.1,
+ "likes": 533,
+ "comments": 83,
+ "published": "2026-10-25",
+ "queries": "검색:ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=duRcMneoLxc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T06:45:30Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W_duRcMneoLxc",
+ "sources": [
+  "검색:ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "investir",
+  "pea",
+  "etf",
+  "comment investir",
+  "comment investir en bourse",
+  "etf pea",
+  "investir en bourse",
+  "investir en bourse debutant",
+  "investissement",
+  "bourse",
+  "argent",
+  "finance personnelle",
+  "finance",
+  "investissement en bourse",
+  "ETF",
+  "investir en ETF",
+  "bilan investissement",
+  "bilan ETF",
+  "2 ans investissement",
+  "portefeuille ETF",
+  "portefeuille boursier",
+  "PEA",
+  "bilan PEA",
+  "MSCI World",
+  "Nasdaq 100",
+  "stratégie investissement",
+  "finances personnelles",
+  "patrimoine",
+  "évolution patrimoine",
+  "plus value bourse",
+  "rendement ETF"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 25,
+   "title": "D’où je suis parti"
+  },
+  {
+   "start": 100,
+   "title": "Comment j’ai découvert l’investissement en bourse"
+  },
+  {
+   "start": 145,
+   "title": "Établissement de mon allocation cible"
+  },
+  {
+   "start": 285,
+   "title": "Passage à l’action"
+  },
+  {
+   "start": 475,
+   "title": "Mes résultats"
+  },
+  {
+   "start": 1000,
+   "title": "Quels sont mes prochains objectifs ?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "fr",
+ "foreign": true,
+ "comments_fetched": 83,
+ "comments_top_level": 28,
+ "comments_replies": 55,
+ "comments_by_creator": 27,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 83,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:09",
+ "approved": "2026-11-06T17:14+09:00"
+}

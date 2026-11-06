@@ -1,0 +1,111 @@
+{
+ "id": "0TG-KOt35Rs",
+ "title": "యుద్ధం ముగిసాక నేను చూసే First Stock ఇదే!",
+ "channel": "Money Purse { మనీ పర్స్ }",
+ "channel_id": "UChBT5TlUeG68PKvJSg6MkqQ",
+ "subs": 2120000,
+ "views": 187105,
+ "ratio": 0.09,
+ "age_days": 5,
+ "views_per_day": 36894.1,
+ "minutes": 45.4,
+ "likes": 6032,
+ "comments": 300,
+ "published": "2026-11-01",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=0TG-KOt35Rs",
+ "flag": "외국 영상",
+ "published_at": "2026-11-01T05:29:13Z",
+ "rank": "W157",
+ "set": "web",
+ "folder": "W_0TG-KOt35Rs",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "money purse telugu",
+  "moneypurse",
+  "stock market for beginners",
+  "stock market telugu",
+  "mutual funds for beginners",
+  "silver price predictions",
+  "money purse telugu latest video",
+  "stock market in telugu",
+  "gold rate in hyderabad",
+  "gold price today 24 carat",
+  "gold etf price",
+  "silver etf price",
+  "silver futures"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 13,
+   "title": "Announcement"
+  },
+  {
+   "start": 136,
+   "title": "Don't Miss These Two Stocks"
+  },
+  {
+   "start": 596,
+   "title": "Don't Invest In Stock Market Until You Know This Concept"
+  },
+  {
+   "start": 1080,
+   "title": "About Forex Trading"
+  },
+  {
+   "start": 1308,
+   "title": "The One & Only Buy-and-Forget Stock I See"
+  },
+  {
+   "start": 1538,
+   "title": "Merritronix"
+  },
+  {
+   "start": 1599,
+   "title": "The Demerged Companies You Should Know ?"
+  },
+  {
+   "start": 1856,
+   "title": "Financial Plan Of A 22 year Old"
+  },
+  {
+   "start": 2261,
+   "title": "Sunday Funday"
+  },
+  {
+   "start": 2278,
+   "title": "48% Return Opportunity ?"
+  },
+  {
+   "start": 2422,
+   "title": "This Is the First Stock I’ll Look at After the War Ends."
+  },
+  {
+   "start": 2561,
+   "title": "The Actual Rate Of SWP One Should Plan"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 301,
+ "comments_top_level": 253,
+ "comments_replies": 48,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 300,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:18",
+ "approved": "2026-11-06T17:40+09:00"
+}

@@ -1,0 +1,102 @@
+{
+ "id": "AN6Scm7uHVg",
+ "title": "월배당 500만원 배당파이어족의 현실｜코스피 대폭락 그 후… 10월 배당금 나왔습니다｜실제계좌 공개 (feat. 동탄호수공원)",
+ "channel": "투자여행가 캐넌 [DND LIFE]",
+ "channel_id": "UCDg0tMmo8kvnrKHzMyJg-Uw",
+ "subs": 915,
+ "views": 10794,
+ "ratio": 11.8,
+ "age_days": 13,
+ "views_per_day": 773.4,
+ "minutes": 13.7,
+ "likes": 143,
+ "comments": 39,
+ "published": "2026-10-23",
+ "queries": "검색:월배당ETF | 검색:커버드콜ETF | 검색:배당주 | 검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=AN6Scm7uHVg",
+ "flag": "",
+ "published_at": "2026-10-23T08:15:21Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_AN6Scm7uHVg",
+ "sources": [
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:배당주",
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10월 배당금, 이번 달 결과는?"
+  },
+  {
+   "start": 40,
+   "title": "차박지 도착(동탄호수공원) 및 장소 소개"
+  },
+  {
+   "start": 80,
+   "title": "10월 월초 배당 흐름 재확인"
+  },
+  {
+   "start": 115,
+   "title": "10월 22일 시장 상황 점검"
+  },
+  {
+   "start": 160,
+   "title": "AI·기술주와 최근 증시 이슈 브리핑"
+  },
+  {
+   "start": 220,
+   "title": "한국은행 금리 동결 관련 브리핑"
+  },
+  {
+   "start": 260,
+   "title": "10월 배당금 실제 계좌 공개 시작"
+  },
+  {
+   "start": 290,
+   "title": "10월 월중 배당 2종목 세부 내역"
+  },
+  {
+   "start": 340,
+   "title": "커버드콜 ETF 분배금 구조 확인"
+  },
+  {
+   "start": 425,
+   "title": "동탄호수공원 산책"
+  },
+  {
+   "start": 560,
+   "title": "10월 전체 배당금 최종 정산"
+  },
+  {
+   "start": 580,
+   "title": "10월 월초+월중 배당금 세부 현황"
+  },
+  {
+   "start": 735,
+   "title": "배당파이어족으로서 느끼는 현금흐름의 의미"
+  },
+  {
+   "start": 790,
+   "title": "클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 39,
+ "comments_top_level": 16,
+ "comments_replies": 23,
+ "comments_by_creator": 19,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 39,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:54",
+ "approved": "2026-11-06T17:10+09:00"
+}

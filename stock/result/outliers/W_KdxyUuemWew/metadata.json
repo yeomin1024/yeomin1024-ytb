@@ -1,0 +1,84 @@
+{
+ "id": "KdxyUuemWew",
+ "title": "世界中の投資家が大量に売り始めたきっかけ…AI・半導体相場で今、何が起きているのか？｜私たち個人投資家は何をするべきなのか【元ゴールドマンサックスが徹底解説】",
+ "channel": "おーちゃん【元外銀マン】",
+ "channel_id": "UC4Ub-Y_yj43aouqFbA7PwhQ",
+ "subs": 316000,
+ "views": 201131,
+ "ratio": 0.64,
+ "age_days": 0,
+ "views_per_day": 201131.0,
+ "minutes": 30.8,
+ "likes": 1650,
+ "comments": 67,
+ "published": "2026-11-05",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=KdxyUuemWew",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T10:00:09Z",
+ "rank": "W63",
+ "set": "web",
+ "folder": "W_KdxyUuemWew",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "資産運用",
+  "新NISA",
+  "投資信託",
+  "S&P500",
+  "オールカントリー",
+  "オルカン",
+  "配当金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "イントロ"
+  },
+  {
+   "start": 181,
+   "title": "プロフィール"
+  },
+  {
+   "start": 291,
+   "title": "帳簿に載らない数百兆円の約束"
+  },
+  {
+   "start": 424,
+   "title": "世界一きれいな帳簿に載らない4種類の約束"
+  },
+  {
+   "start": 855,
+   "title": "4兆円の借金に「ドーナツ」と名付けた会社"
+  },
+  {
+   "start": 1222,
+   "title": "「重装備の装置産業」を昔の値段で積み立てている"
+  },
+  {
+   "start": 1406,
+   "title": "賭けた覚えのない最大の賭け手"
+  },
+  {
+   "start": 1675,
+   "title": "おーちゃんの雑談（ニセモノに注意）"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 68,
+ "comments_top_level": 49,
+ "comments_replies": 19,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 67,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:00",
+ "approved": "2026-11-06T17:35+09:00"
+}

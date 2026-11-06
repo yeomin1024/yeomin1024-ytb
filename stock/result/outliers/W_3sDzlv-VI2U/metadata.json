@@ -1,0 +1,132 @@
+{
+ "id": "3sDzlv-VI2U",
+ "title": "Data Centers, Debt & the Risks of AI’s Finances w/ Ed Zitron | The Weekly Show with Jon Stewart",
+ "channel": "The Weekly Show with Jon Stewart",
+ "channel_id": "UCQlJ7XpBtiMLKNSd4RAJmRQ",
+ "subs": 919000,
+ "views": 1491601,
+ "ratio": 1.62,
+ "age_days": 8,
+ "views_per_day": 173425.4,
+ "minutes": 95.9,
+ "likes": 24317,
+ "comments": 3792,
+ "published": "2026-10-28",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=3sDzlv-VI2U",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T18:04:53Z",
+ "rank": "W21",
+ "set": "web",
+ "folder": "W_3sDzlv-VI2U",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "The Weekly Show with Jon Stewart",
+  "podcast",
+  "comedy",
+  "Jon Stewart",
+  "The Daily Show",
+  "special guests",
+  "issues",
+  "headlines",
+  "the latest headlines",
+  "full episodes",
+  "podcast episodes",
+  "ed zitron",
+  "anthropic ipo",
+  "ai finances",
+  "ai bubble",
+  "artificial intelligence debt",
+  "jon stewart podcast",
+  "data centers",
+  "tech stocks",
+  "where is your ed at",
+  "ai investing risks",
+  "tech industry news",
+  "silicon valley debt",
+  "tech economy",
+  "financial analysis",
+  "tech bubble",
+  "comedy central",
+  "political commentary"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 176,
+   "title": "Ed Zitron Joins"
+  },
+  {
+   "start": 251,
+   "title": "The AI Economic Ecosystem"
+  },
+  {
+   "start": 627,
+   "title": "How AI Companies Make Money"
+  },
+  {
+   "start": 826,
+   "title": "The Scale, Power Demands, & Cost of AI Data Centers"
+  },
+  {
+   "start": 1110,
+   "title": "The Hype, Viral Adoption, & Economic Reality of Large Language Models"
+  },
+  {
+   "start": 1386,
+   "title": "Circular Deals, Lease Commitments, and Debt Structures"
+  },
+  {
+   "start": 1668,
+   "title": "Customer Base Brittle Realities"
+  },
+  {
+   "start": 1890,
+   "title": "The Upcoming IPOs & \"Exit Liquidity\" Concerns"
+  },
+  {
+   "start": 2257,
+   "title": "Financial House of Cards, Leverage Risks, & Stock Market Exposure"
+  },
+  {
+   "start": 3671,
+   "title": "\"Rationalist\" Cults & Utopian vs. Extractive AI Uses"
+  },
+  {
+   "start": 3868,
+   "title": "China's AI Efforts, Efficiency, & Operating Cost Realities"
+  },
+  {
+   "start": 4351,
+   "title": "The Threat Matrix"
+  },
+  {
+   "start": 4843,
+   "title": "Breaking Down the Discussion"
+  },
+  {
+   "start": 5083,
+   "title": "Audience Q&A"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 3792,
+ "comments_top_level": 2715,
+ "comments_replies": 1077,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3792,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:32:09",
+ "approved": "2026-11-06T17:32+09:00"
+}

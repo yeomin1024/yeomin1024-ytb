@@ -1,0 +1,118 @@
+{
+ "id": "-pS9upa00IA",
+ "title": "De enfermero a vivir de rentas tras 18 años invirtiendo | Inversores REALES #E61",
+ "channel": "Objetivo : Libertad financiera",
+ "channel_id": "UCo-DaZfuBZ4m01YUVDmYcgQ",
+ "subs": 10100,
+ "views": 34368,
+ "ratio": 3.4,
+ "age_days": 12,
+ "views_per_day": 2862.1,
+ "minutes": 90.0,
+ "likes": 656,
+ "comments": 165,
+ "published": "2026-10-25",
+ "queries": "검색:index funds | 검색:dividend investing | 검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=-pS9upa00IA",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T07:00:37Z",
+ "rank": "W66",
+ "set": "web",
+ "folder": "W_-pS9upa00IA",
+ "sources": [
+  "검색:index funds",
+  "검색:dividend investing",
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "gregorio hernandez",
+  "loco del dividendo",
+  "gorka",
+  "tiburones de fintwit",
+  "ismael ramirez",
+  "objetivo libertad financiera",
+  "invertir en dividendos",
+  "estrategia dividendos",
+  "libertad financiera",
+  "educacion financiera",
+  "finanzas personales",
+  "acciones con dividendos",
+  "rentas pasivas",
+  "fondos indexados",
+  "inversion a largo plazo",
+  "cartera de dividendos",
+  "bolsa para principiantes",
+  "rentas por dividendos",
+  "interes compuesto",
+  "ahorro e inversion",
+  "dividendos",
+  "acciones de dividendo",
+  "independencia financiera"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Por qué cambié los fondos por dividendos"
+  },
+  {
+   "start": 193,
+   "title": "Educación financiera y primeros pasos invirtiendo"
+  },
+  {
+   "start": 560,
+   "title": "10 años invirtiendo en fondos indexados y estrategia DCA"
+  },
+  {
+   "start": 1154,
+   "title": "Liquidar la hipoteca con las plusvalías de los fondos"
+  },
+  {
+   "start": 1366,
+   "title": "El problema de vender fondos: destruir patrimonio vs. dividendos"
+  },
+  {
+   "start": 1788,
+   "title": "Cómo generar un sueldo pasivo con dividendos"
+  },
+  {
+   "start": 2286,
+   "title": "Estrategia Barbell y mentalidad a largo plazo"
+  },
+  {
+   "start": 2873,
+   "title": "Inversión en oro y plata física: protección patrimonial"
+  },
+  {
+   "start": 3426,
+   "title": "Composición y análisis de mi cartera de 43 acciones"
+  },
+  {
+   "start": 3801,
+   "title": "Rentabilidad por dividendo y ratio Payout"
+  },
+  {
+   "start": 4212,
+   "title": "Fiscalidad: Estate Tax en EE.UU. e impuestos"
+  },
+  {
+   "start": 4423,
+   "title": "Educación financiera familiar y herencia para los hijos"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "es",
+ "foreign": true,
+ "comments_fetched": 165,
+ "comments_top_level": 52,
+ "comments_replies": 113,
+ "comments_by_creator": 53,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 165,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:36",
+ "approved": "2026-11-06T17:12+09:00"
+}

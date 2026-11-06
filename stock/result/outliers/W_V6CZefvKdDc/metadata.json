@@ -1,0 +1,147 @@
+{
+ "id": "V6CZefvKdDc",
+ "title": "【勝率100%】米国株は中間選挙後に爆騰する！過去70年のS&P500・ナスダック100全データと「ねじれ議会」の真実を徹底検証",
+ "channel": "投資家外科医　Dr.ゆうま",
+ "channel_id": "UCP5vkAfdRZmgZbT_SioqAtA",
+ "subs": 5030,
+ "views": 13794,
+ "ratio": 2.74,
+ "age_days": 12,
+ "views_per_day": 1113.9,
+ "minutes": 25.0,
+ "likes": 203,
+ "comments": 31,
+ "published": "2026-10-24",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=V6CZefvKdDc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-24T22:00:26Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_V6CZefvKdDc",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "レバナス",
+  "お金の勉強"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング（中間選挙前の下落、今は逃げるべき？）"
+  },
+  {
+   "start": 142,
+   "title": "この動画でわかること＆本日の目次"
+  },
+  {
+   "start": 218,
+   "title": "1. 中間選挙の仕組みと「秋の株安」が起きるカラクリ"
+  },
+  {
+   "start": 293,
+   "title": "├ 現職大統領の与党は「約90%の確率」で議席を減らす"
+  },
+  {
+   "start": 323,
+   "title": "└ 大口機関投資家のヘッジ売りと選挙前の平均最大下落率"
+  },
+  {
+   "start": 413,
+   "title": "2. 中間選挙後から年末・1年後の爆騰データ検証"
+  },
+  {
+   "start": 433,
+   "title": "├ 選挙当日を境に一変する日次パフォーマンス軌跡"
+  },
+  {
+   "start": 494,
+   "title": "├ 選挙後から年末ラリー（35営業日）の平均リターンと勝率"
+  },
+  {
+   "start": 537,
+   "title": "├ S&P500：過去19回の中間選挙後1年間リターン（19戦19勝・勝率100%）"
+  },
+  {
+   "start": 645,
+   "title": "└ ナスダック100：過去10回の中間選挙後1年間リターン（10戦10勝・平均+33.7%）"
+  },
+  {
+   "start": 702,
+   "title": "3. 大統領4年サイクル：大統領2年目の秋こそ「最大の仕込み場」"
+  },
+  {
+   "start": 723,
+   "title": "├ 大統領任期1年目〜4年目の年別リターン比較"
+  },
+  {
+   "start": 787,
+   "title": "└ 3年目（中間選挙翌年）が平均+16.7%・勝率89.5%で最強になる理由"
+  },
+  {
+   "start": 830,
+   "title": "4. なぜウォール街は「ねじれ議会」を熱烈歓迎するのか？"
+  },
+  {
+   "start": 883,
+   "title": "├ 過去70年の議会構成別リターン検証（「ねじれは買い」の真実）"
+  },
+  {
+   "start": 930,
+   "title": "└ 株式市場が「政治の停滞（ねじれ議会）」を歓迎する3つの理由"
+  },
+  {
+   "start": 1030,
+   "title": "5. 下落で狼狽売りしてしまう心理とその対策"
+  },
+  {
+   "start": 1058,
+   "title": "├ 個人投資家のリターンが市場平均の半分に激減する理由（DALBAR社調査）"
+  },
+  {
+   "start": 1097,
+   "title": "└ 中間選挙相場を勝ち抜く「3つの処方箋」"
+  },
+  {
+   "start": 1182,
+   "title": "本日のまとめ"
+  },
+  {
+   "start": 1250,
+   "title": "コメントアンサー（Q&Aコーナー）"
+  },
+  {
+   "start": 1273,
+   "title": "├ Q1. auレバナス（為替ヘッジなし）の最高値更新とQLDチャート解説"
+  },
+  {
+   "start": 1308,
+   "title": "├ Q2. 暴落用の現金比率（3割確保・外貨建てMMFの活用法）と海外旅行"
+  },
+  {
+   "start": 1369,
+   "title": "└ Q3. レバナスは一括投資か？積立投資か？（Dr.ゆうまの投資スタイル）"
+  },
+  {
+   "start": 1432,
+   "title": "エンディング・メンバーシップのご案内"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 31,
+ "comments_top_level": 12,
+ "comments_replies": 19,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 31,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:13:04",
+ "approved": "2026-11-06T17:13+09:00"
+}

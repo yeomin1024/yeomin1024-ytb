@@ -1,0 +1,72 @@
+{
+ "id": "5vV3676J_JM",
+ "title": "지금 미국주식 시작한다면 반드시 ‘이렇게’ 사세요ㅣ돈크라테스 EP.36",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1470000,
+ "views": 247568,
+ "ratio": 0.17,
+ "age_days": 7,
+ "views_per_day": 31572.4,
+ "minutes": 25.3,
+ "likes": 1258,
+ "comments": 48,
+ "published": "2026-10-29",
+ "queries": "검색:나스닥 | 검색:S&P500 | 검색:미국ETF | 검색:나스닥100 | 검색:주식투자 | 검색:주식 추천",
+ "url": "https://www.youtube.com/watch?v=5vV3676J_JM",
+ "flag": "",
+ "published_at": "2026-10-29T11:00:26Z",
+ "rank": "W243",
+ "set": "web",
+ "folder": "W_5vV3676J_JM",
+ "sources": [
+  "검색:나스닥",
+  "검색:S&P500",
+  "검색:미국ETF",
+  "검색:나스닥100",
+  "검색:주식투자",
+  "검색:주식 추천"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 27,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 173,
+   "title": "주가 폭락에도 부자들이 S&P500을 사는 이유"
+  },
+  {
+   "start": 636,
+   "title": "지금부터 배당주에 주목해야 하는 이유"
+  },
+  {
+   "start": 842,
+   "title": "“금융 소득 월 300” 대부분이 실패하는 이유"
+  },
+  {
+   "start": 1182,
+   "title": "1억 있다면 포트폴리오 ‘이렇게’ 짜세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 48,
+ "comments_top_level": 30,
+ "comments_replies": 18,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 48,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:20:08",
+ "approved": "2026-11-06T17:20+09:00"
+}

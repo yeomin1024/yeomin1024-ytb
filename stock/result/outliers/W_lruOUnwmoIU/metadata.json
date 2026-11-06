@@ -1,0 +1,96 @@
+{
+ "id": "lruOUnwmoIU",
+ "title": "How China’s Crash Could Hit Your Wallet, Explained | Vantage",
+ "channel": "Firstpost",
+ "channel_id": "UCz8QaiQxApLq8sLNcszYyJw",
+ "subs": 9820000,
+ "views": 731422,
+ "ratio": 0.07,
+ "age_days": 10,
+ "views_per_day": 68790.4,
+ "minutes": 7.0,
+ "likes": 2792,
+ "comments": 600,
+ "published": "2026-10-26",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=lruOUnwmoIU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-26T17:19:05Z",
+ "rank": "W161",
+ "set": "web",
+ "folder": "W_lruOUnwmoIU",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "firstpost",
+  "vantage",
+  "first post",
+  "vantage on firstpost",
+  "china",
+  "china economy",
+  "china stock market",
+  "chinese stock market",
+  "china market crash",
+  "xi jinping",
+  "chinese communist party",
+  "ccp",
+  "china growth",
+  "china gdp",
+  "ai stocks",
+  "china investors",
+  "china market recovery",
+  "china financial markets",
+  "xi jinping leadership",
+  "ccp meeting",
+  "party discipline",
+  "corruption in china",
+  "political loyalty",
+  "china leadership reshuffle",
+  "china business news",
+  "global economy",
+  "hem saroya"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction: China's Stock Market Crash"
+  },
+  {
+   "start": 63,
+   "title": "CSI 300 Enters Bear Market & Weak Domestic Demand"
+  },
+  {
+   "start": 122,
+   "title": "AI Stock Pressures & Beijing's Slow Stimulus Response"
+  },
+  {
+   "start": 180,
+   "title": "Fifth Plenum: Party Discipline Over Economic Rescue"
+  },
+  {
+   "start": 276,
+   "title": "Channel Outro & Community Engagement"
+  },
+  {
+   "start": 293,
+   "title": "Upcoming Midterm Election & Special Coverage Promo"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-IN",
+ "foreign": true,
+ "comments_fetched": 600,
+ "comments_top_level": 309,
+ "comments_replies": 291,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 600,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:34",
+ "approved": "2026-11-06T17:40+09:00"
+}

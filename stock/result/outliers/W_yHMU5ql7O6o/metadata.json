@@ -1,0 +1,109 @@
+{
+ "id": "yHMU5ql7O6o",
+ "title": "AI’s Stock Market Fallout, Google’s Profit Problem, and Altman’s “Hold My Beer” Moment | #307",
+ "channel": "Peter H. Diamandis",
+ "channel_id": "UCvxm0qTrGN_1LMYgUaftWyQ",
+ "subs": 544000,
+ "views": 335476,
+ "ratio": 0.62,
+ "age_days": 5,
+ "views_per_day": 59886.7,
+ "minutes": 138.3,
+ "likes": 4217,
+ "comments": 1341,
+ "published": "2026-10-31",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=yHMU5ql7O6o",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T18:03:24Z",
+ "rank": "W65",
+ "set": "web",
+ "folder": "W_yHMU5ql7O6o",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "peter diamandis",
+  "longevity",
+  "xprize",
+  "abundance"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Bitcoin, Crypto Hacks, and AI Security Risks"
+  },
+  {
+   "start": 522,
+   "title": "Welcome to Moonshots"
+  },
+  {
+   "start": 775,
+   "title": "Google's Gemini 4 Carbon and the AI Race"
+  },
+  {
+   "start": 1455,
+   "title": "Google Genie 4 and the Future of Simulated Worlds"
+  },
+  {
+   "start": 2158,
+   "title": "AI, the Future of Work, and Human Purpose"
+  },
+  {
+   "start": 2505,
+   "title": "Alphabet's Worst Stock Day Ever and the AI Market Crash"
+  },
+  {
+   "start": 3224,
+   "title": "Sam Altman's \"Hold My Beer\" Moment"
+  },
+  {
+   "start": 3660,
+   "title": "OpenAI's Plan for Self-Replicating Data Centers"
+  },
+  {
+   "start": 4230,
+   "title": "Tesla Optimus and the Humanoid Robot Race"
+  },
+  {
+   "start": 4956,
+   "title": "Tesla Cybercab vs. Waymo"
+  },
+  {
+   "start": 5555,
+   "title": "The Fight Against Driverless Taxis"
+  },
+  {
+   "start": 6120,
+   "title": "AI's Impact on Computer Science and MBA Degrees"
+  },
+  {
+   "start": 6799,
+   "title": "Anduril, Qualcomm, and American-Made Chips"
+  },
+  {
+   "start": 7320,
+   "title": "AMA: AI Economics, Technology, and the Future"
+  },
+  {
+   "start": 8211,
+   "title": "Closing Thoughts and Singulitarians"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1341,
+ "comments_top_level": 982,
+ "comments_replies": 359,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1341,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:06",
+ "approved": "2026-11-06T17:35+09:00"
+}

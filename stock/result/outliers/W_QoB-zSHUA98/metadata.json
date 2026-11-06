@@ -1,0 +1,72 @@
+{
+ "id": "QoB-zSHUA98",
+ "title": "국내ETF로 세후 월100만원 만드는 두 가지 방법",
+ "channel": "수비와 성욱 suvi77",
+ "channel_id": "UC-pBaxZhVmQHgIgGBCB7anw",
+ "subs": 6600,
+ "views": 25979,
+ "ratio": 3.94,
+ "age_days": 11,
+ "views_per_day": 2198.5,
+ "minutes": 12.9,
+ "likes": 241,
+ "comments": 60,
+ "published": "2026-10-25",
+ "queries": "검색:ETF추천 | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=QoB-zSHUA98",
+ "flag": "",
+ "published_at": "2026-10-25T11:36:12Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_QoB-zSHUA98",
+ "sources": [
+  "검색:ETF추천",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 106,
+   "title": "절세 계좌 활용 시 체크할 점"
+  },
+  {
+   "start": 167,
+   "title": "2세대 vs 3세대 커버드콜"
+  },
+  {
+   "start": 261,
+   "title": "1억 5,500만 원으로 만드는 성장+배당 포트폴리오"
+  },
+  {
+   "start": 409,
+   "title": "9,700만 원으로 만드는 고분배율 중심 포트폴리오"
+  },
+  {
+   "start": 468,
+   "title": "A안 vs B안 비교"
+  },
+  {
+   "start": 678,
+   "title": "포트폴리오를 선택하기 전 체크할 3가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 60,
+ "comments_top_level": 31,
+ "comments_replies": 29,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:23",
+ "approved": "2026-11-06T17:12+09:00"
+}

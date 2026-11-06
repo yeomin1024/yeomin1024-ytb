@@ -1,0 +1,87 @@
+{
+ "id": "-0dKG0x3TM4",
+ "title": "GPIQ 대신 결국 QQQI에 1억 몰빵한 현실적인 이유 (나스닥 월배당 ETF 끝판왕 비교)",
+ "channel": "카츠라기 | 주식 월배당",
+ "channel_id": "UCl1u2NYOmKoJEuef8Hb832Q",
+ "subs": 439,
+ "views": 10513,
+ "ratio": 23.95,
+ "age_days": 12,
+ "views_per_day": 821.4,
+ "minutes": 6.9,
+ "likes": 0,
+ "comments": 46,
+ "published": "2026-10-24",
+ "queries": "검색:ETF추천 | 검색:배당주",
+ "url": "https://www.youtube.com/watch?v=-0dKG0x3TM4",
+ "flag": "",
+ "published_at": "2026-10-24T12:01:26Z",
+ "rank": "W12",
+ "set": "web",
+ "folder": "W_-0dKG0x3TM4",
+ "sources": [
+  "검색:ETF추천",
+  "검색:배당주"
+ ],
+ "source": "web",
+ "tags": [
+  "QQQI",
+  "GPIQ",
+  "배당",
+  "배당투자",
+  "나스닥",
+  "하락장"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "QQQI 1,460주(1억 원) 실계좌 & 월배당 108만 원 인증"
+  },
+  {
+   "start": 12,
+   "title": "요즘 미국 주식 커뮤니티에서 가장 핫한 골드만삭스 'GPIQ'"
+  },
+  {
+   "start": 48,
+   "title": "기본 스펙 비교: 운용보수 수수료가 2배 넘게 차이 난다고? (0.29% vs 0.68%)"
+  },
+  {
+   "start": 95,
+   "title": "1억 투자 시 실제 배당금 격차 (월 83만 원 vs 월 117만 원, 연 400만 원 차이!)"
+  },
+  {
+   "start": 124,
+   "title": "똑같은 나스닥100인데 왜 다를까? (옵션 전략 아주 쉽게 비유해 드립니다)"
+  },
+  {
+   "start": 209,
+   "title": "최근 1~2년 총수익률 성적표 비교 (주가 상승 + 배당 합산)"
+  },
+  {
+   "start": 233,
+   "title": "[핵심 반전] 총수익률이 높은데도 GPIQ 대신 QQQI를 선택한 결정적 이유 (배당 안정성)"
+  },
+  {
+   "start": 269,
+   "title": "20대 투자자의 진짜 무기: QQQI 배당금으로 QQQ·QLD 모아가는 '역할 분담 복리 엔진'"
+  },
+  {
+   "start": 366,
+   "title": "최종 정리: 나에게 딱 맞는 ETF 고르는 기준 (GPIQ 추천 대상 vs QQQI 추천 대상)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 46,
+ "comments_top_level": 17,
+ "comments_replies": 29,
+ "comments_by_creator": 22,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 46,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:40",
+ "approved": "2026-11-06T17:10+09:00"
+}

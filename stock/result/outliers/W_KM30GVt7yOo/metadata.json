@@ -1,0 +1,104 @@
+{
+ "id": "KM30GVt7yOo",
+ "title": "【警告】S&P500・NASDAQ100が急落...米国株が下落した2つの原因と今後1週間の正しい投資行動について徹底解説します",
+ "channel": "大人の貯蓄革命チャンネル【資産形成・投資・経済】",
+ "channel_id": "UCIcHiv09TJEc8IfWtQgFqgQ",
+ "subs": 65300,
+ "views": 70471,
+ "ratio": 1.08,
+ "age_days": 0,
+ "views_per_day": 70471.0,
+ "minutes": 14.6,
+ "likes": 334,
+ "comments": 28,
+ "published": "2026-11-05",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=KM30GVt7yOo",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T09:00:01Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_KM30GVt7yOo",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "資産形成",
+  "資産運用",
+  "貯蓄",
+  "貯金",
+  "投資",
+  "節約",
+  "株式投資",
+  "新NISA",
+  "NISA",
+  "iDeCo",
+  "インデックス投資",
+  "インデックスファンド",
+  "投資信託",
+  "長期投資",
+  "積立投資",
+  "分散投資",
+  "お金の増やし方",
+  "お金の守り方",
+  "米国株",
+  "S&P500",
+  "オルカン",
+  "NASDAQ100",
+  "ナスダック100",
+  "S&P500 下落",
+  "S&P500 今後",
+  "米国株 下落",
+  "米国株 今後",
+  "米国株投資",
+  "株価下落",
+  "暴落対策",
+  "押し目買い",
+  "全世界株式"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ハイライト"
+  },
+  {
+   "start": 12,
+   "title": "OPトーク"
+  },
+  {
+   "start": 115,
+   "title": "米国株急落の原因"
+  },
+  {
+   "start": 323,
+   "title": "現在の米国株の状況"
+  },
+  {
+   "start": 419,
+   "title": "今後のシナリオ"
+  },
+  {
+   "start": 637,
+   "title": "今後どうするべきか"
+  },
+  {
+   "start": 797,
+   "title": "本日のまとめ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 29,
+ "comments_top_level": 27,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:23",
+ "approved": "2026-11-06T17:33+09:00"
+}

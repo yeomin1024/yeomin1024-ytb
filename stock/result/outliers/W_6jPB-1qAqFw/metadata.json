@@ -1,0 +1,99 @@
+{
+ "id": "6jPB-1qAqFw",
+ "title": "Lula reeleito, dólar disparando e Bolsa derretendo, e agora?",
+ "channel": "Fernando Ulrich",
+ "channel_id": "UCLJkh3QjHsLtK0LZFd28oGg",
+ "subs": 846000,
+ "views": 543061,
+ "ratio": 0.64,
+ "age_days": 10,
+ "views_per_day": 51295.0,
+ "minutes": 24.4,
+ "likes": 19834,
+ "comments": 2844,
+ "published": "2026-10-26",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=6jPB-1qAqFw",
+ "flag": "외국 영상",
+ "published_at": "2026-10-26T18:24:45Z",
+ "rank": "W61",
+ "set": "web",
+ "folder": "W_6jPB-1qAqFw",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Resultado do segundo turno e forte reação do dólar e da bolsa"
+  },
+  {
+   "start": 206,
+   "title": "A queda do Ibovespa em comparação com outros choques históricos"
+  },
+  {
+   "start": 307,
+   "title": "Disparada dos juros e impacto sobre a dívida pública"
+  },
+  {
+   "start": 392,
+   "title": "A decisão de prorrogar a votação e suas repercussões"
+  },
+  {
+   "start": 438,
+   "title": "O resultado final da eleição presidencial"
+  },
+  {
+   "start": 513,
+   "title": "Onde erraram as projeções, as pesquisas e o mercado"
+  },
+  {
+   "start": 591,
+   "title": "Campanhas, benefícios e possíveis explicações para a vitória de Lula"
+  },
+  {
+   "start": 688,
+   "title": "Minhas premissas e a queda da abstenção"
+  },
+  {
+   "start": 778,
+   "title": "Estados, municípios e zonas eleitorais: a evolução dos votos"
+  },
+  {
+   "start": 948,
+   "title": "Estimativas de migração: outros candidatos, brancos, nulos e abstenção"
+  },
+  {
+   "start": 1105,
+   "title": "Dólar e inflação: os efeitos sobre o custo de vida"
+  },
+  {
+   "start": 1157,
+   "title": "Diesel, subsídios e pressão adicional sobre o orçamento"
+  },
+  {
+   "start": 1248,
+   "title": "Juros altos, atuação do Tesouro e rolagem da dívida"
+  },
+  {
+   "start": 1326,
+   "title": "Próximos passos: incerteza fiscal e cenários para a economia"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "pt-BR",
+ "foreign": true,
+ "comments_fetched": 2844,
+ "comments_top_level": 1829,
+ "comments_replies": 1015,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2844,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:34:40",
+ "approved": "2026-11-06T17:34+09:00"
+}

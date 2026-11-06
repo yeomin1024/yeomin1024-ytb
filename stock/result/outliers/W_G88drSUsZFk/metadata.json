@@ -1,0 +1,68 @@
+{
+ "id": "G88drSUsZFk",
+ "title": "【14年ぶり買い場？】魅力もリスクも分かるJ-REIT解説｜利回り5.6％到達で妙味◎｜どれを買う？",
+ "channel": "トリノストック【高配当&株主優待】",
+ "channel_id": "UCiLVgmDF2W8dGKfAbPJihjQ",
+ "subs": 797,
+ "views": 13566,
+ "ratio": 17.02,
+ "age_days": 13,
+ "views_per_day": 1039.2,
+ "minutes": 26.8,
+ "likes": 80,
+ "comments": 5,
+ "published": "2026-10-24",
+ "queries": "검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=G88drSUsZFk",
+ "flag": "외국 영상",
+ "published_at": "2026-10-24T05:54:11Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_G88drSUsZFk",
+ "sources": [
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "OP"
+  },
+  {
+   "start": 63,
+   "title": "REITとは"
+  },
+  {
+   "start": 400,
+   "title": "なぜ下落？"
+  },
+  {
+   "start": 516,
+   "title": "用途別の特徴"
+  },
+  {
+   "start": 1257,
+   "title": "投資アイデア"
+  },
+  {
+   "start": 1517,
+   "title": "ED"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 5,
+ "comments_top_level": 5,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:42",
+ "approved": "2026-11-06T17:10+09:00"
+}

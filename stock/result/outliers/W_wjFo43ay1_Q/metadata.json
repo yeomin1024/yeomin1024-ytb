@@ -1,0 +1,131 @@
+{
+ "id": "wjFo43ay1_Q",
+ "title": "Trader Called Tech Crash--Now Predicts ‘Black Christmas’ For Stocks | Todd Horwitz",
+ "channel": "David Lin ",
+ "channel_id": "UClBMLpP3UHXLmgEypMmXPuA",
+ "subs": 339000,
+ "views": 126502,
+ "ratio": 0.37,
+ "age_days": 2,
+ "views_per_day": 51191.8,
+ "minutes": 40.0,
+ "likes": 1647,
+ "comments": 206,
+ "published": "2026-11-03",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=wjFo43ay1_Q",
+ "flag": "외국 영상",
+ "published_at": "2026-11-03T21:11:37Z",
+ "rank": "W86",
+ "set": "web",
+ "folder": "W_wjFo43ay1_Q",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "david lin",
+  "the david lin report",
+  "david lin youtube",
+  "david lin finance",
+  "david lin investing",
+  "david lin trading",
+  "david lin economics",
+  "economics",
+  "finance",
+  "business",
+  "macroeconomics",
+  "trading",
+  "investing",
+  "financial news",
+  "finance news",
+  "economics news",
+  "business news",
+  "economy",
+  "todd horwitz",
+  "stocks",
+  "gold",
+  "oil",
+  "inflation",
+  "bubba horwitz",
+  "2026 market outlook",
+  "stagflation",
+  "debt",
+  "debt crunch",
+  "debt bubble",
+  "ai bubble",
+  "ai layoffs",
+  "job market",
+  "bubbatrading",
+  "consumer debt",
+  "iran",
+  "ceasefire",
+  "selloff",
+  "peace",
+  "trump"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction & Market Overview"
+  },
+  {
+   "start": 161,
+   "title": "Midterm Elections: What Happens To Stocks?"
+  },
+  {
+   "start": 392,
+   "title": "Tech Stock Crash: Is The AI Bubble Bursting?"
+  },
+  {
+   "start": 626,
+   "title": "‘Black Christmas’ Warning: Bigger Selloff Ahead?"
+  },
+  {
+   "start": 752,
+   "title": "AI Debt, Banking Risks & Market Outlook"
+  },
+  {
+   "start": 871,
+   "title": "S&P 500 Year-End Forecast & Economic Warning Signs"
+  },
+  {
+   "start": 1137,
+   "title": "Recession Risks, Consumer Debt & Investment Strategy"
+  },
+  {
+   "start": 1364,
+   "title": "Treasury Yields, Interest Rates & The Fed"
+  },
+  {
+   "start": 1514,
+   "title": "Oil Prices, Iran & Inflation Outlook"
+  },
+  {
+   "start": 1824,
+   "title": "Gold Below $4,000: Buy Or Sell?"
+  },
+  {
+   "start": 2048,
+   "title": "Fed Policy & Inflation Risks"
+  },
+  {
+   "start": 2215,
+   "title": "What Todd Horwitz Is Buying & Shorting"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 206,
+ "comments_top_level": 149,
+ "comments_replies": 57,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 206,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:36:14",
+ "approved": "2026-11-06T17:36+09:00"
+}

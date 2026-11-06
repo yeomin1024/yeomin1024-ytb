@@ -1,0 +1,129 @@
+{
+ "id": "yG7m-j81zJM",
+ "title": "Les MEILLEURS ETF PEA en 2027 (comparatif complet)",
+ "channel": "Matthieu Louvet - S'investir",
+ "channel_id": "UCjKvFMbYVKOnBDarCtXfEww",
+ "subs": 443000,
+ "views": 71571,
+ "ratio": 0.16,
+ "age_days": 3,
+ "views_per_day": 19898.2,
+ "minutes": 30.0,
+ "likes": 1127,
+ "comments": 112,
+ "published": "2026-11-02",
+ "queries": "검색:ETF | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=yG7m-j81zJM",
+ "flag": "외국 영상",
+ "published_at": "2026-11-02T16:52:24Z",
+ "rank": "W132",
+ "set": "web",
+ "folder": "W_yG7m-j81zJM",
+ "sources": [
+  "검색:ETF",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "meilleurs ETF PEA",
+  "meilleur ETF PEA 2026",
+  "ETF PEA",
+  "top ETF PEA",
+  "quel ETF choisir PEA",
+  "ETF PEA 2026",
+  "comment remplir son PEA",
+  "investir en ETF",
+  "ETF S&P 500 PEA",
+  "ETF MSCI World PEA",
+  "ETF ACWI PEA",
+  "Amundi PEA Global",
+  "ETF Nasdaq PEA",
+  "ETF émergents PEA",
+  "ETF levier PEA",
+  "ETF capitalisant",
+  "PEA débutant",
+  "investir en bourse 2026",
+  "best etfs",
+  "s&p 500 etf",
+  "investir",
+  "bourse",
+  "finance personnelle",
+  "meilleur etf sp500",
+  "etf s&p 500",
+  "msci world etf",
+  "éducation financière",
+  "investissement etf"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Bien choisir ses ETF PEA"
+  },
+  {
+   "start": 126,
+   "title": "ETF 1"
+  },
+  {
+   "start": 329,
+   "title": "ETF 2"
+  },
+  {
+   "start": 416,
+   "title": "ETF 3"
+  },
+  {
+   "start": 617,
+   "title": "ETF 4"
+  },
+  {
+   "start": 768,
+   "title": "ETF 5"
+  },
+  {
+   "start": 909,
+   "title": "ETF 6"
+  },
+  {
+   "start": 1029,
+   "title": "ETF 7"
+  },
+  {
+   "start": 1089,
+   "title": "ETF 8"
+  },
+  {
+   "start": 1178,
+   "title": "ETF 9"
+  },
+  {
+   "start": 1262,
+   "title": "ETF 10"
+  },
+  {
+   "start": 1373,
+   "title": "ETF non éligibles au PEA"
+  },
+  {
+   "start": 1487,
+   "title": "Les ETF à éviter"
+  },
+  {
+   "start": 1591,
+   "title": "ETF Bonus"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "fr",
+ "foreign": true,
+ "comments_fetched": 112,
+ "comments_top_level": 53,
+ "comments_replies": 59,
+ "comments_by_creator": 22,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 112,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:38:58",
+ "approved": "2026-11-06T17:38+09:00"
+}

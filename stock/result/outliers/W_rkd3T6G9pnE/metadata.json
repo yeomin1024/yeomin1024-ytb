@@ -1,0 +1,168 @@
+{
+ "id": "rkd3T6G9pnE",
+ "title": "나스닥도 이제 위험하다? 닥터 둠 김영익 교수의 섬뜩한 경고",
+ "channel": "PLUS TV (플러스 TV)",
+ "channel_id": "UCuHUaZo43N9PgOCjs3Hg2Uw",
+ "subs": 169000,
+ "views": 291053,
+ "ratio": 1.72,
+ "age_days": 2,
+ "views_per_day": 98111.7,
+ "minutes": 52.0,
+ "likes": 742,
+ "comments": 207,
+ "published": "2026-11-03",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=rkd3T6G9pnE",
+ "flag": "",
+ "published_at": "2026-11-03T08:00:03Z",
+ "rank": "W132",
+ "set": "web",
+ "folder": "W_rkd3T6G9pnE",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "플러스티비",
+  "플러스TV",
+  "한화",
+  "금융",
+  "경제",
+  "팟캐스트",
+  "PLUSTV",
+  "인터뷰",
+  "plus",
+  "반도체 시장",
+  "AI",
+  "투자",
+  "엔비디아",
+  "삼성전자",
+  "SK하이닉스",
+  "HBM",
+  "공급 과잉",
+  "선행지수",
+  "반도체투자",
+  "주식추천",
+  "테크주",
+  "반도체주",
+  "뉴로모픽",
+  "창신메모리",
+  "CXMT",
+  "인텔",
+  "미국 금리",
+  "인플레이션",
+  "네오클라우드",
+  "코어위브",
+  "환율",
+  "경제공부",
+  "슈친",
+  "닥터둠",
+  "포항공대",
+  "반도체주식",
+  "테크주식",
+  "기술주",
+  "코스피",
+  "나스닥"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 47,
+   "title": "오프닝"
+  },
+  {
+   "start": 102,
+   "title": "AI 호황 속 반도체 부진, 시장 침체의 근본 원인은?"
+  },
+  {
+   "start": 205,
+   "title": "반도체 수출 호조에도 주가가 하락하는 이유?"
+  },
+  {
+   "start": 296,
+   "title": "한·중 반도체 대규모 증설 예고, 공급 과잉 리스크는?"
+  },
+  {
+   "start": 655,
+   "title": "투자 비용 부담과 중국의 추격에도 반도체 수출 성장세 이어갈까?"
+  },
+  {
+   "start": 763,
+   "title": "치솟는 HBM 가격, 탈 HBM 가능할까?"
+  },
+  {
+   "start": 955,
+   "title": "차세대 기술의 등장, 뉴로모픽 반도체란 무엇인가?"
+  },
+  {
+   "start": 1061,
+   "title": "차세대 기술 뉴로모픽 반도체, 현실적 상용화 시점은?"
+  },
+  {
+   "start": 1330,
+   "title": "중국 창신메모리의 4F² 발표, 한국 반도체 따라잡을까?"
+  },
+  {
+   "start": 1471,
+   "title": "AI 효율화와 전력 수요 감소, 전력 설비주 전망은?"
+  },
+  {
+   "start": 1772,
+   "title": "신형 칩 쏟아지는 클라우드 시장, GPU 대여 사업 지속 가능한가?"
+  },
+  {
+   "start": 1902,
+   "title": "네오클라우드를 둘러싼 엇갈린 시선과 시장의 불안?"
+  },
+  {
+   "start": 2057,
+   "title": "수주 물량 확보했다지만 시장 신뢰 받을 수 있나?"
+  },
+  {
+   "start": 2132,
+   "title": "수익성 의문 커진 AI 생태계, 실질적 생산성 입증할 수 있나?"
+  },
+  {
+   "start": 2262,
+   "title": "AI 수익 전환점, 골든 크로스는 언제 도달할까?"
+  },
+  {
+   "start": 2417,
+   "title": "AI 생산성 혁신, 물가로 확인 가능할까?"
+  },
+  {
+   "start": 2527,
+   "title": "AI 자금난 속 시장 조정, 투자자는 어떻게 대응할까?"
+  },
+  {
+   "start": 2687,
+   "title": "국장은 빠지고 미장은 버티고, 결국 미국 증시도 흔들릴까?"
+  },
+  {
+   "start": 2844,
+   "title": "저가 공세와 시장 잠식 리스크, 한국 반도체 시장 뺏길까?"
+  },
+  {
+   "start": 3018,
+   "title": "범용 메모리 시장 잠식 우려, 한국 반도체 타격은?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 208,
+ "comments_top_level": 149,
+ "comments_replies": 59,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 207,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:15:07",
+ "approved": "2026-11-06T17:15+09:00"
+}

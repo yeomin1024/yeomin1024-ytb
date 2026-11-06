@@ -1,0 +1,115 @@
+{
+ "id": "rIh0cs4fX5c",
+ "title": "Tech Wipeout: Google's $500 Billion Crash, Anthropic's Losses Exposed",
+ "channel": "David Lin ",
+ "channel_id": "UClBMLpP3UHXLmgEypMmXPuA",
+ "subs": 339000,
+ "views": 226668,
+ "ratio": 0.67,
+ "age_days": 6,
+ "views_per_day": 36715.0,
+ "minutes": 34.3,
+ "likes": 2910,
+ "comments": 389,
+ "published": "2026-10-31",
+ "queries": "검색:how to invest in stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=rIh0cs4fX5c",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T03:01:53Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_rIh0cs4fX5c",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "david lin",
+  "the david lin report",
+  "david lin youtube",
+  "david lin finance",
+  "david lin investing",
+  "david lin trading",
+  "david lin economics",
+  "economics",
+  "finance",
+  "business",
+  "macroeconomics",
+  "trading",
+  "investing",
+  "financial news",
+  "finance news",
+  "economics news",
+  "business news",
+  "economy",
+  "tech stocks",
+  "google",
+  "openai",
+  "anthropic",
+  "binance",
+  "coinbase",
+  "tech stock crash",
+  "intel"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Tech Stocks Plunge: AI Bubble Bursting?"
+  },
+  {
+   "start": 98,
+   "title": "Google, Intel & Amazon Crash"
+  },
+  {
+   "start": 211,
+   "title": "China's 40% Tech Stock Collapse"
+  },
+  {
+   "start": 471,
+   "title": "Why Google Crashed Despite Strong Earnings"
+  },
+  {
+   "start": 641,
+   "title": "Google's Massive AI Spending Problem"
+  },
+  {
+   "start": 813,
+   "title": "Is The AI Bubble Bursting?"
+  },
+  {
+   "start": 861,
+   "title": "Anthropic IPO & Steve Eisman's Warning"
+  },
+  {
+   "start": 1030,
+   "title": "Anthropic's Revenue, Losses & Debt Risks"
+  },
+  {
+   "start": 1360,
+   "title": "Anthropic's $417 Billion AI Commitments"
+  },
+  {
+   "start": 1659,
+   "title": "Binance's $6.3 Billion Crypto Hack"
+  },
+  {
+   "start": 1943,
+   "title": "What's Next For Tech Stocks?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 389,
+ "comments_top_level": 288,
+ "comments_replies": 101,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 389,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:34:37",
+ "approved": "2026-11-06T17:34+09:00"
+}

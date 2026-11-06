@@ -1,0 +1,91 @@
+{
+ "id": "ZWSeoBObE08",
+ "title": "BUY THE DIP! 5 Hot Stocks to Buy Now (November’s Top Picks With Upside Ahead)",
+ "channel": "MarketBeat",
+ "channel_id": "UCDMRj2UMCY4Jp49Waf_2X9g",
+ "subs": 680000,
+ "views": 156001,
+ "ratio": 0.23,
+ "age_days": 6,
+ "views_per_day": 24520.1,
+ "minutes": 26.3,
+ "likes": 1809,
+ "comments": 143,
+ "published": "2026-10-30",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=ZWSeoBObE08",
+ "flag": "외국 영상",
+ "published_at": "2026-10-30T22:30:32Z",
+ "rank": "W112",
+ "set": "web",
+ "folder": "W_ZWSeoBObE08",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "MarketBeat",
+  "Investing",
+  "Stock Market",
+  "Stock Ideas",
+  "Stock Market News",
+  "How to Invest",
+  "Stock Analysis",
+  "financial freedom",
+  "best stocks to buy",
+  "stocks to buy now",
+  "stock forecast",
+  "nvda stock",
+  "amd stock",
+  "dividends",
+  "dividend",
+  "market beat",
+  "trading",
+  "investment ideas",
+  "stocks",
+  "financial education",
+  "cnbc"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 329,
+   "title": "Stock 1"
+  },
+  {
+   "start": 646,
+   "title": "Stock 2"
+  },
+  {
+   "start": 796,
+   "title": "Stock 3"
+  },
+  {
+   "start": 1101,
+   "title": "Stock 4"
+  },
+  {
+   "start": 1394,
+   "title": "Stock 5"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 143,
+ "comments_top_level": 74,
+ "comments_replies": 69,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 143,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:37:57",
+ "approved": "2026-11-06T17:37+09:00"
+}

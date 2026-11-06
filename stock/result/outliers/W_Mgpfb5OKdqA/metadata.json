@@ -1,0 +1,154 @@
+{
+ "id": "Mgpfb5OKdqA",
+ "title": "第276回【超重要】株式投資に役立つ10月の投資トピック総まとめ【インデックス・高配当】【株式投資編】",
+ "channel": "両学長 リベラルアーツ大学",
+ "channel_id": "UC67Wr_9pA4I0glIxDt_Cpyw",
+ "subs": 9580000,
+ "views": 132797,
+ "ratio": 0.01,
+ "age_days": 0,
+ "views_per_day": 132797.0,
+ "minutes": 43.0,
+ "likes": 1504,
+ "comments": 59,
+ "published": "2026-11-05",
+ "queries": "검색:dividend stocks",
+ "url": "https://www.youtube.com/watch?v=Mgpfb5OKdqA",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T22:00:11Z",
+ "rank": "W190",
+ "set": "web",
+ "folder": "W_Mgpfb5OKdqA",
+ "sources": [
+  "검색:dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "両学長",
+  "投資トピック",
+  "インデックス投資",
+  "高配当株",
+  "日経平均",
+  "TOPIX",
+  "J-REIT",
+  "景気動向指数",
+  "実質賃金",
+  "消費者物価指数",
+  "日銀",
+  "金利据え置き",
+  "コアウィーブ",
+  "フランス長期金利",
+  "FOMC",
+  "ゴールド",
+  "債券ETF",
+  "米国株"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "intro"
+  },
+  {
+   "start": 7,
+   "title": "今日の話題：【超重要】株式投資に役立つ10月の投資トピック総まとめ【インデックス・高配当】"
+  },
+  {
+   "start": 48,
+   "title": "日本の経済状況"
+  },
+  {
+   "start": 56,
+   "title": "①株価指数の推移（日経平均・TOPIX・J-REIT・グロース）"
+  },
+  {
+   "start": 329,
+   "title": "②その他指数の推移"
+  },
+  {
+   "start": 393,
+   "title": "└①月例経済報告"
+  },
+  {
+   "start": 428,
+   "title": "└②景気動向指数"
+  },
+  {
+   "start": 509,
+   "title": "└③景気ウォッチャー調査"
+  },
+  {
+   "start": 618,
+   "title": "└④消費者物価指数"
+  },
+  {
+   "start": 820,
+   "title": "└⑤実質賃金指数"
+  },
+  {
+   "start": 881,
+   "title": "└⑥完全失業率・求人倍率"
+  },
+  {
+   "start": 931,
+   "title": "ここまでのまとめ"
+  },
+  {
+   "start": 982,
+   "title": "③10月の国内トピックス"
+  },
+  {
+   "start": 989,
+   "title": "└ 日銀、金利据え置き"
+  },
+  {
+   "start": 1198,
+   "title": "海外の経済状況"
+  },
+  {
+   "start": 1208,
+   "title": "①株価指数の推移"
+  },
+  {
+   "start": 1362,
+   "title": "②ゴールド・債券ETF等の値動き"
+  },
+  {
+   "start": 1595,
+   "title": "③高配当ETFの値動き"
+  },
+  {
+   "start": 1749,
+   "title": "④10月の海外トピックス"
+  },
+  {
+   "start": 1760,
+   "title": "└コアウィーブ・ショック"
+  },
+  {
+   "start": 1928,
+   "title": "└フランス長期金利、5%超え"
+  },
+  {
+   "start": 2116,
+   "title": "└FOMC、金利据え置き"
+  },
+  {
+   "start": 2286,
+   "title": "まとめ：インデックス運用（iDeCoやNISAなど）は、淡々と継続。アクティブ運用（高配当株投資）は、日本株は良い銘柄があれば買う。米国株は今は買い時ではない"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 60,
+ "comments_top_level": 55,
+ "comments_replies": 5,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 59,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:42:04",
+ "approved": "2026-11-06T17:42+09:00"
+}

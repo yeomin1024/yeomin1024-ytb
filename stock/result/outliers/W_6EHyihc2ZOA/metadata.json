@@ -1,0 +1,64 @@
+{
+ "id": "6EHyihc2ZOA",
+ "title": "【徹底比較】FANG+・NASDAQ100・S&P500！100万円を20年投資したらどうなる？",
+ "channel": "米国株式投資家ライス君",
+ "channel_id": "UCtPAEV0M1Ok8yixjm0Q697w",
+ "subs": 3610,
+ "views": 11529,
+ "ratio": 3.19,
+ "age_days": 9,
+ "views_per_day": 1228.7,
+ "minutes": 25.9,
+ "likes": 60,
+ "comments": 12,
+ "published": "2026-10-27",
+ "queries": "검색:나스닥100 | 검색:index funds",
+ "url": "https://www.youtube.com/watch?v=6EHyihc2ZOA",
+ "flag": "외국 영상",
+ "published_at": "2026-10-27T22:00:06Z",
+ "rank": "W70",
+ "set": "web",
+ "folder": "W_6EHyihc2ZOA",
+ "sources": [
+  "검색:나스닥100",
+  "검색:index funds"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 2,
+   "title": "結論"
+  },
+  {
+   "start": 47,
+   "title": "1章  インデックス投資の乗り換え（S&P500,FANG+⇒NASDAQ100）"
+  },
+  {
+   "start": 349,
+   "title": "2章  S&P500 VS NASDAQ100 VS FANG+の成績比較"
+  },
+  {
+   "start": 1374,
+   "title": "まとめ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 12,
+ "comments_top_level": 5,
+ "comments_replies": 7,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 12,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:46",
+ "approved": "2026-11-06T17:12+09:00"
+}

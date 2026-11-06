@@ -1,0 +1,70 @@
+{
+ "id": "_QR0dOGFH50",
+ "title": "“삼전닉스 계속 버텨도 될까?” 투자자들이 놓치는 결정적 신호ㅣ돈크라테스 EP.37",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1470000,
+ "views": 910689,
+ "ratio": 0.62,
+ "age_days": 6,
+ "views_per_day": 132711.3,
+ "minutes": 21.4,
+ "likes": 3387,
+ "comments": 262,
+ "published": "2026-10-30",
+ "queries": "검색:주식투자 | 검색:주식 | 검색:주가 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=_QR0dOGFH50",
+ "flag": "",
+ "published_at": "2026-10-30T10:30:28Z",
+ "rank": "W322",
+ "set": "web",
+ "folder": "W__QR0dOGFH50",
+ "sources": [
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주가",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 26,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 148,
+   "title": "“영업이익 107조” 삼성전자 주가 떨어지는 진짜 이유"
+  },
+  {
+   "start": 528,
+   "title": "바닥 찍는 삼전닉스 과연 버텨도 되는 상황일까?"
+  },
+  {
+   "start": 740,
+   "title": "개인 투자자가 이미 떨어진 주식 팔지 못하는 이유"
+  },
+  {
+   "start": 1012,
+   "title": "가짜 뉴스 넘치는 세상에서 알짜배기 정보 얻는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 264,
+ "comments_top_level": 161,
+ "comments_replies": 103,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 262,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:24:14",
+ "approved": "2026-11-06T17:24+09:00"
+}

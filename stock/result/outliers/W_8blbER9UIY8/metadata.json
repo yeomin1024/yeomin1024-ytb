@@ -1,0 +1,109 @@
+{
+ "id": "8blbER9UIY8",
+ "title": "【新TOPIX】「東証の狙いはコレ…」追加/除外銘柄の共通点と入替直前だから確認したい注目ポイントとは！？",
+ "channel": "トレイダーズ証券　金融を、もっと面白く。",
+ "channel_id": "UC3guHRx3Vrq05UuHlNVh_bw",
+ "subs": 64700,
+ "views": 322939,
+ "ratio": 4.99,
+ "age_days": 12,
+ "views_per_day": 24961.8,
+ "minutes": 46.2,
+ "likes": 1398,
+ "comments": 38,
+ "published": "2026-10-24",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=8blbER9UIY8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-24T10:00:18Z",
+ "rank": "W12",
+ "set": "web",
+ "folder": "W_8blbER9UIY8",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "トレイダーズ証券",
+  "投資",
+  "FX",
+  "資産運用",
+  "NISA",
+  "新NISA",
+  "ideco",
+  "企業",
+  "松井証券",
+  "SBI証券",
+  "楽待",
+  "ニューズピックス",
+  "Newspicks",
+  "PIVOT",
+  "リベラルアーツ大学",
+  "新R25",
+  "ReHacQ",
+  "リハック",
+  "脱・税理士スガワラくん",
+  "令和の虎",
+  "髙橋洋一チャンネル",
+  "Yusaku Maezawa",
+  "オタク会計士ch",
+  "お金のまなびば！",
+  "TBS CROSS DIG"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 86,
+   "title": "新TOPIXで何が変わる？〜\"大きくは変わらないが、やった方がいい\""
+  },
+  {
+   "start": 344,
+   "title": "新規追加35銘柄の共通点"
+  },
+  {
+   "start": 542,
+   "title": "日本株は\"株式資本主義\"へ"
+  },
+  {
+   "start": 1022,
+   "title": "入れ替え当日の需給に注意"
+  },
+  {
+   "start": 1181,
+   "title": "除外される683銘柄〜優待株と流動性のリスク"
+  },
+  {
+   "start": 1407,
+   "title": "ROE・PBR・自社株買い"
+  },
+  {
+   "start": 1808,
+   "title": "段階的な除外とボーダー企業の攻防"
+  },
+  {
+   "start": 2220,
+   "title": "個人投資家はどう生かす？〜気にしすぎない、ミスプライスを狙う"
+  },
+  {
+   "start": 2527,
+   "title": "エンディング"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 38,
+ "comments_top_level": 33,
+ "comments_replies": 5,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 38,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:39",
+ "approved": "2026-11-06T17:31+09:00"
+}

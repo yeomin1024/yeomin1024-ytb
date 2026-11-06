@@ -1,0 +1,90 @@
+{
+ "id": "pJBDi4hyn-M",
+ "title": "\"한국 증시 거대한 분기점 다가왔다\", 다음주 코스피 심상치 않습니다 보유 주식 싹 다 '이렇게' 하세요. ( 이재규 차장 )",
+ "channel": "경제 원탑",
+ "channel_id": "UCDjaj6eENGMvgIXfeRErPmA",
+ "subs": 554000,
+ "views": 235512,
+ "ratio": 0.43,
+ "age_days": 11,
+ "views_per_day": 19681.2,
+ "minutes": 26.6,
+ "likes": 1267,
+ "comments": 72,
+ "published": "2026-10-25",
+ "queries": "검색:코스피 | 검색:코스닥 | 검색:한국주식 | 검색:국내주식 | 검색:주식투자 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=pJBDi4hyn-M",
+ "flag": "",
+ "published_at": "2026-10-25T08:00:26Z",
+ "rank": "W185",
+ "set": "web",
+ "folder": "W_pJBDi4hyn-M",
+ "sources": [
+  "검색:코스피",
+  "검색:코스닥",
+  "검색:한국주식",
+  "검색:국내주식",
+  "검색:주식투자",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "한국 증시",
+  "주식",
+  "증시",
+  "투자",
+  "재테크",
+  "부",
+  "부자",
+  "코스피",
+  "외국인",
+  "수급",
+  "삼성전자",
+  "하이닉스",
+  "삼전닉스",
+  "삼전",
+  "SK하닉",
+  "하닉",
+  "환율",
+  "유가",
+  "금리",
+  "국채 금리",
+  "FOMC"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 75,
+   "title": "반대매매 급증한 증시, '이것'이 돌아와야 반등이 이어집니다."
+  },
+  {
+   "start": 446,
+   "title": "미국·유럽 금리보다 지금은 '이것'이 국내 증시 방향을 가를 변수입니다."
+  },
+  {
+   "start": 791,
+   "title": "FOMC 결과보다 중요한 건 이후 연준의 발언과 '이것'입니다."
+  },
+  {
+   "start": 1359,
+   "title": "보유 종목은 '두 가지' 기준으로 현금화하고, '이 섹터'를 눈여겨보세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 72,
+ "comments_top_level": 71,
+ "comments_replies": 1,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 72,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:17:41",
+ "approved": "2026-11-06T17:17+09:00"
+}

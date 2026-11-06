@@ -1,0 +1,75 @@
+{
+ "id": "x4nCIjbauVg",
+ "title": "개미들이여 힘을 모아다오!",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3740000,
+ "views": 1197741,
+ "ratio": 0.32,
+ "age_days": 9,
+ "views_per_day": 121268.0,
+ "minutes": 29.1,
+ "likes": 4766,
+ "comments": 632,
+ "published": "2026-10-27",
+ "queries": "검색:주식 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=x4nCIjbauVg",
+ "flag": "",
+ "published_at": "2026-10-27T10:09:24Z",
+ "rank": "W324",
+ "set": "web",
+ "folder": "W_x4nCIjbauVg",
+ "sources": [
+  "검색:주식",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "전세계 하락률 1위의 증시는?"
+  },
+  {
+   "start": 216,
+   "title": "원자재 가격은 우리가 직접 결정한다."
+  },
+  {
+   "start": 593,
+   "title": "사상 초유 MSCI와 싸우는 국가"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 632,
+ "comments_top_level": 423,
+ "comments_replies": 209,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 632,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:24:29",
+ "approved": "2026-11-06T17:24+09:00"
+}

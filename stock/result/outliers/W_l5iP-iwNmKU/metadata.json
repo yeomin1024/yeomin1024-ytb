@@ -1,0 +1,79 @@
+{
+ "id": "l5iP-iwNmKU",
+ "title": "🤔잘나가던 구글 주가는 어디로? 실적과 사업 심층 분석!",
+ "channel": "미키피디아",
+ "channel_id": "UCt9m3iBPn0e0z0B_t-Va7sw",
+ "subs": 378000,
+ "views": 322234,
+ "ratio": 0.85,
+ "age_days": 1,
+ "views_per_day": 167398.5,
+ "minutes": 17.0,
+ "likes": 2172,
+ "comments": 190,
+ "published": "2026-11-04",
+ "queries": "검색:주가",
+ "url": "https://www.youtube.com/watch?v=l5iP-iwNmKU",
+ "flag": "",
+ "published_at": "2026-11-04T09:00:05Z",
+ "rank": "W145",
+ "set": "web",
+ "folder": "W_l5iP-iwNmKU",
+ "sources": [
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 60,
+   "title": "실적은 어땠나"
+  },
+  {
+   "start": 134,
+   "title": "그럼 문제는?"
+  },
+  {
+   "start": 304,
+   "title": "다른 기업들은 어땠나"
+  },
+  {
+   "start": 343,
+   "title": "현금을 까먹는 구글"
+  },
+  {
+   "start": 542,
+   "title": "다른 흐름을 보인 기업들"
+  },
+  {
+   "start": 714,
+   "title": "앞으로 구글 주가는?"
+  },
+  {
+   "start": 871,
+   "title": "개인적인 생각"
+  },
+  {
+   "start": 961,
+   "title": "클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 190,
+ "comments_top_level": 117,
+ "comments_replies": 73,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 190,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:15:54",
+ "approved": "2026-11-06T17:15+09:00"
+}

@@ -1,0 +1,107 @@
+{
+ "id": "2DwE9XmCQIU",
+ "title": "🚨Dips like this don’t come often (DOUBLE DOWN)",
+ "channel": "Investing Simplified - Professor G",
+ "channel_id": "UCr4XXQznhlgfzo4mwOgkF8w",
+ "subs": 481000,
+ "views": 187567,
+ "ratio": 0.39,
+ "age_days": 0,
+ "views_per_day": 187567.0,
+ "minutes": 22.7,
+ "likes": 2661,
+ "comments": 354,
+ "published": "2026-11-05",
+ "queries": "검색:how to invest in stocks | 검색:etf investing | 검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=2DwE9XmCQIU",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T14:00:27Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_2DwE9XmCQIU",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:etf investing",
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": [
+  "sofi stock",
+  "apld stock",
+  "iren stock",
+  "ai stock crash",
+  "buy the dip",
+  "when to buy the dip",
+  "how to invest now",
+  "invest tips",
+  "brk.b",
+  "berkshire hathaway invest",
+  "google stock",
+  "goog stock",
+  "ionq stock",
+  "when to buy ionq",
+  "ai growth stocks",
+  "growth stocks",
+  "best growth stocks 2026"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Best Growth Stocks 2027"
+  },
+  {
+   "start": 75,
+   "title": "This Market Dip is a HUGE Opportunity right now"
+  },
+  {
+   "start": 300,
+   "title": "Time to Buy BKR.B Berkshire Hathaway"
+  },
+  {
+   "start": 445,
+   "title": "How i find the best growth stocks"
+  },
+  {
+   "start": 544,
+   "title": "BUY GOOGLE (GOOG Analysis)"
+  },
+  {
+   "start": 675,
+   "title": "Should I buy SOFI stock?"
+  },
+  {
+   "start": 753,
+   "title": "DRAM Memory ETF (time to double down?)"
+  },
+  {
+   "start": 862,
+   "title": "APLD Applied Digital (Should I buy now?)"
+  },
+  {
+   "start": 967,
+   "title": "I just bought more IREN stock"
+  },
+  {
+   "start": 1090,
+   "title": "Highest Risk highest possible reward stock in my portfolio!"
+  },
+  {
+   "start": 1246,
+   "title": "Best growth stocks (and the tiers I put them in)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 350,
+ "comments_top_level": 207,
+ "comments_replies": 143,
+ "comments_by_creator": 30,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 354,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:36:02",
+ "approved": "2026-11-06T17:36+09:00"
+}

@@ -1,0 +1,100 @@
+{
+ "id": "tKfew-bHV60",
+ "title": "A carteira que eu montaria para me aposentar em 10 anos",
+ "channel": "Matheus Sanchez, CFP®",
+ "channel_id": "UCHYDj5uBDzhIcH8MjfNv-xQ",
+ "subs": 5220,
+ "views": 45444,
+ "ratio": 8.71,
+ "age_days": 8,
+ "views_per_day": 5354.5,
+ "minutes": 21.4,
+ "likes": 1043,
+ "comments": 60,
+ "published": "2026-10-28",
+ "queries": "검색:ETFs | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=tKfew-bHV60",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T19:30:36Z",
+ "rank": "W27",
+ "set": "web",
+ "folder": "W_tKfew-bHV60",
+ "sources": [
+  "검색:ETFs",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Uma carteira simples para aposentadoria"
+  },
+  {
+   "start": 68,
+   "title": "Os 4 pilares da carteira"
+  },
+  {
+   "start": 128,
+   "title": "Como os ETFs simplificam seus investimentos"
+  },
+  {
+   "start": 214,
+   "title": "Proteção contra a inflação e juro real"
+  },
+  {
+   "start": 276,
+   "title": "B5P211: inflação com menor volatilidade"
+  },
+  {
+   "start": 337,
+   "title": "XB3511 e o prazo da aposentadoria"
+  },
+  {
+   "start": 436,
+   "title": "LTBX11: CDI e controle da volatilidade"
+  },
+  {
+   "start": 556,
+   "title": "DIVO11: ações brasileiras na carteira"
+  },
+  {
+   "start": 652,
+   "title": "MUND11: diversificação internacional"
+  },
+  {
+   "start": 764,
+   "title": "Carteira conservadora"
+  },
+  {
+   "start": 836,
+   "title": "Carteira moderada"
+  },
+  {
+   "start": 875,
+   "title": "Carteira agressiva"
+  },
+  {
+   "start": 953,
+   "title": "Como rebalancear sua carteira"
+  },
+  {
+   "start": 1070,
+   "title": "Como usar os rendimentos na aposentadoria"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "pt-BR",
+ "foreign": true,
+ "comments_fetched": 60,
+ "comments_top_level": 33,
+ "comments_replies": 27,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 60,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:11",
+ "approved": "2026-11-06T17:11+09:00"
+}

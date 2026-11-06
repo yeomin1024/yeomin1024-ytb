@@ -1,0 +1,205 @@
+{
+ "id": "liaQODwy8kU",
+ "title": "Tech Is Cheap Again — Stocks To Buy Now",
+ "channel": "TheStreet",
+ "channel_id": "UCp6aBHRM6ZS_kLeC57HV4kg",
+ "subs": 167000,
+ "views": 139419,
+ "ratio": 0.83,
+ "age_days": 0,
+ "views_per_day": 139419.0,
+ "minutes": 22.9,
+ "likes": 1639,
+ "comments": 409,
+ "published": "2026-11-05",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=liaQODwy8kU",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T17:39:51Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_liaQODwy8kU",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market",
+  "investing strategies",
+  "investing news",
+  "TheStreet",
+  "Stocks",
+  "financial news",
+  "business news",
+  "James Demmert",
+  "stock market forecast",
+  "stock market analysis",
+  "best stocks to buy now",
+  "stocks to buy in 2027",
+  "AI stocks",
+  "best AI stocks",
+  "Nvidia stock",
+  "AMD stock",
+  "Apple stock",
+  "Amazon stock",
+  "Alphabet stock",
+  "semiconductor stocks",
+  "CoreWeave stock",
+  "SpaceX",
+  "energy stocks",
+  "Chevron stock",
+  "Nike stock",
+  "Lululemon stock",
+  "retail investors",
+  "2027 market outlook"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 6,
+   "title": "S&P 500 Forecast: Can Stocks Reach 8,100 by Year-End?"
+  },
+  {
+   "start": 78,
+   "title": "What Could Derail the Stock Market Rally?"
+  },
+  {
+   "start": 97,
+   "title": "Midterm Election Rally: Can Positive Sentiment Continue?"
+  },
+  {
+   "start": 134,
+   "title": "What Would Make James Demmert Abandon His S&P 8,100 Target?"
+  },
+  {
+   "start": 161,
+   "title": "Why Strong Big Tech Earnings Aren't Lifting Stock Prices"
+  },
+  {
+   "start": 233,
+   "title": "Magnificent Seven Stocks: Which Are the Best Buys Right Now?"
+  },
+  {
+   "start": 281,
+   "title": "Alphabet vs. Amazon vs. Nvidia: Which Stock Looks Most Attractive?"
+  },
+  {
+   "start": 306,
+   "title": "Where Does Apple Rank Among the Magnificent Seven?"
+  },
+  {
+   "start": 336,
+   "title": "Best AI Stocks to Buy: Where to Invest New Money"
+  },
+  {
+   "start": 386,
+   "title": "Best Semiconductor Stocks Beyond Nvidia: AMD, TSMC and ASML"
+  },
+  {
+   "start": 419,
+   "title": "Biggest Risk to AI Stocks: Data Center and Electrification Concerns"
+  },
+  {
+   "start": 454,
+   "title": "Data Center Slowdown: Which AI Stocks Could Be Hurt?"
+  },
+  {
+   "start": 495,
+   "title": "Will Congress Support More AI Data Center Construction?"
+  },
+  {
+   "start": 541,
+   "title": "CoreWeave Stock: Opportunity or Trap?"
+  },
+  {
+   "start": 570,
+   "title": "SpaceX: Is It a Good Investment?"
+  },
+  {
+   "start": 582,
+   "title": "Best Stocks to Buy Beyond Big Tech: Healthcare, Energy and Financials"
+  },
+  {
+   "start": 646,
+   "title": "Healthcare Stocks: Is It Too Late to Buy at Record Highs?"
+  },
+  {
+   "start": 670,
+   "title": "Best Healthcare Stocks to Buy on a Pullback"
+  },
+  {
+   "start": 694,
+   "title": "Best Energy Stocks to Buy: Valero and Chevron"
+  },
+  {
+   "start": 703,
+   "title": "International Stocks to Buy: Hitachi and Royal Bank of Canada"
+  },
+  {
+   "start": 755,
+   "title": "Fed Rate Hike: Can the S&P 500 Still Reach 8,100?"
+  },
+  {
+   "start": 811,
+   "title": "S&P 500 Forecast 2027: What Will Drive a Rally to 9,100?"
+  },
+  {
+   "start": 853,
+   "title": "Which Sectors Could Struggle in 2027?"
+  },
+  {
+   "start": 888,
+   "title": "Best Consumer Discretionary Stocks to Buy in 2027"
+  },
+  {
+   "start": 935,
+   "title": "Will the Stock Market Rally Broaden Beyond Big Tech?"
+  },
+  {
+   "start": 972,
+   "title": "How Retail Investors Should Build a Portfolio for 2027"
+  },
+  {
+   "start": 1029,
+   "title": "How Much of a Portfolio Should Be Invested in Tech?"
+  },
+  {
+   "start": 1065,
+   "title": "Oil Price Outlook: When Should Investors Sell Energy Stocks?"
+  },
+  {
+   "start": 1120,
+   "title": "Best Advice for Investors: How to Navigate the AI Trade and 2027 Market"
+  },
+  {
+   "start": 1167,
+   "title": "Are Healthcare Stocks Still a Good Buy Near All-Time Highs?"
+  },
+  {
+   "start": 1185,
+   "title": "Nike and Lululemon: Are Beaten-Down Retail Stocks Worth Buying?"
+  },
+  {
+   "start": 1234,
+   "title": "Rapid-Fire: This or That"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 437,
+ "comments_top_level": 240,
+ "comments_replies": 197,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 409,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:47",
+ "approved": "2026-11-06T17:33+09:00"
+}

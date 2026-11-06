@@ -1,0 +1,129 @@
+{
+ "id": "zKtbhDUKSb0",
+ "title": "🤔 TDF는 펀드로 사는게 좋을까? ETF로 사는게 좋을까? | 펀드와 ETF 차이ㅣTDF",
+ "channel": "박곰희TV",
+ "channel_id": "UCr7XsrSrvAn_WcU4kF99bbQ",
+ "subs": 1280000,
+ "views": 80168,
+ "ratio": 0.06,
+ "age_days": 3,
+ "views_per_day": 20426.2,
+ "minutes": 15.2,
+ "likes": 651,
+ "comments": 35,
+ "published": "2026-11-02",
+ "queries": "검색:ETF | 검색:ETF추천 | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=zKtbhDUKSb0",
+ "flag": "",
+ "published_at": "2026-11-02T09:00:12Z",
+ "rank": "W294",
+ "set": "web",
+ "folder": "W_zKtbhDUKSb0",
+ "sources": [
+  "검색:ETF",
+  "검색:ETF추천",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "연금저축",
+  "연금",
+  "irp",
+  "연금운용",
+  "cd금리",
+  "cd금리ETF",
+  "kofr금리",
+  "kofr금리ETF",
+  "tdf",
+  "자산배분",
+  "레이달리오",
+  "올웨더",
+  "올시즌포트폴리오",
+  "박곰희포트폴리오",
+  "육대사포트폴리오",
+  "배당주",
+  "배당성장주",
+  "미국배당성장주",
+  "미국배당다우존스",
+  "주식",
+  "국내주식",
+  "미국주식",
+  "가치투자",
+  "vip",
+  "vip자산운용",
+  "vip한국형가치투자",
+  "한국형가치투자펀드",
+  "현금",
+  "연금관리",
+  "cma",
+  "파킹통장",
+  "증권사계좌",
+  "은행계좌",
+  "rp형",
+  "mmf형",
+  "발행어음형",
+  "mmw형",
+  "한국증권금융",
+  "CMA",
+  "캐쉬",
+  "현금관리",
+  "파킹",
+  "TDF",
+  "IRP",
+  "펀드",
+  "etf",
+  "tdf펀드"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "TDF 일반펀드 vs ETF"
+  },
+  {
+   "start": 68,
+   "title": "덩치 비교"
+  },
+  {
+   "start": 157,
+   "title": "TDF 일반펀드의 장점"
+  },
+  {
+   "start": 271,
+   "title": "TDF 일반펀드의 단점"
+  },
+  {
+   "start": 356,
+   "title": "TDF ETF의 장점"
+  },
+  {
+   "start": 499,
+   "title": "TDF ETF의 단점"
+  },
+  {
+   "start": 587,
+   "title": "수익률 비교"
+  },
+  {
+   "start": 765,
+   "title": "TDF 고르는 방법"
+  },
+  {
+   "start": 855,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 35,
+ "comments_top_level": 32,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:22:06",
+ "approved": "2026-11-06T17:22+09:00"
+}

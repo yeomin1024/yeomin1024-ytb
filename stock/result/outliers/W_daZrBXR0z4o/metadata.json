@@ -1,0 +1,83 @@
+{
+ "id": "daZrBXR0z4o",
+ "title": "\"삼성전자·SK하이닉스 주가 정말 무서울 겁니다\" 100년에 한 번 나오는 폭풍 랠리 터진다ㅣ위즈웨이브 이권희 대표ㅣ예민수의 경제TALK",
+ "channel": "한국증권TV",
+ "channel_id": "UC9OdxrtKsOxQCXpjNmaRMsw",
+ "subs": 207000,
+ "views": 171233,
+ "ratio": 0.83,
+ "age_days": 8,
+ "views_per_day": 19097.2,
+ "minutes": 12.3,
+ "likes": 1039,
+ "comments": 103,
+ "published": "2026-10-28",
+ "queries": "검색:주식 | 검색:주가 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=daZrBXR0z4o",
+ "flag": "",
+ "published_at": "2026-10-28T08:00:23Z",
+ "rank": "W148",
+ "set": "web",
+ "folder": "W_daZrBXR0z4o",
+ "sources": [
+  "검색:주식",
+  "검색:주가",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "한국증권TV",
+  "한국증권",
+  "예민수의경제TALK",
+  "경제톡",
+  "예민수",
+  "주식",
+  "코스피",
+  "코스닥",
+  "2차전지",
+  "반도체",
+  "주가 분석",
+  "주가 전망",
+  "삼성전자",
+  "SK하이닉스",
+  "에코프로",
+  "포스코",
+  "카카오",
+  "네이버",
+  "삼성SDI",
+  "LG엔솔",
+  "LG에너지솔루션"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 27,
+   "title": "SK하이닉스 역대급, 2029년 물량까지 다 팔렸다?"
+  },
+  {
+   "start": 282,
+   "title": "삼전닉스 반등은 시작일 뿐?, 주가 다시 폭발할 '이 시점'"
+  },
+  {
+   "start": 546,
+   "title": "반도체 소부장 살 타이밍?, 단, '이 신호' 뜨면 파세요!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 103,
+ "comments_top_level": 84,
+ "comments_replies": 19,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 103,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:16:02",
+ "approved": "2026-11-06T17:16+09:00"
+}

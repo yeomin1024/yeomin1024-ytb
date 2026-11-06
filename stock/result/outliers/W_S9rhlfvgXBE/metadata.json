@@ -1,0 +1,129 @@
+{
+ "id": "S9rhlfvgXBE",
+ "title": "SK하이닉스에 울고 웃었던 지난 1년...왜 SK하이닉스였나? 그리고 왜 지금도 SK하이닉스인가? (f. 빈센트 하나증권 이코노미스트, 문서진대표, 여도은)",
+ "channel": "따불로 DDABULLO",
+ "channel_id": "UCQ_TgNFPVqflF0tehlF6Z3Q",
+ "subs": 2900,
+ "views": 13120,
+ "ratio": 4.52,
+ "age_days": 13,
+ "views_per_day": 945.0,
+ "minutes": 20.5,
+ "likes": 101,
+ "comments": 32,
+ "published": "2026-10-23",
+ "queries": "검색:장기투자",
+ "url": "https://www.youtube.com/watch?v=S9rhlfvgXBE",
+ "flag": "",
+ "published_at": "2026-10-23T10:00:32Z",
+ "rank": "W50",
+ "set": "web",
+ "folder": "W_S9rhlfvgXBE",
+ "sources": [
+  "검색:장기투자"
+ ],
+ "source": "web",
+ "tags": [
+  "빈센트",
+  "SK하이닉스",
+  "반도체주가",
+  "네비우스",
+  "코어위브",
+  "네오클라우드",
+  "가트너",
+  "문서진대표",
+  "여도은",
+  "김두언",
+  "삼프로TV",
+  "반도체전망",
+  "삼성전자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 워런 버핏의 10년 장기 투자 격언과 국장의 현실"
+  },
+  {
+   "start": 65,
+   "title": "똑똑한 금융인들이 결국 트레이더로 빠졌던 한국 증시의 구조적 한계"
+  },
+  {
+   "start": 130,
+   "title": "한국 경제의 아킬레스건: 50년간 지속된 잠재성장률 하락과 노동력 부족"
+  },
+  {
+   "start": 165,
+   "title": "피지컬 AI(로봇)가 여는 신세계: 노동력 부스팅과 잠재성장률의 역사적 반등"
+  },
+  {
+   "start": 220,
+   "title": "\"가라앉지 않는 배\": 대한민국 경제의 턴어라운드와 장기 투자의 당위성"
+  },
+  {
+   "start": 270,
+   "title": "반도체에 의한 K자 착시 논란과 노동력 한계를 극복하는 AI 생산성"
+  },
+  {
+   "start": 330,
+   "title": "국내 자본시장의 체질 개선: 주주환원, 중복 상장 방지 등 제도적 과제"
+  },
+  {
+   "start": 435,
+   "title": "똑똑해진 개인 투자자들과 조금씩 변화하는 한국 금융 환경"
+  },
+  {
+   "start": 488,
+   "title": "다음 세대에게 물려줄 주식: '시대의 중심'에 있는 주식을 모아가라"
+  },
+  {
+   "start": 552,
+   "title": "하루 150분 수면의 비밀: 빈센트 로봇설과 치열한 일상의 이유"
+  },
+  {
+   "start": 660,
+   "title": "15년간 이어진 극단적인 생활 루틴과 생각의 깊이"
+  },
+  {
+   "start": 715,
+   "title": "애널리스트가 명확한 뷰(View)를 내야 하는 이유: \"까리할 때 답을 주는 메신저\""
+  },
+  {
+   "start": 790,
+   "title": "매일 스스로에게 던지는 질문: 5% 급락 속에서도 중심을 잡는 법"
+  },
+  {
+   "start": 880,
+   "title": "완벽해 보이는 삶의 이면: \"나는 계속 실패하며 도전하는 사람이다\""
+  },
+  {
+   "start": 945,
+   "title": "100억 벌고 은퇴? 돈은 목적이 아닌 수단이며 일과 도전 자체가 삶이다"
+  },
+  {
+   "start": 1035,
+   "title": "방송 출연 이후 늘어난 대중적 인지도와 변함없는 일상"
+  },
+  {
+   "start": 1125,
+   "title": "빈센트가 남기고 싶은 최종 목표: 한국형 장기투자의 성공 증명과 두 자녀를 향한 약속"
+  },
+  {
+   "start": 1200,
+   "title": "시장의 풍파에 흔들리지 않는 뚝심과 마무리 응원"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 32,
+ "comments_top_level": 28,
+ "comments_replies": 4,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 32,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:01",
+ "approved": "2026-11-06T17:12+09:00"
+}

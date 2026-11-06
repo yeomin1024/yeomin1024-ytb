@@ -1,0 +1,121 @@
+{
+ "id": "-9uTdWvd7tE",
+ "title": "BUY THIS DIP! 4 Stocks That Are CRAZY Cheap",
+ "channel": "ZipTrader",
+ "channel_id": "UC0BGhWsIbV7Dm-lsvhdlMbA",
+ "subs": 900000,
+ "views": 199832,
+ "ratio": 0.22,
+ "age_days": 4,
+ "views_per_day": 46996.8,
+ "minutes": 18.4,
+ "likes": 4029,
+ "comments": 281,
+ "published": "2026-11-02",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=-9uTdWvd7tE",
+ "flag": "외국 영상",
+ "published_at": "2026-11-02T01:09:06Z",
+ "rank": "W114",
+ "set": "web",
+ "folder": "W_-9uTdWvd7tE",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "ziptrader",
+  "top stocks",
+  "top stocks now",
+  "how to trade stocks",
+  "stocks",
+  "\"Nvidia",
+  "NVDA",
+  "tech stocks",
+  "AI technology",
+  "earnings report analysis",
+  "ZipTrader",
+  "stock market analysis",
+  "investment strategies",
+  "GPU market",
+  "technology trends",
+  "financial analysis",
+  "tech sector growth",
+  "artificial intelligence",
+  "data center technology",
+  "gaming industry\"",
+  "A.I. stocks 2024\"",
+  "\"best tech stocks\"",
+  "\"invest in A.I.\"",
+  "\"stock market\"",
+  "PLTR",
+  "palantir"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "THIS DIP WON'T LAST"
+  },
+  {
+   "start": 66,
+   "title": "WHAT THE CHARTS ARE SAYING"
+  },
+  {
+   "start": 103,
+   "title": "WHAT HISTORY SAYS COMES NEXT"
+  },
+  {
+   "start": 155,
+   "title": "WHAT EVERYBODY GETS WRONG ABOUT THE DOT-COM CRASH"
+  },
+  {
+   "start": 267,
+   "title": "STOCKS AFTER THE MIDTERMS"
+  },
+  {
+   "start": 372,
+   "title": "THE FEARS BEHIND THE SELL-OFF"
+  },
+  {
+   "start": 446,
+   "title": "WHY THE LOUDEST BEAR ARGUMENT IS WRONG"
+  },
+  {
+   "start": 494,
+   "title": "WHY DOES EVERYONE THINK IT'S A BUBBLE?"
+  },
+  {
+   "start": 600,
+   "title": "STOCK FOUR"
+  },
+  {
+   "start": 721,
+   "title": "STOCK THREE"
+  },
+  {
+   "start": 828,
+   "title": "STOCK TWO"
+  },
+  {
+   "start": 968,
+   "title": "STOCK ONE"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 281,
+ "comments_top_level": 219,
+ "comments_replies": 62,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 281,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:38:02",
+ "approved": "2026-11-06T17:38+09:00"
+}

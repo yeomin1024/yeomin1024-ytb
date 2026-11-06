@@ -1,0 +1,86 @@
+{
+ "id": "bxJMp_R9EGs",
+ "title": "【米中間選挙】民主党が上下院を取った後、米国株はどうなる？S&P500・オルカンを解説",
+ "channel": "三好FAの資産運用チャンネル",
+ "channel_id": "UCNsBcgSjpuvMUw7_sEYXl3g",
+ "subs": 91800,
+ "views": 84336,
+ "ratio": 0.92,
+ "age_days": 1,
+ "views_per_day": 46322.6,
+ "minutes": 11.1,
+ "likes": 665,
+ "comments": 25,
+ "published": "2026-11-04",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=bxJMp_R9EGs",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T11:30:11Z",
+ "rank": "W46",
+ "set": "web",
+ "folder": "W_bxJMp_R9EGs",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "米国中間選挙",
+  "中間選挙",
+  "米国株",
+  "S&P500",
+  "オルカン",
+  "NASDAQ",
+  "日経平均",
+  "株価下落",
+  "投資信託",
+  "資産運用",
+  "50代 投資",
+  "60代 投資",
+  "三好FA",
+  "証券パートナーズ"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "米国中間選挙と株価下落"
+  },
+  {
+   "start": 93,
+   "title": "今回の株価の動き"
+  },
+  {
+   "start": 157,
+   "title": "過去の同じ政治状況とS&P500"
+  },
+  {
+   "start": 213,
+   "title": "民主党が上下院を取ると何が変わる？"
+  },
+  {
+   "start": 373,
+   "title": "NASDAQ・S&P500・オルカンへの影響"
+  },
+  {
+   "start": 472,
+   "title": "50代以上は今どうする？"
+  },
+  {
+   "start": 589,
+   "title": "まとめと確認したい3項目"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 25,
+ "comments_top_level": 15,
+ "comments_replies": 10,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 25,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:39",
+ "approved": "2026-11-06T17:33+09:00"
+}

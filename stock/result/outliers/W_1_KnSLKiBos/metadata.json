@@ -1,0 +1,87 @@
+{
+ "id": "1_KnSLKiBos",
+ "title": "[초보자필수시청] 1천만원으로 따라하는 추세추종 매매법 / 13년차 현역 투자자의 비법",
+ "channel": "직장인 차트매매 - 추세추종",
+ "channel_id": "UCHhTVpIHT6AEuF43TQABhhw",
+ "subs": 6030,
+ "views": 14881,
+ "ratio": 2.47,
+ "age_days": 13,
+ "views_per_day": 1065.8,
+ "minutes": 16.6,
+ "likes": 260,
+ "comments": 45,
+ "published": "2026-10-23",
+ "queries": "검색:가치투자",
+ "url": "https://www.youtube.com/watch?v=1_KnSLKiBos",
+ "flag": "",
+ "published_at": "2026-10-23T08:05:38Z",
+ "rank": "W82",
+ "set": "web",
+ "folder": "W_1_KnSLKiBos",
+ "sources": [
+  "검색:가치투자"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "주식투자",
+  "주식초보",
+  "주식공부",
+  "차트분석",
+  "단타",
+  "스윙",
+  "추세매매",
+  "추세추종",
+  "돌파매매",
+  "리스크관리",
+  "손절",
+  "손절기준",
+  "매도타이밍",
+  "매매원칙",
+  "투자심리",
+  "주식멘탈",
+  "매매기법",
+  "주식강의",
+  "주식유튜브",
+  "주식 투자",
+  "매매 원칙",
+  "익절"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "승률 50%로 계좌를 불리는 비밀"
+  },
+  {
+   "start": 97,
+   "title": "부패에서 배우는 주식 매매의 핵심"
+  },
+  {
+   "start": 188,
+   "title": "승률보다 중요한 손익비의 마법"
+  },
+  {
+   "start": 369,
+   "title": "멘탈이 흔들리지 않는 손절 공식"
+  },
+  {
+   "start": 646,
+   "title": "나의 매매 습관 진단하고 고치기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 45,
+ "comments_top_level": 20,
+ "comments_replies": 25,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 45,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:13:13",
+ "approved": "2026-11-06T17:13+09:00"
+}

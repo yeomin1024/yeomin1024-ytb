@@ -1,0 +1,112 @@
+{
+ "id": "f2mLb2YcC08",
+ "title": "배당도 받고 S&P500수익률 압도하는 배당 포트폴리오 | 평온 작가 | 배당투자",
+ "channel": "투자360",
+ "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
+ "subs": 16600,
+ "views": 55129,
+ "ratio": 3.32,
+ "age_days": 8,
+ "views_per_day": 6125.6,
+ "minutes": 19.0,
+ "likes": 333,
+ "comments": 15,
+ "published": "2026-10-28",
+ "queries": "검색:장기투자 | 검색:배당ETF | 검색:월배당ETF | 검색:배당주 | 검색:배당 | 검색:월배당 | 검색:배당금 | 검색:배당투자 | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=f2mLb2YcC08",
+ "flag": "",
+ "published_at": "2026-10-28T07:12:14Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W_f2mLb2YcC08",
+ "sources": [
+  "검색:장기투자",
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:배당주",
+  "검색:배당",
+  "검색:월배당",
+  "검색:배당금",
+  "검색:배당투자",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "배당투자",
+  "배당주투자",
+  "배당",
+  "배당금",
+  "월배당",
+  "은퇴",
+  "파이어족",
+  "미국주식",
+  "미국배당",
+  "S&P500",
+  "성장주",
+  "수익률"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 41,
+   "title": "자기소개 | 월 500만원 배당받는 평온 작가"
+  },
+  {
+   "start": 79,
+   "title": "평범한 직장인이 10억 자산을 만든 과정"
+  },
+  {
+   "start": 174,
+   "title": "하락장에 배당 투자자는 웃는 이유"
+  },
+  {
+   "start": 237,
+   "title": "배당주 투자, 망하는 사람들의 공통점"
+  },
+  {
+   "start": 339,
+   "title": "성장주를 반드시 담아야 하는 이유"
+  },
+  {
+   "start": 457,
+   "title": "장기투자할 성장주, 무엇을 봐야 할까?"
+  },
+  {
+   "start": 551,
+   "title": "(★) S&P500이기는 배당주 포트폴리오"
+  },
+  {
+   "start": 634,
+   "title": "배당 투자, 최고의 매수 타이밍은?"
+  },
+  {
+   "start": 671,
+   "title": "회사= 원화 환전소, 쉽게 퇴사하면 안되는 이유"
+  },
+  {
+   "start": 863,
+   "title": "집 가지고 있다면 한국 주식은 하지 마세요"
+  },
+  {
+   "start": 955,
+   "title": "평생 주식 투자하며 얻은 것들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 15,
+ "comments_replies": 0,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:41",
+ "approved": "2026-11-06T17:12+09:00"
+}

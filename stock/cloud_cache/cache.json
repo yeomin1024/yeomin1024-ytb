@@ -1,20 +1,20 @@
 {
  "tool": "cloud_run.py v1.6",
  "topic": "stock",
- "saved": "2026-10-28T16:54:45+09:00",
+ "saved": "2026-11-06T17:44:58+09:00",
  "why": "approve",
- "files": 21376,
- "bytes_raw": 58326891,
- "bytes_tgz": 29983590,
- "sha256": "2374ca0b3d58a0b9986d06af94c3f283759570ec5eb3db585036b5f6d61bd1d8",
+ "files": 29521,
+ "bytes_raw": 78912736,
+ "bytes_tgz": 39026162,
+ "sha256": "41084edadb7c5b70d3959df37173072d95cf8dfc76a572f566a16b525c53e373",
  "parts": [],
  "kinds": {
   "autocomplete.json": 1,
   "channels.json": 1,
-  "search": 298,
+  "search": 440,
   "shorts": 7152,
-  "uploads": 146,
-  "video": 13772,
+  "uploads": 226,
+  "video": 21695,
   "web": 6
  }
 }

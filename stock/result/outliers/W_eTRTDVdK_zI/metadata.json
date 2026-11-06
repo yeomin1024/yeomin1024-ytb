@@ -1,0 +1,109 @@
+{
+ "id": "eTRTDVdK_zI",
+ "title": "월요일부터 심상치 않다… 삼성전자·SK하이닉스 급등과 미국 증시 전망",
+ "channel": "미국 주식 채널 - 에디 Eddie",
+ "channel_id": "UCMupe3fvv1-Hi3SRxZzSsTw",
+ "subs": 269000,
+ "views": 92956,
+ "ratio": 0.35,
+ "age_days": 4,
+ "views_per_day": 23160.5,
+ "minutes": 8.2,
+ "likes": 1332,
+ "comments": 176,
+ "published": "2026-11-02",
+ "queries": "검색:미국증시 | 검색:증시 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=eTRTDVdK_zI",
+ "flag": "",
+ "published_at": "2026-11-02T06:52:25Z",
+ "rank": "W203",
+ "set": "web",
+ "folder": "W_eTRTDVdK_zI",
+ "sources": [
+  "검색:미국증시",
+  "검색:증시",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "11월 첫 거래일 코스피 급등, 삼성전자·SK하이닉스 상승"
+  },
+  {
+   "start": 22,
+   "title": "한국 증시 상승 원인 분석, 나스닥 선물과 국제유가"
+  },
+  {
+   "start": 49,
+   "title": "나스닥 변동성 확대, 미국 증시 급등락 현황"
+  },
+  {
+   "start": 71,
+   "title": "트럼프 이란 외교 협상, 국제유가 하락 원인"
+  },
+  {
+   "start": 119,
+   "title": "미국 중간선거 전망, 트럼프와 민주당 승리 가능성"
+  },
+  {
+   "start": 141,
+   "title": "폴리마켓 중간선거 예측, 민주당 상원·하원 장악 전망"
+  },
+  {
+   "start": 181,
+   "title": "민주당 승리 시 경제정책과 미국 증시 영향"
+  },
+  {
+   "start": 216,
+   "title": "미국 중간선거 이후 S&P500 수익률과 계절성"
+  },
+  {
+   "start": 264,
+   "title": "공포탐욕지수·VIX 지수, 증시 변동성과 풋옵션"
+  },
+  {
+   "start": 294,
+   "title": "나스닥 반등 전망, 인텔 급락과 미국 주가지수 선물"
+  },
+  {
+   "start": 336,
+   "title": "SOXL 반도체 3배 레버리지와 비트코인 시황"
+  },
+  {
+   "start": 351,
+   "title": "이번 주 미국 증시 주요 일정, 중간선거와 기업 실적"
+  },
+  {
+   "start": 365,
+   "title": "애플·팔란티어·온세미 실적 발표 일정"
+  },
+  {
+   "start": 389,
+   "title": "퀄컴·로빈후드·모더나 실적과 시장 변동성 전망"
+  },
+  {
+   "start": 423,
+   "title": "코스피·나스닥 상승 원인 및 미국 증시 시황 정리"
+  },
+  {
+   "start": 462,
+   "title": "미국 서머타임 종료, 미국 주식시장 개장시간 변경"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 176,
+ "comments_top_level": 129,
+ "comments_replies": 47,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 176,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:18:29",
+ "approved": "2026-11-06T17:18+09:00"
+}

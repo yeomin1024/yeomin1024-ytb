@@ -1,0 +1,94 @@
+{
+ "id": "0EGiVcMgnm4",
+ "title": "트럼프 중간선거 참패! 미국 증시 폭락하나? AI 관련주에 닥친 위기",
+ "channel": "미국 주식 채널 - 에디 Eddie",
+ "channel_id": "UCMupe3fvv1-Hi3SRxZzSsTw",
+ "subs": 269000,
+ "views": 154032,
+ "ratio": 0.57,
+ "age_days": 1,
+ "views_per_day": 78744.4,
+ "minutes": 5.4,
+ "likes": 1643,
+ "comments": 224,
+ "published": "2026-11-04",
+ "queries": "검색:미국주식 | 검색:미국증시 | 검색:증시 | 검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=0EGiVcMgnm4",
+ "flag": "",
+ "published_at": "2026-11-04T08:15:09Z",
+ "rank": "W166",
+ "set": "web",
+ "folder": "W_0EGiVcMgnm4",
+ "sources": [
+  "검색:미국주식",
+  "검색:미국증시",
+  "검색:증시",
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미국 중간선거 결과｜민주당 상·하원 과반 확보"
+  },
+  {
+   "start": 17,
+   "title": "텍사스 민주당 승리｜공화당 텃밭에 불어온 블루웨이브"
+  },
+  {
+   "start": 40,
+   "title": "나스닥 급락 후 반등｜트럼프 발언에 움직인 미국 증시"
+  },
+  {
+   "start": 62,
+   "title": "트럼프 패배 인정｜민주당 협력과 대통령 거부권"
+  },
+  {
+   "start": 102,
+   "title": "트럼프 중간선거 패배 원인｜공화당 투표율과 책임론"
+  },
+  {
+   "start": 136,
+   "title": "트럼프 이란 전쟁 발언｜종전 기대감과 주가 반등"
+  },
+  {
+   "start": 165,
+   "title": "트루스소셜 반응｜일론 머스크의 우주 데이터센터 구상"
+  },
+  {
+   "start": 191,
+   "title": "미국 빅테크 정치 변화｜AI 데이터센터와 민주당 정책"
+  },
+  {
+   "start": 234,
+   "title": "중간선거 속보｜민주당 의회 장악과 트럼프 책임론"
+  },
+  {
+   "start": 263,
+   "title": "블루웨이브 원인 분석｜무소속·공화당 유권자 표심"
+  },
+  {
+   "start": 293,
+   "title": "AI 관련주 하락 원인｜데이터센터 우려와 나스닥 반등"
+  },
+  {
+   "start": 316,
+   "title": "미국 증시 추가 전망｜후속 보도 및 미장 방송 안내"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 226,
+ "comments_top_level": 153,
+ "comments_replies": 73,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 224,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:16:53",
+ "approved": "2026-11-06T17:16+09:00"
+}

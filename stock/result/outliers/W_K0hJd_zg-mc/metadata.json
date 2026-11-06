@@ -1,0 +1,87 @@
+{
+ "id": "K0hJd_zg-mc",
+ "title": "65년차 투자 거장, 래리 윌리엄스가 포착한 코스피의 숨은 기회 | 글로벌초대석 EP.12",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4160000,
+ "views": 699662,
+ "ratio": 0.17,
+ "age_days": 0,
+ "views_per_day": 699662.0,
+ "minutes": 29.2,
+ "likes": 8377,
+ "comments": 343,
+ "published": "2026-11-05",
+ "queries": "검색:코스피",
+ "url": "https://www.youtube.com/watch?v=K0hJd_zg-mc",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T13:00:32Z",
+ "rank": "W327",
+ "set": "web",
+ "folder": "W_K0hJd_zg-mc",
+ "sources": [
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 35,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 67,
+   "title": "11,376% 수익 낸 84세 투자자가 주식 뉴스 안 보는 이유"
+  },
+  {
+   "start": 215,
+   "title": "코스피 폭락 전엔 항상 '이 신호'가 먼저 나타납니다"
+  },
+  {
+   "start": 310,
+   "title": "주식에 물려있다면, 12월 첫째 주를 주목하세요"
+  },
+  {
+   "start": 482,
+   "title": "한국 반도체 주 2028년까지 끄떡없는 이유"
+  },
+  {
+   "start": 610,
+   "title": "AI 주식 시즌 종료? 폭락장 8번 겪은 투자자의 답"
+  },
+  {
+   "start": 910,
+   "title": "주식 잘 고르는 사람은 '이 지표' 봅니다"
+  },
+  {
+   "start": 1150,
+   "title": "돈 버는 사람들은 필수로 알고있는 차트 패턴"
+  },
+  {
+   "start": 1387,
+   "title": "폭락장에서 고수들이 기다리는 단 하나의 신호"
+  },
+  {
+   "start": 1592,
+   "title": "100억 잃고 깨달은 '물타기'의 함정"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 362,
+ "comments_top_level": 275,
+ "comments_replies": 87,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 343,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:24:46",
+ "approved": "2026-11-06T17:24+09:00"
+}

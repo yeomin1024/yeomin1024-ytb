@@ -1,0 +1,159 @@
+{
+ "id": "cVOmUtqtzyM",
+ "title": "Trump Failed in Elections Impact on Indian Stock Market",
+ "channel": "DAY TRADER తెలుగు",
+ "channel_id": "UCeEP6GESh2t4-e2132uj3Sg",
+ "subs": 2710000,
+ "views": 201622,
+ "ratio": 0.07,
+ "age_days": 1,
+ "views_per_day": 110445.7,
+ "minutes": 29.4,
+ "likes": 9065,
+ "comments": 256,
+ "published": "2026-11-04",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=cVOmUtqtzyM",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T12:41:18Z",
+ "rank": "W164",
+ "set": "web",
+ "folder": "W_cVOmUtqtzyM",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market latest news",
+  "stock market news",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Update"
+  },
+  {
+   "start": 100,
+   "title": "TRUMP THE END?"
+  },
+  {
+   "start": 534,
+   "title": "Must watch"
+  },
+  {
+   "start": 729,
+   "title": "Gold & Silver"
+  },
+  {
+   "start": 938,
+   "title": "Modi scheme"
+  },
+  {
+   "start": 968,
+   "title": "Trap"
+  },
+  {
+   "start": 1034,
+   "title": "Gold 2 Stocks"
+  },
+  {
+   "start": 1221,
+   "title": "HDFC Stock"
+  },
+  {
+   "start": 1284,
+   "title": "BHEL"
+  },
+  {
+   "start": 1305,
+   "title": "LUPIN"
+  },
+  {
+   "start": 1334,
+   "title": "GE VERNOVA"
+  },
+  {
+   "start": 1368,
+   "title": "MAN INFRA"
+  },
+  {
+   "start": 1397,
+   "title": "LCC"
+  },
+  {
+   "start": 1410,
+   "title": "Capacite"
+  },
+  {
+   "start": 1431,
+   "title": "Razorpay IPO"
+  },
+  {
+   "start": 1464,
+   "title": "IEX"
+  },
+  {
+   "start": 1489,
+   "title": "MCX"
+  },
+  {
+   "start": 1516,
+   "title": "Jupiter Wagons"
+  },
+  {
+   "start": 1536,
+   "title": "Faze Three"
+  },
+  {
+   "start": 1569,
+   "title": "Alembic Pharmaceuticals"
+  },
+  {
+   "start": 1597,
+   "title": "Fractal Analytics"
+  },
+  {
+   "start": 1618,
+   "title": "Dalmia Bharat Sugar & Industries Ltd"
+  },
+  {
+   "start": 1648,
+   "title": "HEG Advanced Materials"
+  },
+  {
+   "start": 1668,
+   "title": "Parag Milk Foods"
+  },
+  {
+   "start": 1703,
+   "title": "GNG Electronics"
+  },
+  {
+   "start": 1711,
+   "title": "Subex"
+  },
+  {
+   "start": 1731,
+   "title": "Lenskart"
+  },
+  {
+   "start": 1741,
+   "title": "Rolex Rings"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 249,
+ "comments_top_level": 201,
+ "comments_replies": 48,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 256,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:46",
+ "approved": "2026-11-06T17:40+09:00"
+}

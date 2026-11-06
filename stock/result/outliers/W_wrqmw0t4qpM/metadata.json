@@ -1,0 +1,119 @@
+{
+ "id": "wrqmw0t4qpM",
+ "title": "The UNTHINKABLE is about to Happen to Stocks",
+ "channel": "Felix Nikolas Prehn",
+ "channel_id": "UCJtfma0mE_XrBAD9uakcjfA",
+ "subs": 818000,
+ "views": 329359,
+ "ratio": 0.4,
+ "age_days": 2,
+ "views_per_day": 117115.6,
+ "minutes": 23.8,
+ "likes": 5032,
+ "comments": 47,
+ "published": "2026-11-03",
+ "queries": "검색:stocks",
+ "url": "https://www.youtube.com/watch?v=wrqmw0t4qpM",
+ "flag": "외국 영상",
+ "published_at": "2026-11-03T13:00:25Z",
+ "rank": "W76",
+ "set": "web",
+ "folder": "W_wrqmw0t4qpM",
+ "sources": [
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "Felix Nikolas Prehn",
+  "Nikolas Prehn",
+  "Felix Prehn",
+  "tech crash",
+  "AI stocks",
+  "AI bubble",
+  "Nasdaq correction",
+  "Nasdaq 100",
+  "S&P 500",
+  "stock market crash 2026",
+  "midterm elections stock market",
+  "divided government stocks",
+  "2026 midterms",
+  "1974 stock market",
+  "debt ceiling",
+  "Fear and Greed Index",
+  "CoreWeave",
+  "Nvidia",
+  "interest rates",
+  "danger zone",
+  "how to protect your portfolio",
+  "The Great Pivot",
+  "Winston app"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "AI stocks lose three and a half trillion"
+  },
+  {
+   "start": 154,
+   "title": "Index funds hide the real damage"
+  },
+  {
+   "start": 216,
+   "title": "NASDAQ correction and extreme fear"
+  },
+  {
+   "start": 278,
+   "title": "Who gets hurt the most"
+  },
+  {
+   "start": 370,
+   "title": "The selloff is not over"
+  },
+  {
+   "start": 494,
+   "title": "Why AI cracked after two years"
+  },
+  {
+   "start": 646,
+   "title": "Election day and the midterm setup"
+  },
+  {
+   "start": 771,
+   "title": "Stocks after every midterm since the 1950s"
+  },
+  {
+   "start": 834,
+   "title": "Why blocked Washington suits Wall Street"
+  },
+  {
+   "start": 986,
+   "title": "The 1974 warning that looks like now"
+  },
+  {
+   "start": 1078,
+   "title": "The 2011 debt ceiling shock"
+  },
+  {
+   "start": 1140,
+   "title": "Weakest combination on record since 1932"
+  },
+  {
+   "start": 1324,
+   "title": "Money rotation and the great pivot"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 47,
+ "comments_top_level": 42,
+ "comments_replies": 5,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 47,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:50",
+ "approved": "2026-11-06T17:35+09:00"
+}

@@ -1,0 +1,99 @@
+{
+ "id": "ZYB2Muvxoj8",
+ "title": "I Ranked Canada's Oil & Gas Stocks (They're Printing Cash 🤑)",
+ "channel": "Stocktrades - Canadian Investment Research",
+ "channel_id": "UCeuVmvcYyzSp_e3yBU_JJKQ",
+ "subs": 24800,
+ "views": 25397,
+ "ratio": 1.02,
+ "age_days": 9,
+ "views_per_day": 2694.5,
+ "minutes": 44.4,
+ "likes": 531,
+ "comments": 117,
+ "published": "2026-10-27",
+ "queries": "검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=ZYB2Muvxoj8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-27T20:59:33Z",
+ "rank": "W117",
+ "set": "web",
+ "folder": "W_ZYB2Muvxoj8",
+ "sources": [
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": [
+  "Canadian oil stocks",
+  "best Canadian oil stocks",
+  "Canadian energy stocks",
+  "oil stocks to buy",
+  "Canadian Natural Resources",
+  "CNQ stock",
+  "Suncor stock",
+  "Suncor Energy",
+  "Imperial Oil stock",
+  "Cenovus stock",
+  "Whitecap Resources",
+  "Strathcona Resources",
+  "oil sands stocks",
+  "TSX energy stocks",
+  "Canadian dividend stocks",
+  "energy dividend stocks",
+  "best energy stocks 2026",
+  "oil stocks 2026",
+  "Canadian stock tier list",
+  "Canadian stocks",
+  "dividend investing Canada",
+  "Stocktrades",
+  "oil stocks to buy 2026"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 182,
+   "title": "Suncor"
+  },
+  {
+   "start": 554,
+   "title": "Cenovus"
+  },
+  {
+   "start": 968,
+   "title": "Strathcona"
+  },
+  {
+   "start": 1271,
+   "title": "Whitecap"
+  },
+  {
+   "start": 1645,
+   "title": "Imperial Oil"
+  },
+  {
+   "start": 2071,
+   "title": "Canadian Natural"
+  },
+  {
+   "start": 2532,
+   "title": "Final Rankings"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-CA",
+ "foreign": true,
+ "comments_fetched": 117,
+ "comments_top_level": 58,
+ "comments_replies": 59,
+ "comments_by_creator": 32,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 117,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:33",
+ "approved": "2026-11-06T17:14+09:00"
+}

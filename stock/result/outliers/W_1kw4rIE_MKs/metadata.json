@@ -1,0 +1,144 @@
+{
+ "id": "1kw4rIE_MKs",
+ "title": "코스피 1만 허황된 꿈일까? 일본은 10년에 5배, 한국 주식은 3년이면 된다는 이유",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 17371,
+ "ratio": 2.02,
+ "age_days": 13,
+ "views_per_day": 1308.1,
+ "minutes": 10.5,
+ "likes": 125,
+ "comments": 26,
+ "published": "2026-10-24",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=1kw4rIE_MKs",
+ "flag": "",
+ "published_at": "2026-10-24T00:30:01Z",
+ "rank": "W92",
+ "set": "web",
+ "folder": "W_1kw4rIE_MKs",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "코스피 1만",
+  "코스피 전망",
+  "한국 주식",
+  "주식",
+  "주식 투자",
+  "국내 증시",
+  "일본 증시",
+  "배당소득 분리과세",
+  "자사주 소각",
+  "주가 누르기 방지법",
+  "국민연금",
+  "퇴직연금",
+  "수출",
+  "실적",
+  "현대차",
+  "박시동",
+  "이광수",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"3년으로 압축하면 됩니다\""
+  },
+  {
+   "start": 15,
+   "title": "[경제야놀자 해설] 코스피 1만"
+  },
+  {
+   "start": 31,
+   "title": "책 나온 뒤 자꾸 떨어진다? 고점 논란"
+  },
+  {
+   "start": 60,
+   "title": "박시동 — 코스피 1만, 충분히 갈 수 있다"
+  },
+  {
+   "start": 109,
+   "title": "[경제야놀자 해설] 전망치"
+  },
+  {
+   "start": 122,
+   "title": "\"너만 1만 간다고 떠드는 거 아니야?\""
+  },
+  {
+   "start": 132,
+   "title": "증권사 처음 전망 평균 4900"
+  },
+  {
+   "start": 148,
+   "title": "수정 전망 — \"저만 떠드는 게 아니다\""
+  },
+  {
+   "start": 173,
+   "title": "때려 죽여도 맞는 지표 = 수출과 실적"
+  },
+  {
+   "start": 220,
+   "title": "[경제야놀자 해설] 실적과 주가"
+  },
+  {
+   "start": 237,
+   "title": "호재 — 배당소득 분리과세"
+  },
+  {
+   "start": 248,
+   "title": "은행 역대급 실적 · 배당을 늘릴 수밖에"
+  },
+  {
+   "start": 296,
+   "title": "자사주 소각 · 주가 누르기 방지법 · 현대차 로봇"
+  },
+  {
+   "start": 340,
+   "title": "이광수 — 한국 기업이 돈을 쓰기 시작했다"
+  },
+  {
+   "start": 398,
+   "title": "저평가 해소가 아니라 프리미엄"
+  },
+  {
+   "start": 423,
+   "title": "[경제야놀자 해설] 돈을 쓰는 기업"
+  },
+  {
+   "start": 439,
+   "title": "수급 — 국민연금 · 퇴직연금 · 돌아오는 개미"
+  },
+  {
+   "start": 496,
+   "title": "일본 10년에 네다섯 배 · 한국은 3년 압축"
+  },
+  {
+   "start": 534,
+   "title": "1만 가는 길, 가장 큰 걸림돌은?"
+  },
+  {
+   "start": 579,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 26,
+ "comments_top_level": 25,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 26,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:13:35",
+ "approved": "2026-11-06T17:13+09:00"
+}

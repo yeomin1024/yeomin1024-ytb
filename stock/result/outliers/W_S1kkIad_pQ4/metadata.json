@@ -1,0 +1,67 @@
+{
+ "id": "S1kkIad_pQ4",
+ "title": "Here’s What Happens When You Own $100,000 of SCHD",
+ "channel": "Tom - Lazy Dividend Investor",
+ "channel_id": "UCUhTFmf6v8Kk2-ofFD2udkg",
+ "subs": 2730,
+ "views": 21785,
+ "ratio": 7.98,
+ "age_days": 8,
+ "views_per_day": 2624.7,
+ "minutes": 33.8,
+ "likes": 232,
+ "comments": 54,
+ "published": "2026-10-29",
+ "queries": "검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=S1kkIad_pQ4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-29T00:00:01Z",
+ "rank": "W31",
+ "set": "web",
+ "folder": "W_S1kkIad_pQ4",
+ "sources": [
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "$100,000 of SCHD on day one"
+  },
+  {
+   "start": 325,
+   "title": "Why SCHD pays 3% and not 10%"
+  },
+  {
+   "start": 661,
+   "title": "Reinvesting from 55 to 65 and 75"
+  },
+  {
+   "start": 989,
+   "title": "Collecting the checks, and the bill they can own"
+  },
+  {
+   "start": 1322,
+   "title": "Crashes, lag years and a 2009-style cut"
+  },
+  {
+   "start": 1667,
+   "title": "Taxes, the scorecard and the decision rule"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 54,
+ "comments_top_level": 14,
+ "comments_replies": 40,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 54,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:20",
+ "approved": "2026-11-06T17:11+09:00"
+}

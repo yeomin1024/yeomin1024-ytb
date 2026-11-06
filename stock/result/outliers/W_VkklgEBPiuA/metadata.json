@@ -1,0 +1,179 @@
+{
+ "id": "VkklgEBPiuA",
+ "title": "Teaching My Friend How To Day Trade... [FREE Course For Beginners]",
+ "channel": "Brad Goh (The Trading Geek)",
+ "channel_id": "UC2I5dxN4qhaV1dw55u31JWw",
+ "subs": 1870000,
+ "views": 208964,
+ "ratio": 0.11,
+ "age_days": 6,
+ "views_per_day": 32461.6,
+ "minutes": 165.9,
+ "likes": 3247,
+ "comments": 135,
+ "published": "2026-10-30",
+ "queries": "검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=VkklgEBPiuA",
+ "flag": "외국 영상",
+ "published_at": "2026-10-30T22:00:24Z",
+ "rank": "W147",
+ "set": "web",
+ "folder": "W_VkklgEBPiuA",
+ "sources": [
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "day trading",
+  "day trading for beginners",
+  "how to day trade",
+  "beginner trading course",
+  "day trading full course",
+  "learn day trading",
+  "trading for beginners",
+  "stock trading for beginners",
+  "how to trade stocks",
+  "technical analysis",
+  "price action trading",
+  "candlestick patterns",
+  "support and resistance",
+  "risk management",
+  "trading psychology",
+  "trading plan",
+  "live trading",
+  "beginners guide",
+  "day trading strategy",
+  "scalping basics",
+  "market structure",
+  "entry and exit",
+  "teach my friend to trade"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "CHAPTER 1: Introduction to Day Trading"
+  },
+  {
+   "start": 110,
+   "title": "Teaching a Complete Beginner How to Trade"
+  },
+  {
+   "start": 170,
+   "title": "How the Financial Markets Actually Work"
+  },
+  {
+   "start": 386,
+   "title": "Understanding Candlestick Charts"
+  },
+  {
+   "start": 539,
+   "title": "How Traders Make Money"
+  },
+  {
+   "start": 758,
+   "title": "Different Markets You Can Trade"
+  },
+  {
+   "start": 919,
+   "title": "Which Market Is Best for Beginners?"
+  },
+  {
+   "start": 1164,
+   "title": "CHAPTER 2: Understanding Market Mechanics"
+  },
+  {
+   "start": 1204,
+   "title": "Understanding Market Structure"
+  },
+  {
+   "start": 1489,
+   "title": "Break of Structure & Market Shifts"
+  },
+  {
+   "start": 2093,
+   "title": "Understanding Supply & Demand Zones"
+  },
+  {
+   "start": 2580,
+   "title": "Liquidity & Market Manipulation"
+  },
+  {
+   "start": 3300,
+   "title": "Putting Everything Together"
+  },
+  {
+   "start": 3480,
+   "title": "CHAPTER 3: How to Analyze the Markets"
+  },
+  {
+   "start": 3900,
+   "title": "My Step-by-Step Trading Analysis Process"
+  },
+  {
+   "start": 4440,
+   "title": "Identifying High-Probability Trading Zones"
+  },
+  {
+   "start": 4980,
+   "title": "Finding the Perfect Trade Entry"
+  },
+  {
+   "start": 5400,
+   "title": "Entry Confirmations & Liquidity Sweeps"
+  },
+  {
+   "start": 5700,
+   "title": "Setting Stop Loss & Take Profit"
+  },
+  {
+   "start": 6120,
+   "title": "CHAPTER 4: How to Start Trading"
+  },
+  {
+   "start": 6300,
+   "title": "How to Get Funded as a Trader"
+  },
+  {
+   "start": 6600,
+   "title": "Analyzing Bitcoin for a Live Trade"
+  },
+  {
+   "start": 7440,
+   "title": "Placing the Trade"
+  },
+  {
+   "start": 7740,
+   "title": "Risk Management Explained"
+  },
+  {
+   "start": 8100,
+   "title": "CHAPTER 5: Mastering Trading Psychology"
+  },
+  {
+   "start": 8340,
+   "title": "Mastering Trading Psychology"
+  },
+  {
+   "start": 8880,
+   "title": "How Beginners Should Start Trading"
+  },
+  {
+   "start": 9300,
+   "title": "Final Results & Surprise"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 135,
+ "comments_top_level": 100,
+ "comments_replies": 35,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 135,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:53",
+ "approved": "2026-11-06T17:39+09:00"
+}

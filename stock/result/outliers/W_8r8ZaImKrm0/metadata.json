@@ -1,0 +1,83 @@
+{
+ "id": "8r8ZaImKrm0",
+ "title": "1억이 10억 되는 복리, '딸깍' 이것만 알면 됩니다 [고독한나무]",
+ "channel": "고독한나무",
+ "channel_id": "UC08HeAMWzEGxkPK0fjO44Cw",
+ "subs": 13800,
+ "views": 67831,
+ "ratio": 4.92,
+ "age_days": 11,
+ "views_per_day": 5668.5,
+ "minutes": 17.4,
+ "likes": 640,
+ "comments": 105,
+ "published": "2026-10-25",
+ "queries": "검색:장기투자",
+ "url": "https://www.youtube.com/watch?v=8r8ZaImKrm0",
+ "flag": "",
+ "published_at": "2026-10-25T08:00:29Z",
+ "rank": "W45",
+ "set": "web",
+ "folder": "W_8r8ZaImKrm0",
+ "sources": [
+  "검색:장기투자"
+ ],
+ "source": "web",
+ "tags": [
+  "고독한나무",
+  "코스피",
+  "40대",
+  "복리",
+  "주식",
+  "주식투자",
+  "우상향",
+  "삼성전자",
+  "하이닉스",
+  "나스닥",
+  "지수",
+  "etf",
+  "찰리멍거",
+  "버핏",
+  "투자",
+  "마인드셋",
+  "투자마인드",
+  "성공",
+  "부자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "최고점에 사도 3배, 그런데 왜 1억에서 멈출까"
+  },
+  {
+   "start": 188,
+   "title": "가격을 두 배로 올렸더니 다 팔렸다"
+  },
+  {
+   "start": 441,
+   "title": "밀림 속 인민사원, 9천피에 사고 바닥에 파는 이유"
+  },
+  {
+   "start": 671,
+   "title": "워뇨띠와 버핏·멍거의 단 하나의 공통점"
+  },
+  {
+   "start": 827,
+   "title": "장기 투자를 지키는 현금 주머니 3개"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 105,
+ "comments_top_level": 60,
+ "comments_replies": 45,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 105,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:50",
+ "approved": "2026-11-06T17:11+09:00"
+}

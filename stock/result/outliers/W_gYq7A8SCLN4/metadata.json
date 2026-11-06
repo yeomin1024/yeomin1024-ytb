@@ -1,0 +1,73 @@
+{
+ "id": "gYq7A8SCLN4",
+ "title": "米国株・日本株、今から1週間が超大事です。",
+ "channel": "ガーコちゃんねる",
+ "channel_id": "UC4cVwSx4jdZszAcvrgJ4H-g",
+ "subs": 538000,
+ "views": 410754,
+ "ratio": 0.76,
+ "age_days": 12,
+ "views_per_day": 31986.3,
+ "minutes": 36.9,
+ "likes": 3540,
+ "comments": 98,
+ "published": "2026-10-24",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=gYq7A8SCLN4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-24T11:00:01Z",
+ "rank": "W52",
+ "set": "web",
+ "folder": "W_gYq7A8SCLN4",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "新NISA"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 87,
+   "title": "1.新NISA人気投信の動き！今週急落も長期は強い"
+  },
+  {
+   "start": 518,
+   "title": "2.今週の米国株！メタ株絶好調もメタが震源で急落"
+  },
+  {
+   "start": 1225,
+   "title": "3.今週の日本株！半導体急落も上がったセクターが"
+  },
+  {
+   "start": 1560,
+   "title": "4.今週の全世界株を振り返る！上がった企業は？"
+  },
+  {
+   "start": 1637,
+   "title": "5.今週の箸休め：証券口座で不正売買発生中！"
+  },
+  {
+   "start": 1751,
+   "title": "6.まとめと小話：これから強い半年が来る！"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 98,
+ "comments_top_level": 84,
+ "comments_replies": 14,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 98,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:34:01",
+ "approved": "2026-11-06T17:34+09:00"
+}

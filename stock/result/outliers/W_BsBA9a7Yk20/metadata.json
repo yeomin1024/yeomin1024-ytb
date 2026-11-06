@@ -1,0 +1,84 @@
+{
+ "id": "BsBA9a7Yk20",
+ "title": "Why Stocks Are Surging After A Historic Democratic Sweep",
+ "channel": "Prof G Markets",
+ "channel_id": "UCp4CBeq4nzeg9smAvdjPrig",
+ "subs": 138000,
+ "views": 194068,
+ "ratio": 1.41,
+ "age_days": 0,
+ "views_per_day": 194068.0,
+ "minutes": 39.5,
+ "likes": 3093,
+ "comments": 705,
+ "published": "2026-11-05",
+ "queries": "검색:stocks",
+ "url": "https://www.youtube.com/watch?v=BsBA9a7Yk20",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T12:00:25Z",
+ "rank": "W29",
+ "set": "web",
+ "folder": "W_BsBA9a7Yk20",
+ "sources": [
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "business news",
+  "stock market",
+  "financial news",
+  "financial news channel",
+  "financial news today",
+  "stock market news today",
+  "stock market today",
+  "stock market news"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 30,
+   "title": "Market Vitals"
+  },
+  {
+   "start": 60,
+   "title": "Midterms Debrief (ft. Catherine Rampell)"
+  },
+  {
+   "start": 1322,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1369,
+   "title": "Data Centers on the Ballot (ft. Alex Bores)"
+  },
+  {
+   "start": 2113,
+   "title": "Break"
+  },
+  {
+   "start": 2139,
+   "title": "Bluenami"
+  },
+  {
+   "start": 2355,
+   "title": "Credits"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 705,
+ "comments_top_level": 513,
+ "comments_replies": 192,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 705,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:32:46",
+ "approved": "2026-11-06T17:32+09:00"
+}

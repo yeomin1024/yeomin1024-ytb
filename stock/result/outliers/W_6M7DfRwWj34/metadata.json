@@ -1,0 +1,138 @@
+{
+ "id": "6M7DfRwWj34",
+ "title": "Nach den Midterms knallt es… aber anders, als Du denkst + spannende Substanzaktie // BRIEFING",
+ "channel": "Mario Lochner",
+ "channel_id": "UCWFnsgnkOAc0D7OweruB3hA",
+ "subs": 299000,
+ "views": 185379,
+ "ratio": 0.62,
+ "age_days": 6,
+ "views_per_day": 30741.9,
+ "minutes": 28.6,
+ "likes": 4419,
+ "comments": 511,
+ "published": "2026-10-31",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=6M7DfRwWj34",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T07:46:37Z",
+ "rank": "W66",
+ "set": "web",
+ "folder": "W_6M7DfRwWj34",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "aktien",
+  "etfs",
+  "geld",
+  "finanzielle bildung",
+  "finanzielle freiheit",
+  "dividenden",
+  "sparen",
+  "investieren",
+  "finanzen",
+  "mario lochner",
+  "dividenden aktien",
+  "börse",
+  "aktien sparplan",
+  "aktien tipps",
+  "inflation",
+  "markus koch",
+  "finanzfluss",
+  "finanztip",
+  "vermögensaufbau",
+  "reich werden",
+  "reichtum",
+  "beste etfs",
+  "online geld verdienen",
+  "aktien 2026",
+  "beste aktien 2026",
+  "etfs 2026",
+  "intel aktie",
+  "amazon aktie",
+  "alphabet aktie",
+  "sk hynix aktie",
+  "ki aktien",
+  "börsencrash",
+  "ölpreis",
+  "notenbank",
+  "zinsen",
+  "microsoft aktie",
+  "wikifolio",
+  "beating beta"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Big-Tech-Beben: Was die Börse jetzt bewegt"
+  },
+  {
+   "start": 43,
+   "title": "Audi und Trump: Die Debatte um den Standort Deutschland"
+  },
+  {
+   "start": 108,
+   "title": "Daily Briefing GRATIS testen"
+  },
+  {
+   "start": 168,
+   "title": "Gewinner und Verlierer: Amazon, Alphabet, Microsoft und Intel"
+  },
+  {
+   "start": 306,
+   "title": "Die Bären: KI-Risiken, Fed und Inflation"
+  },
+  {
+   "start": 522,
+   "title": "Die Bullen: KI-Boom, US-Wirtschaft und Anlegerstimmung"
+  },
+  {
+   "start": 722,
+   "title": "Deutsche Nebenwerte mit Lars Winter (Werbung)"
+  },
+  {
+   "start": 928,
+   "title": "Anthropic-Börsengang: Wachstum, Bewertung und Risiken"
+  },
+  {
+   "start": 1116,
+   "title": "Jahresendrally 2026: Bald kippt es"
+  },
+  {
+   "start": 1286,
+   "title": "Midterms 2026: Was die US-Wahlen für Aktien bedeuten"
+  },
+  {
+   "start": 1343,
+   "title": "Iran, Ölpreis und Inflation: Die offenen Risiken"
+  },
+  {
+   "start": 1515,
+   "title": "SK Hynix: Starke Zahlen und die Chancen bei Speicherchips"
+  },
+  {
+   "start": 1554,
+   "title": "GTT-Aktie: LNG-Technologie, hohe Margen und neue Aufträge"
+  },
+  {
+   "start": 1651,
+   "title": "Welche Aktien würde ich niemals kaufen?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 511,
+ "comments_top_level": 206,
+ "comments_replies": 305,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 511,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:13",
+ "approved": "2026-11-06T17:35+09:00"
+}

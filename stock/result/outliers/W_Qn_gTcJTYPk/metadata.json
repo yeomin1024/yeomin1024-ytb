@@ -1,0 +1,75 @@
+{
+ "id": "Qn_gTcJTYPk",
+ "title": "나스닥 78% 대폭락... 2000 닷컴버블 | 미래를 맞혔는데, 돈을 왜 잃었을까?",
+ "channel": "경제박사",
+ "channel_id": "UC16afF19sIGTcCi9Nfuokgw",
+ "subs": 8700,
+ "views": 41064,
+ "ratio": 4.72,
+ "age_days": 9,
+ "views_per_day": 4115.8,
+ "minutes": 64.0,
+ "likes": 834,
+ "comments": 110,
+ "published": "2026-10-27",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=Qn_gTcJTYPk",
+ "flag": "",
+ "published_at": "2026-10-27T07:44:36Z",
+ "rank": "W48",
+ "set": "web",
+ "folder": "W_Qn_gTcJTYPk",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인터넷은 성공했는데 투자자는 왜 망한거야?"
+  },
+  {
+   "start": 386,
+   "title": "넷스케이프와 인터넷의 탄생"
+  },
+  {
+   "start": 810,
+   "title": "공짜돈과 가짜 방문자 수, 거품의 공식"
+  },
+  {
+   "start": 1313,
+   "title": "AOL, 타임워너와 팜, 정점의 비합리"
+  },
+  {
+   "start": 1634,
+   "title": "시장은 기다려 주지 않지. 닷컴 붕괴"
+  },
+  {
+   "start": 2155,
+   "title": "우리나라의 벤처 열풍과 광섬유의 폐허"
+  },
+  {
+   "start": 2659,
+   "title": "아마존과 구글, 그리고 살아남은 기업들"
+  },
+  {
+   "start": 3159,
+   "title": "거품이 남긴 일상과, 우리의 미래"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 110,
+ "comments_top_level": 89,
+ "comments_replies": 21,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 110,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:56",
+ "approved": "2026-11-06T17:11+09:00"
+}

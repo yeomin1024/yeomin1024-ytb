@@ -1,0 +1,89 @@
+{
+ "id": "YLtWpFNUBTY",
+ "title": "주식투자 5년을 헤매던 내가 '이것'을 끊고 달라진 이야기",
+ "channel": "리채피 richappy",
+ "channel_id": "UCopbo8p9-a5XyT6k7o1zSwQ",
+ "subs": 9060,
+ "views": 12070,
+ "ratio": 1.33,
+ "age_days": 7,
+ "views_per_day": 1653.5,
+ "minutes": 23.4,
+ "likes": 134,
+ "comments": 6,
+ "published": "2026-10-30",
+ "queries": "검색:가치투자",
+ "url": "https://www.youtube.com/watch?v=YLtWpFNUBTY",
+ "flag": "외국 영상",
+ "published_at": "2026-10-30T00:00:28Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_YLtWpFNUBTY",
+ "sources": [
+  "검색:가치투자"
+ ],
+ "source": "web",
+ "tags": [
+  "구글",
+  "금리인상",
+  "능력범위",
+  "레버리지",
+  "리채피",
+  "빚투",
+  "워런버핏",
+  "이차전지",
+  "주식투자",
+  "주식투자초보",
+  "찰리멍거",
+  "투자원칙",
+  "행복한부자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 55,
+   "title": "결론부터, 먼저 정하는 사지 않을 것"
+  },
+  {
+   "start": 81,
+   "title": "사지 않는 다섯 가지와 제 원칙 두 가지"
+  },
+  {
+   "start": 703,
+   "title": "능력범위: 경계를 아는 힘"
+  },
+  {
+   "start": 900,
+   "title": "시간을 버틸 수 있는 돈인가"
+  },
+  {
+   "start": 923,
+   "title": "이렇게 다 거르면 기회를 놓치지 않을까요"
+  },
+  {
+   "start": 1018,
+   "title": "지루한 장에서 한 공부"
+  },
+  {
+   "start": 1346,
+   "title": "오늘 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 6,
+ "comments_top_level": 4,
+ "comments_replies": 2,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:19",
+ "approved": "2026-11-06T17:14+09:00"
+}

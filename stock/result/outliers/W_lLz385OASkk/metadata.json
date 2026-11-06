@@ -1,0 +1,84 @@
+{
+ "id": "lLz385OASkk",
+ "title": "【5年で想像を超える】なぜ、世界中の投資家が〇〇を大量に購入しているのか…？｜原油市場で起こっている1970年代以来の異常事態について元ゴールドマンサックスが徹底解説",
+ "channel": "おーちゃん【元外銀マン】",
+ "channel_id": "UC4Ub-Y_yj43aouqFbA7PwhQ",
+ "subs": 316000,
+ "views": 579173,
+ "ratio": 1.83,
+ "age_days": 3,
+ "views_per_day": 149156.8,
+ "minutes": 34.1,
+ "likes": 2837,
+ "comments": 66,
+ "published": "2026-11-02",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=lLz385OASkk",
+ "flag": "외국 영상",
+ "published_at": "2026-11-02T10:00:33Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_lLz385OASkk",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "投資",
+  "資産運用",
+  "新NISA",
+  "投資信託",
+  "S&P500",
+  "オールカントリー",
+  "オルカン",
+  "配当金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "イントロ"
+  },
+  {
+   "start": 210,
+   "title": "プロフィール"
+  },
+  {
+   "start": 318,
+   "title": "戦争報道だけでは見えない真実"
+  },
+  {
+   "start": 559,
+   "title": "石油王国が40年間、米国からお金の指示を受けてきた理由"
+  },
+  {
+   "start": 999,
+   "title": "個人が逃げ出した市場で中央銀行が買っていたもの"
+  },
+  {
+   "start": 1395,
+   "title": "3本の線でリヤドから日本の口座までつながっている"
+  },
+  {
+   "start": 1631,
+   "title": "自分だけが利益を得られないと思っていませんか？"
+  },
+  {
+   "start": 1930,
+   "title": "おーちゃんの雑談（めっちゃおもろい）"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 66,
+ "comments_top_level": 51,
+ "comments_replies": 15,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 66,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:57",
+ "approved": "2026-11-06T17:31+09:00"
+}

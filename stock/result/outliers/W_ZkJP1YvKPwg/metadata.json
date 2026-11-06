@@ -1,0 +1,94 @@
+{
+ "id": "ZkJP1YvKPwg",
+ "title": "AI Stocks Are Crashing — I’m Buying These 3",
+ "channel": "Dividend Talks",
+ "channel_id": "UClLyc3C2K3C-RAh7eEJAwyg",
+ "subs": 128000,
+ "views": 42287,
+ "ratio": 0.33,
+ "age_days": 0,
+ "views_per_day": 42287.0,
+ "minutes": 31.4,
+ "likes": 467,
+ "comments": 88,
+ "published": "2026-11-05",
+ "queries": "검색:dividend investing | 검색:dividend stocks | 검색:best dividend stocks",
+ "url": "https://www.youtube.com/watch?v=ZkJP1YvKPwg",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T15:21:47Z",
+ "rank": "W91",
+ "set": "web",
+ "folder": "W_ZkJP1YvKPwg",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend stocks",
+  "검색:best dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "#aistocks",
+  "#stockmarketcrash",
+  "#investing",
+  "#stockstobuy",
+  "#micronstock",
+  "#nvidiastock",
+  "#growthstocks",
+  "#undervaluedstocks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "AI stocks fall while the market rallies"
+  },
+  {
+   "start": 53,
+   "title": "Has growth caught up with the price?"
+  },
+  {
+   "start": 291,
+   "title": "Incredible growth, but at what price?"
+  },
+  {
+   "start": 502,
+   "title": "Why the AI trade is splitting"
+  },
+  {
+   "start": 649,
+   "title": "The catch behind 4.5× earnings"
+  },
+  {
+   "start": 860,
+   "title": "Has the price fallen enough?"
+  },
+  {
+   "start": 1038,
+   "title": "Bargain valuation or peak earnings?"
+  },
+  {
+   "start": 1239,
+   "title": "What the megadeal changes"
+  },
+  {
+   "start": 1395,
+   "title": "Growth, valuation and geopolitical risk"
+  },
+  {
+   "start": 1559,
+   "title": "How much growth is already priced in?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 91,
+ "comments_top_level": 56,
+ "comments_replies": 35,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 88,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:36:48",
+ "approved": "2026-11-06T17:36+09:00"
+}

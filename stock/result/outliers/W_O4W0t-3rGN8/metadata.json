@@ -1,0 +1,97 @@
+{
+ "id": "O4W0t-3rGN8",
+ "title": "SK하이닉스 주당 2만 원 특별배당 준다? 사실로 확인되는 순간 주가의 향방은... #12기에만나요 #특별배당 #하이닉스",
+ "channel": "잘되는경제",
+ "channel_id": "UClXDIlxYjmTHjsNpkSR5BAg",
+ "subs": 1080,
+ "views": 15656,
+ "ratio": 14.5,
+ "age_days": 10,
+ "views_per_day": 1427.7,
+ "minutes": 12.7,
+ "likes": 96,
+ "comments": 11,
+ "published": "2026-10-26",
+ "queries": "검색:배당 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=O4W0t-3rGN8",
+ "flag": "",
+ "published_at": "2026-10-26T08:00:39Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_O4W0t-3rGN8",
+ "sources": [
+  "검색:배당",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "경제",
+  "경제뉴스",
+  "주식시장",
+  "국내증시",
+  "미국증시",
+  "주식투자",
+  "경제분석",
+  "기업분석",
+  "재테크",
+  "투자정보",
+  "코스피",
+  "코스닥",
+  "금리",
+  "환율",
+  "잘되는경제",
+  "비즈니스",
+  "금융",
+  "글로벌경제",
+  "매크로경제",
+  "인플레이션",
+  "12시에만나요",
+  "서킷브레이커",
+  "사이드카"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "반도체 PER 2.8배, 핵심 미리 보기"
+  },
+  {
+   "start": 25,
+   "title": "삼전·하닉·빅테크 실적 슈퍼위크 일정"
+  },
+  {
+   "start": 143,
+   "title": "골드만삭스가 목표치를 낮춘 진짜 이유"
+  },
+  {
+   "start": 262,
+   "title": "원래 싼 걸까, 바겐세일일까"
+  },
+  {
+   "start": 429,
+   "title": "SK하이닉스 특별배당 2만 원 설"
+  },
+  {
+   "start": 583,
+   "title": "싸도 외국인이 망설이는 이유"
+  },
+  {
+   "start": 722,
+   "title": "오늘의 핵심 3줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 11,
+ "comments_top_level": 9,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 11,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:50",
+ "approved": "2026-11-06T17:10+09:00"
+}

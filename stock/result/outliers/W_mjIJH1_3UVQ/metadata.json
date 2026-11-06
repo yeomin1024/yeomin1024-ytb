@@ -1,0 +1,110 @@
+{
+ "id": "mjIJH1_3UVQ",
+ "title": "Jay Hatfield’s Warning to Dividend Investors | What He's Buying Now |",
+ "channel": "The Mispriced Podcast",
+ "channel_id": "UC0zpezKHOibNL9PIwp9qELw",
+ "subs": 3970,
+ "views": 19112,
+ "ratio": 4.81,
+ "age_days": 11,
+ "views_per_day": 1631.4,
+ "minutes": 24.2,
+ "likes": 321,
+ "comments": 35,
+ "published": "2026-10-25",
+ "queries": "검색:dividend stocks",
+ "url": "https://www.youtube.com/watch?v=mjIJH1_3UVQ",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T14:02:10Z",
+ "rank": "W47",
+ "set": "web",
+ "folder": "W_mjIJH1_3UVQ",
+ "sources": [
+  "검색:dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "jay hatfield",
+  "jay hatfield interview",
+  "jay hatfield market outlook",
+  "hatfield economics",
+  "dividend stocks",
+  "stock earnings",
+  "dividend growth 50",
+  "tech earnings rally",
+  "earnings value company",
+  "dividendology"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introducing Jay Hatfield"
+  },
+  {
+   "start": 14,
+   "title": "Record highs, but more stocks hitting lows"
+  },
+  {
+   "start": 133,
+   "title": "Where Jay sees opportunities"
+  },
+  {
+   "start": 147,
+   "title": "Rising Treasury yields and PFFA"
+  },
+  {
+   "start": 247,
+   "title": "Could the 10-year Treasury yield reach 5.5%?"
+  },
+  {
+   "start": 458,
+   "title": "How Jay is positioning ICAP"
+  },
+  {
+   "start": 582,
+   "title": "Inflation, the Fed, and the outlook for rates"
+  },
+  {
+   "start": 791,
+   "title": "Preferred shares and bond income"
+  },
+  {
+   "start": 835,
+   "title": "Why Jay sold STRC and is buying STRD"
+  },
+  {
+   "start": 1055,
+   "title": "ICAP’s increasing options coverage"
+  },
+  {
+   "start": 1085,
+   "title": "Tech valuations and covered-call strategy"
+  },
+  {
+   "start": 1258,
+   "title": "Marvell: Jay’s “idea of the decade”"
+  },
+  {
+   "start": 1323,
+   "title": "Building a barbell portfolio"
+  },
+  {
+   "start": 1385,
+   "title": "Credit risk versus interest rate risk"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 35,
+ "comments_top_level": 17,
+ "comments_replies": 18,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:54",
+ "approved": "2026-11-06T17:11+09:00"
+}

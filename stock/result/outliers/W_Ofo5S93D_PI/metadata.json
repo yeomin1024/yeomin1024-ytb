@@ -1,0 +1,117 @@
+{
+ "id": "Ofo5S93D_PI",
+ "title": "Stock Market Crash 2026: Gold, Silver, Bitcoin सब क्यों गिर रहे हैं? | Sanjay Kathuria",
+ "channel": "Sanjay Kathuria ",
+ "channel_id": "UCvqttS8EzhRq2YWg03qKRCQ",
+ "subs": 1430000,
+ "views": 374104,
+ "ratio": 0.26,
+ "age_days": 5,
+ "views_per_day": 66456.8,
+ "minutes": 16.8,
+ "likes": 2206,
+ "comments": 197,
+ "published": "2026-10-31",
+ "queries": "검색:how to invest in stocks | 검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=Ofo5S93D_PI",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T16:05:52Z",
+ "rank": "W100",
+ "set": "web",
+ "folder": "W_Ofo5S93D_PI",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "Sanjay Kathuria",
+  "Sanjay Kathuria Podcast",
+  "stock market crash",
+  "global market crash",
+  "market crash today",
+  "Nifty 50 crash",
+  "Nifty analysis",
+  "Sensex crash",
+  "gold price crash",
+  "gold price falling",
+  "silver price crash",
+  "bitcoin crash",
+  "crypto market crash",
+  "AI bubble",
+  "AI stock crash",
+  "Alphabet stock",
+  "Amazon Q3 earnings",
+  "AI capex",
+  "Nasdaq crash",
+  "semiconductor stocks",
+  "Intel stock",
+  "Qualcomm stock",
+  "market liquidity crisis",
+  "diversification",
+  "where to invest now",
+  "Finance by Sanjay"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market crash overview"
+  },
+  {
+   "start": 59,
+   "title": "Multi-asset performance check"
+  },
+  {
+   "start": 120,
+   "title": "Alphabet (Google) Q3 results breakdown"
+  },
+  {
+   "start": 341,
+   "title": "Hedging volatility & trading setup"
+  },
+  {
+   "start": 470,
+   "title": "Amazon cash burn & AI capex"
+  },
+  {
+   "start": 528,
+   "title": "Nasdaq chip stocks sell-off"
+  },
+  {
+   "start": 593,
+   "title": "US midterms & political risks"
+  },
+  {
+   "start": 728,
+   "title": "AI bailouts & regulatory pressure"
+  },
+  {
+   "start": 847,
+   "title": "Why gold and silver are falling"
+  },
+  {
+   "start": 885,
+   "title": "Action plan for investors"
+  },
+  {
+   "start": 960,
+   "title": "Conclusion & key takeaways"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "hi",
+ "foreign": true,
+ "comments_fetched": 197,
+ "comments_top_level": 139,
+ "comments_replies": 58,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 197,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:37:20",
+ "approved": "2026-11-06T17:37+09:00"
+}

@@ -1,0 +1,91 @@
+{
+ "id": "yryKn-TKFx4",
+ "title": "Don't Buy Stocks Until You Learn This Investor Secret",
+ "channel": "MY TV MYANMAR",
+ "channel_id": "UCJHtP67CbtRkqrbj4NCRQiA",
+ "subs": 605000,
+ "views": 109049,
+ "ratio": 0.18,
+ "age_days": 1,
+ "views_per_day": 85811.1,
+ "minutes": 34.2,
+ "likes": 6049,
+ "comments": 521,
+ "published": "2026-11-05",
+ "queries": "검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=yryKn-TKFx4",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T02:00:06Z",
+ "rank": "W126",
+ "set": "web",
+ "folder": "W_yryKn-TKFx4",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "Don't Buy Stocks Until You Learn This Investor Secret",
+  "personal finance",
+  "how to make money",
+  "real estate",
+  "stock market",
+  "wealth building",
+  "stock market explained",
+  "stock market investing",
+  "compound interest",
+  "how to invest in stocks",
+  "stock trading",
+  "investing",
+  "how to invest",
+  "passive income",
+  "learn to invest",
+  "buy",
+  "buy it",
+  "investor",
+  "investor channel",
+  "learn",
+  "learn business",
+  "my tv myanmar"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 10,
+   "title": "Myanmar News"
+  },
+  {
+   "start": 60,
+   "title": "Myanmar News"
+  },
+  {
+   "start": 150,
+   "title": "News"
+  },
+  {
+   "start": 180,
+   "title": "News"
+  },
+  {
+   "start": 240,
+   "title": "Myanmar News"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "my",
+ "foreign": true,
+ "comments_fetched": 521,
+ "comments_top_level": 481,
+ "comments_replies": 40,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 521,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:38:41",
+ "approved": "2026-11-06T17:38+09:00"
+}

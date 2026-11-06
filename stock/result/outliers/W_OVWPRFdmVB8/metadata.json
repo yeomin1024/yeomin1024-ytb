@@ -1,0 +1,130 @@
+{
+ "id": "OVWPRFdmVB8",
+ "title": "How a Salaried Employee Built ₹10L Monthly Passive Income & Retired Early | The Crore Club Ep. 23",
+ "channel": "1% Club",
+ "channel_id": "UCBI57iTXtmJoaI6Ht7MgcfA",
+ "subs": 166000,
+ "views": 1008329,
+ "ratio": 6.07,
+ "age_days": 13,
+ "views_per_day": 77071.0,
+ "minutes": 17.8,
+ "likes": 4876,
+ "comments": 235,
+ "published": "2026-10-24",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=OVWPRFdmVB8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-24T06:30:23Z",
+ "rank": "W9",
+ "set": "web",
+ "folder": "W_OVWPRFdmVB8",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "1% club",
+  "ai cfo",
+  "shreya hegde",
+  "sharan hegde",
+  "the crore club",
+  "passive income",
+  "bangalore house tour",
+  "house tour",
+  "how to become rich",
+  "money hacks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction and Home Tour"
+  },
+  {
+   "start": 46,
+   "title": "Why He Bought a Home on Bangalore’s Outskirts"
+  },
+  {
+   "start": 93,
+   "title": "Funding a House Through Stock Market Profits"
+  },
+  {
+   "start": 163,
+   "title": "The 2014 Layoff That Changed Everything"
+  },
+  {
+   "start": 217,
+   "title": "Clearing All Debt and Saving the Entire Salary"
+  },
+  {
+   "start": 240,
+   "title": "Calculating the FIRE Number for a Family of Four"
+  },
+  {
+   "start": 277,
+   "title": "Life After FIRE: Options Trading and Coding"
+  },
+  {
+   "start": 396,
+   "title": "How Much Passive Income He Earns"
+  },
+  {
+   "start": 433,
+   "title": "Dividends, Covered Calls and Cash-Secured Puts"
+  },
+  {
+   "start": 490,
+   "title": "Six Years of Trading Every Single Day"
+  },
+  {
+   "start": 550,
+   "title": "A Blueprint for Investing ₹10,000 a Month"
+  },
+  {
+   "start": 598,
+   "title": "Why Beginners Must Learn Derivatives First"
+  },
+  {
+   "start": 640,
+   "title": "Tracking Your Finances With an AI CFO"
+  },
+  {
+   "start": 679,
+   "title": "What If the Market Crashes 50%?"
+  },
+  {
+   "start": 715,
+   "title": "Small Luxuries and More Time With Family"
+  },
+  {
+   "start": 762,
+   "title": "Hardest Lessons From Corporate Life"
+  },
+  {
+   "start": 824,
+   "title": "Risk Management and Protecting Capital"
+  },
+  {
+   "start": 854,
+   "title": "Family Lessons After Quitting the Job"
+  },
+  {
+   "start": 890,
+   "title": "Will AI Take Your Job?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 235,
+ "comments_top_level": 143,
+ "comments_replies": 92,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 235,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:32",
+ "approved": "2026-11-06T17:31+09:00"
+}

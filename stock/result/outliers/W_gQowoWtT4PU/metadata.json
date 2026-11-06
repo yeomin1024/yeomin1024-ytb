@@ -1,0 +1,97 @@
+{
+ "id": "gQowoWtT4PU",
+ "title": "미국 주식 한다면 꼭 알아야 할 2026 중간선거 | 미국 선거제도 10분 총정리",
+ "channel": "미장캐스터",
+ "channel_id": "UC1Ci-XUkClzcJ4FoeaUYLCA",
+ "subs": 578,
+ "views": 125832,
+ "ratio": 217.7,
+ "age_days": 4,
+ "views_per_day": 25550.2,
+ "minutes": 10.1,
+ "likes": 772,
+ "comments": 68,
+ "published": "2026-11-01",
+ "queries": "검색:미국주식 | 검색:주식",
+ "url": "https://www.youtube.com/watch?v=gQowoWtT4PU",
+ "flag": "",
+ "published_at": "2026-11-01T09:00:05Z",
+ "rank": "W123",
+ "set": "web",
+ "folder": "W_gQowoWtT4PU",
+ "sources": [
+  "검색:미국주식",
+  "검색:주식"
+ ],
+ "source": "web",
+ "tags": [
+  "미국 중간선거",
+  "중간선거",
+  "미국 선거제도",
+  "미국 선거",
+  "선거인단",
+  "미국 하원",
+  "미국 상원",
+  "게리맨더링",
+  "승자독식",
+  "경합주",
+  "미국 주식",
+  "미국 주식 초보",
+  "주린이",
+  "미국 대선",
+  "2026 중간선거",
+  "미장캐스터"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 — 투표용지에 대통령이 없다"
+  },
+  {
+   "start": 75,
+   "title": "왕은 싫다 — 13개 주와 약한 첫 정부"
+  },
+  {
+   "start": 113,
+   "title": "의회는 왜 둘 — 큰 주 vs 작은 주의 타협"
+  },
+  {
+   "start": 190,
+   "title": "선거구 — 인구조사와 게리맨더링"
+  },
+  {
+   "start": 266,
+   "title": "2년·6년 — 하원과 상원의 임기"
+  },
+  {
+   "start": 322,
+   "title": "선거인단 — 538명, 270명, 승자독식"
+  },
+  {
+   "start": 455,
+   "title": "선거일 — 11월 첫 월요일 다음 날"
+  },
+  {
+   "start": 509,
+   "title": "중간선거 — 하원 435석, 상원 35석"
+  },
+  {
+   "start": 569,
+   "title": "정리 — 결과 나오면 딱 두 가지만"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 68,
+ "comments_top_level": 36,
+ "comments_replies": 32,
+ "comments_by_creator": 30,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 68,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:47",
+ "approved": "2026-11-06T17:14+09:00"
+}

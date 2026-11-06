@@ -1,0 +1,21 @@
+CNBC Today On NVIDIA Stock, Micron Stock, SK Hynix, Tech Sell-Off - NVDA Update
+
+Hosts of CNBC discuss NVIDIA, NVIDIA stock (NVDA stock), Micron, Micron stock (MU stock), SK Hynix, SK Hynix stock (SKHY stock), and the recent tech selloff. Friday was a rough day for tech stocks following Amazon and Intel earnings Thursday evening, and then Kioxia earnings Friday in Japan. Sandisk reported strong results Thursday evening. While Kioxia reported strong results for the quarter, market participants were surprised by the company's sequential Q3 revenue guidance essentially being flat. That spooked the market and weighed on memory stocks in the US Friday. But, there is some important context to consider regarding Kioxia's guidance. The Information published a story about NVIDIA moving to backstop a West Virginia datacenter campus for Nscale, and the FT published a story about expectations regarding Anthropic's credit rating. Both stories weighed on tech stocks Friday amid fragile market sentiment. While some of the hyperscalers reported disappointing results in some of their core legacy business segments, they all reported very strong cloud growth and indicated higher CapEx is coming in 2027. That said, CapEx in the reported quarter (Q3 CY26) was lighter than expected, with exception of Amazon, but Amazon's Q3 CapEx relative to the company's full-year CapEx guide of $220B implies Q4 CapEx notably less than Q3 CapEx (that appears be lumpiness rather than a peak in spending). Amazon's CEO was very clear in saying that Amazon will spend meaningfully more in 2027. All of that weighed on AI infrastructure stocks like NVIDIA stock, Micron stock, SK Hynix stock, neocloud stocks, and many others throughout the AI ecosystem. Looking ahead, NVIDIA earnings are scheduled for November 17, 2026. I continue to be bullish on NVIDIA long term. NVIDIA has multiple large long-term growth opportunities in front of it. Sovereign AI, enterprise AI, AI-native startups, physical AI, and quantum computing are all large long-term growth opportunities for NVIDIA. Blackwell Ultra has ramped quickly and remains in high demand. Vera Rubin is rolling out to customers. NVIDIA Groq 3 LPX is in full production. We're expecting Rubin Ultra in 2027. And later on, we're expecting NVIDIA's Feynman in 2028. We have a clear datacenter product roadmap extending into 2028, and Jensen Huang believes there will be $3T-$4T of global AI factory buildout annually by the end of the decade. In this video we talk about NVIDIA, talk about NVIDIA stock, talk about NVIDIA news, and give an NVDA update. 
+
+Timestamps
+0:00 Cramer, Faber & Carl
+2:11 Patrick Moorhead
+3:21 CNBC Halftime Report
+12:22 Tom Lee & Steve Sosnick
+21:08 CNBC
+21:49 FinVid
+
+Welcome to FinVid! 
+FinVid posts videos to keep you updated on all things stocks, trading, investing, markets, and finance. Thank you for watching FinVid! 
+
+
+LEGAL DISCLAIMER: This video is for entertainment purposes ONLY. This does not constitute as financial advice. DO NOT make buying or selling decisions based on FinVid's videos. If you need advice, please contact a qualified CPA, attorney, insurance agent, contractor/electrician/engineer/etc., financial advisor, or the appropriate professional for the subject you would like help with. ATTENTION: Please note that we will NEVER accept payment to talk about any particular stocks on this channel. 
+
+Related Topics: NVDA, NVIDIA, nvda, nvidia, Jensen Huang, NVDA stock, NVDA earnings, NVIDIA stock, NVIDIA earnings, NVDA update, NVIDIA update, NVDA today, NVIDIA today, NVDA news, NVIDIA news, NVDA analysis, NVDA stock analysis, Micron, Micron stock, MU stock, SK Hynix, SK Hynix stock, SKHY, SKHY stock, stocks, stock market, investing, investing in stocks, trading stocks, earnings, tech stocks, cnbc nvidia, nvidia cnbc, cnbc nvda, nvda cnbc, nvidia fox, nvda fox, fox nvda, fox nvidia, s&p 500, nasdaq, nvidia stock, nvda stock, Anthropic, anthropic, OpenAI, openai, FinVid, finvid
+
+#NVIDIA #Micron #SKHynix #NVDA #NVDAStock #NVIDIAStock #NVIDIAUpdate #NVDANews #NVIDIANews #NVIDIAToday #investing #stockinvesting #stocktrading #stockmarket #stocks

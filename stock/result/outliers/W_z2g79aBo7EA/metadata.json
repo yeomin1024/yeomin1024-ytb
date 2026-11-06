@@ -1,0 +1,140 @@
+{
+ "id": "z2g79aBo7EA",
+ "title": "실적은 좋다는데 내 계좌는 왜 이럴까? 삼성전자·SK하이닉스 하락을 실적만으로 설명할 수 없는 이유 (더프레미어 강관우 대표 1부)",
+ "channel": "채국장의 코스피2만행 머니버스",
+ "channel_id": "UCl7_Zg4RdQbHx0kXaiKL-5g",
+ "subs": 158000,
+ "views": 70420,
+ "ratio": 0.45,
+ "age_days": 0,
+ "views_per_day": 70420.0,
+ "minutes": 29.5,
+ "likes": 597,
+ "comments": 93,
+ "published": "2026-11-05",
+ "queries": "검색:국장",
+ "url": "https://www.youtube.com/watch?v=z2g79aBo7EA",
+ "flag": "",
+ "published_at": "2026-11-05T08:15:36Z",
+ "rank": "W183",
+ "set": "web",
+ "folder": "W_z2g79aBo7EA",
+ "sources": [
+  "검색:국장"
+ ],
+ "source": "web",
+ "tags": [
+  "채국장",
+  "채상욱",
+  "채부심",
+  "머니버스",
+  "주식투자",
+  "주식",
+  "장기투자",
+  "코스피",
+  "미국주식",
+  "세미콘리서치랩",
+  "반도체",
+  "메모리",
+  "삼성전자",
+  "하이닉스",
+  "SK하이닉스",
+  "삼전닉스",
+  "HBM",
+  "DRAM",
+  "AI",
+  "AI인프라",
+  "데이터센터",
+  "하이퍼스케일러",
+  "엔비디아",
+  "주주환원",
+  "반도체실적",
+  "웨이퍼",
+  "반도체장비",
+  "팹증설",
+  "ASML",
+  "NVL",
+  "장기공급계약",
+  "LTA",
+  "PBR",
+  "삼전",
+  "코어위브",
+  "코어위브쇼크",
+  "hbm",
+  "hbm4",
+  "hbm4e",
+  "zhbm",
+  "hbm3e",
+  "hbm3",
+  "하이닉스전망",
+  "삼전전망",
+  "tsmc",
+  "반도체주가",
+  "반도체전망",
+  "삼성전자 주식",
+  "micron",
+  "샌디스크",
+  "마이크론",
+  "코스피 전망",
+  "ai 반도체",
+  "강관우",
+  "국장",
+  "국장 전망",
+  "코스피전망",
+  "코리아디스카운트",
+  "삼성배당",
+  "삼성주주환원"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 26,
+   "title": "머니버스 광고"
+  },
+  {
+   "start": 62,
+   "title": "게스트 소개"
+  },
+  {
+   "start": 109,
+   "title": "국내 증시 현황과 변동성"
+  },
+  {
+   "start": 208,
+   "title": "개인 투자자와 ETF 영향"
+  },
+  {
+   "start": 261,
+   "title": "시장 신뢰도와 코리아 디스카운트"
+  },
+  {
+   "start": 830,
+   "title": "반도체 시장의 피크아웃 논란"
+  },
+  {
+   "start": 989,
+   "title": "현 시점 투자 전략"
+  },
+  {
+   "start": 1249,
+   "title": "미국 시장의 현재 상황과 전망"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 93,
+ "comments_top_level": 76,
+ "comments_replies": 17,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 93,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:17:36",
+ "approved": "2026-11-06T17:17+09:00"
+}

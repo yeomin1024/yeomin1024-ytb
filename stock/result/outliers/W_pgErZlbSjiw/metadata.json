@@ -1,0 +1,125 @@
+{
+ "id": "pgErZlbSjiw",
+ "title": "“내 주식만 왜 이렇게 떨어질까?” 계좌 열어보기 두려운 날, 존리의 이야기를 들어보세요 | 존리 대표 [얘기좀합시다]",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 124000,
+ "views": 432177,
+ "ratio": 3.49,
+ "age_days": 13,
+ "views_per_day": 32520.8,
+ "minutes": 61.1,
+ "likes": 3798,
+ "comments": 379,
+ "published": "2026-10-24",
+ "queries": "검색:장기투자 | 검색:주식투자 | 검색:주식 | 검색:주식강의 | 검색:주가 | 검색:주식시장 | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=pgErZlbSjiw",
+ "flag": "",
+ "published_at": "2026-10-24T00:15:23Z",
+ "rank": "W127",
+ "set": "web",
+ "folder": "W_pgErZlbSjiw",
+ "sources": [
+  "검색:장기투자",
+  "검색:주식투자",
+  "검색:주식",
+  "검색:주식강의",
+  "검색:주가",
+  "검색:주식시장",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "은퇴를 앞두고 주식 투자를 시작해도 될까?"
+  },
+  {
+   "start": 301,
+   "title": "55세 직장인, 현금 1억 원으로 노후 준비하는 법"
+  },
+  {
+   "start": 478,
+   "title": "목돈 투자 vs 분할 투자, 무엇이 유리할까?"
+  },
+  {
+   "start": 661,
+   "title": "주식시장이 폭락할 때 가장 위험한 행동"
+  },
+  {
+   "start": 898,
+   "title": "주가가 반토막 나도 '물렸다'고 생각하지 않는 이유"
+  },
+  {
+   "start": 1120,
+   "title": "다음 주도주를 찾는 투자가 위험한 이유"
+  },
+  {
+   "start": 1222,
+   "title": "이미 은퇴한 65세도 주식 투자를 해야 할까?"
+  },
+  {
+   "start": 1380,
+   "title": "S&P500 ETF만 사도 노후 준비가 가능할까?"
+  },
+  {
+   "start": 1594,
+   "title": "장기투자와 무작정 버티기는 무엇이 다를까?"
+  },
+  {
+   "start": 1701,
+   "title": "10년을 보유해도 손실이라면 계속 기다려야 할까?"
+  },
+  {
+   "start": 1877,
+   "title": "5060 투자자들에게 존리가 전하는 조언"
+  },
+  {
+   "start": 2091,
+   "title": "자녀 사교육비가 오히려 독이 될 수 있는 이유"
+  },
+  {
+   "start": 2435,
+   "title": "커피 한 잔까지 아껴서 투자해야 할까?"
+  },
+  {
+   "start": 2732,
+   "title": "월급 400만 원 직장인, 얼마나 투자해야 할까?"
+  },
+  {
+   "start": 2938,
+   "title": "존리가 만난 진짜 부자들의 공통점"
+  },
+  {
+   "start": 3261,
+   "title": "아이에게 경제교육은 언제부터 시작해야 할까?"
+  },
+  {
+   "start": 3780,
+   "title": "머니인더스쿨, 온가족 경제독립 마스터 클래스"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 380,
+ "comments_top_level": 224,
+ "comments_replies": 156,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 379,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:56",
+ "approved": "2026-11-06T17:14+09:00"
+}

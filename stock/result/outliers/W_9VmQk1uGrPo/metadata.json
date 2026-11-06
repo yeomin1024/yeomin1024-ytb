@@ -1,0 +1,125 @@
+{
+ "id": "9VmQk1uGrPo",
+ "title": "배당 월 30만원이면 인생 난이도가 낮아진다 (실제 계좌 공개) | 배당으로 경제적 자유 만들기 0화",
+ "channel": "머니노트",
+ "channel_id": "UChjwqNdjoDdkpEDa5c2Focg",
+ "subs": 1900,
+ "views": 18528,
+ "ratio": 9.75,
+ "age_days": 11,
+ "views_per_day": 1572.0,
+ "minutes": 16.3,
+ "likes": 127,
+ "comments": 63,
+ "published": "2026-10-25",
+ "queries": "검색:배당주 | 검색:월배당 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=9VmQk1uGrPo",
+ "flag": "",
+ "published_at": "2026-10-25T12:19:22Z",
+ "rank": "W25",
+ "set": "web",
+ "folder": "W_9VmQk1uGrPo",
+ "sources": [
+  "검색:배당주",
+  "검색:월배당",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": [
+  "JEPQ",
+  "KODEX 200타겟위클리커버드콜",
+  "QDVO",
+  "SCHD",
+  "경제적 자유",
+  "계좌인증",
+  "금융소득종합과세",
+  "리얼티인컴",
+  "배당 계좌 공개",
+  "배당금 공개",
+  "배당으로 경제적 자유 만들기",
+  "배당투자",
+  "월배당",
+  "커버드콜",
+  "파이어족"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "배당 계좌 실제 공개 · 올해 배당"
+  },
+  {
+   "start": 31,
+   "title": "30대 직장인이 배당을 고른 이유"
+  },
+  {
+   "start": 107,
+   "title": "연구: 사고팔수록 수익이 새는 이유"
+  },
+  {
+   "start": 193,
+   "title": "공개 원칙 4가지"
+  },
+  {
+   "start": 225,
+   "title": "계좌 열기 · 과일나무 비유"
+  },
+  {
+   "start": 285,
+   "title": "과일나무 숲 8그루"
+  },
+  {
+   "start": 315,
+   "title": "종목 소개 (JEPQ·SCHD·QDVO·리얼티인컴·KODEX·QQQM·QLD)"
+  },
+  {
+   "start": 485,
+   "title": "마이너스인데 배당은 매달"
+  },
+  {
+   "start": 534,
+   "title": "10월 배당 30만 5,494원"
+  },
+  {
+   "start": 581,
+   "title": "배당주 투자 = 인생이 공짜가 되는 일"
+  },
+  {
+   "start": 695,
+   "title": "미국 배당 세금 15%"
+  },
+  {
+   "start": 726,
+   "title": "올해 배당 흐름"
+  },
+  {
+   "start": 765,
+   "title": "목표 월 300만원 · 지금 10%"
+  },
+  {
+   "start": 812,
+   "title": "금융소득종합과세 언덕"
+  },
+  {
+   "start": 887,
+   "title": "앞으로의 시리즈"
+  },
+  {
+   "start": 911,
+   "title": "숫자 댓글 이벤트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 63,
+ "comments_top_level": 33,
+ "comments_replies": 30,
+ "comments_by_creator": 31,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 63,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:07",
+ "approved": "2026-11-06T17:11+09:00"
+}

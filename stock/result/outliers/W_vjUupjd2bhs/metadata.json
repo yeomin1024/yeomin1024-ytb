@@ -1,0 +1,86 @@
+{
+ "id": "vjUupjd2bhs",
+ "title": "【日経平均 急落の今が買い】AIに奪われない会社／ソニーG・任天堂はまた上がる？／TOTOは隠れ半導体株／格差拡大で防犯需要が高まる／オルカンS&P500の盲点（マネースキルセット）",
+ "channel": "PIVOT 公式チャンネル",
+ "channel_id": "UC8yHePe_RgUBE-waRWy6olw",
+ "subs": 4100000,
+ "views": 481110,
+ "ratio": 0.12,
+ "age_days": 10,
+ "views_per_day": 44377.5,
+ "minutes": 30.8,
+ "likes": 1439,
+ "comments": 67,
+ "published": "2026-10-26",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=vjUupjd2bhs",
+ "flag": "외국 영상",
+ "published_at": "2026-10-26T11:00:25Z",
+ "rank": "W139",
+ "set": "web",
+ "folder": "W_vjUupjd2bhs",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "pivot",
+  "りんたろー",
+  "exit",
+  "国山ハセン",
+  "投資",
+  "資産運用",
+  "日経平均",
+  "インフレ",
+  "デフレ",
+  "インフラ",
+  "AI",
+  "半導体",
+  "マネー",
+  "お金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ダイジェスト"
+  },
+  {
+   "start": 79,
+   "title": "AI銘柄の3つの分類"
+  },
+  {
+   "start": 367,
+   "title": "AI富裕層と日本エンタメ"
+  },
+  {
+   "start": 662,
+   "title": "体験エンタメと制作現場"
+  },
+  {
+   "start": 1055,
+   "title": "防犯需要と隠れAI株TOTO"
+  },
+  {
+   "start": 1352,
+   "title": "オルカン・S&P500の盲点"
+  },
+  {
+   "start": 1594,
+   "title": "アクティブ投信と今後の戦略"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 67,
+ "comments_top_level": 57,
+ "comments_replies": 10,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 67,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:31",
+ "approved": "2026-11-06T17:39+09:00"
+}

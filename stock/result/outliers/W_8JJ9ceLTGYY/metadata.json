@@ -1,0 +1,88 @@
+{
+ "id": "8JJ9ceLTGYY",
+ "title": "외국인은 왜 한국 시장에서 빠져나가나 | ‘무극선생’ 이승조 대표의 연말 코스피 전망 | 리밸런싱의 시대가 왔다",
+ "channel": "투벤저스 주간동아",
+ "channel_id": "UC3tQYfj6ZgP1FTVuru2sU3A",
+ "subs": 31100,
+ "views": 132595,
+ "ratio": 4.26,
+ "age_days": 3,
+ "views_per_day": 43000.7,
+ "minutes": 29.6,
+ "likes": 0,
+ "comments": 48,
+ "published": "2026-11-03",
+ "queries": "검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=8JJ9ceLTGYY",
+ "flag": "",
+ "published_at": "2026-11-03T05:11:40Z",
+ "rank": "W126",
+ "set": "web",
+ "folder": "W_8JJ9ceLTGYY",
+ "sources": [
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "한화오션",
+  "현대차",
+  "배터리",
+  "리밸런싱",
+  "이승조",
+  "무극선생",
+  "삼전닉스"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 78,
+   "title": "10월 코스피 급락 원인"
+  },
+  {
+   "start": 233,
+   "title": "코스피 추세 상승의 변곡점"
+  },
+  {
+   "start": 513,
+   "title": "외국인이 매도하는 이유"
+  },
+  {
+   "start": 813,
+   "title": "삼전닉스에 물렸다면"
+  },
+  {
+   "start": 1060,
+   "title": "역발상 투자 1. 한화오션과 주가수익스왑"
+  },
+  {
+   "start": 1249,
+   "title": "역발상 투자 2. 현대차와 거버넌스"
+  },
+  {
+   "start": 1400,
+   "title": "역발상 투자 3. 배터리는 부활할까"
+  },
+  {
+   "start": 1652,
+   "title": "연말 투자 전략"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 48,
+ "comments_top_level": 44,
+ "comments_replies": 4,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 48,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:54",
+ "approved": "2026-11-06T17:14+09:00"
+}

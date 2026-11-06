@@ -1,0 +1,115 @@
+{
+ "id": "wayJW2Rqj9s",
+ "title": "¿Están creciendo mis DIVIDENDOS? Cartera de Dividendos Real | Seguimiento de Cartera 35",
+ "channel": "Héctor Badal",
+ "channel_id": "UCLc-9xemlU12_gMYjYuTJbg",
+ "subs": 15800,
+ "views": 19290,
+ "ratio": 1.22,
+ "age_days": 11,
+ "views_per_day": 1659.8,
+ "minutes": 14.3,
+ "likes": 132,
+ "comments": 7,
+ "published": "2026-10-25",
+ "queries": "검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=wayJW2Rqj9s",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T16:16:35Z",
+ "rank": "W113",
+ "set": "web",
+ "folder": "W_wayJW2Rqj9s",
+ "sources": [
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "cartera de dividendos",
+  "dividendos crecientes",
+  "seguimiento de cartera",
+  "cartera de dividendos real",
+  "invertir en dividendos",
+  "ingresos pasivos",
+  "libertad financiera",
+  "Freedom24",
+  "Freedom 24",
+  "Amadeus acciones",
+  "Telefónica dividendos",
+  "Mapfre dividendos",
+  "crecimiento de dividendos",
+  "rentabilidad por dividendo",
+  "acciones con dividendos",
+  "vivir de dividendos",
+  "1000 euros al mes en dividendos",
+  "gestión de cartera",
+  "cartera de inversión",
+  "inversión a largo plazo",
+  "educación financiera",
+  "Héctor Badal"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "¿Están creciendo mis dividendos?"
+  },
+  {
+   "start": 117,
+   "title": "Cómo conseguir 1.000 € al mes en dividendos"
+  },
+  {
+   "start": 173,
+   "title": "Mi cartera de dividendos: 62.000 € invertidos"
+  },
+  {
+   "start": 237,
+   "title": "Crecimiento de dividendos: del 6 % al 7 %"
+  },
+  {
+   "start": 271,
+   "title": "Empresas que más aumentan sus dividendos"
+  },
+  {
+   "start": 286,
+   "title": "Por qué vendo Telefónica"
+  },
+  {
+   "start": 327,
+   "title": "Mapfre y Amadeus: nuevas inversiones"
+  },
+  {
+   "start": 365,
+   "title": "Cómo mejorar el crecimiento de la cartera"
+  },
+  {
+   "start": 480,
+   "title": "Por qué cambio de bróker a Freedom24"
+  },
+  {
+   "start": 610,
+   "title": "Invierto 1.000 €: análisis y compra de Amadeus"
+  },
+  {
+   "start": 711,
+   "title": "Seguimiento de mis compras y dividendos"
+  },
+  {
+   "start": 770,
+   "title": "Resultados y próximos objetivos de la cartera"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "es",
+ "foreign": true,
+ "comments_fetched": 7,
+ "comments_top_level": 4,
+ "comments_replies": 3,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:24",
+ "approved": "2026-11-06T17:14+09:00"
+}

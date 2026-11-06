@@ -1,0 +1,102 @@
+{
+ "id": "AUeEkRnKeM8",
+ "title": "하락장에서 계좌를 지키는 세 가지",
+ "channel": "리채피 richappy",
+ "channel_id": "UCopbo8p9-a5XyT6k7o1zSwQ",
+ "subs": 9060,
+ "views": 144363,
+ "ratio": 15.93,
+ "age_days": 11,
+ "views_per_day": 12775.6,
+ "minutes": 16.7,
+ "likes": 2215,
+ "comments": 128,
+ "published": "2026-10-26",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=AUeEkRnKeM8",
+ "flag": "",
+ "published_at": "2026-10-26T00:00:09Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_AUeEkRnKeM8",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "개인투자자",
+  "리채피",
+  "민스키",
+  "분할매수",
+  "워런버핏",
+  "주식투자",
+  "투자심리",
+  "하락장",
+  "현금비중",
+  "횡보장"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하락장이 고통스러운 진짜 이유"
+  },
+  {
+   "start": 66,
+   "title": "하락장의 두 얼굴: 급락과 긴 횡보"
+  },
+  {
+   "start": 153,
+   "title": "지금 시장은 어디쯤인가: 민스키의 빚의 세 단계"
+  },
+  {
+   "start": 223,
+   "title": "급락이 끝난 다음, 사람들이 시장을 떠나는 구간"
+  },
+  {
+   "start": 312,
+   "title": "감정이 흔들린 투자자의 성적표"
+  },
+  {
+   "start": 400,
+   "title": "같은 사람도 상태에 따라 다르게 고른다: 투자 게임 실험"
+  },
+  {
+   "start": 483,
+   "title": "다들 떠날 때 사는 사람들: 워런 버핏의 2008년"
+  },
+  {
+   "start": 594,
+   "title": "그냥 버티라는 말 아닌가요?"
+  },
+  {
+   "start": 679,
+   "title": "제가 지나온 하락장: 2020년과 2022년"
+  },
+  {
+   "start": 801,
+   "title": "달라진 것은 순서였습니다"
+  },
+  {
+   "start": 842,
+   "title": "오늘부터 해볼 세 가지"
+  },
+  {
+   "start": 919,
+   "title": "오늘 내용 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 128,
+ "comments_top_level": 59,
+ "comments_replies": 69,
+ "comments_by_creator": 62,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 128,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:44",
+ "approved": "2026-11-06T17:10+09:00"
+}

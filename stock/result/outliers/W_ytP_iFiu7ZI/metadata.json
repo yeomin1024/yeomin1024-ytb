@@ -1,0 +1,113 @@
+{
+ "id": "ytP_iFiu7ZI",
+ "title": "한국판 SCHD 어디까지 알고계신가요? 천만원이면 분배금 얼마? (배당 ETF 1편)",
+ "channel": "나다나단Nathan",
+ "channel_id": "UCkbo4jCqC-NH-FSYKbGh_qg",
+ "subs": 224,
+ "views": 12332,
+ "ratio": 55.05,
+ "age_days": 14,
+ "views_per_day": 872.6,
+ "minutes": 4.2,
+ "likes": 52,
+ "comments": 1,
+ "published": "2026-10-23",
+ "queries": "검색:ETF투자 | 검색:월배당ETF | 검색:배당주",
+ "url": "https://www.youtube.com/watch?v=ytP_iFiu7ZI",
+ "flag": "",
+ "published_at": "2026-10-23T04:02:03Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_ytP_iFiu7ZI",
+ "sources": [
+  "검색:ETF투자",
+  "검색:월배당ETF",
+  "검색:배당주"
+ ],
+ "source": "web",
+ "tags": [
+  "TIGER 미국배당다우존스",
+  "미국배당다우존스",
+  "한국판 SCHD",
+  "SCHD",
+  "배당 ETF",
+  "월배당 ETF",
+  "월배당",
+  "분배금",
+  "배당금",
+  "미국 배당주",
+  "미국 배당 ETF",
+  "배당 투자",
+  "배당주 ETF",
+  "458730",
+  "다우존스 배당 100",
+  "배당 ETF 비교",
+  "ETF 분배금",
+  "분배락",
+  "배당 기준일",
+  "ETF 세금",
+  "배당소득세",
+  "연금저축 ETF",
+  "ISA ETF",
+  "노후 준비",
+  "현금흐름",
+  "국내상장 해외ETF",
+  "천만원 투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "천만원 넣었다면 1년 분배금은?"
+  },
+  {
+   "start": 30,
+   "title": "어떤 ETF인가 — SCHD와 같은 지수"
+  },
+  {
+   "start": 56,
+   "title": "실제로 담긴 종목 TOP 10"
+  },
+  {
+   "start": 78,
+   "title": "지난 2년 분배 기록"
+  },
+  {
+   "start": 102,
+   "title": "천만원이면 한 달 얼마?"
+  },
+  {
+   "start": 132,
+   "title": "1년 결과 — 주가 vs 분배금"
+  },
+  {
+   "start": 153,
+   "title": "10월 분배금, 언제까지 사야 받을까"
+  },
+  {
+   "start": 184,
+   "title": "세금 15.4%"
+  },
+  {
+   "start": 209,
+   "title": "기억할 네 가지"
+  },
+  {
+   "start": 234,
+   "title": "정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1,
+ "comments_top_level": 1,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:26",
+ "approved": "2026-11-06T17:10+09:00"
+}

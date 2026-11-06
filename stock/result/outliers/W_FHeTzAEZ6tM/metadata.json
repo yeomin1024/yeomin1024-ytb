@@ -1,0 +1,99 @@
+{
+ "id": "FHeTzAEZ6tM",
+ "title": "주식하는 30대의 현실적인 고민들",
+ "channel": "30대 우영이의 일기",
+ "channel_id": "UCJ_YHwzq8dJ-qxl2fDfRtBQ",
+ "subs": 4990,
+ "views": 30158,
+ "ratio": 6.04,
+ "age_days": 11,
+ "views_per_day": 2549.5,
+ "minutes": 10.0,
+ "likes": 54,
+ "comments": 16,
+ "published": "2026-10-25",
+ "queries": "검색:주식입문",
+ "url": "https://www.youtube.com/watch?v=FHeTzAEZ6tM",
+ "flag": "",
+ "published_at": "2026-10-25T11:17:58Z",
+ "rank": "W35",
+ "set": "web",
+ "folder": "W_FHeTzAEZ6tM",
+ "sources": [
+  "검색:주식입문"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 | 주식에 물린 회사 대표와의 만남"
+  },
+  {
+   "start": 28,
+   "title": "연매출 150억 제조업체 대표의 이야기"
+  },
+  {
+   "start": 100,
+   "title": "주식 입문과 7년 동안 물렸던 종목"
+  },
+  {
+   "start": 171,
+   "title": "식사와 함께 시작된 이야기"
+  },
+  {
+   "start": 202,
+   "title": "하이닉스에 물린 투자자의 현실"
+  },
+  {
+   "start": 291,
+   "title": "주식 손실을 혼자 감당한다는 것"
+  },
+  {
+   "start": 309,
+   "title": "더 잘 살고 싶은데 마음처럼 안 될 때"
+  },
+  {
+   "start": 329,
+   "title": "돈을 버는 능력과 행복을 느끼는 능력"
+  },
+  {
+   "start": 387,
+   "title": "우리가 느끼는 불안의 실체"
+  },
+  {
+   "start": 411,
+   "title": "성공한 사람도 자신을 잘 모를 때"
+  },
+  {
+   "start": 446,
+   "title": "돈을 많이 벌면 하고 싶은 일"
+  },
+  {
+   "start": 475,
+   "title": "얼마가 있어야 마음이 편해질까?"
+  },
+  {
+   "start": 518,
+   "title": "주식하는 30대의 현실적인 고민"
+  },
+  {
+   "start": 557,
+   "title": "돈과 행복에 대한 생각"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 16,
+ "comments_top_level": 14,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 16,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:28",
+ "approved": "2026-11-06T17:11+09:00"
+}

@@ -1,0 +1,127 @@
+{
+ "id": "ouUFZIKVVP4",
+ "title": "【初心者向け】新NISAで月3万円の配当を得る方法【高配当株投資 SPYD VYM HDV】※2026年6月17日から、HDVはNISA対象外となりました。訂正してお詫びいたします。",
+ "channel": "節約オタクふゆこ",
+ "channel_id": "UC7Uc7ZmNOt_sPLFl7ZM83iQ",
+ "subs": 660000,
+ "views": 255667,
+ "ratio": 0.39,
+ "age_days": 11,
+ "views_per_day": 21514.9,
+ "minutes": 30.7,
+ "likes": 1575,
+ "comments": 72,
+ "published": "2026-10-25",
+ "queries": "검색:ETF | 검색:etf investing | 검색:ETFs | 검색:dividend investing | 검색:dividend stocks | 검색:dividend income | 검색:dividends | 검색:best dividend stocks",
+ "url": "https://www.youtube.com/watch?v=ouUFZIKVVP4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T10:00:01Z",
+ "rank": "W80",
+ "set": "web",
+ "folder": "W_ouUFZIKVVP4",
+ "sources": [
+  "검색:ETF",
+  "검색:etf investing",
+  "검색:ETFs",
+  "검색:dividend investing",
+  "검색:dividend stocks",
+  "검색:dividend income",
+  "검색:dividends",
+  "검색:best dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "20代会社員",
+  "1000万",
+  "1000万貯金",
+  "資産1000万",
+  "20代",
+  "貯金",
+  "節約",
+  "倹約",
+  "投資",
+  "インデックス投資",
+  "高配当株投資",
+  "つみたてNISA",
+  "FIRE",
+  "経済的自立",
+  "月10万生活",
+  "年間300万貯金",
+  "転職",
+  "副業",
+  "積立nisa",
+  "新NISA"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 164,
+   "title": "結論：米国高配当株ETF3本をNISAで購入"
+  },
+  {
+   "start": 349,
+   "title": "NISAの仕組みについて"
+  },
+  {
+   "start": 390,
+   "title": "初心者に米国高配当株ETFがおすすめな理由"
+  },
+  {
+   "start": 809,
+   "title": "おすすめのETF3本（SPYD・VYM・HDV）の中身"
+  },
+  {
+   "start": 1053,
+   "title": "月3万円の配当金をもらうための具体的な手順"
+  },
+  {
+   "start": 1087,
+   "title": "ステップ1：NISA口座を開設する"
+  },
+  {
+   "start": 1156,
+   "title": "ステップ2：成長投資枠で3本を均等に買う"
+  },
+  {
+   "start": 1195,
+   "title": "ステップ3・4：下落時にコツコツ買い足し"
+  },
+  {
+   "start": 1232,
+   "title": "月3万円に必要な金額と年数"
+  },
+  {
+   "start": 1372,
+   "title": "投資額ごとの達成年数"
+  },
+  {
+   "start": 1543,
+   "title": "コツは「暴落時に買う」"
+  },
+  {
+   "start": 1712,
+   "title": "まとめ"
+  },
+  {
+   "start": 1825,
+   "title": "今回の撮影風景（NGシーン）"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 72,
+ "comments_top_level": 63,
+ "comments_replies": 9,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 72,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:36:00",
+ "approved": "2026-11-06T17:36+09:00"
+}

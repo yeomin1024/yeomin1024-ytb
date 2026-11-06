@@ -1,0 +1,103 @@
+{
+ "id": "D0QIMlwlT6I",
+ "title": "The Next 5 Days Could Make Millionaires (7 Stocks to Watch)",
+ "channel": "Let's Talk Money! with Joseph Hogue, CFA",
+ "channel_id": "UCbKdotYtcY9SxoU8CYAXdvg",
+ "subs": 759000,
+ "views": 194522,
+ "ratio": 0.26,
+ "age_days": 4,
+ "views_per_day": 42366.7,
+ "minutes": 17.5,
+ "likes": 1909,
+ "comments": 142,
+ "published": "2026-11-01",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=D0QIMlwlT6I",
+ "flag": "외국 영상",
+ "published_at": "2026-11-01T17:00:26Z",
+ "rank": "W102",
+ "set": "web",
+ "folder": "W_D0QIMlwlT6I",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market news",
+  "stock market update",
+  "stocks this week",
+  "stock market",
+  "stock market today",
+  "stock market crash",
+  "stock market forecast",
+  "investing news",
+  "weekly stock market update",
+  "best stocks this week",
+  "stock market correction",
+  "stocks to buy",
+  "weekly investing update",
+  "stock market headlines",
+  "market analysis",
+  "stock trends",
+  "investing this week",
+  "top stocks to watch",
+  "stock news today"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Stock Market Crash: Biggest Earnings Winners & Losers"
+  },
+  {
+   "start": 22,
+   "title": "Tech Stock Crash: AI Bubble or Best Stocks to Buy Now?"
+  },
+  {
+   "start": 201,
+   "title": "SoFi Technologies (SOFI) Earnings Beat and My $20 Price Target"
+  },
+  {
+   "start": 346,
+   "title": "Fortinet (FTNT) Earnings Beat but Stock Crashes 24%"
+  },
+  {
+   "start": 444,
+   "title": "ServiceNow (NOW) Earnings Miss but is the 34% Stock Crash an Opportunity?"
+  },
+  {
+   "start": 634,
+   "title": "Arista Networks (ANET) Stock Earnings Preview"
+  },
+  {
+   "start": 735,
+   "title": "Super Micro Computer (SMCI) Earnings Forecast and How to Invest"
+  },
+  {
+   "start": 873,
+   "title": "Cloudflare (NET) Earnings Outlook – am I Buying Yet?"
+  },
+  {
+   "start": 962,
+   "title": "SoundHound AI (SOUN) Earnings Preview and Stock Price Prediction"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 143,
+ "comments_top_level": 91,
+ "comments_replies": 52,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 142,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:37:34",
+ "approved": "2026-11-06T17:37+09:00"
+}

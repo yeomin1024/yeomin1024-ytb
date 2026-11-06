@@ -1,0 +1,91 @@
+{
+ "id": "d0_A5doZq_o",
+ "title": "\"바닥이 어디인지 모른다\"…끝없는 역대급 엔저, 지금 일본 경제는 어디로 가나 (이창민 교수) | 글로벌BUY",
+ "channel": "깨비증권 마블TV [KB증권]",
+ "channel_id": "UCD0k4Kq7SJROxxV-9N5v8IA",
+ "subs": 667000,
+ "views": 235401,
+ "ratio": 0.35,
+ "age_days": 8,
+ "views_per_day": 26625.3,
+ "minutes": 55.9,
+ "likes": 917,
+ "comments": 130,
+ "published": "2026-10-28",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=d0_A5doZq_o",
+ "flag": "",
+ "published_at": "2026-10-28T11:00:36Z",
+ "rank": "W202",
+ "set": "web",
+ "folder": "W_d0_A5doZq_o",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 70,
+   "title": "보수적이던 일본 기업들, '주주환원' 적극 나선 배경은?"
+  },
+  {
+   "start": 569,
+   "title": "'저축'에서 '투자'로… 인플레이션이 바꾼 일본 경제?"
+  },
+  {
+   "start": 896,
+   "title": "잘나가는 일본 증시, '슈퍼사이클' vs '일시적 상승'"
+  },
+  {
+   "start": 1337,
+   "title": "일본 사회 '자산 격차'의 현주소는?"
+  },
+  {
+   "start": 1817,
+   "title": "길어지는 엔저 현상은 리스크인가, 기회인가?"
+  },
+  {
+   "start": 2126,
+   "title": "저금리 끝낸 일본, 글로벌 영향 있을까?"
+  },
+  {
+   "start": 2350,
+   "title": "금리가 오르면 일본 내부의 자금 흐름도 변할까?"
+  },
+  {
+   "start": 2500,
+   "title": "'금리 인상' 일본은행 vs '돈 풀기' 정치권"
+  },
+  {
+   "start": 2767,
+   "title": "'엔화 스테이블코인' 추진, 국제적 영향은?"
+  },
+  {
+   "start": 3079,
+   "title": "'잃어버린 30년' 일본… 한국이 피해야 할 조건들"
+  },
+  {
+   "start": 3274,
+   "title": "마지막 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 130,
+ "comments_top_level": 44,
+ "comments_replies": 86,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 130,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:18:27",
+ "approved": "2026-11-06T17:18+09:00"
+}

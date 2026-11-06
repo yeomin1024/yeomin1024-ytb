@@ -1,0 +1,143 @@
+{
+ "id": "wrF_xN6JPWc",
+ "title": "Historic Market Implosion: Bigger Crash Or Rebound Next Week? | Gareth Soloway",
+ "channel": "David Lin ",
+ "channel_id": "UClBMLpP3UHXLmgEypMmXPuA",
+ "subs": 339000,
+ "views": 268163,
+ "ratio": 0.79,
+ "age_days": 5,
+ "views_per_day": 48493.5,
+ "minutes": 31.6,
+ "likes": 4354,
+ "comments": 519,
+ "published": "2026-10-31",
+ "queries": "검색:stock market | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=wrF_xN6JPWc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T19:47:02Z",
+ "rank": "W50",
+ "set": "web",
+ "folder": "W_wrF_xN6JPWc",
+ "sources": [
+  "검색:stock market",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "david lin",
+  "the david lin report",
+  "david lin youtube",
+  "david lin finance",
+  "david lin investing",
+  "david lin trading",
+  "david lin economics",
+  "economics",
+  "finance",
+  "business",
+  "macroeconomics",
+  "trading",
+  "investing",
+  "financial news",
+  "finance news",
+  "economics news",
+  "business news",
+  "economy",
+  "stocks",
+  "bitcoin",
+  "gold",
+  "trump",
+  "trump tariffs",
+  "tariffs",
+  "gareth soloway",
+  "federal reserve",
+  "interest rate",
+  "recession",
+  "pivot high",
+  "biggest liquidation",
+  "cryptocurrency",
+  "crypto crash",
+  "depression",
+  "bonds",
+  "dotcom bubble",
+  "bubble",
+  "SpaceX",
+  "ai"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Tech Stocks Crash: What's Next?"
+  },
+  {
+   "start": 55,
+   "title": "Market Selloff Or Sector Rotation?"
+  },
+  {
+   "start": 219,
+   "title": "Is It Time To Buy Tech Stocks?"
+  },
+  {
+   "start": 378,
+   "title": "Intel's Historic 30% Crash"
+  },
+  {
+   "start": 560,
+   "title": "Dead Cat Bounce Or Market Recovery?"
+  },
+  {
+   "start": 625,
+   "title": "Oil Prices Threaten Stock Markets"
+  },
+  {
+   "start": 780,
+   "title": "Fed Rate Hike & Recession Risks"
+  },
+  {
+   "start": 877,
+   "title": "Midterm Elections & Market Outlook"
+  },
+  {
+   "start": 1111,
+   "title": "Tech Stocks Gareth Is Buying"
+  },
+  {
+   "start": 1191,
+   "title": "CoreWeave's Debt Problems"
+  },
+  {
+   "start": 1290,
+   "title": "Micron's Next Major Move"
+  },
+  {
+   "start": 1340,
+   "title": "Bitcoin Crash & Price Targets"
+  },
+  {
+   "start": 1569,
+   "title": "Gold's Next Downside Target"
+  },
+  {
+   "start": 1666,
+   "title": "Why Gareth Is Buying Silver"
+  },
+  {
+   "start": 1772,
+   "title": "Treasury Yields & Stock Market Outlook"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 519,
+ "comments_top_level": 373,
+ "comments_replies": 146,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 519,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:50",
+ "approved": "2026-11-06T17:33+09:00"
+}

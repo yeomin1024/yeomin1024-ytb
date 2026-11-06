@@ -1,0 +1,94 @@
+{
+ "id": "l-nCFM7PTVc",
+ "title": "중간 선거 끝나고 나스닥 시나리오 (SOXL 테슬라 엔비디아 알파벳 아마존닷컴",
+ "channel": "킴스 미국주식",
+ "channel_id": "UCQyhwrJjNju5sq5gA45Ppww",
+ "subs": 181000,
+ "views": 36520,
+ "ratio": 0.2,
+ "age_days": 1,
+ "views_per_day": 20006.5,
+ "minutes": 6.0,
+ "likes": 547,
+ "comments": 34,
+ "published": "2026-11-04",
+ "queries": "검색:나스닥 | 검색:장기투자 | 검색:미국ETF",
+ "url": "https://www.youtube.com/watch?v=l-nCFM7PTVc",
+ "flag": "",
+ "published_at": "2026-11-04T11:23:17Z",
+ "rank": "W238",
+ "set": "web",
+ "folder": "W_l-nCFM7PTVc",
+ "sources": [
+  "검색:나스닥",
+  "검색:장기투자",
+  "검색:미국ETF"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "테슬라 주식",
+  "엔비디아 주식",
+  "미국증시",
+  "테슬라",
+  "테슬라 주가",
+  "나스닥",
+  "미국 etf"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "중간선거 결과 및 시장 반응 설명"
+  },
+  {
+   "start": 25,
+   "title": "SOXX   반도체 아이셰어즈 ETF"
+  },
+  {
+   "start": 114,
+   "title": "SOXL   미국 반도체 3배 디렉시온 ETF"
+  },
+  {
+   "start": 148,
+   "title": "NVDA   엔비디아"
+  },
+  {
+   "start": 178,
+   "title": "AMZN   아마존닷컴"
+  },
+  {
+   "start": 209,
+   "title": "TSLA   테슬라"
+  },
+  {
+   "start": 248,
+   "title": "SPCX   스페이스X"
+  },
+  {
+   "start": 275,
+   "title": "GOOGL  알파벳 A"
+  },
+  {
+   "start": 297,
+   "title": "GS     골드만삭스"
+  },
+  {
+   "start": 317,
+   "title": "JPM    제이피모간 체이스"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 34,
+ "comments_top_level": 22,
+ "comments_replies": 12,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 34,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:57",
+ "approved": "2026-11-06T17:19+09:00"
+}

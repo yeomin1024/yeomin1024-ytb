@@ -1,0 +1,136 @@
+{
+ "id": "296kChoo9YU",
+ "title": "These ETFs Will Create Millionaires - Your Turn To Buy",
+ "channel": "Minority Mindset",
+ "channel_id": "UCT3EznhW_CNFcfOlyDNTLLw",
+ "subs": 2540000,
+ "views": 510585,
+ "ratio": 0.2,
+ "age_days": 9,
+ "views_per_day": 51991.4,
+ "minutes": 34.1,
+ "likes": 8980,
+ "comments": 403,
+ "published": "2026-10-27",
+ "queries": "검색:ETF | 검색:etf investing | 검색:index funds | 검색:ETFs | 검색:stocks to buy | 검색:stock market investing | 검색(전체 기간):stocks to buy",
+ "url": "https://www.youtube.com/watch?v=296kChoo9YU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-27T11:30:15Z",
+ "rank": "W117",
+ "set": "web",
+ "folder": "W_296kChoo9YU",
+ "sources": [
+  "검색:ETF",
+  "검색:etf investing",
+  "검색:index funds",
+  "검색:ETFs",
+  "검색:stocks to buy",
+  "검색:stock market investing",
+  "검색(전체 기간):stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "minoritymindset",
+  "minority mindset",
+  "minority123",
+  "jaspreet singh",
+  "rethink rich",
+  "financial education",
+  "financial literacy",
+  "finances",
+  "stock market",
+  "stocks 101",
+  "how to invest",
+  "money management",
+  "investing 101",
+  "building wealth",
+  "how to manage money",
+  "financial advice",
+  "investing",
+  "buying stocks",
+  "housing market",
+  "inflation",
+  "wealth",
+  "passive income",
+  "personal finance",
+  "real estate",
+  "real estate 101",
+  "real estate investing"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Where the Smart Money Is Moving Right Now"
+  },
+  {
+   "start": 138,
+   "title": "Using AI to Research Investment Opportunities"
+  },
+  {
+   "start": 232,
+   "title": "3 Ways to Build & Accelerate Wealth (ABB Strategy)"
+  },
+  {
+   "start": 335,
+   "title": "Shift 1: The 5th Industrial Revolution & AI Ecosystem"
+  },
+  {
+   "start": 790,
+   "title": "Top AI, Semiconductor & Data Center ETFs"
+  },
+  {
+   "start": 863,
+   "title": "Shift 2: The Robotics Boom & Humanoid Automation"
+  },
+  {
+   "start": 1004,
+   "title": "Robotics & Automation ETFs to Research"
+  },
+  {
+   "start": 1068,
+   "title": "Shift 3: Rare Earth Metals & U.S. Supply Chain"
+  },
+  {
+   "start": 1250,
+   "title": "Critical Minerals & Rare Earth ETFs"
+  },
+  {
+   "start": 1297,
+   "title": "Shift 4: The AI Energy Crisis, Oil & Nuclear Power"
+  },
+  {
+   "start": 1407,
+   "title": "Energy, Infrastructure & Nuclear ETFs"
+  },
+  {
+   "start": 1476,
+   "title": "Shift 5: Defense Spending & Geopolitical Tensions"
+  },
+  {
+   "start": 1632,
+   "title": "Aerospace, Defense & Cyber Tech ETFs"
+  },
+  {
+   "start": 1718,
+   "title": "Working with a Financial Advisor"
+  },
+  {
+   "start": 1806,
+   "title": "Summary: Finding the Next Big Market Shifts"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 403,
+ "comments_top_level": 203,
+ "comments_replies": 200,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 403,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:38:11",
+ "approved": "2026-11-06T17:38+09:00"
+}

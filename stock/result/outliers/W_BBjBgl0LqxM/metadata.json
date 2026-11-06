@@ -1,0 +1,77 @@
+{
+ "id": "BBjBgl0LqxM",
+ "title": "\"3평짜리 신혼집\" 직장 다니면서 주식으로 7억 번 28살(부자들의 은밀한 술토크 ㅣ김민우 투자자)",
+ "channel": "장사건물주 강호동",
+ "channel_id": "UCYigs8o_hgHJtfE0KnqVLeA",
+ "subs": 529000,
+ "views": 320493,
+ "ratio": 0.61,
+ "age_days": 11,
+ "views_per_day": 27065.3,
+ "minutes": 21.2,
+ "likes": 2264,
+ "comments": 742,
+ "published": "2026-10-25",
+ "queries": "검색:주식투자 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=BBjBgl0LqxM",
+ "flag": "",
+ "published_at": "2026-10-25T11:00:16Z",
+ "rank": "W163",
+ "set": "web",
+ "folder": "W_BBjBgl0LqxM",
+ "sources": [
+  "검색:주식투자",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "창업오빠",
+  "강호동",
+  "창업",
+  "자영업",
+  "장사의신",
+  "서민갑부",
+  "건물주",
+  "꼬마빌딩",
+  "재테크",
+  "제테크",
+  "장사",
+  "라라브레드",
+  "디저트",
+  "카페",
+  "디저트카페",
+  "브이로그",
+  "대표",
+  "예능",
+  "부동산",
+  "레버리지"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "28살 직장인이 어떻게 7억을 벌었을까"
+  },
+  {
+   "start": 410,
+   "title": "20대를 시드에 바치면 벌어지는 일"
+  },
+  {
+   "start": 712,
+   "title": "폭락은 무조건 온다. 그럼에도 돈을 버는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 742,
+ "comments_top_level": 654,
+ "comments_replies": 88,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 742,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:16:44",
+ "approved": "2026-11-06T17:16+09:00"
+}

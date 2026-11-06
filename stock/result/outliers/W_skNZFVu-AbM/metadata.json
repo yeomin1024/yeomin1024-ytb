@@ -1,0 +1,128 @@
+{
+ "id": "skNZFVu-AbM",
+ "title": "삼성전자 들고 있어도 될까? 코스피 5% 폭락 사이드카, 그래도 '가장 확실한 건 칩'",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 65866,
+ "ratio": 7.64,
+ "age_days": 7,
+ "views_per_day": 9287.9,
+ "minutes": 10.8,
+ "likes": 252,
+ "comments": 57,
+ "published": "2026-10-30",
+ "queries": "검색:코스피",
+ "url": "https://www.youtube.com/watch?v=skNZFVu-AbM",
+ "flag": "",
+ "published_at": "2026-10-30T05:00:04Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_skNZFVu-AbM",
+ "sources": [
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "코스피 폭락",
+  "코스피 하락",
+  "사이드카",
+  "매도 사이드카",
+  "삼성전자",
+  "삼성전자 주가",
+  "SK하이닉스",
+  "하이닉스",
+  "구글",
+  "구글 주가",
+  "알파벳",
+  "아마존",
+  "인텔",
+  "AI 투자",
+  "반도체",
+  "주가",
+  "주식",
+  "외국인 매도",
+  "이광수",
+  "박시동",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 삼성 하이닉스 하한가 맞은 느낌"
+  },
+  {
+   "start": 20,
+   "title": "[경제야놀자 해설] 5% 폭락 · 사이드카"
+  },
+  {
+   "start": 33,
+   "title": "코스피 5% 넘게 하락 · 5620선 · 외국인 매도"
+  },
+  {
+   "start": 62,
+   "title": "장 초반 매도 사이드카 · 삼성전자 주주 울상"
+  },
+  {
+   "start": 91,
+   "title": "구글 하루 12% 급락 · 시가총액 5000억달러"
+  },
+  {
+   "start": 125,
+   "title": "[경제야놀자 해설] 구글 12% 급락"
+  },
+  {
+   "start": 145,
+   "title": "박시동 — 구글 설립 이래 처음 겪는 하락폭"
+  },
+  {
+   "start": 246,
+   "title": "박시동 — 공포가 우리 시장으로 전이"
+  },
+  {
+   "start": 275,
+   "title": "[경제야놀자 해설] 공포가 옮겨 왔다"
+  },
+  {
+   "start": 289,
+   "title": "이광수 — 영업이익 10배 · 기회로 보셨으면"
+  },
+  {
+   "start": 418,
+   "title": "[경제야놀자 해설] 옛날로? 새 시대로?"
+  },
+  {
+   "start": 434,
+   "title": "다음 주가 중요하다 — 중간선거 · 고용 보고서"
+  },
+  {
+   "start": 481,
+   "title": "박시동 — 어지러울수록 가장 확실한 건 칩"
+  },
+  {
+   "start": 566,
+   "title": "이광수 — 10월 30일 코스피 5660을 기억하자"
+  },
+  {
+   "start": 603,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 57,
+ "comments_top_level": 53,
+ "comments_replies": 4,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 57,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:23",
+ "approved": "2026-11-06T17:11+09:00"
+}

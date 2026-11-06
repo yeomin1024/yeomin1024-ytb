@@ -1,0 +1,67 @@
+{
+ "id": "laNuTsq1k4A",
+ "title": "$49,600 in SCHD: The Dividend Check Today, in 10 Years and in 20",
+ "channel": "Tom - Lazy Dividend Investor",
+ "channel_id": "UCUhTFmf6v8Kk2-ofFD2udkg",
+ "subs": 2730,
+ "views": 11892,
+ "ratio": 4.36,
+ "age_days": 13,
+ "views_per_day": 861.7,
+ "minutes": 33.5,
+ "likes": 91,
+ "comments": 9,
+ "published": "2026-10-23",
+ "queries": "검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=laNuTsq1k4A",
+ "flag": "외국 영상",
+ "published_at": "2026-10-23T12:00:09Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_laNuTsq1k4A",
+ "sources": [
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "What 1,430 shares paid in 2026, check by check"
+  },
+  {
+   "start": 336,
+   "title": "Three real growth speeds: 10 years, 5 years, 12 months"
+  },
+  {
+   "start": 697,
+   "title": "Inflation: when a raise is a pay cut"
+  },
+  {
+   "start": 959,
+   "title": "Reinvesting: the lever you control (and its tax cost)"
+  },
+  {
+   "start": 1328,
+   "title": "The 2016 buyer: yield on cost vs the honest yield, and the 2020 crash"
+  },
+  {
+   "start": 1653,
+   "title": "Floor, plan, bonus: turning three paths into a budget"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 9,
+ "comments_top_level": 6,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 9,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:12",
+ "approved": "2026-11-06T17:12+09:00"
+}

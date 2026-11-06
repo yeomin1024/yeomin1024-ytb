@@ -1,0 +1,122 @@
+{
+ "id": "DcBr6zmUWgs",
+ "title": "분배금 3배인데 수익은 더 적다? 천만원 넣으면 매달 얼마일까? (배당 ETF 2편)",
+ "channel": "나다나단Nathan",
+ "channel_id": "UCkbo4jCqC-NH-FSYKbGh_qg",
+ "subs": 224,
+ "views": 14595,
+ "ratio": 65.16,
+ "age_days": 9,
+ "views_per_day": 1470.6,
+ "minutes": 4.8,
+ "likes": 59,
+ "comments": 5,
+ "published": "2026-10-27",
+ "queries": "검색:배당ETF | 검색:월배당ETF | 검색:커버드콜ETF | 검색:월배당",
+ "url": "https://www.youtube.com/watch?v=DcBr6zmUWgs",
+ "flag": "",
+ "published_at": "2026-10-27T09:00:37Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_DcBr6zmUWgs",
+ "sources": [
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:월배당"
+ ],
+ "source": "web",
+ "tags": [
+  "KODEX 미국배당커버드콜액티브",
+  "미국배당커버드콜액티브",
+  "커버드콜 ETF",
+  "커버드콜",
+  "월배당 ETF",
+  "월배당",
+  "배당 ETF",
+  "분배금",
+  "배당금",
+  "미국 배당 ETF",
+  "441640",
+  "ETF 수수료 비교",
+  "ETF 총보수",
+  "미국배당다우존스",
+  "TIGER 미국배당다우존스",
+  "SCHD",
+  "한국판 SCHD",
+  "DIVO",
+  "JEPI",
+  "배당 투자",
+  "분배락",
+  "배당 기준일",
+  "배당소득세",
+  "ISA ETF",
+  "연금저축 ETF",
+  "현금흐름",
+  "천만원 투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "천만원 넣었다면 1년 분배금은?"
+  },
+  {
+   "start": 27,
+   "title": "커버드콜이 뭔가요"
+  },
+  {
+   "start": 53,
+   "title": "실제로 담긴 것 — ETF 두 개 + 우량주"
+  },
+  {
+   "start": 75,
+   "title": "운용사별 수수료 비교"
+  },
+  {
+   "start": 100,
+   "title": "지난 2년 분배 기록"
+  },
+  {
+   "start": 125,
+   "title": "천만원이면 한 달 얼마?"
+  },
+  {
+   "start": 139,
+   "title": "분배금을 매달 다시 샀다면?"
+  },
+  {
+   "start": 176,
+   "title": "1편 미국배당다우존스와 맞대결"
+  },
+  {
+   "start": 202,
+   "title": "11월 분배금, 언제까지 사야 받을까"
+  },
+  {
+   "start": 223,
+   "title": "세금 15.4%와 종합과세"
+  },
+  {
+   "start": 244,
+   "title": "기억할 네 가지"
+  },
+  {
+   "start": 268,
+   "title": "정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 5,
+ "comments_top_level": 3,
+ "comments_replies": 2,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:20",
+ "approved": "2026-11-06T17:10+09:00"
+}

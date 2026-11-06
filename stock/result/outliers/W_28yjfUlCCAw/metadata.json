@@ -1,0 +1,65 @@
+{
+ "id": "28yjfUlCCAw",
+ "title": "Why Everyone Wants You To Believe The Market Is Crashing",
+ "channel": "GEN",
+ "channel_id": "UCF9OHrRasw-r4JcnBo4E2cg",
+ "subs": 819000,
+ "views": 481738,
+ "ratio": 0.59,
+ "age_days": 10,
+ "views_per_day": 46867.1,
+ "minutes": 22.3,
+ "likes": 5996,
+ "comments": 768,
+ "published": "2026-10-27",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=28yjfUlCCAw",
+ "flag": "외국 영상",
+ "published_at": "2026-10-27T00:30:34Z",
+ "rank": "W68",
+ "set": "web",
+ "folder": "W_28yjfUlCCAw",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "gen"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 103,
+   "title": "How America Forgot How To Crash"
+  },
+  {
+   "start": 624,
+   "title": "Are We At the Top?"
+  },
+  {
+   "start": 1020,
+   "title": "Who A Crash Is Actually For"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 769,
+ "comments_top_level": 386,
+ "comments_replies": 383,
+ "comments_by_creator": 24,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 768,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:21",
+ "approved": "2026-11-06T17:35+09:00"
+}

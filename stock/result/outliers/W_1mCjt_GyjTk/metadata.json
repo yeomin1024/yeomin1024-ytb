@@ -1,0 +1,135 @@
+{
+ "id": "1mCjt_GyjTk",
+ "title": "하이닉스 주당 2만원대 특별배당 진짜 주나? 이번 주 실적 발표가 답한다",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 21175,
+ "ratio": 2.46,
+ "age_days": 11,
+ "views_per_day": 1907.3,
+ "minutes": 10.7,
+ "likes": 98,
+ "comments": 15,
+ "published": "2026-10-26",
+ "queries": "검색:배당 | 검색:배당금 | 검색:배당투자 | 검색:dividend income",
+ "url": "https://www.youtube.com/watch?v=1mCjt_GyjTk",
+ "flag": "",
+ "published_at": "2026-10-26T04:45:12Z",
+ "rank": "W83",
+ "set": "web",
+ "folder": "W_1mCjt_GyjTk",
+ "sources": [
+  "검색:배당",
+  "검색:배당금",
+  "검색:배당투자",
+  "검색:dividend income"
+ ],
+ "source": "web",
+ "tags": [
+  "SK하이닉스",
+  "하이닉스",
+  "삼성전자",
+  "특별배당",
+  "하이닉스 특별배당",
+  "주주환원",
+  "배당",
+  "자사주 소각",
+  "키옥시아",
+  "솔리다임",
+  "PER",
+  "반도체 저평가",
+  "실적 발표",
+  "코스피",
+  "주식",
+  "이광수",
+  "박시동",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 키옥시아 매각 이익 특별배당 보도"
+  },
+  {
+   "start": 24,
+   "title": "[경제야놀자 해설] 특별배당 보도"
+  },
+  {
+   "start": 44,
+   "title": "하이닉스에서 볼 것은 주주환원 · 솔리다임 상장 검토 중단"
+  },
+  {
+   "start": 97,
+   "title": "박시동 — 생각보다 좋은 주주환원 대책 나올 수도"
+  },
+  {
+   "start": 117,
+   "title": "자사주 매입 끝난 시장 · 비빌 언덕"
+  },
+  {
+   "start": 137,
+   "title": "[경제야놀자 해설] 주주환원이란"
+  },
+  {
+   "start": 153,
+   "title": "이광수 — 반도체 PER 2.8배 역대 최저 · 원래 싼가, 바겐세일인가"
+  },
+  {
+   "start": 322,
+   "title": "[경제야놀자 해설] PER 2.8배"
+  },
+  {
+   "start": 343,
+   "title": "배당수익률 · 은행 이자보다 2배 이상"
+  },
+  {
+   "start": 363,
+   "title": "PBR 절반 · PER 3 · 상승 여력 계산"
+  },
+  {
+   "start": 403,
+   "title": "이번엔 실적보다 주주환원 얼마나"
+  },
+  {
+   "start": 415,
+   "title": "한국 주식시장이 바뀌는 모습"
+  },
+  {
+   "start": 442,
+   "title": "[경제야놀자 해설] 자사주 소각"
+  },
+  {
+   "start": 459,
+   "title": "SK하이닉스 특별배당 보도 · 회사 공시 \"확정된 사항 없다\""
+  },
+  {
+   "start": 514,
+   "title": "이광수 — 주주환원은 선택이 아니라 의무"
+  },
+  {
+   "start": 573,
+   "title": "법인 돈으로 벌었으면 먼저 주주에게"
+  },
+  {
+   "start": 589,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 12,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:13:15",
+ "approved": "2026-11-06T17:13+09:00"
+}

@@ -1,0 +1,140 @@
+{
+ "id": "LKyU01qWfwA",
+ "title": "Should you Buy, Hold or Sell? A ₹70 Crore Investor Explains! ft. Gajendra Kothari",
+ "channel": "Angel One Podcasts",
+ "channel_id": "UCvXTh2EJXji2TGUVpGOYUgA",
+ "subs": 6160,
+ "views": 43096,
+ "ratio": 7.0,
+ "age_days": 9,
+ "views_per_day": 4439.7,
+ "minutes": 25.9,
+ "likes": 384,
+ "comments": 16,
+ "published": "2026-10-27",
+ "queries": "검색:index funds",
+ "url": "https://www.youtube.com/watch?v=LKyU01qWfwA",
+ "flag": "외국 영상",
+ "published_at": "2026-10-27T14:14:01Z",
+ "rank": "W34",
+ "set": "web",
+ "folder": "W_LKyU01qWfwA",
+ "sources": [
+  "검색:index funds"
+ ],
+ "source": "web",
+ "tags": [
+  "Gajendra Kothari",
+  "Gajendra Kothari CFA",
+  "Etica Wealth",
+  "Gajendra Kothari portfolio",
+  "SIP",
+  "SIP investment",
+  "mutual funds India",
+  "mutual fund investing",
+  "₹1 crore SIP",
+  "wealth creation India",
+  "personal finance India",
+  "Nifty 500",
+  "Nifty 50",
+  "stock market India",
+  "equity investing",
+  "long term investing",
+  "portfolio allocation",
+  "global investing",
+  "sector investing",
+  "compounding",
+  "financial freedom",
+  "contrarian investing",
+  "contra investing",
+  "wealth"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 82,
+   "title": "How To Find Undervalued Sectors"
+  },
+  {
+   "start": 215,
+   "title": "Why Following The Crowd Can Cost You Money"
+  },
+  {
+   "start": 288,
+   "title": "Is Index Investing Becoming Too Popular?"
+  },
+  {
+   "start": 372,
+   "title": "How To Spot The Next Investment Opportunity"
+  },
+  {
+   "start": 505,
+   "title": "Why Data Matters More Than Market Hype"
+  },
+  {
+   "start": 577,
+   "title": "Is The AI Boom A Bubble?"
+  },
+  {
+   "start": 680,
+   "title": "Index Funds Vs Active Investing"
+  },
+  {
+   "start": 776,
+   "title": "Small Cap Vs Mid Cap Vs Large Cap"
+  },
+  {
+   "start": 830,
+   "title": "Flexi Cap Vs Multicap: Which Is Better?"
+  },
+  {
+   "start": 971,
+   "title": "How To Build Your First ₹1 Crore"
+  },
+  {
+   "start": 1032,
+   "title": "Why The First Crore Is The Hardest"
+  },
+  {
+   "start": 1072,
+   "title": "Renting Vs Buying: What Makes More Financial Sense?"
+  },
+  {
+   "start": 1183,
+   "title": "Why Most Investors Can't Beat The Market"
+  },
+  {
+   "start": 1243,
+   "title": "How Many Mutual Funds Do You Really Need?"
+  },
+  {
+   "start": 1338,
+   "title": "How To Decide Where To Invest Your Money"
+  },
+  {
+   "start": 1393,
+   "title": "How He Invested During The COVID Crash"
+  },
+  {
+   "start": 1487,
+   "title": "When Should You Rebalance Your Portfolio?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 16,
+ "comments_top_level": 9,
+ "comments_replies": 7,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 16,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:26",
+ "approved": "2026-11-06T17:11+09:00"
+}

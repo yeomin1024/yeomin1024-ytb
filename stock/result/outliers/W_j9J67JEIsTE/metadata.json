@@ -1,0 +1,187 @@
+{
+ "id": "j9J67JEIsTE",
+ "title": "환율 1300원 폭락의 진짜 이유..?? 11월 정말 큰거 터집니다..!!",
+ "channel": "내일의투자소식",
+ "channel_id": "UCApZ55vq7vJjA1-9kH1QL-A",
+ "subs": 6980,
+ "views": 50792,
+ "ratio": 7.28,
+ "age_days": 9,
+ "views_per_day": 5139.3,
+ "minutes": 17.8,
+ "likes": 731,
+ "comments": 72,
+ "published": "2026-10-27",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=j9J67JEIsTE",
+ "flag": "",
+ "published_at": "2026-10-27T10:00:20Z",
+ "rank": "W33",
+ "set": "web",
+ "folder": "W_j9J67JEIsTE",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "환율",
+  "원달러환율",
+  "환율 전망",
+  "환율 하락",
+  "원화 강세",
+  "환율 1320",
+  "금리",
+  "미국 국채 금리",
+  "채권",
+  "코스피",
+  "코스피 전망",
+  "코스피 5500",
+  "외국인 매도",
+  "삼성전자",
+  "SK하이닉스",
+  "자사주 매입",
+  "삼성전자 배당",
+  "메타",
+  "메타 증자",
+  "AI 버블",
+  "AI 빚",
+  "빅테크",
+  "FOMC",
+  "연준",
+  "미국 중간선거",
+  "경제위기",
+  "외환위기",
+  "외환보유액",
+  "통화스와프",
+  "대미투자",
+  "블랙먼데이",
+  "닷컴버블",
+  "주식",
+  "재테크",
+  "내일의투자소식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "환율 2년 만에 최저, 그런데 큰손은 떠난다"
+  },
+  {
+   "start": 26,
+   "title": "아무도 모르는 비밀, 메타 126조 원"
+  },
+  {
+   "start": 73,
+   "title": "넉 달 만에 200원 빠진 환율"
+  },
+  {
+   "start": 100,
+   "title": "정부가 70조 원을 써도 못 잡던 환율"
+  },
+  {
+   "start": 125,
+   "title": "환율을 누른 건 55조 원"
+  },
+  {
+   "start": 156,
+   "title": "그 55조 원이 이번 달 끝났다"
+  },
+  {
+   "start": 191,
+   "title": "2020년 3월에 이미 본 장면"
+  },
+  {
+   "start": 222,
+   "title": "깜짝 퀴즈"
+  },
+  {
+   "start": 247,
+   "title": "종목 진단기 무료 이용"
+  },
+  {
+   "start": 322,
+   "title": "큰손이 떠나는 진짜 이유, 메타 발표"
+  },
+  {
+   "start": 350,
+   "title": "버는 돈보다 쓰는 돈이 많아졌다"
+  },
+  {
+   "start": 415,
+   "title": "칩을 판 회사가 칩값을 대 준다"
+  },
+  {
+   "start": 437,
+   "title": "빚에 붙는 이자, 5% 턱밑"
+  },
+  {
+   "start": 475,
+   "title": "큰손들은 한국 반도체부터 판다"
+  },
+  {
+   "start": 509,
+   "title": "비싼 원화가 등을 떠민다"
+  },
+  {
+   "start": 544,
+   "title": "이제는 달러가 나갈 차례"
+  },
+  {
+   "start": 649,
+   "title": "2년 전 1,319원은 반년 뒤 1,484원"
+  },
+  {
+   "start": 682,
+   "title": "1997년엔 두 달 만에 두 배"
+  },
+  {
+   "start": 709,
+   "title": "사건이 줄을 서 있다"
+  },
+  {
+   "start": 758,
+   "title": "미국 주식, 닷컴 버블 꼭대기 수준"
+  },
+  {
+   "start": 784,
+   "title": "폭락은 천천히 오지 않는다"
+  },
+  {
+   "start": 837,
+   "title": "한국은 이미 제일 많이 빠졌다"
+  },
+  {
+   "start": 869,
+   "title": "중간선거, 21번 중 21번"
+  },
+  {
+   "start": 900,
+   "title": "바겐세일 중인 한국 시장"
+  },
+  {
+   "start": 940,
+   "title": "위기에서 자산 지키는 법"
+  },
+  {
+   "start": 974,
+   "title": "여러분 잘못이 아닙니다"
+  },
+  {
+   "start": 1003,
+   "title": "내 계좌 전체를 한 번에 진단"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 72,
+ "comments_top_level": 46,
+ "comments_replies": 26,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 72,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:25",
+ "approved": "2026-11-06T17:11+09:00"
+}

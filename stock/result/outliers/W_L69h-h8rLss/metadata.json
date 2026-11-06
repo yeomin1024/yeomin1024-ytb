@@ -1,0 +1,95 @@
+{
+ "id": "L69h-h8rLss",
+ "title": "美 증시, IT버블보다 거품 심해 ...코스피도 5000까지 더 빠질 것",
+ "channel": "투벤저스 주간동아",
+ "channel_id": "UC3tQYfj6ZgP1FTVuru2sU3A",
+ "subs": 31100,
+ "views": 94598,
+ "ratio": 3.04,
+ "age_days": 11,
+ "views_per_day": 8415.2,
+ "minutes": 18.0,
+ "likes": 0,
+ "comments": 194,
+ "published": "2026-10-26",
+ "queries": "검색:미국증시 | 검색:코스피 | 검색:증시",
+ "url": "https://www.youtube.com/watch?v=L69h-h8rLss",
+ "flag": "",
+ "published_at": "2026-10-26T01:24:27Z",
+ "rank": "W74",
+ "set": "web",
+ "folder": "W_L69h-h8rLss",
+ "sources": [
+  "검색:미국증시",
+  "검색:코스피",
+  "검색:증시"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "국내증시",
+  "미국증시",
+  "삼전닉스",
+  "김영익"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 76,
+   "title": "현재 국내 증시 진단"
+  },
+  {
+   "start": 119,
+   "title": "현시점에서 보는 코스피 적정치와 근거"
+  },
+  {
+   "start": 259,
+   "title": "삼전닉스 적정주가"
+  },
+  {
+   "start": 313,
+   "title": "미 증시 과대평가됐다?"
+  },
+  {
+   "start": 566,
+   "title": "향후 3~4년간 코스피 수익률이 더 높다?"
+  },
+  {
+   "start": 626,
+   "title": "미 주식 비중 줄여야할까?"
+  },
+  {
+   "start": 710,
+   "title": "자산 배분 전략"
+  },
+  {
+   "start": 796,
+   "title": "채권 투자, 언제 어떻게 해야하나"
+  },
+  {
+   "start": 916,
+   "title": "내년 상반기까지 투자자가 유념해야할 변수"
+  },
+  {
+   "start": 984,
+   "title": "혼란스러운 개인 투자자들에게"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 194,
+ "comments_top_level": 181,
+ "comments_replies": 13,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 194,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:56",
+ "approved": "2026-11-06T17:12+09:00"
+}

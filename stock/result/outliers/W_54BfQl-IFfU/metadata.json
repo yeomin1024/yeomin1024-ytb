@@ -1,0 +1,133 @@
+{
+ "id": "54BfQl-IFfU",
+ "title": "코스피 3.7% 빠진 날, 중간선거 뒤 내 주식은? '하락 오래가지 않는다'",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 50899,
+ "ratio": 5.9,
+ "age_days": 1,
+ "views_per_day": 26020.8,
+ "minutes": 11.1,
+ "likes": 277,
+ "comments": 18,
+ "published": "2026-11-04",
+ "queries": "검색:코스피",
+ "url": "https://www.youtube.com/watch?v=54BfQl-IFfU",
+ "flag": "",
+ "published_at": "2026-11-04T08:15:11Z",
+ "rank": "W125",
+ "set": "web",
+ "folder": "W_54BfQl-IFfU",
+ "sources": [
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": [
+  "중간선거",
+  "미국 중간선거",
+  "코스피",
+  "코스피 하락",
+  "금리",
+  "미국 국채 금리",
+  "10년물",
+  "블루웨이브",
+  "민주당",
+  "트럼프",
+  "데이터센터",
+  "코어위브",
+  "이스라엘",
+  "러시아 우크라이나",
+  "종전",
+  "주식",
+  "이광수",
+  "박시동",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 금리가 내려가고 있다는 건"
+  },
+  {
+   "start": 21,
+   "title": "[경제야놀자 해설] 선거 뒤 증시, 얼마나 갈까"
+  },
+  {
+   "start": 37,
+   "title": "데이터센터 소음 · 열 · 전기 가격"
+  },
+  {
+   "start": 93,
+   "title": "이광수 — 트럼프가 싫은 거예요"
+  },
+  {
+   "start": 135,
+   "title": "[경제야놀자 해설] 먼저 움직인 금리"
+  },
+  {
+   "start": 153,
+   "title": "블루웨이브 · 10년물 4.891% · 하락 오래 안 간다"
+  },
+  {
+   "start": 224,
+   "title": "[경제야놀자 해설] 금리는 시장의 중력"
+  },
+  {
+   "start": 242,
+   "title": "박시동 — 일시적일 가능성"
+  },
+  {
+   "start": 278,
+   "title": "민주당 블루웨이브의 명과 암"
+  },
+  {
+   "start": 333,
+   "title": "금리 하방 · 코어위브 금리 8% → 14%"
+  },
+  {
+   "start": 410,
+   "title": "[경제야놀자 해설] 민주당 압승의 명과 암"
+  },
+  {
+   "start": 433,
+   "title": "이광수 — 선거로 투자 결정은 맞지 않다"
+  },
+  {
+   "start": 462,
+   "title": "트럼프, 이스라엘 원조 중단"
+  },
+  {
+   "start": 509,
+   "title": "러시아 · 우크라이나 아부다비 회담"
+  },
+  {
+   "start": 543,
+   "title": "이광수 — 전쟁을 끝낼 수도"
+  },
+  {
+   "start": 567,
+   "title": "박시동 — 시장은 긍정적으로 본다"
+  },
+  {
+   "start": 615,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 18,
+ "comments_top_level": 15,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 18,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:51",
+ "approved": "2026-11-06T17:14+09:00"
+}

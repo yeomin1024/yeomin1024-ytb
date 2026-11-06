@@ -1,0 +1,97 @@
+{
+ "id": "MN82nDZ8eXo",
+ "title": "BREAKING: The Fed Just Froze Rates — Here’s What Happens After EVERY Midterm Since 1950!",
+ "channel": "Graham Stephan",
+ "channel_id": "UCV6KDgJskWaEckne5aPA0aQ",
+ "subs": 5180000,
+ "views": 783711,
+ "ratio": 0.15,
+ "age_days": 8,
+ "views_per_day": 91978.3,
+ "minutes": 16.0,
+ "likes": 9703,
+ "comments": 2836,
+ "published": "2026-10-28",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing | 검색(전체 기간):stocks",
+ "url": "https://www.youtube.com/watch?v=MN82nDZ8eXo",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T20:00:23Z",
+ "rank": "W134",
+ "set": "web",
+ "folder": "W_MN82nDZ8eXo",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing",
+  "검색(전체 기간):stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "investing",
+  "investing for beginners",
+  "investing in your 20s",
+  "how to invest",
+  "how to invest in real estate",
+  "how to invest in stocks",
+  "stock market investing",
+  "stock market investing for beginners",
+  "stock options",
+  "robinhood",
+  "robinhood app",
+  "best stock trading app",
+  "how to be a millionaire",
+  "how to be a millionaire in 3 years",
+  "credit score",
+  "credit score explained",
+  "credit card",
+  "credit cards for beginners",
+  "passive income",
+  "how to build wealth",
+  "how to build wealth in your 20s",
+  "real estate 101"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro: The Federal Reserve Meeting"
+  },
+  {
+   "start": 72,
+   "title": "The Bond Market Collapse"
+  },
+  {
+   "start": 220,
+   "title": "The Market Selloff"
+  },
+  {
+   "start": 372,
+   "title": "Buying / Selling / Trading Cryptocurrency"
+  },
+  {
+   "start": 475,
+   "title": "The Midterm Curse"
+  },
+  {
+   "start": 659,
+   "title": "The Federal Reserve Meeting"
+  },
+  {
+   "start": 780,
+   "title": "How To Prepare"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 2836,
+ "comments_top_level": 2651,
+ "comments_replies": 185,
+ "comments_by_creator": 36,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2836,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:03",
+ "approved": "2026-11-06T17:39+09:00"
+}

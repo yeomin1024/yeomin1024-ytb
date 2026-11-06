@@ -1,0 +1,124 @@
+{
+ "id": "_OoiK_Ujxnk",
+ "title": "매달 배당금 10만 원 받으려면 얼마가 필요할까? | 배당주 투자 처음이라면",
+ "channel": "어피티 UPPITY",
+ "channel_id": "UC8d2HkvVNQlRasXm6yXUw0Q",
+ "subs": 223000,
+ "views": 153002,
+ "ratio": 0.69,
+ "age_days": 6,
+ "views_per_day": 22094.7,
+ "minutes": 15.8,
+ "likes": 0,
+ "comments": 76,
+ "published": "2026-10-30",
+ "queries": "검색:월배당ETF | 검색:배당주 | 검색:배당 | 검색:월배당 | 검색:배당금 | 검색:배당투자 | 검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=_OoiK_Ujxnk",
+ "flag": "",
+ "published_at": "2026-10-30T09:00:10Z",
+ "rank": "W158",
+ "set": "web",
+ "folder": "W__OoiK_Ujxnk",
+ "sources": [
+  "검색:월배당ETF",
+  "검색:배당주",
+  "검색:배당",
+  "검색:월배당",
+  "검색:배당금",
+  "검색:배당투자",
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": [
+  "금융",
+  "경제",
+  "뉴스",
+  "돈관리",
+  "재테크",
+  "여성",
+  "주식",
+  "부동산",
+  "월급관리",
+  "지출관리",
+  "아침뉴스",
+  "경제뉴스",
+  "증시",
+  "돈고민",
+  "2030",
+  "MZ",
+  "변동비",
+  "고정비",
+  "가계부",
+  "상식",
+  "경제상식",
+  "직장인",
+  "돈모으기",
+  "경제공부",
+  "투자",
+  "채권",
+  "연금",
+  "보험",
+  "펀드",
+  "ETF"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "👀 하이라이트"
+  },
+  {
+   "start": 17,
+   "title": "💰 배당이 뭐예요?"
+  },
+  {
+   "start": 124,
+   "title": "📚 꼭 알아야 할 배당 용어 3가지"
+  },
+  {
+   "start": 228,
+   "title": "📈 고배당주와 배당성장주의 차이"
+  },
+  {
+   "start": 351,
+   "title": "📖 it's 광고타임~ 『월배당으로 은퇴하라』"
+  },
+  {
+   "start": 428,
+   "title": "📅 배당, 언제 받을 수 있어요?"
+  },
+  {
+   "start": 556,
+   "title": "🗓️ 매달 배당받는 두 가지 방법"
+  },
+  {
+   "start": 641,
+   "title": "🧮 월 10만 원 배당, 투자금은 얼마나 필요할까?"
+  },
+  {
+   "start": 719,
+   "title": "🧾 배당소득세와 ISA 계좌 활용해서 절세하는 방법"
+  },
+  {
+   "start": 835,
+   "title": "✅ 배당주 투자 체크리스트"
+  },
+  {
+   "start": 910,
+   "title": "🎁 도서 증정 이벤트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 76,
+ "comments_top_level": 60,
+ "comments_replies": 16,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 76,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:16:27",
+ "approved": "2026-11-06T17:16+09:00"
+}

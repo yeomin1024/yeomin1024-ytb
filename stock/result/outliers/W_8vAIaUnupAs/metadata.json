@@ -1,0 +1,114 @@
+{
+ "id": "8vAIaUnupAs",
+ "title": "【11月3日】アメリカ中間選挙3つのシナリオ｜株価と円高・円安はどうなる？オルカン・S&P500一本の人の注意点【きになるマネーセンス1246】",
+ "channel": "マネーセンスカレッジ",
+ "channel_id": "UCdylwhb6wj5uIo5H1pfyP7A",
+ "subs": 257000,
+ "views": 129096,
+ "ratio": 0.5,
+ "age_days": 5,
+ "views_per_day": 21943.1,
+ "minutes": 40.9,
+ "likes": 536,
+ "comments": 18,
+ "published": "2026-10-31",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=8vAIaUnupAs",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T10:00:03Z",
+ "rank": "W73",
+ "set": "web",
+ "folder": "W_8vAIaUnupAs",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "マネーセンスカレッジ",
+  "全世界投資"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "スタート"
+  },
+  {
+   "start": 74,
+   "title": "中間選挙とは"
+  },
+  {
+   "start": 269,
+   "title": "連邦議会・大統領・州の役割"
+  },
+  {
+   "start": 447,
+   "title": "上院：州ごとの情勢"
+  },
+  {
+   "start": 709,
+   "title": "下院の情勢集計"
+  },
+  {
+   "start": 771,
+   "title": "3つの結果と1つのリスク"
+  },
+  {
+   "start": 990,
+   "title": "ケースごとの市場の動き"
+  },
+  {
+   "start": 1498,
+   "title": "カリフォルニア州の住民投票"
+  },
+  {
+   "start": 1586,
+   "title": "可否の見通し"
+  },
+  {
+   "start": 1637,
+   "title": "富裕税案から市場へ伝わる3つの経路"
+  },
+  {
+   "start": 1686,
+   "title": "全世界投資の考え方"
+  },
+  {
+   "start": 1830,
+   "title": "オルカン1本・S&P500 1本をどう点検するか"
+  },
+  {
+   "start": 1971,
+   "title": "円預金・個人向け国債だけなら"
+  },
+  {
+   "start": 2043,
+   "title": "半導体・テーマ投資に集中しているなら"
+  },
+  {
+   "start": 2072,
+   "title": "選挙前に整えておく3つのこと"
+  },
+  {
+   "start": 2122,
+   "title": "まとめ"
+  },
+  {
+   "start": 2223,
+   "title": "おまけ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 18,
+ "comments_top_level": 16,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 18,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:44",
+ "approved": "2026-11-06T17:35+09:00"
+}

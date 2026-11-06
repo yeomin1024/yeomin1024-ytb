@@ -1,0 +1,96 @@
+{
+ "id": "wlDrJrV5H-8",
+ "title": "What Happens to Your Money if Fidelity or Vanguard Collapse?",
+ "channel": "Brutally Honest Finance",
+ "channel_id": "UCduMng0t-oYGc9hLuvnjz5g",
+ "subs": 6220,
+ "views": 342274,
+ "ratio": 55.03,
+ "age_days": 9,
+ "views_per_day": 35840.3,
+ "minutes": 6.0,
+ "likes": 3118,
+ "comments": 333,
+ "published": "2026-10-27",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=wlDrJrV5H-8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-27T18:00:05Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_wlDrJrV5H-8",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "investing",
+  "personal finance",
+  "etf investing",
+  "fidelity investments",
+  "fidelity brokerage account",
+  "fidelity",
+  "fidelity index funds",
+  "vanguard investments",
+  "vanguard etf",
+  "is fidelity safe",
+  "is vanguard safe",
+  "Fidelity collapse",
+  "brokerage bankruptcy",
+  "ETF ownership",
+  "asset custody",
+  "investment protection"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "What if Fidelity goes bankrupt?"
+  },
+  {
+   "start": 36,
+   "title": "Lehman Brothers: what happened to customer assets?"
+  },
+  {
+   "start": 77,
+   "title": "Difference between a bank and a brokerage"
+  },
+  {
+   "start": 91,
+   "title": "Who wholds your shares?"
+  },
+  {
+   "start": 148,
+   "title": "Bernie Madoff fraud and SIPC's actions."
+  },
+  {
+   "start": 199,
+   "title": "What if Vanguard fails?"
+  },
+  {
+   "start": 215,
+   "title": "Who actually owns and holds your ETF shares?"
+  },
+  {
+   "start": 297,
+   "title": "How the asset ownership and custody chain fits together"
+  },
+  {
+   "start": 329,
+   "title": "Why keep your own Fidelity transaction records?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 333,
+ "comments_top_level": 143,
+ "comments_replies": 190,
+ "comments_by_creator": 107,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 333,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:30",
+ "approved": "2026-11-06T17:10+09:00"
+}

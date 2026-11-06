@@ -1,0 +1,102 @@
+{
+ "id": "zvYLy3WrK2c",
+ "title": "The Stock Market Is Already Pricing In A Democratic Sweep",
+ "channel": "Prof G Markets",
+ "channel_id": "UCp4CBeq4nzeg9smAvdjPrig",
+ "subs": 138000,
+ "views": 244551,
+ "ratio": 1.77,
+ "age_days": 3,
+ "views_per_day": 63451.1,
+ "minutes": 77.7,
+ "likes": 2914,
+ "comments": 714,
+ "published": "2026-11-02",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=zvYLy3WrK2c",
+ "flag": "외국 영상",
+ "published_at": "2026-11-02T12:00:04Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_zvYLy3WrK2c",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "business news",
+  "stock market",
+  "financial news",
+  "financial news channel",
+  "financial news today",
+  "stock market news today",
+  "stock market today",
+  "stock market news"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Preview"
+  },
+  {
+   "start": 40,
+   "title": "Today's number"
+  },
+  {
+   "start": 65,
+   "title": "Today's episode"
+  },
+  {
+   "start": 349,
+   "title": "HOW ARE PEOPLE FEELING ABOUT THE ECONOMY?"
+  },
+  {
+   "start": 1521,
+   "title": "Ad break"
+  },
+  {
+   "start": 1667,
+   "title": "BIG TECH EARNINGS"
+  },
+  {
+   "start": 3418,
+   "title": "Ad break"
+  },
+  {
+   "start": 3583,
+   "title": "INSTAGRAM FEATURES"
+  },
+  {
+   "start": 4538,
+   "title": "Week ahead"
+  },
+  {
+   "start": 4551,
+   "title": "Scott's prediction 1"
+  },
+  {
+   "start": 4613,
+   "title": "Ed's prediction"
+  },
+  {
+   "start": 4641,
+   "title": "Credits"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 714,
+ "comments_top_level": 459,
+ "comments_replies": 255,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 714,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:59",
+ "approved": "2026-11-06T17:32+09:00"
+}

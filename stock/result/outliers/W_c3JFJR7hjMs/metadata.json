@@ -1,0 +1,112 @@
+{
+ "id": "c3JFJR7hjMs",
+ "title": "CONFIRMED: Best High Dividend ETF ($100,000 in SPYI vs QQQI vs SCHD)",
+ "channel": "Tom - Lazy Dividend Investor",
+ "channel_id": "UCUhTFmf6v8Kk2-ofFD2udkg",
+ "subs": 2730,
+ "views": 10293,
+ "ratio": 3.77,
+ "age_days": 7,
+ "views_per_day": 1410.0,
+ "minutes": 35.8,
+ "likes": 127,
+ "comments": 28,
+ "published": "2026-10-30",
+ "queries": "검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=c3JFJR7hjMs",
+ "flag": "외국 영상",
+ "published_at": "2026-10-30T00:00:21Z",
+ "rank": "W62",
+ "set": "web",
+ "folder": "W_c3JFJR7hjMs",
+ "sources": [
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "$100,000 in each fund: the cash race"
+  },
+  {
+   "start": 64,
+   "title": "What a fresh $100,000 pays today"
+  },
+  {
+   "start": 175,
+   "title": "Monthly checks, April 2025 and what the yields measure"
+  },
+  {
+   "start": 407,
+   "title": "Inside the option funds: premium and the upside you sell"
+  },
+  {
+   "start": 517,
+   "title": "Everything reinvested, and the controls (QQQ, SPY)"
+  },
+  {
+   "start": 631,
+   "title": "Fees, and why the time window matters"
+  },
+  {
+   "start": 795,
+   "title": "Return of capital: the tax bill mailed later"
+  },
+  {
+   "start": 903,
+   "title": "Qualified dividends and the 0% bracket"
+  },
+  {
+   "start": 963,
+   "title": "Which dollar pays which bill"
+  },
+  {
+   "start": 1114,
+   "title": "The crash test: February to April 2025"
+  },
+  {
+   "start": 1270,
+   "title": "Stress test: a 20% lower price"
+  },
+  {
+   "start": 1418,
+   "title": "Does the check grow? 2015 to 2026"
+  },
+  {
+   "start": 1525,
+   "title": "The catch-up race and the cash you wait for"
+  },
+  {
+   "start": 1633,
+   "title": "Inflation and the flat check"
+  },
+  {
+   "start": 1739,
+   "title": "Capital needed for $1,000 a month"
+  },
+  {
+   "start": 1853,
+   "title": "Giving each dollar a job"
+  },
+  {
+   "start": 1952,
+   "title": "The full scorecard and the verdict"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 28,
+ "comments_top_level": 8,
+ "comments_replies": 20,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:28",
+ "approved": "2026-11-06T17:12+09:00"
+}

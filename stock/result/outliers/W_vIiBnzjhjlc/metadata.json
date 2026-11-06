@@ -1,0 +1,160 @@
+{
+ "id": "vIiBnzjhjlc",
+ "title": "Stock Market Crash! AI Bubble Has Burst As Investors Panic, Buy Signals Emerge",
+ "channel": "Gareth Soloway",
+ "channel_id": "UCwTu6kD2igaLMpxswtcdxlg",
+ "subs": 303000,
+ "views": 121607,
+ "ratio": 0.4,
+ "age_days": 0,
+ "views_per_day": 121607.0,
+ "minutes": 13.7,
+ "likes": 5232,
+ "comments": 371,
+ "published": "2026-11-05",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=vIiBnzjhjlc",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T23:00:08Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_vIiBnzjhjlc",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market crash",
+  "AI bubble",
+  "AI bubble burst",
+  "stock market today",
+  "Nasdaq crash",
+  "S&P 500",
+  "S&P 500 crash",
+  "NVIDIA stock",
+  "NVDA",
+  "SanDisk stock",
+  "AMD stock",
+  "Micron stock",
+  "Seagate stock",
+  "Marvell stock",
+  "Western Digital stock",
+  "Applied Materials",
+  "Broadcom stock",
+  "chip stocks",
+  "semiconductor stocks",
+  "AI stocks",
+  "data center stocks",
+  "VIX",
+  "market crash",
+  "stock market crash 2026",
+  "stock market news",
+  "buy the dip",
+  "Gareth Soloway",
+  "technical analysis",
+  "Bitcoin",
+  "gold price",
+  "jobs report"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Stock Market Crash: S&P 500 Down 4%, Nasdaq Down 6% as the AI Bubble Collapses"
+  },
+  {
+   "start": 52,
+   "title": "A Day for the Ages: SanDisk Down 66%, $2.3 Trillion Wiped Out"
+  },
+  {
+   "start": 96,
+   "title": "The S&P 500's 4.36% Drop in Historical Context"
+  },
+  {
+   "start": 138,
+   "title": "Blood in the Streets: Why Retail Panic Selling Is a Buy Signal"
+  },
+  {
+   "start": 185,
+   "title": "Could Stocks Gap Lower Again? The S&P 8,000 Target at Risk"
+  },
+  {
+   "start": 214,
+   "title": "Gareth's Top Squad"
+  },
+  {
+   "start": 227,
+   "title": "S&P 500 Breaks Key Support: Confirmation and the 7,000 Target"
+  },
+  {
+   "start": 275,
+   "title": "AI Panic After the Midterms: The Pendulum From Greed to Fear"
+  },
+  {
+   "start": 322,
+   "title": "Seagate (STX) Crash: Support Zone and Gap Fill"
+  },
+  {
+   "start": 409,
+   "title": "RSI Below 25: A Final Flush in AI Stocks?"
+  },
+  {
+   "start": 436,
+   "title": "How Market Bottoms Form: Retail Throws in the Towel"
+  },
+  {
+   "start": 481,
+   "title": "Nasdaq Down 6.5%: The Trend Line That Decides Friday"
+  },
+  {
+   "start": 534,
+   "title": "Jobs Report and Tomorrow's Game Plan"
+  },
+  {
+   "start": 549,
+   "title": "SanDisk, Marvell (MRVL) and Western Digital (WDC) Support Levels"
+  },
+  {
+   "start": 595,
+   "title": "Applied Materials (AMAT) Down 57%, AMD in Free Fall"
+  },
+  {
+   "start": 637,
+   "title": "Broadcom (AVGO) and NVIDIA (NVDA) Support Levels"
+  },
+  {
+   "start": 704,
+   "title": "The AI Bubble Has Burst: Where Gareth Is Buying"
+  },
+  {
+   "start": 733,
+   "title": "Gold, Silver, Oil and Natural Gas"
+  },
+  {
+   "start": 758,
+   "title": "Bitcoin Back on $75,500 Support"
+  },
+  {
+   "start": 773,
+   "title": "VIX Spikes 70%: Fear Leaps In"
+  },
+  {
+   "start": 795,
+   "title": "Final Thoughts"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 390,
+ "comments_top_level": 271,
+ "comments_replies": 119,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 371,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:55",
+ "approved": "2026-11-06T17:35+09:00"
+}

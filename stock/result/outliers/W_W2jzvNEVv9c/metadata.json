@@ -1,0 +1,88 @@
+{
+ "id": "W2jzvNEVv9c",
+ "title": "Can I Replace My Salary With Dividends? I Ask Someone Who Did",
+ "channel": "Get Started Investing",
+ "channel_id": "UCENnvB5MjP6ggtALzmy1BEw",
+ "subs": 10800,
+ "views": 34728,
+ "ratio": 3.22,
+ "age_days": 10,
+ "views_per_day": 3304.9,
+ "minutes": 34.8,
+ "likes": 207,
+ "comments": 29,
+ "published": "2026-10-26",
+ "queries": "검색:dividend investing | 검색:dividend stocks | 검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=W2jzvNEVv9c",
+ "flag": "외국 영상",
+ "published_at": "2026-10-26T19:00:18Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_W2jzvNEVv9c",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend stocks",
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "equitymates@gmail.com"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction to Dividends"
+  },
+  {
+   "start": 187,
+   "title": "Income vs Growth"
+  },
+  {
+   "start": 421,
+   "title": "How Dividends Work"
+  },
+  {
+   "start": 634,
+   "title": "ETF Distributions and Reinvesting"
+  },
+  {
+   "start": 810,
+   "title": "Balancing Income and Growth"
+  },
+  {
+   "start": 1001,
+   "title": "Planning Your Retirement Income"
+  },
+  {
+   "start": 1148,
+   "title": "Dividend Yields and Risks"
+  },
+  {
+   "start": 1420,
+   "title": "Managing Dividend Cuts"
+  },
+  {
+   "start": 1711,
+   "title": "Choosing Dividend Investments"
+  },
+  {
+   "start": 1959,
+   "title": "Dividends vs Savings Accounts"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-AU",
+ "foreign": true,
+ "comments_fetched": 29,
+ "comments_top_level": 12,
+ "comments_replies": 17,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:43",
+ "approved": "2026-11-06T17:12+09:00"
+}

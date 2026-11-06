@@ -1,0 +1,77 @@
+{
+ "id": "ZTm1-0Ht3TE",
+ "title": "민주당 압승에 미국은 웃고, 한국만 울었다 | 반도체 끝났나?",
+ "channel": "여운봉 부자사관학교",
+ "channel_id": "UCH9dsV-DAyvtVG4fF7ScgbQ",
+ "subs": 179000,
+ "views": 64699,
+ "ratio": 0.36,
+ "age_days": 0,
+ "views_per_day": 64699.0,
+ "minutes": 11.6,
+ "likes": 1420,
+ "comments": 113,
+ "published": "2026-11-05",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=ZTm1-0Ht3TE",
+ "flag": "",
+ "published_at": "2026-11-05T16:52:42Z",
+ "rank": "W201",
+ "set": "web",
+ "folder": "W_ZTm1-0Ht3TE",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "미국중간선거",
+  "삼성전자",
+  "SK하이닉스",
+  "반도체주",
+  "데이터센터"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "미 증시 폭등 vs 한국 증시 폭락! 반도체 주식 진짜 끝난 걸까?"
+  },
+  {
+   "start": 109,
+   "title": "애플은 웃고 엔비디아는 울었다? 희비 엇갈린 미국 주식의 비밀"
+  },
+  {
+   "start": 204,
+   "title": "AI 투자가 느려진다? 발목 잡힌 '데이터센터'와 전기 요금 문제"
+  },
+  {
+   "start": 324,
+   "title": "유독 우리 코스피만 크게 흔들린 이유 (삼성전자·SK하이닉스 집중 구조)"
+  },
+  {
+   "start": 397,
+   "title": "지금 당장 손절하면 안 되는 이유! (안심해도 되는 3가지 팩트)"
+  },
+  {
+   "start": 542,
+   "title": "내 소중한 자산 지키기! 앞으로 꼭 확인해야 할 3가지 핵심 일정"
+  },
+  {
+   "start": 585,
+   "title": "하락장 속 뇌동매매는 금물! 흔들리지 않는 계좌 관리 비법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 116,
+ "comments_top_level": 57,
+ "comments_replies": 59,
+ "comments_by_creator": 49,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 113,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:18:25",
+ "approved": "2026-11-06T17:18+09:00"
+}

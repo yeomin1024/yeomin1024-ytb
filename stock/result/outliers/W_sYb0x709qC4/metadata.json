@@ -1,0 +1,112 @@
+{
+ "id": "sYb0x709qC4",
+ "title": "BOLSA TRAVA NO PRIMEIRO DIA DO LULA | Cariani perdeu dinheiro?",
+ "channel": "O Primo Rico",
+ "channel_id": "UCT4nDeU5pv1XIGySbSK-GgA",
+ "subs": 7850000,
+ "views": 644959,
+ "ratio": 0.08,
+ "age_days": 10,
+ "views_per_day": 61735.5,
+ "minutes": 67.9,
+ "likes": 12468,
+ "comments": 486,
+ "published": "2026-10-26",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=sYb0x709qC4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-26T21:46:12Z",
+ "rank": "W158",
+ "set": "web",
+ "folder": "W_sYb0x709qC4",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "o primo rico",
+  "primo rico",
+  "thiago nigro",
+  "primo cast",
+  "canal de finanças",
+  "primo",
+  "rico",
+  "eleições",
+  "renato cariani",
+  "cariani",
+  "eleições 2026",
+  "lula",
+  "bolsa de valores",
+  "ibovespa",
+  "ficar rico",
+  "como investir dinheiro",
+  "finanças",
+  "finanças pessoais",
+  "b3",
+  "flavio bolsonaro",
+  "portfel",
+  "finclass",
+  "bitcoin",
+  "etf",
+  "como ficar rico",
+  "economia",
+  "liberdade financeira",
+  "como começar a investir",
+  "cdi",
+  "financas",
+  "finanças para mulheres",
+  "ações hoje",
+  "dolar",
+  "financas pessoais",
+  "bolsonaro",
+  "como ganhar dinheiro",
+  "flávio bolsonaro",
+  "etfs"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Preparando o terreno para um dia histórico"
+  },
+  {
+   "start": 74,
+   "title": "A verdade sobre a queda do mercado"
+  },
+  {
+   "start": 130,
+   "title": "Crescimento acelerado: de 14 para 35 bilhões"
+  },
+  {
+   "start": 225,
+   "title": "Oportunidade ou crise? Uma visão disciplinada"
+  },
+  {
+   "start": 342,
+   "title": "Entendendo o funcionamento do Circuit Breaker"
+  },
+  {
+   "start": 1017,
+   "title": "Desafios econômicos e a necessidade de reformas"
+  },
+  {
+   "start": 3764,
+   "title": "Uma história de superação e esperança"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "pt-BR",
+ "foreign": true,
+ "comments_fetched": 486,
+ "comments_top_level": 294,
+ "comments_replies": 192,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 486,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:20",
+ "approved": "2026-11-06T17:40+09:00"
+}

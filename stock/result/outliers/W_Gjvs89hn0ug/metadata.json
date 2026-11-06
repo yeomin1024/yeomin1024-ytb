@@ -1,0 +1,79 @@
+{
+ "id": "Gjvs89hn0ug",
+ "title": "나스닥 급락에 떨고 있는 코스피",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3740000,
+ "views": 973367,
+ "ratio": 0.26,
+ "age_days": 3,
+ "views_per_day": 249261.3,
+ "minutes": 34.0,
+ "likes": 4103,
+ "comments": 286,
+ "published": "2026-11-02",
+ "queries": "검색:나스닥 | 검색:코스피",
+ "url": "https://www.youtube.com/watch?v=Gjvs89hn0ug",
+ "flag": "",
+ "published_at": "2026-11-02T09:28:40Z",
+ "rank": "W326",
+ "set": "web",
+ "folder": "W_Gjvs89hn0ug",
+ "sources": [
+  "검색:나스닥",
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "SK하이닉스, 삼성전자 실적 발표"
+  },
+  {
+   "start": 501,
+   "title": "구글, 아마존, MS,  인텔 실적 발표"
+  },
+  {
+   "start": 1383,
+   "title": "투자를 하고 싶은데, 돈이 없으면 어떻게 될까?"
+  },
+  {
+   "start": 1562,
+   "title": "앤트로픽 IPO 신청"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 286,
+ "comments_top_level": 189,
+ "comments_replies": 97,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 286,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:24:44",
+ "approved": "2026-11-06T17:24+09:00"
+}

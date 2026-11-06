@@ -1,0 +1,121 @@
+{
+ "id": "71fslodqfAY",
+ "title": "삼성전자 주가 1월까지 버텨야 하나? 목표주가 35만원 하향, 외신 '자멸적' 경고",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 70273,
+ "ratio": 8.15,
+ "age_days": 7,
+ "views_per_day": 9968.3,
+ "minutes": 10.6,
+ "likes": 447,
+ "comments": 94,
+ "published": "2026-10-30",
+ "queries": "검색:주가",
+ "url": "https://www.youtube.com/watch?v=71fslodqfAY",
+ "flag": "",
+ "published_at": "2026-10-30T06:00:30Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_71fslodqfAY",
+ "sources": [
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "삼성전자 주가",
+  "삼성전자 목표주가",
+  "목표주가",
+  "삼성전자 주주환원",
+  "주주환원",
+  "로이터",
+  "외신",
+  "증권사 리포트",
+  "IBK",
+  "자사주",
+  "자사주 매입",
+  "SK하이닉스",
+  "반도체",
+  "코스피",
+  "주식",
+  "이광수",
+  "박시동",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 로이터 \"자멸적이야\""
+  },
+  {
+   "start": 19,
+   "title": "[경제야놀자 해설] 오히려 독"
+  },
+  {
+   "start": 38,
+   "title": "로이터 — 보수적인 주주환원, 오히려 독"
+  },
+  {
+   "start": 131,
+   "title": "IBK 리포트 — 목표주가 35만원으로 하향"
+  },
+  {
+   "start": 251,
+   "title": "[경제야놀자 해설] 35만원 하향"
+  },
+  {
+   "start": 266,
+   "title": "이광수 — 괴리율을 줄이라는 요구가 없다"
+  },
+  {
+   "start": 328,
+   "title": "[경제야놀자 해설] 기다리라고?"
+  },
+  {
+   "start": 342,
+   "title": "박시동 — 삼성은 늘 그랬다, 1월 이사회"
+  },
+  {
+   "start": 376,
+   "title": "박시동 — 못 기다려, 하이닉스는 바로 매입"
+  },
+  {
+   "start": 413,
+   "title": "그렇다고 삼성이 잡주가 된 건 아니다"
+  },
+  {
+   "start": 503,
+   "title": "[경제야놀자 해설] 못 따라간 속도"
+  },
+  {
+   "start": 519,
+   "title": "이광수 — 주주환원 전 세계 최저 수준"
+  },
+  {
+   "start": 585,
+   "title": "삼성전자가 해 주면 더 빨라진다"
+  },
+  {
+   "start": 596,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 94,
+ "comments_top_level": 91,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 94,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:14",
+ "approved": "2026-11-06T17:11+09:00"
+}

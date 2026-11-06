@@ -1,0 +1,113 @@
+{
+ "id": "85k-Ifmm0UY",
+ "title": "Questo portafoglio con 4 ETF resiste a ogni CRISI | justETF Italia",
+ "channel": "justETF Italia",
+ "channel_id": "UCsS30zeHypsxi6RBba_tNtw",
+ "subs": 41800,
+ "views": 40001,
+ "ratio": 0.96,
+ "age_days": 8,
+ "views_per_day": 4656.1,
+ "minutes": 15.5,
+ "likes": 866,
+ "comments": 47,
+ "published": "2026-10-28",
+ "queries": "검색:ETF",
+ "url": "https://www.youtube.com/watch?v=85k-Ifmm0UY",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T17:00:37Z",
+ "rank": "W118",
+ "set": "web",
+ "folder": "W_85k-Ifmm0UY",
+ "sources": [
+  "검색:ETF"
+ ],
+ "source": "web",
+ "tags": [
+  "ETF",
+  "Indice",
+  "Fondo",
+  "investire in borsa",
+  "s&p 500",
+  "ETC",
+  "Obbligazioni",
+  "Investire",
+  "Soldi",
+  "Bitcoin",
+  "Borsa",
+  "dividendi",
+  "bond",
+  "Finanza personale",
+  "Investire in borsa",
+  "Oro",
+  "s&p 500 etf",
+  "TER",
+  "covered call etf",
+  "finanza in chiaro",
+  "investire in etf",
+  "obbligazioni",
+  "etc",
+  "msci world etf",
+  "vwce",
+  "msci world",
+  "piano di accumulo",
+  "vwce etf",
+  "scalable capital",
+  "trade republic",
+  "revolut",
+  "btp valore",
+  "finanza"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 91,
+   "title": "Cos’è il Permanent Portfolio"
+  },
+  {
+   "start": 171,
+   "title": "La versione europea"
+  },
+  {
+   "start": 265,
+   "title": "Come si è comportato nel tempo"
+  },
+  {
+   "start": 378,
+   "title": "Cosa succede nel lungo periodo"
+  },
+  {
+   "start": 482,
+   "title": "Come si comporta durante le crisi"
+  },
+  {
+   "start": 615,
+   "title": "L’importanza del ribilanciamento"
+  },
+  {
+   "start": 742,
+   "title": "Il PAC con il Permanent Portfolio"
+  },
+  {
+   "start": 795,
+   "title": "A chi serve questo portafoglio?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "it",
+ "foreign": true,
+ "comments_fetched": 47,
+ "comments_top_level": 21,
+ "comments_replies": 26,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 47,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:35",
+ "approved": "2026-11-06T17:14+09:00"
+}

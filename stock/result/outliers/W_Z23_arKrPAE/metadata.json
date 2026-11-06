@@ -1,0 +1,104 @@
+{
+ "id": "Z23_arKrPAE",
+ "title": "2027 No Money Year? Stock Market Crash Job Loss Aur World War Ka Khatra",
+ "channel": "Digital Jockey",
+ "channel_id": "UCrb2remRglyZiKOsvtXya0w",
+ "subs": 511000,
+ "views": 357288,
+ "ratio": 0.7,
+ "age_days": 13,
+ "views_per_day": 25985.3,
+ "minutes": 44.1,
+ "likes": 0,
+ "comments": 148,
+ "published": "2026-10-23",
+ "queries": "검색:stock market | 검색:stocks | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=Z23_arKrPAE",
+ "flag": "외국 영상",
+ "published_at": "2026-10-23T14:30:36Z",
+ "rank": "W57",
+ "set": "web",
+ "folder": "W_Z23_arKrPAE",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "2027 predictions",
+  "yogi adityanath",
+  "stock market crash",
+  "world war",
+  "2027",
+  "psychic predictions 2027",
+  "2027 world predictions",
+  "nostradamus predictions 2027",
+  "2027 astrology",
+  "narendra modi",
+  "bjp",
+  "india pakistan war",
+  "sade sati",
+  "rahu ketu transit",
+  "pok",
+  "iran war",
+  "hindu rashtra",
+  "yogi pm"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "2027 Se 2030 Tak Vikat Paristhiti Kyun? Vishv Yuddh Hoga Kya?"
+  },
+  {
+   "start": 399,
+   "title": "Europe America Crash Honge? Bharat Ka Golden Age Kab Ayega?"
+  },
+  {
+   "start": 671,
+   "title": "Mandi Me Naukri Aur Bazaar Ka Kya Hoga? 3 Saal Ka Fund Kyun?"
+  },
+  {
+   "start": 1030,
+   "title": "Lakshmi Kheer Upay Kaam Karta Hai? Kutte Ko Roti Kyun Khilaye?"
+  },
+  {
+   "start": 1350,
+   "title": "UP 2027 Me Yogi Vapsi Pakki? Akhilesh Maya Ka Kya Hoga?"
+  },
+  {
+   "start": 1590,
+   "title": "Modi President Banenge? Yogi PM 2029 Ka Yog Kya Hai?"
+  },
+  {
+   "start": 1830,
+   "title": "PoK Vapas Ayega? Pakistan Ke Kitne Tukde Honge?"
+  },
+  {
+   "start": 2310,
+   "title": "Kumbh Mesh Vrishabh Ka 2027 Kaisa? Sade Sati Se Kaise Bache?"
+  },
+  {
+   "start": 2550,
+   "title": "Punjab Me Hung Assembly? Bengal Me Shuvendu CM Banenge?"
+  },
+  {
+   "start": 3030,
+   "title": "Sehat Aur Shaadi Ka Upay Kya Hai? Tamba Sikha Nimbu Snan Kyun?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "hi",
+ "foreign": true,
+ "comments_fetched": 148,
+ "comments_top_level": 133,
+ "comments_replies": 15,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 148,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:34:19",
+ "approved": "2026-11-06T17:34+09:00"
+}

@@ -1,0 +1,108 @@
+{
+ "id": "v-t87qF24SE",
+ "title": "이 주식은 최소 5년 갑니다 삼전닉스 꺾여도 갑니다 / 분기 박세익 (2부)",
+ "channel": "와이스트릿 - 지식과 자산의 복리효과",
+ "channel_id": "UCupslRq5jW95UGzPjOZz0FA",
+ "subs": 1010000,
+ "views": 218619,
+ "ratio": 0.22,
+ "age_days": 8,
+ "views_per_day": 27158.8,
+ "minutes": 38.0,
+ "likes": 1858,
+ "comments": 66,
+ "published": "2026-10-29",
+ "queries": "검색:주식투자 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=v-t87qF24SE",
+ "flag": "",
+ "published_at": "2026-10-29T06:00:31Z",
+ "rank": "W228",
+ "set": "web",
+ "folder": "W_v-t87qF24SE",
+ "sources": [
+  "검색:주식투자",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "부자",
+  "주식",
+  "부동산",
+  "재테크",
+  "지식",
+  "투자",
+  "와이스트릿",
+  "이대호",
+  "부자되는법",
+  "야식잡썰",
+  "증시",
+  "코스피",
+  "코스닥",
+  "주가",
+  "복리효과",
+  "잡설",
+  "자산",
+  "나스닥",
+  "미장",
+  "etf",
+  "레버리지",
+  "s&p500",
+  "삼성전자",
+  "엔비디아",
+  "SK하이닉스",
+  "반도체",
+  "소부장",
+  "2차전지",
+  "배터리",
+  "바이오",
+  "금융",
+  "은행",
+  "증권",
+  "보험",
+  "아파트",
+  "집값",
+  "내집마련",
+  "공부",
+  "순자산"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "삼전 몰빵 개미의 최후"
+  },
+  {
+   "start": 447,
+   "title": "삼전닉스 망해도 터지는 곳"
+  },
+  {
+   "start": 644,
+   "title": "\"최소 5년\" 중국이 찾는 한국 주식"
+  },
+  {
+   "start": 1116,
+   "title": "70% 폭락에 남몰래 웃는 이유"
+  },
+  {
+   "start": 1473,
+   "title": "현대차, 딱 '이 숫자' 찍히면 전량 매도"
+  },
+  {
+   "start": 2140,
+   "title": "200억 전부 때려 박은 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 66,
+ "comments_top_level": 45,
+ "comments_replies": 21,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 66,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:33",
+ "approved": "2026-11-06T17:19+09:00"
+}

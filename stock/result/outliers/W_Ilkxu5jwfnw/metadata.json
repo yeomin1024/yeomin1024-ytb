@@ -1,0 +1,126 @@
+{
+ "id": "Ilkxu5jwfnw",
+ "title": "47% 물린 주식 지금 던져야 하나? '지금 파는 건 의미 없다' 코스피 5000 새 손절 기준",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 45830,
+ "ratio": 5.32,
+ "age_days": 14,
+ "views_per_day": 3271.7,
+ "minutes": 10.1,
+ "likes": 289,
+ "comments": 75,
+ "published": "2026-10-23",
+ "queries": "검색:코스피 | 검색:주가",
+ "url": "https://www.youtube.com/watch?v=Ilkxu5jwfnw",
+ "flag": "",
+ "published_at": "2026-10-23T07:00:18Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_Ilkxu5jwfnw",
+ "sources": [
+  "검색:코스피",
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "손절",
+  "손절 기준",
+  "손절 타이밍",
+  "물린 주식",
+  "코스피",
+  "코스피 5000",
+  "코스피 전망",
+  "반도체 주식",
+  "전력주",
+  "주식 초보",
+  "물타기",
+  "주식 대응법",
+  "12시 A/S센터",
+  "이광수",
+  "박시동",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"지금 파는 건 의미가 없다\""
+  },
+  {
+   "start": 12,
+   "title": "[경제야놀자 해설] 지금 던질까"
+  },
+  {
+   "start": 26,
+   "title": "사연 — 전력주 -43% · 반도체 -39% · -47%, 지금 던져야 하나"
+  },
+  {
+   "start": 73,
+   "title": "손절선 2%인데 10% 넘게 빠지면?"
+  },
+  {
+   "start": 95,
+   "title": "[경제야놀자 해설] 손절이란"
+  },
+  {
+   "start": 108,
+   "title": "이광수 — 지금 파는 건 의미가 없다"
+  },
+  {
+   "start": 157,
+   "title": "새 기준 — 5300 아래 30% · 5000 깨지면 30, 40%"
+  },
+  {
+   "start": 224,
+   "title": "\"지금 팔면 실익이 있나\""
+  },
+  {
+   "start": 253,
+   "title": "오를 때 파는 실수 · 손절선은 따라 올린다"
+  },
+  {
+   "start": 330,
+   "title": "[경제야놀자 해설] 새 손절 기준"
+  },
+  {
+   "start": 343,
+   "title": "박시동 — 시나리오를 짜라"
+  },
+  {
+   "start": 355,
+   "title": "빚 · 비중 · 현금, 처지별 5300 · 5100 · 5000 계획"
+  },
+  {
+   "start": 415,
+   "title": "[경제야놀자 해설] 내 처지별 계획"
+  },
+  {
+   "start": 431,
+   "title": "5500 무너지면 5000? 그런 전망 거의 없다 · 역사상 최저점"
+  },
+  {
+   "start": 516,
+   "title": "이광수 — 예측은 틀린다, 대응이 답"
+  },
+  {
+   "start": 559,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 75,
+ "comments_top_level": 68,
+ "comments_replies": 7,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 75,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:39",
+ "approved": "2026-11-06T17:11+09:00"
+}

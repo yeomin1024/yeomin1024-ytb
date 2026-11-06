@@ -1,0 +1,74 @@
+{
+ "id": "uMTtLwk3LFg",
+ "title": "\"예사롭지 않은 금리 상황\" 미국 기준금리 동결이 갖는 진짜 의미, 앞으로 '이렇게' 흘러갈 경제 흐름 (주간머니이슈_경제편)",
+ "channel": "월급쟁이부자들TV",
+ "channel_id": "UCDSj40X9FFUAnx1nv7gQhcA",
+ "subs": 2120000,
+ "views": 285147,
+ "ratio": 0.13,
+ "age_days": 6,
+ "views_per_day": 44966.4,
+ "minutes": 17.2,
+ "likes": 1369,
+ "comments": 50,
+ "published": "2026-10-30",
+ "queries": "검색:미국증시",
+ "url": "https://www.youtube.com/watch?v=uMTtLwk3LFg",
+ "flag": "",
+ "published_at": "2026-10-30T23:00:25Z",
+ "rank": "W257",
+ "set": "web",
+ "folder": "W_uMTtLwk3LFg",
+ "sources": [
+  "검색:미국증시"
+ ],
+ "source": "web",
+ "tags": [
+  "월급쟁이부자들",
+  "너나위",
+  "너바나",
+  "코크드림",
+  "구해줘월부",
+  "월부",
+  "10억달성",
+  "월부닷컴",
+  "재테크",
+  "부동산투자",
+  "부동산강의",
+  "월부리뷰",
+  "월부 강의후기",
+  "월부 강의",
+  "내집마련",
+  "월부후기",
+  "월부 강의팔이",
+  "재테크강의"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오늘 나눌 경제 이야기"
+  },
+  {
+   "start": 38,
+   "title": "美기준금리 3.75∼4.00% 동결…지난달 인상 뒤 숨고르기"
+  },
+  {
+   "start": 932,
+   "title": "금리와 국채, 이 한 문장이면 경제가 다 보입니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 50,
+ "comments_top_level": 45,
+ "comments_replies": 5,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 50,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:20:41",
+ "approved": "2026-11-06T17:20+09:00"
+}

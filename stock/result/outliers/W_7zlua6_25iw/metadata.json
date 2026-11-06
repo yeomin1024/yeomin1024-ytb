@@ -1,0 +1,84 @@
+{
+ "id": "7zlua6_25iw",
+ "title": "AI Just Broke The Stock Market",
+ "channel": "Mark Tilbury Economics",
+ "channel_id": "UCNIoLiHvnuKTKoJuLQUS--A",
+ "subs": 605000,
+ "views": 216016,
+ "ratio": 0.36,
+ "age_days": 5,
+ "views_per_day": 37251.1,
+ "minutes": 24.5,
+ "likes": 2137,
+ "comments": 407,
+ "published": "2026-10-31",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=7zlua6_25iw",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T13:19:37Z",
+ "rank": "W89",
+ "set": "web",
+ "folder": "W_7zlua6_25iw",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 46,
+   "title": "The Vibe Revolution"
+  },
+  {
+   "start": 370,
+   "title": "The Perfect Business"
+  },
+  {
+   "start": 493,
+   "title": "The SaaSpocalypse"
+  },
+  {
+   "start": 638,
+   "title": "The Hidden Iceberg"
+  },
+  {
+   "start": 738,
+   "title": "The Hidden Dashboard"
+  },
+  {
+   "start": 909,
+   "title": "The Empty Seats"
+  },
+  {
+   "start": 1080,
+   "title": "The Hungry Machine"
+  },
+  {
+   "start": 1214,
+   "title": "The Quiet Comeback"
+  },
+  {
+   "start": 1342,
+   "title": "What Should You Do?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 407,
+ "comments_top_level": 238,
+ "comments_replies": 169,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 407,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:36:38",
+ "approved": "2026-11-06T17:36+09:00"
+}

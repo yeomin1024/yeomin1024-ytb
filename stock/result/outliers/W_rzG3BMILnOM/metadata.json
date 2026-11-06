@@ -1,0 +1,86 @@
+{
+ "id": "rzG3BMILnOM",
+ "title": "3 Safe Dividend Stocks on Track to Out-Pay a 5% Treasury",
+ "channel": "Simply Safe Dividends",
+ "channel_id": "UCTNxzrw1zdo3E15bh3NVcWw",
+ "subs": 15900,
+ "views": 21533,
+ "ratio": 1.35,
+ "age_days": 11,
+ "views_per_day": 1829.9,
+ "minutes": 14.4,
+ "likes": 454,
+ "comments": 104,
+ "published": "2026-10-25",
+ "queries": "검색:dividend investing | 검색:dividend stocks | 검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=rzG3BMILnOM",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T12:47:13Z",
+ "rank": "W110",
+ "set": "web",
+ "folder": "W_rzG3BMILnOM",
+ "sources": [
+  "검색:dividend investing",
+  "검색:dividend stocks",
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "dividends",
+  "dividend investing",
+  "dividend stocks",
+  "treasuries",
+  "passive income",
+  "stocks",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The 5% Treasury"
+  },
+  {
+   "start": 33,
+   "title": "$100 in each"
+  },
+  {
+   "start": 80,
+   "title": "The raise each needs"
+  },
+  {
+   "start": 166,
+   "title": "Paychex (PAYX)"
+  },
+  {
+   "start": 361,
+   "title": "Prudential (PRU)"
+  },
+  {
+   "start": 553,
+   "title": "Agree Realty (ADC)"
+  },
+  {
+   "start": 686,
+   "title": "The risks"
+  },
+  {
+   "start": 773,
+   "title": "Why own both"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 104,
+ "comments_top_level": 26,
+ "comments_replies": 78,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 104,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:16",
+ "approved": "2026-11-06T17:14+09:00"
+}

@@ -1,0 +1,78 @@
+{
+ "id": "XMZPGDdc_3s",
+ "title": "Das passiert nur einmal im Leben mit Aktien. Jetzt handeln",
+ "channel": "FINANZFOKUS",
+ "channel_id": "UClAphf8egdRMoPKgZRdv6fw",
+ "subs": 174000,
+ "views": 319722,
+ "ratio": 1.84,
+ "age_days": 12,
+ "views_per_day": 26741.6,
+ "minutes": 9.4,
+ "likes": 2401,
+ "comments": 141,
+ "published": "2026-10-25",
+ "queries": "검색:ETF | 검색:how to invest in stocks | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=XMZPGDdc_3s",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T08:15:15Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_XMZPGDdc_3s",
+ "sources": [
+  "검색:ETF",
+  "검색:how to invest in stocks",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "Aktien",
+  "Aktie",
+  "Börse",
+  "Finanzfokus"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Allzeithoch trotz 5 % Zinsen"
+  },
+  {
+   "start": 48,
+   "title": "Der Zinsschock"
+  },
+  {
+   "start": 140,
+   "title": "Warum die Aktien trotzdem steigen"
+  },
+  {
+   "start": 199,
+   "title": "Die Schuldenfalle der USA"
+  },
+  {
+   "start": 296,
+   "title": "Crash oder Chance?"
+  },
+  {
+   "start": 379,
+   "title": "3 Warnsignale vor einem Crash 2027?"
+  },
+  {
+   "start": 455,
+   "title": "Was ich jetzt tue"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 141,
+ "comments_top_level": 61,
+ "comments_replies": 80,
+ "comments_by_creator": 17,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 141,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:54",
+ "approved": "2026-11-06T17:31+09:00"
+}

@@ -1,0 +1,118 @@
+{
+ "id": "PSF4VXYLY3Y",
+ "title": "#1861 Market News Analysis",
+ "channel": "DAY TRADER తెలుగు",
+ "channel_id": "UCeEP6GESh2t4-e2132uj3Sg",
+ "subs": 2710000,
+ "views": 212338,
+ "ratio": 0.08,
+ "age_days": 8,
+ "views_per_day": 24140.9,
+ "minutes": 22.6,
+ "likes": 7726,
+ "comments": 222,
+ "published": "2026-10-28",
+ "queries": "검색:stocks to buy | 검색:stock market | 검색:stock market investing | 검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=PSF4VXYLY3Y",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T13:24:09Z",
+ "rank": "W159",
+ "set": "web",
+ "folder": "W_PSF4VXYLY3Y",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stock market investing",
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market latest news",
+  "stock market news",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Update"
+  },
+  {
+   "start": 92,
+   "title": "Don't Miss"
+  },
+  {
+   "start": 301,
+   "title": "BIG News"
+  },
+  {
+   "start": 473,
+   "title": "Market Analysis"
+  },
+  {
+   "start": 624,
+   "title": "JIO Must watch"
+  },
+  {
+   "start": 813,
+   "title": "Good News"
+  },
+  {
+   "start": 858,
+   "title": "Reliance Fall?"
+  },
+  {
+   "start": 927,
+   "title": "Info Edge"
+  },
+  {
+   "start": 977,
+   "title": "JYOTI STRUCTURES"
+  },
+  {
+   "start": 1008,
+   "title": "SBI Card"
+  },
+  {
+   "start": 1045,
+   "title": "Piramal Pharma"
+  },
+  {
+   "start": 1110,
+   "title": "PG ELECTROPLAST"
+  },
+  {
+   "start": 1145,
+   "title": "CarTrade"
+  },
+  {
+   "start": 1203,
+   "title": "WAREE ENERGIES"
+  },
+  {
+   "start": 1253,
+   "title": "stock 75% FALL"
+  },
+  {
+   "start": 1314,
+   "title": "Subros"
+  },
+  {
+   "start": 1331,
+   "title": "JSW Energy"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 222,
+ "comments_top_level": 165,
+ "comments_replies": 57,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 222,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:24",
+ "approved": "2026-11-06T17:40+09:00"
+}

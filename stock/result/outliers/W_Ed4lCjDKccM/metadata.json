@@ -1,0 +1,126 @@
+{
+ "id": "Ed4lCjDKccM",
+ "title": "Tech Bloodbath Now: Is Bubble Finally Popping? | Chris Vermeulen",
+ "channel": "David Lin ",
+ "channel_id": "UClBMLpP3UHXLmgEypMmXPuA",
+ "subs": 339000,
+ "views": 242662,
+ "ratio": 0.72,
+ "age_days": 6,
+ "views_per_day": 37624.3,
+ "minutes": 30.1,
+ "likes": 2739,
+ "comments": 473,
+ "published": "2026-10-30",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=Ed4lCjDKccM",
+ "flag": "외국 영상",
+ "published_at": "2026-10-30T21:42:38Z",
+ "rank": "W56",
+ "set": "web",
+ "folder": "W_Ed4lCjDKccM",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "david lin",
+  "the david lin report",
+  "david lin youtube",
+  "david lin finance",
+  "david lin investing",
+  "david lin trading",
+  "david lin economics",
+  "economics",
+  "finance",
+  "business",
+  "macroeconomics",
+  "trading",
+  "investing",
+  "financial news",
+  "finance news",
+  "economics news",
+  "business news",
+  "economy",
+  "chris vermeulen",
+  "The Technical Traders",
+  "stocks",
+  "bitcoin",
+  "gold",
+  "sp500",
+  "stock market",
+  "rally",
+  "bearish",
+  "bullish",
+  "stock trading",
+  "traders",
+  "technical analysis",
+  "technical trading",
+  "trade war",
+  "miners",
+  "tsx",
+  "gold price",
+  "blowoff top",
+  "euphoria"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Tech Stocks Crash: Is the AI Bubble Bursting?"
+  },
+  {
+   "start": 197,
+   "title": "Semiconductor Selloff and Institutional Selling"
+  },
+  {
+   "start": 315,
+   "title": "Investors Rotate Into Defensive Stocks"
+  },
+  {
+   "start": 390,
+   "title": "Market Panic, Margin Calls, and Forced Selling"
+  },
+  {
+   "start": 520,
+   "title": "Nasdaq Outlook: How Much Further Could Stocks Fall?"
+  },
+  {
+   "start": 659,
+   "title": "AI Spending Concerns and Tech Earnings"
+  },
+  {
+   "start": 888,
+   "title": "Could This Be the Start of a Financial Crisis?"
+  },
+  {
+   "start": 1117,
+   "title": "What Happens When Markets Reopen Monday?"
+  },
+  {
+   "start": 1232,
+   "title": "Gold Breaks Below $4,000: What's Next?"
+  },
+  {
+   "start": 1527,
+   "title": "Where Investors Are Moving Their Money"
+  },
+  {
+   "start": 1637,
+   "title": "Treasury Yields, Inflation, and Market Risks"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 473,
+ "comments_top_level": 289,
+ "comments_replies": 184,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 473,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:34:15",
+ "approved": "2026-11-06T17:34+09:00"
+}

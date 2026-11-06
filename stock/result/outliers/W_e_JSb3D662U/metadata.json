@@ -1,0 +1,155 @@
+{
+ "id": "e_JSb3D662U",
+ "title": "Hlinka geht RISIKO: DAS Einzige, was die Jahresendrally jetzt noch stoppt + Schweizer Favoriten",
+ "channel": "Mario Lochner",
+ "channel_id": "UCWFnsgnkOAc0D7OweruB3hA",
+ "subs": 299000,
+ "views": 349809,
+ "ratio": 1.17,
+ "age_days": 8,
+ "views_per_day": 40496.7,
+ "minutes": 61.1,
+ "likes": 9112,
+ "comments": 890,
+ "published": "2026-10-28",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=e_JSb3D662U",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T15:53:23Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W_e_JSb3D662U",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "aktien",
+  "etfs",
+  "geld",
+  "finanzielle bildung",
+  "finanzielle freiheit",
+  "dividenden",
+  "investieren",
+  "finanzen",
+  "mario lochner",
+  "dividenden aktien",
+  "börse",
+  "aktien sparplan",
+  "aktien tipps",
+  "inflation",
+  "markus koch",
+  "vermögensaufbau",
+  "reich werden",
+  "reichtum",
+  "beste etfs",
+  "online geld verdienen",
+  "aktien 2026",
+  "beste aktien 2026",
+  "etfs 2026",
+  "mojmir hlinka",
+  "agfif",
+  "schweizer aktien",
+  "geld in die schweiz",
+  "ki aktien",
+  "gold",
+  "börsencrash",
+  "börsenpsychologie",
+  "microsoft aktie",
+  "swiss re",
+  "Schweizer Franken",
+  "defensive aktien"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Highlights und Begrüßung aus Zürich"
+  },
+  {
+   "start": 112,
+   "title": "KI-Rally, Jahresende und sieben schnelle Fragen"
+  },
+  {
+   "start": 170,
+   "title": "Diese Aktien hat Mojmir Hlinka gekauft"
+  },
+  {
+   "start": 237,
+   "title": "KI-Blase? Warum Hlinka die Panik nicht teilt"
+  },
+  {
+   "start": 492,
+   "title": "CoreWeave und Neoclouds: Wie groß sind die Risiken?"
+  },
+  {
+   "start": 688,
+   "title": "Was Hlinkas Algorithmus jetzt signalisiert"
+  },
+  {
+   "start": 789,
+   "title": "Welches Risiko passt zu deinem Depot?"
+  },
+  {
+   "start": 924,
+   "title": "Jahresendrally: Warum Hlinka optimistisch bleibt"
+  },
+  {
+   "start": 996,
+   "title": "Starke Unternehmenszahlen, schwache Kursreaktionen"
+  },
+  {
+   "start": 1248,
+   "title": "Inflation, Ölpreis und Fed: Was passiert mit den Zinsen?"
+  },
+  {
+   "start": 1608,
+   "title": "Crashpropheten, Panikmache und Verantwortung"
+  },
+  {
+   "start": 1912,
+   "title": "Swiss Re, Gurit und Samsung: Hlinkas Rückblick"
+  },
+  {
+   "start": 2162,
+   "title": "Zinsen und die Finanzierung des KI-Booms"
+  },
+  {
+   "start": 2259,
+   "title": "Milliarden für KI: Wie geht es weiter?"
+  },
+  {
+   "start": 2578,
+   "title": "Warum Hlinka Gold und Silber kritisch sieht"
+  },
+  {
+   "start": 2828,
+   "title": "Enteignungsdebatte in Berlin: Hlinkas klare Haltung"
+  },
+  {
+   "start": 3143,
+   "title": "Schweizer Franken und die Bedeutung der Währung"
+  },
+  {
+   "start": 3359,
+   "title": "Bitcoin: Sicherheit oder Flucht aus dem System?"
+  },
+  {
+   "start": 3583,
+   "title": "Der Anlegerfehler: Aus Panik blind verkaufen"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 890,
+ "comments_top_level": 683,
+ "comments_replies": 207,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 890,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:08",
+ "approved": "2026-11-06T17:33+09:00"
+}

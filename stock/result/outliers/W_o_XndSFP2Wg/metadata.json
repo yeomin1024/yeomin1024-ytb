@@ -1,0 +1,132 @@
+{
+ "id": "o_XndSFP2Wg",
+ "title": "00406A跌破發行價還能配0.138？月配息能維持多久？主動型ETF優點與風險分析",
+ "channel": "吳馬克 l 幸福理財家",
+ "channel_id": "UC6K_jdAGqW0atmXrIG5Pthw",
+ "subs": 16200,
+ "views": 33266,
+ "ratio": 2.05,
+ "age_days": 11,
+ "views_per_day": 2809.3,
+ "minutes": 12.2,
+ "likes": 429,
+ "comments": 56,
+ "published": "2026-10-25",
+ "queries": "검색:ETF | 검색:dividend income",
+ "url": "https://www.youtube.com/watch?v=o_XndSFP2Wg",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T11:00:05Z",
+ "rank": "W89",
+ "set": "web",
+ "folder": "W_o_XndSFP2Wg",
+ "sources": [
+  "검색:ETF",
+  "검색:dividend income"
+ ],
+ "source": "web",
+ "tags": [
+  "00406A",
+  "00406A配息",
+  "00406A ETF",
+  "00406A分析",
+  "00406A前十大持股",
+  "00406A值得買嗎",
+  "00406A殖利率",
+  "主動中信台灣收益",
+  "中國信託台灣收益成長主動式ETF",
+  "主動型ETF",
+  "主動式ETF",
+  "Covered Call",
+  "掩護性買權",
+  "權利金",
+  "ETF配息來源",
+  "配息不等於報酬",
+  "ETF總報酬",
+  "ETF持股分析",
+  "ETF研究室",
+  "QYLD",
+  "月配息ETF",
+  "吳馬克",
+  "幸福理財家"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "小短劇｜跌破發行價還能配 0.138？"
+  },
+  {
+   "start": 22,
+   "title": "為什麼第一次研究主動型 ETF？"
+  },
+  {
+   "start": 88,
+   "title": "00406A 基金檔案與投資策略"
+  },
+  {
+   "start": 121,
+   "title": "前十大持股與產業配置"
+  },
+  {
+   "start": 184,
+   "title": "主動型 ETF 的持股會怎麼變？"
+  },
+  {
+   "start": 209,
+   "title": "股票與現金部位分析"
+  },
+  {
+   "start": 237,
+   "title": "Covered Call 掩護性買權是什麼？"
+  },
+  {
+   "start": 311,
+   "title": "收到權利金就比較抗跌嗎？"
+  },
+  {
+   "start": 340,
+   "title": "00406A 與美國 QYLD 的策略差異"
+  },
+  {
+   "start": 398,
+   "title": "盤整、緩漲、暴漲，哪種行情比較適合？"
+  },
+  {
+   "start": 463,
+   "title": "淨值跌破 10 元，為什麼還能配息？"
+  },
+  {
+   "start": 498,
+   "title": "配息不等於報酬，別只看殖利率"
+  },
+  {
+   "start": 532,
+   "title": "每月配息 0.138 元可以持續多久？"
+  },
+  {
+   "start": 566,
+   "title": "00406A 的優點與挑戰"
+  },
+  {
+   "start": 619,
+   "title": "幸福信箱與 LINE 社群"
+  },
+  {
+   "start": 647,
+   "title": "最後總結｜為什麼我覺得值得追蹤？"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "zh-TW",
+ "foreign": true,
+ "comments_fetched": 56,
+ "comments_top_level": 17,
+ "comments_replies": 39,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 56,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:13:29",
+ "approved": "2026-11-06T17:13+09:00"
+}

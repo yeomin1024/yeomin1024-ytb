@@ -1,0 +1,90 @@
+{
+ "id": "sf-JTKYvrxw",
+ "title": "사상 최대 규모의 앤트로픽 상장ㅣ넷플릭스 주가 하락 이유 등 4가지 🥬경제 이슈🥬",
+ "channel": "14F 일사에프",
+ "channel_id": "UCLKuglhGlMmDteQKoniENIQ",
+ "subs": 2390000,
+ "views": 300924,
+ "ratio": 0.13,
+ "age_days": 5,
+ "views_per_day": 58621.7,
+ "minutes": 14.3,
+ "likes": 832,
+ "comments": 28,
+ "published": "2026-11-01",
+ "queries": "검색:주가",
+ "url": "https://www.youtube.com/watch?v=sf-JTKYvrxw",
+ "flag": "",
+ "published_at": "2026-11-01T04:00:02Z",
+ "rank": "W256",
+ "set": "web",
+ "folder": "W_sf-JTKYvrxw",
+ "sources": [
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "14f",
+  "일사에프",
+  "경제",
+  "경제뉴스",
+  "경제이슈",
+  "라부부",
+  "앤트로픽",
+  "클로드",
+  "AI",
+  "오픈ai",
+  "상장",
+  "나스닥",
+  "전환사채",
+  "넷플릭스",
+  "오징어게임",
+  "디즈니플러스",
+  "구조조정",
+  "브리저튼",
+  "웬즈데이",
+  "하이닉스",
+  "단일종목레버리지",
+  "삼성전자",
+  "개인투자자손실액",
+  "팝마트",
+  "claude",
+  "SK하이닉스",
+  "레버리지",
+  "단일레버리지",
+  "삼성전자레버리지",
+  "NETFLIX"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "사상 최대 규모의 앤트로픽 상장 초읽기"
+  },
+  {
+   "start": 210,
+   "title": "돈 잘 버는 넷플릭스… 주가는 왜 그럴까?"
+  },
+  {
+   "start": 431,
+   "title": "단일종목 레버리지 손실만 6조 ㄷㄷ"
+  },
+  {
+   "start": 657,
+   "title": "라부부 인기도 이제 옛말ㅠㅠ"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 28,
+ "comments_top_level": 20,
+ "comments_replies": 8,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 28,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:20:38",
+ "approved": "2026-11-06T17:20+09:00"
+}

@@ -1,0 +1,86 @@
+{
+ "id": "vi5fZPHUg4M",
+ "title": "AI 이대로 끝날까? 은퇴한 저는 이렇게 투자합니다",
+ "channel": "송팀장",
+ "channel_id": "UCC8IAk37ddIvOqoo9yXKjqA",
+ "subs": 93500,
+ "views": 24031,
+ "ratio": 0.26,
+ "age_days": 0,
+ "views_per_day": 24031.0,
+ "minutes": 25.2,
+ "likes": 353,
+ "comments": 18,
+ "published": "2026-11-05",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=vi5fZPHUg4M",
+ "flag": "",
+ "published_at": "2026-11-05T09:15:22Z",
+ "rank": "W219",
+ "set": "web",
+ "folder": "W_vi5fZPHUg4M",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "AI 버블",
+  "AI 투자",
+  "AI 일자리",
+  "AI 수익화",
+  "엔비디아",
+  "SK하이닉스",
+  "나스닥",
+  "나스닥100",
+  "QQQ",
+  "미국주식",
+  "기본소득",
+  "K자 양극화",
+  "은퇴",
+  "송팀장"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "들어가며 — AI 낙관과 비관"
+  },
+  {
+   "start": 79,
+   "title": "오픈AI의 망신과 이정표"
+  },
+  {
+   "start": 184,
+   "title": "개인은 AI로 돈을 버나"
+  },
+  {
+   "start": 413,
+   "title": "기업은 AI로 돈을 버나"
+  },
+  {
+   "start": 798,
+   "title": "결국 사람 대체 — 고용과 MS"
+  },
+  {
+   "start": 1127,
+   "title": "고용 없는 성장이 가능한가"
+  },
+  {
+   "start": 1320,
+   "title": "기본소득, K자 양극화, 그리고 나스닥100"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 18,
+ "comments_top_level": 16,
+ "comments_replies": 2,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 18,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:12",
+ "approved": "2026-11-06T17:19+09:00"
+}

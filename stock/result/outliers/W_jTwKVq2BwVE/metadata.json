@@ -1,0 +1,107 @@
+{
+ "id": "jTwKVq2BwVE",
+ "title": "11월 큰 변화가 시작된다! 공포에 사라. 그게 지금 / 분기 박세익 (풀버전)",
+ "channel": "와이스트릿 - 지식과 자산의 복리효과",
+ "channel_id": "UCupslRq5jW95UGzPjOZz0FA",
+ "subs": 1010000,
+ "views": 236102,
+ "ratio": 0.23,
+ "age_days": 5,
+ "views_per_day": 44550.0,
+ "minutes": 65.5,
+ "likes": 2159,
+ "comments": 193,
+ "published": "2026-11-01",
+ "queries": "검색:주식투자",
+ "url": "https://www.youtube.com/watch?v=jTwKVq2BwVE",
+ "flag": "",
+ "published_at": "2026-11-01T00:00:25Z",
+ "rank": "W225",
+ "set": "web",
+ "folder": "W_jTwKVq2BwVE",
+ "sources": [
+  "검색:주식투자"
+ ],
+ "source": "web",
+ "tags": [
+  "부자",
+  "주식",
+  "부동산",
+  "재테크",
+  "지식",
+  "투자",
+  "와이스트릿",
+  "이대호",
+  "부자되는법",
+  "야식잡썰",
+  "증시",
+  "코스피",
+  "코스닥",
+  "주가",
+  "복리효과",
+  "잡설",
+  "자산",
+  "나스닥",
+  "미장",
+  "etf",
+  "레버리지",
+  "s&p500",
+  "삼성전자",
+  "엔비디아",
+  "SK하이닉스",
+  "반도체",
+  "소부장",
+  "2차전지",
+  "배터리",
+  "바이오",
+  "금융",
+  "은행",
+  "증권",
+  "보험",
+  "아파트",
+  "집값",
+  "내집마련",
+  "공부",
+  "순자산"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "100억 날려도 웃는 이유"
+  },
+  {
+   "start": 796,
+   "title": "하이닉스 손절한 개미의 실수"
+  },
+  {
+   "start": 1074,
+   "title": "열심히 공부할수록 망하는 이유"
+  },
+  {
+   "start": 2247,
+   "title": "반도체 피바다에도 오를 '이곳'"
+  },
+  {
+   "start": 3438,
+   "title": "삼전·닉스 바닥 신호는..."
+  },
+  {
+   "start": 3850,
+   "title": "하락장, 그럼에도 매수하는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 193,
+ "comments_top_level": 133,
+ "comments_replies": 60,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 193,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:26",
+ "approved": "2026-11-06T17:19+09:00"
+}

@@ -1,0 +1,84 @@
+{
+ "id": "hlS_LWOZsNU",
+ "title": "Microsoft Rises, Google Tanks: Why Investors Are Polarized On Big Tech",
+ "channel": "Prof G Markets",
+ "channel_id": "UCp4CBeq4nzeg9smAvdjPrig",
+ "subs": 138000,
+ "views": 281044,
+ "ratio": 2.04,
+ "age_days": 7,
+ "views_per_day": 35594.0,
+ "minutes": 34.9,
+ "likes": 2968,
+ "comments": 606,
+ "published": "2026-10-29",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=hlS_LWOZsNU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-29T11:00:04Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_hlS_LWOZsNU",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "business news",
+  "stock market",
+  "financial news",
+  "financial news channel",
+  "financial news today",
+  "stock market news today",
+  "stock market today",
+  "stock market news"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 39,
+   "title": "Market Vitals"
+  },
+  {
+   "start": 75,
+   "title": "Google and Microsoft Earnings (ft. Gil Luria)"
+  },
+  {
+   "start": 953,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1032,
+   "title": "Fed Holds Rates Steady (ft. Michael Gapen)"
+  },
+  {
+   "start": 1811,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1894,
+   "title": "Microsoft Buyouts"
+  },
+  {
+   "start": 2077,
+   "title": "Credits"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 606,
+ "comments_top_level": 282,
+ "comments_replies": 324,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 606,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:47",
+ "approved": "2026-11-06T17:31+09:00"
+}

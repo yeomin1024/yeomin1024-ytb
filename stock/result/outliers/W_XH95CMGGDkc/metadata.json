@@ -1,0 +1,105 @@
+{
+ "id": "XH95CMGGDkc",
+ "title": "CNBC Today On NVIDIA Stock, Micron Stock, SK Hynix, Tech Sell-Off - NVDA Update",
+ "channel": "FinVid",
+ "channel_id": "UCTPm4y283GIygUCq4a_T96Q",
+ "subs": 40900,
+ "views": 210342,
+ "ratio": 5.14,
+ "age_days": 6,
+ "views_per_day": 34219.3,
+ "minutes": 35.0,
+ "likes": 1329,
+ "comments": 5,
+ "published": "2026-10-31",
+ "queries": "검색:stocks",
+ "url": "https://www.youtube.com/watch?v=XH95CMGGDkc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T04:58:33Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_XH95CMGGDkc",
+ "sources": [
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "nvidia stock",
+  "nvda",
+  "nvidia",
+  "nvda stock",
+  "nvda earnings",
+  "nvidia earnings",
+  "nvda update",
+  "nvidia update",
+  "nvda today",
+  "nvidia today",
+  "nvda stock update",
+  "nvidia stock update",
+  "nvda analysis",
+  "nvidia analysis",
+  "nvda stock news",
+  "nvda news",
+  "nvidia stock news",
+  "nvidia news",
+  "nvda news today",
+  "nvidia news today",
+  "nvda stock analysis",
+  "stock market",
+  "stocks",
+  "investing",
+  "trading",
+  "finvid",
+  "trading stocks",
+  "stock",
+  "nvidia stock analysis",
+  "iren",
+  "micron",
+  "mu",
+  "micron stock",
+  "sk hynix",
+  "skhy",
+  "sk hynix stock",
+  "mu stock"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Cramer, Faber & Carl"
+  },
+  {
+   "start": 131,
+   "title": "Patrick Moorhead"
+  },
+  {
+   "start": 201,
+   "title": "CNBC Halftime Report"
+  },
+  {
+   "start": 742,
+   "title": "Tom Lee & Steve Sosnick"
+  },
+  {
+   "start": 1268,
+   "title": "CNBC"
+  },
+  {
+   "start": 1309,
+   "title": "FinVid"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 5,
+ "comments_top_level": 4,
+ "comments_replies": 1,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:37",
+ "approved": "2026-11-06T17:31+09:00"
+}

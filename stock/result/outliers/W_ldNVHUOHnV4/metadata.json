@@ -1,0 +1,88 @@
+{
+ "id": "ldNVHUOHnV4",
+ "title": "삼성전자 배당금 30조 풀었는데 주당 4601원인 이유 #삼성전자배당금 #SK하이닉스",
+ "channel": "경제 계기판",
+ "channel_id": "UCmTqhXnAvyPSOgncwU-xO6Q",
+ "subs": 454,
+ "views": 231031,
+ "ratio": 508.88,
+ "age_days": 5,
+ "views_per_day": 41134.2,
+ "minutes": 13.7,
+ "likes": 717,
+ "comments": 35,
+ "published": "2026-10-31",
+ "queries": "검색:배당금",
+ "url": "https://www.youtube.com/watch?v=ldNVHUOHnV4",
+ "flag": "",
+ "published_at": "2026-10-31T16:24:09Z",
+ "rank": "W122",
+ "set": "web",
+ "folder": "W_ldNVHUOHnV4",
+ "sources": [
+  "검색:배당금"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "삼성전자 배당",
+  "삼성전자 배당금",
+  "삼성전자 배당금 지급일",
+  "삼성전자 배당락일",
+  "삼성전자 배당금 계산",
+  "삼성전자 실적",
+  "삼성전자 실적발표",
+  "삼성전자 주주환원",
+  "삼성전자 주주환원 실망",
+  "삼성전자 주가",
+  "삼성전자우",
+  "우선주",
+  "자사주 소각",
+  "금산법",
+  "SK하이닉스",
+  "하이닉스 배당",
+  "하이닉스 배당금",
+  "시가배당률",
+  "배당소득세",
+  "국민연금",
+  "반도체 메모리",
+  "경제 해설",
+  "경제 계기판"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주당 배당의 착시 — 107조 벌고 30조 배당, 그런데 주당 4601원 vs 2만원, 주식 수 9.2배, 피자 조각, 시가배당률"
+  },
+  {
+   "start": 262,
+   "title": "실망의 실체 — 남은 55조~75조원, 2027년 1월 이사회, 금산법 10%, 우선주 외국인 73%, 10월 30일 사이드카"
+  },
+  {
+   "start": 491,
+   "title": "반쪽짜리 실적 — 반도체 106조5000억원 vs 완제품 8000억원 적자, 메모리 값의 두 얼굴"
+  },
+  {
+   "start": 597,
+   "title": "내 계좌·국민연금 — 100주·1000주 세후 금액, 배당락 9월 29일, 국민연금 2조1210억원·외국인 약 15조원"
+  },
+  {
+   "start": 715,
+   "title": "정리 — 시설투자 84조4000억원과 주주환원 사이"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 35,
+ "comments_top_level": 32,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:44",
+ "approved": "2026-11-06T17:14+09:00"
+}

@@ -1,0 +1,158 @@
+{
+ "id": "eafYDMU14aM",
+ "title": "The Real Reason Stocks Haven't Crashed Yet (VOO ETF Analysis)",
+ "channel": "Goldman Starch",
+ "channel_id": "UCK6_-z0Fzc_uDl7Nxt3A7hg",
+ "subs": 6160,
+ "views": 32424,
+ "ratio": 5.26,
+ "age_days": 13,
+ "views_per_day": 2437.9,
+ "minutes": 30.0,
+ "likes": 736,
+ "comments": 99,
+ "published": "2026-10-24",
+ "queries": "검색:ETF | 검색:S&P500 | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=eafYDMU14aM",
+ "flag": "외국 영상",
+ "published_at": "2026-10-24T00:00:04Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_eafYDMU14aM",
+ "sources": [
+  "검색:ETF",
+  "검색:S&P500",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "voo etf analysis",
+  "voo",
+  "voo etf",
+  "vanguard s&p 500 etf",
+  "stock market crash",
+  "why hasn't the stock market crashed",
+  "s&p 500",
+  "spy",
+  "stock market 2026",
+  "ai bubble",
+  "stock market prediction",
+  "10 year treasury",
+  "bond market",
+  "credit spreads",
+  "buybacks",
+  "401k",
+  "equal weight s&p 500",
+  "rsp",
+  "nvidia",
+  "coreweave"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The real reason stocks haven't crashed yet"
+  },
+  {
+   "start": 70,
+   "title": "The pullback nobody counted: -2% on top, -6% to -25% underneath"
+  },
+  {
+   "start": 141,
+   "title": "10 stocks are 39% of the index (2000: 27%)"
+  },
+  {
+   "start": 207,
+   "title": "The chain: lenders, builders, Zillow, small caps, banks, S&P"
+  },
+  {
+   "start": 300,
+   "title": "How VOO is built: the one rule"
+  },
+  {
+   "start": 381,
+   "title": "Earnings yield 3.8% vs 10-year 5.15%"
+  },
+  {
+   "start": 505,
+   "title": "Three buyers who don't read the math"
+  },
+  {
+   "start": 515,
+   "title": "Buyer 1: $1 trillion of buybacks, borrowed"
+  },
+  {
+   "start": 592,
+   "title": "Buyer 2: you, the 401k payroll bid"
+  },
+  {
+   "start": 665,
+   "title": "Buyer 3: the AI build-out, funded with debt"
+  },
+  {
+   "start": 721,
+   "title": "Is the levered buyer getting margin called? CoreWeave, Meta, OpenAI"
+  },
+  {
+   "start": 787,
+   "title": "The circle: Nvidia, OpenAI, CoreWeave, Nvidia"
+  },
+  {
+   "start": 907,
+   "title": "Credit leads stocks by 7 months: 8 cycles since 1997"
+  },
+  {
+   "start": 1041,
+   "title": "The concentration bill"
+  },
+  {
+   "start": 1064,
+   "title": "The bull case: rotation, 2016, IPO supply"
+  },
+  {
+   "start": 1194,
+   "title": "Oct 14: bonds became the hedge again"
+  },
+  {
+   "start": 1268,
+   "title": "2007 vs 2018: which cycle is this?"
+  },
+  {
+   "start": 1350,
+   "title": "The Fed put has a strike price: inflation"
+  },
+  {
+   "start": 1469,
+   "title": "Why not sell: midterm base rate, 20 for 20"
+  },
+  {
+   "start": 1546,
+   "title": "What I'd do: RSP over VOO, hedge with bonds"
+  },
+  {
+   "start": 1619,
+   "title": "VOO levels: 716, 702, 691, 665 and 3 tells"
+  },
+  {
+   "start": 1699,
+   "title": "The dates: Oct 28, Nov 3, Nov 4, Nov 17"
+  },
+  {
+   "start": 1742,
+   "title": "Wrap: what's left standing"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 99,
+ "comments_top_level": 39,
+ "comments_replies": 60,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 99,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:41",
+ "approved": "2026-11-06T17:11+09:00"
+}

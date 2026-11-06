@@ -1,0 +1,90 @@
+{
+ "id": "HBHacqgS010",
+ "title": "\"미국 상황 뒤집혔다\" 중간선거 끝나고 앞으로 주목해야 할 3가지 업종 (곽상준 대표 1부 I 머니포커스)",
+ "channel": "머니인사이드",
+ "channel_id": "UCxfko2YOD6DODYRGzeOPhIQ",
+ "subs": 2170000,
+ "views": 461005,
+ "ratio": 0.21,
+ "age_days": 2,
+ "views_per_day": 229573.7,
+ "minutes": 38.8,
+ "likes": 3551,
+ "comments": 115,
+ "published": "2026-11-04",
+ "queries": "검색:미국주식 | 검색:미국증시",
+ "url": "https://www.youtube.com/watch?v=HBHacqgS010",
+ "flag": "",
+ "published_at": "2026-11-04T07:00:17Z",
+ "rank": "W229",
+ "set": "web",
+ "folder": "W_HBHacqgS010",
+ "sources": [
+  "검색:미국주식",
+  "검색:미국증시"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인사이드",
+  "오분경제",
+  "머니스토리",
+  "김바비",
+  "바비위키",
+  "돈슐랭",
+  "조한범 박사",
+  "신사임당",
+  "달란트투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영상시작"
+  },
+  {
+   "start": 35,
+   "title": "출렁이는 국장과 미장, 중간선거 끝나면 어디로 갈까?"
+  },
+  {
+   "start": 492,
+   "title": "미국 선거 끝난 뒤 어떤 업종을 봐야 할까?"
+  },
+  {
+   "start": 774,
+   "title": "불확실해진 미국 주식 지금 가장 유리한 업종은?"
+  },
+  {
+   "start": 831,
+   "title": "미장 가서도 찾는 반도체 여전히 투자하기에 유리할까?"
+  },
+  {
+   "start": 1284,
+   "title": "돈 당겨온 AI 기업들 이제 이익 볼 때 됐나?"
+  },
+  {
+   "start": 1914,
+   "title": "막대한 투자비 드는 AI 결국 빅테크가 독점할까?"
+  },
+  {
+   "start": 2093,
+   "title": "연말 배당과 중소형주, 어떤 전략으로 접근할까?"
+  },
+  {
+   "start": 2272,
+   "title": "우려 커진 내년 미 증시 돌다리 두들겨 봐야 할까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 113,
+ "comments_top_level": 97,
+ "comments_replies": 16,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:35",
+ "approved": "2026-11-06T17:19+09:00"
+}

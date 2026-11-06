@@ -1,0 +1,133 @@
+{
+ "id": "ODAPYwws77Y",
+ "title": "\"구글·아마존 물타지 마세요\" 월가 헤지펀드가 지금 나스닥 탈출해 집중 매집하는 '현금 요새'",
+ "channel": "NOVA Real Invest 은놀주 노바 미국주식 부동산",
+ "channel_id": "UCNadSkZg6pOYuw-WYu6v37g",
+ "subs": 29600,
+ "views": 27181,
+ "ratio": 0.92,
+ "age_days": 7,
+ "views_per_day": 3782.9,
+ "minutes": 18.4,
+ "likes": 465,
+ "comments": 35,
+ "published": "2026-10-30",
+ "queries": "검색:나스닥 | 검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=ODAPYwws77Y",
+ "flag": "",
+ "published_at": "2026-10-30T02:45:07Z",
+ "rank": "W121",
+ "set": "web",
+ "folder": "W_ODAPYwws77Y",
+ "sources": [
+  "검색:나스닥",
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "노바주식",
+  "주식",
+  "주식전망",
+  "주식강의 기초",
+  "주식공부",
+  "주식 단타",
+  "주식투자",
+  "주식애소리",
+  "미국주식사는법",
+  "미국주식 단타",
+  "테슬라",
+  "애플",
+  "구글",
+  "마이크로소프트",
+  "엔비디아",
+  "주식추천",
+  "워렌버핏",
+  "피터린치",
+  "일론머스크",
+  "비트코인",
+  "NOVA",
+  "미국 주식",
+  "노바",
+  "미국주식",
+  "미국ETF",
+  "ETF",
+  "US STOCK",
+  "NYSE",
+  "CIA.CHAT",
+  "알고리즘매매",
+  "알고리즘 매매",
+  "알고리즘 트레이딩",
+  "stock market",
+  "investing",
+  "trading",
+  "finance",
+  "stocks",
+  "wall street",
+  "porfolio management",
+  "market analysis",
+  "financial education",
+  "wealth building",
+  "stock picks",
+  "technical analysis",
+  "fundamental analysis",
+  "dividends",
+  "ETFs",
+  "options trading",
+  "day trading",
+  "swing trading",
+  "market news",
+  "economic trends"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": ""
+  },
+  {
+   "start": 106,
+   "title": ""
+  },
+  {
+   "start": 246,
+   "title": ""
+  },
+  {
+   "start": 343,
+   "title": ""
+  },
+  {
+   "start": 427,
+   "title": ""
+  },
+  {
+   "start": 518,
+   "title": ""
+  },
+  {
+   "start": 681,
+   "title": ""
+  },
+  {
+   "start": 829,
+   "title": ""
+  },
+  {
+   "start": 946,
+   "title": ""
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 35,
+ "comments_top_level": 22,
+ "comments_replies": 13,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:41",
+ "approved": "2026-11-06T17:14+09:00"
+}

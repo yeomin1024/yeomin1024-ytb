@@ -1,0 +1,64 @@
+{
+ "id": "JCcZZTkmRfk",
+ "title": "How to Prepare for the Upcoming Stock Market Crash",
+ "channel": "Damien Talks Money",
+ "channel_id": "UCjPR68IfHV0aY9s6cF5u0uQ",
+ "subs": 422000,
+ "views": 315741,
+ "ratio": 0.75,
+ "age_days": 1,
+ "views_per_day": 192144.5,
+ "minutes": 18.4,
+ "likes": 4253,
+ "comments": 668,
+ "published": "2026-11-04",
+ "queries": "검색:stock market | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=JCcZZTkmRfk",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T17:03:47Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_JCcZZTkmRfk",
+ "sources": [
+  "검색:stock market",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Avoiding the Crash"
+  },
+  {
+   "start": 287,
+   "title": "The Beginners"
+  },
+  {
+   "start": 571,
+   "title": "The Middle"
+  },
+  {
+   "start": 817,
+   "title": "Retirement"
+  },
+  {
+   "start": 1068,
+   "title": "The Common Thread"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 669,
+ "comments_top_level": 370,
+ "comments_replies": 299,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 668,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:34:03",
+ "approved": "2026-11-06T17:34+09:00"
+}

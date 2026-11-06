@@ -1,0 +1,103 @@
+{
+ "id": "6xk8plgjMB4",
+ "title": "2억 넣고 매달 300만 원 쓰면, 커버드콜 원금은 몇 년 버틸까?",
+ "channel": "재테크하는 일개미",
+ "channel_id": "UCi4uneECdpHyKeypsH9AGPg",
+ "subs": 46700,
+ "views": 83254,
+ "ratio": 1.78,
+ "age_days": 1,
+ "views_per_day": 43252.7,
+ "minutes": 11.3,
+ "likes": 672,
+ "comments": 89,
+ "published": "2026-11-04",
+ "queries": "검색:ETF추천 | 검색:배당ETF | 검색:월배당ETF | 검색:커버드콜ETF | 검색:월배당 | 검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=6xk8plgjMB4",
+ "flag": "",
+ "published_at": "2026-11-04T09:00:09Z",
+ "rank": "W131",
+ "set": "web",
+ "folder": "W_6xk8plgjMB4",
+ "sources": [
+  "검색:ETF추천",
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:월배당",
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "재테크꿀팁",
+  "미국주식 추천",
+  "미국주식전망",
+  "재테크",
+  "재테크 추천",
+  "재테크 기초",
+  "재테크 책 추천",
+  "주식",
+  "주식전망",
+  "주식강의 기초",
+  "엔비디아",
+  "엔비디아 주식 전망",
+  "팔란티어",
+  "테슬라",
+  "연금저축펀드",
+  "ISA",
+  "ISA계좌",
+  "절세계좌",
+  "주식투자",
+  "한국주식",
+  "KODEX200타겟위클리커버드콜",
+  "KODEX200커버드콜액티브",
+  "커버드콜",
+  "커버드콜ETF",
+  "월배당ETF"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "원금 녹는다는 말, 맞을까 틀릴까?"
+  },
+  {
+   "start": 87,
+   "title": "왜 2억에 300만 원인가?"
+  },
+  {
+   "start": 110,
+   "title": "계산 조건 공개"
+  },
+  {
+   "start": 256,
+   "title": "매달 300만 원 고정으로 빼 쓰는 경우"
+  },
+  {
+   "start": 355,
+   "title": "분배금 나오는 만큼만 쓰는 경우"
+  },
+  {
+   "start": 450,
+   "title": "그냥 지수 ETF 사서 팔아 쓰면 안 되나?"
+  },
+  {
+   "start": 569,
+   "title": "그래서 몇 년 버틸까? 답은 활용 방식"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 89,
+ "comments_top_level": 42,
+ "comments_replies": 47,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 89,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:15:04",
+ "approved": "2026-11-06T17:15+09:00"
+}

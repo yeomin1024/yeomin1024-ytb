@@ -1,0 +1,90 @@
+{
+ "id": "c0ZaZ3hTNXM",
+ "title": "The Investing Questions Everyone Should Be Asking | The Best of The Ramsey Show",
+ "channel": "The Ramsey Show Highlights",
+ "channel_id": "UC7eBNeDW1GQf2NJQ6G6gAxw",
+ "subs": 4600000,
+ "views": 94490,
+ "ratio": 0.02,
+ "age_days": 2,
+ "views_per_day": 33747.1,
+ "minutes": 59.4,
+ "likes": 651,
+ "comments": 112,
+ "published": "2026-11-03",
+ "queries": "검색:how to invest in stocks",
+ "url": "https://www.youtube.com/watch?v=c0ZaZ3hTNXM",
+ "flag": "외국 영상",
+ "published_at": "2026-11-03T12:00:07Z",
+ "rank": "W185",
+ "set": "web",
+ "folder": "W_c0ZaZ3hTNXM",
+ "sources": [
+  "검색:how to invest in stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "the dave ramsey show",
+  "budget money debt cash",
+  "real estate",
+  "insurance",
+  "how to make money",
+  "dave ramsey",
+  "save",
+  "credit card",
+  "compound interest",
+  "buying house",
+  "buy",
+  "snowball",
+  "debt",
+  "how to get out of debt"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Nearly All My $18 Million Net Worth Is in One Stock"
+  },
+  {
+   "start": 469,
+   "title": "I Inherited Millions After My Mom’s Death"
+  },
+  {
+   "start": 929,
+   "title": "Should I Keep Working 3 Jobs?"
+  },
+  {
+   "start": 1489,
+   "title": "The 3 Most Important Investing Principles"
+  },
+  {
+   "start": 2007,
+   "title": "Is 60% Too Much to Be Investing?"
+  },
+  {
+   "start": 2290,
+   "title": "Is a CD the Safest Place for Investments?"
+  },
+  {
+   "start": 2716,
+   "title": "Why Roth Investments Are Better Than Traditional"
+  },
+  {
+   "start": 3085,
+   "title": "Why Mutual Funds Over Index Funds?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 112,
+ "comments_top_level": 54,
+ "comments_replies": 58,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 112,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:41:51",
+ "approved": "2026-11-06T17:41+09:00"
+}

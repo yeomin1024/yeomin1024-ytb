@@ -1,0 +1,73 @@
+{
+ "id": "9UZXN5_dj64",
+ "title": "S&P500、関税ショック以来の急落！今後どうなる？",
+ "channel": "ガーコちゃんねる",
+ "channel_id": "UC4cVwSx4jdZszAcvrgJ4H-g",
+ "subs": 538000,
+ "views": 98973,
+ "ratio": 0.18,
+ "age_days": 0,
+ "views_per_day": 98973.0,
+ "minutes": 21.5,
+ "likes": 1765,
+ "comments": 90,
+ "published": "2026-11-06",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=9UZXN5_dj64",
+ "flag": "외국 영상",
+ "published_at": "2026-11-06T02:50:02Z",
+ "rank": "W127",
+ "set": "web",
+ "folder": "W_9UZXN5_dj64",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "新NISA"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "オープニング"
+  },
+  {
+   "start": 90,
+   "title": "1.米国ハイテクに血の雨。恐怖指数急上昇、なぜ？"
+  },
+  {
+   "start": 463,
+   "title": "2.急落の原因はテキサス州？テキサスで何が起きた"
+  },
+  {
+   "start": 641,
+   "title": "3.今後AI投資は急減する？プロの見方を解説。"
+  },
+  {
+   "start": 777,
+   "title": "4.3月のあの恐怖の極限で逃げた人はどうなった？"
+  },
+  {
+   "start": 866,
+   "title": "5.S&P500が1週間で5%下がったら？"
+  },
+  {
+   "start": 1169,
+   "title": "6.ガーコの小噺：夜中の廊下"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 120,
+ "comments_top_level": 110,
+ "comments_replies": 10,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 90,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:38:44",
+ "approved": "2026-11-06T17:38+09:00"
+}

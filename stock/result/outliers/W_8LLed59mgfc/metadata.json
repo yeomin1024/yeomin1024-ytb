@@ -1,0 +1,84 @@
+{
+ "id": "8LLed59mgfc",
+ "title": "같은 S&P500인데 분배금이 2배? 10월 28일까지 사야 11월에 받습니다 (연금계좌 채우는 법) | 절세미녀",
+ "channel": "절세미녀 김희연 회계사",
+ "channel_id": "UC2ByczqyZtt0Lj2DCkQuXJA",
+ "subs": 199000,
+ "views": 290595,
+ "ratio": 1.46,
+ "age_days": 14,
+ "views_per_day": 20445.9,
+ "minutes": 13.2,
+ "likes": 1560,
+ "comments": 67,
+ "published": "2026-10-23",
+ "queries": "검색:S&P500 | 검색:배당투자 | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=8LLed59mgfc",
+ "flag": "",
+ "published_at": "2026-10-23T02:05:22Z",
+ "rank": "W134",
+ "set": "web",
+ "folder": "W_8LLed59mgfc",
+ "sources": [
+  "검색:S&P500",
+  "검색:배당투자",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "절세미녀",
+  "김희연 회계사",
+  "연금",
+  "연금보험",
+  "비과세연금",
+  "연금설계",
+  "배당금",
+  "분배금",
+  "배당ETF",
+  "미국주식",
+  "Snp",
+  "S&P500",
+  "연금저축펀드",
+  "절세계좌",
+  "미국etf",
+  "연말정산",
+  "배당투자",
+  "노후준비"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "같은 S&P500인데 분배금이 2배?"
+  },
+  {
+   "start": 64,
+   "title": "분배금 2배의 비밀과 10월 28일 마감"
+  },
+  {
+   "start": 260,
+   "title": "지금 사도 괜찮을까? 15년의 법칙"
+  },
+  {
+   "start": 384,
+   "title": "연말 전에 채우면 최대 148만 원 환급"
+  },
+  {
+   "start": 499,
+   "title": "유형별 포트폴리오 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 67,
+ "comments_top_level": 44,
+ "comments_replies": 23,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 67,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:15:12",
+ "approved": "2026-11-06T17:15+09:00"
+}

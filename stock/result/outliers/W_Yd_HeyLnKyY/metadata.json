@@ -1,0 +1,84 @@
+{
+ "id": "Yd_HeyLnKyY",
+ "title": "S&P500 몰빵하지 마세요. 딱 이 2개만 반반 담으면 평생 돈 복사됩니다 | 절세미녀",
+ "channel": "절세미녀 김희연 회계사",
+ "channel_id": "UC2ByczqyZtt0Lj2DCkQuXJA",
+ "subs": 199000,
+ "views": 88786,
+ "ratio": 0.45,
+ "age_days": 2,
+ "views_per_day": 41153.8,
+ "minutes": 18.5,
+ "likes": 331,
+ "comments": 17,
+ "published": "2026-11-04",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=Yd_HeyLnKyY",
+ "flag": "",
+ "published_at": "2026-11-04T03:25:12Z",
+ "rank": "W182",
+ "set": "web",
+ "folder": "W_Yd_HeyLnKyY",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "재테크기초",
+  "1억만들기",
+  "거치식투자",
+  "적립식투자",
+  "TDF투자",
+  "TRF",
+  "주식채권배분",
+  "은퇴자산관리",
+  "노후준비",
+  "자산관리전략",
+  "주식투자방법",
+  "경제",
+  "절세미녀",
+  "김희연회계사",
+  "김희연",
+  "절세미녀김희연",
+  "연금",
+  "1억",
+  "2억",
+  "10억"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1억 모았다고 끝? 깡통 계좌 막는 '자산 배분'의 기술"
+  },
+  {
+   "start": 132,
+   "title": "거치식 vs 적립식 — 1억을 2억으로 가장 빨리 불리는 마법의 숫자"
+  },
+  {
+   "start": 442,
+   "title": "통장은 무조건 쪼개라 자산가들의 계좌 분리 전략"
+  },
+  {
+   "start": 572,
+   "title": "오를 땐 팔고, 내릴 땐 사라 기계적 리밸런싱으로 복리 극대화하기"
+  },
+  {
+   "start": 1013,
+   "title": "은퇴 시점에 따른 포트폴리오 대전환"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 18,
+ "comments_top_level": 11,
+ "comments_replies": 7,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 17,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:17:34",
+ "approved": "2026-11-06T17:17+09:00"
+}

@@ -1,0 +1,81 @@
+{
+ "id": "21-G0C_bXYI",
+ "title": "WTF Just Happened to Indonesia? (Worst Crash Since 1998)",
+ "channel": "TSCS",
+ "channel_id": "UCdyNZcgs1ZcFFM1cy4g04og",
+ "subs": 14000,
+ "views": 1378175,
+ "ratio": 98.44,
+ "age_days": 13,
+ "views_per_day": 99328.5,
+ "minutes": 18.2,
+ "likes": 8964,
+ "comments": 1877,
+ "published": "2026-10-23",
+ "queries": "검색:stocks | 검색:stock market investing | 검색(전체 기간):stocks",
+ "url": "https://www.youtube.com/watch?v=21-G0C_bXYI",
+ "flag": "외국 영상",
+ "published_at": "2026-10-23T11:30:11Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_21-G0C_bXYI",
+ "sources": [
+  "검색:stocks",
+  "검색:stock market investing",
+  "검색(전체 기간):stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Indonesia's worst day since 1998"
+  },
+  {
+   "start": 88,
+   "title": "Suspect 1: MSCI, the index company"
+  },
+  {
+   "start": 301,
+   "title": "Suspect 2: the rupiah. Is this 1998 again?"
+  },
+  {
+   "start": 475,
+   "title": "Suspect 3: the state"
+  },
+  {
+   "start": 599,
+   "title": "The banks are the state's ATM"
+  },
+  {
+   "start": 747,
+   "title": "Why Jakarta doesn't need MSCI"
+  },
+  {
+   "start": 878,
+   "title": "What we're buying"
+  },
+  {
+   "start": 995,
+   "title": "How we could be wrong"
+  },
+  {
+   "start": 1063,
+   "title": "Who crashed Indonesia?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 1877,
+ "comments_top_level": 1052,
+ "comments_replies": 825,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1877,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:04",
+ "approved": "2026-11-06T17:31+09:00"
+}

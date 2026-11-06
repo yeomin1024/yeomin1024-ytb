@@ -1,0 +1,100 @@
+{
+ "id": "2OyKQqntI5c",
+ "title": "순자산 상위 1% 투자자에게 물어봤습니다. 지금 어떤 주식에 투자하세요? | 평온작가 | 배당주 | 배당투자",
+ "channel": "투자360",
+ "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
+ "subs": 16600,
+ "views": 49075,
+ "ratio": 2.96,
+ "age_days": 2,
+ "views_per_day": 24519.0,
+ "minutes": 16.2,
+ "likes": 311,
+ "comments": 14,
+ "published": "2026-11-04",
+ "queries": "검색:배당ETF | 검색:월배당ETF | 검색:배당주 | 검색:월배당 | 검색:배당금 | 검색:배당투자 | 검색:dividend investing | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=2OyKQqntI5c",
+ "flag": "",
+ "published_at": "2026-11-04T07:09:44Z",
+ "rank": "W128",
+ "set": "web",
+ "folder": "W_2OyKQqntI5c",
+ "sources": [
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:배당주",
+  "검색:월배당",
+  "검색:배당금",
+  "검색:배당투자",
+  "검색:dividend investing",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "배당",
+  "배당주",
+  "배당투자",
+  "월배당",
+  "미국배당주",
+  "SCHD",
+  "DIVO",
+  "배당포트폴리오",
+  "포트폴리오",
+  "미국주식",
+  "배당ETF",
+  "고배당주",
+  "성장주투자",
+  "성장주",
+  "배당성장주",
+  "배당성장",
+  "파이어족"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 44,
+   "title": "순자산 상위 1% 투자자의 포트폴리오"
+  },
+  {
+   "start": 177,
+   "title": "배당의 진짜 힘은 재투자에서 나옵니다"
+  },
+  {
+   "start": 223,
+   "title": "AI 시대, 10배 성장할 핵심 종목"
+  },
+  {
+   "start": 322,
+   "title": "SCHD 대신 주목할 배당 ETF 3가지"
+  },
+  {
+   "start": 461,
+   "title": "배당과 자산 성장을 잡는 포트폴리오"
+  },
+  {
+   "start": 633,
+   "title": "‘세금 폭탄?’ 공포 마케팅에 속지 마세요"
+  },
+  {
+   "start": 823,
+   "title": "6년간 투자 내역을 공개하는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 14,
+ "comments_top_level": 13,
+ "comments_replies": 1,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:59",
+ "approved": "2026-11-06T17:14+09:00"
+}

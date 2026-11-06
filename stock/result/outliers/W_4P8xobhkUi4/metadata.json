@@ -1,0 +1,184 @@
+{
+ "id": "4P8xobhkUi4",
+ "title": "Post-Election Rally: Stocks To Buy Even At Highs",
+ "channel": "TheStreet",
+ "channel_id": "UCp6aBHRM6ZS_kLeC57HV4kg",
+ "subs": 167000,
+ "views": 65300,
+ "ratio": 0.39,
+ "age_days": 1,
+ "views_per_day": 41791.0,
+ "minutes": 23.2,
+ "likes": 910,
+ "comments": 77,
+ "published": "2026-11-04",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=4P8xobhkUi4",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T19:00:00Z",
+ "rank": "W82",
+ "set": "web",
+ "folder": "W_4P8xobhkUi4",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market",
+  "investing strategies",
+  "investing news",
+  "TheStreet",
+  "Stocks",
+  "financial news",
+  "business news",
+  "stock market news",
+  "stock market analysis",
+  "stock market forecast",
+  "best stocks to buy now",
+  "stocks to buy in 2027",
+  "Nasdaq outlook",
+  "AI stocks",
+  "best AI stocks",
+  "tech stocks",
+  "Big Tech",
+  "artificial intelligence",
+  "undervalued stocks",
+  "growth stocks",
+  "energy stocks",
+  "financial stocks",
+  "Microsoft stock",
+  "Oracle stock",
+  "Micron stock",
+  "Amazon stock",
+  "retail investors",
+  "portfolio diversification"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 8,
+   "title": "Election Results and the Stock Market: What Changes for Investors?"
+  },
+  {
+   "start": 53,
+   "title": "Best Sectors to Buy Under a Divided Government"
+  },
+  {
+   "start": 109,
+   "title": "AI Stocks and Data Centers: How the Election Could Impact Tech"
+  },
+  {
+   "start": 158,
+   "title": "Best AI-Adjacent Stocks: Opportunities Beyond Big Tech"
+  },
+  {
+   "start": 194,
+   "title": "eBay (EBAY) Stock: Why It's Still a Buy After a 35% Rally"
+  },
+  {
+   "start": 263,
+   "title": "eBay vs. Amazon (AMZN): Where eBay Has a Competitive Advantage"
+  },
+  {
+   "start": 310,
+   "title": "Thermo Fisher (TMO) Stock: Why It's a Healthcare Pick to Buy"
+  },
+  {
+   "start": 363,
+   "title": "Thermo Fisher vs. Eli Lilly (LLY): Which Healthcare Stock Is a Better Buy?"
+  },
+  {
+   "start": 410,
+   "title": "Deere (DE) Stock: Is It Still a Buy After a 40% Rally?"
+  },
+  {
+   "start": 481,
+   "title": "The Best AI Investments: Companies Using AI to Boost Profits"
+  },
+  {
+   "start": 533,
+   "title": "Software Stocks: Which Companies Are Most at Risk From AI?"
+  },
+  {
+   "start": 592,
+   "title": "Where to Find Undervalued Stocks: Union Pacific (UNP)"
+  },
+  {
+   "start": 652,
+   "title": "Best Tech Stocks to Buy: Microsoft (MSFT), Oracle (ORCL) and More"
+  },
+  {
+   "start": 724,
+   "title": "Micron, SanDisk and Oracle: Which Stocks Are Worth Buying After the Pullback?"
+  },
+  {
+   "start": 767,
+   "title": "Nasdaq Outlook: Is the Tech Stock Selloff Over?"
+  },
+  {
+   "start": 800,
+   "title": "Magnificent Seven Stocks: Should Investors Take Profits?"
+  },
+  {
+   "start": 837,
+   "title": "Which Stocks Should Investors Sell or Trim?"
+  },
+  {
+   "start": 875,
+   "title": "Stocks to Watch: Companies Benefiting From AI and Productivity Gains"
+  },
+  {
+   "start": 925,
+   "title": "How Retail Investors Can Navigate a Broader Stock Market Rally"
+  },
+  {
+   "start": 961,
+   "title": "S&P 500 Concentration Risk: How Much Big Tech Exposure Is Too Much?"
+  },
+  {
+   "start": 980,
+   "title": "Equal-Weight vs. Market-Cap-Weighted S&P 500: Which Is Better?"
+  },
+  {
+   "start": 990,
+   "title": "Best Stocks and Sectors to Buy Beyond Big Tech"
+  },
+  {
+   "start": 1054,
+   "title": "Best Financial Stocks to Buy: Morgan Stanley (MS)"
+  },
+  {
+   "start": 1085,
+   "title": "Consumer Discretionary Stocks: How to Find the Winners"
+  },
+  {
+   "start": 1157,
+   "title": "Best Stocks to Buy Heading Into 2027"
+  },
+  {
+   "start": 1189,
+   "title": "Which Stocks to Avoid: Companies With Too Much Debt"
+  },
+  {
+   "start": 1204,
+   "title": "Rapid-Fire: This or That"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 77,
+ "comments_top_level": 52,
+ "comments_replies": 25,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 77,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:36:04",
+ "approved": "2026-11-06T17:36+09:00"
+}

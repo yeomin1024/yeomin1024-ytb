@@ -1,0 +1,126 @@
+{
+ "id": "o8L5OBgF6pw",
+ "title": "China Just Popped The AI Bubble (Prepare Now)",
+ "channel": "Minority Mindset",
+ "channel_id": "UCT3EznhW_CNFcfOlyDNTLLw",
+ "subs": 2540000,
+ "views": 291064,
+ "ratio": 0.11,
+ "age_days": 3,
+ "views_per_day": 77022.4,
+ "minutes": 28.0,
+ "likes": 3777,
+ "comments": 222,
+ "published": "2026-11-02",
+ "queries": "검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=o8L5OBgF6pw",
+ "flag": "외국 영상",
+ "published_at": "2026-11-02T12:30:21Z",
+ "rank": "W145",
+ "set": "web",
+ "folder": "W_o8L5OBgF6pw",
+ "sources": [
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "minoritymindset",
+  "minority mindset",
+  "minority123",
+  "jaspreet singh",
+  "rethink rich",
+  "financial education",
+  "financial literacy",
+  "finances",
+  "stock market",
+  "stocks 101",
+  "how to invest",
+  "money management",
+  "investing 101",
+  "building wealth",
+  "how to manage money",
+  "financial advice",
+  "investing",
+  "buying stocks",
+  "housing market",
+  "inflation",
+  "wealth",
+  "passive income",
+  "personal finance",
+  "real estate",
+  "real estate 101",
+  "real estate investing"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The AI Bubble Burst in China"
+  },
+  {
+   "start": 114,
+   "title": "Free Livestream"
+  },
+  {
+   "start": 181,
+   "title": "China AI vs. US Tech Stocks"
+  },
+  {
+   "start": 360,
+   "title": "Lessons from Past Market Bubbles"
+  },
+  {
+   "start": 714,
+   "title": "Rising Interest Rates and the AI Market"
+  },
+  {
+   "start": 864,
+   "title": "What Top Leaders Say About the AI Bubble"
+  },
+  {
+   "start": 962,
+   "title": "How Investors Can Prepare for a Market Drop"
+  },
+  {
+   "start": 1070,
+   "title": "1. Energy and Nuclear Power Stocks"
+  },
+  {
+   "start": 1148,
+   "title": "2. Rare Earth Metals and Mining"
+  },
+  {
+   "start": 1203,
+   "title": "3. Robotics and Automation ETFs"
+  },
+  {
+   "start": 1248,
+   "title": "4. Non-Tech and Dividend Value Stocks"
+  },
+  {
+   "start": 1331,
+   "title": "5. Chinese Tech and Internet Stocks"
+  },
+  {
+   "start": 1454,
+   "title": "Managing Wealth with a Financial Advisor"
+  },
+  {
+   "start": 1524,
+   "title": "Key Takeaways and Final Summary"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 222,
+ "comments_top_level": 168,
+ "comments_replies": 54,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 222,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:49",
+ "approved": "2026-11-06T17:39+09:00"
+}

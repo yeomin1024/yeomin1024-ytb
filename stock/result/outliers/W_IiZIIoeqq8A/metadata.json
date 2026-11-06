@@ -1,0 +1,123 @@
+{
+ "id": "IiZIIoeqq8A",
+ "title": "너무 복잡하게 투자하면 장기투자가 어렵더라고요 (Ft. 아이렌 추매)",
+ "channel": "파돌부부(파돌댁)",
+ "channel_id": "UCWOafHzobgwdfTzegZK9ijQ",
+ "subs": 12000,
+ "views": 12801,
+ "ratio": 1.07,
+ "age_days": 9,
+ "views_per_day": 1289.8,
+ "minutes": 11.4,
+ "likes": 148,
+ "comments": 30,
+ "published": "2026-10-27",
+ "queries": "검색:장기투자",
+ "url": "https://www.youtube.com/watch?v=IiZIIoeqq8A",
+ "flag": "",
+ "published_at": "2026-10-27T09:00:32Z",
+ "rank": "W116",
+ "set": "web",
+ "folder": "W_IiZIIoeqq8A",
+ "sources": [
+  "검색:장기투자"
+ ],
+ "source": "web",
+ "tags": [
+  "#해외주식",
+  "미국주식",
+  "장기투자",
+  "장투",
+  "주린이공부",
+  "주식공부",
+  "투자공부",
+  "돈공부",
+  "투자마인드",
+  "마인드컨트롤",
+  "장기투자자",
+  "집중투자",
+  "40대부부",
+  "3인가구",
+  "공무원투자자",
+  "40대여자",
+  "40대투자",
+  "성장주",
+  "AI성장주",
+  "AI인프라",
+  "AI소프트웨어",
+  "AI플랫촘",
+  "AI바이오"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "구독자 질문 - 아이렌 투자금 회수기간"
+  },
+  {
+   "start": 47,
+   "title": "숫자 계산? 안하는 이유"
+  },
+  {
+   "start": 135,
+   "title": "모든 걸 파고드는 투자의 장점"
+  },
+  {
+   "start": 172,
+   "title": "파돌댁의 투자방식"
+  },
+  {
+   "start": 221,
+   "title": "디테일한 숫자보다 큰 흐름을 볼 때 놓치는 것들"
+  },
+  {
+   "start": 245,
+   "title": "큰 흐름을 보는 투자의 장점"
+  },
+  {
+   "start": 262,
+   "title": "아이렌이 제시한 ARR의 함정과 착시"
+  },
+  {
+   "start": 404,
+   "title": "유독 아이렌 ARR 계산방식만 다른 전략적 이유"
+  },
+  {
+   "start": 485,
+   "title": "아이렌은 스캠 기업인가?"
+  },
+  {
+   "start": 501,
+   "title": "네비우스에 투자하는게 더 낫지 않나?"
+  },
+  {
+   "start": 585,
+   "title": "앞으로 봐야할 것"
+  },
+  {
+   "start": 609,
+   "title": "유튜브 따라하지 마세요"
+  },
+  {
+   "start": 627,
+   "title": "그밖에 봐야할 것이 있다면?"
+  },
+  {
+   "start": 654,
+   "title": "아이렌 추매, 이만큼 모았습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 15,
+ "comments_replies": 15,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:14:31",
+ "approved": "2026-11-06T17:14+09:00"
+}

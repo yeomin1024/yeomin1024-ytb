@@ -1,0 +1,128 @@
+{
+ "id": "SCgzgn-BIuM",
+ "title": "\"올해 안에 담으세요\" 은퇴 후 연 6% 배당 만들어주는 자산 4가지ㅣ지식인 클래스 (박곰희 작가 풀버전)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4160000,
+ "views": 258758,
+ "ratio": 0.06,
+ "age_days": 1,
+ "views_per_day": 140507.8,
+ "minutes": 55.9,
+ "likes": 1529,
+ "comments": 52,
+ "published": "2026-11-04",
+ "queries": "검색:배당ETF | 검색:배당 | 검색:월배당 | 검색:배당금 | 검색:배당투자 | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=SCgzgn-BIuM",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T11:00:01Z",
+ "rank": "W291",
+ "set": "web",
+ "folder": "W_SCgzgn-BIuM",
+ "sources": [
+  "검색:배당ETF",
+  "검색:배당",
+  "검색:월배당",
+  "검색:배당금",
+  "검색:배당투자",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 63,
+   "title": "평범한 사람이 돈 버는 가장 '이상적인 투자법'"
+  },
+  {
+   "start": 161,
+   "title": "노후 준비할 때 'S&P 500'부터 담아야 하는 이유"
+  },
+  {
+   "start": 270,
+   "title": "은퇴 후 연 6% 배당 만들어주는 자산 4가지"
+  },
+  {
+   "start": 400,
+   "title": "매달 200만 원 배당받으려면 통장에 '이걸' 모으세요"
+  },
+  {
+   "start": 563,
+   "title": "자동으로 수익이 들어오는 포트폴리오 공식"
+  },
+  {
+   "start": 856,
+   "title": "국내 ETF VS 미국 ETF, 저라면 '이걸' 삽니다"
+  },
+  {
+   "start": 1000,
+   "title": "배당 ETF 고를 때 반드시 따져봐야 할 '3가지'"
+  },
+  {
+   "start": 1159,
+   "title": "은퇴 전 목돈 2억 만들어주는 '5개년 플랜'"
+  },
+  {
+   "start": 1438,
+   "title": "부동산, 코인, 주식하며 결국 '돈 버는' 3040 특징"
+  },
+  {
+   "start": 1581,
+   "title": "1억부터 모으고 투자하라는 말 믿으면 안 되는 이유"
+  },
+  {
+   "start": 1706,
+   "title": "단거리 경주가 아닌 '마라톤'처럼 투자하세요"
+  },
+  {
+   "start": 1852,
+   "title": "월급 받자마자 사라진다면 가장 먼저 해야 할 것 '이것'"
+  },
+  {
+   "start": 1980,
+   "title": "월급 300만 원으로 ‘1억’ 만드는 가장 현실적인 방법"
+  },
+  {
+   "start": 2249,
+   "title": "직장인이 돈 관리할 때 필요한 딱 ‘3가지 계좌’"
+  },
+  {
+   "start": 2419,
+   "title": "ISA·연금저축 한도 채운 뒤 해야 할 투자는?"
+  },
+  {
+   "start": 2581,
+   "title": "액티브 VS 패시브, 투자 비율 정하는 방법"
+  },
+  {
+   "start": 2727,
+   "title": "CMA 종류 많아도 ‘이것’만 알면 됩니다"
+  },
+  {
+   "start": 2888,
+   "title": "비상금을 따로 모아두지 않아도 되는 이유"
+  },
+  {
+   "start": 3231,
+   "title": "내일 월급날이라면 '이것'부터 하세요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 52,
+ "comments_top_level": 33,
+ "comments_replies": 19,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 52,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:21:58",
+ "approved": "2026-11-06T17:21+09:00"
+}

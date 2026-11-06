@@ -1,0 +1,107 @@
+{
+ "id": "6KUgNcskdOU",
+ "title": "Top 7 Stocks to BUY NOW (During the Dip)",
+ "channel": "Fin Tek",
+ "channel_id": "UCxdWHEhEPiYhCADMrn4PdhQ",
+ "subs": 271000,
+ "views": 127702,
+ "ratio": 0.47,
+ "age_days": 5,
+ "views_per_day": 22176.9,
+ "minutes": 27.0,
+ "likes": 1639,
+ "comments": 119,
+ "published": "2026-10-31",
+ "queries": "검색:how to invest in stocks | 검색:etf investing | 검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=6KUgNcskdOU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T13:00:02Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_6KUgNcskdOU",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:etf investing",
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "fintek",
+  "novanta stock",
+  "novt",
+  "zscaler stock",
+  "zs",
+  "cloudflare stock",
+  "net stock",
+  "kaspi stock",
+  "kspi",
+  "datadog stock",
+  "ddog",
+  "top robotic stocks",
+  "stocks for AI market crash",
+  "best stocks for 2027",
+  "best stocks to buy now",
+  "space stocks",
+  "rocket lab stock",
+  "rkLB",
+  "WARP ETF",
+  "best space etf",
+  "rocket lab neutron",
+  "stocks to buy",
+  "zs stock",
+  "zscaler stock price",
+  "zs stock analysis",
+  "ddog stock",
+  "spcx stock",
+  "nvda stock",
+  "growth stocks"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "My Stock Portfolio"
+  },
+  {
+   "start": 74,
+   "title": "Stock #7 - Robotics"
+  },
+  {
+   "start": 308,
+   "title": "Stock #6 - Space Tech"
+  },
+  {
+   "start": 623,
+   "title": "Stock #5 - Space Tech"
+  },
+  {
+   "start": 790,
+   "title": "Stock #4 - Growth"
+  },
+  {
+   "start": 1084,
+   "title": "Stock #3  - Growth"
+  },
+  {
+   "start": 1347,
+   "title": "Stock #2 - Under Appreciated"
+  },
+  {
+   "start": 1504,
+   "title": "Stock #1 - Under Appreciated"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 119,
+ "comments_top_level": 96,
+ "comments_replies": 23,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 119,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:49",
+ "approved": "2026-11-06T17:35+09:00"
+}

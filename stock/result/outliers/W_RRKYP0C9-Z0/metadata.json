@@ -1,0 +1,103 @@
+{
+ "id": "RRKYP0C9-Z0",
+ "title": "🚨ATENÇÃO: PRÉVIA dos DIVIDENDOS e NOVOS RESULTADOS da BB SEGURIDADE do 3T2026 | BBSE3",
+ "channel": "Neto Invest",
+ "channel_id": "UCiHUp5cRkjcItPdldyJgd4Q",
+ "subs": 190000,
+ "views": 44996,
+ "ratio": 0.24,
+ "age_days": 2,
+ "views_per_day": 19293.4,
+ "minutes": 12.5,
+ "likes": 2849,
+ "comments": 97,
+ "published": "2026-11-03",
+ "queries": "검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=RRKYP0C9-Z0",
+ "flag": "외국 영상",
+ "published_at": "2026-11-03T23:13:42Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_RRKYP0C9-Z0",
+ "sources": [
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": [
+  "bb seguros",
+  "bb seguridade",
+  "bbse3",
+  "porto",
+  "porto seguro",
+  "pssa3",
+  "caixa",
+  "caixa seguridade",
+  "cxse3",
+  "ações",
+  "dividendos",
+  "investimentos",
+  "bolsa de valores",
+  "neto invest",
+  "PREÇO TETO da bb seguridade",
+  "preço teto de ações",
+  "décio bazin",
+  "bazin",
+  "preço teto bazin"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Tema do vídeo"
+  },
+  {
+   "start": 30,
+   "title": "Resultados do 3T26 e 9M26"
+  },
+  {
+   "start": 170,
+   "title": "Resultado por negócio"
+  },
+  {
+   "start": 210,
+   "title": "De onde veio o lucro da BBSE?"
+  },
+  {
+   "start": 282,
+   "title": "Brasilseg, Brasilprev, BB Corretora"
+  },
+  {
+   "start": 404,
+   "title": "Piora no guidance para 2026"
+  },
+  {
+   "start": 455,
+   "title": "Perspectiva de dividendos para fevereiro de 2027"
+  },
+  {
+   "start": 520,
+   "title": "A BBSE3 tem me gerado bons dividendos"
+  },
+  {
+   "start": 585,
+   "title": "Está cara ou barata? E reflexões"
+  },
+  {
+   "start": 690,
+   "title": "Comentários finais"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "pt-BR",
+ "foreign": true,
+ "comments_fetched": 97,
+ "comments_top_level": 52,
+ "comments_replies": 45,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 97,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:37:55",
+ "approved": "2026-11-06T17:37+09:00"
+}

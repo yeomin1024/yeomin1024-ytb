@@ -1,0 +1,109 @@
+{
+ "id": "lZZ-Qz0m8pc",
+ "title": "Supply and Demand Trading Strategy Made Simple (2 Steps) | Stock Trading For Beginners",
+ "channel": "Trade with Smoke FX",
+ "channel_id": "UC3Mi__D2PuWGDe1_6ta-KYg",
+ "subs": 1890,
+ "views": 16990,
+ "ratio": 8.99,
+ "age_days": 8,
+ "views_per_day": 2118.2,
+ "minutes": 15.8,
+ "likes": 1989,
+ "comments": 119,
+ "published": "2026-10-29",
+ "queries": "검색:stock market for beginners",
+ "url": "https://www.youtube.com/watch?v=lZZ-Qz0m8pc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-29T08:00:09Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_lZZ-Qz0m8pc",
+ "sources": [
+  "검색:stock market for beginners"
+ ],
+ "source": "web",
+ "tags": [
+  "Stock Trading For Beginners",
+  "Trading Strategy",
+  "trading",
+  "trading for beginners",
+  "learn trading",
+  "how to start trading",
+  "trading basics",
+  "trading tutorial",
+  "trading strategies for beginners",
+  "beginner trading tips",
+  "trading explained",
+  "how to trade",
+  "day trading for beginners",
+  "forex trading for beginners",
+  "forex trading basics",
+  "reading trading charts",
+  "technical analysis for beginners",
+  "support and resistance",
+  "price action for beginners",
+  "risk management trading",
+  "Smoke FX"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 122,
+   "title": "AI chart scanner"
+  },
+  {
+   "start": 145,
+   "title": "When the scanner glitches"
+  },
+  {
+   "start": 266,
+   "title": "Going long"
+  },
+  {
+   "start": 297,
+   "title": "Support and resistance"
+  },
+  {
+   "start": 361,
+   "title": "Risk management"
+  },
+  {
+   "start": 517,
+   "title": "Staying calm"
+  },
+  {
+   "start": 566,
+   "title": "Did it work?"
+  },
+  {
+   "start": 672,
+   "title": "Second trade"
+  },
+  {
+   "start": 722,
+   "title": "Reading volume"
+  },
+  {
+   "start": 873,
+   "title": "Second result"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 119,
+ "comments_top_level": 94,
+ "comments_replies": 25,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 119,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:29",
+ "approved": "2026-11-06T17:31+09:00"
+}

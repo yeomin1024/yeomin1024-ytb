@@ -1,0 +1,126 @@
+{
+ "id": "1UekQcI23G8",
+ "title": "The UNTHINKABLE is About to Happen to Your Portfolio",
+ "channel": "Felix Nikolas Prehn",
+ "channel_id": "UCJtfma0mE_XrBAD9uakcjfA",
+ "subs": 818000,
+ "views": 456431,
+ "ratio": 0.56,
+ "age_days": 13,
+ "views_per_day": 33045.7,
+ "minutes": 19.8,
+ "likes": 6180,
+ "comments": 150,
+ "published": "2026-10-23",
+ "queries": "검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=1UekQcI23G8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-23T13:00:37Z",
+ "rank": "W70",
+ "set": "web",
+ "folder": "W_1UekQcI23G8",
+ "sources": [
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "Felix Nikolas Prehn",
+  "Nikolas Prehn",
+  "Felix Prehn",
+  "stock market crash",
+  "tech stocks",
+  "Nasdaq 100",
+  "AI stocks",
+  "AI bubble",
+  "hedge funds shorting",
+  "short squeeze",
+  "Goldman Sachs",
+  "sector rotation",
+  "equal weight S&P 500",
+  "RSP",
+  "credit default swap",
+  "Meta CDS",
+  "data centre debt",
+  "CoreWeave",
+  "project finance",
+  "junk bonds",
+  "10-year Treasury yield",
+  "index fund risk",
+  "pension",
+  "selling puts",
+  "SLV",
+  "silver options"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "NASDAQ lost 1.2 trillion in one day"
+  },
+  {
+   "start": 31,
+   "title": "Hedge funds were already short"
+  },
+  {
+   "start": 92,
+   "title": "What broke inside the AI trade"
+  },
+  {
+   "start": 153,
+   "title": "Tesla capex cuts and Meta debt insurance"
+  },
+  {
+   "start": 217,
+   "title": "Lamb Research guidance disappoints"
+  },
+  {
+   "start": 371,
+   "title": "Hedge fund shorting at five year high"
+  },
+  {
+   "start": 493,
+   "title": "Short squeeze risk explained"
+  },
+  {
+   "start": 555,
+   "title": "Equal weight S&P closed green"
+  },
+  {
+   "start": 617,
+   "title": "Sector rotation into boring stocks"
+  },
+  {
+   "start": 738,
+   "title": "Junk debt behind the AI building boom"
+  },
+  {
+   "start": 799,
+   "title": "Project finance hits 105 billion"
+  },
+  {
+   "start": 921,
+   "title": "AI basket correlation near one with S&P"
+  },
+  {
+   "start": 1013,
+   "title": "Silver put selling trade example"
+  },
+  {
+   "start": 1106,
+   "title": "Putting it all together"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 150,
+ "comments_top_level": 113,
+ "comments_replies": 37,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 150,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:35:32",
+ "approved": "2026-11-06T17:35+09:00"
+}

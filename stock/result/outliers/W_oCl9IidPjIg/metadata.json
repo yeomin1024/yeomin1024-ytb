@@ -1,0 +1,91 @@
+{
+ "id": "oCl9IidPjIg",
+ "title": "BREAKING: Why Are AI Stocks CRASHING Today? (AI bubble popping?)",
+ "channel": "Finance Stack",
+ "channel_id": "UCXuajBBk_lhdQH3FRQfd5GA",
+ "subs": 2070,
+ "views": 79585,
+ "ratio": 38.45,
+ "age_days": 0,
+ "views_per_day": 79585.0,
+ "minutes": 11.1,
+ "likes": 506,
+ "comments": 153,
+ "published": "2026-11-05",
+ "queries": "검색:how to invest in stocks",
+ "url": "https://www.youtube.com/watch?v=oCl9IidPjIg",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T19:31:37Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_oCl9IidPjIg",
+ "sources": [
+  "검색:how to invest in stocks"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The Sudden Plunge Across Tech Stocks"
+  },
+  {
+   "start": 34,
+   "title": "Why Local Ballots Targeted Power"
+  },
+  {
+   "start": 73,
+   "title": "The Election Vote on Data Centers"
+  },
+  {
+   "start": 140,
+   "title": "Warning Signs on Energy Charts"
+  },
+  {
+   "start": 184,
+   "title": "A Multi Billion Dollar Debt Load"
+  },
+  {
+   "start": 254,
+   "title": "What Slowing Demand Does to Chips"
+  },
+  {
+   "start": 312,
+   "title": "Why Small Growth Misses Spark Sells"
+  },
+  {
+   "start": 361,
+   "title": "Evaluating the Real Crash Probability"
+  },
+  {
+   "start": 423,
+   "title": "The 1999 Fiber Optic Precedent"
+  },
+  {
+   "start": 494,
+   "title": "The Date That Decides the Trend"
+  },
+  {
+   "start": 543,
+   "title": "How Index Weighting Risks Your 401k"
+  },
+  {
+   "start": 620,
+   "title": "Borrowing Costs Facing Big Tech"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 157,
+ "comments_top_level": 74,
+ "comments_replies": 83,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 153,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:21",
+ "approved": "2026-11-06T17:31+09:00"
+}

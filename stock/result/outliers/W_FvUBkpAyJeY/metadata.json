@@ -1,0 +1,96 @@
+{
+ "id": "FvUBkpAyJeY",
+ "title": "코스피 하루 7.8% 폭락! 내 주식 팔기 전에 확인할 성장통과 하락의 기준 #12시에 만나요 #매도사이드카 #삼성전자",
+ "channel": "잘되는경제",
+ "channel_id": "UClXDIlxYjmTHjsNpkSR5BAg",
+ "subs": 1080,
+ "views": 12462,
+ "ratio": 11.54,
+ "age_days": 7,
+ "views_per_day": 1752.2,
+ "minutes": 12.9,
+ "likes": 51,
+ "comments": 9,
+ "published": "2026-10-30",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=FvUBkpAyJeY",
+ "flag": "",
+ "published_at": "2026-10-30T04:30:36Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_FvUBkpAyJeY",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "경제",
+  "경제뉴스",
+  "주식시장",
+  "국내증시",
+  "미국증시",
+  "주식투자",
+  "경제분석",
+  "기업분석",
+  "재테크",
+  "투자정보",
+  "코스피",
+  "코스닥",
+  "금리",
+  "환율",
+  "잘되는경제",
+  "비즈니스",
+  "금융",
+  "글로벌경제",
+  "매크로경제",
+  "인플레이션",
+  "12시에만나요",
+  "서킷브레이커",
+  "사이드카"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "성장통이냐 하락이냐"
+  },
+  {
+   "start": 15,
+   "title": "이 영상 핵심은 이것"
+  },
+  {
+   "start": 30,
+   "title": "25년 베테랑도 힘든 하락장"
+  },
+  {
+   "start": 145,
+   "title": "한국 주식을 사자던 세 가지 근거"
+  },
+  {
+   "start": 319,
+   "title": "지금 팔지 말지 가르는 기준"
+  },
+  {
+   "start": 580,
+   "title": "경제는 좋고 주가는 너무 싸다"
+  },
+  {
+   "start": 727,
+   "title": "바쁜 분들을 위한 3줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 9,
+ "comments_top_level": 7,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 9,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:10:57",
+ "approved": "2026-11-06T17:10+09:00"
+}

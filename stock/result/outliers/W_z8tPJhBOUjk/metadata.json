@@ -1,0 +1,97 @@
+{
+ "id": "z8tPJhBOUjk",
+ "title": "Analista de Banca Enseña Todas sus Inversiones a los 27 Años (Octubre)",
+ "channel": "Dani Dominguez Quant",
+ "channel_id": "UCiS3qumDoE7QDwzo_ChU6yQ",
+ "subs": 12500,
+ "views": 21477,
+ "ratio": 1.72,
+ "age_days": 11,
+ "views_per_day": 1839.6,
+ "minutes": 16.5,
+ "likes": 262,
+ "comments": 31,
+ "published": "2026-10-25",
+ "queries": "검색:index funds",
+ "url": "https://www.youtube.com/watch?v=z8tPJhBOUjk",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T15:00:09Z",
+ "rank": "W98",
+ "set": "web",
+ "folder": "W_z8tPJhBOUjk",
+ "sources": [
+  "검색:index funds"
+ ],
+ "source": "web",
+ "tags": [
+  "patrimonio neto",
+  "cartera de inversion",
+  "fondos indexados",
+  "mi cartera",
+  "finanzas personales",
+  "libertad financiera",
+  "mis inversiones",
+  "como invierto mi dinero",
+  "independencia financiera",
+  "invertir desde cero",
+  "educacion financiera",
+  "invertir en fondos indexados",
+  "msci world",
+  "interes compuesto",
+  "etf",
+  "dinero",
+  "inversiones",
+  "criptomonedas",
+  "myinvestor",
+  "dani dominguez quant",
+  "fondo indexado",
+  "cartera de fondos",
+  "mercados emergentes",
+  "gestion pasiva",
+  "ahorro e inversion"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 54,
+   "title": "Mi patrimonio en octubre"
+  },
+  {
+   "start": 89,
+   "title": "Lo que tengo en cartera y por qué"
+  },
+  {
+   "start": 312,
+   "title": "Mi inversión más arriesgada"
+  },
+  {
+   "start": 387,
+   "title": "Cómo está repartido mi dinero"
+  },
+  {
+   "start": 668,
+   "title": "Qué tal ha ido el mes"
+  },
+  {
+   "start": 914,
+   "title": "La APP que uso"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "es",
+ "foreign": true,
+ "comments_fetched": 31,
+ "comments_top_level": 22,
+ "comments_replies": 9,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 31,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:13:50",
+ "approved": "2026-11-06T17:13+09:00"
+}

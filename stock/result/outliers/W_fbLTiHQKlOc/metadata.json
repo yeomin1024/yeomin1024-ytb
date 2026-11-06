@@ -1,0 +1,85 @@
+{
+ "id": "fbLTiHQKlOc",
+ "title": "Tom Lee: The Correction Is Over — Stocks Are About To Surge",
+ "channel": "Prof G Markets",
+ "channel_id": "UCp4CBeq4nzeg9smAvdjPrig",
+ "subs": 138000,
+ "views": 162099,
+ "ratio": 1.17,
+ "age_days": 1,
+ "views_per_day": 90067.0,
+ "minutes": 34.8,
+ "likes": 1957,
+ "comments": 539,
+ "published": "2026-11-04",
+ "queries": "검색:how to invest in stocks | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=fbLTiHQKlOc",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T12:00:23Z",
+ "rank": "W37",
+ "set": "web",
+ "folder": "W_fbLTiHQKlOc",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "business news",
+  "stock market",
+  "financial news",
+  "financial news channel",
+  "financial news today",
+  "stock market news today",
+  "stock market today",
+  "stock market news"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 34,
+   "title": "Market Vitals"
+  },
+  {
+   "start": 59,
+   "title": "The Bull Case (ft. Tom Lee)"
+  },
+  {
+   "start": 1040,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1109,
+   "title": "Apple Q4 Earnings & the Duo (ft. Patrick McGee)"
+  },
+  {
+   "start": 1870,
+   "title": "Ad Break"
+  },
+  {
+   "start": 1957,
+   "title": "Midterms Prediction"
+  },
+  {
+   "start": 2073,
+   "title": "Credits"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 540,
+ "comments_top_level": 364,
+ "comments_replies": 176,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 539,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:13",
+ "approved": "2026-11-06T17:33+09:00"
+}

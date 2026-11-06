@@ -1,0 +1,115 @@
+{
+ "id": "ddW_RCLYdJ4",
+ "title": "5 Stocks to Buy in the Biggest Market Opportunity Nobody Sees",
+ "channel": "Let's Talk Money! with Joseph Hogue, CFA",
+ "channel_id": "UCbKdotYtcY9SxoU8CYAXdvg",
+ "subs": 759000,
+ "views": 30281,
+ "ratio": 0.04,
+ "age_days": 1,
+ "views_per_day": 18904.7,
+ "minutes": 23.3,
+ "likes": 430,
+ "comments": 35,
+ "published": "2026-11-04",
+ "queries": "검색:dividend stocks",
+ "url": "https://www.youtube.com/watch?v=ddW_RCLYdJ4",
+ "flag": "외국 영상",
+ "published_at": "2026-11-04T16:45:31Z",
+ "rank": "W176",
+ "set": "web",
+ "folder": "W_ddW_RCLYdJ4",
+ "sources": [
+  "검색:dividend stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market news",
+  "stock market update",
+  "stocks this week",
+  "stock market",
+  "stock market today",
+  "stock market crash",
+  "stock market forecast",
+  "investing news",
+  "weekly stock market update",
+  "best stocks this week",
+  "stock market correction",
+  "stocks to buy",
+  "weekly investing update",
+  "stock market headlines",
+  "market analysis",
+  "stock trends",
+  "investing this week",
+  "top stocks to watch",
+  "stock news today"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "5 Best Stocks to Buy Before the Next Market Boom"
+  },
+  {
+   "start": 25,
+   "title": "Energy Stocks Surge 53% But I’m Watching The Hidden Investment Opportunity"
+  },
+  {
+   "start": 66,
+   "title": "Oil Company Earnings Explode: What's Next for 2027?"
+  },
+  {
+   "start": 258,
+   "title": "Why Oil Companies Must Increase Drilling and Capital Spending"
+  },
+  {
+   "start": 359,
+   "title": "The Next Oil Price Crisis: IEA Production Decline Forecast"
+  },
+  {
+   "start": 464,
+   "title": "Best Stock Comparison; Exxon (XOM), Chevron (CVX), ConocoPhillips (COP), Devon (DVN) and Diamondback (FANG)"
+  },
+  {
+   "start": 707,
+   "title": "3 Massive Catalysts for Oil Stocks; Venezuela, Middle East & AI Data Centers"
+  },
+  {
+   "start": 851,
+   "title": "SLB (SLB): Oilfield Technology, Venezuela & AI Cooling"
+  },
+  {
+   "start": 904,
+   "title": "Halliburton (HAL): Oil Drilling Recovery & 2027 Earnings Growth"
+  },
+  {
+   "start": 961,
+   "title": "Baker Hughes (BKR): AI Data Center Power & Energy Infrastructure"
+  },
+  {
+   "start": 1018,
+   "title": "Kodiak Gas Services (KGS): Natural Gas & AI Power Generation"
+  },
+  {
+   "start": 1072,
+   "title": "Liberty Energy (LBRT): Fracking Recovery & AI Data Center Stocks"
+  },
+  {
+   "start": 1120,
+   "title": "Analyzing the 5 Best Stocks for 2027: Growth, Valuation & Stock Comparison"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 35,
+ "comments_top_level": 25,
+ "comments_replies": 10,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:41:24",
+ "approved": "2026-11-06T17:41+09:00"
+}

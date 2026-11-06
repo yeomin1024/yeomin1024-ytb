@@ -1,0 +1,96 @@
+{
+ "id": "14e-x56p3AY",
+ "title": "SK하이닉스 주당 2만원 쏜다! 역대급 삼전·닉스 주주환원책!  어마어마한 상승 시나리오 [염승환 이사]",
+ "channel": "경제시그널",
+ "channel_id": "UCdErKhSSwQcVSC4PEp6soZQ",
+ "subs": 28300,
+ "views": 83083,
+ "ratio": 2.94,
+ "age_days": 9,
+ "views_per_day": 8997.8,
+ "minutes": 37.1,
+ "likes": 1146,
+ "comments": 30,
+ "published": "2026-10-28",
+ "queries": "검색:배당 | 검색:배당금",
+ "url": "https://www.youtube.com/watch?v=14e-x56p3AY",
+ "flag": "",
+ "published_at": "2026-10-28T01:35:20Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_14e-x56p3AY",
+ "sources": [
+  "검색:배당",
+  "검색:배당금"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 21,
+   "title": "시작"
+  },
+  {
+   "start": 30,
+   "title": "최근 증시 흐름 분석"
+  },
+  {
+   "start": 210,
+   "title": "미국채 분산 투자 전략"
+  },
+  {
+   "start": 360,
+   "title": "SK하이닉스 실적 발표"
+  },
+  {
+   "start": 570,
+   "title": "솔리다임 IPO 중단"
+  },
+  {
+   "start": 755,
+   "title": "삼성전자 실적 발표"
+  },
+  {
+   "start": 932,
+   "title": "빅테크 3사 실적 발표"
+  },
+  {
+   "start": 1260,
+   "title": "10월 FOMC, 금리 동결 전망"
+  },
+  {
+   "start": 1402,
+   "title": "미국 중간선거와 증시 영향"
+  },
+  {
+   "start": 1658,
+   "title": "2차전지 수급 반등"
+  },
+  {
+   "start": 1890,
+   "title": "제약·바이오 상승 확산"
+  },
+  {
+   "start": 2000,
+   "title": "11월 국내 증시 투자 전략"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 27,
+ "comments_replies": 3,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:58",
+ "approved": "2026-11-06T17:12+09:00"
+}

@@ -1,0 +1,108 @@
+{
+ "id": "ldrMrnOJHlc",
+ "title": "Can You Retire With $100,000 in 10 Years (SCHD vs VOO)",
+ "channel": "Joey @ChartEquity",
+ "channel_id": "UCkDzdyOsFYOg-Ee6HM1JWDg",
+ "subs": 4640,
+ "views": 25846,
+ "ratio": 5.57,
+ "age_days": 8,
+ "views_per_day": 3019.1,
+ "minutes": 13.8,
+ "likes": 143,
+ "comments": 10,
+ "published": "2026-10-28",
+ "queries": "검색:dividend income | 검색:dividend portfolio",
+ "url": "https://www.youtube.com/watch?v=ldrMrnOJHlc",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T17:44:30Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_ldrMrnOJHlc",
+ "sources": [
+  "검색:dividend income",
+  "검색:dividend portfolio"
+ ],
+ "source": "web",
+ "tags": [
+  "schd vs voo",
+  "schd etf",
+  "voo etf",
+  "schd dividend",
+  "voo vs schd",
+  "dividend investing",
+  "retire in 10 years",
+  "4 percent rule",
+  "how much do i need to retire",
+  "retirement planning",
+  "dividend etf",
+  "s&p 500 etf",
+  "total return vs dividends",
+  "sequence of returns risk",
+  "ChartEquity"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Can $100,000 retire you in 10 years?"
+  },
+  {
+   "start": 31,
+   "title": "What SCHD and VOO are"
+  },
+  {
+   "start": 92,
+   "title": "SCHD: $100,000 and 10 years of dividends"
+  },
+  {
+   "start": 194,
+   "title": "VOO: the same $100,000, a bigger pile"
+  },
+  {
+   "start": 297,
+   "title": "Dividends reinvested, and why a dividend is not free money"
+  },
+  {
+   "start": 403,
+   "title": "The 4% rule explained"
+  },
+  {
+   "start": 465,
+   "title": "Inflation and your retirement bills"
+  },
+  {
+   "start": 512,
+   "title": "Sequence of returns risk"
+  },
+  {
+   "start": 556,
+   "title": "What $309,000 and $386,000 would pay you"
+  },
+  {
+   "start": 608,
+   "title": "How big your portfolio needs to be"
+  },
+  {
+   "start": 670,
+   "title": "So can $100,000 get you there?"
+  },
+  {
+   "start": 758,
+   "title": "My verdict: SCHD or VOO?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 10,
+ "comments_top_level": 9,
+ "comments_replies": 1,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 10,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:34",
+ "approved": "2026-11-06T17:11+09:00"
+}

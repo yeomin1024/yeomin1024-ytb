@@ -1,0 +1,99 @@
+{
+ "id": "7d2yvEwmv_s",
+ "title": "5 AI Stocks I Can’t Wait to Buy on This Dip",
+ "channel": "MarketBeat",
+ "channel_id": "UCDMRj2UMCY4Jp49Waf_2X9g",
+ "subs": 680000,
+ "views": 78641,
+ "ratio": 0.12,
+ "age_days": 0,
+ "views_per_day": 78641.0,
+ "minutes": 24.1,
+ "likes": 1418,
+ "comments": 181,
+ "published": "2026-11-05",
+ "queries": "검색:stocks to buy",
+ "url": "https://www.youtube.com/watch?v=7d2yvEwmv_s",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T23:30:24Z",
+ "rank": "W142",
+ "set": "web",
+ "folder": "W_7d2yvEwmv_s",
+ "sources": [
+  "검색:stocks to buy"
+ ],
+ "source": "web",
+ "tags": [
+  "MarketBeat",
+  "Investing",
+  "Stock Market",
+  "Stock Ideas",
+  "Stock Market News",
+  "How to Invest",
+  "Stock Analysis",
+  "financial freedom",
+  "best stocks to buy",
+  "stocks to buy now",
+  "stock forecast",
+  "nvda stock",
+  "amd stock",
+  "dividends",
+  "dividend",
+  "market beat",
+  "trading",
+  "investment ideas",
+  "stocks",
+  "financial education",
+  "cnbc",
+  "stock market for beginners",
+  "personal finance",
+  "thomas hughes",
+  "buy the dip",
+  "market crash",
+  "ai stocks",
+  "financial independence",
+  "spacex",
+  "trump",
+  "election"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 421,
+   "title": "Stock 1"
+  },
+  {
+   "start": 560,
+   "title": "Stock 2"
+  },
+  {
+   "start": 790,
+   "title": "Stock 3"
+  },
+  {
+   "start": 962,
+   "title": "Stock 4"
+  },
+  {
+   "start": 1215,
+   "title": "Stock 5"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en",
+ "foreign": true,
+ "comments_fetched": 181,
+ "comments_top_level": 102,
+ "comments_replies": 79,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 181,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:39",
+ "approved": "2026-11-06T17:39+09:00"
+}

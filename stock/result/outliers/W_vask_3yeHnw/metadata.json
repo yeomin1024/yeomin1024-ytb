@@ -1,0 +1,116 @@
+{
+ "id": "vask_3yeHnw",
+ "title": "ఈ Market Fall లో మంచి Valuation లో దొరుకుతున్న Stock !",
+ "channel": "Money Purse { మనీ పర్స్ }",
+ "channel_id": "UChBT5TlUeG68PKvJSg6MkqQ",
+ "subs": 2120000,
+ "views": 240719,
+ "ratio": 0.11,
+ "age_days": 12,
+ "views_per_day": 19941.1,
+ "minutes": 47.9,
+ "likes": 6849,
+ "comments": 335,
+ "published": "2026-10-25",
+ "queries": "검색:how to invest in stocks | 검색:stocks to buy | 검색:stock market | 검색:stock market investing",
+ "url": "https://www.youtube.com/watch?v=vask_3yeHnw",
+ "flag": "외국 영상",
+ "published_at": "2026-10-25T05:29:07Z",
+ "rank": "W146",
+ "set": "web",
+ "folder": "W_vask_3yeHnw",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks to buy",
+  "검색:stock market",
+  "검색:stock market investing"
+ ],
+ "source": "web",
+ "tags": [
+  "money purse",
+  "money purse telugu",
+  "stock market telugu",
+  "telugu finance",
+  "private company investment",
+  "unlisted shares",
+  "deep value stocks",
+  "stock valuation",
+  "small cap stocks",
+  "small cap risks",
+  "turnaround stocks",
+  "magical turnaround",
+  "sunday funday",
+  "sai silks",
+  "sai silks kalamandir",
+  "jio strategy",
+  "jio ipo",
+  "jio ipo strategy",
+  "park medi world",
+  "personal finance",
+  "family finance",
+  "money discussion with wife",
+  "couple financial planning",
+  "long term investing",
+  "stock market analysis"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "intro"
+  },
+  {
+   "start": 12,
+   "title": "I'm Investing In This Private Company!"
+  },
+  {
+   "start": 407,
+   "title": "Deep Value Stock"
+  },
+  {
+   "start": 686,
+   "title": "The Current Burning Topic"
+  },
+  {
+   "start": 807,
+   "title": "These Small Caps Not For You"
+  },
+  {
+   "start": 1316,
+   "title": "Magical Turnaround"
+  },
+  {
+   "start": 1814,
+   "title": "Sunday Funday"
+  },
+  {
+   "start": 1831,
+   "title": "Sai Silks"
+  },
+  {
+   "start": 2081,
+   "title": "Jio Strategy"
+  },
+  {
+   "start": 2446,
+   "title": "Money-Related Discussion With Your Wife"
+  },
+  {
+   "start": 2708,
+   "title": "Park Medi World"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 335,
+ "comments_top_level": 260,
+ "comments_replies": 75,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 335,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:51",
+ "approved": "2026-11-06T17:39+09:00"
+}

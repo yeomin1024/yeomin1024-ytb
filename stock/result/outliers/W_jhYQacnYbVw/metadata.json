@@ -1,0 +1,80 @@
+{
+ "id": "jhYQacnYbVw",
+ "title": "삼전·닉스 주주환원 전세계 주목! 하이닉스 16조 특별배당설의 진실",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6350,
+ "views": 27929,
+ "ratio": 4.4,
+ "age_days": 10,
+ "views_per_day": 2556.2,
+ "minutes": 15.7,
+ "likes": 159,
+ "comments": 19,
+ "published": "2026-10-26",
+ "queries": "검색:배당 | 검색:배당금",
+ "url": "https://www.youtube.com/watch?v=jhYQacnYbVw",
+ "flag": "",
+ "published_at": "2026-10-26T08:58:26Z",
+ "rank": "W52",
+ "set": "web",
+ "folder": "W_jhYQacnYbVw",
+ "sources": [
+  "검색:배당",
+  "검색:배당금"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 기업이 주주를 우선하는 건 선택이 아닌 '의무'다"
+  },
+  {
+   "start": 54,
+   "title": "글로벌 빅테크(하이퍼스케일러) 실적 발표의 3대 핵심 포인트 (클라우드·CAPEX·잉여현금흐름)"
+  },
+  {
+   "start": 114,
+   "title": "수요일 SK하이닉스 실적 발표 임박! 메리츠·BOA가 주목하는 '강력한 주주환원책'"
+  },
+  {
+   "start": 254,
+   "title": "골드만삭스 리포트 분석: 한국 메모리 반도체 선행 PER 2.8배, 역사적 최저점의 의미"
+  },
+  {
+   "start": 306,
+   "title": "싸구려(Cheap Price)인가 바겐세일(Low Price)인가? 배당수익률 7~10%의 기적과 기업의 증명"
+  },
+  {
+   "start": 525,
+   "title": "애널리스트의 백 마디 말보다 중요한 '만드는 기업'의 장기 주주환원 약속"
+  },
+  {
+   "start": 713,
+   "title": "비AI 기업들의 AI 도입 수익화 사례: 스포티파이 유료 전환과 삼양식품-팔란티어 협업"
+  },
+  {
+   "start": 762,
+   "title": "SK하이닉스 '키옥시아 20조 차익 주당 2만 원 특별배당' 단독 보도와 미확정 공시의 진짜 속내"
+  },
+  {
+   "start": 839,
+   "title": "회사의 이름으로 번 돈은 주주의 몫! 코리아 디스카운트를 끝낼 주주 우선의 원칙"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 19,
+ "comments_top_level": 16,
+ "comments_replies": 3,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 19,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:04",
+ "approved": "2026-11-06T17:12+09:00"
+}

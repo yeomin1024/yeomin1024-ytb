@@ -1,0 +1,93 @@
+{
+ "id": "9iPD0JSWsWo",
+ "title": "\"기계적 매수 시작하세요\" 200조 던진 외국인 11월에 다 돌아온다 | 박세익 체슬리투자자문 대표 1부 [취재수첩]",
+ "channel": "조선일보 머니",
+ "channel_id": "UCZyakhJDdZixare_pBPpWjg",
+ "subs": 231000,
+ "views": 139547,
+ "ratio": 0.6,
+ "age_days": 4,
+ "views_per_day": 31315.5,
+ "minutes": 16.1,
+ "likes": 924,
+ "comments": 146,
+ "published": "2026-11-01",
+ "queries": "검색:주식시장",
+ "url": "https://www.youtube.com/watch?v=9iPD0JSWsWo",
+ "flag": "",
+ "published_at": "2026-11-01T20:15:09Z",
+ "rank": "W164",
+ "set": "web",
+ "folder": "W_9iPD0JSWsWo",
+ "sources": [
+  "검색:주식시장"
+ ],
+ "source": "web",
+ "tags": [
+  "조선일보",
+  "취재수첩",
+  "곽창렬",
+  "박세익",
+  "체슬리투자자문",
+  "코스피",
+  "주식시장",
+  "증시전망",
+  "하락장",
+  "유가급등",
+  "중동리스크",
+  "코어위브",
+  "AI인프라",
+  "삼성전자",
+  "SK하이닉스",
+  "반도체주식",
+  "외국인순매도",
+  "헷지펀드",
+  "비트코인",
+  "중간선거",
+  "핼러윈전략",
+  "나스닥",
+  "미국기준금리",
+  "주식투자",
+  "재테크"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 22,
+   "title": "오프닝"
+  },
+  {
+   "start": 43,
+   "title": "고객들을 직접 마주하는 투자 자문사, 최근 투자 현장 분위기는?"
+  },
+  {
+   "start": 152,
+   "title": "7000선 돌파 기대가 급락으로 바뀐 이유는?"
+  },
+  {
+   "start": 382,
+   "title": "7월 조정보다 10월이 더 무서웠던 이유는?"
+  },
+  {
+   "start": 516,
+   "title": "코스피에서만 200조원 순매도, 외국인은 대체 왜 던지는가?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 147,
+ "comments_top_level": 108,
+ "comments_replies": 39,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 146,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:16:49",
+ "approved": "2026-11-06T17:16+09:00"
+}

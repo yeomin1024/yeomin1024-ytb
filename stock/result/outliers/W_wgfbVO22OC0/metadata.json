@@ -1,0 +1,83 @@
+{
+ "id": "wgfbVO22OC0",
+ "title": "[데일리 담쌤] 주가에 이미 반영된 중간선거 결과, 그런데 나스닥과 코스피는 왜 또 흔들렸을까 | 서재형의 투자교실",
+ "channel": "서재형의 투자교실",
+ "channel_id": "UCtmKBFeri9hx9DOaVSSvvvw",
+ "subs": 254000,
+ "views": 60616,
+ "ratio": 0.24,
+ "age_days": 1,
+ "views_per_day": 32368.5,
+ "minutes": 23.5,
+ "likes": 1618,
+ "comments": 69,
+ "published": "2026-11-04",
+ "queries": "검색:나스닥",
+ "url": "https://www.youtube.com/watch?v=wgfbVO22OC0",
+ "flag": "",
+ "published_at": "2026-11-04T10:15:13Z",
+ "rank": "W223",
+ "set": "web",
+ "folder": "W_wgfbVO22OC0",
+ "sources": [
+  "검색:나스닥"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "주식투자",
+  "투자",
+  "주도주 매매",
+  "서재형",
+  "서재형의 투자교실",
+  "서재형 투자교실",
+  "주식강의",
+  "주식공부",
+  "투자강의",
+  "투자공부",
+  "투자기초",
+  "주식기초",
+  "주린이",
+  "주식초보"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 52,
+   "title": "중간선거 개표, 시장은 왜 이렇게 흔들릴까"
+  },
+  {
+   "start": 449,
+   "title": "선거 결과가 기업의 펀더멘털을 바꿀까"
+  },
+  {
+   "start": 734,
+   "title": "지금 시장의 움직임, 어디까지 봐야 할까"
+  },
+  {
+   "start": 966,
+   "title": "AI·데이터센터 흐름은 여전히 이어지고 있습니다"
+  },
+  {
+   "start": 1178,
+   "title": "혼란스러운 시장, 무엇을 지켜봐야 할까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 69,
+ "comments_top_level": 60,
+ "comments_replies": 9,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 69,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:21",
+ "approved": "2026-11-06T17:19+09:00"
+}

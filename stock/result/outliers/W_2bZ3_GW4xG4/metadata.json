@@ -1,0 +1,92 @@
+{
+ "id": "2bZ3_GW4xG4",
+ "title": "Os MELHORES INVESTIMENTOS para fazer agora (Renda Fixa, FIIs e Ações)!",
+ "channel": "FONTE DA FORTUNA - Alexandre Winkler",
+ "channel_id": "UCD89tNSy9kC6QBjFAcgVd3g",
+ "subs": 1120000,
+ "views": 245673,
+ "ratio": 0.22,
+ "age_days": 8,
+ "views_per_day": 28638.7,
+ "minutes": 29.9,
+ "likes": 8295,
+ "comments": 343,
+ "published": "2026-10-28",
+ "queries": "검색:how to invest in stocks | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=2bZ3_GW4xG4",
+ "flag": "외국 영상",
+ "published_at": "2026-10-28T17:19:11Z",
+ "rank": "W113",
+ "set": "web",
+ "folder": "W_2bZ3_GW4xG4",
+ "sources": [
+  "검색:how to invest in stocks",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "fonte da fortuna",
+  "black friday do lula",
+  "onde investir na crise",
+  "tesouro ipca",
+  "tesouro direto",
+  "marcacao a mercado",
+  "tesouro renda mais",
+  "fiis descontados",
+  "btlg11",
+  "xpml11",
+  "itub4",
+  "cpfe3",
+  "pssa3",
+  "acoes baratas",
+  "viver de dividendos",
+  "onde investir com lula",
+  "renda fixa high yield",
+  "investimento longo prazo",
+  "analise cnpi",
+  "educação financeira",
+  "investimentos",
+  "canal de finanças",
+  "alexandre winkler"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "A \"Black Friday do Lula\""
+  },
+  {
+   "start": 132,
+   "title": "Oportunidades na Renda Fixa: Tesouro IPCA+"
+  },
+  {
+   "start": 668,
+   "title": "Fundos Imobiliários Descontados: BTLG11 e XPML11"
+  },
+  {
+   "start": 1207,
+   "title": "Ações Baratas para Dividendos: ITUB4, CPFE3 e PSSA3"
+  },
+  {
+   "start": 1501,
+   "title": "Como Montar Sua Carteira no Longo Prazo (Curso Liberdade Financeira)"
+  },
+  {
+   "start": 1578,
+   "title": "Respondendo os Comentários"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "pt",
+ "foreign": true,
+ "comments_fetched": 343,
+ "comments_top_level": 210,
+ "comments_replies": 133,
+ "comments_by_creator": 31,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 343,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:38:00",
+ "approved": "2026-11-06T17:38+09:00"
+}

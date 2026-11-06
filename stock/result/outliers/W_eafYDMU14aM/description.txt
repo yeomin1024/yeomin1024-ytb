@@ -1,0 +1,53 @@
+The real reason stocks haven't crashed yet, through VOO, Vanguard's S&P 500 ETF. Stocks did pull back: the S&P 500 fell 2% from its October 6 record to the October 16 low, while the Nasdaq 100 fell 6.6%, the tech sector 9%, small caps 11%, semiconductors 25% from their June high, and the equal-weight S&P hasn't made a new high since August 14. The index held because 10 stocks are 39% of its weight. I cover the housing-to-index chain from my home prices video, how VOO's one rule concentrated the fund, why the 10-year at 5.15% now pays more than the S&P earns (3.8% trailing, 5.2% forward), the three buyers holding the index up (buybacks, 401k flows, AI capex), the AI debt bid cracking (CoreWeave bonds below 80 cents, Meta's $27B Hyperion bond at 91, OpenAI's revenue shortfall), why credit leads stocks by a median 7 months, the bull case (rotation into staples, energy, utilities and TLT), the 2007 and 2018 analogs, why the Fed put has a strike price, the midterm base rate (20 for 20 since 1946), and what I'd do with VOO levels at 716, 702, 691 and 665. Prices as of October 21, 2026.
+
+UPDATE, October 22 close: VOO 702, the first level in the video. Nasdaq 100 -2.9%, chips -6%, Nvidia -4%, Meta -7%, CoreWeave -10%. Equal-weight S&P up, staples +3%, utilities +2%, TLT +2%, 10-year down to 4.95%. None of the three tells fired: VIX 19, HYG 77, 10-year under 5. Wrong-if is still a weekly close under 691.
+
+The 10-year went from 3.6% to 5.3% in two years, and that one move is behind everything in this video. My BND breakdown: https://www.youtube.com/watch?v=_QRqgIJE8IA&list=PLdhjx4T6tbm8
+
+CHAPTERS
+0:00 The real reason stocks haven't crashed yet
+1:10 The pullback nobody counted: -2% on top, -6% to -25% underneath
+2:21 10 stocks are 39% of the index (2000: 27%)
+3:27 The chain: lenders, builders, Zillow, small caps, banks, S&P
+5:00 How VOO is built: the one rule
+6:21 Earnings yield 3.8% vs 10-year 5.15%
+8:25 Three buyers who don't read the math
+8:35 Buyer 1: $1 trillion of buybacks, borrowed
+9:52 Buyer 2: you, the 401k payroll bid
+11:05 Buyer 3: the AI build-out, funded with debt
+12:01 Is the levered buyer getting margin called? CoreWeave, Meta, OpenAI
+13:07 The circle: Nvidia, OpenAI, CoreWeave, Nvidia
+15:07 Credit leads stocks by 7 months: 8 cycles since 1997
+17:21 The concentration bill
+17:44 The bull case: rotation, 2016, IPO supply
+19:54 Oct 14: bonds became the hedge again
+21:08 2007 vs 2018: which cycle is this?
+22:30 The Fed put has a strike price: inflation
+24:29 Why not sell: midterm base rate, 20 for 20
+25:46 What I'd do: RSP over VOO, hedge with bonds
+26:59 VOO levels: 716, 702, 691, 665 and 3 tells
+28:19 The dates: Oct 28, Nov 3, Nov 4, Nov 17
+29:02 Wrap: what's left standing
+
+ABOUT ME
+Former derivatives trader with a decade of experience at Morgan Stanley, UBS and SocGen.
+
+DISCLOSURE
+Not financial advice. I am not a registered or licensed financial advisor. All opinions are my own and I may be wrong. This is commentary for educational purposes only. Numbers and figures may contain errors; verify them yourself against the sources below. Do your own research before making any financial decision.
+
+SOURCES
+- Prices and drawdowns: Yahoo Finance data (SPY, VOO, QQQ, RSP, IWM, XLK, SMH, XLP, XLE, XLU, TLT, HYG, VIX), my own calculations
+- Treasury yields: Federal Reserve Bank of St. Louis (FRED) DGS10, DGS30; CPI/PPI: Bureau of Labor Statistics (Sept 2026 releases)
+- S&P 500 earnings and valuation: FactSet Earnings Insight (Oct 9, 2026); trailing earnings yield: multpl.com
+- Buybacks: S&P Dow Jones Indices, S&P 500 Q3 2025 buyback release (Dec 18, 2025); 2026 estimate: Goldman Sachs
+- Passive share: Morningstar US fund flows, year-end 2025
+- Top-10 index weight: SPY holdings; 2000 comparison: Goldman Sachs "Is the S&P 500 too concentrated"
+- Data center bond issuance and CoreWeave bonds: Forbes (Oct 16, 2026), CNBC (Oct 20, 2026); OpenAI revenue: Financial Times (Oct 2026)
+- High-yield spreads: ICE BofA US High Yield OAS via FRED (BAMLH0A0HYM2); credit-lead study: my own calculations
+- Midterm base rates: S&P 500 history since 1946, my own calculations
+- IPO proceeds: Renaissance Capital; 1999-2000: Jay Ritter, IPO Statistics
+
+CREDITS
+Logos belong to their owners. News headlines shown for commentary.
+
+#stockmarket #voo #sp500

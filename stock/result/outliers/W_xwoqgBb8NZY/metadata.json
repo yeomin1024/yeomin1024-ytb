@@ -1,0 +1,82 @@
+{
+ "id": "xwoqgBb8NZY",
+ "title": "11월 3일 미국 부유세 부과 주민투표 시작",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3740000,
+ "views": 1032977,
+ "ratio": 0.28,
+ "age_days": 5,
+ "views_per_day": 177196.0,
+ "minutes": 31.0,
+ "likes": 3740,
+ "comments": 1464,
+ "published": "2026-10-31",
+ "queries": "검색:미국주식",
+ "url": "https://www.youtube.com/watch?v=xwoqgBb8NZY",
+ "flag": "",
+ "published_at": "2026-10-31T11:17:21Z",
+ "rank": "W325",
+ "set": "web",
+ "folder": "W_xwoqgBb8NZY",
+ "sources": [
+  "검색:미국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1,000조원 지출이 예정된 메타 주가"
+  },
+  {
+   "start": 356,
+   "title": "저커버그 자택 이사 추진"
+  },
+  {
+   "start": 740,
+   "title": "조단위 부자들에게 총자산 5% 세금 부과"
+  },
+  {
+   "start": 1489,
+   "title": "텍사스로 오라!"
+  },
+  {
+   "start": 1730,
+   "title": "젠슨 황 \"세금 전혀 문제 없다.\""
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1464,
+ "comments_top_level": 546,
+ "comments_replies": 918,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1464,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:24:34",
+ "approved": "2026-11-06T17:24+09:00"
+}

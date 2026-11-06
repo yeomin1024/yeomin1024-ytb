@@ -1,0 +1,187 @@
+{
+ "id": "c1g6ilhARW4",
+ "title": "Dan Ives: AI Sell-Off is a “Gut-Check” – 5 Tech Stocks to Buy Now",
+ "channel": "TheStreet",
+ "channel_id": "UCp6aBHRM6ZS_kLeC57HV4kg",
+ "subs": 167000,
+ "views": 199685,
+ "ratio": 1.2,
+ "age_days": 3,
+ "views_per_day": 56048.6,
+ "minutes": 25.9,
+ "likes": 2600,
+ "comments": 337,
+ "published": "2026-11-02",
+ "queries": "검색:stocks to buy | 검색:stocks",
+ "url": "https://www.youtube.com/watch?v=c1g6ilhARW4",
+ "flag": "외국 영상",
+ "published_at": "2026-11-02T18:59:45Z",
+ "rank": "W34",
+ "set": "web",
+ "folder": "W_c1g6ilhARW4",
+ "sources": [
+  "검색:stocks to buy",
+  "검색:stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market",
+  "investing strategies",
+  "investing news",
+  "Stocks",
+  "financial news",
+  "business news",
+  "Dan Ives",
+  "AI stocks",
+  "artificial intelligence",
+  "Nvidia",
+  "Apple stock",
+  "Google stock",
+  "Alphabet stock",
+  "Oracle stock",
+  "Amazon stock",
+  "Microsoft stock",
+  "Salesforce",
+  "ServiceNow",
+  "Adobe stock",
+  "CoreWeave",
+  "Nebius",
+  "IREN",
+  "Dell stock",
+  "SpaceX",
+  "Tesla stock",
+  "semiconductor stocks",
+  "AI investing",
+  "AI monetization",
+  "Big Tech",
+  "stock market analysis",
+  "stocks to buy now",
+  "nvda stock",
+  "how to invest in stocks",
+  "wall street"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Introduction"
+  },
+  {
+   "start": 9,
+   "title": "Tech Selloff: Is the Worst Over for AI Stocks?"
+  },
+  {
+   "start": 60,
+   "title": "Big Tech Earnings: What the Results Reveal About the AI Trade"
+  },
+  {
+   "start": 112,
+   "title": "Best Tech Stocks to Buy After the Selloff: GOOGL and ORCL"
+  },
+  {
+   "start": 161,
+   "title": "Software Stocks at Risk From AI Disruption"
+  },
+  {
+   "start": 226,
+   "title": "Salesforce and ServiceNow: The Software Stocks Positioned to Win"
+  },
+  {
+   "start": 292,
+   "title": "Adobe's AI Risks and Competitive Position"
+  },
+  {
+   "start": 317,
+   "title": "Chip Stocks vs. Software Stocks: Where the Biggest Upside Lies"
+  },
+  {
+   "start": 356,
+   "title": "Best Software Stocks to Buy: CRM, NOW, PLTR and SNOW"
+  },
+  {
+   "start": 396,
+   "title": "Oracle Stock Outlook: AI Ambitions, Debt and Business Risks"
+  },
+  {
+   "start": 462,
+   "title": "CoreWeave and Nebius: The Neocloud Stocks Built to Survive"
+  },
+  {
+   "start": 513,
+   "title": "IREN and the AI Data Center Spending Boom"
+  },
+  {
+   "start": 568,
+   "title": "Apple Stock Outlook: AI Monetization, iPhone 18 and Services"
+  },
+  {
+   "start": 646,
+   "title": "Apple's Siri Problem and the Next AI iPhone"
+  },
+  {
+   "start": 680,
+   "title": "Apple vs. Nvidia: Which Is the Better AI Investment?"
+  },
+  {
+   "start": 722,
+   "title": "Amazon Stock: Is the Post-Earnings Rally a Buying Opportunity?"
+  },
+  {
+   "start": 768,
+   "title": "The Best-Positioned Hyperscalers: Microsoft, Google and Amazon"
+  },
+  {
+   "start": 790,
+   "title": "Dan Ives' Top Three Tech Stocks to Buy"
+  },
+  {
+   "start": 822,
+   "title": "Apple vs. Alphabet: Where AI Creates More Stock Value"
+  },
+  {
+   "start": 859,
+   "title": "AI Stocks That May Be Overvalued After the Selloff"
+  },
+  {
+   "start": 895,
+   "title": "Dell and SpaceX: New Additions to the AI 30 Winners List"
+  },
+  {
+   "start": 950,
+   "title": "Tesla vs. SpaceX: The Better Stock Ahead of a Potential Merger"
+  },
+  {
+   "start": 986,
+   "title": "AI Spending Risks: When Will Companies Deliver Returns?"
+  },
+  {
+   "start": 1045,
+   "title": "AI Demand Risks and the Companies Most Vulnerable to a Slowdown"
+  },
+  {
+   "start": 1083,
+   "title": "The Key Signs of AI Monetization Investors Should Watch in 2027"
+  },
+  {
+   "start": 1142,
+   "title": "Audience Questions"
+  },
+  {
+   "start": 1359,
+   "title": "Rapid-Fire: This or That"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-US",
+ "foreign": true,
+ "comments_fetched": 337,
+ "comments_top_level": 221,
+ "comments_replies": 116,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 337,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:02",
+ "approved": "2026-11-06T17:33+09:00"
+}

@@ -1,0 +1,96 @@
+{
+ "id": "rEuRIety4fk",
+ "title": "실적은 사상 최고인데 주가는 왜? 외국인이 한국 주식 안 사는 이유 4가지는… #12시에만나요 #삼성전자 #하이닉스",
+ "channel": "잘되는경제",
+ "channel_id": "UClXDIlxYjmTHjsNpkSR5BAg",
+ "subs": 1080,
+ "views": 11185,
+ "ratio": 10.36,
+ "age_days": 11,
+ "views_per_day": 934.7,
+ "minutes": 14.5,
+ "likes": 25,
+ "comments": 10,
+ "published": "2026-10-25",
+ "queries": "검색:한국주식",
+ "url": "https://www.youtube.com/watch?v=rEuRIety4fk",
+ "flag": "",
+ "published_at": "2026-10-25T08:00:03Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_rEuRIety4fk",
+ "sources": [
+  "검색:한국주식"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "경제",
+  "경제뉴스",
+  "주식시장",
+  "국내증시",
+  "미국증시",
+  "주식투자",
+  "경제분석",
+  "기업분석",
+  "재테크",
+  "투자정보",
+  "코스피",
+  "코스닥",
+  "금리",
+  "환율",
+  "잘되는경제",
+  "비즈니스",
+  "금융",
+  "글로벌경제",
+  "매크로경제",
+  "인플레이션",
+  "12시에만나요",
+  "서킷브레이커",
+  "사이드카"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "외국인이 안 사는 이유, 핵심 미리 보기"
+  },
+  {
+   "start": 26,
+   "title": "나쁜 뉴스만 키우는 시장 심리"
+  },
+  {
+   "start": 141,
+   "title": "실적은 좋은데 주가가 빠질 때"
+  },
+  {
+   "start": 302,
+   "title": "외국인이 한국 주식 안 사는 4가지 이유"
+  },
+  {
+   "start": 547,
+   "title": "싸구려일까 할인일까, 한국 증시의 가치"
+  },
+  {
+   "start": 741,
+   "title": "하반기 수익률 세계 꼴등, 부양책 시급"
+  },
+  {
+   "start": 827,
+   "title": "오늘의 핵심 3줄"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 10,
+ "comments_top_level": 6,
+ "comments_replies": 4,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 10,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:02",
+ "approved": "2026-11-06T17:11+09:00"
+}

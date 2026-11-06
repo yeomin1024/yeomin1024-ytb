@@ -1,0 +1,126 @@
+{
+ "id": "MtWAe61er4c",
+ "title": "삼성전자 실적 발표 전에 살까 팔까? 하이닉스 100조 다음, 주주환원 110조 나올까",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 26424,
+ "ratio": 3.07,
+ "age_days": 8,
+ "views_per_day": 2957.3,
+ "minutes": 9.2,
+ "likes": 162,
+ "comments": 13,
+ "published": "2026-10-28",
+ "queries": "검색:배당",
+ "url": "https://www.youtube.com/watch?v=MtWAe61er4c",
+ "flag": "",
+ "published_at": "2026-10-28T08:45:24Z",
+ "rank": "W73",
+ "set": "web",
+ "folder": "W_MtWAe61er4c",
+ "sources": [
+  "검색:배당"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "삼성전자 실적발표",
+  "삼성전자 주주환원",
+  "하이닉스",
+  "SK하이닉스",
+  "주주환원",
+  "자사주",
+  "자사주 소각",
+  "배당",
+  "저평가",
+  "아마존",
+  "코스피",
+  "주식",
+  "이광수",
+  "박시동",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 삼성전자는 설마 그러지 않겠지?"
+  },
+  {
+   "start": 16,
+   "title": "[경제야놀자 해설] 다음은 삼성전자"
+  },
+  {
+   "start": 32,
+   "title": "이광수 — 하이닉스 실적 세 가지 정리"
+  },
+  {
+   "start": 72,
+   "title": "하이닉스 \"지금 주가는 저평가\" · 매 분기 자사주"
+  },
+  {
+   "start": 113,
+   "title": "99.5점 · 별 다섯 개 100점"
+  },
+  {
+   "start": 168,
+   "title": "박시동 \"이 가격 아니거든요\" · 가치를 정하면 가격은 따라온다"
+  },
+  {
+   "start": 216,
+   "title": "[경제야놀자 해설] 자사주 매입이란"
+  },
+  {
+   "start": 234,
+   "title": "배당 많이 하면 투자 못 한다? 돈이 쌓이면 발등 찍는다"
+  },
+  {
+   "start": 301,
+   "title": "아마존이 배당을 안 하는 이유 · 흔들리는 이유"
+  },
+  {
+   "start": 388,
+   "title": "[경제야놀자 해설] 이제 삼성전자 차례"
+  },
+  {
+   "start": 401,
+   "title": "삼성전자 9%대 · 주주환원 전망 90조~110조원"
+  },
+  {
+   "start": 452,
+   "title": "하이닉스 보고 미진하면 고치세요"
+  },
+  {
+   "start": 462,
+   "title": "실망 줄까 걱정 · 일단 믿고 갑니다"
+  },
+  {
+   "start": 479,
+   "title": "[경제야놀자 해설] 실적 발표 날 빅데이"
+  },
+  {
+   "start": 494,
+   "title": "삼성전자 · 빅테크 실적이 같은 날"
+  },
+  {
+   "start": 504,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 13,
+ "comments_top_level": 12,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:12:53",
+ "approved": "2026-11-06T17:12+09:00"
+}

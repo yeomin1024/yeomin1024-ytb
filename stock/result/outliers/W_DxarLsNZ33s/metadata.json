@@ -1,0 +1,132 @@
+{
+ "id": "DxarLsNZ33s",
+ "title": "The Hidden Opportunities We're Finding in a Market Everyone Hates",
+ "channel": "SOIC",
+ "channel_id": "UCB7GnQlJPIL6rBBqEoX87vA",
+ "subs": 524000,
+ "views": 126467,
+ "ratio": 0.24,
+ "age_days": 5,
+ "views_per_day": 25084.4,
+ "minutes": 62.5,
+ "likes": 1671,
+ "comments": 128,
+ "published": "2026-11-01",
+ "queries": "검색:how to invest in stocks",
+ "url": "https://www.youtube.com/watch?v=DxarLsNZ33s",
+ "flag": "외국 영상",
+ "published_at": "2026-11-01T06:12:03Z",
+ "rank": "W108",
+ "set": "web",
+ "folder": "W_DxarLsNZ33s",
+ "sources": [
+  "검색:how to invest in stocks"
+ ],
+ "source": "web",
+ "tags": [
+  "SOIC",
+  "Ishmohit Arora",
+  "Naman Chandak",
+  "SOIC podcast",
+  "Diwali stocks 2026",
+  "investment themes 2026",
+  "battery stocks India",
+  "BESS stocks",
+  "EV value chain",
+  "CDMO stocks",
+  "peptides",
+  "healthcare stocks India",
+  "contra stocks",
+  "metal recyclers",
+  "capital goods stocks",
+  "forging stocks",
+  "capital market stocks",
+  "niche exporters",
+  "AI stocks India",
+  "MTF margin trading",
+  "Nifty 50",
+  "stock market podcast",
+  "stock market India",
+  "StockScans"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "The podcast begins"
+  },
+  {
+   "start": 29,
+   "title": "How is this results season going?"
+  },
+  {
+   "start": 226,
+   "title": "Why do stocks swing so hard around results?"
+  },
+  {
+   "start": 681,
+   "title": "Theme: batteries and electrification"
+  },
+  {
+   "start": 741,
+   "title": "Where is the profit in the battery value chain?"
+  },
+  {
+   "start": 1328,
+   "title": "Theme: healthcare and pharma"
+  },
+  {
+   "start": 1530,
+   "title": "CDMO and peptides: the real players"
+  },
+  {
+   "start": 2122,
+   "title": "Theme: contra themes"
+  },
+  {
+   "start": 2352,
+   "title": "Lead supply hit: what now for metal recyclers?"
+  },
+  {
+   "start": 2546,
+   "title": "Theme: capital goods"
+  },
+  {
+   "start": 3159,
+   "title": "Theme: capital markets"
+  },
+  {
+   "start": 3210,
+   "title": "Theme: niche exporters"
+  },
+  {
+   "start": 3256,
+   "title": "Themes not bullish on"
+  },
+  {
+   "start": 3311,
+   "title": "Theme: AI in five layers"
+  },
+  {
+   "start": 3612,
+   "title": "To sum it up"
+  },
+  {
+   "start": 3714,
+   "title": "Happy Diwali"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "en-IN",
+ "foreign": true,
+ "comments_fetched": 129,
+ "comments_top_level": 97,
+ "comments_replies": 32,
+ "comments_by_creator": 26,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 128,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:37:50",
+ "approved": "2026-11-06T17:37+09:00"
+}

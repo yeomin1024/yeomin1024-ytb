@@ -1,0 +1,130 @@
+{
+ "id": "Q0uzgGG6JNU",
+ "title": "W co inwestować małe kwoty? Inwestowanie na 2027! Mateusz Mucha - Beta ETF",
+ "channel": "Biznes Misja",
+ "channel_id": "UCxhAfhXu0ECIbt_2AN-NdHw",
+ "subs": 505000,
+ "views": 27928,
+ "ratio": 0.06,
+ "age_days": 1,
+ "views_per_day": 27928.0,
+ "minutes": 39.4,
+ "likes": 528,
+ "comments": 11,
+ "published": "2026-11-05",
+ "queries": "검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=Q0uzgGG6JNU",
+ "flag": "외국 영상",
+ "published_at": "2026-11-05T07:37:20Z",
+ "rank": "W167",
+ "set": "web",
+ "folder": "W_Q0uzgGG6JNU",
+ "sources": [
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "inwestycje",
+  "pieniądze",
+  "etf",
+  "inwestowanie dla początkujących",
+  "jak oszczędzać pieniądze",
+  "kacper snela",
+  "marcin iwuć",
+  "gpw",
+  "spadki na gpw",
+  "comparic",
+  "edukacja finansowa",
+  "sp500",
+  "allegro",
+  "inwestowanie 200 zł",
+  "Iwuć",
+  "xtb",
+  "finanse osobiste",
+  "jak ogarnąć finanse",
+  "inwestowanie",
+  "jak nie tracić pieniędzy",
+  "w co inwestować",
+  "oszczędzanie pieniędzy",
+  "inwestowanie w ETF",
+  "polska giełda",
+  "Mateusz Mucha",
+  "Beta ETF"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Inwestowanie, ETF-y i budowanie majątku. Najmocniejsze fragmenty"
+  },
+  {
+   "start": 105,
+   "title": "Mateusz Mucha. Jak inwestować przed 2027 rokiem?"
+  },
+  {
+   "start": 132,
+   "title": "Masz 10 000 zł. Od czego zacząć?"
+  },
+  {
+   "start": 287,
+   "title": "Czym są ETF-y i ile można było na nich zarobić?"
+  },
+  {
+   "start": 443,
+   "title": "Poduszka finansowa czy inwestowanie?"
+  },
+  {
+   "start": 501,
+   "title": "Ile pieniędzy odkładać co miesiąc?"
+  },
+  {
+   "start": 626,
+   "title": "500 zł miesięcznie i 353 tys. zł. Jak to możliwe?"
+  },
+  {
+   "start": 925,
+   "title": "Dlaczego skuteczne inwestowanie bywa nudne?"
+  },
+  {
+   "start": 1110,
+   "title": "Emocje inwestora. Co najbardziej niszczy portfel?"
+  },
+  {
+   "start": 1268,
+   "title": "Jak zbudować prosty portfel ETF-ów i obligacji?"
+  },
+  {
+   "start": 1504,
+   "title": "BETA ETF i potencjał polskiej giełdy"
+  },
+  {
+   "start": 1763,
+   "title": "Krach na giełdzie. Sprzedawać czy czekać?"
+  },
+  {
+   "start": 1933,
+   "title": "Jak budować majątek dla całej rodziny?"
+  },
+  {
+   "start": 2028,
+   "title": "AI, nowe technologie i przyszłość inwestowania"
+  },
+  {
+   "start": 2112,
+   "title": "Nieruchomości czy giełda? Gdzie inwestować?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "pl",
+ "foreign": true,
+ "comments_fetched": 11,
+ "comments_top_level": 9,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 11,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:59",
+ "approved": "2026-11-06T17:40+09:00"
+}

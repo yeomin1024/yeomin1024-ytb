@@ -1,0 +1,104 @@
+{
+ "id": "KYyeUS66rRM",
+ "title": "GENIALE KAUFCHANCEN BEI DIESEN AKTIEN / Tim Schäfer über sein Depot und die Gefahr durch Midterms",
+ "channel": "Beating Beta",
+ "channel_id": "UC4KOh3H9FJldjTgUkhQ1UyA",
+ "subs": 38000,
+ "views": 99576,
+ "ratio": 2.62,
+ "age_days": 5,
+ "views_per_day": 19974.1,
+ "minutes": 42.0,
+ "likes": 1594,
+ "comments": 271,
+ "published": "2026-11-01",
+ "queries": "검색:dividend investing",
+ "url": "https://www.youtube.com/watch?v=KYyeUS66rRM",
+ "flag": "외국 영상",
+ "published_at": "2026-11-01T07:33:18Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_KYyeUS66rRM",
+ "sources": [
+  "검색:dividend investing"
+ ],
+ "source": "web",
+ "tags": [
+  "aktien",
+  "etf",
+  "beating beta",
+  "investieren",
+  "finanzen",
+  "millionär",
+  "midterms",
+  "usa",
+  "millionen depot",
+  "reich werden",
+  "Vermögensaufbau",
+  "Tim Schäfer"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Midterms in den USA und Stimmungsbild"
+  },
+  {
+   "start": 340,
+   "title": "KI Boom, Chancen und Überbewertung"
+  },
+  {
+   "start": 500,
+   "title": "Value Strategie statt Trendfolge"
+  },
+  {
+   "start": 640,
+   "title": "Depotstand und größte Positionen"
+  },
+  {
+   "start": 760,
+   "title": "Netflix unter Druck"
+  },
+  {
+   "start": 940,
+   "title": "Nike und der Preiskampf bei Marken"
+  },
+  {
+   "start": 1060,
+   "title": "Berkshire ohne Buffett"
+  },
+  {
+   "start": 1200,
+   "title": "Aktuelle Käufe und Watchlist"
+  },
+  {
+   "start": 1340,
+   "title": "Vermögensaufbau und Sparquote"
+  },
+  {
+   "start": 1440,
+   "title": "Aktien in Krisen kaufen"
+  },
+  {
+   "start": 1780,
+   "title": "Dividenden und Altersvorsorgedepot"
+  },
+  {
+   "start": 1940,
+   "title": "Gold, Bitcoin und Minenaktien"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "de",
+ "foreign": true,
+ "comments_fetched": 271,
+ "comments_top_level": 128,
+ "comments_replies": 143,
+ "comments_by_creator": 30,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 271,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:31:44",
+ "approved": "2026-11-06T17:31+09:00"
+}

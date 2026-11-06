@@ -1,0 +1,86 @@
+{
+ "id": "hIDW0yct7WQ",
+ "title": "【プロのポートフォリオ大公開】S&P500をコアに固めよ／個別株は量子コンピュータ・核融合・半導体・光技術／分散投資は必要ない／こどもNISAは絶対やるべき／ハセン＆りんたろー。【マネースキルセット】",
+ "channel": "PIVOT 公式チャンネル",
+ "channel_id": "UC8yHePe_RgUBE-waRWy6olw",
+ "subs": 4100000,
+ "views": 518602,
+ "ratio": 0.13,
+ "age_days": 5,
+ "views_per_day": 88779.9,
+ "minutes": 38.8,
+ "likes": 2011,
+ "comments": 79,
+ "published": "2026-10-31",
+ "queries": "검색:S&P500",
+ "url": "https://www.youtube.com/watch?v=hIDW0yct7WQ",
+ "flag": "외국 영상",
+ "published_at": "2026-10-31T11:00:13Z",
+ "rank": "W138",
+ "set": "web",
+ "folder": "W_hIDW0yct7WQ",
+ "sources": [
+  "검색:S&P500"
+ ],
+ "source": "web",
+ "tags": [
+  "pivot",
+  "りんたろー",
+  "exit",
+  "国山ハセン",
+  "投資",
+  "資産運用",
+  "ポートフォリオ",
+  "米国株",
+  "株",
+  "資産",
+  "リーマンショック",
+  "S&P500",
+  "マネー",
+  "お金"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "ダイジェスト"
+  },
+  {
+   "start": 68,
+   "title": "プロの超個人的ポートフォリオ公開へ"
+  },
+  {
+   "start": 454,
+   "title": "株9割の攻めポートフォリオ"
+  },
+  {
+   "start": 1110,
+   "title": "暴落を乗り越える長期投資の鉄則"
+  },
+  {
+   "start": 1585,
+   "title": "「分散投資は必須ではない」理由"
+  },
+  {
+   "start": 1906,
+   "title": "こどもNISAの複利効果とまとめ"
+  },
+  {
+   "start": 2243,
+   "title": "次回予告"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ja",
+ "foreign": true,
+ "comments_fetched": 80,
+ "comments_top_level": 73,
+ "comments_replies": 7,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 79,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:39:29",
+ "approved": "2026-11-06T17:39+09:00"
+}

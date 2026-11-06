@@ -1,0 +1,125 @@
+{
+ "id": "8d00ozfLAoU",
+ "title": "하이닉스 배당 300원이 2만원으로! 주주환원 100조, 내 몫은?",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 8620,
+ "views": 86043,
+ "ratio": 9.98,
+ "age_days": 9,
+ "views_per_day": 9497.1,
+ "minutes": 10.2,
+ "likes": 466,
+ "comments": 30,
+ "published": "2026-10-28",
+ "queries": "검색:배당주 | 검색:배당 | 검색:배당금 | 검색:배당투자",
+ "url": "https://www.youtube.com/watch?v=8d00ozfLAoU",
+ "flag": "",
+ "published_at": "2026-10-28T05:45:34Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_8d00ozfLAoU",
+ "sources": [
+  "검색:배당주",
+  "검색:배당",
+  "검색:배당금",
+  "검색:배당투자"
+ ],
+ "source": "web",
+ "tags": [
+  "하이닉스",
+  "SK하이닉스",
+  "하이닉스 배당",
+  "SK하이닉스 배당",
+  "주주환원",
+  "하이닉스 주주환원",
+  "자사주",
+  "자사주 매입",
+  "특별배당",
+  "키옥시아",
+  "실적 발표",
+  "어닝콜",
+  "곽노정",
+  "반도체",
+  "코스피",
+  "주식",
+  "배당주",
+  "이광수",
+  "박시동",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 전교 꼴등이 전교 1등"
+  },
+  {
+   "start": 19,
+   "title": "[경제야놀자 해설] 주주환원 100조"
+  },
+  {
+   "start": 34,
+   "title": "주주환원 100조 · 자사주 20조 더 산다"
+  },
+  {
+   "start": 91,
+   "title": "3분기 배당 주당 2만원 · 키옥시아 특별배당"
+  },
+  {
+   "start": 150,
+   "title": "[경제야놀자 해설] 2만원의 정체"
+  },
+  {
+   "start": 168,
+   "title": "이광수 계산 — 4분기에 남은 36조"
+  },
+  {
+   "start": 234,
+   "title": "박시동 — 300원 껌값 배당이 2만원으로"
+  },
+  {
+   "start": 348,
+   "title": "[경제야놀자 해설] 남은 36조"
+  },
+  {
+   "start": 363,
+   "title": "사장이 직접 \"투자 수익도 공유\""
+  },
+  {
+   "start": 410,
+   "title": "임직원 몫은 별도 · 시장에서 더 산다"
+  },
+  {
+   "start": 452,
+   "title": "키옥시아 깜짝 선물 · 일반 + 특별 배당"
+  },
+  {
+   "start": 498,
+   "title": "[경제야놀자 해설] 시장에서 더 산다"
+  },
+  {
+   "start": 515,
+   "title": "이광수 — 이건 우리 주주들이 만든 것"
+  },
+  {
+   "start": 565,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 30,
+ "comments_top_level": 24,
+ "comments_replies": 6,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 30,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:11:04",
+ "approved": "2026-11-06T17:11+09:00"
+}

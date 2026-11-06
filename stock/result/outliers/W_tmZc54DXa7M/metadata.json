@@ -1,0 +1,136 @@
+{
+ "id": "tmZc54DXa7M",
+ "title": "HBM 잘 팔려도 만족하면 안되는 이유? TSMC 독주 속 삼성전자·SK하이닉스가 가야 할 길 (HSL 파트너스 이형수 대표 1부)",
+ "channel": "채국장의 코스피2만행 머니버스",
+ "channel_id": "UCl7_Zg4RdQbHx0kXaiKL-5g",
+ "subs": 158000,
+ "views": 126256,
+ "ratio": 0.8,
+ "age_days": 5,
+ "views_per_day": 21161.5,
+ "minutes": 24.0,
+ "likes": 781,
+ "comments": 76,
+ "published": "2026-10-31",
+ "queries": "검색:국장",
+ "url": "https://www.youtube.com/watch?v=tmZc54DXa7M",
+ "flag": "",
+ "published_at": "2026-10-31T08:00:30Z",
+ "rank": "W151",
+ "set": "web",
+ "folder": "W_tmZc54DXa7M",
+ "sources": [
+  "검색:국장"
+ ],
+ "source": "web",
+ "tags": [
+  "채국장",
+  "채상욱",
+  "채부심",
+  "머니버스",
+  "주식투자",
+  "주식",
+  "장기투자",
+  "코스피",
+  "미국주식",
+  "세미콘리서치랩",
+  "반도체",
+  "메모리",
+  "삼성전자",
+  "하이닉스",
+  "SK하이닉스",
+  "삼전닉스",
+  "HBM",
+  "DRAM",
+  "AI",
+  "AI인프라",
+  "데이터센터",
+  "하이퍼스케일러",
+  "엔비디아",
+  "주주환원",
+  "반도체실적",
+  "웨이퍼",
+  "반도체장비",
+  "팹증설",
+  "ASML",
+  "NVL",
+  "장기공급계약",
+  "LTA",
+  "PBR",
+  "삼전",
+  "코어위브",
+  "코어위브쇼크",
+  "hbm",
+  "hbm4",
+  "hbm4e",
+  "zhbm",
+  "hbm3e",
+  "hbm3",
+  "하이닉스전망",
+  "삼전전망",
+  "tsmc",
+  "smci",
+  "베라루빈",
+  "반도체주가",
+  "반도체전망",
+  "이형수",
+  "삼성전자 주식",
+  "micron",
+  "샌디스크",
+  "마이크론",
+  "코스피 전망",
+  "ai 반도체"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 22,
+   "title": "머니버스 광고"
+  },
+  {
+   "start": 59,
+   "title": "게스트 소개"
+  },
+  {
+   "start": 81,
+   "title": "침투율의 법칙과 투자 전략"
+  },
+  {
+   "start": 195,
+   "title": "HBM과 반도체 기술의 미래"
+  },
+  {
+   "start": 743,
+   "title": "HBM4와 엔비디아 기술적 방향"
+  },
+  {
+   "start": 993,
+   "title": "TSMC와 삼성의 경쟁 구도"
+  },
+  {
+   "start": 1119,
+   "title": "메모리 회사들의 대응 전략"
+  },
+  {
+   "start": 1325,
+   "title": "NVHBM 표준화의 중요성"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 76,
+ "comments_top_level": 50,
+ "comments_replies": 26,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 76,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:16:09",
+ "approved": "2026-11-06T17:16+09:00"
+}

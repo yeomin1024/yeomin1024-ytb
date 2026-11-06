@@ -1,0 +1,76 @@
+{
+ "id": "EXImVPWQA0U",
+ "title": "\"대기업 퇴사 후회 안 해요\" 미국 지수 ETF 투자로 일하지 않아도 자산 증가하는 2년 차 파이어족[싱글파이어]",
+ "channel": "싱글파이어",
+ "channel_id": "UC5CyCSvCdoEP-VgQmFq3iww",
+ "subs": 514000,
+ "views": 258283,
+ "ratio": 0.5,
+ "age_days": 2,
+ "views_per_day": 88318.4,
+ "minutes": 9.6,
+ "likes": 736,
+ "comments": 102,
+ "published": "2026-11-03",
+ "queries": "검색:ETF | 검색:ETF투자 | 검색:ETF추천 | 검색:미국ETF | 검색:미국주식 | 검색:가치투자",
+ "url": "https://www.youtube.com/watch?v=EXImVPWQA0U",
+ "flag": "",
+ "published_at": "2026-11-03T09:00:39Z",
+ "rank": "W174",
+ "set": "web",
+ "folder": "W_EXImVPWQA0U",
+ "sources": [
+  "검색:ETF",
+  "검색:ETF투자",
+  "검색:ETF추천",
+  "검색:미국ETF",
+  "검색:미국주식",
+  "검색:가치투자"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 42,
+   "title": "순자산 및 포트폴리오"
+  },
+  {
+   "start": 84,
+   "title": "안지's 투자 전략💰"
+  },
+  {
+   "start": 129,
+   "title": "1년 만에 2억원 는 비법은?"
+  },
+  {
+   "start": 204,
+   "title": "월 배당 늘리려는 이유"
+  },
+  {
+   "start": 317,
+   "title": "파이어 2년 차, 만족하시나요?😎"
+  },
+  {
+   "start": 442,
+   "title": "예상치 못했던 어려움🤔"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 102,
+ "comments_top_level": 59,
+ "comments_replies": 43,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 102,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:17:14",
+ "approved": "2026-11-06T17:17+09:00"
+}

@@ -1,0 +1,143 @@
+{
+ "id": "x5ApwfGuBsU",
+ "title": "#1862 Market News Analysis",
+ "channel": "DAY TRADER తెలుగు",
+ "channel_id": "UCeEP6GESh2t4-e2132uj3Sg",
+ "subs": 2710000,
+ "views": 197954,
+ "ratio": 0.07,
+ "age_days": 7,
+ "views_per_day": 25480.3,
+ "minutes": 28.6,
+ "likes": 7573,
+ "comments": 208,
+ "published": "2026-10-29",
+ "queries": "검색:stock market",
+ "url": "https://www.youtube.com/watch?v=x5ApwfGuBsU",
+ "flag": "외국 영상",
+ "published_at": "2026-10-29T14:02:51Z",
+ "rank": "W165",
+ "set": "web",
+ "folder": "W_x5ApwfGuBsU",
+ "sources": [
+  "검색:stock market"
+ ],
+ "source": "web",
+ "tags": [
+  "stock market latest news",
+  "stock market news",
+  "stock market"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Market Update"
+  },
+  {
+   "start": 81,
+   "title": "US-Iran Deal"
+  },
+  {
+   "start": 410,
+   "title": "Global News"
+  },
+  {
+   "start": 643,
+   "title": "Events"
+  },
+  {
+   "start": 706,
+   "title": "Market Analysis"
+  },
+  {
+   "start": 773,
+   "title": "Gold News"
+  },
+  {
+   "start": 826,
+   "title": "F&O"
+  },
+  {
+   "start": 983,
+   "title": "good news"
+  },
+  {
+   "start": 1135,
+   "title": "Modi Big News"
+  },
+  {
+   "start": 1180,
+   "title": "TVS"
+  },
+  {
+   "start": 1213,
+   "title": "Subros"
+  },
+  {
+   "start": 1279,
+   "title": "Maruti Suzuki"
+  },
+  {
+   "start": 1303,
+   "title": "Titagarh"
+  },
+  {
+   "start": 1329,
+   "title": "Oriental Rail Infrastructure"
+  },
+  {
+   "start": 1346,
+   "title": "Jupiter Wagons"
+  },
+  {
+   "start": 1370,
+   "title": "Fortis Healthcare"
+  },
+  {
+   "start": 1424,
+   "title": "Dilip Buildcon"
+  },
+  {
+   "start": 1469,
+   "title": "RailTel"
+  },
+  {
+   "start": 1484,
+   "title": "Aeroflex"
+  },
+  {
+   "start": 1526,
+   "title": "Laurus Labs"
+  },
+  {
+   "start": 1561,
+   "title": "Suzlon Energy"
+  },
+  {
+   "start": 1593,
+   "title": "Milky Mist"
+  },
+  {
+   "start": 1629,
+   "title": "MTAR"
+  },
+  {
+   "start": 1663,
+   "title": "Shadowfax"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "te",
+ "foreign": true,
+ "comments_fetched": 208,
+ "comments_top_level": 144,
+ "comments_replies": 64,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 208,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:40:53",
+ "approved": "2026-11-06T17:40+09:00"
+}

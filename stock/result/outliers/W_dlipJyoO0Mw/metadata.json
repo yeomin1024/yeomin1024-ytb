@@ -1,0 +1,80 @@
+{
+ "id": "dlipJyoO0Mw",
+ "title": "커버드콜 사기 전, 이 '두 줄'부터 확인하세요",
+ "channel": "여운봉 부자사관학교",
+ "channel_id": "UCH9dsV-DAyvtVG4fF7ScgbQ",
+ "subs": 179000,
+ "views": 41387,
+ "ratio": 0.23,
+ "age_days": 1,
+ "views_per_day": 20892.5,
+ "minutes": 18.9,
+ "likes": 667,
+ "comments": 71,
+ "published": "2026-11-04",
+ "queries": "검색:커버드콜ETF",
+ "url": "https://www.youtube.com/watch?v=dlipJyoO0Mw",
+ "flag": "",
+ "published_at": "2026-11-04T07:39:21Z",
+ "rank": "W226",
+ "set": "web",
+ "folder": "W_dlipJyoO0Mw",
+ "sources": [
+  "검색:커버드콜ETF"
+ ],
+ "source": "web",
+ "tags": [
+  "커버드콜",
+  "월배당",
+  "ETF투자",
+  "커버드콜ETF"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "연 15% 배당? 은퇴자들 홀린 '커버드콜 ETF'의 진짜 정체"
+  },
+  {
+   "start": 81,
+   "title": "시중 자금 3조 싹쓸이! 커버드콜에 돈이 몰리는 3가지 이유 (제2의 월급통장)"
+  },
+  {
+   "start": 149,
+   "title": "부동산 아파트로 찰떡 비유! 4060도 단번에 이해하는 커버드콜 수익 원리"
+  },
+  {
+   "start": 303,
+   "title": "요즘 대세 '3세대 커버드콜(타겟 위클리)', 옛날 상품과 확실히 다른 점"
+  },
+  {
+   "start": 551,
+   "title": "건보료 폭탄 피하려면 필수 시청! 커버드콜 국내 vs 미국 세금 차이점"
+  },
+  {
+   "start": 632,
+   "title": "내 원금 파먹는 '제살깎기' ETF 걸러내는 비법 (수익률 '두 줄' 그래프의 비밀)"
+  },
+  {
+   "start": 788,
+   "title": "소중한 노후 자금 지키는 커버드콜 투자 3원칙 (절세 만능 ISA 계좌 활용법)"
+  },
+  {
+   "start": 955,
+   "title": "하락장엔 커버드콜도 물린다? 버스에서 내리면 안 되는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 71,
+ "comments_top_level": 28,
+ "comments_replies": 43,
+ "comments_by_creator": 30,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 71,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:19:28",
+ "approved": "2026-11-06T17:19+09:00"
+}

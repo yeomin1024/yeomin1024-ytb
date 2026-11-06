@@ -1,0 +1,97 @@
+{
+ "id": "u4xcSAzbUi8",
+ "title": "ETF越存越窮? 3大毀滅死穴 用100萬無痛月領14萬 ft.超馬芭樂【小宇宙大爆發】",
+ "channel": "小宇宙大爆發",
+ "channel_id": "UCtlUsbegD4plWGEJv5Ggg5w",
+ "subs": 526000,
+ "views": 576984,
+ "ratio": 1.1,
+ "age_days": 10,
+ "views_per_day": 53425.9,
+ "minutes": 34.5,
+ "likes": 2388,
+ "comments": 135,
+ "published": "2026-10-26",
+ "queries": "검색:ETF | 검색:etf investing | 검색:ETFs",
+ "url": "https://www.youtube.com/watch?v=u4xcSAzbUi8",
+ "flag": "외국 영상",
+ "published_at": "2026-10-26T12:00:18Z",
+ "rank": "W39",
+ "set": "web",
+ "folder": "W_u4xcSAzbUi8",
+ "sources": [
+  "검색:ETF",
+  "검색:etf investing",
+  "검색:ETFs"
+ ],
+ "source": "web",
+ "tags": [
+  "小宇宙大爆發",
+  "MOMOTV",
+  "MOMOTV綜合台",
+  "MOMO 小宇宙大爆發",
+  "momotv 健康",
+  "momotv 理財",
+  "MOMO廖盈婷",
+  "財經理財",
+  "健康養生",
+  "商戰",
+  "台股",
+  "股票",
+  "理財",
+  "財經",
+  "理財達人秀",
+  "下班經濟學",
+  "鈔錢部署",
+  "0050",
+  "0056",
+  "高股息ETF",
+  "市值型ETF",
+  "退休金",
+  "存股",
+  "ETF理財",
+  "00929",
+  "00919",
+  "00878"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "精彩開場"
+  },
+  {
+   "start": 188,
+   "title": "投資ETF三大誤區 錯一步資產少一半"
+  },
+  {
+   "start": 669,
+   "title": "何時可以開始安穩領息? 黃金轉換期在這歲數"
+  },
+  {
+   "start": 1150,
+   "title": "00929殖利率爆好 0056等三大天王已退位?"
+  },
+  {
+   "start": 1663,
+   "title": "年底前三種布局 積極到安穩任君選擇"
+  },
+  {
+   "start": 1930,
+   "title": "精彩花絮：009816績效真會大贏傳統市值型?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "zh-TW",
+ "foreign": true,
+ "comments_fetched": 136,
+ "comments_top_level": 90,
+ "comments_replies": 46,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 135,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:33:20",
+ "approved": "2026-11-06T17:33+09:00"
+}

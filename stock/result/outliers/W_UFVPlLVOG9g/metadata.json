@@ -1,0 +1,83 @@
+{
+ "id": "UFVPlLVOG9g",
+ "title": "뉴욕 월가에서 만난 사람들에게 물었습니다. 지금 어떤 주식에 투자하세요?",
+ "channel": "머니인더트랩",
+ "channel_id": "UCtjj8T7n2_jS92pfMeWdoWQ",
+ "subs": 124000,
+ "views": 1027659,
+ "ratio": 8.29,
+ "age_days": 5,
+ "views_per_day": 194297.1,
+ "minutes": 22.7,
+ "likes": 6693,
+ "comments": 695,
+ "published": "2026-11-01",
+ "queries": "검색:미국주식 | 검색:주식투자 | 검색:주식 | 검색:how to invest in stocks | 검색:etf investing",
+ "url": "https://www.youtube.com/watch?v=UFVPlLVOG9g",
+ "flag": "",
+ "published_at": "2026-11-01T00:15:37Z",
+ "rank": "W318",
+ "set": "web",
+ "folder": "W_UFVPlLVOG9g",
+ "sources": [
+  "검색:미국주식",
+  "검색:주식투자",
+  "검색:주식",
+  "검색:how to invest in stocks",
+  "검색:etf investing"
+ ],
+ "source": "web",
+ "tags": [
+  "머니인더트랩",
+  "머인트",
+  "moneyinthetrap",
+  "MIT",
+  "얘기좀합시다",
+  "쫑알쫑알",
+  "방과후경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "머니인더트랩 in NY"
+  },
+  {
+   "start": 120,
+   "title": "JP모건 현직자와 인터뷰"
+  },
+  {
+   "start": 238,
+   "title": "한국을 사랑하는 은행원"
+  },
+  {
+   "start": 428,
+   "title": "암호화폐는 투자하지 마라?"
+  },
+  {
+   "start": 663,
+   "title": "UVA MBA 학생들의 투자법"
+  },
+  {
+   "start": 1022,
+   "title": "뉴요커의 '원팀' 투자법"
+  },
+  {
+   "start": 1246,
+   "title": "서동주 “반성을 하게 됩니다”"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 696,
+ "comments_top_level": 519,
+ "comments_replies": 177,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 695,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-06T08:22:59",
+ "approved": "2026-11-06T17:23+09:00"
+}

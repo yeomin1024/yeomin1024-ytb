@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-06 — 폭락 대처 편: 전문가 인용을 한 사람(하워드 막스)으로
+
+- 사용자 지시 "야 전문가는 집단이면 안돼 버핏 같은 정말 유명하거나 업적이 있는 한 명의 전문가여야 하고 어제 폭락에 대한 전문가의 의견이 있으면 좋아 없으면 현재 상황에 잘 어울리는 전문가 찾아서 인용하고 수정해".
+- 찾은 것: 11월 5일 폭락 **뒤**의 막스·버핏 발언은 검색되지 않음 (버핏 기사는 옛 발언 재인용) → 같은 AI 기술주 하락 중(나스닥 고점 −8.8%) 하워드 막스 — 2026-11-02 Bloomberg TV 'The China Show' "There is no reward in the investment business for hyperactivity." (Yahoo Finance·24/7 Wall St.·Benzinga 같은 문장) · 2026-10-30 CNBC "least predictable thing I've ever witnessed in my career" · 업적 = 2000년 1월 메모 「bubble.com」 (닷컴 붕괴 두 달 전 경고).
+- 바꾼 것: `stock/source/crash-plan-2026-11/요약본_안.json` v1.1 — [방향] 6번을 막스 한 명으로 · C1·C2·C3·C4 해설의 전문가 줄 · C5 = '하워드 막스의 한마디, 폭락 13번에선 맞았을까?' (제목 2줄 ✅) · 국내 리서치센터장들·버핏 2008·모닝스타·J.P. Morgan·뱅가드는 영상에서 빼고 주석 '뺀 것'에 출처만 · 규칙 `stock/guides/quick_test.md` v1.14 0번 · CLAUDE.md 주식 절 한 줄.
+- 확인: `summary_ideas.py stock status` C1~C5 ✅ · 영상 본문(text)에 집단·기관 이름 0.
+- 한계: 이 환경은 기사 페이지 직접 읽기가 네트워크로 막혀 검색 결과의 같은 문장으로 확인 — 대본 전 블룸버그 영상 원문 시각 확인.
+
 ## 2026-11-06 — 주식 폭락 대처 편 요약본 (T060 · crash-plan-2026-11)
 
 - 사용자 지시 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과 가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐".

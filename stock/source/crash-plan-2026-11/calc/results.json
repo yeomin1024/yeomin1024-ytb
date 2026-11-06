@@ -1,5 +1,5 @@
 {
- "version": "v1.8",
+ "version": "v1.9",
  "made": "2026-11-06",
  "note": "연구·교육용 — 투자 권유 아님. 지수는 가격, 펀드는 조정 종가. LEV3 는 가정 계산.",
  "now": {
@@ -135,6 +135,7 @@
    "rows": [
     {
      "hit": "2000-03-30",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 0.365,
@@ -169,8 +170,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.016,
-       "min": 0.016,
+       "end": 0.014,
+       "min": 0.014,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -238,6 +239,7 @@
     },
     {
      "hit": "2004-03-22",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.063,
@@ -272,8 +274,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.093,
-       "min": 0.808,
+       "end": 1.056,
+       "min": 0.801,
        "recover_days": 119,
        "below80": false,
        "stable": true,
@@ -322,8 +324,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.753,
-       "min": 0.808,
+       "end": 1.433,
+       "min": 0.801,
        "recover_days": 119,
        "below80": false,
        "stable": true,
@@ -341,6 +343,7 @@
     },
     {
      "hit": "2005-04-14",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.189,
@@ -375,9 +378,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.582,
-       "min": 0.928,
-       "recover_days": 5,
+       "end": 1.47,
+       "min": 0.926,
+       "recover_days": 14,
        "below80": false,
        "stable": true,
        "full": true
@@ -425,9 +428,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.586,
-       "min": 0.928,
-       "recover_days": 5,
+       "end": 1.248,
+       "min": 0.849,
+       "recover_days": 338,
        "below80": false,
        "stable": true,
        "full": true
@@ -444,6 +447,7 @@
     },
     {
      "hit": "2006-06-12",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.262,
@@ -478,9 +482,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.858,
-       "min": 0.858,
-       "recover_days": 45,
+       "end": 1.686,
+       "min": 0.849,
+       "recover_days": 46,
        "below80": false,
        "stable": true,
        "full": true
@@ -528,8 +532,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.438,
-       "min": 0.163,
+       "end": 0.37,
+       "min": 0.137,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -547,6 +551,7 @@
     },
     {
      "hit": "2007-11-21",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 0.52,
@@ -581,8 +586,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.091,
-       "min": 0.091,
+       "end": 0.088,
+       "min": 0.088,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -631,8 +636,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.567,
-       "min": 0.08,
+       "end": 0.545,
+       "min": 0.078,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -650,6 +655,7 @@
     },
     {
      "hit": "2010-05-07",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.3,
@@ -684,9 +690,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.968,
-       "min": 0.795,
-       "recover_days": 53,
+       "end": 1.941,
+       "min": 0.79,
+       "recover_days": 54,
        "below80": true,
        "stable": false,
        "full": true
@@ -734,9 +740,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 3.121,
-       "min": 0.795,
-       "recover_days": 53,
+       "end": 3.065,
+       "min": 0.79,
+       "recover_days": 54,
        "below80": true,
        "stable": false,
        "full": true
@@ -753,6 +759,7 @@
     },
     {
      "hit": "2011-08-04",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.223,
@@ -787,8 +794,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.538,
-       "min": 0.756,
+       "end": 1.527,
+       "min": 0.755,
        "recover_days": 28,
        "below80": true,
        "stable": false,
@@ -837,8 +844,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 4.402,
-       "min": 0.756,
+       "end": 4.328,
+       "min": 0.755,
        "recover_days": 28,
        "below80": true,
        "stable": false,
@@ -856,6 +863,7 @@
     },
     {
      "hit": "2012-05-18",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.227,
@@ -890,7 +898,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.708,
+       "end": 1.709,
        "min": 0.975,
        "recover_days": 11,
        "below80": false,
@@ -940,7 +948,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.516,
+       "end": 5.423,
        "min": 0.975,
        "recover_days": 11,
        "below80": false,
@@ -959,6 +967,7 @@
     },
     {
      "hit": "2012-11-14",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.365,
@@ -993,8 +1002,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.398,
-       "min": 0.99,
+       "end": 2.383,
+       "min": 0.991,
        "recover_days": 2,
        "below80": false,
        "stable": true,
@@ -1043,8 +1052,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.159,
-       "min": 0.99,
+       "end": 5.061,
+       "min": 0.991,
        "recover_days": 2,
        "below80": false,
        "stable": true,
@@ -1062,6 +1071,7 @@
     },
     {
      "hit": "2015-08-24",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.207,
@@ -1096,8 +1106,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.564,
-       "min": 0.881,
+       "end": 1.543,
+       "min": 0.872,
        "recover_days": 121,
        "below80": false,
        "stable": true,
@@ -1146,8 +1156,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.224,
-       "min": 0.881,
+       "end": 4.877,
+       "min": 0.872,
        "recover_days": 121,
        "below80": false,
        "stable": true,
@@ -1165,6 +1175,7 @@
     },
     {
      "hit": "2018-10-24",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.194,
@@ -1199,9 +1210,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.472,
-       "min": 0.627,
-       "recover_days": 68,
+       "end": 1.389,
+       "min": 0.621,
+       "recover_days": 69,
        "below80": true,
        "stable": false,
        "full": true
@@ -1249,9 +1260,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 6.675,
-       "min": 0.627,
-       "recover_days": 68,
+       "end": 6.017,
+       "min": 0.621,
+       "recover_days": 69,
        "below80": true,
        "stable": false,
        "full": true
@@ -1268,6 +1279,7 @@
     },
     {
      "hit": "2019-06-03",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.397,
@@ -1302,8 +1314,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.926,
-       "min": 0.79,
+       "end": 1.819,
+       "min": 0.756,
        "recover_days": 206,
        "below80": true,
        "stable": false,
@@ -1352,8 +1364,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.985,
-       "min": 0.79,
+       "end": 2.748,
+       "min": 0.756,
        "recover_days": 206,
        "below80": true,
        "stable": false,
@@ -1371,6 +1383,7 @@
     },
     {
      "hit": "2020-02-27",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.536,
@@ -1405,9 +1418,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.41,
-       "min": 0.473,
-       "recover_days": 50,
+       "end": 2.353,
+       "min": 0.468,
+       "recover_days": 51,
        "below80": true,
        "stable": false,
        "full": true
@@ -1455,9 +1468,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.317,
-       "min": 0.473,
-       "recover_days": 50,
+       "end": 1.174,
+       "min": 0.468,
+       "recover_days": 51,
        "below80": true,
        "stable": false,
        "full": true
@@ -1474,6 +1487,7 @@
     },
     {
      "hit": "2020-09-08",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.417,
@@ -1508,8 +1522,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.495,
-       "min": 0.926,
+       "end": 2.475,
+       "min": 0.927,
        "recover_days": 13,
        "below80": false,
        "stable": true,
@@ -1558,9 +1572,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.626,
-       "min": 0.574,
-       "recover_days": 645,
+       "end": 1.397,
+       "min": 0.534,
+       "recover_days": 677,
        "below80": true,
        "stable": false,
        "full": true
@@ -1577,6 +1591,7 @@
     },
     {
      "hit": "2021-03-08",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.088,
@@ -1611,7 +1626,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.132,
+       "end": 1.115,
        "min": 1.0,
        "recover_days": 0,
        "below80": false,
@@ -1661,9 +1676,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.97,
-       "min": 0.454,
-       "recover_days": 560,
+       "end": 1.603,
+       "min": 0.424,
+       "recover_days": 570,
        "below80": true,
        "stable": false,
        "full": true
@@ -1680,6 +1695,7 @@
     },
     {
      "hit": "2022-01-19",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 0.777,
@@ -1714,8 +1730,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.34,
-       "min": 0.268,
+       "end": 0.318,
+       "min": 0.252,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -1764,9 +1780,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.883,
-       "min": 0.268,
-       "recover_days": 502,
+       "end": 1.397,
+       "min": 0.252,
+       "recover_days": 531,
        "below80": true,
        "stable": false,
        "full": true
@@ -1783,6 +1799,7 @@
     },
     {
      "hit": "2023-10-25",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.424,
@@ -1817,8 +1834,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.609,
-       "min": 0.943,
+       "end": 2.315,
+       "min": 0.942,
        "recover_days": 4,
        "below80": false,
        "stable": true,
@@ -1867,8 +1884,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.364,
-       "min": 0.943,
+       "end": 3.909,
+       "min": 0.942,
        "recover_days": 4,
        "below80": false,
        "stable": true,
@@ -1886,6 +1903,7 @@
     },
     {
      "hit": "2024-08-02",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.271,
@@ -1920,9 +1938,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.707,
-       "min": 0.721,
-       "recover_days": 182,
+       "end": 1.531,
+       "min": 0.669,
+       "recover_days": 187,
        "below80": true,
        "stable": false,
        "full": true
@@ -1970,9 +1988,9 @@
        "full": false
       },
       "LEV3": {
-       "end": 2.183,
-       "min": 0.721,
-       "recover_days": 182,
+       "end": 1.754,
+       "min": 0.669,
+       "recover_days": 187,
        "below80": true,
        "stable": false,
        "full": false
@@ -1989,6 +2007,7 @@
     },
     {
      "hit": "2025-03-06",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.251,
@@ -2023,8 +2042,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.666,
-       "min": 0.597,
+       "end": 1.508,
+       "min": 0.591,
        "recover_days": 46,
        "below80": true,
        "stable": false,
@@ -2073,8 +2092,8 @@
        "full": false
       },
       "LEV3": {
-       "end": 1.808,
-       "min": 0.597,
+       "end": 1.55,
+       "min": 0.591,
        "recover_days": 46,
        "below80": true,
        "stable": false,
@@ -2092,6 +2111,7 @@
     },
     {
      "hit": "2026-03-26",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.13,
@@ -2126,8 +2146,8 @@
        "full": false
       },
       "LEV3": {
-       "end": 1.292,
-       "min": 0.92,
+       "end": 1.229,
+       "min": 0.919,
        "recover_days": 3,
        "below80": false,
        "stable": true,
@@ -2176,8 +2196,8 @@
        "full": false
       },
       "LEV3": {
-       "end": 1.292,
-       "min": 0.92,
+       "end": 1.229,
+       "min": 0.919,
        "recover_days": 3,
        "below80": false,
        "stable": true,
@@ -2505,6 +2525,7 @@
    "rows": [
     {
      "hit": "2000-04-03",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 0.337,
@@ -2539,8 +2560,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.012,
-       "min": 0.012,
+       "end": 0.011,
+       "min": 0.011,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -2589,7 +2610,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.002,
+       "end": 0.001,
        "min": 0.001,
        "recover_days": null,
        "below80": true,
@@ -2608,6 +2629,7 @@
     },
     {
      "hit": "2004-05-10",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.042,
@@ -2642,9 +2664,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.035,
-       "min": 0.798,
-       "recover_days": 85,
+       "end": 0.996,
+       "min": 0.793,
+       "recover_days": 86,
        "below80": true,
        "stable": false,
        "full": true
@@ -2692,9 +2714,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.052,
-       "min": 0.798,
-       "recover_days": 85,
+       "end": 1.659,
+       "min": 0.793,
+       "recover_days": 86,
        "below80": true,
        "stable": false,
        "full": true
@@ -2711,6 +2733,7 @@
     },
     {
      "hit": "2005-04-15",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.204,
@@ -2745,9 +2768,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.644,
-       "min": 0.996,
-       "recover_days": 4,
+       "end": 1.528,
+       "min": 0.995,
+       "recover_days": 10,
        "below80": false,
        "stable": true,
        "full": true
@@ -2795,9 +2818,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.691,
-       "min": 0.996,
-       "recover_days": 4,
+       "end": 1.331,
+       "min": 0.911,
+       "recover_days": 324,
        "below80": false,
        "stable": true,
        "full": true
@@ -2814,6 +2837,7 @@
     },
     {
      "hit": "2006-06-13",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.275,
@@ -2848,9 +2872,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.918,
-       "min": 0.869,
-       "recover_days": 44,
+       "end": 1.74,
+       "min": 0.86,
+       "recover_days": 45,
        "below80": false,
        "stable": true,
        "full": true
@@ -2898,8 +2922,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.416,
-       "min": 0.165,
+       "end": 0.351,
+       "min": 0.139,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -2917,6 +2941,7 @@
     },
     {
      "hit": "2008-01-04",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 0.643,
@@ -2951,8 +2976,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.163,
-       "min": 0.098,
+       "end": 0.158,
+       "min": 0.095,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -3001,8 +3026,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.696,
-       "min": 0.087,
+       "end": 0.675,
+       "min": 0.084,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -3020,6 +3045,7 @@
     },
     {
      "hit": "2010-05-20",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.325,
@@ -3054,9 +3080,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.112,
-       "min": 0.867,
-       "recover_days": 34,
+       "end": 2.063,
+       "min": 0.854,
+       "recover_days": 36,
        "below80": false,
        "stable": true,
        "full": true
@@ -3104,9 +3130,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 3.544,
-       "min": 0.867,
-       "recover_days": 34,
+       "end": 3.453,
+       "min": 0.854,
+       "recover_days": 36,
        "below80": false,
        "stable": true,
        "full": true
@@ -3123,6 +3149,7 @@
     },
     {
      "hit": "2011-08-08",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.33,
@@ -3157,8 +3184,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.005,
-       "min": 0.941,
+       "end": 1.984,
+       "min": 0.936,
        "recover_days": 11,
        "below80": false,
        "stable": true,
@@ -3207,8 +3234,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.693,
-       "min": 0.941,
+       "end": 5.582,
+       "min": 0.936,
        "recover_days": 11,
        "below80": false,
        "stable": true,
@@ -3226,6 +3253,7 @@
     },
     {
      "hit": "2012-06-01",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.208,
@@ -3260,7 +3288,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.64,
+       "end": 1.639,
        "min": 1.0,
        "recover_days": 0,
        "below80": false,
@@ -3310,7 +3338,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.47,
+       "end": 5.377,
        "min": 1.0,
        "recover_days": 0,
        "below80": false,
@@ -3329,6 +3357,7 @@
     },
     {
      "hit": "2015-08-24",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.207,
@@ -3363,8 +3392,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.564,
-       "min": 0.881,
+       "end": 1.543,
+       "min": 0.872,
        "recover_days": 121,
        "below80": false,
        "stable": true,
@@ -3413,8 +3442,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.224,
-       "min": 0.881,
+       "end": 4.877,
+       "min": 0.872,
        "recover_days": 121,
        "below80": false,
        "stable": true,
@@ -3432,6 +3461,7 @@
     },
     {
      "hit": "2018-10-24",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.194,
@@ -3466,9 +3496,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.472,
-       "min": 0.627,
-       "recover_days": 68,
+       "end": 1.389,
+       "min": 0.621,
+       "recover_days": 69,
        "below80": true,
        "stable": false,
        "full": true
@@ -3516,9 +3546,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 6.675,
-       "min": 0.627,
-       "recover_days": 68,
+       "end": 6.017,
+       "min": 0.621,
+       "recover_days": 69,
        "below80": true,
        "stable": false,
        "full": true
@@ -3535,6 +3565,7 @@
     },
     {
      "hit": "2020-02-27",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.536,
@@ -3569,9 +3600,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.41,
-       "min": 0.473,
-       "recover_days": 50,
+       "end": 2.353,
+       "min": 0.468,
+       "recover_days": 51,
        "below80": true,
        "stable": false,
        "full": true
@@ -3619,9 +3650,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.317,
-       "min": 0.473,
-       "recover_days": 50,
+       "end": 1.174,
+       "min": 0.468,
+       "recover_days": 51,
        "below80": true,
        "stable": false,
        "full": true
@@ -3638,6 +3669,7 @@
     },
     {
      "hit": "2022-01-21",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 0.826,
@@ -3672,8 +3704,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.41,
-       "min": 0.304,
+       "end": 0.383,
+       "min": 0.287,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -3722,9 +3754,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.037,
-       "min": 0.304,
-       "recover_days": 476,
+       "end": 1.512,
+       "min": 0.287,
+       "recover_days": 503,
        "below80": true,
        "stable": false,
        "full": true
@@ -3741,6 +3773,7 @@
     },
     {
      "hit": "2023-10-26",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.451,
@@ -3775,7 +3808,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.769,
+       "end": 2.461,
        "min": 1.0,
        "recover_days": 0,
        "below80": false,
@@ -3825,7 +3858,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.457,
+       "end": 3.981,
        "min": 1.0,
        "recover_days": 0,
        "below80": false,
@@ -3844,6 +3877,7 @@
     },
     {
      "hit": "2024-08-05",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.315,
@@ -3878,9 +3912,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.893,
-       "min": 0.792,
-       "recover_days": 170,
+       "end": 1.694,
+       "min": 0.732,
+       "recover_days": 181,
        "below80": true,
        "stable": false,
        "full": true
@@ -3928,9 +3962,9 @@
        "full": false
       },
       "LEV3": {
-       "end": 2.398,
-       "min": 0.792,
-       "recover_days": 170,
+       "end": 1.922,
+       "min": 0.732,
+       "recover_days": 181,
        "below80": true,
        "stable": false,
        "full": false
@@ -3947,6 +3981,7 @@
     },
     {
      "hit": "2025-03-10",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.292,
@@ -3981,9 +4016,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.844,
-       "min": 0.661,
-       "recover_days": 38,
+       "end": 1.664,
+       "min": 0.652,
+       "recover_days": 44,
        "below80": true,
        "stable": false,
        "full": true
@@ -4031,9 +4066,9 @@
        "full": false
       },
       "LEV3": {
-       "end": 2.002,
-       "min": 0.661,
-       "recover_days": 38,
+       "end": 1.712,
+       "min": 0.652,
+       "recover_days": 44,
        "below80": true,
        "stable": false,
        "full": false
@@ -4050,6 +4085,7 @@
     },
     {
      "hit": "2026-03-27",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.153,
@@ -4084,7 +4120,7 @@
        "full": false
       },
       "LEV3": {
-       "end": 1.373,
+       "end": 1.307,
        "min": 0.977,
        "recover_days": 2,
        "below80": false,
@@ -4134,7 +4170,7 @@
        "full": false
       },
       "LEV3": {
-       "end": 1.373,
+       "end": 1.307,
        "min": 0.977,
        "recover_days": 2,
        "below80": false,
@@ -4427,6 +4463,7 @@
    "rows": [
     {
      "hit": "2000-04-03",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 0.337,
@@ -4461,8 +4498,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.012,
-       "min": 0.012,
+       "end": 0.011,
+       "min": 0.011,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -4511,7 +4548,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.002,
+       "end": 0.001,
        "min": 0.001,
        "recover_days": null,
        "below80": true,
@@ -4530,6 +4567,7 @@
     },
     {
      "hit": "2004-08-05",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 1.193,
@@ -4564,7 +4602,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.578,
+       "end": 1.505,
        "min": 0.899,
        "recover_days": 9,
        "below80": false,
@@ -4614,7 +4652,7 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.51,
+       "end": 1.996,
        "min": 0.899,
        "recover_days": 9,
        "below80": false,
@@ -4633,6 +4671,7 @@
     },
     {
      "hit": "2008-01-15",
+     "lev3_real": false,
      "1y": {
       "HOLD": {
        "end": 0.617,
@@ -4667,8 +4706,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.144,
-       "min": 0.111,
+       "end": 0.14,
+       "min": 0.108,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -4717,8 +4756,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.846,
-       "min": 0.098,
+       "end": 0.821,
+       "min": 0.096,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -4736,6 +4775,7 @@
     },
     {
      "hit": "2010-06-29",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.303,
@@ -4770,8 +4810,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.033,
-       "min": 0.938,
+       "end": 2.014,
+       "min": 0.936,
        "recover_days": 5,
        "below80": false,
        "stable": true,
@@ -4820,8 +4860,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 3.552,
-       "min": 0.938,
+       "end": 3.49,
+       "min": 0.936,
        "recover_days": 5,
        "below80": false,
        "stable": true,
@@ -4839,6 +4879,7 @@
     },
     {
      "hit": "2011-08-08",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.33,
@@ -4873,8 +4914,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.005,
-       "min": 0.941,
+       "end": 1.984,
+       "min": 0.936,
        "recover_days": 11,
        "below80": false,
        "stable": true,
@@ -4923,8 +4964,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 5.693,
-       "min": 0.941,
+       "end": 5.582,
+       "min": 0.936,
        "recover_days": 11,
        "below80": false,
        "stable": true,
@@ -4942,6 +4983,7 @@
     },
     {
      "hit": "2016-02-05",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.297,
@@ -4976,8 +5018,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.045,
-       "min": 0.945,
+       "end": 2.023,
+       "min": 0.943,
        "recover_days": 6,
        "below80": false,
        "stable": true,
@@ -5026,8 +5068,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 4.109,
-       "min": 0.945,
+       "end": 3.769,
+       "min": 0.943,
        "recover_days": 6,
        "below80": false,
        "stable": true,
@@ -5045,6 +5087,7 @@
     },
     {
      "hit": "2018-12-17",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.342,
@@ -5079,8 +5122,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.171,
-       "min": 0.758,
+       "end": 2.053,
+       "min": 0.757,
        "recover_days": 14,
        "below80": true,
        "stable": false,
@@ -5129,8 +5172,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 8.417,
-       "min": 0.758,
+       "end": 7.648,
+       "min": 0.757,
        "recover_days": 14,
        "below80": true,
        "stable": false,
@@ -5148,6 +5191,7 @@
     },
     {
      "hit": "2020-03-09",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.62,
@@ -5182,8 +5226,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.889,
-       "min": 0.589,
+       "end": 2.797,
+       "min": 0.58,
        "recover_days": 25,
        "below80": true,
        "stable": false,
@@ -5232,8 +5276,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.618,
-       "min": 0.589,
+       "end": 1.43,
+       "min": 0.58,
        "recover_days": 25,
        "below80": true,
        "stable": false,
@@ -5251,6 +5295,7 @@
     },
     {
      "hit": "2022-01-25",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 0.856,
@@ -5285,8 +5330,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 0.457,
-       "min": 0.322,
+       "end": 0.428,
+       "min": 0.305,
        "recover_days": null,
        "below80": true,
        "stable": false,
@@ -5335,9 +5380,9 @@
        "full": true
       },
       "LEV3": {
-       "end": 2.174,
-       "min": 0.322,
-       "recover_days": 471,
+       "end": 1.619,
+       "min": 0.305,
+       "recover_days": 498,
        "below80": true,
        "stable": false,
        "full": true
@@ -5354,6 +5399,7 @@
     },
     {
      "hit": "2025-04-03",
+     "lev3_real": true,
      "1y": {
       "HOLD": {
        "end": 1.312,
@@ -5388,8 +5434,8 @@
        "full": true
       },
       "LEV3": {
-       "end": 1.951,
-       "min": 0.775,
+       "end": 1.768,
+       "min": 0.773,
        "recover_days": 4,
        "below80": true,
        "stable": false,
@@ -5438,8 +5484,8 @@
        "full": false
       },
       "LEV3": {
-       "end": 2.348,
-       "min": 0.775,
+       "end": 2.029,
+       "min": 0.773,
        "recover_days": 4,
        "below80": true,
        "stable": false,
@@ -5828,7 +5874,7 @@
    "median_min": {
     "HOLD": 0.939,
     "MIX": 0.956,
-    "LEV3": 0.756,
+    "LEV3": 0.755,
     "REBUY": 0.904,
     "B9010": 0.931
    },
@@ -5850,7 +5896,7 @@
    "median_min": {
     "HOLD": 0.937,
     "MIX": 0.978,
-    "LEV3": 0.798,
+    "LEV3": 0.793,
     "REBUY": 0.971,
     "B9010": 0.959
    },
@@ -5872,7 +5918,7 @@
    "median_min": {
     "HOLD": 0.914,
     "MIX": 0.956,
-    "LEV3": 0.758,
+    "LEV3": 0.757,
     "REBUY": 0.978,
     "B9010": 0.917
    },
@@ -6031,6 +6077,108 @@
   "min_after": 5059.69,
   "min_after_pct": -38.3,
   "now_vs_pct": -38.3
+ },
+ "from_peak_top5": {
+  "2018-10-24": {
+   "peak": "2018-08-29",
+   "1y": {
+    "HOLD": 0.772,
+    "CASH": 1.0,
+    "REBUY": 1.0,
+    "MIX": 0.89,
+    "LEV3": 0.419,
+    "B9010": 0.831
+   },
+   "3y": {
+    "HOLD": 0.772,
+    "CASH": 1.0,
+    "REBUY": 1.0,
+    "MIX": 0.89,
+    "LEV3": 0.419,
+    "B9010": 0.819
+   }
+  },
+  "2024-08-05": {
+   "peak": "2024-07-10",
+   "1y": {
+    "HOLD": 0.831,
+    "CASH": 1.0,
+    "REBUY": 0.813,
+    "MIX": 0.948,
+    "LEV3": 0.462,
+    "B9010": 0.907
+   },
+   "3y": {
+    "HOLD": 0.831,
+    "CASH": 1.0,
+    "REBUY": 0.813,
+    "MIX": 0.948,
+    "LEV3": 0.462,
+    "B9010": 0.907
+   }
+  },
+  "2008-01-04": {
+   "peak": "2007-10-31",
+   "1y": {
+    "HOLD": 0.523,
+    "CASH": 1.0,
+    "REBUY": 0.582,
+    "MIX": 0.713,
+    "LEV3": 0.096,
+    "B9010": 0.593
+   },
+   "3y": {
+    "HOLD": 0.466,
+    "CASH": 1.0,
+    "REBUY": 0.518,
+    "MIX": 0.648,
+    "LEV3": 0.055,
+    "B9010": 0.495
+   }
+  },
+  "2022-01-21": {
+   "peak": "2021-11-19",
+   "1y": {
+    "HOLD": 0.649,
+    "CASH": 1.0,
+    "REBUY": 0.805,
+    "MIX": 0.803,
+    "LEV3": 0.194,
+    "B9010": 0.794
+   },
+   "3y": {
+    "HOLD": 0.649,
+    "CASH": 1.0,
+    "REBUY": 0.805,
+    "MIX": 0.803,
+    "LEV3": 0.183,
+    "B9010": 0.794
+   }
+  },
+  "2015-08-24": {
+   "peak": "2015-07-20",
+   "1y": {
+    "HOLD": 0.85,
+    "CASH": 1.0,
+    "REBUY": 1.0,
+    "MIX": 0.932,
+    "LEV3": 0.555,
+    "B9010": 0.883
+   },
+   "3y": {
+    "HOLD": 0.85,
+    "CASH": 1.0,
+    "REBUY": 0.993,
+    "MIX": 0.932,
+    "LEV3": 0.555,
+    "B9010": 0.883
+   }
+  }
+ },
+ "dotcom_recover": {
+  "from": "2000-04-03",
+  "back": "2014-07-02",
+  "years": 14.2
  },
  "story": {
   "start": "2026-10-06",

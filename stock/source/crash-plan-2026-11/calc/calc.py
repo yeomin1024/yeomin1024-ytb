@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-11-06 — 버핏 9 대 1(B9010). (v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v1.9 — 2026-11-06 — 3배 = 실제 TQQQ(2010~) · 그 전은 빌리는 비용 넣은 가정 · 고점부터 나눠 담기 · 닷컴 회복. (v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.9 | 2026-11-06 | 반론 검토 1회차: 3배를 실제 TQQQ(조정 종가)로, 2010년 전은 빌리는 비용(국채 이자 × 2) 넣은 가정 계산 (v1.8 까지 빌리는 비용 빠짐 — '상') · from_peak_top5 (고점 날부터 대처별 가장 낮은 값 — '미리 나눠 담았다면') · dotcom_recover · 줄마다 lev3_real | paths · strategies · main |
 # | v1.8 | 2026-11-06 | B9010 = 버핏 2013년 서한의 90(S&P 500)·10(단기 국채) — 대처 여섯째 · Q8 · 사연 '같은 날 9 대 1 이었다면' (사용자 지시 "…경력을 언급해야지 … 실질적인 대처 방법을 제목에 … 대본도 써봐") | paths · main |
 # | v1.7 | 2026-11-06 | 사연 — 나스닥 고점 날 1억(QQQ 7천만 + TQQQ 3천만)이 지금 얼마인가 (전문가 중심 편 — 사용자 지시 "…사연 + 과거 사례 비교 + 전문가 + 문제…") | main |
 # | v1.6 | 2026-11-06 | 코스피 직전 1년 상승 = 달력 365일 (지금 245거래일·과거 252거래일로 서로 다르게 세던 것) · 옛 고점 되찾은 해 = 달력 날수 | main |
@@ -24,7 +25,7 @@
 #   HOLD 나스닥100(QQQ, 조정 종가) 그대로 · CASH 전부 팔고 예금(미국 13주 국채 이자 ^IRX, 전날 금리) ·
 #   REBUY 팔았다가 QQQ 가 판 뒤 가장 낮은 값보다 20% 오른 첫날 다시 사기 · MIX 주식 60(SPY) + 채권 40(VBMFX) 으로 줄이고 달마다 비율 맞춤 ·
 #   B9010 (v1.8) 버핏 9 대 1 — SPY 90 + 단기 국채 10, 달마다 비율 맞춤 ·
-#   LEV3 나스닥100 3배(QQQ 하루 수익 × 3 − 연 0.95% — 가정한 계산 상품, 실제 TQQQ 는 2010년부터라 그 전도 같은 식으로)
+#   LEV3 나스닥100 3배 — v1.9: 실제 TQQQ(2010-02~) · 그 전은 가정 계산(QQQ 하루 수익 × 3 − 빌리는 비용 13주 국채 이자 × 2 − 연 0.95%)
 # 잣대 (채널 목적 '덜 잃었나'): 그날 값 = 1 → 1년·3년 안 가장 낮은 값(더 빠진 폭) · 그날 값을 되찾은 날 · 3년 뒤 값 · 안정 수익(3년 뒤 예금보다 더 남고
 #   한 번도 0.8 아래로 안 감 — precheck/risk.py stable 과 같음).
 # 정답 분류: 모든 사건·모든 민감도 칸(D 10%·11.9%·15% × 1·3년)에서 같은 쪽 → 정답형 · 갈리면 조건부형(몇 번 중 몇 번으로만 말함).
@@ -43,7 +44,7 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v1.8"
+VERSION = "v1.9"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
 SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
@@ -150,16 +151,23 @@ def similar(ev, now, feats=FEATS):
 
 
 # ── 대처 다섯 ─────────────────────────────────────────────────────────────────
-def paths(i0, H, qqq, spy, bnd, irx, days):
+def paths(i0, H, qqq, spy, bnd, irx, days, tqqq=None):
     n = min(H, len(days) - 1 - i0)
     cash = [1.0]
     for k in range(i0 + 1, i0 + n + 1):
         r = (irx[k - 1] or 0) / 100.0
         cash.append(cash[-1] * (1 + r) ** (1 / 252))
     hold = [qqq[k] / qqq[i0] for k in range(i0, i0 + n + 1)]
+    # v1.9: 3배 = 실제 TQQQ(조정 종가)가 그날 있으면 그것 · 없으면(2010-02 전) 가정 계산 — 하루 수익 × 3 − 빌리는 비용(13주 국채 이자 × 2) − 연 0.95%
+    #       (v1.8 까지는 빌리는 비용을 빼지 않아 실제보다 좋게 나왔음 — 반론 검토 1회차 '상')
     lev = [1.0]
+    real = tqqq is not None and tqqq[i0] is not None
     for k in range(i0 + 1, i0 + n + 1):
-        lev.append(max(lev[-1] * (1 + 3 * (qqq[k] / qqq[k - 1] - 1) - LEV_FEE / 252), 0.0))
+        if real and tqqq[k] is not None:
+            lev.append(lev[-1] * tqqq[k] / tqqq[k - 1])
+        else:
+            fin = 2 * (irx[k - 1] or 0) / 100.0 / 252
+            lev.append(max(lev[-1] * (1 + 3 * (qqq[k] / qqq[k - 1] - 1) - fin - LEV_FEE / 252), 0.0))
     reb, inq, lo, units = [1.0], False, qqq[i0], 0.0
     cval = 1.0
     for k in range(i0 + 1, i0 + n + 1):
@@ -200,8 +208,8 @@ def strategies(ev, days, S):
     out = []
     for e in ev:
         i0 = e["i"]
-        P = paths(i0, Y3, S["QQQ"], S["SPY"], S["VBMFX"], S["^IRX"], days)
-        row = {"hit": e["hit"]}
+        P = paths(i0, Y3, S["QQQ"], S["SPY"], S["VBMFX"], S["^IRX"], days, S.get("TQQQ"))
+        row = {"hit": e["hit"], "lev3_real": S.get("TQQQ") is not None and S["TQQQ"][i0] is not None}
         for h, name in ((Y1, "1y"), (Y3, "3y")):
             row[name] = {k: measure(v, P["CASH"], h) for k, v in P.items() if len(v) - 1 >= min(h, len(v) - 1)}
         out.append(row)
@@ -363,6 +371,22 @@ def main(argv=None):
     L("RESULT", "kospi_40pct_events=%s", [(k["hit"], k["runup_1y_pct"], k["more_drop_pct"], k["years_to_peak_again"]) for k in kev])
     L("RESULT", "kospi_2026_06_23=%s", res["kospi_2026_06_23"])
     L("RESULT", "kospi_now=%s kospi_8pct_days=%d", res["kospi_now"], len(res["kospi_8pct_days"]))
+    # v1.9: '미리 나눠 담았다면' = 고점 날부터 (폭락 날이 아니라) — 닮은 다섯 번(D119 상위 5) · 1년·3년 안 가장 낮은 값
+    top5 = [h for _, h in sens["D119"]["rank"][:5]]
+    evd = {e["hit"]: e for e in episodes(days, ix, sp, round(D_now, 3))}
+    fp = {}
+    for h in top5:
+        pi = days.index(evd[h]["peak"])
+        P = paths(pi, Y3, S["QQQ"], S["SPY"], S["VBMFX"], S["^IRX"], days, S.get("TQQQ"))
+        fp[h] = {"peak": days[pi], "1y": {k: round(min(v[:Y1 + 1]), 3) for k, v in P.items()}, "3y": {k: round(min(v), 3) for k, v in P.items()}}
+        L("RESULT", "from_peak hit=%s peak=%s 1y_min=%s", h, days[pi], fp[h]["1y"])
+    res["from_peak_top5"] = fp
+    # v1.9: 닷컴 — 2000-04-03(사건 날) 나스닥100(QQQ 배당 포함) 값을 되찾은 날
+    q = S["QQQ"]; i00 = days.index("2000-04-03")
+    tr = min(range(i00, min(i00 + Y3, len(days) - 1) + 1), key=lambda k: q[k])          # 3년 안 바닥 — 그 뒤 처음 되찾은 날 (며칠 뒤 잠깐 반등한 날 ✗)
+    back = next((days[k] for k in range(tr + 1, len(days)) if q[k] >= q[i00]), None)
+    res["dotcom_recover"] = {"from": "2000-04-03", "back": back, "years": round((date.fromisoformat(back) - date.fromisoformat("2000-04-03")).days / 365.25, 1) if back else None}
+    L("RESULT", "dotcom_recover=%s", res["dotcom_recover"])
     # v1.7: 사연 — 가상 인물 김씨: 나스닥 고점 날(10-06) 1억 = 나스닥100 ETF(QQQ) 7천만 원 + 3배 레버리지(TQQQ) 3천만 원 → 지금(조정 종가)
     q, t3 = raw["QQQ"], raw["TQQQ"]
     d0, d1 = days[pk], days[-1]

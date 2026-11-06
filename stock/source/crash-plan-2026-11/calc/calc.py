@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.1 — 2026-11-06 — 김씨 1억 되찾기 · 그대로 vs 60/40 잔고 · 3배 안정 수익 ⊂ 그대로. (v2.0 한 잣대 · v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v2.2 — 2026-11-06 — 김씨 계좌 그대로(3배 23.2%) 칸 · 60/40 vs 그대로 갈린 사건 · 3배 3년 뒤 값 반올림 없이. (v2.1 김씨 1억 되찾기 · 그대로 vs 60/40 잔고 · 3배 안정 수익 ⊂ 그대로 · v2.0 한 잣대 · v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.2 | 2026-11-06 | 반론 검토 4회차: counts_D119_3y 에 stable_mix_only·stable_hold_only (60/40 과 그대로가 잣대에서 갈린 사건) · kim_mix (김씨 계좌 그대로 3배 23.2% · 40% · 50% — 비율 맞추지 않음) · lev3_3y_end_raw_2000 (반올림 없이) · kim_c_2008_min_manwon | main |
 # | v2.1 | 2026-11-06 | 반론 검토 3회차: counts_D119_3y 에 kim_recover_1억 (3년 뒤 ×1.289 이상) · hold_end_beats_mix · lev3_stable_subset_of_hold · lev3_synthetic_hits · lev3_3y_end · lev3_check.qqq_x | main |
 # | v2.0 | 2026-11-06 | 반론 검토 2회차: counts_D119_3y (3년 안 20% 넘게 준 적 · 안정 수익 · 3배가 3년 뒤 더 남은 횟수) · lev3_check (TQQQ 첫날~지금 가정 3배 vs 실제) · story.qqq_only_now | main |
 # | v1.9 | 2026-11-06 | 반론 검토 1회차: 3배를 실제 TQQQ(조정 종가)로, 2010년 전은 빌리는 비용(국채 이자 × 2) 넣은 가정 계산 (v1.8 까지 빌리는 비용 빠짐 — '상') · from_peak_top5 (고점 날부터 대처별 가장 낮은 값 — '미리 나눠 담았다면') · dotcom_recover · 줄마다 lev3_real | paths · strategies · main |
@@ -46,7 +47,7 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v2.1"
+VERSION = "v2.2"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
 SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
@@ -362,6 +363,26 @@ def main(argv=None):
     c["lev3_stable_subset_of_hold"] = st_lev <= st_hold
     c["lev3_synthetic_hits"] = [r["hit"] for r in full if not r["lev3_real"]]
     c["lev3_3y_end"] = {r["hit"]: r["3y"]["LEV3"]["end"] for r in full if r["hit"] in ("2000-04-03", "2008-01-04")}
+    # v2.2 (반론 검토 4회차): ① 60/40 과 그대로가 잣대에서 갈린 사건 · ② 3배 3년 뒤 값을 반올림 없이 (2000 '10만 원' → 실제 자릿수)
+    #   ③ 김씨 계좌를 그대로 두는 경우(나스닥100 76.8% + 3배 23.2%, 비율 맞추지 않음)와 3배 몫이 더 큰 경우 — A·C 사이 칸
+    #   ④ C 를 해도 2008년이면 김씨 계좌가 얼마까지 내려가나 (7,759만 × 그대로 3년 안 가장 낮은 값)
+    st_mix = {r["hit"] for r in full if r["3y"]["MIX"]["stable"]}
+    c["stable_mix_only"] = sorted(st_mix - st_hold)
+    c["stable_hold_only"] = sorted(st_hold - st_mix)
+    kim_w = 1_797 / 7_759                                    # story.tqqq_now / story.total_now
+    c["kim_mix"] = {}
+    for w in (round(kim_w, 4), 0.4, 0.5):
+        cnt = {"stable": 0, "below80": 0}
+        for r in full:
+            i0 = days.index(r["hit"])
+            P = paths(i0, Y3, S["QQQ"], S["SPY"], S["VBMFX"], S["^IRX"], days, S.get("TQQQ"))
+            m = measure([(1 - w) * h + w * l for h, l in zip(P["HOLD"], P["LEV3"])], P["CASH"], Y3)
+            cnt["stable"] += m["stable"]; cnt["below80"] += m["below80"]
+            if r["hit"] == "2000-04-03" and w == 0.5:
+                c["lev3_3y_end_raw_2000"] = round(P["LEV3"][Y3], 5)
+            if r["hit"] == "2008-01-04" and w == 0.5:
+                c["kim_c_2008_min_manwon"] = round(7_759 * min(P["HOLD"][:Y3 + 1]))
+        c["kim_mix"][f"lev3_{round(100 * w, 1)}pct"] = cnt
     L("RESULT", "counts_D119_3y=%s", res["counts_D119_3y"])
     # v2.0: 가정 3배 vs 실제 TQQQ — 겹치는 기간(TQQQ 첫날 ~ 지금) 누적 값 비교 (가정 계산 오차)
     t3 = S["TQQQ"]; i_t = next(i for i in range(len(days)) if t3[i] is not None)

@@ -1,6 +1,6 @@
 # 페르소나 검사 — `stock/source/crash-plan-2026-11/crash-plan-2026-11.txt`
 
-`tools/persona_review.py v1.0.1` · 페르소나 `stock/result/outliers/personas.md` (2026-11-06T08:47:07Z · 3명) · 문장 107개 · 길이 어림 7.3분 (H17 6.3음절/초).
+`tools/persona_review.py v1.0.1` · 페르소나 `stock/result/outliers/personas.md` (2026-11-06T08:47:07Z · 3명) · 문장 116개 · 길이 어림 8.0분 (H17 6.3음절/초).
 이 검사는 **알아듣기·원하는 것**만 본다. 숫자·법이 맞는지는 `guides/script_guide.md` 3번이 따로. ※ 연구·교육용.
 
 ## 0. 한눈에

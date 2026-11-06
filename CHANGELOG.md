@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-06 — 주식 쇼츠 애니메이션 '반도체만 vs 나눠 담기' 그림 요청 + scene_clips v1.4.0 (대본 전 장면 계획)
+
+- 사용자 지시 "쇼츠 애니메이션 만들건데 이미지를 만들고 저번에 만든 영상화 코드로 이미지를 영상화해 짧은 영상을 이어 붙이는 식으로 만들거야 먼저 이미지 만들 chatgpt 명령 알려주고 코드도 프롬프트 담긴 파일 보고 생성할 수 있도록 준비해놔 …" + "반도체 사람은 까불까불한 이미지, 분배 사람은 차분한 이미지로 하고 미국 양산형 게임 광고에 나오는 캐릭터 그림체로 해".
+- 새 편 `stock/source/bandoche-bunbae-2026-11/shorts/scenes/plan.json` v1.0 (원본 하나) → `chatgpt.md`(설정표 + 그림 8장) · `videogen.json`(Kaggle 5B FastWan 704x1280 · 클립 8 × 121프레임 5.04초) · `plan.md`. 인물 A(반도체 3배만, 까불이 — 주황 머리·네온 후드) · B(국면별 현금·병 나눠 담기, 차분 — 둥근 안경·남색 니트) · 그림체 = 모바일 게임 광고풍 3D 카툰(특정 게임 베끼지 않음) · 그래프 장면 4장(S03~S06)은 위 40% 비움(코드 그래프 자리), A 왼쪽·B 오른쪽 고정.
+- `tools/scene_clips.py` v1.3.0 → v1.4.0: plan `"timing": "clips"`(내레이션 시각 없이 클립마다 `sec`) · 클립 `format`(plan `formats` — 그 장만 다른 구도 줄) · plan `negative_prompt`·`sheet_note` · 물려받은 plan 이 없는 쇼츠도 인물 설정표. 대본 plan 은 그대로 (gungmin 롱폼 29·쇼츠 7 다시 build → 바뀐 줄은 '자동 생성' 시각뿐, videogen.json 같음).
+- `tools/tests/test_scene_clips.py` v1.3 → v1.4 (TestClipsMode 4개 더 — 11개 통과) · `videogen/queue.json` v1.2 (이 편 작업 추가, 그림 전이라 꺼 둠 — dry-run jobs=0).
+- ⚠ 그래프 숫자는 아직 없음 — 실제 종가(반도체 3배 ETF 예: SOXL)·미리 정한 규칙으로 calc 를 만든 뒤에만 (B 가 '결국 수익'인지는 그 계산이 정함).
+
 ## 2026-11-06 — 2편 A/B 테스트 제목·썸네일 짝 (실험안 2·3)
 
 - 사용자 지시 "2편도 비슷한 형식이지맘 중복되지 않게 제목 썸네일 2개 만들어봐".

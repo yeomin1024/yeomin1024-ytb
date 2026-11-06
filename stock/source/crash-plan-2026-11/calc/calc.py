@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.0 — 2026-11-06 — 한 잣대로 세기(counts_D119_3y) · 가정 3배 오차(lev3_check) · 사연 나스닥100만. (v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v2.1 — 2026-11-06 — 김씨 1억 되찾기 · 그대로 vs 60/40 잔고 · 3배 안정 수익 ⊂ 그대로. (v2.0 한 잣대 · v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.1 | 2026-11-06 | 반론 검토 3회차: counts_D119_3y 에 kim_recover_1억 (3년 뒤 ×1.289 이상) · hold_end_beats_mix · lev3_stable_subset_of_hold · lev3_synthetic_hits · lev3_3y_end · lev3_check.qqq_x | main |
 # | v2.0 | 2026-11-06 | 반론 검토 2회차: counts_D119_3y (3년 안 20% 넘게 준 적 · 안정 수익 · 3배가 3년 뒤 더 남은 횟수) · lev3_check (TQQQ 첫날~지금 가정 3배 vs 실제) · story.qqq_only_now | main |
 # | v1.9 | 2026-11-06 | 반론 검토 1회차: 3배를 실제 TQQQ(조정 종가)로, 2010년 전은 빌리는 비용(국채 이자 × 2) 넣은 가정 계산 (v1.8 까지 빌리는 비용 빠짐 — '상') · from_peak_top5 (고점 날부터 대처별 가장 낮은 값 — '미리 나눠 담았다면') · dotcom_recover · 줄마다 lev3_real | paths · strategies · main |
 # | v1.8 | 2026-11-06 | B9010 = 버핏 2013년 서한의 90(S&P 500)·10(단기 국채) — 대처 여섯째 · Q8 · 사연 '같은 날 9 대 1 이었다면' (사용자 지시 "…경력을 언급해야지 … 실질적인 대처 방법을 제목에 … 대본도 써봐") | paths · main |
@@ -45,7 +46,7 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v2.0"
+VERSION = "v2.1"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
 SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
@@ -350,6 +351,17 @@ def main(argv=None):
         "lev3_end_beats_hold": sum(r["3y"]["LEV3"]["end"] > r["3y"]["HOLD"]["end"] for r in full),
         "lev3_end_beats_hold_hits": [r["hit"] for r in full if r["3y"]["LEV3"]["end"] > r["3y"]["HOLD"]["end"]],
         "hits": [r["hit"] for r in full]}
+    # v2.1 (반론 검토 3회차): 김씨 1억 되찾기 — 폭락 날 계좌가 7,759/10,000 이라 3년 뒤 ×(10,000/7,759) 이상이면 1억 회복
+    need = 10_000 / 7_759
+    c = res["counts_D119_3y"]
+    c["kim_need_x"] = round(need, 4)
+    c["kim_recover_1억"] = {k: sum(r["3y"][k]["end"] >= need for r in full) for k in ("HOLD", "CASH", "LEV3", "MIX", "B9010")}
+    c["hold_end_beats_mix"] = sum(r["3y"]["HOLD"]["end"] > r["3y"]["MIX"]["end"] for r in full)
+    st_hold = {r["hit"] for r in full if r["3y"]["HOLD"]["stable"]}
+    st_lev = {r["hit"] for r in full if r["3y"]["LEV3"]["stable"]}
+    c["lev3_stable_subset_of_hold"] = st_lev <= st_hold
+    c["lev3_synthetic_hits"] = [r["hit"] for r in full if not r["lev3_real"]]
+    c["lev3_3y_end"] = {r["hit"]: r["3y"]["LEV3"]["end"] for r in full if r["hit"] in ("2000-04-03", "2008-01-04")}
     L("RESULT", "counts_D119_3y=%s", res["counts_D119_3y"])
     # v2.0: 가정 3배 vs 실제 TQQQ — 겹치는 기간(TQQQ 첫날 ~ 지금) 누적 값 비교 (가정 계산 오차)
     t3 = S["TQQQ"]; i_t = next(i for i in range(len(days)) if t3[i] is not None)
@@ -360,6 +372,7 @@ def main(argv=None):
                          "cagr_gap_pct": round(100 * ((syn[-1]) ** (1 / yrs) - (real[-1]) ** (1 / yrs)), 2),
                          "max_dd_synth": round(min(v / max(syn[:k + 1]) for k, v in enumerate(syn)) - 1, 3),
                          "max_dd_real": round(min(v / max(real[:k + 1]) for k, v in enumerate(real)) - 1, 3)}
+    qv = S["QQQ"]; res["lev3_check"]["qqq_x"] = round(qv[-1] / qv[i_t], 2)          # v2.1: 같은 기간 나스닥100(QQQ) 배수
     L("RESULT", "lev3_check=%s", res["lev3_check"])
     kd = sorted(raw["^KS11"]); kv = [raw["^KS11"][d] for d in kd]
     res["kospi_8pct_days"] = kospi_days(kd, kv)

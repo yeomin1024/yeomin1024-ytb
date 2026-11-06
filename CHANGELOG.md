@@ -1,5 +1,11 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-06 — 반도체 쇼츠 애니메이션 그림체 3D → 2D
+
+- 사용자 지시 "잠만 3D로 하지말고 2D로 해 수정해서 알려줘".
+- `stock/source/bandoche-bunbae-2026-11/shorts/scenes/plan.json` v1.1 → v1.2: style.image = 모바일 게임 광고풍 **평면 2D 카툰**(큰 머리·과장 표정·굵은 외곽선·평면 셀 음영·진한 색, '3D·점토·플라스틱·사진 아님') · style.motion 도 2D 유지 · negative_prompt 에 3D渲染·立体建模·塑料质感·黏土. 인물·장소·장면·구도(duo_chart)·chart 는 그대로.
+- 다시 build: chatgpt.md 옛 3D 문구 0 · 2D 문구 10곳(그림체 칸·설정표·8장) · videogen.json 9곳(공통 + 클립 8) · check 문제 0 · test_scene_clips 11개 통과.
+
 ## 2026-11-06 — 반도체 쇼츠 애니메이션: 티커 SOXL 을 화면에 · 수익 곡선은 흐름만
 
 - 사용자 지시 "아니 대표 종목 티커 써야지 왜 안써 그리고 수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어 수정해".

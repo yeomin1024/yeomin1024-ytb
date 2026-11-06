@@ -1,11 +1,30 @@
 {
-  "version": "v1.0 — 2026-11-06 — 첫 장면 계획 (사용자 지시 \"쇼츠 애니메이션 만들건데 이미지를 만들고 저번에 만든 영상화 코드로 이미지를 영상화해 짧은 영상을 이어 붙이는 식으로 … 한 사람은 변동성 높은 반도체 관련 종목(예를 들면 SOXL)만, 한 사람은 국면에 따라 현금, 포트폴리오 분배 … 반도체 사람은 까불까불한 이미지, 분배 사람은 차분한 이미지로 하고 미국 양산형 게임 광고에 나오는 캐릭터 그림체로 해\"). 대본 전 — 클립마다 5초, 그래프는 코드 화면(duo_chart 장의 위 40%). 대본이 생기면 timing 을 지우고 sentences 로 다시 build.",
-  "about": "주식 쇼츠 애니메이션 — 반도체 3배(예: SOXL)만 산 A vs 국면에 따라 현금·자산을 나눠 담은 B. 이 파일만 고치고 `python3 tools/scene_clips.py build stock bandoche-bunbae-2026-11 --shorts` 로 chatgpt.md·videogen.json·plan.md 를 다시 만든다. ※ 연구·교육용 영상 소스 — 투자 권유 아님.",
+  "version": "v1.1 — 2026-11-06 — 대표 종목 티커 SOXL 을 화면에 씀 + 수익 곡선은 흐름만 (사용자 지시 \"아니 대표 종목 티커 써야지 왜 안써 그리고 수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어 수정해\"): 아래 chart 칸 새로 — 곡선은 손으로 정한 꼭짓점(calc 없음), 화면에 수익률·가격 숫자·세로축 값 없음, A 곡선 끝 'SOXL'. 그림 프롬프트는 그대로 (티커는 코드가 얹음 — AI 클립은 글자를 뭉갬). 이전 v1.0 — 2026-11-06 — 첫 장면 계획 (사용자 지시 \"쇼츠 애니메이션 만들건데 이미지를 만들고 저번에 만든 영상화 코드로 이미지를 영상화해 짧은 영상을 이어 붙이는 식으로 … 한 사람은 변동성 높은 반도체 관련 종목(예를 들면 SOXL)만, 한 사람은 국면에 따라 현금, 포트폴리오 분배 … 반도체 사람은 까불까불한 이미지, 분배 사람은 차분한 이미지로 하고 미국 양산형 게임 광고에 나오는 캐릭터 그림체로 해\"). 대본 전 — 클립마다 5초, 그래프는 코드 화면(duo_chart 장의 위 40%). 대본이 생기면 timing 을 지우고 sentences 로 다시 build.",
+  "about": "주식 쇼츠 애니메이션 — 반도체 3배 SOXL 만 산 A vs 국면에 따라 현금·자산을 나눠 담은 B. 이 파일만 고치고 `python3 tools/scene_clips.py build stock bandoche-bunbae-2026-11 --shorts` 로 chatgpt.md·videogen.json·plan.md 를 다시 만든다. ※ 연구·교육용 영상 소스 — 투자 권유 아님.",
   "video": "bandoche-bunbae-2026-11",
   "orientation": "portrait",
   "timing": "clips",
   "max_sec": 5.0,
   "release_tag": "clips-bandoche-bunbae-2026-11-shorts",
+  "chart": {
+    "about": "duo_chart 장(S03~S06) 위 40% 에 코드 화면이 그리는 두 사람의 수익 곡선 — 흐름만 (사용자 지시 2026-11-06 \"수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어\"). 값은 손으로 정한 꼭짓점: x = 시간(0~1, 날짜 라벨로 표시), y = 처음 돈 100 기준 상대 크기 — 화면에 y 숫자·%·가격은 쓰지 않음. A 모양은 SOXL 의 실제 방향(2021 오름 → 2021 말 꼭대기 → 2022 초 흔들림 → 2022 폭락)을 대략 따르고 재지 않음, B 는 연출. 장면 클립이 바뀔 때마다 그 구간까지 선이 자라고 날짜 라벨이 흐름.",
+    "dates": {"start": "2021.01", "end": "2022.10"},
+    "baseline": {"y": 100, "style": "노란 점선 (처음 넣은 돈)"},
+    "lines": [
+      {"who": "A", "label": "SOXL", "color": "A 주황 — 기준선 아래로 내려가면 빨강",
+       "points": [[0.0, 100], [0.08, 112], [0.16, 104], [0.26, 150], [0.34, 138], [0.45, 205], [0.5, 215], [0.56, 168], [0.62, 186], [0.7, 150], [0.78, 96], [0.86, 60], [0.93, 38], [1.0, 25]]},
+      {"who": "B", "label": "나눠 담기", "color": "B 청록",
+       "points": [[0.0, 100], [0.15, 105], [0.3, 110], [0.45, 116], [0.5, 118], [0.6, 120], [0.7, 121], [0.8, 115], [0.9, 112], [1.0, 113]]}
+    ],
+    "segments": [
+      {"clip": "S03", "x": [0.0, 0.45], "ko": "오르는 시기 — 둘 다 오르지만 A 가 훨씬 가파름"},
+      {"clip": "S04", "x": [0.45, 0.5], "ko": "A 꼭대기 근처 — 조롱"},
+      {"clip": "S05", "x": [0.5, 0.7], "ko": "A 오르다 떨어짐(반등 한 번) · B 꾸준히 조금씩"},
+      {"clip": "S06", "x": [0.7, 1.0], "ko": "폭락 — A 기준선 한참 아래 · B 조금 내려도 기준선 위"}
+    ],
+    "on_screen": "곡선 2개 + 노란 점선 기준선 + 선 끝 이름표(SOXL · 나눠 담기) + 날짜 라벨 + 작게 '※ 흐름 예시' — 수익률·가격·세로축 숫자 없음",
+    "description_note": "설명란: '곡선은 흐름을 보여 주는 예시이며 실제 수익률이 아닙니다.' 한 줄"
+  },
   "image_dir": "stock/source/bandoche-bunbae-2026-11/shorts/scenes",
   "style": {
     "image": "Art style: a polished stylized 3D cartoon render in the look of a typical casual mobile-game video advertisement — generic, do NOT copy any existing game's characters, logos, interface or art. Chunky big-headed proportions (head about one third of the body height), large glossy expressive eyes, exaggerated rubbery facial expressions and poses that read instantly on a small phone screen, smooth plastic-like skin and fabric with soft subsurface shading, bold saturated but clean colors, bright soft studio lighting with a warm rim light, simple uncluttered background with soft depth of field, crisp clean shapes, high detail. It is a 3D render — not a photo and not flat 2D.",

@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-11-06 — 3배 = 실제 TQQQ(2010~) · 그 전은 빌리는 비용 넣은 가정 · 고점부터 나눠 담기 · 닷컴 회복. (v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
+# VERSION: v2.0 — 2026-11-06 — 한 잣대로 세기(counts_D119_3y) · 가정 3배 오차(lev3_check) · 사연 나스닥100만. (v1.9 실제 TQQQ · v1.8 B9010 · v1.7 사연 숫자 · v1.6 코스피 달력 · v1.5 저장소 분류 기준·안정 수익 · v1.4 코스피 · v1.3 '지금' = 지금 고점 뒤 · v1.2 같음은 뒤집힘 아님 · v1.1 고점 = 최근 1년 최고가 · v1.0 최초) 폭락 대처 편 숫자 (사용자 지시 2026-11-06 "주식 시장 폭락 했는데 폭락 대처 방법 전달 주제로 해서 지금 상황과
 #          가장 비슷한 폭락 사례, 대처 방향 + 전문가 조언 및 대처 사례 탐색해서 요약본 구성해봐").
 #
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v2.0 | 2026-11-06 | 반론 검토 2회차: counts_D119_3y (3년 안 20% 넘게 준 적 · 안정 수익 · 3배가 3년 뒤 더 남은 횟수) · lev3_check (TQQQ 첫날~지금 가정 3배 vs 실제) · story.qqq_only_now | main |
 # | v1.9 | 2026-11-06 | 반론 검토 1회차: 3배를 실제 TQQQ(조정 종가)로, 2010년 전은 빌리는 비용(국채 이자 × 2) 넣은 가정 계산 (v1.8 까지 빌리는 비용 빠짐 — '상') · from_peak_top5 (고점 날부터 대처별 가장 낮은 값 — '미리 나눠 담았다면') · dotcom_recover · 줄마다 lev3_real | paths · strategies · main |
 # | v1.8 | 2026-11-06 | B9010 = 버핏 2013년 서한의 90(S&P 500)·10(단기 국채) — 대처 여섯째 · Q8 · 사연 '같은 날 9 대 1 이었다면' (사용자 지시 "…경력을 언급해야지 … 실질적인 대처 방법을 제목에 … 대본도 써봐") | paths · main |
 # | v1.7 | 2026-11-06 | 사연 — 나스닥 고점 날 1억(QQQ 7천만 + TQQQ 3천만)이 지금 얼마인가 (전문가 중심 편 — 사용자 지시 "…사연 + 과거 사례 비교 + 전문가 + 문제…") | main |
@@ -44,7 +45,7 @@ import urllib.request
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-VERSION = "v1.9"
+VERSION = "v2.0"
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "results.json"
 SYMS = ["^IXIC", "^GSPC", "^KS11", "QQQ", "SPY", "VBMFX", "^IRX", "TQQQ"]   # v1.7: TQQQ = 사연(실제 3배 상품, 2010년부터)
@@ -340,6 +341,26 @@ def main(argv=None):
     res["sensitivity"] = sens
     res["classes"] = cls
     res["stable_3y"] = stab
+    # v2.0: 한 잣대로 세기 (반론 검토 2회차) — 기본 칸(D 지금 · 3년 결과가 있는 사건)
+    full = [r for r in sens[f"D{int(round(D_now * 1000))}"]["rows"] if r["3y"]["HOLD"]["full"]]
+    res["counts_D119_3y"] = {
+        "n": len(full),
+        "below80": {k: sum(r["3y"][k]["below80"] for r in full) for k in ("HOLD", "MIX", "LEV3", "B9010", "CASH")},
+        "stable": {k: sum(r["3y"][k]["stable"] for r in full) for k in ("HOLD", "MIX", "LEV3", "B9010", "CASH")},
+        "lev3_end_beats_hold": sum(r["3y"]["LEV3"]["end"] > r["3y"]["HOLD"]["end"] for r in full),
+        "lev3_end_beats_hold_hits": [r["hit"] for r in full if r["3y"]["LEV3"]["end"] > r["3y"]["HOLD"]["end"]],
+        "hits": [r["hit"] for r in full]}
+    L("RESULT", "counts_D119_3y=%s", res["counts_D119_3y"])
+    # v2.0: 가정 3배 vs 실제 TQQQ — 겹치는 기간(TQQQ 첫날 ~ 지금) 누적 값 비교 (가정 계산 오차)
+    t3 = S["TQQQ"]; i_t = next(i for i in range(len(days)) if t3[i] is not None)
+    syn = paths(i_t, len(days) - 1 - i_t, S["QQQ"], S["SPY"], S["VBMFX"], S["^IRX"], days, None)["LEV3"]
+    real = [t3[k] / t3[i_t] for k in range(i_t, len(days))]
+    yrs = (date.fromisoformat(days[-1]) - date.fromisoformat(days[i_t])).days / 365.25
+    res["lev3_check"] = {"from": days[i_t], "to": days[-1], "synthetic_x": round(syn[-1], 2), "real_x": round(real[-1], 2),
+                         "cagr_gap_pct": round(100 * ((syn[-1]) ** (1 / yrs) - (real[-1]) ** (1 / yrs)), 2),
+                         "max_dd_synth": round(min(v / max(syn[:k + 1]) for k, v in enumerate(syn)) - 1, 3),
+                         "max_dd_real": round(min(v / max(real[:k + 1]) for k, v in enumerate(real)) - 1, 3)}
+    L("RESULT", "lev3_check=%s", res["lev3_check"])
     kd = sorted(raw["^KS11"]); kv = [raw["^KS11"][d] for d in kd]
     res["kospi_8pct_days"] = kospi_days(kd, kv)
     kp = max((i for i in range(len(kd)) if kd[i] >= "2026-01-01"), key=lambda i: kv[i])
@@ -400,6 +421,7 @@ def main(argv=None):
     irx_d0 = raw["^IRX"].get(d0) or 0.0
     b9_now = 10_000 * (0.9 * sp[d1] / sp[d0] + 0.1 * (1 + irx_d0 / 100) ** (21 / 252))      # 한 달(약 21거래일) 국채 이자 — 달 안이라 비율 맞춤 없음
     res["story"]["b9010_now"] = round(b9_now)
+    res["story"]["qqq_only_now"] = round(10_000 * q[d1] / q[d0])          # v2.0: 3배 없이 1억 모두 나스닥100이었다면
     res["story"]["b9010_note"] = "같은 날 1억을 S&P 500(SPY) 90 + 단기 국채 10 으로 넣었다면 (국채 = 그날 13주 국채 이자로 21거래일)"
     L("RESULT", "story=%s", res["story"])
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), "utf-8")

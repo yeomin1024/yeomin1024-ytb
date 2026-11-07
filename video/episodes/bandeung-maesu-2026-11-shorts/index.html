@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>폭락 뒤 반등 매수법</title>
-<!-- VERSION: v2.0 — 2026-11-07 — 사용자 지시 "디자인이 너무 구려 좀 더 디테일하고 세련되게 전력을 다해 · 수익률을 실시간으로 표시해 · 금액 안보여줘도 돼 ·
+<!-- VERSION: v2.1 — 2026-11-07 — 사용자 지시 "그림 올렸어 영상 만들어봐": ChatGPT 실사 6장 검수 통과(얼굴 안 보임 · 글자·로고 없음 · 700KB 이하) → HAVE 에 5장 ·
+       첫 문장 = 쇼츠 썸네일(K.cover — shorts/thumbnails/thumbnail_1.jpg, thumb.mjs 세 칸 band, cover_check ✅) · 장면 첫 0.6~1초는 사진만 보이고 카드가 들어옴 ·
+       규칙·인용 카드는 좁게(x 400~) 해 왼쪽 사진 속 사람이 보이게 · 인용 두 개는 차례로(겹치지 않게) · 카드 유리 더 투명하게.
+     (v2.0 — 2026-11-07 — 사용자 지시 "디자인이 너무 구려 좀 더 디테일하고 세련되게 전력을 다해 · 수익률을 실시간으로 표시해 · 금액 안보여줘도 돼 ·
        나눠 산다는 표현좀 하지말고 그걸 네모칸으로 표현하지마" + "디자인은 이미지 요소를 써도 돼니까 좀 AI 모션 그래픽 티 안나게 해봐 배경도 좀 넣고".
      꼴 = 세 칸(면세 쇼츠): 위 칸 y 0~691 순검정 + 두 줄 문구(노란 작은 줄 + 큰 줄) · 가운데 칸 y 691~1382 = 실사 사진(천천히 확대 · 필름 결 · 어둡게) 위
        유리 카드(그래프·규칙·인용·역대 표) · 아래 칸 순검정 + 구운 자막.
@@ -30,10 +33,10 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 .num{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 #photo{position:absolute;left:0;top:691px;width:1080px;height:691px;overflow:hidden;background:#05070C}
 .ph{position:absolute;inset:-40px;opacity:0;transform-origin:30% 50%}
-.ph img{position:absolute;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04) brightness(.78)}
+.ph img{position:absolute;width:100%;height:100%;object-fit:cover;filter:saturate(.95) contrast(1.05) brightness(.9)}
 .ph .fb{position:absolute;inset:0}
 #shade{position:absolute;left:0;top:691px;width:1080px;height:691px;pointer-events:none;
-  background:linear-gradient(90deg,rgba(0,0,0,.10) 0%,rgba(0,0,0,.25) 28%,rgba(0,0,0,.62) 100%),
+  background:linear-gradient(90deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.12) 30%,rgba(0,0,0,.45) 100%),
              linear-gradient(180deg,#000 0%,rgba(0,0,0,0) 16%,rgba(0,0,0,0) 80%,#000 100%)}
 #grain{position:absolute;left:0;top:691px;width:1080px;height:691px;pointer-events:none;opacity:.10;mix-blend-mode:overlay}
 #vig{position:absolute;left:0;top:691px;width:1080px;height:691px;pointer-events:none;background:radial-gradient(120% 90% at 40% 50%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
@@ -44,8 +47,8 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 .kick i{width:14px;height:14px;border-radius:50%;background:#FFD400;box-shadow:0 0 14px #FFD400;display:block}
 .main{font-weight:900;line-height:1.06;white-space:nowrap;letter-spacing:-1px;text-shadow:0 6px 30px rgba(0,0,0,.6)}
 .card{position:absolute;border-radius:34px;box-sizing:border-box;overflow:hidden;
-  background:linear-gradient(160deg,rgba(22,28,44,.78),rgba(8,11,20,.80));border:2px solid rgba(255,255,255,.13);
-  box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(16px) saturate(130%)}
+  background:linear-gradient(160deg,rgba(22,28,44,.66),rgba(8,11,20,.74));border:2px solid rgba(255,255,255,.16);
+  box-shadow:0 30px 80px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.10);backdrop-filter:blur(18px) saturate(125%) brightness(.8)}
 .chd{position:absolute;left:30px;right:30px;top:24px;height:56px;display:flex;align-items:center;justify-content:space-between}
 .tkr{display:flex;align-items:center;gap:12px;font-weight:900;font-size:40px;color:#F2F4F8;letter-spacing:1px}
 .tkr b{width:16px;height:16px;border-radius:50%;background:#E7EBF2;display:block;box-shadow:0 0 12px rgba(231,235,242,.8)}
@@ -77,7 +80,7 @@ body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
 <div id="wrap"><div id="stage"></div></div>
 <div id="ctrl"></div>
 <div id="now"></div>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"bandeung-maesu-2026-11-shorts","topic":"stock","duration":68.69,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-07T10:25:43Z","sent":[{"n":1,"part":"","text":"폭락 뒤 반등이 오면, 어떻게 사야 덜 잃을까요?","start":0.3,"end":3.188},{"n":2,"part":"","text":"개미는 반등에 절반을 사고, 평단보다 5% 빠질 때마다 물을 탑니다.","start":3.638,"end":8.187},{"n":3,"part":"","text":"그러다 돈이 바닥나고 20% 넘게 잃으면, 겁이 나서 팝니다.","start":8.637,"end":12.733},{"n":4,"part":"","text":"하워드 막스는 일부만 먼저 사고, 더 떨어질 때 쓸 돈을 남기라고 했습니다.","start":13.183,"end":17.732},{"n":5,"part":"","text":"워런 버핏은 남들이 두려워할 때 욕심을 내라고 했습니다.","start":18.182,"end":21.575},{"n":6,"part":"","text":"이 원칙으로 2000년 이후 SPY 반등 20번을 시험했습니다.","start":22.025,"end":26.022},{"n":7,"part":"","text":"가장 덜 잃은 방법은 반등엔 10%만 사고,","start":26.472,"end":29.36},{"n":8,"part":"","text":"평단보다 20% 떨어질 때마다 직전의 1.5배를 사는 것입니다.","start":29.81,"end":34.109},{"n":9,"part":"","text":"2025년 4월 진짜 반등에선, 1년 뒤 개미 17.5%, 대가 6.7%였습니다.","start":34.559,"end":40.717},{"n":10,"part":"","text":"하지만 2020년 3월 가짜 반등에선, 주가가 25% 더 빠졌습니다.","start":41.167,"end":46.018},{"n":11,"part":"","text":"개미는 바닥 다음 날 팔아, 1년 뒤 13.3% 손실이었습니다.","start":46.468,"end":50.715},{"n":12,"part":"","text":"대가는 더 싸게 더 사서, 1년 뒤 11.1% 수익이었습니다.","start":51.165,"end":55.261},{"n":13,"part":"","text":"원금이 20% 넘게 줄어든 적은 개미 6번, 대가는 0번이었습니다.","start":55.711,"end":60.26},{"n":14,"part":"","text":"반등을 맞히려 하지 말고, 평단 기준부터 정하세요.","start":60.71,"end":63.9},{"n":15,"part":"","text":"다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.","start":64.35,"end":67.894}],"subs":[[0.3,3.188,"폭락 뒤 반등이 오면, 어떻게 사야 덜 잃을까요?"],[3.638,8.187,"개미는 반등에 절반을 사고,\n평단보다 5% 빠질 때마다 물을 탑니다."],[8.637,12.733,"그러다 돈이 바닥나고 20% 넘게 잃으면,\n겁이 나서 팝니다."],[13.183,17.732,"하워드 막스는 일부만 먼저 사고,\n더 떨어질 때 쓸 돈을 남기라고 했습니다."],[18.182,21.575,"워런 버핏은 남들이\n두려워할 때 욕심을 내라고 했습니다."],[22.025,26.022,"이 원칙으로 2000년 이후 SPY\n반등 20번을 시험했습니다."],[26.472,29.36,"가장 덜 잃은 방법은 반등엔 10%만 사고,"],[29.81,34.109,"평단보다 20% 떨어질 때마다\n직전의 1.5배를 사는 것입니다."],[34.559,40.717,"2025년 4월 진짜 반등에선,\n1년 뒤 개미 17.5%, 대가 6.7%였습니다."],[41.167,46.018,"하지만 2020년 3월 가짜 반등에선,\n주가가 25% 더 빠졌습니다."],[46.468,50.715,"개미는 바닥 다음 날 팔아,\n1년 뒤 13.3% 손실이었습니다."],[51.165,55.261,"대가는 더 싸게 더 사서,\n1년 뒤 11.1% 수익이었습니다."],[55.711,60.26,"원금이 20% 넘게 줄어든 적은 개미 6번,\n대가는 0번이었습니다."],[60.71,63.9,"반등을 맞히려 하지 말고,\n평단 기준부터 정하세요."],[64.35,67.894,"다른 테스트가 궁금하다면\n구독하고 채널에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"bandeung-maesu-2026-11-shorts","topic":"stock","duration":68.69,"audio":null,"thumb":"../../../stock/source/bandeung-maesu-2026-11/shorts/thumbnails/thumbnail_1.jpg","estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-07T10:53:17Z","sent":[{"n":1,"part":"","text":"폭락 뒤 반등이 오면, 어떻게 사야 덜 잃을까요?","start":0.3,"end":3.188},{"n":2,"part":"","text":"개미는 반등에 절반을 사고, 평단보다 5% 빠질 때마다 물을 탑니다.","start":3.638,"end":8.187},{"n":3,"part":"","text":"그러다 돈이 바닥나고 20% 넘게 잃으면, 겁이 나서 팝니다.","start":8.637,"end":12.733},{"n":4,"part":"","text":"하워드 막스는 일부만 먼저 사고, 더 떨어질 때 쓸 돈을 남기라고 했습니다.","start":13.183,"end":17.732},{"n":5,"part":"","text":"워런 버핏은 남들이 두려워할 때 욕심을 내라고 했습니다.","start":18.182,"end":21.575},{"n":6,"part":"","text":"이 원칙으로 2000년 이후 SPY 반등 20번을 시험했습니다.","start":22.025,"end":26.022},{"n":7,"part":"","text":"가장 덜 잃은 방법은 반등엔 10%만 사고,","start":26.472,"end":29.36},{"n":8,"part":"","text":"평단보다 20% 떨어질 때마다 직전의 1.5배를 사는 것입니다.","start":29.81,"end":34.109},{"n":9,"part":"","text":"2025년 4월 진짜 반등에선, 1년 뒤 개미 17.5%, 대가 6.7%였습니다.","start":34.559,"end":40.717},{"n":10,"part":"","text":"하지만 2020년 3월 가짜 반등에선, 주가가 25% 더 빠졌습니다.","start":41.167,"end":46.018},{"n":11,"part":"","text":"개미는 바닥 다음 날 팔아, 1년 뒤 13.3% 손실이었습니다.","start":46.468,"end":50.715},{"n":12,"part":"","text":"대가는 더 싸게 더 사서, 1년 뒤 11.1% 수익이었습니다.","start":51.165,"end":55.261},{"n":13,"part":"","text":"원금이 20% 넘게 줄어든 적은 개미 6번, 대가는 0번이었습니다.","start":55.711,"end":60.26},{"n":14,"part":"","text":"반등을 맞히려 하지 말고, 평단 기준부터 정하세요.","start":60.71,"end":63.9},{"n":15,"part":"","text":"다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.","start":64.35,"end":67.894}],"subs":[[0.3,3.188,"폭락 뒤 반등이 오면, 어떻게 사야 덜 잃을까요?"],[3.638,8.187,"개미는 반등에 절반을 사고,\n평단보다 5% 빠질 때마다 물을 탑니다."],[8.637,12.733,"그러다 돈이 바닥나고 20% 넘게 잃으면,\n겁이 나서 팝니다."],[13.183,17.732,"하워드 막스는 일부만 먼저 사고,\n더 떨어질 때 쓸 돈을 남기라고 했습니다."],[18.182,21.575,"워런 버핏은 남들이\n두려워할 때 욕심을 내라고 했습니다."],[22.025,26.022,"이 원칙으로 2000년 이후 SPY\n반등 20번을 시험했습니다."],[26.472,29.36,"가장 덜 잃은 방법은 반등엔 10%만 사고,"],[29.81,34.109,"평단보다 20% 떨어질 때마다\n직전의 1.5배를 사는 것입니다."],[34.559,40.717,"2025년 4월 진짜 반등에선,\n1년 뒤 개미 17.5%, 대가 6.7%였습니다."],[41.167,46.018,"하지만 2020년 3월 가짜 반등에선,\n주가가 25% 더 빠졌습니다."],[46.468,50.715,"개미는 바닥 다음 날 팔아,\n1년 뒤 13.3% 손실이었습니다."],[51.165,55.261,"대가는 더 싸게 더 사서,\n1년 뒤 11.1% 수익이었습니다."],[55.711,60.26,"원금이 20% 넘게 줄어든 적은 개미 6번,\n대가는 0번이었습니다."],[60.71,63.9,"반등을 맞히려 하지 말고,\n평단 기준부터 정하세요."],[64.35,67.894,"다른 테스트가 궁금하다면\n구독하고 채널에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="../../render/kit.js"></script>
 <script src="data.js"></script>
@@ -92,7 +95,7 @@ const SER = window.SER, KEY = window.KEY, RULE = window.RULE, SUM = window.SUM, 
 const RD = "#FF5A4E", TL = "#2BD4BC", YL = "#FFD400", WH = "#EEF1F6", ANT = "#FFA049", MAS = "#93A9FF", GR = "#5E6B86";
 const MID = 691;
 const IMG = "../../../stock/source/bandeung-maesu-2026-11/images/";
-const HAVE = [];                                   // 도착한 사진 이름 (예: "BG-HOOK") — 없으면 코드 바탕
+const HAVE = ["BG-HOOK", "BG-ANT", "BG-ANT-SELL", "BG-MASTER", "BG-RESULT"];   // 도착한 사진 (2026-11-07 ChatGPT · Claude 검수) — 없는 이름은 코드 바탕
 
 /* ═════════════ 배치 표 v2.0 (1080×1920) — 칸 = [x, y, 가로, 세로] ═════════════
    위 칸 (y 150~680): HEAD 두 줄 문구 · 가운데 칸 (y 691~1382): CARD(오른쪽 유리 카드 — 왼쪽 1/3 은 사진 속 사람·물건) · WIDE(넓은 카드)
@@ -100,10 +103,12 @@ const HAVE = [];                                   // 도착한 사진 이름 (�
 const LAY = window.LAYOUT = {
   HEAD: [30, 150, 1020, 530],
   CARD: [300, 712, 752, 650],
+  NARROW: [400, 712, 652, 650],                    // 규칙·인용 카드 — 왼쪽 400px 은 사진 속 사람·물건
   WIDE: [28, 712, 1024, 650],
+  COVER: [0, 0, 1080, 1920],                       // 첫 문장 썸네일 그림 (K.cover)
 };
 window.LAYOUT_ALLOW = [];
-const CARD = LAY.CARD, WIDE = LAY.WIDE;
+const CARD = LAY.CARD, WIDE = LAY.WIDE, NARROW = LAY.NARROW;
 
 /* ─────────── 가운데 칸 사진 층 (장면 밖) ─────────── */
 const photoBox = K.el(`<div id="photo"></div>`);
@@ -138,7 +143,6 @@ function photo(key, a, b, keep) {                  // 사진 [시작, 끝] — 0
   tl.fromTo(n, { scale: 1.0 }, { scale: 1.07, duration: Math.max(0.5, b - a), ease: "none", immediateRender: false }, Math.max(0, a));
   if (!keep) tl.to(n, { opacity: 0, duration: 0.5, ease: "none" }, b - 0.25);
 }
-gsap.set(PH["BG-HOOK"], { opacity: 1 });          // 0초 = 썸네일
 
 /* ─────────── 도우미 ─────────── */
 const later = (html, parent) => { const n = K.el(html, parent); gsap.set(n, { opacity: 0 }); return n; };
@@ -163,7 +167,7 @@ function head(sc, kick, main, color, at, outAt) {   // 위 칸 두 줄 문구 �
 }
 function card(sc, box, at) {
   const [x, y, w, h] = box;
-  const n = later(`<div class="card" data-slot="${box === WIDE ? "WIDE" : "CARD"}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`, sc);
+  const n = later(`<div class="card" data-slot="${box === WIDE ? "WIDE" : box === NARROW ? "NARROW" : "CARD"}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"></div>`, sc);
   if (at <= 0) gsap.set(n, { opacity: 1 }); else pop(n, at, { y: 30, scale: 0.985 });
   return n;
 }
@@ -321,18 +325,11 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   [`평단 −${D}%`, `${R1(SIZES[3])}% 매수`], [`평단 −${D}%`, "남은 돈 전부"], ["끝까지", "팔지 않음", TL]]; };
 
 /* ═════════════ 장면 ═════════════ */
-// 1 — 폭락 뒤 반등 · 어떻게 사야 덜 잃을까 (0초 = 썸네일: 다 보임)
+// 1 — 첫 문장 = 쇼츠 썸네일 (세 칸 band 그림 그대로 · 0초 = 업로드 썸네일) — 확대 없음
 {
-  const a = 0, b = END(1);
-  photo("BG-HOOK", 0, b);
-  const sc = scene(a, b);
-  head(sc, "폭락 뒤 반등이 왔다", "어떻게 사야 덜 잃을까?", "#F4F6FA", 0);
-  const cd = card(sc, CARD, 0);
-  const c = chart(cd, { key: "fake", a, b, box: CARD, players: [], rows: false });
-  const R = c.preN - 1;
-  c.zoom.push([0, R + 14]); c.keys.push([0, R]); c.fork(R, R + 14);
-  tl.fromTo(c.q(".fork"), { opacity: 1 }, { opacity: 0.55, duration: 0.5, ease: "sine.inOut", repeat: 3, yoyo: true, immediateRender: false }, W(1, "어떻게"));
-  K.cut(0.05, "0초 = 썸네일"); K.cut(E(1) - 0.2, "1 갈림길");
+  const CV = K.cover(S(2) - 0.05, { zoom: 1 });
+  CV.querySelectorAll("img").forEach(i => { i.dataset.slot = "COVER"; });
+  K.cut(0.05, "0초 = 썸네일"); K.cut(E(1) - 0.2, "1 썸네일 + 첫 자막");
 }
 // 2~3 — 개미의 물타기: 반등 50% → 평단 −5% 25% → 평단 −5% 25% → 돈이 바닥난 뒤 평단 −20% 전부 매도
 {
@@ -341,11 +338,12 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   const sc = scene(a, b);
   head(sc, "흔한 개미의 물타기", "평단 −5%마다 물타기", ANT, S(2) + 0.05, S(3) - 0.1);
   head(sc, "돈이 바닥난 뒤", "−20%면 겁나서 매도", RD, S(3) + 0.05);
-  const cd = card(sc, CARD, a + 0.1);
+  const cIn = S(2) + 0.7;                          // 사진만 0.9초 → 카드
+  const cd = card(sc, NARROW, cIn);
   const A = RULE.ant;
   const fl = flow(cd, "ant", [["반등 다음 날", `${A.first * 100}% 매수`], [`평단 −${A.drop * 100}%`, `${A.size * 100}% 매수`], [`평단 −${A.drop * 100}%`, `${A.size * 100}% 매수`],
     ["돈이 바닥남", "투입 100%", "#E7EBF2"], [`평단 −${A.stop * 100}%`, "전부 매도", RD]], 110);
-  fl.show(0, W(2, "절반")); fl.show(1, W(2, "평단보다")); fl.show(2, W(2, "물을")); fl.show(3, W(3, "돈이")); fl.show(4, W(3, "겁이"));
+  fl.show(0, Math.max(W(2, "절반"), cIn + 0.3)); fl.show(1, Math.max(W(2, "평단보다"), cIn + 0.6)); fl.show(2, W(2, "물을")); fl.show(3, W(3, "돈이")); fl.show(4, W(3, "겁이"));
   K.cut(E(2) - 0.1, "2 개미 물타기"); K.cut(E(3) - 0.1, "3 공포 매도");
 }
 // 4~5 — 전문가 원칙: 하워드 막스(일부만 먼저 · 쓸 돈 남김) · 워런 버핏(두려울 때 욕심)
@@ -355,11 +353,10 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   const sc = scene(a, b);
   head(sc, "하워드 막스 · 2020년 3월 메모", "일부만 먼저, 돈은 남긴다", "#F4F6FA", S(4) + 0.05, S(5) - 0.1);
   head(sc, "워런 버핏 · 2008년 10월 기고", "두려울 때 욕심을", "#F4F6FA", S(5) + 0.05);
-  const cd = card(sc, CARD, a + 0.1);
-  const q1 = later(`<div class="qt" ${KO} style="top:30px"><div class="qm">“</div><div class="qx">일부만 먼저 사고,<br>더 떨어질 때 쓸 돈은 남긴다</div><div class="qa">하워드 막스 · 요약</div><div class="qr">→ 처음엔 10%만</div></div>`, cd);
-  const q2 = later(`<div class="qt" ${KO} style="top:328px"><div class="qm">“</div><div class="qx">남들이 두려워할 때<br>욕심을 내라</div><div class="qa">워런 버핏</div><div class="qr">→ 쌀수록 더 크게</div></div>`, cd);
-  pop(q1, S(4) + 0.15); pop(q2, S(5) + 0.1);
-  tl.to(q1, { opacity: 0.45, duration: 0.3 }, S(5));
+  const cd = card(sc, NARROW, S(4) + 0.8);
+  const q1 = later(`<div class="qt" ${KO} style="top:120px"><div class="qm">“</div><div class="qx">일부만 먼저 사고,<br>더 떨어질 때 쓸 돈은<br>남겨 둔다</div><div class="qa">하워드 막스 · 요약</div><div class="qr">→ 처음엔 10%만</div></div>`, cd);
+  const q2 = later(`<div class="qt" ${KO} style="top:120px"><div class="qm">“</div><div class="qx">남들이 두려워할 때<br>욕심을 내라</div><div class="qa">워런 버핏</div><div class="qr">→ 쌀수록 더 크게</div></div>`, cd);
+  pop(q1, S(4) + 1.0); hide(q1, S(5) - 0.15, 0.3); pop(q2, S(5) + 0.15);
   K.cut(E(4) - 0.1, "4 막스"); K.cut(E(5) - 0.1, "5 버핏");
 }
 // 6 — 2000년 이후 SPY 반등 20번 (사건 = 점 · 날짜 자리)
@@ -368,7 +365,7 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   photo("BG-RESULT", a, b);
   const sc = scene(a, b);
   head(sc, "2000년 이후 SPY 반등", `${EV.length}번을 시험했다`, "#F4F6FA", S(6) + 0.05);
-  const cd = card(sc, WIDE, a + 0.1);
+  const cd = card(sc, WIDE, S(6) + 0.5);
   const [, , w, h] = WIDE, X0 = 70, X1 = w - 70, Y = 420;
   const yr = d => { const t = Date.parse(d + "T00:00:00Z"), t0 = Date.parse("2000-01-01T00:00:00Z"), t1 = Date.parse("2026-12-31T00:00:00Z"); return X0 + (t - t0) / (t1 - t0) * (X1 - X0); };
   const svg = K.el(`<svg class="a" viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="left:0;top:0" aria-hidden="true">
@@ -390,7 +387,7 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   const sc = scene(a, b);
   head(sc, "가장 덜 잃은 방법", "반등엔 10%만", MAS, S(7) + 0.05, S(8) - 0.1);
   head(sc, "평단보다 20% 떨어질 때마다", "직전의 1.5배", MAS, S(8) + 0.05);
-  const cd = card(sc, CARD, a + 0.1);
+  const cd = card(sc, NARROW, S(7) + 0.6);
   const fl = flow(cd, "mas", MAS_FLOW(), 104);
   fl.show(0, W(7, "10%만")); const t0 = W(8, "평단보다"), t1 = E(8) - 0.4;
   for (let i = 1; i <= 4; i++) fl.show(i, t0 + (t1 - t0) * (i - 1) / 3);
@@ -403,24 +400,24 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   photo("BG-RESULT", a, b);
   const sc = scene(a, b);
   head(sc, "진짜 반등 · 2025년 4월", `1년 뒤 ${pct(KEY.real.ant_ret)} vs ${pct(KEY.real.master_ret)}`, "#F4F6FA", S(9) + 0.05);
-  const cd = card(sc, CARD, a + 0.1);
+  const cd = card(sc, CARD, S(9) + 0.4);
   const c = chart(cd, { key, a, b, box: CARD, players: ["ant", "mas"], marks: true });
-  c.keys.push([a, 0], [S(9) + 0.6, c.preN], [E(9) - 0.2, c.n - 1]);
-  c.zoom.push([S(9) + 0.6, c.preN + 22], [S(9) + 1.8, c.n - 1]);
+  c.keys.push([S(9) + 0.4, 0], [S(9) + 1.1, c.preN], [E(9) - 0.2, c.n - 1]);
+  c.zoom.push([S(9) + 1.1, c.preN + 22], [S(9) + 2.3, c.n - 1]);
   K.cut(S(9) + 0.7, "9 첫 매수"); K.cut(E(9) - 0.1, "9 진짜 반등 1년 뒤");
 }
 // 10~12 — 가짜 반등 2020-03: 25% 더 하락 → 개미 물타기·바닥 다음 날 SELL · 대가 평단 −20% 에서 한 번 더
 {
   const a = BEGIN(10), b = END(12), key = "fake";
-  photo("BG-RESULT", a, S(11) + 0.2); photo("BG-ANT-SELL", S(11), S(12) + 0.2); photo("BG-MASTER", S(12), b);
+  photo("BG-HOOK", a, S(11) + 0.2); photo("BG-ANT-SELL", S(11), S(12) + 0.2); photo("BG-MASTER", S(12), b);
   const sc = scene(a, b);
   head(sc, "가짜 반등 · 2020년 3월", `주가 ${Math.abs(KEY.fake.more_drop).toFixed(0)}% 더 하락`, RD, S(10) + 0.05, S(11) - 0.1);
   head(sc, "개미 · 바닥 다음 날 매도", `1년 뒤 ${pct(KEY.fake.ant_ret)}`, RD, S(11) + 0.05, S(12) - 0.1);
   head(sc, "대가 · 더 싸게 한 번 더", `1년 뒤 ${pct(KEY.fake.master_ret)}`, TL, S(12) + 0.05);
-  const cd = card(sc, CARD, a + 0.1);
+  const cd = card(sc, CARD, S(10) + 0.4);
   const c = chart(cd, { key, a, b, box: CARD, players: ["ant", "mas"], marks: true, avg: true });
   const bot = c.rows.findIndex(r => r[0] === KEY.fake.bottom);
-  c.keys.push([a, 0], [W(10, "가짜"), c.preN - 1], [W(10, "가짜") + 0.5, c.preN], [E(10) - 0.1, bot], [S(11) + 0.1, bot], [E(11) - 0.4, c.sellI + 1], [S(12) + 0.2, c.sellI + 1], [E(12) - 0.2, c.n - 1]);
+  c.keys.push([S(10) + 0.4, 0], [Math.max(W(10, "가짜"), S(10) + 1.0), c.preN - 1], [Math.max(W(10, "가짜"), S(10) + 1.0) + 0.5, c.preN], [E(10) - 0.1, bot], [S(11) + 0.1, bot], [E(11) - 0.4, c.sellI + 1], [S(12) + 0.2, c.sellI + 1], [E(12) - 0.2, c.n - 1]);
   c.zoom.push([S(12) + 0.1, bot + 12], [S(12) + 1.3, c.n - 1]);
   K.cut(E(10) - 0.15, "10 가짜 반등 바닥"); K.cut(E(11) - 0.2, "11 개미 SELL"); K.cut(E(12) - 0.1, "12 대가 1년 뒤");
 }
@@ -430,7 +427,7 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   photo("BG-RESULT", a, b);
   const sc = scene(a, b);
   head(sc, "원금이 20% 넘게 줄어든 적", `개미 ${SUM.ant.loss20}번 · 대가 ${SUM.master.loss20}번`, "#F4F6FA", S(13) + 0.05);
-  const cd = card(sc, WIDE, a + 0.1);
+  const cd = card(sc, WIDE, S(13) + 0.4);
   const [, , w, h] = WIDE, X0 = 160, X1 = w - 40, Y0 = 130, Y1 = h - 80, VMIN = -30;
   const ys = v => Y0 + (v / VMIN) * (Y1 - Y0);
   const xs = i => X0 + (i + 0.5) / EV.length * (X1 - X0);
@@ -448,7 +445,7 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
     ${[["2000", 0], ["2008", EV.findIndex(e => e[0] >= "2008")], ["2020", EV.findIndex(e => e[0] >= "2020")]].map(([y_, i]) => `<text x="${xs(i)}" y="${h - 26}" text-anchor="middle" font-family="Noto Sans KR" font-weight="700" font-size="36" fill="#9AA6BF">${y_}</text>`).join("")}
   </svg>`, cd);
   K.el(`<div class="ttl" ${KO} style="gap:30px"><span style="display:flex;align-items:center;gap:12px"><i style="background:${ANT}"></i>개미</span><span style="display:flex;align-items:center;gap:12px"><i style="background:${MAS}"></i>대가</span><span style="color:#9AA6BF;font-weight:500;font-size:36px">1년 안에 가장 크게 줄어든 폭</span></div>`, cd);
-  const t0 = S(13) + 0.2, t1 = W(13, "개미") - 0.1;
+  const t0 = S(13) + 0.6, t1 = W(13, "개미") - 0.1;
   EV.forEach((_, i) => tl.fromTo(svg.querySelector(".p" + i), { opacity: 0 }, { opacity: 1, duration: 0.25, immediateRender: false }, t0 + (t1 - t0) * i / EV.length));
   K.cut(E(13) - 0.1, "13 20% 넘게 줄어든 적");
 }
@@ -459,9 +456,9 @@ const MAS_FLOW = () => { const D = RULE.master.drop * 100; return [["반등 다�
   const sc = scene(a, b, true);
   head(sc, "반등을 맞히려 하지 말고", "평단 기준부터", YL, S(14) + 0.05, S(15) - 0.1);
   head(sc, "다른 테스트가 궁금하다면", "구독하고 채널에서", "#F4F6FA", S(15) + 0.05);
-  const cd = card(sc, CARD, a + 0.1);
+  const cd = card(sc, NARROW, S(14) + 0.7);
   const fl = flow(cd, "mas", MAS_FLOW(), 104);
-  for (let i = 0; i < 6; i++) fl.show(i, S(14) + 0.2 + 0.12 * i);
+  for (let i = 0; i < 6; i++) fl.show(i, S(14) + 0.9 + 0.12 * i);
   K.cut(E(14) - 0.1, "14 평단 기준"); K.cut(K.D - 0.2, "15 끝");
 }
 K.done();

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>폭락 뒤 반등 매수법</title>
+<!-- VERSION: v1.0 — 2026-11-07 — 사용자 지시 "다 버리고 아래 내용대로 대본 만들고 영상도 만들어봐 영상은 위에 두줄 문구 있고 가운데 영역에 영상이 나오는 형태로
+       해야해 면세 쇼츠처럼 · 주제: 폭락 후 반등인데 어떤 매수 방법이 가장 안전할지 · 투자 금액 1억원으로 일반 개미, 대가 매수/매도 비교 …"
+     꼴 = 면세 쇼츠(myeonse-hwangeup-2026-10-shorts)의 '세 칸': 위 칸 y 0~691 순검정 + 두 줄 문구(노란 작은 줄 + 큰 줄) · 가운데 칸 y 691~1382
+       그래프 무대 · 아래 칸 순검정 + 구운 자막(가운데 540).
+     · 숫자 = 모두 calc (data.js ← stock/source/bandeung-maesu-2026-11/calc/result.json, calc.py v1.0): S&P 500 지수 종가 · 개미/대가 평가금액 · BUY/SELL 날짜 ·
+       반등 13번 결과. 대가 설명 장면(문장 9)의 계단 그림만 숫자 없는 모양 그림 (기준선 −10%~−40% = 규칙 값).
+     · 색 = 뜻: 청록 이익 · 빨강 손해 · 노랑 기준(노란 점선) · 흰 선 = S&P 500.
+     · 화면 영어 = BUY·SELL 만 (주식 규칙 44) · 한국어 칸은 data-words.
+     · 배치 표 = window.LAYOUT — node video/scripts/layout-check.mjs bandeung-maesu-2026-11-shorts 문제 0 뒤 렌더.
+     · 오디오 전에는 render.mjs sync --estimate → video --estimated-preview (소리 없는 미리보기). 오디오가 오면 sync → video.
+     · 첫 장면은 코드 화면 (쇼츠 썸네일 그림이 아직 없음 — 그림이 오면 K.cover 로 바꿈).
+     연구·교육용 영상 — 투자 권유 아님. 개미·대가 = 실제 종가에 정한 매매 규칙을 넣은 가상 인물. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.0">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#000;overflow:hidden}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+#mid{position:absolute;left:0;top:691px;width:1080px;height:691px;background:linear-gradient(#0E1528,#0A0F1E)}
+.head{display:grid;justify-items:center;gap:22px}
+.head .lab{font-weight:700;font-size:54px;line-height:1.1;color:var(--Y);white-space:nowrap}
+.head .main{font-weight:900;line-height:1.08;white-space:nowrap}
+.pill{position:absolute;display:flex;align-items:center;justify-content:center;font-family:"Noto Sans KR",sans-serif;font-weight:900;line-height:1;white-space:nowrap;
+      background:rgba(6,10,20,.92);border:5px solid #E7EBF2;border-radius:999px;box-sizing:border-box}
+.who{font-size:52px;color:#fff}
+.val{font-size:58px}
+.blk{position:absolute;border-radius:16px;box-sizing:border-box;border:5px solid #56627F;background:rgba(255,255,255,0)}
+.dot{position:absolute;border-radius:50%;box-sizing:border-box}
+.cnt{position:absolute;font-family:"Noto Sans KR",sans-serif;font-weight:900;line-height:1;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"bandeung-maesu-2026-11-shorts","topic":"stock","duration":66.57,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-07T09:02:29Z","sent":[{"n":1,"part":"","text":"폭락 뒤 반등이 왔을 때, 1억 원을 어떻게 사야 가장 안전할까요?","start":0.3,"end":4.245},{"n":2,"part":"","text":"먼저 흔한 개미의 방법입니다.","start":4.695,"end":6.427},{"n":3,"part":"","text":"반등을 놓칠까 봐, 다음 날 1억 원을 한 번에 삽니다.","start":6.877,"end":10.067},{"n":4,"part":"","text":"2025년 4월처럼 진짜 반등이면, 6개월 뒤 2,438만 원을 법니다.","start":10.517,"end":16.071},{"n":5,"part":"","text":"하지만 2020년 3월처럼 가짜 반등이면, 주가는 25% 더 떨어집니다.","start":16.521,"end":21.674},{"n":6,"part":"","text":"20% 넘게 잃자 겁이 나서 팔았고, 1,579만 원을 잃었습니다.","start":22.124,"end":27.074},{"n":7,"part":"","text":"그럼 투자 대가는 어떻게 살까요?","start":27.524,"end":29.407},{"n":8,"part":"","text":"1억 원을 다섯 번으로 나누고, 처음엔 2,000만 원만 삽니다.","start":29.857,"end":33.75},{"n":9,"part":"","text":"처음 산 값보다 10%씩 떨어질 때마다, 한 번씩 더 삽니다.","start":34.2,"end":37.994},{"n":10,"part":"","text":"진짜 반등이면 2,000만 원만 들어가, 수익은 488만 원뿐입니다.","start":38.444,"end":43.092},{"n":11,"part":"","text":"가짜 반등이면 더 싼 값에 두 번 더 사게 됩니다.","start":43.542,"end":46.18},{"n":12,"part":"","text":"바닥에선 1,090만 원 손해였지만, 6개월 뒤엔 1,582만 원 수익입니다.","start":46.63,"end":52.283},{"n":13,"part":"","text":"2000년 이후 반등 13번, 6개월 뒤 수익은 개미 7번, 대가 11번이었습니다.","start":52.733,"end":57.985},{"n":14,"part":"","text":"반등을 맞히려 하지 말고, 나눠 살 기준부터 정하세요.","start":58.435,"end":61.776},{"n":15,"part":"","text":"다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.","start":62.226,"end":65.77}],"subs":[[0.3,4.245,"폭락 뒤 반등이 왔을 때,\n1억 원을 어떻게 사야 가장 안전할까요?"],[4.695,6.427,"먼저 흔한 개미의 방법입니다."],[6.877,10.067,"반등을 놓칠까 봐,\n다음 날 1억 원을 한 번에 삽니다."],[10.517,16.071,"2025년 4월처럼 진짜 반등이면,\n6개월 뒤 2,438만 원을 법니다."],[16.521,21.674,"하지만 2020년 3월처럼 가짜 반등이면,\n주가는 25% 더 떨어집니다."],[22.124,27.074,"20% 넘게 잃자 겁이 나서 팔았고,\n1,579만 원을 잃었습니다."],[27.524,29.407,"그럼 투자 대가는 어떻게 살까요?"],[29.857,33.75,"1억 원을 다섯 번으로 나누고,\n처음엔 2,000만 원만 삽니다."],[34.2,37.994,"처음 산 값보다 10%씩 떨어질 때마다,\n한 번씩 더 삽니다."],[38.444,43.092,"진짜 반등이면 2,000만 원만 들어가,\n수익은 488만 원뿐입니다."],[43.542,46.18,"가짜 반등이면\n더 싼 값에 두 번 더 사게 됩니다."],[46.63,52.283,"바닥에선 1,090만 원 손해였지만,\n6개월 뒤엔 1,582만 원 수익입니다."],[52.733,57.985,"2000년 이후 반등 13번, 6개월 뒤 수익은\n개미 7번, 대가 11번이었습니다."],[58.435,61.776,"반등을 맞히려 하지 말고,\n나눠 살 기준부터 정하세요."],[62.226,65.77,"다른 테스트가 궁금하다면\n구독하고 채널에서 확인하세요."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="data.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false, w: 1080, allowWords: ["BUY", "SELL"] });
+const KO = `data-words="쉬운 한국어 칸 — 주식 규칙 44"`;
+const { S, E, W } = K;
+const tl = K.tl;
+const stage = document.getElementById("stage");
+const SER = window.SER, KEY = window.KEY, ROB = window.ROB, ROB_SUM = window.ROB_SUM;
+const CAP = 100000000;
+const RD = "#FF4D3D", TL = "#22C7B0", YL = "#FFD400", WH = "#E7EBF2", GR = "#6B7894", ANT = "#FF8A1F", MAS = "#7FA2FF";
+const MID = 691;
+
+/* ═════════════ 배치 표 v1.0 (1080×1920) — 칸 = [x, y, 가로, 세로] ═════════════
+   위 칸 (y 150~680): HEAD 두 줄 문구 · 가운데 칸 (y 691~1382): CHART 그래프(칸 전체) 위에 WHO(누구) · VAL(평가금액) · BLK(1억 = 5칸) · GRID(반등 13번 점)
+   아래 칸 (y 1382~): 구운 자막 — 물건 없음 */
+const LAY = window.LAYOUT = {
+  HEAD: [40, 150, 1000, 530],
+  CHART: [0, 691, 1080, 691],
+  WHO: [30, 708, 300, 100], VAL: [500, 708, 550, 100],
+  BLK: [120, 1250, 840, 124],                     // 칸 둘레 20px 여유 = 나타날 때 튀는 크기(back.out)
+  GRID: [40, 712, 1000, 650],
+};
+window.LAYOUT_ALLOW = [["CHART", "WHO"], ["CHART", "VAL"], ["CHART", "BLK"]];
+
+K.el(`<div id="mid"></div>`);                     // 가운데 칸 바탕 (장면 밖 — 점검 대상 아님)
+
+/* ─────────── 도우미 ─────────── */
+const later = (html, parent) => { const n = K.el(html, parent); gsap.set(n, { opacity: 0 }); return n; };
+const pop = (n, at, from) => tl.fromTo(n, Object.assign({ opacity: 0, scale: 0.7, y: 24 }, from), { opacity: 1, scale: 1, y: 0, duration: 0.42, ease: "back.out(2)", immediateRender: false }, at);
+const hide = (n, at, d) => tl.to(n, { opacity: 0, duration: d || 0.25, ease: "none" }, at);
+const BEGIN = n => S(n) - 0.25, END = n => (n < EP.sent.length ? S(n + 1) + 0.1 : K.D);
+const won = v => "₩" + Math.round(v).toLocaleString("en-US");
+const vlen = s => [...s].reduce((a, c) => a + (/[가-힣]/.test(c) ? 1 : /[0-9]/.test(c) ? 0.6 : c === " " ? 0.33 : /[,.]/.test(c) ? 0.32 : /[?%]/.test(c) ? 0.7 : 0.62), 0);
+
+// 위 칸 두 줄 문구 — 큰 줄은 글자 수로 크기를 맞춤 (940px 안 · 최대 116px)
+function head(sc, lab, main, color, at, outAt) {
+  const size = Math.min(116, Math.floor(940 / Math.max(1, vlen(main))));
+  const h = 54 + 22 + size * 1.08, top = Math.round(430 - h / 2);
+  const n = later(`<div class="a cx head" data-slot="HEAD" ${KO} style="left:540px;top:${top}px"><div class="lab">${lab}</div><div class="main" style="font-size:${size}px;color:${color || "#F4F6FA"}">${main}</div></div>`, sc);
+  pop(n, at);
+  if (outAt != null) hide(n, outAt);
+  return n;
+}
+function who(sc, name, color) {
+  const [x, y, w, h] = LAY.WHO;
+  return K.el(`<div class="pill who" data-slot="WHO" ${KO} style="left:${x}px;top:${y + 6}px;width:${w}px;height:${h - 12}px;border-color:${color}"><span style="color:${color}">●</span>&nbsp;${name}</div>`, sc);
+}
+// 1억 = 5칸 (2,000만 원씩) — 칠한 칸 = 주식에 들어간 돈, 빈 칸 = 현금
+function blocks(sc, color) {
+  const x0 = 140, y0 = 1262, w = 800, h = 100, bw = 140, gap = (w - 5 * bw) / 4;
+  const els = [0, 1, 2, 3, 4].map(i => K.el(`<div class="blk" data-slot="BLK" style="left:${x0 + i * (bw + gap)}px;top:${y0 + 10}px;width:${bw}px;height:${h - 20}px"></div>`, sc));
+  const fill = (i, at) => tl.fromTo(els[i], { backgroundColor: "rgba(255,255,255,0)", borderColor: "#56627F", scale: 1 },
+    { backgroundColor: color, borderColor: color, scale: 1, duration: 0.3, ease: "power2.out", immediateRender: false }, at);
+  return { els, fill };
+}
+
+/* ─────────── 그래프 (시간 t 의 순수 함수 — K.onSeek) ─────────── */
+const NS = "http://www.w3.org/2000/svg";
+const X0 = 96, X1 = 984, YT = 150, YB = 545;    // 그래프 svg 안 좌표 (svg 맨 위 = 화면 y 691)
+const CHARTS = [];
+let CLIP = 0;
+// 확대: c.zoom = [[시각, 오른쪽 끝 순번], ...] — 왼쪽 끝은 늘 0 (폭락 시작). 처음엔 폭락·반등 구간을 크게 → 6개월 전체로 줄임.
+function chart(sc, key, o) {
+  const rows = SER[key], n = rows.length, k = KEY[key];
+  const preN = k.pre_n;
+  const idxOf = d => rows.findIndex(r => r[0] >= d);
+  const lad = o.ladder ? [90, 80, 70, 60] : [];
+  const vals = rows.map(r => r[1]);
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  if (o.ladder) lo = Math.min(lo, 68);
+  const VR = [lo - 3, hi + 3];
+  const yOf = v => YB + (v - VR[0]) / (VR[1] - VR[0]) * (YT - YB);
+  const cid = "clip" + (CLIP++);
+  const svg = K.el(`<svg class="a" data-slot="CHART" viewBox="0 0 1080 691" width="1080" height="691" style="left:0;top:${MID}px" aria-hidden="true">
+    <defs><clipPath id="${cid}"><rect x="${X0 - 20}" y="0" width="${X1 - X0 + 40}" height="691"/></clipPath></defs>
+    <g opacity=".18" stroke="#7FA2FF" stroke-width="2">${[0.2, 0.4, 0.6, 0.8].map(f => `<line x1="${X0}" x2="${X1}" y1="${YT + (YB - YT) * f}" y2="${YT + (YB - YT) * f}"/>`).join("")}</g>
+    <g class="lad">${lad.filter(v => v > VR[0]).map(v => `<line x1="${X0}" x2="${X1}" y1="${yOf(v)}" y2="${yOf(v)}" stroke="${YL}" stroke-width="5" stroke-dasharray="16 12" opacity=".9"/>
+      <text x="${X1}" y="${yOf(v) - 12}" text-anchor="end" font-family="Noto Sans KR" font-weight="900" font-size="38" fill="${YL}" stroke="#0A0F1E" stroke-width="7" paint-order="stroke">−${100 - v}%</text>`).join("")}</g>
+    <g clip-path="url(#${cid})">
+      <path class="ln" fill="none" stroke="${WH}" stroke-width="8" stroke-linejoin="round" stroke-linecap="round"/>
+      <path class="gr" fill="none" stroke="${GR}" stroke-width="7" stroke-dasharray="14 12" stroke-linejoin="round" stroke-linecap="round"/>
+      <g class="mk"></g>
+      <circle class="cur" r="14" fill="${WH}" stroke="#0A0F1E" stroke-width="5"/>
+    </g>
+    <g class="fork" opacity="0"></g>
+  </svg>`, sc);
+  const q = s => svg.querySelector(s);
+  // 표시: BUY = 점 위 글자 · SELL = 점 오른쪽 위 글자 · 가까운 BUY 끼리(3거래일 안)는 글자를 좌우로 45px 벌림
+  const marks = (o.trades || []).map(([act, d]) => {
+    const i = idxOf(d), buy = act === "BUY", col = buy ? TL : RD;
+    const g = document.createElementNS(NS, "g");
+    g.innerHTML = `<circle r="17" fill="${col}" stroke="#fff" stroke-width="5"/>` +
+      `<text text-anchor="${buy ? "middle" : "start"}" font-family="Noto Sans KR" font-weight="900" font-size="40" fill="${col}" stroke="#0A0F1E" stroke-width="8" paint-order="stroke">${act}</text>`;
+    q(".mk").appendChild(g);
+    return { i, g, buy, dx: buy ? 0 : 22, dy: buy ? -34 : -30, c: g.querySelector("circle"), t: g.querySelector("text") };
+  });
+  for (let j = 1; j < marks.length; j++) if (marks[j].buy && marks[j - 1].buy && marks[j].i - marks[j - 1].i <= 3) { marks[j].dx += 45; marks[j - 1].dx -= 45; }
+  const sellI = (o.trades || []).filter(x => x[0] === "SELL").map(x => idxOf(x[1]))[0];
+  const c = { key, rows, n, preN, idxOf, yOf, svg, q, marks, sellI, keys: [], zoom: [], col: o.col, val: null, a: o.a, b: o.b, labelsOut: !!o.labelsOut };
+  c.xr = t => c.zoom.length ? cursorOf({ keys: c.zoom }, t) : n - 1;          // 오른쪽 끝 순번
+  c.xOf = (i, r) => X0 + i / r * (X1 - X0);
+  // 갈림길 (첫 장면) — 반등 날에서 위(청록)·아래(빨강) 점선 화살표 + 노란 '?' (확대가 멈춘 뒤의 자리)
+  c.fork = (atIdx, at, r) => {
+    const x = c.xOf(atIdx, r), y = yOf(rows[atIdx][1]);
+    q(".fork").innerHTML = `<path d="M${x} ${y} C ${x + 120} ${y - 40}, ${x + 220} ${y - 150}, ${x + 330} ${y - 230}" fill="none" stroke="${TL}" stroke-width="9" stroke-dasharray="18 14" stroke-linecap="round"/>
+      <path d="M${x + 330} ${y - 230} l -46 6 l 30 30 z" fill="${TL}"/>
+      <path d="M${x} ${y} C ${x + 120} ${y + 40}, ${x + 220} ${y + 120}, ${x + 330} ${y + 170}" fill="none" stroke="${RD}" stroke-width="9" stroke-dasharray="18 14" stroke-linecap="round"/>
+      <path d="M${x + 330} ${y + 170} l -40 -22 l -6 42 z" fill="${RD}"/>
+      <text x="${x + 420}" y="${y + 40}" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="150" fill="${YL}" stroke="#0A0F1E" stroke-width="10" paint-order="stroke">?</text>`;
+    if (at >= 0) tl.fromTo(q(".fork"), { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "none", immediateRender: false }, at);
+  };
+  CHARTS.push(c);
+  return c;
+}
+function cursorOf(c, t) {
+  const K2 = c.keys;
+  if (!K2.length) return 0;
+  if (t <= K2[0][0]) return K2[0][1];
+  for (let j = 1; j < K2.length; j++) if (t <= K2[j][0]) {
+    const [t0, f0] = K2[j - 1], [t1, f1] = K2[j], u = t1 > t0 ? (t - t0) / (t1 - t0) : 1;
+    const e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+    return f0 + (f1 - f0) * e;
+  }
+  return K2[K2.length - 1][1];
+}
+K.onSeek(t => {
+  for (const c of CHARTS) {
+    if (t < c.a - 0.5 || t > c.b + 0.5) continue;
+    const f = cursorOf(c, t), r = c.xr(t);
+    const g = c.sellI != null && f > c.sellI;
+    c.q(".ln").setAttribute("d", PATH(c, 0, g ? c.sellI : f, r));
+    c.q(".gr").setAttribute("d", g ? PATH(c, c.sellI, f, r) : "");
+    const m = Math.floor(f), u = f - m, v = m + 1 < c.n ? c.rows[m][1] + (c.rows[m + 1][1] - c.rows[m][1]) * u : c.rows[m][1];
+    const cur = c.q(".cur");
+    cur.setAttribute("cx", c.xOf(Math.min(f, c.n - 1), r)); cur.setAttribute("cy", c.yOf(v)); cur.setAttribute("fill", g ? GR : WH);
+    const pxPer = (X1 - X0) / r, lab = c.labelsOut ? Math.max(0, Math.min(1, (pxPer - 12) / 8)) : 1;   // 줄였을 때 글자가 겹치면 글자만 숨김 (점은 남김)
+    let bought = 0;
+    for (const mk of c.marks) {
+      const on = f >= mk.i - 1e-6, x = c.xOf(mk.i, r), y = c.yOf(c.rows[mk.i][1]);
+      mk.g.setAttribute("opacity", on ? 1 : 0); if (on && mk.buy) bought++;
+      mk.c.setAttribute("cx", x); mk.c.setAttribute("cy", y);
+      mk.t.setAttribute("x", x + mk.dx); mk.t.setAttribute("y", y + mk.dy); mk.t.setAttribute("opacity", lab);
+    }
+    if (c.val) {
+      const mv = c.rows[Math.min(c.n - 1, m)][c.col];
+      c.val.textContent = won(mv);
+      c.val.parentNode.style.borderColor = c.val.style.color = mv > CAP + 1 ? TL : mv < CAP - 1 ? RD : WH;
+    }
+    if (c.blk) c.blk.els.forEach((el, i) => {
+      const on = c.allIn ? bought > 0 : i < bought;
+      el.style.backgroundColor = on ? c.blkColor : "rgba(255,255,255,0)";
+      el.style.borderColor = on ? c.blkColor : "#56627F";
+    });
+  }
+});
+function PATH(c, i0, f, r) {
+  const m = Math.floor(f); let d = "";
+  for (let i = i0; i <= Math.min(m, c.n - 1); i++) d += (i === i0 ? "M" : "L") + c.xOf(i, r).toFixed(1) + " " + c.yOf(c.rows[i][1]).toFixed(1);
+  if (f > m && m + 1 < c.n) { const u = f - m; d += "L" + (c.xOf(m, r) + (c.xOf(m + 1, r) - c.xOf(m, r)) * u).toFixed(1) + " " + c.yOf(c.rows[m][1] + (c.rows[m + 1][1] - c.rows[m][1]) * u).toFixed(1); }
+  return d;
+}
+// 계단 모양 (규칙만 보여 주는 그림 — 실제 종가 아님): 기준선 −10%~−40% (글자 = 왼쪽) · 선은 가운데 · 기준을 넘을 때마다 BUY
+function stairs(sc, full) {
+  const P = [[0, 100], [1, 97], [2, 99], [3, 93], [4, 95], [5, 88.5], [6, 91], [7, 84], [8, 86], [9, 78.5], [10, 82], [11, 73], [12, 76], [13, 68.5], [14, 72], [15, 62], [16, 66], [17, 58.5]];
+  const VR = [50, 104], xs = i => X0 + 170 + i / 17 * (X1 - X0 - 250), ys = v => YB + (v - VR[0]) / (VR[1] - VR[0]) * (YT - YB);
+  const d = P.map(([i, v], k) => (k ? "L" : "M") + xs(i).toFixed(1) + " " + ys(v).toFixed(1)).join("");
+  const cross = [0, 5, 9, 13, 17];
+  const svg = later(`<svg class="a" data-slot="CHART" viewBox="0 0 1080 691" width="1080" height="691" style="left:0;top:${MID}px" aria-hidden="true">
+    ${[90, 80, 70, 60].map(v => `<line x1="${X0}" x2="${X1}" y1="${ys(v)}" y2="${ys(v)}" stroke="${YL}" stroke-width="5" stroke-dasharray="16 12"/>
+      <text x="${X0}" y="${ys(v) - 12}" font-family="Noto Sans KR" font-weight="900" font-size="38" fill="${YL}" stroke="#0A0F1E" stroke-width="7" paint-order="stroke">−${100 - v}%</text>`).join("")}
+    <path class="st" d="${d}" fill="none" stroke="${WH}" stroke-width="8" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="${full ? 0 : 1}"/>
+    ${cross.map((i, k) => `<g class="b${k}" opacity="${full ? 1 : 0}"><circle cx="${xs(i)}" cy="${ys(P[i][1])}" r="17" fill="${TL}" stroke="#fff" stroke-width="5"/>
+      <text x="${xs(i)}" y="${ys(P[i][1]) + 60}" text-anchor="middle" font-family="Noto Sans KR" font-weight="900" font-size="38" fill="${TL}" stroke="#0A0F1E" stroke-width="8" paint-order="stroke">BUY</text></g>`).join("")}
+  </svg>`, sc);
+  return { svg, path: svg.querySelector(".st"), dots: cross.map((_, k) => svg.querySelector(".b" + k)), cross };
+}
+function valPill(sc, c) {
+  const [x, y, w, h] = LAY.VAL;
+  const n = K.el(`<div class="pill val" data-slot="VAL" style="left:${x}px;top:${y + 6}px;width:${w}px;height:${h - 12}px"><span></span></div>`, sc);
+  c.val = n.querySelector("span");
+  return n;
+}
+const bottomIdx = key => SER[key].findIndex(r => r[0] === KEY[key].index_min_date);
+const lastIdx = key => SER[key].length - 1;
+
+/* ═════════════ 장면 ═════════════ */
+// 1 — 폭락 뒤 반등 · 1억 어떻게? (2020 폭락 + 반등 → 갈림길 ?)
+{
+  // 0초 장면 = 업로드 썸네일 (shorts — 완성 영상 0초) → 처음부터 다 보임 (나타나는 효과 없음): 두 줄 문구 + 폭락·반등 선 + 갈림길 '?'
+  const a = 0, b = END(1);
+  const sc = K.el(`<div class="sc"></div>`);                     // K.scene 의 0~0.35초 나타나기 없이 (0초부터 보임 — .sc 기본 opacity 0 을 1 로) · 끝에만 사라짐
+  gsap.set(sc, { opacity: 1 });
+  tl.to(sc, { opacity: 0, duration: 0.35, ease: "none" }, b - 0.35);
+  const h1 = head(sc, "폭락 뒤 반등이 왔다", "1억, 어떻게 살까?", "#F4F6FA", 0);
+  tl.killTweensOf(h1); gsap.set(h1, { opacity: 1 });
+  const c = chart(sc, "fake", { a, b });
+  const R = c.idxOf(KEY.fake.rebound);
+  c.zoom.push([0, R + 12]);
+  c.keys.push([0, R]);
+  c.fork(R, -1, R + 12);
+  gsap.set(c.q(".fork"), { opacity: 1 });
+  tl.fromTo(c.q(".fork"), { scale: 1 }, { scale: 1.04, svgOrigin: "560 300", duration: 0.6, ease: "sine.inOut", repeat: 3, yoyo: true, immediateRender: false }, W(1, "어떻게"));
+  K.cut(E(1) - 0.2, "1 갈림길");
+}
+// 2~4 — 개미: 반등 다음 날 1억 한 번에 → 진짜 반등(2025-04) 6개월 뒤 +2,438만 원
+{
+  const a = BEGIN(2), b = END(4), key = "real";
+  const sc = K.scene(a, b);
+  head(sc, "먼저, 흔한 개미의 방법", "반등 다음 날 1억 한 번에", "#F4F6FA", S(2) + 0.05, S(4) - 0.1);
+  head(sc, "진짜 반등 · 2025년 4월", "+" + Math.round(KEY.real.ant_pnl / 1e4).toLocaleString("en-US") + "만 원", TL, S(4) + 0.05);
+  who(sc, "개미", ANT);
+  const c = chart(sc, key, { a, b, col: 2, trades: KEY[key].trades.ant });
+  valPill(sc, c);
+  c.blk = blocks(sc, ANT); c.blkColor = ANT; c.allIn = true;
+  c.keys.push([a, 0], [E(2) + 0.1, c.preN - 1], [W(3, "한 번에"), c.preN], [S(4) + 0.15, c.preN], [E(4) - 0.15, lastIdx(key)]);
+  c.zoom.push([S(4) - 0.05, c.preN + 14], [S(4) + 1.0, lastIdx(key)]);
+  K.cut(E(2), "2 개미"); K.cut(E(3) - 0.1, "3 한 번에 BUY"); K.cut(E(4) - 0.1, "4 진짜 반등 +");
+}
+// 5~6 — 개미: 가짜 반등(2020-03) → 25% 더 하락 · 20% 넘게 잃자 SELL → 판 뒤 주가는 회복(회색) · −1,579만 원
+{
+  const a = BEGIN(5), b = END(6), key = "fake";
+  const sc = K.scene(a, b);
+  head(sc, "가짜 반등 · 2020년 3월", "주가가 " + Math.abs(Math.round(KEY.fake.index_more_drop_pct)) + "% 더 하락", RD, S(5) + 0.05, S(6) - 0.1);
+  head(sc, "겁이 나서 팔았다", "−" + Math.round(Math.abs(KEY.fake.ant_pnl) / 1e4).toLocaleString("en-US") + "만 원", RD, S(6) + 0.05);
+  who(sc, "개미", ANT);
+  const c = chart(sc, key, { a, b, col: 2, trades: KEY[key].trades.ant });
+  valPill(sc, c);
+  c.blk = blocks(sc, ANT); c.blkColor = ANT; c.allIn = true;
+  c.keys.push([a, 0], [W(5, "가짜"), c.preN - 1], [W(5, "가짜") + 0.45, c.preN], [E(5) - 0.1, bottomIdx(key)], [S(6) + 0.2, bottomIdx(key)], [E(6) - 0.15, lastIdx(key)]);
+  c.zoom.push([S(6) - 0.05, bottomIdx(key) + 8], [S(6) + 1.0, lastIdx(key)]);
+  K.cut(E(5) - 0.15, "5 가짜 반등 하락"); K.cut(E(6) - 0.1, "6 SELL 뒤 회복");
+}
+// 7~9 — 대가: 1억 = 5칸 · 처음엔 2,000만 원 · 첫 매수가보다 10%씩 떨어질 때마다 한 칸 (계단 모양 그림 — 숫자 없음)
+{
+  const a = BEGIN(7), b = END(9);
+  const sc = K.scene(a, b);
+  head(sc, "그럼 투자 대가는?", "어떻게 살까?", "#F4F6FA", S(7) + 0.05, S(8) - 0.1);
+  head(sc, "1억을 5번으로 나눠", "처음엔 2,000만 원만", "#F4F6FA", S(8) + 0.05, S(9) - 0.1);
+  head(sc, "처음 산 값보다", "10%씩 떨어질 때마다", YL, S(9) + 0.05);
+  who(sc, "대가", MAS);
+  const bk = blocks(sc, MAS);
+  gsap.set(bk.els, { opacity: 0 });
+  bk.els.forEach((el, i) => pop(el, S(7) + 0.3 + 0.08 * i, { scale: 0.4, y: 0 }));
+  bk.fill(0, W(8, "처음엔"));
+  const st = stairs(sc);
+  tl.to(st.svg, { opacity: 1, duration: 0.3, ease: "none" }, S(9) - 0.1);
+  const t0 = W(9, "떨어질"), t1 = E(9) - 0.3;
+  gsap.set(st.path, { opacity: 0 }); tl.set(st.path, { opacity: 1 }, t0 - 0.4);      // 그리기 전 시작점 작은 점이 보이지 않게
+  tl.fromTo(st.path, { attr: { "stroke-dashoffset": 1 } }, { attr: { "stroke-dashoffset": 0 }, duration: t1 - t0 + 0.4, ease: "none", immediateRender: false }, t0 - 0.4);
+  tl.set(st.dots[0], { opacity: 1 }, t0 - 0.35);
+  st.cross.slice(1).forEach((i, k) => {
+    const at = t0 - 0.4 + (t1 - t0 + 0.4) * (i / 17);
+    tl.set(st.dots[k + 1], { opacity: 1 }, at);
+    bk.fill(k + 1, at);
+  });
+  K.cut(E(7) - 0.1, "7 대가는?"); K.cut(E(8) - 0.1, "8 5칸 · 첫 칸"); K.cut(E(9) - 0.1, "9 10%마다 BUY");
+}
+// 10 — 대가: 진짜 반등 — 2,000만 원만 들어감 · 6개월 뒤 +488만 원
+{
+  const a = BEGIN(10), b = END(10), key = "real";
+  const sc = K.scene(a, b);
+  head(sc, "진짜 반등 · 2025년 4월", "+" + Math.round(KEY.real.master_pnl / 1e4).toLocaleString("en-US") + "만 원", TL, S(10) + 0.05);
+  who(sc, "대가", MAS);
+  const c = chart(sc, key, { a, b, col: 3, trades: KEY[key].trades.master, ladder: true });
+  valPill(sc, c);
+  c.blk = blocks(sc, MAS); c.blkColor = MAS;
+  c.keys.push([a, 0], [S(10) + 0.5, c.preN], [E(10) - 0.15, lastIdx(key)]);
+  c.zoom.push([S(10) + 0.5, c.preN + 14], [S(10) + 1.5, lastIdx(key)]);
+  K.cut(E(10) - 0.1, "10 대가 진짜 반등 +");
+}
+// 11~12 — 대가: 가짜 반등 — 더 싼 값에 두 번 더 BUY · 바닥 −1,090만 원 → 6개월 뒤 +1,582만 원
+{
+  const a = BEGIN(11), b = END(12), key = "fake";
+  const sc = K.scene(a, b);
+  head(sc, "가짜 반등 · 2020년 3월", "더 싼 값에 두 번 더", YL, S(11) + 0.05, S(12) - 0.1);
+  head(sc, "바닥에선 −" + Math.round(Math.abs(KEY.fake.master_min_pnl) / 1e4).toLocaleString("en-US") + "만 원", "6개월 뒤 +" + Math.round(KEY.fake.master_pnl / 1e4).toLocaleString("en-US") + "만 원", TL, S(12) + 0.05);
+  who(sc, "대가", MAS);
+  const c = chart(sc, key, { a, b, col: 3, trades: KEY[key].trades.master, ladder: true, labelsOut: true });
+  valPill(sc, c);
+  c.blk = blocks(sc, MAS); c.blkColor = MAS;
+  c.keys.push([a, 0], [S(11) + 0.4, c.preN], [E(11) - 0.1, bottomIdx(key)], [S(12) + 0.15, bottomIdx(key)], [E(12) - 0.15, lastIdx(key)]);
+  c.zoom.push([S(12) - 0.05, bottomIdx(key) + 8], [S(12) + 1.0, lastIdx(key)]);
+  K.cut(E(11) - 0.1, "11 두 번 더 BUY · 바닥"); K.cut(E(12) - 0.1, "12 6개월 뒤 +");
+}
+// 13 — 2000년 이후 반등 13번 (6개월 뒤): 개미 7번 · 대가 11번 수익 (점 = 사건 하나, 청록 수익 · 빨강 손실, 왼쪽부터 날짜 순)
+{
+  const a = BEGIN(13), b = END(13);
+  const sc = K.scene(a, b);
+  head(sc, "2000년 이후 반등 " + ROB_SUM.n + "번", "수익 " + ROB_SUM.ant_win + "번 vs " + ROB_SUM.master_win + "번", "#F4F6FA", S(13) + 0.05);
+  const [gx, gy, gw] = LAY.GRID, d = 60, gap = (gw - 40 - ROB.length * d) / (ROB.length - 1);
+  const rowsY = [gy + 150, gy + 470];
+  [["개미", ANT, 2, ROB_SUM.ant_win, "개미"], ["대가", MAS, 3, ROB_SUM.master_win, "대가"]].forEach(([name, col, k, cnt, w], r) => {
+    const lab = K.el(`<div class="pill who" data-slot="GRID" ${KO} style="left:${gx + 20}px;top:${rowsY[r] - 120}px;width:280px;height:88px;border-color:${col}"><span style="color:${col}">●</span>&nbsp;${name}</div>`, sc);
+    const num = K.el(`<div class="cnt" data-slot="GRID" style="left:${gx + 330}px;top:${rowsY[r] - 112}px;font-size:76px;color:${TL}">${cnt}<span style="color:#9AA7BF;font-size:52px">/${ROB.length}</span></div>`, sc);
+    pop(lab, W(13, name) - 0.15); pop(num, W(13, name) + 0.1);
+    ROB.forEach((ev, i) => {
+      const ok = ev[k];
+      const dot = later(`<div class="dot" data-slot="GRID" style="left:${gx + 20 + i * (d + gap)}px;top:${rowsY[r]}px;width:${d}px;height:${d}px;background:${ok ? TL : RD};border:5px solid ${ok ? "#BFF5EC" : "#FFC2BB"}"></div>`, sc);
+      pop(dot, W(13, name) - 0.1 + 0.05 * i, { scale: 0.2, y: 0 });
+    });
+  });
+  const lg = K.el(`<div class="cnt" data-slot="GRID" ${KO} style="left:${gx + gw - 330}px;top:${rowsY[0] - 104}px;font-size:44px;color:#E7EBF2"><span style="color:${TL}">●</span> 수익&nbsp;&nbsp;<span style="color:${RD}">●</span> 손실</div>`, sc);
+  pop(lg, S(13) + 0.3);
+  K.cut(E(13) - 0.1, "13 7번 vs 11번");
+}
+// 14~15 — 반등을 맞히려 하지 말고 · 나눠 살 기준부터 → 끝 멘트
+{
+  const a = BEGIN(14), b = K.D;
+  const sc = K.scene(a, b, { keep: true });
+  head(sc, "반등을 맞히려 하지 말고", "나눠 살 기준부터", YL, S(14) + 0.05, S(15) - 0.1);
+  head(sc, "다른 테스트가 궁금하다면", "구독하고 채널에서", "#F4F6FA", S(15) + 0.05);
+  who(sc, "대가", MAS);
+  const bk = blocks(sc, MAS);
+  bk.els.forEach((el, i) => bk.fill(i, S(14) + 0.3 + 0.18 * i));
+  const st = stairs(sc, true);
+  pop(st.svg, S(14) + 0.1, { scale: 1, y: 0 });
+  K.cut(E(14) - 0.1, "14 기준부터"); K.cut(K.D - 0.2, "15 끝");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

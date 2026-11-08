@@ -1,0 +1,1201 @@
+{
+ "version": "v1.0",
+ "made": "2026-11-08T09:29:27Z",
+ "source": {
+  "spy": "stock/topics/precheck/data/SPY.csv",
+  "irx": "stock/source/timing-test-2026-10/calc/irx_daily.csv",
+  "volume": "stock/source/bandeung-maesu-2026-11/calc/spy_ohlcv.csv"
+ },
+ "rules": {
+  "signal": {
+   "win_days": 10,
+   "ma": 20,
+   "vol_avg_days": 20,
+   "bottom_days": 20,
+   "fut_days": 126
+  },
+  "events_rule": [
+   0.03,
+   -0.1,
+   60
+  ],
+  "horizon_m": 12,
+  "plan2_sizes_pct": [
+   10.5,
+   15.8,
+   23.7
+  ]
+ },
+ "signal": {
+  "main": {
+   "win_days": 10,
+   "ma": 20,
+   "fut_days": 126,
+   "hits": 13,
+   "n": 20,
+   "actual_fake": 15,
+   "always_fake_hits": 15,
+   "confusion": {
+    "real->real": 3,
+    "real->fake": 5,
+    "fake->real": 2,
+    "fake->fake": 10
+   }
+  },
+  "events": [
+   {
+    "rebound": "2000-04-17",
+    "bottom": "2000-04-14",
+    "signal": "real",
+    "decide": "2000-04-25",
+    "actual": "fake",
+    "hit": false,
+    "break_date": "2000-10-12",
+    "close_vs_ma20_on_rebound": -5.5,
+    "vol_ratio_on_rebound": 2.19,
+    "vol_ratio_on_decide": 1.26,
+    "close_vs_ma_on_decide": 0.6
+   },
+   {
+    "rebound": "2000-10-13",
+    "bottom": "2000-10-12",
+    "signal": "fake",
+    "decide": "2000-10-26",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2000-11-22",
+    "close_vs_ma20_on_rebound": -3.2,
+    "vol_ratio_on_rebound": 1.64,
+    "vol_ratio_on_decide": 1.18,
+    "close_vs_ma_on_decide": -1.8
+   },
+   {
+    "rebound": "2001-03-23",
+    "bottom": "2001-03-22",
+    "signal": "fake",
+    "decide": "2001-04-03",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2001-04-03",
+    "close_vs_ma20_on_rebound": -4.9,
+    "vol_ratio_on_rebound": 0.83,
+    "vol_ratio_on_decide": 0.87,
+    "close_vs_ma_on_decide": -5.6
+   },
+   {
+    "rebound": "2001-09-24",
+    "bottom": "2001-09-21",
+    "signal": "real",
+    "decide": "2001-10-03",
+    "actual": "real",
+    "hit": true,
+    "break_date": null,
+    "close_vs_ma20_on_rebound": -8.6,
+    "vol_ratio_on_rebound": 1.18,
+    "vol_ratio_on_decide": 1.26,
+    "close_vs_ma_on_decide": 1.6
+   },
+   {
+    "rebound": "2002-05-08",
+    "bottom": "2002-05-07",
+    "signal": "real",
+    "decide": "2002-05-14",
+    "actual": "fake",
+    "hit": false,
+    "break_date": "2002-06-03",
+    "close_vs_ma20_on_rebound": -0.5,
+    "vol_ratio_on_rebound": 1.49,
+    "vol_ratio_on_decide": 1.8,
+    "close_vs_ma_on_decide": 1.2
+   },
+   {
+    "rebound": "2002-08-06",
+    "bottom": "2002-07-23",
+    "signal": "real",
+    "decide": "2002-08-14",
+    "actual": "fake",
+    "hit": false,
+    "break_date": "2002-10-07",
+    "close_vs_ma20_on_rebound": -1.4,
+    "vol_ratio_on_rebound": 1.11,
+    "vol_ratio_on_decide": 1.01,
+    "close_vs_ma_on_decide": 5.5
+   },
+   {
+    "rebound": "2003-01-02",
+    "bottom": "2002-12-27",
+    "signal": "real",
+    "decide": "2003-01-02",
+    "actual": "fake",
+    "hit": false,
+    "break_date": "2003-01-24",
+    "close_vs_ma20_on_rebound": 1.4,
+    "vol_ratio_on_rebound": 1.31,
+    "vol_ratio_on_decide": 1.31,
+    "close_vs_ma_on_decide": 1.4
+   },
+   {
+    "rebound": "2008-03-11",
+    "bottom": "2008-03-10",
+    "signal": "real",
+    "decide": "2008-03-18",
+    "actual": "fake",
+    "hit": false,
+    "break_date": "2008-07-02",
+    "close_vs_ma20_on_rebound": -1.4,
+    "vol_ratio_on_rebound": 1.58,
+    "vol_ratio_on_decide": 1.3,
+    "close_vs_ma_on_decide": 0.2
+   },
+   {
+    "rebound": "2008-09-19",
+    "bottom": "2008-09-17",
+    "signal": "fake",
+    "decide": "2008-09-29",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2008-09-29",
+    "close_vs_ma20_on_rebound": -0.3,
+    "vol_ratio_on_rebound": 1.54,
+    "vol_ratio_on_decide": 1.22,
+    "close_vs_ma_on_decide": -8.5
+   },
+   {
+    "rebound": "2008-12-16",
+    "bottom": "2008-11-20",
+    "signal": "fake",
+    "decide": "2008-12-30",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2009-02-23",
+    "close_vs_ma20_on_rebound": 6.3,
+    "vol_ratio_on_rebound": 0.84,
+    "vol_ratio_on_decide": 0.51,
+    "close_vs_ma_on_decide": 1.4
+   },
+   {
+    "rebound": "2009-03-17",
+    "bottom": "2009-03-09",
+    "signal": "real",
+    "decide": "2009-03-18",
+    "actual": "real",
+    "hit": true,
+    "break_date": null,
+    "close_vs_ma20_on_rebound": 5.5,
+    "vol_ratio_on_rebound": 0.86,
+    "vol_ratio_on_decide": 1.16,
+    "close_vs_ma_on_decide": 7.8
+   },
+   {
+    "rebound": "2010-05-27",
+    "bottom": "2010-05-26",
+    "signal": "fake",
+    "decide": "2010-06-04",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2010-06-04",
+    "close_vs_ma20_on_rebound": -2.2,
+    "vol_ratio_on_rebound": 0.83,
+    "vol_ratio_on_decide": 1.09,
+    "close_vs_ma_on_decide": -3.9
+   },
+   {
+    "rebound": "2011-08-09",
+    "bottom": "2011-08-08",
+    "signal": "fake",
+    "decide": "2011-08-22",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2011-10-03",
+    "close_vs_ma20_on_rebound": -8.5,
+    "vol_ratio_on_rebound": 2.52,
+    "vol_ratio_on_decide": 0.7,
+    "close_vs_ma_on_decide": -6.9
+   },
+   {
+    "rebound": "2011-11-30",
+    "bottom": "2011-11-25",
+    "signal": "real",
+    "decide": "2011-11-30",
+    "actual": "real",
+    "hit": true,
+    "break_date": null,
+    "close_vs_ma20_on_rebound": 1.6,
+    "vol_ratio_on_rebound": 1.38,
+    "vol_ratio_on_decide": 1.38,
+    "close_vs_ma_on_decide": 1.6
+   },
+   {
+    "rebound": "2015-08-26",
+    "bottom": "2015-08-25",
+    "signal": "fake",
+    "decide": "2015-09-09",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2016-02-11",
+    "close_vs_ma20_on_rebound": -5.5,
+    "vol_ratio_on_rebound": 2.19,
+    "vol_ratio_on_decide": 0.74,
+    "close_vs_ma_on_decide": -2.4
+   },
+   {
+    "rebound": "2018-12-26",
+    "bottom": "2018-12-24",
+    "signal": "fake",
+    "decide": "2019-01-09",
+    "actual": "real",
+    "hit": false,
+    "break_date": null,
+    "close_vs_ma20_on_rebound": -5.3,
+    "vol_ratio_on_rebound": 1.53,
+    "vol_ratio_on_decide": 0.62,
+    "close_vs_ma_on_decide": 2.5
+   },
+   {
+    "rebound": "2020-03-02",
+    "bottom": "2020-02-28",
+    "signal": "fake",
+    "decide": "2020-03-09",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2020-03-09",
+    "close_vs_ma20_on_rebound": -5.3,
+    "vol_ratio_on_rebound": 2.15,
+    "vol_ratio_on_decide": 2.07,
+    "close_vs_ma_on_decide": -13.8
+   },
+   {
+    "rebound": "2022-05-04",
+    "bottom": "2022-04-29",
+    "signal": "fake",
+    "decide": "2022-05-06",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2022-05-06",
+    "close_vs_ma20_on_rebound": -0.9,
+    "vol_ratio_on_rebound": 1.47,
+    "vol_ratio_on_decide": 1.44,
+    "close_vs_ma_on_decide": -4.2
+   },
+   {
+    "rebound": "2022-10-04",
+    "bottom": "2022-09-30",
+    "signal": "fake",
+    "decide": "2022-10-12",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2022-10-12",
+    "close_vs_ma20_on_rebound": -0.8,
+    "vol_ratio_on_rebound": 1.08,
+    "vol_ratio_on_decide": 0.78,
+    "close_vs_ma_on_decide": -3.8
+   },
+   {
+    "rebound": "2025-04-09",
+    "bottom": "2025-04-08",
+    "signal": "fake",
+    "decide": "2025-04-23",
+    "actual": "real",
+    "hit": false,
+    "break_date": null,
+    "close_vs_ma20_on_rebound": -0.7,
+    "vol_ratio_on_rebound": 2.7,
+    "vol_ratio_on_decide": 0.85,
+    "close_vs_ma_on_decide": -0.2
+   }
+  ],
+  "sensitivity": [
+   {
+    "win": 5,
+    "ma": 20,
+    "fut": 63,
+    "hits": 12,
+    "actual_fake": 12
+   },
+   {
+    "win": 5,
+    "ma": 20,
+    "fut": 126,
+    "hits": 15,
+    "actual_fake": 15
+   },
+   {
+    "win": 5,
+    "ma": 20,
+    "fut": 252,
+    "hits": 16,
+    "actual_fake": 16
+   },
+   {
+    "win": 5,
+    "ma": 50,
+    "fut": 63,
+    "hits": 13,
+    "actual_fake": 12
+   },
+   {
+    "win": 5,
+    "ma": 50,
+    "fut": 126,
+    "hits": 16,
+    "actual_fake": 15
+   },
+   {
+    "win": 5,
+    "ma": 50,
+    "fut": 252,
+    "hits": 17,
+    "actual_fake": 16
+   },
+   {
+    "win": 10,
+    "ma": 20,
+    "fut": 63,
+    "hits": 14,
+    "actual_fake": 12
+   },
+   {
+    "win": 10,
+    "ma": 20,
+    "fut": 126,
+    "hits": 13,
+    "actual_fake": 15
+   },
+   {
+    "win": 10,
+    "ma": 20,
+    "fut": 252,
+    "hits": 12,
+    "actual_fake": 16
+   },
+   {
+    "win": 10,
+    "ma": 50,
+    "fut": 63,
+    "hits": 14,
+    "actual_fake": 12
+   },
+   {
+    "win": 10,
+    "ma": 50,
+    "fut": 126,
+    "hits": 15,
+    "actual_fake": 15
+   },
+   {
+    "win": 10,
+    "ma": 50,
+    "fut": 252,
+    "hits": 16,
+    "actual_fake": 16
+   },
+   {
+    "win": 20,
+    "ma": 20,
+    "fut": 63,
+    "hits": 13,
+    "actual_fake": 12
+   },
+   {
+    "win": 20,
+    "ma": 20,
+    "fut": 126,
+    "hits": 10,
+    "actual_fake": 15
+   },
+   {
+    "win": 20,
+    "ma": 20,
+    "fut": 252,
+    "hits": 9,
+    "actual_fake": 16
+   },
+   {
+    "win": 20,
+    "ma": 50,
+    "fut": 63,
+    "hits": 14,
+    "actual_fake": 13
+   },
+   {
+    "win": 20,
+    "ma": 50,
+    "fut": 126,
+    "hits": 14,
+    "actual_fake": 15
+   },
+   {
+    "win": 20,
+    "ma": 50,
+    "fut": 252,
+    "hits": 15,
+    "actual_fake": 16
+   }
+  ],
+  "others": {
+   "rsi30": {
+    "hits": 10,
+    "pred_real": 11
+   },
+   "ma50": {
+    "hits": 14,
+    "pred_real": 3
+   },
+   "ma200": {
+    "hits": 12,
+    "pred_real": 3
+   }
+  }
+ },
+ "intro": {
+  "rebound": "2022-05-04",
+  "rebound_day": 3.0,
+  "drop_before": -12.6,
+  "low": "2022-06-16",
+  "more_drop": -14.5,
+  "won": 10000000,
+  "loss_won": -1450000
+ },
+ "cases": {
+  "c1": {
+   "rebound": "2020-03-02",
+   "peak": "2020-02-19",
+   "drop_before": -12.4,
+   "rebound_day": 4.3,
+   "judge": {
+    "rebound": "2020-03-02",
+    "bottom": "2020-02-28",
+    "signal": "fake",
+    "decide": "2020-03-09",
+    "actual": "fake",
+    "hit": true,
+    "break_date": "2020-03-09",
+    "close_vs_ma20_on_rebound": -5.3,
+    "vol_ratio_on_rebound": 2.15,
+    "vol_ratio_on_decide": 2.07,
+    "close_vs_ma_on_decide": -13.8
+   },
+   "low_1y": "2020-03-23",
+   "more_drop_from_rebound": -27.4,
+   "rally_high": "2020-03-04",
+   "rally_from_bottom": 5.6,
+   "ret_1y_from_buy": 29.4,
+   "max_vs_ma20_until_decide": -3.6,
+   "peak_regained": "2020-08-10",
+   "news": {
+    "2020-03-09": -7.8,
+    "2020-03-16": -10.9
+   },
+   "below_bottom_by_low": -24.3
+  },
+  "c2": {
+   "rebound": "2008-03-11",
+   "peak": "2007-10-09",
+   "drop_before": -17.8,
+   "rebound_day": 3.6,
+   "judge": {
+    "rebound": "2008-03-11",
+    "bottom": "2008-03-10",
+    "signal": "real",
+    "decide": "2008-03-18",
+    "actual": "fake",
+    "hit": false,
+    "break_date": "2008-07-02",
+    "close_vs_ma20_on_rebound": -1.4,
+    "vol_ratio_on_rebound": 1.58,
+    "vol_ratio_on_decide": 1.3,
+    "close_vs_ma_on_decide": 0.2
+   },
+   "low_1y": "2009-03-09",
+   "more_drop_from_rebound": -47.4,
+   "rally_high": "2008-05-19",
+   "rally_from_bottom": 12.3,
+   "ret_1y_from_buy": -41.1,
+   "max_vs_ma20_until_decide": 0.2,
+   "peak_regained": "2012-08-16",
+   "news": {
+    "2008-03-18": 4.2,
+    "2008-09-15": -4.8
+   },
+   "below_bottom_by_low": -45.5
+  },
+  "c3": {
+   "rebound": "2025-04-09",
+   "peak": "2025-02-19",
+   "drop_before": -18.8,
+   "rebound_day": 10.5,
+   "judge": {
+    "rebound": "2025-04-09",
+    "bottom": "2025-04-08",
+    "signal": "fake",
+    "decide": "2025-04-23",
+    "actual": "real",
+    "hit": false,
+    "break_date": null,
+    "close_vs_ma20_on_rebound": -0.7,
+    "vol_ratio_on_rebound": 2.7,
+    "vol_ratio_on_decide": 0.85,
+    "close_vs_ma_on_decide": -0.2
+   },
+   "low_1y": "2025-04-21",
+   "more_drop_from_rebound": -6.3,
+   "rally_high": "2025-10-08",
+   "rally_from_bottom": 36.4,
+   "ret_1y_from_buy": 31.0,
+   "max_vs_ma20_until_decide": -0.2,
+   "peak_regained": "2025-06-26",
+   "news": {
+    "2025-05-12": 3.3
+   }
+  }
+ },
+ "buffett": {
+  "op_ed": "2008-10-16",
+  "buy": "2008-10-17",
+  "low": "2009-03-09",
+  "more_drop": -26.3,
+  "back_to_buy_price": "2009-05-06",
+  "ret_1y": 20.8,
+  "ret_5y": 107.0
+ },
+ "type1": {
+  "12m": {
+   "n": 20,
+   "panic_sold": 8,
+   "sold_events": [
+    {
+     "rebound": "2000-04-17",
+     "sold": "2001-03-21",
+     "panic_ret": -21.2,
+     "hold_ret": -13.3
+    },
+    {
+     "rebound": "2000-10-13",
+     "sold": "2001-09-10",
+     "panic_ret": -19.5,
+     "hold_ret": -19.4
+    },
+    {
+     "rebound": "2001-09-24",
+     "sold": "2002-07-24",
+     "panic_ret": -15.7,
+     "hold_ret": -15.9
+    },
+    {
+     "rebound": "2002-05-08",
+     "sold": "2002-07-22",
+     "panic_ret": -22.6,
+     "hold_ret": -11.5
+    },
+    {
+     "rebound": "2008-03-11",
+     "sold": "2008-10-08",
+     "panic_ret": -24.5,
+     "hold_ret": -41.1
+    },
+    {
+     "rebound": "2008-09-19",
+     "sold": "2008-10-10",
+     "panic_ret": -26.9,
+     "hold_ret": -9.4
+    },
+    {
+     "rebound": "2008-12-16",
+     "sold": "2009-03-03",
+     "panic_ret": -22.3,
+     "hold_ret": 24.2
+    },
+    {
+     "rebound": "2020-03-02",
+     "sold": "2020-03-17",
+     "panic_ret": -15.7,
+     "hold_ret": 29.4
+    }
+   ],
+   "hold_better_in_sold": 6,
+   "hold_median": 13.7
+  },
+  "36m": {
+   "n": 19,
+   "panic_sold": 9,
+   "sold_events": [
+    {
+     "rebound": "2000-04-17",
+     "sold": "2001-03-21",
+     "panic_ret": -18.1,
+     "hold_ret": -35.4
+    },
+    {
+     "rebound": "2000-10-13",
+     "sold": "2001-09-10",
+     "panic_ret": -17.2,
+     "hold_ret": -20.4
+    },
+    {
+     "rebound": "2001-03-23",
+     "sold": "2002-07-17",
+     "panic_ret": -18.9,
+     "hold_ret": 0.2
+    },
+    {
+     "rebound": "2001-09-24",
+     "sold": "2002-07-24",
+     "panic_ret": -13.8,
+     "hold_ret": 14.0
+    },
+    {
+     "rebound": "2002-05-08",
+     "sold": "2002-07-22",
+     "panic_ret": -20.4,
+     "hold_ret": 15.2
+    },
+    {
+     "rebound": "2008-03-11",
+     "sold": "2008-10-08",
+     "panic_ret": -24.3,
+     "hold_ret": 5.8
+    },
+    {
+     "rebound": "2008-09-19",
+     "sold": "2008-10-10",
+     "panic_ret": -26.8,
+     "hold_ret": -0.7
+    },
+    {
+     "rebound": "2008-12-16",
+     "sold": "2009-03-03",
+     "panic_ret": -22.2,
+     "hold_ret": 42.0
+    },
+    {
+     "rebound": "2020-03-02",
+     "sold": "2020-03-17",
+     "panic_ret": -13.4,
+     "hold_ret": 41.2
+    }
+   ],
+   "hold_better_in_sold": 7,
+   "hold_median": 42.3
+  },
+  "recovery": {
+   "events": [
+    [
+     "2000-04-17",
+     1519
+    ],
+    [
+     "2000-10-13",
+     1297
+    ],
+    [
+     "2001-03-23",
+     693
+    ],
+    [
+     "2001-09-24",
+     426
+    ],
+    [
+     "2002-05-08",
+     361
+    ],
+    [
+     "2002-08-06",
+     48
+    ],
+    [
+     "2003-01-02",
+     74
+    ],
+    [
+     "2008-03-11",
+     693
+    ],
+    [
+     "2008-09-19",
+     377
+    ],
+    [
+     "2008-12-16",
+     93
+    ],
+    [
+     "2009-03-17",
+     3
+    ],
+    [
+     "2010-05-27",
+     30
+    ],
+    [
+     "2011-08-09",
+     38
+    ],
+    [
+     "2011-11-30",
+     15
+    ],
+    [
+     "2015-08-26",
+     127
+    ],
+    [
+     "2018-12-26",
+     311
+    ],
+    [
+     "2020-03-02",
+     58
+    ],
+    [
+     "2022-05-04",
+     186
+    ],
+    [
+     "2022-10-04",
+     13
+    ],
+    [
+     "2025-04-09",
+     7
+    ]
+   ],
+   "within_1y": 12,
+   "max_days": 1519,
+   "max_years": 6.0,
+   "max_event": "2000-04-17",
+   "not_recovered": 0
+  }
+ },
+ "type2": {
+  "ant": {
+   "n": 20,
+   "loss20": 6,
+   "median_ret": 6.7,
+   "worst_ret": -27.1,
+   "worst_mdd": -27.1,
+   "win": 12,
+   "stable": 12
+  },
+  "plan": {
+   "n": 20,
+   "loss20": 2,
+   "median_ret": 7.5,
+   "worst_ret": -28.4,
+   "worst_mdd": -35.4,
+   "win": 15,
+   "stable": 12
+  },
+  "plan_sizes": [
+   10.5,
+   15.8,
+   23.7
+  ],
+  "per": [
+   {
+    "rebound": "2000-04-17",
+    "ant_ret": -8.5,
+    "ant_mdd": -18.6,
+    "plan_ret": -2.7,
+    "plan_mdd": -8.8,
+    "plan_buys": 2
+   },
+   {
+    "rebound": "2000-10-13",
+    "ant_ret": -20.1,
+    "ant_mdd": -20.3,
+    "plan_ret": -3.3,
+    "plan_mdd": -14.4,
+    "plan_buys": 4
+   },
+   {
+    "rebound": "2001-03-23",
+    "ant_ret": 4.8,
+    "ant_mdd": -11.3,
+    "plan_ret": 1.3,
+    "plan_mdd": -6.9,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2001-09-24",
+    "ant_ret": -12.3,
+    "ant_mdd": -17.3,
+    "plan_ret": -7.1,
+    "plan_mdd": -9.6,
+    "plan_buys": 2
+   },
+   {
+    "rebound": "2002-05-08",
+    "ant_ret": -22.3,
+    "ant_mdd": -23.1,
+    "plan_ret": -1.8,
+    "plan_mdd": -14.9,
+    "plan_buys": 3
+   },
+   {
+    "rebound": "2002-08-06",
+    "ant_ret": 15.1,
+    "ant_mdd": -9.4,
+    "plan_ret": 7.2,
+    "plan_mdd": -5.3,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2003-01-02",
+    "ant_ret": 29.3,
+    "ant_mdd": -8.9,
+    "plan_ret": 13.1,
+    "plan_mdd": -5.8,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2008-03-11",
+    "ant_ret": -27.1,
+    "ant_mdd": -27.1,
+    "plan_ret": -28.4,
+    "plan_mdd": -35.4,
+    "plan_buys": 4
+   },
+   {
+    "rebound": "2008-09-19",
+    "ant_ret": -24.3,
+    "ant_mdd": -24.4,
+    "plan_ret": 6.5,
+    "plan_mdd": -33.4,
+    "plan_buys": 4
+   },
+   {
+    "rebound": "2008-12-16",
+    "ant_ret": -20.8,
+    "ant_mdd": -21.0,
+    "plan_ret": 27.2,
+    "plan_mdd": -12.5,
+    "plan_buys": 3
+   },
+   {
+    "rebound": "2009-03-17",
+    "ant_ret": 25.0,
+    "ant_mdd": -1.7,
+    "plan_ret": 25.0,
+    "plan_mdd": -1.7,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2010-05-27",
+    "ant_ret": 21.2,
+    "ant_mdd": -3.2,
+    "plan_ret": 13.0,
+    "plan_mdd": -3.0,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2011-08-09",
+    "ant_ret": 14.1,
+    "ant_mdd": -0.8,
+    "plan_ret": 14.1,
+    "plan_mdd": -0.8,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2011-11-30",
+    "ant_ret": 7.8,
+    "ant_mdd": -1.6,
+    "plan_ret": 7.8,
+    "plan_mdd": -1.6,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2015-08-26",
+    "ant_ret": 15.0,
+    "ant_mdd": -4.1,
+    "plan_ret": 6.1,
+    "plan_mdd": -3.6,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2018-12-26",
+    "ant_ret": 17.4,
+    "ant_mdd": -0.8,
+    "plan_ret": 17.4,
+    "plan_mdd": -0.8,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2020-03-02",
+    "ant_ret": -13.3,
+    "ant_mdd": -20.6,
+    "plan_ret": 32.0,
+    "plan_mdd": -13.8,
+    "plan_buys": 3
+   },
+   {
+    "rebound": "2022-05-04",
+    "ant_ret": 5.5,
+    "ant_mdd": -9.6,
+    "plan_ret": 2.5,
+    "plan_mdd": -6.1,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2022-10-04",
+    "ant_ret": 13.6,
+    "ant_mdd": -2.7,
+    "plan_ret": 9.6,
+    "plan_mdd": -2.7,
+    "plan_buys": 1
+   },
+   {
+    "rebound": "2025-04-09",
+    "ant_ret": 17.5,
+    "ant_mdd": -1.0,
+    "plan_ret": 17.5,
+    "plan_mdd": -1.0,
+    "plan_buys": 1
+   }
+  ],
+  "ant_24m": {
+   "n": 19,
+   "loss20": 7,
+   "median_ret": 22.4,
+   "worst_ret": -27.0,
+   "worst_mdd": -27.1,
+   "win": 11,
+   "stable": 11
+  },
+  "plan_24m": {
+   "n": 19,
+   "loss20": 3,
+   "median_ret": 15.0,
+   "worst_ret": -22.8,
+   "worst_mdd": -35.4,
+   "win": 16,
+   "stable": 14
+  }
+ },
+ "type3": {
+  "rule": {
+   "a0": 0.1,
+   "drop": 0.2,
+   "growth": 1.5
+  },
+  "grid_rules": 108,
+  "pool_rules": 60,
+  "master": {
+   "n": 20,
+   "loss20": 0,
+   "median_ret": 3.1,
+   "worst_ret": -10.8,
+   "worst_mdd": -19.5,
+   "win": 18,
+   "stable": 14
+  },
+  "master_plus": {
+   "n": 20,
+   "loss20": 0,
+   "median_ret": 5.4,
+   "worst_ret": -10.8,
+   "worst_mdd": -19.5,
+   "win": 18,
+   "stable": 14
+  },
+  "lump": {
+   "n": 20,
+   "loss20": 8,
+   "median_ret": 13.8,
+   "worst_ret": -41.1,
+   "worst_mdd": -46.9,
+   "win": 13,
+   "stable": 10
+  },
+  "plus_all_in": 7,
+  "per": [
+   {
+    "rebound": "2000-04-17",
+    "master_ret": 5.3,
+    "plus_ret": 5.3,
+    "plus_mdd": -0.1,
+    "plus_all_in": false,
+    "lump_ret": -13.2
+   },
+   {
+    "rebound": "2000-10-13",
+    "master_ret": 1.9,
+    "plus_ret": 1.9,
+    "plus_mdd": -0.8,
+    "plus_all_in": false,
+    "lump_ret": -19.4
+   },
+   {
+    "rebound": "2001-03-23",
+    "master_ret": 2.4,
+    "plus_ret": 2.4,
+    "plus_mdd": -0.4,
+    "plus_all_in": false,
+    "lump_ret": -0.1
+   },
+   {
+    "rebound": "2001-09-24",
+    "master_ret": -0.0,
+    "plus_ret": -0.0,
+    "plus_mdd": -0.7,
+    "plus_all_in": false,
+    "lump_ret": -15.9
+   },
+   {
+    "rebound": "2002-05-08",
+    "master_ret": 2.3,
+    "plus_ret": 2.3,
+    "plus_mdd": -2.8,
+    "plus_all_in": false,
+    "lump_ret": -11.5
+   },
+   {
+    "rebound": "2002-08-06",
+    "master_ret": 2.4,
+    "plus_ret": 2.4,
+    "plus_mdd": -0.8,
+    "plus_all_in": false,
+    "lump_ret": 13.2
+   },
+   {
+    "rebound": "2003-01-02",
+    "master_ret": 3.4,
+    "plus_ret": 3.4,
+    "plus_mdd": -1.0,
+    "plus_all_in": false,
+    "lump_ret": 25.1
+   },
+   {
+    "rebound": "2008-03-11",
+    "master_ret": -10.8,
+    "plus_ret": -10.8,
+    "plus_mdd": -19.5,
+    "plus_all_in": false,
+    "lump_ret": -41.1
+   },
+   {
+    "rebound": "2008-09-19",
+    "master_ret": 28.9,
+    "plus_ret": 28.9,
+    "plus_mdd": -12.4,
+    "plus_all_in": false,
+    "lump_ret": -9.4
+   },
+   {
+    "rebound": "2008-12-16",
+    "master_ret": 11.5,
+    "plus_ret": 11.5,
+    "plus_mdd": -2.8,
+    "plus_all_in": false,
+    "lump_ret": 24.2
+   },
+   {
+    "rebound": "2009-03-17",
+    "master_ret": 5.1,
+    "plus_ret": 5.1,
+    "plus_mdd": -0.3,
+    "plus_all_in": false,
+    "lump_ret": 49.8
+   },
+   {
+    "rebound": "2010-05-27",
+    "master_ret": 2.7,
+    "plus_ret": 12.5,
+    "plus_mdd": -2.4,
+    "plus_all_in": true,
+    "lump_ret": 25.8
+   },
+   {
+    "rebound": "2011-08-09",
+    "master_ret": 2.9,
+    "plus_ret": 8.0,
+    "plus_mdd": -2.3,
+    "plus_all_in": true,
+    "lump_ret": 28.1
+   },
+   {
+    "rebound": "2011-11-30",
+    "master_ret": 1.6,
+    "plus_ret": 7.7,
+    "plus_mdd": -3.5,
+    "plus_all_in": true,
+    "lump_ret": 15.6
+   },
+   {
+    "rebound": "2015-08-26",
+    "master_ret": 1.4,
+    "plus_ret": 5.4,
+    "plus_mdd": -3.6,
+    "plus_all_in": true,
+    "lump_ret": 12.0
+   },
+   {
+    "rebound": "2018-12-26",
+    "master_ret": 5.1,
+    "plus_ret": 15.6,
+    "plus_mdd": -3.1,
+    "plus_all_in": true,
+    "lump_ret": 32.6
+   },
+   {
+    "rebound": "2020-03-02",
+    "master_ret": 11.1,
+    "plus_ret": 22.7,
+    "plus_mdd": -4.2,
+    "plus_all_in": true,
+    "lump_ret": 29.4
+   },
+   {
+    "rebound": "2022-05-04",
+    "master_ret": 3.3,
+    "plus_ret": 3.3,
+    "plus_mdd": -1.0,
+    "plus_all_in": false,
+    "lump_ret": 1.4
+   },
+   {
+    "rebound": "2022-10-04",
+    "master_ret": 5.8,
+    "plus_ret": 5.8,
+    "plus_mdd": -0.5,
+    "plus_all_in": false,
+    "lump_ret": 14.4
+   },
+   {
+    "rebound": "2025-04-09",
+    "master_ret": 6.7,
+    "plus_ret": 14.3,
+    "plus_mdd": -0.1,
+    "plus_all_in": true,
+    "lump_ret": 31.0
+   }
+  ],
+  "master_24m": {
+   "n": 19,
+   "loss20": 0,
+   "median_ret": 7.0,
+   "worst_ret": -0.1,
+   "worst_mdd": -19.5,
+   "win": 18,
+   "stable": 16
+  },
+  "master_plus_24m": {
+   "n": 19,
+   "loss20": 0,
+   "median_ret": 17.3,
+   "worst_ret": -0.1,
+   "worst_mdd": -19.7,
+   "win": 18,
+   "stable": 16
+  },
+  "ant_24m": {
+   "n": 19,
+   "loss20": 7,
+   "median_ret": 22.4,
+   "worst_ret": -27.0,
+   "worst_mdd": -27.1,
+   "win": 11,
+   "stable": 11
+  }
+ }
+}

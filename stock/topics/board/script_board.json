@@ -9,6 +9,15 @@
    "title": "바닥인 줄 알고 샀다가 14.5% 더 하락, 진짜 반등은 구별될까?",
    "ver": "대본 v3",
    "file": "stock/source/bandeung-maesu-2026-11/bandeung-maesu-2026-11.txt"
+  },
+  {
+   "key": "R02-long",
+   "ep": "R02",
+   "label": "만스피 전망 (사례형)",
+   "kind": "long",
+   "title": "만스피 간다는 전문가들 왜 이럴까? 절대 믿지 마세요",
+   "ver": "대본 v1",
+   "file": "stock/source/manspi-jeonmang-2026-11/manspi-jeonmang-2026-11.txt"
   }
  ]
 }

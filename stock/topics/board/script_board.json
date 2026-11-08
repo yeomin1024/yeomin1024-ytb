@@ -1,4 +1,14 @@
 {
  "about": "대본 피드백판에 더하는 대본 — 주제 평가판(https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN)에서 통과(pass)한 주제만, 대본을 쓰고 tools/board_check.py script 통과 뒤 여기에 한 줄씩 (stock/guides/quick_board.md 3번). 꼴: {key: 'B01-long', ep: 'B01', label: 'B01 빚내서 투자', kind: 'long'|'short', title, ver: '대본 v1', file}",
- "extra": []
+ "extra": [
+  {
+   "key": "R01-long",
+   "ep": "R01",
+   "label": "반등 진짜·가짜 (사례형)",
+   "kind": "long",
+   "title": "바닥인 줄 알고 샀다가 14.5% 더 하락, 진짜 반등은 구별될까?",
+   "ver": "대본 v2",
+   "file": "stock/source/bandeung-maesu-2026-11/bandeung-maesu-2026-11.txt"
+  }
+ ]
 }

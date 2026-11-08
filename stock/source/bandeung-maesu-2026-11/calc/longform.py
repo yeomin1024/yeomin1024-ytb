@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-08 — 롱폼 「바닥인 줄 알고 샀는데 — 진짜 반등 · 가짜 반등」 계산 (사용자 대본 틀 2026-11-08 "아래 대본 틀을 짜봤는데 이런 느낌으로 롱폼 대본 만들어봐").
+# VERSION: v1.1 — 2026-11-08 — 사용자 대본 수정판의 유형 둘 시험 (plan_run · type_v2) — 사용자 지시 "아래 느낌으로 수정했는데 보완해서 다시 알려줘".
+# (v1.0 — 2026-11-08 — 롱폼 「바닥인 줄 알고 샀는데 — 진짜 반등 · 가짜 반등」 계산 (사용자 대본 틀 2026-11-08 "아래 대본 틀을 짜봤는데 이런 느낌으로 롱폼 대본 만들어봐").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-08 | 사용자 수정판 유형 1·2 시험: A(현금 많음) 대가 규칙 · 반등할 때마다 일정 비율(사용자 안) · 다음 반등 날 실행(사용자 안) / B(주식 80 · 현금 20) 보유 · 모두 매도 · 절반 매도 → 판 값 −10·20·30% 뒤 반등 날 현금 1/3씩 → 최고가 되찾으면 나머지(사용자 안 + quick_board 규칙 6) · 민감도 | plan_run · main(type_v2) — v1.0 출력은 그대로 |
 # | v1.0 | 2026-11-08 | 최초 (도입 = 2022-05-04 반등 날 종가에 1천만 원 · '1년 뒤' = 12개월(calc.py end_of 와 같음) · 사례마다 2주 안 20일선 대비 가장 높은 종가) — 흔한 판별법(반등 뒤 2주 안 20일선 + 거래량) 적중 · 다른 판별법·기간 민감도 · 사례 셋(2020-03 · 2022-06 · 2025-04) · 버핏 2008-10 · 유형 셋(물림·절반·현금) | 전부 (calc.py v2.0 의 load·events·Sim·master_next·ant_run 을 그대로 씀 — 쇼츠 숫자와 같게) |
 #
 # 규칙 (판단 = 그날 종가까지의 자료만 · 매매 = 다음 거래일 종가 — calc.py 와 같음):
@@ -37,7 +39,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import calc as C  # noqa: E402  (calc.py v2.0 — 쇼츠와 같은 사건·같은 시뮬레이션)
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = C.ROOT
 OHLCV_CSV = HERE / "spy_ohlcv.csv"     # SPY 거래량 — Yahoo chart API v8, 2026-11-08 받음 (가격은 SPY.csv adjclose 를 씀)
 OUT = HERE / "longform_result.json"
@@ -204,6 +206,53 @@ def master_plus(sim: C.Sim, spy: pd.Series, e: int, months: int, a0: float, d: f
     return {"ret": v - 1, "mdd": mn - 1, "dep": dep - 1, "all_in": all_in}
 
 
+def plan_run(sim: C.Sim, spy: pd.Series, e: int, months: int, w0: float, step=None, each=None, wait_reb=False, partial=None, peak_all=False):
+    """v1.1 — 계획 하나를 반등 사건 e 에 (판단 = 그날 종가 · 매매 = 다음 날 종가 · 현금 = ^IRX 이자).
+    w0 = 반등 다음 날 첫 매수 비중 · step=(D, G, A0) 평단 −D 마다 직전 × G (calc.py 대가 규칙과 같음) · each = 반등 날마다 처음 돈의 each 매수
+    wait_reb = 조건이 된 뒤 '반등 날'(하루 +3% · 252일 최고가보다 10% 넘게 아래 — 사건 규칙과 같은 날)에만 실행
+    partial=(trig, frac, ladder) 평단 −trig 아래면 주식 frac 매도 → 판 값 −ladder[k] 아래(+wait_reb면 그 뒤 반등 날)에 판 뒤 현금을 똑같이 나눠 다시 매수
+    peak_all = 반등 전 252일 최고가를 종가로 되찾으면 남은 현금 모두."""
+    end = sim.end_of(e, months)
+    if end is None:
+        return None
+    P, CR = sim.P, sim.CR
+    peak = float(np.max(P[max(0, e - 252):e]))
+    b = e + 1; units = w0 / P[b]; cost = w0; cash = 1.0 - w0; dep = 1.0; mn = 1.0
+    nb, last, pend, trig_on, sold, lad_k, c0, all_in = 1, w0, 0.0, False, None, 0, 0.0, False
+    sold_n = rebuy_n = 0
+    for i in range(b + 1, end + 1):
+        p = P[i]; cash *= 1 + CR[i]; dep *= 1 + CR[i]
+        if pend > 0 and cash > 1e-12:
+            amt = min(pend, cash); units += amt / p; cost += amt; cash -= amt; pend = 0.0
+        if sold == "pending":
+            q = units * partial[1]; cash += q * p; cost *= 1 - partial[1]; units -= q; sold = float(p); c0 = cash; sold_n += 1
+        v = cash + units * p; mn = min(mn, v)
+        avg = cost / units if units > 1e-12 else 0.0
+        if peak_all and not all_in and cash > 1e-9 and p >= peak:
+            pend = cash; all_in = True; continue
+        if each is not None and REB[i] and cash > 1e-9:
+            pend = each if cash - each > 1e-9 else cash
+        if step and units > 0 and cash > 1e-9:
+            D, G, A0 = step
+            if p <= avg * (1 - D):
+                trig_on = True
+            if trig_on and (not wait_reb or REB[i]):
+                last = A0 * G if nb == 1 else last * G; nb += 1; pend = min(last, cash); trig_on = False
+        if partial:
+            trig, frac, lad = partial
+            if sold is None and units > 0 and p <= avg * (1 - trig):
+                sold = "pending"
+            elif isinstance(sold, float) and lad_k < len(lad) and cash > 1e-9:
+                if p <= sold * (1 - lad[lad_k]):
+                    trig_on = True
+                if trig_on and (not wait_reb or REB[i]):
+                    pend = cash if lad_k == len(lad) - 1 else c0 / len(lad); lad_k += 1; trig_on = False; rebuy_n += 1
+    return {"ret": v - 1, "mdd": mn - 1, "dep": dep - 1, "sold": sold_n, "rebuys": rebuy_n, "all_in": all_in}
+
+
+REB = None   # 반등 날 표시 (main 에서 채움 — 사건 규칙: 하루 +3% · 전날 종가가 252일 최고가보다 10% 넘게 아래)
+
+
 def summ(res: list[dict]) -> dict:
     r = np.array([x["ret"] for x in res]); m = np.array([x["mdd"] for x in res])
     st = sum(1 for x in res if "dep" in x and x["ret"] > x["dep"] and x["mdd"] >= -C.LOSS_L)
@@ -307,12 +356,43 @@ def main() -> None:
     log("TYPE3", who="grid", grid_rules=t3["grid_rules"], pool_rules=t3["pool_rules"])
     log("TYPE3", who="plus_all_in", n=t3["plus_all_in"], c3=json.dumps([p for p in t3["per"] if p["rebound"] == CASES["c3"]]))
 
+    # 5. v1.1 — 사용자 수정판 유형 둘 (A 현금 많음 · B 주식 80 + 현금 20)
+    global REB
+    hi252 = spy.rolling(252, min_periods=60).max().values; Pv = spy.values
+    REB = np.zeros(len(Pv), bool); REB[1:] = (Pv[1:] / Pv[:-1] - 1 >= C.REB_TH) & (Pv[:-1] / hi252[:-1] - 1 <= C.DD_TH)
+    MAS = (dd_, g, a0)
+    PART = (0.20, 0.5, [0.10, 0.20, 0.30])
+    tv = {}
+    for months in (12, 36):
+        k = f"{months}m"; ok = [e for e in ev if sim.end_of(e, months) is not None]
+        run = lambda **kw: [plan_run(sim, spy, e, months, **kw) for e in ok]  # noqa: E731
+        A = {"master_plus": run(w0=a0, step=MAS, peak_all=True), "master_wait_reb": run(w0=a0, step=MAS, wait_reb=True, peak_all=True),
+             "each_10": run(w0=0.10, each=0.10), "each_20": run(w0=0.20, each=0.20), "lump": run(w0=1.0)}
+        B = {"hold": run(w0=0.8), "sell_all": run(w0=0.8, partial=(0.20, 1.0, [])),
+             "half_sell": run(w0=0.8, partial=PART, wait_reb=True, peak_all=True), "half_sell_now": run(w0=0.8, partial=PART, peak_all=True)}
+        tv[k] = {"A": {n: summ(r) for n, r in A.items()}, "B": {n: summ(r) for n, r in B.items()}}
+        hs = B["half_sell"]
+        tv[k]["B_half_detail"] = {"sold": sum(1 for x in hs if x["sold"]), "sold_then_peak": sum(1 for x in hs if x["sold"] and x["all_in"]),
+                                  "sold_then_rebuy": sum(1 for x in hs if x["rebuys"])}
+        sens = {}
+        for frac, lad, wr in itertools.product((0.3, 0.5), ([0.05, 0.10, 0.15], [0.10, 0.20, 0.30], [0.20, 0.30, 0.40]), (False, True)):
+            sens[f"sell{frac}_lad{'/'.join(str(int(x * 100)) for x in lad)}_wait{int(wr)}"] = summ(run(w0=0.8, partial=(0.20, frac, lad), wait_reb=wr, peak_all=True))["loss20"]
+        tv[k]["B_sens_loss20"] = sens
+        for grp in ("A", "B"):
+            for n, sm in tv[k][grp].items():
+                log("TYPE_V2", months=months, group=grp, who=n, **sm)
+        log("TYPE_V2", months=months, group="B", who="half_detail", **tv[k]["B_half_detail"])
+        log("TYPE_V2", months=months, group="B", who="sens_loss20", min=min(sens.values()), max=max(sens.values()), detail=json.dumps(sens))
+
     res = {"version": VERSION, "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "source": {"spy": str(C.SPY_CSV.relative_to(ROOT)), "irx": str(C.IRX_CSV.relative_to(ROOT)), "volume": str(OHLCV_CSV.relative_to(ROOT))},
            "rules": {"signal": {"win_days": SIG_WIN, "ma": MA_N, "vol_avg_days": VOL_N, "bottom_days": BOTTOM_N, "fut_days": FUT_N},
                      "events_rule": [C.REB_TH, C.DD_TH, C.GAP], "horizon_m": C.H_MONTHS, "plan2_sizes_pct": t2["plan_sizes"]},
            "signal": {"main": main_rule, "events": J, "sensitivity": sens, "others": others},
-           "intro": intro, "cases": cases, "buffett": bf, "type1": t1, "type2": t2, "type3": t3}
+           "intro": intro, "cases": cases, "buffett": bf, "type1": t1, "type2": t2, "type3": t3,
+           "type_v2": {"rules": {"A_master": {"a0": a0, "drop": dd_, "growth": g, "peak_all": True}, "A_each": "반등 날마다 처음 돈의 10%·20%",
+                                 "B_start": "주식 80% · 현금 20% (반등 다음 날)", "B_half_sell": {"trigger_below_avg": 0.20, "sell": 0.5, "rebuy_below_sell_price": [0.10, 0.20, 0.30],
+                                 "rebuy_size": "판 뒤 현금 1/3씩(마지막은 남은 돈)", "exec": "조건 뒤 반등 날", "peak_all": True}}, **tv}}
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     log("DONE", out=OUT.relative_to(ROOT), sec=round(time.perf_counter() - t0, 2))
 

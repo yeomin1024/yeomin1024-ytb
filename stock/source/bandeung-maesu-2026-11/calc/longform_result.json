@@ -1,6 +1,6 @@
 {
- "version": "v1.0",
- "made": "2026-11-08T09:29:27Z",
+ "version": "v1.1",
+ "made": "2026-11-08T12:10:02Z",
  "source": {
   "spy": "stock/topics/precheck/data/SPY.csv",
   "irx": "stock/source/timing-test-2026-10/calc/irx_daily.csv",
@@ -304,134 +304,20 @@
     "close_vs_ma_on_decide": -0.2
    }
   ],
-  "sensitivity": [
-   {
-    "win": 5,
-    "ma": 20,
-    "fut": 63,
-    "hits": 12,
-    "actual_fake": 12
-   },
-   {
-    "win": 5,
-    "ma": 20,
-    "fut": 126,
-    "hits": 15,
-    "actual_fake": 15
-   },
-   {
-    "win": 5,
-    "ma": 20,
-    "fut": 252,
-    "hits": 16,
-    "actual_fake": 16
-   },
-   {
-    "win": 5,
-    "ma": 50,
-    "fut": 63,
-    "hits": 13,
-    "actual_fake": 12
-   },
-   {
-    "win": 5,
-    "ma": 50,
-    "fut": 126,
-    "hits": 16,
-    "actual_fake": 15
-   },
-   {
-    "win": 5,
-    "ma": 50,
-    "fut": 252,
-    "hits": 17,
-    "actual_fake": 16
-   },
-   {
-    "win": 10,
-    "ma": 20,
-    "fut": 63,
-    "hits": 14,
-    "actual_fake": 12
-   },
-   {
-    "win": 10,
-    "ma": 20,
-    "fut": 126,
-    "hits": 13,
-    "actual_fake": 15
-   },
-   {
-    "win": 10,
-    "ma": 20,
-    "fut": 252,
-    "hits": 12,
-    "actual_fake": 16
-   },
-   {
-    "win": 10,
-    "ma": 50,
-    "fut": 63,
-    "hits": 14,
-    "actual_fake": 12
-   },
-   {
-    "win": 10,
-    "ma": 50,
-    "fut": 126,
-    "hits": 15,
-    "actual_fake": 15
-   },
-   {
-    "win": 10,
-    "ma": 50,
-    "fut": 252,
-    "hits": 16,
-    "actual_fake": 16
-   },
-   {
-    "win": 20,
-    "ma": 20,
-    "fut": 63,
-    "hits": 13,
-    "actual_fake": 12
-   },
-   {
-    "win": 20,
-    "ma": 20,
-    "fut": 126,
-    "hits": 10,
-    "actual_fake": 15
-   },
-   {
-    "win": 20,
-    "ma": 20,
-    "fut": 252,
-    "hits": 9,
-    "actual_fake": 16
-   },
-   {
-    "win": 20,
-    "ma": 50,
-    "fut": 63,
-    "hits": 14,
-    "actual_fake": 13
-   },
-   {
-    "win": 20,
-    "ma": 50,
-    "fut": 126,
-    "hits": 14,
-    "actual_fake": 15
-   },
-   {
-    "win": 20,
-    "ma": 50,
-    "fut": 252,
-    "hits": 15,
-    "actual_fake": 16
-   }
-  ],
+  "sensitivity": {
+   "sell0.3_lad5/10/15_wait0": 6,
+   "sell0.3_lad5/10/15_wait1": 6,
+   "sell0.3_lad10/20/30_wait0": 6,
+   "sell0.3_lad10/20/30_wait1": 6,
+   "sell0.3_lad20/30/40_wait0": 6,
+   "sell0.3_lad20/30/40_wait1": 6,
+   "sell0.5_lad5/10/15_wait0": 5,
+   "sell0.5_lad5/10/15_wait1": 5,
+   "sell0.5_lad10/20/30_wait0": 5,
+   "sell0.5_lad10/20/30_wait1": 5,
+   "sell0.5_lad20/30/40_wait0": 4,
+   "sell0.5_lad20/30/40_wait1": 4
+  },
   "others": {
    "rsi30": {
     "hits": 10,
@@ -1196,6 +1082,242 @@
    "worst_mdd": -27.1,
    "win": 11,
    "stable": 11
+  }
+ },
+ "type_v2": {
+  "rules": {
+   "A_master": {
+    "a0": 0.1,
+    "drop": 0.2,
+    "growth": 1.5,
+    "peak_all": true
+   },
+   "A_each": "반등 날마다 처음 돈의 10%·20%",
+   "B_start": "주식 80% · 현금 20% (반등 다음 날)",
+   "B_half_sell": {
+    "trigger_below_avg": 0.2,
+    "sell": 0.5,
+    "rebuy_below_sell_price": [
+     0.1,
+     0.2,
+     0.3
+    ],
+    "rebuy_size": "판 뒤 현금 1/3씩(마지막은 남은 돈)",
+    "exec": "조건 뒤 반등 날",
+    "peak_all": true
+   }
+  },
+  "12m": {
+   "A": {
+    "master_plus": {
+     "n": 20,
+     "loss20": 0,
+     "median_ret": 5.4,
+     "worst_ret": -10.8,
+     "worst_mdd": -19.5,
+     "win": 18,
+     "stable": 14
+    },
+    "master_wait_reb": {
+     "n": 20,
+     "loss20": 2,
+     "median_ret": 5.2,
+     "worst_ret": -13.7,
+     "worst_mdd": -21.4,
+     "win": 19,
+     "stable": 13
+    },
+    "each_10": {
+     "n": 20,
+     "loss20": 2,
+     "median_ret": 6.1,
+     "worst_ret": -29.5,
+     "worst_mdd": -36.4,
+     "win": 16,
+     "stable": 14
+    },
+    "each_20": {
+     "n": 20,
+     "loss20": 3,
+     "median_ret": 7.1,
+     "worst_ret": -39.2,
+     "worst_mdd": -45.1,
+     "win": 16,
+     "stable": 14
+    },
+    "lump": {
+     "n": 20,
+     "loss20": 8,
+     "median_ret": 13.7,
+     "worst_ret": -41.1,
+     "worst_mdd": -46.9,
+     "win": 13,
+     "stable": 10
+    }
+   },
+   "B": {
+    "hold": {
+     "n": 20,
+     "loss20": 5,
+     "median_ret": 11.6,
+     "worst_ret": -32.7,
+     "worst_mdd": -37.3,
+     "win": 14,
+     "stable": 11
+    },
+    "sell_all": {
+     "n": 20,
+     "loss20": 1,
+     "median_ret": 5.7,
+     "worst_ret": -21.5,
+     "worst_mdd": -21.6,
+     "win": 12,
+     "stable": 10
+    },
+    "half_sell": {
+     "n": 20,
+     "loss20": 2,
+     "median_ret": 10.6,
+     "worst_ret": -30.9,
+     "worst_mdd": -36.0,
+     "win": 14,
+     "stable": 12
+    },
+    "half_sell_now": {
+     "n": 20,
+     "loss20": 2,
+     "median_ret": 10.6,
+     "worst_ret": -28.4,
+     "worst_mdd": -33.7,
+     "win": 15,
+     "stable": 12
+    }
+   },
+   "B_half_detail": {
+    "sold": 8,
+    "sold_then_peak": 1,
+    "sold_then_rebuy": 4
+   },
+   "B_sens_loss20": {
+    "sell0.3_lad5/10/15_wait0": 4,
+    "sell0.3_lad5/10/15_wait1": 3,
+    "sell0.3_lad10/20/30_wait0": 3,
+    "sell0.3_lad10/20/30_wait1": 3,
+    "sell0.3_lad20/30/40_wait0": 3,
+    "sell0.3_lad20/30/40_wait1": 3,
+    "sell0.5_lad5/10/15_wait0": 2,
+    "sell0.5_lad5/10/15_wait1": 2,
+    "sell0.5_lad10/20/30_wait0": 2,
+    "sell0.5_lad10/20/30_wait1": 2,
+    "sell0.5_lad20/30/40_wait0": 2,
+    "sell0.5_lad20/30/40_wait1": 2
+   }
+  },
+  "36m": {
+   "A": {
+    "master_plus": {
+     "n": 19,
+     "loss20": 0,
+     "median_ret": 31.3,
+     "worst_ret": 1.6,
+     "worst_mdd": -19.7,
+     "win": 19,
+     "stable": 18
+    },
+    "master_wait_reb": {
+     "n": 19,
+     "loss20": 2,
+     "median_ret": 31.3,
+     "worst_ret": 3.1,
+     "worst_mdd": -21.4,
+     "win": 19,
+     "stable": 16
+    },
+    "each_10": {
+     "n": 19,
+     "loss20": 4,
+     "median_ret": 32.0,
+     "worst_ret": -26.4,
+     "worst_mdd": -36.4,
+     "win": 17,
+     "stable": 15
+    },
+    "each_20": {
+     "n": 19,
+     "loss20": 5,
+     "median_ret": 33.9,
+     "worst_ret": -32.1,
+     "worst_mdd": -45.1,
+     "win": 17,
+     "stable": 14
+    },
+    "lump": {
+     "n": 19,
+     "loss20": 9,
+     "median_ret": 42.3,
+     "worst_ret": -35.4,
+     "worst_mdd": -46.9,
+     "win": 16,
+     "stable": 10
+    }
+   },
+   "B": {
+    "hold": {
+     "n": 19,
+     "loss20": 7,
+     "median_ret": 36.6,
+     "worst_ret": -26.3,
+     "worst_mdd": -37.3,
+     "win": 16,
+     "stable": 12
+    },
+    "sell_all": {
+     "n": 19,
+     "loss20": 1,
+     "median_ret": 36.6,
+     "worst_ret": -21.3,
+     "worst_mdd": -21.6,
+     "win": 10,
+     "stable": 10
+    },
+    "half_sell": {
+     "n": 19,
+     "loss20": 5,
+     "median_ret": 39.2,
+     "worst_ret": -20.3,
+     "worst_mdd": -36.0,
+     "win": 15,
+     "stable": 12
+    },
+    "half_sell_now": {
+     "n": 19,
+     "loss20": 5,
+     "median_ret": 39.2,
+     "worst_ret": -19.8,
+     "worst_mdd": -33.7,
+     "win": 15,
+     "stable": 12
+    }
+   },
+   "B_half_detail": {
+    "sold": 9,
+    "sold_then_peak": 1,
+    "sold_then_rebuy": 6
+   },
+   "B_sens_loss20": {
+    "sell0.3_lad5/10/15_wait0": 6,
+    "sell0.3_lad5/10/15_wait1": 6,
+    "sell0.3_lad10/20/30_wait0": 6,
+    "sell0.3_lad10/20/30_wait1": 6,
+    "sell0.3_lad20/30/40_wait0": 6,
+    "sell0.3_lad20/30/40_wait1": 6,
+    "sell0.5_lad5/10/15_wait0": 5,
+    "sell0.5_lad5/10/15_wait1": 5,
+    "sell0.5_lad10/20/30_wait0": 5,
+    "sell0.5_lad10/20/30_wait1": 5,
+    "sell0.5_lad20/30/40_wait0": 4,
+    "sell0.5_lad20/30/40_wait1": 4
+   }
   }
  }
 }

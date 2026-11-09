@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-09 — 미국 주식만 · 기준 폭 숫자 묶음(30% 미만 · 30~50% · 50% 이상)으로 결과 (사용자 지시 "야 일단 미국 주식 기준만 하고 … 명확하게 할 수 있는것만 해소 방법으로 제시해").
+# VERSION: v1.2 — 2026-11-09 — 2년 판정 더함 (대본 판 피드백 "야 3년을 언제 기다려 1~2년은 몰라도").
+# (v1.1 — 2026-11-09 — 미국 주식만 · 기준 폭 숫자 묶음(30% 미만 · 30~50% · 50% 이상)으로 결과 (사용자 지시 "야 일단 미국 주식 기준만 하고 … 명확하게 할 수 있는것만 해소 방법으로 제시해").
 # (v1.0 — 2026-11-09 — 롱폼 「폭락 뒤 반등, 살까 기다릴까 — 내 종목·내 손실에 맞춰 정하는 법」 숫자 (사용자 지시 2026-11-09
 #          "너가 가장 좋다고 생각하는 안으로 대본 쓰고 평가판에 올려봐 분량은 짧게해도 되니까 전달하고자 하는걸 명확하게 해" — 앞 대화: 종목이 달라도 · 이미 물린 사람도).
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-09 | HOR 에 2y(504거래일) | main |
 # | v1.1 | 2026-11-09 | 한국 종목·KODEX 200 뺌(미국만 — 지수 = SPY) · by_D 묶음(사건 때 기준 폭 D) 요약 · 판단이 필요한 묶음 이름(대형주·변동 큰 종목)은 대본에 안 씀 | main |
 # | v1.0 | 2026-11-09 | 최초 (같은 날 더함: 물린 사람 idx_third·idx_half — 남길 몫만 남기고 나머지를 지수로 · 미국 종목 = SPY, 한국 종목 = KODEX 200) | base_drop · events · cash_plans · stuck_plans · main |
 #
@@ -30,7 +32,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 DATA = ROOT / "stock/topics/precheck/data"
@@ -45,7 +47,7 @@ GROUPS = {
     "레버리지 ETF": ["SOXL", "TQQQ", "TNA", "QLD"],
 }
 KR: dict = {}
-HOR = {"1y": 252, "3y": 756}
+HOR = {"1y": 252, "2y": 504, "3y": 756}
 
 logging.basicConfig(level=logging.INFO, format="%(message)s", stream=sys.stdout)
 def log(stage: str, **kv) -> None:

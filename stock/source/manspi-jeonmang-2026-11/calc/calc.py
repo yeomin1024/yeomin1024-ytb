@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-08 — 2026 연간 전망 밴드(2025년 말 7곳 3,500~5,500) vs 실제 고점 · 코스피 30% 넘는 하락 국면과 회복 기간 (대본 분량 보완).
+# VERSION: v1.2 — 2026-11-09 — 반론 검토 1차 숫자: 약세 8,000 vs 6/25 종가 · 1만 전망 날(5/11) vs 2024년 말 배수 · 2022 전망 밴드 하단 2,610 vs 실제 (사용자 지시 "…만스피 대본에도 모두 반영 … 페르소나 검증도 해").
+# (v1.1 — 2026-11-08 — 2026 연간 전망 밴드(2025년 말 7곳 3,500~5,500) vs 실제 고점 · 코스피 30% 넘는 하락 국면과 회복 기간 (대본 분량 보완).)
 # (v1.0 — 2026-11-08 — 롱폼 「만스피 간다는 전문가들 왜 이럴까? 절대 믿지 마세요」 숫자 (사용자 지시 2026-11-08 — 전달 내용 "믿어도 되는 말과 절대 믿지 말아야 할 전문가 말").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-09 | CITED kospi_2022_band [2610, 3600] · bear_vs_report_day_pct · fn_10000 vs_2024_end_x · kospi_2022.vs_band_low_pct (기존 값 그대로) | main |
 # | v1.1 | 2026-11-08 | cited band_2026_top 5,500 → 고점 대비 · drawdowns(고점 −30% 넘는 국면 · 바닥 · 고점 되찾은 날 · 해) | drawdowns · main |
 # | v1.0 | 2026-11-08 | 최초 — 2026 코스피 길(8,000 첫 돌파 · 고점 · 지금) · 전망이 나온 날 1억 원 · 2022 전망 3,600 vs 실제 · 월가 2022·2023 평균 전망 vs 실제 | load · main |
 #
@@ -23,11 +25,11 @@ from pathlib import Path
 
 import pandas as pd
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 OUT = HERE / "result.json"
-CITED = {"kospi_2022_top_target": 3600, "band_2026_made_2025_12": [3500, 5500], "spx_2022_avg_target": 4975, "spx_2023_avg_target": 4083,
+CITED = {"kospi_2022_top_target": 3600, "kospi_2022_band": [2610, 3600], "band_2026_made_2025_12": [3500, 5500], "spx_2022_avg_target": 4975, "spx_2023_avg_target": 4083,
          "jpm_2026_06_25": {"base": 12500, "bull": 15000, "bear": 8000}, "kb_2026_05": 10500}
 DATES = {"fn_10000_report": "2026-05-11", "jpm_15000_report": "2026-06-25"}
 
@@ -100,10 +102,12 @@ def main() -> None:
         log("DRAWDOWN", **d)
     log("DRAWDOWN", open=json.dumps(open_), n_done=len(dds))
     j = CITED["jpm_2026_06_25"]
-    res["kospi"]["jpm_vs_last"] = {"bear_8000_vs_last_pct": pct(last, j["bear"]), "below_bear": last < j["bear"]}
+    res["kospi"]["jpm_vs_last"] = {"bear_8000_vs_last_pct": pct(last, j["bear"]), "below_bear": last < j["bear"],
+                                   "bear_vs_report_day_pct": pct(j["bear"], res["kospi"]["jpm_15000_report"]["close"])}   # 약세 8,000 이 그날 종가보다 몇 % 아래였나
+    res["kospi"]["fn_10000_report"]["vs_2024_end_x"] = round(res["kospi"]["fn_10000_report"]["close"] / e24[1], 2)   # 1만 전망 날 = 2024년 말의 몇 배
     # 2022 — 전망 상단 3,600 vs 실제
     e21, e22 = at(k, "2021-12-31"), at(k, "2022-12-31")
-    res["kospi_2022"] = {"end_2021": e21, "end_2022": e22, "year_pct": pct(e22[1], e21[1]), "vs_top_target_pct": pct(e22[1], CITED["kospi_2022_top_target"]),
+    res["kospi_2022"] = {"end_2021": e21, "end_2022": e22, "year_pct": pct(e22[1], e21[1]), "vs_top_target_pct": pct(e22[1], CITED["kospi_2022_top_target"]), "vs_band_low_pct": pct(e22[1], CITED["kospi_2022_band"][0]),
                          "max_2022": round(float(k["2022"].max()), 2)}
     # 월가 — 평균 전망 vs 실제
     s21, s22, s23 = at(sp, "2021-12-31"), at(sp, "2022-12-31"), at(sp, "2023-12-31")

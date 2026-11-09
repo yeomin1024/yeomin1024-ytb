@@ -1,8 +1,12 @@
 {
- "version": "v1.1",
- "made": "2026-11-08T13:24:32Z",
+ "version": "v1.2",
+ "made": "2026-11-09T11:44:51Z",
  "cited": {
   "kospi_2022_top_target": 3600,
+  "kospi_2022_band": [
+   2610,
+   3600
+  ],
   "band_2026_made_2025_12": [
    3500,
    5500
@@ -44,7 +48,8 @@
    "to_last_pct": -35.3,
    "won_1e8_now": 64680000,
    "loss_won": -35320000,
-   "max_after": 9114.55
+   "max_after": 9114.55,
+   "vs_2024_end_x": 3.26
   },
   "jpm_15000_report": {
    "date": "2026-06-25",
@@ -57,7 +62,8 @@
   "peak_vs_band_2026_top_pct": 65.7,
   "jpm_vs_last": {
    "bear_8000_vs_last_pct": -36.8,
-   "below_bear": true
+   "below_bear": true,
+   "bear_vs_report_day_pct": -10.4
   }
  },
  "drawdowns_30": {
@@ -116,6 +122,7 @@
   ],
   "year_pct": -24.9,
   "vs_top_target_pct": -37.9,
+  "vs_band_low_pct": -14.3,
   "max_2022": 2989.24
  },
  "spx": {

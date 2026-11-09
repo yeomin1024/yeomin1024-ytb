@@ -83,7 +83,7 @@ python tools/srt_tool.py upload stock/source/manspi-jeonmang-2026-11/manspi-jeon
 | 항목 | 값 |
 |---|---|
 | 공개 상태 | 비공개로 올린 뒤 예약 공개 |
-| 썸네일 | `thumbnails/thumbnail_1.jpg` (1280×720 — 그림 `images/TH-CHAR.jpg` ChatGPT 캐릭터 + 문구 코드 `thumb.mjs`: '주식 전문가가 이런 말하면 / 절대 믿지 마세요' + 캐릭터 문구 '만스피 간다며...' (말풍선 없이 외곽선·그림자 강조 · 가운데) — 사용자 문구 2026-11-09) · ⚠ 그림 속 '-50%' 는 ChatGPT 가 그려 넣은 것 (대본 43.3%·44.5% 와 다름 — 사용자가 그대로 둠) |
+| 썸네일 | `thumbnails/thumbnail_1.jpg` (1280×720 — 그림 `images/TH-CHAR.jpg` ChatGPT 캐릭터 + 문구 코드 `thumb.mjs`: '주식 전문가가 이런 말하면 / 절대 믿지 마세요' + 캐릭터 문구 '만스피 간다며...' (말풍선 없이 노란 글자 + 외곽선·그림자 · 우는 인물 머리 위에 작게) — 사용자 문구 2026-11-09) · ⚠ 그림 속 '-50%' 는 ChatGPT 가 그려 넣은 것 (대본 43.3%·44.5% 와 다름 — 사용자가 그대로 둠) |
 | 자막 | `manspi-jeonmang-2026-11.srt` (오디오 뒤 `align-audio`) |
 | 카테고리 | 교육 |
 | 동영상 언어 · 기본 언어 | 한국어 · ko |

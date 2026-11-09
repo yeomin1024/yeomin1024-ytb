@@ -1,6 +1,6 @@
 {
- "version": "v1.4",
- "made": "2026-11-09T12:03:48Z",
+ "version": "v1.5",
+ "made": "2026-11-09T12:10:25Z",
  "cited": {
   "kospi_2022_top_target": 3600,
   "kospi_2022_band": [
@@ -74,7 +74,9 @@
     "bottom": "2001-09-17",
     "drop_pct": -55.7,
     "regained": "2005-07-14",
-    "years": 5.5
+    "years": 5.5,
+    "last_below_peak": "2009-03-06",
+    "years_last_below_peak": 9.2
    },
    {
     "peak": "2007-10-31",
@@ -82,7 +84,9 @@
     "bottom": "2008-10-24",
     "drop_pct": -54.5,
     "regained": "2011-01-03",
-    "years": 3.2
+    "years": 3.2,
+    "last_below_peak": "2020-06-15",
+    "years_last_below_peak": 12.6
    },
    {
     "peak": "2018-01-29",
@@ -90,7 +94,9 @@
     "bottom": "2020-03-19",
     "drop_pct": -43.9,
     "regained": "2020-11-23",
-    "years": 2.8
+    "years": 2.8,
+    "last_below_peak": "2025-05-23",
+    "years_last_below_peak": 7.3
    },
    {
     "peak": "2021-07-06",
@@ -98,7 +104,9 @@
     "bottom": "2022-09-30",
     "drop_pct": -34.8,
     "regained": "2025-09-10",
-    "years": 4.2
+    "years": 4.2,
+    "last_below_peak": "2025-09-09",
+    "years_last_below_peak": 4.2
    }
   ],
   "open": {
@@ -109,7 +117,8 @@
   },
   "n_done": 4,
   "years_min": 2.8,
-  "years_max": 5.5
+  "years_max": 5.5,
+  "years_last_below_peak_max": 12.6
  },
  "buy_after_30": {
   "cases": [

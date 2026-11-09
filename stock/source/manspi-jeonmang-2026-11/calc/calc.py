@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-09 — buy_after_30 에 '매수 가격 아래 종가가 나온 마지막 날·해' (반론 검토 3차 — 되찾은 뒤 다시 빠진 경우).
+# VERSION: v1.5 — 2026-11-09 — drawdowns 에 '고점 매수 → 원금 아래 종가가 나온 마지막 날·해' (반론 검토 4차 — 되찾은 뒤 다시 빠진 경우).
+# (v1.4 — 2026-11-09 — buy_after_30 에 '매수 가격 아래 종가가 나온 마지막 날·해' (반론 검토 3차 — 되찾은 뒤 다시 빠진 경우).)
 # (v1.3 — 2026-11-09 — 고점보다 30% 빠진 첫날 매수했다면: 그 뒤 더 빠진 폭 · 그 값을 되찾기까지 해 (반론 검토 2차 — 물린 사람 규칙의 근거).)
 # (v1.2 — 2026-11-09 — 반론 검토 1차 숫자: 약세 8,000 vs 6/25 종가 · 1만 전망 날(5/11) vs 2024년 말 배수 · 2022 전망 밴드 하단 2,610 vs 실제 (사용자 지시 "…만스피 대본에도 모두 반영 … 페르소나 검증도 해").)
 # (v1.1 — 2026-11-08 — 2026 연간 전망 밴드(2025년 말 7곳 3,500~5,500) vs 실제 고점 · 코스피 30% 넘는 하락 국면과 회복 기간 (대본 분량 보완).)
@@ -8,6 +9,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.5 | 2026-11-09 | drawdowns_30 done[].last_below_peak · years_last_below_peak + years_last_below_peak_max (자료 끝까지 · 기존 값 그대로) | main |
 # | v1.4 | 2026-11-09 | buy_after_30 cases.last_below_buy · years_last_below + years_last_below_max (자료 끝까지 · 기존 값 그대로) | buy_after · main |
 # | v1.3 | 2026-11-09 | buy_after_30: −30% 첫 종가 날 · 그 뒤 최저(되찾기 전) · 더 빠진 폭 · 산 값을 다시 넘은 날 · 해 (기존 값 그대로) | buy_after · main |
 # | v1.2 | 2026-11-09 | CITED kospi_2022_band [2610, 3600] · bear_vs_report_day_pct · fn_10000 vs_2024_end_x · kospi_2022.vs_band_low_pct (기존 값 그대로) | main |
@@ -29,7 +31,7 @@ from pathlib import Path
 
 import pandas as pd
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 OUT = HERE / "result.json"
@@ -120,7 +122,12 @@ def main() -> None:
                              "loss_won": int(round(1e8 * (last / v - 1), -4)), "max_after": round(float(k[dd:].max()), 2)}
     res["kospi"]["peak_vs_band_2026_top_pct"] = pct(pk, CITED["band_2026_made_2025_12"][1])
     dds, open_ = drawdowns(k)
-    res["drawdowns_30"] = {"done": dds, "open": open_, "n_done": len(dds), "years_min": min(d["years"] for d in dds), "years_max": max(d["years"] for d in dds)}
+    for d in dds:                                   # 고점 날 매수 → 원금(고점 종가) 아래 종가가 나온 마지막 날 (자료 끝까지)
+        bl = k[d["peak"]:]; bl = bl[bl < d["peak_close"]]
+        d["last_below_peak"] = bl.index[-1].strftime("%Y-%m-%d")
+        d["years_last_below_peak"] = round((bl.index[-1] - pd.Timestamp(d["peak"])).days / 365.25, 1)
+    res["drawdowns_30"] = {"done": dds, "open": open_, "n_done": len(dds), "years_min": min(d["years"] for d in dds), "years_max": max(d["years"] for d in dds),
+                           "years_last_below_peak_max": max(d["years_last_below_peak"] for d in dds)}
     for d in dds:
         log("DRAWDOWN", **d)
     ba = buy_after(k, dds)

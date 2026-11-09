@@ -1,6 +1,6 @@
 {
- "version": "v1.2",
- "made": "2026-11-09T11:44:51Z",
+ "version": "v1.3",
+ "made": "2026-11-09T11:55:01Z",
  "cited": {
   "kospi_2022_top_target": 3600,
   "kospi_2022_band": [
@@ -110,6 +110,49 @@
   "n_done": 4,
   "years_min": 2.8,
   "years_max": 5.5
+ },
+ "buy_after_30": {
+  "cases": [
+   {
+    "peak": "2000-01-04",
+    "buy": "2000-04-17",
+    "buy_close": 707.72,
+    "low_after": 468.76,
+    "more_drop_pct": -33.8,
+    "back_to_buy": "2002-01-02",
+    "years_to_buy_price": 1.7
+   },
+   {
+    "peak": "2007-10-31",
+    "buy": "2008-09-01",
+    "buy_close": 1414.43,
+    "low_after": 938.75,
+    "more_drop_pct": -33.6,
+    "back_to_buy": "2009-05-11",
+    "years_to_buy_price": 0.7
+   },
+   {
+    "peak": "2018-01-29",
+    "buy": "2020-03-13",
+    "buy_close": 1771.44,
+    "low_after": 1457.64,
+    "more_drop_pct": -17.7,
+    "back_to_buy": "2020-04-06",
+    "years_to_buy_price": 0.1
+   },
+   {
+    "peak": "2021-07-06",
+    "buy": "2022-07-01",
+    "buy_close": 2305.42,
+    "low_after": 2155.49,
+    "more_drop_pct": -6.5,
+    "back_to_buy": "2022-11-01",
+    "years_to_buy_price": 0.3
+   }
+  ],
+  "more_drop_worst_pct": -33.8,
+  "years_to_buy_price_max": 1.7,
+  "years_to_buy_price_min": 0.1
  },
  "kospi_2022": {
   "end_2021": [

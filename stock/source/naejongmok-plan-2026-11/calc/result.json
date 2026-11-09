@@ -1,11 +1,10 @@
 {
- "version": "v1.0",
- "made": "2026-11-09T08:15:15Z",
+ "version": "v1.1",
+ "made": "2026-11-09T08:28:06Z",
  "groups": {
   "지수": [
    "SPY",
-   "QQQ",
-   "069500.KS"
+   "QQQ"
   ],
   "대형주": [
    "AAPL",
@@ -21,17 +20,13 @@
    "BAC",
    "C",
    "F",
-   "GE",
-   "005930.KS",
-   "005380.KS",
-   "035420.KS"
+   "GE"
   ],
   "변동 큰 종목": [
    "NVDA",
    "TSLA",
    "AMD",
    "MU",
-   "000660.KS",
    "SHOP",
    "PYPL",
    "ZM",
@@ -88,10 +83,191 @@
    "QLD"
   ]
  },
+ "by_D": {
+  "D<30%": {
+   "1y": {
+    "n": 286,
+    "stuck_n": 286,
+    "all": {
+     "ret_median_pct": 11.4,
+     "loss_over20_pct": 42.7,
+     "worst_of3": 64
+    },
+    "wait": {
+     "ret_median_pct": 2.2,
+     "loss_over20_pct": 19.2,
+     "worst_of3": 222
+    },
+    "split": {
+     "ret_median_pct": 11.9,
+     "loss_over20_pct": 35.3,
+     "worst_of3": 0
+    },
+    "stuck_hold": {
+     "rec_pct": 70.3,
+     "worse_pct": 33.9,
+     "end_median": 0.984
+    },
+    "stuck_idx_half": {
+     "rec_pct": 65.7,
+     "worse_pct": 24.1,
+     "end_median": 0.998
+    }
+   },
+   "3y": {
+    "n": 261,
+    "stuck_n": 261,
+    "all": {
+     "ret_median_pct": 52.7,
+     "loss_over20_pct": 51.7,
+     "worst_of3": 32
+    },
+    "wait": {
+     "ret_median_pct": 32.7,
+     "loss_over20_pct": 33.7,
+     "worst_of3": 229
+    },
+    "split": {
+     "ret_median_pct": 53.4,
+     "loss_over20_pct": 47.5,
+     "worst_of3": 0
+    },
+    "stuck_hold": {
+     "rec_pct": 87.0,
+     "worse_pct": 19.2,
+     "end_median": 1.331
+    },
+    "stuck_idx_half": {
+     "rec_pct": 87.4,
+     "worse_pct": 13.8,
+     "end_median": 1.33
+    }
+   }
+  },
+  "D 30~50%": {
+   "1y": {
+    "n": 229,
+    "stuck_n": 229,
+    "all": {
+     "ret_median_pct": 19.1,
+     "loss_over20_pct": 46.7,
+     "worst_of3": 66
+    },
+    "wait": {
+     "ret_median_pct": 3.8,
+     "loss_over20_pct": 17.5,
+     "worst_of3": 163
+    },
+    "split": {
+     "ret_median_pct": 12.0,
+     "loss_over20_pct": 31.9,
+     "worst_of3": 0
+    },
+    "stuck_hold": {
+     "rec_pct": 58.1,
+     "worse_pct": 35.4,
+     "end_median": 0.919
+    },
+    "stuck_idx_half": {
+     "rec_pct": 52.0,
+     "worse_pct": 27.9,
+     "end_median": 0.898
+    }
+   },
+   "3y": {
+    "n": 189,
+    "stuck_n": 189,
+    "all": {
+     "ret_median_pct": 50.1,
+     "loss_over20_pct": 66.7,
+     "worst_of3": 32
+    },
+    "wait": {
+     "ret_median_pct": 15.1,
+     "loss_over20_pct": 40.2,
+     "worst_of3": 157
+    },
+    "split": {
+     "ret_median_pct": 43.8,
+     "loss_over20_pct": 60.8,
+     "worst_of3": 0
+    },
+    "stuck_hold": {
+     "rec_pct": 76.7,
+     "worse_pct": 25.9,
+     "end_median": 1.132
+    },
+    "stuck_idx_half": {
+     "rec_pct": 74.6,
+     "worse_pct": 16.4,
+     "end_median": 1.129
+    }
+   }
+  },
+  "D>=50%": {
+   "1y": {
+    "n": 236,
+    "stuck_n": 236,
+    "all": {
+     "ret_median_pct": -1.2,
+     "loss_over20_pct": 67.4,
+     "worst_of3": 108
+    },
+    "wait": {
+     "ret_median_pct": 3.7,
+     "loss_over20_pct": 17.4,
+     "worst_of3": 128
+    },
+    "split": {
+     "ret_median_pct": 4.8,
+     "loss_over20_pct": 41.5,
+     "worst_of3": 0
+    },
+    "stuck_hold": {
+     "rec_pct": 35.2,
+     "worse_pct": 51.3,
+     "end_median": 0.54
+    },
+    "stuck_idx_half": {
+     "rec_pct": 25.0,
+     "worse_pct": 43.6,
+     "end_median": 0.622
+    }
+   },
+   "3y": {
+    "n": 168,
+    "stuck_n": 168,
+    "all": {
+     "ret_median_pct": 23.4,
+     "loss_over20_pct": 75.0,
+     "worst_of3": 54
+    },
+    "wait": {
+     "ret_median_pct": 12.5,
+     "loss_over20_pct": 32.7,
+     "worst_of3": 114
+    },
+    "split": {
+     "ret_median_pct": 22.0,
+     "loss_over20_pct": 59.5,
+     "worst_of3": 0
+    },
+    "stuck_hold": {
+     "rec_pct": 57.1,
+     "worse_pct": 40.5,
+     "end_median": 0.623
+    },
+    "stuck_idx_half": {
+     "rec_pct": 46.4,
+     "worse_pct": 23.2,
+     "end_median": 0.741
+    }
+   }
+  }
+ },
  "used": {
   "SPY": "지수",
   "QQQ": "지수",
-  "069500.KS": "지수",
   "AAPL": "대형주",
   "MSFT": "대형주",
   "AMZN": "대형주",
@@ -106,14 +282,10 @@
   "C": "대형주",
   "F": "대형주",
   "GE": "대형주",
-  "005930.KS": "대형주",
-  "005380.KS": "대형주",
-  "035420.KS": "대형주",
   "NVDA": "변동 큰 종목",
   "TSLA": "변동 큰 종목",
   "AMD": "변동 큰 종목",
   "MU": "변동 큰 종목",
-  "000660.KS": "변동 큰 종목",
   "SHOP": "변동 큰 종목",
   "PYPL": "변동 큰 종목",
   "ZM": "변동 큰 종목",
@@ -180,12 +352,6 @@
    "group": "지수",
    "name": "QQQ",
    "median_2y_maxdrop": 19.4,
-   "n_chunks": 8
-  },
-  "069500.KS": {
-   "group": "지수",
-   "name": "KODEX 200",
-   "median_2y_maxdrop": 20.3,
    "n_chunks": 8
   },
   "AAPL": {
@@ -272,24 +438,6 @@
    "median_2y_maxdrop": 35.3,
    "n_chunks": 8
   },
-  "005930.KS": {
-   "group": "대형주",
-   "name": "삼성전자",
-   "median_2y_maxdrop": 26.2,
-   "n_chunks": 8
-  },
-  "005380.KS": {
-   "group": "대형주",
-   "name": "현대차",
-   "median_2y_maxdrop": 36.8,
-   "n_chunks": 8
-  },
-  "035420.KS": {
-   "group": "대형주",
-   "name": "NAVER",
-   "median_2y_maxdrop": 33.3,
-   "n_chunks": 8
-  },
   "NVDA": {
    "group": "변동 큰 종목",
    "name": "NVDA",
@@ -312,12 +460,6 @@
    "group": "변동 큰 종목",
    "name": "MU",
    "median_2y_maxdrop": 51.6,
-   "n_chunks": 8
-  },
-  "000660.KS": {
-   "group": "변동 큰 종목",
-   "name": "SK하이닉스",
-   "median_2y_maxdrop": 37.5,
    "n_chunks": 8
   },
   "SHOP": {
@@ -629,15 +771,15 @@
  },
  "base_group": {
   "지수": {
-   "n": 3,
-   "median": 19.4,
+   "n": 2,
+   "median": 19.0,
    "range": [
     18.7,
-    20.3
+    19.4
    ]
   },
   "대형주": {
-   "n": 17,
+   "n": 14,
    "median": 30.9,
    "range": [
     21.0,
@@ -645,7 +787,7 @@
    ]
   },
   "변동 큰 종목": {
-   "n": 52,
+   "n": 51,
    "median": 57.4,
    "range": [
     24.1,
@@ -664,593 +806,593 @@
  "summary": {
   "전체": {
    "1y": {
-    "n": 836,
+    "n": 751,
     "all": {
-     "end_median": 1.118,
+     "end_median": 1.124,
      "end_worst": 0.086,
      "mdd_worst": -98.4,
-     "mdd_median": -20.2,
-     "worst_of3": 262,
-     "best_of3": 464,
-     "loss_over20": 420,
-     "ret_median_pct": 11.8,
-     "loss_over20_pct": 50.2
+     "mdd_median": -21.1,
+     "worst_of3": 238,
+     "best_of3": 414,
+     "loss_over20": 388,
+     "ret_median_pct": 12.4,
+     "loss_over20_pct": 51.7
     },
     "wait": {
-     "end_median": 1.028,
+     "end_median": 1.03,
      "end_worst": 0.152,
      "mdd_worst": -86.2,
      "mdd_median": -0.0,
-     "worst_of3": 574,
-     "best_of3": 211,
-     "loss_over20": 148,
-     "ret_median_pct": 2.8,
-     "loss_over20_pct": 17.7
+     "worst_of3": 513,
+     "best_of3": 192,
+     "loss_over20": 136,
+     "ret_median_pct": 3.0,
+     "loss_over20_pct": 18.1
     },
     "split": {
-     "end_median": 1.093,
+     "end_median": 1.098,
      "end_worst": 0.128,
      "mdd_worst": -96.3,
-     "mdd_median": -12.4,
+     "mdd_median": -13.0,
      "worst_of3": 0,
-     "best_of3": 161,
-     "loss_over20": 288,
-     "ret_median_pct": 9.3,
-     "loss_over20_pct": 34.4
+     "best_of3": 145,
+     "loss_over20": 272,
+     "ret_median_pct": 9.8,
+     "loss_over20_pct": 36.2
     },
-    "stuck_n": 836,
+    "stuck_n": 751,
     "stuck_hold": {
-     "rec": 465,
-     "end_median": 0.868,
+     "rec": 417,
+     "end_median": 0.866,
      "end_worst": 0.02,
-     "worse": 332,
+     "worse": 299,
      "min_worst": 0.005,
-     "rec_pct": 55.6,
-     "worse_pct": 39.7
+     "rec_pct": 55.5,
+     "worse_pct": 39.8
     },
     "stuck_restart": {
-     "rec": 399,
-     "end_median": 0.846,
+     "rec": 361,
+     "end_median": 0.839,
      "end_worst": 0.042,
-     "worse": 297,
+     "worse": 264,
      "min_worst": 0.011,
-     "rec_pct": 47.7,
-     "worse_pct": 35.5
+     "rec_pct": 48.1,
+     "worse_pct": 35.2
     },
     "stuck_idx_third": {
-     "rec": 371,
-     "end_median": 0.884,
+     "rec": 341,
+     "end_median": 0.885,
      "end_worst": 0.034,
-     "worse": 229,
+     "worse": 202,
      "min_worst": 0.029,
-     "rec_pct": 44.9,
-     "worse_pct": 27.7
+     "rec_pct": 45.4,
+     "worse_pct": 26.9
     },
     "stuck_idx_half": {
-     "rec": 398,
-     "end_median": 0.88,
+     "rec": 366,
+     "end_median": 0.874,
      "end_worst": 0.031,
-     "worse": 263,
+     "worse": 236,
      "min_worst": 0.024,
-     "rec_pct": 48.2,
-     "worse_pct": 31.8
+     "rec_pct": 48.7,
+     "worse_pct": 31.4
     }
    },
    "3y": {
-    "n": 692,
+    "n": 618,
     "all": {
-     "end_median": 1.466,
+     "end_median": 1.48,
      "end_worst": 0.012,
      "mdd_worst": -99.5,
-     "mdd_median": -29.5,
-     "worst_of3": 125,
-     "best_of3": 388,
-     "loss_over20": 427,
-     "ret_median_pct": 46.6,
-     "loss_over20_pct": 61.7
+     "mdd_median": -30.1,
+     "worst_of3": 118,
+     "best_of3": 343,
+     "loss_over20": 387,
+     "ret_median_pct": 48.0,
+     "loss_over20_pct": 62.6
     },
     "wait": {
-     "end_median": 1.155,
+     "end_median": 1.152,
      "end_worst": 0.015,
      "mdd_worst": -99.5,
-     "mdd_median": -10.2,
-     "worst_of3": 567,
-     "best_of3": 97,
-     "loss_over20": 247,
-     "ret_median_pct": 15.5,
-     "loss_over20_pct": 35.7
+     "mdd_median": -9.5,
+     "worst_of3": 500,
+     "best_of3": 91,
+     "loss_over20": 219,
+     "ret_median_pct": 15.2,
+     "loss_over20_pct": 35.4
     },
     "split": {
-     "end_median": 1.436,
+     "end_median": 1.458,
      "end_worst": 0.02,
      "mdd_worst": -99.5,
-     "mdd_median": -22.0,
+     "mdd_median": -22.9,
      "worst_of3": 0,
-     "best_of3": 207,
-     "loss_over20": 371,
-     "ret_median_pct": 43.6,
-     "loss_over20_pct": 53.6
+     "best_of3": 184,
+     "loss_over20": 339,
+     "ret_median_pct": 45.8,
+     "loss_over20_pct": 54.9
     },
-    "stuck_n": 692,
+    "stuck_n": 618,
     "stuck_hold": {
-     "rec": 532,
-     "end_median": 1.156,
+     "rec": 468,
+     "end_median": 1.15,
      "end_worst": 0.006,
-     "worse": 181,
+     "worse": 167,
      "min_worst": 0.004,
-     "rec_pct": 76.9,
-     "worse_pct": 26.2
+     "rec_pct": 75.7,
+     "worse_pct": 27.0
     },
     "stuck_restart": {
-     "rec": 512,
-     "end_median": 1.126,
+     "rec": 449,
+     "end_median": 1.122,
      "end_worst": 0.012,
-     "worse": 162,
+     "worse": 147,
      "min_worst": 0.005,
-     "rec_pct": 74.0,
-     "worse_pct": 23.4
+     "rec_pct": 72.7,
+     "worse_pct": 23.8
     },
     "stuck_idx_third": {
-     "rec": 490,
-     "end_median": 1.112,
+     "rec": 440,
+     "end_median": 1.13,
      "end_worst": 0.043,
-     "worse": 85,
+     "worse": 76,
      "min_worst": 0.029,
-     "rec_pct": 71.8,
-     "worse_pct": 12.5
+     "rec_pct": 71.2,
+     "worse_pct": 12.3
     },
     "stuck_idx_half": {
-     "rec": 499,
+     "rec": 447,
      "end_median": 1.139,
      "end_worst": 0.035,
-     "worse": 114,
+     "worse": 106,
      "min_worst": 0.024,
-     "rec_pct": 73.2,
-     "worse_pct": 16.7
+     "rec_pct": 72.3,
+     "worse_pct": 17.2
     }
    }
   },
   "지수": {
    "1y": {
-    "n": 37,
+    "n": 29,
     "all": {
-     "end_median": 1.172,
+     "end_median": 1.193,
      "end_worst": 0.565,
      "mdd_worst": -50.4,
-     "mdd_median": -8.4,
-     "worst_of3": 6,
-     "best_of3": 24,
+     "mdd_median": -9.4,
+     "worst_of3": 4,
+     "best_of3": 18,
      "loss_over20": 7,
-     "ret_median_pct": 17.2,
-     "loss_over20_pct": 18.9
+     "ret_median_pct": 19.3,
+     "loss_over20_pct": 24.1
     },
     "wait": {
-     "end_median": 1.044,
-     "end_worst": 0.915,
+     "end_median": 1.047,
+     "end_worst": 0.984,
      "mdd_worst": -17.8,
-     "mdd_median": -1.9,
-     "worst_of3": 31,
-     "best_of3": 6,
+     "mdd_median": -2.6,
+     "worst_of3": 25,
+     "best_of3": 4,
      "loss_over20": 0,
-     "ret_median_pct": 4.4,
+     "ret_median_pct": 4.7,
      "loss_over20_pct": 0.0
     },
     "split": {
-     "end_median": 1.102,
+     "end_median": 1.148,
      "end_worst": 0.621,
      "mdd_worst": -45.5,
-     "mdd_median": -4.9,
+     "mdd_median": -6.6,
      "worst_of3": 0,
      "best_of3": 7,
      "loss_over20": 3,
-     "ret_median_pct": 10.2,
-     "loss_over20_pct": 8.1
+     "ret_median_pct": 14.8,
+     "loss_over20_pct": 10.3
     },
-    "stuck_n": 37,
+    "stuck_n": 29,
     "stuck_hold": {
-     "rec": 25,
-     "end_median": 1.036,
+     "rec": 21,
+     "end_median": 1.049,
      "end_worst": 0.531,
-     "worse": 6,
+     "worse": 4,
      "min_worst": 0.393,
-     "rec_pct": 67.6,
-     "worse_pct": 16.2
+     "rec_pct": 72.4,
+     "worse_pct": 13.8
     },
     "stuck_restart": {
-     "rec": 23,
-     "end_median": 0.997,
+     "rec": 21,
+     "end_median": 1.016,
      "end_worst": 0.544,
-     "worse": 6,
+     "worse": 4,
      "min_worst": 0.461,
-     "rec_pct": 62.2,
-     "worse_pct": 16.2
+     "rec_pct": 72.4,
+     "worse_pct": 13.8
     },
     "stuck_idx_third": {
-     "rec": 25,
-     "end_median": 1.026,
+     "rec": 21,
+     "end_median": 1.036,
      "end_worst": 0.543,
-     "worse": 6,
+     "worse": 4,
      "min_worst": 0.404,
-     "rec_pct": 67.6,
-     "worse_pct": 16.2
+     "rec_pct": 72.4,
+     "worse_pct": 13.8
     },
     "stuck_idx_half": {
-     "rec": 25,
-     "end_median": 1.032,
+     "rec": 21,
+     "end_median": 1.046,
      "end_worst": 0.543,
-     "worse": 6,
+     "worse": 4,
      "min_worst": 0.402,
-     "rec_pct": 67.6,
-     "worse_pct": 16.2
+     "rec_pct": 72.4,
+     "worse_pct": 13.8
     }
    },
    "3y": {
-    "n": 33,
+    "n": 26,
     "all": {
-     "end_median": 1.576,
+     "end_median": 1.665,
      "end_worst": 1.001,
      "mdd_worst": -50.4,
-     "mdd_median": -9.4,
+     "mdd_median": -11.0,
      "worst_of3": 1,
-     "best_of3": 21,
-     "loss_over20": 9,
-     "ret_median_pct": 57.6,
-     "loss_over20_pct": 27.3
+     "best_of3": 16,
+     "loss_over20": 8,
+     "ret_median_pct": 66.5,
+     "loss_over20_pct": 30.8
     },
     "wait": {
-     "end_median": 1.305,
+     "end_median": 1.448,
      "end_worst": 0.909,
      "mdd_worst": -40.7,
      "mdd_median": -4.3,
-     "worst_of3": 32,
+     "worst_of3": 25,
      "best_of3": 0,
      "loss_over20": 2,
-     "ret_median_pct": 30.5,
-     "loss_over20_pct": 6.1
+     "ret_median_pct": 44.8,
+     "loss_over20_pct": 7.7
     },
     "split": {
-     "end_median": 1.55,
+     "end_median": 1.599,
      "end_worst": 0.947,
      "mdd_worst": -47.6,
-     "mdd_median": -8.3,
+     "mdd_median": -9.2,
      "worst_of3": 0,
-     "best_of3": 12,
+     "best_of3": 10,
      "loss_over20": 4,
-     "ret_median_pct": 55.0,
-     "loss_over20_pct": 12.1
+     "ret_median_pct": 59.9,
+     "loss_over20_pct": 15.4
     },
-    "stuck_n": 33,
+    "stuck_n": 26,
     "stuck_hold": {
-     "rec": 28,
-     "end_median": 1.28,
+     "rec": 22,
+     "end_median": 1.419,
      "end_worst": 0.769,
      "worse": 0,
      "min_worst": 0.393,
-     "rec_pct": 84.8,
+     "rec_pct": 84.6,
      "worse_pct": 0.0
     },
     "stuck_restart": {
-     "rec": 28,
-     "end_median": 1.359,
+     "rec": 23,
+     "end_median": 1.429,
      "end_worst": 0.601,
      "worse": 1,
      "min_worst": 0.461,
-     "rec_pct": 84.8,
-     "worse_pct": 3.0
+     "rec_pct": 88.5,
+     "worse_pct": 3.8
     },
     "stuck_idx_third": {
-     "rec": 27,
-     "end_median": 1.276,
+     "rec": 21,
+     "end_median": 1.409,
      "end_worst": 0.706,
      "worse": 2,
      "min_worst": 0.404,
-     "rec_pct": 81.8,
-     "worse_pct": 6.1
+     "rec_pct": 80.8,
+     "worse_pct": 7.7
     },
     "stuck_idx_half": {
-     "rec": 28,
-     "end_median": 1.28,
+     "rec": 22,
+     "end_median": 1.419,
      "end_worst": 0.722,
      "worse": 2,
      "min_worst": 0.402,
-     "rec_pct": 84.8,
-     "worse_pct": 6.1
+     "rec_pct": 84.6,
+     "worse_pct": 7.7
     }
    }
   },
   "대형주": {
    "1y": {
-    "n": 327,
+    "n": 267,
     "all": {
      "end_median": 1.147,
      "end_worst": 0.117,
      "mdd_worst": -95.6,
      "mdd_median": -13.4,
-     "worst_of3": 77,
-     "best_of3": 207,
-     "loss_over20": 122,
+     "worst_of3": 60,
+     "best_of3": 171,
+     "loss_over20": 101,
      "ret_median_pct": 14.7,
-     "loss_over20_pct": 37.3
+     "loss_over20_pct": 37.8
     },
     "wait": {
-     "end_median": 1.023,
+     "end_median": 1.027,
      "end_worst": 0.304,
      "mdd_worst": -74.6,
-     "mdd_median": -1.7,
-     "worst_of3": 250,
-     "best_of3": 56,
-     "loss_over20": 47,
-     "ret_median_pct": 2.3,
-     "loss_over20_pct": 14.4
+     "mdd_median": -1.9,
+     "worst_of3": 207,
+     "best_of3": 43,
+     "loss_over20": 39,
+     "ret_median_pct": 2.7,
+     "loss_over20_pct": 14.6
     },
     "split": {
-     "end_median": 1.107,
+     "end_median": 1.125,
      "end_worst": 0.128,
      "mdd_worst": -95.1,
-     "mdd_median": -8.4,
+     "mdd_median": -8.6,
      "worst_of3": 0,
-     "best_of3": 64,
-     "loss_over20": 77,
-     "ret_median_pct": 10.7,
-     "loss_over20_pct": 23.5
+     "best_of3": 53,
+     "loss_over20": 68,
+     "ret_median_pct": 12.5,
+     "loss_over20_pct": 25.5
     },
-    "stuck_n": 327,
+    "stuck_n": 267,
     "stuck_hold": {
-     "rec": 205,
-     "end_median": 0.953,
+     "rec": 170,
+     "end_median": 0.968,
      "end_worst": 0.053,
-     "worse": 102,
+     "worse": 80,
      "min_worst": 0.02,
-     "rec_pct": 62.7,
-     "worse_pct": 31.2
+     "rec_pct": 63.7,
+     "worse_pct": 30.0
     },
     "stuck_restart": {
-     "rec": 174,
-     "end_median": 0.921,
+     "rec": 146,
+     "end_median": 0.933,
      "end_worst": 0.058,
-     "worse": 94,
+     "worse": 72,
      "min_worst": 0.022,
-     "rec_pct": 53.2,
-     "worse_pct": 28.7
+     "rec_pct": 54.7,
+     "worse_pct": 27.0
     },
     "stuck_idx_third": {
-     "rec": 170,
-     "end_median": 0.953,
+     "rec": 147,
+     "end_median": 0.971,
      "end_worst": 0.201,
-     "worse": 76,
+     "worse": 58,
      "min_worst": 0.141,
-     "rec_pct": 53.3,
-     "worse_pct": 23.8
+     "rec_pct": 55.1,
+     "worse_pct": 21.7
     },
     "stuck_idx_half": {
-     "rec": 177,
-     "end_median": 0.952,
+     "rec": 154,
+     "end_median": 0.973,
      "end_worst": 0.164,
-     "worse": 78,
+     "worse": 60,
      "min_worst": 0.125,
-     "rec_pct": 55.5,
-     "worse_pct": 24.5
+     "rec_pct": 57.7,
+     "worse_pct": 22.5
     }
    },
    "3y": {
-    "n": 291,
+    "n": 239,
     "all": {
-     "end_median": 1.486,
+     "end_median": 1.502,
      "end_worst": 0.087,
      "mdd_worst": -97.8,
      "mdd_median": -21.2,
-     "worst_of3": 27,
-     "best_of3": 189,
-     "loss_over20": 151,
-     "ret_median_pct": 48.6,
+     "worst_of3": 21,
+     "best_of3": 156,
+     "loss_over20": 124,
+     "ret_median_pct": 50.2,
      "loss_over20_pct": 51.9
     },
     "wait": {
-     "end_median": 1.247,
+     "end_median": 1.256,
      "end_worst": 0.289,
      "mdd_worst": -93.4,
-     "mdd_median": -10.4,
-     "worst_of3": 264,
-     "best_of3": 20,
-     "loss_over20": 91,
-     "ret_median_pct": 24.7,
-     "loss_over20_pct": 31.3
+     "mdd_median": -9.5,
+     "worst_of3": 218,
+     "best_of3": 15,
+     "loss_over20": 71,
+     "ret_median_pct": 25.6,
+     "loss_over20_pct": 29.7
     },
     "split": {
-     "end_median": 1.455,
+     "end_median": 1.461,
      "end_worst": 0.097,
      "mdd_worst": -97.6,
-     "mdd_median": -17.0,
+     "mdd_median": -15.8,
      "worst_of3": 0,
-     "best_of3": 82,
-     "loss_over20": 125,
-     "ret_median_pct": 45.5,
-     "loss_over20_pct": 43.0
+     "best_of3": 68,
+     "loss_over20": 104,
+     "ret_median_pct": 46.1,
+     "loss_over20_pct": 43.5
     },
-    "stuck_n": 291,
+    "stuck_n": 239,
     "stuck_hold": {
-     "rec": 248,
-     "end_median": 1.252,
+     "rec": 204,
+     "end_median": 1.263,
      "end_worst": 0.081,
-     "worse": 48,
+     "worse": 37,
      "min_worst": 0.02,
-     "rec_pct": 85.2,
-     "worse_pct": 16.5
-    },
-    "stuck_restart": {
-     "rec": 241,
-     "end_median": 1.208,
-     "end_worst": 0.09,
-     "worse": 45,
-     "min_worst": 0.022,
-     "rec_pct": 82.8,
+     "rec_pct": 85.4,
      "worse_pct": 15.5
     },
+    "stuck_restart": {
+     "rec": 197,
+     "end_median": 1.214,
+     "end_worst": 0.09,
+     "worse": 34,
+     "min_worst": 0.022,
+     "rec_pct": 82.4,
+     "worse_pct": 14.2
+    },
     "stuck_idx_third": {
-     "rec": 231,
-     "end_median": 1.194,
+     "rec": 198,
+     "end_median": 1.233,
      "end_worst": 0.227,
-     "worse": 31,
+     "worse": 22,
      "min_worst": 0.141,
-     "rec_pct": 81.6,
-     "worse_pct": 11.0
+     "rec_pct": 82.8,
+     "worse_pct": 9.2
     },
     "stuck_idx_half": {
-     "rec": 234,
-     "end_median": 1.22,
+     "rec": 200,
+     "end_median": 1.237,
      "end_worst": 0.204,
-     "worse": 33,
+     "worse": 25,
      "min_worst": 0.125,
-     "rec_pct": 82.7,
-     "worse_pct": 11.7
+     "rec_pct": 83.7,
+     "worse_pct": 10.5
     }
    }
   },
   "변동 큰 종목": {
    "1y": {
-    "n": 414,
+    "n": 397,
     "all": {
      "end_median": 0.997,
      "end_worst": 0.086,
      "mdd_worst": -98.4,
-     "mdd_median": -29.4,
-     "worst_of3": 172,
-     "best_of3": 198,
-     "loss_over20": 251,
+     "mdd_median": -29.9,
+     "worst_of3": 167,
+     "best_of3": 190,
+     "loss_over20": 240,
      "ret_median_pct": -0.3,
-     "loss_over20_pct": 60.6
+     "loss_over20_pct": 60.5
     },
     "wait": {
-     "end_median": 1.03,
+     "end_median": 1.036,
      "end_worst": 0.152,
      "mdd_worst": -86.1,
      "mdd_median": 0.0,
-     "worst_of3": 242,
-     "best_of3": 144,
-     "loss_over20": 78,
-     "ret_median_pct": 3.0,
-     "loss_over20_pct": 18.8
+     "worst_of3": 230,
+     "best_of3": 140,
+     "loss_over20": 74,
+     "ret_median_pct": 3.6,
+     "loss_over20_pct": 18.6
     },
     "split": {
-     "end_median": 1.049,
+     "end_median": 1.051,
      "end_worst": 0.148,
      "mdd_worst": -96.3,
-     "mdd_median": -15.5,
+     "mdd_median": -15.7,
      "worst_of3": 0,
-     "best_of3": 72,
-     "loss_over20": 173,
-     "ret_median_pct": 4.9,
+     "best_of3": 67,
+     "loss_over20": 166,
+     "ret_median_pct": 5.1,
      "loss_over20_pct": 41.8
     },
-    "stuck_n": 414,
+    "stuck_n": 397,
     "stuck_hold": {
-     "rec": 191,
-     "end_median": 0.69,
+     "rec": 182,
+     "end_median": 0.678,
      "end_worst": 0.02,
-     "worse": 208,
+     "worse": 199,
      "min_worst": 0.005,
-     "rec_pct": 46.1,
-     "worse_pct": 50.2
+     "rec_pct": 45.8,
+     "worse_pct": 50.1
     },
     "stuck_restart": {
-     "rec": 165,
-     "end_median": 0.687,
+     "rec": 157,
+     "end_median": 0.669,
      "end_worst": 0.042,
-     "worse": 181,
+     "worse": 172,
      "min_worst": 0.011,
-     "rec_pct": 39.9,
-     "worse_pct": 43.7
+     "rec_pct": 39.5,
+     "worse_pct": 43.3
     },
     "stuck_idx_third": {
-     "rec": 146,
-     "end_median": 0.763,
+     "rec": 143,
+     "end_median": 0.762,
      "end_worst": 0.034,
-     "worse": 138,
+     "worse": 131,
      "min_worst": 0.029,
-     "rec_pct": 35.4,
-     "worse_pct": 33.5
+     "rec_pct": 36.0,
+     "worse_pct": 33.0
     },
     "stuck_idx_half": {
-     "rec": 160,
-     "end_median": 0.748,
+     "rec": 155,
+     "end_median": 0.745,
      "end_worst": 0.031,
-     "worse": 165,
+     "worse": 158,
      "min_worst": 0.024,
-     "rec_pct": 38.8,
-     "worse_pct": 40.0
+     "rec_pct": 39.0,
+     "worse_pct": 39.8
     }
    },
    "3y": {
-    "n": 318,
+    "n": 303,
     "all": {
-     "end_median": 1.263,
+     "end_median": 1.244,
      "end_worst": 0.012,
      "mdd_worst": -99.5,
-     "mdd_median": -42.1,
-     "worst_of3": 95,
-     "best_of3": 147,
-     "loss_over20": 231,
-     "ret_median_pct": 26.3,
-     "loss_over20_pct": 72.6
+     "mdd_median": -43.0,
+     "worst_of3": 94,
+     "best_of3": 140,
+     "loss_over20": 219,
+     "ret_median_pct": 24.4,
+     "loss_over20_pct": 72.3
     },
     "wait": {
-     "end_median": 1.129,
+     "end_median": 1.127,
      "end_worst": 0.015,
      "mdd_worst": -99.5,
-     "mdd_median": -7.6,
-     "worst_of3": 223,
-     "best_of3": 76,
-     "loss_over20": 122,
-     "ret_median_pct": 12.9,
-     "loss_over20_pct": 38.4
+     "mdd_median": -6.4,
+     "worst_of3": 209,
+     "best_of3": 75,
+     "loss_over20": 114,
+     "ret_median_pct": 12.7,
+     "loss_over20_pct": 37.6
     },
     "split": {
-     "end_median": 1.255,
+     "end_median": 1.225,
      "end_worst": 0.02,
      "mdd_worst": -99.5,
-     "mdd_median": -32.7,
+     "mdd_median": -33.6,
      "worst_of3": 0,
-     "best_of3": 95,
-     "loss_over20": 207,
-     "ret_median_pct": 25.5,
-     "loss_over20_pct": 65.1
+     "best_of3": 88,
+     "loss_over20": 196,
+     "ret_median_pct": 22.5,
+     "loss_over20_pct": 64.7
     },
-    "stuck_n": 318,
+    "stuck_n": 303,
     "stuck_hold": {
-     "rec": 209,
-     "end_median": 0.848,
+     "rec": 195,
+     "end_median": 0.797,
      "end_worst": 0.006,
-     "worse": 131,
+     "worse": 128,
      "min_worst": 0.004,
-     "rec_pct": 65.7,
-     "worse_pct": 41.2
+     "rec_pct": 64.4,
+     "worse_pct": 42.2
     },
     "stuck_restart": {
-     "rec": 198,
-     "end_median": 0.837,
+     "rec": 184,
+     "end_median": 0.805,
      "end_worst": 0.012,
-     "worse": 114,
+     "worse": 110,
      "min_worst": 0.005,
-     "rec_pct": 62.3,
-     "worse_pct": 35.8
+     "rec_pct": 60.7,
+     "worse_pct": 36.3
     },
     "stuck_idx_third": {
-     "rec": 187,
-     "end_median": 0.93,
+     "rec": 176,
+     "end_median": 0.922,
      "end_worst": 0.043,
      "worse": 52,
      "min_worst": 0.029,
-     "rec_pct": 59.2,
-     "worse_pct": 16.5
+     "rec_pct": 58.1,
+     "worse_pct": 17.2
     },
     "stuck_idx_half": {
-     "rec": 191,
-     "end_median": 0.918,
+     "rec": 179,
+     "end_median": 0.89,
      "end_worst": 0.035,
      "worse": 79,
      "min_worst": 0.024,
-     "rec_pct": 60.4,
-     "worse_pct": 25.0
+     "rec_pct": 59.1,
+     "worse_pct": 26.1
     }
    }
   },
@@ -4019,754 +4161,6 @@
    "X": 0.114,
    "r": 0.057,
    "value_R": 0.956,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2011-05-02",
-   "R_date": "2012-06-11",
-   "D": 0.108,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.851,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9964400874188621,
-      "mdd": -0.05263120702645463
-     },
-     "wait": {
-      "end": 1.000755164712667,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9993168056147321,
-      "mdd": -0.01747547832704721
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.0303818038117345,
-      "mdd": -0.058273505973676976
-     },
-     "wait": {
-      "end": 1.0012390590667244,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0421767561008768,
-      "mdd": -0.01891263975272328
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8421780386308624,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.8007036268415038
-     },
-     "restart": {
-      "end": 0.8446094029632305,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.8304167857323705
-     },
-     "idx_third": {
-      "end": 0.8421780386308624,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.8007036268415038
-     },
-     "idx_half": {
-      "end": 0.8421780386308624,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.8007036268415038
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.8708651303089577,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.795934830081179
-     },
-     "restart": {
-      "end": 0.880834068642567,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.8292021158230067
-     },
-     "idx_third": {
-      "end": 0.8708651303089577,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.795934830081179
-     },
-     "idx_half": {
-      "end": 0.8708651303089577,
-      "rec": false,
-      "start": 0.8451868298598927,
-      "min": 0.795934830081179
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2013-01-02",
-   "R_date": "2013-07-26",
-   "D": 0.274,
-   "X": 0.137,
-   "r": 0.069,
-   "value_R": 0.92,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0846255193834444,
-      "mdd": -0.029602680141554982
-     },
-     "wait": {
-      "end": 0.9886701805068538,
-      "mdd": -0.08625121971551053
-     },
-     "split": {
-      "end": 1.0206553011800232,
-      "mdd": -0.056689880598271514
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.0793800562037503,
-      "mdd": -0.07892969277982664
-     },
-     "wait": {
-      "end": 0.9838887762931137,
-      "mdd": -0.16041552533585723
-     },
-     "split": {
-      "end": 1.015719215228739,
-      "mdd": -0.1332534747250299
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9947912331407278,
-      "rec": true,
-      "start": 0.9171748362570493,
-      "min": 0.8900240029454489
-     },
-     "restart": {
-      "end": 0.9361193587346774,
-      "rec": false,
-      "start": 0.9171748362570494,
-      "min": 0.8651803043018982
-     },
-     "idx_third": {
-      "end": 0.9947912331407279,
-      "rec": true,
-      "start": 0.9171748362570493,
-      "min": 0.8900240029454489
-     },
-     "idx_half": {
-      "end": 0.9947912331407278,
-      "rec": true,
-      "start": 0.9171748362570493,
-      "min": 0.8900240029454489
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.9899802263077995,
-      "rec": true,
-      "start": 0.9171748362570493,
-      "min": 0.8447825082058926
-     },
-     "restart": {
-      "end": 0.9315921049105578,
-      "rec": false,
-      "start": 0.9171748362570494,
-      "min": 0.7949581023954375
-     },
-     "idx_third": {
-      "end": 0.9899802263077995,
-      "rec": true,
-      "start": 0.9171748362570493,
-      "min": 0.8447825082058926
-     },
-     "idx_half": {
-      "end": 0.9899802263077995,
-      "rec": true,
-      "start": 0.9171748362570493,
-      "min": 0.8447825082058926
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2014-07-30",
-   "R_date": "2014-11-24",
-   "D": 0.14,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.929,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9916488021606066,
-      "mdd": -0.10715465951650471
-     },
-     "wait": {
-      "end": 0.9145849208994079,
-      "mdd": -0.17654023952599962
-     },
-     "split": {
-      "end": 0.9402729153216747,
-      "mdd": -0.15341164275048091
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.3365034221938445,
-      "mdd": -0.10715465951650471
-     },
-     "wait": {
-      "end": 1.2326398963077407,
-      "mdd": -0.17654023952599962
-     },
-     "split": {
-      "end": 1.2672609840927513,
-      "mdd": -0.15341164275048091
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9214441674603782,
-      "rec": true,
-      "start": 0.9292041350251558,
-      "min": 0.8296355823152068
-     },
-     "restart": {
-      "end": 0.8737054809690582,
-      "rec": false,
-      "start": 0.9292041350251556,
-      "min": 0.7866534022204069
-     },
-     "idx_third": {
-      "end": 0.9214441674603782,
-      "rec": true,
-      "start": 0.9292041350251556,
-      "min": 0.8296355823152068
-     },
-     "idx_half": {
-      "end": 0.9214441674603782,
-      "rec": true,
-      "start": 0.9292041350251556,
-      "min": 0.8296355823152068
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.2418845063777917,
-      "rec": true,
-      "start": 0.9292041350251558,
-      "min": 0.8296355823152068
-     },
-     "restart": {
-      "end": 1.1775441465750327,
-      "rec": true,
-      "start": 0.9292041350251556,
-      "min": 0.7866534022204069
-     },
-     "idx_third": {
-      "end": 1.241884506377792,
-      "rec": true,
-      "start": 0.9292041350251556,
-      "min": 0.8296355823152068
-     },
-     "idx_half": {
-      "end": 1.241884506377792,
-      "rec": true,
-      "start": 0.9292041350251556,
-      "min": 0.8296355823152068
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2015-04-23",
-   "R_date": "2015-09-09",
-   "D": 0.116,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.865,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1180128654300907,
-      "mdd": -0.028127531678442397
-     },
-     "wait": {
-      "end": 1.0021634766426764,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0407799395718156,
-      "mdd": -0.009106690036715825
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.2275292609947195,
-      "mdd": -0.028127531678442397
-     },
-     "wait": {
-      "end": 1.0626708541167087,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1176231752312278,
-      "mdd": -0.009106690036715825
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9655441660865253,
-      "rec": false,
-      "start": 0.8636252729659673,
-      "min": 0.8393336257423135
-     },
-     "restart": {
-      "end": 0.8988438594102105,
-      "rec": false,
-      "start": 0.8636252729659673,
-      "min": 0.8557605052971917
-     },
-     "idx_third": {
-      "end": 0.9655441660865253,
-      "rec": false,
-      "start": 0.8636252729659673,
-      "min": 0.8393336257423136
-     },
-     "idx_half": {
-      "end": 0.9655441660865252,
-      "rec": false,
-      "start": 0.8636252729659673,
-      "min": 0.8393336257423135
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.0601252931002767,
-      "rec": true,
-      "start": 0.8636252729659673,
-      "min": 0.8393336257423135
-     },
-     "restart": {
-      "end": 0.9652076197821589,
-      "rec": true,
-      "start": 0.8636252729659673,
-      "min": 0.8557605052971917
-     },
-     "idx_third": {
-      "end": 1.0601252931002767,
-      "rec": true,
-      "start": 0.8636252729659673,
-      "min": 0.8393336257423136
-     },
-     "idx_half": {
-      "end": 1.0601252931002767,
-      "rec": true,
-      "start": 0.8636252729659673,
-      "min": 0.8393336257423135
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2018-01-29",
-   "R_date": "2018-11-29",
-   "D": 0.06,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.82,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.056542409721725,
-      "mdd": -0.05264728358496906
-     },
-     "wait": {
-      "end": 1.0211281058638646,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0544881678088331,
-      "mdd": -0.021207269611641655
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.576459558489705,
-      "mdd": -0.23757338944805562
-     },
-     "wait": {
-      "end": 1.304868454843239,
-      "mdd": -0.042200142763677784
-     },
-     "split": {
-      "end": 1.6728688113686823,
-      "mdd": -0.19094677000671456
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8580461885276006,
-      "rec": false,
-      "start": 0.812126593908895,
-      "min": 0.7693703348124784
-     },
-     "restart": {
-      "end": 0.8563778840398193,
-      "rec": false,
-      "start": 0.8121265939088951,
-      "min": 0.7949036062730853
-     },
-     "idx_third": {
-      "end": 0.8580461885276007,
-      "rec": false,
-      "start": 0.8121265939088951,
-      "min": 0.7693703348124784
-     },
-     "idx_half": {
-      "end": 0.8580461885276007,
-      "rec": false,
-      "start": 0.812126593908895,
-      "min": 0.7693703348124784
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.2802847316713644,
-      "rec": true,
-      "start": 0.812126593908895,
-      "min": 0.6191869263330542
-     },
-     "restart": {
-      "end": 1.35858124983327,
-      "rec": true,
-      "start": 0.8121265939088951,
-      "min": 0.657053643965437
-     },
-     "idx_third": {
-      "end": 1.2802847316713646,
-      "rec": true,
-      "start": 0.8121265939088951,
-      "min": 0.6191869263330542
-     },
-     "idx_half": {
-      "end": 1.2802847316713644,
-      "rec": true,
-      "start": 0.812126593908895,
-      "min": 0.6191869263330542
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2020-01-22",
-   "R_date": "2020-03-20",
-   "D": 0.231,
-   "X": 0.115,
-   "r": 0.058,
-   "value_R": 0.704,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 2.1430028971646635,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 1.3882424073484358,
-      "mdd": -0.029994082501857866
-     },
-     "split": {
-      "end": 1.6398283353769785,
-      "mdd": 0.0
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.7551328957749377,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 1.1369792918482517,
-      "mdd": -0.055665475314585766
-     },
-     "split": {
-      "end": 1.3430302561560439,
-      "mdd": 0.0
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.4196526241710514,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     },
-     "restart": {
-      "end": 1.086319856397795,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     },
-     "idx_third": {
-      "end": 1.4196526241710514,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     },
-     "idx_half": {
-      "end": 1.4196526241710514,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1627044576339516,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     },
-     "restart": {
-      "end": 0.8897031497323947,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     },
-     "idx_third": {
-      "end": 1.1627044576339516,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     },
-     "idx_half": {
-      "end": 1.1627044576339514,
-      "rec": true,
-      "start": 0.6624594983279524,
-      "min": 0.6624594983279524
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2021-07-06",
-   "R_date": "2022-08-11",
-   "D": 0.346,
-   "X": 0.173,
-   "r": 0.087,
-   "value_R": 0.765,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0441253431865236,
-      "mdd": -0.14641517761520118
-     },
-     "wait": {
-      "end": 1.0454013712200816,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.044976028542227,
-      "mdd": -0.04631864799915619
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.7346331594540467,
-      "mdd": -0.14641517761520118
-     },
-     "wait": {
-      "end": 1.5057374038455336,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.5819966877449445,
-      "mdd": -0.04631864799915619
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8016399193366636,
-      "rec": false,
-      "start": 0.7677621509407783,
-      "min": 0.6553501192445553
-     },
-     "restart": {
-      "end": 0.8022930433551323,
-      "rec": false,
-      "start": 0.7677621509407783,
-      "min": 0.7322004461242775
-     },
-     "idx_third": {
-      "end": 0.8016399193366636,
-      "rec": false,
-      "start": 0.7677621509407783,
-      "min": 0.6553501192445554
-     },
-     "idx_half": {
-      "end": 0.8016399193366636,
-      "rec": false,
-      "start": 0.7677621509407783,
-      "min": 0.6553501192445553
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.331785685595637,
-      "rec": true,
-      "start": 0.7677621509407783,
-      "min": 0.6553501192445553
-     },
-     "restart": {
-      "end": 1.214597179764246,
-      "rec": true,
-      "start": 0.7677621509407783,
-      "min": 0.7322004461242775
-     },
-     "idx_third": {
-      "end": 1.331785685595637,
-      "rec": true,
-      "start": 0.7677621509407783,
-      "min": 0.6553501192445554
-     },
-     "idx_half": {
-      "end": 1.331785685595637,
-      "rec": true,
-      "start": 0.7677621509407783,
-      "min": 0.6553501192445553
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2024-07-11",
-   "R_date": "2024-08-07",
-   "D": 0.202,
-   "X": 0.101,
-   "r": 0.051,
-   "value_R": 0.878,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2743717709983866,
-      "mdd": -0.1003272456356955
-     },
-     "wait": {
-      "end": 1.1450504016013496,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1881461681514773,
-      "mdd": -0.019952311122303223
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.1104446949882054,
-      "rec": true,
-      "start": 0.8713663628300907,
-      "min": 0.7839445757077537
-     },
-     "restart": {
-      "end": 1.0353106050526624,
-      "rec": true,
-      "start": 0.8713663628300907,
-      "min": 0.8539805900573955
-     },
-     "idx_third": {
-      "end": 1.1104446949882054,
-      "rec": true,
-      "start": 0.8713663628300907,
-      "min": 0.7839445757077537
-     },
-     "idx_half": {
-      "end": 1.1104446949882054,
-      "rec": true,
-      "start": 0.8713663628300907,
-      "min": 0.7839445757077537
-     }
-    }
-   }
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2026-02-26",
-   "R_date": "2026-03-05",
-   "D": 0.216,
-   "X": 0.108,
-   "r": 0.054,
-   "value_R": 0.879,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2026-06-02",
-   "R_date": "2026-06-09",
-   "D": 0.216,
-   "X": 0.108,
-   "r": 0.054,
-   "value_R": 0.919,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "069500.KS",
-   "group": "지수",
-   "peak": "2026-06-22",
-   "R_date": "2026-07-03",
-   "D": 0.216,
-   "X": 0.108,
-   "r": 0.054,
-   "value_R": 0.883,
    "cash": {},
    "stuck": {}
   },
@@ -28977,5194 +28371,6 @@
    "stuck": {}
   },
   {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2002-04-24",
-   "R_date": "2003-03-21",
-   "D": 0.648,
-   "X": 0.324,
-   "r": 0.162,
-   "value_R": 0.729,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.6992004365828801,
-      "mdd": -0.10719980140503294
-     },
-     "wait": {
-      "end": 1.2078434937581344,
-      "mdd": -0.12084490106517631
-     },
-     "split": {
-      "end": 1.3716241776846,
-      "mdd": -0.03552607023199672
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.1024004418999755,
-      "mdd": -0.10719980140503294
-     },
-     "wait": {
-      "end": 1.4944503546208052,
-      "mdd": -0.12084490106517631
-     },
-     "split": {
-      "end": 1.6970895478172434,
-      "mdd": -0.03552607023199672
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.229166735122713,
-      "rec": true,
-      "start": 0.7233794840557994,
-      "min": 0.6458333470245425
-     },
-     "restart": {
-      "end": 0.9922047899719463,
-      "rec": true,
-      "start": 0.7233794840557994,
-      "min": 0.6976806537008476
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.520833346940289,
-      "rec": true,
-      "start": 0.7233794840557994,
-      "min": 0.6458333470245425
-     },
-     "restart": {
-      "end": 1.2276397614965278,
-      "rec": true,
-      "start": 0.7233794840557994,
-      "min": 0.6976806537008476
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2004-04-23",
-   "R_date": "2004-05-19",
-   "D": 0.314,
-   "X": 0.157,
-   "r": 0.079,
-   "value_R": 0.785,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9605661731012413,
-      "mdd": -0.18705789514397253
-     },
-     "wait": {
-      "end": 1.0200595233732377,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0351924049259342,
-      "mdd": -0.07513296303605244
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.1877454240435419,
-      "mdd": -0.18705789514397253
-     },
-     "wait": {
-      "end": 0.9676273131392539,
-      "mdd": -0.09553710596554132
-     },
-     "split": {
-      "end": 1.1819406543681634,
-      "mdd": -0.07513296303605244
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.745683183855811,
-      "rec": false,
-      "start": 0.7762954856595996,
-      "min": 0.631083286102347
-     },
-     "restart": {
-      "end": 0.803615190733107,
-      "rec": false,
-      "start": 0.7762954856595996,
-      "min": 0.7179701056304827
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.9220414107978485,
-      "rec": true,
-      "start": 0.7762954856595996,
-      "min": 0.631083286102347
-     },
-     "restart": {
-      "end": 0.9175351943035586,
-      "rec": true,
-      "start": 0.7762954856595996,
-      "min": 0.7179701056304827
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2006-01-31",
-   "R_date": "2006-06-30",
-   "D": 0.369,
-   "X": 0.184,
-   "r": 0.092,
-   "value_R": 0.816,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0725608639850408,
-      "mdd": -0.11335742637697865
-     },
-     "wait": {
-      "end": 1.049877895647444,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0574388850933094,
-      "mdd": -0.012343694534592942
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.1124886576081314,
-      "mdd": -0.3200834346898319
-     },
-     "wait": {
-      "end": 0.9679573797262513,
-      "mdd": -0.4084162094694128
-     },
-     "split": {
-      "end": 1.0161392275490229,
-      "mdd": -0.37895181618036244
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8776475610449606,
-      "rec": false,
-      "start": 0.81827296754434,
-      "min": 0.7255156498696607
-     },
-     "restart": {
-      "end": 0.8652736545020817,
-      "rec": false,
-      "start": 0.8182729675443401,
-      "min": 0.8081724559870581
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.9103193952204248,
-      "rec": true,
-      "start": 0.81827296754434,
-      "min": 0.5563573455789063
-     },
-     "restart": {
-      "end": 0.8314792611647536,
-      "rec": false,
-      "start": 0.8182729675443401,
-      "min": 0.5081869403621184
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2007-07-13",
-   "R_date": "2007-08-09",
-   "D": 0.274,
-   "X": 0.137,
-   "r": 0.069,
-   "value_R": 0.904,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9752797012539624,
-      "mdd": -0.15920421208852176
-     },
-     "wait": {
-      "end": 0.8720493616048888,
-      "mdd": -0.18207807372138862
-     },
-     "split": {
-      "end": 0.9983538006904388,
-      "mdd": -0.06361235697984047
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.3467489010849116,
-      "mdd": -0.32403022855987773
-     },
-     "wait": {
-      "end": 1.2041996956597798,
-      "mdd": -0.39557953796163225
-     },
-     "split": {
-      "end": 1.3786060534829743,
-      "mdd": -0.3080329583511904
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8560315565760929,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.7379910872368943
-     },
-     "restart": {
-      "end": 0.8762843694171706,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.8218948580417914
-     },
-     "idx_third": {
-      "end": 0.8704967100340452,
-      "rec": false,
-      "start": 0.8777292867630213,
-      "min": 0.831149886920979
-     },
-     "idx_half": {
-      "end": 0.8668804216695571,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.8078601869999578
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1820809523981421,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.5933184653595011
-     },
-     "restart": {
-      "end": 1.2100429080507948,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.6073597379299276
-     },
-     "idx_third": {
-      "end": 1.1284884083925666,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.7829256796285146
-     },
-     "idx_half": {
-      "end": 1.1418865443939605,
-      "rec": true,
-      "start": 0.8777292867630213,
-      "min": 0.7355238760612612
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2008-05-15",
-   "R_date": "2008-07-21",
-   "D": 0.262,
-   "X": 0.131,
-   "r": 0.066,
-   "value_R": 0.785,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1560073253413115,
-      "mdd": -0.31864397848788706
-     },
-     "wait": {
-      "end": 1.0044982794922281,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.3459159798718012,
-      "mdd": -0.17859646558982423
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.491790400833272,
-      "mdd": -0.31864397848788706
-     },
-     "wait": {
-      "end": 1.1160258939324676,
-      "mdd": -0.08641872814955509
-     },
-     "split": {
-      "end": 1.7365428093515818,
-      "mdd": -0.17859646558982423
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8933997257317858,
-      "rec": false,
-      "start": 0.7728322357023207,
-      "min": 0.5265738974144448
-     },
-     "restart": {
-      "end": 1.040167255791804,
-      "rec": true,
-      "start": 0.7728322357023207,
-      "min": 0.6348071299120043
-     },
-     "idx_third": {
-      "end": 0.8174841451115016,
-      "rec": false,
-      "start": 0.7728322357023207,
-      "min": 0.6907461229396955
-     },
-     "idx_half": {
-      "end": 0.8364630402665725,
-      "rec": false,
-      "start": 0.7728322357023207,
-      "min": 0.6497030665583827
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.152903710675239,
-      "rec": true,
-      "start": 0.7728322357023207,
-      "min": 0.5265738974144448
-     },
-     "restart": {
-      "end": 1.3420562617439722,
-      "rec": true,
-      "start": 0.7728322357023207,
-      "min": 0.6348071299120043
-     },
-     "idx_third": {
-      "end": 1.1943816918097387,
-      "rec": true,
-      "start": 0.7728322357023207,
-      "min": 0.6907461229396955
-     },
-     "idx_half": {
-      "end": 1.1840121965261137,
-      "rec": true,
-      "start": 0.7728322357023207,
-      "min": 0.6497030665583827
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2011-01-28",
-   "R_date": "2011-03-25",
-   "D": 0.152,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.901,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.4047655058069102,
-      "mdd": -0.2571957908818069
-     },
-     "wait": {
-      "end": 1.224949819683499,
-      "mdd": -0.04079954839432487
-     },
-     "split": {
-      "end": 1.5998656852257713,
-      "mdd": -0.15400545072368665
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.521893140961513,
-      "mdd": -0.2571957908818069
-     },
-     "wait": {
-      "end": 1.3270846421641889,
-      "mdd": -0.04079954839432487
-     },
-     "split": {
-      "end": 1.7332605354664308,
-      "mdd": -0.15400545072368665
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.2740251822386335,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.6736720569927699
-     },
-     "restart": {
-      "end": 1.4509675549061107,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.7672585604922982
-     },
-     "idx_third": {
-      "end": 1.0242205434101501,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.7166346110562176
-     },
-     "idx_half": {
-      "end": 1.086671703117271,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.7086183759518636
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.380251848615459,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.6736720569927699
-     },
-     "restart": {
-      "end": 1.5719474605807817,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.7672585604922982
-     },
-     "idx_third": {
-      "end": 1.0513218133385496,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.7166346110562176
-     },
-     "idx_half": {
-      "end": 1.1335543221577769,
-      "rec": true,
-      "start": 0.9069308556995225,
-      "min": 0.7086183759518636
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2012-05-02",
-   "R_date": "2012-06-07",
-   "D": 0.326,
-   "X": 0.163,
-   "r": 0.082,
-   "value_R": 0.897,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0942615890317027,
-      "mdd": -0.12472524185314582
-     },
-     "wait": {
-      "end": 0.9495727319434832,
-      "mdd": -0.05042726805651676
-     },
-     "split": {
-      "end": 0.997802472843426,
-      "mdd": -0.04152362368913065
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.075012556711705,
-      "mdd": -0.12472524185314582
-     },
-     "wait": {
-      "end": 0.9328689050061391,
-      "mdd": -0.2340678847852118
-     },
-     "split": {
-      "end": 0.9802502850416789,
-      "mdd": -0.19516497119032417
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9677616503294009,
-      "rec": true,
-      "start": 0.8843969851722201,
-      "min": 0.7740903573024219
-     },
-     "restart": {
-      "end": 0.8824534987801123,
-      "rec": true,
-      "start": 0.8843969851722201,
-      "min": 0.8476736175681273
-     },
-     "idx_third": {
-      "end": 0.9158281930396598,
-      "rec": true,
-      "start": 0.8843969851722201,
-      "min": 0.8264984048758752
-     },
-     "idx_half": {
-      "end": 0.928811557362095,
-      "rec": true,
-      "start": 0.8843969851722202,
-      "min": 0.8133963929825119
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.9507378641781121,
-      "rec": true,
-      "start": 0.8843969851722201,
-      "min": 0.7740903573024219
-     },
-     "restart": {
-      "end": 0.8669303968050704,
-      "rec": true,
-      "start": 0.8843969851722201,
-      "min": 0.7117936730402744
-     },
-     "idx_third": {
-      "end": 0.9478246719276321,
-      "rec": true,
-      "start": 0.8843969851722201,
-      "min": 0.8264984048758752
-     },
-     "idx_half": {
-      "end": 0.9485529699902521,
-      "rec": true,
-      "start": 0.8843969851722202,
-      "min": 0.8133963929825119
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2013-01-02",
-   "R_date": "2013-08-29",
-   "D": 0.326,
-   "X": 0.163,
-   "r": 0.082,
-   "value_R": 0.853,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.886209916854039,
-      "mdd": -0.12191369530338014
-     },
-     "wait": {
-      "end": 1.0003208845358003,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9622838953085466,
-      "mdd": -0.04042582785352533
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.2199750804252751,
-      "mdd": -0.20019588664611587
-     },
-     "wait": {
-      "end": 1.0459426018139102,
-      "mdd": -0.04230872169389999
-     },
-     "split": {
-      "end": 1.2537439398451455,
-      "mdd": -0.07314951009570436
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7695533374024479,
-      "rec": false,
-      "start": 0.8683646196764409,
-      "min": 0.7624990800209717
-     },
-     "restart": {
-      "end": 0.8356132887703708,
-      "rec": false,
-      "start": 0.868364619676441,
-      "min": 0.8332602610473099
-     },
-     "idx_third": {
-      "end": 0.8626057481008711,
-      "rec": false,
-      "start": 0.868364619676441,
-      "min": 0.837580541542936
-     },
-     "idx_half": {
-      "end": 0.8393426454262652,
-      "rec": false,
-      "start": 0.8683646196764407,
-      "min": 0.8264308117944483
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.0593831967282294,
-      "rec": true,
-      "start": 0.8683646196764409,
-      "min": 0.6945215947081985
-     },
-     "restart": {
-      "end": 1.0887068794952728,
-      "rec": true,
-      "start": 0.868364619676441,
-      "min": 0.8048441731626672
-     },
-     "idx_third": {
-      "end": 0.9766619852796086,
-      "rec": false,
-      "start": 0.868364619676441,
-      "min": 0.7586025230436904
-     },
-     "idx_half": {
-      "end": 0.9973422881417637,
-      "rec": true,
-      "start": 0.8683646196764407,
-      "min": 0.7446100443109909
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2013-10-30",
-   "R_date": "2014-10-30",
-   "D": 0.227,
-   "X": 0.114,
-   "r": 0.057,
-   "value_R": 0.795,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0954221560406736,
-      "mdd": -0.12904912514364086
-     },
-     "wait": {
-      "end": 0.9282048186923968,
-      "mdd": -0.2620006867416199
-     },
-     "split": {
-      "end": 0.9839439654168737,
-      "mdd": -0.21768337471247756
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.238429161303747,
-      "mdd": -0.12904912514364086
-     },
-     "wait": {
-      "end": 1.8967306096249628,
-      "mdd": -0.2620006867416199
-     },
-     "split": {
-      "end": 2.0106297051467763,
-      "mdd": -0.21768337471247756
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.917808687351044,
-      "rec": true,
-      "start": 0.8378584295468324,
-      "min": 0.7297335322195889
-     },
-     "restart": {
-      "end": 0.8244057456262646,
-      "rec": false,
-      "start": 0.8378584295468323,
-      "min": 0.6554705790717812
-     },
-     "idx_third": {
-      "end": 0.8767195056223526,
-      "rec": false,
-      "start": 0.8378584295468323,
-      "min": 0.7492926618956867
-     },
-     "idx_half": {
-      "end": 0.8869918010545255,
-      "rec": false,
-      "start": 0.8378584295468324,
-      "min": 0.7464545124522814
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.8754867417417904,
-      "rec": true,
-      "start": 0.8378584295468324,
-      "min": 0.7297335322195889
-     },
-     "restart": {
-      "end": 1.6846230471544883,
-      "rec": true,
-      "start": 0.8378584295468323,
-      "min": 0.6554705790717812
-     },
-     "idx_third": {
-      "end": 1.4021169491785277,
-      "rec": true,
-      "start": 0.8378584295468323,
-      "min": 0.7492926618956867
-     },
-     "idx_half": {
-      "end": 1.5204593973193434,
-      "rec": true,
-      "start": 0.8378584295468324,
-      "min": 0.7464545124522814
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2015-03-18",
-   "R_date": "2015-09-09",
-   "D": 0.298,
-   "X": 0.149,
-   "r": 0.075,
-   "value_R": 0.764,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.4507468858475514,
-      "mdd": -0.019400514020748716
-     },
-     "wait": {
-      "end": 1.106968297911685,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.2215603426003232,
-      "mdd": -0.006461123700936322
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.087687103921499,
-      "mdd": -0.019400514020748716
-     },
-     "wait": {
-      "end": 1.5929749445231642,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.7578745754898073,
-      "mdd": -0.006461123700936322
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0954327877523933,
-      "rec": true,
-      "start": 0.7550819501586747,
-      "min": 0.740432972197807
-     },
-     "restart": {
-      "end": 0.922378165727151,
-      "rec": false,
-      "start": 0.7550819501586747,
-      "min": 0.7502032722743553
-     },
-     "idx_third": {
-      "end": 0.9283757054710084,
-      "rec": false,
-      "start": 0.7550819501586747,
-      "min": 0.7442863166909415
-     },
-     "idx_half": {
-      "end": 0.9701399760413546,
-      "rec": false,
-      "start": 0.7550819501586747,
-      "min": 0.7477907819523961
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.5763748497501613,
-      "rec": true,
-      "start": 0.7550819501586747,
-      "min": 0.740432972197807
-     },
-     "restart": {
-      "end": 1.3273393625951964,
-      "rec": true,
-      "start": 0.7550819501586747,
-      "min": 0.7502032722743553
-     },
-     "idx_third": {
-      "end": 1.157556934760624,
-      "rec": true,
-      "start": 0.7550819501586747,
-      "min": 0.7442863166909415
-     },
-     "idx_half": {
-      "end": 1.2622614135080084,
-      "rec": true,
-      "start": 0.7550819501586747,
-      "min": 0.7477907819523961
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2017-07-20",
-   "R_date": "2017-08-17",
-   "D": 0.182,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.919,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0431489579472462,
-      "mdd": -0.040040247984412525
-     },
-     "wait": {
-      "end": 0.9394966480086284,
-      "mdd": -0.13542647733014546
-     },
-     "split": {
-      "end": 0.9740494681224435,
-      "mdd": -0.10362702424693382
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.376187802436727,
-      "mdd": -0.16628357256964876
-     },
-     "wait": {
-      "end": 1.239443147183828,
-      "mdd": -0.24912565651035679
-     },
-     "split": {
-      "end": 1.2850195046183333,
-      "mdd": -0.2215043014725897
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9555409007633895,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.879338275851456
-     },
-     "restart": {
-      "end": 0.8922446780653253,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.8210917857374312
-     },
-     "idx_third": {
-      "end": 0.9203251466512984,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.8748069205384628
-     },
-     "idx_half": {
-      "end": 0.9291290851793212,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.8759397593667111
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.260609735878662,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.7636973990902657
-     },
-     "restart": {
-      "end": 1.1770981369312967,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.713114340328877
-     },
-     "idx_third": {
-      "end": 1.083625245375064,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.7184743432250453
-     },
-     "idx_half": {
-      "end": 1.1278713680009635,
-      "rec": true,
-      "start": 0.9160157746250779,
-      "min": 0.7638512837170058
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2017-11-01",
-   "R_date": "2017-12-28",
-   "D": 0.173,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.899,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8100872261853453,
-      "mdd": -0.2425028397099972
-     },
-     "wait": {
-      "end": 1.0195624486411043,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9035669975507208,
-      "mdd": -0.15474436223431032
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.8234845964858786,
-      "mdd": -0.2425028397099972
-     },
-     "wait": {
-      "end": 1.6731985166604417,
-      "mdd": -0.18779773399343336
-     },
-     "split": {
-      "end": 2.030613303548173,
-      "mdd": -0.15474436223431032
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7288130573059162,
-      "rec": false,
-      "start": 0.8996723238531428,
-      "min": 0.6814992305102634
-     },
-     "restart": {
-      "end": 0.8129142204434636,
-      "rec": false,
-      "start": 0.8996723238531428,
-      "min": 0.7604531038786281
-     },
-     "idx_third": {
-      "end": 0.7422917740646977,
-      "rec": false,
-      "start": 0.8996723238531428,
-      "min": 0.7113611635525015
-     },
-     "idx_half": {
-      "end": 0.7389220948750024,
-      "rec": false,
-      "start": 0.8996723238531428,
-      "min": 0.7045781181873103
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.6405386244308608,
-      "rec": true,
-      "start": 0.8996723238531428,
-      "min": 0.6814992305102634
-     },
-     "restart": {
-      "end": 1.826886589650292,
-      "rec": true,
-      "start": 0.8996723238531428,
-      "min": 0.7604531038786281
-     },
-     "idx_third": {
-      "end": 1.363505316360633,
-      "rec": true,
-      "start": 0.8996723238531428,
-      "min": 0.6529469381367932
-     },
-     "idx_half": {
-      "end": 1.4327636433781898,
-      "rec": true,
-      "start": 0.8996723238531428,
-      "min": 0.6906093217067406
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2018-04-27",
-   "R_date": "2019-01-18",
-   "D": 0.212,
-   "X": 0.106,
-   "r": 0.053,
-   "value_R": 0.818,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.3584497762663805,
-      "mdd": -0.028675513127549568
-     },
-     "wait": {
-      "end": 1.141607171980462,
-      "mdd": -0.005465562606920882
-     },
-     "split": {
-      "end": 1.2138828143721878,
-      "mdd": -0.005723775973783152
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.890772827439787,
-      "mdd": -0.028675513127549568
-     },
-     "wait": {
-      "end": 1.5889581330887346,
-      "mdd": -0.13974647943625618
-     },
-     "split": {
-      "end": 1.6895386942522166,
-      "mdd": -0.08527258941514748
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.122548865398304,
-      "rec": true,
-      "start": 0.8263455042729395,
-      "min": 0.8026496229172693
-     },
-     "restart": {
-      "end": 1.0030866063706392,
-      "rec": true,
-      "start": 0.8263455042729394,
-      "min": 0.8216156877295383
-     },
-     "idx_third": {
-      "end": 0.9588707201667741,
-      "rec": true,
-      "start": 0.8263455042729395,
-      "min": 0.7907679241001045
-     },
-     "idx_half": {
-      "end": 0.9997902564746566,
-      "rec": true,
-      "start": 0.8263455042729395,
-      "min": 0.8004262989794272
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.5624316255563024,
-      "rec": true,
-      "start": 0.8263455042729395,
-      "min": 0.8026496229172693
-     },
-     "restart": {
-      "end": 1.39614270429049,
-      "rec": true,
-      "start": 0.8263455042729394,
-      "min": 0.7558808833720192
-     },
-     "idx_third": {
-      "end": 1.2919842584146877,
-      "rec": true,
-      "start": 0.8263455042729395,
-      "min": 0.6949299713346471
-     },
-     "idx_half": {
-      "end": 1.3595961002000914,
-      "rec": true,
-      "start": 0.8263455042729395,
-      "min": 0.7346091128151504
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2020-01-20",
-   "R_date": "2020-03-24",
-   "D": 0.276,
-   "X": 0.138,
-   "r": 0.069,
-   "value_R": 0.752,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.8314086639474016,
-      "mdd": -0.05163118957484514
-     },
-     "wait": {
-      "end": 1.4324141102967252,
-      "mdd": -6.468244378332599e-06
-     },
-     "split": {
-      "end": 1.5654113243898666,
-      "mdd": -0.017211904469948358
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.480141362733683,
-      "mdd": -0.05163118957484514
-     },
-     "wait": {
-      "end": 1.1576746440872154,
-      "mdd": -0.08388506469726542
-     },
-     "split": {
-      "end": 1.2651632740651189,
-      "mdd": -0.017211904469948358
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.4278533662349757,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7393934652897917
-     },
-     "restart": {
-      "end": 1.220469179311808,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7662283782548204
-     },
-     "idx_third": {
-      "end": 1.4399163807039077,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7497848430259543
-     },
-     "idx_half": {
-      "end": 1.4369006270866747,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7471869985919137
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1539886585049002,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7393934652897917
-     },
-     "restart": {
-      "end": 0.9863815080011128,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7662283782548204
-     },
-     "idx_third": {
-      "end": 1.1759110556687553,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7497848430259543
-     },
-     "idx_half": {
-      "end": 1.1704304563777916,
-      "rec": true,
-      "start": 0.7796475982358811,
-      "min": 0.7471869985919137
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2021-01-11",
-   "R_date": "2021-11-22",
-   "D": 0.319,
-   "X": 0.159,
-   "r": 0.08,
-   "value_R": 0.834,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8204634989083814,
-      "mdd": -0.2863190002943953
-     },
-     "wait": {
-      "end": 1.0165842925467237,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9426902641501588,
-      "mdd": -0.13814416136249785
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.7575319267740949,
-      "mdd": -0.2934421066952695
-     },
-     "wait": {
-      "end": 0.6943600444884324,
-      "mdd": -0.3523631771957907
-     },
-     "split": {
-      "end": 0.7887929479123625,
-      "mdd": -0.2642797620744577
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6882031724851564,
-      "rec": false,
-      "start": 0.8387980372079976,
-      "min": 0.5986342217457028
-     },
-     "restart": {
-      "end": 0.7907267432642424,
-      "rec": false,
-      "start": 0.8387980372079976,
-      "min": 0.7229229858053898
-     },
-     "idx_third": {
-      "end": 0.6849274997214769,
-      "rec": false,
-      "start": 0.8387980372079976,
-      "min": 0.6069000006630627
-     },
-     "idx_half": {
-      "end": 0.6857464179123969,
-      "rec": false,
-      "start": 0.8387980372079976,
-      "min": 0.6048335559337228
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.6354162933005033,
-      "rec": true,
-      "start": 0.8387980372079976,
-      "min": 0.5926593740778258
-     },
-     "restart": {
-      "end": 0.6616379764724002,
-      "rec": true,
-      "start": 0.8387980372079976,
-      "min": 0.617120691506146
-     },
-     "idx_third": {
-      "end": 0.6994372899273971,
-      "rec": false,
-      "start": 0.8387980372079976,
-      "min": 0.6069000006630627
-     },
-     "idx_half": {
-      "end": 0.6834320407706737,
-      "rec": false,
-      "start": 0.8387980372079976,
-      "min": 0.6048335559337228
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2021-12-24",
-   "R_date": "2023-01-09",
-   "D": 0.319,
-   "X": 0.159,
-   "r": 0.08,
-   "value_R": 0.776,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2626120132122878,
-      "mdd": -0.02317887501489324
-     },
-     "wait": {
-      "end": 0.9981249794755043,
-      "mdd": -0.05131409792379382
-     },
-     "split": {
-      "end": 1.0862947515738914,
-      "mdd": -0.0025658353655908517
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 3.3533751889821155,
-      "mdd": -0.14418162790210054
-     },
-     "wait": {
-      "end": 2.6509232500971627,
-      "mdd": -0.3234551183211709
-     },
-     "split": {
-      "end": 2.884866662026413,
-      "mdd": -0.263639578172279
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9750687788114061,
-      "rec": true,
-      "start": 0.7722631882225439,
-      "min": 0.7543629963041306
-     },
-     "restart": {
-      "end": 0.83890544819987,
-      "rec": false,
-      "start": 0.7722631882225439,
-      "min": 0.7702816880226584
-     },
-     "idx_third": {
-      "end": 0.8848128347009369,
-      "rec": false,
-      "start": 0.7722631882225439,
-      "min": 0.7588518290880351
-     },
-     "idx_half": {
-      "end": 0.9073768207285542,
-      "rec": false,
-      "start": 0.7722631882225439,
-      "min": 0.757729620892059
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 2.5896882147497045,
-      "rec": true,
-      "start": 0.7722631882225439,
-      "min": 0.6609170245757513
-     },
-     "restart": {
-      "end": 2.2278763260134467,
-      "rec": true,
-      "start": 0.7722631882225439,
-      "min": 0.5686640470415734
-     },
-     "idx_third": {
-      "end": 2.369557287272133,
-      "rec": true,
-      "start": 0.7722631882225439,
-      "min": 0.7588518290880351
-     },
-     "idx_half": {
-      "end": 2.424590019141526,
-      "rec": true,
-      "start": 0.7722631882225439,
-      "min": 0.7378202914088323
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2024-04-04",
-   "R_date": "2024-06-13",
-   "D": 0.241,
-   "X": 0.121,
-   "r": 0.06,
-   "value_R": 0.921,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.7784409533644248,
-      "mdd": -0.3667865030861165
-     },
-     "wait": {
-      "end": 0.708166233315988,
-      "mdd": -0.423950634847415
-     },
-     "split": {
-      "end": 0.7316377512500776,
-      "mdd": -0.40483466682914226
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7264232534154547,
-      "rec": true,
-      "start": 0.9331770769200292,
-      "min": 0.5909003201164077
-     },
-     "restart": {
-      "end": 0.6827475780758909,
-      "rec": false,
-      "start": 0.9331770769200292,
-      "min": 0.5553946458925164
-     },
-     "idx_third": {
-      "end": 0.949341994111177,
-      "rec": true,
-      "start": 0.9331770769200292,
-      "min": 0.7271594290445019
-     },
-     "idx_half": {
-      "end": 0.8936123089372465,
-      "rec": true,
-      "start": 0.9331770769200292,
-      "min": 0.6930946518124784
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2024-07-09",
-   "R_date": "2024-08-12",
-   "D": 0.145,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.86,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9385505057685706,
-      "mdd": -0.3406047137700131
-     },
-     "wait": {
-      "end": 1.0441605578041688,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0389642978620117,
-      "mdd": -0.2700572250699991
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8134818315261353,
-      "rec": false,
-      "start": 0.866742734169625,
-      "min": 0.5715260732855413
-     },
-     "restart": {
-      "end": 0.9005147562335443,
-      "rec": false,
-      "start": 0.866742734169625,
-      "min": 0.6326725965301919
-     },
-     "idx_third": {
-      "end": 0.9869024664602944,
-      "rec": true,
-      "start": 0.866742734169625,
-      "min": 0.7078774167259144
-     },
-     "idx_half": {
-      "end": 0.9435473077267547,
-      "rec": false,
-      "start": 0.866742734169625,
-      "min": 0.6737895808658212
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2024-08-16",
-   "R_date": "2025-09-09",
-   "D": 0.187,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.914,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 3.7656782285708963,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 3.49872129003482,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 3.5874551189961514,
-      "mdd": 0.0
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 3.493132360631701,
-      "rec": true,
-      "start": 0.9276236971413703,
-      "min": 0.9276236971413703
-     },
-     "restart": {
-      "end": 3.3278083808119443,
-      "rec": true,
-      "start": 0.9276236971413703,
-      "min": 0.9276236971413703
-     },
-     "idx_third": {
-      "end": 2.6785570769466234,
-      "rec": true,
-      "start": 0.9276236971413703,
-      "min": 0.9276236971413703
-     },
-     "idx_half": {
-      "end": 2.8822008978678926,
-      "rec": true,
-      "start": 0.9276236971413703,
-      "min": 0.9276236971413703
-     }
-    }
-   }
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2026-02-26",
-   "R_date": "2026-04-01",
-   "D": 0.428,
-   "X": 0.214,
-   "r": 0.107,
-   "value_R": 0.872,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "005930.KS",
-   "group": "대형주",
-   "peak": "2026-06-18",
-   "R_date": "2026-07-31",
-   "D": 0.428,
-   "X": 0.214,
-   "r": 0.107,
-   "value_R": 0.725,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2002-04-24",
-   "R_date": "2003-02-12",
-   "D": 0.493,
-   "X": 0.247,
-   "r": 0.123,
-   "value_R": 0.517,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.911117542168869,
-      "mdd": -0.1840606342710388
-     },
-     "wait": {
-      "end": 0.9298218999218829,
-      "mdd": -0.07017810007811709
-     },
-     "split": {
-      "end": 1.256922354203422,
-      "mdd": -0.060834386353768144
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 3.79861160558932,
-      "mdd": -0.1840606342710388
-     },
-     "wait": {
-      "end": 1.8481501960188065,
-      "mdd": -0.2644411438940808
-     },
-     "split": {
-      "end": 2.4982851413144935,
-      "mdd": -0.060834386353768144
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.960889211946081,
-      "rec": true,
-      "start": 0.5027891747859721,
-      "min": 0.4102454803702539
-     },
-     "restart": {
-      "end": 0.63196695323998,
-      "rec": false,
-      "start": 0.5027891747859721,
-      "min": 0.4722023038725501
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.9099007945066708,
-      "rec": true,
-      "start": 0.5027891747859721,
-      "min": 0.4102454803702539
-     },
-     "restart": {
-      "end": 1.2561107245815701,
-      "rec": true,
-      "start": 0.5027891747859721,
-      "min": 0.4722023038725501
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2004-04-08",
-   "R_date": "2004-05-24",
-   "D": 0.577,
-   "X": 0.289,
-   "r": 0.144,
-   "value_R": 0.808,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2059810210048372,
-      "mdd": -0.08045991215349146
-     },
-     "wait": {
-      "end": 0.9460326698730749,
-      "mdd": -0.09472596575292414
-     },
-     "split": {
-      "end": 1.0326853255044206,
-      "mdd": -0.026320218557075892
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.5151919407424763,
-      "mdd": -0.08045991215349146
-     },
-     "wait": {
-      "end": 1.1885933958367174,
-      "mdd": -0.09472596575292414
-     },
-     "split": {
-      "end": 1.2974562971240469,
-      "mdd": -0.026320218557075892
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9452286932147724,
-      "rec": true,
-      "start": 0.7837840536057501,
-      "min": 0.720720857505324
-     },
-     "restart": {
-      "end": 0.8094022905230283,
-      "rec": false,
-      "start": 0.7837840536057501,
-      "min": 0.763154686013296
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1875832813059017,
-      "rec": true,
-      "start": 0.7837840536057501,
-      "min": 0.720720857505324
-     },
-     "restart": {
-      "end": 1.016925555936192,
-      "rec": true,
-      "start": 0.7837840536057501,
-      "min": 0.763154686013296
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2006-01-02",
-   "R_date": "2006-04-05",
-   "D": 0.297,
-   "X": 0.149,
-   "r": 0.074,
-   "value_R": 0.89,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.7619973890122117,
-      "mdd": -0.2635186083680452
-     },
-     "wait": {
-      "end": 1.049889933948505,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9045887018028993,
-      "mdd": -0.12341580124276663
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.7927237869077003,
-      "mdd": -0.563699646465322
-     },
-     "wait": {
-      "end": 1.0955445143665938,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9461357542922187,
-      "mdd": -0.47926456742285706
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6755296759550592,
-      "rec": false,
-      "start": 0.8865249221270406,
-      "min": 0.6529091083645333
-     },
-     "restart": {
-      "end": 0.8019404284228159,
-      "rec": false,
-      "start": 0.8865249221270406,
-      "min": 0.7771137385410505
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.7027693934566017,
-      "rec": false,
-      "start": 0.8865249221270406,
-      "min": 0.3867911369413307
-     },
-     "restart": {
-      "end": 0.8387729258955178,
-      "rec": true,
-      "start": 0.8865249221270406,
-      "min": 0.46164493881424234
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2006-04-20",
-   "R_date": "2007-05-02",
-   "D": 0.197,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.697,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.4447788065321827,
-      "mdd": -0.009693305038939948
-     },
-     "wait": {
-      "end": 1.0221991095139709,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1630594646431804,
-      "mdd": -0.002604278767248336
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.334633694555485,
-      "mdd": -0.39227546077333153
-     },
-     "wait": {
-      "end": 1.651782593173559,
-      "mdd": -0.5700272733662562
-     },
-     "split": {
-      "end": 1.8793734930825796,
-      "mdd": -0.5107505229635046
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0118025722627941,
-      "rec": true,
-      "start": 0.7003165935769532,
-      "min": 0.6935282112115805
-     },
-     "restart": {
-      "end": 0.8145098424063466,
-      "rec": false,
-      "start": 0.7003165935769532,
-      "min": 0.6984927739419491
-     },
-     "idx_third": {
-      "end": 0.8041452531389002,
-      "rec": false,
-      "start": 0.7003165935769532,
-      "min": 0.6980537994551623
-     },
-     "idx_half": {
-      "end": 0.8560595829198736,
-      "rec": false,
-      "start": 0.7003165935769532,
-      "min": 0.6969224023942668
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.6349827162210744,
-      "rec": true,
-      "start": 0.7003165935769532,
-      "min": 0.42559957914434393
-     },
-     "restart": {
-      "end": 1.316156442734411,
-      "rec": true,
-      "start": 0.7003165935769532,
-      "min": 0.342629527167504
-     },
-     "idx_third": {
-      "end": 1.1208208183446169,
-      "rec": true,
-      "start": 0.7003165935769532,
-      "min": 0.6087442554327501
-     },
-     "idx_half": {
-      "end": 1.2493612928137314,
-      "rec": true,
-      "start": 0.7003165935769532,
-      "min": 0.5629580863606486
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2008-05-15",
-   "R_date": "2008-07-24",
-   "D": 0.311,
-   "X": 0.155,
-   "r": 0.078,
-   "value_R": 0.818,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1990910329851507,
-      "mdd": -0.48039210984346203
-     },
-     "wait": {
-      "end": 1.004325303590525,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.4840119350373162,
-      "mdd": -0.35692596360826334
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 3.414251562701249,
-      "mdd": -0.48039210984346203
-     },
-     "wait": {
-      "end": 2.7170157805062436,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 4.225525776516423,
-      "mdd": -0.35692596360826334
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9555255002823791,
-      "rec": false,
-      "start": 0.7968748610383547,
-      "min": 0.41406246526292384
-     },
-     "restart": {
-      "end": 1.1825718045121207,
-      "rec": true,
-      "start": 0.7968748610383547,
-      "min": 0.5124495333870388
-     },
-     "idx_third": {
-      "end": 0.8749201725551725,
-      "rec": false,
-      "start": 0.7968748610383547,
-      "min": 0.6692707291132111
-     },
-     "idx_half": {
-      "end": 0.8950715044869741,
-      "rec": false,
-      "start": 0.7968748610383547,
-      "min": 0.6054686631506393
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 2.720731239577543,
-      "rec": true,
-      "start": 0.7968748610383547,
-      "min": 0.41406246526292384
-     },
-     "restart": {
-      "end": 3.3672152659755095,
-      "rec": true,
-      "start": 0.7968748610383547,
-      "min": 0.5124495333870388
-     },
-     "idx_third": {
-      "end": 1.739393364854411,
-      "rec": true,
-      "start": 0.7968748610383547,
-      "min": 0.6692707291132111
-     },
-     "idx_half": {
-      "end": 1.984727833535194,
-      "rec": true,
-      "start": 0.7968748610383547,
-      "min": 0.6054686631506393
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2011-01-14",
-   "R_date": "2011-03-02",
-   "D": 0.191,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.893,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.186377238799426,
-      "mdd": -0.12228266765053786
-     },
-     "wait": {
-      "end": 1.0395589817361677,
-      "mdd": -0.23090320141951648
-     },
-     "split": {
-      "end": 1.0884983021303907,
-      "mdd": -0.19469577604450394
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.287849342999694,
-      "mdd": -0.12228266765053786
-     },
-     "wait": {
-      "end": 1.1284735646084803,
-      "mdd": -0.23090320141951648
-     },
-     "split": {
-      "end": 1.1815985051091176,
-      "mdd": -0.19469577604450394
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.088745469362342,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.8054864319070415
-     },
-     "restart": {
-      "end": 0.9989213852857997,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.7390324903545573
-     },
-     "idx_third": {
-      "end": 0.9871887689321663,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.7860656438721496
-     },
-     "idx_half": {
-      "end": 1.0125779440397102,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.7909208408808726
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1818670247172849,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.8054864319070415
-     },
-     "restart": {
-      "end": 1.08435999694728,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.7390324903545573
-     },
-     "idx_third": {
-      "end": 1.0018778420992966,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.7860656438721496
-     },
-     "idx_half": {
-      "end": 1.0468751377537937,
-      "rec": true,
-      "start": 0.9177059654854098,
-      "min": 0.7909208408808726
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2011-05-02",
-   "R_date": "2011-05-18",
-   "D": 0.191,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.937,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0233971685484726,
-      "mdd": -0.3083512382328264
-     },
-     "wait": {
-      "end": 0.9351534082457077,
-      "mdd": -0.0964126144484202
-     },
-     "split": {
-      "end": 1.2248537545967773,
-      "mdd": -0.17218292861811924
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.9840834759378215,
-      "mdd": -0.3083512382328264
-     },
-     "wait": {
-      "end": 0.8992295902350337,
-      "mdd": -0.27171432063907597
-     },
-     "split": {
-      "end": 1.1778011288166779,
-      "mdd": -0.17218292861811924
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9389522042749227,
-      "rec": true,
-      "start": 0.9174856381581339,
-      "min": 0.6345778055712384
-     },
-     "restart": {
-      "end": 1.123785728686611,
-      "rec": true,
-      "start": 0.917485638158134,
-      "min": 0.759510274015003
-     },
-     "idx_third": {
-      "end": 0.8567453944190895,
-      "rec": false,
-      "start": 0.917485638158134,
-      "min": 0.6975266295877453
-     },
-     "idx_half": {
-      "end": 0.8772970968830477,
-      "rec": false,
-      "start": 0.917485638158134,
-      "min": 0.6817894235836185
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.9028824559216868,
-      "rec": true,
-      "start": 0.9174856381581339,
-      "min": 0.6345778055712384
-     },
-     "restart": {
-      "end": 1.0806156202957407,
-      "rec": true,
-      "start": 0.917485638158134,
-      "min": 0.759510274015003
-     },
-     "idx_third": {
-      "end": 0.8900920389005689,
-      "rec": false,
-      "start": 0.917485638158134,
-      "min": 0.6975266295877453
-     },
-     "idx_half": {
-      "end": 0.8932896431558484,
-      "rec": false,
-      "start": 0.917485638158134,
-      "min": 0.6817894235836185
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2012-04-09",
-   "R_date": "2012-08-01",
-   "D": 0.365,
-   "X": 0.183,
-   "r": 0.091,
-   "value_R": 0.885,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9515030617491935,
-      "mdd": -0.2261107967227758
-     },
-     "wait": {
-      "end": 1.0006763386724777,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0425599086205737,
-      "mdd": -0.0897861255313881
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.6559205331907768,
-      "mdd": -0.4599588433441858
-     },
-     "wait": {
-      "end": 1.0011745767221836,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.8285872762906238,
-      "mdd": -0.31770237207123586
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8451898897357473,
-      "rec": false,
-      "start": 0.8882681766488426,
-      "min": 0.6874211515232854
-     },
-     "restart": {
-      "end": 0.9260727890775806,
-      "rec": false,
-      "start": 0.8882681766488427,
-      "min": 0.808514018634712
-     },
-     "idx_third": {
-      "end": 0.8615329436454502,
-      "rec": false,
-      "start": 0.8882681766488427,
-      "min": 0.8132727210863842
-     },
-     "idx_half": {
-      "end": 0.8574471801680243,
-      "rec": false,
-      "start": 0.8882681766488425,
-      "min": 0.7913660706540324
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.582633336043908,
-      "rec": false,
-      "start": 0.8882681766488426,
-      "min": 0.4797013735379921
-     },
-     "restart": {
-      "end": 0.736007709105103,
-      "rec": true,
-      "start": 0.8882681766488427,
-      "min": 0.6060632698921137
-     },
-     "idx_third": {
-      "end": 0.7505193398200389,
-      "rec": false,
-      "start": 0.8882681766488427,
-      "min": 0.7286912503676808
-     },
-     "idx_half": {
-      "end": 0.7085478388760061,
-      "rec": false,
-      "start": 0.8882681766488425,
-      "min": 0.6848938721928999
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2013-10-16",
-   "R_date": "2013-12-30",
-   "D": 0.313,
-   "X": 0.156,
-   "r": 0.078,
-   "value_R": 0.897,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8135408691651955,
-      "mdd": -0.32739419629621636
-     },
-     "wait": {
-      "end": 1.000226057158016,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9957543487022912,
-      "mdd": -0.17672439171713994
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.7020110322997437,
-      "mdd": -0.4360885261890487
-     },
-     "wait": {
-      "end": 1.0039354380311862,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.8592913083552999,
-      "mdd": -0.30974841442910905
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6926056103109756,
-      "rec": false,
-      "start": 0.8513470392970962,
-      "min": 0.5726209595972601
-     },
-     "restart": {
-      "end": 0.8477325166349057,
-      "rec": false,
-      "start": 0.8513470392970961,
-      "min": 0.7008932516371306
-     },
-     "idx_third": {
-      "end": 0.7820470074669826,
-      "rec": false,
-      "start": 0.8513470392970961,
-      "min": 0.7342016173769282
-     },
-     "idx_half": {
-      "end": 0.7596866581779809,
-      "rec": false,
-      "start": 0.8513470392970963,
-      "min": 0.6938064529320112
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.597655013902285,
-      "rec": false,
-      "start": 0.8513470392970962,
-      "min": 0.4800843636546154
-     },
-     "restart": {
-      "end": 0.7315551112620149,
-      "rec": false,
-      "start": 0.8513470392970961,
-      "min": 0.5876436437459059
-     },
-     "idx_third": {
-      "end": 0.8164852608309504,
-      "rec": false,
-      "start": 0.8513470392970961,
-      "min": 0.6821946901745969
-     },
-     "idx_half": {
-      "end": 0.7617776990987841,
-      "rec": false,
-      "start": 0.8513470392970963,
-      "min": 0.6462646752338617
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2014-04-01",
-   "R_date": "2015-03-05",
-   "D": 0.313,
-   "X": 0.156,
-   "r": 0.078,
-   "value_R": 0.678,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.885287666283936,
-      "mdd": -0.2807996966379398
-     },
-     "wait": {
-      "end": 1.0008882873576819,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.00550057004238,
-      "mdd": -0.12082827763652171
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.9533568761457354,
-      "mdd": -0.2807996966379398
-     },
-     "wait": {
-      "end": 1.0161114350850835,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0622340317752388,
-      "mdd": -0.12082827763652171
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6196177094252893,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.5033722501271665
-     },
-     "restart": {
-      "end": 0.7037553823049205,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.6153371266189407
-     },
-     "idx_third": {
-      "end": 0.6573956411510384,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.6003636729264299
-     },
-     "idx_half": {
-      "end": 0.6479511582196011,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.5874278906318169
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.6672597239966638,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.5033722501271665
-     },
-     "restart": {
-      "end": 0.7434634443795218,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.6153371266189407
-     },
-     "idx_third": {
-      "end": 0.8278738503674122,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.6003636729264299
-     },
-     "idx_half": {
-      "end": 0.787720318774725,
-      "rec": false,
-      "start": 0.699905503062279,
-      "min": 0.5874278906318169
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2017-03-21",
-   "R_date": "2017-04-26",
-   "D": 0.324,
-   "X": 0.162,
-   "r": 0.081,
-   "value_R": 0.888,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.0507173426523142,
-      "mdd": -0.08270209871101708
-     },
-     "wait": {
-      "end": 0.9089662935640053,
-      "mdd": -0.20645368684602328
-     },
-     "split": {
-      "end": 0.9562190532222943,
-      "mdd": -0.16519827779875418
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.8270575306390571,
-      "mdd": -0.5089811500469466
-     },
-     "wait": {
-      "end": 0.7154801654758112,
-      "mdd": -0.575223929410694
-     },
-     "split": {
-      "end": 0.7526803732743482,
-      "mdd": -0.553128502773075
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9085615038953225,
-      "rec": true,
-      "start": 0.8647059175799372,
-      "min": 0.7931929234282407
-     },
-     "restart": {
-      "end": 0.8268482738240029,
-      "rec": false,
-      "start": 0.8647059175799372,
-      "min": 0.7218579891933402
-     },
-     "idx_third": {
-      "end": 0.9498934877315945,
-      "rec": true,
-      "start": 0.8647059175799372,
-      "min": 0.8600295046526321
-     },
-     "idx_half": {
-      "end": 0.9395604917725264,
-      "rec": false,
-      "start": 0.8647059175799372,
-      "min": 0.856786896955958
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.7151615409226428,
-      "rec": true,
-      "start": 0.8647059175799372,
-      "min": 0.42458690519770054
-     },
-     "restart": {
-      "end": 0.6508471728166051,
-      "rec": false,
-      "start": 0.8647059175799372,
-      "min": 0.3864124280499286
-     },
-     "idx_third": {
-      "end": 0.8615409922681083,
-      "rec": true,
-      "start": 0.8647059175799372,
-      "min": 0.5676264853952493
-     },
-     "idx_half": {
-      "end": 0.824946129431742,
-      "rec": false,
-      "start": 0.8647059175799372,
-      "min": 0.531866590345862
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2017-03-21",
-   "R_date": "2017-09-27",
-   "D": 0.324,
-   "X": 0.162,
-   "r": 0.081,
-   "value_R": 0.873,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8076592760540966,
-      "mdd": -0.20632620493598153
-     },
-     "wait": {
-      "end": 1.0169220334472513,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.928798772462152,
-      "mdd": -0.08147288212649284
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.269854467297241,
-      "mdd": -0.5120500187579128
-     },
-     "wait": {
-      "end": 1.0014831529028838,
-      "mdd": -0.09486922099143646
-     },
-     "split": {
-      "end": 1.5330322479464265,
-      "mdd": -0.4109222144194642
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.70278013250684,
-      "rec": false,
-      "start": 0.8701443211800223,
-      "min": 0.6906107456443524
-     },
-     "restart": {
-      "end": 0.8081889773769169,
-      "rec": false,
-      "start": 0.8701443211800224,
-      "min": 0.7992511554674848
-     },
-     "idx_third": {
-      "end": 0.7593523880318911,
-      "rec": false,
-      "start": 0.8701443211800224,
-      "min": 0.752574682494942
-     },
-     "idx_half": {
-      "end": 0.7452093241506283,
-      "rec": false,
-      "start": 0.8701443211800223,
-      "min": 0.7370836982822946
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1049566534437765,
-      "rec": true,
-      "start": 0.8701443211800223,
-      "min": 0.42458690519770054
-     },
-     "restart": {
-      "end": 1.333959304736425,
-      "rec": true,
-      "start": 0.8701443211800224,
-      "min": 0.5125826898562054
-     },
-     "idx_third": {
-      "end": 0.9853383034500598,
-      "rec": true,
-      "start": 0.8701443211800224,
-      "min": 0.5313321760746377
-     },
-     "idx_half": {
-      "end": 1.015242890948489,
-      "rec": true,
-      "start": 0.8701443211800223,
-      "min": 0.5046458583554034
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2018-04-25",
-   "R_date": "2018-11-27",
-   "D": 0.207,
-   "X": 0.103,
-   "r": 0.052,
-   "value_R": 0.621,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2119157831183915,
-      "mdd": -0.009900965465422518
-     },
-     "wait": {
-      "end": 1.0212287977089356,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.0847911261787546,
-      "mdd": -0.0032392107106964385
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.192867091864555,
-      "mdd": -0.30911189869890443
-     },
-     "wait": {
-      "end": 1.1980381958681334,
-      "mdd": -0.11220560593194195
-     },
-     "split": {
-      "end": 2.6013584841928368,
-      "mdd": -0.14557597163435132
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7522628774997759,
-      "rec": false,
-      "start": 0.6207220732484575,
-      "min": 0.614576325437599
-     },
-     "restart": {
-      "end": 0.6733537968832055,
-      "rec": false,
-      "start": 0.6207220732484575,
-      "min": 0.6187114236604254
-     },
-     "idx_third": {
-      "end": 0.6788998017893882,
-      "rec": false,
-      "start": 0.6207220732484575,
-      "min": 0.6194296617889319
-     },
-     "idx_half": {
-      "end": 0.6972405707169851,
-      "rec": false,
-      "start": 0.6207220732484575,
-      "min": 0.6182163277010987
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.3611610076204825,
-      "rec": true,
-      "start": 0.6207220732484575,
-      "min": 0.42884949462230637
-     },
-     "restart": {
-      "end": 1.6147206315706426,
-      "rec": true,
-      "start": 0.6207220732484575,
-      "min": 0.5303598543204244
-     },
-     "idx_third": {
-      "end": 1.0884730312353,
-      "rec": true,
-      "start": 0.6207220732484575,
-      "min": 0.4560896699825638
-     },
-     "idx_half": {
-      "end": 1.1566450253315954,
-      "rec": true,
-      "start": 0.6207220732484575,
-      "min": 0.44927962614249944
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2019-06-11",
-   "R_date": "2020-03-24",
-   "D": 0.435,
-   "X": 0.218,
-   "r": 0.109,
-   "value_R": 0.538,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 2.8077635501204194,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 1.614661024512606,
-      "mdd": -6.468244378332599e-06
-     },
-     "split": {
-      "end": 2.012360437396436,
-      "mdd": 0.0
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.461333965220886,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 1.4154397088675021,
-      "mdd": -6.468244378332599e-06
-     },
-     "split": {
-      "end": 1.7640702415789633,
-      "mdd": 0.0
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.7069224109930992,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.607929542685278
-     },
-     "restart": {
-      "end": 1.2233733604243613,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.607929542685278
-     },
-     "idx_third": {
-      "end": 1.320625216494062,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.5972650768332963
-     },
-     "idx_half": {
-      "end": 1.417199515118821,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.6015499057660971
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.4963176318724751,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.607929542685278
-     },
-     "restart": {
-      "end": 1.072430415227807,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.607929542685278
-     },
-     "idx_third": {
-      "end": 1.1157476220868832,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.5972650768332963
-     },
-     "idx_half": {
-      "end": 1.210890124533281,
-      "rec": true,
-      "start": 0.607929542685278,
-      "min": 0.6015499057660971
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2021-01-11",
-   "R_date": "2022-01-07",
-   "D": 0.526,
-   "X": 0.263,
-   "r": 0.131,
-   "value_R": 0.822,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.820609642955162,
-      "mdd": -0.2513449181302908
-     },
-     "wait": {
-      "end": 1.022094057906263,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9549325862558958,
-      "mdd": -0.07132554720163697
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.1064343534238295,
-      "mdd": -0.2513449181302908
-     },
-     "wait": {
-      "end": 0.9452680006977496,
-      "mdd": -0.09098246072572957
-     },
-     "split": {
-      "end": 0.9990155319832847,
-      "mdd": -0.07132554720163697
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6576534769203815,
-      "rec": false,
-      "start": 0.8014206054806445,
-      "min": 0.5999876090081838
-     },
-     "restart": {
-      "end": 0.7653026514703976,
-      "rec": false,
-      "start": 0.8014206054806445,
-      "min": 0.7442588422560705
-     },
-     "idx_third": {
-      "end": 0.6606047821572436,
-      "rec": false,
-      "start": 0.8014206054806445,
-      "min": 0.6040724472192374
-     },
-     "idx_half": {
-      "end": 0.6598669558480281,
-      "rec": false,
-      "start": 0.8014206054806445,
-      "min": 0.6112241702599277
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.8867192894455108,
-      "rec": true,
-      "start": 0.8014206054806445,
-      "min": 0.5999876090081838
-     },
-     "restart": {
-      "end": 0.8006316325266116,
-      "rec": true,
-      "start": 0.8014206054806445,
-      "min": 0.7442588422560705
-     },
-     "idx_third": {
-      "end": 0.7968572192669139,
-      "rec": false,
-      "start": 0.8014206054806445,
-      "min": 0.6040724472192374
-     },
-     "idx_half": {
-      "end": 0.8193227368115631,
-      "rec": true,
-      "start": 0.8014206054806445,
-      "min": 0.6112241702599277
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2023-07-03",
-   "R_date": "2023-11-16",
-   "D": 0.34,
-   "X": 0.17,
-   "r": 0.085,
-   "value_R": 0.893,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2566494362090037,
-      "mdd": -0.02331876657765619
-     },
-     "wait": {
-      "end": 1.0318800644773378,
-      "mdd": -0.055959560563329624
-     },
-     "split": {
-      "end": 1.106805928153675,
-      "mdd": -0.0037556676392285215
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.1201064506505034,
-      "rec": true,
-      "start": 0.8913436145163791,
-      "min": 0.8705585808289872
-     },
-     "restart": {
-      "end": 0.9865443965686524,
-      "rec": true,
-      "start": 0.8913436145163791,
-      "min": 0.887996024147907
-     },
-     "idx_third": {
-      "end": 0.9689315125311682,
-      "rec": true,
-      "start": 0.8913436145163791,
-      "min": 0.8777954012490781
-     },
-     "idx_half": {
-      "end": 1.006725247061002,
-      "rec": true,
-      "start": 0.8913436145163791,
-      "min": 0.8761070328138643
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2024-03-04",
-   "R_date": "2024-04-08",
-   "D": 0.228,
-   "X": 0.114,
-   "r": 0.057,
-   "value_R": 0.918,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8661144631679635,
-      "mdd": -0.18615497825394967
-     },
-     "wait": {
-      "end": 0.7315923824535464,
-      "mdd": -0.312558739373359
-     },
-     "split": {
-      "end": 0.7764769306090823,
-      "mdd": -0.27037439083878023
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7792801876242179,
-      "rec": true,
-      "start": 0.8997427254289991,
-      "min": 0.7322511379426144
-     },
-     "restart": {
-      "end": 0.6986294697789596,
-      "rec": true,
-      "start": 0.8997427254289991,
-      "min": 0.6564753341295095
-     },
-     "idx_third": {
-      "end": 0.8127197168651956,
-      "rec": true,
-      "start": 0.8997427254289991,
-      "min": 0.7511882969864171
-     },
-     "idx_half": {
-      "end": 0.8043598345549512,
-      "rec": true,
-      "start": 0.8997427254289991,
-      "min": 0.7469696800441274
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2024-06-27",
-   "R_date": "2024-08-09",
-   "D": 0.228,
-   "X": 0.114,
-   "r": 0.057,
-   "value_R": 0.815,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9704315798509368,
-      "mdd": -0.24322489333613073
-     },
-     "wait": {
-      "end": 1.0442024003832902,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.120648319417109,
-      "mdd": -0.12346476175481313
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7929532094276717,
-      "rec": false,
-      "start": 0.8171139788644072,
-      "min": 0.6183715185116504
-     },
-     "restart": {
-      "end": 0.9156974071866254,
-      "rec": false,
-      "start": 0.8171139788644071,
-      "min": 0.7162291961373859
-     },
-     "idx_third": {
-      "end": 0.94393854348146,
-      "rec": false,
-      "start": 0.8171139788644071,
-      "min": 0.6846731733844462
-     },
-     "idx_half": {
-      "end": 0.906192209968013,
-      "rec": false,
-      "start": 0.8171139788644072,
-      "min": 0.6685332351027573
-     }
-    }
-   }
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2026-02-27",
-   "R_date": "2026-03-06",
-   "D": 0.382,
-   "X": 0.191,
-   "r": 0.095,
-   "value_R": 0.82,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "005380.KS",
-   "group": "대형주",
-   "peak": "2026-06-01",
-   "R_date": "2026-07-31",
-   "D": 0.382,
-   "X": 0.191,
-   "r": 0.095,
-   "value_R": 0.517,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2006-01-09",
-   "R_date": "2006-01-25",
-   "D": 0.317,
-   "X": 0.158,
-   "r": 0.079,
-   "value_R": 0.902,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.4052576561998515,
-      "mdd": -0.12997430822572442
-     },
-     "wait": {
-      "end": 1.232072988233686,
-      "mdd": -0.16549386101542785
-     },
-     "split": {
-      "end": 1.2897792797988514,
-      "mdd": -0.1263704830219623
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.3800658818069944,
-      "mdd": -0.12997430822572442
-     },
-     "wait": {
-      "end": 1.2099858609241998,
-      "mdd": -0.16549386101542785
-     },
-     "split": {
-      "end": 1.2666665634250651,
-      "mdd": -0.1263704830219623
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.2872913455137907,
-      "rec": true,
-      "start": 0.9160536075604316,
-      "min": 0.7969901736200853
-     },
-     "restart": {
-      "end": 1.1815069622164331,
-      "rec": true,
-      "start": 0.9160536075604315,
-      "min": 0.8002914706990087
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.2642143297003654,
-      "rec": true,
-      "start": 0.9160536075604316,
-      "min": 0.7969901736200853
-     },
-     "restart": {
-      "end": 1.160334475001705,
-      "rec": true,
-      "start": 0.9160536075604315,
-      "min": 0.8002914706990087
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2006-05-03",
-   "R_date": "2006-06-02",
-   "D": 0.317,
-   "X": 0.158,
-   "r": 0.079,
-   "value_R": 0.867,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.6646099304437572,
-      "mdd": -0.1535713777557982
-     },
-     "wait": {
-      "end": 1.5361660347556618,
-      "mdd": -0.04270502078393723
-     },
-     "split": {
-      "end": 1.5789185579885532,
-      "mdd": -0.04443320684780916
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.78733741933419,
-      "mdd": -0.1535713777557982
-     },
-     "wait": {
-      "end": 1.649423679394413,
-      "mdd": -0.1541646570976315
-     },
-     "split": {
-      "end": 1.6953231664839394,
-      "mdd": -0.13055951131450994
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.4839360920789002,
-      "rec": true,
-      "start": 0.8914617562586015,
-      "min": 0.7545587461333645
-     },
-     "restart": {
-      "end": 1.4075455106937742,
-      "rec": true,
-      "start": 0.8914617562586016,
-      "min": 0.8518512516458518
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.5933429548663733,
-      "rec": true,
-      "start": 0.8914617562586015,
-      "min": 0.7545587461333645
-     },
-     "restart": {
-      "end": 1.5113157674196664,
-      "rec": true,
-      "start": 0.8914617562586016,
-      "min": 0.7750729450059038
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2007-06-01",
-   "R_date": "2007-08-20",
-   "D": 0.245,
-   "X": 0.123,
-   "r": 0.061,
-   "value_R": 0.873,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9405998311500714,
-      "mdd": -0.12124926646188672
-     },
-     "wait": {
-      "end": 0.8409889524819117,
-      "mdd": -0.21431023649310021
-     },
-     "split": {
-      "end": 0.8742119048463756,
-      "mdd": -0.1832647649903083
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.1359460078640788,
-      "mdd": -0.42375999597131087
-     },
-     "wait": {
-      "end": 1.0156476873502664,
-      "mdd": -0.48478464346126304
-     },
-     "split": {
-      "end": 1.055748463436702,
-      "mdd": -0.46438918159057163
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8486185923305464,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.792817716746506
-     },
-     "restart": {
-      "end": 0.7887227400224488,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.7368667125883208
-     },
-     "idx_third": {
-      "end": 0.8843462106752424,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.8657459188138956
-     },
-     "idx_half": {
-      "end": 0.8754143060890685,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.8475138682970483
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.024861870300842,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.5198895054716993
-     },
-     "restart": {
-      "end": 0.9525068421512904,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.4832334471077548
-     },
-     "idx_third": {
-      "end": 1.108085446378468,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.7747698483889601
-     },
-     "idx_half": {
-      "end": 1.0872795523590615,
-      "rec": true,
-      "start": 0.9022100198475906,
-      "min": 0.711049762659645
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2007-10-25",
-   "R_date": "2007-11-26",
-   "D": 0.245,
-   "X": 0.123,
-   "r": 0.061,
-   "value_R": 0.851,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.39715251236161636,
-      "mdd": -0.6474334924150511
-     },
-     "wait": {
-      "end": 1.0160996172382488,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.46612213987708,
-      "mdd": -0.5862066842098919
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.7306106875160149,
-      "mdd": -0.6474334924150511
-     },
-     "wait": {
-      "end": 1.0186818424503097,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.8574887643463965,
-      "mdd": -0.5862066842098919
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.3593221103311637,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.31898310496437843
-     },
-     "restart": {
-      "end": 0.4217220985881832,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.37437780913557495
-     },
-     "idx_third": {
-      "end": 0.7229379753095525,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.7094916401872907
-     },
-     "idx_half": {
-      "end": 0.6320340090649553,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.6118645063815626
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.6610170297241436,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.31898310496437843
-     },
-     "restart": {
-      "end": 0.7758094505258062,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.37437780913557495
-     },
-     "idx_third": {
-      "end": 1.0557872297508153,
-      "rec": true,
-      "start": 0.904745907798747,
-      "min": 0.7094916401872907
-     },
-     "idx_half": {
-      "end": 0.9570946797441474,
-      "rec": false,
-      "start": 0.904745907798747,
-      "min": 0.6118645063815626
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2007-11-29",
-   "R_date": "2008-11-27",
-   "D": 0.245,
-   "X": 0.123,
-   "r": 0.061,
-   "value_R": 0.432,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.5428571506301052,
-      "mdd": -0.15510206249698666
-     },
-     "wait": {
-      "end": 1.0013685896093292,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.4509470866657659,
-      "mdd": -0.05169870337054183
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.8693879519708585,
-      "mdd": -0.15510206249698666
-     },
-     "wait": {
-      "end": 1.0030996262378937,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.6879594739288537,
-      "mdd": -0.05169870337054183
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6999999876299189,
-      "rec": false,
-      "start": 0.4537036934002852,
-      "min": 0.38333331479140054
-     },
-     "restart": {
-      "end": 0.6583000521486413,
-      "rec": false,
-      "start": 0.45370369340028516,
-      "min": 0.43024780073706465
-     },
-     "idx_third": {
-      "end": 0.5826253810328861,
-      "rec": false,
-      "start": 0.45370369340028516,
-      "min": 0.43024690053065695
-     },
-     "idx_half": {
-      "end": 0.6119690326821443,
-      "rec": false,
-      "start": 0.4537036934002852,
-      "min": 0.4185185040958429
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.8481482182071735,
-      "rec": false,
-      "start": 0.4537036934002852,
-      "min": 0.38333331479140054
-     },
-     "restart": {
-      "end": 0.7658334476315234,
-      "rec": false,
-      "start": 0.45370369340028516,
-      "min": 0.43024780073706465
-     },
-     "idx_third": {
-      "end": 0.7085405525145321,
-      "rec": false,
-      "start": 0.45370369340028516,
-      "min": 0.43024690053065695
-     },
-     "idx_half": {
-      "end": 0.7434424689376924,
-      "rec": false,
-      "start": 0.4537036934002852,
-      "min": 0.4185185040958429
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2010-12-30",
-   "R_date": "2011-03-04",
-   "D": 0.233,
-   "X": 0.117,
-   "r": 0.058,
-   "value_R": 0.848,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2240314637627439,
-      "mdd": -0.05913986167286711
-     },
-     "wait": {
-      "end": 1.0031419603515521,
-      "mdd": -0.10996266796675436
-     },
-     "split": {
-      "end": 1.0767717944477933,
-      "mdd": -0.04463461008547154
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 3.5521397113223947,
-      "mdd": -0.05913986167286711
-     },
-     "wait": {
-      "end": 2.911118299610331,
-      "mdd": -0.10996266796675436
-     },
-     "split": {
-      "end": 3.124791850926644,
-      "mdd": -0.04463461008547154
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0029509040937505,
-      "rec": true,
-      "start": 0.8193832705987975,
-      "min": 0.7709250573185232
-     },
-     "restart": {
-      "end": 0.8822887946231697,
-      "rec": false,
-      "start": 0.8193832705987976,
-      "min": 0.7828104178050623
-     },
-     "idx_third": {
-      "end": 0.8922228040003441,
-      "rec": false,
-      "start": 0.8193832705987976,
-      "min": 0.7416302278693183
-     },
-     "idx_half": {
-      "end": 0.9199048290236959,
-      "rec": false,
-      "start": 0.8193832705987973,
-      "min": 0.7531164522866465
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 2.9105638542872123,
-      "rec": true,
-      "start": 0.8193832705987975,
-      "min": 0.7709250573185232
-     },
-     "restart": {
-      "end": 2.5604021667527457,
-      "rec": true,
-      "start": 0.8193832705987976,
-      "min": 0.7828104178050623
-     },
-     "idx_third": {
-      "end": 1.5096112489231044,
-      "rec": true,
-      "start": 0.8193832705987976,
-      "min": 0.7416302278693183
-     },
-     "idx_half": {
-      "end": 1.8598494002641313,
-      "rec": true,
-      "start": 0.8193832705987973,
-      "min": 0.7531164522866465
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2011-10-19",
-   "R_date": "2011-12-21",
-   "D": 0.233,
-   "X": 0.117,
-   "r": 0.058,
-   "value_R": 0.871,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.024430029794204,
-      "mdd": -0.05150791506807051
-     },
-     "wait": {
-      "end": 0.8633494679854492,
-      "mdd": -0.17196320208695703
-     },
-     "split": {
-      "end": 0.917043261257068,
-      "mdd": -0.12046550804681289
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.8922602966331437,
-      "mdd": -0.05150791506807051
-     },
-     "wait": {
-      "end": 2.437483591607801,
-      "mdd": -0.17196320208695703
-     },
-     "split": {
-      "end": 2.5890729774265915,
-      "mdd": -0.12046550804681289
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8878392921007603,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.822026411523985
-     },
-     "restart": {
-      "end": 0.7947707663975924,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.762263168789371
-     },
-     "idx_third": {
-      "end": 0.9342993692567485,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.8514311724611542
-     },
-     "idx_half": {
-      "end": 0.9226843499677513,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.8443465063677532
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 2.5066254011020734,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.822026411523985
-     },
-     "restart": {
-      "end": 2.243863077634898,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.762263168789371
-     },
-     "idx_third": {
-      "end": 1.4382730396257553,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.8514311724611542
-     },
-     "idx_half": {
-      "end": 1.7053611299948348,
-      "rec": true,
-      "start": 0.8666666012115214,
-      "min": 0.8443465063677532
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2012-04-05",
-   "R_date": "2012-05-09",
-   "D": 0.229,
-   "X": 0.115,
-   "r": 0.057,
-   "value_R": 0.929,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1998139786040891,
-      "mdd": -0.11632655016783677
-     },
-     "wait": {
-      "end": 1.0909358346834306,
-      "mdd": -0.19651625187612065
-     },
-     "split": {
-      "end": 1.1272283346910814,
-      "mdd": -0.16978588214471668
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.8915216182203518,
-      "mdd": -0.11632655016783677
-     },
-     "wait": {
-      "end": 1.719873873944829,
-      "mdd": -0.19651625187612065
-     },
-     "split": {
-      "end": 1.777088077819008,
-      "mdd": -0.16978588214471668
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0728263246462448,
-      "rec": true,
-      "start": 0.8941605480329654,
-      "min": 0.7901459361841082
-     },
-     "restart": {
-      "end": 1.0079231055056648,
-      "rec": true,
-      "start": 0.8941605480329653,
-      "min": 0.7423447106061856
-     },
-     "idx_third": {
-      "end": 0.9514523477843837,
-      "rec": false,
-      "start": 0.8941605480329653,
-      "min": 0.8179515354597804
-     },
-     "idx_half": {
-      "end": 0.9817958419998489,
-      "rec": false,
-      "start": 0.8941605480329653,
-      "min": 0.817843210201584
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.6913240067641113,
-      "rec": true,
-      "start": 0.8941605480329654,
-      "min": 0.7901459361841082
-     },
-     "restart": {
-      "end": 1.589002049565494,
-      "rec": true,
-      "start": 0.8941605480329653,
-      "min": 0.7423447106061856
-     },
-     "idx_third": {
-      "end": 1.1658183930913133,
-      "rec": true,
-      "start": 0.8941605480329653,
-      "min": 0.8179515354597804
-     },
-     "idx_half": {
-      "end": 1.2971947965095127,
-      "rec": true,
-      "start": 0.8941605480329653,
-      "min": 0.817843210201584
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2012-09-28",
-   "R_date": "2012-11-20",
-   "D": 0.229,
-   "X": 0.115,
-   "r": 0.057,
-   "value_R": 0.904,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 2.1659825208286674,
-      "mdd": -0.17208411273968816
-     },
-     "wait": {
-      "end": 1.9642126110639033,
-      "mdd": -0.06236670136942368
-     },
-     "split": {
-      "end": 2.194089636472593,
-      "mdd": -0.07824713214491408
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.0168250426593417,
-      "mdd": -0.17208411273968816
-     },
-     "wait": {
-      "end": 1.82894974682685,
-      "mdd": -0.06236670136942368
-     },
-     "split": {
-      "end": 2.0429966620450353,
-      "mdd": -0.07824713214491408
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.9497567656012387,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.7452666801378283
-     },
-     "restart": {
-      "end": 1.9750580034280856,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.8297361003750032
-     },
-     "idx_third": {
-      "end": 1.3087738447872117,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.8774316635257504
-     },
-     "idx_half": {
-      "end": 1.4690195749907187,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.8534400826338883
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.8154893837530237,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.7452666801378283
-     },
-     "restart": {
-      "end": 1.8390483420886954,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.8297361003750032
-     },
-     "idx_third": {
-      "end": 1.2033857701527793,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.8774316635257504
-     },
-     "idx_half": {
-      "end": 1.3564116735528402,
-      "rec": true,
-      "start": 0.9001719759286402,
-      "min": 0.8534400826338883
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2013-05-21",
-   "R_date": "2013-06-28",
-   "D": 0.255,
-   "X": 0.127,
-   "r": 0.064,
-   "value_R": 0.911,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 2.272638181060601,
-      "mdd": -0.04827587863089888
-     },
-     "wait": {
-      "end": 1.537998938230243,
-      "mdd": -0.315084355854926
-     },
-     "split": {
-      "end": 1.7828782591273156,
-      "mdd": -0.2060320343381421
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.005038702663916,
-      "mdd": -0.04827587863089888
-     },
-     "wait": {
-      "end": 1.3569020451678389,
-      "mdd": -0.315084355854926
-     },
-     "split": {
-      "end": 1.5729473162120604,
-      "mdd": -0.2060320343381421
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 2.0660349678977465,
-      "rec": true,
-      "start": 0.9090910225461247,
-      "min": 0.8652038546772481
-     },
-     "restart": {
-      "end": 1.6207986196653061,
-      "rec": true,
-      "start": 0.9090910225461246,
-      "min": 0.7217891497724048
-     },
-     "idx_third": {
-      "end": 1.3437649597186367,
-      "rec": true,
-      "start": 0.9090910225461246,
-      "min": 0.8838355605209063
-     },
-     "idx_half": {
-      "end": 1.5243324617634144,
-      "rec": true,
-      "start": 0.9090910225461246,
-      "min": 0.8823124317620589
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.8227626844492943,
-      "rec": true,
-      "start": 0.9090910225461247,
-      "min": 0.8652038546772481
-     },
-     "restart": {
-      "end": 1.4299522841064045,
-      "rec": true,
-      "start": 0.9090910225461246,
-      "min": 0.7217891497724048
-     },
-     "idx_third": {
-      "end": 1.2668379164986425,
-      "rec": true,
-      "start": 0.9090910225461246,
-      "min": 0.8838355605209063
-     },
-     "idx_half": {
-      "end": 1.4058191084863054,
-      "rec": true,
-      "start": 0.9090910225461246,
-      "min": 0.8823124317620589
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2013-07-30",
-   "R_date": "2013-08-29",
-   "D": 0.255,
-   "X": 0.127,
-   "r": 0.064,
-   "value_R": 0.914,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.591782161408714,
-      "mdd": -0.021276783722873893
-     },
-     "wait": {
-      "end": 1.356364170479898,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.434836787027173,
-      "mdd": -0.007090938488769183
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.0233704257196545,
-      "mdd": -0.021276783722873893
-     },
-     "wait": {
-      "end": 1.7241223174821874,
-      "mdd": -0.11742550705903176
-     },
-     "split": {
-      "end": 1.8238715914671437,
-      "mdd": -0.06636400456096092
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.3531034404869167,
-      "rec": true,
-      "start": 0.8500556629491508,
-      "min": 0.8319692124561775
-     },
-     "restart": {
-      "end": 1.2196911362202132,
-      "rec": true,
-      "start": 0.8500556629491507,
-      "min": 0.8440279705311486
-     },
-     "idx_third": {
-      "end": 1.0443434411578394,
-      "rec": true,
-      "start": 0.8500556629491507,
-      "min": 0.8452697964140554
-     },
-     "idx_half": {
-      "end": 1.1215334409901088,
-      "rec": true,
-      "start": 0.8500556629491509,
-      "min": 0.841944650424586
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.7199774886268266,
-      "rec": true,
-      "start": 0.8500556629491508,
-      "min": 0.8319692124561775
-     },
-     "restart": {
-      "end": 1.5503923748187258,
-      "rec": true,
-      "start": 0.8500556629491507,
-      "min": 0.7936425650561229
-     },
-     "idx_third": {
-      "end": 1.1837132299804147,
-      "rec": true,
-      "start": 0.8500556629491507,
-      "min": 0.8204436442206279
-     },
-     "idx_half": {
-      "end": 1.3177792946420177,
-      "rec": true,
-      "start": 0.8500556629491509,
-      "min": 0.8354459241645174
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2013-10-21",
-   "R_date": "2013-11-12",
-   "D": 0.315,
-   "X": 0.158,
-   "r": 0.079,
-   "value_R": 0.923,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2512864141208706,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 1.0849650662460903,
-      "mdd": -0.04667733703037091
-     },
-     "split": {
-      "end": 1.1404053923261595,
-      "mdd": 0.0
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.2547704869453549,
-      "mdd": -0.229222765872507
-     },
-     "wait": {
-      "end": 1.0879860351147395,
-      "mdd": -0.3316746961776468
-     },
-     "split": {
-      "end": 1.1435807292629023,
-      "mdd": -0.2975235695232106
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.128980200819353,
-      "rec": true,
-      "start": 0.9022556211581282,
-      "min": 0.9022556211581282
-     },
-     "restart": {
-      "end": 1.0289371756253178,
-      "rec": true,
-      "start": 0.9022556211581282,
-      "min": 0.9022556211581282
-     },
-     "idx_third": {
-      "end": 0.971156329367451,
-      "rec": true,
-      "start": 0.9022556211581282,
-      "min": 0.9022556211581282
-     },
-     "idx_half": {
-      "end": 1.0106122972304266,
-      "rec": true,
-      "start": 0.9022556211581281,
-      "min": 0.9022556211581281
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1321237251097682,
-      "rec": true,
-      "start": 0.9022556211581282,
-      "min": 0.6954380921522453
-     },
-     "restart": {
-      "end": 1.0318021412255651,
-      "rec": true,
-      "start": 0.9022556211581282,
-      "min": 0.6338133081287803
-     },
-     "idx_third": {
-      "end": 1.000355532562031,
-      "rec": true,
-      "start": 0.9022556211581282,
-      "min": 0.7769990016499239
-     },
-     "idx_half": {
-      "end": 1.0332975806989653,
-      "rec": true,
-      "start": 0.9022556211581281,
-      "min": 0.7566087742755043
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2014-03-10",
-   "R_date": "2014-05-13",
-   "D": 0.315,
-   "X": 0.158,
-   "r": 0.079,
-   "value_R": 0.878,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8201325751546301,
-      "mdd": -0.20363934781539117
-     },
-     "wait": {
-      "end": 1.0001540991122966,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9297355350863035,
-      "mdd": -0.08755051940888259
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.1791392808750247,
-      "mdd": -0.39051332274421424
-     },
-     "wait": {
-      "end": 1.0280429482502818,
-      "mdd": -0.14186122012704927
-     },
-     "split": {
-      "end": 1.4264929706328697,
-      "mdd": -0.26261131879894384
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7287929896545454,
-      "rec": false,
-      "start": 0.8886282678347909,
-      "min": 0.7076685869225933
-     },
-     "restart": {
-      "end": 0.8261892780881941,
-      "rec": false,
-      "start": 0.8886282678347908,
-      "min": 0.8108284014244389
-     },
-     "idx_third": {
-      "end": 0.8492649407345508,
-      "rec": false,
-      "start": 0.8886282678347908,
-      "min": 0.8218118699317464
-     },
-     "idx_half": {
-      "end": 0.8191469529645494,
-      "rec": false,
-      "start": 0.8886282678347909,
-      "min": 0.8003175088190785
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.0478164966999342,
-      "rec": true,
-      "start": 0.8886282678347909,
-      "min": 0.5416070902781912
-     },
-     "restart": {
-      "end": 1.2676219775719921,
-      "rec": true,
-      "start": 0.8886282678347908,
-      "min": 0.655264426496675
-     },
-     "idx_third": {
-      "end": 1.0806836025830155,
-      "rec": true,
-      "start": 0.8886282678347908,
-      "min": 0.7036902223142986
-     },
-     "idx_half": {
-      "end": 1.0724668261122452,
-      "rec": true,
-      "start": 0.8886282678347909,
-      "min": 0.6632237519951911
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2014-06-26",
-   "R_date": "2015-06-15",
-   "D": 0.315,
-   "X": 0.158,
-   "r": 0.079,
-   "value_R": 0.739,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1662755608209288,
-      "mdd": -0.2639552166588308
-     },
-     "wait": {
-      "end": 1.0015394304438283,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1886762279687006,
-      "mdd": -0.12715059345911583
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.235630355267709,
-      "mdd": -0.2639552166588308
-     },
-     "wait": {
-      "end": 0.9194042273979053,
-      "mdd": -0.2225011125410632
-     },
-     "split": {
-      "end": 1.2121313167583674,
-      "mdd": -0.12715059345911583
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8622290999450197,
-      "rec": false,
-      "start": 0.7393013528793366,
-      "min": 0.5441589041039047
-     },
-     "restart": {
-      "end": 0.8787899434727674,
-      "rec": false,
-      "start": 0.7393013528793366,
-      "min": 0.6452987471156018
-     },
-     "idx_third": {
-      "end": 0.7862019406503391,
-      "rec": false,
-      "start": 0.7393013528793367,
-      "min": 0.635912481770415
-     },
-     "idx_half": {
-      "end": 0.8052087304740092,
-      "rec": false,
-      "start": 0.7393013528793366,
-      "min": 0.6129740873537874
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.9135031933081926,
-      "rec": true,
-      "start": 0.7393013528793366,
-      "min": 0.5441589041039047
-     },
-     "restart": {
-      "end": 0.896130322346873,
-      "rec": true,
-      "start": 0.7393013528793366,
-      "min": 0.6452987471156018
-     },
-     "idx_third": {
-      "end": 0.9318092196406522,
-      "rec": true,
-      "start": 0.7393013528793367,
-      "min": 0.635912481770415
-     },
-     "idx_half": {
-      "end": 0.9272327130575373,
-      "rec": true,
-      "start": 0.7393013528793366,
-      "min": 0.6129740873537874
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2017-06-09",
-   "R_date": "2017-09-18",
-   "D": 0.299,
-   "X": 0.149,
-   "r": 0.075,
-   "value_R": 0.814,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9158007540644997,
-      "mdd": -0.1518436102598415
-     },
-     "wait": {
-      "end": 1.0166256550335104,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9981498489090423,
-      "mdd": -0.0442382099080878
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.852697367709047,
-      "mdd": -0.30729562604553873
-     },
-     "wait": {
-      "end": 1.5441513697035198,
-      "mdd": -0.2211157876621187
-     },
-     "split": {
-      "end": 2.2081699857718853,
-      "mdd": -0.17041633204331352
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7345486871067738,
-      "rec": false,
-      "start": 0.8020835141778445,
-      "min": 0.6802922576551798
-     },
-     "restart": {
-      "end": 0.8005995384890487,
-      "rec": false,
-      "start": 0.8020835141778445,
-      "min": 0.7666007753138279
-     },
-     "idx_third": {
-      "end": 0.7180542593545404,
-      "rec": false,
-      "start": 0.8020835141778445,
-      "min": 0.7180542593545404
-     },
-     "idx_half": {
-      "end": 0.7221778662925986,
-      "rec": false,
-      "start": 0.8020835141778445,
-      "min": 0.7221778662925986
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.4860180154001146,
-      "rec": true,
-      "start": 0.8020835141778445,
-      "min": 0.555606758547758
-     },
-     "restart": {
-      "end": 1.7711367420899538,
-      "rec": true,
-      "start": 0.8020835141778445,
-      "min": 0.6653953836992447
-     },
-     "idx_third": {
-      "end": 1.0518712769498915,
-      "rec": true,
-      "start": 0.8020835141778445,
-      "min": 0.6061801280637781
-     },
-     "idx_half": {
-      "end": 1.1604079615624472,
-      "rec": true,
-      "start": 0.8020835141778445,
-      "min": 0.6206875443268971
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2018-01-08",
-   "R_date": "2018-11-02",
-   "D": 0.25,
-   "X": 0.125,
-   "r": 0.062,
-   "value_R": 0.613,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.395753351461582,
-      "mdd": -0.06167409188420725
-     },
-     "wait": {
-      "end": 1.0217736783162643,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1464335693647034,
-      "mdd": -0.019823850790135822
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 3.4529196482820335,
-      "mdd": -0.06167409188420725
-     },
-     "wait": {
-      "end": 2.086485459499013,
-      "mdd": -0.23506913925604656
-     },
-     "split": {
-      "end": 2.541921277815581,
-      "mdd": -0.0680749284903962
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8337789969736817,
-      "rec": false,
-      "start": 0.5973684362646012,
-      "min": 0.560526280437693
-     },
-     "restart": {
-      "end": 0.684843228612638,
-      "rec": false,
-      "start": 0.5973684362646012,
-      "min": 0.585526293517355
-     },
-     "idx_third": {
-      "end": 0.702329378375612,
-      "rec": false,
-      "start": 0.5973684362646012,
-      "min": 0.5829470802175437
-     },
-     "idx_half": {
-      "end": 0.7351917830251294,
-      "rec": false,
-      "start": 0.5973684362646012,
-      "min": 0.577341880272581
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 2.0626652108415553,
-      "rec": true,
-      "start": 0.5973684362646012,
-      "min": 0.560526280437693
-     },
-     "restart": {
-      "end": 1.5184635388364098,
-      "rec": true,
-      "start": 0.5973684362646012,
-      "min": 0.5567026226834685
-     },
-     "idx_third": {
-      "end": 1.2930293528154353,
-      "rec": true,
-      "start": 0.5973684362646012,
-      "min": 0.5595442045952634
-     },
-     "idx_half": {
-      "end": 1.4854383173219654,
-      "rec": true,
-      "start": 0.5973684362646012,
-      "min": 0.577341880272581
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2020-01-15",
-   "R_date": "2020-03-27",
-   "D": 0.439,
-   "X": 0.22,
-   "r": 0.11,
-   "value_R": 0.856,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 2.3695441231776804,
-      "mdd": 0.0
-     },
-     "wait": {
-      "end": 1.9497896850896745,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 2.0897054964402275,
-      "mdd": 0.0
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.1796933183111502,
-      "mdd": -0.017438898503398303
-     },
-     "wait": {
-      "end": 0.9707157765552245,
-      "mdd": -0.1914953252276843
-     },
-     "split": {
-      "end": 1.0403751164005024,
-      "mdd": -0.13347601686682842
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 2.0107095303115825,
-      "rec": true,
-      "start": 0.8485638695831154,
-      "min": 0.8485638695831154
-     },
-     "restart": {
-      "end": 1.7732485823484245,
-      "rec": true,
-      "start": 0.8485638695831152,
-      "min": 0.8485638695831152
-     },
-     "idx_third": {
-      "end": 1.7272876705646691,
-      "rec": true,
-      "start": 0.8485638695831152,
-      "min": 0.8324618066085538
-     },
-     "idx_half": {
-      "end": 1.7981431355013977,
-      "rec": true,
-      "start": 0.8485638695831154,
-      "min": 0.8371401069971545
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.0010451271074554,
-      "rec": true,
-      "start": 0.8485638695831154,
-      "min": 0.8337658503878045
-     },
-     "restart": {
-      "end": 0.8828247345907945,
-      "rec": true,
-      "start": 0.8485638695831152,
-      "min": 0.7353009442140582
-     },
-     "idx_third": {
-      "end": 1.1900788327194967,
-      "rec": true,
-      "start": 0.8485638695831152,
-      "min": 0.8324618066085538
-     },
-     "idx_half": {
-      "end": 1.1428204063164864,
-      "rec": true,
-      "start": 0.8485638695831154,
-      "min": 0.8371401069971545
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2020-09-03",
-   "R_date": "2021-01-08",
-   "D": 0.31,
-   "X": 0.155,
-   "r": 0.078,
-   "value_R": 0.922,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1131298209202858,
-      "mdd": -0.027508167123608485
-     },
-     "wait": {
-      "end": 0.9855797441785035,
-      "mdd": -0.03880873525409101
-     },
-     "split": {
-      "end": 1.028096463809222,
-      "mdd": -0.009159203793790427
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.6811425773973756,
-      "mdd": -0.4840203187498162
-     },
-     "wait": {
-      "end": 0.6030925724596745,
-      "mdd": -0.5431448222028366
-     },
-     "split": {
-      "end": 0.6291101180869615,
-      "mdd": -0.523435628696714
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0160764295587525,
-      "rec": true,
-      "start": 0.9128103573028942,
-      "min": 0.8877006174420453
-     },
-     "restart": {
-      "end": 0.9384571004715381,
-      "rec": true,
-      "start": 0.9128103573028942,
-      "min": 0.9044497412152744
-     },
-     "idx_third": {
-      "end": 0.8908472485971682,
-      "rec": true,
-      "start": 0.9128103573028943,
-      "min": 0.87523657812988
-     },
-     "idx_half": {
-      "end": 0.9221545438375642,
-      "rec": true,
-      "start": 0.9128103573028942,
-      "min": 0.8783525879579213
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.6217539994483127,
-      "rec": true,
-      "start": 0.9128103573028942,
-      "min": 0.4709915972030137
-     },
-     "restart": {
-      "end": 0.5742582316738255,
-      "rec": true,
-      "start": 0.9128103573028942,
-      "min": 0.4350128940471818
-     },
-     "idx_third": {
-      "end": 0.7289347440980133,
-      "rec": true,
-      "start": 0.9128103573028943,
-      "min": 0.5669417458539878
-     },
-     "idx_half": {
-      "end": 0.7021395579355881,
-      "rec": true,
-      "start": 0.9128103573028942,
-      "min": 0.5429542086912442
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2021-03-18",
-   "R_date": "2021-05-21",
-   "D": 0.253,
-   "X": 0.127,
-   "r": 0.063,
-   "value_R": 0.892,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8168380398870652,
-      "mdd": -0.25076229604888667
-     },
-     "wait": {
-      "end": 0.6922317248563817,
-      "mdd": -0.36505637249065725
-     },
-     "split": {
-      "end": 0.733767515947071,
-      "mdd": -0.3269579293775223
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.475915572697996,
-      "mdd": -0.5515112782240124
-     },
-     "wait": {
-      "end": 0.4033160084222999,
-      "mdd": -0.6199269545569286
-     },
-     "split": {
-      "end": 0.42751665235865094,
-      "mdd": -0.5971210118059687
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7196677669109741,
-      "rec": true,
-      "start": 0.8810409552063397,
-      "min": 0.6601091023656938
-     },
-     "restart": {
-      "end": 0.6464792331493906,
-      "rec": true,
-      "start": 0.8810409552063396,
-      "min": 0.5929776287952806
-     },
-     "idx_third": {
-      "end": 0.7386004296709769,
-      "rec": false,
-      "start": 0.8810409552063396,
-      "min": 0.7042731635426726
-     },
-     "idx_half": {
-      "end": 0.7338672639809762,
-      "rec": true,
-      "start": 0.8810409552063398,
-      "min": 0.6957137460078415
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.4193011107674146,
-      "rec": true,
-      "start": 0.8810409552063397,
-      "min": 0.39513693183278653
-     },
-     "restart": {
-      "end": 0.37665967976068254,
-      "rec": true,
-      "start": 0.8810409552063396,
-      "min": 0.35495288859103313
-     },
-     "idx_third": {
-      "end": 0.7109422491335573,
-      "rec": false,
-      "start": 0.8810409552063396,
-      "min": 0.5352478446850998
-     },
-     "idx_half": {
-      "end": 0.6380319645420216,
-      "rec": true,
-      "start": 0.8810409552063398,
-      "min": 0.5002201164720215
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2021-09-06",
-   "R_date": "2021-10-14",
-   "D": 0.253,
-   "X": 0.127,
-   "r": 0.063,
-   "value_R": 0.87,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.4077348513081606,
-      "mdd": -0.5948215005125026
-     },
-     "wait": {
-      "end": 1.0121725593950168,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.4803390355491099,
-      "mdd": -0.5226725185628871
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.4847299453028677,
-      "mdd": -0.6014156919217014
-     },
-     "wait": {
-      "end": 1.1178073872248129,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.5710444267433467,
-      "mdd": -0.5304409188641084
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.3534001443131876,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.35118445168980955
-     },
-     "restart": {
-      "end": 0.41632910195850936,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.4137188672572762
-     },
-     "idx_third": {
-      "end": 0.5581235240858501,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.5404436397335151
-     },
-     "idx_half": {
-      "end": 0.5069426791426844,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.4931288427225886
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.42013487950160033,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.3454690015923677
-     },
-     "restart": {
-      "end": 0.494947101462801,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.40698568323161305
-     },
-     "idx_third": {
-      "end": 0.6387762070162286,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.5404436397335151
-     },
-     "idx_half": {
-      "end": 0.5841158751375716,
-      "rec": false,
-      "start": 0.866740096362507,
-      "min": 0.4931288427225886
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2021-11-09",
-   "R_date": "2022-11-01",
-   "D": 0.253,
-   "X": 0.127,
-   "r": 0.063,
-   "value_R": 0.411,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.141644122036279,
-      "mdd": -0.028735678048276703
-     },
-     "wait": {
-      "end": 1.0498862761903889,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.080472224805685,
-      "mdd": -0.009472077867944129
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.4465935570285355,
-      "mdd": -0.10390554361706039
-     },
-     "wait": {
-      "end": 1.1507791283921576,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.2493839379376166,
-      "mdd": -0.009472077867944129
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.47861404621691817,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.40718533744675434
-     },
-     "restart": {
-      "end": 0.4529688134485145,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.4152612600999267
-     },
-     "idx_third": {
-      "end": 0.4659478063794193,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.41365187711984774
-     },
-     "idx_half": {
-      "end": 0.469114366338794,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.4120352422015744
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.6064586872534609,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.3756717047664696
-     },
-     "restart": {
-      "end": 0.5237820528065991,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.4152612600999267
-     },
-     "idx_third": {
-      "end": 0.7811338360631858,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.41365187711984774
-     },
-     "idx_half": {
-      "end": 0.7374650488607546,
-      "rec": false,
-      "start": 0.4192322607182038,
-      "min": 0.4120352422015744
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2023-08-07",
-   "R_date": "2024-11-12",
-   "D": 0.649,
-   "X": 0.324,
-   "r": 0.162,
-   "value_R": 0.776,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.3457566390577724,
-      "mdd": -0.02432646280810946
-     },
-     "wait": {
-      "end": 0.9917856649613569,
-      "mdd": -0.128122860961842
-     },
-     "split": {
-      "end": 1.1097816133639857,
-      "mdd": -0.024379782515981385
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0494627856127745,
-      "rec": true,
-      "start": 0.779831029737704,
-      "min": 0.76086049919618
-     },
-     "restart": {
-      "end": 0.8654421383336073,
-      "rec": true,
-      "start": 0.779831029737704,
-      "min": 0.7608189188334846
-     },
-     "idx_third": {
-      "end": 1.2746706871944244,
-      "rec": true,
-      "start": 0.779831029737704,
-      "min": 0.7592321631572432
-     },
-     "idx_half": {
-      "end": 1.218368711799012,
-      "rec": true,
-      "start": 0.779831029737704,
-      "min": 0.7596392471669774
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2025-06-24",
-   "R_date": "2025-09-10",
-   "D": 0.337,
-   "X": 0.168,
-   "r": 0.084,
-   "value_R": 0.804,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8448337621245965,
-      "mdd": -0.20547461385407562
-     },
-     "wait": {
-      "end": 1.0374673999276323,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9610822547144733,
-      "mdd": -0.0777700128524127
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6776119136905739,
-      "rec": false,
-      "start": 0.8020653814621573,
-      "min": 0.6372613069204986
-     },
-     "restart": {
-      "end": 0.7708508052440746,
-      "rec": false,
-      "start": 0.8020653814621574,
-      "min": 0.7396887464373704
-     },
-     "idx_third": {
-      "end": 1.5324245004457964,
-      "rec": true,
-      "start": 0.8020653814621574,
-      "min": 0.8020653814621574
-     },
-     "idx_half": {
-      "end": 1.3187213537569906,
-      "rec": true,
-      "start": 0.8020653814621572,
-      "min": 0.8020653814621572
-     }
-    }
-   }
-  },
-  {
-   "sym": "035420.KS",
-   "group": "대형주",
-   "peak": "2026-01-29",
-   "R_date": "2026-11-05",
-   "D": 0.33,
-   "X": 0.165,
-   "r": 0.083,
-   "value_R": 0.651,
-   "cash": {},
-   "stuck": {}
-  },
-  {
    "sym": "NVDA",
    "group": "변동 큰 종목",
    "peak": "2002-01-03",
@@ -41649,1512 +35855,6 @@
    "X": 0.275,
    "r": 0.137,
    "value_R": 0.8,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2006-01-03",
-   "R_date": "2006-02-23",
-   "D": 0.386,
-   "X": 0.193,
-   "r": 0.097,
-   "value_R": 0.844,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9868788222373693,
-      "mdd": -0.19054870021481018
-     },
-     "wait": {
-      "end": 0.8540299974637645,
-      "mdd": -0.16759099265525668
-     },
-     "split": {
-      "end": 0.8983377976426556,
-      "mdd": -0.12440187278333281
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.2918900827774986,
-      "mdd": -0.8110532768677852
-     },
-     "wait": {
-      "end": 0.25259726020770396,
-      "mdd": -0.836488365297417
-     },
-     "split": {
-      "end": 0.26580278248165007,
-      "mdd": -0.8278908069646511
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8473724871971695,
-      "rec": true,
-      "start": 0.8586388400513827,
-      "min": 0.6950263251256394
-     },
-     "restart": {
-      "end": 0.7713477245422034,
-      "rec": false,
-      "start": 0.8586388400513827,
-      "min": 0.7518225603044818
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.25062816209857347,
-      "rec": true,
-      "start": 0.8586388400513827,
-      "min": 0.1622369951817547
-     },
-     "restart": {
-      "end": 0.22822859283247396,
-      "rec": false,
-      "start": 0.8586388400513827,
-      "min": 0.14777963787005138
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2006-09-18",
-   "R_date": "2006-11-15",
-   "D": 0.305,
-   "X": 0.152,
-   "r": 0.076,
-   "value_R": 0.897,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.6531702430128425,
-      "mdd": -0.35258419667435015
-     },
-     "wait": {
-      "end": 0.5980861252360953,
-      "mdd": -0.4071830225431158
-     },
-     "split": {
-      "end": 0.6815124605150648,
-      "mdd": -0.3244910851964774
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.6060678023149392,
-      "mdd": -0.8259142563761175
-     },
-     "wait": {
-      "end": 0.5549559971454039,
-      "mdd": -0.8405955124615114
-     },
-     "split": {
-      "end": 0.6323723437231541,
-      "mdd": -0.8183087721609931
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.5791496749607087,
-      "rec": true,
-      "start": 0.8866749230480813,
-      "min": 0.5740473575938823
-     },
-     "restart": {
-      "end": 0.6042800084835043,
-      "rec": true,
-      "start": 0.8866749230480813,
-      "min": 0.5989568150517071
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.5373851219795184,
-      "rec": true,
-      "start": 0.8866749230480813,
-      "min": 0.15435746333147402
-     },
-     "restart": {
-      "end": 0.5607086992084631,
-      "rec": true,
-      "start": 0.8866749230480813,
-      "min": 0.16110105546266304
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2007-07-20",
-   "R_date": "2007-09-28",
-   "D": 0.305,
-   "X": 0.152,
-   "r": 0.076,
-   "value_R": 0.798,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.6434687011270219,
-      "mdd": -0.42802782592843214
-     },
-     "wait": {
-      "end": 1.0212207938076703,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.7768072710200087,
-      "mdd": -0.30950505924803606
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 0.8037238370862444,
-      "mdd": -0.8054629783236854
-     },
-     "wait": {
-      "end": 1.0243077373156622,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9702705579951484,
-      "mdd": -0.7651512424256518
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.5105069651886076,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.45378396532136156
-     },
-     "restart": {
-      "end": 0.6162934137593525,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.5478160415012756
-     },
-     "idx_third": {
-      "end": 0.6990804586764358,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.6801727920540204
-     },
-     "idx_half": {
-      "end": 0.6519370853044787,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.6235755853708557
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.6376481345588342,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.1543392932381357
-     },
-     "restart": {
-      "end": 0.7697808410982543,
-      "rec": true,
-      "start": 0.7933672054203498,
-      "min": 0.18632130249320186
-     },
-     "idx_third": {
-      "end": 0.9169339630769032,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.5803579013596117
-     },
-     "idx_half": {
-      "end": 0.8471125059473859,
-      "rec": false,
-      "start": 0.7933672054203498,
-      "min": 0.4738532493292427
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2008-06-09",
-   "R_date": "2008-10-14",
-   "D": 0.426,
-   "X": 0.213,
-   "r": 0.107,
-   "value_R": 0.598,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2068968265900668,
-      "mdd": -0.6749999206576294
-     },
-     "wait": {
-      "end": 1.0017882922560097,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.8752699698318578,
-      "mdd": -0.49501657837238555
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.3535376991498442,
-      "mdd": -0.6749999206576294
-     },
-     "wait": {
-      "end": 0.7785976267467799,
-      "mdd": -0.4415577117180639
-     },
-     "split": {
-      "end": 2.103119789779002,
-      "mdd": -0.49501657837238555
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6907515776517735,
-      "rec": false,
-      "start": 0.5723368911354287,
-      "min": 0.18600953502958012
-     },
-     "restart": {
-      "end": 1.0732861845731945,
-      "rec": true,
-      "start": 0.5723368911354287,
-      "min": 0.28902064160928026
-     },
-     "idx_third": {
-      "end": 0.6741642382722625,
-      "rec": false,
-      "start": 0.5723368911354287,
-      "min": 0.4435611057668125
-     },
-     "idx_half": {
-      "end": 0.6783110731171402,
-      "rec": false,
-      "start": 0.5723368911354287,
-      "min": 0.3791732130825044
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.7746795587660231,
-      "rec": true,
-      "start": 0.5723368911354287,
-      "min": 0.18600953502958012
-     },
-     "restart": {
-      "end": 1.2036930421675105,
-      "rec": true,
-      "start": 0.5723368911354287,
-      "min": 0.28902064160928026
-     },
-     "idx_third": {
-      "end": 0.7739839236613693,
-      "rec": true,
-      "start": 0.5723368911354287,
-      "min": 0.4435611057668125
-     },
-     "idx_half": {
-      "end": 0.7741578324375327,
-      "rec": true,
-      "start": 0.5723368911354287,
-      "min": 0.3791732130825044
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2011-04-21",
-   "R_date": "2011-06-24",
-   "D": 0.309,
-   "X": 0.155,
-   "r": 0.077,
-   "value_R": 0.754,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8932581274334366,
-      "mdd": -0.4157303709206067
-     },
-     "wait": {
-      "end": 1.0004076221767106,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1961018672809722,
-      "mdd": -0.21446132437663445
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.8632957869843036,
-      "mdd": -0.4157303709206067
-     },
-     "wait": {
-      "end": 1.3610619577290815,
-      "mdd": -0.04520480188719078
-     },
-     "split": {
-      "end": 2.4949972416006365,
-      "mdd": -0.21446132437663445
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6445943259189738,
-      "rec": false,
-      "start": 0.7216215628186461,
-      "min": 0.42162156284374247
-     },
-     "restart": {
-      "end": 0.8631328987575959,
-      "rec": true,
-      "start": 0.7216215628186461,
-      "min": 0.5668616467578227
-     },
-     "idx_third": {
-      "end": 0.6541628658409775,
-      "rec": false,
-      "start": 0.7216215628186462,
-      "min": 0.5314925488397941
-     },
-     "idx_half": {
-      "end": 0.6517707308604765,
-      "rec": false,
-      "start": 0.7216215628186461,
-      "min": 0.5050383097420417
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.3445944177970122,
-      "rec": true,
-      "start": 0.7216215628186461,
-      "min": 0.42162156284374247
-     },
-     "restart": {
-      "end": 1.8004438087120629,
-      "rec": true,
-      "start": 0.7216215628186461,
-      "min": 0.5668616467578227
-     },
-     "idx_third": {
-      "end": 0.9212922146243112,
-      "rec": false,
-      "start": 0.7216215628186462,
-      "min": 0.5314925488397941
-     },
-     "idx_half": {
-      "end": 1.0271177654174866,
-      "rec": true,
-      "start": 0.7216215628186461,
-      "min": 0.5050383097420417
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2012-03-28",
-   "R_date": "2012-09-19",
-   "D": 0.578,
-   "X": 0.289,
-   "r": 0.145,
-   "value_R": 0.769,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.2656906182286753,
-      "mdd": -0.06903744935951317
-     },
-     "wait": {
-      "end": 0.9890324889012053,
-      "mdd": -0.14338360736656408
-     },
-     "split": {
-      "end": 1.0812518775620543,
-      "mdd": -0.06351082148111886
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.520163604260221,
-      "mdd": -0.06903744935951317
-     },
-     "wait": {
-      "end": 1.1878820711831124,
-      "mdd": -0.14338360736656408
-     },
-     "split": {
-      "end": 1.298642384525716,
-      "mdd": -0.06351082148111886
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9901800905249435,
-      "rec": true,
-      "start": 0.7823239552100759,
-      "min": 0.7283143047695262
-     },
-     "restart": {
-      "end": 0.8458892454326663,
-      "rec": false,
-      "start": 0.7823239552100758,
-      "min": 0.7326379181503254
-     },
-     "idx_third": {
-      "end": 0.8517232791833953,
-      "rec": false,
-      "start": 0.7823239552100758,
-      "min": 0.7425111303102566
-     },
-     "idx_half": {
-      "end": 0.8863374820187824,
-      "rec": false,
-      "start": 0.7823239552100759,
-      "min": 0.738961923925074
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.1892604034512606,
-      "rec": true,
-      "start": 0.7823239552100759,
-      "min": 0.7283143047695262
-     },
-     "restart": {
-      "end": 1.0159590466656017,
-      "rec": true,
-      "start": 0.7823239552100758,
-      "min": 0.7326379181503254
-     },
-     "idx_third": {
-      "end": 0.9025512411170054,
-      "rec": true,
-      "start": 0.7823239552100758,
-      "min": 0.7425111303102566
-     },
-     "idx_half": {
-      "end": 0.9742285317005692,
-      "rec": true,
-      "start": 0.7823239552100759,
-      "min": 0.738961923925074
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2014-07-08",
-   "R_date": "2014-07-30",
-   "D": 0.198,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.901,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8038107153897117,
-      "mdd": -0.2360477990912292
-     },
-     "wait": {
-      "end": 1.0001494952278602,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9210426153652302,
-      "mdd": -0.10810119953765474
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.5531918883794593,
-      "mdd": -0.42042532641924624
-     },
-     "wait": {
-      "end": 1.350711551169202,
-      "mdd": -0.08762494808017973
-     },
-     "split": {
-      "end": 1.8431131198533097,
-      "mdd": -0.31224100972954727
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7039151167756755,
-      "rec": false,
-      "start": 0.8757224845334343,
-      "min": 0.6690101194446141
-     },
-     "restart": {
-      "end": 0.806577727488812,
-      "rec": false,
-      "start": 0.8757224845334343,
-      "min": 0.7810558334932749
-     },
-     "idx_third": {
-      "end": 0.7582148050938899,
-      "rec": false,
-      "start": 0.8757224845334343,
-      "min": 0.7567603586870115
-     },
-     "idx_half": {
-      "end": 0.7446398830143363,
-      "rec": false,
-      "start": 0.8757224845334344,
-      "min": 0.7348227988764122
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.3601650594488366,
-      "rec": true,
-      "start": 0.8757224845334343,
-      "min": 0.5075465731207918
-     },
-     "restart": {
-      "end": 1.6140556005941105,
-      "rec": true,
-      "start": 0.8757224845334343,
-      "min": 0.6022860117198471
-     },
-     "idx_third": {
-      "end": 1.161345842142895,
-      "rec": true,
-      "start": 0.8757224845334343,
-      "min": 0.6740416919559387
-     },
-     "idx_half": {
-      "end": 1.2110506464693804,
-      "rec": true,
-      "start": 0.8757224845334344,
-      "min": 0.6366063590454685
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2015-06-02",
-   "R_date": "2015-08-25",
-   "D": 0.198,
-   "X": 0.1,
-   "r": 0.05,
-   "value_R": 0.654,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.11368630433529,
-      "mdd": -0.2175326697737554
-     },
-     "wait": {
-      "end": 1.0020423899837398,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.1335064816538243,
-      "mdd": -0.10454735959344985
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.300441168290701,
-      "mdd": -0.2175326697737554
-     },
-     "wait": {
-      "end": 1.452804351383561,
-      "mdd": -0.10548275687934605
-     },
-     "split": {
-      "end": 2.1356610037170216,
-      "mdd": -0.10454735959344985
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7275937224537921,
-      "rec": false,
-      "start": 0.6533201671076134,
-      "min": 0.5112016869396583
-     },
-     "restart": {
-      "end": 0.7405426440116394,
-      "rec": false,
-      "start": 0.6533201671076134,
-      "min": 0.5850172686673607
-     },
-     "idx_third": {
-      "end": 0.7418202683402425,
-      "rec": false,
-      "start": 0.6533201671076134,
-      "min": 0.6131053232633059
-     },
-     "idx_half": {
-      "end": 0.73826363186863,
-      "rec": false,
-      "start": 0.6533201671076134,
-      "min": 0.5918480242220423
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.502924608488914,
-      "rec": true,
-      "start": 0.6533201671076134,
-      "min": 0.5112016869396583
-     },
-     "restart": {
-      "end": 1.3952704038336181,
-      "rec": true,
-      "start": 0.6533201671076134,
-      "min": 0.5850172686673607
-     },
-     "idx_third": {
-      "end": 1.1112864661583557,
-      "rec": true,
-      "start": 0.6533201671076134,
-      "min": 0.6131053232633059
-     },
-     "idx_half": {
-      "end": 1.2091960017409953,
-      "rec": true,
-      "start": 0.6533201671076134,
-      "min": 0.5918480242220423
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2017-10-11",
-   "R_date": "2018-01-05",
-   "D": 0.303,
-   "X": 0.151,
-   "r": 0.076,
-   "value_R": 0.902,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.8472326582874228,
-      "mdd": -0.25063936093106176
-     },
-     "wait": {
-      "end": 0.7324020341174243,
-      "mdd": -0.3522047917144474
-     },
-     "split": {
-      "end": 0.7706919665954334,
-      "mdd": -0.3183328233468331
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.7407675729918262,
-      "mdd": -0.25063936093106176
-     },
-     "wait": {
-      "end": 1.5048306966376912,
-      "mdd": -0.3522047917144474
-     },
-     "split": {
-      "end": 1.5834553138514205,
-      "mdd": -0.3183328233468331
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.7537731175273019,
-      "rec": true,
-      "start": 0.8896884582458875,
-      "min": 0.6666975116433966
-     },
-     "restart": {
-      "end": 0.6856757475427825,
-      "rec": false,
-      "start": 0.8896884582458875,
-      "min": 0.6064714194333833
-     },
-     "idx_third": {
-      "end": 0.7537612767592312,
-      "rec": false,
-      "start": 0.8896884582458875,
-      "min": 0.6944898884526136
-     },
-     "idx_half": {
-      "end": 0.753764236951249,
-      "rec": false,
-      "start": 0.8896884582458875,
-      "min": 0.6891827918437141
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.5487408181795332,
-      "rec": true,
-      "start": 0.8896884582458875,
-      "min": 0.6666975116433966
-     },
-     "restart": {
-      "end": 1.4087819168817288,
-      "rec": true,
-      "start": 0.8896884582458875,
-      "min": 0.6064714194333833
-     },
-     "idx_third": {
-      "end": 1.3305881738670042,
-      "rec": true,
-      "start": 0.8896884582458875,
-      "min": 0.6453997167941863
-     },
-     "idx_half": {
-      "end": 1.3851263349451366,
-      "rec": true,
-      "start": 0.8896884582458875,
-      "min": 0.6874740042928862
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2018-03-14",
-   "R_date": "2018-04-18",
-   "D": 0.201,
-   "X": 0.101,
-   "r": 0.05,
-   "value_R": 0.933,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.9380888089869285,
-      "mdd": -0.33333338241806054
-     },
-     "wait": {
-      "end": 0.8730395152752806,
-      "mdd": -0.37956162029851337
-     },
-     "split": {
-      "end": 0.8947299401622864,
-      "mdd": -0.3641328665016972
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.441453389700344,
-      "mdd": -0.33333338241806054
-     },
-     "wait": {
-      "end": 1.341499607052059,
-      "mdd": -0.37956162029851337
-     },
-     "split": {
-      "end": 1.3748026032819278,
-      "mdd": -0.3641328665016972
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9091291400665139,
-      "rec": true,
-      "start": 0.9691290753679398,
-      "min": 0.6460860026758569
-     },
-     "restart": {
-      "end": 0.8671087996134887,
-      "rec": true,
-      "start": 0.9691290753679398,
-      "min": 0.6162373271440724
-     },
-     "idx_third": {
-      "end": 0.8879605589264961,
-      "rec": false,
-      "start": 0.9691290753679397,
-      "min": 0.7452105268010507
-     },
-     "idx_half": {
-      "end": 0.8932527042115006,
-      "rec": true,
-      "start": 0.9691290753679398,
-      "min": 0.7220196605555171
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.3969543907462771,
-      "rec": true,
-      "start": 0.9691290753679398,
-      "min": 0.6460860026758569
-     },
-     "restart": {
-      "end": 1.3323611757320513,
-      "rec": true,
-      "start": 0.9691290753679398,
-      "min": 0.6162373271440724
-     },
-     "idx_third": {
-      "end": 1.3778509051889,
-      "rec": true,
-      "start": 0.9691290753679397,
-      "min": 0.6829097802162969
-     },
-     "idx_half": {
-      "end": 1.3826267765782443,
-      "rec": true,
-      "start": 0.9691290753679398,
-      "min": 0.7093175227368996
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2018-05-23",
-   "R_date": "2018-06-21",
-   "D": 0.201,
-   "X": 0.101,
-   "r": 0.05,
-   "value_R": 0.929,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.7918299791449841,
-      "mdd": -0.34525135996201795
-     },
-     "wait": {
-      "end": 1.0225885628036493,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.8670786393708464,
-      "mdd": -0.28302969837692904
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.4449341649360123,
-      "mdd": -0.34525135996201795
-     },
-     "wait": {
-      "end": 1.3888699347267162,
-      "mdd": -0.23189263149096973
-     },
-     "split": {
-      "end": 1.5822481184107202,
-      "mdd": -0.28302969837692904
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.743638759161357,
-      "rec": false,
-      "start": 0.9391394349129547,
-      "min": 0.614900267815296
-     },
-     "restart": {
-      "end": 0.8143077434038303,
-      "rec": false,
-      "start": 0.9391394349129547,
-      "min": 0.6733350839156615
-     },
-     "idx_third": {
-      "end": 0.8225565630550833,
-      "rec": false,
-      "start": 0.9391394349129547,
-      "min": 0.7454044638756027
-     },
-     "idx_half": {
-      "end": 0.8028271120816517,
-      "rec": false,
-      "start": 0.9391394349129547,
-      "min": 0.7142919196240005
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.3569946551444287,
-      "rec": true,
-      "start": 0.9391394349129547,
-      "min": 0.614900267815296
-     },
-     "restart": {
-      "end": 1.4859516038163296,
-      "rec": true,
-      "start": 0.9391394349129547,
-      "min": 0.6733350839156615
-     },
-     "idx_third": {
-      "end": 1.412116078131405,
-      "rec": true,
-      "start": 0.9391394349129547,
-      "min": 0.6787327791999342
-     },
-     "idx_half": {
-      "end": 1.3983357223846609,
-      "rec": true,
-      "start": 0.9391394349129547,
-      "min": 0.6966693117016471
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2018-07-19",
-   "R_date": "2019-07-10",
-   "D": 0.201,
-   "X": 0.101,
-   "r": 0.05,
-   "value_R": 0.828,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.10971915958958,
-      "mdd": -0.07634934214153044
-     },
-     "wait": {
-      "end": 0.9096597560956443,
-      "mdd": -0.24286444467998503
-     },
-     "split": {
-      "end": 0.976350327026742,
-      "mdd": -0.1873491486880613
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.342205389716137,
-      "mdd": -0.07634934214153044
-     },
-     "wait": {
-      "end": 1.1002335292570766,
-      "mdd": -0.24286444467998503
-     },
-     "split": {
-      "end": 1.180887456449403,
-      "mdd": -0.1873491486880613
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.9515881515217137,
-      "rec": true,
-      "start": 0.857503579440451,
-      "min": 0.7920337452661649
-     },
-     "restart": {
-      "end": 0.8372239002132861,
-      "rec": true,
-      "start": 0.8575035794404511,
-      "min": 0.6968510138353171
-     },
-     "idx_third": {
-      "end": 0.9432748170390948,
-      "rec": true,
-      "start": 0.8575035794404511,
-      "min": 0.6904973584661069
-     },
-     "idx_half": {
-      "end": 0.9453531506597495,
-      "rec": true,
-      "start": 0.8575035794404509,
-      "min": 0.7158814551661214
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.150945926025853,
-      "rec": true,
-      "start": 0.857503579440451,
-      "min": 0.7920337452661649
-     },
-     "restart": {
-      "end": 1.0126152208216928,
-      "rec": true,
-      "start": 0.8575035794404511,
-      "min": 0.6968510138353171
-     },
-     "idx_third": {
-      "end": 1.1098623191023718,
-      "rec": true,
-      "start": 0.8575035794404511,
-      "min": 0.6904973584661069
-     },
-     "idx_half": {
-      "end": 1.120133220833242,
-      "rec": true,
-      "start": 0.8575035794404509,
-      "min": 0.7158814551661214
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2020-02-17",
-   "R_date": "2020-03-24",
-   "D": 0.385,
-   "X": 0.193,
-   "r": 0.096,
-   "value_R": 0.75,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.685715299132078,
-      "mdd": -0.15029572797321644
-     },
-     "wait": {
-      "end": 1.2784030088575136,
-      "mdd": -6.468244378332599e-06
-     },
-     "split": {
-      "end": 1.4141732215730387,
-      "mdd": -0.049800308988124264
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.077973068703674,
-      "mdd": -0.15029572797321644
-     },
-     "wait": {
-      "end": 0.8175069747588316,
-      "mdd": -0.30249594653900025
-     },
-     "split": {
-      "end": 0.904329437268479,
-      "mdd": -0.22841799349208713
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.3565993487163752,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.6838095748591412
-     },
-     "restart": {
-      "end": 1.1380726462801158,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.7646844533242935
-     },
-     "idx_third": {
-      "end": 1.447216581039019,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.7684224093264551
-     },
-     "idx_half": {
-      "end": 1.424562272958358,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.7629835177976996
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 0.8675115920761525,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.6838095748591412
-     },
-     "restart": {
-      "end": 0.7277698234423757,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.6209397565821673
-     },
-     "idx_third": {
-      "end": 1.1059066247582625,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.7684224093264551
-     },
-     "idx_half": {
-      "end": 1.046307866587735,
-      "rec": true,
-      "start": 0.804761841702953,
-      "min": 0.7629835177976996
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2021-02-25",
-   "R_date": "2021-06-01",
-   "D": 0.343,
-   "X": 0.171,
-   "r": 0.086,
-   "value_R": 0.865,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 0.7981192465073665,
-      "mdd": -0.2738093875436969
-     },
-     "wait": {
-      "end": 1.002691512736683,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 0.9305519530468256,
-      "mdd": -0.12404158147050859
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 1.9436180778721808,
-      "mdd": -0.3894410293330781
-     },
-     "wait": {
-      "end": 1.7120319478200103,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 2.4355302196075295,
-      "mdd": -0.23337558203868547
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.6771920409658987,
-      "rec": false,
-      "start": 0.8484847896217829,
-      "min": 0.6161616890353
-     },
-     "restart": {
-      "end": 0.7895591781130749,
-      "rec": false,
-      "start": 0.8484847896217829,
-      "min": 0.7432373944634253
-     },
-     "idx_third": {
-      "end": 0.6669065972752412,
-      "rec": false,
-      "start": 0.8484847896217829,
-      "min": 0.6669065972752412
-     },
-     "idx_half": {
-      "end": 0.6694779581979056,
-      "rec": false,
-      "start": 0.8484847896217829,
-      "min": 0.6694779581979056
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.6491303759084714,
-      "rec": true,
-      "start": 0.8484847896217829,
-      "min": 0.5180499997780156
-     },
-     "restart": {
-      "end": 2.066510346001189,
-      "rec": true,
-      "start": 0.8484847896217829,
-      "min": 0.6504691579928276
-     },
-     "idx_third": {
-      "end": 1.0894165574438959,
-      "rec": true,
-      "start": 0.8484847896217829,
-      "min": 0.5664929411915627
-     },
-     "idx_half": {
-      "end": 1.2293450120600398,
-      "rec": true,
-      "start": 0.8484847896217829,
-      "min": 0.5588492450650387
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2022-02-17",
-   "R_date": "2022-07-15",
-   "D": 0.384,
-   "X": 0.192,
-   "r": 0.096,
-   "value_R": 0.746,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.1442729649704146,
-      "mdd": -0.25175676953831994
-     },
-     "wait": {
-      "end": 1.0431072243280017,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.2060243083228892,
-      "mdd": -0.0996259553933504
-     }
-    },
-    "3y": {
-     "all": {
-      "end": 2.6099330380402286,
-      "mdd": -0.25175676953831994
-     },
-     "wait": {
-      "end": 2.1053698533907266,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 2.6589467205671973,
-      "mdd": -0.0996259553933504
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 0.8738880168058021,
-      "rec": false,
-      "start": 0.7637059019640446,
-      "min": 0.5714377712082278
-     },
-     "restart": {
-      "end": 0.9210478821782944,
-      "rec": false,
-      "start": 0.7637059019640446,
-      "min": 0.6876209718413362
-     },
-     "idx_third": {
-      "end": 0.8618478107472428,
-      "rec": false,
-      "start": 0.7637059019640446,
-      "min": 0.6622789553582764
-     },
-     "idx_half": {
-      "end": 0.8648578622618827,
-      "rec": false,
-      "start": 0.7637059019640446,
-      "min": 0.6458639154856829
-     }
-    },
-    "3y": {
-     "hold": {
-      "end": 1.9932212648822718,
-      "rec": true,
-      "start": 0.7637059019640446,
-      "min": 0.5714377712082278
-     },
-     "restart": {
-      "end": 2.0306533035051086,
-      "rec": true,
-      "start": 0.7637059019640446,
-      "min": 0.6876209718413362
-     },
-     "idx_third": {
-      "end": 1.3975707003478424,
-      "rec": true,
-      "start": 0.7637059019640446,
-      "min": 0.6622789553582764
-     },
-     "idx_half": {
-      "end": 1.5464833414814496,
-      "rec": true,
-      "start": 0.7637059019640446,
-      "min": 0.6458639154856829
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2024-07-11",
-   "R_date": "2024-08-07",
-   "D": 0.263,
-   "X": 0.131,
-   "r": 0.066,
-   "value_R": 0.702,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 1.6163032749102546,
-      "mdd": -0.06487157838537505
-     },
-     "wait": {
-      "end": 1.149591711141221,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 1.3051503721783302,
-      "mdd": -0.01820684320131649
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 1.0958669923210518,
-      "rec": true,
-      "start": 0.6780082731577091,
-      "min": 0.634024806319626
-     },
-     "restart": {
-      "end": 0.884902750051771,
-      "rec": true,
-      "start": 0.6780082731577091,
-      "min": 0.665663882839131
-     },
-     "idx_third": {
-      "end": 0.9396453482836385,
-      "rec": false,
-      "start": 0.6780082731577091,
-      "min": 0.6367297830746204
-     },
-     "idx_half": {
-      "end": 0.9787007592929919,
-      "rec": true,
-      "start": 0.6780082731577091,
-      "min": 0.6501018893151396
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2025-07-14",
-   "R_date": "2025-08-28",
-   "D": 0.366,
-   "X": 0.183,
-   "r": 0.091,
-   "value_R": 0.896,
-   "cash": {
-    "1y": {
-     "all": {
-      "end": 6.327146469059853,
-      "mdd": -0.048327158120405
-     },
-     "wait": {
-      "end": 5.551847301450245,
-      "mdd": 0.0
-     },
-     "split": {
-      "end": 5.809811315893303,
-      "mdd": -0.016002095034844177
-     }
-    }
-   },
-   "stuck": {
-    "1y": {
-     "hold": {
-      "end": 5.681535219784934,
-      "rec": true,
-      "start": 0.8979617032050705,
-      "min": 0.8545657659882109
-     },
-     "restart": {
-      "end": 5.216988064519644,
-      "rec": true,
-      "start": 0.8979617032050706,
-      "min": 0.8835924346927326
-     },
-     "idx_third": {
-      "end": 3.3692030794502807,
-      "rec": true,
-      "start": 0.8979617032050706,
-      "min": 0.8734497655046618
-     },
-     "idx_half": {
-      "end": 3.947286114533944,
-      "rec": true,
-      "start": 0.8979617032050705,
-      "min": 0.8687287656255491
-     }
-    }
-   }
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2026-02-26",
-   "R_date": "2026-03-05",
-   "D": 0.366,
-   "X": 0.183,
-   "r": 0.091,
-   "value_R": 0.856,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2026-06-01",
-   "R_date": "2026-06-09",
-   "D": 0.366,
-   "X": 0.183,
-   "r": 0.091,
-   "value_R": 0.937,
-   "cash": {},
-   "stuck": {}
-  },
-  {
-   "sym": "000660.KS",
-   "group": "변동 큰 종목",
-   "peak": "2026-06-22",
-   "R_date": "2026-07-03",
-   "D": 0.366,
-   "X": 0.183,
-   "r": 0.091,
-   "value_R": 0.831,
    "cash": {},
    "stuck": {}
   },

@@ -1,0 +1,2234 @@
+{
+ "version": "v1.0",
+ "made": "2026-11-09T07:18:08Z",
+ "rules": {
+  "X": 0.1,
+  "r0": 0.05,
+  "f": 0.5,
+  "drops": [
+   0.05,
+   0.075,
+   0.1,
+   0.15,
+   0.2
+  ],
+  "rebs": [
+   0.03,
+   0.05,
+   0.07,
+   0.1
+  ],
+  "buys": [
+   0.1,
+   0.15,
+   0.2,
+   0.25
+  ],
+  "horizons": {
+   "1y": 252,
+   "3y": 756
+  }
+ },
+ "grid": {
+  "_n": 14,
+  "hold": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.016,
+    "end_worst": 0.545,
+    "days_median": 109
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.259,
+    "end_worst": 0.779,
+    "days_median": 118
+   }
+  },
+  "trend200": {
+   "1y": {
+    "n": 14,
+    "rec": 6,
+    "rec_pct": 42.9,
+    "profit": 3,
+    "end_median": 0.938,
+    "end_worst": 0.705,
+    "days_median": 128
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.194,
+    "end_worst": 0.743,
+    "days_median": 302
+   }
+  },
+  "sell_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.697,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.249,
+    "end_worst": 0.826,
+    "days_median": 169
+   }
+  },
+  "drop5_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.997,
+    "end_worst": 0.591,
+    "days_median": 138
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.357,
+    "end_worst": 0.867,
+    "days_median": 216
+   }
+  },
+  "drop5_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.004,
+    "end_worst": 0.578,
+    "days_median": 134
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.342,
+    "end_worst": 0.839,
+    "days_median": 182
+   }
+  },
+  "drop5_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.009,
+    "end_worst": 0.574,
+    "days_median": 128
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.333,
+    "end_worst": 0.829,
+    "days_median": 180
+   }
+  },
+  "drop5_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.014,
+    "end_worst": 0.572,
+    "days_median": 120
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.321,
+    "end_worst": 0.823,
+    "days_median": 164
+   }
+  },
+  "drop7.5_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.988,
+    "end_worst": 0.609,
+    "days_median": 139
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.348,
+    "end_worst": 0.904,
+    "days_median": 219
+   }
+  },
+  "drop7.5_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.988,
+    "end_worst": 0.579,
+    "days_median": 139
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.331,
+    "end_worst": 0.856,
+    "days_median": 219
+   }
+  },
+  "drop7.5_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.988,
+    "end_worst": 0.572,
+    "days_median": 131
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.346,
+    "end_worst": 0.838,
+    "days_median": 219
+   }
+  },
+  "drop7.5_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.988,
+    "end_worst": 0.568,
+    "days_median": 128
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.36,
+    "end_worst": 0.827,
+    "days_median": 219
+   }
+  },
+  "drop10_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.643,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.311,
+    "end_worst": 0.934,
+    "days_median": 219
+   }
+  },
+  "drop10_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.626,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.368,
+    "end_worst": 0.908,
+    "days_median": 219
+   }
+  },
+  "drop10_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.62,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.359,
+    "end_worst": 0.884,
+    "days_median": 219
+   }
+  },
+  "drop10_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.612,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 11,
+    "end_median": 1.352,
+    "end_worst": 0.868,
+    "days_median": 219
+   }
+  },
+  "drop15_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.692,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.277,
+    "end_worst": 0.912,
+    "days_median": 194
+   }
+  },
+  "drop15_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.675,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.309,
+    "end_worst": 0.937,
+    "days_median": 219
+   }
+  },
+  "drop15_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.642,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.348,
+    "end_worst": 0.91,
+    "days_median": 219
+   }
+  },
+  "drop15_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.621,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.363,
+    "end_worst": 0.888,
+    "days_median": 219
+   }
+  },
+  "drop20_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.714,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.249,
+    "end_worst": 0.909,
+    "days_median": 194
+   }
+  },
+  "drop20_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.708,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.254,
+    "end_worst": 0.932,
+    "days_median": 194
+   }
+  },
+  "drop20_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.703,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.275,
+    "end_worst": 0.955,
+    "days_median": 219
+   }
+  },
+  "drop20_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.695,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.295,
+    "end_worst": 0.964,
+    "days_median": 219
+   }
+  },
+  "reb3_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.011,
+    "end_worst": 0.556,
+    "days_median": 119
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.385,
+    "end_worst": 0.838,
+    "days_median": 150
+   }
+  },
+  "reb3_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.015,
+    "end_worst": 0.558,
+    "days_median": 119
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.384,
+    "end_worst": 0.85,
+    "days_median": 144
+   }
+  },
+  "reb3_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.017,
+    "end_worst": 0.556,
+    "days_median": 109
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.373,
+    "end_worst": 0.854,
+    "days_median": 123
+   }
+  },
+  "reb3_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.019,
+    "end_worst": 0.554,
+    "days_median": 109
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.362,
+    "end_worst": 0.855,
+    "days_median": 119
+   }
+  },
+  "reb5_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.005,
+    "end_worst": 0.562,
+    "days_median": 125
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.385,
+    "end_worst": 0.839,
+    "days_median": 193
+   }
+  },
+  "reb5_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.011,
+    "end_worst": 0.556,
+    "days_median": 123
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.384,
+    "end_worst": 0.839,
+    "days_median": 161
+   }
+  },
+  "reb5_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.01,
+    "end_worst": 0.552,
+    "days_median": 119
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.373,
+    "end_worst": 0.847,
+    "days_median": 167
+   }
+  },
+  "reb5_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.01,
+    "end_worst": 0.551,
+    "days_median": 121
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.362,
+    "end_worst": 0.851,
+    "days_median": 166
+   }
+  },
+  "reb7_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.996,
+    "end_worst": 0.57,
+    "days_median": 131
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.354,
+    "end_worst": 0.858,
+    "days_median": 214
+   }
+  },
+  "reb7_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.999,
+    "end_worst": 0.552,
+    "days_median": 130
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.383,
+    "end_worst": 0.854,
+    "days_median": 210
+   }
+  },
+  "reb7_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.003,
+    "end_worst": 0.547,
+    "days_median": 127
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.397,
+    "end_worst": 0.837,
+    "days_median": 193
+   }
+  },
+  "reb7_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.006,
+    "end_worst": 0.545,
+    "days_median": 125
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.406,
+    "end_worst": 0.83,
+    "days_median": 168
+   }
+  },
+  "reb10_buy10_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.992,
+    "end_worst": 0.652,
+    "days_median": 139
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.309,
+    "end_worst": 0.896,
+    "days_median": 216
+   }
+  },
+  "reb10_buy15_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.994,
+    "end_worst": 0.624,
+    "days_median": 139
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.319,
+    "end_worst": 0.855,
+    "days_median": 215
+   }
+  },
+  "reb10_buy20_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.996,
+    "end_worst": 0.605,
+    "days_median": 134
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.322,
+    "end_worst": 0.853,
+    "days_median": 212
+   }
+  },
+  "reb10_buy25_peak": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.997,
+    "end_worst": 0.59,
+    "days_median": 131
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.329,
+    "end_worst": 0.85,
+    "days_median": 210
+   }
+  },
+  "drop5_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.001,
+    "end_worst": 0.591,
+    "days_median": 145
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.265,
+    "end_worst": 0.867,
+    "days_median": 197
+   }
+  },
+  "drop5_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 8,
+    "end_median": 1.006,
+    "end_worst": 0.578,
+    "days_median": 141
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.295,
+    "end_worst": 0.839,
+    "days_median": 176
+   }
+  },
+  "drop5_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 8,
+    "end_median": 1.008,
+    "end_worst": 0.574,
+    "days_median": 135
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.316,
+    "end_worst": 0.829,
+    "days_median": 176
+   }
+  },
+  "drop5_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 8,
+    "end_median": 1.008,
+    "end_worst": 0.572,
+    "days_median": 129
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.321,
+    "end_worst": 0.823,
+    "days_median": 159
+   }
+  },
+  "drop7.5_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 6,
+    "rec_pct": 42.9,
+    "profit": 6,
+    "end_median": 0.994,
+    "end_worst": 0.609,
+    "days_median": 145
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.247,
+    "end_worst": 0.904,
+    "days_median": 255
+   }
+  },
+  "drop7.5_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 7,
+    "rec_pct": 50.0,
+    "profit": 7,
+    "end_median": 0.997,
+    "end_worst": 0.579,
+    "days_median": 145
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.284,
+    "end_worst": 0.856,
+    "days_median": 250
+   }
+  },
+  "drop7.5_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 7,
+    "rec_pct": 50.0,
+    "profit": 7,
+    "end_median": 0.997,
+    "end_worst": 0.572,
+    "days_median": 137
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.315,
+    "end_worst": 0.838,
+    "days_median": 249
+   }
+  },
+  "drop7.5_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 7,
+    "rec_pct": 50.0,
+    "profit": 7,
+    "end_median": 0.997,
+    "end_worst": 0.568,
+    "days_median": 137
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.305,
+    "end_worst": 0.827,
+    "days_median": 246
+   }
+  },
+  "drop10_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.983,
+    "end_worst": 0.643,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.197,
+    "end_worst": 0.934,
+    "days_median": 311
+   }
+  },
+  "drop10_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 6,
+    "rec_pct": 42.9,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.626,
+    "days_median": 165
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.204,
+    "end_worst": 0.908,
+    "days_median": 311
+   }
+  },
+  "drop10_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 6,
+    "rec_pct": 42.9,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.62,
+    "days_median": 165
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.204,
+    "end_worst": 0.884,
+    "days_median": 311
+   }
+  },
+  "drop10_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 6,
+    "rec_pct": 42.9,
+    "profit": 6,
+    "end_median": 0.983,
+    "end_worst": 0.612,
+    "days_median": 165
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 10,
+    "end_median": 1.204,
+    "end_worst": 0.868,
+    "days_median": 311
+   }
+  },
+  "drop15_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.692,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.204,
+    "end_worst": 0.912,
+    "days_median": 283
+   }
+  },
+  "drop15_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.675,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.204,
+    "end_worst": 0.937,
+    "days_median": 297
+   }
+  },
+  "drop15_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.642,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.204,
+    "end_worst": 0.91,
+    "days_median": 311
+   }
+  },
+  "drop15_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.621,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.204,
+    "end_worst": 0.888,
+    "days_median": 311
+   }
+  },
+  "drop20_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.714,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.16,
+    "end_worst": 0.909,
+    "days_median": 283
+   }
+  },
+  "drop20_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.708,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 9,
+    "rec_pct": 69.2,
+    "profit": 9,
+    "end_median": 1.179,
+    "end_worst": 0.932,
+    "days_median": 283
+   }
+  },
+  "drop20_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.703,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.179,
+    "end_worst": 0.955,
+    "days_median": 297
+   }
+  },
+  "drop20_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 5,
+    "rec_pct": 35.7,
+    "profit": 5,
+    "end_median": 0.977,
+    "end_worst": 0.695,
+    "days_median": 155
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.179,
+    "end_worst": 0.964,
+    "days_median": 297
+   }
+  },
+  "reb3_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.011,
+    "end_worst": 0.556,
+    "days_median": 119
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.385,
+    "end_worst": 0.838,
+    "days_median": 150
+   }
+  },
+  "reb3_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.015,
+    "end_worst": 0.558,
+    "days_median": 119
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.384,
+    "end_worst": 0.85,
+    "days_median": 144
+   }
+  },
+  "reb3_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.017,
+    "end_worst": 0.556,
+    "days_median": 109
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.373,
+    "end_worst": 0.854,
+    "days_median": 123
+   }
+  },
+  "reb3_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.019,
+    "end_worst": 0.554,
+    "days_median": 109
+   },
+   "3y": {
+    "n": 13,
+    "rec": 10,
+    "rec_pct": 76.9,
+    "profit": 10,
+    "end_median": 1.362,
+    "end_worst": 0.855,
+    "days_median": 119
+   }
+  },
+  "reb5_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.008,
+    "end_worst": 0.562,
+    "days_median": 125
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.385,
+    "end_worst": 0.839,
+    "days_median": 193
+   }
+  },
+  "reb5_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.011,
+    "end_worst": 0.556,
+    "days_median": 123
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.384,
+    "end_worst": 0.839,
+    "days_median": 161
+   }
+  },
+  "reb5_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.01,
+    "end_worst": 0.552,
+    "days_median": 119
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.373,
+    "end_worst": 0.847,
+    "days_median": 166
+   }
+  },
+  "reb5_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 9,
+    "rec_pct": 64.3,
+    "profit": 7,
+    "end_median": 1.01,
+    "end_worst": 0.551,
+    "days_median": 121
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.362,
+    "end_worst": 0.851,
+    "days_median": 166
+   }
+  },
+  "reb7_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.001,
+    "end_worst": 0.57,
+    "days_median": 139
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.354,
+    "end_worst": 0.858,
+    "days_median": 215
+   }
+  },
+  "reb7_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.007,
+    "end_worst": 0.552,
+    "days_median": 131
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.383,
+    "end_worst": 0.854,
+    "days_median": 210
+   }
+  },
+  "reb7_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.006,
+    "end_worst": 0.547,
+    "days_median": 127
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.397,
+    "end_worst": 0.837,
+    "days_median": 194
+   }
+  },
+  "reb7_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.004,
+    "end_worst": 0.545,
+    "days_median": 125
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.406,
+    "end_worst": 0.83,
+    "days_median": 166
+   }
+  },
+  "reb10_buy10": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 0.995,
+    "end_worst": 0.652,
+    "days_median": 149
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.309,
+    "end_worst": 0.896,
+    "days_median": 222
+   }
+  },
+  "reb10_buy15": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.001,
+    "end_worst": 0.624,
+    "days_median": 147
+   },
+   "3y": {
+    "n": 13,
+    "rec": 12,
+    "rec_pct": 92.3,
+    "profit": 12,
+    "end_median": 1.319,
+    "end_worst": 0.855,
+    "days_median": 218
+   }
+  },
+  "reb10_buy20": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.006,
+    "end_worst": 0.605,
+    "days_median": 142
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.322,
+    "end_worst": 0.853,
+    "days_median": 214
+   }
+  },
+  "reb10_buy25": {
+   "1y": {
+    "n": 14,
+    "rec": 8,
+    "rec_pct": 57.1,
+    "profit": 7,
+    "end_median": 1.009,
+    "end_worst": 0.59,
+    "days_median": 131
+   },
+   "3y": {
+    "n": 13,
+    "rec": 11,
+    "rec_pct": 84.6,
+    "profit": 11,
+    "end_median": 1.329,
+    "end_worst": 0.85,
+    "days_median": 212
+   }
+  }
+ },
+ "rank": [
+  "drop10_buy10_peak",
+  "drop15_buy20_peak",
+  "drop10_buy15_peak",
+  "reb10_buy10_peak",
+  "reb10_buy10",
+  "drop15_buy25_peak",
+  "drop10_buy20_peak",
+  "drop10_buy25_peak",
+  "reb10_buy15_peak",
+  "reb10_buy15",
+  "trend200",
+  "reb5_buy25_peak",
+  "reb5_buy25",
+  "reb5_buy20_peak",
+  "reb5_buy20",
+  "drop20_buy25_peak",
+  "drop20_buy20_peak",
+  "drop15_buy15_peak",
+  "drop7.5_buy10_peak",
+  "drop5_buy10_peak",
+  "reb7_buy10_peak",
+  "reb7_buy10",
+  "drop7.5_buy15_peak",
+  "reb7_buy15_peak",
+  "reb7_buy15",
+  "reb10_buy20_peak",
+  "reb10_buy20",
+  "reb10_buy25_peak",
+  "reb10_buy25",
+  "reb5_buy10_peak",
+  "reb5_buy10",
+  "reb5_buy15_peak",
+  "reb5_buy15",
+  "drop7.5_buy20_peak",
+  "reb7_buy20_peak",
+  "reb7_buy20",
+  "reb7_buy25_peak",
+  "reb7_buy25",
+  "drop7.5_buy25_peak",
+  "drop10_buy15",
+  "drop10_buy20",
+  "drop10_buy25",
+  "drop10_buy10",
+  "drop15_buy20",
+  "drop15_buy25",
+  "reb3_buy25_peak",
+  "reb3_buy25",
+  "reb3_buy20_peak",
+  "reb3_buy20",
+  "reb3_buy15_peak",
+  "reb3_buy15",
+  "reb3_buy10_peak",
+  "reb3_buy10",
+  "hold",
+  "drop20_buy15_peak",
+  "drop15_buy10_peak",
+  "drop20_buy10_peak",
+  "drop5_buy10",
+  "drop5_buy15_peak",
+  "drop5_buy20_peak",
+  "drop5_buy25_peak",
+  "drop7.5_buy15",
+  "drop7.5_buy20",
+  "drop7.5_buy25",
+  "drop7.5_buy10",
+  "drop20_buy25",
+  "drop20_buy20",
+  "drop15_buy15",
+  "drop5_buy15",
+  "drop5_buy20",
+  "sell_peak",
+  "drop5_buy25",
+  "drop20_buy15",
+  "drop15_buy10",
+  "drop20_buy10"
+ ],
+ "top": [
+  "drop10_buy10_peak",
+  "drop15_buy20_peak",
+  "drop10_buy15_peak",
+  "reb10_buy10_peak",
+  "reb10_buy10",
+  "drop15_buy25_peak",
+  "drop10_buy20_peak",
+  "drop10_buy25_peak",
+  "reb10_buy15_peak",
+  "reb10_buy15",
+  "hold",
+  "trend200",
+  "sell_peak"
+ ],
+ "sensitivity": {
+  "X0.075_r0.03_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "14/22",
+    "3y": "16/20"
+   },
+   "drop15_buy20_peak": {
+    "1y": "14/22",
+    "3y": "17/20"
+   },
+   "drop10_buy15_peak": {
+    "1y": "14/22",
+    "3y": "16/20"
+   },
+   "reb10_buy10_peak": {
+    "1y": "14/22",
+    "3y": "17/20"
+   },
+   "reb10_buy10": {
+    "1y": "13/22",
+    "3y": "18/20"
+   },
+   "drop15_buy25_peak": {
+    "1y": "14/22",
+    "3y": "17/20"
+   },
+   "drop10_buy20_peak": {
+    "1y": "14/22",
+    "3y": "17/20"
+   },
+   "drop10_buy25_peak": {
+    "1y": "14/22",
+    "3y": "17/20"
+   },
+   "reb10_buy15_peak": {
+    "1y": "14/22",
+    "3y": "16/20"
+   },
+   "reb10_buy15": {
+    "1y": "13/22",
+    "3y": "16/20"
+   },
+   "hold": {
+    "1y": "17/22",
+    "3y": "16/20"
+   },
+   "trend200": {
+    "1y": "12/22",
+    "3y": "19/20"
+   },
+   "sell_peak": {
+    "1y": "14/22",
+    "3y": "15/20"
+   },
+   "_n": 23
+  },
+  "X0.075_r0.05_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "drop15_buy20_peak": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "drop10_buy15_peak": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "reb10_buy10_peak": {
+    "1y": "15/22",
+    "3y": "17/19"
+   },
+   "reb10_buy10": {
+    "1y": "15/22",
+    "3y": "18/19"
+   },
+   "drop15_buy25_peak": {
+    "1y": "15/22",
+    "3y": "15/19"
+   },
+   "drop10_buy20_peak": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "drop10_buy25_peak": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "reb10_buy15_peak": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "reb10_buy15": {
+    "1y": "15/22",
+    "3y": "16/19"
+   },
+   "hold": {
+    "1y": "17/22",
+    "3y": "15/19"
+   },
+   "trend200": {
+    "1y": "13/22",
+    "3y": "18/19"
+   },
+   "sell_peak": {
+    "1y": "15/22",
+    "3y": "14/19"
+   },
+   "_n": 23
+  },
+  "X0.075_r0.07_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "15/22",
+    "3y": "18/19"
+   },
+   "drop15_buy20_peak": {
+    "1y": "15/22",
+    "3y": "17/19"
+   },
+   "drop10_buy15_peak": {
+    "1y": "15/22",
+    "3y": "17/19"
+   },
+   "reb10_buy10_peak": {
+    "1y": "16/22",
+    "3y": "18/19"
+   },
+   "reb10_buy10": {
+    "1y": "16/22",
+    "3y": "18/19"
+   },
+   "drop15_buy25_peak": {
+    "1y": "15/22",
+    "3y": "17/19"
+   },
+   "drop10_buy20_peak": {
+    "1y": "15/22",
+    "3y": "17/19"
+   },
+   "drop10_buy25_peak": {
+    "1y": "15/22",
+    "3y": "17/19"
+   },
+   "reb10_buy15_peak": {
+    "1y": "16/22",
+    "3y": "18/19"
+   },
+   "reb10_buy15": {
+    "1y": "16/22",
+    "3y": "18/19"
+   },
+   "hold": {
+    "1y": "17/22",
+    "3y": "15/19"
+   },
+   "trend200": {
+    "1y": "14/22",
+    "3y": "18/19"
+   },
+   "sell_peak": {
+    "1y": "15/22",
+    "3y": "15/19"
+   },
+   "_n": 23
+  },
+  "X0.1_r0.03_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "drop15_buy20_peak": {
+    "1y": "7/14",
+    "3y": "12/13"
+   },
+   "drop10_buy15_peak": {
+    "1y": "7/14",
+    "3y": "10/13"
+   },
+   "reb10_buy10_peak": {
+    "1y": "7/14",
+    "3y": "12/13"
+   },
+   "reb10_buy10": {
+    "1y": "6/14",
+    "3y": "12/13"
+   },
+   "drop15_buy25_peak": {
+    "1y": "7/14",
+    "3y": "12/13"
+   },
+   "drop10_buy20_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "drop10_buy25_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "reb10_buy15_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "reb10_buy15": {
+    "1y": "6/14",
+    "3y": "11/13"
+   },
+   "hold": {
+    "1y": "9/14",
+    "3y": "10/13"
+   },
+   "trend200": {
+    "1y": "4/14",
+    "3y": "12/13"
+   },
+   "sell_peak": {
+    "1y": "7/14",
+    "3y": "9/13"
+   },
+   "_n": 14
+  },
+  "X0.1_r0.05_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "drop15_buy20_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "drop10_buy15_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "reb10_buy10_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "reb10_buy10": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "drop15_buy25_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "drop10_buy20_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "drop10_buy25_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "reb10_buy15_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "reb10_buy15": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "hold": {
+    "1y": "9/14",
+    "3y": "10/13"
+   },
+   "trend200": {
+    "1y": "6/14",
+    "3y": "12/13"
+   },
+   "sell_peak": {
+    "1y": "8/14",
+    "3y": "9/13"
+   },
+   "_n": 14
+  },
+  "X0.1_r0.07_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "drop15_buy20_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "drop10_buy15_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "reb10_buy10_peak": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "reb10_buy10": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "drop15_buy25_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "drop10_buy20_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "drop10_buy25_peak": {
+    "1y": "7/14",
+    "3y": "11/13"
+   },
+   "reb10_buy15_peak": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "reb10_buy15": {
+    "1y": "8/14",
+    "3y": "12/13"
+   },
+   "hold": {
+    "1y": "9/14",
+    "3y": "10/13"
+   },
+   "trend200": {
+    "1y": "6/14",
+    "3y": "12/13"
+   },
+   "sell_peak": {
+    "1y": "7/14",
+    "3y": "9/13"
+   },
+   "_n": 14
+  },
+  "X0.15_r0.03_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "drop15_buy20_peak": {
+    "1y": "4/11",
+    "3y": "9/10"
+   },
+   "drop10_buy15_peak": {
+    "1y": "4/11",
+    "3y": "7/10"
+   },
+   "reb10_buy10_peak": {
+    "1y": "4/11",
+    "3y": "9/10"
+   },
+   "reb10_buy10": {
+    "1y": "4/11",
+    "3y": "9/10"
+   },
+   "drop15_buy25_peak": {
+    "1y": "4/11",
+    "3y": "9/10"
+   },
+   "drop10_buy20_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "drop10_buy25_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "reb10_buy15_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "reb10_buy15": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "hold": {
+    "1y": "6/11",
+    "3y": "7/10"
+   },
+   "trend200": {
+    "1y": "3/11",
+    "3y": "9/10"
+   },
+   "sell_peak": {
+    "1y": "4/11",
+    "3y": "6/10"
+   },
+   "_n": 11
+  },
+  "X0.15_r0.05_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "drop15_buy20_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "drop10_buy15_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "reb10_buy10_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "reb10_buy10": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "drop15_buy25_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "drop10_buy20_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "drop10_buy25_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "reb10_buy15_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "reb10_buy15": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "hold": {
+    "1y": "6/11",
+    "3y": "7/10"
+   },
+   "trend200": {
+    "1y": "4/11",
+    "3y": "9/10"
+   },
+   "sell_peak": {
+    "1y": "5/11",
+    "3y": "6/10"
+   },
+   "_n": 11
+  },
+  "X0.15_r0.07_f0.5": {
+   "drop10_buy10_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "drop15_buy20_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "drop10_buy15_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "reb10_buy10_peak": {
+    "1y": "5/11",
+    "3y": "8/10"
+   },
+   "reb10_buy10": {
+    "1y": "5/11",
+    "3y": "8/10"
+   },
+   "drop15_buy25_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "drop10_buy20_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "drop10_buy25_peak": {
+    "1y": "4/11",
+    "3y": "8/10"
+   },
+   "reb10_buy15_peak": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "reb10_buy15": {
+    "1y": "5/11",
+    "3y": "9/10"
+   },
+   "hold": {
+    "1y": "6/11",
+    "3y": "7/10"
+   },
+   "trend200": {
+    "1y": "4/11",
+    "3y": "9/10"
+   },
+   "sell_peak": {
+    "1y": "4/11",
+    "3y": "6/10"
+   },
+   "_n": 11
+  },
+  "X0.1_r0.05_f0.3": {
+   "drop10_buy10_peak": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "drop15_buy20_peak": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "drop10_buy15_peak": {
+    "1y": "8/14",
+    "3y": "10/13"
+   },
+   "reb10_buy10_peak": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "reb10_buy10": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "drop15_buy25_peak": {
+    "1y": "8/14",
+    "3y": "10/13"
+   },
+   "drop10_buy20_peak": {
+    "1y": "8/14",
+    "3y": "10/13"
+   },
+   "drop10_buy25_peak": {
+    "1y": "8/14",
+    "3y": "10/13"
+   },
+   "reb10_buy15_peak": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "reb10_buy15": {
+    "1y": "8/14",
+    "3y": "11/13"
+   },
+   "hold": {
+    "1y": "9/14",
+    "3y": "10/13"
+   },
+   "trend200": {
+    "1y": "6/14",
+    "3y": "12/13"
+   },
+   "sell_peak": {
+    "1y": "8/14",
+    "3y": "9/13"
+   },
+   "_n": 14
+  },
+  "X0.1_r0.05_f1.0": {
+   "drop10_buy10_peak": {
+    "1y": "3/14",
+    "3y": "10/13"
+   },
+   "drop15_buy20_peak": {
+    "1y": "3/14",
+    "3y": "11/13"
+   },
+   "drop10_buy15_peak": {
+    "1y": "3/14",
+    "3y": "11/13"
+   },
+   "reb10_buy10_peak": {
+    "1y": "3/14",
+    "3y": "11/13"
+   },
+   "reb10_buy10": {
+    "1y": "1/14",
+    "3y": "11/13"
+   },
+   "drop15_buy25_peak": {
+    "1y": "3/14",
+    "3y": "11/13"
+   },
+   "drop10_buy20_peak": {
+    "1y": "3/14",
+    "3y": "12/13"
+   },
+   "drop10_buy25_peak": {
+    "1y": "3/14",
+    "3y": "12/13"
+   },
+   "reb10_buy15_peak": {
+    "1y": "4/14",
+    "3y": "12/13"
+   },
+   "reb10_buy15": {
+    "1y": "2/14",
+    "3y": "12/13"
+   },
+   "hold": {
+    "1y": "9/14",
+    "3y": "10/13"
+   },
+   "trend200": {
+    "1y": "6/14",
+    "3y": "12/13"
+   },
+   "sell_peak": {
+    "1y": "3/14",
+    "3y": "8/13"
+   },
+   "_n": 14
+  }
+ }
+}

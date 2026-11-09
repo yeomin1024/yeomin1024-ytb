@@ -1,6 +1,6 @@
 {
- "version": "v1.5",
- "made": "2026-11-09T12:10:25Z",
+ "version": "v1.6",
+ "made": "2026-11-09T14:30:23Z",
  "cited": {
   "kospi_2022_top_target": 3600,
   "kospi_2022_band": [
@@ -203,5 +203,28 @@
   "miss_2023_pct": 16.8,
   "year_2022_pct": -19.4,
   "year_2023_pct": 24.2
+ },
+ "youtube_titles": {
+  "source": "stock/result/outliers/compare.csv",
+  "n_videos": 13776,
+  "n_kospi10k_titles": 10,
+  "before_peak_buy_now": [
+   {
+    "id": "MIAncG-aCTA",
+    "published": "2026-06-21",
+    "views": 47388,
+    "title": "삼성전자 SK하이닉스 다음 2차전지 '이 주식' 7월부터 바닥에서 무섭게 오를 겁니다, 코스피 1만 되기 전에 사세요 [인생주식]",
+    "days_from_peak": -1
+   }
+  ],
+  "after_crash_still_10k": [
+   {
+    "id": "Qonm5EnT_GQ",
+    "published": "2026-10-19",
+    "views": 30274,
+    "title": "'코스피 1만 포인트 간다' 80%는 무조건 '여기'에 넣으세요 (여운봉 대표 풀버전) #주식 #미국주식 #삼성전자 #하이닉스",
+    "days_from_peak": 119
+   }
+  ]
  }
 }

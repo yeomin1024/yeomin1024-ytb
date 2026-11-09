@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-09 — drawdowns 에 '고점 매수 → 원금 아래 종가가 나온 마지막 날·해' (반론 검토 4차 — 되찾은 뒤 다시 빠진 경우).
+# VERSION: v1.6 — 2026-11-09 — 유튜브 제목 사례: 분석 자료(stock/result/outliers/compare.csv)에서 '코스피 1만' 류 제목 · 고점 전날 '되기 전에 사세요' · 폭락 뒤 '1만 포인트 간다' (사용자 지시 "만스피 대본 좀 이런 흐름으로 수정해봐 … 만스피 발언 뿐만이 아니다 월가, 유튜버들도 틀린 말을 많이 한다 …"). 채널 이름은 결과에 넣지 않음.
+# (v1.5 — 2026-11-09 — drawdowns 에 '고점 매수 → 원금 아래 종가가 나온 마지막 날·해' (반론 검토 4차 — 되찾은 뒤 다시 빠진 경우).)
 # (v1.4 — 2026-11-09 — buy_after_30 에 '매수 가격 아래 종가가 나온 마지막 날·해' (반론 검토 3차 — 되찾은 뒤 다시 빠진 경우).)
 # (v1.3 — 2026-11-09 — 고점보다 30% 빠진 첫날 매수했다면: 그 뒤 더 빠진 폭 · 그 값을 되찾기까지 해 (반론 검토 2차 — 물린 사람 규칙의 근거).)
 # (v1.2 — 2026-11-09 — 반론 검토 1차 숫자: 약세 8,000 vs 6/25 종가 · 1만 전망 날(5/11) vs 2024년 말 배수 · 2022 전망 밴드 하단 2,610 vs 실제 (사용자 지시 "…만스피 대본에도 모두 반영 … 페르소나 검증도 해").)
@@ -9,6 +10,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.6 | 2026-11-09 | youtube_titles (compare.csv — 제목·올린 날·조회수·영상 ID 만, 채널 이름 없음) · 고점과 날짜 차 (기존 값 그대로) | youtube_titles · main |
 # | v1.5 | 2026-11-09 | drawdowns_30 done[].last_below_peak · years_last_below_peak + years_last_below_peak_max (자료 끝까지 · 기존 값 그대로) | main |
 # | v1.4 | 2026-11-09 | buy_after_30 cases.last_below_buy · years_last_below + years_last_below_max (자료 끝까지 · 기존 값 그대로) | buy_after · main |
 # | v1.3 | 2026-11-09 | buy_after_30: −30% 첫 종가 날 · 그 뒤 최저(되찾기 전) · 더 빠진 폭 · 산 값을 다시 넘은 날 · 해 (기존 값 그대로) | buy_after · main |
@@ -31,7 +33,7 @@ from pathlib import Path
 
 import pandas as pd
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 OUT = HERE / "result.json"
@@ -100,6 +102,24 @@ def buy_after(s: pd.Series, dds: list[dict], th: float = -0.30) -> list[dict]:
     return out
 
 
+def youtube_titles(peak_d: str) -> dict:
+    """분석 자료(stock/result/outliers/compare.csv — 이 채널이 검색어로 모은 주식 영상)에서 '코스피 1만' 류 제목. 채널 이름은 넣지 않는다(비난 목적 아님)."""
+    import csv, re
+    src = ROOT / "stock/result/outliers/compare.csv"
+    try:
+        rows = list(csv.DictReader(open(src, encoding="utf-8-sig")))
+    except OSError as ex:
+        log("YOUTUBE", level="warning", error=str(ex), hint="stock/result/outliers/compare.csv 확인 (cloud_run.py stock analyze)")
+        return {}
+    pat = re.compile(r"만스피|코스피\s*1만|1만\s*포인트|코스피\s*10[,.]?000|코스피\s*15[,.]?000")
+    hits = sorted([r for r in rows if pat.search(r["title"])], key=lambda r: r["published"])
+    pk = pd.Timestamp(peak_d)
+    pick = lambda rx: [{"id": r["id"], "published": r["published"], "views": int(r["views"]), "title": r["title"], "days_from_peak": (pd.Timestamp(r["published"]) - pk).days}
+                       for r in hits if re.search(rx, r["title"])]
+    return {"source": str(src.relative_to(ROOT)), "n_videos": len(rows), "n_kospi10k_titles": len(hits),
+            "before_peak_buy_now": pick(r"되기 전에 사세요"), "after_crash_still_10k": [x for x in pick(r"1만\s*포인트\s*간다") if x["days_from_peak"] > 0]}
+
+
 def pct(a: float, b: float) -> float:
     return round((a / b - 1) * 100, 1)
 
@@ -149,6 +169,10 @@ def main() -> None:
     res["spx"] = {"end_2021": s21, "end_2022": s22, "end_2023": s23,
                   "miss_2022_pct": pct(s22[1], CITED["spx_2022_avg_target"]), "miss_2023_pct": pct(s23[1], CITED["spx_2023_avg_target"]),
                   "year_2022_pct": pct(s22[1], s21[1]), "year_2023_pct": pct(s23[1], s22[1])}
+    res["youtube_titles"] = youtube_titles(pk_d)
+    for k_ in ("before_peak_buy_now", "after_crash_still_10k"):
+        for x in res["youtube_titles"].get(k_, []):
+            log("YOUTUBE", kind=k_, published=x["published"], days_from_peak=x["days_from_peak"], views=x["views"], id=x["id"])
     for sec in ("kospi", "kospi_2022", "spx"):
         log("RESULT", section=sec, **{a: (json.dumps(b, ensure_ascii=False) if isinstance(b, (dict, list, tuple)) else b) for a, b in res[sec].items()})
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1), encoding="utf-8")

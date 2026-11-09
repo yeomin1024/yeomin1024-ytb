@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-09 — 고점보다 30% 빠진 첫날 매수했다면: 그 뒤 더 빠진 폭 · 그 값을 되찾기까지 해 (반론 검토 2차 — 물린 사람 규칙의 근거).
+# VERSION: v1.4 — 2026-11-09 — buy_after_30 에 '매수 가격 아래 종가가 나온 마지막 날·해' (반론 검토 3차 — 되찾은 뒤 다시 빠진 경우).
+# (v1.3 — 2026-11-09 — 고점보다 30% 빠진 첫날 매수했다면: 그 뒤 더 빠진 폭 · 그 값을 되찾기까지 해 (반론 검토 2차 — 물린 사람 규칙의 근거).)
 # (v1.2 — 2026-11-09 — 반론 검토 1차 숫자: 약세 8,000 vs 6/25 종가 · 1만 전망 날(5/11) vs 2024년 말 배수 · 2022 전망 밴드 하단 2,610 vs 실제 (사용자 지시 "…만스피 대본에도 모두 반영 … 페르소나 검증도 해").)
 # (v1.1 — 2026-11-08 — 2026 연간 전망 밴드(2025년 말 7곳 3,500~5,500) vs 실제 고점 · 코스피 30% 넘는 하락 국면과 회복 기간 (대본 분량 보완).)
 # (v1.0 — 2026-11-08 — 롱폼 「만스피 간다는 전문가들 왜 이럴까? 절대 믿지 마세요」 숫자 (사용자 지시 2026-11-08 — 전달 내용 "믿어도 되는 말과 절대 믿지 말아야 할 전문가 말").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-11-09 | buy_after_30 cases.last_below_buy · years_last_below + years_last_below_max (자료 끝까지 · 기존 값 그대로) | buy_after · main |
 # | v1.3 | 2026-11-09 | buy_after_30: −30% 첫 종가 날 · 그 뒤 최저(되찾기 전) · 더 빠진 폭 · 산 값을 다시 넘은 날 · 해 (기존 값 그대로) | buy_after · main |
 # | v1.2 | 2026-11-09 | CITED kospi_2022_band [2610, 3600] · bear_vs_report_day_pct · fn_10000 vs_2024_end_x · kospi_2022.vs_band_low_pct (기존 값 그대로) | main |
 # | v1.1 | 2026-11-08 | cited band_2026_top 5,500 → 고점 대비 · drawdowns(고점 −30% 넘는 국면 · 바닥 · 고점 되찾은 날 · 해) | drawdowns · main |
@@ -27,7 +29,7 @@ from pathlib import Path
 
 import pandas as pd
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 OUT = HERE / "result.json"
@@ -87,9 +89,12 @@ def buy_after(s: pd.Series, dds: list[dict], th: float = -0.30) -> list[dict]:
         after = w[b_d:]
         low_v = float(after.min())
         back = s[after.idxmin():]; back = back[back >= b_v]
+        below = s[b_d:]; below = below[below < b_v]          # 자료 끝까지 — 매수 가격 아래 종가가 나온 마지막 날
+        lb = below.index[-1] if len(below) else b_d
         out.append({"peak": d["peak"], "buy": b_d.strftime("%Y-%m-%d"), "buy_close": round(b_v, 2), "low_after": round(low_v, 2),
                     "more_drop_pct": pct(low_v, b_v), "back_to_buy": back.index[0].strftime("%Y-%m-%d"),
-                    "years_to_buy_price": round((back.index[0] - b_d).days / 365.25, 1)})
+                    "years_to_buy_price": round((back.index[0] - b_d).days / 365.25, 1),
+                    "last_below_buy": lb.strftime("%Y-%m-%d"), "years_last_below": round((lb - b_d).days / 365.25, 1)})
     return out
 
 
@@ -120,7 +125,7 @@ def main() -> None:
         log("DRAWDOWN", **d)
     ba = buy_after(k, dds)
     res["buy_after_30"] = {"cases": ba, "more_drop_worst_pct": min(b["more_drop_pct"] for b in ba), "years_to_buy_price_max": max(b["years_to_buy_price"] for b in ba),
-                           "years_to_buy_price_min": min(b["years_to_buy_price"] for b in ba)}
+                           "years_to_buy_price_min": min(b["years_to_buy_price"] for b in ba), "years_last_below_max": max(b["years_last_below"] for b in ba)}
     for b in ba:
         log("BUY_AFTER_30", **b)
     log("DRAWDOWN", open=json.dumps(open_), n_done=len(dds))

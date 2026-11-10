@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-10 — 새로: '판단용 페르소나'(stock/guides/persona_judge.md)의 근거 숫자·원문을 **원자료에서 직접** 다시 뽑는 도구
+# VERSION: v1.2 — 2026-11-10 — **영상 쏠림 검산** (2-1): 주제마다 '영상 중앙값'(댓글 MIN_VIDEO_COMMENTS 개 넘는 영상마다 그 주제 몫 → 가운데 값)·'상위 5개 영상 몫'(댓글·좋아요)·
+#   올린 달로 나눈 영상 중앙값(앞 6개월 → 지금) — 합계 몫은 댓글이 수천 개인 몇 영상이 끌어올릴 수 있어서 (정부 탓: 합계 9.2% 인데 보통 영상에선 2.9%).
+# v1.1 — 2026-11-10 — **모든 댓글**을 주제로 나눠 많은 순으로 (2번): 주제별 댓글 수·좋아요·묻는 몫·'지금'(NOW_FROM 뒤) 대 앞 6개월 · 묻는 댓글이 무엇을 묻나 ·
+#   페르소나 세계별 합 · 낱말 순위(kiwipiepy 가 있으면 — 없으면 건너뜀) — 사용자 지시 2026-11-10 "왜 댓글 210개만 보고 하는거야 전체 모든 댓글을 다 봐야지 … 가장 많은거 위주로".
+#   손 분류 표본 210개는 보조(2-5)로 내림. 댓글에 쓴 날짜를 같이 읽음.
+# v1.0 — 2026-11-10 — 새로: '판단용 페르소나'(stock/guides/persona_judge.md)의 근거 숫자·원문을 **원자료에서 직접** 다시 뽑는 도구
 #   (사용자 지시 2026-11-10 "저장소에 분석 결과 자료(제목, 썸네일 문구, 댓글 등)를 보고 … 페르소나 파일 만들어 … 분석 자료가 잘못된게 있을 수 있으니
 #    확인하면서 최대한 날것의 자료를 보도록 해").
 #   · 읽는 것(가공 전 자료): <주제>/result/outliers/W_*/metadata.json · comments.jsonl · compare.csv · thumb_codes.tsv · persona_sample_labels.tsv
@@ -30,10 +35,11 @@ import tomllib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("persona_evidence")
 HANGUL = re.compile(r"[가-힣]")
 TS = re.compile(r"(?<!\d)(\d{1,2}):(\d{2})(?::(\d{2}))?(?!\d)")
+QEND = re.compile(r"(나요|까요|ㄴ가요|는지요|될까요|할까요|건가요|인가요|은가요|을까요|ㄹ까요|주세요|부탁드립니다|궁금합니다)\s*[?~.!ㅠㅜ^ ]*$|\?\s*$")
 ME = re.compile(r"저는|제가|저도|전 |난 |나는|내가|나도|저희|제 |내 |우리 ?(집|부부|남편|아내|와이프)")
 AGE = re.compile(r"(?<!\d)([2-7])0 ?대|(?<!\d)([2-7]\d) ?(살|세)(?!대)")
 LABELS = {"A": "물림·손실 중", "A2": "국장 정리·미장 이동", "B": "지수·레버리지 ETF 적립", "C": "배당·은퇴·파이어(현금흐름)",
@@ -70,8 +76,9 @@ def load_cfg(topic):
     ex = cfg["exclude"]
     for k in ("NEWS_CHANNEL", "POLITICS_TITLE", "OFF_TITLE", "SPAM", "POLITICS_COMMENT"):
         ex["_" + k] = re.compile(ex[k])
-    for f in cfg.get("title_feature", []) + cfg.get("signal", []):
+    for f in cfg.get("title_feature", []) + cfg.get("signal", []) + cfg.get("topic", []) + cfg.get("ask_type", []):
         f["_re"] = re.compile(f["re"])
+    cfg["_ASK"] = re.compile(cfg["ASK"]) if cfg.get("ASK") else None
     return cfg
 
 
@@ -153,7 +160,7 @@ def load_raw(topic, cfg):
         if len(rows) != len(uniq):
             integ["videos_with_dup_rows"] += 1
         for c in uniq:
-            C.append((m["id"], c.get("id"), c.get("parent"), int(c.get("likes") or 0), c.get("text") or "", bool(c.get("creator"))))
+            C.append((m["id"], c.get("id"), c.get("parent"), int(c.get("likes") or 0), c.get("text") or "", bool(c.get("creator")), (c.get("published") or "")[:10]))
     integ["videos_kr"] = len(V)
     integ["transcripts_kr"] = sum(1 for m in V.values() if m["has_transcript"])
     integ["flag_success_kr"] = sum(1 for m in V.values() if m["flag_success"])
@@ -334,6 +341,126 @@ def thumb_stats(topic, V):
             "top": [{"ratio": round(r["ratio"], 1), "main": r["main"], "sub": r["sub"], "title": flat(r["title"], 60)} for r in sorted(R, key=lambda r: -r["ratio"])[:25]]}
 
 
+# ------------------------------------------------------------------ 모든 댓글 — 무엇을 말하고 무엇을 묻나
+def month_back(day, n=6):
+    y, m = int(day[:4]), int(day[5:7]) - n
+    while m <= 0:
+        y, m = y - 1, m + 12
+    return f"{y:04d}-{m:02d}-{day[8:10]}"
+
+
+def top_nouns(core, cfg, n=80):
+    """낱말별 '그 말이 든 댓글 수' — 형태소 분석기(kiwipiepy)가 있을 때만. 없으면 None (정규식 주제 분류는 그대로 됨)."""
+    try:
+        import warnings
+        warnings.filterwarnings("ignore")
+        from kiwipiepy import Kiwi
+    except ImportError:
+        log("NOUNS", logging.WARNING, skipped="kiwipiepy 없음", next="pip install kiwipiepy 뒤 다시 (낱말 순위만 빠짐 — 주제 분류는 영향 없음)")
+        return None
+    t0 = time.time()
+    kiwi = Kiwi(num_workers=4)
+    for w in cfg.get("NOUN_WORDS", []):
+        kiwi.add_user_word(w, "NNP", 5.0)
+    stop = set(cfg.get("NOUN_STOP", "").split())
+    df, likes = collections.Counter(), collections.Counter()
+    for c, res in zip(core, kiwi.tokenize([c[4][:400] for c in core])):
+        ws = set()
+        for t in res:
+            if t.tag in ("NNG", "NNP") and len(t.form) >= 2 and t.form not in stop:
+                ws.add(t.form)
+            elif t.tag == "SL" and len(t.form) >= 2:
+                ws.add(t.form.upper())
+        for w in ws:
+            df[w] += 1
+            likes[w] += c[3]
+    log("NOUNS", comments=len(core), words=len(df), sec=round(time.time() - t0, 1))
+    return [{"word": w, "comments": k, "likes": likes[w]} for w, k in df.most_common(n)]
+
+
+def all_comments(core, cfg, V, with_nouns=True):
+    topics, ask_rx, pol = cfg.get("topic", []), cfg.get("_ASK"), cfg["exclude"]["_POLITICS_COMMENT"]
+    if not topics:
+        return None
+    n = len(core)
+    now_from = cfg.get("NOW_FROM", "")
+    before_from = month_back(now_from) if now_from else ""
+    labs = [[i for i, t in enumerate(topics) if t["_re"].search(c[4])] for c in core]
+    asks = [bool(ask_rx and ask_rx.search(c[4])) for c in core]
+    now = [i for i, c in enumerate(core) if now_from and c[6] >= now_from]
+    bef = [i for i, c in enumerate(core) if now_from and before_from <= c[6] < now_from]
+    cnt, lk, ak = collections.Counter(), collections.Counter(), collections.Counter()
+    vids = collections.defaultdict(set)
+    for c, l, a in zip(core, labs, asks):
+        for i in l:
+            cnt[i] += 1
+            lk[i] += c[3]
+            ak[i] += a
+            vids[i].add(c[0])
+    cn, cb = collections.Counter(), collections.Counter()
+    for i in now:
+        cn.update(labs[i])
+    for i in bef:
+        cb.update(labs[i])
+    # 영상 쏠림 검산 — 합계 몫은 댓글이 많은 몇 영상이 끌어올릴 수 있다 → 영상마다 몫을 구해 가운데 값을 같이 낸다 (영상은 올린 날로 지금/앞)
+    minc = int(cfg.get("MIN_VIDEO_COMMENTS", 30))
+    gids = {g: {i for i, t in enumerate(topics) if t.get("group") == g} for g in "AECB"}
+    vtot, vcnt, vlk, vg = collections.Counter(), collections.defaultdict(collections.Counter), collections.defaultdict(collections.Counter), collections.defaultdict(collections.Counter)
+    for c, l in zip(core, labs):
+        vtot[c[0]] += 1
+        for i in l:
+            vcnt[i][c[0]] += 1
+            vlk[i][c[0]] += c[3]
+        for g, ids in gids.items():
+            if ids & set(l):
+                vg[g][c[0]] += 1
+    vday = lambda v: str((V.get(v) or {}).get("published") or "")[:10]
+    big = [v for v, k in vtot.items() if k >= minc]
+    big_now = [v for v in big if now_from and vday(v) >= now_from]
+    big_bef = [v for v in big if now_from and before_from <= vday(v) < now_from]
+    med = lambda ct, vs: round(statistics.median(ct[v] / vtot[v] for v in vs), 4) if vs else None
+    top5 = lambda ct: round(sum(k for _, k in ct.most_common(5)) / sum(ct.values()), 3) if sum(ct.values()) else None
+    rows = []
+    for i, t in enumerate(topics):
+        if not cnt[i]:
+            continue
+        s_now = cn[i] / len(now) if now else None
+        s_bef = cb[i] / len(bef) if bef else None
+        rows.append({"name": t["name"], "group": t.get("group", "-"), "n": cnt[i], "share": round(cnt[i] / n, 4), "videos": len(vids[i]), "likes": lk[i],
+                     "likes_per": round(lk[i] / cnt[i], 1), "ask": ak[i], "ask_share": round(ak[i] / cnt[i], 3),
+                     "share_now": round(s_now, 4) if s_now is not None else None, "share_before": round(s_bef, 4) if s_bef is not None else None,
+                     "now_ratio": round(s_now / s_bef, 2) if s_now and s_bef else None,
+                     "video_median": med(vcnt[i], big), "video_median_now": med(vcnt[i], big_now), "video_median_before": med(vcnt[i], big_bef),
+                     "top5_share": top5(vcnt[i]), "likes_top5_share": top5(vlk[i]),
+                     "samples": pick([c for c, l in zip(core, labs) if i in l and not c[2]], V, n=3, per_video=1, lo=15, hi=200)})
+    rows.sort(key=lambda r: -r["n"])
+    none = [c for c, l in zip(core, labs) if not l]
+    groups = []
+    for g, nm in (("A", "물린 개미의 세계 (폭락·국장·삼전·물림·지금 팔까)"), ("E", "탓·불신 (정부·외국인 수급·전문가)"), ("C", "현금흐름 (배당·은퇴·계좌·세금)"), ("B", "적립 (지수 ETF·레버리지)")):
+        ids = {i for i, t in enumerate(topics) if t.get("group") == g}
+        k = sum(1 for l in labs if ids & set(l))
+        kn = sum(1 for i in now if ids & set(labs[i]))
+        kb = sum(1 for i in bef if ids & set(labs[i]))
+        groups.append({"group": g, "name": nm, "n": k, "share": round(k / n, 4), "share_now": round(kn / len(now), 4) if now else None,
+                       "share_before": round(kb / len(bef), 4) if bef else None, "video_median": med(vg[g], big),
+                       "video_median_now": med(vg[g], big_now), "video_median_before": med(vg[g], big_bef), "top5_share": top5(vg[g])})
+    Q = [c for c, a in zip(core, asks) if a and not pol.search(c[4])]
+    at = []
+    for t in cfg.get("ask_type", []):
+        cs = [c for c in Q if t["_re"].search(c[4])]
+        at.append({"name": t["name"], "n": len(cs), "share": round(len(cs) / len(Q), 3) if Q else 0, "likes": sum(c[3] for c in cs),
+                   "samples": pick([c for c in cs if not c[2] and QEND.search(c[4].strip())], V, n=4, per_video=1, lo=15, hi=200)})   # 보기는 물음으로 끝나는 댓글만
+    at.sort(key=lambda r: -r["n"])
+    none_ask = sum(1 for c in Q if not any(t["_re"].search(c[4]) for t in cfg.get("ask_type", [])))
+    return {"n": n, "top_level": sum(1 for c in core if not c[2]), "no_topic": len(none), "no_topic_share": round(len(none) / n, 3),
+            "no_topic_short": sum(1 for c in none if len(c[4]) < 20), "min_video_comments": minc, "videos": len(vtot), "videos_big": len(big),
+            "videos_big_now": len(big_now), "videos_big_before": len(big_bef), "now_from": now_from, "before_from": before_from, "n_now": len(now), "n_before": len(bef),
+            "topics": rows, "groups": groups, "ask_n": sum(asks), "ask_nonpolitical": len(Q), "ask_types": at, "ask_none": none_ask,
+            "top_liked": [{"likes": c[3], "text": c[4], "title": (V.get(c[0]) or {}).get("title", ""), "topics": [topics[i]["name"] for i in l]}
+                          for c, l in sorted(zip(core, labs), key=lambda x: -x[0][3])[:15]],
+            "nouns": top_nouns(core, cfg) if with_nouns else None}
+
+
 # ------------------------------------------------------------------ 댓글 신호
 def pick(cs, V, n=6, per_video=2, lo=12, hi=220):
     seen, out = collections.Counter(), []
@@ -410,7 +537,7 @@ def sample_labels(cfg):
 
 
 # ------------------------------------------------------------------ 모으기
-def build(topic):
+def build(topic, with_nouns=True):
     t0 = time.time()
     cfg = load_cfg(topic)
     V, C, integ = load_raw(topic, cfg)
@@ -439,7 +566,7 @@ def build(topic):
          "exclude": {"OFF": cfg["exclude"]["OFF"], "EVENT": cfg["exclude"]["EVENT"]},
          "groups": [{"key": k, "name": GROUPS[k], "videos": gv[k], "viewer_comments": gc[k]} for k in GROUPS],
          "core": {"comments": len(core), "top_level": len(core_top), "videos": sum(gv[k] for k in GROUPS if k not in CORE_OUT)},
-         "sample": sample_labels(cfg), "crash_titles": crash_share(topic),
+         "all": all_comments(core, cfg, V, with_nouns=with_nouns), "sample": sample_labels(cfg), "crash_titles": crash_share(topic),
          "set_a": {"n": len(A), "success": sum(r["ok"] for r in A), "channels": len({r["channel"] for r in A}), "dropped": why,
                    "bucket_rates": {str(k): round(v, 3) for k, v in sorted(rate.items())}, "cuts": cfg["set_a"]["SUBS_BUCKETS"]},
          "title_lifts": tl, "length_lifts": length_lifts(A, rate),
@@ -485,10 +612,59 @@ def render(E):
     w("")
     w("제목에 폭락·급락·붕괴·서킷이 든 한국어 영상 몫 (compare.csv, 올린 달): " + " · ".join(f"{c['month'][5:]}월 {c['share']:.0%}({c['crash']}/{c['titles']})" for c in E["crash_titles"]))
     w("")
+    AL = E.get("all")
+    w("## 2. 모든 댓글 — 무엇을 말하고 무엇을 묻나 (많은 순)")
+    if AL:
+        def pc(x, d=1):
+            return "—" if x is None else f"{x:.{d}%}"
+        w(f"핵심 묶음의 시청자 댓글 **{AL['n']:,}개 전부**(최상위 {AL['top_level']:,} + 답글)를 주제 낱말로 나눔 — 한 댓글이 여러 주제에 들 수 있다. 어느 주제에도 안 든 댓글 {AL['no_topic']:,}개({AL['no_topic_share']:.0%}) 가운데 {AL['no_topic_short']:,}개는 20자 미만 반응, 나머지는 답글 대화·출연자 이야기.")
+        w(f"'지금' = {AL['now_from']} 뒤에 쓴 댓글 {AL['n_now']:,}개 · '앞' = 그 앞 6개월({AL['before_from']}~) {AL['n_before']:,}개. ⚠️ 지금/앞 차이는 모은 영상의 구성(10월엔 폭락 영상이 많이 잡힘)도 섞여 있다.")
+        w("")
+        w("### 2-1. 주제별 — 무엇을 가장 많이 말하나")
+        w(f"**영상 중앙값** = 댓글 {AL['min_video_comments']}개 넘는 영상 {AL['videos_big']}개마다 그 주제 댓글 몫을 구한 가운데 값 (올린 달로 앞 {AL['videos_big_before']}개 → 지금 {AL['videos_big_now']}개). "
+          "합계 몫보다 훨씬 작으면 **몇 영상에 몰린 주제**다 ('상위 5개 영상 몫'이 큼) — 어느 영상 밑에서나 나오는 주제는 둘이 비슷하다.")
+        w("")
+        w("| 주제 | 댓글 | 합계 몫 | 영상 중앙값 | 상위 5개 영상 몫 | 영상 | 좋아요 합 (댓글당 · 상위 5개 영상 몫) | 묻는 댓글 몫 | 합계 몫 앞 → 지금 (댓글 쓴 날) | 영상 중앙값 앞 → 지금 (올린 달) | 세계 |")
+        w("|---|---|---|---|---|---|---|---|---|---|---|")
+        for r in AL["topics"]:
+            tr = f"{pc(r['share_before'])} → {pc(r['share_now'])}" + (f" (×{r['now_ratio']})" if r["now_ratio"] else "")
+            w(f"| {r['name']} | {r['n']:,} | {r['share']:.1%} | {pc(r['video_median'])} | {pc(r['top5_share'], 0)} | {r['videos']} | {r['likes']:,} ({r['likes_per']} · {pc(r['likes_top5_share'], 0)}) | "
+              f"{r['ask_share']:.0%} | {tr} | {pc(r['video_median_before'])} → {pc(r['video_median_now'])} | {r['group']} |")
+        w("")
+        w("영상 중앙값이 큰 순 (어느 영상 밑에서나 나오는 말): " + " · ".join(f"{r['name']} {pc(r['video_median'])}" for r in sorted(AL["topics"], key=lambda r: -(r["video_median"] or 0))[:10]))
+        w("")
+        w("세계별 합 (한 댓글이 그 세계의 주제 하나라도 들면 1):")
+        for g in AL["groups"]:
+            w(f"- **{g['name']}** — {g['n']:,}개 (합계 {g['share']:.1%} · 영상 중앙값 {pc(g['video_median'])} · 상위 5개 영상 몫 {pc(g['top5_share'], 0)}) · "
+              f"합계 앞 {pc(g['share_before'])} → 지금 {pc(g['share_now'])} · 영상 중앙값 앞 {pc(g['video_median_before'])} → 지금 {pc(g['video_median_now'])}")
+        w("")
+        w("좋아요가 가장 많은 댓글 15개 (주제에 든 것·안 든 것 모두 — '가장 공감받은 말'을 주제 표만 보고 정하지 않게):")
+        for q in AL.get("top_liked", []):
+            w(f"- 👍{q['likes']:,} \"{flat(q['text'], 90)}\" — 「{flat(q['title'], 34)}」 · 주제: {', '.join(q['topics']) or '없음'}")
+        w("")
+        w("주제마다 좋아요 많은 댓글 (영상마다 하나):")
+        for r in AL["topics"]:
+            w(f"- **{r['name']}**: " + " / ".join(f"👍{q['likes']} \"{flat(q['text'], 110)}\"" for q in r["samples"]))
+        w("")
+        w("### 2-2. 묻는 댓글 — 무엇을 묻나")
+        w(f"정보를 묻는 꼴(…나요·까요·알려 주세요·궁금)의 댓글 {AL['ask_n']:,}개 가운데 정치 낱말이 없는 **{AL['ask_nonpolitical']:,}개**. 아래 어느 것에도 안 드는 {AL['ask_none']:,}개는 되묻기·비꼼·출연자 개인사·영상 속 말 확인이 많다 (표본을 읽고 확인).")
+        w("")
+        w("| 묻는 것 | 댓글 | 묻는 댓글 안 몫 | 좋아요 합 |")
+        w("|---|---|---|---|")
+        for r in AL["ask_types"]:
+            w(f"| {r['name']} | {r['n']:,} | {r['share']:.0%} | {r['likes']:,} |")
+        w("")
+        for r in AL["ask_types"]:
+            w(f"- **{r['name']}**: " + " / ".join(f"👍{q['likes']} \"{flat(q['text'], 110)}\"" for q in r["samples"]))
+        w("")
+        if AL.get("nouns"):
+            w("### 2-3. 가장 많이 나온 낱말 (그 말이 든 댓글 수 — 형태소 분석, 흔한 말 뺌)")
+            w(" · ".join(f"{x['word']} {x['comments']:,}" for x in AL["nouns"]))
+            w("")
     S = E["sample"]
-    w("## 2. 시청자가 처한 상황 — 손으로 분류한 표본")
+    w("### 2-5. (보조) 1인칭 댓글 표본 — 손으로 분류")
     if S:
-        w(f"1인칭 댓글에서 무작위 {S['n']}개를 Claude 가 한 줄씩 읽고 분류 (`persona_sample_labels.tsv` — 뽑은 법은 그 파일 머리). ±는 95% 구간.")
+        w(f"1인칭 댓글에서 무작위 {S['n']}개를 Claude 가 한 줄씩 읽고 분류 (`persona_sample_labels.tsv` — 뽑은 법은 그 파일 머리). ±는 95% 구간. **규모는 2-1 의 전체 댓글 숫자를 먼저 본다** — 이 표는 '자기 처지를 밝힌 사람'만의 몫.")
         w("")
         w("| 갈래 | 댓글 | 몫 |")
         w("|---|---|---|")
@@ -581,7 +757,23 @@ def selftest():
     assert TS.findall("3:45 여기 1:02:03 끝") == [("3", "45", ""), ("1", "02", "03")]
     assert AGE.search("저는 52살입니다").group(2) == "52" and AGE.search("40대 직장인").group(1) == "4" and not AGE.search("2026년 150만 원")
     assert flat("a\n b  c", 3) == "a b…"
-    print("[SELFTEST] ok — group·dedupe·bucket·lift·timestamp·age·flat")
+    assert month_back("2026-10-01") == "2026-04-01" and month_back("2026-03-15") == "2025-09-15"
+    fake = {"topic": [{"name": "물림", "group": "A", "_re": re.compile("물렸")}, {"name": "배당", "group": "C", "_re": re.compile("배당")}],
+            "ask_type": [{"name": "배당 묻기", "_re": re.compile("배당")}], "_ASK": re.compile("나요"), "NOW_FROM": "2026-10-01", "MIN_VIDEO_COMMENTS": 2,
+            "exclude": {"_POLITICS_COMMENT": re.compile("정부")}}
+    cs = [("v", "1", None, 5, "삼전 물렸어요", False, "2026-10-05"), ("v", "2", None, 1, "배당 얼마 나오나요", False, "2026-07-01"),
+          ("v", "3", None, 0, "ㅋㅋ", False, "2026-10-06"), ("v", "4", "1", 2, "물렸는데 배당은 나오나요", False, "2026-10-07"),
+          ("w", "5", None, 9, "물렸다", False, "2026-10-08")]                                           # 댓글 1개짜리 영상 w — 영상 중앙값에서는 빠져야 함
+    al = all_comments(cs, fake, {"v": {"title": "t", "published": "2026-10-02"}, "w": {"title": "u", "published": "2026-10-03"}}, with_nouns=False)
+    tp = {r["name"]: r for r in al["topics"]}
+    assert al["n"] == 5 and al["no_topic"] == 1 and tp["물림"]["n"] == 3 and tp["배당"]["n"] == 2 and tp["배당"]["ask"] == 2, al
+    assert al["n_now"] == 4 and al["n_before"] == 1 and tp["물림"]["share_now"] == round(3 / 4, 4) and tp["물림"]["share_before"] == 0.0
+    assert al["videos"] == 2 and al["videos_big"] == 1 and al["videos_big_now"] == 1 and al["videos_big_before"] == 0, al       # w 는 댓글 1개 < 2
+    assert tp["물림"]["video_median"] == 0.5 and tp["물림"]["video_median_now"] == 0.5 and tp["물림"]["video_median_before"] is None
+    assert al["top_liked"][0]["likes"] == 9 and al["top_liked"][0]["topics"] == ["물림"]
+    assert tp["물림"]["top5_share"] == 1.0 and tp["물림"]["likes_top5_share"] == 1.0 and al["groups"][0]["video_median"] == 0.5
+    assert al["ask_nonpolitical"] == 2 and al["ask_types"][0]["n"] == 2
+    print("[SELFTEST] ok — group·dedupe·bucket·lift·timestamp·age·flat·month_back·all_comments·video_median")
     return 0
 
 
@@ -590,13 +782,14 @@ def main(argv):
     ap.add_argument("topic", nargs="?", default="stock")
     ap.add_argument("--check", action="store_true", help="계산만 하고 파일을 쓰지 않음")
     ap.add_argument("--selftest", action="store_true")
+    ap.add_argument("--no-nouns", action="store_true", help="낱말 순위(형태소 분석 약 20초)를 건너뜀")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stdout)
     if a.selftest:
         return selftest()
     try:
-        E = build(a.topic)
+        E = build(a.topic, with_nouns=not a.no_nouns)
     except FileNotFoundError as e:
         log("ERROR", logging.ERROR, stage="load", missing=str(e), next="주제 폴더의 result/outliers 와 persona_judge.toml 을 확인")
         return 1

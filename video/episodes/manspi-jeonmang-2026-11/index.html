@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>전문가 말 거르기</title>
+<!-- VERSION: v1.0 — 2026-11-10 — 사용자 지시 "이미지 만들었으니 영상 만들어봐" (대본 stock/source/manspi-jeonmang-2026-11/manspi-jeonmang-2026-11.txt — 사용자 완성본 main ac40a5e3 · 5장 61문장):
+       썸네일 그림체 2D 컷아웃 모션그래픽 — 배경(BG-*) 위에 인물 자세 그림을 바꿔 끼움(V = 시청자 · E = 전문가 — slice.py 가 시트를 칸마다 자름) · GSAP.
+     · 이 편의 중심 장치 = 거름망 무대(BG-SIEVE): 왼쪽 위 TV 화면 속 전문가가 말하면 말 카드가 위에서 떨어져 체에 걸림 →
+       '걸러야 할 말'은 빨간 X 와 함께 왼쪽 버리는 통으로, '믿어도 되는 말'은 체를 통과해 초록 체크와 함께 오른쪽 보관함으로 (quick_board 규칙 43 — 다른 편과 다른 무대).
+     · 화면 글 = 쉬운 영어(BUY) · 숫자 · 기호 · 짧은 한국어(대본 낱말 그대로 — data-words 칸) — 주식 규칙 44. 대본에 없는 숫자는 쓰지 않음.
+     · 배치 표 = window.LAYOUT — node video/scripts/layout-check.mjs manspi-jeonmang-2026-11 문제 0 뒤 렌더.
+     · 오디오 전에는 render.mjs sync --estimate (추정 시각) → video --estimated-preview (소리 없는 미리보기). 오디오가 오면 sync → video.
+     · 도입(6문장)은 사용자가 쓴 완성본이라 introOk (render.mjs v1.22 — 35초를 넘어도 경고만).
+     연구·교육용 영상 — 투자 권유 아님. 인물은 가상 (특정 전문가·방송이 아님). -->
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#stage{background:#0B0F1C}
+.bg{position:absolute;inset:0;opacity:0}
+.bg img{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.act{position:absolute}
+.act img{position:absolute;opacity:0}
+.pr{position:absolute}
+.tag{position:absolute;font-weight:900;line-height:1.1;white-space:nowrap;padding:16px 30px;border-radius:22px;background:rgba(8,12,24,.86);border:4px solid #FFD400;color:#FFF;text-align:center}
+.tag.r{border-color:#FF4D3D}.tag.g{border-color:#22C7B0}.tag.n{border-color:rgba(255,255,255,.35)}
+.ttl{position:absolute;display:flex;align-items:center;justify-content:center;gap:20px;font-weight:900;font-size:58px;line-height:1;white-space:nowrap;
+     padding:22px 44px;border-radius:999px;background:rgba(8,12,24,.9);border:5px solid #FFD400;color:#fff;box-sizing:border-box}
+.ttl .no{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;font-size:52px;background:#FFD400;color:#0B0F1C}
+.ttl.r{border-color:#FF4D3D}.ttl.r .no{background:#FF4D3D;color:#fff}
+.ttl.g{border-color:#22C7B0}.ttl.g .no{background:#22C7B0;color:#0B0F1C}
+.card{position:absolute}
+.card img{position:absolute;left:0;top:0;width:100%;height:100%}
+.card .qt{position:absolute;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:900;color:#11151F;line-height:1.12;word-break:keep-all}
+.card .stamp{position:absolute;opacity:0}
+.tv{position:absolute;overflow:hidden;border-radius:26px;border:6px solid #2A3550;box-shadow:0 18px 40px rgba(0,0,0,.45);background:#0D1630}
+.tv>img.bgi{position:absolute;left:-560px;top:-150px;width:1800px;height:1013px}
+.tv .live{position:absolute;left:18px;top:16px;width:22px;height:22px;border-radius:50%;background:#FF4D3D;box-shadow:0 0 14px #FF4D3D}
+.big{position:absolute;font-weight:900;line-height:1;white-space:nowrap;text-shadow:0 8px 24px rgba(0,0,0,.55)}
+.buy{position:absolute;font-weight:900;font-size:44px;line-height:1;padding:10px 20px;border-radius:14px;background:#FF4D3D;color:#fff;white-space:nowrap;box-shadow:0 6px 16px rgba(0,0,0,.35)}
+.sell{background:#3D7BFF}
+.dash{position:absolute;height:0;border-top:6px dashed #FFD400}
+.lst{position:absolute;display:flex;flex-direction:column;gap:22px}
+.lst .it{display:flex;align-items:center;gap:20px;font-weight:900;font-size:54px;line-height:1.1;white-space:nowrap;color:#fff;
+         padding:16px 26px;border-radius:20px;background:rgba(8,12,24,.86);border:4px solid #FF4D3D;opacity:0}
+.lst.g .it{border-color:#22C7B0}
+.lst .it img{width:62px;height:62px;object-fit:contain}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"manspi-jeonmang-2026-11","topic":"stock","duration":263.09,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-10T10:59:51Z","sent":[{"n":1,"part":"도입","text":"코스피 1만 간다는 전문가 말을 믿고 전 재산을 주식에 넣었다가, 큰 손실을 보신 분들 많으실 겁니다.","start":0.3,"end":6.51},{"n":2,"part":"도입","text":"은퇴 자금까지 끌어다 넣었는데 주가가 곤두박질치니, 밤마다 계좌를 열어보면서 대체 누구 말을 믿어야 하나 싶으셨겠죠.","start":6.96,"end":14.529},{"n":3,"part":"도입","text":"그때는 전문가가 확신에 차서 말했고, 뉴스마다 비슷한 전망이 쏟아졌으니까요.","start":14.979,"end":19.981},{"n":4,"part":"도입","text":"그런데 막상 손실이 나면 그 누구도 내 돈을 대신 책임져 주지 않습니다.","start":20.431,"end":24.579},{"n":5,"part":"도입","text":"그렇다고 앞으로 전문가의 말을 전부 무시할 수도 없겠죠.","start":25.029,"end":28.422},{"n":6,"part":"도입","text":"그래서 오늘은 복잡한 분석 대신, 전문가가 이런 말을 하면 거르고, 이런 말을 하면 참고해도 된다는 걸 실제 예시로 딱 구분해 드리겠습니다.","start":28.872,"end":37.597},{"n":7,"part":"전문가들은 왜 틀릴까","text":"먼저 전문가들이 코스피 목표치를 어떻게 만드는지 간단히 알아보겠습니다.","start":38.597,"end":43.198},{"n":8,"part":"전문가들은 왜 틀릴까","text":"기업들이 앞으로 얼마나 돈을 벌지, 금리와 환율이 어떻게 변할지 예상해 숫자를 계산합니다.","start":43.648,"end":49.405},{"n":9,"part":"전문가들은 왜 틀릴까","text":"그런데 여기 들어가는 값은 확정된 사실이 아니라 예상입니다.","start":49.855,"end":53.55},{"n":10,"part":"전문가들은 왜 틀릴까","text":"기업 실적이 기대보다 나빠지거나 시장 분위기가 바뀌면 목표치도 달라집니다.","start":54,"end":58.752},{"n":11,"part":"전문가들은 왜 틀릴까","text":"전문가가 전망을 수정하는 건 잘못이 아닙니다.","start":59.202,"end":61.991},{"n":12,"part":"전문가들은 왜 틀릴까","text":"문제는 우리가 그 목표치를 마치 반드시 도달할 숫자처럼 받아들이는 겁니다.","start":62.441,"end":67.042},{"n":13,"part":"전문가들은 왜 틀릴까","text":"게다가 국내 증권사의 기업 분석 보고서는 매수 의견에 크게 치우치는 경향도 있습니다.","start":67.492,"end":72.697},{"n":14,"part":"전문가들은 왜 틀릴까","text":"매수 의견이 모두 틀렸다는 뜻은 아니지만, 전문가가 말했으니 안전하다고 생각해선 안 됩니다.","start":73.147,"end":79.055},{"n":15,"part":"전문가들은 왜 틀릴까","text":"그럼 이제 실제로 어떤 말을 걸러야 하는지 보겠습니다.","start":79.505,"end":82.747},{"n":16,"part":"걸러야 할 말","text":"첫 번째, 날짜와 숫자를 확정하는 말입니다.","start":83.747,"end":86.484},{"n":17,"part":"걸러야 할 말","text":"\"올해 말 코스피 무조건 1만 갑니다.\"","start":86.934,"end":88.968},{"n":18,"part":"걸러야 할 말","text":"이런 말은 거르세요.","start":89.418,"end":90.546},{"n":19,"part":"걸러야 할 말","text":"정확한 시점과 지수 수준을 누구도 보장할 수 없는데, 미래를 확정해서 말하고 있기 때문입니다.","start":90.996,"end":96.904},{"n":20,"part":"걸러야 할 말","text":"두 번째, 마지막 기회라고 재촉하는 말입니다.","start":97.354,"end":100.242},{"n":21,"part":"걸러야 할 말","text":"\"지금이 마지막 매수 기회입니다.\"","start":100.692,"end":102.575},{"n":22,"part":"걸러야 할 말","text":"\"여기서 더 떨어질 일은 없습니다.\"","start":103.025,"end":104.908},{"n":23,"part":"걸러야 할 말","text":"이런 말도 거르세요.","start":105.358,"end":106.486},{"n":24,"part":"걸러야 할 말","text":"전문가라도 바닥을 정확하게 맞힐 수 없고, 조급하게 매수하도록 만드는 말에는 특히 주의해야 합니다.","start":106.936,"end":113.297},{"n":25,"part":"걸러야 할 말","text":"세 번째, 손실이 없다고 장담하는 말입니다.","start":113.747,"end":116.484},{"n":26,"part":"걸러야 할 말","text":"\"장기 투자하면 무조건 원금 회복합니다.\"","start":116.934,"end":119.27},{"n":27,"part":"걸러야 할 말","text":"\"이 가격에서는 손해 볼 가능성이 없습니다.\"","start":119.72,"end":122.207},{"n":28,"part":"걸러야 할 말","text":"이런 말은 믿지 마세요.","start":122.657,"end":123.936},{"n":29,"part":"걸러야 할 말","text":"주식은 오래 보유해도 원금을 회복하지 못할 수 있습니다.","start":124.386,"end":127.779},{"n":30,"part":"걸러야 할 말","text":"네 번째, 틀렸는데도 이유 없이 같은 말을 반복하는 경우입니다.","start":128.229,"end":132.174},{"n":31,"part":"걸러야 할 말","text":"처음에는 \"올해 1만 갑니다\"라고 해놓고, 주가가 떨어지자 \"오히려 지금 더 사야 합니다\"라고만 말합니다.","start":132.624,"end":138.985},{"n":32,"part":"걸러야 할 말","text":"처음 전망이 왜 빗나갔는지, 달라진 조건이 뭔지는 설명하지 않죠.","start":139.435,"end":143.531},{"n":33,"part":"걸러야 할 말","text":"이런 말 역시 거르세요.","start":143.981,"end":145.26},{"n":34,"part":"걸러야 할 말","text":"전망을 고치지 않는 확신보다, 틀린 이유를 설명하는 분석이 훨씬 낫습니다.","start":145.71,"end":150.41},{"n":35,"part":"걸러야 할 말","text":"그렇다면 반대로 어떤 말은 참고할 가치가 있을까요?","start":150.86,"end":153.951},{"n":36,"part":"믿어도 되는 말","text":"첫 번째, 조건을 붙이는 말입니다.","start":154.951,"end":157.084},{"n":37,"part":"믿어도 되는 말","text":"\"기업 이익이 예상대로 늘고 주식시장 평가 수준이 유지된다면 코스피 1만도 가능합니다.\"","start":157.534,"end":162.89},{"n":38,"part":"믿어도 되는 말","text":"이런 말은 참고할 만합니다.","start":163.34,"end":164.921},{"n":39,"part":"믿어도 되는 말","text":"무작정 오른다는 게 아니라, 어떤 조건이 맞아야 하는지 보여주기 때문입니다.","start":165.371,"end":170.222},{"n":40,"part":"믿어도 되는 말","text":"두 번째, 하락 가능성도 같이 말하는 경우입니다.","start":170.672,"end":173.711},{"n":41,"part":"믿어도 되는 말","text":"\"기본 전망은 1만이지만, 실적이 악화되면 8천 수준으로 밀릴 가능성도 있습니다.\"","start":174.161,"end":179.314},{"n":42,"part":"믿어도 되는 말","text":"이런 말은 참고할 만합니다.","start":179.764,"end":181.345},{"n":43,"part":"믿어도 되는 말","text":"좋은 결과만 말하지 않고 나쁜 경우도 설명하니까요.","start":181.795,"end":184.886},{"n":44,"part":"믿어도 되는 말","text":"단, 8천이라는 숫자가 최악의 하락을 보장하는 바닥은 아닙니다.","start":185.336,"end":189.432},{"n":45,"part":"믿어도 되는 말","text":"세 번째, 전망을 바꿀 기준을 말하는 경우입니다.","start":189.882,"end":192.921},{"n":46,"part":"믿어도 되는 말","text":"\"기업 이익 전망이 크게 낮아지면 코스피 목표치도 내려야 합니다.\"","start":193.371,"end":197.217},{"n":47,"part":"믿어도 되는 말","text":"이런 말은 참고할 가치가 있습니다.","start":197.667,"end":199.701},{"n":48,"part":"믿어도 되는 말","text":"어떤 이유로 전망했고, 언제 그 판단을 수정할지 분명하기 때문입니다.","start":200.151,"end":204.549},{"n":49,"part":"믿어도 되는 말","text":"네 번째, 모르는 것은 모른다고 하는 경우입니다.","start":204.999,"end":208.038},{"n":50,"part":"믿어도 되는 말","text":"\"장기적으로 오를 여지는 있지만, 다음 달에 어디까지 갈지는 알 수 없습니다.\"","start":208.488,"end":213.188},{"n":51,"part":"믿어도 되는 말","text":"이런 말도 오히려 믿을 만합니다.","start":213.638,"end":215.521},{"n":52,"part":"믿어도 되는 말","text":"예측할 수 있는 것과 없는 것을 구분하기 때문입니다.","start":215.971,"end":219.062},{"n":53,"part":"믿어도 되는 말","text":"다만 이런 말들이 전망이 반드시 맞는다는 보장은 아닙니다.","start":219.512,"end":223.056},{"n":54,"part":"믿어도 되는 말","text":"믿어도 되는 건 결과가 아니라, 근거와 위험을 설명하는 태도입니다.","start":223.506,"end":227.753},{"n":55,"part":"마무리","text":"정리하면 간단합니다.","start":228.753,"end":230.032},{"n":56,"part":"마무리","text":"\"무조건 오른다\", \"지금이 마지막 기회다\", \"절대 손해 안 본다\"는 말은 거르세요.","start":230.482,"end":235.281},{"n":57,"part":"마무리","text":"반대로 \"어떤 조건에서 오른다\", \"틀리면 어디까지 위험하다\", \"이 조건이 바뀌면 전망을 수정하겠다\"는 말은 참고할 만합니다.","start":235.731,"end":243.399},{"n":58,"part":"마무리","text":"믿을 만한 전망은 미래를 반드시 맞히는 전망이 아니라, 왜 그렇게 예상했고 어떤 경우에 틀릴 수 있는지까지 알려주는 전망입니다.","start":243.849,"end":251.871},{"n":59,"part":"마무리","text":"다음에 코스피 1만이라는 제목이 보이면, 숫자보다 그 뒤의 설명을 먼저 들어보세요.","start":252.321,"end":257.625},{"n":60,"part":"마무리","text":"그럼 모두 성공 투자 하시기 바랍니다.","start":258.075,"end":260.26},{"n":61,"part":"마무리","text":"시청해주셔서 감사합니다.","start":260.71,"end":262.291}],"subs":[[0.3,6.51,"코스피 1만 간다는 전문가 말을 믿고 전 재산을 주식에 넣었다가,\n큰 손실을 보신 분들 많으실 겁니다."],[6.96,14.529,"은퇴 자금까지 끌어다 넣었는데 주가가 곤두박질치니,\n밤마다 계좌를 열어보면서 대체 누구 말을 믿어야 하나 싶으셨겠죠."],[14.979,19.981,"그때는 전문가가 확신에 차서 말했고,\n뉴스마다 비슷한 전망이 쏟아졌으니까요."],[20.431,24.579,"그런데 막상 손실이 나면 그 누구도 내 돈을 대신 책임져 주지 않습니다."],[25.029,28.422,"그렇다고 앞으로 전문가의 말을 전부 무시할 수도 없겠죠."],[28.872,33.079,"그래서 오늘은 복잡한 분석 대신, 전문가가 이런 말을 하면 거르고,"],[33.079,37.597,"이런 말을 하면 참고해도\n된다는 걸 실제 예시로 딱 구분해 드리겠습니다."],[38.597,43.198,"먼저 전문가들이 코스피 목표치를\n어떻게 만드는지 간단히 알아보겠습니다."],[43.648,49.405,"기업들이 앞으로 얼마나 돈을 벌지,\n금리와 환율이 어떻게 변할지 예상해 숫자를 계산합니다."],[49.855,53.55,"그런데 여기 들어가는 값은 확정된 사실이 아니라 예상입니다."],[54,58.752,"기업 실적이 기대보다 나빠지거나 시장 분위기가 바뀌면\n목표치도 달라집니다."],[59.202,61.991,"전문가가 전망을 수정하는 건 잘못이 아닙니다."],[62.441,67.042,"문제는 우리가 그 목표치를\n마치 반드시 도달할 숫자처럼 받아들이는 겁니다."],[67.492,72.697,"게다가 국내 증권사의 기업 분석 보고서는\n매수 의견에 크게 치우치는 경향도 있습니다."],[73.147,79.055,"매수 의견이 모두 틀렸다는 뜻은 아니지만,\n전문가가 말했으니 안전하다고 생각해선 안 됩니다."],[79.505,82.747,"그럼 이제 실제로 어떤 말을 걸러야 하는지 보겠습니다."],[83.747,86.484,"첫 번째, 날짜와 숫자를 확정하는 말입니다."],[86.934,88.968,"\"올해 말 코스피 무조건 1만 갑니다.\""],[89.418,90.546,"이런 말은 거르세요."],[90.996,96.904,"정확한 시점과 지수 수준을 누구도 보장할 수 없는데,\n미래를 확정해서 말하고 있기 때문입니다."],[97.354,100.242,"두 번째, 마지막 기회라고 재촉하는 말입니다."],[100.692,102.575,"\"지금이 마지막 매수 기회입니다.\""],[103.025,104.908,"\"여기서 더 떨어질 일은 없습니다.\""],[105.358,106.486,"이런 말도 거르세요."],[106.936,113.297,"전문가라도 바닥을 정확하게 맞힐 수 없고,\n조급하게 매수하도록 만드는 말에는 특히 주의해야 합니다."],[113.747,116.484,"세 번째, 손실이 없다고 장담하는 말입니다."],[116.934,119.27,"\"장기 투자하면 무조건 원금 회복합니다.\""],[119.72,122.207,"\"이 가격에서는 손해 볼 가능성이 없습니다.\""],[122.657,123.936,"이런 말은 믿지 마세요."],[124.386,127.779,"주식은 오래 보유해도 원금을 회복하지 못할 수 있습니다."],[128.229,132.174,"네 번째, 틀렸는데도 이유 없이 같은 말을 반복하는 경우입니다."],[132.624,138.985,"처음에는 \"올해 1만 갑니다\"라고 해놓고,\n주가가 떨어지자 \"오히려 지금 더 사야 합니다\"라고만 말합니다."],[139.435,143.531,"처음 전망이 왜 빗나갔는지, 달라진 조건이 뭔지는 설명하지 않죠."],[143.981,145.26,"이런 말 역시 거르세요."],[145.71,150.41,"전망을 고치지 않는 확신보다,\n틀린 이유를 설명하는 분석이 훨씬 낫습니다."],[150.86,153.951,"그렇다면 반대로 어떤 말은 참고할 가치가 있을까요?"],[154.951,157.084,"첫 번째, 조건을 붙이는 말입니다."],[157.534,162.89,"\"기업 이익이 예상대로 늘고 주식시장 평가 수준이 유지된다면\n코스피 1만도 가능합니다.\""],[163.34,164.921,"이런 말은 참고할 만합니다."],[165.371,170.222,"무작정 오른다는 게 아니라,\n어떤 조건이 맞아야 하는지 보여주기 때문입니다."],[170.672,173.711,"두 번째, 하락 가능성도 같이 말하는 경우입니다."],[174.161,179.314,"\"기본 전망은 1만이지만,\n실적이 악화되면 8천 수준으로 밀릴 가능성도 있습니다.\""],[179.764,181.345,"이런 말은 참고할 만합니다."],[181.795,184.886,"좋은 결과만 말하지 않고 나쁜 경우도 설명하니까요."],[185.336,189.432,"단, 8천이라는 숫자가 최악의 하락을 보장하는 바닥은 아닙니다."],[189.882,192.921,"세 번째, 전망을 바꿀 기준을 말하는 경우입니다."],[193.371,197.217,"\"기업 이익 전망이 크게 낮아지면 코스피 목표치도 내려야 합니다.\""],[197.667,199.701,"이런 말은 참고할 가치가 있습니다."],[200.151,204.549,"어떤 이유로 전망했고, 언제 그 판단을 수정할지 분명하기 때문입니다."],[204.999,208.038,"네 번째, 모르는 것은 모른다고 하는 경우입니다."],[208.488,213.188,"\"장기적으로 오를 여지는 있지만,\n다음 달에 어디까지 갈지는 알 수 없습니다.\""],[213.638,215.521,"이런 말도 오히려 믿을 만합니다."],[215.971,219.062,"예측할 수 있는 것과 없는 것을 구분하기 때문입니다."],[219.512,223.056,"다만 이런 말들이 전망이 반드시 맞는다는 보장은 아닙니다."],[223.506,227.753,"믿어도 되는 건 결과가 아니라, 근거와 위험을 설명하는 태도입니다."],[228.753,230.032,"정리하면 간단합니다."],[230.482,235.281,"\"무조건 오른다\", \"지금이 마지막 기회다\",\n\"절대 손해 안 본다\"는 말은 거르세요."],[235.731,243.399,"반대로 \"어떤 조건에서 오른다\", \"틀리면 어디까지 위험하다\",\n\"이 조건이 바뀌면 전망을 수정하겠다\"는 말은 참고할 만합니다."],[243.849,247.287,"믿을 만한 전망은 미래를 반드시 맞히는 전망이 아니라,"],[247.287,251.871,"왜 그렇게 예상했고\n어떤 경우에 틀릴 수 있는지까지 알려주는 전망입니다."],[252.321,257.625,"다음에 코스피 1만이라는 제목이 보이면,\n숫자보다 그 뒤의 설명을 먼저 들어보세요."],[258.075,260.26,"그럼 모두 성공 투자 하시기 바랍니다."],[260.71,262.291,"시청해주셔서 감사합니다."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../../stock/source/manspi-jeonmang-2026-11/puppet/cut/manifest.js"></script>
+<script>
+(function () {
+"use strict";
+const WORDS = ["BUY"];
+K.init(window.EP, { chip: false, allowWords: WORDS, introPart: "도입", introOk: true });
+const KO = `data-words="쉬운 한국어 칸 — 대본 낱말 그대로 (주식 규칙 44)"`;
+const { S, E, W } = K;
+const tl = K.tl;
+const IMG = "../../../stock/source/manspi-jeonmang-2026-11/puppet/";
+const MAN = window.CUT_MANIFEST;
+const RD = "#FF4D3D", TL = "#22C7B0", YL = "#FFD400";
+const N = window.EP.sent.length;
+const BEGIN = n => Math.max(0, S(n) - 0.25), END = n => (n < N ? S(n + 1) + 0.1 : K.D);
+const SV = 0.86, SE = 1.25;                      // 시청자·전문가 그림 배율 (키를 비슷하게 — V 890px · E 615px)
+
+/* ═════════════ 배치 표 v1.0 (1920×1080) — 칸 = [x, y, 가로, 세로] ═════════════
+   거름망 무대 (BG-SIEVE — 버리는 통 x 68~418 · 체 x 418~1430, 테 y 320 · 보관함 x 1468~1893 · 탁자 y 920):
+     TITLE(장·항목 이름표) · TV(왼쪽 위 화면 속 전문가) · CARD(말 카드가 체에 걸린 자리) · BIN · KEEP · SIDE(오른쪽 위 작은 그림·표)
+   다른 무대: ACT_L / ACT_C / ACT_R(인물 — 발 선 y 1060) · TAG_L / TAG_R(낱말 칸) · CHART(가운데 그림) · SUM_L / SUM_R(마무리 두 줄 목록)
+   아래 y 900~: 구운 자막 띠 — 글자 물건은 두지 않음 */
+const LAY = window.LAYOUT = {
+  TITLE: [560, 36, 1320, 140], TV: [40, 36, 500, 320], CARD: [520, 190, 800, 690], BIN: [40, 470, 440, 440], KEEP: [1440, 470, 460, 440], SIDE: [1440, 170, 460, 340],
+  ACT_L: [80, 150, 700, 920], ACT_C: [560, 150, 800, 920], ACT_R: [1140, 150, 700, 920],
+  TAG_L: [60, 70, 640, 760], TAG_R: [1220, 70, 660, 760], CHART: [600, 90, 760, 640],
+  SUM_L: [60, 120, 760, 700], SUM_R: [1100, 120, 760, 700],
+};
+window.LAYOUT_ALLOW = [["CARD", "TITLE"], ["CARD", "SIDE"], ["TAG_R", "ACT_R"], ["TAG_L", "ACT_L"], ["CHART", "ACT_C"], ["TAG_R", "ACT_C"], ["TAG_L", "ACT_C"]];
+
+/* ─────────── 배경 층 (장면 .sc 밖) ─────────── */
+const BGS = {};
+for (const k of ["NIGHT", "STUDIO", "OFFICE", "SIEVE", "MORNING"]) BGS[k] = K.el(`<div class="bg" id="bg-${k}"><img src="${IMG}BG-${k}.jpg" alt=""></div>`);
+function bgSpan(key, a, b, keep) {
+  tl.fromTo(BGS[key], { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "none", immediateRender: false }, Math.max(0, a));
+  if (!keep) tl.to(BGS[key], { opacity: 0, duration: 0.35, ease: "none" }, b - 0.35);
+}
+
+/* ─────────── 인물·소품 (bandoche 쇼츠 v1.0 과 같은 부품) ─────────── */
+function sprite(key, s) {
+  const m = MAN[key];
+  if (!m) throw new Error(`그림 없음: ${key}`);
+  return { key, w: m.w * s, h: m.h * s, ax: m.ax * s, ay: m.ay * s };
+}
+function actor(parent, slot, keys, x, y, s) {    // 발 선 가운데 (x, y) 에 서는 상자 — 자세 그림을 겹쳐 두고 보이는 것만 바꿈
+  const sp = keys.map(k => sprite(k, s));
+  const L = Math.max(...sp.map(p => p.ax)), R = Math.max(...sp.map(p => p.w - p.ax)), H = Math.max(...sp.map(p => p.ay)) + 6;
+  const box = K.el(`<div class="act"${slot ? ` data-slot="${slot}"` : ""} style="left:${(x - L).toFixed(0)}px;top:${(y - H).toFixed(0)}px;width:${(L + R).toFixed(0)}px;height:${H.toFixed(0)}px"></div>`, parent);
+  const imgs = {};
+  for (const p of sp) imgs[p.key] = K.el(`<img src="${IMG}cut/${p.key}.png" alt="" style="left:${(L - p.ax).toFixed(0)}px;top:${(H - 6 - p.ay).toFixed(0)}px;width:${p.w.toFixed(0)}px;height:${p.h.toFixed(0)}px">`, box);
+  gsap.set(box, { transformOrigin: `${(L / (L + R) * 100).toFixed(1)}% 100%` });
+  return { box, imgs };
+}
+function pose(a, key, at, squash) {
+  if (!a.imgs[key]) throw new Error(`자세 없음: ${key}`);
+  for (const [k, im] of Object.entries(a.imgs)) tl.to(im, { opacity: k === key ? 1 : 0, duration: 0.14, ease: "none" }, at);
+  if (squash !== false) tl.fromTo(a.box, { scaleY: 0.95, scaleX: 1.03 }, { scaleY: 1, scaleX: 1, duration: 0.32, ease: "back.out(3)", immediateRender: false }, at);
+}
+function idle(a, from, to) {
+  const per = 1.1, n = Math.max(1, Math.floor((to - from) / per) - 1);
+  tl.fromTo(a.box, { scaleY: 1 }, { scaleY: 1.012, duration: per / 2, ease: "sine.inOut", repeat: n, yoyo: true, immediateRender: false }, from);
+}
+function later(html, parent) { const n = K.el(html, parent); gsap.set(n, { opacity: 0 }); return n; }
+function prop(parent, slot, key, cx, cy, s) {
+  const p = sprite(key, s);
+  return later(`<img class="pr"${slot ? ` data-slot="${slot}"` : ""} src="${IMG}cut/${key}.png" alt="" style="left:${(cx - p.w / 2).toFixed(0)}px;top:${(cy - p.h / 2).toFixed(0)}px;width:${p.w.toFixed(0)}px;height:${p.h.toFixed(0)}px">`, parent);
+}
+const pop = (n, at, from) => tl.fromTo(n, Object.assign({ opacity: 0, scale: 0.6 }, from), { opacity: 1, scale: 1, y: 0, x: 0, rotate: 0, duration: 0.45, ease: "back.out(2.2)", immediateRender: false }, at);
+const popT = (n, at) => tl.fromTo(n, { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", immediateRender: false }, at);   // 이름표 — 튀지 않게 (칸을 넘지 않음)
+const hide = (n, at, d) => tl.to(n, { opacity: 0, duration: d || 0.3, ease: "none" }, at);
+function tag(parent, slot, text, x, y, size, cls) {   // 짧은 한국어 칸
+  return later(`<div class="tag ${cls || ""}" data-slot="${slot}" ${KO} style="left:${x}px;top:${y}px;font-size:${size || 56}px">${text}</div>`, parent);
+}
+function title(parent, no, text, cls) {           // 장·항목 이름표 (TITLE 칸 가운데)
+  const [x, y, w, h] = LAY.TITLE;
+  return later(`<div class="ttl ${cls || ""}" data-slot="TITLE" ${KO} style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">${no ? `<span class="no">${no}</span>` : ""}<span>${text}</span></div>`, parent);
+}
+
+/* ─────────── 거름망 무대 부품 ─────────── */
+function tvBox(parent) {                           // 왼쪽 위 TV 화면 — 방송 스튜디오 배경 + 전문가 (무릎 위만 보임)
+  const [x, y, w, h] = LAY.TV;
+  const box = K.el(`<div class="tv" data-slot="TV" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><img class="bgi" src="${IMG}BG-STUDIO.jpg" alt=""><span class="live"></span></div>`, parent);
+  const keys = ["E-HYPE-1", "E-HYPE-2", "E-HYPE-3", "E-PUSH-1", "E-PUSH-2", "E-PUSH-3", "E-DODGE-1", "E-DODGE-2", "E-CALM-1", "E-CALM-2", "E-CALM-3", "E-DESK-3"];
+  const ex = actor(box, null, keys, w / 2, h + 205, 0.85);   // 머리부터 허리까지 보이게
+  return { box, ex };
+}
+const CARD_CX = 1010, CARD_REST = 470;            // 말 카드가 체에 걸려 쉬는 자리 (가운데)
+function qcard(parent, bubble, text, size) {       // 말 카드: 빈 말풍선 그림 + 한국어 짧은 말 + 도장(나중)
+  const m = MAN[bubble], s = 520 / m.w, w = m.w * s, h = m.h * s;
+  const pad = bubble === "P-QUOTE-2" ? [0.2, 0.26] : [0.12, 0.16];
+  const box = later(`<div class="card" data-slot="CARD" style="left:${(CARD_CX - w / 2).toFixed(0)}px;top:${(CARD_REST - h / 2).toFixed(0)}px;width:${w.toFixed(0)}px;height:${h.toFixed(0)}px">
+    <img src="${IMG}cut/${bubble}.png" alt="">
+    <div class="qt" ${KO} style="left:${(w * pad[0]).toFixed(0)}px;top:${(h * pad[1]).toFixed(0)}px;width:${(w * (1 - 2 * pad[0])).toFixed(0)}px;height:${(h * (1 - 2 * pad[1]) - (bubble === "P-QUOTE-1" ? h * 0.08 : 0)).toFixed(0)}px;font-size:${size || 58}px">${text}</div></div>`, parent);
+  return { box, w, h };
+}
+function stampOn(card, key, at) {                  // 카드 오른쪽 위에 도장
+  const p = sprite(key, 0.62);
+  const st = K.el(`<img class="stamp" src="${IMG}cut/${key}.png" alt="" style="left:${(card.w - p.w * 0.75).toFixed(0)}px;top:${(-p.h * 0.25).toFixed(0)}px;width:${p.w.toFixed(0)}px;height:${p.h.toFixed(0)}px">`, card.box);
+  tl.fromTo(st, { opacity: 0, scale: 2.2, rotate: -18 }, { opacity: 1, scale: 1, rotate: -8, duration: 0.35, ease: "back.out(2)", immediateRender: false }, at);
+}
+function dropIn(card, at) {                        // 위에서 떨어져 체에 걸림
+  tl.fromTo(card.box, { opacity: 0, y: -340, rotate: -6 }, { opacity: 1, y: 0, rotate: 0, duration: 0.7, ease: "bounce.out", immediateRender: false }, at);
+}
+function toBin(card, at) {                         // 걸러진 말 → 왼쪽 버리는 통
+  tl.to(card.box, { x: 243 - CARD_CX, y: 700 - CARD_REST, scale: 0.34, rotate: -35, duration: 0.7, ease: "power2.in" }, at);
+  tl.to(card.box, { opacity: 0, duration: 0.2, ease: "none" }, at + 0.62);
+}
+function toKeep(card, at) {                        // 통과한 말 → 체 아래 쟁반 → 오른쪽 보관함
+  tl.to(card.box, { y: 840 - CARD_REST, scale: 0.42, duration: 0.55, ease: "power2.in" }, at);
+  tl.to(card.box, { x: 1680 - CARD_CX, y: 700 - CARD_REST, scale: 0.34, duration: 0.6, ease: "power2.inOut" }, at + 0.6);
+  tl.to(card.box, { opacity: 0, duration: 0.25, ease: "none" }, at + 1.1);
+}
+function glow(x, y, w, h, c, at, parent) {         // 통·보관함 반짝 (칸 안)
+  const n = later(`<div class="a" data-slot="${x < 900 ? "BIN" : "KEEP"}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;border-radius:30px;box-shadow:0 0 0 8px ${c},0 0 50px ${c}"></div>`, parent);
+  tl.fromTo(n, { opacity: 0 }, { opacity: 0.9, duration: 0.25, yoyo: true, repeat: 1, ease: "sine.inOut", immediateRender: false }, at);
+  return n;
+}
+
+/* ═════════════ 1장 도입 (1~6) ═════════════ */
+// 1~2 — 밤 거실: 전 재산·은퇴 자금 → 계좌를 열어 보며 좌절
+{
+  const a = BEGIN(1), b = END(2);
+  bgSpan("NIGHT", a, b);
+  const sc = K.scene(a, b);
+  const V = actor(sc, "ACT_C", ["V-NIGHT-1", "V-NIGHT-2", "V-NIGHT-3"], 1100, 1060, SV);
+  pose(V, "V-NIGHT-1", a, false); pose(V, "V-NIGHT-2", W(2, "곤두박질")); pose(V, "V-NIGHT-3", W(2, "밤마다"));
+  idle(V, a, b);
+  const t1 = tag(sc, "TAG_L", "코스피 1만", 120, 160, 64); pop(t1, W(1, "코스피"));
+  const t2 = tag(sc, "TAG_L", "전 재산", 120, 300, 64, "r"); pop(t2, W(1, "전 재산"));
+  const t3 = tag(sc, "TAG_L", "은퇴 자금", 120, 440, 64, "r"); pop(t3, W(2, "은퇴"));
+  const dn = prop(sc, "TAG_L", "P-CHART-3", 330, 690, 1.0); pop(dn, W(2, "곤두박질"), { rotate: -10 });
+  K.cut(W(2, "밤마다") + 0.4, "1 밤 거실 좌절");
+}
+// 3 — 방송 스튜디오: 확신에 찬 전망 · 뉴스마다 같은 숫자
+{
+  const a = BEGIN(3), b = END(3);
+  bgSpan("STUDIO", a, b);
+  const sc = K.scene(a, b);
+  const Ex = actor(sc, "ACT_C", ["E-HYPE-1", "E-HYPE-2"], 820, 1060, SE);
+  pose(Ex, "E-HYPE-1", a, false); pose(Ex, "E-HYPE-2", W(3, "확신"));
+  idle(Ex, a, b);
+  const m = MAN["P-QUOTE-2"], s = 460 / m.w;
+  const bub = later(`<div class="card" data-slot="TAG_R" style="left:1300px;top:120px;width:${(m.w * s).toFixed(0)}px;height:${(m.h * s).toFixed(0)}px"><img src="${IMG}cut/P-QUOTE-2.png" alt=""><div class="qt" ${KO} style="left:${(m.w * s * 0.2).toFixed(0)}px;top:${(m.h * s * 0.27).toFixed(0)}px;width:${(m.w * s * 0.6).toFixed(0)}px;height:${(m.h * s * 0.46).toFixed(0)}px;font-size:64px">1만 간다!</div></div>`, sc);
+  pop(bub, W(3, "확신") + 0.2, { rotate: 8 });
+  const nw = tag(sc, "TAG_R", "뉴스마다 1만", 1330, 520, 56); pop(nw, W(3, "뉴스마다"));
+  K.cut(E(3) - 0.2, "2 스튜디오 확신");
+}
+// 4 — 손실이 나면 아무도 책임지지 않음: 시청자 손가락질 · 전문가 으쓱 → 등 돌려 감
+{
+  const a = BEGIN(4), b = END(4);
+  bgSpan("STUDIO", a, b);
+  const sc = K.scene(a, b);
+  const V = actor(sc, "ACT_L", ["V-REACT-1"], 420, 1060, SV), Ex = actor(sc, "ACT_R", ["E-DODGE-1", "E-DODGE-3"], 1480, 1060, SE);
+  pose(V, "V-REACT-1", a, false); pose(Ex, "E-DODGE-1", a, false); pose(Ex, "E-DODGE-3", W(4, "책임"));
+  tl.to(Ex.box, { x: 260, opacity: 0, duration: 1.2, ease: "power1.in" }, W(4, "책임") + 0.5);
+  idle(V, a, b);
+  K.cut(W(4, "책임") + 0.2, "3 책임 회피");
+}
+// 5~6 — 거름망 무대 처음: 거를 말은 통으로, 참고할 말은 보관함으로
+{
+  const a = BEGIN(5), b = END(6);
+  bgSpan("SIEVE", a, b);
+  const sc = K.scene(a, b);
+  const t = title(sc, "", "거를 말 · 참고할 말"); popT(t, W(6, "이런 말을 하면 거르고"));
+  const c1 = qcard(sc, "P-QUOTE-2", "무조건!"); dropIn(c1, W(6, "거르고") - 0.3); stampOn(c1, "P-MARKS-1", W(6, "거르고") + 0.5); toBin(c1, W(6, "참고해도") - 0.6);
+  const c2 = qcard(sc, "P-QUOTE-1", "조건이 있다면"); dropIn(c2, W(6, "참고해도") + 0.1); stampOn(c2, "P-MARKS-2", W(6, "실제") - 0.1); toKeep(c2, W(6, "구분"));
+  glow(60, 560, 380, 380, RD, W(6, "참고해도") - 0.1, sc); glow(1460, 560, 440, 380, TL, W(6, "구분") + 1.0, sc);
+  K.cut(W(6, "실제") + 0.2, "4 거름망 무대");
+}
+
+/* ═════════════ 2장 전문가들은 왜 틀릴까 (7~15) ═════════════ */
+// 7~8 — 분석실: 목표치는 이익·금리·환율 예상으로 계산
+{
+  const a = BEGIN(7), b = END(8);
+  bgSpan("OFFICE", a, b);
+  const sc = K.scene(a, b);
+  const t = title(sc, "", "목표치는 어떻게 만들까"); popT(t, S(7) + 0.2);
+  const Ex = actor(sc, "ACT_C", ["E-DESK-1"], 960, 1060, SE);
+  pose(Ex, "E-DESK-1", a, false); idle(Ex, a, b);
+  const t1 = tag(sc, "TAG_L", "기업 이익", 120, 300, 60); pop(t1, W(8, "얼마나"));
+  const t2 = tag(sc, "TAG_L", "금리", 120, 450, 60); pop(t2, W(8, "금리"));
+  const t3 = tag(sc, "TAG_R", "환율", 1500, 300, 60); pop(t3, W(8, "환율"));
+  const t4 = tag(sc, "TAG_R", "→ 목표치", 1440, 450, 60, ""); pop(t4, W(8, "계산"));
+  K.cut(E(8) - 0.2, "5 목표치 계산");
+}
+// 9~10 — 들어가는 값은 예상 (수정 구슬) · 실적이 나빠지면 목표치도 바뀜
+{
+  const a = BEGIN(9), b = END(10);
+  bgSpan("OFFICE", a, b);
+  const sc = K.scene(a, b);
+  const Ex = actor(sc, "ACT_C", ["E-DESK-2"], 960, 1060, SE);
+  pose(Ex, "E-DESK-2", a, false); idle(Ex, a, b);
+  const ball = prop(sc, "TAG_L", "P-CHART-4", 330, 400, 1.15); pop(ball, W(9, "예상"));
+  const t1 = tag(sc, "TAG_L", "사실 아닌 예상", 120, 640, 56); pop(t1, W(9, "예상") + 0.2);
+  const dn = prop(sc, "TAG_R", "P-CHART-3", 1590, 380, 1.1); pop(dn, W(10, "나빠지거나"), { rotate: -10 });
+  const t2 = tag(sc, "TAG_R", "목표치도 바뀜", 1350, 620, 56); pop(t2, W(10, "목표치"));
+  K.cut(E(10) - 0.2, "6 예상 · 바뀜");
+}
+// 11~12 — 전망 수정은 잘못이 아님 · 문제는 반드시 도달할 숫자로 받아들이는 것
+{
+  const a = BEGIN(11), b = END(12);
+  bgSpan("OFFICE", a, b);
+  const sc = K.scene(a, b);
+  const Ex = actor(sc, "ACT_L", ["E-DESK-3"], 420, 1060, SE);
+  pose(Ex, "E-DESK-3", a, false); idle(Ex, a, b);
+  const t1 = tag(sc, "TAG_R", "수정 = 잘못 아님", 1260, 180, 56, "g"); pop(t1, W(11, "잘못"));
+  const bd = prop(sc, "TAG_R", "P-CHART-1", 1560, 560, 1.15); pop(bd, S(12));
+  const dl = later(`<div class="dash" data-slot="TAG_R" style="left:1400px;top:470px;width:320px"></div>`, sc); pop(dl, W(12, "반드시"));
+  const q = later(`<div class="big" data-slot="TAG_R" style="left:1735px;top:420px;font-size:96px;color:${YL}">?</div>`, sc); pop(q, W(12, "반드시") + 0.3);
+  K.cut(E(12) - 0.2, "7 반드시?");
+}
+// 13~14 — 분석 보고서는 매수 의견에 치우침 → 전문가 말이니 안전? ✕
+{
+  const a = BEGIN(13), b = END(14);
+  bgSpan("OFFICE", a, b);
+  const sc = K.scene(a, b);
+  const docs = prop(sc, "CHART", "P-DOCS-1", 960, 470, 1.25); pop(docs, S(13));
+  const BUYS = [[700, 210], [1080, 170], [1180, 330], [690, 470], [1150, 520], [800, 610], [1060, 650]];
+  BUYS.forEach(([x, y], i) => { const n = later(`<div class="buy" data-slot="CHART" style="left:${x}px;top:${y}px">BUY</div>`, sc); pop(n, W(13, "매수") + 0.12 * i, { rotate: i % 2 ? 10 : -10 }); });
+  const t1 = tag(sc, "TAG_R", "안전?", 1500, 300, 64, "r"); pop(t1, W(14, "안전"));
+  K.cut(W(14, "안전") + 0.3, "8 BUY 쏠림");
+}
+// 15 — 거름망 무대로: 걸러야 할 말
+{
+  const a = BEGIN(15), b = END(15);
+  bgSpan("SIEVE", a, b);
+  const sc = K.scene(a, b);
+  const t = title(sc, "", "걸러야 할 말", "r"); popT(t, W(15, "걸러야"));
+  glow(60, 560, 380, 380, RD, W(15, "걸러야") + 0.2, sc);
+  K.cut(E(15) - 0.2, "9 걸러야 할 말");
+}
+
+/* ═════════════ 거름망 항목 (3·4장) ═════════════ */
+// it = {no, name, cls, from, to, quotes:[[문장, 말풍선, 글, 크기, 전문가 자세]], verdict: 판정 문장, keep: 통과, poses:[[시각, 자세]], side:(sc)=>…}
+function item(it) {
+  const a = BEGIN(it.from), b = END(it.to);
+  bgSpan("SIEVE", a, b);
+  const sc = K.scene(a, b);
+  const t = title(sc, it.no, it.name, it.cls); popT(t, S(it.from) + 0.1);
+  const tv = tvBox(sc);
+  pose(tv.ex, it.poses[0][1], a, false);
+  for (const [at, k] of it.poses.slice(1)) pose(tv.ex, k, at);
+  idle(tv.ex, a, b);
+  const cards = it.quotes.map(([n, bub, txt, size], i) => {
+    const c = qcard(sc, bub, txt, size);
+    dropIn(c, S(n) + 0.15);
+    return { c, n, i };
+  });
+  // 여러 말이면 앞 말은 다음 말이 떨어질 때 옆으로 비켜 섬 (같은 칸 안)
+  cards.forEach(({ c }, i) => {
+    if (i < cards.length - 1) tl.to(c.box, { x: -305, y: -50, scale: 0.6, duration: 0.45, ease: "power2.out" }, S(cards[i + 1].n) - 0.1);
+    if (i > 0) tl.set(c.box, { x: 0 }, S(cards[i].n));
+  });
+  const vt = it.verdictAt || S(it.verdict) + 0.15;
+  cards.forEach(({ c }, i) => {
+    stampOn(c, it.keep ? "P-MARKS-2" : "P-MARKS-1", vt + 0.12 * i);
+    if (it.keep) toKeep(c, vt + 0.9 + 0.25 * i); else toBin(c, vt + 0.9 + 0.25 * i);
+  });
+  if (it.keep) glow(1460, 560, 440, 380, TL, vt + 1.6, sc); else glow(60, 560, 380, 380, RD, vt + 1.3, sc);
+  if (it.side) it.side(sc);
+  K.cut(vt + 0.4, `${it.cls === "g" ? "믿어도" : "걸러야"} ${it.no} 판정`);
+  return sc;
+}
+function sideTag(sc, text, at, cls, top) { const n = tag(sc, "SIDE", text, 1480, top || 220, 52, cls); pop(n, at); return n; }
+function sideProp(sc, key, at, s, cy) { const n = prop(sc, "SIDE", key, 1670, cy || 330, s || 0.8); pop(n, at); return n; }
+
+/* ═════════════ 3장 걸러야 할 말 (16~35) ═════════════ */
+item({ no: "1", name: "날짜·숫자를 확정하는 말", cls: "r", from: 16, to: 19, keep: false, verdict: 18,
+  quotes: [[17, "P-QUOTE-2", "무조건<br>1만!", 62]],
+  poses: [[0, "E-HYPE-1"], [S(17), "E-HYPE-2"], [S(19), "E-DODGE-1"]],
+  side: sc => { sideProp(sc, "P-CHART-4", W(19, "보장"), 0.75); } });
+item({ no: "2", name: "마지막 기회라고 재촉하는 말", cls: "r", from: 20, to: 24, keep: false, verdict: 23,
+  quotes: [[21, "P-QUOTE-2", "마지막<br>기회!", 62], [22, "P-QUOTE-1", "더 안<br>떨어져요", 56]],
+  poses: [[0, "E-PUSH-1"], [S(21), "E-PUSH-3"], [S(22), "E-PUSH-2"], [S(24), "E-DODGE-1"]],
+  side: sc => { sideProp(sc, "P-MARKS-3", W(24, "조급하게"), 0.8); } });
+item({ no: "3", name: "손실이 없다고 장담하는 말", cls: "r", from: 25, to: 29, keep: false, verdict: 28,
+  quotes: [[26, "P-QUOTE-2", "무조건<br>원금 회복", 54], [27, "P-QUOTE-1", "손해 볼<br>일 없어요", 54]],
+  poses: [[0, "E-HYPE-3"], [S(26), "E-HYPE-2"], [S(27), "E-HYPE-3"], [S(29), "E-DODGE-1"]],
+  side: sc => { sideProp(sc, "P-CHART-3", W(29, "회복하지"), 0.8); } });
+item({ no: "4", name: "틀려도 같은 말만 반복", cls: "r", from: 30, to: 34, keep: false, verdict: 33,
+  quotes: [[31, "P-QUOTE-1", "올해<br>1만 갑니다", 54], [32, "P-QUOTE-2", "더<br>사야 해요", 58]],
+  poses: [[0, "E-HYPE-1"], [W(31, "주가가"), "E-PUSH-2"], [S(32), "E-DODGE-2"], [S(34), "E-DESK-3"]],
+  side: sc => { sideTag(sc, "틀린 이유 설명", W(34, "틀린"), "g"); } });
+// 35 — 그럼 참고할 말은?
+{
+  const a = BEGIN(35), b = END(35);
+  bgSpan("SIEVE", a, b);
+  const sc = K.scene(a, b);
+  const t = title(sc, "", "믿어도 되는 말", "g"); popT(t, W(35, "참고할"));
+  glow(1460, 560, 440, 380, TL, W(35, "참고할") + 0.2, sc);
+  K.cut(E(35) - 0.2, "10 믿어도 되는 말");
+}
+
+/* ═════════════ 4장 믿어도 되는 말 (36~54) ═════════════ */
+item({ no: "1", name: "조건을 붙이는 말", cls: "g", from: 36, to: 39, keep: true, verdict: 38,
+  quotes: [[37, "P-QUOTE-3", "이익이 늘면<br>1만도 가능", 54]],
+  poses: [[0, "E-CALM-1"], [S(37), "E-CALM-1"], [S(39), "E-CALM-2"]],
+  side: sc => { sideTag(sc, "어떤 조건?", W(39, "조건"), "g"); } });
+item({ no: "2", name: "하락 가능성도 같이 말하는 말", cls: "g", from: 40, to: 44, keep: true, verdict: 42,
+  quotes: [[41, "P-QUOTE-3", "기본 1만<br>나쁘면 8천", 54]],
+  poses: [[0, "E-CALM-2"], [S(41), "E-CALM-2"], [S(43), "E-CALM-3"], [S(44), "E-CALM-1"]],
+  side: sc => {
+    const bd = sideProp(sc, "P-CHART-1", S(44), 0.82, 330);
+    const dl = later(`<div class="dash" data-slot="SIDE" style="left:1560px;top:330px;width:220px"></div>`, sc); pop(dl, W(44, "8천"));
+    const lb = later(`<div class="big" data-slot="SIDE" style="left:1500px;top:250px;font-size:44px;color:${YL}">8,000</div>`, sc); pop(lb, W(44, "8천"));
+    const ar = prop(sc, "SIDE", "P-CHART-3", 1720, 410, 0.42); pop(ar, W(44, "바닥"), { rotate: -10 });
+  } });
+item({ no: "3", name: "전망을 바꿀 기준을 말하는 말", cls: "g", from: 45, to: 48, keep: true, verdict: 47,
+  quotes: [[46, "P-QUOTE-3", "이익이 줄면<br>목표도 낮춤", 52]],
+  poses: [[0, "E-CALM-1"], [S(46), "E-DESK-3"], [S(48), "E-CALM-1"]],
+  side: sc => { sideTag(sc, "언제 고칠지", W(48, "언제"), "g"); } });
+item({ no: "4", name: "모르는 것은 모른다는 말", cls: "g", from: 49, to: 54, keep: true, verdict: 51,
+  quotes: [[50, "P-QUOTE-1", "다음 달은<br>알 수 없어요", 52]],
+  poses: [[0, "E-CALM-3"], [S(50), "E-CALM-3"], [S(52), "E-CALM-2"], [S(53), "E-CALM-1"]],
+  side: sc => {
+    sideProp(sc, "P-CHART-4", W(52, "예측할"), 0.75);
+    const t1 = later(`<div class="tag g" data-slot="CARD" ${KO} style="left:650px;top:330px;font-size:56px">결과 ✕ · 근거와 위험 ○</div>`, sc); pop(t1, W(54, "결과"));
+  } });
+
+/* ═════════════ 5장 마무리 (55~61) ═════════════ */
+{
+  const a = BEGIN(55), b = K.D;
+  bgSpan("MORNING", a, b, true);
+  const sc = K.scene(a, b, { keep: true });
+  const V = actor(sc, "ACT_C", ["V-CALM-1", "V-CALM-2", "V-CALM-3"], 960, 1060, SV);
+  pose(V, "V-CALM-1", a, false); pose(V, "V-CALM-2", S(58)); pose(V, "V-CALM-3", S(60));
+  idle(V, a, b);
+  const L = later(`<div class="lst" data-slot="SUM_L" style="left:60px;top:150px"></div>`, sc);
+  const R = later(`<div class="lst g" data-slot="SUM_R" style="left:1200px;top:150px"></div>`, sc);
+  const xs = [["무조건 오른다", W(56, "무조건")], ["마지막 기회", W(56, "마지막")], ["절대 손해 안 봄", W(56, "절대")]];
+  const os = [["어떤 조건에서", W(57, "어떤 조건")], ["틀리면 위험", W(57, "틀리면")], ["바뀌면 수정", W(57, "수정")]];
+  for (const [txt, at] of xs) { const it = K.el(`<div class="it" ${KO}><img src="${IMG}cut/P-MARKS-1.png" alt="">${txt}</div>`, L); tl.fromTo(it, { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, at); }
+  for (const [txt, at] of os) { const it = K.el(`<div class="it" ${KO}><img src="${IMG}cut/P-MARKS-2.png" alt="">${txt}</div>`, R); tl.fromTo(it, { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.4, ease: "power3.out", immediateRender: false }, at); }
+  tl.set([L, R], { opacity: 1 }, a);
+  tl.to([L, R], { opacity: 0, duration: 0.4 }, S(59) - 0.2);
+  const hd = later(`<div class="tag" data-slot="SUM_R" ${KO} style="left:1240px;top:220px;font-size:64px">코스피 1만?</div>`, sc); pop(hd, W(59, "코스피"));
+  const nx = later(`<div class="tag g" data-slot="SUM_R" ${KO} style="left:1240px;top:380px;font-size:64px">설명 먼저</div>`, sc); pop(nx, W(59, "설명"));
+  tl.to([hd, nx], { opacity: 0, duration: 0.4 }, S(60));
+  K.cut(E(57) - 0.2, "11 마무리 두 목록");
+  K.cut(E(59) - 0.2, "12 설명 먼저");
+  K.cut(K.D - 0.5, "13 끝");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

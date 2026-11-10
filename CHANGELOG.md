@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-10 (5) — 만스피 편 영상 장면 v1.0 (소리 없는 미리보기) · 그림 자르기 slice.py v1.0
+
+- 사용자 지시 "이미지 만들었으니 영상 만들어봐". ChatGPT 그림 17장(main) 을 작업 브랜치로 가져와 검수 (두 인물 썸네일과 같은 사람 · 그림 속 글자 없음).
+- `stock/source/manspi-jeonmang-2026-11/puppet/slice.py` v1.0 → `cut/` 40조각 + manifest (시트마다 서 있는 자세 키로 크기 맞춤 — V-REACT 는 2번 칸).
+- `video/episodes/manspi-jeonmang-2026-11/index.html` v1.0 — 장면: 밤 거실(좌절) → 스튜디오(확신 · 책임 회피) → 거름망 무대 소개 → 분석실(목표치 = 예상 · 수정은 잘못 아님 · BUY 쏠림) → 거름망 항목 8개(왼쪽 위 TV 속 전문가 → 말 카드가 체에 걸림 → 빨간 X 버리는 통 / 초록 체크 보관함) → 아침 거실(두 목록 · 설명 먼저). 화면 글 = BUY · 숫자 · 짧은 한국어(data-words). layout-check 0 · render check 0 (도입 37.6초 — 사용자 완성본이라 introOk 경고).
+- 오디오(narration.mp3) 전이라 `sync --estimate` (61문장 · 약 4분 23초) → `video --estimated-preview`. 오디오가 오면 sync → video.
+
 ## 2026-11-10 (4) — 만스피 편 최종 대본(사용자 완성본) · 영상 그림 요청 17장
 
 - 사용자 지시 "만스피 대본 완성했으니 그걸로 영상 만들 준비 하자 썸네일 그림체로 만들거니 필요한 이미지 만들도록 챗지피티한테 명령 알려줘".

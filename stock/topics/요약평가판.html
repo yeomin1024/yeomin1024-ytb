@@ -1,0 +1,213 @@
+<title>대본 요약 평가판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- 대본 요약 평가판 틀 (tools/summary_board.py v1.0 가 DATA 자리를 채움 — 이 파일을 바로 올리지 않음).
+     장마다 시작(첫 문장) · 흐름(Claude 요약) · 넘어가는 멘트(마지막 문장) + 장별 피드백.
+     피드백 = 아티팩트 db 의 feedback 모음 {script, ver, chapter, part(start|flow|transition|all), quote, text, createdAt, updatedAt, status(new|done), reply}
+     — Claude 가 ArtifactData 로 읽고 반영 뒤 status·reply 를 씀. 연구·교육용 — 투자 권유가 아닙니다. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 배치: 가운데 한 줄 — 장 카드가 세로 등뼈를 따라 내려가고, 카드 사이 이음줄 위에 '넘어가는 멘트'가 다리처럼 놓임 */
+:root{
+  --bg:#F5F6F8; --surface:#FFFFFF; --sunk:#EEF1F5; --fg:#1B2230; --muted:#5E6A79; --line:#D9DFE7;
+  --accent:#B86E00; --accent-soft:#FFF3DC; --done:#1E7F66; --done-soft:#DDF3EC; --new:#B8430C; --new-soft:#FDE8DD;
+  --f-head:"IBM Plex Sans KR","Noto Sans KR",system-ui,sans-serif; --f-body:"Noto Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo",sans-serif;
+  --r:12px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11151B; --surface:#19202A; --sunk:#141A22; --fg:#E6EBF1; --muted:#98A3B2; --line:#2A3441;
+  --accent:#F0B44A; --accent-soft:#3A2D14; --done:#45C29F; --done-soft:#14332B; --new:#F28E62; --new-soft:#3B2219; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11151B; --surface:#19202A; --sunk:#141A22; --fg:#E6EBF1; --muted:#98A3B2; --line:#2A3441;
+  --accent:#F0B44A; --accent-soft:#3A2D14; --done:#45C29F; --done-soft:#14332B; --new:#F28E62; --new-soft:#3B2219; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--f-head);font-size:22px;margin:0;text-wrap:balance}
+.lead{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+.status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.ok .dot{background:var(--done)} .status.bad .dot{background:var(--new)}
+.picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.pick{all:unset;cursor:pointer;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.pick:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.pick[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.pick .k{font-size:12px;letter-spacing:.04em;color:var(--muted)}
+.pick .t{font-weight:700;font-size:14px;line-height:1.4}
+.pick .n{font-size:12px;color:var(--muted)}
+.pick .n b{color:var(--new);font-weight:700}
+.head{display:flex;flex-direction:column;gap:4px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.head .ttl{font-family:var(--f-head);font-size:19px;font-weight:700;text-wrap:balance}
+.head .meta{font-size:13px;color:var(--muted)}
+.spine{display:flex;flex-direction:column}
+.ch{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ch-top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.ch-no{font-family:var(--f-head);font-size:13px;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+.ch-name{font-family:var(--f-head);font-size:17px;font-weight:700}
+.ch-rng{font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.lab{font-size:11px;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:2px}
+.start{background:var(--sunk);border-radius:8px;padding:10px 12px}
+.start p{margin:0}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px}
+.flow li{display:grid;grid-template-columns:18px 1fr;gap:6px;align-items:start}
+.flow li::before{content:"↓";color:var(--accent);font-weight:700;line-height:1.6;text-align:center}
+.flow li:first-child::before{content:"•"}
+.bridge{display:grid;grid-template-columns:2px 1fr;gap:14px;margin-left:26px;padding-block:6px}
+.bridge .rail{background:var(--accent);border-radius:2px;min-height:100%}
+.bridge .say{align-self:center;background:var(--accent-soft);border:1px dashed var(--accent);border-radius:10px;padding:8px 12px;font-size:14px;min-width:0}
+.bridge .say .lab{color:var(--accent)}
+.bridge.end .rail{background:var(--line)} .bridge.end .say{background:transparent;border-color:var(--line)} .bridge.end .say .lab{color:var(--muted)}
+.fbrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{all:unset;cursor:pointer;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg)}
+.btn:hover{border-color:var(--accent)} .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.btn.danger{border-color:var(--new);color:var(--new)}
+.btn[disabled]{opacity:.5;cursor:default}
+.count{font-size:12px;color:var(--muted)}
+.composer{display:flex;flex-direction:column;gap:8px;background:var(--sunk);border-radius:10px;padding:10px 12px}
+.parts{display:flex;gap:6px;flex-wrap:wrap}
+.parts label{font-size:13px;display:flex;gap:4px;align-items:center;cursor:pointer}
+textarea{width:100%;box-sizing:border-box;min-height:72px;resize:vertical;font:inherit;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.fbs{display:flex;flex-direction:column;gap:8px}
+.fb{border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.fb .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+.chip{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px}
+.chip.new{background:var(--new-soft);color:var(--new)} .chip.done{background:var(--done-soft);color:var(--done)}
+.fb .txt{white-space:pre-wrap;word-break:break-word}
+.fb .rep{font-size:13px;color:var(--done);white-space:pre-wrap;word-break:break-word}
+.fb .acts{display:flex;gap:6px;flex-wrap:wrap}
+.empty{color:var(--muted);font-size:14px}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 14px;border-radius:999px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+.foot{font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){.toast{transition:none}}
+</style>
+
+<div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:6px">
+    <h1>대본 요약 평가판</h1>
+    <p class="lead">장마다 <b>시작 멘트</b> · <b>내용 흐름</b> · <b>다음 장으로 넘어가는 멘트</b>만 보여 줍니다. 장 카드의 ‘피드백’으로 남기면 Claude 가 읽고 대본에 반영합니다.</p>
+    <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+  </div>
+  <div class="picker" id="picker" role="group" aria-label="대본 고르기"></div>
+  <div class="head" id="head"></div>
+  <div class="spine" id="spine"></div>
+  <p class="foot">연구·교육용 콘텐츠의 대본 요약입니다 — 투자 권유가 아닙니다. 흐름 줄은 Claude 가 대본을 줄여 쓴 것이고, 시작·넘어가는 멘트는 대본 문장 그대로입니다.</p>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const DATA = {"made": "2026-11-10T04:24:30Z", "items": [{"key": "R01-long", "label": "반등 진짜·가짜", "title": "바닥인 줄 알고 샀다가 14.5% 더 하락, 진짜 반등은 구별될까?", "ver": "대본 v3", "file": "stock/source/bandeung-maesu-2026-11/bandeung-maesu-2026-11.txt", "n": 112, "chapters": [{"name": "도입", "from": 1, "to": 9, "start": "주가가 많이 떨어져서 바닥인 줄 알고 샀는데, 거기서 14% 넘게 더 하락했어요.", "transition": "전문가는 어떻게 대처하고, 나는 어떻게 해야 하는지까지 알아보겠습니다.", "flow": ["바닥인 줄 알고 매수 → 14% 넘게 더 하락", "매도하면 반등, 기다리면 진짜 상승을 놓침", "누구나 겪지만 전문가는 결국 수익을 냄", "차트 지표로 진짜·가짜 반등을 가려낼 수 있을까?"]}, {"name": "판별법", "from": 10, "to": 17, "start": "차트를 보는 전문가들은, 반등을 흔히 두 가지로 판단합니다.", "transition": "주가는 S&P 500 지수를 따라가는 ETF, SPY로 확인해 보겠습니다.", "flow": ["차트 전문가의 두 기준 — 20일 이동평균선 · 거래량 (뜻 풀이)", "거래량↑ + 20일선 위 = 진짜, 거래량 없이 20일선 아래서 꺾이면 가짜", "반등 뒤 2주 안 · SPY 로 확인"]}, {"name": "사례 1", "from": 18, "to": 25, "start": "2020년 2월 19일, 주가는 최고가를 기록했습니다.", "transition": "이 사례만 보면, 지표로 어느 정도는 가려낼 수 있을 것 같습니다.", "flow": ["2020년 코로나 — 2/19 최고가 → 12.4% 하락", "3/2 4.3% 반등(거래량 2배) → 20일선 못 넘음 = 가짜 판정", "실제로 가짜 — 반등한 날보다 27.4% 더 하락", "지표가 맞은 사례"]}, {"name": "사례 2", "from": 26, "to": 37, "start": "그럼 다른 반등도 볼까요?", "transition": "반등한 날부터 이듬해 3월까지, 무려 47.4%가 더 하락했습니다.", "flow": ["2008년 — 최고가에서 17.8% 하락", "3월 중앙은행 발표에 반등 · 20일선 위 = 진짜 판정", "실제로 가짜 — 이듬해 3월까지 47.4% 더 하락", "지표가 틀린 사례"]}, {"name": "사례 3", "from": 38, "to": 45, "start": "반대로, 지표가 가짜라고 했던 반등도 있습니다.", "transition": "가짜 반등이라고 보고 기다렸다면, 1년 뒤 31% 수익을 놓쳤을 겁니다.", "flow": ["2025년 관세 충격 — 18.8% 하락", "4/9 10.5% 반등 → 20일선 못 넘음 = 가짜 판정", "실제로 진짜 — 6월 말 최고가 회복", "기다렸다면 1년 뒤 31% 수익을 놓침"]}, {"name": "예측", "from": 46, "to": 50, "start": "이처럼 주식 시장은, 결국 미리 맞힐 수 없습니다.", "transition": "그렇다면 폭락을 겪고도 수익을 내는 전문가는, 언제 매수할까요?", "flow": ["2000년 이후 반등 20번에 같은 방법 → 13번 맞힘", "어느 정도 가늠은 되지만 100% 확신하면 안 됨"]}, {"name": "전문가", "from": 51, "to": 68, "start": "2020년 코로나 폭락 때, 하워드 막스는 이렇게 말했습니다.", "transition": "이 영상은 투자 권유가 아니며, 투자 판단과 책임은 본인에게 있습니다.", "flow": ["하워드 막스(2020) — 바닥은 예측 못 함 · 싸면 매수 · 다 쓰지도 안 쓰지도 않음", "원칙 셋 = 처음 얼마 · 더 떨어지면 어떻게 · 얼마나 기다릴지", "규칙 — 반등에 5% → 평단보다 10% 떨어질 때마다 5% → 전 고점이면 나머지", "1년 원금 20% 넘게 줄어든 경우 20번 중 1번 (한 번에 다 사면 8번)", "투자 권유 아님"]}, {"name": "유형 1", "from": 69, "to": 88, "start": "먼저 전제가 있습니다.", "transition": "덜 버는 대신, 가짜 반등에서 크게 잃지 않는 겁니다.", "flow": ["전제 — 실적이 탄탄한 종목 (무너졌으면 매도)", "현금이 꽤 있다면 같은 규칙 → 1년 1번 · 3년 2번", "반등마다 10% 넣기와 비교 → 2번 · 4번", "반등 확인 뒤 매수는 3년 수익 32.3 → 27.9% (108가지 중 94가지 줄어듦)", "진짜 반등이면 덜 범 (31% vs 13.4%) — 덜 버는 대신 크게 안 잃음"]}, {"name": "유형 2", "from": 89, "to": 108, "start": "둘째, 여유 현금은 별로 없고 물려 있는 돈이 더 많다면.", "transition": "절반은 남아 반등을 함께 누리고, 남은 현금은 다음 기회에 쓰면 되니까요.", "flow": ["물린 돈이 더 많다면 방법 둘", "① 평단 위로 올 때까지 기다리기 — 20번 모두 되찾음, 1년 안 12번 · 길게는 6년", "② 일부 매도로 비중 줄이기 — 평단 −10%면 절반 매도 → 10·20·30% 떨어질 때마다 나눠 다시 매수 → 전 고점이면 모두", "결과 — 1년 5→2번 · 3년 7→4번 · 모두 매도는 3년 수익 19번 중 8번, 절반은 17번", "덜 벌지만(29.1% vs 36.6%) 크게 잃는 일을 줄임"]}, {"name": "마무리", "from": 109, "to": 112, "start": "반등이 진짜인지 가짜인지는, 지나고 나서야 알 수 있습니다.", "transition": "시청해주셔서 감사합니다.", "flow": ["반등이 진짜인지는 지나고 나서야 앎", "맞히려 하지 말고 평단 기준부터 정하기", "끝인사"]}]}, {"key": "R02-long", "label": "코스피 1만 전망", "title": "주식 전문가가 이런 말하면 절대 믿지 마세요. 당신의 재산을 책임지지 않습니다", "ver": "대본 v10", "file": "stock/source/manspi-jeonmang-2026-11/manspi-jeonmang-2026-11.txt", "n": 112, "chapters": [{"name": "도입", "from": 1, "to": 8, "start": "코스피 1만 넘게 간다는 전망을 믿고 매수했는데, 은퇴 자금의 43.3%가 사라졌어요.", "transition": "먼저, 이런 말이 이번에만 나온 건지부터 보겠습니다.", "flow": ["코스피 1만 전망을 믿고 매수 → 은퇴 자금 43.3% 사라짐 (전망 다음 날 1억 기준)", "전망을 낸 사람은 손실을 책임지지 않음 · 버핏 '남의 전망 듣기는 시간 낭비'", "그렇다고 모든 전문가 말이 틀린 건 아님", "믿어도 되는 말과 걸러야 할 말을 가려내기"]}, {"name": "코스피 1만만이 아니다", "from": 9, "to": 36, "start": "2024년 말 2,399였던 코스피는, 2025년 한 해에만 75.6% 올랐습니다.", "transition": "도대체 왜, 이런 말들을 하는 걸까요?", "flow": ["코스피 2,399 → 2025년 75.6% → 6/22 종가 9,114", "5/11 증권사 1만~1만 2천 · 6/24 외국계 기본 1만 2,500, 잘 풀리면 1만 5천", "그 뒤 8,930 못 넘음 → 11/6 5,059 (고점 −44.5%) · 5/11 매수도 −35.3%", "기한은 남았지만 이미 손실", "2022년 증권사 2,610~3,600 → 실제 2,236 (하단보다 −14.3%)", "월가 2022·2023 빗나감 + 막스 2022 메모", "유튜브 — 고점 하루 전 '1만 되기 전에 한 종목 매수' 제목 → 다음 날이 올해 최고 종가 · 의심한 영상도 있었음"]}, {"name": "도대체 왜", "from": 37, "to": 60, "start": "첫째, 전망은 시장을 뒤따라갑니다.", "transition": "그럼 어떤 말을 걸러야 할까요?", "flow": ["① 전망은 시장을 뒤따라감 — 밴드 3,500~5,500, 고점은 상단보다 65.7% 위", "② 리포트는 매수 의견에 쏠림 — 매도 0.1% · 7월 0건", "③ 목표 숫자는 낙관적 — 74만 건 · 100건 중 95건 상승 · 달성 19% (정보 가치는 남음)", "④ 유튜브는 조회수가 수익 — 모든 유튜버는 아님 · 이 채널도 예외 아님", "손실은 믿고 매수한 투자자 계좌에 남음"]}, {"name": "걸러야 할 말", "from": 61, "to": 73, "start": "첫째, 날짜와 숫자를 못 박은 지수 전망입니다.", "transition": "그럼 반대로, 믿어도 되는 말은 어떤 말일까요?", "flow": ["① 날짜·숫자를 못 박은 지수 전망", "② 지금이 바닥/고점 — 반등 20번 13번 맞힘 vs 늘 가짜라 해도 15번", "③ 결과를 장담하는 말", "④ 매수만 말하고 매도는 말하지 않는 말"]}, {"name": "믿어도 되는 말", "from": 74, "to": 94, "start": "첫째, 틀릴 때의 경우까지 함께 말하는 전망입니다.", "transition": "그럼 마지막으로, 어떤 전망을 들어도 바로 쓸 수 있게 정리해 드리겠습니다.", "flow": ["① 틀릴 때까지 말하는 전망 — 약세 8,000 (매수가보다 10.4% 아래) → 실제는 36.8% 더 낮음 → '적어도 이만큼 각오' · 본문까지 보기", "② 근거와 조건 — 뉴스로 확인 가능", "③ 확률과 과거 기록 — 기간을 골랐는지도 보기", "④ 나눠 매수 · 비용 줄이기 · 오래 + 언제 줄일지 쓸 날 기준"]}, {"name": "정리", "from": 95, "to": 112, "start": "전문가의 말은 정답이 아니라 참고 자료입니다.", "transition": "시청해주셔서 감사합니다.", "flow": ["세 질문 — 날짜·숫자 못 박음 · 떨어질 때 위험 · 결과 장담", "하나라도 걸리면 목표 숫자는 거르고 위험 숫자만 · 위험이 없으면 통째로", "내 계획을 숫자로 · 쓸 날 정해진 돈은 다 넣지 않음 (30%↓ 회복 2.8~5.5년)", "지키기 어려움 인정 → 비난·권유 아님 → 끝인사"]}]}]};
+  const byKey = Object.fromEntries(DATA.items.map(s => [s.key, s]));
+  const PART = { all: "장 전체", start: "시작 멘트", flow: "흐름", transition: "넘어가는 멘트" };
+  const st = { key: DATA.items[0].key, db: null, canWrite: true, fb: [], open: null, part: "all", editing: null, delConfirm: null };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const when = iso => { try { const d = new Date(iso); return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`; } catch (e) { return ""; } };
+  const toast = m => { const t = $("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("on"), 1800); };
+  const setStatus = (k, m) => { $("status").className = "status " + (k || ""); $("status-t").textContent = m; };
+  const fbOf = (key, ch) => st.fb.filter(f => f.script === key && (ch == null || f.chapter === ch));
+  const quoteOf = (c, part) => part === "start" ? c.start : part === "transition" ? c.transition : part === "flow" ? c.flow.join(" / ") : `${c.name}: ${c.start} … ${c.transition}`;
+
+  function renderPicker() {
+    $("picker").innerHTML = DATA.items.map(s => {
+      const n = fbOf(s.key).filter(f => f.status !== "done").length;
+      return `<button class="pick" type="button" data-key="${esc(s.key)}" aria-pressed="${s.key === st.key}">
+        <span class="k">${esc(s.label)} · ${esc(s.ver)}</span><span class="t">${esc(s.title)}</span>
+        <span class="n">장 ${s.chapters.length}개 · 문장 ${s.n}개${n ? ` · <b>새 피드백 ${n}</b>` : ""}</span></button>`;
+    }).join("");
+  }
+  function renderHead() {
+    const s = byKey[st.key];
+    $("head").innerHTML = `<div class="ttl">${esc(s.title)}</div><div class="meta">${esc(s.label)} · ${esc(s.ver)} · 장 ${s.chapters.length}개 · 문장 ${s.n}개 · <span style="font-family:ui-monospace,monospace">${esc(s.file)}</span></div>`;
+  }
+  function fbList(s, i) {
+    const items = fbOf(s.key, i).slice().sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+    if (!items.length) return "";
+    return `<div class="fbs">${items.map(f => {
+      const done = f.status === "done", ed = st.editing === f.id, del = st.delConfirm === f.id, old = f.ver !== s.ver;
+      return `<div class="fb" data-id="${esc(f.id)}">
+        <div class="top"><span class="chip ${done ? "done" : "new"}">${done ? "반영함" : "새 피드백"}</span><span>${esc(PART[f.part] || "장 전체")}</span>${old ? `<span>${esc(f.ver)}에 남김</span>` : ""}<span>${when(f.updatedAt || f.createdAt)}</span></div>
+        ${ed ? `<textarea id="ed-${esc(f.id)}" aria-label="피드백 고치기">${esc(f.text)}</textarea>
+          <div class="acts"><button class="btn primary" type="button" data-act="save-ed">저장</button><button class="btn" type="button" data-act="cancel-ed">취소</button></div>`
+             : `<div class="txt">${esc(f.text)}</div>${f.reply ? `<div class="rep">Claude: ${esc(f.reply)}</div>` : ""}
+          ${st.canWrite && st.db ? `<div class="acts">${del ? `<span class="count">이 피드백을 지울까요?</span><button class="btn danger" type="button" data-act="del-yes">삭제</button><button class="btn" type="button" data-act="del-no">취소</button>`
+             : `<button class="btn" type="button" data-act="edit">고치기</button><button class="btn" type="button" data-act="del">삭제</button>`}</div>` : ""}`}
+      </div>`;
+    }).join("")}</div>`;
+  }
+  function renderSpine() {
+    const s = byKey[st.key], last = s.chapters.length - 1;
+    $("spine").innerHTML = s.chapters.map((c, i) => {
+      const open = st.open === i, n = fbOf(s.key, i).length;
+      const card = `<section class="ch" data-ch="${i}" aria-labelledby="chn-${i}">
+        <div class="ch-top"><span class="ch-no">${String(i + 1).padStart(2, "0")}</span><span class="ch-name" id="chn-${i}">${esc(c.name)}</span><span class="ch-rng">문장 ${c.from}–${c.to}</span></div>
+        <div class="start"><div class="lab">시작 멘트</div><p>${esc(c.start)}</p></div>
+        <div><div class="lab">내용 흐름</div><ul class="flow">${c.flow.length ? c.flow.map(x => `<li><span>${esc(x)}</span></li>`).join("") : `<li><span class="empty">(흐름 요약 없음)</span></li>`}</ul></div>
+        <div class="fbrow"><button class="btn${open ? " primary" : ""}" type="button" data-act="toggle">${open ? "닫기" : "피드백"}</button>${n ? `<span class="count">피드백 ${n}개</span>` : ""}</div>
+        ${open ? `<div class="composer">
+          <div class="parts" role="radiogroup" aria-label="어느 부분">${Object.entries(PART).map(([k, v]) => `<label><input type="radio" name="part-${i}" id="part-${i}-${k}" value="${k}"${st.part === k ? " checked" : ""}> ${v}</label>`).join("")}</div>
+          <textarea id="tx-${i}" aria-label="${esc(c.name)} 피드백" placeholder="예) 넘어가는 멘트가 다음 장 내용과 안 이어져요"></textarea>
+          <div class="fbrow"><button class="btn primary" type="button" data-act="add"${st.db && st.canWrite ? "" : " disabled"}>저장</button>${st.db ? "" : `<span class="count">저장소에 연결되지 않아 저장할 수 없습니다</span>`}</div></div>` : ""}
+        ${fbList(s, i)}
+      </section>`;
+      const bridge = `<div class="bridge${i === last ? " end" : ""}"><span class="rail"></span><div class="say"><div class="lab">${i === last ? "마지막 멘트" : "넘어가는 멘트 → " + esc(s.chapters[i + 1].name)}</div>${esc(c.transition)}</div></div>`;
+      return card + bridge;
+    }).join("");
+  }
+  const renderAll = () => { renderPicker(); renderHead(); renderSpine(); };
+
+  $("picker").addEventListener("click", e => {
+    const b = e.target.closest(".pick"); if (!b) return;
+    st.key = b.dataset.key; st.open = null; st.editing = null; st.delConfirm = null;
+    try { history.replaceState(null, "", "#" + st.key); } catch (er) { location.hash = st.key; }
+    renderAll();
+  });
+  $("spine").addEventListener("change", e => { if (e.target.name && e.target.name.startsWith("part-")) st.part = e.target.value; });
+  $("spine").addEventListener("click", async e => {
+    const b = e.target.closest("[data-act]"); if (!b) return;
+    const sec = b.closest(".ch"), i = sec ? +sec.dataset.ch : null, s = byKey[st.key], act = b.dataset.act;
+    const fbEl = b.closest(".fb"), id = fbEl && fbEl.dataset.id;
+    if (act === "toggle") { st.open = st.open === i ? null : i; st.part = "all"; renderSpine(); if (st.open === i) $("tx-" + i)?.focus(); return; }
+    if (act === "add") {
+      const text = ($("tx-" + i).value || "").trim(); if (!text) { toast("피드백을 적어 주세요"); return; }
+      const c = s.chapters[i], now = new Date().toISOString(); b.disabled = true;
+      try { await st.db.collection("feedback").add({ script: s.key, ver: s.ver, chapter: i, chapterName: c.name, part: st.part, quote: quoteOf(c, st.part), text, createdAt: now, updatedAt: now, status: "new", reply: "" }); st.open = null; toast("피드백을 저장했습니다"); }
+      catch (er) { b.disabled = false; toast("저장하지 못했습니다 — 잠시 뒤 다시 눌러 주세요"); }
+      return;
+    }
+    if (act === "edit") { st.editing = id; st.delConfirm = null; renderSpine(); $("ed-" + id)?.focus(); return; }
+    if (act === "cancel-ed") { st.editing = null; renderSpine(); return; }
+    if (act === "save-ed") {
+      const v = ($("ed-" + id).value || "").trim(); if (!v) { toast("내용이 비었습니다"); return; }
+      try { await st.db.doc("feedback/" + id).update({ text: v, status: "new", updatedAt: new Date().toISOString() }); st.editing = null; toast("고쳤습니다"); }
+      catch (er) { toast("고치지 못했습니다"); }
+      return;
+    }
+    if (act === "del") { st.delConfirm = id; renderSpine(); return; }
+    if (act === "del-no") { st.delConfirm = null; renderSpine(); return; }
+    if (act === "del-yes") { try { await st.db.doc("feedback/" + id).delete(); st.delConfirm = null; toast("피드백을 삭제했습니다"); } catch (er) { toast("삭제하지 못했습니다"); } }
+  });
+
+  const h = (location.hash || "").slice(1); if (byKey[h]) st.key = h;
+  renderAll();
+  window.addEventListener("hashchange", () => { const k = (location.hash || "").slice(1); if (byKey[k] && k !== st.key) { st.key = k; st.open = null; renderAll(); } });
+
+  (async () => {
+    const use = window.claude && window.claude.use ? n => window.claude.use(n) : () => Promise.resolve(null);
+    let db = null, user = null;
+    try { [db, user] = await Promise.all([use("db"), use("user")]); } catch (e) { db = null; }
+    if (!db) { setStatus("bad", "저장소에 연결하지 못했습니다 — 요약은 볼 수 있지만 피드백은 저장되지 않습니다."); renderSpine(); return; }
+    st.db = db;
+    try { if (user && user.can) { const c = await user.can("data.write"); if (c === false) st.canWrite = false; } } catch (e) { /* 모름 = 쓰기 칸 유지 */ }
+    setStatus(st.canWrite ? "ok" : "", st.canWrite ? "저장소 연결됨 — 피드백은 바로 저장되고 Claude 가 읽을 수 있습니다." : "보기 전용 — 이 화면에서는 피드백을 저장할 수 없습니다.");
+    renderSpine();
+    db.collection("feedback").onSnapshot(snap => {
+      st.fb = snap.docs.map(d => Object.assign({ id: d.id }, d.data())).filter(f => byKey[f.script] && Number.isInteger(f.chapter));
+      if (st.editing && !st.fb.some(f => f.id === st.editing)) st.editing = null;
+      renderPicker(); if (st.editing == null) renderSpine();
+    }, () => setStatus("bad", "피드백을 불러오지 못했습니다 — 페이지를 새로 열어 주세요."));
+  })();
+})();
+</script>

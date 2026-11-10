@@ -1,5 +1,11 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-10 — 대본 요약 평가판 (반등 편 v3 · 만스피 편 v10)
+
+- 사용자 지시 "반등 대본과 만스피 대본 요약 평가판 만들어서 2개만 올려봐 요약 평가판은 각 부분의 시작, 다음으로 넘어가는 멘트, 내용의 흐름만 표시하면 돼".
+- `tools/summary_board.py` v1.0 (새 도구) — 원본 `stock/topics/board/summary_board.json`(편마다 장별 흐름 줄 = Claude 요약) + 대본 파일 → 장마다 시작 = 첫 문장 · 넘어가는 멘트 = 마지막 문장(대본 그대로) · 문장 범위 → 틀 `stock/topics/board/summary_board.template.html` → `stock/topics/요약평가판.html`.
+- 판 https://claude.ai/artifact/7FjCBkQboZRXBoMgEZNgkh (db `feedback` — {script, ver, chapter, chapterName, part(all|start|flow|transition), quote, text, status, reply} · 고치기·삭제 버튼). 반등 편 10장 112문장 · 만스피 편 6장 112문장.
+
 ## 2026-11-09 (9) — 만스피 편 대본 v10 (판 피드백 4건 — 놓친 것 반영) · 대본 평가판 27번째 판
 
 - 사용자 지시 "야 내가 피드백한건 왜 반영 안해" — v7 판에 남긴 피드백 4건(13:58~14:05)을 v8 다시 쓰기 전에 읽지 않아 빠짐 → v10: 같은 말 두 번('넉 달 남짓' 줄) 뺌 · '위험을 알려 주는 말은 쓸모' → '그렇다고 모든 전문가의 말이 틀린 건 아닙니다' · '오늘은' 뺌 · '귀담아들을 숫자가 따로 있었습니다' 예고 뺌(믿어도 되는 말 장 '귀담아들을 숫자는, 1만 5천이 아니라 바로 이 8,000').

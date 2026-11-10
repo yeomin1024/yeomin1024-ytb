@@ -160,5 +160,5 @@ python3 tools/persona_evidence.py stock           # persona_evidence.md·json �
 1. `persona_evidence.md` 0번 '주제 밖'·3-1번 성공 제목 30개를 훑어 **새로 섞인 주제 밖·이벤트 영상**을 `stock/persona_judge.toml [exclude]` 에 더한다 (제목만으로 모르면 그 영상 댓글 열 줄을 읽는다).
 2. 1번 표의 숫자(중복·이벤트 몫·제목 배수)가 달라졌으면 이 파일 1·4번을 고친다. 배수의 95% 구간이 1을 걸치면 규칙으로 쓰지 않는다.
 3. 2·3번(판·처지)은 **댓글 원문을 다시 읽고** 고친다 — 표본을 새로 뽑아 `persona_sample_labels.tsv` 를 갈아 쓴다 (뽑는 법은 그 파일 머리).
-4. 채널 통계 API 는 2026-11-10 부터 받아진다 (유입 경로·평균 시청·쇼츠 시청 지속 — 첫 결과는 `channel_direction.md` 1번). 롱폼 조회가 100회쯤 쌓이면 시청 지속 곡선으로 5번을 검산하고, 추정이던 줄을 측정값으로 바꾼다. **노출 수·클릭률은 API 로 안 나온다** — 스튜디오 숫자를 사용자가 알려 줘야 4번을 검산할 수 있다.
+4. 채널 통계 API 는 2026-11-10 부터 받아진다 (유입 경로·평균 시청·쇼츠 시청 지속 — 첫 결과는 `channel_direction.md` 1번). 롱폼 조회가 100회쯤 쌓이면 시청 지속 곡선으로 5번을 검산하고, 추정이던 줄을 측정값으로 바꾼다. **노출 수·클릭률은 통계 API 로는 안 나오고 YouTube Reporting API(도달범위 보고서)로 받을 수 있다** — 지금은 프로젝트에서 꺼져 있음(`channel_direction.md` 1번). 켜기 전에는 스튜디오 숫자를 사용자가 알려 줘야 4번을 검산할 수 있다. 조회(views)와 참여 조회(engagedViews)를 섞지 않는다.
 5. 구독자 증가(조회수와 다름)는 `python3 tools/channel_growth.py stock` → `channel_growth.md` — 채널 방향 권고는 `stock/guides/channel_direction.md`.

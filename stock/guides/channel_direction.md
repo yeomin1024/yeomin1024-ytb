@@ -1,6 +1,6 @@
 # 주식 채널 — 구독자를 빨리 모으려면 (근거와 권고)
 
-VERSION: v1.1 — 2026-11-10 — 1번 고침: 조회와 참여 조회를 나눔(1편 롱폼을 실제로 본 것은 2회 — v1.0 의 '23회·평균 3분 52초'는 틀린 읽기) · 노출·클릭률은 YouTube Reporting API 로 받을 수 있음(지금 꺼짐) (사용자 질문 "노출수랑 클릭률은 조회가 안돼?"). v1.0 — 2026-11-10 — 새로. 사용자 질문 2026-11-10 "YouTube Analytics API도 허용했는데 되는지 확인해보고 구독자를 빠르게 모으기 위해서는 채널방향을 어떻게 잡아야해".
+VERSION: v1.1.1 — 2026-11-10 — 1번: Reporting API 켜짐 · 작업 2개 만듦 · `tools/yt_reach.py`. v1.1 — 2026-11-10 — 1번 고침: 조회와 참여 조회를 나눔(1편 롱폼을 실제로 본 것은 2회 — v1.0 의 '23회·평균 3분 52초'는 틀린 읽기) · 노출·클릭률은 YouTube Reporting API 로 받을 수 있음(지금 꺼짐) (사용자 질문 "노출수랑 클릭률은 조회가 안돼?"). v1.0 — 2026-11-10 — 새로. 사용자 질문 2026-11-10 "YouTube Analytics API도 허용했는데 되는지 확인해보고 구독자를 빠르게 모으기 위해서는 채널방향을 어떻게 잡아야해".
 ※ **권고 문서** — 채널 설명(`channel.md`)·제작 규칙은 고치지 않았다. 방향은 사용자가 정한다. 연구·교육용 — 투자 권유가 아님.
 근거: 우리 채널 통계(YouTube Analytics API, 2026-10-01~11-10) · 작은 채널 434개의 구독자 증가(`stock/result/outliers/channel_growth.md` — `python3 tools/channel_growth.py stock`) · 시청자 처지(`persona_judge.md`).
 
@@ -25,7 +25,7 @@ VERSION: v1.1 — 2026-11-10 — 1번 고침: 조회와 참여 조회를 나눔(
 
 **노출 수·클릭률** — 지금은 못 받지만 **받을 길이 있다** (2026-11-10 확인)
 - 통계 API(`youtubeanalytics` — 지금 쓰는 것)는 `videoThumbnailImpressions`·`videoThumbnailImpressionsClickRate` 이름은 알지만 어떤 조합으로 물어도 "지원하지 않는 질의"(영상별·일별·유입 경로별 등 10가지 시험).
-- **YouTube Reporting API**(대량 보고서 — 통계 API 와 다른 API)가 2025-09-22 부터 '도달범위 보고서' `channel_reach_basic_a1`·`channel_reach_combined_a1`(썸네일 노출 수·클릭률)을 준다. 지금은 구글 클라우드 프로젝트에서 **꺼져 있어 403** — 사용자가 같은 프로젝트에서 'YouTube Reporting API'를 켜면, Claude 가 보고서 작업(job)을 만들고 하루 이틀 뒤부터 매일 나오는 파일을 받는다 (권한은 지금 토큰의 `yt-analytics.readonly` 로 충분). 그 전까지는 스튜디오 '도달범위' 탭 숫자를 사용자가 알려 준다.
+- **YouTube Reporting API**(대량 보고서 — 통계 API 와 다른 API)가 2025-09-22 부터 '도달범위 보고서' `channel_reach_basic_a1`·`channel_reach_combined_a1`(썸네일 노출 수·클릭률)을 준다. 지금은 구글 클라우드 프로젝트에서 **꺼져 있어 403** — 사용자가 같은 프로젝트에서 'YouTube Reporting API'를 켜면, Claude 가 보고서 작업(job)을 만들고 하루 이틀 뒤부터 매일 나오는 파일을 받는다 (권한은 지금 토큰의 `yt-analytics.readonly` 로 충분). 그 전까지는 스튜디오 '도달범위' 탭 숫자를 사용자가 알려 준다. **→ 2026-11-10 (2): 사용자가 API 를 켰고, 작업 2개(`channel_reach_basic_a1`·`channel_reach_combined_a1`)를 만듦. 그날 보고서는 0건 — 하루 이틀 뒤 `python3 tools/yt_reach.py stock fetch` → `stock/result/channel/reach.md`(영상별 노출·클릭·클릭률).**
 - `tools/youtube_feedback.py stock` 은 1·2편을 '아직 공개 전'으로 건너뛴다 (`youtube.json` 의 예약 시각 11-12·11-13 기준 — 실제로는 이미 공개). 그 시각이 지나면 대본 문장별 자료가 만들어진다.
 
 ## 2. 구독자가 실제로 는 작은 채널 (약 3주, 2026-10 하순 → 11-10)

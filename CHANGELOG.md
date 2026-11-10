@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-10 (5) — Reporting API 작업 · 반등 편 대본 v5 + 제목·썸네일·업로드 시트 · 새 제목 2개(정답 미리 계산)
+
+- 사용자 지시 "reporting api 허용했으니 참고하고 분석 자료 및 페르소나 활용해서 앞으로 올릴 영상 제목 2개 알려줘 그리고 진짜,가짜반등 대본도 고쳐보고 제목 등 영상 만들 때 필요한거 생성해줘".
+- **Reporting API**: 켜진 것 확인(보고서 종류 20개) → 채널에 도달범위 작업 2개를 만듦(`channel_reach_basic_a1`·`channel_reach_combined_a1`, 2026-11-10T13:59Z). 그날 보고서 0건. **새 도구 `tools/yt_reach.py` v1.0** (`list`·`fetch`·`--selftest` — 클릭률은 노출로 가중해 합침 · 원본 CSV 는 git 밖 `.yt_work/reach/` · 결과 `<주제>/result/channel/reach.md`). `channel_direction.md` v1.1.1 · `persona_judge.md` v1.1.1 (7번 4) 줄 고침.
+- **반등 편** `stock/source/bandeung-maesu-2026-11/` (main 을 작업 브랜치에 합침 — 사용자 완성본 대본 = 커밋 `0631853fe`):
+  - 계산 파일을 다른 세션 브랜치(`claude/trusting-thompson-ebgkt8`)에서 가져옴: `calc/longform.py`·`longform_result.json`·`spy_ohlcv.csv`·`upload.md`·`tts_lexicon.tsv`·`board_check.md`.
+  - `calc/longform.py` v1.2 → **v1.3**: ① **버그** — v1.1 의 유형 2 민감도 변수 `sens` 가 판별법 민감도 `sens` 를 덮어써 `signal.sensitivity` 에 다른 표가 저장돼 있었음 → `bsens` (대본·설명란 숫자는 로그에서 온 것이라 변동 없음) ② `final_v5`(대본 v5 숫자 모음) + 일관성 검사 5개 `[FINAL]` ③ `B_new_sold`. 실행 2.9초(변동 없음).
+  - 대본 v4(사용자 완성본 127문장·약 6.9분·board_check ❌ 1) → **v5**(135문장·약 7.6분·❌ 0): 판단용 페르소나 이탈 판단표로 9군데 — 첫 문장에 결과 숫자 · 도입에 '직접 대 봤다'·'이미 물린 분 몫' 예고 · 용어 풀이(이동평균·거래량·연준·평단) · 직접 묻기 2곳 · '진짜 신호 8번 중 5번이 저점을 다시 깸'·'18가지 기준' · 전액 매수 13.7% 대 나눠 매수 5.2% · '큰 손실' → '원금 20% 넘게' · 3년 표본 19번 · 끝 = 숫자 셋 목록. 기록 `persona_judge_review.md` v1.0 (클릭·이탈·남은 위험·장면 계획).
+  - `upload.md` v1.2 → **v1.3**: 제목 4안(본안 「반등에 샀다가 또 물렸다면? 진짜 반등 20번 실제 데이터」 — `title_fit` 6/6) · 썸네일 3장 · 설명란 · 챕터(문장 번호 v5) · 태그 24 · 고정 댓글 · 8번 v5 숫자 대조. `thumbnails/thumbnail_{1,2,3}.json`·`.jpg`(그림 = 쇼츠와 같은 실사 TH-PHOTO · 문구는 `thumb.mjs`) · `tts_lexicon.tsv` v1.2(13.7%·24.9%·5.2%) · `board_check.md`·`persona_review.md` 다시.
+  - ⚠ 짝 쇼츠는 옛 규칙(10% · −20%마다 1.5배) 그대로 — 사용자 결정.
+- **새 제목 2개** `stock/topics/next_titles_2026-11-10.md` v1.1 + 계산 `stock/topics/precheck/next_titles_2026-11-10.py` v1.1(`--selftest` · 0.2초) → `.json`:
+  - ① 「같은 1억 국장과 미장, 폭락 6번 누가 덜 잃었나 (실제 데이터)」 — 코스피 20% 넘는 하락 6번 모두 원화로 본 S&P 500 이 덜 줄어듦(−54.2% 대 −30.6%) · 굴림 12개월 54 대 19달.
+  - ② 「"내가 팔면 오른다" 진짜일까? 코스피 폭락 30번 실제 데이터」 — 1주 뒤 15/30 · 1년 뒤 22/27 · 판 뒤 가운데 값 −15% · SK하이닉스는 반대(38/71).
+  - v1.0 → v1.1: SK하이닉스 수정 종가가 2000~2002년 음수(778일)라 종가로 바꿈 → '29/39' 가 '38/71' 로 (분류도 조건부 → 반대).
+  - 새 자료 `stock/topics/precheck/data/_KS11.csv`·`005930.KS.csv`·`000660.KS.csv` (Yahoo chart API, 2026-11-10).
+- 연구·교육용 — 투자 권유가 아님.
+
 ## 2026-11-10 (4) — 판단용 페르소나: 표본 210개 → **전체 댓글 92,094개** · 영상 쏠림 검산 · 정치 평론 채널 7곳 더 뺌
 
 - 사용자 지시 "야 왜 댓글 210개만 보고 하는거야 전체 모든 댓글을 다 봐야지 … 가장 많은거 위주로 정리하면 되잖아" → 페르소나 규모·판을 1인칭 표본 210개가 아니라 **핵심 묶음 시청자 댓글 전부**로 (표본은 보조).

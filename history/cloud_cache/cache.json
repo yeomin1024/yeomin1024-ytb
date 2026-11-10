@@ -1,12 +1,12 @@
 {
  "tool": "cloud_run.py v1.6",
  "topic": "history",
- "saved": "2026-10-28T19:10:35+09:00",
- "why": "손으로",
- "files": 37467,
- "bytes_raw": 95264297,
- "bytes_tgz": 47928324,
- "sha256": "9209edbb1a93ce24b934cc29c13d43f95b0d6d73d16a9408ede3600d033038a0",
+ "saved": "2026-11-11T00:40:28+09:00",
+ "why": "explore",
+ "files": 38166,
+ "bytes_raw": 100130365,
+ "bytes_tgz": 51734673,
+ "sha256": "3e0537abce7b208748d247ace74ff74aa92f05a0aff357bfd252a34616d3b94c",
  "parts": [
   "cache.tgz.001",
   "cache.tgz.002"
@@ -15,9 +15,9 @@
   "autocomplete.json": 1,
   "channels.json": 1,
   "search": 87,
-  "shorts": 16313,
+  "shorts": 16333,
   "uploads": 442,
-  "video": 20617,
+  "video": 21296,
   "web": 6
  }
 }

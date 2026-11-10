@@ -41,6 +41,7 @@ E
 4. `stock/result/outliers/comment_titles.md` **1번 '한눈에'** — 댓글 니즈 K01~ (시청자가 실제로 묻는 것) → 기획안마다 하나 이상.
 5. `stock/result/outliers/comment_clusters.md` **'한국 · 1~4주 전' 표** — 요즘 늘어난 댓글 묶음.
 6. `stock/result/outliers/content_analysis.md` (2천 자) + `stock/guides/data_insights.md` **5-1** — 제목·썸네일 문구 숫자 (손해·경고·질문형 배수 · 보조 = 속마음 말).
+   - **제목·썸네일 문구는 `stock/guides/persona_judge.md` 4번 '클릭 판단표'로 점수**(누구 것인가 · 일곱 물음 · 높음·보통·낮음 · 근거 약한 곳)를 매겨 `basis` 칸에 같이 적는다 — 5-1 의 '인용형 쓰지 않음'·2번의 'vs·이유 쓰지 않음'은 2026-11-10 검산에서 틀림(persona_judge 1번 표). 사용자 지시 2026-11-10.
 7. 이미 쓴 것: `stock/topics/롱폼대본_2026-10-31.md` 표(1~4편 항목) · 위 0번 목록 · 판 fail — 같은 주제·같은 항목 ✗.
 
 → 기획안 `basis` 칸에 **어느 분석 숫자·니즈를 따랐는지** 적는다 (예: "댓글 니즈 K01 빚내서 투자 · P1 원하는 말 '여윳돈' · 5-1 손해·경고형 배수 22.9 · 보조 = 속마음 말 배수 338"). 근거가 없으면 그 주제는 쓰지 않는다.

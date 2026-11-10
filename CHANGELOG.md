@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-10 — 주식 판단용 페르소나 (클릭·이탈) — 원자료 검산
+
+- 사용자 지시 "저장소에 분석 결과 자료(제목, 썸네일 문구, 댓글 등)를 보고 … 페르소나 파일 만들어 … 썸네일 클릭률이 높을지 낮을지 … 대본 … 이탈되는 부분을 판단할 수 있도록 구성해 분석 자료가 잘못된게 있을 수 있으니 확인하면서 최대한 날것의 자료를 보도록 해".
+- **새 파일**: `stock/guides/persona_judge.md` v1.0 (처지별 페르소나 5 + 클릭 판단표 + 이탈 판단표 + 1편 적용 예) · `tools/persona_evidence.py` v1.0 (`--selftest`·`--check`) · `stock/persona_judge.toml` v1.0 (뺄 영상·제목 특징 26·댓글 신호 18) · `stock/result/outliers/persona_evidence.md`·`.json`(자동) · `persona_sample_labels.tsv`(1인칭 댓글 210개 손 분류).
+- **원자료에서 찾은 문제**: 성공 사례 107개 중 주제 밖 9개 · comments.jsonl 중복 줄 25%(202,989 → 152,424) · 경품 이벤트 영상 3개가 '쉽게 이해' 댓글의 65% · 뉴스·정치 댓글 25% · data_insights 5-1 '인용형 −8.6%p'·2번 'vs·이유 쓰지 않음'은 검산에서 틀림 · 썸네일 문구 오기 1건(`thumb_codes.tsv` '놓지'→'늦지').
+- **고친 곳**: `stock/guides/data_insights.md` v1.4.1(검산 표시 두 줄·오기) · `stock/guides/board_1_topic.md`·`board_2_script.md`(판단표 쓰는 줄) · `CLAUDE.md` 주식 절 한 줄.
+- 한계: 클릭률·시청 지속 측정값 없음(우리 채널 조회 3~24·Analytics API 꺼짐) — 판단은 추정. 위험 파라미터·기존 대본·제목은 건드리지 않음.
+
 ## 2026-11-07 (3) — 반등 매수법 쇼츠 v2.1 — 실사 사진 넣음 (미리보기 — 소리 없음)
 
 - 사용자 지시 "그림 올렸어 영상 만들어봐".

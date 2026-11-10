@@ -43,6 +43,7 @@ E
 ```bash
 python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"   # ❌ 0
 python3 tools/persona_review.py stock <대본.txt>
+# 그다음 stock/guides/persona_judge.md 5번 '이탈 판단표' — 구간(0~15초·15~60초·가운데·끝·소리)마다 위험 상·중·하 + '가장 먼저 떠날 곳 한 군데·누가'를 답글·검토 파일에 적는다 (추정임을 밝힘 — 사용자 지시 2026-11-10)
 # script_board.json 'extra' 에 {key:'B11-long', ep:'B11', label:'B11 <주제>', kind:'long', title, ver:'대본 v1', file}
 python3 tools/script_feedback_board.py --only long        # 대본피드백판.html 만 (쇼츠 판은 건드리지 않음)
 ```

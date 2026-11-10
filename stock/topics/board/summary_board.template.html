@@ -1,6 +1,6 @@
 <title>대본 요약 평가판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- 대본 요약 평가판 틀 (tools/summary_board.py v1.0 가 DATA 자리를 채움 — 이 파일을 바로 올리지 않음).
+<!-- 대본 요약 평가판 틀 v1.1 (2026-11-10 — 옛 판 피드백은 장 이름으로 맞춤) (tools/summary_board.py v1.1 가 DATA 자리를 채움 — 이 파일을 바로 올리지 않음).
      장마다 시작(첫 문장) · 흐름(Claude 요약) · 넘어가는 멘트(마지막 문장) + 장별 피드백.
      피드백 = 아티팩트 db 의 feedback 모음 {script, ver, chapter, part(start|flow|transition|all), quote, text, createdAt, updatedAt, status(new|done), reply}
      — Claude 가 ArtifactData 로 읽고 반영 뒤 status·reply 를 씀. 연구·교육용 — 투자 권유가 아닙니다. -->
@@ -107,7 +107,8 @@ textarea:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
   const when = iso => { try { const d = new Date(iso); return `${d.getMonth() + 1}/${d.getDate()} ${String(d.getHours()).padStart(2, "0")}:${String(d.getMinutes()).padStart(2, "0")}`; } catch (e) { return ""; } };
   const toast = m => { const t = $("toast"); t.textContent = m; t.classList.add("on"); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove("on"), 1800); };
   const setStatus = (k, m) => { $("status").className = "status " + (k || ""); $("status-t").textContent = m; };
-  const fbOf = (key, ch) => st.fb.filter(f => f.script === key && (ch == null || f.chapter === ch));
+  const fbOf = (key, ch) => { const s = byKey[key], c = ch == null ? null : s.chapters[ch];   // v1.1: 옛 판에 남긴 피드백은 장 이름으로 맞춤 (장이 빠지거나 순서가 바뀌어도)
+    return st.fb.filter(f => f.script === key && (ch == null || (f.ver === s.ver ? f.chapter === ch : f.chapterName === c.name))); };
   const quoteOf = (c, part) => part === "start" ? c.start : part === "transition" ? c.transition : part === "flow" ? c.flow.join(" / ") : `${c.name}: ${c.start} … ${c.transition}`;
 
   function renderPicker() {

@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1편 쇼츠 이 생각</title>
+<!-- VERSION: v1.1 — 2026-11-04 — 화면 영어 → 쉬운 한국어 (사용자 지시 2026-11-04 "영어를 왤케 많이 넣었어 되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해"):
+       영어는 BUY·SELL 만 · FAST → 빠르게 · MORE → 욕심 · CASH → 현금 · LOSS → 손실 · RISK → 리스크 대비 · SLOW → 천천히 · WIN → 승리 · SUBSCRIBE → 구독 (대본 말 그대로).
+       한국어 칸은 data-words(KO) — 예전 '한글은 구운 자막에만' 규칙을 바꿈. 장면 시각·배치 표 그대로.
+     이전 v1.0 — 2026-11-04 — 1편 쇼츠 「'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.」 (쇼츠 대본 11문장 — 쇼츠 판 사용자 문구 그대로,
+       음성 stock/source/ppalli-test-2026-11/shorts/narration.mp3). 사용자 지시 2026-11-04 "지금 음성 만들었으니 1편 롱폽, 쇼츠 만들어 영상".
+     · 첫 문장 = 쇼츠 썸네일 (shorts/thumbnails/thumbnail_1.jpg — 롱폼과 같은 실사 그림 TH-PHOTO2 가운데를 세로로 자름 + 문구는 코드, thumb.mjs) · 업로드 썸네일 = 0초 장면.
+     · 꼴 = 세 칸 (주식 종이인형극 쇼츠와 같음): 위 칸 y 0~691 검정 + 기호·영어 투자 낱말 · 가운데 칸 y 691~1382 종이인형 무대(1편 인형 — 시리즈 주인공 하나) · 아래 칸 구운 자막.
+     · 화면 글자 = 기호·영어 허용 목록만 (WORDS) — 한글은 구운 자막에만. 숫자는 대본에 있는 것만 (99% 는 첫 장면 썸네일 문구) — 그 밖의 그래프·막대는 숫자 없는 그림(뜻만).
+     · 배치 표 = window.LAYOUT (칸마다 [x, y, 가로, 세로]) — node video/scripts/layout-check.mjs ppalli-test-2026-11-shorts 문제 0 뒤 렌더.
+     · 끝 = 롱폼 카드 ▶ + SUBSCRIBE (대본 "다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요").
+     장면 시각 = 실제 오디오 문장 시각(K.S·K.E·K.W). 연구·교육용 영상 — 투자 권유 아님. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#000}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.ts{text-shadow:0 4px 22px rgba(0,0,0,.9),0 2px 6px rgba(0,0,0,.8)}
+.tag2{position:relative;font-weight:900;font-size:64px;line-height:1;padding:18px 36px;border-radius:999px;background:rgba(10,16,30,.9);border:4px solid rgba(255,255,255,.3);white-space:nowrap}
+.btn{position:relative;font-weight:900;font-size:76px;line-height:1;padding:26px 56px;border-radius:24px;white-space:nowrap;border:6px solid transparent}
+.btn.buy{background:#22C7B0;color:#06231F}.btn.sell{background:#FF4D3D;color:#fff}.btn.off{background:rgba(255,255,255,.12);color:rgba(255,255,255,.45);border-color:rgba(255,255,255,.2)}
+.btn.sub{background:#FF2A2A;color:#fff;font-size:60px;padding:20px 46px}
+.stamp{position:relative;font-weight:900;font-size:110px;line-height:1;padding:18px 40px;border:10px solid currentColor;border-radius:22px;white-space:nowrap;background:rgba(10,16,30,.6)}
+.app{position:relative;width:400px;border-radius:30px;background:rgba(16,24,42,.96);border:3px solid rgba(255,255,255,.18);padding:24px 32px 28px;display:grid;gap:10px;box-sizing:border-box}
+.app .h{font-weight:700;font-size:46px;color:#9AA7BF;line-height:1}
+.app .v{font-weight:900;font-size:120px;line-height:1.05;white-space:nowrap}
+.tag2.a,.btn.a,.stamp.a{position:absolute}   /* 칸 안 절대 자리 — 내용 폭만큼 (.a 보다 뒤라 다시 적음) */
+.card{overflow:hidden;border-radius:26px;border:5px solid rgba(255,255,255,.3);box-sizing:border-box}
+.card img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+.card .play{position:absolute;left:50%;top:50%;width:140px;height:140px;margin:-70px 0 0 -70px;border-radius:50%;background:rgba(0,0,0,.6);border:6px solid #fff;display:grid;place-items:center}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ppalli-test-2026-11-shorts","topic":"stock","duration":50.77,"audio":"../../../stock/source/ppalli-test-2026-11/shorts/narration.mp3","thumb":"../../../stock/source/ppalli-test-2026-11/shorts/thumbnails/thumbnail_1.jpg","synced":"2026-11-04T06:37:15Z","tts":"2026-11-03T10:36:41","script_sha1":"bb80354c77d3f458","sent":[{"n":1,"part":"","text":"이 생각을 가지고 주식 투자를 하면 당신은 99% 손해 볼겁니다.","start":0.3,"end":4.72},{"n":2,"part":"","text":"바로 주식으로 돈을 빠르게 벌고 싶다는 생각입니다.","start":5.1,"end":7.97},{"n":3,"part":"","text":"아니 그럼 돈벌려고 주식하지 도대체 무슨 소리냐고요?","start":8.35,"end":11.464},{"n":4,"part":"","text":"돈을 벌고 싶다는 생각이 있으면 점점 욕심이 생기기 마련입니다.","start":11.844,"end":15.474},{"n":5,"part":"","text":"수익을 보면 더 벌고 싶어서 매수 금액을 점점 늘리고,","start":15.854,"end":19.032},{"n":6,"part":"","text":"손실을 보면 빨리 복구하고 싶은 마음에 더 자주, 더 크게 매수와 매도를 반복하게 됩니다.","start":19.412,"end":24.681},{"n":7,"part":"","text":"결국 큰 하락이 오면, 더 매수할 돈은 이미 다 썼고 매도하자니 손실이 너무 큽니다.","start":25.061,"end":30.261},{"n":8,"part":"","text":"그때는 떨어지는 계좌를 지켜보는 것 말고, 할 수 있는 게 아무것도 없습니다.","start":30.641,"end":35.101},{"n":9,"part":"","text":"급할 수록 돌아가라 라는 말이 있듯이,","start":35.481,"end":37.541},{"n":10,"part":"","text":"욕심을 버리고 리스크를 대비하면서 천천히 수익낸다면 당신은 어느순간 승리자가 되어 있을겁니다.","start":37.921,"end":44.291},{"n":11,"part":"","text":"다른 테스트가 궁금하다면 구독하고 채널에서 확인하세요.","start":44.671,"end":47.871}],"subs":[[0.2,5.1,"이 생각을 가지고 주식 투자를 하면\n당신은 99% 손해 볼겁니다."],[5.1,8.35,"바로 주식으로 돈을\n빠르게 벌고 싶다는 생각입니다."],[8.35,11.844,"아니 그럼 돈벌려고 주식하지\n도대체 무슨 소리냐고요?"],[11.844,15.854,"돈을 벌고 싶다는 생각이 있으면\n점점 욕심이 생기기 마련입니다."],[15.854,19.412,"수익을 보면 더 벌고 싶어서\n매수 금액을 점점 늘리고,"],[19.412,22.408,"손실을 보면\n빨리 복구하고 싶은 마음에 더 자주,"],[22.408,25.061,"더 크게 매수와 매도를 반복하게 됩니다."],[25.061,26.665,"결국 큰 하락이 오면,"],[26.665,30.641,"더 매수할 돈은 이미 다 썼고\n매도하자니 손실이 너무 큽니다."],[30.641,35.481,"그때는 떨어지는 계좌를 지켜보는 것 말고,\n할 수 있는 게 아무것도 없습니다."],[35.481,37.921,"급할 수록 돌아가라 라는 말이 있듯이,"],[37.921,41.638,"욕심을 버리고 리스크를 대비하면서\n천천히 수익낸다면"],[41.638,44.671,"당신은 어느순간 승리자가\n되어 있을겁니다."],[44.671,48.271,"다른 테스트가 궁금하다면\n구독하고 채널에서 확인하세요."]]};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../render/puppet.js"></script>
+<script>
+(function () {
+"use strict";
+// v1.1 화면 영어 = BUY·SELL 만 (사용자 지시 2026-11-04 "되도록 buy, sell 같은 쉬운 영어 말고는 쓰지 말고 정 꼭 문구가 필요하면 그냥 한국어로 해") — 그 밖의 낱말은 한국어 칸(KO)
+const WORDS = ["BUY", "SELL"];
+K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });
+const KO = `data-words="쉬운 한국어 칸 — 사용자 지시 2026-11-04 '정 꼭 문구가 필요하면 그냥 한국어로 해'"`;
+const ko = s => (/[가-힣]/.test(s) ? " " + KO : "");     // 한국어가 든 칸에만 붙임
+const { S, E, W, el, pop } = K;
+const tl = K.tl;
+const out = (n, at) => K.out(n, at, { y: 0 });
+const { sm, lin, lerp, q12 } = Puppet.u;
+const R = "#FF4D3D", G = "#22C7B0", Y = "#FFD400", N = "#9AA7BF", WH = "#F4F6FA";
+const until = n => S(n) - 0.05;
+
+/* ═════════════ 배치 표 v1.0 (1080×1920) ═════════════
+   위 칸 (y 150~680, 유튜브 위 머리말 아래): T_TAG 꼬리표 줄 · T_MAIN 큰 그림 · T_CHART 그래프 판(혼자 씀) · T_L/T_R 둘로 나눌 때 · E_CARD/E_BTN 끝 화면
+   가운데 칸 (y 691~1382 종이인형 무대): 인형 P_C(혼자 가운데) · P_L/P_R(둘이 마주 봄) · 머리 위 기호 HEAD_C/HEAD_L/HEAD_R
+   아래 칸: 구운 자막(장면 물건 없음 — video-safe 아래 1384). 같은 시각에 T_CHART 와 T_TAG/T_MAIN/T_L/T_R 을 같이 쓰지 않음. */
+const LAY = window.LAYOUT = {
+  COVER: [0, 0, 1080, 1920],                          // 첫 문장 썸네일 그림 (K.cover)
+  T_TAG: [140, 160, 800, 120], T_MAIN: [90, 300, 900, 360], T_CHART: [90, 170, 900, 490],
+  T_L: [90, 220, 430, 420], T_R: [560, 220, 430, 420],
+  E_CARD: [190, 160, 700, 394], E_BTN: [240, 572, 600, 108],
+  P_C: [300, 860, 480, 470], P_L: [90, 860, 460, 470], P_R: [530, 860, 460, 470],
+  HEAD_C: [420, 700, 240, 240], HEAD_L: [190, 700, 240, 240], HEAD_R: [630, 700, 240, 240],   // 머리 위 (인형 머리 y 약 920~940 바로 위)
+};
+window.LAYOUT_ALLOW = [];
+const PS = { P_C: { at: [0, -0.3, 0] }, P_L: { at: [-2.7, -0.3, 0] }, P_R: { at: [2.7, -0.3, 0] } };
+
+// ---------- 가운데 칸 = 종이인형 무대 (1편 인형 — stock/source/ppalli-test-2026-11/puppet/) ----------
+const MID = 691;
+const F = (file, kind) => ({ f: file, kind });
+const ST = Puppet.stage({ dir: "../../../stock/source/ppalli-test-2026-11/puppet/", w: 1080, h: 691, top: MID, clear: 0x000000, files: {
+  PAPER: { f: "../../../../test/puppet/P-PAPER.jpg", kind: "bg" },
+  OFF: F("S-OFFICE.jpg", "bg"), HOME: F("S-HOME-NIGHT.jpg", "bg"), SUB: F("S-SUBWAY.jpg", "bg"), CAFE: F("S-CAFE.jpg", "bg"),
+  H_PHONE: F("HERO-PHONE.png", "sq"), H_THINK: F("HERO-THINK.png", "sq"), H_SHOCK: F("HERO-SHOCK.png", "sq"),
+  H_DESP: F("HERO-DESPAIR.png", "sq"), H_PLAN: F("HERO-PLAN.png", "sq"), H_BOW: F("HERO-BOW.png", "sq"),
+  W_COL: F("W-COLLEAGUE.png", "sq"), W_FRIEND: F("W-FRIEND.png", "sq") } });
+const BGO = { PAPER: { v: 0.5, y: 2.6 }, OFF: { v: 0.6, y: 1.0 }, HOME: { v: 0.64, y: 1.0 }, SUB: { v: 0.55, y: 1.0 }, CAFE: { v: 0.6, y: 1.0 } };
+const CAM = { cam: () => ({ pos: [0, 3.0, 16], look: [0, 2.7, 0] }) };     // 고정 카메라 — 가운데 칸에서 x 1 ≈ 81px · 바닥 y −0.3 ≈ 화면 y 1278
+const act = (st, key, slot, h, o) => st.actor(key, Object.assign({ h, slot }, PS[slot], o || {}));
+const idle = (a, t, ph) => { a.g.rotation.z = 0.012 * Math.sin(q12(t) * Math.PI * 1.3 + (ph || 0)); return a; };
+const enter = (a, t, at, d) => { const k = lin(t, at, at + (d || 0.4)); a.op = t < at ? 0 : k; const s2 = 0.9 + 0.1 * sm(k); a.g.scale.set(s2, s2, 1); return a; };
+const FOL = [];
+function stick(set, node, at) { gsap.set(node, { xPercent: -50, yPercent: -100 }); FOL.push({ set, node, at }); return node; }
+ST.after(t => {
+  for (const f of FOL) {
+    const v = f.set.built && f.set.fadeAt(t) > 0.001 ? f.at(t) : null;
+    if (!v) { f.node.style.display = "none"; continue; }
+    const [x, y] = ST.project(v);
+    f.node.style.display = ""; f.node.style.left = x.toFixed(1) + "px"; f.node.style.top = (y + MID).toFixed(1) + "px";
+  }
+});
+const headMark = (set, sc, slot, a, html, at, end, size) => {
+  const n = stick(set, el(`<div class="a w9 nw ts" data-slot="${slot}" style="font-size:${size || 110}px;line-height:1">${html}</div>`, sc), () => { const x = a(); return x && x.op > 0.01 ? x.top(0.3) : null; });
+  if (at != null) pop(n, at, { from: { scale: 0.3, y: 0 } }); if (end) out(n, end); return n;
+};
+function stage(a, b, bgKey, build, o) {
+  o = o || {};
+  const sc = K.scene(a, b, o.keep ? { keep: true } : undefined);
+  const st = ST.set(a, b, s => { s.BG = s.bg(bgKey, BGO[bgKey]); if (build) build(s); }, CAM);
+  return { sc, st };
+}
+
+// ---------- 칸 상자 (DOM) ----------
+function box(sc, name, inner, css) {
+  const [x, y, w, h] = LAY[name];
+  const d = el(`<div class="a" data-slot="${name}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${css || ""}">${inner || ""}</div>`, sc);
+  d._x = x; d._y = y; d._w = w; d._h = h;
+  return d;
+}
+const CEN = "display:flex;align-items:center;justify-content:center;gap:28px;";
+const boxC = (sc, name, inner, at, css) => { const d = box(sc, name, inner, CEN + (css || "")); if (at != null) pop(d, at); return d; };
+const PANEL_CSS = "border-radius:30px;background:rgba(16,24,42,.92);border:3px solid rgba(255,255,255,.16);box-sizing:border-box;";
+const PDIR = "../../../stock/source/ppalli-test-2026-11/puppet/";
+const PB = { "P-COINS": [0.1, 0.251, 0.899, 0.749], "P-MONEY": [0.214, 0.1, 0.785, 0.899] };   // 알파 상자 (롱폼과 같음)
+function propH(name, h) {
+  const [x0, y0, x1, y1] = PB[name]; const k = h / ((y1 - y0) * 1024), w = Math.round((x1 - x0) * 1024 * k), S0 = Math.round(1024 * k);
+  return `<div class="prop" style="position:relative;flex:0 0 auto;width:${w}px;height:${h}px;overflow:hidden"><img src="${PDIR}${name}.png" alt="" style="position:absolute;left:${-Math.round(x0 * 1024 * k)}px;top:${-Math.round(y0 * 1024 * k)}px;width:${S0}px;height:${S0}px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.45))"></div>`;
+}
+function lineIn(g, pts, color, at, dur, w) {     // g 칸 안에 선 (화면 좌표) — 그려지듯
+  const d = pts.map((p, i) => `${i ? "L" : "M"}${p[0]} ${p[1]}`).join(" ");
+  const s = el(`<svg class="a" viewBox="${g._x} ${g._y} ${g._w} ${g._h}" width="${g._w}" height="${g._h}" style="left:0;top:0;overflow:visible" aria-hidden="true"><path d="${d}" fill="none" stroke="${color}" stroke-width="${w || 12}" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>`, g);
+  tl.to(s.querySelector("path"), { attr: { "stroke-dashoffset": 0 }, duration: dur || 1.2, ease: "power1.inOut" }, at);
+  return s;
+}
+const inBox = (g, html, x, y, at, from) => { const n = el(html, g); n.style.left = (x - g._x) + "px"; n.style.top = (y - g._y) + "px"; if (at != null) pop(n, at, from); return n; };
+const tag = (t2, color, size) => `<div class="tag2"${ko(t2)} style="${color ? `border-color:${color};color:${color};` : ""}${size ? `font-size:${size}px;` : ""}">${t2}</div>`;
+const stampH = (t2, color, rot) => `<div class="stamp"${ko(t2)} style="color:${color};rotate:${rot == null ? -8 : rot}deg">${t2}</div>`;
+const press = (n, at) => { tl.to(n, { scale: 0.86, duration: 0.12, ease: "power2.in" }, at); tl.to(n, { scale: 1, duration: 0.25, ease: "back.out(3)" }, at + 0.12); };
+const ARROW_UP = c => `<svg viewBox="0 0 100 100" width="150" height="150" aria-hidden="true"><path d="M50 12 L88 62 L64 62 L64 90 L36 90 L36 62 L12 62 Z" fill="${c}"/></svg>`;
+const ARROW_DN = c => `<svg viewBox="0 0 100 100" width="150" height="150" aria-hidden="true"><path d="M50 88 L88 38 L64 38 L64 10 L36 10 L36 38 L12 38 Z" fill="${c}"/></svg>`;
+
+/* S-01 첫 문장 = 쇼츠 썸네일 그림 (shorts/thumbnails/thumbnail_1.jpg). 확대 없음 */
+const CV = K.cover(until(2), { zoom: 1 });
+CV.querySelectorAll("img").forEach(i => { i.dataset.slot = "COVER"; });   // 배치 표 COVER (화면 가득)
+K.cut(0.1, "S-01 0초 그림 = 쇼츠 썸네일");
+K.cut(E(1) - 0.2, "S-01 첫 문장 + 자막(42px)");
+
+/* S-02 빠르게 벌고 싶다는 생각 — 지하철 · 휴대폰 보는 주인공 · ₩ + FAST (문장 2) */
+{
+  const a = until(2), b = until(3);
+  let HP;
+  const { sc, st } = stage(a, b, "SUB", s => { HP = act(s, "H_PHONE", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  boxC(sc, "T_MAIN", propH("P-MONEY", 330), S(2) + 0.1);
+  boxC(sc, "T_TAG", tag("빠르게 »", Y), W(2, "빠르게") - 0.1);
+  headMark(st, sc, "HEAD_C", () => HP, `<span class="Y">₩</span>`, W(2, "벌고"));
+  K.cut(E(2) - 0.1, "S-02 ₩ FAST");
+}
+/* S-03 무슨 소리냐고요? — 동료·친구가 ?! (문장 3) */
+{
+  const a = until(3), b = until(4);
+  let CO, FR;
+  const { sc, st } = stage(a, b, "OFF", s => { CO = act(s, "W_COL", "P_L", 4.2).ro(4); FR = act(s, "W_FRIEND", "P_R", 4.2).ro(4); });
+  st.update = t => { enter(CO, t, a + 0.1); enter(FR, t, a + 0.25); idle(CO, t); idle(FR, t, 1.5); };
+  headMark(st, sc, "HEAD_L", () => CO, `<span class="Y">?!</span>`, S(3) + 0.3);
+  headMark(st, sc, "HEAD_R", () => FR, `<span class="Y">?!</span>`, W(3, "도대체"));
+  const q = boxC(sc, "T_MAIN", `<div class="w9 ts Y" style="font-size:300px;line-height:1">?</div>`, W(3, "무슨") - 0.1);
+  tl.fromTo(q.firstElementChild, { rotate: 0 }, { rotate: 8, duration: 0.18, yoyo: true, repeat: 3, ease: "sine.inOut" }, W(3, "무슨") + 0.3);   // 칸 상자는 그대로 · 글자만 흔들림
+  K.cut(E(3) - 0.1, "S-03 ?!");
+}
+/* S-04 점점 욕심 — 생각하는 주인공 · 동전이 점점 커짐 · MORE (문장 4) */
+{
+  const a = until(4), b = until(5);
+  let HT;
+  const { sc, st } = stage(a, b, "HOME", s => { HT = act(s, "H_THINK", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HT, t, a + 0.1); idle(HT, t); };
+  const c = boxC(sc, "T_MAIN", propH("P-COINS", 200), S(4) + 0.1);
+  tl.fromTo(c.firstElementChild, { scale: 0.7 }, { scale: 1.45, duration: Math.max(0.6, E(4) - W(4, "점점")), ease: "power1.in" }, W(4, "점점"));
+  boxC(sc, "T_TAG", tag("욕심", Y), W(4, "욕심") - 0.1);
+  K.cut(E(4) - 0.1, "S-04 MORE");
+}
+/* S-05 수익 → 매수 금액을 점점 늘림 — 막대 넷 + BUY (문장 5) */
+{
+  const a = until(5), b = until(6);
+  let HP;
+  const { sc, st } = stage(a, b, "OFF", s => { HP = act(s, "H_PHONE", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  boxC(sc, "T_TAG", tag("▲", G, 70), S(5) + 0.05);
+  const m = box(sc, "T_MAIN", "", "");
+  pop(m, W(5, "매수") - 0.3);
+  const HS = [70, 130, 210, 320], t0 = W(5, "매수");
+  const bars = HS.map((h, i) => {
+    const n = el(`<div class="a" style="left:${20 + i * 105}px;top:${340 - h}px;width:80px;height:${h}px;border-radius:14px 14px 4px 4px;background:${G};transform-origin:50% 100%"></div>`, m);
+    tl.fromTo(n, { scaleY: 0 }, { scaleY: 1, duration: 0.3, ease: "back.out(1.6)" }, t0 + i * Math.max(0.25, (E(5) - t0) / 5));
+    return n;
+  });
+  const bt = el(`<div class="btn buy a" style="left:500px;top:120px">BUY</div>`, m);
+  bars.forEach((_, i) => press(bt, t0 + i * Math.max(0.25, (E(5) - t0) / 5) - 0.05));
+  K.cut(E(5) - 0.1, "S-05 BUY 막대");
+}
+/* S-06 손실 → 더 자주, 더 크게 매수·매도 반복 (문장 6) */
+{
+  const a = until(6), b = until(7);
+  let HS;
+  const { sc, st } = stage(a, b, "OFF", s => { HS = act(s, "H_SHOCK", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HS, t, a + 0.1); if (t > W(6, "더 자주")) HS.jitter(t, 0.02); else idle(HS, t); };
+  boxC(sc, "T_TAG", tag("▼", R, 70), S(6) + 0.05);
+  const m = boxC(sc, "T_MAIN", `<div class="btn buy">BUY</div><div class="btn sell">SELL</div>`, W(6, "더 자주") - 0.4);
+  const [bb, bs] = m.children;
+  gsap.set([bb, bs], { opacity: 0.35 });
+  const t0 = W(6, "더 자주"), t1 = E(6) - 0.15;
+  let t = t0, k = 0, gap = 0.5;
+  while (t < t1) {
+    const on = k % 2 ? bs : bb, off = k % 2 ? bb : bs, sc2 = 1 + Math.min(0.25, k * 0.025);
+    tl.to(on, { opacity: 1, scale: sc2, duration: 0.08 }, t); tl.to(off, { opacity: 0.35, scale: 1, duration: 0.08 }, t);
+    t += gap; gap = Math.max(0.16, gap * 0.85); k++;
+  }
+  K.cut(W(6, "반복") + 0.2, "S-06 BUY ↔ SELL");
+}
+/* S-07 큰 하락 → 더 살 돈 없음(CASH ₩0) · 팔자니 손실(SELL · LOSS) (문장 7) */
+{
+  const a = until(7), b = until(8), tC = W(7, "매수할") - 0.2;
+  let HS;
+  const { sc, st } = stage(a, b, "HOME", s => { HS = act(s, "H_SHOCK", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HS, t, a + 0.1); idle(HS, t); if (t > W(7, "하락이") && t < tC) HS.jitter(t, 0.02); };
+  const g = box(sc, "T_CHART", "", PANEL_CSS); pop(g, S(7) + 0.05); out(g, tC - 0.25);
+  const [x, y, w, h] = LAY.T_CHART;
+  const P = [[0, 0.30], [0.12, 0.24], [0.22, 0.30], [0.34, 0.18], [0.46, 0.26], [0.56, 0.20], [0.64, 0.36], [0.74, 0.58], [0.84, 0.70], [1, 0.90]];
+  lineIn(g, P.map(([u, v]) => [x + 60 + (w - 120) * u, y + 50 + (h - 100) * v]), R, S(7) + 0.1, Math.max(0.6, tC - 0.45 - S(7)), 12);   // "결국 큰 하락이 오면" 동안
+  const cash = boxC(sc, "T_L", `<div class="app"><div class="h" ${KO}>현금</div><div class="v R">₩0</div></div>`, tC);
+  const sell = boxC(sc, "T_R", `<div style="display:grid;gap:30px;justify-items:center"><div class="btn sell">SELL</div>${tag("손실 ▼", R)}</div>`, W(7, "매도하자니") - 0.2);
+  tl.fromTo(sell.querySelector(".btn"), { x: 0 }, { x: 10, duration: 0.07, yoyo: true, repeat: 5, ease: "none" }, W(7, "손실이"));
+  K.cut(tC - 0.35, "S-07 하락 그래프");
+  K.cut(E(7) - 0.1, "S-07 CASH ₩0 · SELL LOSS");
+}
+/* S-08 떨어지는 계좌를 지켜보는 것 말고 할 수 있는 게 없음 (문장 8) */
+{
+  const a = until(8), b = until(9);
+  let HD;
+  const { sc, st } = stage(a, b, "HOME", s => { HD = act(s, "H_DESP", "P_C", 3.6).ro(5); });
+  st.update = t => { enter(HD, t, a + 0.1); };
+  const g = box(sc, "T_CHART", "", PANEL_CSS); pop(g, S(8) + 0.05);
+  const [x, y, w, h] = LAY.T_CHART;
+  const P = [[0, 0.10], [0.15, 0.18], [0.28, 0.16], [0.42, 0.30], [0.55, 0.28], [0.70, 0.44], [0.84, 0.50], [1, 0.62]];
+  lineIn(g, P.map(([u, v]) => [x + 60 + (w - 120) * u, y + 40 + (h - 80) * v]), R, S(8) + 0.2, Math.max(1.5, E(8) - S(8) - 0.4), 12);
+  inBox(g, `<div class="a btn off" style="font-size:56px;padding:18px 40px">BUY</div>`, x + 140, y + h - 140, W(8, "할 수 있는") - 0.1);
+  inBox(g, `<div class="a btn off" style="font-size:56px;padding:18px 40px">SELL</div>`, x + 480, y + h - 140, W(8, "할 수 있는"));
+  K.cut(E(8) - 0.1, "S-08 지켜보기만");
+}
+/* S-09 급할수록 돌아가라 — 곧은 길 ✕ · 돌아가는 길 ✓ (문장 9) */
+{
+  const a = until(9), b = until(10);
+  let HP;
+  const { sc, st } = stage(a, b, "PAPER", s => { HP = act(s, "H_PLAN", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  const g = box(sc, "T_MAIN", "", ""); pop(g, S(9));
+  const [x, y, w, h] = LAY.T_MAIN, A = [x + 90, y + h - 70], B = [x + w - 90, y + 90];
+  inBox(g, `<div class="a" style="width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:${WH}"></div>`, A[0], A[1], S(9));
+  inBox(g, `<div class="a" style="width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:${Y}"></div>`, B[0], B[1], S(9));
+  lineIn(g, [A, B], R, S(9) + 0.1, 0.4, 10);
+  inBox(g, `<div class="a w9 R ts" style="font-size:120px;line-height:1;margin:-60px 0 0 -40px">✕</div>`, (A[0] + B[0]) / 2, (A[1] + B[1]) / 2, S(9) + 0.5, { from: { scale: 2, y: 0 } });
+  const curve = [[A[0], A[1]], [A[0] + 300, A[1]], [A[0] + 560, A[1] - 20], [B[0] - 40, A[1] - 120], [B[0], B[1] + 60], [B[0], B[1]]];
+  lineIn(g, curve, G, W(9, "돌아가라") - 0.2, 0.9, 12);
+  inBox(g, `<div class="a w9 G ts" style="font-size:120px;line-height:1;margin:-60px 0 0 -40px">✓</div>`, B[0] - 140, A[1] - 60, W(9, "돌아가라") + 0.7, { from: { scale: 2, y: 0 } });
+  K.cut(E(9) - 0.1, "S-09 돌아가는 길 ✓");
+}
+/* S-10 욕심을 버리고·리스크 대비·천천히 → 승리자 (문장 10) */
+{
+  const a = until(10), b = until(11);
+  let HP;
+  const { sc, st } = stage(a, b, "CAFE", s => { HP = act(s, "H_PLAN", "P_C", 4.4).ro(5); });
+  st.update = t => { enter(HP, t, a + 0.1); idle(HP, t); };
+  const g = box(sc, "T_CHART", "", PANEL_CSS); pop(g, S(10) + 0.05);
+  const [x, y, w, h] = LAY.T_CHART;
+  const P = [[0, 0.86], [0.1, 0.80], [0.18, 0.83], [0.3, 0.70], [0.4, 0.73], [0.52, 0.58], [0.6, 0.61], [0.72, 0.46], [0.82, 0.48], [0.92, 0.36], [1, 0.30]];
+  lineIn(g, P.map(([u, v]) => [x + 60 + (w - 120) * u, y + 40 + (h - 80) * v]), G, W(10, "천천히") - 0.6, Math.max(1.6, W(10, "승리자") - W(10, "천천히")), 12);
+  inBox(g, tag("리스크 대비", G, 46).replace('class="tag2"', 'class="tag2 a"'), x + 40, y + 34, W(10, "리스크") - 0.1);
+  inBox(g, tag("천천히", Y, 46).replace('class="tag2"', 'class="tag2 a"'), x + 400, y + 34, W(10, "천천히") - 0.1);
+  inBox(g, stampH("승리", Y, -8).replace('class="stamp"', 'class="stamp a"'), x + 520, y + 250, W(10, "승리자") - 0.1, { from: { scale: 2.2, y: 0, opacity: 0 } });
+  headMark(st, sc, "HEAD_C", () => HP, `<span class="G">✓</span>`, W(10, "승리자"));
+  K.cut(E(10) - 0.1, "S-10 SLOW → WIN");
+}
+/* S-11 다른 테스트 — 롱폼 카드 ▶ + SUBSCRIBE (문장 11 · 끝 화면) */
+{
+  const a = until(11), b = K.D;
+  let HB;
+  const { sc, st } = stage(a, b, "PAPER", s => { HB = act(s, "H_BOW", "P_C", 4.4).ro(5); }, { keep: true });
+  st.update = t => { enter(HB, t, a + 0.1); };
+  const card = box(sc, "E_CARD", `<div class="card a" style="inset:0"><img alt="" src="../../../stock/source/ppalli-test-2026-11/thumbnails/thumbnail_1.jpg"><div class="play"><svg viewBox="0 0 60 60" width="64" height="64" aria-hidden="true"><path d="M18 10 L50 30 L18 50 Z" fill="#fff"/></svg></div></div>`);
+  pop(card, S(11) + 0.05, { from: { scale: 0.85, y: 0 } });
+  const btn = boxC(sc, "E_BTN", `<div class="btn sub" ${KO}>구독</div>`, W(11, "구독하고") - 0.2);
+  press(btn.firstElementChild, W(11, "구독하고") + 0.2);
+  K.cut(E(11) - 0.1, "S-11 카드 ▶ · SUBSCRIBE");
+  K.cut(K.D - 0.3, "끝 화면");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

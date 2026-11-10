@@ -1,0 +1,86 @@
+{
+  "version": "v1.3 — 2026-11-06 — (still 점검 뒤: S03 만 scale 0.8 · B 곡선을 조금 더 분명히 — 끝 113 → 127, 흐름만이라 재지 않음) — 클립 받아 프레임 검수 → 깨끗한 구간·자막 (사용자 지시 \"클립 만들었어 확인해서 최종 영상 보여줘\"): 클립마다 use_from·use_to(첫 0.2초 = 원본 그림에서 약 5% 당겨지는 구간 뺌 · S01 2.2초 뒤 양동이 투명·손가락 총이 빨간 총 모양 · S03 3.5초 뒤 몸 번짐·지갑 사라짐 · S04 2.3초 뒤 거북이 사라지고 조롱 끝 · S05 3.5초 뒤 B 가 입을 가림 · S06 2.2초 뒤 저금통 사라짐 · S07 3.5초부터 두 겹 · S08 2.0~3.0초 두 겹 — 완성 영상에서 1.6초 무렵 옅은 두 겹이 보여 1.4초까지로 줄임) · pingpong(S04·S06·S08) · show_sec(화면 시간 합 26.6초) · caption(장면마다 한 문장 — 내레이션 전이라 자막이 이야기를 전함). 그래프 장면 4장은 장면 80% + 위 그래프 카드 (S03 에서 A 가 높이 16% 까지 뛰어 위 40% 에 그래프를 두면 머리를 가림 — tools/clip_short.py). 이전 v1.2 — 2026-11-06 — 그림체 3D → 2D (사용자 지시 \"잠만 3D로 하지말고 2D로 해 수정해서 알려줘\"): 모바일 게임 광고풍은 그대로, 평면 2D 카툰(굵은 외곽선·평면 셀 음영) · 움직임 줄도 2D 유지 · 부정 프롬프트에 3D·플라스틱·점토. 인물·장면·구도·chart 는 그대로. 이전 v1.1 — 2026-11-06 — 대표 종목 티커 SOXL 을 화면에 씀 + 수익 곡선은 흐름만 (사용자 지시 \"아니 대표 종목 티커 써야지 왜 안써 그리고 수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어 수정해\"): 아래 chart 칸 새로 — 곡선은 손으로 정한 꼭짓점(calc 없음), 화면에 수익률·가격 숫자·세로축 값 없음, A 곡선 끝 'SOXL'. 그림 프롬프트는 그대로 (티커는 코드가 얹음 — AI 클립은 글자를 뭉갬). 이전 v1.0 — 2026-11-06 — 첫 장면 계획 (사용자 지시 \"쇼츠 애니메이션 만들건데 이미지를 만들고 저번에 만든 영상화 코드로 이미지를 영상화해 짧은 영상을 이어 붙이는 식으로 … 한 사람은 변동성 높은 반도체 관련 종목(예를 들면 SOXL)만, 한 사람은 국면에 따라 현금, 포트폴리오 분배 … 반도체 사람은 까불까불한 이미지, 분배 사람은 차분한 이미지로 하고 미국 양산형 게임 광고에 나오는 캐릭터 그림체로 해\"). 대본 전 — 클립마다 5초, 그래프는 코드 화면(duo_chart 장의 위 40%). 대본이 생기면 timing 을 지우고 sentences 로 다시 build.",
+  "about": "주식 쇼츠 애니메이션 — 반도체 3배 SOXL 만 산 A vs 국면에 따라 현금·자산을 나눠 담은 B. 이 파일만 고치고 `python3 tools/scene_clips.py build stock bandoche-bunbae-2026-11 --shorts` 로 chatgpt.md·videogen.json·plan.md 를 다시 만든다. ※ 연구·교육용 영상 소스 — 투자 권유 아님.",
+  "video": "bandoche-bunbae-2026-11",
+  "orientation": "portrait",
+  "timing": "clips",
+  "max_sec": 5.0,
+  "release_tag": "clips-bandoche-bunbae-2026-11-shorts",
+  "chart": {
+    "about": "duo_chart 장(S03~S06) 위 40% 에 코드 화면이 그리는 두 사람의 수익 곡선 — 흐름만 (사용자 지시 2026-11-06 \"수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어\"). 값은 손으로 정한 꼭짓점: x = 시간(0~1, 날짜 라벨로 표시), y = 처음 돈 100 기준 상대 크기 — 화면에 y 숫자·%·가격은 쓰지 않음. A 모양은 SOXL 의 실제 방향(2021 오름 → 2021 말 꼭대기 → 2022 초 흔들림 → 2022 폭락)을 대략 따르고 재지 않음, B 는 연출. 장면 클립이 바뀔 때마다 그 구간까지 선이 자라고 날짜 라벨이 흐름.",
+    "dates": {"start": "2021.01", "end": "2022.10"},
+    "baseline": {"y": 100, "style": "노란 점선 (처음 넣은 돈)"},
+    "lines": [
+      {"who": "A", "label": "SOXL", "color": "A 주황 — 기준선 아래로 내려가면 빨강",
+       "points": [[0.0, 100], [0.08, 112], [0.16, 104], [0.26, 150], [0.34, 138], [0.45, 205], [0.5, 215], [0.56, 168], [0.62, 186], [0.7, 150], [0.78, 96], [0.86, 60], [0.93, 38], [1.0, 25]]},
+      {"who": "B", "label": "나눠 담기", "color": "B 청록",
+       "points": [[0.0, 100], [0.15, 108], [0.3, 116], [0.45, 126], [0.5, 128], [0.6, 132], [0.7, 135], [0.8, 127], [0.9, 124], [1.0, 127]]}
+    ],
+    "segments": [
+      {"clip": "S03", "x": [0.0, 0.45], "ko": "오르는 시기 — 둘 다 오르지만 A 가 훨씬 가파름"},
+      {"clip": "S04", "x": [0.45, 0.5], "ko": "A 꼭대기 근처 — 조롱"},
+      {"clip": "S05", "x": [0.5, 0.7], "ko": "A 오르다 떨어짐(반등 한 번) · B 꾸준히 조금씩"},
+      {"clip": "S06", "x": [0.7, 1.0], "ko": "폭락 — A 기준선 한참 아래 · B 조금 내려도 기준선 위"}
+    ],
+    "on_screen": "곡선 2개 + 노란 점선 기준선 + 선 끝 이름표(SOXL · 나눠 담기) + 날짜 라벨 + 작게 '※ 흐름 예시' — 수익률·가격·세로축 숫자 없음",
+    "description_note": "설명란: '곡선은 흐름을 보여 주는 예시이며 실제 수익률이 아닙니다.' 한 줄"
+  },
+  "image_dir": "stock/source/bandoche-bunbae-2026-11/shorts/scenes",
+  "style": {
+    "image": "Art style: a polished flat 2D cartoon illustration in the look of a typical casual mobile-game video advertisement — generic, do NOT copy any existing game's characters, logos, interface or art. Chunky big-headed proportions (head about one third of the body height), large expressive eyes, exaggerated rubbery facial expressions and poses that read instantly on a small phone screen, bold clean dark outlines, flat cel shading with one simple shadow tone and a small highlight, bold saturated but clean colors, simple uncluttered background with flat shapes and soft color gradients, crisp vector-like shapes. It is a 2D drawing — not a 3D render, not clay or plastic, not a photo.",
+    "motion": "Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+  },
+  "negative_prompt": "过曝，静态，细节模糊不清，字幕，文字，水印，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走，人脸变形，照片写实，3D渲染，立体建模，塑料质感，黏土",
+  "sheet_note": "Below the two full-body figures, add one row of six small head-only expression studies, three per character, same faces: A cheering wildly, A smugly mocking, A sobbing with cartoon tears; B calm and neutral, B annoyed side-eye, B quietly confident half-smile.",
+  "characters": [
+    {"id": "A", "name": "반도체만 산 까불이",
+     "en": "A — a hyperactive, goofy young man in his mid-20s who never stands still: spiky bright-orange dyed hair sticking straight up, a backwards lime-green baseball cap, an oversized neon-orange hoodie with a big plain dark square microchip-shaped patch on the chest (a square with little metal pin legs, no text or logo), baggy black cargo shorts, chunky white sneakers, a thin gold chain. Big toothy grin, mischievous raised eyebrows, cocky show-off body language."},
+    {"id": "B", "name": "나눠 담는 차분이",
+     "en": "B — a calm, composed man in his late 30s: neat dark-brown side-parted hair, thin round glasses, clean-shaven, a soft navy-blue knit sweater over a white collared shirt, beige chinos, brown loafers, a slim silver wristwatch. Relaxed upright posture, gentle half-lidded eyes, a small steady smile; he moves slowly and deliberately."}
+  ],
+  "places": [
+    {"id": "a_room", "name": "A의 방",
+     "en": "A's bedroom-studio: bright and a little messy, purple-and-pink LED strip lights, a gaming chair, plain energy-drink cans with no logos, wall posters that show only abstract shapes. On the desk stands a waist-high glossy black-and-gold computer-chip sculpture (a big square chip with shiny metal pin legs) with a coin slot on top — A uses it like a giant piggy bank."},
+    {"id": "b_room", "name": "B의 서재",
+     "en": "B's tidy sunny home study: a light wooden desk by a large window with soft daylight, a potted plant, a cup of tea. On the desk, four clear glass jars filled with gold coins, each with a different lid: a green lid (cash, also holding folded plain green bills), a blue lid, a gold lid (small gold nuggets), and one jar with a tiny black-and-gold chip charm on its lid (his modest stock share). On the wall, a round dial like a weather gauge with three pictures — a sun, a cloud, and a dark storm cloud with lightning — and one needle."},
+    {"id": "duo", "name": "둘이 나란한 무대",
+     "en": "A simple split set: one continuous soft studio backdrop; the left half is lit warm orange-pink (A's side), the right half cool teal-blue (B's side); a glossy pale floor. On the left stands A's waist-high black-and-gold chip piggy bank. On the right, a small round table with B's four coin jars (green, blue, gold lids and the chip-charm jar) and a cup of tea, and B's round weather dial (sun, cloud, storm-cloud pictures, one needle) on a short stand beside the table."}
+  ],
+  "formats": {
+    "duo_chart": "Format: 9:16 vertical (864×1536, or the tallest vertical size). The TOP 40% of the picture is ONLY a plain, softly lit empty backdrop — no faces, hands, objects or details there (a chart panel will be placed over it). The two characters stand side by side in the middle band: A always on the LEFT half, B always on the RIGHT half, both seen from about the waist up, faces between 42% and 60% of the height, big and clearly readable expressions. Keep them away from the left and right 10% (the picture will be cropped). The bottom 30%: only their lower bodies, the floor and simple props, no faces (subtitles go there)."
+  },
+  "clips": [
+    {"name": "S01", "chars": ["A"], "place": "a_room", "sec": 5.0, "use_from": 0.2, "use_to": 2.2, "show_sec": 3.0, "caption": "A는 반도체 3배 SOXL에 돈을 전부 넣었고",
+     "ko": "A 소개 — 까불까불, 돈을 전부 반도체 칩 저금통 하나에 쏟아붓는다",
+     "image": "A bursts with goofy excitement: standing on his gaming chair with one sneaker up on the desk, he hugs the giant chip piggy bank with one arm and pours a whole bucket of gold coins into its slot with the other hand, winking with his tongue cheekily sticking out, coins splashing everywhere. His smartphone pokes out of his hoodie pocket with a bright glowing screen. It must be obvious that ALL his money goes into this one chip.",
+     "motion": "A pours the bucket of gold coins into the chip's slot while bouncing on the chair with goofy energy, then flashes a cheeky wink and a finger-gun at the camera; coins tumble and sparkle; static camera."},
+    {"name": "S02", "chars": ["B"], "place": "b_room", "sec": 5.0, "use_from": 0.2, "use_to": 3.0, "show_sec": 3.2, "caption": "B는 상황에 따라 현금과 여러 자산에 나눠 담았습니다",
+     "ko": "B 소개 — 차분하게 날씨 바늘(국면)을 보며 돈을 현금·여러 병에 나눠 담는다",
+     "image": "B sits calmly at his desk and, with an unhurried hand, places gold coins one by one into the four glass jars so they fill evenly — the chip-charm jar holds only a modest part. He glances up at the weather dial on the wall, whose needle points to the sun. Serene expression: relaxed half-lidded eyes, a small steady smile, tea steaming beside him. It must be obvious that he splits his money into several jars, including cash.",
+     "motion": "B calmly drops a coin into each jar one after another, glances up at the weather dial and gives a small satisfied nod; steam rises from the tea; very slow push-in."},
+    {"name": "S03", "chars": ["A", "B"], "place": "duo", "format": "duo_chart", "sec": 5.0, "use_from": 0.2, "use_to": 3.3, "scale": 0.8, "patch": {"box": [910, 1225, 40, 23], "fill": "#FFFFFF", "why": "AI 클립이 날씨 바늘 오른쪽 아래(흰 판)에 '2021' 비슷한 파란 글자를 지어냄 (그림 S03.jpg 엔 없음) — 주변 메우기(delogo)는 위 구름 색이 번져 흰 상자로"}, "show_sec": 3.6, "caption": "오를 때 A는 환호하며 더 사들이고, B는 조금씩 현금으로 옮겼죠",
+     "ko": "오르는 시기 — A 환호하며 더 사서 비중을 늘림 · B 아무 일 없다는 듯 차분히 대응",
+     "image": "Good times: the weather dial on B's side points to the sun. A (left) leaps into the air cheering with both fists up, mouth wide open in a triumphant shout, eyes sparkling, while stuffing even more coins and his whole wallet into the chip piggy bank — clearly raising his bet. B (right) sits calmly at his small table sipping tea with a neutral, unbothered face, and with two fingers moves just one coin from the chip-charm jar into the green-lid cash jar.",
+     "motion": "A jumps and cheers wildly, then crams more coins into the chip piggy bank with both hands; B calmly sips his tea and slides one coin into the cash jar without any excitement; static camera."},
+    {"name": "S04", "chars": ["A", "B"], "place": "duo", "format": "duo_chart", "sec": 5.0, "use_from": 0.2, "use_to": 2.3, "loop": "pingpong", "show_sec": 3.4, "caption": "\"거북이냐?\" A는 느린 B를 비웃었습니다",
+     "ko": "조롱 — A가 B를 '거북이'라며 비웃음 · B 못마땅한 표정",
+     "image": "A (left) points at B and laughs mockingly, bending over and holding his belly, tongue out, holding up a little toy turtle in his other hand to tease B for being slow. B (right) has stopped with his teacup halfway up, eyes narrowed in a sideways glare, mouth pressed into a displeased flat line, one eyebrow twitching — clearly annoyed, but he stays seated and composed.",
+     "motion": "A laughs and wags the toy turtle at B, slapping his knee; B slowly lowers his teacup and gives A a long annoyed side-eye, lips pressed tight; static camera."},
+    {"name": "S05", "chars": ["A", "B"], "place": "duo", "format": "duo_chart", "sec": 5.0, "use_from": 0.2, "use_to": 3.0, "show_sec": 3.4, "caption": "그런데 오르던 SOXL이 흔들리기 시작합니다",
+     "ko": "오르다 떨어짐 — A 굳은 웃음·식은땀 · B 꾸준히, 칩 병에서 현금 병으로 조금 옮김",
+     "image": "The mood shifts: the weather dial on B's side now points to the cloud, and the left half of the backdrop has turned a duller, grayer orange. A (left) stares at his phone with a frozen, too-wide nervous grin, big sweat drops on his forehead, one eye twitching, knees slightly shaking — his cheering is gone. B (right) calmly moves a few coins from the chip-charm jar into the green-lid cash jar, steady and relaxed, with a faint confident smile.",
+     "motion": "A's frozen grin slowly melts into worry as a sweat drop slides down his face and his hand trembles on the phone; B calmly moves a few coins into the cash jar and nods to himself; static camera."},
+    {"name": "S06", "chars": ["A", "B"], "place": "duo", "format": "duo_chart", "sec": 5.0, "use_from": 0.2, "use_to": 2.2, "loop": "pingpong", "show_sec": 3.6, "caption": "폭락이 오자 A는 원금까지 잃었고, B는 여전히 수익입니다",
+     "ko": "폭락 — A 무릎 꿇고 펑펑 욺(망함) · B 조금만 잃어 자신만만 — 조롱 장면과 반대 자리",
+     "image": "Crash: the weather dial points to the storm cloud with lightning; the left half of the set is now dark stormy purple-gray with a small rain cloud over A. A (left) has collapsed onto his knees on the floor, crying huge cartoon waterfalls of tears, mouth wide in a wail, hugging the chip piggy bank which is now cracked, dull and empty, his empty pockets turned inside out. B (right) now stands up straight, chin raised, arms crossed, a calm confident half-smile and one raised eyebrow, looking down at A; his jars are still mostly full and the green-lid cash jar is the fullest. Their positions are the reverse of the earlier teasing scene: now B is the one standing tall.",
+     "motion": "A sobs loudly on his knees, shoulders shaking, tears streaming while the little rain cloud drizzles over him; B stands with arms crossed and gives a slow, confident nod with a calm half-smile; static camera."},
+    {"name": "S07", "chars": ["A"], "place": "a_room", "sec": 5.0, "use_from": 0.2, "use_to": 3.3, "show_sec": 3.0, "caption": "가장 신났던 사람이 가장 크게 잃었습니다",
+     "ko": "A 혼자 — 불 꺼진 방에서 깨진 칩 저금통을 안고 욺",
+     "image": "A sits alone on the floor of his now-dark room (LED lights off, gloomy gray-blue light), hugging his knees and the cracked, empty chip piggy bank, crying with trembling lips, tears and a runny nose, a tiny rain cloud drizzling over his head. Exaggerated cartoon sadness, framed from the chest up.",
+     "motion": "A sniffles and sobs, his lips trembling as tears run down his cheeks; the tiny rain cloud drizzles over his head; slow push-in."},
+    {"name": "S08", "chars": ["B"], "place": "b_room", "sec": 5.0, "use_from": 0.2, "use_to": 1.4, "loop": "pingpong", "show_sec": 3.4, "caption": "천천히 가도, 덜 잃는 사람이 끝까지 남습니다",
+     "ko": "B 마무리 — 햇살 창가에서 차를 들고 자신만만하게 끄덕임",
+     "image": "B stands by the sunny window holding his cup of tea, his four jars intact on the desk behind him, and turns to the viewer with a calm, self-assured smile and a small confident nod — relaxed shoulders, warm daylight. The weather dial on the wall points back toward the sun.",
+     "motion": "B turns from the window to the camera, raises his teacup slightly in a calm toast and smiles confidently; the sunlight shimmers softly; very slow push-in."}
+  ]
+}

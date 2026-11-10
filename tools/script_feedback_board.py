@@ -38,7 +38,8 @@ LONG_INDEX = ROOT / "stock/topics/롱폼대본_2026-10-31.md"
 SHORTS_MD = ROOT / "stock/topics/쇼츠안_2026-10-30.md"
 EXTRA = ROOT / "stock/topics/board/script_board.json"
 SHORTS_ITEMS = ROOT / "stock/topics/board/shorts_board.json"
-LONG_VER = {1: "대본 v16", 2: "대본 v15", 3: "대본 v15", 4: "대본 v15"}   # 2~4편 v15 = 판 피드백 5건(질문 구체 행동·하락·역전·지표 결론, quick_board 규칙 36~39) · 1편 v16 = 판 피드백 2건(규칙 34·35) · v15·v14 = 1편 피드백 11건을 모든 편에 (2026-11-04, quick_board 규칙 26~33) · v14·v13 = 질문형 선택 + 바로 정답·해설 · v13·v12 = \'A번,\'
+LONG_VER = {1: "대본 v17", 2: "대본 v18", 3: "대본 v18", 4: "대본 v18"}   # 3편 v18 = 문장 2 「3천4백만」 → 「3천1백만」 (박씨 ④ 1년 현금 대기 — 문장 79 와 맞춤, longform_ep3 v1.1) · 2편 v18 = 문장 84 「지수에 넣어 둔 2천만 원」 → 「지수에 넣어 둔 돈」 (그날 값 1,897만 원 — 계산과 맞춤) · 4편 v18 = 문장 25 45% → 58% (계산 버그 — longform_ep4 v1.1) · 2~4편 v17 = 말머리 편마다 다르게 · 3편 1편과 같은 문장 고침 (quick_board 규칙 43)
+# 이전: 1편 v17·2~4편 v16 = 질문 뒤 '선택해 보세요.' · '3, 2, 1.' (quick_board 규칙 41) · 2~4편 v15 = 판 피드백 5건(질문 구체 행동·하락·역전·지표 결론, quick_board 규칙 36~39) · 1편 v16 = 판 피드백 2건(규칙 34·35) · v15·v14 = 1편 피드백 11건을 모든 편에 (2026-11-04, quick_board 규칙 26~33) · v14·v13 = 질문형 선택 + 바로 정답·해설 · v13·v12 = \'A번,\'
 SHORT_VER = "v7"                                                       # 쇼츠안_2026-10-30.md 의 판
 URL = {
     "topic": "https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN",

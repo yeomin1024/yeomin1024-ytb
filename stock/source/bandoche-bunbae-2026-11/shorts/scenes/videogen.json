@@ -1,0 +1,61 @@
+{
+  "model": "wan2.2-5b-fast",
+  "width": 704,
+  "height": 1280,
+  "seed": 42,
+  "concat": false,
+  "upscaler": "lanczos",
+  "prompt": "Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears.",
+  "negative_prompt": "过曝，静态，细节模糊不清，字幕，文字，水印，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走，人脸变形，照片写实，3D渲染，立体建模，塑料质感，黏土",
+  "release_tag": "clips-bandoche-bunbae-2026-11-shorts",
+  "start_images": [
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S01.jpg",
+      "name": "S01",
+      "sec": 5.0,
+      "prompt": "A pours the bucket of gold coins into the chip's slot while bouncing on the chair with goofy energy, then flashes a cheeky wink and a finger-gun at the camera; coins tumble and sparkle; static camera. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S02.jpg",
+      "name": "S02",
+      "sec": 5.0,
+      "prompt": "B calmly drops a coin into each jar one after another, glances up at the weather dial and gives a small satisfied nod; steam rises from the tea; very slow push-in. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S03.jpg",
+      "name": "S03",
+      "sec": 5.0,
+      "prompt": "A jumps and cheers wildly, then crams more coins into the chip piggy bank with both hands; B calmly sips his tea and slides one coin into the cash jar without any excitement; static camera. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S04.jpg",
+      "name": "S04",
+      "sec": 5.0,
+      "prompt": "A laughs and wags the toy turtle at B, slapping his knee; B slowly lowers his teacup and gives A a long annoyed side-eye, lips pressed tight; static camera. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S05.jpg",
+      "name": "S05",
+      "sec": 5.0,
+      "prompt": "A's frozen grin slowly melts into worry as a sweat drop slides down his face and his hand trembles on the phone; B calmly moves a few coins into the cash jar and nods to himself; static camera. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S06.jpg",
+      "name": "S06",
+      "sec": 5.0,
+      "prompt": "A sobs loudly on his knees, shoulders shaking, tears streaming while the little rain cloud drizzles over him; B stands with arms crossed and gives a slow, confident nod with a calm half-smile; static camera. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S07.jpg",
+      "name": "S07",
+      "sec": 5.0,
+      "prompt": "A sniffles and sobs, his lips trembling as tears run down his cheeks; the tiny rain cloud drizzles over his head; slow push-in. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    },
+    {
+      "image": "stock/source/bandoche-bunbae-2026-11/shorts/scenes/S08.jpg",
+      "name": "S08",
+      "sec": 5.0,
+      "prompt": "B turns from the window to the camera, raises his teacup slightly in a calm toast and smiles confidently; the sunlight shimmers softly; very slow push-in. Flat 2D cartoon animation like a casual mobile-game ad: bouncy, exaggerated squash-and-stretch acting but smooth, at natural speed; keep the flat 2D cel-shaded look with clean outlines (no 3D); every character keeps exactly the same face, hair and clothes; the background stays still; no text appears."
+    }
+  ]
+}

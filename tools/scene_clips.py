@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.0 — 2026-10-21 — 클립 다시 만들기·부분만 쓰기 (사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐" — L05 가 1.45초부터 깨짐):
+# VERSION: v1.4.0 — 2026-11-06 — **대본 전 장면 계획** (사용자 지시 "쇼츠 애니메이션 만들건데 이미지를 만들고 저번에 만든 영상화 코드로
+#          이미지를 영상화해 짧은 영상을 이어 붙이는 식으로 … 먼저 이미지 만들 chatgpt 명령 알려주고 코드도 프롬프트 담긴 파일 보고 생성할 수
+#          있도록 준비해놔"): plan "timing": "clips" = 내레이션 시각 없이 클립마다 "sec" 로 (load_timing 을 부르지 않음 · 문장 검사 건너뜀 ·
+#          chatgpt.md 에 내레이션 대신 장면 길이) · 클립 "format" = plan "formats" 의 이름 (그 장만 다른 Format 줄 — 예: 위 40% 비움 = 코드
+#          그래프 자리) · plan "negative_prompt" 가 있으면 기본 대신 · plan "sheet_note" = 인물 설정표에 더할 줄 · 설정표는 롱폼이 아니라
+#          롱폼 + '물려받은 plan(inherit)이 없는 쇼츠'(단독 편)에도 만듦 (inherit 있는 쇼츠는 예전처럼 없음). 기존 대본 plan 의 결과는 그대로 (gungmin 롱폼·쇼츠로 확인).
+# 이전 v1.3.0 — 2026-10-21 — 클립 다시 만들기·부분만 쓰기 (사용자 지시 "클립 돌렸으니 확인해서 영상 만들어봐" — L05 가 1.45초부터 깨짐):
 #          plan 클립 "seed" 가 있으면 videogen.json 항목에 넣음 (그 클립만 다른 seed 로 — 고정 셀이 'seed changed' 로 그 하나만 다시) ·
 #          "use_from"·"use_to"·"loop" 은 합치기 옵션 (tools/assemble_video.py v1.1) — build 는 건드리지 않음 · 새 명령 ghost: 받은 클립의
 #          선명도(라플라시안 분산)가 쓰는 구간 안에서 떨어지는 곳(두 겹·녹아내림·반투명 — Wan 5B FastWan 에서 36개 중 9개)을 찾아
@@ -30,6 +36,8 @@ r"""
 장면 계획 (scenes/plan.json — 사람이 고치는 파일):
   clips[] = {name, sentences:[처음, 끝], chars:[인물 id], place, ko(한 줄 요약), image(그림 프롬프트, 영어), motion(움직임, 영어)}
   inherit = 다른 plan.json 경로 (쇼츠가 롱폼의 그림체·인물·장소를 그대로 씀)
+  v1.4.0 대본 전: "timing": "clips" + 클립마다 "sec"(≤ 5.04, 없으면 fixed_sec·max_sec) — sentences 는 없음 ·
+  "formats": {이름: "Format: …"} + 클립 "format": 이름 (그 장만 다른 구도 줄) · "negative_prompt" · "sheet_note"
 시각: 영상 장면 파일의 EP(오디오에 맞춘 것) > tts_narration.json(TTS 가 붙인 시각) > EP(추정). 클립 하나가 덮는 구간 =
   첫 문장 시작 - lead ~ 다음 문장 시작 - lead (다음 문장이 장 시작이면 장 카드가 뜨는 1초 전까지). 장 시작 문장은 AI 클립 금지
   (장 카드는 코드 화면). 클립 길이 = 구간 + margin_sec (최대 max_sec — 5B 한 번 121프레임 = 5.04초).
@@ -48,7 +56,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO = "yeomin1024/yeomin1024-ytb"
-VERSION = "v1.3.0"
+VERSION = "v1.4.0"
 # 생성 해상도(5B 는 32 배수) · 최종 해상도 · 비율 — videogen v1.4.0 은 가운데를 잘라 생성 해상도에 맞춤
 SIZES = {"landscape": dict(gen=(1280, 704), final=(1920, 1080), ratio="16:9", chatgpt="1536×864"),
          "portrait": dict(gen=(704, 1280), final=(1080, 1920), ratio="9:16", chatgpt="864×1536")}
@@ -90,7 +98,21 @@ def load_plan(path: Path) -> dict:
             raise SystemExit(f"[PLAN] {path} 에 '{k}' 가 없음")
     if plan["orientation"] not in SIZES:
         raise SystemExit(f"[PLAN] orientation={plan['orientation']!r} — landscape | portrait")
+    if plan.get("timing", "script") not in ("script", "clips"):
+        raise SystemExit(f"[PLAN] timing={plan['timing']!r} — script(내레이션 시각) | clips(클립마다 sec, 대본 전)")
     return plan
+
+
+def clips_mode(plan: dict) -> bool:
+    """v1.4.0 — 대본 전: 내레이션 시각 없이 클립마다 sec."""
+    return plan.get("timing") == "clips"
+
+
+def plan_timing(p: dict, plan: dict) -> tuple[list[dict], str]:
+    """문장 시각과 출처 — 대본 전 plan 은 문장 없이 (클립 sec 로)."""
+    if clips_mode(plan):
+        return [], "clip sec (no narration yet — timing=clips)"
+    return load_timing(p)
 
 
 def read_ep(html: Path) -> dict | None:
@@ -120,6 +142,16 @@ def chapter_starts(sents: list[dict]) -> set[int]:
 
 def windows(plan: dict, sents: list[dict]) -> list[dict]:
     """클립마다 덮는 구간 [t0, t1] · 필요한 길이 · 생성 길이(sec). 겹침·범위·장 시작은 check_plan 이 본다."""
+    if clips_mode(plan):                     # v1.4.0 대본 전 — 클립을 차례로 놓음 (구간 = 그 클립 길이, 늦춤 없음)
+        out, t = [], 0.0
+        for c in plan["clips"]:
+            sec = float(c.get("sec") or plan.get("fixed_sec") or plan.get("max_sec", 5.0))
+            frames = max(1, round(sec * MODEL_FPS)) // 4 * 4 + 1
+            clip_sec = round(frames / MODEL_FPS, 3)
+            out.append(dict(name=c["name"], a=0, b=0, t0=round(t, 3), t1=round(t + clip_sec, 3), need=clip_sec, sec=sec,
+                            frames=frames, clip_sec=clip_sec, slow=1.0))
+            t += clip_sec
+        return out
     by_n = {s["n"]: s for s in sents}
     starts = chapter_starts(sents)
     first, lead = sents[0]["n"], plan.get("lead", 0.15)
@@ -160,6 +192,17 @@ def check_plan(plan: dict, sents: list[dict], wins: list[dict]) -> list[str]:
             problems.append(f"{c['name']}: 모르는 인물 {unknown}")
         if c.get("place") and c["place"] not in {pl["id"] for pl in plan.get("places") or []}:
             problems.append(f"{c['name']}: 모르는 장소 {c['place']!r}")
+        if c.get("format") and c["format"] not in (plan.get("formats") or {}):
+            problems.append(f"{c['name']}: 모르는 format {c['format']!r} (plan formats 에 없음)")
+        if clips_mode(plan) and c.get("sentences"):
+            problems.append(f"{c['name']}: timing=clips 인데 sentences 가 있음 — 대본이 생기면 timing 을 지우고 문장으로")
+    if clips_mode(plan):                     # v1.4.0 대본 전 — 문장 검사 대신 길이만
+        for w in wins:
+            if w["sec"] <= 0:
+                problems.append(f"{w['name']}: sec={w['sec']}")
+            if w["frames"] > MODEL_MAX_FRAMES:
+                problems.append(f"{w['name']}: {w['frames']}프레임 > {MODEL_MAX_FRAMES} (5B 한 번 한도 — sec ≤ 5.04)")
+        return problems
     starts = chapter_starts(sents)
     covered = {}
     for w in wins:
@@ -191,7 +234,9 @@ def _place(plan: dict, pid: str | None) -> dict | None:
     return next((pl for pl in plan.get("places") or [] if pl["id"] == pid), None) if pid else None
 
 
-def frame_rules(plan: dict) -> str:
+def frame_rules(plan: dict, clip: dict | None = None) -> str:
+    if clip and clip.get("format"):          # v1.4.0 — 그 장만 다른 구도 (예: 위 40% 비움 = 코드 그래프 자리)
+        return plan["formats"][clip["format"]]
     s = SIZES[plan["orientation"]]
     if plan["orientation"] == "landscape":
         return (f"Format: 16:9 landscape ({s['chatgpt']}, or the widest landscape size). Keep faces and key objects in the "
@@ -207,7 +252,7 @@ NO_TEXT = ("Absolutely no text, letters, numbers, symbols, logos or watermarks a
 
 
 def image_prompt(plan: dict, clip: dict) -> str:
-    lines = [plan["style"]["image"], frame_rules(plan)]
+    lines = [plan["style"]["image"], frame_rules(plan, clip)]
     people = _people(plan, clip.get("chars", []))
     if people:
         lines.append("Characters (draw them exactly like this, same face, hair and clothes in every picture):")
@@ -225,8 +270,9 @@ def sheet_prompt(plan: dict) -> str:
     people = "\n".join(f"- {c['en']}" for c in plan["characters"])
     return "\n".join([plan["style"]["image"],
                       "A character reference sheet: these characters standing side by side in a row, full body, front "
-                      "view, neutral friendly expressions, plain light background, evenly lit:", people,
-                      "16:9 landscape. " + NO_TEXT + " Do not write names or labels."])
+                      "view, neutral friendly expressions, plain light background, evenly lit:", people]
+                     + ([plan["sheet_note"]] if plan.get("sheet_note") else [])
+                     + ["16:9 landscape. " + NO_TEXT + " Do not write names or labels."])
 
 
 def motion_prompt(plan: dict, clip: dict) -> str:
@@ -243,7 +289,7 @@ def videogen_settings(plan: dict, wins: list[dict]) -> dict:
     by = {w["name"]: w for w in wins}
     return dict(
         model=MODEL, width=gw, height=gh, seed=42, concat=False, upscaler="lanczos",
-        prompt=plan["style"]["motion"], negative_prompt=NEGATIVE, release_tag=plan["release_tag"],
+        prompt=plan["style"]["motion"], negative_prompt=plan.get("negative_prompt") or NEGATIVE, release_tag=plan["release_tag"],
         start_images=[dict(image=f"{plan['image_dir']}/{c['name']}{image_ext(plan)}", name=c["name"], sec=by[c["name"]]["sec"],
                            prompt=motion_prompt(plan, c), **({"seed": int(c["seed"])} if "seed" in c else {}))
                       for c in plan["clips"]])
@@ -259,6 +305,7 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
     s = SIZES[plan["orientation"]]
     vid = plan["video"]
     me = f"{plan['image_dir']}/chatgpt.md"
+    sheet = not shorts or not plan.get("inherit")   # v1.4.0 — 롱폼 · 또는 물려받은 plan 이 없는 쇼츠(단독 편)도 설정표
     out = [f"# {vid} 장면 그림 {n}장 — ChatGPT용 (읽고 1번부터 차례로 모두 만들기)", "",
            f"자동 생성 — `python3 tools/scene_clips.py build` {VERSION} ({stamp}). 이 파일은 고치지 말고 `{plan_rel}` 을 "
            "고친 뒤 다시 만든다.", "",
@@ -268,9 +315,9 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
            "## ChatGPT에게 — 이 파일을 읽으면 할 일",
            "0. **이 주소를 지금 새로 열어 그 내용만 쓴다.** 답의 첫 줄에 이 파일 맨 위 '자동 생성' 줄의 시각을 그대로 적는다. "
            "**올리는 파일은 모두 JPEG(.jpg) 700KB 이하** — 2026-10-20 PNG 37장을 그대로 올렸다가 모두 768KB 에서 잘려 깨졌다 (8번)."
-           + (" 이 파일은 같은 영상 롱폼 그림을 만든 **같은 대화에서 이어서** 만든다 (인물을 같게)." if shorts else ""),
+           + (" 이 파일은 같은 영상 롱폼 그림을 만든 **같은 대화에서 이어서** 만든다 (인물을 같게)." if not sheet else ""),
            ("1. 먼저 **0번 인물 설정표** 한 장을 만든다 (영상에는 쓰지 않음 — 모든 장면의 얼굴·머리·옷을 맞추는 기준)."
-            if not shorts else "1. 롱폼에서 만든 인물 설정표의 인물과 **똑같은 얼굴·머리·옷**으로 그린다 (설정표는 다시 만들지 않음)."),
+            if sheet else "1. 롱폼에서 만든 인물 설정표의 인물과 **똑같은 얼굴·머리·옷**으로 그린다 (설정표는 다시 만들지 않음)."),
            f"2. 그다음 **1번부터 {n}번까지 차례로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다.",
            "   - 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터 이어서 만든다.",
            "3. 각 장은 그 칸의 **프롬프트(``` 안)를 그대로** 쓴다. 모든 장이 **같은 그림체·같은 인물**이다 (프롬프트마다 그림체와 그 장의 "
@@ -297,19 +344,43 @@ def chatgpt_md(plan: dict, sents: list[dict], plan_rel: str, stamp: str, shorts:
     out += [f"- **{c['name']}** — {c['en']}" for c in plan["characters"]]
     if plan.get("places"):
         out += ["", "## 장소", ""] + [f"- **{p['name']}** — {p['en']}" for p in plan["places"]]
-    if not shorts:
+    if sheet:
         out += ["", f"## 0. 인물 설정표 (영상에는 안 씀)", "",
                 f"**저장 경로: `{plan['image_dir']}/characters{image_ext(plan)}`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)", "", "```", sheet_prompt(plan), "```"]
     for i, c in enumerate(plan["clips"], 1):
-        a, b = c["sentences"]
-        rng = f"문장 {a}" if a == b else f"문장 {a}~{b}"
+        if clips_mode(plan):                 # v1.4.0 대본 전 — 내레이션 대신 장면 길이·구도
+            sec = c.get("sec") or plan.get("fixed_sec") or plan.get("max_sec", 5.0)
+            note = f"클립 약 {sec:g}초의 첫 장면" + (f" · 구도 `{c['format']}`" if c.get("format") else "")
+        else:
+            a, b = c["sentences"]
+            rng = f"문장 {a}" if a == b else f"문장 {a}~{b}"
+            note = f"내레이션 ({rng}): 「{_quote(sents, a, b)}」"
         out += ["", f"## {i}. {c['name']} — {c['ko']}", "",
                 f"**저장 경로: `{plan['image_dir']}/{c['name']}{image_ext(plan)}`** — **JPEG(.jpg) 700KB 이하로 바꿔 올림** (PNG 그대로는 768KB 에서 잘려 깨짐)", "",
-                f"내레이션 ({rng}): 「{_quote(sents, a, b)}」", "", "```", image_prompt(plan, c), "```"]
+                note, "", "```", image_prompt(plan, c), "```"]
+    return "\n".join(out) + "\n"
+
+
+def plan_md_clips(plan: dict, wins: list[dict], stamp: str) -> str:
+    """v1.4.0 대본 전 — 클립 차례 표 (내레이션이 생기면 timing 을 지우고 문장 범위로 다시 build)."""
+    by = {w["name"]: w for w in wins}
+    g, f = SIZES[plan["orientation"]]["gen"], SIZES[plan["orientation"]]["final"]
+    out = [f"# {plan['video']} 장면 계획 — AI 클립 {len(wins)}개 (대본 전)", "",
+           f"자동 생성 — `python3 tools/scene_clips.py build` {VERSION} ({stamp}) · 원본 `scenes/plan.json` · timing=clips", "",
+           f"- {plan.get('version', '')}",
+           f"- 클립 합계 {sum(w['clip_sec'] for w in wins):.1f}초 · 생성 {g[0]}x{g[1]} → 합칠 때 {f[0]}x{f[1]}",
+           "- 그래프·숫자·제목 카드는 코드 화면 (`video/episodes/<영상ID>/index.html`) — 구도 칸이 있는 장은 그 자리를 비워 둠.", "",
+           "| 차례 | 시작(초) | 장면 | 인물 | 구도 | 클립(초) |", "|---|---|---|---|---|---|"]
+    for i, c in enumerate(plan["clips"], 1):
+        w = by[c["name"]]
+        out.append(f"| {i} {c['name']} | {w['t0']:.2f} | {c['ko']} | {','.join(c.get('chars', []))} | "
+                   f"{c.get('format') or '기본'} | {w['clip_sec']:.2f} |")
     return "\n".join(out) + "\n"
 
 
 def plan_md(plan: dict, sents: list[dict], wins: list[dict], src: str, stamp: str) -> str:
+    if clips_mode(plan):
+        return plan_md_clips(plan, wins, stamp)
     by = {w["name"]: w for w in wins}
     ai = {n: w["name"] for w in wins for n in range(w["a"], w["b"] + 1)}
     starts = chapter_starts(sents)
@@ -346,7 +417,7 @@ def plan_md(plan: dict, sents: list[dict], wins: list[dict], src: str, stamp: st
 def cmd_build(a) -> int:
     p = paths(a.topic, a.vid, a.shorts)
     plan = load_plan(p["plan"])
-    sents, src = load_timing(p)
+    sents, src = plan_timing(p, plan)
     wins = windows(plan, sents)
     problems = check_plan(plan, sents, wins)
     log("PLAN", "loaded", plan=str(p["plan"].relative_to(ROOT)), clips=len(wins), sentences=len(sents), timing=src)
@@ -363,7 +434,7 @@ def cmd_build(a) -> int:
         path.write_text(text, encoding="utf-8")
         log("BUILD", "wrote", file=str(path.relative_to(ROOT)), bytes=len(text.encode("utf-8")))
     for w in wins:
-        log("CLIP", w["name"], sentences=f"{w['a']}-{w['b']}", t0=w["t0"], t1=w["t1"], need=w["need"], sec=w["sec"],
+        log("CLIP", w["name"], sentences="none (timing=clips)" if clips_mode(plan) else f"{w['a']}-{w['b']}", t0=w["t0"], t1=w["t1"], need=w["need"], sec=w["sec"],
             frames=w["frames"], slow=w["slow"])
     slow = [w for w in wins if w["slow"] > 1.0]
     log("SUMMARY", "clips", n=len(wins), gen_sec=round(sum(w["clip_sec"] for w in wins), 1),
@@ -405,7 +476,7 @@ def cmd_check(a) -> int:
     from PIL import Image
     p = paths(a.topic, a.vid, a.shorts)
     plan = load_plan(p["plan"])
-    sents, src = load_timing(p)
+    sents, src = plan_timing(p, plan)
     wins = windows(plan, sents)
     problems = check_plan(plan, sents, wins)
     have, missing, broken = 0, [], []
@@ -552,7 +623,7 @@ def cmd_ghost(a) -> int:
     from PIL import Image, ImageDraw
     p = paths(a.topic, a.vid, a.shorts)
     plan = load_plan(p["plan"])
-    sents, _ = load_timing(p)
+    sents, _ = plan_timing(p, plan)
     wins = {w["name"]: w for w in windows(plan, sents)}
     w_, h_ = (360, 640) if plan["orientation"] == "portrait" else (640, 352)
     qa = p["out"] / "qa"

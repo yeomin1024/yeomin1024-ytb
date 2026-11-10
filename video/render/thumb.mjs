@@ -1,3 +1,5 @@
+// VERSION: v1.3 — 2026-11-05 — 말풍선 글 "\n" = 두 줄 (좁은 빈 자리에 — 사용자 지시 "썸네일 보조 문구가 사람 가리지 않게 해").
+// VERSION: v1.2 — 2026-11-05 — 외국어 썸네일 spec.lang (언어 글꼴 NL — get-fonts.mjs 가 받음) · 힌디어는 데바나가리 + 라틴.
 // VERSION: v1.1 — 2026-10-25 — 말풍선 꼬리 자리 tailPos(0~1, 말풍선 왼쪽 끝부터 비율)·꼬리 길이 tailLen(px) — 그림 속 인물 머리를 정확히 가리키게
 //   (글자 없는 썸네일 그림이 와서 말풍선이 얼굴을 덮지 않게 옮기면서).
 // (v1.0) — 2026-10-25 — 썸네일 문구를 코드로 넣기 (사용자 지시 2026-10-25 "그 썸네일은 이제 이미지만 만들고 문구는 너가 만들어서
@@ -28,6 +30,10 @@ import { execSync } from "node:child_process";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const FONT = path.join(ROOT, "video/public/fonts/NotoSansKR-900.ttf");
+// v1.2 — 2026-11-05 — 외국어 썸네일: spec.lang (en·hi·id·pt·es-419·ja·de·vi·tr) 이면 그 언어 글꼴을 앞에 둠 (한국어 글꼴은 뒤 — 숫자·기호 대비)
+//   (사용자 지시 2026-11-05 "외국어 자막, 제목, 썸네일 등 외국어 설정에 필요한 것들 생성하고 지시사항에 반영해 이건 영상이 렌더까지 완료되면 하는거야")
+const LANG_FONT = { ja: "NotoSansJP-900.ttf", hi: "NotoSansDevanagari-900.ttf" };   // 그 밖의 외국어 = NotoSans-900.ttf (라틴·베트남어 성조)
+const fontFor = lang => !lang || lang === "ko" ? null : path.join(ROOT, "video/public/fonts", LANG_FONT[lang] || "NotoSans-900.ttf");
 const COL = { W: "#FFFFFF", Y: "#FFD400", R: "#FF2A2A", K: "#111111", G: "#22C7B0" };
 const col = c => COL[c] || c;
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;");
@@ -54,21 +60,22 @@ function page(spec, dir) {
       const len = b.tailLen ? `border-top-width:${b.tailLen}px;bottom:-${b.tailLen - 10}px;` : "";
       const tail = b.kind === "bubble" ? `<i class="tail ${b.tail || "left"}" style="${pos}${len}border-top-color:${col(b.bg)}"></i>` : "";
       return `<div class="${b.kind}" id="b${i}" data-kind="box" data-fill='${JSON.stringify(b.fill || [0.9, 0.68])}' style="left:${b.x}px;top:${b.y}px;width:${b.w}px;height:${b.h}px;background:${col(b.bg)};color:${col(b.color)};border-radius:${b.radius == null ? 22 : b.radius}px">
-        <span class="bt">${esc(b.text)}</span>${tail}</div>`;
+        <span class="bt">${esc(b.text).replace(/\n/g, "<br>")}</span>${tail}</div>`;   // v1.3 "\n" = 말풍선 두 줄
     }
     fail("THUMB", `모르는 블록 ${b.kind}`, "lines · tag · bubble");
   }).join("");
   const shade = spec.shade ? `<div style="position:absolute;left:0;top:${spec.shade[0] * H}px;width:${W}px;height:${(1 - spec.shade[0]) * H}px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,${spec.shade[1]}))"></div>` : "";
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:"NK";font-weight:900;src:url(${pathToFileURL(FONT)}) format("truetype")}
+${spec.lang && fontFor(spec.lang) ? `@font-face{font-family:"NL";font-weight:900;src:url(${pathToFileURL(fontFor(spec.lang))}) format("truetype")}${spec.lang === "hi" ? `@font-face{font-family:"NL2";font-weight:900;src:url(${pathToFileURL(fontFor("en"))}) format("truetype")}` : ""}` : ""}
 html,body{margin:0;width:${W}px;height:${H}px;overflow:hidden;background:${spec.bg || "#000"}}
-body{position:relative;font-family:"NK",sans-serif;font-weight:900}
+body{position:relative;font-family:${spec.lang && fontFor(spec.lang) ? `"NL",${spec.lang === "hi" ? `"NL2",` : ""}` : ""}"NK",sans-serif;font-weight:900}
 .im{position:absolute;overflow:hidden}.im img{position:absolute;display:block}
 .lines{position:absolute;display:flex;flex-direction:column}
 .ln{white-space:nowrap;letter-spacing:-0.01em}
 .lines span{paint-order:stroke fill;-webkit-text-stroke-color:#000;stroke-linejoin:round}
 .tag,.bubble{position:absolute;display:grid;place-items:center;box-sizing:border-box}
-.bt{white-space:nowrap;line-height:1;letter-spacing:-0.01em}
+.bt{display:inline-block;text-align:center;white-space:nowrap;line-height:1.08;letter-spacing:-0.01em}
 .tail{position:absolute;bottom:-34px;width:0;height:0;border-left:26px solid transparent;border-right:26px solid transparent;border-top:44px solid}
 .tail.left{left:18%;transform:skewX(18deg)}.tail.right{right:18%;transform:skewX(-18deg)}
 </style></head><body>${imgs}${shade}${blocks}</body></html>`;
@@ -129,7 +136,10 @@ try {
     await pg.evaluate(() => document.fonts.ready);
     await pg.waitForFunction(() => [...document.images].every(i => i.complete && i.naturalWidth > 0), null, { timeout: 15000 })
       .catch(() => fail("THUMB", "그림을 읽지 못함", "그림 파일이 깨졌는지 확인 (700KB 넘는 파일은 GitHub 앱이 잘라 올림)"));
-    const fontOk = await pg.evaluate(() => document.fonts.check('900 50px "NK"'));
+    const fontOk = await pg.evaluate(async lang => {                       // v1.2 언어 글꼴은 먼저 불러온 뒤 확인
+      if (lang && lang !== "ko") { await document.fonts.load('900 50px "NK"'); await document.fonts.load('900 50px "NL"'); if (lang === "hi") await document.fonts.load('900 50px "NL2"'); }
+      return document.fonts.check('900 50px "NK"') && (!lang || lang === "ko" || document.fonts.check('900 50px "NL"'));
+    }, spec.lang || null);
     if (!fontOk) fail("THUMB", "글꼴을 읽지 못함", "node video/scripts/get-fonts.mjs");
     const info = await pg.evaluate(layout);
     const out = path.resolve(dir, spec.out);

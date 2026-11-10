@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+# VERSION: v1.1 — 2026-11-04 — 박씨 길 ④: '지수가 최고가를 되찾은 날(2024-01-19) 다시 매수' → 'D4 부터 1년(365일) 현금으로 기다린 뒤(2024-07-25) 다시 매수'.
+#   까닭: 대본 문장 79 「박씨처럼 1년 동안 현금으로 기다렸다면, 이자로 5% 느는 데 그쳤을 것입니다」와 박씨 길이 어긋났음 (3편 장면 에이전트가 찾음,
+#   사용자 지시 2026-11-04 "3편 고쳐") → 계산을 대본에 맞춤. 박씨 끝 값 3,442.6 → 3,145.7만 원 (대본 문장 2 '3천4백만' → '3천1백만'). 다른 값은 모두 같음.
+#   '4_결과.reentry_ath'(지수 최고가 회복 날)는 통계로 그대로 둠. 옛 박씨 끝 값은 '박씨_길.END_value_v10' 으로 남김.
 # VERSION: v1.0 — 2026-11-02 — 주식 롱폼 3편 대본 v9 숫자 (박씨 · 거시 지표로 국면 읽기 테스트)
 #   사용자 지시 2026-11-02 (대본 평가판 3편 피드백): "이 주제는 장단기 금리차, 원유, 경제 지표 등 기본적인 거시경제 지표로
 #   주식시장 국면을 어느정도 파악 가능한지를 테스해야해 항목 다 변경해".
@@ -26,7 +30,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 from longform_items import CALC, Ser, load, rd  # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 log = logging.getLogger("longform_ep3")
 
 HIKE_START = ["1994-02-04", "1999-06-30", "2004-06-30", "2015-12-16", "2022-03-16"]   # 연준 첫 인상 (FOMC 발표)
@@ -187,7 +191,9 @@ def main():
         return f
 
     # 박씨: D1 8천만 쇼피파이 + 2천만 S&P 500 → D2 신용대출 3천만으로 쇼피파이 더 → D3 모두 매도·대출 갚음 → 현금
-    #       → D4 현금으로 기다림 → 지수가 최고가를 다시 넘은 날(reentry) 모두 지수 → D5 모두 매도 → END 현금
+    #       → D4 현금으로 1년(365일) 기다림 → 그날(park_re) 모두 지수 → D5 모두 매도 → END 현금
+    #       (v1.1: v1.0 은 지수가 최고가를 다시 넘은 날(reentry, 2024-01-19)에 다시 샀음 — 대본 문장 79 '1년 동안'과 어긋나 고침)
+    park_re = plus(D4, 365)
     sh0, ix0 = 8000.0, 2000.0
     sh2 = sh0 * shop.at(D2) / shop.at(D1)
     ix2 = ix0 * tr.at(D2) / tr.at(D1)
@@ -197,9 +203,11 @@ def main():
     ix3 = ix2 * tr.at(D3) / tr.at(D2)
     owe3 = loan * loan_grow(D2, D3)
     c3 = sh3 + ix3 - owe3
-    c_re = c3 * cash.at(reentry) / cash.at(D3)
-    ix5 = c_re * tr.at(D5) / tr.at(reentry)
+    c_re = c3 * cash.at(park_re) / cash.at(D3)
+    ix5 = c_re * tr.at(D5) / tr.at(park_re)
     c_end = ix5 * cash.at(END) / cash.at(D5)
+    c_re10 = c3 * cash.at(reentry) / cash.at(D3)                                   # v1.0 길 (비교용)
+    c_end10 = c_re10 * tr.at(D5) / tr.at(reentry) * cash.at(END) / cash.at(D5)
     # 가장 낮을 때 (순자산 = 주식 − 대출)
     worst = (1e18, None)
     for d in [x for x in tr.k if D1 <= x <= D3]:
@@ -210,7 +218,7 @@ def main():
         if val < worst[0]:
             worst = (val, d)
     put("박씨_길", start_won=10000, shop=sh0, index=ix0, D2_value=round(sh2 + ix2, 1), loan=loan, loan_rate_assumption="13주 국채 + 3%p",
-        D3_shop=round(sh3, 1), D3_index=round(ix3, 1), D3_owe=round(owe3, 1), D3_cash=round(c3, 1), reentry=reentry, reentry_cash=round(c_re, 1),
+        D3_shop=round(sh3, 1), D3_index=round(ix3, 1), D3_owe=round(owe3, 1), D3_cash=round(c3, 1), reentry=park_re, reentry_rule="D4 + 365일 (1년 현금 대기)", reentry_cash=round(c_re, 1), cash_wait_chg=r4(cash.chg(D4, park_re)), END_value_v10=round(c_end10, 1),
         D5_value=round(ix5, 1), END_value=round(c_end, 1), END_chg=r4(c_end / 10000 - 1), worst_net=[round(worst[0], 1), worst[1]],
         unit="만 원")
 

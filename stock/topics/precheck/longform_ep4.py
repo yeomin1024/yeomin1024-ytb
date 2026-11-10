@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-02 — 주식 롱폼 4편 대본 v9 (정씨) 숫자 — 대본 평가판 피드백 (사용자 원문, 2026-11-02):
+# VERSION: v1.1 — 2026-11-04 — '1_매도후재매수.sold_to_end' 고침: 판 돈을 공포가 가라앉은 날 모두 다시 사면 끝 값 = 국채 이자 × TR(끝)/TR(다시 산 날) − 1.
+#   옛 식은 '같은 돈으로 살 수 있는 주식이 8% 줄었다'(TR d1/TR d1b)를 두 번 곱해 0.4513(대본 '45%') — 2026-11-04 4편 장면 파일을 만들며 찾음 (옛 값은 sold_to_end_v10_bug 로 남김).
+# (v1.0) — 2026-11-02 — 주식 롱폼 4편 대본 v9 (정씨) 숫자 — 대본 평가판 피드백 (사용자 원문, 2026-11-02):
 #   "이건 폭락 중 공포에 매몰되지 않고 안전한 계획을 가지면서 매수할 수 있는지 테스트하는거야 항목 다시 쓰고 멘트좀 겹치지 않게 해봐 주제에 맞게"
 #   → 다섯 선택 모두 '폭락 중 매수'의 다른 면: ① 첫 충격에 모두 매도·공포가 가라앉으면 재매수 vs 계획을 꺼냄 ② 무엇을 — 가장 많이 빠진 인기 종목 vs 지수
 #     ③ 어떤 돈으로 — 빚(신용) vs 투자용으로 둔 돈만 ④ 반등에 — 남은 돈 한 번에 vs 계획의 다음 단계만 ⑤ 새 바닥에 — 멈추고 매도 vs 생활에 지장 없는 돈인지 확인하고 이어 감.
@@ -29,7 +31,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import longform_items as L  # noqa: E402  (load·Ser·rd 재사용 — 그 파일은 고치지 않음)
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 log = logging.getLogger("longform_ep4")
 PK, END = "2022-01-03", "2025-12-31"
 LOAN_RATE, CALL = 0.08, 1.40
@@ -96,7 +98,9 @@ def ep4(S):
     # ── ① 모두 매도 → 공포 지수 20 아래에서 재매수 vs 보유
     put("1_매도후재매수", sell=d1, sell_spx=round(spx.at(d1), 2), rebuy=d1b, rebuy_spx=round(spx.at(d1b), 2),
         rebuy_higher=round(spx.at(d1b) / spx.at(d1) - 1, 4), shares_kept=round(spx.at(d1) / spx.at(d1b), 4),
-        hold_to_end=round(tr.chg(d1, END), 4), sold_to_end=round((tr.at(d1) / tr.at(d1b)) * tr.chg(d1b, END) + (tr.at(d1) / tr.at(d1b)) - 1, 4),
+        hold_to_end=round(tr.chg(d1, END), 4),
+        sold_to_end=round(cash.at(d1b) / cash.at(d1) * tr.at(END) / tr.at(d1b) - 1, 4),   # v1.1 판 돈(국채 이자 붙음)을 d1b 에 모두 다시 → 끝 (옛 식은 줄어든 주식 비율을 두 번 곱해 0.4513)
+        sold_to_end_v10_bug=round((tr.at(d1) / tr.at(d1b)) * tr.chg(d1b, END) + (tr.at(d1) / tr.at(d1b)) - 1, 4),
         later_low_from_rebuy=round(spx.at(lod) / spx.at(d1b) - 1, 4))
     # 1990 이후: 공포 지수가 35를 넘은 첫날(그 전 60거래일 35 아래) 매도 → 처음 20 아래 재매수 — 재매수 값이 판 값보다 높았던 횟수
     ev, below = [], 0

@@ -1,0 +1,740 @@
+1
+00:00:00,300 --> 00:00:02,086
+Economic indicators like rates,
+
+2
+00:00:02,086 --> 00:00:05,140
+oil and jobs are the stock
+market's weather forecast.
+
+3
+00:00:05,520 --> 00:00:07,523
+Mr. Park read this forecast backwards,
+
+4
+00:00:07,523 --> 00:00:10,685
+and in 4 years his 100 million
+won shrank to 31 million won.
+
+5
+00:00:11,065 --> 00:00:15,434
+Over the same 4 years, the
+S&P 500 rose more than 40%.
+
+6
+00:00:15,814 --> 00:00:18,493
+What Mr. Park missed
+wasn't the date of a crash,
+
+7
+00:00:18,493 --> 00:00:20,670
+but which phase the market had entered.
+
+8
+00:00:21,050 --> 00:00:23,405
+Now look at the five
+indicators Mr. Park faced,
+
+9
+00:00:23,405 --> 00:00:25,860
+and pick which phase the
+market was in each time.
+
+10
+00:00:26,240 --> 00:00:29,023
+Keep count of how many
+phases you get right.
+
+11
+00:00:29,403 --> 00:00:33,492
+Now imagine you're Mr. Park, and let's go
+back to the day you first bought stocks.
+
+12
+00:00:34,492 --> 00:00:37,684
+You started investing with
+100 million won you had saved.
+
+13
+00:00:38,064 --> 00:00:40,589
+You put 80 million won
+of it into one growth
+
+14
+00:00:40,589 --> 00:00:42,999
+stock and 20 million won into the S&P 500.
+
+15
+00:00:43,379 --> 00:00:45,686
+With online shopping booming after COVID,
+
+16
+00:00:45,686 --> 00:00:48,611
+that growth stock had risen
+more than 3x in 2 years.
+
+17
+00:00:48,991 --> 00:00:52,218
+The S&P 500 had also
+just hit a record high.
+
+18
+00:00:52,598 --> 00:00:56,928
+But the news said the Fed planned
+to raise interest rates this year.
+
+19
+00:00:57,308 --> 00:00:59,912
+Treasuries are IOUs a
+government issues to borrow,
+
+20
+00:00:59,912 --> 00:01:02,308
+and their interest rate
+is the Treasury yield.
+
+21
+00:01:02,688 --> 00:01:06,678
+The 10-year Treasury yield was
+already more than 3 times its low.
+
+22
+00:01:07,058 --> 00:01:10,416
+People around you say, "Stocks
+are at a record high. Why worry?"
+
+23
+00:01:10,796 --> 00:01:14,788
+Do you keep your growth stock as it
+is, since it's still a rising phase?
+
+24
+00:01:15,168 --> 00:01:19,148
+Or do you cut back on your growth stock,
+since it's a phase of rising rates?
+
+25
+00:01:19,528 --> 00:01:20,468
+Make your choice.
+
+26
+00:01:20,848 --> 00:01:23,028
+3, 2, 1.
+
+27
+00:01:23,408 --> 00:01:26,968
+In this phase, cutting back on the
+growth stock is the right choice.
+
+28
+00:01:27,348 --> 00:01:30,723
+The date was January 3, 2022,
+and the growth stock was Shopify,
+
+29
+00:01:30,723 --> 00:01:32,544
+the online-store software company.
+
+30
+00:01:32,924 --> 00:01:37,023
+If you had held on like Mr. Park,
+it would have fallen as much as 81%.
+
+31
+00:01:37,403 --> 00:01:40,642
+Getting back to break-even would
+also have taken 3 years and 7 months.
+
+32
+00:01:41,022 --> 00:01:43,629
+Say you had kept only 20%
+of your account in the
+
+33
+00:01:43,629 --> 00:01:46,182
+growth stock and moved
+the rest into the index.
+
+34
+00:01:46,562 --> 00:01:50,551
+The money moved into the index
+would have dropped 24% at worst,
+
+35
+00:01:50,551 --> 00:01:52,577
+then recovered in under 2 years.
+
+36
+00:01:52,957 --> 00:01:58,187
+Of course, since 1994, rising rates
+haven't always sent stocks sharply lower.
+
+37
+00:01:58,567 --> 00:02:00,780
+In the five times rate hikes began,
+
+38
+00:02:00,780 --> 00:02:04,067
+the index fell at most 18%
+within a year and a half.
+
+39
+00:02:04,447 --> 00:02:05,969
+But over the same periods,
+
+40
+00:02:05,969 --> 00:02:09,597
+the tech-heavy Nasdaq 100 fell
+deeper three times out of four.
+
+41
+00:02:09,977 --> 00:02:12,990
+The more a growth stock is
+priced on future earnings,
+
+42
+00:02:12,990 --> 00:02:15,094
+the harder it swings when rates rise.
+
+43
+00:02:15,474 --> 00:02:17,673
+So the right choice is to cut back on
+
+44
+00:02:17,673 --> 00:02:20,406
+expensive growth stocks
+first when rates rise.
+
+45
+00:02:21,406 --> 00:02:25,906
+Two months later, oil prices soared to
+their highest level in over 13 years.
+
+46
+00:02:26,286 --> 00:02:29,964
+The price of a barrel of oil had
+jumped more than 60% in two months.
+
+47
+00:02:30,344 --> 00:02:34,402
+Oil prices signal both consumer prices
+and where the economy is heading.
+
+48
+00:02:34,782 --> 00:02:40,737
+Meanwhile, the S&P 500 had fallen
+13%, and your growth stock 62%.
+
+49
+00:02:41,117 --> 00:02:43,810
+More and more people say
+there'll never be another
+
+50
+00:02:43,810 --> 00:02:46,449
+chance to buy this cheap,
+and even borrow to buy.
+
+51
+00:02:46,829 --> 00:02:48,803
+Do you build up cash with no debt,
+
+52
+00:02:48,803 --> 00:02:52,054
+since this is a phase where
+oil is pushing up inflation?
+
+53
+00:02:52,434 --> 00:02:54,371
+Or, since it has already fallen a lot,
+
+54
+00:02:54,371 --> 00:02:57,174
+do you take out a loan to
+buy more of the growth stock?
+
+55
+00:02:57,554 --> 00:02:58,494
+Make your choice.
+
+56
+00:02:58,874 --> 00:03:01,054
+3, 2, 1.
+
+57
+00:03:01,434 --> 00:03:04,824
+In this phase, building up cash
+with no debt is the right choice.
+
+58
+00:03:05,204 --> 00:03:11,099
+The date was March 8, 2022, the
+day WTI crude topped $123 a barrel.
+
+59
+00:03:11,479 --> 00:03:13,741
+If you had borrowed to
+buy more like Mr. Park,
+
+60
+00:03:13,741 --> 00:03:16,594
+that money would have been cut
+in half seven months later.
+
+61
+00:03:16,974 --> 00:03:20,474
+The 3-month T-bill yield,
+which moves with loan rates,
+
+62
+00:03:20,474 --> 00:03:23,196
+also rose from 0.4% to 4% in eight months.
+
+63
+00:03:23,576 --> 00:03:27,638
+Of course, stocks did bounce back
+11% over the following month.
+
+64
+00:03:28,018 --> 00:03:32,378
+But when oil pushes up inflation,
+rates tend to rise faster.
+
+65
+00:03:32,758 --> 00:03:36,628
+Borrowing then leaves you with
+rising interest and losses at once.
+
+66
+00:03:37,008 --> 00:03:42,048
+So the right choice is to expect rates to
+rise when oil soars, and to build up cash.
+
+67
+00:03:43,048 --> 00:03:46,726
+Eight months later, this time the
+signal came from the bond market.
+
+68
+00:03:47,106 --> 00:03:51,985
+The yield on 10-year Treasuries fell
+below the yield on three-month bills.
+
+69
+00:03:52,365 --> 00:03:55,015
+Normally, the longer you
+lend, the more you earn.
+
+70
+00:03:55,395 --> 00:03:57,592
+This is called a yield-curve inversion,
+
+71
+00:03:57,592 --> 00:04:00,015
+and it's widely seen
+as a recession signal.
+
+72
+00:04:00,395 --> 00:04:03,915
+The S&P 500 is 18% below its record high.
+
+73
+00:04:04,295 --> 00:04:06,413
+The news is all about a coming recession,
+
+74
+00:04:06,413 --> 00:04:09,255
+and more people around you
+say they've sold everything.
+
+75
+00:04:09,635 --> 00:04:13,579
+Do you decide the inversion
+makes a recession certain,
+
+76
+00:04:13,579 --> 00:04:15,405
+sell everything and wait?
+
+77
+00:04:15,785 --> 00:04:18,492
+Or do you take it only as
+a warning of higher risk,
+
+78
+00:04:18,492 --> 00:04:20,402
+and hold to your planned allocation?
+
+79
+00:04:20,782 --> 00:04:21,722
+Make your choice.
+
+80
+00:04:22,102 --> 00:04:24,282
+3, 2, 1.
+
+81
+00:04:24,662 --> 00:04:27,330
+In this phase, taking it
+only as a warning and holding
+
+82
+00:04:27,330 --> 00:04:29,652
+to your planned allocation
+is the right choice.
+
+83
+00:04:30,032 --> 00:04:35,042
+The date was November 10, 2022,
+the day the yield curve inverted.
+
+84
+00:04:35,422 --> 00:04:38,195
+If you had sold everything
+and waited like Mr. Park,
+
+85
+00:04:38,195 --> 00:04:40,968
+you'd have gained just 10%
+in interest over 2 years.
+
+86
+00:04:41,348 --> 00:04:44,928
+Holding the index, you might
+have dropped another 4%,
+
+87
+00:04:44,928 --> 00:04:47,698
+but you'd have been up 56% 2 years later.
+
+88
+00:04:48,078 --> 00:04:51,418
+Of course, a big bear market
+has often followed this signal.
+
+89
+00:04:51,798 --> 00:04:56,451
+Since 1990, three of the four inversions
+were followed by a bear market.
+
+90
+00:04:56,831 --> 00:05:01,581
+But the decline started anywhere
+from one month to 14 months later.
+
+91
+00:05:01,961 --> 00:05:05,357
+And after the 2022 inversion,
+no bear market came.
+
+92
+00:05:05,737 --> 00:05:08,318
+An inversion doesn't give
+you the date of a drop;
+
+93
+00:05:08,318 --> 00:05:10,425
+it's just a warning that risk has grown.
+
+94
+00:05:10,805 --> 00:05:13,811
+So the right choice is to read
+an inversion as a warning,
+
+95
+00:05:13,811 --> 00:05:16,131
+not a sell signal, and
+keep your allocation.
+
+96
+00:05:17,131 --> 00:05:21,539
+About eight months later, oil prices
+were down 36% from their peak.
+
+97
+00:05:21,919 --> 00:05:25,102
+The 3-month T-bill yield, which
+had soared over the past year,
+
+98
+00:05:25,102 --> 00:05:27,259
+had barely risen in the last three months.
+
+99
+00:05:27,639 --> 00:05:32,749
+But the yield curve was still inverted,
+so the recession signal was still on.
+
+100
+00:05:33,129 --> 00:05:38,248
+Stocks are up 28% from the bottom,
+but still 5% below their record high.
+
+101
+00:05:38,628 --> 00:05:41,985
+Your account still has cash
+you haven't put into stocks.
+
+102
+00:05:42,365 --> 00:05:46,695
+Do you wait in cash until the
+recession signal goes off?
+
+103
+00:05:47,075 --> 00:05:49,458
+Or, since rates and oil have calmed down,
+
+104
+00:05:49,458 --> 00:05:52,307
+do you buy back in up to
+your planned allocation?
+
+105
+00:05:52,687 --> 00:05:53,627
+Make your choice.
+
+106
+00:05:54,007 --> 00:05:56,187
+3, 2, 1.
+
+107
+00:05:56,567 --> 00:06:00,847
+In this phase, buying back in up to your
+planned allocation is the right choice.
+
+108
+00:06:01,227 --> 00:06:06,891
+The date was July 26, 2023, the day of
+the last hike in that rate-hiking cycle.
+
+109
+00:06:07,271 --> 00:06:10,187
+If you had waited in cash
+for a year like Mr. Park,
+
+110
+00:06:10,187 --> 00:06:12,360
+you'd have gained just 5% in interest.
+
+111
+00:06:12,740 --> 00:06:16,654
+The money you put back in would have
+dropped nearly 10% three months later,
+
+112
+00:06:16,654 --> 00:06:18,220
+then been up 20% after a year.
+
+113
+00:06:18,600 --> 00:06:22,540
+The yield-curve inversion went on
+for more than a year after that.
+
+114
+00:06:22,920 --> 00:06:26,394
+Of course, buying while the recession
+signal is still on feels uneasy.
+
+115
+00:06:26,774 --> 00:06:30,718
+But since 1995, in four of the
+five times rate hikes stopped,
+
+116
+00:06:30,718 --> 00:06:32,787
+stocks were higher a year later.
+
+117
+00:06:33,167 --> 00:06:35,519
+Rather than waiting for
+the inversion to end,
+
+118
+00:06:35,519 --> 00:06:37,976
+what matters is seeing
+rates and oil calm down.
+
+119
+00:06:38,356 --> 00:06:41,180
+So the right choice is
+to return to your planned
+
+120
+00:06:41,180 --> 00:06:44,181
+allocation once rate hikes
+stop and oil calms down.
+
+121
+00:06:45,181 --> 00:06:49,190
+A year later, most of your
+money is in the S&P 500.
+
+122
+00:06:49,570 --> 00:06:53,407
+Then a report says the U.S.
+unemployment rate has risen to 4.3%.
+
+123
+00:06:53,787 --> 00:06:58,361
+With fewer jobs, spending falls too, and
+news floods in that a recession has begun.
+
+124
+00:06:58,741 --> 00:07:01,448
+Stocks fell more than 8% in 3 weeks.
+
+125
+00:07:01,828 --> 00:07:06,072
+Do you look at several indicators
+together and hold as planned?
+
+126
+00:07:06,452 --> 00:07:10,221
+Or, since a recession has
+begun, do you sell everything?
+
+127
+00:07:10,601 --> 00:07:11,541
+Make your choice.
+
+128
+00:07:11,921 --> 00:07:14,101
+3, 2, 1.
+
+129
+00:07:14,481 --> 00:07:16,749
+In this phase, looking
+at several indicators
+
+130
+00:07:16,749 --> 00:07:19,429
+together and holding as
+planned is the right choice.
+
+131
+00:07:19,809 --> 00:07:21,684
+The date was August 5, 2024,
+
+132
+00:07:21,684 --> 00:07:25,233
+the day stocks plunged after
+the unemployment report.
+
+133
+00:07:25,613 --> 00:07:31,103
+Looking at other indicators that
+day, oil was 41% below its 2022 peak.
+
+134
+00:07:31,483 --> 00:07:37,035
+The 10-year Treasury yield was also
+falling, from 4.2% to 3.8% in 3 weeks.
+
+135
+00:07:37,415 --> 00:07:39,575
+If you had sold everything like Mr. Park,
+
+136
+00:07:39,575 --> 00:07:42,893
+you'd have gained just 6% in
+interest over 1 year and 5 months.
+
+137
+00:07:43,273 --> 00:07:46,461
+Holding, you'd have regained
+the record high in 45
+
+138
+00:07:46,461 --> 00:07:49,458
+days and been up 34%
+after 1 year and 5 months.
+
+139
+00:07:49,838 --> 00:07:52,668
+Of course, this could have been
+the real start of a recession.
+
+140
+00:07:53,048 --> 00:07:56,390
+But since 1990, stocks have
+fallen more than 8% within
+
+141
+00:07:56,390 --> 00:07:59,299
+a month from near a record
+high eighteen times.
+
+142
+00:07:59,679 --> 00:08:03,794
+Fourteen of those did not turn into
+a bear market of more than 20%.
+
+143
+00:08:04,174 --> 00:08:07,504
+So the right choice is not to
+panic-sell over unemployment alone,
+
+144
+00:08:07,504 --> 00:08:09,195
+but to look at oil and rates too.
+
+145
+00:08:10,195 --> 00:08:13,274
+How many phases did you
+get right in this test?
+
+146
+00:08:13,654 --> 00:08:16,495
+If you got all five, you
+read phases from indicators
+
+147
+00:08:16,495 --> 00:08:18,953
+and adjust your allocation
+to risk: you pass.
+
+148
+00:08:19,333 --> 00:08:20,772
+If you got three or four,
+
+149
+00:08:20,772 --> 00:08:24,513
+you tend to ignore signals or
+overreact to a single one: caution.
+
+150
+00:08:24,893 --> 00:08:27,189
+If you got two or fewer, like Mr. Park,
+
+151
+00:08:27,189 --> 00:08:30,780
+you're likely to miss warning
+signs and lose money: you fail.
+
+152
+00:08:31,780 --> 00:08:34,386
+As this test shows,
+don't lock the barn door
+
+153
+00:08:34,386 --> 00:08:37,111
+after the horse has
+bolted: reading the phase,
+
+154
+00:08:37,111 --> 00:08:39,835
+not the date, from
+indicators and cutting risk
+
+155
+00:08:39,835 --> 00:08:42,560
+in advance is the way
+to get rich with stocks.
+
+156
+00:08:42,940 --> 00:08:45,150
+I wish you all successful investing.
+
+157
+00:08:45,530 --> 00:08:47,060
+Thank you for watching.

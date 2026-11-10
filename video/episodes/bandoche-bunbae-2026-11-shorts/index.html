@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>반도체 몰빵 vs 나눠 담기</title>
+<!-- VERSION: v1.0 — 2026-11-06 — 사용자 지시 "그림 올렸으니 영상 만들어서 보여줘" (쇼츠 대본 stock/source/bandoche-bunbae-2026-11/shorts/bandoche-bunbae-2026-11-shorts.txt v1.0 · 19문장):
+       2D 게임 광고풍 컷아웃 모션그래픽 — 배경(S-*) 위에 인물 자세 그림을 바꿔 끼우고(A-*/B-* — slice.py 가 시트를 칸마다 자름) GSAP 로 움직임.
+     · 숫자 = 모두 calc (data.js ← calc/result.json): 인물 위 실시간 수익률 · 그래프(무대 화면 안 — 선 이름표는 A·B 만, 한글 없음) · ₩ 금액.
+     · B 국면 계기판 바늘 = B 규칙 그대로 (2025-04·05 와 2026-04 = 주식 40/현금 60 → 빨강 · 그 밖 80/20 → 초록).
+     · 화면 영어 = 티커(그 편 대표 종목 — 주식 규칙 44 v3.11)·A·B 만 · 한국어 칸은 data-words.
+     · 배치 표 = window.LAYOUT — node video/scripts/layout-check.mjs bandoche-bunbae-2026-11-shorts 문제 0 뒤 렌더.
+     · 오디오 전에는 render.mjs sync --estimate (추정 시각) → video --estimated-preview (소리 없는 미리보기). 오디오가 오면 sync → video.
+     연구·교육용 영상 — 투자 권유 아님. A·B 는 가상 인물 (실제 종가에 정한 매매 규칙을 넣은 결과). -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="2.0">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#0B0F1C;overflow:hidden}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.bg{position:absolute;inset:0;opacity:0}
+.bg img{position:absolute}
+.bg .mir{transform:scaleY(-1)}
+.bg .shade{position:absolute;left:0;width:1080px}
+.act{position:absolute}
+.act img{position:absolute;opacity:0}
+.ret{position:absolute;display:flex;align-items:center;justify-content:center;gap:14px;font-weight:900;line-height:1;white-space:nowrap}
+.ret .pill{display:flex;align-items:center;gap:14px;background:rgba(8,12,24,.88);border:4px solid #fff;border-radius:999px;padding:6px 28px 6px 10px}
+.ret .who{font-size:44px;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;color:#0B0F1C}
+.ret .v{font-size:74px;font-family:"Noto Sans KR",sans-serif}
+.ret .sub{font-size:50px;padding:10px 8px}
+.tk{position:absolute;font-family:"Noto Sans KR",sans-serif;font-weight:900;font-size:70px;line-height:1;padding:18px 30px;border-radius:22px;
+    background:rgba(12,16,30,.92);border:5px solid #FF8A1F;color:#FFE2C4;box-shadow:0 0 28px rgba(255,138,31,.55);white-space:nowrap}
+.tk.hot{border-color:#FF4D3D;color:#fff;background:rgba(40,8,8,.94);box-shadow:0 0 40px rgba(255,77,61,.8)}
+.won{position:absolute;font-family:"Noto Sans KR",sans-serif;font-weight:900;line-height:1;white-space:nowrap;background:rgba(8,12,24,.86);border-radius:20px;padding:10px 0;box-sizing:border-box}
+.letter{position:absolute;font-family:"Noto Sans KR",sans-serif;font-weight:900;line-height:1;text-shadow:0 8px 28px rgba(0,0,0,.6)}
+.pr{position:absolute}
+.flash{position:absolute;left:0;top:0;width:1080px;height:640px;background:#fff;opacity:0;pointer-events:none}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,212,0,.55),rgba(255,212,0,0) 68%)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"bandoche-bunbae-2026-11-shorts","topic":"stock","duration":68.65,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-06T15:43:20Z","sent":[{"n":1,"part":"","text":"AI 반도체에 전부 건 A, 나눠 담은 B. 누가 더 벌었을까요?","start":0.3,"end":4.396},{"n":2,"part":"","text":"2025년 4월 상승장 초입, 둘은 똑같이 1,000만 원으로 시작했습니다.","start":4.846,"end":9.645},{"n":3,"part":"","text":"A는 엔비디아, 브로드컴, AMD, TSMC만 샀고,","start":10.095,"end":14.488},{"n":4,"part":"","text":"B는 여러 업종에 나눠 담고 현금도 남겼습니다.","start":14.938,"end":17.727},{"n":5,"part":"","text":"그해 10월, A의 수익률은 114%, B는 10%.","start":18.177,"end":22.07},{"n":6,"part":"","text":"A는 B를 비웃었죠. \"그렇게 느려서 언제 부자 되냐?\"","start":22.52,"end":25.611},{"n":7,"part":"","text":"2026년 2월 잠깐 흔들렸지만, 4월 다시 최고치를 찍자","start":26.061,"end":30.006},{"n":8,"part":"","text":"A는 반도체 3배 SOXL과 샌디스크로 전부 갈아타고,","start":30.456,"end":34.552},{"n":9,"part":"","text":"오를 때마다 500만 원씩 더 넣는 불타기를 이어 갔습니다.","start":35.002,"end":38.395},{"n":10,"part":"","text":"B는 하던 대로 나눠 담았습니다.","start":38.845,"end":40.728},{"n":11,"part":"","text":"6월, A의 수익률은 186%.","start":41.178,"end":43.764},{"n":12,"part":"","text":"그런데 7월, AI 버블론이 터졌습니다.","start":44.214,"end":47.102},{"n":13,"part":"","text":"A의 수익은 한 달 만에 모두 사라졌고,","start":47.552,"end":50.138},{"n":14,"part":"","text":"11월, 두 번째 폭락이 덮쳤습니다.","start":50.588,"end":52.872},{"n":15,"part":"","text":"넣은 5,500만 원 중 2,000만 원 넘게 잃었습니다.","start":53.322,"end":56.762},{"n":16,"part":"","text":"B는 28%, 가장 크게 빠졌을 때도 4%뿐이었습니다.","start":57.212,"end":61.459},{"n":17,"part":"","text":"승자는 B였습니다.","start":61.909,"end":63.037},{"n":18,"part":"","text":"큰 수익보다 하락 대비가 먼저입니다.","start":63.487,"end":65.672},{"n":19,"part":"","text":"그게 끝까지 남는 투자입니다.","start":66.122,"end":67.854}],"subs":[[0.3,4.396,"AI 반도체에 전부 건 A,\n나눠 담은 B. 누가 더 벌었을까요?"],[4.846,9.645,"2025년 4월 상승장 초입,\n둘은 똑같이 1,000만 원으로 시작했습니다."],[10.095,14.488,"A는 엔비디아, 브로드컴,\nAMD, TSMC만 샀고,"],[14.938,17.727,"B는 여러 업종에 나눠 담고\n현금도 남겼습니다."],[18.177,22.07,"그해 10월,\nA의 수익률은 114%, B는 10%."],[22.52,25.611,"A는 B를 비웃었죠. \"그렇게 느려서\n언제 부자 되냐?\""],[26.061,30.006,"2026년 2월 잠깐 흔들렸지만,\n4월 다시 최고치를 찍자"],[30.456,34.552,"A는 반도체 3배 SOXL과 샌디스크로\n전부 갈아타고,"],[35.002,38.395,"오를 때마다 500만 원씩 더 넣는\n불타기를 이어 갔습니다."],[38.845,40.728,"B는 하던 대로 나눠 담았습니다."],[41.178,43.764,"6월, A의 수익률은 186%."],[44.214,47.102,"그런데 7월, AI 버블론이 터졌습니다."],[47.552,50.138,"A의 수익은 한 달 만에 모두 사라졌고,"],[50.588,52.872,"11월, 두 번째 폭락이 덮쳤습니다."],[53.322,56.762,"넣은 5,500만 원 중 2,000만 원\n넘게 잃었습니다."],[57.212,61.459,"B는 28%,\n가장 크게 빠졌을 때도 4%뿐이었습니다."],[61.909,63.037,"승자는 B였습니다."],[63.487,65.672,"큰 수익보다 하락 대비가 먼저입니다."],[66.122,67.854,"그게 끝까지 남는 투자입니다."]],"subs_estimated":true};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="data.js"></script>
+<script src="../../../stock/source/bandoche-bunbae-2026-11/puppet/cut/manifest.js"></script>
+<script>
+(function () {
+"use strict";
+const WORDS = ["NVDA", "AVGO", "AMD", "TSM", "SOXL", "SNDK", "A", "B"];
+K.init(window.EP, { chip: false, w: 1080, allowWords: WORDS });
+const KO = `data-words="쉬운 한국어 칸 — 주식 규칙 44 (그래프 선에는 한글 없음 — 사용자 지시 2026-11-06 '수익곡선에 한글 금지 A,B만 표시')"`;
+const { S, E, W } = K;
+const tl = K.tl;
+const stage = document.getElementById("stage");
+const IMG = "../../../stock/source/bandoche-bunbae-2026-11/puppet/";
+const MAN = window.CUT_MANIFEST;
+const OR = "#FF8A1F", RD = "#FF4D3D", TL = "#22C7B0", YL = "#FFD400";
+
+/* ═════════════ 배치 표 v1.0 (1080×1920) — 칸 = [x, y, 가로, 세로] ═════════════
+   위 (y 150~600): 그래프 무대의 화면 안 = 그래프(배경 층 — 칸 밖) · FX(거품·칩·트로피) · TICK(티커 판) · T_A/T_B(첫 장면 글자)
+   가운데 (y 610~1384): R_A/R_B(인물 위 수익률) · P_A/P_B(둘이 설 때) · P_C/P_L(혼자 설 때) · BADGE(업종 배지) · GAUGE(계기판 바늘) · PILE(돈 더미) · PLUS(더 넣은 돈) · FACE(얼굴 클로즈업) · LOSS
+   아래 (y 1384~): 구운 자막 — 물건 없음 (video-safe 1384) */
+const LAY = window.LAYOUT = {
+  T_A: [40, 240, 480, 330], T_B: [560, 240, 480, 330],
+  FX: [300, 170, 480, 420], TICK: [60, 190, 960, 400],
+  R_A: [10, 612, 510, 100], R_B: [560, 612, 510, 100],
+  P_A: [0, 640, 530, 744], P_B: [550, 640, 530, 744],
+  P_C: [190, 560, 700, 824], P_L: [40, 560, 680, 824], P_R: [380, 560, 700, 824],
+  BADGE: [560, 150, 500, 450], GAUGE: [40, 150, 480, 300],
+  PILE: [700, 940, 360, 444], PLUS: [560, 640, 500, 290],
+  FACE: [150, 700, 780, 684], LOSS: [40, 612, 1000, 90],
+};
+window.LAYOUT_ALLOW = [["P_A", "R_A"], ["P_B", "R_B"], ["P_L", "PILE"], ["P_L", "PLUS"], ["P_R", "BADGE"], ["P_R", "GAUGE"], ["P_C", "TICK"]];
+
+/* ─────────── 배경 층 (장면 .sc 밖 — 배치 점검 대상 아님) ─────────── */
+// 1024×1536 그림 → 1.25배(1280×1920). top = 발 선을 1372 에 맞춘 값 · 아래가 비면 바닥을 뒤집어 비춤 + 어둡게
+const BGS = {
+  VS: { file: "S-VS.jpg", left: -100, top: -180 },
+  DUO: { file: "S-DUO.jpg", left: -100, top: -262 },
+  RA: { file: "S-ROOM-A.jpg", left: -100, top: 0 },
+  RB: { file: "S-ROOM-B.jpg", left: 0, top: 0 },
+};
+for (const [k, b] of Object.entries(BGS)) {
+  const bottom = b.top + 1920;
+  let html = `<div class="bg" id="bg-${k}"><img src="${IMG}${b.file}" style="left:${b.left}px;top:${b.top}px;width:1280px;height:1920px" alt="">`;
+  if (bottom < 1920) html += `<img class="mir" src="${IMG}${b.file}" style="left:${b.left}px;top:${bottom}px;width:1280px;height:1920px" alt="">` +
+    `<div class="shade" style="top:${bottom}px;height:${1920 - bottom}px;background:linear-gradient(rgba(5,8,15,.35),rgba(5,8,15,.82))"></div>`;
+  b.node = K.el(html + `</div>`);
+}
+// 장면마다 배경 — [시작, 끝, 배경]
+function bgSpan(key, a, b, keep) {             // keep = 마지막 장면 (끝까지 그대로 — 끝 화면이 어두워지지 않게)
+  const n = BGS[key].node;
+  tl.fromTo(n, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "none", immediateRender: false }, Math.max(0, a));
+  if (!keep) tl.to(n, { opacity: 0, duration: 0.35, ease: "none" }, b - 0.35);
+}
+
+/* ─────────── 그래프 (S-DUO 화면 안 · 시간 t 의 순수 함수 — K.onSeek) ─────────── */
+const SER = window.SERIES, KEY = window.KEY;
+const DAY = d => Date.parse(d + "T00:00:00Z") / 864e5;
+const D0 = DAY(SER[0][0]), D1 = DAY(SER[SER.length - 1][0]);
+const PX = [110, 950], PY = [592, 214], VR = [-50, 200];
+const xOf = d => PX[0] + (DAY(d) - D0) / (D1 - D0) * (PX[1] - PX[0]);
+const yOf = v => PY[0] + (v - VR[0]) / (VR[1] - VR[0]) * (PY[1] - PY[0]);
+const Y0 = yOf(0);
+const NS = "http://www.w3.org/2000/svg";
+const chart = K.el(`<svg class="a" viewBox="0 0 1080 640" width="1080" height="640" style="left:0;top:0" aria-hidden="true">
+  <defs>
+    <clipPath id="up"><rect x="0" y="0" width="1080" height="${Y0}"/></clipPath>
+    <clipPath id="dn"><rect x="0" y="${Y0}" width="1080" height="${640 - Y0}"/></clipPath>
+  </defs>
+  <g opacity=".22" stroke="#7FA2FF" stroke-width="2">${[0.25, 0.5, 0.75].map(f => `<line x1="${PX[0]}" x2="${PX[1] + 40}" y1="${PY[0] + (PY[1] - PY[0]) * f}" y2="${PY[0] + (PY[1] - PY[0]) * f}"/>`).join("")}</g>
+  <line x1="${PX[0]}" x2="${PX[1] + 40}" y1="${Y0}" y2="${Y0}" stroke="${YL}" stroke-width="5" stroke-dasharray="16 12" opacity=".95"/>
+  <path id="bGlow" fill="none" stroke="${TL}" stroke-width="22" stroke-opacity=".22" stroke-linejoin="round" stroke-linecap="round"/>
+  <path id="bLine" fill="none" stroke="${TL}" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+  <g clip-path="url(#up)"><path id="aGlowU" fill="none" stroke="${OR}" stroke-width="24" stroke-opacity=".25" stroke-linejoin="round" stroke-linecap="round"/>
+    <path id="aLineU" fill="none" stroke="${OR}" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/></g>
+  <g clip-path="url(#dn)"><path id="aGlowD" fill="none" stroke="${RD}" stroke-width="24" stroke-opacity=".3" stroke-linejoin="round" stroke-linecap="round"/>
+    <path id="aLineD" fill="none" stroke="${RD}" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/></g>
+  <g id="adds"></g>
+  <circle id="aDot" r="15" fill="${OR}" stroke="#fff" stroke-width="5"/><circle id="bDot" r="13" fill="${TL}" stroke="#fff" stroke-width="5"/>
+  <text id="aTag" font-family="Noto Sans KR" font-weight="900" font-size="46" fill="${OR}" stroke="#05080F" stroke-width="8" paint-order="stroke">A</text>
+  <text id="bTag" font-family="Noto Sans KR" font-weight="900" font-size="46" fill="${TL}" stroke="#05080F" stroke-width="8" paint-order="stroke">B</text>
+  <text id="date" x="${PX[0]}" y="218" font-family="Noto Sans KR" font-weight="900" font-size="54" fill="#F4F6FA" stroke="#05080F" stroke-width="6" paint-order="stroke"></text>
+</svg>`, BGS.DUO.node);
+const $ = id => chart.querySelector("#" + id);
+const addsG = $("adds");
+const ADD_I = KEY.adds.map(d => SER.findIndex(r => r[0] >= d));
+for (const i of ADD_I) {
+  const c = document.createElementNS(NS, "circle");
+  c.setAttribute("cx", xOf(SER[i][0])); c.setAttribute("cy", yOf(SER[i][1])); c.setAttribute("r", 9);
+  c.setAttribute("fill", YL); c.setAttribute("stroke", "#05080F"); c.setAttribute("stroke-width", 3);
+  addsG.appendChild(c);
+}
+function pathTo(col, f) {
+  const n = Math.floor(f);
+  let d = "";
+  for (let i = 0; i <= n; i++) d += (i ? "L" : "M") + xOf(SER[i][0]).toFixed(1) + " " + yOf(SER[i][col]).toFixed(1);
+  if (f > n && n + 1 < SER.length) {
+    const u = f - n, x = xOf(SER[n][0]) + (xOf(SER[n + 1][0]) - xOf(SER[n][0])) * u, y = yOf(SER[n][col] + (SER[n + 1][col] - SER[n][col]) * u);
+    d += "L" + x.toFixed(1) + " " + y.toFixed(1);
+  }
+  return d;
+}
+const valAt = (col, f) => { const n = Math.min(SER.length - 1, Math.floor(f)), u = f - n; return n + 1 < SER.length ? SER[n][col] + (SER[n + 1][col] - SER[n][col]) * u : SER[n][col]; };
+const idxOf = d => SER.findIndex(r => r[0] >= d);
+let CUR = [];                                   // [시각, 날짜] — 아래 장면에서 채움
+function cursor(t) {                            // 시각 t → 날짜 순번(소수)
+  if (!CUR.length) return 0;
+  if (t <= CUR[0][0]) return idxOf(CUR[0][1]);
+  for (let k = 1; k < CUR.length; k++) {
+    if (t <= CUR[k][0]) {
+      const [t0, d0] = CUR[k - 1], [t1, d1] = CUR[k];
+      const u = t1 > t0 ? (t - t0) / (t1 - t0) : 1;
+      const e = u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;   // 부드럽게 (가운데 빠름)
+      return idxOf(d0) + (idxOf(d1) - idxOf(d0)) * e;
+    }
+  }
+  return idxOf(CUR[CUR.length - 1][1]);
+}
+const fmtPct = v => { const r = Math.round(v); return (r > 0 ? "+" : r < 0 ? "−" : "") + Math.abs(r) + "%"; };   // 0 으로 반올림되면 부호 없음
+const RETS = [];                                 // 인물 위 수익률 칸 [{node, col}]
+K.onSeek(t => {
+  const f = cursor(t);
+  for (const id of ["aGlowU", "aLineU", "aGlowD", "aLineD"]) $(id).setAttribute("d", pathTo(1, f));
+  for (const id of ["bGlow", "bLine"]) $(id).setAttribute("d", pathTo(2, f));
+  const n = Math.floor(f), d = SER[n][0];
+  const ax = xOf(SER[n][0]), aV = valAt(1, f), bV = valAt(2, f);
+  const ay = yOf(aV), by = yOf(bV);
+  $("aDot").setAttribute("cx", ax); $("aDot").setAttribute("cy", ay); $("aDot").setAttribute("fill", aV < 0 ? RD : OR);
+  $("bDot").setAttribute("cx", ax); $("bDot").setAttribute("cy", by);
+  let ta = ay - 22, tb = by - 22;                 // 이름표 — 선 끝 오른쪽 위, 서로 50px 이상 떨어지게
+  if (Math.abs(ta - tb) < 50) { if (aV >= bV) ta = tb - 50; else tb = ta - 50; }
+  $("aTag").setAttribute("x", ax + 20); $("aTag").setAttribute("y", Math.max(250, ta)); $("aTag").setAttribute("fill", aV < 0 ? RD : OR);
+  $("bTag").setAttribute("x", ax + 20); $("bTag").setAttribute("y", Math.max(250, tb));
+  $("date").textContent = d.slice(0, 7).replace("-", ".");
+  addsG.querySelectorAll("circle").forEach((c, k) => c.setAttribute("opacity", ADD_I[k] <= f ? 1 : 0));
+  for (const r of RETS) {
+    const v = valAt(r.col, f);
+    r.v.textContent = fmtPct(v);
+    r.v.style.color = r.col === 1 ? (v < 0 ? RD : OR) : TL;
+  }
+});
+
+/* ─────────── 인물·소품 ─────────── */
+function sprite(key, s) {                        // 자른 그림 하나 → {img, w, h, ax, ay}
+  const m = MAN[key];
+  if (!m) throw new Error(`그림 없음: ${key}`);
+  return { key, w: m.w * s, h: m.h * s, ax: m.ax * s, ay: m.ay * s };
+}
+// 인물: 발 선 가운데 (x, y) 에 서는 상자 — 자세 그림을 모두 겹쳐 두고 보이는 것만 바꿈
+function actor(parent, slot, keys, x, y, s) {
+  const sp = keys.map(k => sprite(k, s));
+  const L = Math.max(...sp.map(p => p.ax)), R = Math.max(...sp.map(p => p.w - p.ax)), H = Math.max(...sp.map(p => p.ay)) + 6;   // 기준점 왼쪽·오른쪽 따로
+  const W = L + R;
+  const box = K.el(`<div class="act" data-slot="${slot}" style="left:${(x - L).toFixed(0)}px;top:${(y - H).toFixed(0)}px;width:${W.toFixed(0)}px;height:${H.toFixed(0)}px"></div>`, parent);
+  const imgs = {};
+  for (const p of sp) {
+    imgs[p.key] = K.el(`<img src="${IMG}cut/${p.key}.png" alt="" style="left:${(L - p.ax).toFixed(0)}px;top:${(H - 6 - p.ay).toFixed(0)}px;width:${p.w.toFixed(0)}px;height:${p.h.toFixed(0)}px">`, box);
+  }
+  gsap.set(box, { transformOrigin: `${(L / W * 100).toFixed(1)}% 100%` });
+  return { box, imgs, cur: null };
+}
+// 자세 바꾸기 — 0.14초 겹쳐 바꾸고 상자를 살짝 눌렀다 폄 (손으로 그린 애니메이션의 '키 자세' 느낌)
+function pose(a, key, at, squash) {
+  for (const [k, im] of Object.entries(a.imgs)) {
+    if (k === key) tl.to(im, { opacity: 1, duration: 0.14, ease: "none" }, at);
+    else tl.to(im, { opacity: 0, duration: 0.14, ease: "none" }, at);
+  }
+  if (squash !== false) tl.fromTo(a.box, { scaleY: 0.94, scaleX: 1.04 }, { scaleY: 1, scaleX: 1, duration: 0.32, ease: "back.out(3)", immediateRender: false }, at);
+}
+function idle(a, from, to, kind) {               // 가만히 있을 때 숨쉬기(B)·까딱(A)
+  const per = kind === "bounce" ? 0.42 : 1.1, n = Math.max(1, Math.floor((to - from) / per) - 1);
+  if (kind === "bounce") tl.fromTo(a.box, { y: 0 }, { y: -18, duration: per / 2, ease: "sine.inOut", repeat: n, yoyo: true, immediateRender: false }, from);
+  else tl.fromTo(a.box, { scaleY: 1 }, { scaleY: 1.015, duration: per / 2, ease: "sine.inOut", repeat: n, yoyo: true, immediateRender: false }, from);
+}
+function prop(parent, slot, key, cx, cy, s, extra) {        // 소품은 처음에 숨김 — pop·fromTo·set 으로 나타남
+  const p = sprite(key, s);
+  return later(`<img class="pr" data-slot="${slot}" src="${IMG}cut/${key}.png" alt="" style="left:${(cx - p.w / 2).toFixed(0)}px;top:${(cy - p.h / 2).toFixed(0)}px;width:${p.w.toFixed(0)}px;height:${p.h.toFixed(0)}px${extra || ""}">`, parent);
+}
+function ret(parent, slot, who, col) {           // 인물 위 실시간 수익률 (그래프 커서 값)
+  const [x, y, w, h] = LAY[slot];
+  const c = col === 1 ? OR : TL;
+  const n = K.el(`<div class="ret" data-slot="${slot}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px"><span class="pill" style="border-color:${c}"><span class="who" style="background:${c}">${who}</span><span class="v"></span></span></div>`, parent);
+  RETS.push({ v: n.querySelector(".v"), col });
+  return n;
+}
+function later(html, parent) { const n = K.el(html, parent); gsap.set(n, { opacity: 0 }); return n; }   // 나중에 나오는 물건 (immediateRender:false 앞에서 미리 보이지 않게)
+const pop = (n, at, from) => tl.fromTo(n, Object.assign({ opacity: 0, scale: 0.6 }, from), { opacity: 1, scale: 1, y: 0, x: 0, duration: 0.45, ease: "back.out(2.2)", immediateRender: false }, at);
+const hide = (n, at, d) => tl.to(n, { opacity: 0, duration: d || 0.3, ease: "none" }, at);
+const shake = (n, at) => tl.fromTo(n, { x: -16 }, { x: 0, duration: 0.5, ease: "elastic.out(1.2,0.25)", immediateRender: false }, at);
+const BEGIN = n => S(n) - 0.25, END = n => (n < 19 ? S(n + 1) + 0.1 : K.D);
+
+/* ═════════════ 장면 ═════════════ */
+// 1 — 대결: A(손가락 총) vs B
+{
+  const a = BEGIN(1), b = END(1);
+  bgSpan("VS", a, b);
+  const sc = K.scene(a, b);
+  const A = actor(sc, "P_A", ["A-HAPPY-1", "A-HAPPY-2"], 246, 1350, 1.0);
+  const B = actor(sc, "P_B", ["B-CALM-1"], 834, 1350, 1.0);
+  pose(A, "A-HAPPY-1", a, false); pose(B, "B-CALM-1", a, false);
+  pose(A, "A-HAPPY-2", W(1, "전부"));
+  idle(A, W(1, "전부") + 0.3, b, "bounce"); idle(B, a, b);
+  const la = later(`<div class="letter" data-slot="T_A" style="left:150px;top:300px;font-size:210px;color:${OR}">A</div>`, sc);
+  const chip = prop(sc, "T_A", "P-AI-1", 390, 400, 0.55);
+  const lb = later(`<div class="letter" data-slot="T_B" style="left:720px;top:300px;font-size:210px;color:${TL}">B</div>`, sc);
+  const bd = ["P-SECTOR-1", "P-SECTOR-2", "P-SECTOR-7"].map((k, i) => prop(sc, "T_B", k, 900 + (i % 2) * 70, 330 + i * 75, 0.42));
+  pop(la, S(1) + 0.05); pop(chip, W(1, "반도체"), { rotate: -20 });
+  pop(lb, W(1, "나눠")); bd.forEach((n, i) => pop(n, W(1, "나눠") + 0.12 * (i + 1)));
+  K.cut(W(1, "누가"), "1 대결");
+}
+// 2 — 2025년 4월: 둘 다 1,000만 원
+{
+  const a = BEGIN(2), b = END(2);
+  bgSpan("DUO", a, b);
+  CUR.push([a, KEY.start]);
+  const sc = K.scene(a, b);
+  const A = actor(sc, "P_A", ["A-HAPPY-1"], 262, 1372, 1.0), B = actor(sc, "P_B", ["B-CALM-1"], 818, 1372, 1.0);
+  pose(A, "A-HAPPY-1", a, false); pose(B, "B-CALM-1", a, false);
+  idle(A, a, b, "bounce"); idle(B, a, b);
+  const won = (cx, slot) => {
+    const n = later(`<div class="won" data-slot="${slot}" style="left:${cx - 230}px;top:628px;width:460px;text-align:center;font-size:62px;color:${YL}">₩10,000,000</div>`, sc);
+    return n;
+  };
+  const wa = won(266, "R_A"), wb = won(814, "R_B");
+  pop(wa, W(2, "1,000만")); pop(wb, W(2, "1,000만") + 0.12);
+  K.cut(E(2) - 0.3, "2 시작");
+}
+// 3 — A 의 방: NVDA·AVGO·AMD·TSM
+{
+  const a = BEGIN(3), b = END(3);
+  bgSpan("RA", a, b);
+  const sc = K.scene(a, b);
+  const A = actor(sc, "P_C", ["A-BUY-1", "A-HAPPY-2"], 540, 1376, 1.2);
+  pose(A, "A-BUY-1", a, false); pose(A, "A-HAPPY-2", W(3, "TSMC") + 0.35);
+  idle(A, a, b, "bounce");
+  const T = [["NVDA", "엔비디아", 120, 230], ["AVGO", "브로드컴", 560, 230], ["AMD", "AMD", 120, 400], ["TSM", "TSMC", 560, 400]];
+  for (const [t, w, x, y] of T) {
+    const n = later(`<div class="tk" data-slot="TICK" style="left:${x}px;top:${y}px;width:400px;text-align:center;box-sizing:border-box">${t}</div>`, sc);
+    pop(n, W(3, w), { y: 30 });
+  }
+  K.cut(E(3) - 0.2, "3 A 티커");
+}
+// 4 — B 의 서재: 업종 배지 + 현금 · 계기판 빨강(주식 40/현금 60)
+const NEEDLE = [];
+function gauge(parent) {
+  const g = K.el(`<svg class="a" data-slot="GAUGE" viewBox="0 0 480 300" width="480" height="300" style="left:40px;top:150px" aria-hidden="true">
+    <g class="ndl"><path d="M221 240 L232 62 L243 240 Z" fill="#1B2236" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></g>
+    <circle cx="232" cy="240" r="22" fill="#1B2236" stroke="#fff" stroke-width="5"/></svg>`, parent);
+  return g.querySelector(".ndl");
+}
+const ANG = { green: -58, yellow: 0, red: 58 };   // 바늘 회전 중심 = svgOrigin "232 240" (GSAP 는 SVG 에 CSS transform-origin 을 쓰지 않음 — 첫 렌더에서 바늘이 계기판 밖으로 돌았음)
+{
+  const a = BEGIN(4), b = END(4);
+  bgSpan("RB", a, b);
+  const sc = K.scene(a, b);
+  const B = actor(sc, "P_R", ["B-CALM-1", "B-CALM-2"], 760, 1378, 1.12);
+  pose(B, "B-CALM-1", a, false); pose(B, "B-CALM-2", W(4, "나눠"));
+  idle(B, a, b);
+  const nd = gauge(sc);
+  tl.fromTo(nd, { svgOrigin: "232 240", rotate: ANG.green }, { svgOrigin: "232 240", rotate: ANG.red, duration: 0.8, ease: "back.out(1.6)", immediateRender: false }, W(4, "현금") - 0.2);
+  tl.set(nd, { svgOrigin: "232 240", rotate: ANG.green }, a);
+  const BADGES = [[1, 640, 250], [2, 790, 230], [3, 940, 250], [4, 640, 400], [5, 790, 380], [6, 940, 400]];
+  BADGES.forEach(([k, x, y], i) => pop(prop(sc, "BADGE", `P-SECTOR-${k}`, x, y, 0.34), W(4, "업종") + 0.1 * i));
+  pop(prop(sc, "BADGE", "P-SECTOR-7", 790, 530, 0.44), W(4, "현금"));
+  K.cut(E(4) - 0.2, "4 B 나눠 담기");
+}
+// 5~7 — 그래프 무대: 2025-10 A +114% · B +10% → 조롱 → 2026-02 흔들림 → 04 최고치
+{
+  const a = BEGIN(5), b = END(7);
+  bgSpan("DUO", a, b);
+  CUR.push([S(5), KEY.start], [E(5), "2025-10-29"], [S(7), "2025-10-29"], [W(7, "최고치") + 0.3, "2026-04-13"]);
+  const sc = K.scene(a, b);
+  const A = actor(sc, "P_A", ["A-HAPPY-1", "A-HAPPY-3", "A-MOCK-1", "A-MOCK-2", "A-MOCK-3", "A-PANIC-1", "A-HAPPY-2"], 262, 1372, 1.0);
+  const B = actor(sc, "P_B", ["B-CALM-1", "B-CALM-3", "B-REACT-1"], 818, 1372, 1.0);
+  pose(A, "A-HAPPY-1", a, false); pose(B, "B-CALM-1", a, false);
+  pose(A, "A-HAPPY-3", W(5, "114%") - 0.15); idle(A, W(5, "114%"), S(6), "bounce");
+  pose(B, "B-CALM-3", W(5, "B는"));
+  pose(A, "A-MOCK-1", S(6)); pose(A, "A-MOCK-2", W(6, "그렇게")); pose(A, "A-MOCK-3", W(6, "언제"));
+  pose(B, "B-REACT-1", S(6) + 0.25);
+  pose(A, "A-PANIC-1", W(7, "흔들렸지만") - 0.1); pose(A, "A-HAPPY-2", W(7, "최고치")); idle(A, W(7, "최고치") + 0.3, b, "bounce");
+  pose(B, "B-CALM-1", S(7) + 0.2); idle(B, S(7), b);
+  ret(sc, "R_A", "A", 1); ret(sc, "R_B", "B", 2);
+  K.cut(E(5), "5 수익률"); K.cut(W(6, "언제") + 0.3, "6 조롱"); K.cut(W(7, "흔들렸지만") + 0.4, "7 흔들림");
+}
+// 8~9 — A 의 방: SOXL·SNDK 올인 → 불타기 9번 (₩5,000,000 씩)
+{
+  const a = BEGIN(8), b = END(9);
+  bgSpan("RA", a, b);
+  const sc = K.scene(a, b);
+  const A = actor(sc, "P_L", ["A-BUY-1", "A-BUY-2", "A-BUY-3"], 380, 1376, 1.15);
+  pose(A, "A-BUY-1", a, false); pose(A, "A-BUY-3", W(8, "전부")); pose(A, "A-BUY-2", S(9) + 0.1);
+  idle(A, a, b, "bounce");
+  const old = ["NVDA", "AVGO", "AMD", "TSM"].map((t, i) => K.el(`<div class="tk" data-slot="TICK" style="left:${100 + i * 225}px;top:230px;font-size:46px;padding:12px 18px">${t}</div>`, sc));
+  old.forEach((n, i) => { tl.set(n, { opacity: 1 }, a); tl.to(n, { opacity: 0, y: -60, rotate: -12 + i * 8, duration: 0.35, ease: "power2.in" }, W(8, "SOXL") - 0.3 + 0.05 * i); });
+  const hot = [["SOXL", "SOXL", 130], ["SNDK", "샌디스크", 560]].map(([t, w, x]) => {
+    const n = later(`<div class="tk hot" data-slot="TICK" style="left:${x}px;top:330px;width:390px;text-align:center;box-sizing:border-box;font-size:88px">${t}</div>`, sc);
+    pop(n, W(8, w), { scale: 1.8 }); shake(n, W(8, w) + 0.2);
+    return n;
+  });
+  hot.forEach(n => hide(n, S(9) + 0.1));
+  // 불타기 — 문장 9 동안 지폐 다발 9개가 하나씩 날아와 돈 더미 위에 · 더 넣은 돈 ₩5,000,000 · 끝에 넣은 돈 합계
+  const pile = prop(sc, "PILE", "P-AI-2", 880, 1250, 0.9);
+  pop(pile, S(9) + 0.1);
+  const t0 = W(9, "500만") - 0.1, t1 = E(9) - 0.5;
+  for (let i = 0; i < 9; i++) {
+    const at = t0 + (t1 - t0) * i / 8;
+    const bn = prop(sc, "PILE", "P-AI-3", 880, 1170 - i * 11, 0.58);
+    tl.fromTo(bn, { opacity: 0, y: -520, x: -260, rotate: -25 }, { opacity: 1, y: 0, x: 0, rotate: (i % 3 - 1) * 6, duration: 0.42, ease: "power2.in", immediateRender: false }, at);
+  }
+  const plus = later(`<div class="won" data-slot="PLUS" style="left:570px;top:670px;width:440px;text-align:center;font-size:60px;color:${YL}">+₩5,000,000</div>`, sc);
+  pop(plus, t0);
+  tl.to(plus, { opacity: 0, duration: 0.25 }, t1 + 0.1);
+  const tot = later(`<div class="won" data-slot="PLUS" style="left:570px;top:790px;width:440px;text-align:center;font-size:62px;color:#fff">₩${KEY.invested_won.toLocaleString("en-US")}</div>`, sc);
+  pop(tot, t1 + 0.15);
+  K.cut(W(8, "샌디스크") + 0.5, "8 올인"); K.cut(E(9) - 0.1, "9 불타기");
+}
+// 10 — B: 하던 대로 (2026-04 = 주식 40/현금 60 → 바늘 빨강, 지폐를 금고에)
+{
+  const a = BEGIN(10), b = END(10);
+  bgSpan("RB", a, b);
+  const sc = K.scene(a, b);
+  const B = actor(sc, "P_R", ["B-CALM-2", "B-REACT-3"], 760, 1378, 1.12);
+  pose(B, "B-CALM-2", a, false); pose(B, "B-REACT-3", W(10, "나눠"));
+  idle(B, a, b);
+  const nd = gauge(sc);
+  tl.set(nd, { svgOrigin: "232 240", rotate: ANG.green }, a);
+  tl.to(nd, { svgOrigin: "232 240", rotate: ANG.red, duration: 0.8, ease: "back.out(1.6)" }, W(10, "하던"));
+  pop(prop(sc, "BADGE", "P-SECTOR-7", 800, 330, 0.62), W(10, "나눠"));
+  K.cut(E(10) - 0.1, "10 B 하던 대로");
+}
+// 11~17 — 그래프 무대: 186% → 거품 터짐 → 0% → 11월 −37% → 손실 금액 → B +28%·최대 하락 −4% → 승자 B
+{
+  const a = BEGIN(11), b = END(17);
+  bgSpan("DUO", a, b);
+  CUR.push([S(11), "2026-04-14"], [W(11, "186%") + 0.2, "2026-06-22"], [S(12), "2026-06-22"], [W(12, "터졌습니다"), "2026-07-07"],
+           [E(13), "2026-07-29"], [S(14), "2026-07-29"], [E(14) + 0.1, KEY.end]);
+  const sc = K.scene(a, b);
+  const A = actor(sc, "P_A", ["A-HAPPY-3", "A-PANIC-2", "A-PANIC-3", "A-RUIN-1", "A-RUIN-2", "A-RUIN-3"], 262, 1372, 1.0);
+  const B = actor(sc, "P_B", ["B-CALM-3", "B-REACT-2", "B-WIN-1", "B-WIN-3"], 818, 1372, 1.0);
+  pose(A, "A-HAPPY-3", a, false); pose(B, "B-CALM-3", a, false);
+  idle(A, a, S(12), "bounce"); idle(B, a, b);
+  const ra = ret(sc, "R_A", "A", 1), rb = ret(sc, "R_B", "B", 2);
+  // 12 거품 → 터짐
+  const bub = prop(sc, "FX", "P-FX-1", 540, 380, 0.85), burst = prop(sc, "FX", "P-FX-2", 540, 380, 0.95);
+  pop(bub, S(12) + 0.1); tl.fromTo(bub, { y: 0 }, { y: -18, duration: 0.5, ease: "sine.inOut", repeat: 1, yoyo: true, immediateRender: false }, S(12) + 0.5);
+  tl.to(bub, { opacity: 0, scale: 1.25, duration: 0.12 }, W(12, "터졌습니다"));
+  tl.fromTo(burst, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1.15, duration: 0.25, ease: "power2.out", immediateRender: false }, W(12, "터졌습니다"));
+  hide(burst, W(12, "터졌습니다") + 0.9, 0.4);
+  const fl = K.el(`<div class="flash"></div>`, BGS.DUO.node);
+  tl.fromTo(fl, { opacity: 0.85 }, { opacity: 0, duration: 0.45, ease: "power2.out", immediateRender: false }, W(12, "터졌습니다"));
+  pose(A, "A-PANIC-2", W(12, "터졌습니다")); shake(A.box, W(12, "터졌습니다"));
+  pose(B, "B-REACT-2", W(12, "터졌습니다") + 0.3);
+  // 13 수익이 모두 사라짐
+  pose(A, "A-PANIC-3", S(13)); pose(A, "A-RUIN-1", W(13, "모두"));
+  // 14 11월 두 번째 폭락 — 부서지는 칩
+  const brk = prop(sc, "FX", "P-FX-3", 540, 400, 1.0);
+  tl.fromTo(brk, { opacity: 0, y: -260, rotate: -20 }, { opacity: 1, y: 0, rotate: 0, duration: 0.35, ease: "power3.in", immediateRender: false }, W(14, "폭락") - 0.2);
+  shake(brk, W(14, "폭락") + 0.15); hide(brk, E(14) + 0.1, 0.35);
+  pose(A, "A-RUIN-2", W(14, "폭락") + 0.1); shake(A.box, W(14, "폭락") + 0.15);
+  // 15 넣은 ₩55,000,000 중 −₩20,410,500 — 우는 얼굴 클로즈업 (인물·수익률 칸은 잠깐 숨김)
+  for (const n of [A.box, B.box, ra, rb]) { hide(n, S(15) - 0.1, 0.25); tl.to(n, { opacity: 1, duration: 0.3 }, S(16) - 0.15); }
+  const face = prop(sc, "FACE", "A-FACE-3", 540, 1040, 1.35);
+  tl.fromTo(face, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.4, ease: "back.out(1.8)", immediateRender: false }, S(15) - 0.05);
+  tl.fromTo(face, { rotate: -2 }, { rotate: 2, duration: 0.18, ease: "sine.inOut", repeat: 9, yoyo: true, immediateRender: false }, S(15) + 0.35);
+  hide(face, S(16) - 0.2, 0.25);
+  const inv = later(`<div class="won" data-slot="LOSS" style="left:60px;top:620px;width:960px;text-align:center;font-size:56px;color:#E7EBF2">₩${KEY.invested_won.toLocaleString("en-US")} <span style="color:${YL}">→</span> <span style="color:${RD}">−₩${Math.abs(KEY.A_loss_won).toLocaleString("en-US")}</span></div>`, sc);
+  pop(inv, W(15, "2,000만") - 0.1, { scale: 1, y: 30 }); hide(inv, S(16) - 0.2, 0.25);
+  // 16 B +28% · 최대 하락 −4%
+  pose(A, "A-RUIN-3", S(16)); pose(B, "B-WIN-1", S(16));
+  const dd = later(`<div class="ret" data-slot="R_B" ${KO} style="left:560px;top:612px;width:510px;height:100px"><span class="pill" style="border-color:${TL}"><span class="sub" style="color:#E7EBF2">최대 하락 <span style="color:${TL}">−${Math.abs(KEY.B_maxdd).toFixed(0)}%</span></span></span></div>`, sc);
+  tl.to(rb, { opacity: 0, duration: 0.2 }, W(16, "가장")); pop(dd, W(16, "가장") + 0.1, { scale: 1, y: 30 });
+  tl.to(dd, { opacity: 0, duration: 0.2 }, S(17) - 0.1); tl.to(rb, { opacity: 1, duration: 0.25 }, S(17));
+  // 17 승자 B — 트로피 · A 는 어둡게
+  const glow = later(`<div class="glow" data-slot="P_B" style="left:578px;top:700px;width:480px;height:480px"></div>`, sc);
+  tl.fromTo(glow, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.5, ease: "power2.out", immediateRender: false }, W(17, "B였습니다") - 0.1);
+  const cup = prop(sc, "FX", "P-FX-4", 540, 390, 1.05);
+  pop(cup, W(17, "B였습니다") - 0.05, { y: -120 });
+  pose(B, "B-WIN-3", W(17, "B였습니다"));
+  tl.to(A.box, { opacity: 0.45, duration: 0.4 }, W(17, "B였습니다"));
+  K.cut(E(11), "11 186%"); K.cut(W(12, "터졌습니다") + 0.3, "12 거품"); K.cut(E(13), "13 0%"); K.cut(E(14), "14 −37%");
+  K.cut(E(15) - 0.1, "15 손실"); K.cut(E(16) - 0.1, "16 B 28%"); K.cut(E(17), "17 승자");
+}
+// 18~19 — B 의 서재: 하락 대비(방패·금고) → 엄지
+{
+  const a = BEGIN(18), b = END(19);
+  bgSpan("RB", a, b, true);
+  const sc = K.scene(a, b, { keep: true });
+  const B = actor(sc, "P_R", ["B-REACT-3", "B-WIN-2"], 760, 1378, 1.12);
+  pose(B, "B-REACT-3", a, false); pose(B, "B-WIN-2", S(19));
+  idle(B, a, b);
+  const nd = gauge(sc);
+  tl.set(nd, { svgOrigin: "232 240", rotate: ANG.red }, a);
+  tl.to(nd, { svgOrigin: "232 240", rotate: ANG.green, duration: 0.9, ease: "back.out(1.6)" }, S(19) + 0.2);
+  const sh = prop(sc, "BADGE", "P-SECTOR-8", 800, 350, 0.8);
+  pop(sh, W(18, "하락"), { scale: 1.6 });
+  const ring = [1, 2, 3, 4, 5, 6, 7].map((k, i) => prop(sc, "BADGE", `P-SECTOR-${k}`, 800 + Math.cos(-Math.PI / 2 + i * 2 * Math.PI / 7) * 175, 360 + Math.sin(-Math.PI / 2 + i * 2 * Math.PI / 7) * 160, 0.28));
+  ring.forEach((n, i) => pop(n, S(19) + 0.1 * i));
+  K.cut(E(18), "18 하락 대비"); K.cut(K.D - 0.2, "19 끝");
+}
+K.done();
+})();
+</script>
+</body>
+</html>

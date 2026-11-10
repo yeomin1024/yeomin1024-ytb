@@ -1,0 +1,114 @@
+-도입
+If you can't pass this test, you're likely to suffer big losses in stocks, just like Mr. Kim.
+In a little over 3 years, the S&P 500 has risen more than 70%.
+Over the same period, Mr. Kim instead lost 74% of his 100 million won, and only 26 million won was left.
+So what on earth happened to Mr. Kim, and what choices did he make?
+At the five crossroads Mr. Kim faced, choose what you would do.
+Just count how many you get wrong.
+From now on, you are Mr. Kim.
+
+-선택 1
+You have 100 million won in savings.
+Everyone's talking about a US tech stock that went up 3x in a year.
+It's a company that uses AI to approve loans, and it's up more than 5x this year alone.
+On the day a big investment firm agreed to buy a large batch of its loans, it jumped 35% in a single day.
+Your coworkers and friends say they bought it, and they're bragging about their gains.
+YouTube is flooded with videos saying it will go even higher.
+So, do you buy this tech stock like everyone else?
+Or do you skip buying this stock?
+Make your choice.
+3, 2, 1.
+Here, not buying is the right choice.
+The date was August 1, 2023, and the stock was Upstart.
+If you bought like everyone else, as Mr. Kim did, it fell as much as 71%, and you'd still be down 67% today.
+Of course, when everyone says it's good, it seems there must be a reason.
+But by the time everyone is praising it, it has often already risen a lot.
+This stock had already gone up 3x in a year, so buying it also meant buying the risk of an equally big fall.
+So the right choice is not to buy just because others do.
+
+-선택 2
+On the same day, you have one more decision to make.
+How much of the 100 million won do you put in?
+Many people around you say holding cash is a loss, and that they put in all the money they had.
+So, do you keep some cash aside for emergencies and invest only the rest?
+Or do you invest all 100 million won?
+Make your choice.
+3, 2, 1.
+Here, keeping cash aside for emergencies is the right choice.
+That day was August 1, 2023, and in less than three months the S&P 500 fell 10%.
+If you'd invested it all, like Mr. Kim, you'd have lost nearly 10%, even in the index.
+If you'd suddenly needed a large sum then, you'd have had to sell your stocks at the lower price.
+Of course, money kept in cash earns only interest while the market rises.
+But worst cases, like losing your job or a housing problem, often come right when the market is bad.
+With cash set aside, you can hold on without selling your stocks, even then.
+So the right choice is to keep cash aside to prepare for the worst.
+
+-선택 3
+About a year and a half later, tariff fears pushed the S&P 500 down more than 10% from its peak.
+The news is split between "it will fall further" and "this is the bottom."
+Forums are full of screenshots of losses.
+So, do you decide whether to buy or sell based on the news and the mood of the moment?
+Or do you cut your position by a set rule, and buy back in parts each time it falls by a set percentage?
+Make your choice.
+3, 2, 1.
+Here, cutting your position and buying back in parts with each drop is the right choice.
+That day was March 13, 2025, when the S&P 500 was 10% below its peak.
+What if, like Mr. Kim, you went by the mood and sold everything at the low on April 8?
+If you only bought back after it regained its high 80 days later, you'd be up just 16% to date.
+The numbers in a rule can differ from person to person.
+For example, say you sell half that day and buy back 1/3 every time it falls another 5%.
+Then on April 4, as it drops 5% and then 10% below your selling price, you buy back 2/3.
+The remaining 1/3 you buy on the day the index regains its high.
+Following this rule, you'd be up 46% from that day to now.
+Of course, even with a rule, you can't know in advance where a fall will stop.
+But if you set your rule in advance, you can make the same call even in scary moments.
+So the right choice is to cut your position when it's risky, and buy back in parts as it falls.
+
+-선택 4
+About three months later, on an acquaintance's tip, you put half your account into an AI stock.
+A little over a month later, the company reported far lower sales than expected and withdrew its earnings forecast.
+Something went wrong with the company's basic health, its fundamentals.
+The stock fell more than 25% in a single day.
+So, since the company's fundamentals are broken, do you sell right away?
+Or do you hold on until you get your money back?
+Make your choice.
+3, 2, 1.
+Here, selling on the very day the company's problem appeared is the right choice.
+That day was August 11, 2025, and the stock was C3.ai, which sells AI software to businesses.
+If you held on like Mr. Kim, it fell another 53%, and it's still 25% below that day's price.
+Had you sold right away, you'd have avoided that entire 53% drop.
+Of course, selling after a drop of more than 25% in a day locks in the loss, and that feels painful.
+But the price you paid has nothing to do with whether the stock will rise from here.
+If the earnings behind the price collapse, holding on longer can deepen the loss.
+One study looked at the trades of 10,000 individual investors in the US.
+The winners they sold went on to beat the losers they kept by more than 3 percentage points over the next year.
+If you admit the mistake and sell, you can start again with the money you have left.
+So the right choice is to cut your losses right away when a company's fundamentals break.
+
+-선택 5
+Two months later, quantum computing stocks are hitting all-time highs day after day.
+One of them is up more than 7x in a year.
+Online communities are overflowing with posts from people who put half their account into it.
+So, do you put half your account into this stock?
+Or do you limit any one stock to 10% of your account, and spread the rest across different sectors?
+Make your choice.
+3, 2, 1.
+Here, capping one stock at 10% and spreading out the rest is the right choice.
+That day was October 13, 2025, and the stock was IonQ, which builds quantum computers.
+If you put in half like Mr. Kim, your account dropped 36% at one point, and you'd still be down 21% today.
+With only 10% in it, your account would have dropped just 11% at its worst, and you'd be up 10% now.
+Of course, the more you put in, the more you make when the stock rises.
+But if that one bet is wrong, half your account goes down with it.
+If you set a limit for each stock in advance, your account can survive even if one collapses.
+So the right choice is to set a limit per stock, and spread your money across many stocks and sectors.
+
+-결과
+So, how many did you get wrong on this test?
+0 wrong: you invest by your own rules, not by what others say. You pass.
+1 or 2 wrong: you know better, but others' talk and greed sometimes sway you. Caution.
+3 or more wrong: like Mr. Kim, you're likely to lose money in stocks. You fail.
+
+-정리
+As this test shows, remember that haste makes waste: letting go of greed and going slow and steady is the only way to get rich with stocks.
+Wishing you all successful investing.
+Thanks for watching.

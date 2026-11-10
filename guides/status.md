@@ -1,5 +1,6 @@
 # 지금 상태·다음 할 일 (인수인계)
 
+버전: v4.09 — 2026-11-10 — **만스피 편 영상 다시 (애니메이션 키 장면)**: v1.0 미리보기는 사용자가 '대충' 이라 함 → 요청 `stock/source/manspi-jeonmang-2026-11/images_chatgpt_anim.md` v1.0 (39장 · 인물·배경 한 컷 · 연속 그림 · 글자 대신 그림). 다음: ChatGPT 그림(`anim/`) → 검수 → 장면 v2.0.
 버전: v4.08 — 2026-11-10 — **만스피 편 영상 장면 v1.0** (`video/episodes/manspi-jeonmang-2026-11/` · 그림 17장 → slice.py 40조각 · 거름망 무대) — 소리 없는 미리보기. 다음: Kaggle 오디오(주식) → `render.mjs sync stock manspi-jeonmang-2026-11` → video.
 버전: v4.07 — 2026-11-10 — **만스피 편 영상 준비**: 대본 = 사용자 완성본(main ac40a5e3, 61문장) · 그림 요청 `stock/source/manspi-jeonmang-2026-11/images_chatgpt.md` v1.0 (17장 · 썸네일 그림체 · 중심 장치 거름망). 다음: ChatGPT 그림 → 검수 → 오디오(Kaggle) → 영상.
 버전: v4.06 — 2026-11-10 — **만스피 편 대본 v12** (판 피드백 2건 — 지난 영상 언급 · 유튜브 조회수 구조 뺌, 약 3.9분) · 대본 평가판 29번째 · 요약 평가판 3번째.

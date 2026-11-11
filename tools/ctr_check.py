@@ -347,9 +347,11 @@ def judge(P, r, rule):
         if title_mode:
             # 제목 점수는 늘 지금 title_model 로 스냅숏 제목에서 다시 셈 (회차마다 같은 잣대 — 스냅숏에 적힌 값은 그때 기록)
             ds = {k: frame_score(((r.get("snapshot") or {}).get(k) or {}).get("title", ""), tm["lift"]) for k in keys}
-            best = max(keys, key=lambda k: (ds[k], sc[k]))
             mid = (tm["hit_mean"] + tm["miss_mean"]) / 2
             tr = lambda k: r["scores"][k].get("trust") or 0  # noqa: E731
+            # 본안 = 믿음 하한을 넘는 안 가운데 제목 점수가 가장 높은 안 (같으면 클릭 참고 점수) — 믿음이 낮은 안은 본안이 되지 않음
+            cand = [k for k in keys if tr(k) >= rule["trust_min"]] or keys
+            best = max(cand, key=lambda k: (ds[k], sc[k]))
             ok = (ds[best] >= tm["hit_min"] and tr(best) >= rule["trust_min"]
                   and all(ds[k] >= mid and tr(k) >= rule["trust_min_others"] for k in keys if k != best))
             out[vdo["id"]] = {"best": best, "score": f"제목 {ds[best]} · 믿음 {tr(best)} · 클릭(참고) {sc[best]}", "ok": ok, "all": sc, "ds": ds}

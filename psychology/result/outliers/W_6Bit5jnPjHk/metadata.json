@@ -1,0 +1,78 @@
+{
+ "id": "6Bit5jnPjHk",
+ "title": "《정약용 명언》 노후에 절대 대답하면 안 되는 '4가지' 질문. 입을 다물면 존경받는다. l 인생명언 l 행복한 노후 l 삶의지혜 l 인간관계",
+ "channel": "관계의 품격",
+ "channel_id": "UCf86YO8891WsWDYDvJ3NtwA",
+ "subs": 1210,
+ "views": 245487,
+ "ratio": 202.88,
+ "age_days": 89,
+ "views_per_day": 2747.3,
+ "minutes": 28.5,
+ "likes": 2642,
+ "comments": 277,
+ "published": "2026-08-14",
+ "queries": "검색:인간관계",
+ "url": "https://www.youtube.com/watch?v=6Bit5jnPjHk",
+ "flag": "",
+ "published_at": "2026-08-14T00:51:04Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_6Bit5jnPjHk",
+ "sources": [
+  "검색:인간관계"
+ ],
+ "source": "web",
+ "tags": [
+  "정약용",
+  "인생명언",
+  "삶의지혜",
+  "노후지혜",
+  "인간관계",
+  "처세술",
+  "침묵의힘",
+  "자존감",
+  "심리적경계",
+  "오디오북"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "대답하는 순간 영원히 품위를 잃게 만드는 질문들이 있다."
+  },
+  {
+   "start": 206,
+   "title": "모든 것에 답하고 모든 것을 잃은 원로의 이야기"
+  },
+  {
+   "start": 451,
+   "title": "\"자신이 가진 재산 규모를 절대 밝히지 말고, 자녀 자랑도 절대 하지 마라.\""
+  },
+  {
+   "start": 731,
+   "title": "\"집 안에서 일어난 일은 절대 현관문 밖으로 새어 나가서는 안 됩니다.\""
+  },
+  {
+   "start": 1038,
+   "title": "\"고통을 드러내는 순간, 존중은 동정이 되고, 동정은 경멸이 된다.\""
+  },
+  {
+   "start": 1398,
+   "title": "침묵은 공허함이 아니다. 그것은 증명할 것이 아무것도 없는 사람의 충만함이다."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 277,
+ "comments_top_level": 127,
+ "comments_replies": 150,
+ "comments_by_creator": 123,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 277,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:33:59",
+ "approved": "2026-11-11T22:34+09:00"
+}

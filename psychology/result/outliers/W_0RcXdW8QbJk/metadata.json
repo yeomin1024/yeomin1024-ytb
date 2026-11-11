@@ -1,0 +1,83 @@
+{
+ "id": "0RcXdW8QbJk",
+ "title": "남자가 절대로 떠나지 못하는 여자 특징 | 20년 차 상담심리전문가가 말하는 관계의 비밀",
+ "channel": "김은주 박사 심리 볕뉘",
+ "channel_id": "UCdZKJdWpuHRs0MIkN0ZwZQw",
+ "subs": 266,
+ "views": 41077,
+ "ratio": 154.42,
+ "age_days": 95,
+ "views_per_day": 429.5,
+ "minutes": 7.0,
+ "likes": 370,
+ "comments": 14,
+ "published": "2026-08-07",
+ "queries": "검색:심리상담",
+ "url": "https://www.youtube.com/watch?v=0RcXdW8QbJk",
+ "flag": "",
+ "published_at": "2026-08-07T18:09:44Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_0RcXdW8QbJk",
+ "sources": [
+  "검색:심리상담"
+ ],
+ "source": "web",
+ "tags": [
+  "남자가 오래 사랑하는 여자",
+  "남자가 오래 사랑하는 여자 특징",
+  "남자가 평생 사랑하는 여자",
+  "남자가 못 떠나는 여자",
+  "남자가 좋아하는 여자 특징",
+  "연애 심리학",
+  "교류분석 심리학",
+  "교류분석 연애",
+  "상담심리전문가",
+  "연애 상담",
+  "부부 상담",
+  "남녀 심리",
+  "연애 대화법",
+  "자존감 높은 연애",
+  "오래가는 연애 특징",
+  "남자 심리 분석",
+  "정서적 안식처",
+  "심리 상담사 연애",
+  "연애 자존감"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 남자가 질리지 않고 오래 사랑하는 진짜 이유"
+  },
+  {
+   "start": 85,
+   "title": "첫 번째: 내 마음의 '상처받은 아이'를 스스로 다독이는 여자"
+  },
+  {
+   "start": 220,
+   "title": "두 번째: 잔소리 대신 어른의 목소리로 '투명하게 요청'하는 여자"
+  },
+  {
+   "start": 370,
+   "title": "세 번째: 남자의 마음속 '천진난만한 아이'를 꺼내주는 여자"
+  },
+  {
+   "start": 510,
+   "title": "마무리: \"나도 괜찮고, 너도 괜찮다\" (I'm OK, You're OK)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 14,
+ "comments_top_level": 9,
+ "comments_replies": 5,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:34:20",
+ "approved": "2026-11-11T22:34+09:00"
+}

@@ -1,0 +1,79 @@
+{
+ "id": "E5B-bl-WdZY",
+ "title": "모임에서 유독 품격있는 사람들이 옷을 단정하게 입는 '진짜 이유' ㅣ Ep. 책과사람 62 (김경일 교수님 3부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 2238710,
+ "ratio": 1.74,
+ "age_days": 262,
+ "views_per_day": 8533.3,
+ "minutes": 24.7,
+ "likes": 19216,
+ "comments": 833,
+ "published": "2026-02-22",
+ "queries": "검색(전체 기간):심리",
+ "url": "https://www.youtube.com/watch?v=E5B-bl-WdZY",
+ "flag": "",
+ "published_at": "2026-02-22T01:00:15Z",
+ "rank": "W216",
+ "set": "web",
+ "folder": "W_E5B-bl-WdZY",
+ "sources": [
+  "검색(전체 기간):심리"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 27,
+   "title": "자기소개"
+  },
+  {
+   "start": 75,
+   "title": "옷입는 색으로 그 사람의 성향을 알 수 있습니다"
+  },
+  {
+   "start": 221,
+   "title": "심리학자가 말하는 나이들수록 옷차림이 중요한 이유"
+  },
+  {
+   "start": 466,
+   "title": "옷차림+외모가 첫인상에 미치는 영향"
+  },
+  {
+   "start": 706,
+   "title": "자주 웃는 사람이 진짜 무서운 이유"
+  },
+  {
+   "start": 867,
+   "title": "“고독을 선택해보세요” 남은 인생이 행복해집니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 833,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:09",
+ "approved": "2026-11-11T22:47+09:00"
+}

@@ -1,0 +1,92 @@
+{
+ "id": "vzendmOOrc8",
+ "title": "항상 집이 깨끗한 사람들은 '이 능력'이 특별하다?",
+ "channel": "어른이 심리학교",
+ "channel_id": "UCIKRqrFiSAePIg4s1mDi6Yw",
+ "subs": 13100,
+ "views": 308466,
+ "ratio": 23.55,
+ "age_days": 157,
+ "views_per_day": 1960.4,
+ "minutes": 11.2,
+ "likes": 3648,
+ "comments": 239,
+ "published": "2026-06-07",
+ "queries": "검색:뇌과학",
+ "url": "https://www.youtube.com/watch?v=vzendmOOrc8",
+ "flag": "",
+ "published_at": "2026-06-07T01:00:01Z",
+ "rank": "W89",
+ "set": "web",
+ "folder": "W_vzendmOOrc8",
+ "sources": [
+  "검색:뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "자기계발",
+  "뇌과학",
+  "생활심리",
+  "정리정돈",
+  "집정리",
+  "습관개선",
+  "라이프스타일",
+  "깨끗한집비밀",
+  "정리정돈뇌과학",
+  "집정리심리학",
+  "정리못하는이유",
+  "뇌구조차이",
+  "정리습관",
+  "깨끗한집사람들",
+  "정리정돈습관",
+  "집정리방법",
+  "뇌과학정리",
+  "정리정돈심리",
+  "깨끗한집유지법"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "충격적 현실 - 깨끗한 집의 비밀"
+  },
+  {
+   "start": 80,
+   "title": "당신이 놓친 뇌의 숨겨진 메커니즘"
+  },
+  {
+   "start": 176,
+   "title": "당신만 그런 게 아닙니다"
+  },
+  {
+   "start": 251,
+   "title": "깨끗한 집 사람들의 뇌가 다른 이유"
+  },
+  {
+   "start": 358,
+   "title": "뇌과학이 증명한 선순환의 비밀"
+  },
+  {
+   "start": 470,
+   "title": "오늘부터 바로 시작하는 뇌 재프로그래밍"
+  },
+  {
+   "start": 573,
+   "title": "당신의 뇌를 바꿀 첫 걸음"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 239,
+ "comments_top_level": 111,
+ "comments_replies": 128,
+ "comments_by_creator": 27,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 239,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:38:31",
+ "approved": "2026-11-11T22:38+09:00"
+}

@@ -1,0 +1,79 @@
+{
+ "id": "G8lBmJpXwfs",
+ "title": "재수 1년을 끌고 간 10초짜리 습관 | ADHD 정신과 의사",
+ "channel": "정신없는 정신과 의사 정재균",
+ "channel_id": "UCM6_dVOWiI7KQ4v2nxECJTQ",
+ "subs": 4620,
+ "views": 290947,
+ "ratio": 62.98,
+ "age_days": 27,
+ "views_per_day": 10453.3,
+ "minutes": 8.9,
+ "likes": 4280,
+ "comments": 198,
+ "published": "2026-10-14",
+ "queries": "검색:정신건강",
+ "url": "https://www.youtube.com/watch?v=G8lBmJpXwfs",
+ "flag": "",
+ "published_at": "2026-10-14T13:23:57Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_G8lBmJpXwfs",
+ "sources": [
+  "검색:정신건강"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "의지로는 안 되던 재수 1년"
+  },
+  {
+   "start": 72,
+   "title": "매일 아침이 협상이었어요"
+  },
+  {
+   "start": 143,
+   "title": "딴생각해도 몸은 알아요: 습관이라는 자동 조종"
+  },
+  {
+   "start": 211,
+   "title": "① 첫 동작 하나만 정하기"
+  },
+  {
+   "start": 291,
+   "title": "② 일과 일 사이, 틈에 심기"
+  },
+  {
+   "start": 366,
+   "title": "③ 무너진 날엔 최소 루틴"
+  },
+  {
+   "start": 410,
+   "title": "습관은 21일? 실제로는 66일"
+  },
+  {
+   "start": 472,
+   "title": "오늘, 틈 하나에 동작 하나"
+  },
+  {
+   "start": 499,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 198,
+ "comments_top_level": 129,
+ "comments_replies": 69,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 198,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:36:23",
+ "approved": "2026-11-11T22:36+09:00"
+}

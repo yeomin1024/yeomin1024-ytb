@@ -1,0 +1,107 @@
+{
+ "id": "pCMc9mT6BUM",
+ "title": "놀랍도록 영리한 사람들의 5가지 비밀 습관  ㅣ심리학 ㅣ인간관계 ㅣ자기계발",
+ "channel": "뇌생각 심리학",
+ "channel_id": "UC0Sihb0O1YvwpDlTb3u8R3Q",
+ "subs": 8200,
+ "views": 164509,
+ "ratio": 20.06,
+ "age_days": 123,
+ "views_per_day": 1335.6,
+ "minutes": 27.8,
+ "likes": 1784,
+ "comments": 58,
+ "published": "2026-07-11",
+ "queries": "검색:심리학 | 검색:인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=pCMc9mT6BUM",
+ "flag": "",
+ "published_at": "2026-07-11T05:15:08Z",
+ "rank": "W102",
+ "set": "web",
+ "folder": "W_pCMc9mT6BUM",
+ "sources": [
+  "검색:심리학",
+  "검색:인간관계 심리"
+ ],
+ "source": "web",
+ "tags": [
+  "뇌생각 심리학",
+  "심리학",
+  "뇌과학",
+  "인간관계",
+  "처세술",
+  "속마음",
+  "마음공부",
+  "자존감 회복",
+  "심리 분석",
+  "인간 심리",
+  "처세술 심리학",
+  "관계 심리학",
+  "심리 법칙",
+  "사람 심리",
+  "실전 심리학",
+  "멘탈 관리",
+  "자기계발",
+  "동기부여",
+  "잠재의식",
+  "감정관리",
+  "마음관리",
+  "psychology"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시끄러운 자리에서 단 한 문장으로 분위기를 바꾸는 사람"
+  },
+  {
+   "start": 80,
+   "title": "목소리 큰 사람을 진짜라 믿으면 벌어지는 일들"
+  },
+  {
+   "start": 164,
+   "title": "대화의 진짜 주인이 가진 첫 번째 은밀한 습관"
+  },
+  {
+   "start": 236,
+   "title": "사람의 메시지 중 말 자체가 차지하는 비중은 겨우 7%?"
+  },
+  {
+   "start": 384,
+   "title": "두서없이 쏟아낸 이야기를 한 문장으로 정리하는 힘"
+  },
+  {
+   "start": 471,
+   "title": "나를 한 걸음 떨어져서 관찰하는 뇌 과학의 비밀"
+  },
+  {
+   "start": 644,
+   "title": "감정이 격해지는 순간, 오히려 목소리가 낮아지는 이유"
+  },
+  {
+   "start": 745,
+   "title": "시스템 1과 시스템 2: 후회 없는 밤을 만드는 신중한 판단"
+  },
+  {
+   "start": 958,
+   "title": "진정으로 유능한 사람들이 조용히 내뱉는 뜻밖의 말 한마디"
+  },
+  {
+   "start": 1244,
+   "title": "말하기 전에 마법 같은 '3초'를 쉬면 일어나는 변화"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 58,
+ "comments_top_level": 30,
+ "comments_replies": 28,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 58,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:17",
+ "approved": "2026-11-11T22:39+09:00"
+}

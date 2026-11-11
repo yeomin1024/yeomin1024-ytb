@@ -1,0 +1,88 @@
+{
+ "id": "QSRau064GMQ",
+ "title": "등산하는 동안 뇌에서 벌어지는 놀라운 일 9가지",
+ "channel": "심리학 탐정",
+ "channel_id": "UCEbPp_MMeaw7Vyj2t-da31g",
+ "subs": 66000,
+ "views": 799711,
+ "ratio": 12.12,
+ "age_days": 46,
+ "views_per_day": 17308.3,
+ "minutes": 13.9,
+ "likes": 6649,
+ "comments": 291,
+ "published": "2026-09-26",
+ "queries": "검색:뇌과학",
+ "url": "https://www.youtube.com/watch?v=QSRau064GMQ",
+ "flag": "",
+ "published_at": "2026-09-26T04:29:39Z",
+ "rank": "W132",
+ "set": "web",
+ "folder": "W_QSRau064GMQ",
+ "sources": [
+  "검색:뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "#심리학",
+  "인간관계",
+  "처세",
+  "심리 분석",
+  "자기 계발",
+  "동기 부여",
+  "뇌과학",
+  "자존감"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "다리가 아니라 뇌가 바뀐다"
+  },
+  {
+   "start": 92,
+   "title": "출발 직후 – 스트레스 호르몬의 대청소"
+  },
+  {
+   "start": 182,
+   "title": "초록을 보는 것만으로 – 주의력 회복 이론"
+  },
+  {
+   "start": 270,
+   "title": "오르막의 고통 – 뇌가 진통제를 꺼내는 순간"
+  },
+  {
+   "start": 365,
+   "title": "울퉁불퉁한 길이 만드는 뇌 훈련"
+  },
+  {
+   "start": 452,
+   "title": "해마가 자라난다 – 기억력과 등산"
+  },
+  {
+   "start": 549,
+   "title": "정상에서 – 도파민과 조망 효과"
+  },
+  {
+   "start": 645,
+   "title": "하산길의 선물 – 문제가 풀리는 뇌"
+  },
+  {
+   "start": 740,
+   "title": "마무리 – 산이 처방하는 무료 치료제"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 291,
+ "comments_top_level": 180,
+ "comments_replies": 111,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 291,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:41:18",
+ "approved": "2026-11-11T22:41+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "rL4yzXIKbNM",
+ "title": "작은 선물을 자꾸 주는 사람의 심리학적 특징",
+ "channel": "현실적인 심리학",
+ "channel_id": "UCsoB7-gOL6WWET-jwdEffoQ",
+ "subs": 1880,
+ "views": 167580,
+ "ratio": 89.14,
+ "age_days": 16,
+ "views_per_day": 10146.6,
+ "minutes": 20.6,
+ "likes": 362,
+ "comments": 33,
+ "published": "2026-10-25",
+ "queries": "검색:인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=rL4yzXIKbNM",
+ "flag": "",
+ "published_at": "2026-10-25T21:00:18Z",
+ "rank": "W32",
+ "set": "web",
+ "folder": "W_rL4yzXIKbNM",
+ "sources": [
+  "검색:인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 39,
+   "title": "한 선배의 아침"
+  },
+  {
+   "start": 118,
+   "title": "심리학이 본 건네는 마음"
+  },
+  {
+   "start": 238,
+   "title": "첫 번째 이유"
+  },
+  {
+   "start": 399,
+   "title": "두 번째 이유"
+  },
+  {
+   "start": 611,
+   "title": "세 번째 이유"
+  },
+  {
+   "start": 823,
+   "title": "이 습관을 다시 바라보기"
+  },
+  {
+   "start": 879,
+   "title": "오늘부터 해 볼 세 가지"
+  },
+  {
+   "start": 977,
+   "title": "우리 세대, 그리고 가까운 사람들"
+  },
+  {
+   "start": 1116,
+   "title": "처음 질문으로 돌아가며"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 33,
+ "comments_top_level": 16,
+ "comments_replies": 17,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 33,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:35:46",
+ "approved": "2026-11-11T22:35+09:00"
+}

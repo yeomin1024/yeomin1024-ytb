@@ -1,0 +1,67 @@
+{
+ "id": "z-Cd7NEgc7s",
+ "title": "정신과 의사인 내가 사람에게 기대하지 않기로 결심한 이유 (정우열 원장 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1490635,
+ "ratio": 0.36,
+ "age_days": 1125,
+ "views_per_day": 1323.9,
+ "minutes": 15.3,
+ "likes": 26125,
+ "comments": 1315,
+ "published": "2023-10-12",
+ "queries": "검색(전체 기간):인간관계 | 검색(전체 기간):대인관계 | 검색(전체 기간):인간관계 심리 | 검색(전체 기간):인간관계고민 | 검색(전체 기간):인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=z-Cd7NEgc7s",
+ "flag": "",
+ "published_at": "2023-10-12T11:10:01Z",
+ "rank": "W297",
+ "set": "web",
+ "folder": "W_z-Cd7NEgc7s",
+ "sources": [
+  "검색(전체 기간):인간관계",
+  "검색(전체 기간):대인관계",
+  "검색(전체 기간):인간관계 심리",
+  "검색(전체 기간):인간관계고민",
+  "검색(전체 기간):인간관계 정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 27,
+   "title": "정신과 의사인 내가 사람에게 기대하지 않기로 결심한 이유"
+  },
+  {
+   "start": 200,
+   "title": "정신과의사가 되고, 사람들과 연락하고 지낼 필요가 없다 느낀 이유"
+  },
+  {
+   "start": 305,
+   "title": "굳이 연락하고 지내지 않아도 잘 사는 사람들 특징"
+  },
+  {
+   "start": 594,
+   "title": "현실적으로 자존감 높이는 확실한 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1315,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:18",
+ "approved": "2026-11-11T22:47+09:00"
+}

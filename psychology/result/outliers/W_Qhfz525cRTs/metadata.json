@@ -1,0 +1,91 @@
+{
+ "id": "Qhfz525cRTs",
+ "title": "뭘 해도 행복한 사람과 불만인 사람의 말버릇 | 박재연 리플러스 인간연구소 소장 #대화 #관계 #심리 | 세바시 인생질문 186회",
+ "channel": "세바시 인생질문",
+ "channel_id": "UCN-9Ehv9GC5fFwveWWJ3ibg",
+ "subs": 718000,
+ "views": 11560934,
+ "ratio": 16.1,
+ "age_days": 1656,
+ "views_per_day": 6977.3,
+ "minutes": 23.3,
+ "likes": 197065,
+ "comments": 3625,
+ "published": "2022-04-29",
+ "queries": "검색(전체 기간):심리 | 검색(전체 기간):관계심리 | 검색(전체 기간):인간관계 | 검색(전체 기간):대인관계 | 검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=Qhfz525cRTs",
+ "flag": "",
+ "published_at": "2022-04-29T11:00:30Z",
+ "rank": "W116",
+ "set": "web",
+ "folder": "W_Qhfz525cRTs",
+ "sources": [
+  "검색(전체 기간):심리",
+  "검색(전체 기간):관계심리",
+  "검색(전체 기간):인간관계",
+  "검색(전체 기간):대인관계",
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": [
+  "세바시",
+  "인생질문",
+  "인생질문클럽"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "INTRO"
+  },
+  {
+   "start": 22,
+   "title": "뭘 해도 행복한 사람들의 말 습관"
+  },
+  {
+   "start": 141,
+   "title": "행복한 사람은 타고난 걸까?"
+  },
+  {
+   "start": 372,
+   "title": "죽음학의 두 가지 명제: 한계성 유한성"
+  },
+  {
+   "start": 456,
+   "title": "트라우마를 남기는 사건의 특징"
+  },
+  {
+   "start": 522,
+   "title": "트라우마 떨쳐내고 행복해지는 법"
+  },
+  {
+   "start": 684,
+   "title": "뭘 해도 불만인 사람들의 특징"
+  },
+  {
+   "start": 946,
+   "title": "사람들의 말을 꼬아 듣지 않으려면"
+  },
+  {
+   "start": 1012,
+   "title": "인간의 모든 말은 부탁(Please) 아니면 감사(Thank you)다"
+  },
+  {
+   "start": 1113,
+   "title": "‘상처 준 사람'은 없다?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 3624,
+ "comments_top_level": 2967,
+ "comments_replies": 657,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3625,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:58",
+ "approved": "2026-11-11T22:40+09:00"
+}

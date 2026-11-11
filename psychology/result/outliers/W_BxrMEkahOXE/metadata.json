@@ -1,0 +1,69 @@
+{
+ "id": "BxrMEkahOXE",
+ "title": "우울증 치료 6년하고 깨달은 마음의 진리",
+ "channel": "민고영",
+ "channel_id": "UC4doHgl4BCXTw61U5E3Qtyw",
+ "subs": 20100,
+ "views": 432115,
+ "ratio": 21.5,
+ "age_days": 83,
+ "views_per_day": 5147.1,
+ "minutes": 11.3,
+ "likes": 5065,
+ "comments": 452,
+ "published": "2026-08-19",
+ "queries": "검색:정신건강",
+ "url": "https://www.youtube.com/watch?v=BxrMEkahOXE",
+ "flag": "",
+ "published_at": "2026-08-19T10:30:15Z",
+ "rank": "W96",
+ "set": "web",
+ "folder": "W_BxrMEkahOXE",
+ "sources": [
+  "검색:정신건강"
+ ],
+ "source": "web",
+ "tags": [
+  "심리",
+  "인간관계",
+  "토크",
+  "자기이해",
+  "자기돌봄",
+  "고민",
+  "정신건강",
+  "우울",
+  "불안"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오늘의 주제"
+  },
+  {
+   "start": 42,
+   "title": "1.부정적인 감정을 없앨 수 없다. 그리고 꼭 없애야 하는 것도 아니다."
+  },
+  {
+   "start": 265,
+   "title": "2.자극과 반응 사이에는 틈이 있다."
+  },
+  {
+   "start": 450,
+   "title": "3.머리가 이해하는 것과 마음이 믿게 되는 것은 다르다."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 452,
+ "comments_top_level": 284,
+ "comments_replies": 168,
+ "comments_by_creator": 31,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 452,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:00",
+ "approved": "2026-11-11T22:39+09:00"
+}

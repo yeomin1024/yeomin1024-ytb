@@ -1,0 +1,123 @@
+{
+ "id": "WGDslk67vNQ",
+ "title": "HSP들 당장 드루와..예민+불안러들 멘탈관리용 책 추천하러 왔다",
+ "channel": "마루코는 30살",
+ "channel_id": "UCWk8oeOn2PJgfmb772AVEgQ",
+ "subs": 2870,
+ "views": 81169,
+ "ratio": 28.28,
+ "age_days": 52,
+ "views_per_day": 1534.1,
+ "minutes": 15.6,
+ "likes": 1083,
+ "comments": 25,
+ "published": "2026-09-19",
+ "queries": "검색:멘탈관리",
+ "url": "https://www.youtube.com/watch?v=WGDslk67vNQ",
+ "flag": "",
+ "published_at": "2026-09-19T11:35:05Z",
+ "rank": "W80",
+ "set": "web",
+ "folder": "W_WGDslk67vNQ",
+ "sources": [
+  "검색:멘탈관리"
+ ],
+ "source": "web",
+ "tags": [
+  "마루코그래피",
+  "마루코는 30살",
+  "고민상담",
+  "연애고민상담",
+  "진로고민",
+  "진로고민상담",
+  "HSP",
+  "HSP 고민",
+  "책 추천",
+  "데일 카네기 자기관리론",
+  "혹시 나한테 화났나"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "intro"
+  },
+  {
+   "start": 7,
+   "title": "아주 짧은 근황 업뎃"
+  },
+  {
+   "start": 39,
+   "title": "오늘의 주제"
+  },
+  {
+   "start": 89,
+   "title": "다독인 아님 주의"
+  },
+  {
+   "start": 113,
+   "title": "첫번째 책"
+  },
+  {
+   "start": 181,
+   "title": "최애 문장들"
+  },
+  {
+   "start": 191,
+   "title": "최애 문장(1)"
+  },
+  {
+   "start": 260,
+   "title": "최애문장(2)"
+  },
+  {
+   "start": 346,
+   "title": "최애문장(3)"
+  },
+  {
+   "start": 424,
+   "title": "가장 좋았던 점"
+  },
+  {
+   "start": 497,
+   "title": "두번째 책"
+  },
+  {
+   "start": 559,
+   "title": "최애문장(1)"
+  },
+  {
+   "start": 582,
+   "title": "최애문장(2)"
+  },
+  {
+   "start": 632,
+   "title": "최애문장(3)"
+  },
+  {
+   "start": 684,
+   "title": "가장 좋았던 점"
+  },
+  {
+   "start": 697,
+   "title": "마지막 책"
+  },
+  {
+   "start": 863,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 25,
+ "comments_top_level": 14,
+ "comments_replies": 11,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 25,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:38:09",
+ "approved": "2026-11-11T22:38+09:00"
+}

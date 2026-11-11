@@ -1,0 +1,81 @@
+{
+ "id": "Vbi0Yc44SEs",
+ "title": "1분만 같이 있어도 느껴지는 그릇 큰 사람들의 특징 (성격 편)",
+ "channel": "한창수의 마음정비소",
+ "channel_id": "UCrYTwrtIYWH_woB6mbgoTqQ",
+ "subs": 127000,
+ "views": 1309628,
+ "ratio": 10.31,
+ "age_days": 146,
+ "views_per_day": 8968.9,
+ "minutes": 19.4,
+ "likes": 13133,
+ "comments": 808,
+ "published": "2026-06-18",
+ "queries": "검색:정신건강",
+ "url": "https://www.youtube.com/watch?v=Vbi0Yc44SEs",
+ "flag": "",
+ "published_at": "2026-06-18T08:55:20Z",
+ "rank": "W139",
+ "set": "web",
+ "folder": "W_Vbi0Yc44SEs",
+ "sources": [
+  "검색:정신건강"
+ ],
+ "source": "web",
+ "tags": [
+  "심리",
+  "정신건강",
+  "마음",
+  "우울",
+  "불안",
+  "자존감",
+  "자기효능감",
+  "인간관계",
+  "마음정비소",
+  "한창수",
+  "이호선",
+  "지식인사이드",
+  "책과삶",
+  "옹달책방",
+  "김미경",
+  "이창옥",
+  "이지영",
+  "김미경 강사",
+  "김미경티비",
+  "김미경 강의",
+  "인간관계 명언"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 46,
+   "title": "그릇 큰 사람들의 특징?"
+  },
+  {
+   "start": 545,
+   "title": "그릇 큰 사람에게는 눈치 보는 이유?"
+  },
+  {
+   "start": 840,
+   "title": "그릇 큰 사람이 되는 방법?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 807,
+ "comments_top_level": 418,
+ "comments_replies": 389,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 808,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:41:43",
+ "approved": "2026-11-11T22:41+09:00"
+}

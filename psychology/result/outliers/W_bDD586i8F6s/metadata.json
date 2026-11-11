@@ -1,0 +1,73 @@
+{
+ "id": "bDD586i8F6s",
+ "title": "심리학자가 사람의 깊이를 알고 싶을때 한다는 질문ㅣ지식인초대석 EP.119 (김경일 교수 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1713157,
+ "ratio": 0.41,
+ "age_days": 221,
+ "views_per_day": 7739.6,
+ "minutes": 28.1,
+ "likes": 18099,
+ "comments": 564,
+ "published": "2026-04-04",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리 | 검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=bDD586i8F6s",
+ "flag": "",
+ "published_at": "2026-04-04T01:00:37Z",
+ "rank": "W289",
+ "set": "web",
+ "folder": "W_bDD586i8F6s",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리",
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 24,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 79,
+   "title": "사람의 깊이를 알고 싶을때 하는 질문 ‘1가지’"
+  },
+  {
+   "start": 516,
+   "title": "아랫사람들에게 반말하는 사람들의 진짜 본성"
+  },
+  {
+   "start": 660,
+   "title": "평생 번아웃이 오지 않는 사람이 훨씬 위험한 이유"
+  },
+  {
+   "start": 1024,
+   "title": "요즘 한국인이 ‘사주’에 열광하는 심리학적 이유"
+  },
+  {
+   "start": 1289,
+   "title": "매달 받는 월급이 그리 기쁘지 않은 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 564,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:17",
+ "approved": "2026-11-11T22:47+09:00"
+}

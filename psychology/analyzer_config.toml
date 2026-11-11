@@ -1,0 +1,37 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 심리 (폴더 psychology)
+# VERSION: v1.0 — 2026-11-11 — 새로 만듦 (사용자 지시 2026-11-11 "가장 최근에 주식 주제에서 했던 것처럼 심리 주제로 분석 코드 돌려서 해당 주제 유튜브 분석에 필요한 자료 받고 페르소나 구성해서 내가 어떤 제목, 썸네일 문구, 보조문구로 영상 만들어야 하는지 하나 알려줘봐 그리고 최근 트렌드도 반영해야 돼").
+#          값은 history/analyzer_config.toml v1.1 (= stock v3.2) 과 같고 다른 것: 주제 이름·폴더만. 외국 영상 꺼짐 (한국어 시장).
+#
+# ▶ 클라우드 (이 환경): python3 tools/cloud_run.py psychology <status|explore|list|approve|baseline|analyze|resume> (psychology/README.md)
+# ▶ PC (웹 화면): ⚠️ 켜지 않음 — 클라우드가 분석 중 (PC 가 켜면 자기 결과로 GitHub 의 psychology/result/outliers/ 를 바꿈)
+# ※ 연구·교육용 분석 — 의료·심리 상담·투자 권유가 아니다.
+# =====================================================================================================
+
+[topic]
+TOPIC = "심리"
+PROJECT_FOLDER = "psychology"        # 결과 상위 폴더 → PC: output/psychology/result/, GitHub: psychology/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 한국어 영상만 (기본)
+
+[keywords]
+KEYWORD_MODE = "curated"
+KEYWORDS_FILE = "keywords.toml"      # 관련어·제외어 목록 파일. 검색어는 keywords.txt (tools/tag_keywords.py 가 실제 영상 태그로 고름)
+
+[ads]
+AD_SUSPECT_FILTER = true
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (분석기 youtube_topic_analyzer.py 몫 — 클라우드 탐색은 cloud_run 이 남은 만큼)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 — 자막·썸네일·댓글·메타데이터만

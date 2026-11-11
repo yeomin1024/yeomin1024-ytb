@@ -1,0 +1,81 @@
+{
+ "id": "rswah8mIWkw",
+ "title": "나이 들고 친구 적은 걸 전혀 슬퍼할 필요없는 이유 (노후 편)",
+ "channel": "한창수의 마음정비소",
+ "channel_id": "UCrYTwrtIYWH_woB6mbgoTqQ",
+ "subs": 127000,
+ "views": 384863,
+ "ratio": 3.03,
+ "age_days": 20,
+ "views_per_day": 19224.5,
+ "minutes": 24.9,
+ "likes": 1555,
+ "comments": 68,
+ "published": "2026-10-22",
+ "queries": "검색:대인관계",
+ "url": "https://www.youtube.com/watch?v=rswah8mIWkw",
+ "flag": "",
+ "published_at": "2026-10-22T08:55:19Z",
+ "rank": "W188",
+ "set": "web",
+ "folder": "W_rswah8mIWkw",
+ "sources": [
+  "검색:대인관계"
+ ],
+ "source": "web",
+ "tags": [
+  "심리",
+  "정신건강",
+  "마음",
+  "우울",
+  "불안",
+  "자존감",
+  "자기효능감",
+  "인간관계",
+  "마음정비소",
+  "한창수",
+  "이호선",
+  "지식인사이드",
+  "책과삶",
+  "옹달책방",
+  "김미경",
+  "이창옥",
+  "이지영"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 72,
+   "title": "50세가 되면 인간 관계가 달라지는 이유?"
+  },
+  {
+   "start": 382,
+   "title": "인간 관계가 줄어들면 왜 불안할까?"
+  },
+  {
+   "start": 827,
+   "title": "자주 못 봐도 만나면 편한 친구 특징"
+  },
+  {
+   "start": 1203,
+   "title": "자주 못 만나도 깊은 관계를 유지하는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 68,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:06",
+ "approved": "2026-11-11T22:47+09:00"
+}

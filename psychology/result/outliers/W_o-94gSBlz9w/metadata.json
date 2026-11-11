@@ -1,0 +1,79 @@
+{
+ "id": "o-94gSBlz9w",
+ "title": "정신과상담 10만번 하고 깨달았습니다. 근심과 걱정을 없애는 가장 현명한 방법 (90세 이근후 박사 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1630560,
+ "ratio": 0.39,
+ "age_days": 1252,
+ "views_per_day": 1301.4,
+ "minutes": 15.7,
+ "likes": 37654,
+ "comments": 1054,
+ "published": "2023-06-07",
+ "queries": "검색(전체 기간):심리상담",
+ "url": "https://www.youtube.com/watch?v=o-94gSBlz9w",
+ "flag": "",
+ "published_at": "2023-06-07T11:01:10Z",
+ "rank": "W293",
+ "set": "web",
+ "folder": "W_o-94gSBlz9w",
+ "sources": [
+  "검색(전체 기간):심리상담"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 21,
+   "title": "우울증을 방치하면 생기는 결말"
+  },
+  {
+   "start": 59,
+   "title": "몸이 보내는 우울증 신호, 원인"
+  },
+  {
+   "start": 171,
+   "title": "내 마음 속을 들여다보는 방법"
+  },
+  {
+   "start": 244,
+   "title": "우울증 극복하는 법 딱 ‘1가지’"
+  },
+  {
+   "start": 408,
+   "title": "‘나답게’ 살아가는 2가지 방법-1"
+  },
+  {
+   "start": 520,
+   "title": "‘나답게’ 살아가는 2가지 방법-2"
+  },
+  {
+   "start": 644,
+   "title": "90년 살아보니 깨달은 행복한 인생"
+  },
+  {
+   "start": 821,
+   "title": "앞으로, 우울증 환자가 점점 많아진다?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1054,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:18",
+ "approved": "2026-11-11T22:47+09:00"
+}

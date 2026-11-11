@@ -1,0 +1,112 @@
+{
+ "id": "xk46_2WsjMk",
+ "title": "친한 사람들과 여행 갔다가 사이가 틀어지는 진짜 이유(feat. 심리학) | 갈등심리학 | 우정 |",
+ "channel": "브라보 인생후반전",
+ "channel_id": "UCwTDoSa0GdMlUxZlpvD-K8A",
+ "subs": 8530,
+ "views": 522743,
+ "ratio": 61.28,
+ "age_days": 59,
+ "views_per_day": 8791.0,
+ "minutes": 25.2,
+ "likes": 1891,
+ "comments": 302,
+ "published": "2026-09-12",
+ "queries": "검색:심리학 | 검색:인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=xk46_2WsjMk",
+ "flag": "",
+ "published_at": "2026-09-12T22:15:23Z",
+ "rank": "W43",
+ "set": "web",
+ "folder": "W_xk46_2WsjMk",
+ "sources": [
+  "검색:심리학",
+  "검색:인간관계 심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "시니어심리",
+  "인생후반전",
+  "마음치유",
+  "중장년고민",
+  "빈둥지증후군",
+  "자녀관계",
+  "노후준비",
+  "심리분석",
+  "브라보인생후반전",
+  "자기계발",
+  "황혼심리",
+  "친구관계",
+  "여행 갈등",
+  "인간관계 심리학",
+  "우정",
+  "관계 심리",
+  "가트맨",
+  "갈등 관리",
+  "본성",
+  "여행 스트레스",
+  "친구 사이",
+  "관계 회복",
+  "마음챙김",
+  "대인관계",
+  "심리 이야기",
+  "공감 콘텐츠"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 101,
+   "title": "1단계. 평소엔 정말 친한 사이였다"
+  },
+  {
+   "start": 251,
+   "title": "2단계. 여행에는 생각보다 많은 배려가 필요하다"
+  },
+  {
+   "start": 410,
+   "title": "3단계. 처음엔 모든 것이 좋았다"
+  },
+  {
+   "start": 618,
+   "title": "4단계. 작은 불편함이 쌓이기 시작한다"
+  },
+  {
+   "start": 768,
+   "title": "5단계. 결국 참았던 사람이 폭발한다"
+  },
+  {
+   "start": 912,
+   "title": "6단계. 싸움보다 더 무서운 침묵이 시작된다"
+  },
+  {
+   "start": 1063,
+   "title": "7단계. 우리는 그 사람의 '본성'을 판단하기 시작한다"
+  },
+  {
+   "start": 1230,
+   "title": "8단계. 여행이 끝난 뒤, 관계의 거리가 달라진다"
+  },
+  {
+   "start": 1396,
+   "title": "아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 302,
+ "comments_top_level": 113,
+ "comments_replies": 189,
+ "comments_by_creator": 112,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 302,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:36:48",
+ "approved": "2026-11-11T22:36+09:00"
+}

@@ -1,0 +1,120 @@
+{
+ "id": "HAqwaViT1tU",
+ "title": "잠으로 현실 도피? ‘도피 수면’에서 벗어나는 방법",
+ "channel": "홍승주의 디스턴싱",
+ "channel_id": "UCKi1my0kbyqsapbI0Vj0ekA",
+ "subs": 29400,
+ "views": 539143,
+ "ratio": 18.34,
+ "age_days": 74,
+ "views_per_day": 7284.1,
+ "minutes": 19.0,
+ "likes": 5319,
+ "comments": 274,
+ "published": "2026-08-29",
+ "queries": "검색:정신건강",
+ "url": "https://www.youtube.com/watch?v=HAqwaViT1tU",
+ "flag": "",
+ "published_at": "2026-08-29T09:00:19Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W_HAqwaViT1tU",
+ "sources": [
+  "검색:정신건강"
+ ],
+ "source": "web",
+ "tags": [
+  "우울증",
+  "불안",
+  "불안장애",
+  "대인기피",
+  "심리",
+  "심리치료",
+  "심리상담",
+  "디스턴싱",
+  "반추",
+  "우울",
+  "사회불안",
+  "자책",
+  "무기력",
+  "우울감",
+  "슬픔",
+  "생각",
+  "인정욕구",
+  "고립",
+  "공황",
+  "공황장애",
+  "중독",
+  "과민",
+  "통제",
+  "대인관계",
+  "자존감",
+  "홍승주",
+  "정신과",
+  "정신과상담",
+  "불안감 없애는 법",
+  "반추 멈추는법",
+  "반추 극복",
+  "불안감 극복",
+  "불안 장애",
+  "불안형",
+  "우울증 극복",
+  "우울증 증상",
+  "도피",
+  "회피",
+  "도피수면",
+  "회피수면"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1) 잠이 와서 자는 걸까? 깨어 있기 싫어 자는 걸까?"
+  },
+  {
+   "start": 78,
+   "title": "2) 핵심은 ‘수면’이 아니라 ‘도피’"
+  },
+  {
+   "start": 223,
+   "title": "3) 내 수면은 도피가 맞을까?"
+  },
+  {
+   "start": 390,
+   "title": "4) 훈련 1. ‘수면 충동’이 생기는 순간을 기록하기"
+  },
+  {
+   "start": 505,
+   "title": "5) 훈련 2. 더도 말고 덜도 말고 딱 10분 수면 미루기"
+  },
+  {
+   "start": 582,
+   "title": "6) 훈련 3. ‘자지 않기’가 아니라 ‘딱 하나 하기’"
+  },
+  {
+   "start": 690,
+   "title": "7) 훈련 4. 잠이 해주던 일을 다른 행동에게 맡기기"
+  },
+  {
+   "start": 842,
+   "title": "8) 훈련 5. 깨어 있을 이유 늘리기"
+  },
+  {
+   "start": 993,
+   "title": "9) 수면을 나쁘게 생각하지 말자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 274,
+ "comments_top_level": 164,
+ "comments_replies": 110,
+ "comments_by_creator": 52,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 274,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:29",
+ "approved": "2026-11-11T22:39+09:00"
+}

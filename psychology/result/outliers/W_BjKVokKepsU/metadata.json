@@ -1,0 +1,88 @@
+{
+ "id": "BjKVokKepsU",
+ "title": "인생을 바꾸고 싶다면 안쓰는 물건부터 버리세요!  65세까지는  아까워도 버려야 하는 진짜 이유! 뇌과학으로 본 비움의 과학",
+ "channel": "바로쓰는 심리학",
+ "channel_id": "UCBCEvvfy9EOoo_l5nX6cPAw",
+ "subs": 27100,
+ "views": 722141,
+ "ratio": 26.65,
+ "age_days": 156,
+ "views_per_day": 4627.7,
+ "minutes": 15.2,
+ "likes": 13266,
+ "comments": 634,
+ "published": "2026-06-08",
+ "queries": "검색:심리학 | 검색:심리 | 검색:뇌과학 | 검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=BjKVokKepsU",
+ "flag": "",
+ "published_at": "2026-06-08T08:15:05Z",
+ "rank": "W83",
+ "set": "web",
+ "folder": "W_BjKVokKepsU",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색:뇌과학",
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "뇌과학",
+  "정리",
+  "방청소",
+  "수납"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "옷장은 꽉 찼는데 입을 옷이 없는 아이러니"
+  },
+  {
+   "start": 36,
+   "title": "당신이 이상한 게 아니다: 물건을 버릴 때 뇌에서 일어나는 일"
+  },
+  {
+   "start": 141,
+   "title": "안 쓰는 물건이 우리의 뇌와 일상을 무너뜨리는 과학적 이유"
+  },
+  {
+   "start": 270,
+   "title": "만성 피로의 주범, 집안 물건 밀도와 스트레스 호르몬의 관계"
+  },
+  {
+   "start": 331,
+   "title": "우리가 번번이 버리기에 실패하는 3가지 심리적 덫"
+  },
+  {
+   "start": 515,
+   "title": "쓰지도 않는 물건을 안고 사는 것이 진짜 '큰 손실'인 이유"
+  },
+  {
+   "start": 580,
+   "title": "인생의 무게를 줄여줄 강력한 비움의 기준 3가지"
+  },
+  {
+   "start": 713,
+   "title": "비움이 가져다주는 인생 후반전의 기적과 여백의 미학"
+  },
+  {
+   "start": 834,
+   "title": "[오늘의 미션] 꽉 막힌 인생을 풀어줄 '5분 타이머 비움 법칙'"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 634,
+ "comments_top_level": 319,
+ "comments_replies": 315,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 634,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:38:15",
+ "approved": "2026-11-11T22:38+09:00"
+}

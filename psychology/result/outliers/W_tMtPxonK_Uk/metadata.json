@@ -1,0 +1,92 @@
+{
+ "id": "tMtPxonK_Uk",
+ "title": "지능이 높을수록 나이가 들면 친구를 정리 하는 이유",
+ "channel": "단단한 인생 2막",
+ "channel_id": "UCk2tYPqDh-kg7_Bz2SbPXbQ",
+ "subs": 455,
+ "views": 87125,
+ "ratio": 191.48,
+ "age_days": 103,
+ "views_per_day": 838.5,
+ "minutes": 20.0,
+ "likes": 1093,
+ "comments": 211,
+ "published": "2026-07-30",
+ "queries": "검색:인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=tMtPxonK_Uk",
+ "flag": "",
+ "published_at": "2026-07-30T11:42:04Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_tMtPxonK_Uk",
+ "sources": [
+  "검색:인간관계 정리"
+ ],
+ "source": "web",
+ "tags": [
+  "인생조언",
+  "마음공부",
+  "처세술",
+  "중년",
+  "노후대비",
+  "자기계발",
+  "친구정리",
+  "인간관계스트레스",
+  "인간관계조언",
+  "심리분석",
+  "나이들수록",
+  "중년인간관계",
+  "외로움",
+  "혼자있는시간",
+  "내면성장",
+  "인생철학",
+  "현명한관계",
+  "손절기준",
+  "사회성",
+  "가치관"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "친구 연락이 한숨으로 변한 진짜 이유"
+  },
+  {
+   "start": 72,
+   "title": "우리가 맺어온 인연의 숨겨진 실체"
+  },
+  {
+   "start": 125,
+   "title": "나이 들수록 뇌가 남은 시간을 계산하는 방식"
+  },
+  {
+   "start": 190,
+   "title": "사회정서적 선택 이론: 넓은 관계에서 깊은 관계로"
+  },
+  {
+   "start": 258,
+   "title": "체력과 시간의 가치를 깨달을 때 생기는 변화"
+  },
+  {
+   "start": 332,
+   "title": "진짜 사회성이란 관계의 개수가 아닌 밀도"
+  },
+  {
+   "start": 405,
+   "title": "관계를 정리하지 못해 힘겨운 세 가지 유형"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 211,
+ "comments_top_level": 88,
+ "comments_replies": 123,
+ "comments_by_creator": 88,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 211,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:34:09",
+ "approved": "2026-11-11T22:34+09:00"
+}

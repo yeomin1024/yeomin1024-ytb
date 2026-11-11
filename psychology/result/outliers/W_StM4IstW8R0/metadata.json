@@ -1,0 +1,77 @@
+{
+ "id": "StM4IstW8R0",
+ "title": "통찰력이 뛰어난 사람이 유독 외로운 5가지 심리적 이유",
+ "channel": "심리세포",
+ "channel_id": "UCNHhTJTUoHa_LZwl3Js-8pQ",
+ "subs": 13400,
+ "views": 740233,
+ "ratio": 55.24,
+ "age_days": 74,
+ "views_per_day": 9873.2,
+ "minutes": 5.3,
+ "likes": 4290,
+ "comments": 1121,
+ "published": "2026-08-28",
+ "queries": "검색:심리 | 검색:외로움",
+ "url": "https://www.youtube.com/watch?v=StM4IstW8R0",
+ "flag": "",
+ "published_at": "2026-08-28T10:00:08Z",
+ "rank": "W50",
+ "set": "web",
+ "folder": "W_StM4IstW8R0",
+ "sources": [
+  "검색:심리",
+  "검색:외로움"
+ ],
+ "source": "web",
+ "tags": [
+  "통찰력",
+  "심리학",
+  "뇌과학",
+  "자기이해"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 – 통찰력과 외로움, 무슨 관계가 있을까?"
+  },
+  {
+   "start": 33,
+   "title": "첫 번째 이유 – 지식의 저주"
+  },
+  {
+   "start": 85,
+   "title": "두 번째 이유 – 공감 정확성과 관계 만족도"
+  },
+  {
+   "start": 135,
+   "title": "세 번째 이유 – 감각처리민감성 이론"
+  },
+  {
+   "start": 188,
+   "title": "네 번째 이유 – 지능과 사교 빈도의 역설"
+  },
+  {
+   "start": 233,
+   "title": "다섯 번째 이유 – 경험에 대한 개방성"
+  },
+  {
+   "start": 286,
+   "title": "클로징 – 외로움은 부족함이 아니라 깊이의 증거입니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1121,
+ "comments_top_level": 688,
+ "comments_replies": 433,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1121,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:37:03",
+ "approved": "2026-11-11T22:37+09:00"
+}

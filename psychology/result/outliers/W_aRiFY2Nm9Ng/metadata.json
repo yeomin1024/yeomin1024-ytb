@@ -1,0 +1,79 @@
+{
+ "id": "aRiFY2Nm9Ng",
+ "title": "당신이 사실 2명인 이유 (feat. 노벨상)",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 5050419,
+ "ratio": null,
+ "age_days": 1044,
+ "views_per_day": 4833.9,
+ "minutes": 8.2,
+ "likes": 75453,
+ "comments": 2843,
+ "published": "2024-01-01",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리 | 검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=aRiFY2Nm9Ng",
+ "flag": "",
+ "published_at": "2024-01-01T14:32:57Z",
+ "rank": "W309",
+ "set": "web",
+ "folder": "W_aRiFY2Nm9Ng",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리",
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "뇌과학",
+  "분리뇌",
+  "외계인손증후군",
+  "좌뇌",
+  "우뇌"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한 사람 안의 두 개의 의식?"
+  },
+  {
+   "start": 50,
+   "title": "뇌가 2개면 생기는 일"
+  },
+  {
+   "start": 168,
+   "title": "스피드퀴즈를 하는 뇌"
+  },
+  {
+   "start": 278,
+   "title": "과일이냐 얼굴이냐"
+  },
+  {
+   "start": 332,
+   "title": "좌뇌의 무의식"
+  },
+  {
+   "start": 410,
+   "title": "수용전념기법"
+  },
+  {
+   "start": 464,
+   "title": "어떤 '나'로 살 것인가​"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2843,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

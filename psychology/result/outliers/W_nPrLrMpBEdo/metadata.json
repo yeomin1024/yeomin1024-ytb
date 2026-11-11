@@ -1,0 +1,90 @@
+{
+ "id": "nPrLrMpBEdo",
+ "title": "외로움은 누구의 잘못도 아니다, 유시민이 말하는 외로움과 열등감을 넘는 법",
+ "channel": "시민응원",
+ "channel_id": "UCzs32Jp0pZ3LFOpnIzBx2cQ",
+ "subs": 5540,
+ "views": 24433,
+ "ratio": 4.41,
+ "age_days": 8,
+ "views_per_day": 2735.3,
+ "minutes": 15.7,
+ "likes": 281,
+ "comments": 14,
+ "published": "2026-11-02",
+ "queries": "검색:외로움",
+ "url": "https://www.youtube.com/watch?v=nPrLrMpBEdo",
+ "flag": "",
+ "published_at": "2026-11-02T11:00:34Z",
+ "rank": "W169",
+ "set": "web",
+ "folder": "W_nPrLrMpBEdo",
+ "sources": [
+  "검색:외로움"
+ ],
+ "source": "web",
+ "tags": [
+  "유시민",
+  "유시민 강연",
+  "외로움",
+  "소통",
+  "열등감",
+  "인간관계",
+  "사랑은 소유가 아니다",
+  "어떻게 살 것인가",
+  "자기다운 삶",
+  "케빈 카터",
+  "독수리와 소녀",
+  "스펙",
+  "인생 조언",
+  "시민응원"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "원래 소통은 안 되는 게 정상"
+  },
+  {
+   "start": 5,
+   "title": "소통은 원래 어렵다"
+  },
+  {
+   "start": 46,
+   "title": "Q1. 가장 힘든 두 감정"
+  },
+  {
+   "start": 161,
+   "title": "Q2. 누구의 잘못도 없는 외로움"
+  },
+  {
+   "start": 427,
+   "title": "Q3. 소통은 원래 어렵다"
+  },
+  {
+   "start": 622,
+   "title": "Q4. 사랑은 소유가 아니다"
+  },
+  {
+   "start": 783,
+   "title": "Q5. 열등감을 넘는 법"
+  },
+  {
+   "start": 886,
+   "title": "유시민의 생각"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 14,
+ "comments_top_level": 13,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 14,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:44:59",
+ "approved": "2026-11-11T22:45+09:00"
+}

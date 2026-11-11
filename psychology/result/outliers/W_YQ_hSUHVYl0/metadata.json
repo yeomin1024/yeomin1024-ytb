@@ -1,0 +1,75 @@
+{
+ "id": "YQ_hSUHVYl0",
+ "title": "변호사와 고대생이 해주는 현실 고민상담",
+ "channel": "소윤을말해봐",
+ "channel_id": "UC15HI487tGk9OzEnxPGiy8w",
+ "subs": 17200,
+ "views": 188611,
+ "ratio": 10.97,
+ "age_days": 82,
+ "views_per_day": 2274.4,
+ "minutes": 22.3,
+ "likes": 2560,
+ "comments": 224,
+ "published": "2026-08-20",
+ "queries": "검색:상담",
+ "url": "https://www.youtube.com/watch?v=YQ_hSUHVYl0",
+ "flag": "",
+ "published_at": "2026-08-20T11:08:56Z",
+ "rank": "W137",
+ "set": "web",
+ "folder": "W_YQ_hSUHVYl0",
+ "sources": [
+  "검색:상담"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 76,
+   "title": "8년의 인연... 놔줘야할까?"
+  },
+  {
+   "start": 152,
+   "title": "어장치는 남자 심리, 남자가 말하는 '연애할 수 없는 상황'"
+  },
+  {
+   "start": 374,
+   "title": "남친있는 전여친과의 부적절한 만남"
+  },
+  {
+   "start": 547,
+   "title": "미안하다는 말이... 그렇게 어려워?"
+  },
+  {
+   "start": 732,
+   "title": "수능 D-91, 멘탈 관리 하는법"
+  },
+  {
+   "start": 882,
+   "title": "대학이 인생에서 그렇게 중요한가?"
+  },
+  {
+   "start": 1077,
+   "title": "여행vs저축, 내가 좋아하는 일에 대한 소비"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 224,
+ "comments_top_level": 196,
+ "comments_replies": 28,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 224,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:41:38",
+ "approved": "2026-11-11T22:41+09:00"
+}

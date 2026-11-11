@@ -1,0 +1,79 @@
+{
+ "id": "uiu7pHiWMC0",
+ "title": "어릴 때 부모에게 사랑받지 못한 아이들은, 커서 90% '이런 어른' 됩니다 (권수영 교수 1부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 1720622,
+ "ratio": 1.33,
+ "age_days": 552,
+ "views_per_day": 3117.0,
+ "minutes": 12.2,
+ "likes": 24196,
+ "comments": 3148,
+ "published": "2025-05-08",
+ "queries": "검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=uiu7pHiWMC0",
+ "flag": "",
+ "published_at": "2025-05-08T09:01:30Z",
+ "rank": "W237",
+ "set": "web",
+ "folder": "W_uiu7pHiWMC0",
+ "sources": [
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 48,
+   "title": "어릴 때 사랑받지 못하고 자란 사람의 성격 유형"
+  },
+  {
+   "start": 141,
+   "title": "사랑받지 못하고 자란 사람들은 '이런 말' 자주 합니다"
+  },
+  {
+   "start": 177,
+   "title": "과거의 아픔에서 벗어나, 사랑을 주고받는 사람이 되는 방법"
+  },
+  {
+   "start": 396,
+   "title": "성인이 된 자녀와 평생 잘 지내는 부모의 특징"
+  },
+  {
+   "start": 457,
+   "title": "아이의 자존감을 높여주는 부모들은 '이런 말' 자주 합니다"
+  },
+  {
+   "start": 604,
+   "title": "인간관계로 상처받은 아이에게 부모가 절대 하면 안 되는 행동"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 3148,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:11",
+ "approved": "2026-11-11T22:47+09:00"
+}

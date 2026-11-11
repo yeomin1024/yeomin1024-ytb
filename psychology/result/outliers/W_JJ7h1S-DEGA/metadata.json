@@ -1,0 +1,88 @@
+{
+ "id": "JJ7h1S-DEGA",
+ "title": "\"틀어놓고 주무세요\" 사람 때문에 스트레스받을 때 나 자신을 지키는 단순한 방법 | 인간관계 기술 | 밤산책 Ep.3 (한석준 아나운서)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 671647,
+ "ratio": 0.52,
+ "age_days": 13,
+ "views_per_day": 51604.6,
+ "minutes": 52.4,
+ "likes": 4051,
+ "comments": 89,
+ "published": "2026-10-29",
+ "queries": "검색:인간관계 | 검색:스트레스",
+ "url": "https://www.youtube.com/watch?v=JJ7h1S-DEGA",
+ "flag": "",
+ "published_at": "2026-10-29T09:00:13Z",
+ "rank": "W281",
+ "set": "web",
+ "folder": "W_JJ7h1S-DEGA",
+ "sources": [
+  "검색:인간관계",
+  "검색:스트레스"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 138,
+   "title": "두 아나운서의 첫 만남"
+  },
+  {
+   "start": 257,
+   "title": "관계를 지킨다는 것"
+  },
+  {
+   "start": 399,
+   "title": "매일 필사했더니 뇌에 일어난 기적"
+  },
+  {
+   "start": 790,
+   "title": "무례한 사람으로부터 나를 지키는 방법"
+  },
+  {
+   "start": 1477,
+   "title": "사람에게서 정말 보아야 할 것"
+  },
+  {
+   "start": 2002,
+   "title": "사람을 제대로 보려면"
+  },
+  {
+   "start": 2356,
+   "title": "가장 사랑하는 사람에게도 내 행복을 맡기지 마라"
+  },
+  {
+   "start": 2669,
+   "title": "오래도록 곁에 둘 인연의 특징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 89,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:16",
+ "approved": "2026-11-11T22:47+09:00"
+}

@@ -1,0 +1,55 @@
+{
+ "id": "CDWnt-PvVSg",
+ "title": "[재우려고 만든 영상] 붓다 베스트 3시간 모음집 | 놓아버리면 아무것도 문제되지 않는다",
+ "channel": "책읽는 자작나무",
+ "channel_id": "UCPhvyjw3ZrfxjEv6d5xE-7Q",
+ "subs": 493000,
+ "views": 345050,
+ "ratio": 0.7,
+ "age_days": 34,
+ "views_per_day": 9889.4,
+ "minutes": 158.4,
+ "likes": 4133,
+ "comments": 196,
+ "published": "2026-10-07",
+ "queries": "검색:마음공부",
+ "url": "https://www.youtube.com/watch?v=CDWnt-PvVSg",
+ "flag": "",
+ "published_at": "2026-10-07T12:00:34Z",
+ "rank": "W269",
+ "set": "web",
+ "folder": "W_CDWnt-PvVSg",
+ "sources": [
+  "검색:마음공부"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 520,
+   "title": "본문 요약"
+  },
+  {
+   "start": 3189,
+   "title": "클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 196,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:15",
+ "approved": "2026-11-11T22:47+09:00"
+}

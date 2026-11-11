@@ -1,0 +1,99 @@
+{
+ "id": "PaiW1albOrA",
+ "title": "매일 똑같이 사는 게 무서운 진짜 이유",
+ "channel": "이런철학 (Perspective Lab)",
+ "channel_id": "UC89kbu1I0RssKeg9fHg1Igw",
+ "subs": 12600,
+ "views": 373608,
+ "ratio": 29.65,
+ "age_days": 129,
+ "views_per_day": 2894.0,
+ "minutes": 5.3,
+ "likes": 9714,
+ "comments": 449,
+ "published": "2026-07-05",
+ "queries": "검색:뇌과학",
+ "url": "https://www.youtube.com/watch?v=PaiW1albOrA",
+ "flag": "",
+ "published_at": "2026-07-05T07:00:11Z",
+ "rank": "W76",
+ "set": "web",
+ "folder": "W_PaiW1albOrA",
+ "sources": [
+  "검색:뇌과학"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "당신은 지금 코를 보고 있습니다"
+  },
+  {
+   "start": 23,
+   "title": "어른이 될수록 시간이 빨리 가는 이유"
+  },
+  {
+   "start": 39,
+   "title": "어른이 된다는 것에 대한 불편한 진실"
+  },
+  {
+   "start": 58,
+   "title": "빅토르 시클롭스키: 익숙함은 삶을 지운다"
+  },
+  {
+   "start": 76,
+   "title": "사물은 기호로 대체된다"
+  },
+  {
+   "start": 103,
+   "title": "보르헤스: 기억의 천재 푸네스"
+  },
+  {
+   "start": 133,
+   "title": "예측 부호화: 뇌는 세상을 예측한다"
+  },
+  {
+   "start": 152,
+   "title": "출퇴근길 2시간이 사라지는 이유"
+  },
+  {
+   "start": 163,
+   "title": "효율을 얻은 대가로 잃어버린 감각"
+  },
+  {
+   "start": 197,
+   "title": "설명 깊이의 착각: 익숙한 것을 안다고 믿는 오류"
+  },
+  {
+   "start": 260,
+   "title": "새로운 풍경보다 필요한 것"
+  },
+  {
+   "start": 279,
+   "title": "시클롭스키: 예술은 삶의 감각을 회복하기 위해 존재한다"
+  },
+  {
+   "start": 291,
+   "title": "어른이 된다는 것의 다른 의미"
+  },
+  {
+   "start": 302,
+   "title": "익숙한 세계를 다시 낯설게 바라보는 일"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 449,
+ "comments_top_level": 286,
+ "comments_replies": 163,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 449,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:37:56",
+ "approved": "2026-11-11T22:37+09:00"
+}

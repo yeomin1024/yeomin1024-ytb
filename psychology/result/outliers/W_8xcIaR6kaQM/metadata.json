@@ -1,0 +1,84 @@
+{
+ "id": "8xcIaR6kaQM",
+ "title": "\"불안, 우울, 분노… 결국 원인은 딱 1가지입니다\" 공감 잘하는 사람이 오히려 먼저 망가지는 이유ㅣ Ep  책과사람 132 (이헌주 교수 1부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 1034929,
+ "ratio": 0.8,
+ "age_days": 99,
+ "views_per_day": 10452.2,
+ "minutes": 38.8,
+ "likes": 10349,
+ "comments": 542,
+ "published": "2026-08-04",
+ "queries": "검색:심리 | 검색:인간관계",
+ "url": "https://www.youtube.com/watch?v=8xcIaR6kaQM",
+ "flag": "",
+ "published_at": "2026-08-04T09:00:14Z",
+ "rank": "W262",
+ "set": "web",
+ "folder": "W_8xcIaR6kaQM",
+ "sources": [
+  "검색:심리",
+  "검색:인간관계"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 123,
+   "title": "카톡 친구 2000명인데도 외로운 사람들의 비밀"
+  },
+  {
+   "start": 218,
+   "title": "불안, 우울, 분노… 결국 원인은 딱 1가지입니다"
+  },
+  {
+   "start": 454,
+   "title": "공감 잘하는 사람이 오히려 먼저 망가지는 이유"
+  },
+  {
+   "start": 610,
+   "title": "그릇이 콩알만한 사람이 유독 자주쓰는 ‘이 말’"
+  },
+  {
+   "start": 1107,
+   "title": "“무조건 피하지 마세요” 상처주지 않고 조용히 거리두는 법"
+  },
+  {
+   "start": 1506,
+   "title": "어린시절 상처받은 기억에서 벗어나는 법"
+  },
+  {
+   "start": 2000,
+   "title": "하루에 딱 1가지만 적으면 행복이 찾아오는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 542,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:14",
+ "approved": "2026-11-11T22:47+09:00"
+}

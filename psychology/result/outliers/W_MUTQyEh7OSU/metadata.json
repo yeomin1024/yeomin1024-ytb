@@ -1,0 +1,106 @@
+{
+ "id": "MUTQyEh7OSU",
+ "title": "자리 뜰 때 의자 집어넣는 사람, 심리학적 특징 3가지",
+ "channel": "어른이 심리학교",
+ "channel_id": "UCIKRqrFiSAePIg4s1mDi6Yw",
+ "subs": 13100,
+ "views": 1929003,
+ "ratio": 147.25,
+ "age_days": 41,
+ "views_per_day": 47031.4,
+ "minutes": 11.9,
+ "likes": 10894,
+ "comments": 865,
+ "published": "2026-10-01",
+ "queries": "검색:심리학 | 검색:심리 | 검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=MUTQyEh7OSU",
+ "flag": "",
+ "published_at": "2026-10-01T09:00:12Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_MUTQyEh7OSU",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "자기계발",
+  "일상심리",
+  "행동심리학",
+  "심리이야기",
+  "성격심리",
+  "관계심리",
+  "마음공부",
+  "의자집어넣기심리",
+  "배려하는사람특징",
+  "작은행동심리학",
+  "무의식행동의미",
+  "좋은사람특징",
+  "탈중심화심리",
+  "배려심리학",
+  "습관과성격",
+  "카페매너심리",
+  "관계에서보이는성격",
+  "심리학유튜브",
+  "일상속심리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "훅 & 인트로 — 아주 작은 행동, 아주 큰 단서"
+  },
+  {
+   "start": 0,
+   "title": "왜 어떤 사람은 절대 의자를 그냥 두고 가지 않을까"
+  },
+  {
+   "start": 0,
+   "title": "공감 구간 — 우리가 미처 몰랐던 '배려의 무의식'"
+  },
+  {
+   "start": 0,
+   "title": "첫 번째 특징 — 자신이 떠난 자리를 상상하는 사람"
+  },
+  {
+   "start": 0,
+   "title": "두 번째 특징 — 타인의 수고를 당연하게 여기지 않는 사람"
+  },
+  {
+   "start": 0,
+   "title": "중간 점검 — 내 주변의 그 사람이 떠오르는 이유"
+  },
+  {
+   "start": 0,
+   "title": "세 번째 특징 — 시작보다 마무리를 소중히 여기는 사람"
+  },
+  {
+   "start": 0,
+   "title": "이 세 가지 특징, 관계에서 어떻게 드러나나"
+  },
+  {
+   "start": 0,
+   "title": "나도 그런 사람이 될 수 있을까 — 실천 가능한 작은 시작"
+  },
+  {
+   "start": 0,
+   "title": "마무리 — 의자 하나가 알려준 것들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 866,
+ "comments_top_level": 629,
+ "comments_replies": 237,
+ "comments_by_creator": 22,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 865,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:34:27",
+ "approved": "2026-11-11T22:34+09:00"
+}

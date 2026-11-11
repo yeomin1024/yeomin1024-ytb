@@ -1158,6 +1158,30 @@
 | `economic/topics/topics.json`·`주제탐색.md`·`평가판.html` | 평가 0개라 처음부터 다시 셈 (T001~T025 ID 그대로, 새 T026~T035) → 35개 중 20개 · 평가판 https://claude.ai/artifact/KftXe7GXWXgA8MJ7RJDXZJ 3판 |
 | `economic/topics/settings.toml` | 그대로 (다시 셀 때만 SIZE 를 잠시 크게 — 되돌림) |
 
+## 2026-11-11 — 새 주제 심리 (psychology/) — 분석 → 페르소나 → 첫 영상 제목·썸네일 추천
+
+### 왜 (사용자 지시)
+- "가장 최근에 주식 주제에서 했던 것처럼 심리 주제로 분석 코드 돌려서 해당 주제 유튜브 분석에 필요한 자료 받고 페르소나 구성해서 내가 어떤 제목, 썸네일 문구, 보조문구로 영상 만들어야 하는지 하나 알려줘봐 그리고 최근 트렌드도 반영해야 돼"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `psychology/analyzer_config.toml`·`keywords.toml`·`tag_rules.toml`·`analysis_rules.toml` (v1.0) | 새 주제 설정 — 역사·주식과 같은 세 묶음 규칙 · '투자 심리'·타로·사주를 지우는 말 · 심리 형식 7개 |
+| `psychology/personas.toml` (v1.1) | 페르소나 사전 — 감사 뒤 '틀어 두고 듣는 사람'은 듣는 말이 있을 때만 · 용어 '전이'·'투사' 뺌 |
+| `psychology/keywords.txt`·`tag_candidates.md` | 태그 검색어 28개 (씨앗 심리학·인간관계·자존감·심리) |
+| `psychology/result/outliers/` | 승인 317 자료 · `analysis.md` (성공 사례 135) · `personas.md` (5명) · `comment_clusters.md` · `comment_titles.md` (C01~C26) · `target_check` · `content_analysis` · `transcript_todo` (317) |
+| `psychology/source/first_video.md` (v1.0) | 첫 영상 추천 — 제목 '식당에서 그릇 모아 두는 사람, 심리학적 특징 3가지' · 썸네일 '식당 그릇 모아 두는 사람 / 소름 돋는 심리' · 보조 '"착해서 그런 거 아닌데요?"' + 근거 |
+| `psychology/README.md` (v1.0) · `topics.txt` · `CLAUDE.md` · `guides/status.md` | 새 주제 등록·인수인계 |
+
+### 확인
+- 추천 510 중 심리가 아닌 193개(플레이리스트·스님 법문·골프 멘탈·주식 손절·정치 뉴스·예능 클립·게임·브이로그)를 눈으로 보고 풂.
+- 페르소나 감사: 첫 규칙의 '틀어 두고 듣는 사람'이 14개 중 1개만 맞아 고침 → 고친 뒤 표본에서 듣는 사람이 잡힘.
+- 제목 `title_fit` 2줄 ✅ (29자) · 쇼츠 제목 ✅.
+
+### 한계
+- 대본 0개 · 댓글 덜 받은 영상 134개 · 같은 채널 기준선·쇼츠 없음 (하루 할당량을 다 씀 — 다음 회차 `resume`).
+- 최근 유행 숫자는 탐색 목록(조회수 순 검색)에서 센 것 — 시장 전체 비율이 아니다.
+
 ## 2026-11-10 — 역사 '만약 ~했다면?' 제목 안
 
 ### 왜 (사용자 지시)

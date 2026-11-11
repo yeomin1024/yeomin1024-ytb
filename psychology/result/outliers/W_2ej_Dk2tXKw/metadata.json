@@ -1,0 +1,63 @@
+{
+ "id": "2ej_Dk2tXKw",
+ "title": "가까운 사람에게만 유독 화내는 사람의 심리",
+ "channel": "솔직한 심리학",
+ "channel_id": "UCJ5rxniYta-oXrs-luimrEA",
+ "subs": 94,
+ "views": 11152,
+ "ratio": 111.52,
+ "age_days": 33,
+ "views_per_day": 334.4,
+ "minutes": 9.1,
+ "likes": 54,
+ "comments": 2,
+ "published": "2026-10-09",
+ "queries": "검색:관계심리",
+ "url": "https://www.youtube.com/watch?v=2ej_Dk2tXKw",
+ "flag": "",
+ "published_at": "2026-10-09T01:00:37Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_2ej_Dk2tXKw",
+ "sources": [
+  "검색:관계심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "밖에서는 참는데 집에서 터지는 이유"
+  },
+  {
+   "start": 120,
+   "title": "뇌는 하루 종일 감정을 억누르고 있었다"
+  },
+  {
+   "start": 240,
+   "title": "왜 하필 가족·연인한테만 터지는가 — 심리적 안전지대"
+  },
+  {
+   "start": 360,
+   "title": "반복되면 관계가 조용히 무너지기 시작한다"
+  },
+  {
+   "start": 450,
+   "title": "패턴을 바꾸는 현실적인 방법 — 감정 라벨링·지연 표현"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2,
+ "comments_top_level": 2,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:35:14",
+ "approved": "2026-11-11T22:35+09:00"
+}

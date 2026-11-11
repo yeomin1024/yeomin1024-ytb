@@ -1,0 +1,71 @@
+{
+ "id": "dqGLgPRkJIY",
+ "title": "\"최상위권 부모들은 희한하게 모두 '이 행동'을 하셨어요.\" | 행복하고, 똑똑한 아이들로 자라는 가정 환경 특징 | 문해력과 지능이 높은 아이들의 비밀 (강용철 선생님)",
+ "channel": "가든패밀리 (Garden Family) ",
+ "channel_id": "UCAUVrySqqyFnsVsyn37JhPw",
+ "subs": 310000,
+ "views": 789798,
+ "ratio": 2.55,
+ "age_days": 51,
+ "views_per_day": 15223.4,
+ "minutes": 29.1,
+ "likes": 4405,
+ "comments": 109,
+ "published": "2026-09-20",
+ "queries": "검색:행복",
+ "url": "https://www.youtube.com/watch?v=dqGLgPRkJIY",
+ "flag": "",
+ "published_at": "2026-09-20T12:15:12Z",
+ "rank": "W197",
+ "set": "web",
+ "folder": "W_dqGLgPRkJIY",
+ "sources": [
+  "검색:행복"
+ ],
+ "source": "web",
+ "tags": [
+  "가든파이브",
+  "패밀리가든",
+  "브루스피디"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 20,
+   "title": "영상 개요"
+  },
+  {
+   "start": 60,
+   "title": "행복하고, 똑똑한 아이들의 비밀 4가지 \"딱 이런 가정교육을 받았어요.\""
+  },
+  {
+   "start": 557,
+   "title": "문해력을 높이는 핵심 비결 4가지"
+  },
+  {
+   "start": 1247,
+   "title": "비판적 사고력을 높이는 질문 유형 특징"
+  },
+  {
+   "start": 1582,
+   "title": "다시 초등 부모로 돌아간다면?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 109,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:07",
+ "approved": "2026-11-11T22:47+09:00"
+}

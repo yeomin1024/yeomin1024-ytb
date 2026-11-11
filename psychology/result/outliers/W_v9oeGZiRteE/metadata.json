@@ -1,0 +1,74 @@
+{
+ "id": "v9oeGZiRteE",
+ "title": "언어 지능의 심리학 : 생각을 똑똑하게 꺼내는 간단한 방법",
+ "channel": "Grabity",
+ "channel_id": "UCN1fp_n3guapCZpOyAfMDcg",
+ "subs": 137000,
+ "views": 420931,
+ "ratio": 3.07,
+ "age_days": 26,
+ "views_per_day": 15693.5,
+ "minutes": 13.9,
+ "likes": 6487,
+ "comments": 96,
+ "published": "2026-10-15",
+ "queries": "검색:심리",
+ "url": "https://www.youtube.com/watch?v=v9oeGZiRteE",
+ "flag": "",
+ "published_at": "2026-10-15T13:39:28Z",
+ "rank": "W185",
+ "set": "web",
+ "folder": "W_v9oeGZiRteE",
+ "sources": [
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "성공",
+  "자기계발"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "생각은 선명한데 말이 막히는 이유"
+  },
+  {
+   "start": 50,
+   "title": "똑똑해 보이려다 망하는 역설"
+  },
+  {
+   "start": 117,
+   "title": "뇌가 말을 만드는 과정과 거미줄의 함정"
+  },
+  {
+   "start": 248,
+   "title": "말이 꼬이는 5가지 결정적 원인"
+  },
+  {
+   "start": 567,
+   "title": "생각의 순서를 잡는 3가지 실전 기술"
+  },
+  {
+   "start": 705,
+   "title": "진짜 지성을 전달하는 법"
+  },
+  {
+   "start": 774,
+   "title": "야망을 첫 행동으로 연결하기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 96,
+ "comments_top_level": 64,
+ "comments_replies": 32,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 96,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:46:55",
+ "approved": "2026-11-11T22:46+09:00"
+}

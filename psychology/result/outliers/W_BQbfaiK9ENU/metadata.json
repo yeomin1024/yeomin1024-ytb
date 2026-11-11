@@ -1,0 +1,75 @@
+{
+ "id": "BQbfaiK9ENU",
+ "title": "죽기 전 내 집을 정리해야 하는 진짜 이유 (니체의 비움 철학)ㅣ죽음의 문턱에서 바라본 내 집의 진짜 모습 (인생 성찰)",
+ "channel": "마음계단",
+ "channel_id": "UCRSjdIKYbYILT-2M7Hos7og",
+ "subs": 477,
+ "views": 56570,
+ "ratio": 118.6,
+ "age_days": 72,
+ "views_per_day": 776.8,
+ "minutes": 18.4,
+ "likes": 456,
+ "comments": 39,
+ "published": "2026-08-30",
+ "queries": "검색:인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=BQbfaiK9ENU",
+ "flag": "",
+ "published_at": "2026-08-30T13:40:10Z",
+ "rank": "W25",
+ "set": "web",
+ "folder": "W_BQbfaiK9ENU",
+ "sources": [
+  "검색:인간관계 정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그: 언젠가 남겨질 집을 바라보며"
+  },
+  {
+   "start": 154,
+   "title": "1장. 욕망을 줄인다는 것의 진짜 의미"
+  },
+  {
+   "start": 299,
+   "title": "2장. 남에게 보여주지 않는 삶의 평온함"
+  },
+  {
+   "start": 432,
+   "title": "3장. 닫힌 서랍과 마음의 공간"
+  },
+  {
+   "start": 581,
+   "title": "4장. 나이 들수록 놓기 힘든 이유"
+  },
+  {
+   "start": 707,
+   "title": "5장. 두려움 대신 선택하는 단순한 삶"
+  },
+  {
+   "start": 890,
+   "title": "6장. 짐이 아닌 사랑을 남기는 법"
+  },
+  {
+   "start": 1002,
+   "title": "에필로그: 비울 때 비로소 남는 것들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 39,
+ "comments_top_level": 15,
+ "comments_replies": 24,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 39,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:34:46",
+ "approved": "2026-11-11T22:34+09:00"
+}

@@ -1,0 +1,97 @@
+{
+ "id": "1Y1UTkjMG00",
+ "title": "빨리 자려고 할수록 손해보는 이유",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 2461824,
+ "ratio": null,
+ "age_days": 12,
+ "views_per_day": 190524.9,
+ "minutes": 9.7,
+ "likes": 13575,
+ "comments": 1679,
+ "published": "2026-10-29",
+ "queries": "검색:심리학 | 검색:심리 | 검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00",
+ "flag": "",
+ "published_at": "2026-10-29T11:15:32Z",
+ "rank": "W310",
+ "set": "web",
+ "folder": "W_1Y1UTkjMG00",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "행진곡 실험"
+  },
+  {
+   "start": 60,
+   "title": "첫날밤 효과"
+  },
+  {
+   "start": 119,
+   "title": "8시간"
+  },
+  {
+   "start": 167,
+   "title": "착각"
+  },
+  {
+   "start": 192,
+   "title": "점수"
+  },
+  {
+   "start": 218,
+   "title": "잠과 싸우는 곳"
+  },
+  {
+   "start": 249,
+   "title": "불면 치료 실험 240개"
+  },
+  {
+   "start": 285,
+   "title": "침대에는 5시간만"
+  },
+  {
+   "start": 342,
+   "title": "① 할 일 적기"
+  },
+  {
+   "start": 384,
+   "title": "② 풍경 떠올리기"
+  },
+  {
+   "start": 430,
+   "title": "③ 안 자고 버티기"
+  },
+  {
+   "start": 462,
+   "title": "마음아, 알려줘서 고마워"
+  },
+  {
+   "start": 497,
+   "title": "바른수면연구소"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1679,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

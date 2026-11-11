@@ -1,0 +1,67 @@
+{
+ "id": "KqizGOaHdNI",
+ "title": "카톡친구 1800명 여자들이 인간관계 정병 퇴치해드림",
+ "channel": "이제 잘 시간",
+ "channel_id": "UCBDbR9-dRD4BxRxKdLsYfvw",
+ "subs": 2200,
+ "views": 30511,
+ "ratio": 13.87,
+ "age_days": 64,
+ "views_per_day": 469.4,
+ "minutes": 15.9,
+ "likes": 482,
+ "comments": 23,
+ "published": "2026-09-07",
+ "queries": "검색:인간관계고민",
+ "url": "https://www.youtube.com/watch?v=KqizGOaHdNI",
+ "flag": "",
+ "published_at": "2026-09-07T09:30:20Z",
+ "rank": "W123",
+ "set": "web",
+ "folder": "W_KqizGOaHdNI",
+ "sources": [
+  "검색:인간관계고민"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro"
+  },
+  {
+   "start": 20,
+   "title": "우리가 인간관계를 힘들어했던 이유"
+  },
+  {
+   "start": 183,
+   "title": "인간관계 힘듦을 극복해나간 과정"
+  },
+  {
+   "start": 372,
+   "title": "좋은 사람은 어떤 사람일까"
+  },
+  {
+   "start": 593,
+   "title": "인간관계와 바운더리"
+  },
+  {
+   "start": 788,
+   "title": "어떤 마음으로 인간관계를 형성해야 할까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 16,
+ "comments_replies": 7,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:40:43",
+ "approved": "2026-11-11T22:40+09:00"
+}

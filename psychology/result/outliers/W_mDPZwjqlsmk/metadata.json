@@ -1,0 +1,68 @@
+{
+ "id": "mDPZwjqlsmk",
+ "title": "하버드대 뇌과학자의 깨달음",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 2008622,
+ "ratio": null,
+ "age_days": 1080,
+ "views_per_day": 1859.7,
+ "minutes": 9.0,
+ "likes": 35415,
+ "comments": 1592,
+ "published": "2023-11-27",
+ "queries": "검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=mDPZwjqlsmk",
+ "flag": "",
+ "published_at": "2023-11-27T07:09:11Z",
+ "rank": "W313",
+ "set": "web",
+ "folder": "W_mDPZwjqlsmk",
+ "sources": [
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "뇌과학",
+  "명상",
+  "마음챙김",
+  "깨달음"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "'나'라는 착각"
+  },
+  {
+   "start": 101,
+   "title": "좌뇌가 멈추면"
+  },
+  {
+   "start": 212,
+   "title": "다시 움직이기까지"
+  },
+  {
+   "start": 354,
+   "title": "좌뇌와 우뇌"
+  },
+  {
+   "start": 467,
+   "title": "뇌과학자의 좌뇌 관리법​"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1592,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

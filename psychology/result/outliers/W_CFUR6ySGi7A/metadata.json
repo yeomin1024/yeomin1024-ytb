@@ -1,0 +1,80 @@
+{
+ "id": "CFUR6ySGi7A",
+ "title": "착하지만 무서울 정도로 생각 레벨 높은 사람들의 5가지 심리적 특징",
+ "channel": "심리세포",
+ "channel_id": "UCNHhTJTUoHa_LZwl3Js-8pQ",
+ "subs": 13400,
+ "views": 551089,
+ "ratio": 41.13,
+ "age_days": 25,
+ "views_per_day": 21216.8,
+ "minutes": 5.5,
+ "likes": 2235,
+ "comments": 184,
+ "published": "2026-10-16",
+ "queries": "검색:심리",
+ "url": "https://www.youtube.com/watch?v=CFUR6ySGi7A",
+ "flag": "",
+ "published_at": "2026-10-16T10:00:19Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_CFUR6ySGi7A",
+ "sources": [
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "착한 사람 심리",
+  "착한데 무서운 사람",
+  "조용한 사람 심리",
+  "눈치 빠른 사람 특징",
+  "인간관계 심리학",
+  "심리학 인사이트",
+  "뇌과학",
+  "심리학"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 - 착한데 무서운 사람의 정체"
+  },
+  {
+   "start": 29,
+   "title": "1. 말하기 전에 먼저 멈춰서 깊이 살핀다 (감각처리 민감성)"
+  },
+  {
+   "start": 81,
+   "title": "2. 다정함과 만만함의 차이를 분명히 안다 (기버 이론)"
+  },
+  {
+   "start": 138,
+   "title": "3. 신뢰가 깨지면 화내는 대신 조용히 거리를 둔다 (부정성 우위)"
+  },
+  {
+   "start": 185,
+   "title": "4. 감정에 휩쓸리는 순간에도 한 발 떨어져서 본다 (자기 거리두기)"
+  },
+  {
+   "start": 231,
+   "title": "5. 깊이 생각하는 만큼 혼자 감당하는 무게도 크다 (성찰과 반추)"
+  },
+  {
+   "start": 287,
+   "title": "클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 184,
+ "comments_top_level": 114,
+ "comments_replies": 70,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 184,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:37:26",
+ "approved": "2026-11-11T22:37+09:00"
+}

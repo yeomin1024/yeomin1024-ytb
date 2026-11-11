@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-11 — kospi_bridge(코스피 지수 — 배당 없음 — 의 30% 넘는 하락과 회복 · 급반등 가짜 몫): 근거가 미국뿐이라 국장에 물린 시청자가 '남 얘기'로 듣는 것을 받는 한두 문장용
+# VERSION: v1.3 — 2026-11-11 — ① stuck_rebound: '이미 깊이 물린 상태(1년 최고가 대비 −30% 아래)에서 급반등이 나온 다음 날' 버틴 경우 vs 절반 매도 뒤 판 값 ±10% 에서 다시 매수(먼저 온 쪽)
+#   — 페르소나 검토(물린 개미): 옛 실험(주식 80·현금 20 · 평단 −10% 에 절반 매도)은 "−50% 물린 사람에겐 버스 떠난 얘기"라 그 대목에서 이탈 → 처지에 맞는 실험으로.
+#   ⚠ 위험 관련 규칙이 바뀜: 대본의 '이미 물렸다면' 실험 = (옛) 평단 −10% 절반 매도·판 값 −10·20·30% 재매수 → (새) 급반등 다음 날 절반 매도·판 값 ±10% 재매수. 옛 숫자(5번 대 2번 · 36.6% 대 29.1%)는 대본 v7 에서 안 씀.
+#   ② single_stocks: 미국 대형주가 최고가(배당 포함)를 되찾기까지 — '지수의 기록은 종목에 그대로 맞지 않는다'의 근거 (자료 stock/topics/precheck/data/CSCO·INTC·GE·C·AIG.csv).
+# v1.2 — 2026-11-11 — kospi_bridge(코스피 지수 — 배당 없음 — 의 30% 넘는 하락과 회복 · 급반등 가짜 몫): 근거가 미국뿐이라 국장에 물린 시청자가 '남 얘기'로 듣는 것을 받는 한두 문장용
 #   (같은 정의 · 자료 stock/topics/precheck/data/_KS11.csv — 2026-11-10 까지).
 # v1.1 — 2026-11-11 — fake_buyers(가짜 반등 15번 다음 날 매수한 경우의 매수가 회복 — 대본 v7 도입·사실 2) · 검사 1개 더함.
 # v1.0 — 2026-11-11 — 새로: 대본 v6(아예 새로 씀 — '폭락 뒤 반등, 진짜인지 또 떨어질지 불안'을 미국 증시의 지난 기록으로 풀어 줌)에 쓰는 역사 숫자.
@@ -9,6 +13,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-11 | stuck_rebound(새 실험 · 민감도 ±5·10·15% × −20·−30%) · single_stocks · 검사 2개 더함 | stuck_rebound·single_stocks·main |
 # | v1.2 | 2026-11-11 | kospi_bridge: 코스피 30% 넘는 하락 횟수·회복 기간·진행 중인 하락·급반등 가짜 몫 (declines·rebound_days 를 그대로 씀) | kospi_bridge·main |
 # | v1.1 | 2026-11-11 | fake_buyers: longform 의 반등 20번 가운데 실제 가짜 15번 — 반등 다음 날 산 값 회복까지 거래일(1년 안 · 가장 짧은 · 가운데 · 가장 긴) | main |
 # | v1.0 | 2026-11-11 | 최초 | declines·rebound_days·after_low·best_days·time_under·main |
@@ -39,7 +44,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import calc as C  # noqa: E402  (같은 자료·같은 사건 정의)
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 OUT = HERE / "history_result.json"
 START = "2000-01-01"
 
@@ -86,6 +91,72 @@ def rebound_days(P: np.ndarray, I, th: float = 0.03, dd: float = 0.10, fut: int 
             rows.append({"t": t, "date": d(I, t), "day": round(float(P[t] / P[t - 1] - 1) * 100, 1), "kind": kind, "days_to_break": (brk + 1) if brk is not None else None,
                          "more_drop": round(float(w.min() / P[t] - 1) * 100, 1) if len(w) else None})
     return rows
+
+
+def stuck_rebound(P: np.ndarray, I, R: list[dict], dd: float = -0.30, X: float = 0.10) -> dict:
+    """깊이 물린 상태(전날 종가가 1년 최고가보다 dd 넘게 낮음)에서 나온 급반등 날 t — 그 하락의 최고가에 매수해 보유 중인 사람.
+    버팀 = 그대로. 절반 = t+1 종가(S)에 절반 매도 → 종가가 S×(1−X) 아래 또는 S×(1+X) 위가 된 첫날의 다음 날 종가에 판 돈으로 모두 다시 매수.
+    판단은 그날 종가, 매매는 다음 거래일 종가. 본전 = 계좌 값이 최고가에 산 값(주식 1주 = 최고가)을 되찾은 날."""
+    hi_prev = pd.Series(P).rolling(252, min_periods=60).max().shift(1).values
+    dec = declines(P, I, 0.15)
+    rows = []
+    for r in R:
+        t = r["t"]
+        if P[t - 1] / hi_prev[t] - 1 > dd:
+            continue
+        e = next((x for x in dec if x["pk"] < t < (x["rec"] if x["rec"] is not None else len(P))), None)
+        if e is None:
+            continue
+        s = t + 1; S = P[s]; Ppk = P[e["pk"]]
+        k = next((j for j in range(s + 1, len(P)) if P[j] <= S * (1 - X) or P[j] >= S * (1 + X)), None)
+        if k is None or k + 1 >= len(P):
+            continue                                             # 아직 결과가 안 난 날은 뺌
+        side = "down" if P[k] <= S * (1 - X) else "up"
+        rb = k + 1
+        shares = 0.5 + 0.5 * S / P[rb]
+        val = lambda j: (0.5 * P[j] + 0.5 * S) if j < rb else shares * P[j]   # noqa: E731
+        end = min(s + 252, len(P) - 1)
+        hb = next((j for j in range(s, len(P)) if P[j] >= Ppk), None)
+        qb = next((j for j in range(s, len(P)) if val(j) >= Ppk), None)
+        rows.append({"date": r["date"], "side": side, "below_peak": round(float(S / Ppk - 1) * 100, 1), "wait_days": rb - s, "shares": round(float(shares), 4),
+                     "hold_min_1y": round(float(P[s:end + 1].min() / S - 1) * 100, 1), "half_min_1y": round(float(min(val(j) for j in range(s, end + 1)) / S - 1) * 100, 1),
+                     "hold_years": round((I[hb] - I[s]).days / 365.25, 2) if hb is not None else None, "half_years": round((I[qb] - I[s]).days / 365.25, 2) if qb is not None else None})
+    dn, up = [x for x in rows if x["side"] == "down"], [x for x in rows if x["side"] == "up"]
+    med = lambda xs, k_: round(float(np.median([x[k_] for x in xs if x[k_] is not None])), 2) if xs else None   # noqa: E731
+    both = [x for x in rows if x["hold_years"] is not None and x["half_years"] is not None]
+    return {"dd": dd, "X": X, "n": len(rows), "years": sorted({x["date"][:4] for x in rows}), "below_peak_median": med(rows, "below_peak"),
+            "down_first": len(dn), "up_first": len(up), "shares_down": med(dn, "shares"), "shares_up": med(up, "shares"),
+            "shares_down_pct": round((float(np.median([x["shares"] for x in dn])) - 1) * 100, 1) if dn else None,      # 내려간 쪽: 주식 수가 몇 % 늘었나 (가운데 값)
+            "shares_up_pct": round((float(np.median([x["shares"] for x in up])) - 1) * 100, 1) if up else None,        # 오른 쪽: 몇 % 줄었나
+            "max_later_months": None, "max_sooner_years_abs": None, "shares_mean": round(float(np.mean([x["shares"] for x in rows])), 3),
+            "wait_days_median": med(rows, "wait_days"), "hold_min_1y_median": med(rows, "hold_min_1y"), "half_min_1y_median": med(rows, "half_min_1y"),
+            "hold_min_1y_worst": min(x["hold_min_1y"] for x in rows), "half_min_1y_worst": min(x["half_min_1y"] for x in rows),
+            "hold_years_median": med(both, "hold_years"), "half_years_median": med(both, "half_years"),
+            "half_sooner": sum(1 for x in both if x["half_years"] < x["hold_years"]), "half_later": sum(1 for x in both if x["half_years"] > x["hold_years"]),
+            "down_years": [med(dn, "hold_years"), med(dn, "half_years")], "up_years": [med(up, "hold_years"), med(up, "half_years")],
+            "max_later_years": round(max(x["half_years"] - x["hold_years"] for x in both), 2), "max_sooner_years": round(min(x["half_years"] - x["hold_years"] for x in both), 2), "rows": rows}
+    # (위 None 두 칸은 아래에서 채움 — 대본에 '길어야 다섯 달' 꼴로 쓰려고)
+
+
+def single_stocks() -> dict:
+    """미국 대형주 — 그 하락의 최고가(배당 포함 수정 종가)에 매수했다면 되찾은 날. 파일이 없으면 그 종목은 빠짐 + 로그."""
+    out = {}
+    for sym, name, years in (("CSCO", "시스코", (2000, 2001)), ("INTC", "인텔", (2000, 2001)), ("GE", "제너럴 일렉트릭", (2000, 2001)), ("C", "씨티그룹", (2007,)), ("AIG", "AIG", (2007,))):
+        p = C.ROOT / f"stock/topics/precheck/data/{sym}.csv"
+        try:
+            a = pd.read_csv(p, comment="#", parse_dates=["date"]).set_index("date")["adjclose"].astype(float)
+        except Exception as e:  # noqa: BLE001
+            log("STOCK", symbol=sym, file=str(p), err=repr(e)[:80], next="precheck.py fetch 로 받기 — 없으면 대본에서 그 종목 문장을 뺌"); continue
+        a = a[a > 0]
+        seg = a[[y in years for y in a.index.year]]
+        pk = seg.idxmax(); after = a[a.index > pk]
+        rec = after[after >= a[pk]]
+        out[sym] = {"name": name, "peak": pk.strftime("%Y-%m-%d"), "recovered": rec.index[0].strftime("%Y-%m-%d") if len(rec) else None,
+                    "years": round((rec.index[0] - pk).days / 365.25, 1) if len(rec) else None, "worst": round(float(after.min() / a[pk] - 1) * 100, 1),
+                    "now_vs_peak": round(float(a.iloc[-1] / a[pk] - 1) * 100, 1), "last": a.index[-1].strftime("%Y-%m-%d"),
+                    "years_since_peak": round((a.index[-1] - pk).days / 365.25, 1)}
+        log("STOCK", symbol=sym, **out[sym])
+    return out
 
 
 def kospi_bridge() -> dict | None:
@@ -202,7 +273,30 @@ def main() -> None:
     fb = {"n": len(fk), "recovered": sum(1 for x in fk if x is not None), "within_1y": sum(1 for x in fk if x is not None and x <= 252), "min_days": fk[0],
           "median_days": int(np.median(fk)), "max_days": fk[-1], "max_years": round(fk[-1] / 252, 1), "min_weeks": round(fk[0] / 5, 1)}
     log("FAKE_BUYERS", **fb)
-    checks = {"가짜 반등 수 = longform 실제 가짜": fb["n"] == fv["signal"]["actual_fake"],
+    # 7. 깊이 물린 상태의 급반등 — 버팀 vs 절반 매도(판 값 ±10% 재매수)
+    SR = stuck_rebound(P, I, R)
+    SR["max_later_months"] = round(SR["max_later_years"] * 12, 1); SR["max_sooner_years_abs"] = abs(SR["max_sooner_years"])
+    log("STUCK", **{k: v for k, v in SR.items() if k != "rows"})
+    sr_sens = {f"dd{int(-dd_ * 100)}_x{int(x_ * 100)}": {k: v for k, v in stuck_rebound(P, I, R, dd_, x_).items() if k in ("n", "down_first", "up_first", "shares_mean", "hold_min_1y_median", "half_min_1y_median", "hold_years_median", "half_years_median", "half_sooner", "half_later", "max_later_years")}
+               for dd_ in (-0.30, -0.20) for x_ in (0.05, 0.10, 0.15)}
+    log("STUCK_SENS", **sr_sens)
+    SS = single_stocks()
+    # 8. 화면 주석·반론용 사실 — 2008-10-13 지수 상승률(S&P 500 지수 ^GSPC — SPY 종가와 다름) · 주가만(SPY 종가, 배당 없음)으로 최고가를 되찾기까지
+    notes = {}
+    try:
+        g = pd.read_csv(C.ROOT / "stock/topics/precheck/data/_GSPC.csv", comment="#", parse_dates=["date"]).set_index("date")["close"].astype(float)
+        notes["gspc_2008_10_13"] = round(float(g.pct_change()["2008-10-13"]) * 100, 1)
+        sc = pd.read_csv(C.SPY_CSV, comment="#", parse_dates=["date"]).set_index("date")["close"].astype(float)
+        for pk_ in ("2000-03-24", "2007-10-09"):
+            aft = sc[sc.index > pk_]; rc_ = aft[aft >= sc[pk_]].index[0]
+            notes[f"price_only_years_{pk_[:4]}"] = round((rc_ - pd.Timestamp(pk_)).days / 365.25, 1)
+        notes["spy_2008_10_13"] = round(float(spy.pct_change()["2008-10-13"]) * 100, 1)
+    except Exception as e:  # noqa: BLE001
+        log("NOTES", err=repr(e)[:120], next="precheck.py fetch('^GSPC') — 없으면 대본에서 지수 숫자·'주가만' 문장을 뺌")
+    log("NOTES", **notes)
+    checks = {"깊이 물린 급반등: 내려간 쪽 + 오른 쪽 = 전체": SR["down_first"] + SR["up_first"] == SR["n"],
+              "절반 매도: 내려가면 주식 수가 늘고 오르면 줄어듦": (SR["shares_down"] or 2) > 1 > (SR["shares_up"] or 0),
+              "가짜 반등 수 = longform 실제 가짜": fb["n"] == fv["signal"]["actual_fake"],
               "급반등 수 = 진짜 + 가짜 + 진행 중": reb["n"] == reb["fake"] + reb["real"] + (reb["n"] - reb["decided"]),
               "큰 하락은 모두 최고가 날 < 바닥 날": all(r["peak"] < r["low"] for r in T),
               "되찾은 구간은 바닥 뒤 1년 값이 있음": all(r["after_low_1y"] is not None for r in done),
@@ -214,7 +308,7 @@ def main() -> None:
     res = {"version": VERSION, "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "source": {"spy": str(C.SPY_CSV.relative_to(C.ROOT)), "from": START, "to": d(I, len(P) - 1)},
            "rebound_days": {**reb, "sens": sens, "events": [{k: v for k, v in r.items() if k != "t"} for r in R]},
            "declines": {"summary": summ, "rows": T, "sens": sens_d}, "best_days": {**bd, "all": best}, "time_under": tu,
-           "fake_buyers": fb, "kospi_bridge": kospi_bridge(),
+           "fake_buyers": fb, "stuck_rebound": {**SR, "sens": sr_sens}, "single_stocks": SS, "notes": notes, "kospi_bridge": kospi_bridge(),
            "from_longform": {"version": lf["version"], "signal": fv["signal"], "cash_plan": fv["cash_plan"], "stuck": fv["stuck"], "intro": fv["intro"]}}
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     log("DONE", out=str(OUT.relative_to(C.ROOT)), sec=round(time.perf_counter() - t0, 2))

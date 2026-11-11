@@ -345,7 +345,8 @@ def judge(P, r, rule):
         best = max(sc, key=sc.get)
         b = r["scores"][best]
         if title_mode:
-            ds = {k: ((r.get("snapshot") or {}).get(k) or {}).get("data_score", 0) for k in keys}
+            # 제목 점수는 늘 지금 title_model 로 스냅숏 제목에서 다시 셈 (회차마다 같은 잣대 — 스냅숏에 적힌 값은 그때 기록)
+            ds = {k: frame_score(((r.get("snapshot") or {}).get(k) or {}).get("title", ""), tm["lift"]) for k in keys}
             best = max(keys, key=lambda k: (ds[k], sc[k]))
             mid = (tm["hit_mean"] + tm["miss_mean"]) / 2
             tr = lambda k: r["scores"][k].get("trust") or 0  # noqa: E731
@@ -402,7 +403,7 @@ def cmd_report(topic, path):
                 snap = (r.get("snapshot") or {}).get(k) or v
                 if not s:
                     continue
-                L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {snap.get('data_score', '-')} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} | {s.get('trust', '-')} | {' · '.join(s.get('flags') or []) or '-'} |")
+                L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {frame_score(snap['title'], tm['lift']) if tm.get('lift') else snap.get('data_score', '-')} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} | {s.get('trust', '-')} | {' · '.join(s.get('flags') or []) or '-'} |")
         if any(a["k"] in (r.get("scores") or {}) for a in P.get("anchors") or []):
             HM = anchor_level(P, r, w)
             gap = rule.get("min_gap", 0)

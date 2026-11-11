@@ -1,6 +1,6 @@
 {
- "version": "v1.3.1",
- "made": "2026-11-11T07:34:50Z",
+ "version": "v1.4",
+ "made": "2026-11-11T07:37:05Z",
  "source": {
   "spy": "stock/topics/precheck/data/SPY.csv",
   "from": "2000-01-01",
@@ -992,6 +992,24 @@
    "2009",
    "2020"
   ],
+  "declines": 3,
+  "by_decline": {
+   "2000-03-24": {
+    "n": 6,
+    "down_first": 1,
+    "up_first": 5
+   },
+   "2007-10-09": {
+    "n": 25,
+    "down_first": 17,
+    "up_first": 8
+   },
+   "2020-02-19": {
+    "n": 1,
+    "down_first": 0,
+    "up_first": 1
+   }
+  },
   "below_peak_median": -42.3,
   "down_first": 18,
   "up_first": 14,
@@ -1024,6 +1042,7 @@
   "rows": [
    {
     "date": "2001-09-24",
+    "decline_peak": "2000-03-24",
     "side": "up",
     "below_peak": -32.6,
     "wait_days": 31,
@@ -1035,6 +1054,7 @@
    },
    {
     "date": "2002-07-24",
+    "decline_peak": "2000-03-24",
     "side": "up",
     "below_peak": -43.8,
     "wait_days": 16,
@@ -1046,6 +1066,7 @@
    },
    {
     "date": "2002-08-06",
+    "decline_peak": "2000-03-24",
     "side": "down",
     "below_peak": -41.1,
     "wait_days": 45,
@@ -1057,6 +1078,7 @@
    },
    {
     "date": "2002-10-10",
+    "decline_peak": "2000-03-24",
     "side": "up",
     "below_peak": -43.4,
     "wait_days": 19,
@@ -1068,6 +1090,7 @@
    },
    {
     "date": "2002-10-11",
+    "decline_peak": "2000-03-24",
     "side": "up",
     "below_peak": -43.1,
     "wait_days": 29,
@@ -1079,6 +1102,7 @@
    },
    {
     "date": "2003-03-13",
+    "decline_peak": "2000-03-24",
     "side": "up",
     "below_peak": -43.2,
     "wait_days": 28,
@@ -1090,6 +1114,7 @@
    },
    {
     "date": "2008-10-13",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -34.8,
     "wait_days": 9,
@@ -1101,6 +1126,7 @@
    },
    {
     "date": "2008-10-16",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -39.2,
     "wait_days": 24,
@@ -1112,6 +1138,7 @@
    },
    {
     "date": "2008-10-20",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -37.4,
     "wait_days": 5,
@@ -1123,6 +1150,7 @@
    },
    {
     "date": "2008-10-28",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -39.3,
     "wait_days": 16,
@@ -1134,6 +1162,7 @@
    },
    {
     "date": "2008-10-30",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -36.8,
     "wait_days": 9,
@@ -1145,6 +1174,7 @@
    },
    {
     "date": "2008-11-04",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -37.2,
     "wait_days": 6,
@@ -1156,6 +1186,7 @@
    },
    {
     "date": "2008-11-07",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -39.5,
     "wait_days": 8,
@@ -1167,6 +1198,7 @@
    },
    {
     "date": "2008-11-13",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -43.5,
     "wait_days": 5,
@@ -1178,6 +1210,7 @@
    },
    {
     "date": "2008-11-21",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -44.5,
     "wait_days": 27,
@@ -1189,6 +1222,7 @@
    },
    {
     "date": "2008-11-24",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -44.1,
     "wait_days": 28,
@@ -1200,6 +1234,7 @@
    },
    {
     "date": "2008-11-26",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -41.2,
     "wait_days": 54,
@@ -1211,6 +1246,7 @@
    },
    {
     "date": "2008-12-02",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -43.0,
     "wait_days": 54,
@@ -1222,6 +1258,7 @@
    },
    {
     "date": "2008-12-05",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -40.6,
     "wait_days": 29,
@@ -1233,6 +1270,7 @@
    },
    {
     "date": "2008-12-08",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -41.6,
     "wait_days": 47,
@@ -1244,6 +1282,7 @@
    },
    {
     "date": "2008-12-16",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -40.6,
     "wait_days": 22,
@@ -1255,6 +1294,7 @@
    },
    {
     "date": "2009-01-02",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -38.9,
     "wait_days": 11,
@@ -1266,6 +1306,7 @@
    },
    {
     "date": "2009-01-21",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -45.6,
     "wait_days": 26,
@@ -1277,6 +1318,7 @@
    },
    {
     "date": "2009-01-28",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -44.4,
     "wait_days": 17,
@@ -1288,6 +1330,7 @@
    },
    {
     "date": "2009-02-24",
+    "decline_peak": "2007-10-09",
     "side": "down",
     "below_peak": -49.4,
     "wait_days": 7,
@@ -1299,6 +1342,7 @@
    },
    {
     "date": "2009-03-10",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -52.2,
     "wait_days": 6,
@@ -1310,6 +1354,7 @@
    },
    {
     "date": "2009-03-12",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -49.9,
     "wait_days": 10,
@@ -1321,6 +1366,7 @@
    },
    {
     "date": "2009-03-17",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -47.4,
     "wait_days": 30,
@@ -1332,6 +1378,7 @@
    },
    {
     "date": "2009-03-23",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -46.6,
     "wait_days": 29,
@@ -1343,6 +1390,7 @@
    },
    {
     "date": "2009-04-09",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -43.1,
     "wait_days": 35,
@@ -1354,6 +1402,7 @@
    },
    {
     "date": "2009-05-04",
+    "decline_peak": "2007-10-09",
     "side": "up",
     "below_peak": -40.0,
     "wait_days": 63,
@@ -1365,6 +1414,7 @@
    },
    {
     "date": "2020-03-24",
+    "decline_peak": "2020-02-19",
     "side": "up",
     "below_peak": -26.6,
     "wait_days": 11,
@@ -1457,6 +1507,16 @@
   }
  },
  "single_stocks": {
+  "MSFT": {
+   "name": "마이크로소프트",
+   "peak": "1999-12-27",
+   "recovered": "2014-07-16",
+   "years": 14.6,
+   "worst": -69.4,
+   "now_vs_peak": 1374.7,
+   "last": "2026-11-10",
+   "years_since_peak": 26.9
+  },
   "CSCO": {
    "name": "시스코",
    "peak": "2000-03-27",
@@ -1466,6 +1526,16 @@
    "now_vs_peak": 91.9,
    "last": "2026-11-10",
    "years_since_peak": 26.6
+  },
+  "GE": {
+   "name": "제너럴 일렉트릭",
+   "peak": "2000-08-28",
+   "recovered": "2024-04-23",
+   "years": 23.7,
+   "worst": -85.5,
+   "now_vs_peak": 116.9,
+   "last": "2026-11-10",
+   "years_since_peak": 26.2
   },
   "INTC": {
    "name": "인텔",
@@ -1477,13 +1547,43 @@
    "last": "2026-11-10",
    "years_since_peak": 26.2
   },
-  "GE": {
-   "name": "제너럴 일렉트릭",
-   "peak": "2000-08-28",
-   "recovered": "2024-04-23",
-   "years": 23.7,
-   "worst": -85.5,
-   "now_vs_peak": 116.9,
+  "XOM": {
+   "name": "엑슨모빌",
+   "peak": "2000-11-24",
+   "recovered": "2004-04-15",
+   "years": 3.4,
+   "worst": -33.7,
+   "now_vs_peak": 689.3,
+   "last": "2026-11-10",
+   "years_since_peak": 26.0
+  },
+  "WMT": {
+   "name": "월마트",
+   "peak": "1999-12-27",
+   "recovered": "2011-11-08",
+   "years": 11.9,
+   "worst": -37.5,
+   "now_vs_peak": 755.5,
+   "last": "2026-11-10",
+   "years_since_peak": 26.9
+  },
+  "IBM": {
+   "name": "IBM",
+   "peak": "1999-07-13",
+   "recovered": "2008-05-14",
+   "years": 8.8,
+   "worst": -59.4,
+   "now_vs_peak": 269.0,
+   "last": "2026-11-10",
+   "years_since_peak": 27.3
+  },
+  "ORCL": {
+   "name": "오라클",
+   "peak": "2000-09-01",
+   "recovered": "2014-12-18",
+   "years": 14.3,
+   "worst": -84.2,
+   "now_vs_peak": 222.0,
    "last": "2026-11-10",
    "years_since_peak": 26.2
   },
@@ -1506,6 +1606,22 @@
    "now_vs_peak": -90.6,
    "last": "2026-11-10",
    "years_since_peak": 19.4
+  },
+  "big8": {
+   "n": 8,
+   "over_10y": 6,
+   "not_yet": 0,
+   "years": {
+    "MSFT": 14.6,
+    "CSCO": 21.4,
+    "GE": 23.7,
+    "INTC": 17.5,
+    "XOM": 3.4,
+    "WMT": 11.9,
+    "IBM": 8.8,
+    "ORCL": 14.3
+   },
+   "max_years": 23.7
   }
  },
  "notes": {
@@ -1514,7 +1630,14 @@
   "gspc_low_date": "2009-03-09",
   "price_only_years_2000": 7.2,
   "price_only_years_2007": 5.4,
-  "spy_2008_10_13": 14.5
+  "spy_2008_10_13": 14.5,
+  "dotcom_redip": {
+   "recovered": "2006-10-26",
+   "below_again": "2006-10-27",
+   "last_below": "2011-12-20",
+   "years_recover_to_below_again": 0.0,
+   "years_peak_to_last_below": 11.7
+  }
  },
  "kospi_bridge": {
   "last": "2026-11-10",
@@ -1572,6 +1695,18 @@
   "rebound_days": 137,
   "rebound_fake": 98,
   "rebound_fake_share": 0.715,
+  "from": "2000-01-04",
+  "peak_2011": {
+   "peak": "2011-05-02",
+   "recovered": "2017-05-04",
+   "years": 6.0,
+   "depth": -25.9
+  },
+  "now": {
+   "date": "2026-11-10",
+   "close": 5239.1,
+   "below_1y_high": -42.5
+  },
   "stuck": {
    "dd": -0.3,
    "X": 0.1,
@@ -1586,6 +1721,29 @@
     "2020",
     "2026"
    ],
+   "declines": 4,
+   "by_decline": {
+    "2000-01-04": {
+     "n": 43,
+     "down_first": 19,
+     "up_first": 24
+    },
+    "2007-10-31": {
+     "n": 20,
+     "down_first": 9,
+     "up_first": 11
+    },
+    "2018-01-29": {
+     "n": 2,
+     "down_first": 0,
+     "up_first": 2
+    },
+    "2026-06-22": {
+     "n": 5,
+     "down_first": 3,
+     "up_first": 2
+    }
+   },
    "below_peak_median": -43.6,
    "down_first": 31,
    "up_first": 39,

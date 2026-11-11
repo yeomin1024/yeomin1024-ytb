@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-11 — 새로: 대본 v6(아예 새로 씀 — '폭락 뒤 반등, 진짜인지 또 떨어질지 불안'을 미국 증시의 지난 기록으로 풀어 줌)에 쓰는 역사 숫자.
+# VERSION: v1.2 — 2026-11-11 — kospi_bridge(코스피 지수 — 배당 없음 — 의 30% 넘는 하락과 회복 · 급반등 가짜 몫): 근거가 미국뿐이라 국장에 물린 시청자가 '남 얘기'로 듣는 것을 받는 한두 문장용
+#   (같은 정의 · 자료 stock/topics/precheck/data/_KS11.csv — 2026-11-10 까지).
+# v1.1 — 2026-11-11 — fake_buyers(가짜 반등 15번 다음 날 매수한 경우의 매수가 회복 — 대본 v7 도입·사실 2) · 검사 1개 더함.
+# v1.0 — 2026-11-11 — 새로: 대본 v6(아예 새로 씀 — '폭락 뒤 반등, 진짜인지 또 떨어질지 불안'을 미국 증시의 지난 기록으로 풀어 줌)에 쓰는 역사 숫자.
 #   사용자 지시 2026-11-11 "이거 대본을 아예 새로 쓰자 페르소나 활용해서 쓰고 시청자의 생각은 폭락 후 반등했는데 이게 진짜로 반등하는건지 또 떨어질려고 하는건지 불안하다는거야
 #   이걸 미국 주식 시장의 역사라는 정해져 있는 사실들을 근거로 해소로 해야돼".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-11 | kospi_bridge: 코스피 30% 넘는 하락 횟수·회복 기간·진행 중인 하락·급반등 가짜 몫 (declines·rebound_days 를 그대로 씀) | kospi_bridge·main |
+# | v1.1 | 2026-11-11 | fake_buyers: longform 의 반등 20번 가운데 실제 가짜 15번 — 반등 다음 날 산 값 회복까지 거래일(1년 안 · 가장 짧은 · 가운데 · 가장 긴) | main |
 # | v1.0 | 2026-11-11 | 최초 | declines·rebound_days·after_low·best_days·time_under·main |
 #
 # 자료: SPY 일별 수정 종가(배당 포함) — calc.py load() 와 같은 파일(stock/topics/precheck/data/SPY.csv, 1999-01-04 ~ 2026-10-28). 2000년 이후만 셈
@@ -34,7 +39,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import calc as C  # noqa: E402  (같은 자료·같은 사건 정의)
 
-VERSION = "v1.0"
+VERSION = "v1.2"
 OUT = HERE / "history_result.json"
 START = "2000-01-01"
 
@@ -81,6 +86,32 @@ def rebound_days(P: np.ndarray, I, th: float = 0.03, dd: float = 0.10, fut: int 
             rows.append({"t": t, "date": d(I, t), "day": round(float(P[t] / P[t - 1] - 1) * 100, 1), "kind": kind, "days_to_break": (brk + 1) if brk is not None else None,
                          "more_drop": round(float(w.min() / P[t] - 1) * 100, 1) if len(w) else None})
     return rows
+
+
+def kospi_bridge() -> dict | None:
+    """코스피 지수(배당 없음) — 미국과 같은 정의로. 파일이 없으면 None + 로그 (대본에 안 쓰면 됨)."""
+    p = C.ROOT / "stock/topics/precheck/data/_KS11.csv"
+    try:
+        ks = pd.read_csv(p, comment="#", parse_dates=["date"]).set_index("date")["close"].astype(float)
+    except Exception as e:  # noqa: BLE001
+        log("KOSPI", file=str(p), err=repr(e), next="stock/topics/precheck/precheck.py fetch('^KS11') 로 받기 — 없으면 대본에서 코스피 문장을 뺌")
+        return None
+    bad = int(ks.index.duplicated().sum() + ks.isna().sum() + (ks <= 0).sum())
+    if bad:
+        log("KOSPI", issue="중복·빈 값·0 이하", n=bad, action="뺌"); ks = ks[~ks.index.duplicated()].dropna(); ks = ks[ks > 0]
+    P, I = ks.values, ks.index
+    rows = []
+    for e in declines(P, I, 0.30):
+        pk, lo, rec = e["pk"], e["lo"], e["rec"]
+        rows.append({"peak": d(I, pk), "low": d(I, lo), "depth": round(float(P[lo] / P[pk] - 1) * 100, 1), "recovered": d(I, rec) if rec is not None else None,
+                     "years_peak_to_recover": round((I[rec] - I[pk]).days / 365.25, 1) if rec is not None else None})
+    done = [r for r in rows if r["recovered"]]
+    R = [r for r in rebound_days(P, I) if r["kind"] != "진행 중"]
+    out = {"last": d(I, len(P) - 1), "declines_30": len(rows), "past": len(done), "recovered": len(done), "ongoing": [r for r in rows if not r["recovered"]],
+           "years_min": min(r["years_peak_to_recover"] for r in done), "years_max": max(r["years_peak_to_recover"] for r in done), "rows": rows,
+           "rebound_days": len(R), "rebound_fake": sum(r["kind"] == "가짜" for r in R), "rebound_fake_share": round(sum(r["kind"] == "가짜" for r in R) / len(R), 3)}
+    log("KOSPI", **{k: v for k, v in out.items() if k != "rows"})
+    return out
 
 
 def main() -> None:
@@ -164,7 +195,15 @@ def main() -> None:
     # 5. 기존 계산(longform.py final_v5)을 그대로 옮김 — 대본 v6 도 같은 숫자를 씀
     lf = json.loads((HERE / "longform_result.json").read_text(encoding="utf-8"))
     fv = lf["final_v5"]
-    checks = {"급반등 수 = 진짜 + 가짜 + 진행 중": reb["n"] == reb["fake"] + reb["real"] + (reb["n"] - reb["decided"]),
+    # 6. 가짜 반등에 매수한 경우 — longform 의 20번 가운데 실제 가짜였던 것만 (산 값 = 반등 다음 날 종가 · 회복 = 그 뒤 3년 안 가장 낮은 날 다음에 산 값을 되찾은 날)
+    kind = {e["rebound"]: e["actual"] for e in lf["signal"]["events"]}
+    rec = {dd_: n_ for dd_, n_ in lf["type1"]["recovery"]["events"]}
+    fk = sorted(rec[k] for k, v in kind.items() if v == "fake")
+    fb = {"n": len(fk), "recovered": sum(1 for x in fk if x is not None), "within_1y": sum(1 for x in fk if x is not None and x <= 252), "min_days": fk[0],
+          "median_days": int(np.median(fk)), "max_days": fk[-1], "max_years": round(fk[-1] / 252, 1), "min_weeks": round(fk[0] / 5, 1)}
+    log("FAKE_BUYERS", **fb)
+    checks = {"가짜 반등 수 = longform 실제 가짜": fb["n"] == fv["signal"]["actual_fake"],
+              "급반등 수 = 진짜 + 가짜 + 진행 중": reb["n"] == reb["fake"] + reb["real"] + (reb["n"] - reb["decided"]),
               "큰 하락은 모두 최고가 날 < 바닥 날": all(r["peak"] < r["low"] for r in T),
               "되찾은 구간은 바닥 뒤 1년 값이 있음": all(r["after_low_1y"] is not None for r in done),
               "가장 크게 오른 날 20개": bd["n"] == 20}
@@ -175,6 +214,7 @@ def main() -> None:
     res = {"version": VERSION, "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"), "source": {"spy": str(C.SPY_CSV.relative_to(C.ROOT)), "from": START, "to": d(I, len(P) - 1)},
            "rebound_days": {**reb, "sens": sens, "events": [{k: v for k, v in r.items() if k != "t"} for r in R]},
            "declines": {"summary": summ, "rows": T, "sens": sens_d}, "best_days": {**bd, "all": best}, "time_under": tu,
+           "fake_buyers": fb, "kospi_bridge": kospi_bridge(),
            "from_longform": {"version": lf["version"], "signal": fv["signal"], "cash_plan": fv["cash_plan"], "stuck": fv["stuck"], "intro": fv["intro"]}}
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     log("DONE", out=str(OUT.relative_to(C.ROOT)), sec=round(time.perf_counter() - t0, 2))

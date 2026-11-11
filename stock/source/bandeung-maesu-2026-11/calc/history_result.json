@@ -1,6 +1,6 @@
 {
- "version": "v1.0",
- "made": "2026-11-11T06:56:09Z",
+ "version": "v1.2",
+ "made": "2026-11-11T07:14:32Z",
  "source": {
   "spy": "stock/topics/precheck/data/SPY.csv",
   "from": "2000-01-01",
@@ -969,6 +969,73 @@
   "days": 6746,
   "below_10": 0.222,
   "below_20": 0.085
+ },
+ "fake_buyers": {
+  "n": 15,
+  "recovered": 15,
+  "within_1y": 9,
+  "min_days": 13,
+  "median_days": 127,
+  "max_days": 1519,
+  "max_years": 6.0,
+  "min_weeks": 2.6
+ },
+ "kospi_bridge": {
+  "last": "2026-11-10",
+  "declines_30": 5,
+  "past": 4,
+  "recovered": 4,
+  "ongoing": [
+   {
+    "peak": "2026-06-22",
+    "low": "2026-11-09",
+    "depth": -44.9,
+    "recovered": null,
+    "years_peak_to_recover": null
+   }
+  ],
+  "years_min": 0.5,
+  "years_max": 5.5,
+  "rows": [
+   {
+    "peak": "2000-01-04",
+    "low": "2001-09-17",
+    "depth": -55.7,
+    "recovered": "2005-07-14",
+    "years_peak_to_recover": 5.5
+   },
+   {
+    "peak": "2007-10-31",
+    "low": "2008-10-24",
+    "depth": -54.5,
+    "recovered": "2011-01-03",
+    "years_peak_to_recover": 3.2
+   },
+   {
+    "peak": "2020-01-22",
+    "low": "2020-03-19",
+    "depth": -35.7,
+    "recovered": "2020-08-04",
+    "years_peak_to_recover": 0.5
+   },
+   {
+    "peak": "2021-07-06",
+    "low": "2022-09-30",
+    "depth": -34.8,
+    "recovered": "2025-09-10",
+    "years_peak_to_recover": 4.2
+   },
+   {
+    "peak": "2026-06-22",
+    "low": "2026-11-09",
+    "depth": -44.9,
+    "recovered": null,
+    "years_peak_to_recover": null
+   }
+  ],
+  "rebound_days": 137,
+  "rebound_fake": 98,
+  "rebound_fake_share": 0.715
  },
  "from_longform": {
   "version": "v1.3",

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-11 — 새로 (사용자 지시 2026-11-11 "4가지 주제 골라서 제목, 썸네일 문구, 보조문구 만들어봐 그리고 페르소나로
-#          썸네일 클릭율 잘나오는지 계속 검증해야해 잘나올 때까지 진행하고 최종 알려줘 영상 1개당 3개 만들면 돼").
+# VERSION: v1.1 — 2026-11-11 — report: 검토자 여러 명 평균 · 페르소나 몫 무게 평균 · 영상마다 판정(✅) (6회차 뒤 — 검토자 한 명 점수가 ±1 흔들려서, 무게는 personas.md 몫).
+# (v1.0 — 2026-11-11 — 새로 (사용자 지시 2026-11-11 "4가지 주제 골라서 제목, 썸네일 문구, 보조문구 만들어봐 그리고 페르소나로
+#          썸네일 클릭율 잘나오는지 계속 검증해야해 잘나올 때까지 진행하고 최종 알려줘 영상 1개당 3개 만들면 돼").)
 # CHANGELOG
+#   v1.1 — 2026-11-11 — wavg·judge · report 판정 줄 (pass_rule weights 가 있으면 무게 평균)
 #   v1.0 — 2026-11-11 — check(안마다 규칙·숫자 점검) · panel(페르소나 패널 지시문 만들기) · report(회차 표) · 함수: load_frames·check_variant·panel_prompt·report
 """제목·썸네일 안 점검 — 숫자(그 주제 탐색 목록) + 페르소나 패널(Claude 하위 에이전트가 읽는 지시문) — 클릭률을 '미리 걸러 보는' 도구.
 
@@ -29,7 +31,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit  # noqa: E402  모바일·PC 목록 2줄
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("ctr")
 MAIN_LINE_MAX = 14          # 썸네일 주요 문구 줄마다 띄어쓰기 빼고 (summary_ideas.lint_answer 와 같음)
 MIN_N = 15                  # 이보다 적은 꼴은 '표본 적음'
@@ -180,14 +182,47 @@ def panel_prompt(topic, path, n):
     return out
 
 
+def wavg(s, w):
+    """페르소나 몫 무게 평균 (무게가 없으면 같은 무게)."""
+    w = w or {"P1": 1, "P2": 1, "P3": 1}
+    return round(sum(s[p] * w[p] for p in ("P1", "P2", "P3")) / sum(w[p] for p in ("P1", "P2", "P3")), 2)
+
+
+def judge(P, r, rule):
+    """회차 판정 — 영상마다 가장 좋은 안(무게 평균) · 통과 여부. 기준은 안.json 'pass_rule'."""
+    w = rule.get("weights")
+    out = {}
+    for vdo in P["videos"]:
+        keys = [k for k in (r.get("scores") or {}) if k.startswith(vdo["id"] + "-")]
+        if not keys:
+            continue
+        sc = {k: wavg(r["scores"][k], w) for k in keys}
+        best = max(sc, key=sc.get)
+        b = r["scores"][best]
+        if w:
+            ok = sc[best] >= rule["best_wavg"] and min(b["P1"], b["P2"]) >= rule["best_min_P1P2"] and all(sc[k] >= rule["others_wavg"] for k in keys)
+        else:
+            ok = sc[best] >= rule["best_avg"] and min(b[p] for p in ("P1", "P2", "P3")) >= rule["best_min"] and all(sc[k] >= rule["all_avg"] for k in keys)
+        out[vdo["id"]] = {"best": best, "score": sc[best], "ok": ok, "all": sc}
+    return out
+
+
 def cmd_report(topic, path):
     P = json.loads(Path(path).read_text("utf-8"))
-    pass_rule = P.get("pass_rule") or {"best_avg": 7.5, "best_min": 6.5, "all_avg": 6.0}
+    rule = P.get("pass_rule") or {"best_avg": 7.5, "best_min": 6.5, "all_avg": 6.0}
+    w = rule.get("weights")
+    if w:
+        rtxt = (f"통과 기준: 영상마다 가장 좋은 안의 페르소나 몫 무게 평균 ≥ {rule['best_wavg']} (무게 {w}) · 그 안의 P1·P2 ≥ {rule['best_min_P1P2']} · "
+                f"나머지 두 안 무게 평균 ≥ {rule['others_wavg']} — {rule.get('note', '')}")
+    else:
+        rtxt = f"통과 기준: 영상마다 가장 좋은 안 평균 ≥ {rule['best_avg']} · 그 안의 페르소나마다 ≥ {rule['best_min']} · 세 안 모두 평균 ≥ {rule['all_avg']}"
     L = [f"# 제목·썸네일 안 — 점검·페르소나 패널 ({topic})", "",
-         f"자동 생성 — `tools/ctr_check.py {VERSION}` · 안 파일 `{Path(path).name}` · ⚠️ 패널은 시뮬레이션 — 진짜 클릭률은 스튜디오 '테스트 및 비교'.", "",
-         f"통과 기준: 영상마다 가장 좋은 안 평균 ≥ {pass_rule['best_avg']} · 그 안의 페르소나마다 ≥ {pass_rule['best_min']} · 세 안 모두 평균 ≥ {pass_rule['all_avg']} · flags 없음.", ""]
+         f"자동 생성 — `tools/ctr_check.py {VERSION}` · 안 파일 `{Path(path).name}` · ⚠️ 패널은 시뮬레이션 — 진짜 클릭률은 스튜디오 '테스트 및 비교'.", "", rtxt, ""]
     for r in P.get("rounds") or []:
-        L += [f"## {r['n']}회차", "", "| 안 | 제목 | 썸네일 | 꼬리표 | P1 | P2 | P3 | 평균 | flags |", "|---|---|---|---|---|---|---|---|---|"]
+        J = judge(P, r, rule)
+        L += [f"## {r['n']}회차 — {r.get('reviewer', '')}", "",
+              "판정: " + " · ".join(f"{vid} {j['best']} {j['score']} {'✅' if j['ok'] else '—'}" for vid, j in J.items()), "",
+              "| 안 | 제목 | 썸네일 | 꼬리표 | P1 | P2 | P3 | 무게 평균 | flags |", "|---|---|---|---|---|---|---|---|---|"]
         for vdo in P["videos"]:
             for v in vdo["variants"]:
                 k = f"{vdo['id']}-{v['v']}"
@@ -195,9 +230,9 @@ def cmd_report(topic, path):
                 snap = (r.get("snapshot") or {}).get(k) or v
                 if not s:
                     continue
-                avg = round(sum(s[p] for p in ("P1", "P2", "P3")) / 3, 2)
-                L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {s['P1']} | {s['P2']} | {s['P3']} | {avg} | {' · '.join(s.get('flags') or []) or '-'} |")
+                L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} | {' · '.join(s.get('flags') or []) or '-'} |")
         L.append("")
+        log("ROUND", n=r["n"], verdict=" ".join(f"{vid}:{j['best']}={j['score']}{'✅' if j['ok'] else '✗'}" for vid, j in J.items()))
     Path(path).resolve().with_suffix(".md").write_text("\n".join(L), "utf-8")
     log("WRITE", md=str(Path(path).resolve().with_suffix(".md").relative_to(ROOT)))
     return 0

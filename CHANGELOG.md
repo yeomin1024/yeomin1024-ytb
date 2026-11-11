@@ -1158,6 +1158,30 @@
 | `economic/topics/topics.json`·`주제탐색.md`·`평가판.html` | 평가 0개라 처음부터 다시 셈 (T001~T025 ID 그대로, 새 T026~T035) → 35개 중 20개 · 평가판 https://claude.ai/artifact/KftXe7GXWXgA8MJ7RJDXZJ 3판 |
 | `economic/topics/settings.toml` | 그대로 (다시 셀 때만 SIZE 를 잠시 크게 — 되돌림) |
 
+## 2026-11-11 (2) — 역사 4편 × 3안 제목·썸네일 문구·보조 문구 + 클릭 검증 12회차
+
+### 왜 (사용자 지시)
+- "4가지 주제 골라서 제목, 썸네일 문구, 보조문구 만들어봐 그리고 페르소나로 썸네일 클릭율 잘나오는지 계속 검증해야해 잘나올 때까지 진행하고 최종 알려줘 영상 1개당 3개 만들면 돼" — 주제를 말하지 않아 역사로 (바로 앞 대화).
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/ctr_check.py` (v1.0 → v1.4, 새로) | check(제목 2줄·60자·피할 말·썸네일 줄·꼬리표·제목 꼴 점수) · panel(페르소나 패널 지시문 — v2 = 클릭·믿음 따로, 보정 앵커 K-n 을 몰래 섞음) · add(검토자 답 평균) · validate(제목 꼴 점수 5겹 교차 AUC + 앵커 가름) · report(회차 표·판정) · judge mode title+trust · FRAMES '왜' 가 임진왜란의 '왜' 를 세던 것 고침 |
+| `history/topics/ctr/ctr_2026-11-11.json`·`.md` | 안 4편 × 3 · 12회차 점수(검토자 3명 평균·원 점수) · 앵커 8편(실제 조선 생활사 롱폼 — 성공 4 배수 216~662 · 덜 됨 4 배수 0.12~1.44) · pass_rule(처음 7.5 → 7.0 → 보정 → title+trust, 모두 남김) · title_model |
+| `history/topics/ctr/answers/` | 9~12회차 검토자 답 원본 JSON |
+| `history/topics/ctr/panel_1~12_prompt.md` | 회차마다 패널 지시문 |
+| `history/topics/ctr/final_2026-11-11.md` (v1.0) | **최종 4편 × 3안** · 검증 과정 · 통과 기준 · 대본 전에 확인할 사실 · 한계 |
+| `history/README.md` (v1.8) · `guides/status.md` (v3.94) | 파일 표·인수인계 |
+
+### 확인 (로그)
+- `[VALIDATE] pool=1350 auc=0.601 folds=[0.602, 0.625, 0.628, 0.55, 0.6] hit_min=24 hit_mean=30.2 miss_max=23 miss_mean=13.5 separates=True`
+- `[ROUND] n=9 anchors=(4.65, 5.48)` — 패널 v1 이 성공 영상을 거꾸로 · `[ROUND] n=10 anchors=(6.16, 6.75)` — v2 도 거꾸로
+- `[ROUND] n=12 … W:W-A=제목 39 · 믿음 7.33 ✅ N:N-A=제목 39 · 믿음 7.33 ✅ I:I-A=제목 26 · 믿음 8.0 ✅ S:S-A=제목 26 · 믿음 6.33 ✅`
+- 모든 안 `title_fit` 2줄 ✅ · `check problems=0`.
+
+### 한계
+- 패널은 시뮬레이션 — '누를까' 점수는 실제 결과를 못 맞혀 판정에서 뺌. 제목 점수는 약한 신호(AUC 0.60, 상관). 썸네일 그림 클릭은 검증 못 함(분류표가 성공 사례뿐) → 올린 뒤 스튜디오 '테스트 및 비교'. 사실은 모두 확인 전.
+
 ## 2026-11-11 — 역사 다음 영상 추천 하나 (최근 트렌드 반영)
 
 ### 왜 (사용자 지시)

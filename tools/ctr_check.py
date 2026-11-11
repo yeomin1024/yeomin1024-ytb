@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-11 — 패널 v2: 페르소나마다 1초 첫인상 클릭(P1~P3) + 본 뒤 믿음(trust) 따로 · 앵커 8편 · 판정은 패널이 성공 영상을 가릴 때만 (9회차 — v1 패널은 성공 H 4.65 < 덜 됨 M 5.48 로 거꾸로 매김: 낚시·AI 그림을 깎는 품질 심사였음).
+# VERSION: v1.4 — 2026-11-11 — validate: 제목 꼴 점수를 실제 성공으로 검증(5겹 교차 AUC · 앵커 빼고 배운 점수로 실제 성공·덜 된 영상 가름) · 판정 mode "title+trust" = 클릭은 검증된 제목 점수로, 페르소나는 믿음·고증 거름으로 (10회차 — 패널 v2 도 H 6.16 < M 6.75, 페르소나 클릭 점수는 두 판 모두 실제 결과를 못 가림).
+# (v1.3 — 2026-11-11 — 패널 v2: 페르소나마다 1초 첫인상 클릭(P1~P3) + 본 뒤 믿음(trust) 따로 · 앵커 8편 · 판정은 패널이 성공 영상을 가릴 때만 (9회차 — v1 패널은 성공 H 4.65 < 덜 됨 M 5.48 로 거꾸로 매김: 낚시·AI 그림을 깎는 품질 심사였음).
 # (v1.2 — 2026-11-11 — 보정 앵커: 실제 성공·덜 된 영상을 패널에 몰래 섞어(K-n) 같은 회차 점수로 기준을 맞춤 · add 명령(검토자 답 평균) (8회차 뒤 — 6.2~6.8 에서 멈춰 7.0 이 실제 성공 영상보다 높은 막대인지 확인).)
 # (v1.1 — 2026-11-11 — report: 검토자 여러 명 평균 · 페르소나 몫 무게 평균 · 영상마다 판정(✅) (6회차 뒤 — 검토자 한 명 점수가 ±1 흔들려서, 무게는 personas.md 몫).)
 # (v1.0 — 2026-11-11 — 새로 (사용자 지시 2026-11-11 "4가지 주제 골라서 제목, 썸네일 문구, 보조문구 만들어봐 그리고 페르소나로
 #          썸네일 클릭율 잘나오는지 계속 검증해야해 잘나올 때까지 진행하고 최종 알려줘 영상 1개당 3개 만들면 돼").)
 # CHANGELOG
+#   v1.4 — 2026-11-11 — FRAMES 왜: 임진왜란·왜구 등 뺌 · cmd_check data_score = title_model lift(있으면) · cmd_validate(title_model) · judge mode "title+trust" · add 스냅숏에 data_score · report 제목 점수 칸·검증 줄
 #   v1.3 — 2026-11-11 — panel_prompt v2(pass_rule.panel_version=2 — click·trust) · cmd_add trust 평균 · judge v2(가름 폭 min_gap · 믿음 하한) · report 믿음 칸
 #   v1.2 — 2026-11-11 — anchors(panel 에 K-n 으로 섞음 · report 에 성공 H·덜 된 M 평균) · judge 보정 기준(pass_rule.calibrated) · add(검토자 답 파일 → rounds)
 #   v1.1 — 2026-11-11 — wavg·judge · report 판정 줄 (pass_rule weights 가 있으면 무게 평균)
@@ -15,6 +17,7 @@
   python3 tools/ctr_check.py history check  <안.json>      # 안마다: 제목 2줄·길이·피할 말·썸네일 줄 길이·꼬리표 규칙 + 제목 꼴의 성공 비율 차이
   python3 tools/ctr_check.py history panel  <안.json> <n>  # n 회차 페르소나 패널 지시문 → <안 폴더>/panel_<n>_prompt.md (Claude 가 새 하위 에이전트에게 줌)
   python3 tools/ctr_check.py history add    <안.json> <n> <답1.json> …  # 검토자 답(JSON) 평균 → 안.json rounds (스냅숏 = 지금 안)
+  python3 tools/ctr_check.py history validate <안.json>    # 제목 꼴 점수 검증: 5겹 교차 AUC(seed 42) + 앵커(실제 성공·덜 됨)를 빼고 배운 점수로 가름 → 안.json title_model
   python3 tools/ctr_check.py history report <안.json>      # 회차마다 패널 점수(안.json 'rounds' — Claude 가 패널 답을 넣음) → <안>.md
 
 안.json: {"topic","made","videos":[{"id","theme","supply_rx","variants":[{"v":"A","title","thumb_main":["1줄","2줄"],"thumb_sub":["꼬리표"…],"image"}]}],
@@ -25,6 +28,8 @@
   주는 점수(H)·덜 된 영상 점수(M)를 같은 회차에서 잰다. pass_rule.calibrated 이면: 가장 좋은 안 ≥ H · 나머지 두 안 ≥ (H+M)/2 · 그리고 H − M ≥ min_gap (가르지 못하면 패널 무효).
 패널 v2 (pass_rule.panel_version=2): 페르소나마다 클릭(폰 홈 피드 1~2초 첫인상 — P1~P3) + 안마다 믿음(trust — 본 뒤 '낚였다·고증 틀렸다'가 없을지).
   v1 은 하나의 점수에 둘을 섞어 실제 성공 영상(자극적 말·사진 같은 얼굴)을 가장 낮게 매김 → 판정은 클릭으로, 믿음은 하한(trust_min)으로.
+판정 mode "title+trust" (10회차부터): 페르소나 클릭 점수는 v1·v2 모두 앵커를 거꾸로 매겨(9·10회차) 판정에 쓰지 않음 →
+  클릭 = 검증된 제목 점수(data_score ≥ 실제 성공 앵커 가운데 가장 낮은 점수 hit_min) · 믿음 = 페르소나 trust ≥ trust_min(나머지 trust_min_others) · 나머지 두 안 data_score ≥ (성공 평균+덜 됨 평균)/2.
 ⚠️ 페르소나 패널은 시뮬레이션이다 — 진짜 클릭률은 유튜브 스튜디오 '테스트 및 비교'(썸네일 3장)로만 안다. 이 도구는 나쁜 안을 먼저 거르는 데만 쓴다.
 ※ 연구·교육용.
 """
@@ -40,7 +45,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit  # noqa: E402  모바일·PC 목록 2줄
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.3"
+VERSION = "v1.4"
 LOG = logging.getLogger("ctr")
 MAIN_LINE_MAX = 14          # 썸네일 주요 문구 줄마다 띄어쓰기 빼고 (summary_ideas.lint_answer 와 같음)
 MIN_N = 15                  # 이보다 적은 꼴은 '표본 적음'
@@ -48,7 +53,8 @@ MIN_N = 15                  # 이보다 적은 꼴은 '표본 적음'
 FRAMES = {
     "사극·교과서 대비": r"사극|교과서|드라마에서",
     "어떻게 ~했을까": r"어떻게.{0,20}(을까|았나|었나|했나)",
-    "왜 ~했을까": r"왜.{0,25}(을까|나\?|는가|았나|었나)",
+    # '왜' = 묻는 말만 — 임진왜란·왜구·왜군·왜인·왜장 의 '왜' 는 뺌 (v1.4 — 앞 판은 '임진왜란 … 싸웠을까' 를 '왜 ~했을까' 로 셈)
+    "왜 ~했을까": r"(?:^|[\s,.!?'\"“‘(])왜(?![란구군인놈적선장성])\s?.{0,25}(을까|나\?|는가|았나|었나|했나|일까)",
     "이유": r"이유",
     "물음표": r"\?",
     "숫자": r"\d",
@@ -108,6 +114,69 @@ def load_frames(topic, S):
     return d, base, F
 
 
+def pool_rows(topic, S):
+    """load_frames 와 같은 비교 무리 (작은 채널·7~182일·주제 관련 롱폼) + 성공 판정 함수."""
+    d = json.loads((ROOT / topic / "result" / "web" / "explore.json").read_text("utf-8"))
+    off = re.compile("|".join(re.escape(w) for w in S["off"])) if S["off"] else None
+    rows = [r for r in d["rows"] if r.get("relevant") and not r.get("short") and (r.get("minutes") or 0) >= 4
+            and (r.get("subs") or 0) <= 50000 and 7 <= (r.get("age_days") or 0) <= 182
+            and not (off and off.search(r["title"] + " " + (r.get("channel") or "")))]
+    ok = lambda r: (r.get("views_per_day") or 0) / max(100, r.get("subs") or 0) >= S["min_vpd"]  # noqa: E731
+    return d, rows, ok
+
+
+def frame_score(title, lift):
+    """제목 꼴 점수 = 제목에 든 꼴마다 (성공 비율 − 전체 비율)%p 합 (표본 MIN_N 이상만 — cmd_check data_score 와 같은 셈)."""
+    return round(sum(l for k, l in lift.items() if l is not None and re.search(FRAMES[k], title)))
+
+
+def learn_lift(rows, ok):
+    base = sum(map(ok, rows)) / max(1, len(rows))
+    lift = {}
+    for k, rx in FRAMES.items():
+        g = [r for r in rows if re.search(rx, r["title"])]
+        lift[k] = 100 * (sum(map(ok, g)) / len(g) - base) if len(g) >= MIN_N else None
+    return lift
+
+
+def cmd_validate(topic, path, seed=42, folds=5):
+    """제목 꼴 점수가 실제 성공을 맞히는지 — (1) 5겹 교차 AUC (2) 앵커(실제 성공·덜 된 영상)를 빼고 배운 점수로 앵커를 가르는지."""
+    import random
+    S = settings(topic)
+    d, rows, ok = pool_rows(topic, S)
+    P = json.loads(Path(path).read_text("utf-8"))
+    aid = {a["id"] for a in P.get("anchors") or []}
+    pool = [r for r in rows if r["id"] not in aid]
+
+    def auc(sc, yy):
+        pos = [a for a, t in zip(sc, yy) if t]
+        neg = [a for a, t in zip(sc, yy) if not t]
+        return sum((p > n) + 0.5 * (p == n) for p in pos for n in neg) / max(1, len(pos) * len(neg))
+    idx = list(range(len(pool)))
+    random.Random(seed).shuffle(idx)
+    aucs = []
+    for f in range(folds):
+        test = set(idx[f::folds])
+        lift = learn_lift([pool[i] for i in idx if i not in test], ok)
+        te = sorted(test)
+        aucs.append(round(auc([frame_score(pool[i]["title"], lift) for i in te], [ok(pool[i]) for i in te]), 3))
+    lift = learn_lift(pool, ok)
+    an = {a["k"]: {"kind": a["kind"], "score": frame_score(a["title"], lift)} for a in P.get("anchors") or []}
+    hits = [x["score"] for x in an.values() if x["kind"] == "hit"]
+    miss = [x["score"] for x in an.values() if x["kind"] == "miss"]
+    tm = {"made": datetime.now().strftime("%Y-%m-%d %H:%M"), "explore": d.get("generated"), "pool": len(pool), "seed": seed, "folds": folds,
+          "success_rate": round(sum(map(ok, pool)) / max(1, len(pool)), 3), "auc_folds": aucs, "auc_mean": round(sum(aucs) / len(aucs), 3),
+          "anchors": an, "hit_min": min(hits) if hits else None, "hit_mean": round(sum(hits) / len(hits), 1) if hits else None,
+          "miss_max": max(miss) if miss else None, "miss_mean": round(sum(miss) / len(miss), 1) if miss else None,
+          "separates": bool(hits and miss and min(hits) > max(miss)), "lift": {k: None if v is None else round(v) for k, v in lift.items()}}
+    P["title_model"] = tm
+    Path(path).write_text(json.dumps(P, ensure_ascii=False, indent=1), "utf-8")
+    log("VALIDATE", pool=len(pool), auc=tm["auc_mean"], folds=aucs, hit_min=tm["hit_min"], hit_mean=tm["hit_mean"],
+        miss_max=tm["miss_max"], miss_mean=tm["miss_mean"], separates=tm["separates"],
+        anchors=" ".join(f"{k}:{x['kind']}={x['score']}" for k, x in an.items()))
+    return 0
+
+
 def check_variant(vid, v, S, base, F, explore):
     probs, lifts = [], []
     t = v["title"]
@@ -148,7 +217,11 @@ def cmd_check(topic, path):
         log("VIDEO", id=vdo["id"], theme=vdo["theme"], same_topic_titles=len(sup))
         for v in vdo["variants"]:
             probs, lifts = check_variant(vdo["id"], v, S, base, F, explore)
-            v["check"] = {"problems": probs, "frames": lifts, "data_score": sum(l for _, l, n in lifts if n >= MIN_N)}
+            tm_lift = (P.get("title_model") or {}).get("lift")
+            if tm_lift:  # 보이는 꼴 숫자도 판정에 쓰는 숫자(앵커 빼고 배움)로 — 두 숫자가 달라 헷갈리지 않게
+                lifts = [(k, tm_lift[k], n) for k, _, n in lifts if tm_lift.get(k) is not None] + [(k, 0, n) for k, _, n in lifts if tm_lift.get(k) is None]
+            ds = frame_score(v["title"], tm_lift) if tm_lift else sum(l for _, l, n in lifts if n >= MIN_N)
+            v["check"] = {"problems": probs, "frames": lifts, "data_score": ds, "data_score_from": "title_model (앵커 빼고 배움)" if tm_lift else "전체"}
             bad += bool(probs)
             log("CHECK", id=f"{vdo['id']}-{v['v']}", data_score=v["check"]["data_score"],
                 frames=" · ".join(f"{k} {l:+d}%p({n})" for k, l, n in lifts) or "-", result="✅" if not probs else " / ".join(probs))
@@ -261,6 +334,8 @@ def judge(P, r, rule):
     """회차 판정 — 영상마다 가장 좋은 안(무게 평균) · 통과 여부. 기준은 안.json 'pass_rule' (calibrated 면 같은 회차 앵커 H·M)."""
     w = rule.get("weights")
     HM = anchor_level(P, r, w) if rule.get("calibrated") else None
+    tm = P.get("title_model") or {}
+    title_mode = rule.get("mode") == "title+trust" and r["n"] >= rule.get("mode_from", 0) and tm.get("hit_min") is not None
     out = {}
     for vdo in P["videos"]:
         keys = [k for k in (r.get("scores") or {}) if k.startswith(vdo["id"] + "-")]
@@ -269,6 +344,15 @@ def judge(P, r, rule):
         sc = {k: wavg(r["scores"][k], w) for k in keys}
         best = max(sc, key=sc.get)
         b = r["scores"][best]
+        if title_mode:
+            ds = {k: ((r.get("snapshot") or {}).get(k) or {}).get("data_score", 0) for k in keys}
+            best = max(keys, key=lambda k: (ds[k], sc[k]))
+            mid = (tm["hit_mean"] + tm["miss_mean"]) / 2
+            tr = lambda k: r["scores"][k].get("trust") or 0  # noqa: E731
+            ok = (ds[best] >= tm["hit_min"] and tr(best) >= rule["trust_min"]
+                  and all(ds[k] >= mid and tr(k) >= rule["trust_min_others"] for k in keys if k != best))
+            out[vdo["id"]] = {"best": best, "score": f"제목 {ds[best]} · 믿음 {tr(best)} · 클릭(참고) {sc[best]}", "ok": ok, "all": sc, "ds": ds}
+            continue
         if HM:
             H, M = HM
             gap = rule.get("min_gap", 0)
@@ -295,13 +379,22 @@ def cmd_report(topic, path):
                 f"나머지 두 안 무게 평균 ≥ {rule['others_wavg']} — {rule.get('note', '')}")
     else:
         rtxt = f"통과 기준: 영상마다 가장 좋은 안 평균 ≥ {rule['best_avg']} · 그 안의 페르소나마다 ≥ {rule['best_min']} · 세 안 모두 평균 ≥ {rule['all_avg']}"
+    if rule.get("mode") == "title+trust":
+        rtxt = (f"통과 기준 ({rule.get('mode_from')}회차부터 — {rule.get('mode_note', '')}): 영상마다 가장 좋은 안의 제목 점수 ≥ 실제 성공 앵커 가운데 가장 낮은 점수 · 그 안의 믿음 ≥ {rule['trust_min']} · "
+                f"나머지 두 안 제목 점수 ≥ (성공 평균 + 덜 됨 평균)/2 · 믿음 ≥ {rule['trust_min_others']}. 페르소나 클릭 점수는 참고만. 앞 회차 기준: " + rtxt)
+    tm = P.get("title_model") or {}
     L = [f"# 제목·썸네일 안 — 점검·페르소나 패널 ({topic})", "",
          f"자동 생성 — `tools/ctr_check.py {VERSION}` · 안 파일 `{Path(path).name}` · ⚠️ 패널은 시뮬레이션 — 진짜 클릭률은 스튜디오 '테스트 및 비교'.", "", rtxt, ""]
+    if tm:
+        L += [f"제목 점수 검증 (`validate` {tm['made']} · 탐색 {tm['explore']}): 비교 무리 {tm['pool']}편 (성공 {round(100 * tm['success_rate'])}%) · "
+              f"5겹 교차 AUC {tm['auc_mean']} ({' · '.join(map(str, tm['auc_folds']))}, seed {tm['seed']}) — 0.5 = 동전 던지기, 약하지만 맞힘 · "
+              f"앵커(빼고 배움): 성공 {' · '.join(str(x['score']) for x in tm['anchors'].values() if x['kind'] == 'hit')} (가장 낮음 {tm['hit_min']}) · "
+              f"덜 됨 {' · '.join(str(x['score']) for x in tm['anchors'].values() if x['kind'] == 'miss')} (가장 높음 {tm['miss_max']}) · 가름 {'✅' if tm['separates'] else '❌'}", ""]
     for r in P.get("rounds") or []:
         J = judge(P, r, rule)
         L += [f"## {r['n']}회차 — {r.get('reviewer', '')}", "",
               "판정: " + " · ".join(f"{vid} {j['best']} {j['score']} {'✅' if j['ok'] else '—'}" for vid, j in J.items()), "",
-              "| 안 | 제목 | 썸네일 | 꼬리표 | P1 | P2 | P3 | 무게 평균 | 믿음 | flags |", "|---|---|---|---|---|---|---|---|---|---|"]
+              "| 안 | 제목 | 썸네일 | 꼬리표 | 제목 점수 | P1 | P2 | P3 | 무게 평균 | 믿음 | flags |", "|---|---|---|---|---|---|---|---|---|---|---|"]
         for vdo in P["videos"]:
             for v in vdo["variants"]:
                 k = f"{vdo['id']}-{v['v']}"
@@ -309,7 +402,7 @@ def cmd_report(topic, path):
                 snap = (r.get("snapshot") or {}).get(k) or v
                 if not s:
                     continue
-                L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} | {s.get('trust', '-')} | {' · '.join(s.get('flags') or []) or '-'} |")
+                L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {snap.get('data_score', '-')} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} | {s.get('trust', '-')} | {' · '.join(s.get('flags') or []) or '-'} |")
         if any(a["k"] in (r.get("scores") or {}) for a in P.get("anchors") or []):
             HM = anchor_level(P, r, w)
             gap = rule.get("min_gap", 0)
@@ -354,7 +447,8 @@ def cmd_add(topic, path, n, answers):
         if tr:
             scores[k]["trust"] = round(sum(tr) / len(tr), 2)
             scores[k]["raw_trust"] = tr
-    snap = {f"{v['id']}-{x['v']}": {kk: x[kk] for kk in ("title", "thumb_main", "thumb_sub", "image") if kk in x} for v in P["videos"] for x in v["variants"]}
+    snap = {f"{v['id']}-{x['v']}": {**{kk: x[kk] for kk in ("title", "thumb_main", "thumb_sub", "image") if kk in x},
+                                    "data_score": (x.get("check") or {}).get("data_score")} for v in P["videos"] for x in v["variants"]}
     P["rounds"] = [r for r in P.get("rounds") or [] if r["n"] != n] + [{
         "n": n, "reviewer": f"새 하위 에이전트 {len(R)}명 평균 (" + " · ".join(Path(a).stem for a in answers) + ")",
         "scores": scores, "snapshot": snap, "fix": [r.get("fix") or {} for r in R]}]
@@ -377,6 +471,8 @@ def main(argv):
         return 0
     if cmd == "report":
         return cmd_report(topic, path)
+    if cmd == "validate":
+        return cmd_validate(topic, path)
     if cmd == "add" and len(argv) > 4:
         return cmd_add(topic, path, int(argv[3]), argv[4:])
     print(__doc__)

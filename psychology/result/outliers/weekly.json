@@ -2,7 +2,7 @@
  "tool": "weekly_analysis.py v1.5.2",
  "topic": "psychology",
  "name": "심리",
- "generated": "2026-11-11T13:31:55+00:00",
+ "generated": "2026-11-11T13:40:54+00:00",
  "cases": 251,
  "dated": 251,
  "older_than_windows": 0,
@@ -112,15 +112,7 @@
      "count": 4
     },
     {
-     "word": "사람들의",
-     "count": 4
-    },
-    {
      "word": "있습니다",
-     "count": 4
-    },
-    {
-     "word": "통해",
      "count": 4
     },
     {
@@ -128,7 +120,15 @@
      "count": 4
     },
     {
-     "word": "그리고",
+     "word": "통해",
+     "count": 4
+    },
+    {
+     "word": "사람들의",
+     "count": 4
+    },
+    {
+     "word": "관계의",
      "count": 3
     },
     {
@@ -136,15 +136,15 @@
      "count": 3
     },
     {
-     "word": "관계의",
+     "word": "가장",
+     "count": 3
+    },
+    {
+     "word": "그리고",
      "count": 3
     },
     {
      "word": "심리",
-     "count": 3
-    },
-    {
-     "word": "가장",
      "count": 3
     },
     {
@@ -509,11 +509,11 @@
      "count": 13
     },
     {
-     "word": "심리",
+     "word": "영상은",
      "count": 11
     },
     {
-     "word": "영상은",
+     "word": "심리",
      "count": 11
     },
     {
@@ -521,12 +521,16 @@
      "count": 10
     },
     {
+     "word": "가장",
+     "count": 9
+    },
+    {
      "word": "그리고",
      "count": 9
     },
     {
-     "word": "가장",
-     "count": 9
+     "word": "심리학",
+     "count": 8
     },
     {
      "word": "아니라",
@@ -537,15 +541,11 @@
      "count": 8
     },
     {
-     "word": "심리학",
+     "word": "함께",
      "count": 8
     },
     {
      "word": "사람들의",
-     "count": 8
-    },
-    {
-     "word": "함께",
      "count": 8
     },
     {
@@ -849,11 +849,11 @@
      "count": 7
     },
     {
-     "word": "특징",
+     "word": "인간관계",
      "count": 6
     },
     {
-     "word": "인간관계",
+     "word": "특징",
      "count": 6
     },
     {
@@ -902,15 +902,15 @@
      "count": 14
     },
     {
-     "word": "심리",
-     "count": 13
-    },
-    {
      "word": "사람의",
      "count": 13
     },
     {
      "word": "아니라",
+     "count": 13
+    },
+    {
+     "word": "심리",
      "count": 13
     },
     {
@@ -1237,11 +1237,11 @@
      "count": 6
     },
     {
-     "word": "마세요",
+     "word": "5가지",
      "count": 5
     },
     {
-     "word": "5가지",
+     "word": "마세요",
      "count": 5
     }
    ],
@@ -1290,15 +1290,15 @@
      "count": 17
     },
     {
+     "word": "심리학",
+     "count": 16
+    },
+    {
      "word": "그리고",
      "count": 16
     },
     {
      "word": "영상은",
-     "count": 16
-    },
-    {
-     "word": "심리학",
      "count": 16
     }
    ],
@@ -1605,11 +1605,11 @@
      "count": 38
     },
     {
-     "word": "아니라",
+     "word": "가장",
      "count": 24
     },
     {
-     "word": "가장",
+     "word": "아니라",
      "count": 24
     },
     {
@@ -1625,11 +1625,11 @@
      "count": 23
     },
     {
-     "word": "영상은",
+     "word": "심리학",
      "count": 21
     },
     {
-     "word": "심리학",
+     "word": "영상은",
      "count": 21
     },
     {
@@ -1982,11 +1982,11 @@
      "count": 27
     },
     {
-     "word": "가장",
+     "word": "심리학",
      "count": 26
     },
     {
-     "word": "심리학",
+     "word": "가장",
      "count": 26
     },
     {
@@ -2635,15 +2635,15 @@
      "count": 12
     },
     {
+     "word": "5가지",
+     "count": 12
+    },
+    {
      "word": "특징",
      "count": 12
     },
     {
      "word": "사람",
-     "count": 12
-    },
-    {
-     "word": "5가지",
      "count": 12
     },
     {
@@ -3010,11 +3010,11 @@
      "count": 13
     },
     {
-     "word": "특징",
+     "word": "5가지",
      "count": 13
     },
     {
-     "word": "5가지",
+     "word": "특징",
      "count": 13
     },
     {
@@ -3071,11 +3071,11 @@
      "count": 36
     },
     {
-     "word": "가장",
+     "word": "심리학",
      "count": 35
     },
     {
-     "word": "심리학",
+     "word": "가장",
      "count": 35
     },
     {
@@ -3208,18 +3208,13 @@
   {
    "weeks": 10,
    "label": "최근 10주",
-   "videos": 157,
+   "videos": 156,
    "channels": 106,
    "new_this_week": [
     {
      "id": "461dnHXDuEI",
      "title": "여자들이 무의식적으로 인생을 꼬이게하는 습관들",
      "published": "2026-09-03"
-    },
-    {
-     "id": "5Kjejm7scaA",
-     "title": "나이 상관없이 여자에게 매력 있는 남자 특징",
-     "published": "2026-09-02"
     },
     {
      "id": "BDzClOSdKwE",
@@ -3262,47 +3257,47 @@
      "published": "2026-09-03"
     }
    ],
-   "views_median": 174937,
-   "views_per_day_median": 7093.7,
-   "ratio_median": 18.45,
-   "success": 119,
-   "minutes_median": 20.3,
-   "title_len_avg": 44.9,
+   "views_median": 171258.5,
+   "views_per_day_median": 7109.7,
+   "ratio_median": 19.19,
+   "success": 118,
+   "minutes_median": 20.35,
+   "title_len_avg": 45.0,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 81,
-     "share": 0.516
+     "count": 80,
+     "share": 0.513
     },
     {
      "name": "N가지",
      "count": 42,
-     "share": 0.268
+     "share": 0.269
     },
     {
      "name": "이유",
      "count": 32,
-     "share": 0.204
+     "share": 0.205
     },
     {
      "name": "vs 비교",
      "count": 20,
-     "share": 0.127
+     "share": 0.128
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 19,
-     "share": 0.121
+     "share": 0.122
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 11,
-     "share": 0.07
+     "share": 0.071
     },
     {
      "name": "물음표 ?",
      "count": 9,
-     "share": 0.057
+     "share": 0.058
     },
     {
      "name": "공통점",
@@ -3338,10 +3333,6 @@
      "count": 15
     },
     {
-     "word": "특징",
-     "count": 14
-    },
-    {
      "word": "사람",
      "count": 14
     },
@@ -3350,7 +3341,7 @@
      "count": 13
     },
     {
-     "word": "나이",
+     "word": "특징",
      "count": 13
     },
     {
@@ -3360,6 +3351,10 @@
     {
      "word": "심리학",
      "count": 12
+    },
+    {
+     "word": "나이",
+     "count": 12
     }
    ],
    "transcripts": 0,
@@ -3367,7 +3362,7 @@
     "자막": 0,
     "음성인식": 0,
     "설명": 151,
-    "없음": 6
+    "없음": 5
    },
    "content_words": [
     {
@@ -3419,7 +3414,7 @@
      "count": 32
     }
    ],
-   "chapters_share": 0.484,
+   "chapters_share": 0.481,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -3441,26 +3436,26 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 32580,
+   "comments": 32392,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5398,
+     "count": 5384,
      "share": 0.166
     },
     {
      "name": "질문",
-     "count": 4330,
+     "count": 4308,
      "share": 0.133
     },
     {
      "name": "칭찬·감사",
-     "count": 3987,
+     "count": 3954,
      "share": 0.122
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2190,
+     "count": 2175,
      "share": 0.067
     },
     {
@@ -3470,7 +3465,7 @@
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 685,
+     "count": 681,
      "share": 0.021
     }
    ],
@@ -3547,6 +3542,11 @@
      "id": "1fkVDu1W2gw",
      "title": "죽어도 먼저 연락 안 하지만 만나면 다정한 사람들 특징 (인간관계 편)",
      "published": "2026-08-27"
+    },
+    {
+     "id": "5Kjejm7scaA",
+     "title": "나이 상관없이 여자에게 매력 있는 남자 특징",
+     "published": "2026-09-02"
     },
     {
      "id": "6vphF76_Qgs",

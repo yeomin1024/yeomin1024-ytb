@@ -1,0 +1,1037 @@
+{
+ "version": "v1.0",
+ "made": "2026-11-11T06:56:09Z",
+ "source": {
+  "spy": "stock/topics/precheck/data/SPY.csv",
+  "from": "2000-01-01",
+  "to": "2026-10-28"
+ },
+ "rebound_days": {
+  "n": 83,
+  "decided": 83,
+  "fake": 56,
+  "real": 27,
+  "fake_share": 0.675,
+  "days_to_break_median": 17,
+  "more_drop_median": -11.3,
+  "sens": {
+   "th3_dd10": {
+    "n": 83,
+    "fake": 56,
+    "fake_share": 0.675
+   },
+   "th3_dd20": {
+    "n": 54,
+    "fake": 36,
+    "fake_share": 0.667
+   },
+   "th4_dd10": {
+    "n": 33,
+    "fake": 22,
+    "fake_share": 0.667
+   },
+   "th4_dd20": {
+    "n": 23,
+    "fake": 15,
+    "fake_share": 0.652
+   },
+   "th5_dd10": {
+    "n": 18,
+    "fake": 10,
+    "fake_share": 0.556
+   },
+   "th5_dd20": {
+    "n": 15,
+    "fake": 9,
+    "fake_share": 0.6
+   }
+  },
+  "events": [
+   {
+    "date": "2000-04-17",
+    "day": 3.5,
+    "kind": "가짜",
+    "days_to_break": 124,
+    "more_drop": -5.0
+   },
+   {
+    "date": "2000-05-30",
+    "day": 3.3,
+    "kind": "가짜",
+    "days_to_break": 94,
+    "more_drop": -6.8
+   },
+   {
+    "date": "2000-10-13",
+    "day": 3.3,
+    "kind": "가짜",
+    "days_to_break": 28,
+    "more_drop": -19.3
+   },
+   {
+    "date": "2000-10-19",
+    "day": 3.8,
+    "kind": "가짜",
+    "days_to_break": 24,
+    "more_drop": -20.3
+   },
+   {
+    "date": "2000-12-05",
+    "day": 3.3,
+    "kind": "가짜",
+    "days_to_break": 8,
+    "more_drop": -19.4
+   },
+   {
+    "date": "2000-12-11",
+    "day": 3.5,
+    "kind": "가짜",
+    "days_to_break": 4,
+    "more_drop": -19.9
+   },
+   {
+    "date": "2001-01-03",
+    "day": 4.8,
+    "kind": "가짜",
+    "days_to_break": 33,
+    "more_drop": -18.0
+   },
+   {
+    "date": "2001-03-23",
+    "day": 3.0,
+    "kind": "가짜",
+    "days_to_break": 7,
+    "more_drop": -14.5
+   },
+   {
+    "date": "2001-04-05",
+    "day": 3.8,
+    "kind": "가짜",
+    "days_to_break": 107,
+    "more_drop": -14.9
+   },
+   {
+    "date": "2001-04-18",
+    "day": 4.0,
+    "kind": "가짜",
+    "days_to_break": 99,
+    "more_drop": -21.0
+   },
+   {
+    "date": "2001-09-24",
+    "day": 3.5,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.7
+   },
+   {
+    "date": "2002-05-08",
+    "day": 3.7,
+    "kind": "가짜",
+    "days_to_break": 17,
+    "more_drop": -27.8
+   },
+   {
+    "date": "2002-07-05",
+    "day": 4.0,
+    "kind": "가짜",
+    "days_to_break": 3,
+    "more_drop": -21.0
+   },
+   {
+    "date": "2002-07-24",
+    "day": 6.0,
+    "kind": "가짜",
+    "days_to_break": 52,
+    "more_drop": -7.4
+   },
+   {
+    "date": "2002-07-29",
+    "day": 4.9,
+    "kind": "가짜",
+    "days_to_break": 49,
+    "more_drop": -12.6
+   },
+   {
+    "date": "2002-08-06",
+    "day": 3.4,
+    "kind": "가짜",
+    "days_to_break": 43,
+    "more_drop": -9.4
+   },
+   {
+    "date": "2002-08-08",
+    "day": 3.2,
+    "kind": "가짜",
+    "days_to_break": 41,
+    "more_drop": -13.7
+   },
+   {
+    "date": "2002-08-14",
+    "day": 3.7,
+    "kind": "가짜",
+    "days_to_break": 37,
+    "more_drop": -14.9
+   },
+   {
+    "date": "2002-10-01",
+    "day": 4.8,
+    "kind": "가짜",
+    "days_to_break": 3,
+    "more_drop": -8.9
+   },
+   {
+    "date": "2002-10-10",
+    "day": 3.2,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.4
+   },
+   {
+    "date": "2002-10-11",
+    "day": 4.4,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -3.9
+   },
+   {
+    "date": "2002-10-15",
+    "day": 4.8,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -8.8
+   },
+   {
+    "date": "2003-01-02",
+    "day": 3.2,
+    "kind": "가짜",
+    "days_to_break": 15,
+    "more_drop": -11.6
+   },
+   {
+    "date": "2003-03-13",
+    "day": 3.5,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.3
+   },
+   {
+    "date": "2003-03-17",
+    "day": 3.1,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -2.0
+   },
+   {
+    "date": "2008-03-11",
+    "day": 3.6,
+    "kind": "가짜",
+    "days_to_break": 79,
+    "more_drop": -7.8
+   },
+   {
+    "date": "2008-03-18",
+    "day": 4.2,
+    "kind": "가짜",
+    "days_to_break": 74,
+    "more_drop": -9.2
+   },
+   {
+    "date": "2008-04-01",
+    "day": 3.5,
+    "kind": "가짜",
+    "days_to_break": 65,
+    "more_drop": -17.6
+   },
+   {
+    "date": "2008-09-19",
+    "day": 4.0,
+    "kind": "가짜",
+    "days_to_break": 6,
+    "more_drop": -44.7
+   },
+   {
+    "date": "2008-09-30",
+    "day": 4.1,
+    "kind": "가짜",
+    "days_to_break": 3,
+    "more_drop": -40.8
+   },
+   {
+    "date": "2008-10-13",
+    "day": 14.5,
+    "kind": "가짜",
+    "days_to_break": 9,
+    "more_drop": -32.3
+   },
+   {
+    "date": "2008-10-16",
+    "day": 4.2,
+    "kind": "가짜",
+    "days_to_break": 6,
+    "more_drop": -26.8
+   },
+   {
+    "date": "2008-10-20",
+    "day": 6.0,
+    "kind": "가짜",
+    "days_to_break": 4,
+    "more_drop": -30.5
+   },
+   {
+    "date": "2008-10-28",
+    "day": 11.7,
+    "kind": "가짜",
+    "days_to_break": 16,
+    "more_drop": -26.8
+   },
+   {
+    "date": "2008-10-30",
+    "day": 3.5,
+    "kind": "가짜",
+    "days_to_break": 14,
+    "more_drop": -28.7
+   },
+   {
+    "date": "2008-11-04",
+    "day": 3.4,
+    "kind": "가짜",
+    "days_to_break": 11,
+    "more_drop": -31.6
+   },
+   {
+    "date": "2008-11-07",
+    "day": 3.3,
+    "kind": "가짜",
+    "days_to_break": 8,
+    "more_drop": -26.8
+   },
+   {
+    "date": "2008-11-13",
+    "day": 6.2,
+    "kind": "가짜",
+    "days_to_break": 4,
+    "more_drop": -24.7
+   },
+   {
+    "date": "2008-11-21",
+    "day": 5.4,
+    "kind": "가짜",
+    "days_to_break": 61,
+    "more_drop": -13.7
+   },
+   {
+    "date": "2008-11-24",
+    "day": 6.9,
+    "kind": "가짜",
+    "days_to_break": 60,
+    "more_drop": -19.2
+   },
+   {
+    "date": "2008-11-26",
+    "day": 3.9,
+    "kind": "가짜",
+    "days_to_break": 58,
+    "more_drop": -22.8
+   },
+   {
+    "date": "2008-12-02",
+    "day": 3.8,
+    "kind": "가짜",
+    "days_to_break": 55,
+    "more_drop": -19.5
+   },
+   {
+    "date": "2008-12-05",
+    "day": 3.1,
+    "kind": "가짜",
+    "days_to_break": 52,
+    "more_drop": -21.9
+   },
+   {
+    "date": "2008-12-08",
+    "day": 3.5,
+    "kind": "가짜",
+    "days_to_break": 51,
+    "more_drop": -24.5
+   },
+   {
+    "date": "2008-12-16",
+    "day": 4.7,
+    "kind": "가짜",
+    "days_to_break": 45,
+    "more_drop": -25.3
+   },
+   {
+    "date": "2009-01-02",
+    "day": 3.0,
+    "kind": "가짜",
+    "days_to_break": 8,
+    "more_drop": -26.7
+   },
+   {
+    "date": "2009-01-21",
+    "day": 4.3,
+    "kind": "가짜",
+    "days_to_break": 18,
+    "more_drop": -19.0
+   },
+   {
+    "date": "2009-01-28",
+    "day": 3.4,
+    "kind": "가짜",
+    "days_to_break": 13,
+    "more_drop": -22.1
+   },
+   {
+    "date": "2009-02-24",
+    "day": 3.8,
+    "kind": "가짜",
+    "days_to_break": 3,
+    "more_drop": -12.1
+   },
+   {
+    "date": "2009-03-10",
+    "day": 6.0,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.7
+   },
+   {
+    "date": "2009-03-12",
+    "day": 3.9,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.5
+   },
+   {
+    "date": "2009-03-17",
+    "day": 3.1,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -1.2
+   },
+   {
+    "date": "2009-03-23",
+    "day": 7.2,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -4.2
+   },
+   {
+    "date": "2009-04-09",
+    "day": 4.0,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -2.8
+   },
+   {
+    "date": "2009-05-04",
+    "day": 3.4,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -2.7
+   },
+   {
+    "date": "2010-05-27",
+    "day": 3.3,
+    "kind": "가짜",
+    "days_to_break": 5,
+    "more_drop": -7.3
+   },
+   {
+    "date": "2010-07-07",
+    "day": 3.1,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -0.8
+   },
+   {
+    "date": "2011-08-09",
+    "day": 4.6,
+    "kind": "가짜",
+    "days_to_break": 38,
+    "more_drop": -5.9
+   },
+   {
+    "date": "2011-08-11",
+    "day": 4.5,
+    "kind": "가짜",
+    "days_to_break": 36,
+    "more_drop": -5.8
+   },
+   {
+    "date": "2011-08-23",
+    "day": 3.3,
+    "kind": "가짜",
+    "days_to_break": 28,
+    "more_drop": -5.1
+   },
+   {
+    "date": "2011-10-10",
+    "day": 3.3,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -2.7
+   },
+   {
+    "date": "2011-11-30",
+    "day": 4.1,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -3.1
+   },
+   {
+    "date": "2011-12-20",
+    "day": 3.0,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.2
+   },
+   {
+    "date": "2015-08-26",
+    "day": 3.8,
+    "kind": "가짜",
+    "days_to_break": 116,
+    "more_drop": -4.9
+   },
+   {
+    "date": "2018-12-26",
+    "day": 5.1,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -0.8
+   },
+   {
+    "date": "2019-01-04",
+    "day": 3.3,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.8
+   },
+   {
+    "date": "2020-03-02",
+    "day": 4.3,
+    "kind": "가짜",
+    "days_to_break": 5,
+    "more_drop": -27.4
+   },
+   {
+    "date": "2020-03-04",
+    "day": 4.2,
+    "kind": "가짜",
+    "days_to_break": 3,
+    "more_drop": -28.3
+   },
+   {
+    "date": "2020-03-10",
+    "day": 5.2,
+    "kind": "가짜",
+    "days_to_break": 2,
+    "more_drop": -22.2
+   },
+   {
+    "date": "2020-03-13",
+    "day": 8.5,
+    "kind": "가짜",
+    "days_to_break": 1,
+    "more_drop": -16.7
+   },
+   {
+    "date": "2020-03-17",
+    "day": 5.4,
+    "kind": "가짜",
+    "days_to_break": 3,
+    "more_drop": -11.3
+   },
+   {
+    "date": "2020-03-24",
+    "day": 9.1,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 1.2
+   },
+   {
+    "date": "2020-03-26",
+    "day": 5.8,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -5.8
+   },
+   {
+    "date": "2020-03-30",
+    "day": 3.2,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -5.9
+   },
+   {
+    "date": "2020-04-06",
+    "day": 6.7,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": 0.1
+   },
+   {
+    "date": "2020-04-08",
+    "day": 3.4,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -0.4
+   },
+   {
+    "date": "2020-05-18",
+    "day": 3.0,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -1.0
+   },
+   {
+    "date": "2022-05-04",
+    "day": 3.0,
+    "kind": "가짜",
+    "days_to_break": 2,
+    "more_drop": -16.2
+   },
+   {
+    "date": "2022-06-24",
+    "day": 3.2,
+    "kind": "가짜",
+    "days_to_break": 65,
+    "more_drop": -8.2
+   },
+   {
+    "date": "2022-10-04",
+    "day": 3.1,
+    "kind": "가짜",
+    "days_to_break": 6,
+    "more_drop": -5.7
+   },
+   {
+    "date": "2022-11-10",
+    "day": 5.5,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -4.1
+   },
+   {
+    "date": "2022-11-30",
+    "day": 3.2,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -7.2
+   },
+   {
+    "date": "2025-04-09",
+    "day": 10.5,
+    "kind": "진짜",
+    "days_to_break": null,
+    "more_drop": -6.3
+   }
+  ]
+ },
+ "declines": {
+  "summary": {
+   "th": 0.15,
+   "n": 6,
+   "recovered": 6,
+   "years_peak_to_recover_min": 0.3,
+   "years_peak_to_recover_max": 6.6,
+   "years_peak_to_recover_median": 1.2,
+   "within_1y": 3,
+   "within_2y": 4,
+   "rebounds_before_low_total": 51,
+   "declines_with_rebound_before_low": 4,
+   "after_low_1m_median": 15.0,
+   "after_low_1m_min": 10.7,
+   "after_low_3m_median": 23.1,
+   "after_low_1y_median": 39.0,
+   "after_low_1y_min": 22.9,
+   "gain_at_ma200_median": 16.8,
+   "gain_at_ma200_min": 14.3,
+   "gain_at_ma200_max": 36.8
+  },
+  "rows": [
+   {
+    "peak": "2000-03-24",
+    "low": "2002-10-09",
+    "depth": -47.5,
+    "months_to_low": 30.5,
+    "rebounds_before_low": 19,
+    "biggest_rebound_before_low": 6.0,
+    "recovered": "2006-10-26",
+    "years_peak_to_recover": 6.6,
+    "years_low_to_recover": 4.0,
+    "after_low_1m": 16.2,
+    "after_low_3m": 19.4,
+    "after_low_6m": 13.1,
+    "after_low_1y": 35.7,
+    "above_ma200_date": "2003-03-21",
+    "gain_from_low_at_ma200": 15.8,
+    "days_low_to_ma200": 112
+   },
+   {
+    "peak": "2007-10-09",
+    "low": "2009-03-09",
+    "depth": -55.2,
+    "months_to_low": 17.0,
+    "rebounds_before_low": 24,
+    "biggest_rebound_before_low": 14.5,
+    "recovered": "2012-08-16",
+    "years_peak_to_recover": 4.9,
+    "years_low_to_recover": 3.4,
+    "after_low_1m": 20.7,
+    "after_low_3m": 39.2,
+    "after_low_6m": 51.8,
+    "after_low_1y": 71.9,
+    "above_ma200_date": "2009-05-29",
+    "gain_from_low_at_ma200": 36.8,
+    "days_low_to_ma200": 57
+   },
+   {
+    "peak": "2018-09-20",
+    "low": "2018-12-24",
+    "depth": -19.3,
+    "months_to_low": 3.1,
+    "rebounds_before_low": 0,
+    "biggest_rebound_before_low": null,
+    "recovered": "2019-04-12",
+    "years_peak_to_recover": 0.6,
+    "years_low_to_recover": 0.3,
+    "after_low_1m": 13.4,
+    "after_low_3m": 19.9,
+    "after_low_6m": 25.1,
+    "after_low_1y": 39.7,
+    "above_ma200_date": "2019-02-04",
+    "gain_from_low_at_ma200": 16.1,
+    "days_low_to_ma200": 27
+   },
+   {
+    "peak": "2020-02-19",
+    "low": "2020-03-23",
+    "depth": -33.7,
+    "months_to_low": 1.1,
+    "rebounds_before_low": 5,
+    "biggest_rebound_before_low": 8.5,
+    "recovered": "2020-08-10",
+    "years_peak_to_recover": 0.5,
+    "years_low_to_recover": 0.4,
+    "after_low_1m": 25.2,
+    "after_low_3m": 39.9,
+    "after_low_6m": 47.9,
+    "after_low_1y": 77.5,
+    "above_ma200_date": "2020-05-26",
+    "gain_from_low_at_ma200": 34.1,
+    "days_low_to_ma200": 44
+   },
+   {
+    "peak": "2022-01-03",
+    "low": "2022-10-12",
+    "depth": -24.5,
+    "months_to_low": 9.3,
+    "rebounds_before_low": 3,
+    "biggest_rebound_before_low": 3.2,
+    "recovered": "2023-12-13",
+    "years_peak_to_recover": 1.9,
+    "years_low_to_recover": 1.2,
+    "after_low_1m": 10.7,
+    "after_low_3m": 11.8,
+    "after_low_6m": 16.7,
+    "after_low_1y": 22.9,
+    "above_ma200_date": "2022-11-30",
+    "gain_from_low_at_ma200": 14.3,
+    "days_low_to_ma200": 34
+   },
+   {
+    "peak": "2025-02-19",
+    "low": "2025-04-08",
+    "depth": -18.8,
+    "months_to_low": 1.6,
+    "rebounds_before_low": 0,
+    "biggest_rebound_before_low": null,
+    "recovered": "2025-06-26",
+    "years_peak_to_recover": 0.3,
+    "years_low_to_recover": 0.2,
+    "after_low_1m": 13.8,
+    "after_low_3m": 26.4,
+    "after_low_6m": 36.4,
+    "after_low_1y": 38.4,
+    "above_ma200_date": "2025-05-12",
+    "gain_from_low_at_ma200": 17.4,
+    "days_low_to_ma200": 23
+   }
+  ],
+  "sens": {
+   "th10": {
+    "n": 8,
+    "recovered": 8,
+    "years_max": 6.6,
+    "years_median": 0.6,
+    "after_low_1m_median": 13.6
+   },
+   "th20": {
+    "n": 4,
+    "recovered": 4,
+    "years_max": 6.6,
+    "years_median": 3.4,
+    "after_low_1m_median": 18.4
+   }
+  }
+ },
+ "best_days": {
+  "n": 20,
+  "in_decline_10": 19,
+  "in_decline_20": 16,
+  "top5": [
+   {
+    "date": "2008-10-13",
+    "day": 14.5,
+    "below_high_prev": -42.2,
+    "more_drop_6m": -32.3,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2008-10-28",
+    "day": 11.7,
+    "below_high_prev": -44.6,
+    "more_drop_6m": -26.8,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2025-04-09",
+    "day": 10.5,
+    "below_high_prev": -18.8,
+    "more_drop_6m": -6.3,
+    "low_6m_date": "2025-04-21"
+   },
+   {
+    "date": "2020-03-24",
+    "day": 9.1,
+    "below_high_prev": -33.7,
+    "more_drop_6m": 1.2,
+    "low_6m_date": "2020-04-01"
+   },
+   {
+    "date": "2020-03-13",
+    "day": 8.5,
+    "below_high_prev": -26.7,
+    "more_drop_6m": -16.7,
+    "low_6m_date": "2020-03-23"
+   }
+  ],
+  "smallest": 4.9,
+  "fell_below_after": 17,
+  "fell_10_more_after": 10,
+  "all": [
+   {
+    "date": "2008-10-13",
+    "day": 14.5,
+    "below_high_prev": -42.2,
+    "more_drop_6m": -32.3,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2008-10-28",
+    "day": 11.7,
+    "below_high_prev": -44.6,
+    "more_drop_6m": -26.8,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2025-04-09",
+    "day": 10.5,
+    "below_high_prev": -18.8,
+    "more_drop_6m": -6.3,
+    "low_6m_date": "2025-04-21"
+   },
+   {
+    "date": "2020-03-24",
+    "day": 9.1,
+    "below_high_prev": -33.7,
+    "more_drop_6m": 1.2,
+    "low_6m_date": "2020-04-01"
+   },
+   {
+    "date": "2020-03-13",
+    "day": 8.5,
+    "below_high_prev": -26.7,
+    "more_drop_6m": -16.7,
+    "low_6m_date": "2020-03-23"
+   },
+   {
+    "date": "2009-03-23",
+    "day": 7.2,
+    "below_high_prev": -45.0,
+    "more_drop_6m": -4.2,
+    "low_6m_date": "2009-03-30"
+   },
+   {
+    "date": "2008-11-24",
+    "day": 6.9,
+    "below_high_prev": -46.6,
+    "more_drop_6m": -19.2,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2020-04-06",
+    "day": 6.7,
+    "below_high_prev": -26.2,
+    "more_drop_6m": 0.1,
+    "low_6m_date": "2020-04-07"
+   },
+   {
+    "date": "2008-11-13",
+    "day": 6.2,
+    "below_high_prev": -42.4,
+    "more_drop_6m": -24.7,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2008-10-20",
+    "day": 6.0,
+    "below_high_prev": -38.4,
+    "more_drop_6m": -30.5,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2002-07-24",
+    "day": 6.0,
+    "below_high_prev": -33.9,
+    "more_drop_6m": -7.4,
+    "low_6m_date": "2002-10-09"
+   },
+   {
+    "date": "2009-03-10",
+    "day": 6.0,
+    "below_high_prev": -51.5,
+    "more_drop_6m": 0.7,
+    "low_6m_date": "2009-03-11"
+   },
+   {
+    "date": "2020-03-26",
+    "day": 5.8,
+    "below_high_prev": -26.6,
+    "more_drop_6m": -5.8,
+    "low_6m_date": "2020-04-01"
+   },
+   {
+    "date": "2000-01-07",
+    "day": 5.8,
+    "below_high_prev": -6.2,
+    "more_drop_6m": -8.5,
+    "low_6m_date": "2000-02-25"
+   },
+   {
+    "date": "2022-11-10",
+    "day": 5.5,
+    "below_high_prev": -20.8,
+    "more_drop_6m": -4.1,
+    "low_6m_date": "2022-12-28"
+   },
+   {
+    "date": "2020-03-17",
+    "day": 5.4,
+    "below_high_prev": -29.1,
+    "more_drop_6m": -11.3,
+    "low_6m_date": "2020-03-23"
+   },
+   {
+    "date": "2008-11-21",
+    "day": 5.4,
+    "below_high_prev": -49.3,
+    "more_drop_6m": -13.7,
+    "low_6m_date": "2009-03-09"
+   },
+   {
+    "date": "2020-03-10",
+    "day": 5.2,
+    "below_high_prev": -18.9,
+    "more_drop_6m": -22.2,
+    "low_6m_date": "2020-03-23"
+   },
+   {
+    "date": "2018-12-26",
+    "day": 5.1,
+    "below_high_prev": -19.3,
+    "more_drop_6m": -0.8,
+    "low_6m_date": "2019-01-03"
+   },
+   {
+    "date": "2002-07-29",
+    "day": 4.9,
+    "below_high_prev": -29.2,
+    "more_drop_6m": -12.6,
+    "low_6m_date": "2002-10-09"
+   }
+  ]
+ },
+ "time_under": {
+  "days": 6746,
+  "below_10": 0.222,
+  "below_20": 0.085
+ },
+ "from_longform": {
+  "version": "v1.3",
+  "signal": {
+   "n": 20,
+   "hits": 13,
+   "actual_fake": 15,
+   "always_fake_hits": 15,
+   "real_signals": 8,
+   "real_signals_then_fake": 5,
+   "fake_signals": 12,
+   "fake_signals_then_real": 2,
+   "sens_combos": 18,
+   "sens_hits_min": 9,
+   "sens_hits_max": 17,
+   "sens_all_correct": 0,
+   "sens_beats_always_fake": 7,
+   "others": {
+    "rsi30": 10,
+    "ma50": 14,
+    "ma200": 12
+   }
+  },
+  "cash_plan": {
+   "rule": {
+    "a0": 0.05,
+    "drop": 0.1,
+    "growth": 1.0
+   },
+   "loss20_plan_12m": 1,
+   "loss20_lump_12m": 8,
+   "median_plan_12m": 5.2,
+   "median_lump_12m": 13.7,
+   "plan_loss20_events": [
+    {
+     "rebound": "2008-03-11",
+     "mdd": -24.9
+    }
+   ],
+   "plan_worst_mdd": -24.9
+  },
+  "stuck": {
+   "recovered": 20,
+   "within_1y": 12,
+   "max_years": 6.0,
+   "max_event": "2000-04-17",
+   "hold_loss20_12m": 5,
+   "half_loss20_12m": 2,
+   "half_sold_12m": 12,
+   "n_36m": 19,
+   "hold_loss20_36m": 7,
+   "half_loss20_36m": 4,
+   "hold_median_36m": 36.6,
+   "half_median_36m": 29.1,
+   "half_sold_36m": 13
+  },
+  "intro": {
+   "date": "2022-05-04",
+   "rebound_day": 3.0,
+   "low": "2022-06-16",
+   "more_drop": -14.5,
+   "loss_won": -1450000,
+   "weeks": 6.1
+  }
+ }
+}

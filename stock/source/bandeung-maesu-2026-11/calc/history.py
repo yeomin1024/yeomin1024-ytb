@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-11 — ① stuck_rebound: '이미 깊이 물린 상태(1년 최고가 대비 −30% 아래)에서 급반등이 나온 다음 날' 버틴 경우 vs 절반 매도 뒤 판 값 ±10% 에서 다시 매수(먼저 온 쪽)
+# VERSION: v1.3.1 — 2026-11-11 — stuck_rebound: 자료 마지막 날이 급반등이면 건너뜀(IndexError 고침) · 코스피에도 같은 실험(kospi_bridge.stuck). v1.3 — 2026-11-11 — ① stuck_rebound: '이미 깊이 물린 상태(1년 최고가 대비 −30% 아래)에서 급반등이 나온 다음 날' 버틴 경우 vs 절반 매도 뒤 판 값 ±10% 에서 다시 매수(먼저 온 쪽)
 #   — 페르소나 검토(물린 개미): 옛 실험(주식 80·현금 20 · 평단 −10% 에 절반 매도)은 "−50% 물린 사람에겐 버스 떠난 얘기"라 그 대목에서 이탈 → 처지에 맞는 실험으로.
 #   ⚠ 위험 관련 규칙이 바뀜: 대본의 '이미 물렸다면' 실험 = (옛) 평단 −10% 절반 매도·판 값 −10·20·30% 재매수 → (새) 급반등 다음 날 절반 매도·판 값 ±10% 재매수. 옛 숫자(5번 대 2번 · 36.6% 대 29.1%)는 대본 v7 에서 안 씀.
 #   ② single_stocks: 미국 대형주가 최고가(배당 포함)를 되찾기까지 — '지수의 기록은 종목에 그대로 맞지 않는다'의 근거 (자료 stock/topics/precheck/data/CSCO·INTC·GE·C·AIG.csv).
@@ -44,7 +44,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import calc as C  # noqa: E402  (같은 자료·같은 사건 정의)
 
-VERSION = "v1.3"
+VERSION = "v1.3.1"
 OUT = HERE / "history_result.json"
 START = "2000-01-01"
 
@@ -102,7 +102,7 @@ def stuck_rebound(P: np.ndarray, I, R: list[dict], dd: float = -0.30, X: float =
     rows = []
     for r in R:
         t = r["t"]
-        if P[t - 1] / hi_prev[t] - 1 > dd:
+        if P[t - 1] / hi_prev[t] - 1 > dd or t + 1 >= len(P):        # v1.3.1: 자료 마지막 날이 급반등이면 '다음 날 종가'가 없음 → 뺌 (코스피 2026-11-10 에서 IndexError)
             continue
         e = next((x for x in dec if x["pk"] < t < (x["rec"] if x["rec"] is not None else len(P))), None)
         if e is None:
@@ -181,6 +181,9 @@ def kospi_bridge() -> dict | None:
     out = {"last": d(I, len(P) - 1), "declines_30": len(rows), "past": len(done), "recovered": len(done), "ongoing": [r for r in rows if not r["recovered"]],
            "years_min": min(r["years_peak_to_recover"] for r in done), "years_max": max(r["years_peak_to_recover"] for r in done), "rows": rows,
            "rebound_days": len(R), "rebound_fake": sum(r["kind"] == "가짜" for r in R), "rebound_fake_share": round(sum(r["kind"] == "가짜" for r in R) / len(R), 3)}
+    st = stuck_rebound(P, I, rebound_days(P, I))                 # v1.3.1: 같은 '깊이 물린 상태의 절반 매도' 실험을 코스피에
+    out["stuck"] = {k: v for k, v in st.items() if k != "rows"}
+    out["stuck"]["max_later_months"] = round(st["max_later_years"] * 12, 1)
     log("KOSPI", **{k: v for k, v in out.items() if k != "rows"})
     return out
 
@@ -286,6 +289,8 @@ def main() -> None:
     try:
         g = pd.read_csv(C.ROOT / "stock/topics/precheck/data/_GSPC.csv", comment="#", parse_dates=["date"]).set_index("date")["close"].astype(float)
         notes["gspc_2008_10_13"] = round(float(g.pct_change()["2008-10-13"]) * 100, 1)
+        w_ = g["2008-10-14":][:126]                                  # 그날 종가 대비 그 뒤 6개월 안 가장 낮은 값 (지수 기준 — 내레이션은 지수 숫자로 맞춤)
+        notes["gspc_more_drop_after"] = round(float(w_.min() / g["2008-10-13"] - 1) * 100, 1); notes["gspc_low_date"] = w_.idxmin().strftime("%Y-%m-%d")
         sc = pd.read_csv(C.SPY_CSV, comment="#", parse_dates=["date"]).set_index("date")["close"].astype(float)
         for pk_ in ("2000-03-24", "2007-10-09"):
             aft = sc[sc.index > pk_]; rc_ = aft[aft >= sc[pk_]].index[0]

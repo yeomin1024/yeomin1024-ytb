@@ -1,6 +1,6 @@
 {
- "version": "v1.3",
- "made": "2026-11-11T07:24:39Z",
+ "version": "v1.3.1",
+ "made": "2026-11-11T07:34:50Z",
  "source": {
   "spy": "stock/topics/precheck/data/SPY.csv",
   "from": "2000-01-01",
@@ -1510,6 +1510,8 @@
  },
  "notes": {
   "gspc_2008_10_13": 11.6,
+  "gspc_more_drop_after": -32.6,
+  "gspc_low_date": "2009-03-09",
   "price_only_years_2000": 7.2,
   "price_only_years_2007": 5.4,
   "spy_2008_10_13": 14.5
@@ -1569,7 +1571,51 @@
   ],
   "rebound_days": 137,
   "rebound_fake": 98,
-  "rebound_fake_share": 0.715
+  "rebound_fake_share": 0.715,
+  "stuck": {
+   "dd": -0.3,
+   "X": 0.1,
+   "n": 70,
+   "years": [
+    "2000",
+    "2001",
+    "2002",
+    "2003",
+    "2008",
+    "2009",
+    "2020",
+    "2026"
+   ],
+   "below_peak_median": -43.6,
+   "down_first": 31,
+   "up_first": 39,
+   "shares_down": 1.06,
+   "shares_up": 0.95,
+   "shares_down_pct": 6.2,
+   "shares_up_pct": -5.0,
+   "max_later_months": 3.7,
+   "max_sooner_years_abs": null,
+   "shares_mean": 1.0,
+   "wait_days_median": 20.0,
+   "hold_min_1y_median": -15.85,
+   "half_min_1y_median": -15.6,
+   "hold_min_1y_worst": -38.2,
+   "half_min_1y_worst": -36.0,
+   "hold_years_median": 2.73,
+   "half_years_median": 2.78,
+   "half_sooner": 28,
+   "half_later": 37,
+   "down_years": [
+    4.05,
+    3.67
+   ],
+   "up_years": [
+    2.69,
+    2.73
+   ],
+   "max_later_years": 0.31,
+   "max_sooner_years": -0.4
+  }
  },
  "from_longform": {
   "version": "v1.3",

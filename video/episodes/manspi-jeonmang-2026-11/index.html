@@ -7,6 +7,7 @@
 <!-- VERSION: v3.1 — 2026-11-11 — 사용자 지시 "영상은 오디오 만들고 만들어 계속 진행해": 실제 내레이션(7:54.1)으로 sync 한 뒤 zone-check(0.25초)가 찾은 2곳 —
        · 25번 체(말 3개): 가운데 말을 양옆과 같은 높이로 (SIEVE_REST — 흔들 때 V 턱을 13% 가리던 것)
        · 42번 모래시계: 뒤집을 때마다 30px 들어 올림 (돌아가는 모서리가 책상 윗면 아래로 8px 내려가던 것)
+       · 렌더한 mp4 를 보고: 2022 판 '2,610' 을 아래 점선 위로 (파란 선 끝이 숫자를 지나감) · 거실 낮 장면 '4'·'5년 반'·'12.6년' 을 어두운 판 위에 (밝은 창 앞에서 흐림)
        · 말풍선(mouthBubble)이 나갈 때 머리 반대쪽 위로 비껴 나감 + 0.32초에 사라짐 (83번 — 나가던 풍선이 바뀐 머리를 13% 스치던 것, 0.1초 검사에서 찾음)
      이전 v3.0 — 2026-11-11 — 사용자 지시 "산다 -> 매수, 팔다 -> 매도 … 이 대본으로 다시 영상 만들어봐 … 캐릭터가 엉뚱한 곳에 있거나 모션 그래픽 요소가 배경이나 이미지들 어울리지 않는 위치에 있거나 어긋나는게 꽤 있는데 그런거 영역을 확실하게 정해서 꼼꼼히 확인해"
        (대본 v15 — 111문장 · 4장). v2.0 의 원화 바꿔 끼우기 엔진은 그대로, 장면을 새 대본으로 다시 짜고 '영역 표'를 더함:
@@ -821,7 +822,7 @@ shot(B(19), (a, b) => {
   const wb = wallBox(W_);
   const L22 = wallPanel(wb, 40, 640, [2100, 3800], [2610, 3600]);
   const y22 = num(wb, "2022", 120, 46, 40, "#CFE0FF"); show(y22, a, 0.2);
-  const lo = num(wb, "2,610", 600, L22.Y(2610) + 32, 44); pop(lo, W(19, "2,610"));
+  const lo = num(wb, "2,610", 590, L22.Y(2610) - 30, 44); pop(lo, W(19, "2,610"));   // v3.1 아래 점선 위로 (내려가는 파란 선 끝이 숫자를 지나가던 것)
   const s22 = svgIn(wb, 0, 0, 1400, 370, `<path d="M80 ${L22.Y(2977.65)} L220 ${L22.Y(2900)} L360 ${L22.Y(2600)} L480 ${L22.Y(2450)} L640 ${L22.Y(2236.4)}" fill="none" stroke="${BL}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>`);
   drawPath(s22.querySelector("path"), W(20, "하락해") - 0.6, 1.0);
   const p22 = num(wb, "-24.9%", 470, 330, 60, "#7FB2FF"); pop(p22, W(20, "24.9%"));
@@ -1109,9 +1110,10 @@ shot(B(59), (a, b) => {
   const V = roomViewer(W_, ["V15-1", "V15-2", "V15-3", "V03-3"], x + 40, y, s);
   moves(V, [[a, "V15-1", 1, "hold"], [W(59, "오래"), ["V15-1", "V15-2"], 1.4, "pp"], [S(62), "V15-3", 1, "hold"], [W(63, "은퇴"), "V03-3", 1, "hold"]], b + 0.4);
   squash(V, S(62), 0.05); squash(V, W(63, "은퇴"), 0.05); breathe(V, a, b);
-  const four = air(num(W_.L.fly, "4", 560, 250, 110, "#CFE0FF")); pop(four, W(60, "네 번을")); hide(four, S(61));
-  const y55 = air(mk(`<div class="num" ${KO} style="font-size:96px;color:${YL}">5년 반</div>`, W_.L.fly)); gsap.set(y55, { x: 560, y: 250 }); pop(y55, W(61, "5년 반")); hide(y55, S(62));
-  const y126 = air(mk(`<div class="num" ${KO} style="font-size:96px;color:#FF8A7A">12.6년</div>`, W_.L.fly)); gsap.set(y126, { x: 560, y: 250 }); pop(y126, W(62, "12.6년")); hide(y126, S(63));
+  const CARD = "background:rgba(16,22,40,.86);padding:12px 30px 16px;border-radius:24px;text-shadow:none";   // v3.1 밝은 창 앞 숫자는 어두운 판 위에 (12.6년이 창 빛에 묻혀 흐리게 보이던 것)
+  const four = air(mk(`<div class="num" style="font-size:110px;color:#CFE0FF;${CARD}">4</div>`, W_.L.fly)); gsap.set(four, { x: 560, y: 250 }); pop(four, W(60, "네 번을")); hide(four, S(61));
+  const y55 = air(mk(`<div class="num" ${KO} style="font-size:96px;color:${YL};${CARD}">5년 반</div>`, W_.L.fly)); gsap.set(y55, { x: 560, y: 250 }); pop(y55, W(61, "5년 반")); hide(y55, S(62));
+  const y126 = air(mk(`<div class="num" ${KO} style="font-size:96px;color:#FF8A7A;${CARD}">12.6년</div>`, W_.L.fly)); gsap.set(y126, { x: 560, y: 250 }); pop(y126, W(62, "12.6년")); hide(y126, S(63));
   cam(W_, a, b, [1.0, 1300, 450], [1.08, 1300, 400]);
   K.cut(E(61) - 0.2, "61 5년 반");
   K.cut(E(62) - 0.2, "62 12.6년");

@@ -1,21 +1,26 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-11 — report: 검토자 여러 명 평균 · 페르소나 몫 무게 평균 · 영상마다 판정(✅) (6회차 뒤 — 검토자 한 명 점수가 ±1 흔들려서, 무게는 personas.md 몫).
+# VERSION: v1.2 — 2026-11-11 — 보정 앵커: 실제 성공·덜 된 영상을 패널에 몰래 섞어(K-n) 같은 회차 점수로 기준을 맞춤 · add 명령(검토자 답 평균) (8회차 뒤 — 6.2~6.8 에서 멈춰 7.0 이 실제 성공 영상보다 높은 막대인지 확인).
+# (v1.1 — 2026-11-11 — report: 검토자 여러 명 평균 · 페르소나 몫 무게 평균 · 영상마다 판정(✅) (6회차 뒤 — 검토자 한 명 점수가 ±1 흔들려서, 무게는 personas.md 몫).)
 # (v1.0 — 2026-11-11 — 새로 (사용자 지시 2026-11-11 "4가지 주제 골라서 제목, 썸네일 문구, 보조문구 만들어봐 그리고 페르소나로
 #          썸네일 클릭율 잘나오는지 계속 검증해야해 잘나올 때까지 진행하고 최종 알려줘 영상 1개당 3개 만들면 돼").)
 # CHANGELOG
+#   v1.2 — 2026-11-11 — anchors(panel 에 K-n 으로 섞음 · report 에 성공 H·덜 된 M 평균) · judge 보정 기준(pass_rule.calibrated) · add(검토자 답 파일 → rounds)
 #   v1.1 — 2026-11-11 — wavg·judge · report 판정 줄 (pass_rule weights 가 있으면 무게 평균)
 #   v1.0 — 2026-11-11 — check(안마다 규칙·숫자 점검) · panel(페르소나 패널 지시문 만들기) · report(회차 표) · 함수: load_frames·check_variant·panel_prompt·report
 """제목·썸네일 안 점검 — 숫자(그 주제 탐색 목록) + 페르소나 패널(Claude 하위 에이전트가 읽는 지시문) — 클릭률을 '미리 걸러 보는' 도구.
 
   python3 tools/ctr_check.py history check  <안.json>      # 안마다: 제목 2줄·길이·피할 말·썸네일 줄 길이·꼬리표 규칙 + 제목 꼴의 성공 비율 차이
   python3 tools/ctr_check.py history panel  <안.json> <n>  # n 회차 페르소나 패널 지시문 → <안 폴더>/panel_<n>_prompt.md (Claude 가 새 하위 에이전트에게 줌)
+  python3 tools/ctr_check.py history add    <안.json> <n> <답1.json> …  # 검토자 답(JSON) 평균 → 안.json rounds (스냅숏 = 지금 안)
   python3 tools/ctr_check.py history report <안.json>      # 회차마다 패널 점수(안.json 'rounds' — Claude 가 패널 답을 넣음) → <안>.md
 
 안.json: {"topic","made","videos":[{"id","theme","supply_rx","variants":[{"v":"A","title","thumb_main":["1줄","2줄"],"thumb_sub":["꼬리표"…],"image"}]}],
           "rounds":[{"n":1,"scores":{"<id>-<v>":{"P1":7,"P2":6,"P3":8,"flags":["…"],"feed":{"P1":2,…}}}}]}
 제목 꼴 숫자 = <주제>/result/web/explore.json 의 주제 관련 롱폼 중 구독자 5만 이하 · 올린 지 7~182일 · 주제 밖(analysis_rules [exclude] OFF_TOPIC) 뺌 —
   성공 = 구독자당 하루 조회수 ≥ [success] MIN_VPD_SUBS. 꼴마다 성공 비율 − 전체 비율(%p). 표본이 15개보다 적은 꼴은 '표본 적음'.
+보정 앵커 (안.json 'anchors'): 실제 영상(성공 hit · 덜 된 miss)의 제목·썸네일 문구·그림을 '다른 편 후보 K-n'으로 섞어 — 패널이 실제 성공 영상에
+  주는 점수(H)·덜 된 영상 점수(M)를 같은 회차에서 잰다. pass_rule.calibrated 이면: 가장 좋은 안 ≥ H · 나머지 두 안 ≥ (H+M)/2 · 그리고 H > M (가르지 못하면 패널 무효).
 ⚠️ 페르소나 패널은 시뮬레이션이다 — 진짜 클릭률은 유튜브 스튜디오 '테스트 및 비교'(썸네일 3장)로만 안다. 이 도구는 나쁜 안을 먼저 거르는 데만 쓴다.
 ※ 연구·교육용.
 """
@@ -31,7 +36,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit  # noqa: E402  모바일·PC 목록 2줄
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("ctr")
 MAIN_LINE_MAX = 14          # 썸네일 주요 문구 줄마다 띄어쓰기 빼고 (summary_ideas.lint_answer 와 같음)
 MIN_N = 15                  # 이보다 적은 꼴은 '표본 적음'
@@ -51,6 +56,12 @@ FRAMES = {
     "만약 ~했다면": r"만약|(았|었|였|했|웠|졌|났|갔|왔|넜|겼|됐)다면",
     "열어 봤다·단면": r"3D|열어\s?(봤|보)|단면",
 }
+
+
+def rel(p):
+    """저장소 안이면 저장소 기준 경로, 밖이면 그대로 (시험용 사본)."""
+    p = Path(p).resolve()
+    return str(p.relative_to(ROOT)) if p.is_relative_to(ROOT) else str(p)
 
 
 def log(stage, level=logging.INFO, **kv):
@@ -173,12 +184,17 @@ def panel_prompt(topic, path, n):
         for v in vdo["variants"]:
             L.append(f"- **{vdo['id']}-{v['v']}** 제목 「{v['title']}」 · 썸네일 아래 2줄 「{v['thumb_main'][0]} / {v['thumb_main'][1]}」 · "
                      f"그림 속 꼬리표 「{' · '.join(v.get('thumb_sub') or []) or '-'}」 · 그림 = {v.get('image')}")
+    if P.get("anchors"):
+        L.append("### K — 다른 생활사 편 후보 (편마다 주제가 다름 — 서로 견주지 말고 하나씩 같은 잣대로)")
+        for a in P["anchors"]:
+            L.append(f"- **{a['k']}** 제목 「{a['title']}」 · 썸네일 문구 「{' / '.join(a['thumb_main'])}」 · "
+                     f"그림 속 작은 글 「{' · '.join(a.get('thumb_sub') or []) or '-'}」 · 그림 = {a.get('image')}")
     L += ["", "## 답 (JSON 하나만, 다른 글 없이)",
           '{"scores": {"<영상ID>-<안>": {"P1": 1~10, "P2": 1~10, "P3": 1~10, "flags": ["헷갈림·과장·사실 의심 등 — 없으면 빈 칸"], "why": "한 줄"}}, '
-          '"best": {"<영상ID>": "A|B|C"}, "fix": {"<영상ID>-<안>": "점수를 올릴 고침 한 줄 (제목·썸네일 문구·꼬리표·그림 중)"}}']
+          '"best": {"<영상ID>": "A|B|C"} (K 는 빼고), "fix": {"<영상ID>-<안>": "점수를 올릴 고침 한 줄 (제목·썸네일 문구·꼬리표·그림 중)"}}']
     out = Path(path).resolve().with_name(f"panel_{n}_prompt.md")
     out.write_text("\n".join(L) + "\n", "utf-8")
-    log("PANEL", round=n, prompt=str(out.relative_to(ROOT)), personas=len(cards), feed=len(feed))
+    log("PANEL", round=n, prompt=rel(out), personas=len(cards), feed=len(feed), anchors=len(P.get("anchors") or []))
     return out
 
 
@@ -188,9 +204,20 @@ def wavg(s, w):
     return round(sum(s[p] * w[p] for p in ("P1", "P2", "P3")) / sum(w[p] for p in ("P1", "P2", "P3")), 2)
 
 
+def anchor_level(P, r, w):
+    """같은 회차 보정 앵커 점수 — H = 실제 성공 영상 무게 평균의 평균, M = 덜 된 영상. 앵커가 없으면 None."""
+    sc = r.get("scores") or {}
+    hit = [wavg(sc[a["k"]], w) for a in P.get("anchors") or [] if a["kind"] == "hit" and a["k"] in sc]
+    miss = [wavg(sc[a["k"]], w) for a in P.get("anchors") or [] if a["kind"] == "miss" and a["k"] in sc]
+    if not hit or not miss:
+        return None
+    return round(sum(hit) / len(hit), 2), round(sum(miss) / len(miss), 2)
+
+
 def judge(P, r, rule):
-    """회차 판정 — 영상마다 가장 좋은 안(무게 평균) · 통과 여부. 기준은 안.json 'pass_rule'."""
+    """회차 판정 — 영상마다 가장 좋은 안(무게 평균) · 통과 여부. 기준은 안.json 'pass_rule' (calibrated 면 같은 회차 앵커 H·M)."""
     w = rule.get("weights")
+    HM = anchor_level(P, r, w) if rule.get("calibrated") else None
     out = {}
     for vdo in P["videos"]:
         keys = [k for k in (r.get("scores") or {}) if k.startswith(vdo["id"] + "-")]
@@ -199,7 +226,10 @@ def judge(P, r, rule):
         sc = {k: wavg(r["scores"][k], w) for k in keys}
         best = max(sc, key=sc.get)
         b = r["scores"][best]
-        if w:
+        if HM:
+            H, M = HM
+            ok = H > M and sc[best] >= H and all(sc[k] >= round((H + M) / 2, 2) for k in keys)
+        elif w:
             ok = sc[best] >= rule["best_wavg"] and min(b["P1"], b["P2"]) >= rule["best_min_P1P2"] and all(sc[k] >= rule["others_wavg"] for k in keys)
         else:
             ok = sc[best] >= rule["best_avg"] and min(b[p] for p in ("P1", "P2", "P3")) >= rule["best_min"] and all(sc[k] >= rule["all_avg"] for k in keys)
@@ -211,7 +241,10 @@ def cmd_report(topic, path):
     P = json.loads(Path(path).read_text("utf-8"))
     rule = P.get("pass_rule") or {"best_avg": 7.5, "best_min": 6.5, "all_avg": 6.0}
     w = rule.get("weights")
-    if w:
+    if rule.get("calibrated"):
+        rtxt = (f"통과 기준 (보정 — {rule.get('calibrated_from', '')}): 영상마다 가장 좋은 안 ≥ 같은 회차 실제 성공 영상 점수 H · 나머지 두 안 ≥ (H+M)/2 · 패널이 H > M 을 가려야 함 (무게 {w}). "
+                f"참고 — 보정 전 기준: 가장 좋은 안 ≥ {rule.get('best_wavg')} · P1·P2 ≥ {rule.get('best_min_P1P2')} · 나머지 ≥ {rule.get('others_wavg')}")
+    elif w:
         rtxt = (f"통과 기준: 영상마다 가장 좋은 안의 페르소나 몫 무게 평균 ≥ {rule['best_wavg']} (무게 {w}) · 그 안의 P1·P2 ≥ {rule['best_min_P1P2']} · "
                 f"나머지 두 안 무게 평균 ≥ {rule['others_wavg']} — {rule.get('note', '')}")
     else:
@@ -231,10 +264,51 @@ def cmd_report(topic, path):
                 if not s:
                     continue
                 L.append(f"| {k} | {snap['title']} | {' / '.join(snap['thumb_main'])} | {' · '.join(snap.get('thumb_sub') or [])} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} | {' · '.join(s.get('flags') or []) or '-'} |")
+        if any(a["k"] in (r.get("scores") or {}) for a in P.get("anchors") or []):
+            HM = anchor_level(P, r, w)
+            L += ["", f"보정 앵커 (실제 영상 — 패널은 모름): 성공 H = {HM[0]} · 덜 된 M = {HM[1]} · 가름 {'✅ H > M' if HM[0] > HM[1] else '❌ 못 가름'} · 나머지 안 기준 (H+M)/2 = {round((HM[0] + HM[1]) / 2, 2)}", "",
+                  "| 앵커 | 실제 | 제목 | 썸네일 문구 | P1 | P2 | P3 | 무게 평균 |", "|---|---|---|---|---|---|---|---|"]
+            for a in P["anchors"]:
+                s = r["scores"].get(a["k"])
+                if s:
+                    L.append(f"| {a['k']} | {'성공' if a['kind'] == 'hit' else '덜 됨'} (배수 {a['ratio']} · 구독자 {a['subs']:,}) | {a['title']} | {' / '.join(a['thumb_main'])} | {s['P1']} | {s['P2']} | {s['P3']} | {wavg(s, w)} |")
         L.append("")
-        log("ROUND", n=r["n"], verdict=" ".join(f"{vid}:{j['best']}={j['score']}{'✅' if j['ok'] else '✗'}" for vid, j in J.items()))
+        log("ROUND", n=r["n"], anchors=anchor_level(P, r, w), verdict=" ".join(f"{vid}:{j['best']}={j['score']}{'✅' if j['ok'] else '✗'}" for vid, j in J.items()))
     Path(path).resolve().with_suffix(".md").write_text("\n".join(L), "utf-8")
-    log("WRITE", md=str(Path(path).resolve().with_suffix(".md").relative_to(ROOT)))
+    log("WRITE", md=rel(Path(path).resolve().with_suffix(".md")))
+    return 0
+
+
+def cmd_add(topic, path, n, answers):
+    """검토자 답(JSON 파일들) 평균 → 안.json rounds[n] (스냅숏 = 지금 안 · 앵커 포함 · flags 는 모두 모음)."""
+    P = json.loads(Path(path).read_text("utf-8"))
+    R = []
+    for a in answers:
+        try:
+            R.append(json.loads(Path(a).read_text("utf-8")))
+        except (OSError, ValueError) as e:
+            log("ADD", logging.ERROR, file=a, error=e, next_step="검토자 답이 JSON 하나인지 확인")
+            return 1
+    keys = [f"{v['id']}-{x['v']}" for v in P["videos"] for x in v["variants"]] + [a["k"] for a in P.get("anchors") or []]
+    scores = {}
+    for k in keys:
+        raw = [[r["scores"][k][p] for p in ("P1", "P2", "P3")] for r in R if k in r.get("scores", {})]
+        if len(raw) != len(R):
+            log("ADD", logging.WARNING, key=k, answered=len(raw), reviewers=len(R), note="답이 빠진 검토자가 있음")
+        if not raw:
+            continue
+        fl = []
+        for r in R:
+            for f in (r["scores"].get(k) or {}).get("flags") or []:
+                if f not in fl:
+                    fl.append(f)
+        scores[k] = {**{p: round(sum(x[i] for x in raw) / len(raw), 2) for i, p in enumerate(("P1", "P2", "P3"))}, "raw": raw, "flags": fl}
+    snap = {f"{v['id']}-{x['v']}": {kk: x[kk] for kk in ("title", "thumb_main", "thumb_sub", "image") if kk in x} for v in P["videos"] for x in v["variants"]}
+    P["rounds"] = [r for r in P.get("rounds") or [] if r["n"] != n] + [{
+        "n": n, "reviewer": f"새 하위 에이전트 {len(R)}명 평균 (" + " · ".join(Path(a).stem for a in answers) + ")",
+        "scores": scores, "snapshot": snap, "fix": [r.get("fix") or {} for r in R]}]
+    Path(path).write_text(json.dumps(P, ensure_ascii=False, indent=1), "utf-8")
+    log("ADD", round=n, reviewers=len(R), keys=len(scores))
     return 0
 
 
@@ -252,6 +326,8 @@ def main(argv):
         return 0
     if cmd == "report":
         return cmd_report(topic, path)
+    if cmd == "add" and len(argv) > 4:
+        return cmd_add(topic, path, int(argv[3]), argv[4:])
     print(__doc__)
     return 2
 

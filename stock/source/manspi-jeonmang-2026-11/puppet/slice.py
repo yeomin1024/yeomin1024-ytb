@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-10 — 사용자 지시 "아니 내말은 원래 방식으로 하되 진짜 애니메이션 처럼 움직이는 효과를 재현하라고 … 더 보충할 이미지가 필요하면 그걸 만들라고"
+# VERSION: v1.2 — 2026-11-11 — 사용자 지시 "영상 만들 때 캐릭터가 엉뚱한 곳에 있거나 모션 그래픽 요소가 배경이나 이미지들 어울리지 않는 위치에 있거나 어긋나는게 꽤 있는데 그런거 영역을 확실하게 정해서 꼼꼼히 확인해"
+#          → 모든 인물 원화에 머리 상자 pt.head(머리카락 꼭대기 ~ 턱, 머리카락 좌우 폭) — 장면 점검(zone-check)이 말풍선·숫자가 얼굴을 가리는지 봄 ·
+#          다시 받은 V10 은 던지는 팔이 오른쪽이라 좌우를 뒤집어 자름(MIRROR — 버리는 통이 왼쪽).
+# (v1.1 — 2026-11-10 — 사용자 지시 "아니 내말은 원래 방식으로 하되 진짜 애니메이션 처럼 움직이는 효과를 재현하라고 … 더 보충할 이미지가 필요하면 그걸 만들라고"
 #          → ChatGPT 움직임용 그림 36장(images_chatgpt_motion.md v1.0 · puppet/motion/)을 더해 자름:
 #          · 동작 시트 32장(V01~V17 · E01~E15 — 한 장에 원화 3장): 칸(가로 3등분)마다 잘라 cut/<시트>-<번호>.png
 #            - 크기: 머리 꼭대기(머리카락 색)~발바닥 = 서 있는 키 — 세 장의 가운데 값을 그 사람 기준 키(V = V-CALM 1 · E = E-CALM 3)에 맞춤
@@ -13,6 +16,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-11 | 머리 상자 pt.head (모든 인물 원화) · MIRROR(V10 좌우 뒤집기) | head_box · motion · main |
 # | v1.1 | 2026-11-10 | 움직임용 시트 32·소품·FX·앞 물건 · 머리카락 기준 키 · 프레임마다 발 기준점 · 물건 자리 pt | motion · props2 · fg · find_pts |
 # | v1.0 | 2026-11-10 | 최초 | load · main |
 # 실행: python3 stock/source/manspi-jeonmang-2026-11/puppet/slice.py      로그: [STAGE] [시각] key=value …
@@ -44,6 +48,7 @@ for k in MOTION:
     if k.startswith("E"):
         MOTION[k][2].append("mouth")
 MPROPS = {"PROPS2": (4, 1), "FX": (4, 2)}
+MIRROR = {"V10"}                                   # 좌우를 뒤집어 자를 동작 시트 (다시 받은 V10 — 던지는 쪽이 버리는 통 반대라서)
 # 배경 앞 물건 (배경 1536×864 좌표의 사각형 — 그 안의 있는 픽셀만): 이름 → (배경 파일, [x0, y0, x1, y1])
 FG = {"FG-OFFICE": ("BG-OFFICE.jpg", [0, 661, 1536, 864]),          # 책상 윗면·앞판 (전문가가 책상 뒤에 섬)
       "FG-SIEVE": ("motion/BG-SIEVE0.jpg", [0, 622, 1536, 864]),    # 작업대 윗면·앞판 (시청자가 작업대 뒤에 섬)
@@ -119,6 +124,19 @@ def pct_box(mask: np.ndarray, lo=3, hi=97):
     return (float(np.percentile(xs, lo)), float(np.percentile(ys, lo)), float(np.percentile(xs, hi)), float(np.percentile(ys, hi)))
 
 
+def head_box(sub: np.ndarray, who: str, top: int, base: int):
+    """머리 상자 [가운데 x, 가운데 y, 폭, 높이] (원본 칸 좌표) — 머리카락 꼭대기 ~ 턱(키의 32%), 폭은 머리카락 좌우(머리 위 키의 20% 안)."""
+    stand = base - top
+    hm = hair_mask(sub, who)
+    hm[int(top + 0.20 * stand):] = False
+    ys, xs = np.where(hm)
+    if len(xs) < 20:
+        return None
+    x0, x1 = float(np.percentile(xs, 2)), float(np.percentile(xs, 98))
+    y0, y1 = float(top), float(top + 0.32 * stand)
+    return [(x0 + x1) / 2, (y0 + y1) / 2, x1 - x0, y1 - y0]
+
+
 def find_pts(sub: np.ndarray, who: str, kinds: list[str], top: int, base: int, cx: float) -> dict:
     """칸 하나(원본 좌표)에서 물건 자리 찾기 → {이름: [x, y, w, h]} (원본 칸 좌표)."""
     out = {}
@@ -183,13 +201,22 @@ def motion(man: dict, ref_stand: dict) -> int:
             cx0, cy0 = max(0, bb[0] - PAD), max(0, bb[1] - PAD)
             cx1, cy1 = min(sub.shape[1], bb[2] + PAD), min(sub.shape[0], bb[3] + 4)
             pts = find_pts(sub, who, kinds, c["top"], c["base"], c["ax"])
+            hb = head_box(sub, who, c["top"], c["base"])
+            if hb:
+                pts["head"] = hb
             crop = Image.fromarray(sub[cy0:cy1, cx0:cx1])
+            ax_src = c["ax"]
+            if name in MIRROR:                            # 좌우 뒤집기: 그림·기준점·물건 자리를 함께
+                crop = crop.transpose(Image.FLIP_LEFT_RIGHT)
+                W0 = cx1 - cx0
+                ax_src = cx0 + (W0 - (c["ax"] - cx0))
+                pts = {k: [cx0 + (W0 - (v[0] - cx0)), v[1], v[2], v[3]] for k, v in pts.items()}
             if abs(k - 1) > 1e-3:
                 crop = crop.resize((round(crop.width * k), round(crop.height * k)), Image.LANCZOS)
             key = f"{name}-{i}"
             save(crop, OUT / f"{key}.png")
-            man[key] = dict(kind="char", who=who, w=crop.width, h=crop.height, ax=round((c["ax"] - cx0) * k), ay=round((c["base"] - cy0) * k),
-                            scale=round(k, 4), pt={p: [round((v[0] - cx0) * k), round((v[1] - cy0) * k), round(v[2] * k), round(v[3] * k)] for p, v in pts.items()})
+            man[key] = dict(kind="char", who=who, w=crop.width, h=crop.height, ax=round((ax_src - cx0) * k), ay=round((c["base"] - cy0) * k),
+                            scale=round(k, 4), mirror=name in MIRROR, pt={p: [round((v[0] - cx0) * k), round((v[1] - cy0) * k), round(v[2] * k), round(v[3] * k)] for p, v in pts.items()})
             n += 1
         log("MOTION", sheet=name, who=who, anchor=mode, stand_px=round(stand), scale=round(k, 3), out_h=man[f"{name}-1"]["h"],
             pts=",".join(sorted({p for i in (1, 2, 3) for p in man[f"{name}-{i}"]["pt"]})) or "-")
@@ -266,6 +293,13 @@ def main() -> int:
             key = f"{name}-{c}"
             save(crop, OUT / f"{key}.png")
             man[key] = dict(kind="char", who=CHAR[name], w=crop.width, h=crop.height, ax=round((cx - x0) * k), ay=round((s["base"] - y0) * k), scale=round(k, 4))
+            cx0_ = s["cells"][c - 1][0]
+            sub = s["a"][:, cx0_:s["cells"][c - 1][1]]
+            rows = np.where(hair_mask(sub, CHAR[name]).sum(1) >= 8)[0]
+            if len(rows):
+                hb = head_box(sub, CHAR[name], int(rows.min()), s["base"])
+                if hb:
+                    man[key]["pt"] = {"head": [round((hb[0] + cx0_ - x0) * k), round((hb[1] - y0) * k), round(hb[2] * k), round(hb[3] * k)]}
         log("CUT", sheet=name, poses=3, scale=round(k, 3), out_h=man[f"{name}-1"]["h"])
     props(man, PROPS, HERE)
     # v1.1 — 기준 키(머리카락 꼭대기 ~ 발바닥)를 같은 방법으로 잼: V-CALM 1번 칸 · E-CALM 3번 칸

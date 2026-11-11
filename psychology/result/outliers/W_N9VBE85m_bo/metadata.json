@@ -1,0 +1,91 @@
+{
+ "id": "N9VBE85m_bo",
+ "title": "뇌가 달라지는 혼잣말의 비밀, 인생을 바꾸는 뇌과학의 원리",
+ "channel": "뇌생각 심리학",
+ "channel_id": "UC0Sihb0O1YvwpDlTb3u8R3Q",
+ "subs": 8200,
+ "views": 411703,
+ "ratio": 50.21,
+ "age_days": 120,
+ "views_per_day": 3430.6,
+ "minutes": 13.1,
+ "likes": 9696,
+ "comments": 540,
+ "published": "2026-07-14",
+ "queries": "검색:뇌과학 | 검색:심리",
+ "url": "https://www.youtube.com/watch?v=N9VBE85m_bo",
+ "flag": "",
+ "published_at": "2026-07-14T08:58:13Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_N9VBE85m_bo",
+ "sources": [
+  "검색:뇌과학",
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "뇌과학",
+  "자기계발",
+  "멘탈관리",
+  "마인드셋",
+  "동기부여"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "☕ 커피 한 잔 쏟은 아침, 툭 튀어나온 그 한마디"
+  },
+  {
+   "start": 110,
+   "title": "📺 내 하루의 리모컨은 누가 쥐고 있을까?"
+  },
+  {
+   "start": 173,
+   "title": "💰 세계 최고 부자가 매일 반복하는 그 말"
+  },
+  {
+   "start": 244,
+   "title": "🔀 똑같은 하루가 완전히 달라지는 이유"
+  },
+  {
+   "start": 278,
+   "title": "📚 세 번 미끄러진 그분에게 찾아온 반전"
+  },
+  {
+   "start": 326,
+   "title": "🧠 실험실에서 밝혀진 놀라운 3일의 비밀"
+  },
+  {
+   "start": 422,
+   "title": "🔊 왜 '소리 내서' 말해야 할까"
+  },
+  {
+   "start": 461,
+   "title": "💡 첫 번째 방법 — 이선 크로스의 처방"
+  },
+  {
+   "start": 561,
+   "title": "🚪 두 번째 방법 — 두 글자로 열리는 문"
+  },
+  {
+   "start": 593,
+   "title": "⭐ 세 번째 방법 — 잠들기 전 3분의 기적"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 540,
+ "comments_top_level": 274,
+ "comments_replies": 266,
+ "comments_by_creator": 240,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 540,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:21:50",
+ "approved": "2026-11-11T18:21+09:00"
+}

@@ -1,0 +1,75 @@
+{
+ "id": "M9gFWXvlNSs",
+ "title": "심리학자들이 밝힌 인생에서 가장 부질없는 행동 6가지",
+ "channel": "토닥교수의 심리학",
+ "channel_id": "UCH1vudPey53cxkXyugPVoVQ",
+ "subs": 26700,
+ "views": 446127,
+ "ratio": 16.71,
+ "age_days": 120,
+ "views_per_day": 3713.2,
+ "minutes": 15.9,
+ "likes": 2812,
+ "comments": 65,
+ "published": "2026-07-14",
+ "queries": "검색:인간관계심리",
+ "url": "https://www.youtube.com/watch?v=M9gFWXvlNSs",
+ "flag": "",
+ "published_at": "2026-07-14T05:45:05Z",
+ "rank": "W153",
+ "set": "web",
+ "folder": "W_M9gFWXvlNSs",
+ "sources": [
+  "검색:인간관계심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 걱정에 쓰는 하루 2시간의 진실"
+  },
+  {
+   "start": 64,
+   "title": "첫 번째 — 모두에게 100% 이해받으려는 착각"
+  },
+  {
+   "start": 196,
+   "title": "두 번째 — 결론 내린 사람을 논리로 뒤집으려는 오만"
+  },
+  {
+   "start": 327,
+   "title": "세 번째 — 내 호의를 오래 기억해주길 바라는 마음"
+  },
+  {
+   "start": 488,
+   "title": "네 번째 — 남의 시선에 갇혀 잃어버리는 내 삶"
+  },
+  {
+   "start": 605,
+   "title": "다섯 번째 — 관계가 영원할 거라는 환상"
+  },
+  {
+   "start": 694,
+   "title": "여섯 번째 — 오지 않은 내일을 미리 걱정하기"
+  },
+  {
+   "start": 847,
+   "title": "마무리 — 통제할 수 없는 것을 놓아주는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 65,
+ "comments_top_level": 49,
+ "comments_replies": 16,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 65,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:25:17",
+ "approved": "2026-11-11T18:25+09:00"
+}

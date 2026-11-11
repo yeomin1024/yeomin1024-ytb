@@ -1,0 +1,94 @@
+{
+ "id": "ObG5Hf_uTjc",
+ "title": "X세대가 유독 혼자 다 해내는 심리학적 이유",
+ "channel": "무진심리학",
+ "channel_id": "UC25Cqc4jZeNX1fDr7jGuFtQ",
+ "subs": 2990,
+ "views": 823553,
+ "ratio": 275.44,
+ "age_days": 24,
+ "views_per_day": 33319.5,
+ "minutes": 8.1,
+ "likes": 5661,
+ "comments": 1637,
+ "published": "2026-10-17",
+ "queries": "검색:심리학 | 검색:심리 | 검색:중년심리 | 검색:성격심리",
+ "url": "https://www.youtube.com/watch?v=ObG5Hf_uTjc",
+ "flag": "",
+ "published_at": "2026-10-17T16:01:15Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_ObG5Hf_uTjc",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색:중년심리",
+  "검색:성격심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "아무도 이야기하지 않는 세대"
+  },
+  {
+   "start": 27,
+   "title": "열쇠를 목에 건 아이들"
+  },
+  {
+   "start": 106,
+   "title": "어른이 무너지는 걸 본 아이들"
+  },
+  {
+   "start": 178,
+   "title": "드러내지 않는 사람들"
+  },
+  {
+   "start": 205,
+   "title": "웃으며 넘기는 사람들"
+  },
+  {
+   "start": 236,
+   "title": "티 내지 않고 해내는 사람들"
+  },
+  {
+   "start": 267,
+   "title": "도움은 안 청하지만, 남은 돕는 사람들"
+  },
+  {
+   "start": 299,
+   "title": "직함보다 실력을 보는 사람들"
+  },
+  {
+   "start": 319,
+   "title": "여러 번 흔들린 사람들"
+  },
+  {
+   "start": 361,
+   "title": "애써서 알아낸 사람들"
+  },
+  {
+   "start": 395,
+   "title": "다르게 키우려는 부모들"
+  },
+  {
+   "start": 422,
+   "title": "다리 같은 세대에게"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1637,
+ "comments_top_level": 1176,
+ "comments_replies": 461,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1637,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:18:25",
+ "approved": "2026-11-11T18:18+09:00"
+}

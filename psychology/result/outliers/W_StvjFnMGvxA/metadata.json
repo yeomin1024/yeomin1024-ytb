@@ -1,0 +1,114 @@
+{
+ "id": "StvjFnMGvxA",
+ "title": "첫째 vs 둘째 vs 막내 – 출생 순서가 결정하는 성격의 비밀",
+ "channel": "나를 읽다",
+ "channel_id": "UCR8FrjsiW9xiJywm9muU3Ww",
+ "subs": 54,
+ "views": 11737,
+ "ratio": 117.37,
+ "age_days": 80,
+ "views_per_day": 146.1,
+ "minutes": 9.8,
+ "likes": 24,
+ "comments": 3,
+ "published": "2026-08-23",
+ "queries": "검색:성격심리",
+ "url": "https://www.youtube.com/watch?v=StvjFnMGvxA",
+ "flag": "",
+ "published_at": "2026-08-23T01:00:25Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_StvjFnMGvxA",
+ "sources": [
+  "검색:성격심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리테스트",
+  "MBTI",
+  "MBTI유형",
+  "성격유형",
+  "성격심리학",
+  "자기계발",
+  "사주",
+  "사주팔자",
+  "관상",
+  "관상학",
+  "심리학",
+  "자기이해",
+  "성격분석",
+  "연애심리",
+  "직장인심리",
+  "인간관계",
+  "심리상식",
+  "성격테스트",
+  "나를알아가기",
+  "자존감",
+  "인간심리",
+  "심리채널",
+  "팩트체크심리",
+  "출생순서 성격",
+  "첫째 둘째 막내 심리",
+  "MBTI 심리테스트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 – 첫째세요, 막내세요?"
+  },
+  {
+   "start": 22,
+   "title": "9위 첫째 – 칭찬에 목마른 숨은 완벽주의자"
+  },
+  {
+   "start": 84,
+   "title": "8위 둘째 – 눈치 백단의 평화주의자"
+  },
+  {
+   "start": 140,
+   "title": "7위 막내 – 규칙을 깨는 자유로운 영혼"
+  },
+  {
+   "start": 198,
+   "title": "6위 첫째 – 은근한 보수주의자, 규칙의 수호자"
+  },
+  {
+   "start": 254,
+   "title": "5위 둘째 – 선택받은 가족을 찾는 인맥의 달인"
+  },
+  {
+   "start": 308,
+   "title": "4위 막내 – 타인의 감정을 조종하는 은밀한 전략가"
+  },
+  {
+   "start": 365,
+   "title": "3위 첫째 – 모든 짐을 떠안는 K-장녀·장남 신드롬"
+  },
+  {
+   "start": 422,
+   "title": "2위 둘째 – 강한 자립심을 품은 조용한 반항아"
+  },
+  {
+   "start": 478,
+   "title": "1위 막내 – 진지하게 받아들여지지 않는 것에 대한 콤플렉스"
+  },
+  {
+   "start": 537,
+   "title": "마무리 – 출생 순서는 출발선일 뿐"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 3,
+ "comments_top_level": 2,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:19:56",
+ "approved": "2026-11-11T18:19+09:00"
+}

@@ -1,0 +1,97 @@
+{
+ "id": "VbuWttCEhxs",
+ "title": "잘해주길래 믿었는데, 왜 나만 상처받을까? 중년 남성이 놓치기 쉬운 여자의 5가지 행동 | 연애심리",
+ "channel": "여자심리연구소",
+ "channel_id": "UCF1NxY0Ejer0_jI6dJ3E7Rw",
+ "subs": 3970,
+ "views": 25400,
+ "ratio": 6.4,
+ "age_days": 62,
+ "views_per_day": 403.2,
+ "minutes": 26.1,
+ "likes": 145,
+ "comments": 2,
+ "published": "2026-09-09",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=VbuWttCEhxs",
+ "flag": "",
+ "published_at": "2026-09-09T09:14:38Z",
+ "rank": "W201",
+ "set": "web",
+ "folder": "W_VbuWttCEhxs",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "연애심리",
+  "여자심리",
+  "여성심리",
+  "중년연애",
+  "사랑심리",
+  "심리학",
+  "중년여자",
+  "연애상담",
+  "연애정보",
+  "중년사랑",
+  "사랑의심리",
+  "인간관계",
+  "연애하는법"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "잘해 주는 행동과 진짜 호감은 다를 수 있는 이유"
+  },
+  {
+   "start": 68,
+   "title": "잘해 주는 여자가 보이는 다섯 가지 위험한 패턴"
+  },
+  {
+   "start": 92,
+   "title": "연락은 꾸준하지만 만남으로 이어지지 않는 경우"
+  },
+  {
+   "start": 353,
+   "title": "가까워질수록 갑자기 거리를 두는 심리"
+  },
+  {
+   "start": 611,
+   "title": "칭찬과 관심은 많지만 관계는 피하는 행동"
+  },
+  {
+   "start": 842,
+   "title": "다른 남자 이야기로 질투와 반응을 시험하는 경우"
+  },
+  {
+   "start": 1068,
+   "title": "결정적인 순간마다 애매한 대답으로 피하는 행동"
+  },
+  {
+   "start": 1318,
+   "title": "다섯 가지 패턴의 핵심과 진심을 판단하는 기준"
+  },
+  {
+   "start": 1425,
+   "title": "감정이 아니라 행동과 반복되는 패턴을 봐야 하는 이유"
+  },
+  {
+   "start": 1539,
+   "title": "더 건강하고 분명한 관계를 선택하는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2,
+ "comments_top_level": 1,
+ "comments_replies": 1,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:14",
+ "approved": "2026-11-11T18:27+09:00"
+}

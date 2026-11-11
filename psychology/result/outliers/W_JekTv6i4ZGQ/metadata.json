@@ -1,0 +1,82 @@
+{
+ "id": "JekTv6i4ZGQ",
+ "title": "하트시그널5 우열은 왜 갑자기 유경에게 확신을 줬을까? l 기질과 결핍으로 보는 연애 심리",
+ "channel": "관계의 그루브, MOJO",
+ "channel_id": "UCtRe3-1_ELKOGpz8MLvh_kw",
+ "subs": 524,
+ "views": 50107,
+ "ratio": 95.62,
+ "age_days": 158,
+ "views_per_day": 316.6,
+ "minutes": 14.7,
+ "likes": 437,
+ "comments": 84,
+ "published": "2026-06-06",
+ "queries": "검색:심리분석",
+ "url": "https://www.youtube.com/watch?v=JekTv6i4ZGQ",
+ "flag": "",
+ "published_at": "2026-06-06T03:23:09Z",
+ "rank": "W49",
+ "set": "web",
+ "folder": "W_JekTv6i4ZGQ",
+ "sources": [
+  "검색:심리분석"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "대인관계",
+  "자기계발",
+  "자기개발",
+  "연애",
+  "마인드밍글"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "8화 보셨어요?"
+  },
+  {
+   "start": 56,
+   "title": "MBTI로는 이게 설명이 안 돼요"
+  },
+  {
+   "start": 86,
+   "title": "우열은 에겐도 테토도 아니다"
+  },
+  {
+   "start": 186,
+   "title": "왜 처음에 규리한테 눈이 갔나"
+  },
+  {
+   "start": 348,
+   "title": "그런데 왜 규리랑 안 됐나"
+  },
+  {
+   "start": 545,
+   "title": "잠깐, 소윤은 왜 안 됐나"
+  },
+  {
+   "start": 611,
+   "title": "유경은 왜 됐나"
+  },
+  {
+   "start": 798,
+   "title": "앞으로 어떻게 전개될까요?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 84,
+ "comments_top_level": 42,
+ "comments_replies": 42,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 84,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:20:30",
+ "approved": "2026-11-11T18:20+09:00"
+}

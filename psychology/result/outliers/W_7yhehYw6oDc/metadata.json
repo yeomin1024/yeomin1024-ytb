@@ -1,0 +1,79 @@
+{
+ "id": "7yhehYw6oDc",
+ "title": "10년 넘은 친구도 한순간에 끊어내는 사람들의 결정적 특징 (손절의 뇌구조)",
+ "channel": "토닥교수의 심리학",
+ "channel_id": "UCH1vudPey53cxkXyugPVoVQ",
+ "subs": 26700,
+ "views": 394021,
+ "ratio": 14.76,
+ "age_days": 89,
+ "views_per_day": 4380.0,
+ "minutes": 14.6,
+ "likes": 3072,
+ "comments": 431,
+ "published": "2026-08-13",
+ "queries": "검색:심리 | 검색:대인관계 | 검색:친구관계 | 검색:인간관계 정리 | 검색:인간관계심리",
+ "url": "https://www.youtube.com/watch?v=7yhehYw6oDc",
+ "flag": "",
+ "published_at": "2026-08-13T10:12:40Z",
+ "rank": "W164",
+ "set": "web",
+ "folder": "W_7yhehYw6oDc",
+ "sources": [
+  "검색:심리",
+  "검색:대인관계",
+  "검색:친구관계",
+  "검색:인간관계 정리",
+  "검색:인간관계심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 관계를 칼같이 끊는 사람, 정말 냉정한가"
+  },
+  {
+   "start": 73,
+   "title": "칼같이 정리하는 사람의 진짜 내면 — 소수에게 쏟는 진심"
+  },
+  {
+   "start": 225,
+   "title": "사회적 교환 이론 — 관계 불균형이 보내는 신호"
+  },
+  {
+   "start": 335,
+   "title": "이들이 마지막 선을 넘게 되는 결정적 기준"
+  },
+  {
+   "start": 454,
+   "title": "왜 싸우지 않고 조용히 사라지는가"
+  },
+  {
+   "start": 546,
+   "title": "애매한 태도가 단호한 거절보다 잔인한 이유"
+  },
+  {
+   "start": 684,
+   "title": "진짜 외로움은 관계 안에 이미 있었다"
+  },
+  {
+   "start": 800,
+   "title": "관계 정리 = 나에게 맞는 관계를 다시 선택하는 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 431,
+ "comments_top_level": 342,
+ "comments_replies": 89,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 431,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:25:43",
+ "approved": "2026-11-11T18:25+09:00"
+}

@@ -1,0 +1,100 @@
+{
+ "id": "6kAqWl52Ti8",
+ "title": "중년에 무너진 뒤 인생 후반에 다시 서는 남자들 5가지 특징 ㅣ  인생 후반전 ㅣ 퇴직 후 삶 ㅣ 은퇴 후 삶 ㅣ 50대 노후준비 ㅣ 중년 심리학",
+ "channel": "오 마이템 ",
+ "channel_id": "UC9gP-FThxKB5dCujQlu4wKQ",
+ "subs": 3740,
+ "views": 49171,
+ "ratio": 13.15,
+ "age_days": 99,
+ "views_per_day": 491.8,
+ "minutes": 17.8,
+ "likes": 353,
+ "comments": 32,
+ "published": "2026-08-03",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=6kAqWl52Ti8",
+ "flag": "",
+ "published_at": "2026-08-03T09:30:36Z",
+ "rank": "W168",
+ "set": "web",
+ "folder": "W_6kAqWl52Ti8",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "인생 후반에 성공하는 남자",
+  "중년 심리학",
+  "퇴직 후 인생",
+  "50대 남자 심리",
+  "명예퇴직 심리",
+  "인생 후반전",
+  "중년 위기 극복",
+  "외상 후 성장",
+  "회복탄력성",
+  "역할 정체성",
+  "통제감",
+  "늦게 성공하는 사람",
+  "대기만성",
+  "심리학",
+  "인간관계 심리학",
+  "자기계발",
+  "마음공부",
+  "은퇴 준비",
+  "40대 남자",
+  "퇴직 우울 ```"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "쉰둘에 나오는데 일흔셋까지 일하고 싶다 — 소득 절벽 13년"
+  },
+  {
+   "start": 53,
+   "title": "왜 하필 쉰 언저리인가 — 52.9세와 행복 U자 곡선"
+  },
+  {
+   "start": 144,
+   "title": "첫 번째 — 자기를 직함으로 설명하지 않는다"
+  },
+  {
+   "start": 310,
+   "title": "두 번째 — 무너지고 도망치지 않는다"
+  },
+  {
+   "start": 446,
+   "title": "세 번째 — 제일 먼저 몸부터 세운다"
+  },
+  {
+   "start": 587,
+   "title": "네 번째 — 거절이 담백해진다"
+  },
+  {
+   "start": 714,
+   "title": "다섯 번째 — 버틴 시간을 손해로 안 읽는다"
+  },
+  {
+   "start": 848,
+   "title": "왜 이 다섯이 한 사람에게 같이 오는가"
+  },
+  {
+   "start": 977,
+   "title": "오늘 할 것 한 가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 32,
+ "comments_top_level": 12,
+ "comments_replies": 20,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 32,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:25:53",
+ "approved": "2026-11-11T18:25+09:00"
+}

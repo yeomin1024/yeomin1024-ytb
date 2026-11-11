@@ -1,0 +1,94 @@
+{
+ "id": "ROumvyg2Z5c",
+ "title": "【김형석 교수】‘이 모습’ 보이면 당장 연을 끊어라. 아주 못된 사람이다 | 현명한 인간관계 조언 | 명언 | 마음",
+ "channel": "삶의 고백",
+ "channel_id": "UCT9D8M91E2RojoukxKZZNjQ",
+ "subs": 15200,
+ "views": 175105,
+ "ratio": 11.52,
+ "age_days": 55,
+ "views_per_day": 3128.6,
+ "minutes": 41.9,
+ "likes": 1794,
+ "comments": 186,
+ "published": "2026-09-16",
+ "queries": "검색:인간관계조언",
+ "url": "https://www.youtube.com/watch?v=ROumvyg2Z5c",
+ "flag": "",
+ "published_at": "2026-09-16T09:59:08Z",
+ "rank": "W176",
+ "set": "web",
+ "folder": "W_ROumvyg2Z5c",
+ "sources": [
+  "검색:인간관계조언"
+ ],
+ "source": "web",
+ "tags": [
+  "삶의 고백",
+  "김형석 교수",
+  "김형석 교수 인생철학",
+  "김형석 교수 고백",
+  "인생명언",
+  "삶의 진심",
+  "인생 뒷이야기",
+  "인생철학",
+  "인생조언",
+  "행복한 노후",
+  "노년의 지혜",
+  "인생 후반전",
+  "솔직한 인생",
+  "위인의 후회",
+  "삶의 본심",
+  "인간관계 진실",
+  "성공 뒤의 외로움",
+  "동기부여",
+  "자기계발",
+  "오디오북",
+  "좋은글귀",
+  "인생수업",
+  "100세 시대",
+  "하루 한 편 인생 이야기",
+  "명언 오디오북",
+  "마지막 고백",
+  "삶의 위로",
+  "날것의 진심",
+  "중장년 인생 고백",
+  "후회 없는 삶"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "나이가 들수록 더 중요한 사람 보는 눈"
+  },
+  {
+   "start": 250,
+   "title": "인간관계에서 조심해야 할 첫 번째 모습"
+  },
+  {
+   "start": 635,
+   "title": "이익이 사라지면 떠나는 사람의 본모습"
+  },
+  {
+   "start": 1100,
+   "title": "은혜를 모르는 사람과 이간질하는 사람"
+  },
+  {
+   "start": 1665,
+   "title": "약속과 태도에서 드러나는 사람의 됨됨이"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 186,
+ "comments_top_level": 176,
+ "comments_replies": 10,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 186,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:26:17",
+ "approved": "2026-11-11T18:26+09:00"
+}

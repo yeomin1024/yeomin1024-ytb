@@ -1,0 +1,98 @@
+{
+ "id": "jAx12f5te_4",
+ "title": "친구를 만나면 이 3가지는 절대 말하지 마세요｜나이 들수록 관계가 멀어지는 이유",
+ "channel": "인생뷰티풀",
+ "channel_id": "UC-JqGnEtSWX-96y7lavUOjA",
+ "subs": 4920,
+ "views": 17541,
+ "ratio": 3.57,
+ "age_days": 12,
+ "views_per_day": 1455.5,
+ "minutes": 25.4,
+ "likes": 92,
+ "comments": 2,
+ "published": "2026-10-30",
+ "queries": "검색:친구관계",
+ "url": "https://www.youtube.com/watch?v=jAx12f5te_4",
+ "flag": "",
+ "published_at": "2026-10-30T08:00:31Z",
+ "rank": "W212",
+ "set": "web",
+ "folder": "W_jAx12f5te_4",
+ "sources": [
+  "검색:친구관계"
+ ],
+ "source": "web",
+ "tags": [
+  "친구를 만나면 하지 말아야 할 말",
+  "친구에게 절대 말하면 안 되는 것",
+  "친구 관계",
+  "인간관계",
+  "노후 인간관계",
+  "60대 인간관계",
+  "70대 인간관계",
+  "친구 사이 말조심",
+  "친구와 돈 이야기",
+  "친구에게 재산 말하지 마라",
+  "연금 이야기",
+  "노후 자산",
+  "가족 이야기",
+  "자식 이야기",
+  "며느리 이야기",
+  "친구 험담",
+  "남의 말 옮기기",
+  "친구 사이 신뢰",
+  "오래가는 친구 관계",
+  "나이 들수록 인간관계",
+  "노후 친구",
+  "시니어 인간관계",
+  "50대 이후 인간관계",
+  "60대 이후 친구",
+  "노후 지혜",
+  "인생 조언",
+  "말의 힘",
+  "인간관계 거리두기",
+  "친구 관계 유지",
+  "인생뷰티풀"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "친구 사이가 멀어지는 진짜 이유"
+  },
+  {
+   "start": 127,
+   "title": "돈의 정확한 숫자를 말하면 관계가 달라지는 이유"
+  },
+  {
+   "start": 265,
+   "title": "은퇴 후 친구끼리 비교가 더 민감해지는 이유"
+  },
+  {
+   "start": 472,
+   "title": "가족 이야기를 자세히 하면 위험한 이유"
+  },
+  {
+   "start": 773,
+   "title": "다른 친구의 말을 옮기면 신뢰가 무너지는 이유"
+  },
+  {
+   "start": 1018,
+   "title": "오래가는 친구 사이에는 ‘말하지 않는 공간’이 있다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2,
+ "comments_top_level": 2,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:40",
+ "approved": "2026-11-11T18:27+09:00"
+}

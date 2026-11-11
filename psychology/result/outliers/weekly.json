@@ -1,0 +1,8588 @@
+{
+ "tool": "weekly_analysis.py v1.5.2",
+ "topic": "psychology",
+ "name": "심리",
+ "generated": "2026-11-11T13:31:55+00:00",
+ "cases": 251,
+ "dated": 251,
+ "older_than_windows": 0,
+ "max_weeks": 52,
+ "text_sources": {
+  "자막": 0,
+  "음성인식": 0,
+  "설명": 240,
+  "없음": 11
+ },
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
+ "windows": [
+  {
+   "weeks": 1,
+   "label": "최근 1주",
+   "videos": 9,
+   "channels": 7,
+   "new_this_week": [
+    {
+     "id": "-TvrtsoBt6c",
+     "title": "이 영상 하나로 안정형 재회법을 배웁니다ㅣ원규x지현 ST-NF 분석 《환승연애4》",
+     "published": "2026-11-06"
+    },
+    {
+     "id": "6fsSvcZI1dk",
+     "title": "가장 위험한 나르시시즘 유형은 무엇일까.",
+     "published": "2026-11-11"
+    },
+    {
+     "id": "FriZacHUW9E",
+     "title": "영호의 말 속에 숨은 진심. 영호는 이미 다 말했다-나는솔로34기 278화 분석리뷰 | 심리대화 LBC",
+     "published": "2026-11-06"
+    },
+    {
+     "id": "FzkUzvSS57s",
+     "title": "자기관리 - 고급스러운 사람들의 특징 best3",
+     "published": "2026-11-10"
+    },
+    {
+     "id": "L2a5-OgtOqk",
+     "title": "겉으론 유능해 보이지만 이미 방전된 사람들 | 소리 없는 아우성, '고기능 우울증' | #지식채널e",
+     "published": "2026-11-07"
+    },
+    {
+     "id": "LAbv8lHDWFw",
+     "title": "돈 있어도 염색을 끊은 사람들의 의외의 심리 (포기한 게 아닙니다)",
+     "published": "2026-11-10"
+    },
+    {
+     "id": "WOGxXTzGuQ4",
+     "title": "자존감 높은 사람들의 유쾌한 공통점",
+     "published": "2026-11-08"
+    },
+    {
+     "id": "uwhsb1Dhepo",
+     "title": "내 말만 듣고 자기 얘기는 없는 사람, 오래갈 친구인지 이것만 보세요 - 정신과 의사",
+     "published": "2026-11-05"
+    },
+    {
+     "id": "xt6mOBcP5s0",
+     "title": "죽음에 임박한 나르시시스트가 하는 의외의 행동.",
+     "published": "2026-11-05"
+    }
+   ],
+   "views_median": 64386,
+   "views_per_day_median": 15284.9,
+   "ratio_median": 0.64,
+   "success": 2,
+   "minutes_median": 19.4,
+   "title_len_avg": 37.1,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 2,
+     "share": 0.222
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.111
+    }
+   ],
+   "title_words": [
+    {
+     "word": "사람들의",
+     "count": 3
+    },
+    {
+     "word": "이미",
+     "count": 2
+    },
+    {
+     "word": "의외의",
+     "count": 2
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 9,
+    "없음": 0
+   },
+   "content_words": [
+    {
+     "word": "사람이",
+     "count": 4
+    },
+    {
+     "word": "사람들의",
+     "count": 4
+    },
+    {
+     "word": "있습니다",
+     "count": 4
+    },
+    {
+     "word": "통해",
+     "count": 4
+    },
+    {
+     "word": "것이",
+     "count": 4
+    },
+    {
+     "word": "그리고",
+     "count": 3
+    },
+    {
+     "word": "많은",
+     "count": 3
+    },
+    {
+     "word": "관계의",
+     "count": 3
+    },
+    {
+     "word": "심리",
+     "count": 3
+    },
+    {
+     "word": "가장",
+     "count": 3
+    },
+    {
+     "word": "아닌",
+     "count": 3
+    },
+    {
+     "word": "가능합니다",
+     "count": 3
+    }
+   ],
+   "chapters_share": 0.111,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "L2a5-OgtOqk",
+     "title": "겉으론 유능해 보이지만 이미 방전된 사람들 | 소리 없는 아우성, '고기능 우울증' | #지식채널e",
+     "src": "설명",
+     "hook": "우울한 것 맞아요! 무엇이든 씩씩하게 잘 해내던 사람이 숨겨둔 깊은 우울 힘겨운 시간을 보내는 이들을 떠올릴 때, 우리는 흔히 그들이 슬픔에 잠겨 있거나 일상적인 일조차 해내지 못할 것이라 짐작한다. 하지만 겉으로는 멀쩡히 사회생활을 해내면서도 안으로는 깊은 우울감을 겪는 이들이 적지 "
+    },
+    {
+     "id": "LAbv8lHDWFw",
+     "title": "돈 있어도 염색을 끊은 사람들의 의외의 심리 (포기한 게 아닙니다)",
+     "src": "설명",
+     "hook": "돈이 있어도 미용실에 가지 않고 염색을 끊은 사람들이 있습니다. 흰머리를 감추는 대신 집에서 직접 관리하거나 아예 자연스럽게 받아들이는 사람들, 이들에게는 어떤 심리적 변화가 생긴 걸까요? 이 영상에서 다루는 내용 남들의 시선보다 자신의 편안함을 중요하게 생각하는 심리 미용실에 가는 시"
+    },
+    {
+     "id": "uwhsb1Dhepo",
+     "title": "내 말만 듣고 자기 얘기는 없는 사람, 오래갈 친구인지 이것만 보세요 - 정신과 의사",
+     "src": "설명",
+     "hook": "자기 얘기는 전혀 안 하는 친구, 한 명쯤 있으시죠. 내가 말을 안 하면 멀뚱히 쳐다보기만 하니까, 결국 또 내가 말을 꺼내게 되고요. 그렇게 헤어지고 나면, 늘 혼자 떠들다 온 기분이 듭니다. 그럼 이런 친구, 계속 만나야 할까요? 거리를 둬야 할 사람일 수도 있고, 반대로 오래갈 친"
+    }
+   ],
+   "comments": 940,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 155,
+     "share": 0.165
+    },
+    {
+     "name": "질문",
+     "count": 155,
+     "share": 0.165
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 96,
+     "share": 0.102
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 71,
+     "share": 0.076
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 31,
+     "share": 0.033
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 16,
+     "share": 0.017
+    }
+   ],
+   "comment_uncategorized": 0.585,
+   "top_comments": [
+    {
+     "text": "사무실에서는 제일 활발하고 잘놀고\n실제로도 재밌는 걸 좋아하고\n동료들과도 잘지내고\n근데 사라지고싶음.\n아무도 나를 기억 못할 수만 있다면 \n그냥 사라지면 좋겠어.\n나를 아는 사람이 괴로울까봐 사라지지못하지",
+     "likes": 501
+    },
+    {
+     "text": "저기능 우울증은 벌써 사회 뒷편으로 사라졌기 때문에 고기능 우울증만 남은 것",
+     "likes": 382
+    },
+    {
+     "text": "나르 의외로 장수함. 지 꼴리는대로 감정풀이 속시원히 해서 그런지. 오래살더라..",
+     "likes": 304
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "L2a5-OgtOqk",
+     "title": "겉으론 유능해 보이지만 이미 방전된 사람들 | 소리 없는 아우성, '고기능 우울증' | #지식채널e",
+     "channel": "EBS 지식채널e",
+     "views": 222546,
+     "views_per_day": 55365.6,
+     "published": "2026-11-07",
+     "url": "https://www.youtube.com/watch?v=L2a5-OgtOqk"
+    },
+    {
+     "id": "LAbv8lHDWFw",
+     "title": "돈 있어도 염색을 끊은 사람들의 의외의 심리 (포기한 게 아닙니다)",
+     "channel": "심리상자",
+     "views": 34927,
+     "views_per_day": 30550.3,
+     "published": "2026-11-10",
+     "url": "https://www.youtube.com/watch?v=LAbv8lHDWFw"
+    },
+    {
+     "id": "uwhsb1Dhepo",
+     "title": "내 말만 듣고 자기 얘기는 없는 사람, 오래갈 친구인지 이것만 보세요 - 정신과 의사",
+     "channel": "인생승진 Life Up!!",
+     "views": 137128,
+     "views_per_day": 22630.8,
+     "published": "2026-11-05",
+     "url": "https://www.youtube.com/watch?v=uwhsb1Dhepo"
+    },
+    {
+     "id": "FzkUzvSS57s",
+     "title": "자기관리 - 고급스러운 사람들의 특징 best3",
+     "channel": "유세미의 직장수업",
+     "views": 15629,
+     "views_per_day": 15629.0,
+     "published": "2026-11-10",
+     "url": "https://www.youtube.com/watch?v=FzkUzvSS57s"
+    },
+    {
+     "id": "FriZacHUW9E",
+     "title": "영호의 말 속에 숨은 진심. 영호는 이미 다 말했다-나는솔로34기 278화 분석리뷰 | 심리대화 LBC",
+     "channel": "심리대화",
+     "views": 68690,
+     "views_per_day": 15284.9,
+     "published": "2026-11-06",
+     "url": "https://www.youtube.com/watch?v=FriZacHUW9E"
+    }
+   ]
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 35,
+   "channels": 28,
+   "new_this_week": [
+    {
+     "id": "-rmoqNXPUCw",
+     "title": "캠핑을 좋아하는 사람들의 7가지 공통점 | 심리학이 밝힌 그들의 진짜 성격",
+     "published": "2026-10-31"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "3hYvKShmwM4",
+     "title": "중년 남자가 여자를 사랑할 때 무조건 나타나는 행동(40대 50대 연애)",
+     "published": "2026-11-04"
+    },
+    {
+     "id": "5E9oHVcBvfs",
+     "title": "'내 곁에 친구 한 명 없어도 괜찮아요' 똑똑한 사람일 수록 외로움 덜 타고 친구 없이도 잘 사는 이유",
+     "published": "2026-11-03"
+    },
+    {
+     "id": "7I072GCG1WU",
+     "title": "중년이 되면 왜 자꾸 산에 오르고 싶어질까｜등산하는 중년 남자의 진짜 속마음",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "ArnroZu2rao",
+     "title": "정신과 의사들이 불안할 때 일단 뛰라는 이유｜크랩",
+     "published": "2026-10-31"
+    },
+    {
+     "id": "C6oXNfwg3jw",
+     "title": "사람 보는 눈이 정확한 사람들의 7가지 비밀 심리",
+     "published": "2026-10-30"
+    },
+    {
+     "id": "FsX4q3uSnBI",
+     "title": "바람피울 사람이 연애 초반에 보이는 신호 (심리학 연구 7가지)",
+     "published": "2026-11-02"
+    },
+    {
+     "id": "GTaEvNGiCjk",
+     "title": "솔직히, 저는 가족을 차단했습니다.｜나르시시스트 엄마와 거리두기 ｜K-장녀의 착한딸 컴플렉스",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "JJ7h1S-DEGA",
+     "title": "\"틀어놓고 주무세요\" 사람 때문에 스트레스받을 때 나 자신을 지키는 단순한 방법 | 인간관계 기술 | 밤산책 Ep.3 (한석준 아나운서)",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "KMW2o1D4QQw",
+     "title": "인간은 사회적 동물이라는데… 뇌과학자가 말하는 혼자가 편한 이유",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "KYD_HQKY0Ww",
+     "title": "【이시형 박사】친구 없는 여자는 왜 혼자가 편할까? 알고 보면 놀라운 심리 5가지 | 인생 조언 | 여자 심리 | 인간관계",
+     "published": "2026-11-02"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "published": "2026-10-28"
+    },
+    {
+     "id": "LPkzgfguXsE",
+     "title": "압도적인 간파력을 가진 사람들의 5가지 심리학적 특징(사람 보는 눈이 정확한 사람)",
+     "published": "2026-11-01"
+    },
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "published": "2026-11-03"
+    },
+    {
+     "id": "R-FZUb2BKdY",
+     "title": "중년 남성들이 바이크를 포기할 수 없는 진짜 이유",
+     "published": "2026-11-03"
+    },
+    {
+     "id": "WuEgyC_R3Rg",
+     "title": "소소한 선물을 자꾸 주는 사람의 심리학적 특징",
+     "published": "2026-10-30"
+    },
+    {
+     "id": "YHM6Dgl9K8w",
+     "title": "우리가 몰랐던 갓생 안에 숨은 우울증 신호",
+     "published": "2026-10-30"
+    },
+    {
+     "id": "ZqhhYMJvrx4",
+     "title": "운명적인 인연이라면 반드시 겪는 첫 번째 현상 | 재회의 심리학",
+     "published": "2026-11-03"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "cHQIg1Pnl4Y",
+     "title": "34영철이 새로운 유형의 빌런으로 불리는 이유와 심리 - 나는솔로34기 277화 분석리뷰| 심리대화 LBC",
+     "published": "2026-10-30"
+    },
+    {
+     "id": "dayGqPjUD_0",
+     "title": "오래 가는 친구에게는 반드시 있는 '4가지' | 나이 들수록 곁에 둘 사람을 구별하는 법 | 인간관계 | 인생조언 | 심리학 | 명언",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "esIYp5R3eUk",
+     "title": "이 영상 하나로 안정형 이별법을 배웁니다ㅣ유식x민경 애착 심리 분석 《환승연애4》",
+     "published": "2026-10-30"
+    },
+    {
+     "id": "jAx12f5te_4",
+     "title": "친구를 만나면 이 3가지는 절대 말하지 마세요｜나이 들수록 관계가 멀어지는 이유",
+     "published": "2026-10-30"
+    },
+    {
+     "id": "szFksvTqnCg",
+     "title": "돈을 대하는 태도에서 사람의 본모습이 드러납니다 (무심코 하는 행동입니다)",
+     "published": "2026-10-29"
+    },
+    {
+     "id": "uIuc9x_u0cg",
+     "title": "[지식뉴스] \"이 신호 보이면 당장 멈추세요\"...3040대에 가장 많이 무너집니다, 직장에서 끝까지 생존하는 법 / 교양이를 부탁해",
+     "published": "2026-11-03"
+    }
+   ],
+   "views_median": 90234,
+   "views_per_day_median": 14359.4,
+   "ratio_median": 1.94,
+   "success": 16,
+   "minutes_median": 16.1,
+   "title_len_avg": 42.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 16,
+     "share": 0.457
+    },
+    {
+     "name": "이유",
+     "count": 7,
+     "share": 0.2
+    },
+    {
+     "name": "N가지",
+     "count": 7,
+     "share": 0.2
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.057
+    },
+    {
+     "name": "vs 비교",
+     "count": 2,
+     "share": 0.057
+    },
+    {
+     "name": "물음표 ?",
+     "count": 1,
+     "share": 0.029
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 1,
+     "share": 0.029
+    }
+   ],
+   "title_words": [
+    {
+     "word": "사람들의",
+     "count": 6
+    },
+    {
+     "word": "이유",
+     "count": 6
+    },
+    {
+     "word": "심리",
+     "count": 5
+    },
+    {
+     "word": "사람",
+     "count": 4
+    },
+    {
+     "word": "7가지",
+     "count": 3
+    },
+    {
+     "word": "중년",
+     "count": 3
+    },
+    {
+     "word": "심리학",
+     "count": 3
+    },
+    {
+     "word": "신호",
+     "count": 3
+    },
+    {
+     "word": "특징",
+     "count": 3
+    },
+    {
+     "word": "인간관계",
+     "count": 3
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 34,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 13
+    },
+    {
+     "word": "심리",
+     "count": 11
+    },
+    {
+     "word": "영상은",
+     "count": 11
+    },
+    {
+     "word": "사람이",
+     "count": 10
+    },
+    {
+     "word": "그리고",
+     "count": 9
+    },
+    {
+     "word": "가장",
+     "count": 9
+    },
+    {
+     "word": "아니라",
+     "count": 8
+    },
+    {
+     "word": "마음",
+     "count": 8
+    },
+    {
+     "word": "심리학",
+     "count": 8
+    },
+    {
+     "word": "사람들의",
+     "count": 8
+    },
+    {
+     "word": "함께",
+     "count": 8
+    },
+    {
+     "word": "가지",
+     "count": 7
+    }
+   ],
+   "chapters_share": 0.486,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 5953,
+   "comment_needs": [
+    {
+     "name": "질문",
+     "count": 958,
+     "share": 0.161
+    },
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 934,
+     "share": 0.157
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 829,
+     "share": 0.139
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 482,
+     "share": 0.081
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 143,
+     "share": 0.024
+    },
+    {
+     "name": "요청",
+     "count": 75,
+     "share": 0.013
+    }
+   ],
+   "comment_uncategorized": 0.563,
+   "top_comments": [
+    {
+     "text": "아니 모든 직장인들은 병원에 일주일정도 입원은 하지만 많이 아프지는 말고 후유증도 없는 정도로만 살짝 사고가 났으면 좋겠다고 생각하는게 아니었어?!",
+     "likes": 2867
+    },
+    {
+     "text": "06:24 고기능 우울증 자가진단 테스트",
+     "likes": 2542
+    },
+    {
+     "text": "자는 시간에 유튜브 등 SNS를 못하는게 너무 아까워서 보상심리로 안 자게됨..",
+     "likes": 2505
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    },
+    {
+     "id": "L2a5-OgtOqk",
+     "title": "겉으론 유능해 보이지만 이미 방전된 사람들 | 소리 없는 아우성, '고기능 우울증' | #지식채널e",
+     "channel": "EBS 지식채널e",
+     "views": 222546,
+     "views_per_day": 55365.6,
+     "published": "2026-11-07",
+     "url": "https://www.youtube.com/watch?v=L2a5-OgtOqk"
+    }
+   ]
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
+   "videos": 54,
+   "channels": 44,
+   "new_this_week": [
+    {
+     "id": "0oQyy-TiOu8",
+     "title": "【이어령 교수의 조언】약속 장소에 늘 먼저 오는 사람, 절대 만만하게 보지 마세요! 99%가 모르는 소름 돋는 5가지 특징｜인간관계｜사람 보는 눈｜인생의 지혜",
+     "published": "2026-10-26"
+    },
+    {
+     "id": "0tEc_K0czRw",
+     "title": "누구를 만나던 3가지 척 해라 | 쇼펜하우어 | 인간관계명언 | 처세술 |",
+     "published": "2026-10-22"
+    },
+    {
+     "id": "2GxDRxV0T9w",
+     "title": "작은 선물을 자꾸 주는 사람의 심리. 당신도 그렇습니까? 일상심리학",
+     "published": "2026-10-23"
+    },
+    {
+     "id": "7C6wk0aKx_c",
+     "title": "어리숙해 보여도 절대 만만하게 볼 수 없는 사람, 여우처럼 교활한 인간마저 한 수 접게 만드는 무서운 처세술과 압도적인 판단력",
+     "published": "2026-10-21"
+    },
+    {
+     "id": "Blppz6jc4o4",
+     "title": "연락 끊고 혼자 지내보면 알게 됩니다 | 타인의 시선에서 완벽히 해방되는 '고독의 기술' | 쇼펜하우어 | 철학 | 오디오북 | 인간관계 인생조언",
+     "published": "2026-10-26"
+    },
+    {
+     "id": "DTTARHT4swk",
+     "title": "친구가 하나둘 사라졌습니다… 결국 제가 인간관계를 정리한 이유",
+     "published": "2026-10-25"
+    },
+    {
+     "id": "FsA8DIfbmjQ",
+     "title": "멘탈이 강한 사람들의 공통된 습관 | 나이 들수록 흔들리지 않는 법 | 쇼펜하우어 | 오디오북 | 인생론 | 인생수업 | 명언 | 통찰 | 철학 | 틀어놓고 주무세요",
+     "published": "2026-10-22"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "published": "2026-10-28"
+    },
+    {
+     "id": "GV_KOGoAJ2M",
+     "title": "친구가 없어도 잘 사는 사람들, 사실 이런 심리입니다(오히려 편안합니다)",
+     "published": "2026-10-24"
+    },
+    {
+     "id": "M37cLIqGfXA",
+     "title": "여자가 남자를 좋아하면 무심코 드러나는 5가지｜연애심리｜중년연애",
+     "published": "2026-10-27"
+    },
+    {
+     "id": "Qtn1XXIylOQ",
+     "title": "인간관계에 지쳐 마음이 힘들 때 : 멘탈관리 마인드셋 영상",
+     "published": "2026-10-24"
+    },
+    {
+     "id": "VHgnX1mHrj0",
+     "title": "60부터는 친구 필요없다 ｜ 노후에 인간관계 너무 애쓰지 마라 ｜ 고독을 즐기는 방법 I I 인간관계 I 행복한노후 I 삶의지혜 I 오디오북",
+     "published": "2026-10-23"
+    },
+    {
+     "id": "eLOwkxX6ab4",
+     "title": "여행도 SNS도 인간관계도 귀찮다... '자발적 고독'을 택하는 사람들 (KOTRA 전우형 실장)",
+     "published": "2026-10-24"
+    },
+    {
+     "id": "gfvjmKh50r0",
+     "title": "사람들을 무시하는 것의 힘 | 정신적 강인함과 자기 통제를 위한 스토아학파의 비결",
+     "published": "2026-10-28"
+    },
+    {
+     "id": "kTPr64XAJrQ",
+     "title": "절대 먼저 연락 안 하지만 만나면 다정한 사람 심리 (싫어서가 아닙니다)",
+     "published": "2026-10-24"
+    },
+    {
+     "id": "rL4yzXIKbNM",
+     "title": "작은 선물을 자꾸 주는 사람의 심리학적 특징",
+     "published": "2026-10-25"
+    },
+    {
+     "id": "rSx4UFWBgGY",
+     "title": "[김경일의 인간을 위한 공간] 가구 배치만 바꿔도 뇌와 행동이 달라진다 (아주대학교 심리학과 김경일 교수)",
+     "published": "2026-10-24"
+    },
+    {
+     "id": "rswah8mIWkw",
+     "title": "나이 들고 친구 적은 걸 전혀 슬퍼할 필요없는 이유 (노후 편)",
+     "published": "2026-10-22"
+    },
+    {
+     "id": "xzy-rl7IlFU",
+     "title": "어린 시절 부모의 감정을 돌보던 사람에게 나타나는 특징",
+     "published": "2026-10-23"
+    }
+   ],
+   "views_median": 88716.0,
+   "views_per_day_median": 12399.65,
+   "ratio_median": 3.93,
+   "success": 30,
+   "minutes_median": 19.8,
+   "title_len_avg": 45.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 24,
+     "share": 0.444
+    },
+    {
+     "name": "N가지",
+     "count": 11,
+     "share": 0.204
+    },
+    {
+     "name": "이유",
+     "count": 9,
+     "share": 0.167
+    },
+    {
+     "name": "vs 비교",
+     "count": 5,
+     "share": 0.093
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 3,
+     "share": 0.056
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 3,
+     "share": 0.056
+    },
+    {
+     "name": "물음표 ?",
+     "count": 2,
+     "share": 0.037
+    },
+    {
+     "name": "공통점",
+     "count": 2,
+     "share": 0.037
+    },
+    {
+     "name": "느낌표 !",
+     "count": 1,
+     "share": 0.019
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.019
+    }
+   ],
+   "title_words": [
+    {
+     "word": "사람",
+     "count": 8
+    },
+    {
+     "word": "이유",
+     "count": 8
+    },
+    {
+     "word": "심리",
+     "count": 8
+    },
+    {
+     "word": "사람들의",
+     "count": 7
+    },
+    {
+     "word": "특징",
+     "count": 6
+    },
+    {
+     "word": "인간관계",
+     "count": 6
+    },
+    {
+     "word": "5가지",
+     "count": 5
+    },
+    {
+     "word": "사람의",
+     "count": 4
+    },
+    {
+     "word": "자꾸",
+     "count": 4
+    },
+    {
+     "word": "친구",
+     "count": 4
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 53,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 23
+    },
+    {
+     "word": "가장",
+     "count": 17
+    },
+    {
+     "word": "마음을",
+     "count": 16
+    },
+    {
+     "word": "사람이",
+     "count": 15
+    },
+    {
+     "word": "함께",
+     "count": 14
+    },
+    {
+     "word": "심리",
+     "count": 13
+    },
+    {
+     "word": "사람의",
+     "count": 13
+    },
+    {
+     "word": "아니라",
+     "count": 13
+    },
+    {
+     "word": "통해",
+     "count": 13
+    },
+    {
+     "word": "영상은",
+     "count": 12
+    },
+    {
+     "word": "사람들의",
+     "count": 12
+    },
+    {
+     "word": "것은",
+     "count": 12
+    }
+   ],
+   "chapters_share": 0.389,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 8497,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 1510,
+     "share": 0.178
+    },
+    {
+     "name": "질문",
+     "count": 1269,
+     "share": 0.149
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1137,
+     "share": 0.134
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 603,
+     "share": 0.071
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 195,
+     "share": 0.023
+    },
+    {
+     "name": "요청",
+     "count": 92,
+     "share": 0.011
+    }
+   ],
+   "comment_uncategorized": 0.561,
+   "top_comments": [
+    {
+     "text": "아니 모든 직장인들은 병원에 일주일정도 입원은 하지만 많이 아프지는 말고 후유증도 없는 정도로만 살짝 사고가 났으면 좋겠다고 생각하는게 아니었어?!",
+     "likes": 2867
+    },
+    {
+     "text": "06:24 고기능 우울증 자가진단 테스트",
+     "likes": 2542
+    },
+    {
+     "text": "자는 시간에 유튜브 등 SNS를 못하는게 너무 아까워서 보상심리로 안 자게됨..",
+     "likes": 2505
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 72,
+   "channels": 58,
+   "new_this_week": [
+    {
+     "id": "1owmdus3_pw",
+     "title": "누구든 끌어당기는 심리학적 방법 (절대 악용하지 마세요) | 연애 다크심리학",
+     "published": "2026-10-17"
+    },
+    {
+     "id": "6skfikfyY_M",
+     "title": "당신이 생각보다 호감인 이유",
+     "published": "2026-10-15"
+    },
+    {
+     "id": "BvNljBe63aE",
+     "title": "이어령 교수의 조언: 60살 넘으면 인간관계에 목맬 필요 없습니다ㅣ노후에 사람들과 잘 지내려고 너무 애쓰지 마세요ㅣ고독을 즐기는 지혜ㅣ삶의철학ㅣ노년의삶",
+     "published": "2026-10-19"
+    },
+    {
+     "id": "DMg2qh9Hsyo",
+     "title": "중년 여성이 절대 놓치면 안 되는 비밀 | 외모 관리가 개별화의 시작인 이유 | 칼 융",
+     "published": "2026-10-16"
+    },
+    {
+     "id": "IQFqV92w_sk",
+     "title": "아무리 가까운 사람이라도 '이런' 자랑하면 절대 안 됩니다 (인간 관계 편)",
+     "published": "2026-10-17"
+    },
+    {
+     "id": "Kuo4q6i7ELA",
+     "title": "나이 들수록 가장 먼저 비워야 할 집안 4곳, 인생심리로 보면 충격적인 이유",
+     "published": "2026-10-15"
+    },
+    {
+     "id": "ObG5Hf_uTjc",
+     "title": "X세대가 유독 혼자 다 해내는 심리학적 이유",
+     "published": "2026-10-17"
+    },
+    {
+     "id": "QeeNrWYaQkY",
+     "title": "나이가 들수록 인간관계가 어려워지는 이유",
+     "published": "2026-10-18"
+    },
+    {
+     "id": "TDozpW4vvL4",
+     "title": "혼자 사는 50대 남자들이 연애를 안 하는 진짜 이유 (여자가 싫은 게 아닙니다)",
+     "published": "2026-10-16"
+    },
+    {
+     "id": "U_q5j28YfJ8",
+     "title": "세상에서 가장 매력적인 힘… 스스로를 통제할 줄 아는 여성 | 칼 융",
+     "published": "2026-10-19"
+    },
+    {
+     "id": "_aC5sm4gXg4",
+     "title": "아무리 친해도 이 7가지는 자랑하지 마세요｜인간관계 ｜심리학 ㅣ인생조언ㅣ노후",
+     "published": "2026-10-19"
+    },
+    {
+     "id": "hnuDs_pSI7M",
+     "title": "단절의 시대, 외로움에 휘둘리지 않는 법",
+     "published": "2026-10-18"
+    },
+    {
+     "id": "lSB7a9jsQJY",
+     "title": "절대 먼저 연락 안 하는 사람의 진짜 심리 - 정신과 의사",
+     "published": "2026-10-16"
+    },
+    {
+     "id": "lfxhss9K3MA",
+     "title": "암·우울증을 겪은 의사와 알코올 중독을 겪은 의사의 고백 (feat. 외과의사 이준서)",
+     "published": "2026-10-15"
+    },
+    {
+     "id": "tHBWqlJPGxU",
+     "title": "사귈수록 남자가 더 빠져드는 여자의 비밀 (시간이 지날수록 더 예뻐 보이기까지 하는 이유)",
+     "published": "2026-10-16"
+    },
+    {
+     "id": "twn0MZBC1eg",
+     "title": "아기들이 유독 쳐다보는 사람의 정체｜발달심리학이 밝힌 '아기를 끌어당기는 사람'의 공통점",
+     "published": "2026-10-15"
+    },
+    {
+     "id": "w86qO4EjXWM",
+     "title": "요양원에 자식들 발 끊긴 부모 특징 #정신과 #정신과의사 #가족 #부모갈등 #부부갈등 #관계 #형제갈등 #심리상담",
+     "published": "2026-10-20"
+    },
+    {
+     "id": "ybPJ5t_VfUk",
+     "title": "혹시 당신도?! 자리 뜰 때 의자 집어넣는 사람들의 의외의 심리학적 특징 3가지",
+     "published": "2026-10-18"
+    }
+   ],
+   "views_median": 99711.5,
+   "views_per_day_median": 10331.7,
+   "ratio_median": 7.54,
+   "success": 45,
+   "minutes_median": 19.5,
+   "title_len_avg": 44.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 35,
+     "share": 0.486
+    },
+    {
+     "name": "이유",
+     "count": 16,
+     "share": 0.222
+    },
+    {
+     "name": "N가지",
+     "count": 13,
+     "share": 0.181
+    },
+    {
+     "name": "vs 비교",
+     "count": 10,
+     "share": 0.139
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 6,
+     "share": 0.083
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 4,
+     "share": 0.056
+    },
+    {
+     "name": "물음표 ?",
+     "count": 3,
+     "share": 0.042
+    },
+    {
+     "name": "공통점",
+     "count": 3,
+     "share": 0.042
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.028
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.014
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 15
+    },
+    {
+     "word": "사람",
+     "count": 9
+    },
+    {
+     "word": "심리",
+     "count": 9
+    },
+    {
+     "word": "사람들의",
+     "count": 8
+    },
+    {
+     "word": "특징",
+     "count": 8
+    },
+    {
+     "word": "인간관계",
+     "count": 7
+    },
+    {
+     "word": "심리학적",
+     "count": 6
+    },
+    {
+     "word": "사람의",
+     "count": 6
+    },
+    {
+     "word": "마세요",
+     "count": 5
+    },
+    {
+     "word": "5가지",
+     "count": 5
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 71,
+    "없음": 1
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 31
+    },
+    {
+     "word": "마음을",
+     "count": 22
+    },
+    {
+     "word": "가장",
+     "count": 20
+    },
+    {
+     "word": "함께",
+     "count": 20
+    },
+    {
+     "word": "아니라",
+     "count": 19
+    },
+    {
+     "word": "통해",
+     "count": 19
+    },
+    {
+     "word": "사람의",
+     "count": 18
+    },
+    {
+     "word": "사람이",
+     "count": 17
+    },
+    {
+     "word": "영상에서는",
+     "count": 17
+    },
+    {
+     "word": "그리고",
+     "count": 16
+    },
+    {
+     "word": "영상은",
+     "count": 16
+    },
+    {
+     "word": "심리학",
+     "count": 16
+    }
+   ],
+   "chapters_share": 0.403,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 13521,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 2339,
+     "share": 0.173
+    },
+    {
+     "name": "질문",
+     "count": 1971,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1761,
+     "share": 0.13
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 874,
+     "share": 0.065
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 304,
+     "share": 0.022
+    },
+    {
+     "name": "요청",
+     "count": 137,
+     "share": 0.01
+    }
+   ],
+   "comment_uncategorized": 0.571,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    },
+    {
+     "text": "아니 모든 직장인들은 병원에 일주일정도 입원은 하지만 많이 아프지는 말고 후유증도 없는 정도로만 살짝 사고가 났으면 좋겠다고 생각하는게 아니었어?!",
+     "likes": 2867
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 85,
+   "channels": 64,
+   "new_this_week": [
+    {
+     "id": "0pulTIYroFA",
+     "title": "나이 들수록 친구가 멀어지는 이유, 가까운 사이일수록 더 숨겨야 할 '3가지' | 인생조언 | 인간관계 | 심리학 | 명언",
+     "published": "2026-10-08"
+    },
+    {
+     "id": "2ej_Dk2tXKw",
+     "title": "가까운 사람에게만 유독 화내는 사람의 심리",
+     "published": "2026-10-09"
+    },
+    {
+     "id": "JlXH0rbA6J8",
+     "title": "나이 들수록 똑똑한 여자들이 돈이 있어도 티 내지 않는 5곳",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "MiCkhuXQ7Xs",
+     "title": "무조건 일시불로만 결제하는 사람들의 놀라운 심리와 인간관계 특징 7가지",
+     "published": "2026-10-12"
+    },
+    {
+     "id": "PY7gBqO1Hrw",
+     "title": "나이 들수록 조언을 함부로 하지 말아야 하는 5가지 이유 (관계가 싹 끊어집니다)ㅣ인생조언ㅣ노후준비ㅣ처세술ㅣ인간관계ㅣ삶의지혜ㅣ시니어ㅣ오디오북ㅣ",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "RsreeiZhYw0",
+     "title": "60대 이후 내 형편을 자세히 말하면 안 되는 6가지 이유ㅣ인생조언ㅣ노후준비ㅣ처세술ㅣ인간관계ㅣ삶의지혜ㅣ시니어ㅣ오디오북ㅣ",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "VlJf9A5FfX8",
+     "title": "자기관리 - 선택지를 만들어 강해지는 사람 특징",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "_qXY_0LvYCs",
+     "title": "오래갈 커플은 연애 초반에 이미 보입니다",
+     "published": "2026-10-08"
+    },
+    {
+     "id": "aVtWUT-Fav8",
+     "title": "나이 들수록 유독 젊어 보이는 여자들의 5가지 공통점",
+     "published": "2026-10-11"
+    },
+    {
+     "id": "b6QO476MRpY",
+     "title": "나이 들수록 똑똑한 여자들이 집에서 가장 먼저 비우는 5곳",
+     "published": "2026-10-13"
+    },
+    {
+     "id": "jp5cWmhAW18",
+     "title": "다들 이정도는 버티고 사는 거 아닌가요?",
+     "published": "2026-10-08"
+    },
+    {
+     "id": "physQpG98Ys",
+     "title": "현명한 여자는 왜 이 5곳에 돈을 안 쓸까? 인생심리로 알아보는 소비의 비밀",
+     "published": "2026-10-14"
+    },
+    {
+     "id": "u7BS3D_Sylo",
+     "title": "서울대 의사가 외롭고 사람이 두려운 이유 [심리상담 풀영상]",
+     "published": "2026-10-14"
+    }
+   ],
+   "views_median": 128623,
+   "views_per_day_median": 8712.2,
+   "ratio_median": 9.08,
+   "success": 56,
+   "minutes_median": 19.8,
+   "title_len_avg": 43.5,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 42,
+     "share": 0.494
+    },
+    {
+     "name": "이유",
+     "count": 20,
+     "share": 0.235
+    },
+    {
+     "name": "N가지",
+     "count": 18,
+     "share": 0.212
+    },
+    {
+     "name": "vs 비교",
+     "count": 12,
+     "share": 0.141
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.094
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 6,
+     "share": 0.071
+    },
+    {
+     "name": "물음표 ?",
+     "count": 5,
+     "share": 0.059
+    },
+    {
+     "name": "공통점",
+     "count": 4,
+     "share": 0.047
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.024
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.012
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 19
+    },
+    {
+     "word": "인간관계",
+     "count": 11
+    },
+    {
+     "word": "특징",
+     "count": 10
+    },
+    {
+     "word": "사람",
+     "count": 10
+    },
+    {
+     "word": "들수록",
+     "count": 10
+    },
+    {
+     "word": "나이",
+     "count": 10
+    },
+    {
+     "word": "심리",
+     "count": 10
+    },
+    {
+     "word": "사람들의",
+     "count": 9
+    },
+    {
+     "word": "5가지",
+     "count": 7
+    },
+    {
+     "word": "사람의",
+     "count": 7
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 83,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 38
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "가장",
+     "count": 24
+    },
+    {
+     "word": "함께",
+     "count": 24
+    },
+    {
+     "word": "마음을",
+     "count": 24
+    },
+    {
+     "word": "사람의",
+     "count": 23
+    },
+    {
+     "word": "영상은",
+     "count": 21
+    },
+    {
+     "word": "심리학",
+     "count": 21
+    },
+    {
+     "word": "통해",
+     "count": 21
+    },
+    {
+     "word": "사람이",
+     "count": 19
+    },
+    {
+     "word": "영상에서는",
+     "count": 19
+    },
+    {
+     "word": "그리고",
+     "count": 18
+    }
+   ],
+   "chapters_share": 0.4,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 14565,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 2549,
+     "share": 0.175
+    },
+    {
+     "name": "질문",
+     "count": 2131,
+     "share": 0.146
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 1908,
+     "share": 0.131
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 960,
+     "share": 0.066
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 322,
+     "share": 0.022
+    },
+    {
+     "name": "요청",
+     "count": 150,
+     "share": 0.01
+    }
+   ],
+   "comment_uncategorized": 0.567,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    },
+    {
+     "text": "내생각에 고기능 우울증은\n\n우울증은 있는데 일 안하면 굶어 뒤지니까 그냥 출근하는거임",
+     "likes": 3612
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 6,
+   "label": "최근 6주",
+   "videos": 100,
+   "channels": 74,
+   "new_this_week": [
+    {
+     "id": "-593UnQhVPM",
+     "title": "🌙틀어놓고 주무세요 '타인은 지옥이다' 인간관계 피로를 단번에 끊어내는 샤르트르의 밤",
+     "published": "2026-10-02"
+    },
+    {
+     "id": "-82OgA74Yqc",
+     "title": "사랑에 빠진 남자와 여자, 신호가 이렇게 다릅니다 (심리학이 찾은 7가지 차이)",
+     "published": "2026-10-06"
+    },
+    {
+     "id": "2t0zuR72DIE",
+     "title": "사랑받고 자란 사람은 이런 데서 티가 납니다. 의외의 행동 6가지",
+     "published": "2026-10-05"
+    },
+    {
+     "id": "3xaDysZUaFM",
+     "title": "중년 이후, 얼굴이 평온한 사람들의 공통점 ㅣ 별별심리ㅣ중년심리ㅣ심리학",
+     "published": "2026-10-07"
+    },
+    {
+     "id": "BdZegIY9E2o",
+     "title": "요양보호사가 전하는 노년의 외로움과 가족 관계 이야기｜12년 현장의 경험",
+     "published": "2026-10-02"
+    },
+    {
+     "id": "E1BISMVYakc",
+     "title": "만나기만 하면 얻어먹는 사람, 계속 만나도 될까요? | 이런 관계는 정리하세요ㅣ인생조언ㅣ노후준비ㅣ삶의지혜ㅣ시니어ㅣ오디오북ㅣ",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "F-4LqdSYywM",
+     "title": "【심리학】식사 자리에서 그 사람의 진짜 성격이 드러난다｜식탁에서 나타나는 인간관계의 숨겨진 비밀",
+     "published": "2026-10-05"
+    },
+    {
+     "id": "Hf1bwdBLcj4",
+     "title": "새 차만 사서 15년 타는 사람들, 이런 사람들입니다 (감가를 몰라서가 아닙니다)",
+     "published": "2026-10-05"
+    },
+    {
+     "id": "Hihg_Qi2tzc",
+     "title": "이어령 교수의 조언: 60살 넘으면 인간관계에 목맬 필요 없습니다ㅣ노후에 사람들과 잘 지내려고 너무 애쓰지 마세요ㅣ고독을 즐기는 지혜ㅣ삶의철학ㅣ노년의삶",
+     "published": "2026-10-02"
+    },
+    {
+     "id": "MUTQyEh7OSU",
+     "title": "자리 뜰 때 의자 집어넣는 사람, 심리학적 특징 3가지",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "U3FfaOiViYY",
+     "title": "\"아직 절반 남았습니다\" 50대 이후, 인생 후반전이 달라지는 사람들의 결정적 차이",
+     "published": "2026-10-02"
+    },
+    {
+     "id": "cBslvnhVNvw",
+     "title": "60,70년대에 태어난 사람들이 조금 특별한 이유",
+     "published": "2026-10-06"
+    },
+    {
+     "id": "ebIXKQoHCys",
+     "title": "나이 들수록 똑똑한 여자들이 돈을 안 쓰게 되는 5곳",
+     "published": "2026-10-04"
+    },
+    {
+     "id": "sWYKD54-BkQ",
+     "title": "실제 우울증 환자들이 느끼는 세상은 이렇습니다",
+     "published": "2026-10-01"
+    },
+    {
+     "id": "ybZrubiy034",
+     "title": "중년의 마음과 달리 걸음에서 먼저 나이가 읽히는 까닭",
+     "published": "2026-10-04"
+    }
+   ],
+   "views_median": 159260.0,
+   "views_per_day_median": 8117.9,
+   "ratio_median": 10.32,
+   "success": 71,
+   "minutes_median": 19.65,
+   "title_len_avg": 43.4,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 47,
+     "share": 0.47
+    },
+    {
+     "name": "이유",
+     "count": 21,
+     "share": 0.21
+    },
+    {
+     "name": "N가지",
+     "count": 21,
+     "share": 0.21
+    },
+    {
+     "name": "vs 비교",
+     "count": 13,
+     "share": 0.13
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 11,
+     "share": 0.11
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 7,
+     "share": 0.07
+    },
+    {
+     "name": "물음표 ?",
+     "count": 6,
+     "share": 0.06
+    },
+    {
+     "name": "공통점",
+     "count": 5,
+     "share": 0.05
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.01
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 20
+    },
+    {
+     "word": "인간관계",
+     "count": 12
+    },
+    {
+     "word": "사람",
+     "count": 12
+    },
+    {
+     "word": "사람들의",
+     "count": 11
+    },
+    {
+     "word": "특징",
+     "count": 11
+    },
+    {
+     "word": "들수록",
+     "count": 11
+    },
+    {
+     "word": "나이",
+     "count": 11
+    },
+    {
+     "word": "심리",
+     "count": 10
+    },
+    {
+     "word": "사람의",
+     "count": 8
+    },
+    {
+     "word": "5가지",
+     "count": 7
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 98,
+    "없음": 2
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 42
+    },
+    {
+     "word": "아니라",
+     "count": 31
+    },
+    {
+     "word": "사람의",
+     "count": 28
+    },
+    {
+     "word": "영상은",
+     "count": 27
+    },
+    {
+     "word": "함께",
+     "count": 27
+    },
+    {
+     "word": "마음을",
+     "count": 27
+    },
+    {
+     "word": "가장",
+     "count": 26
+    },
+    {
+     "word": "심리학",
+     "count": 26
+    },
+    {
+     "word": "그리고",
+     "count": 24
+    },
+    {
+     "word": "사람이",
+     "count": 22
+    },
+    {
+     "word": "영상에서는",
+     "count": 22
+    },
+    {
+     "word": "통해",
+     "count": 22
+    }
+   ],
+   "chapters_share": 0.41,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 18031,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 3239,
+     "share": 0.18
+    },
+    {
+     "name": "질문",
+     "count": 2545,
+     "share": 0.141
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 2283,
+     "share": 0.127
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1130,
+     "share": 0.063
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 409,
+     "share": 0.023
+    },
+    {
+     "name": "도덕적 비난(도박·본인 책임)",
+     "count": 171,
+     "share": 0.009
+    }
+   ],
+   "comment_uncategorized": 0.572,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    },
+    {
+     "text": "내생각에 고기능 우울증은\n\n우울증은 있는데 일 안하면 굶어 뒤지니까 그냥 출근하는거임",
+     "likes": 3612
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 7,
+   "label": "최근 7주",
+   "videos": 116,
+   "channels": 83,
+   "new_this_week": [
+    {
+     "id": "7UtMllZ8QxM",
+     "title": "자존감 높은 사람들이 소름돋게 다 갖고 있는 습관 5가지",
+     "published": "2026-09-29"
+    },
+    {
+     "id": "BLepCTIOe6c",
+     "title": "중년 여성이 아직 사랑을 원하는 이유 3가지｜연애심리학이 알려주는 숨겨진 감정 신호",
+     "published": "2026-09-24"
+    },
+    {
+     "id": "F8xoh_6_7eo",
+     "title": "여자가 진짜 마음을 열었을 때 보이는 5가지 신호 | 중년연애 | 연애심리 | 건강채널",
+     "published": "2026-09-29"
+    },
+    {
+     "id": "Fje_-CmUoJU",
+     "title": "여자 호감신호 만드는 필살법",
+     "published": "2026-09-30"
+    },
+    {
+     "id": "HJXEgD2m2r8",
+     "title": "힘든 삶에서, 괴롭지 않기 위한 인지심리학적 대처법",
+     "published": "2026-09-29"
+    },
+    {
+     "id": "HycNvXj_axk",
+     "title": "혼자 밥 먹고 혼자 여행하는 사람이 오히려 강한 이유 | 심리학 | 혼밥 | 인간관계 |",
+     "published": "2026-09-23"
+    },
+    {
+     "id": "HygTn8rDOUw",
+     "title": "[남성 심리] 남자가 진짜 반했을 때 '무의식'으로 하는 기묘한 행동 10가지 (숨겨진 호감 신호)",
+     "published": "2026-09-28"
+    },
+    {
+     "id": "LrkZ7mJWO3A",
+     "title": "[남성 심리] 사실 못 숨깁니다… 남자가 너무 좋아 괴로울 때 '무의식'에 드러나는 행동 7가지",
+     "published": "2026-09-29"
+    },
+    {
+     "id": "QSRau064GMQ",
+     "title": "등산하는 동안 뇌에서 벌어지는 놀라운 일 9가지",
+     "published": "2026-09-26"
+    },
+    {
+     "id": "UYMaZWBsLiE",
+     "title": "\"싸이코 패스의 뇌와 같다\" 공포를 느끼지 못하는 인간은 위험하다 우리가 불안을 느낄 수 밖에 없는 이유｜취미는과학｜알고e즘",
+     "published": "2026-09-27"
+    },
+    {
+     "id": "VZWNm2j5jJU",
+     "title": "“약해진 게 아닙니다. 원래 힘든 시기입니다” | 50대에 오는 우울과 무기력, 어떻게 극복할까? | #클래스e",
+     "published": "2026-09-27"
+    },
+    {
+     "id": "fH_iNK7fC4I",
+     "title": "왜 하필 40대 후반에 인생이 제일 무거워질까 | 인생의 U자 곡선",
+     "published": "2026-09-25"
+    },
+    {
+     "id": "iTtU5cKxAK0",
+     "title": "친구 하나 없어도 잘 사는 50대 남자들의 공통점 (외톨이가 아닙니다)",
+     "published": "2026-09-25"
+    },
+    {
+     "id": "nCkkjoNGsk4",
+     "title": "여자가 놓치기 싫어하는 남자의 치명적인 매력 4가지｜연애심리로 알아보는 중년 남자의 진짜 인기 비결",
+     "published": "2026-09-24"
+    },
+    {
+     "id": "oUiNW0U5Z9Y",
+     "title": "부모 장례식장에서 눈물 안 나는 자식 특징 _ 당신 잘못이 아닙니다 #정신과 #정신과의사 #가족 #부모갈등 #부부갈등 #관계 #형제갈등 #심리상담",
+     "published": "2026-09-26"
+    },
+    {
+     "id": "qNRoYU-FOqM",
+     "title": "은근히 기분 나쁘게 말하는 인간이 멍청한 이유 (인간 관계 편)",
+     "published": "2026-09-24"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 8324.85,
+   "ratio_median": 12.41,
+   "success": 83,
+   "minutes_median": 19.9,
+   "title_len_avg": 43.7,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 59,
+     "share": 0.509
+    },
+    {
+     "name": "N가지",
+     "count": 28,
+     "share": 0.241
+    },
+    {
+     "name": "이유",
+     "count": 25,
+     "share": 0.216
+    },
+    {
+     "name": "vs 비교",
+     "count": 15,
+     "share": 0.129
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 13,
+     "share": 0.112
+    },
+    {
+     "name": "물음표 ?",
+     "count": 7,
+     "share": 0.06
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 7,
+     "share": 0.06
+    },
+    {
+     "name": "공통점",
+     "count": 6,
+     "share": 0.052
+    },
+    {
+     "name": "느낌표 !",
+     "count": 2,
+     "share": 0.017
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.009
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 24
+    },
+    {
+     "word": "인간관계",
+     "count": 13
+    },
+    {
+     "word": "특징",
+     "count": 12
+    },
+    {
+     "word": "사람",
+     "count": 12
+    },
+    {
+     "word": "심리",
+     "count": 12
+    },
+    {
+     "word": "사람들의",
+     "count": 11
+    },
+    {
+     "word": "들수록",
+     "count": 11
+    },
+    {
+     "word": "나이",
+     "count": 11
+    },
+    {
+     "word": "5가지",
+     "count": 9
+    },
+    {
+     "word": "심리학",
+     "count": 8
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 113,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 49
+    },
+    {
+     "word": "아니라",
+     "count": 38
+    },
+    {
+     "word": "사람의",
+     "count": 33
+    },
+    {
+     "word": "그리고",
+     "count": 32
+    },
+    {
+     "word": "함께",
+     "count": 31
+    },
+    {
+     "word": "가장",
+     "count": 30
+    },
+    {
+     "word": "심리학",
+     "count": 29
+    },
+    {
+     "word": "마음을",
+     "count": 29
+    },
+    {
+     "word": "영상은",
+     "count": 28
+    },
+    {
+     "word": "영상에서는",
+     "count": 28
+    },
+    {
+     "word": "통해",
+     "count": 26
+    },
+    {
+     "word": "사람이",
+     "count": 23
+    }
+   ],
+   "chapters_share": 0.44,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 21866,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 3749,
+     "share": 0.171
+    },
+    {
+     "name": "질문",
+     "count": 3029,
+     "share": 0.139
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 2684,
+     "share": 0.123
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1399,
+     "share": 0.064
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 497,
+     "share": 0.023
+    },
+    {
+     "name": "요청",
+     "count": 209,
+     "share": 0.01
+    }
+   ],
+   "comment_uncategorized": 0.582,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    },
+    {
+     "text": "내생각에 고기능 우울증은\n\n우울증은 있는데 일 안하면 굶어 뒤지니까 그냥 출근하는거임",
+     "likes": 3612
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 8,
+   "label": "최근 8주",
+   "videos": 130,
+   "channels": 93,
+   "new_this_week": [
+    {
+     "id": "10qYTMc3tew",
+     "title": "자꾸 생각나네요? 여자들은 이런 사람에게 끌립니다｜연애심리 5가지",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "1WL8NI8wMlc",
+     "title": "“그냥 친절한 줄 알았는데…” 중년연애에서 놓치기 쉬운 8가지 호감 신호 | 상대의 마음이 보이기 시작합니다",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "DcqJEjkRqDc",
+     "title": "[연휴 특선] 룸메 셋이 전부 나르시시스트인 하숙집 | 나르시시즘 하우스 전편 정주행 [EP.1~6]",
+     "published": "2026-09-23"
+    },
+    {
+     "id": "F9vxkgd2IyI",
+     "title": "약속마다 꼭 \"10분 일찍\" 나오는 사람들의 \"공통점 4가지\"",
+     "published": "2026-09-23"
+    },
+    {
+     "id": "FAdyMV9r6fc",
+     "title": "50대 중반부터 반드시 바꿔야 할 6가지 인생관 (심리학적 분석)",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "Nyrz_g-xVzs",
+     "title": "60세 넘으면 친구가 없어도 괜찮습니다… 노후에 인간관계에 애쓰지 말아야 할 진짜 이유｜혼자가 편해지는 법｜노년의 지혜｜오디오북",
+     "published": "2026-09-18"
+    },
+    {
+     "id": "PvrYmWUOzv0",
+     "title": "남자가 여자를 만만하게 볼 때 무의식적으로 하는 행동 5가지(행동심리학 관점)ㅣ연애심리ㅣ남자심리",
+     "published": "2026-09-22"
+    },
+    {
+     "id": "QF-rrNHfc_4",
+     "title": "여자가 마음을 완전히 열었을 때 보이는 5가지 신호 | 중년연애 | 연애심리 | 여자심리 | 건강채널",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "VhuAViRm1qs",
+     "title": "그녀의 호감은 이렇게 드러난다! 놓치기 쉬운 7가지 신호 | 중년연애심리로 알아보는 진짜 관심의 표현 | 중년 여자의 속마음",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "WGDslk67vNQ",
+     "title": "HSP들 당장 드루와..예민+불안러들 멘탈관리용 책 추천하러 왔다",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "WsJxckYQlcA",
+     "title": "[정약용 명언] 인복 많으려면 잘해주지 마라 미친듯이 ‘이 말’만 무조건 하면 된다 | 정약용 | 오디오북 | 인생명언 | 인간관계 | 인복 | 시니어조언 | 대인관계",
+     "published": "2026-09-19"
+    },
+    {
+     "id": "Zv4u9JLdyTM",
+     "title": "이어령 교수의 조언: 60부터는 친구가 없어도 괜찮습니다ㅣ노후엔 인간관계에 너무 애쓰지 마세요ㅣ외로움을 편안하게 즐기는 법ㅣ노년지혜ㅣ철학이야기",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "pK0Q8xRhNNk",
+     "title": "\"진짜 스트레스를 푼다는 것은\" 고독과 외로움 스트레스가 어떻게 찾아오는지 또 어떻게 해결해야 하는지 김경일 교수의 올바르게 스트레스 다루는법 ｜나의두번째교과서｜알고e즘",
+     "published": "2026-09-21"
+    },
+    {
+     "id": "pVg0f6KjAeE",
+     "title": "인간관계가 힘든 모두를 위한 지침서ㅣ≪이토록 타인이 홀가분해지는 순간≫",
+     "published": "2026-09-22"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 7736.2,
+   "ratio_median": 15.46,
+   "success": 95,
+   "minutes_median": 20.15,
+   "title_len_avg": 45.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 67,
+     "share": 0.515
+    },
+    {
+     "name": "N가지",
+     "count": 35,
+     "share": 0.269
+    },
+    {
+     "name": "이유",
+     "count": 26,
+     "share": 0.2
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 16,
+     "share": 0.123
+    },
+    {
+     "name": "vs 비교",
+     "count": 16,
+     "share": 0.123
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 9,
+     "share": 0.069
+    },
+    {
+     "name": "물음표 ?",
+     "count": 8,
+     "share": 0.062
+    },
+    {
+     "name": "공통점",
+     "count": 7,
+     "share": 0.054
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.023
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.008
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 25
+    },
+    {
+     "word": "인간관계",
+     "count": 14
+    },
+    {
+     "word": "사람들의",
+     "count": 12
+    },
+    {
+     "word": "특징",
+     "count": 12
+    },
+    {
+     "word": "사람",
+     "count": 12
+    },
+    {
+     "word": "5가지",
+     "count": 12
+    },
+    {
+     "word": "심리",
+     "count": 12
+    },
+    {
+     "word": "들수록",
+     "count": 11
+    },
+    {
+     "word": "나이",
+     "count": 11
+    },
+    {
+     "word": "신호",
+     "count": 9
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 127,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 57
+    },
+    {
+     "word": "아니라",
+     "count": 41
+    },
+    {
+     "word": "그리고",
+     "count": 38
+    },
+    {
+     "word": "사람의",
+     "count": 37
+    },
+    {
+     "word": "함께",
+     "count": 37
+    },
+    {
+     "word": "영상에서는",
+     "count": 36
+    },
+    {
+     "word": "마음을",
+     "count": 35
+    },
+    {
+     "word": "가장",
+     "count": 33
+    },
+    {
+     "word": "심리학",
+     "count": 31
+    },
+    {
+     "word": "통해",
+     "count": 31
+    },
+    {
+     "word": "영상은",
+     "count": 29
+    },
+    {
+     "word": "사람",
+     "count": 27
+    }
+   ],
+   "chapters_share": 0.469,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 24825,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4103,
+     "share": 0.165
+    },
+    {
+     "name": "질문",
+     "count": 3343,
+     "share": 0.135
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3261,
+     "share": 0.131
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1566,
+     "share": 0.063
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 564,
+     "share": 0.023
+    },
+    {
+     "name": "요청",
+     "count": 376,
+     "share": 0.015
+    }
+   ],
+   "comment_uncategorized": 0.581,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "혼자 있는건 외롭지 않고 견딜만함,, 군중속에서 혼자인게 버티기 힘든거지",
+     "likes": 4396
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 9,
+   "label": "최근 9주",
+   "videos": 147,
+   "channels": 102,
+   "new_this_week": [
+    {
+     "id": "33-g3TpuawA",
+     "title": "똑똑한 사람은 손절할 때 이것을 절대 하지 않는다 (심리학적 분석)",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "CCDp0m8l9Ts",
+     "title": "착하지만 무서울 정도로 수준 높은 사람 이런 사람이다 | 정약용이 알려주는 6가지 내면 | 인간관계 | 정약용 명언 | 착한사람 | 처세술",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "FNSJWUxdhh0",
+     "title": "좋아하는데도 일부러 거리를 두는 사람의 심리｜마음은 있는데 가까이 다가오지 않는 이유｜인간관계｜심리학｜인생조언",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "IcgXhzDgIjg",
+     "title": "나이 들수록 혼자가 편해지는 이유 | 중년의 인간관계와 외로움 | 감성 오디오북 | 중년의 삶 | 인생 이야기",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "KrunRPqt54c",
+     "title": "함부로 손절하면 안되는 이유",
+     "published": "2026-09-16"
+    },
+    {
+     "id": "LPV-iqsq2xE",
+     "title": "새 차 한 번도 안 사본 사람들, 중고차만 타는 심리 (돈이 없어서가 아닙니다)",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "M-T3i9HqKig",
+     "title": "남자가 당신을 잃을까봐 두려워하게 만드는 방법 (심리학 연구)",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "OUiAqc2em1g",
+     "title": "결혼은 꼭 '이런' 사람과 하세요",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "ROumvyg2Z5c",
+     "title": "【김형석 교수】‘이 모습’ 보이면 당장 연을 끊어라. 아주 못된 사람이다 | 현명한 인간관계 조언 | 명언 | 마음",
+     "published": "2026-09-16"
+    },
+    {
+     "id": "RkvmpZJbebM",
+     "title": "50대 이후, 유독 젊어 보이는 사람들의 7가지 공통점",
+     "published": "2026-09-15"
+    },
+    {
+     "id": "cgxJvqtZ5RU",
+     "title": "여자가 끌리는 남자는 따로 있습니다｜50대 이후 더 강해지는 8가지 연애심리와 매력",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "e0uY-fkfMhM",
+     "title": "남자를 애태우는 여자의 5가지 특징(feat.피크엔드 법칙)ㅣ연애심리ㅣ심리분석",
+     "published": "2026-09-15"
+    },
+    {
+     "id": "fzNRAEZzQec",
+     "title": "여자가 당신을 놓치기 싫어지게 만드는 방법 (심리학 연구) | 연애 다크심리학",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "lXShLOOthsQ",
+     "title": "골프 치는 사람과 그만둔 사람, 10년 뒤 뇌에서 벌어진 놀라운 차이",
+     "published": "2026-09-14"
+    },
+    {
+     "id": "vTbAMIR5gFw",
+     "title": "남자가 알아야 할 여자의 본능 | 진화심리학과 여성의 무의식",
+     "published": "2026-09-10"
+    },
+    {
+     "id": "xk46_2WsjMk",
+     "title": "친한 사람들과 여행 갔다가 사이가 틀어지는 진짜 이유(feat. 심리학) | 갈등심리학 | 우정 |",
+     "published": "2026-09-12"
+    },
+    {
+     "id": "yuE3QPpOL1U",
+     "title": "중년 여성이 보내는 호감 신호 9가지｜건강채널 | 중년사랑 | 인생지혜",
+     "published": "2026-09-11"
+    }
+   ],
+   "views_median": 175105,
+   "views_per_day_median": 7256.4,
+   "ratio_median": 19.19,
+   "success": 111,
+   "minutes_median": 20.2,
+   "title_len_avg": 45.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 76,
+     "share": 0.517
+    },
+    {
+     "name": "N가지",
+     "count": 40,
+     "share": 0.272
+    },
+    {
+     "name": "이유",
+     "count": 30,
+     "share": 0.204
+    },
+    {
+     "name": "vs 비교",
+     "count": 19,
+     "share": 0.129
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 18,
+     "share": 0.122
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 10,
+     "share": 0.068
+    },
+    {
+     "name": "물음표 ?",
+     "count": 8,
+     "share": 0.054
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.054
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.02
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.007
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 29
+    },
+    {
+     "word": "인간관계",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 14
+    },
+    {
+     "word": "심리",
+     "count": 14
+    },
+    {
+     "word": "사람들의",
+     "count": 13
+    },
+    {
+     "word": "특징",
+     "count": 13
+    },
+    {
+     "word": "5가지",
+     "count": 13
+    },
+    {
+     "word": "들수록",
+     "count": 12
+    },
+    {
+     "word": "심리학",
+     "count": 12
+    },
+    {
+     "word": "나이",
+     "count": 12
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 143,
+    "없음": 4
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 66
+    },
+    {
+     "word": "아니라",
+     "count": 51
+    },
+    {
+     "word": "그리고",
+     "count": 46
+    },
+    {
+     "word": "함께",
+     "count": 44
+    },
+    {
+     "word": "영상에서는",
+     "count": 43
+    },
+    {
+     "word": "사람의",
+     "count": 41
+    },
+    {
+     "word": "마음을",
+     "count": 41
+    },
+    {
+     "word": "영상은",
+     "count": 36
+    },
+    {
+     "word": "가장",
+     "count": 35
+    },
+    {
+     "word": "심리학",
+     "count": 35
+    },
+    {
+     "word": "통해",
+     "count": 34
+    },
+    {
+     "word": "사람",
+     "count": 30
+    }
+   ],
+   "chapters_share": 0.49,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 28108,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 4543,
+     "share": 0.162
+    },
+    {
+     "name": "질문",
+     "count": 3763,
+     "share": 0.134
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3694,
+     "share": 0.131
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 1809,
+     "share": 0.064
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 604,
+     "share": 0.021
+    },
+    {
+     "name": "요청",
+     "count": 411,
+     "share": 0.015
+    }
+   ],
+   "comment_uncategorized": 0.584,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "혼자 있는건 외롭지 않고 견딜만함,, 군중속에서 혼자인게 버티기 힘든거지",
+     "likes": 4396
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 10,
+   "label": "최근 10주",
+   "videos": 157,
+   "channels": 106,
+   "new_this_week": [
+    {
+     "id": "461dnHXDuEI",
+     "title": "여자들이 무의식적으로 인생을 꼬이게하는 습관들",
+     "published": "2026-09-03"
+    },
+    {
+     "id": "5Kjejm7scaA",
+     "title": "나이 상관없이 여자에게 매력 있는 남자 특징",
+     "published": "2026-09-02"
+    },
+    {
+     "id": "BDzClOSdKwE",
+     "title": "찝찝하게 놔둬야 하는 이유",
+     "published": "2026-09-03"
+    },
+    {
+     "id": "J4Nf4oosnt8",
+     "title": "모든 남자가 자신도 모르게 찾는 여자 | 남성 심리 | 칼 융",
+     "published": "2026-09-05"
+    },
+    {
+     "id": "Q4TO7jz0nCE",
+     "title": "남자 잘 다루는 여자: 사랑 받는다고 느끼는 진짜 언어",
+     "published": "2026-09-09"
+    },
+    {
+     "id": "SNkw97CWG5I",
+     "title": "할부 절대 안 하는 사람들, 사실 이런 사람들입니다 (돈이 많아서가 아닙니다)",
+     "published": "2026-09-03"
+    },
+    {
+     "id": "VbuWttCEhxs",
+     "title": "잘해주길래 믿었는데, 왜 나만 상처받을까? 중년 남성이 놓치기 쉬운 여자의 5가지 행동 | 연애심리",
+     "published": "2026-09-09"
+    },
+    {
+     "id": "_OmpEiHbCwA",
+     "title": "사람을 만나면 손부터 봐라 본성이 모두 드러난다 특히 1번은 쓰레기다  | 정약용명언 | 인생조언 | 인간관계 | 처세술 | 삶의지혜 | 인간관계 I 오디오북",
+     "published": "2026-09-08"
+    },
+    {
+     "id": "hI544usT4I8",
+     "title": "60세가 넘으면 친구가 많을 필요 없습니다｜인간관계에 애쓸수록 노후가 피곤해지는 진짜 이유｜혼자 누리는 여유와 행복｜노년의 지혜",
+     "published": "2026-09-05"
+    },
+    {
+     "id": "qGgOC9nkdm4",
+     "title": "중년 여자가 들으면 마음이 열리는 칭찬 5가지 💕｜중년연애｜여자심리｜연애심리",
+     "published": "2026-09-03"
+    }
+   ],
+   "views_median": 174937,
+   "views_per_day_median": 7093.7,
+   "ratio_median": 18.45,
+   "success": 119,
+   "minutes_median": 20.3,
+   "title_len_avg": 44.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 81,
+     "share": 0.516
+    },
+    {
+     "name": "N가지",
+     "count": 42,
+     "share": 0.268
+    },
+    {
+     "name": "이유",
+     "count": 32,
+     "share": 0.204
+    },
+    {
+     "name": "vs 비교",
+     "count": 20,
+     "share": 0.127
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 19,
+     "share": 0.121
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 11,
+     "share": 0.07
+    },
+    {
+     "name": "물음표 ?",
+     "count": 9,
+     "share": 0.057
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.051
+    },
+    {
+     "name": "느낌표 !",
+     "count": 3,
+     "share": 0.019
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.006
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 31
+    },
+    {
+     "word": "인간관계",
+     "count": 18
+    },
+    {
+     "word": "5가지",
+     "count": 15
+    },
+    {
+     "word": "심리",
+     "count": 15
+    },
+    {
+     "word": "특징",
+     "count": 14
+    },
+    {
+     "word": "사람",
+     "count": 14
+    },
+    {
+     "word": "사람들의",
+     "count": 13
+    },
+    {
+     "word": "나이",
+     "count": 13
+    },
+    {
+     "word": "들수록",
+     "count": 12
+    },
+    {
+     "word": "심리학",
+     "count": 12
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 151,
+    "없음": 6
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 70
+    },
+    {
+     "word": "아니라",
+     "count": 52
+    },
+    {
+     "word": "그리고",
+     "count": 49
+    },
+    {
+     "word": "영상에서는",
+     "count": 49
+    },
+    {
+     "word": "함께",
+     "count": 47
+    },
+    {
+     "word": "사람의",
+     "count": 45
+    },
+    {
+     "word": "마음을",
+     "count": 45
+    },
+    {
+     "word": "영상은",
+     "count": 39
+    },
+    {
+     "word": "가장",
+     "count": 39
+    },
+    {
+     "word": "통해",
+     "count": 38
+    },
+    {
+     "word": "심리학",
+     "count": 36
+    },
+    {
+     "word": "나이가",
+     "count": 32
+    }
+   ],
+   "chapters_share": 0.484,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 32580,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 5398,
+     "share": 0.166
+    },
+    {
+     "name": "질문",
+     "count": 4330,
+     "share": 0.133
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 3987,
+     "share": 0.122
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2190,
+     "share": 0.067
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 979,
+     "share": 0.03
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 685,
+     "share": 0.021
+    }
+   ],
+   "comment_uncategorized": 0.57,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "혼자 있는건 외롭지 않고 견딜만함,, 군중속에서 혼자인게 버티기 힘든거지",
+     "likes": 4396
+    },
+    {
+     "text": "맨날 \"너의 호의는 누군가에겐 폭력이다\" 뭐 이런말만 듣다가 정반대의 이야기를 들으니까 참... 개인적으로 충격이 크네요. 무조건 상대방이 날 싫어할거란 생각부터 하고 모두를 냉정하게 쳐내며 살아왔는데 그러지 않았더",
+     "likes": 3974
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 11,
+   "label": "최근 11주",
+   "videos": 172,
+   "channels": 116,
+   "new_this_week": [
+    {
+     "id": "1fkVDu1W2gw",
+     "title": "죽어도 먼저 연락 안 하지만 만나면 다정한 사람들 특징 (인간관계 편)",
+     "published": "2026-08-27"
+    },
+    {
+     "id": "6vphF76_Qgs",
+     "title": "여자 심리, 남자들이 모르는 소름 돋는 호감 신호 7가지｜연애심리학",
+     "published": "2026-08-29"
+    },
+    {
+     "id": "BQbfaiK9ENU",
+     "title": "죽기 전 내 집을 정리해야 하는 진짜 이유 (니체의 비움 철학)ㅣ죽음의 문턱에서 바라본 내 집의 진짜 모습 (인생 성찰)",
+     "published": "2026-08-30"
+    },
+    {
+     "id": "HPxRqFYlbgY",
+     "title": "난 왜 이렇게 맨날 서운할까",
+     "published": "2026-09-02"
+    },
+    {
+     "id": "LFTQP_pM_gQ",
+     "title": "칼 융이 찾아낸, 중년 이후 다시 젊어지는 7가지 취미",
+     "published": "2026-08-28"
+    },
+    {
+     "id": "OjfEteAhBQU",
+     "title": "친한 사이일수록 절대 보여주지 마세요｜나이 들수록 인간관계가 편해지는 5가지 거리 두기",
+     "published": "2026-09-02"
+    },
+    {
+     "id": "StM4IstW8R0",
+     "title": "통찰력이 뛰어난 사람이 유독 외로운 5가지 심리적 이유",
+     "published": "2026-08-28"
+    },
+    {
+     "id": "a9_FdviRBY0",
+     "title": "캐릭터적인 남자 되는 법!중년 여성이 가장 먼저 반하는 8가지 비밀|연애심리",
+     "published": "2026-08-29"
+    },
+    {
+     "id": "gvB4ud2Ge2k",
+     "title": "대답하지 마라 무시해라 무례한 인간은 알아서 미친다 | 쇼펜하우어처세술",
+     "published": "2026-09-02"
+    },
+    {
+     "id": "iA14z5h29LY",
+     "title": "《정약용 인생조언》 성공할수록 가까운 사람에게 절대 말하지 말아야 할 5가지",
+     "published": "2026-08-29"
+    },
+    {
+     "id": "i_iV0vG7OFA",
+     "title": "50대 이후, 무너지는 사람과 단단해지는 사람의 결정적 차이",
+     "published": "2026-08-29"
+    },
+    {
+     "id": "lWlkEiCIv-Y",
+     "title": "연애심리, 말보다 먼저 드러나는 진심… 단 6초의 스킨십이 관계를 바꿉니다",
+     "published": "2026-09-01"
+    },
+    {
+     "id": "sYOPy6dE7Uc",
+     "title": "【노후의 친구 관계】 마음의 외로움을 파고드는 '친절한 사람'이 뒤에서 저지른 끔찍한 배신이란?",
+     "published": "2026-08-27"
+    },
+    {
+     "id": "yBqfGeVTFZE",
+     "title": "가까운 사람을 함부로 집에 들이면 안 되는 이유",
+     "published": "2026-08-29"
+    },
+    {
+     "id": "yGsOqn4ky4I",
+     "title": "단기간에 확 친해지는 법 4가지",
+     "published": "2026-08-29"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 6343.75,
+   "ratio_median": 20.86,
+   "success": 133,
+   "minutes_median": 20.5,
+   "title_len_avg": 44.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 91,
+     "share": 0.529
+    },
+    {
+     "name": "N가지",
+     "count": 49,
+     "share": 0.285
+    },
+    {
+     "name": "이유",
+     "count": 35,
+     "share": 0.203
+    },
+    {
+     "name": "vs 비교",
+     "count": 23,
+     "share": 0.134
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 21,
+     "share": 0.122
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 11,
+     "share": 0.064
+    },
+    {
+     "name": "물음표 ?",
+     "count": 10,
+     "share": 0.058
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.047
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.023
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 1,
+     "share": 0.006
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 34
+    },
+    {
+     "word": "인간관계",
+     "count": 19
+    },
+    {
+     "word": "5가지",
+     "count": 18
+    },
+    {
+     "word": "심리",
+     "count": 16
+    },
+    {
+     "word": "특징",
+     "count": 15
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 14
+    },
+    {
+     "word": "사람들의",
+     "count": 13
+    },
+    {
+     "word": "들수록",
+     "count": 13
+    },
+    {
+     "word": "중년",
+     "count": 13
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 165,
+    "없음": 7
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 78
+    },
+    {
+     "word": "아니라",
+     "count": 58
+    },
+    {
+     "word": "그리고",
+     "count": 57
+    },
+    {
+     "word": "영상에서는",
+     "count": 53
+    },
+    {
+     "word": "마음을",
+     "count": 50
+    },
+    {
+     "word": "함께",
+     "count": 49
+    },
+    {
+     "word": "사람의",
+     "count": 48
+    },
+    {
+     "word": "통해",
+     "count": 45
+    },
+    {
+     "word": "영상은",
+     "count": 44
+    },
+    {
+     "word": "가장",
+     "count": 44
+    },
+    {
+     "word": "심리학",
+     "count": 37
+    },
+    {
+     "word": "나이가",
+     "count": 37
+    }
+   ],
+   "chapters_share": 0.5,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 35753,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 6133,
+     "share": 0.172
+    },
+    {
+     "name": "질문",
+     "count": 4937,
+     "share": 0.138
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4296,
+     "share": 0.12
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2439,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 981,
+     "share": 0.027
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 795,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.566,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 12,
+   "label": "최근 12주",
+   "videos": 179,
+   "channels": 122,
+   "new_this_week": [
+    {
+     "id": "StvjFnMGvxA",
+     "title": "첫째 vs 둘째 vs 막내 – 출생 순서가 결정하는 성격의 비밀",
+     "published": "2026-08-23"
+    },
+    {
+     "id": "VARPtgv1PE8",
+     "title": "“왜 저 사람은 아무렇지 않을까?” 감정적으로 안정된 사람들의 6가지 습관 | 심리학",
+     "published": "2026-08-25"
+    },
+    {
+     "id": "dH2FLMA6RKM",
+     "title": "그가 당신의 감정을 자극해 놓고 멀어질 때 대처하는 방법 | 칼 융",
+     "published": "2026-08-20"
+    },
+    {
+     "id": "dQdOMDv2xt0",
+     "title": "불안형이 말해주는 불안형 고치는 법",
+     "published": "2026-08-22"
+    },
+    {
+     "id": "dfHbE0x3kSc",
+     "title": "\"5년 만나도 설렌다\" 시간이 갈수록 더 사랑받는 여자의 7가지 특징(뇌과학 기반)ㅣ연애심리ㅣ연애조언",
+     "published": "2026-08-22"
+    },
+    {
+     "id": "e2GCtzzQaWg",
+     "title": "외로움을 달래기 위해 시작한 점심 모임이 결국 내 가정을 무너뜨리기까지의 기록 | 황혼 이혼의 위기 | 우정의 파탄 | 시니어의 외로움",
+     "published": "2026-08-21"
+    },
+    {
+     "id": "gZoQDI3k1J8",
+     "title": "사랑이 식은게 아닌 지친 번아웃 이별",
+     "published": "2026-08-25"
+    }
+   ],
+   "views_median": 162170,
+   "views_per_day_median": 5806.5,
+   "ratio_median": 21.39,
+   "success": 139,
+   "minutes_median": 20.3,
+   "title_len_avg": 44.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 93,
+     "share": 0.52
+    },
+    {
+     "name": "N가지",
+     "count": 51,
+     "share": 0.285
+    },
+    {
+     "name": "이유",
+     "count": 35,
+     "share": 0.196
+    },
+    {
+     "name": "vs 비교",
+     "count": 24,
+     "share": 0.134
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 21,
+     "share": 0.117
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.061
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 11,
+     "share": 0.061
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.045
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.022
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.011
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 34
+    },
+    {
+     "word": "인간관계",
+     "count": 19
+    },
+    {
+     "word": "5가지",
+     "count": 18
+    },
+    {
+     "word": "특징",
+     "count": 16
+    },
+    {
+     "word": "심리",
+     "count": 16
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "사람들의",
+     "count": 14
+    },
+    {
+     "word": "나이",
+     "count": 14
+    },
+    {
+     "word": "들수록",
+     "count": 13
+    },
+    {
+     "word": "심리학",
+     "count": 13
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 172,
+    "없음": 7
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 81
+    },
+    {
+     "word": "아니라",
+     "count": 61
+    },
+    {
+     "word": "그리고",
+     "count": 58
+    },
+    {
+     "word": "영상에서는",
+     "count": 55
+    },
+    {
+     "word": "마음을",
+     "count": 50
+    },
+    {
+     "word": "사람의",
+     "count": 49
+    },
+    {
+     "word": "함께",
+     "count": 49
+    },
+    {
+     "word": "통해",
+     "count": 47
+    },
+    {
+     "word": "영상은",
+     "count": 46
+    },
+    {
+     "word": "가장",
+     "count": 46
+    },
+    {
+     "word": "심리학",
+     "count": 37
+    },
+    {
+     "word": "나이가",
+     "count": 37
+    }
+   ],
+   "chapters_share": 0.497,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 36444,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 6249,
+     "share": 0.171
+    },
+    {
+     "name": "질문",
+     "count": 5057,
+     "share": 0.139
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4377,
+     "share": 0.12
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2484,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 982,
+     "share": 0.027
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 808,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.567,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 13,
+   "label": "최근 13주",
+   "videos": 189,
+   "channels": 127,
+   "new_this_week": [
+    {
+     "id": "-eJcNrbEq6I",
+     "title": "두 사람이 서로에게 호감을 느낄 때 반드시 나오는 8가지 신호 | 연애 다크심리학",
+     "published": "2026-08-17"
+    },
+    {
+     "id": "2Xe2ATb6VI8",
+     "title": "매력을 잃지 않으면서 남자 앞에서 감정을 조절하는 방법 | 칼 융",
+     "published": "2026-08-19"
+    },
+    {
+     "id": "6Bit5jnPjHk",
+     "title": "《정약용 명언》 노후에 절대 대답하면 안 되는 '4가지' 질문. 입을 다물면 존경받는다. l 인생명언 l 행복한 노후 l 삶의지혜 l 인간관계",
+     "published": "2026-08-14"
+    },
+    {
+     "id": "7yhehYw6oDc",
+     "title": "10년 넘은 친구도 한순간에 끊어내는 사람들의 결정적 특징 (손절의 뇌구조)",
+     "published": "2026-08-13"
+    },
+    {
+     "id": "BxrMEkahOXE",
+     "title": "우울증 치료 6년하고 깨달은 마음의 진리",
+     "published": "2026-08-19"
+    },
+    {
+     "id": "IAs1edgjR-8",
+     "title": "집에 있는 것을 좋아하는 사람들의 7가지 심리적 특징",
+     "published": "2026-08-16"
+    },
+    {
+     "id": "SUd5zM33DsM",
+     "title": "연애심리｜여자가 돈과 마음을 바치게 만드는 5가지 강력한 심리 기술｜발타자르 그라시안 인간관계 지혜",
+     "published": "2026-08-19"
+    },
+    {
+     "id": "V-Vrb2e3UUc",
+     "title": "총무가 조용해진 날, 모임은 끝났습니다 | 골프 모임 심리학",
+     "published": "2026-08-15"
+    },
+    {
+     "id": "_AlXDV8R8i4",
+     "title": "남자 대부분이 모르는.. 여자의 추악한 본능",
+     "published": "2026-08-19"
+    },
+    {
+     "id": "ooEXk15TYs0",
+     "title": "아무리 친해도 빈손으로 절대 가지마십시오.  벗이라도 나를 이렇게 봅니다 | 인생명언 | 행복한 노후 | 삶의 지혜 | 인간관계 | 처세술",
+     "published": "2026-08-18"
+    }
+   ],
+   "views_median": 163967,
+   "views_per_day_median": 5274.6,
+   "ratio_median": 22.73,
+   "success": 149,
+   "minutes_median": 20.4,
+   "title_len_avg": 44.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 98,
+     "share": 0.519
+    },
+    {
+     "name": "N가지",
+     "count": 55,
+     "share": 0.291
+    },
+    {
+     "name": "이유",
+     "count": 35,
+     "share": 0.185
+    },
+    {
+     "name": "vs 비교",
+     "count": 26,
+     "share": 0.138
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 23,
+     "share": 0.122
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.058
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 11,
+     "share": 0.058
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.042
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.021
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 2,
+     "share": 0.011
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 34
+    },
+    {
+     "word": "인간관계",
+     "count": 22
+    },
+    {
+     "word": "5가지",
+     "count": 19
+    },
+    {
+     "word": "특징",
+     "count": 18
+    },
+    {
+     "word": "심리",
+     "count": 17
+    },
+    {
+     "word": "사람들의",
+     "count": 16
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 14
+    },
+    {
+     "word": "나이",
+     "count": 14
+    },
+    {
+     "word": "들수록",
+     "count": 13
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 181,
+    "없음": 8
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 85
+    },
+    {
+     "word": "아니라",
+     "count": 65
+    },
+    {
+     "word": "그리고",
+     "count": 63
+    },
+    {
+     "word": "영상에서는",
+     "count": 60
+    },
+    {
+     "word": "사람의",
+     "count": 53
+    },
+    {
+     "word": "마음을",
+     "count": 53
+    },
+    {
+     "word": "함께",
+     "count": 50
+    },
+    {
+     "word": "가장",
+     "count": 49
+    },
+    {
+     "word": "통해",
+     "count": 49
+    },
+    {
+     "word": "영상은",
+     "count": 47
+    },
+    {
+     "word": "나이가",
+     "count": 40
+    },
+    {
+     "word": "심리학",
+     "count": 39
+    }
+   ],
+   "chapters_share": 0.503,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 39369,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 6666,
+     "share": 0.169
+    },
+    {
+     "name": "질문",
+     "count": 5501,
+     "share": 0.14
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4919,
+     "share": 0.125
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2665,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 986,
+     "share": 0.025
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 870,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.567,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 14,
+   "label": "최근 14주",
+   "videos": 193,
+   "channels": 131,
+   "new_this_week": [
+    {
+     "id": "0RcXdW8QbJk",
+     "title": "남자가 절대로 떠나지 못하는 여자 특징 | 20년 차 상담심리전문가가 말하는 관계의 비밀",
+     "published": "2026-08-07"
+    },
+    {
+     "id": "EXhTjBR-79Y",
+     "title": "매력적인 남자 되는 법! 중년 여성이 가장 먼저 반하는 5가지 비밀",
+     "published": "2026-08-07"
+    },
+    {
+     "id": "JDJoW4x1DME",
+     "title": "결국 예쁜 여자도 이 남자한테는 매달립니다.(심리학적으로 증명된 이유) |황혼인생2막 |중년자기개발 |노후멋진인생 |오디오북",
+     "published": "2026-08-11"
+    },
+    {
+     "id": "sxcgQUCI0Xs",
+     "title": "인간은 결국 보고 싶은 것만 봅니다 | 쇼펜하우어가 말하는 인간관계의 본질 | 인생철학 | 오디오북",
+     "published": "2026-08-09"
+    }
+   ],
+   "views_median": 162445,
+   "views_per_day_median": 5146.6,
+   "ratio_median": 22.99,
+   "success": 153,
+   "minutes_median": 20.4,
+   "title_len_avg": 44.4,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 101,
+     "share": 0.523
+    },
+    {
+     "name": "N가지",
+     "count": 56,
+     "share": 0.29
+    },
+    {
+     "name": "이유",
+     "count": 36,
+     "share": 0.187
+    },
+    {
+     "name": "vs 비교",
+     "count": 26,
+     "share": 0.135
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 24,
+     "share": 0.124
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 13,
+     "share": 0.067
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.057
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.041
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.026
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 4,
+     "share": 0.021
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 35
+    },
+    {
+     "word": "인간관계",
+     "count": 22
+    },
+    {
+     "word": "5가지",
+     "count": 20
+    },
+    {
+     "word": "특징",
+     "count": 19
+    },
+    {
+     "word": "심리",
+     "count": 17
+    },
+    {
+     "word": "사람들의",
+     "count": 16
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 14
+    },
+    {
+     "word": "나이",
+     "count": 14
+    },
+    {
+     "word": "중년",
+     "count": 14
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 185,
+    "없음": 8
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 88
+    },
+    {
+     "word": "아니라",
+     "count": 68
+    },
+    {
+     "word": "그리고",
+     "count": 65
+    },
+    {
+     "word": "영상에서는",
+     "count": 63
+    },
+    {
+     "word": "마음을",
+     "count": 56
+    },
+    {
+     "word": "사람의",
+     "count": 55
+    },
+    {
+     "word": "함께",
+     "count": 53
+    },
+    {
+     "word": "통해",
+     "count": 51
+    },
+    {
+     "word": "가장",
+     "count": 50
+    },
+    {
+     "word": "영상은",
+     "count": 48
+    },
+    {
+     "word": "바탕으로",
+     "count": 42
+    },
+    {
+     "word": "나이가",
+     "count": 42
+    }
+   ],
+   "chapters_share": 0.508,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 39579,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 6677,
+     "share": 0.169
+    },
+    {
+     "name": "질문",
+     "count": 5527,
+     "share": 0.14
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 4967,
+     "share": 0.125
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2676,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 986,
+     "share": 0.025
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 879,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.567,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 202,
+   "channels": 137,
+   "new_this_week": [
+    {
+     "id": "6kAqWl52Ti8",
+     "title": "중년에 무너진 뒤 인생 후반에 다시 서는 남자들 5가지 특징 ㅣ  인생 후반전 ㅣ 퇴직 후 삶 ㅣ 은퇴 후 삶 ㅣ 50대 노후준비 ㅣ 중년 심리학",
+     "published": "2026-08-03"
+    },
+    {
+     "id": "8xcIaR6kaQM",
+     "title": "\"불안, 우울, 분노… 결국 원인은 딱 1가지입니다\" 공감 잘하는 사람이 오히려 먼저 망가지는 이유ㅣ Ep  책과사람 132 (이헌주 교수 1부)",
+     "published": "2026-08-04"
+    },
+    {
+     "id": "AmNYmxOZSDA",
+     "title": "[EP.12] 인지심리학자 김경일 교수가 본 한국 문화의 특수성 (feat.이탈리아 절대 못 돌아간다는 크리스티나)ㅣ비정상수다",
+     "published": "2026-07-30"
+    },
+    {
+     "id": "G9sJxVqt-H0",
+     "title": "자식은 부모의 사랑보다 이것을 기억합니다 ㅣ부모자식관계 ㅣ좋은 부모 ㅣ자식교육 ㅣ훈육 ㅣ애착이론",
+     "published": "2026-08-04"
+    },
+    {
+     "id": "Kpl0HUB7-uM",
+     "title": "외로움을 달래기 위해 시작한 점심 모임이 결국 내 가정을 무너뜨리기까지의 기록 | 황혼 이혼의 위기 | 우정의 파탄 | 시니어의 외로움",
+     "published": "2026-08-05"
+    },
+    {
+     "id": "N-NEDjLBA34",
+     "title": "결혼한 자식이 집에 왔을 때 부모가 절대 하면 안 되는 행동 3가지",
+     "published": "2026-08-02"
+    },
+    {
+     "id": "fKSnvhbOoTw",
+     "title": "【김형석 교수】서운할수록 거리를 두고 '이렇게'만 해라 상대가 먼저쩔쩔맨다  |명언 |오디오북 |노후준비 |인간관계 명언",
+     "published": "2026-07-31"
+    },
+    {
+     "id": "nt5rrSiO75M",
+     "title": "늙어가는 배우자와 잘 살아가는 방법ㅣ인생조언ㅣ노후ㅣ부부관계ㅣ인간관계ㅣ삶의지혜ㅣ시니어ㅣ오디오북ㅣ중년부부ㅣ",
+     "published": "2026-08-03"
+    },
+    {
+     "id": "tMtPxonK_Uk",
+     "title": "지능이 높을수록 나이가 들면 친구를 정리 하는 이유",
+     "published": "2026-07-30"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 5041.95,
+   "ratio_median": 22.12,
+   "success": 161,
+   "minutes_median": 20.5,
+   "title_len_avg": 45.1,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 105,
+     "share": 0.52
+    },
+    {
+     "name": "N가지",
+     "count": 59,
+     "share": 0.292
+    },
+    {
+     "name": "이유",
+     "count": 38,
+     "share": 0.188
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.144
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 27,
+     "share": 0.134
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 15,
+     "share": 0.074
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.054
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.04
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.03
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.025
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 37
+    },
+    {
+     "word": "인간관계",
+     "count": 24
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "특징",
+     "count": 20
+    },
+    {
+     "word": "심리",
+     "count": 17
+    },
+    {
+     "word": "사람들의",
+     "count": 16
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    },
+    {
+     "word": "중년",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 14
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 192,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 92
+    },
+    {
+     "word": "아니라",
+     "count": 68
+    },
+    {
+     "word": "그리고",
+     "count": 65
+    },
+    {
+     "word": "영상에서는",
+     "count": 65
+    },
+    {
+     "word": "마음을",
+     "count": 56
+    },
+    {
+     "word": "사람의",
+     "count": 55
+    },
+    {
+     "word": "가장",
+     "count": 55
+    },
+    {
+     "word": "함께",
+     "count": 55
+    },
+    {
+     "word": "통해",
+     "count": 52
+    },
+    {
+     "word": "영상은",
+     "count": 49
+    },
+    {
+     "word": "바탕으로",
+     "count": 43
+    },
+    {
+     "word": "나이가",
+     "count": 42
+    }
+   ],
+   "chapters_share": 0.515,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 42093,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 6997,
+     "share": 0.166
+    },
+    {
+     "name": "질문",
+     "count": 5786,
+     "share": 0.137
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5377,
+     "share": 0.128
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2851,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 987,
+     "share": 0.023
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 928,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.57,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 16,
+   "label": "최근 16주",
+   "videos": 204,
+   "channels": 139,
+   "new_this_week": [
+    {
+     "id": "Fn1bh-lwmJA",
+     "title": "60대인 당신이 속물이라서 가난한 친구가 불편해지는 것이 아닌 이유",
+     "published": "2026-07-23"
+    },
+    {
+     "id": "O7S9oD_S0rc",
+     "title": "돈 앞에서 끝나버린 친구관계, 12년 만에 다시 만났다",
+     "published": "2026-07-26"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 5041.95,
+   "ratio_median": 22.12,
+   "success": 163,
+   "minutes_median": 20.5,
+   "title_len_avg": 45.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 106,
+     "share": 0.52
+    },
+    {
+     "name": "N가지",
+     "count": 59,
+     "share": 0.289
+    },
+    {
+     "name": "이유",
+     "count": 39,
+     "share": 0.191
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.142
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.137
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 15,
+     "share": 0.074
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.054
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.039
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.029
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.025
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 38
+    },
+    {
+     "word": "인간관계",
+     "count": 24
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "특징",
+     "count": 20
+    },
+    {
+     "word": "심리",
+     "count": 17
+    },
+    {
+     "word": "사람들의",
+     "count": 16
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    },
+    {
+     "word": "중년",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 14
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 194,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 93
+    },
+    {
+     "word": "아니라",
+     "count": 69
+    },
+    {
+     "word": "그리고",
+     "count": 66
+    },
+    {
+     "word": "영상에서는",
+     "count": 65
+    },
+    {
+     "word": "마음을",
+     "count": 56
+    },
+    {
+     "word": "함께",
+     "count": 56
+    },
+    {
+     "word": "사람의",
+     "count": 55
+    },
+    {
+     "word": "가장",
+     "count": 55
+    },
+    {
+     "word": "통해",
+     "count": 52
+    },
+    {
+     "word": "영상은",
+     "count": 49
+    },
+    {
+     "word": "바탕으로",
+     "count": 44
+    },
+    {
+     "word": "심리학",
+     "count": 42
+    }
+   ],
+   "chapters_share": 0.515,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 42546,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7064,
+     "share": 0.166
+    },
+    {
+     "name": "질문",
+     "count": 5846,
+     "share": 0.137
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5434,
+     "share": 0.128
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2893,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 992,
+     "share": 0.023
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 934,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.569,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 210,
+   "channels": 144,
+   "new_this_week": [
+    {
+     "id": "EDJ4-Ck5k4I",
+     "title": "집에 있는 걸 좋아하는 사람들의 놀라운 심리｜심리학이 밝힌 진짜 이유",
+     "published": "2026-07-16"
+    },
+    {
+     "id": "K4HC7-FOhKk",
+     "title": "나르시시스트 전문 변호사가 말하는 나르의 8가지 통제 패턴 | [나르시시스트 전담 변호사 상담소 EP.04-1]",
+     "published": "2026-07-18"
+    },
+    {
+     "id": "NBBUKWKa3Y4",
+     "title": "외로움이 몸서리 쳐도 14년된 친구를 손절하고 나서야 깨달았습니다 :미국 이민 20년, 인간관계에서 배운 것",
+     "published": "2026-07-21"
+    },
+    {
+     "id": "RUNL3SPtz6U",
+     "title": "나이 들수록 외모를 꾸며야 하는 절대적인 이유 | 쇼펜하우어 인생 조언",
+     "published": "2026-07-17"
+    },
+    {
+     "id": "XTueIYuM2aY",
+     "title": "인생을 바꾸고싶다면 안 쓰는 물건부터 당장 버리세요 ㅣ 60세까지는 아까워도 다 버려야하는 진짜 이유",
+     "published": "2026-07-18"
+    },
+    {
+     "id": "YsYFkKuAj-Y",
+     "title": "잘해줄수록 무시당하는 진짜 이유｜목소리 높이지 않고 존중받는 3가지 방법",
+     "published": "2026-07-19"
+    }
+   ],
+   "views_median": 165773.5,
+   "views_per_day_median": 4599.0,
+   "ratio_median": 23.01,
+   "success": 169,
+   "minutes_median": 20.25,
+   "title_len_avg": 45.1,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 111,
+     "share": 0.529
+    },
+    {
+     "name": "N가지",
+     "count": 61,
+     "share": 0.29
+    },
+    {
+     "name": "이유",
+     "count": 43,
+     "share": 0.205
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.138
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.133
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 15,
+     "share": 0.071
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.052
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.038
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.029
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.024
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 42
+    },
+    {
+     "word": "인간관계",
+     "count": 24
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "특징",
+     "count": 20
+    },
+    {
+     "word": "심리",
+     "count": 18
+    },
+    {
+     "word": "사람들의",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 15
+    },
+    {
+     "word": "중년",
+     "count": 15
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 200,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 94
+    },
+    {
+     "word": "아니라",
+     "count": 71
+    },
+    {
+     "word": "그리고",
+     "count": 68
+    },
+    {
+     "word": "영상에서는",
+     "count": 67
+    },
+    {
+     "word": "함께",
+     "count": 60
+    },
+    {
+     "word": "가장",
+     "count": 58
+    },
+    {
+     "word": "사람의",
+     "count": 57
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "통해",
+     "count": 54
+    },
+    {
+     "word": "영상은",
+     "count": 50
+    },
+    {
+     "word": "바탕으로",
+     "count": 46
+    },
+    {
+     "word": "심리학",
+     "count": 43
+    }
+   ],
+   "chapters_share": 0.51,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 43817,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7398,
+     "share": 0.169
+    },
+    {
+     "name": "질문",
+     "count": 5974,
+     "share": 0.136
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 5885,
+     "share": 0.134
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 2993,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 994,
+     "share": 0.023
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 954,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.565,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 18,
+   "label": "최근 18주",
+   "videos": 216,
+   "channels": 146,
+   "new_this_week": [
+    {
+     "id": "8o9cBCZoneg",
+     "title": "99%는 모르는, 상처를 많이 받은 사람들의 숨겨진 특징",
+     "published": "2026-07-13"
+    },
+    {
+     "id": "M9gFWXvlNSs",
+     "title": "심리학자들이 밝힌 인생에서 가장 부질없는 행동 6가지",
+     "published": "2026-07-14"
+    },
+    {
+     "id": "N9VBE85m_bo",
+     "title": "뇌가 달라지는 혼잣말의 비밀, 인생을 바꾸는 뇌과학의 원리",
+     "published": "2026-07-14"
+    },
+    {
+     "id": "O5jemCtVpp0",
+     "title": "친했던 친구가 나이들수록 불편해지는 진짜 이유 | 심리학이 밝힌 과학적 이유",
+     "published": "2026-07-14"
+    },
+    {
+     "id": "WxXINTXQSd4",
+     "title": "심리학이 밝혀낸, 여자를 애태우는 남자의 6가지 특징(feat.자이가르닉 효과)ㅣ연애심리ㅣ심리분석",
+     "published": "2026-07-15"
+    },
+    {
+     "id": "uIlSYcMmBs4",
+     "title": "하트시그널5 성민에게서 보인 '반유혹자' 패턴 3가지",
+     "published": "2026-07-11"
+    }
+   ],
+   "views_median": 171258.5,
+   "views_per_day_median": 4459.1,
+   "ratio_median": 23.01,
+   "success": 175,
+   "minutes_median": 20.05,
+   "title_len_avg": 44.9,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 116,
+     "share": 0.537
+    },
+    {
+     "name": "N가지",
+     "count": 64,
+     "share": 0.296
+    },
+    {
+     "name": "이유",
+     "count": 44,
+     "share": 0.204
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.134
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.13
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 15,
+     "share": 0.069
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.051
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.037
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.028
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.023
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 43
+    },
+    {
+     "word": "인간관계",
+     "count": 24
+    },
+    {
+     "word": "특징",
+     "count": 22
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "사람들의",
+     "count": 18
+    },
+    {
+     "word": "심리",
+     "count": 18
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 15
+    },
+    {
+     "word": "중년",
+     "count": 15
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 206,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 96
+    },
+    {
+     "word": "아니라",
+     "count": 71
+    },
+    {
+     "word": "그리고",
+     "count": 70
+    },
+    {
+     "word": "영상에서는",
+     "count": 70
+    },
+    {
+     "word": "함께",
+     "count": 63
+    },
+    {
+     "word": "가장",
+     "count": 59
+    },
+    {
+     "word": "마음을",
+     "count": 58
+    },
+    {
+     "word": "사람의",
+     "count": 57
+    },
+    {
+     "word": "통해",
+     "count": 55
+    },
+    {
+     "word": "영상은",
+     "count": 53
+    },
+    {
+     "word": "바탕으로",
+     "count": 47
+    },
+    {
+     "word": "심리학",
+     "count": 45
+    }
+   ],
+   "chapters_share": 0.514,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 44797,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7541,
+     "share": 0.168
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 6241,
+     "share": 0.139
+    },
+    {
+     "name": "질문",
+     "count": 6040,
+     "share": 0.135
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3057,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 994,
+     "share": 0.022
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 966,
+     "share": 0.022
+    }
+   ],
+   "comment_uncategorized": 0.563,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 19,
+   "label": "최근 19주",
+   "videos": 218,
+   "channels": 148,
+   "new_this_week": [
+    {
+     "id": "7dI0VFax6_s",
+     "title": "대화 잘하는 사람은 '이 말'을 자주 합니다 | 정약용 처세록 | 삶의지혜 | 오디오북",
+     "published": "2026-07-05"
+    },
+    {
+     "id": "CcAjwzTjuuE",
+     "title": "[100분 통합본] 매력은 어떻게 만들어지는가 | 관계의 미학",
+     "published": "2026-07-08"
+    }
+   ],
+   "views_median": 165773.5,
+   "views_per_day_median": 4424.35,
+   "ratio_median": 23.01,
+   "success": 177,
+   "minutes_median": 20.15,
+   "title_len_avg": 44.8,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 116,
+     "share": 0.532
+    },
+    {
+     "name": "N가지",
+     "count": 64,
+     "share": 0.294
+    },
+    {
+     "name": "이유",
+     "count": 44,
+     "share": 0.202
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.133
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.128
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 16,
+     "share": 0.073
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.037
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.028
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.023
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 43
+    },
+    {
+     "word": "인간관계",
+     "count": 24
+    },
+    {
+     "word": "특징",
+     "count": 22
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "사람들의",
+     "count": 18
+    },
+    {
+     "word": "심리",
+     "count": 18
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 15
+    },
+    {
+     "word": "중년",
+     "count": 15
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 208,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 97
+    },
+    {
+     "word": "아니라",
+     "count": 73
+    },
+    {
+     "word": "그리고",
+     "count": 71
+    },
+    {
+     "word": "영상에서는",
+     "count": 71
+    },
+    {
+     "word": "함께",
+     "count": 65
+    },
+    {
+     "word": "가장",
+     "count": 60
+    },
+    {
+     "word": "사람의",
+     "count": 59
+    },
+    {
+     "word": "마음을",
+     "count": 59
+    },
+    {
+     "word": "통해",
+     "count": 56
+    },
+    {
+     "word": "영상은",
+     "count": 54
+    },
+    {
+     "word": "바탕으로",
+     "count": 48
+    },
+    {
+     "word": "심리학",
+     "count": 45
+    }
+   ],
+   "chapters_share": 0.509,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 45076,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7555,
+     "share": 0.168
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 6393,
+     "share": 0.142
+    },
+    {
+     "name": "질문",
+     "count": 6043,
+     "share": 0.134
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3061,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 994,
+     "share": 0.022
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 969,
+     "share": 0.021
+    }
+   ],
+   "comment_uncategorized": 0.562,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 20,
+   "label": "최근 20주",
+   "videos": 219,
+   "channels": 149,
+   "new_this_week": [
+    {
+     "id": "-oYkAO58LSE",
+     "title": "단 3일 만에 뇌를 리셋하고 무서울정도로  인생을 바꾸는 혼잣말의 뇌과학 비밀, 인생이 잘 풀리는 사람들은 말의힘을 알고 있습니다",
+     "published": "2026-07-01"
+    }
+   ],
+   "views_median": 167580,
+   "views_per_day_median": 4423.2,
+   "ratio_median": 23.01,
+   "success": 178,
+   "minutes_median": 20.1,
+   "title_len_avg": 45.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 116,
+     "share": 0.53
+    },
+    {
+     "name": "N가지",
+     "count": 64,
+     "share": 0.292
+    },
+    {
+     "name": "이유",
+     "count": 44,
+     "share": 0.201
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.132
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.128
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 16,
+     "share": 0.073
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.037
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.027
+    },
+    {
+     "name": "느낌표 !",
+     "count": 5,
+     "share": 0.023
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 43
+    },
+    {
+     "word": "인간관계",
+     "count": 24
+    },
+    {
+     "word": "특징",
+     "count": 22
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "사람들의",
+     "count": 18
+    },
+    {
+     "word": "심리",
+     "count": 18
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    },
+    {
+     "word": "나이",
+     "count": 15
+    },
+    {
+     "word": "중년",
+     "count": 15
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 209,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 98
+    },
+    {
+     "word": "아니라",
+     "count": 73
+    },
+    {
+     "word": "영상에서는",
+     "count": 72
+    },
+    {
+     "word": "그리고",
+     "count": 71
+    },
+    {
+     "word": "함께",
+     "count": 66
+    },
+    {
+     "word": "가장",
+     "count": 60
+    },
+    {
+     "word": "사람의",
+     "count": 59
+    },
+    {
+     "word": "마음을",
+     "count": 59
+    },
+    {
+     "word": "통해",
+     "count": 56
+    },
+    {
+     "word": "영상은",
+     "count": 55
+    },
+    {
+     "word": "바탕으로",
+     "count": 49
+    },
+    {
+     "word": "심리학",
+     "count": 46
+    }
+   ],
+   "chapters_share": 0.511,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 45225,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7567,
+     "share": 0.167
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 6445,
+     "share": 0.143
+    },
+    {
+     "name": "질문",
+     "count": 6047,
+     "share": 0.134
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3063,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 994,
+     "share": 0.022
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 970,
+     "share": 0.021
+    }
+   ],
+   "comment_uncategorized": 0.562,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 21,
+   "label": "최근 21주",
+   "videos": 222,
+   "channels": 151,
+   "new_this_week": [
+    {
+     "id": "NQ8h_rRlatQ",
+     "title": "누가 날 우습게 보면 그냥 웃으며 '이 한마디' 해라 찍소리도 못한다 | 정약용 명언 | 오디오북 | 삶의지혜 | 인간관계",
+     "published": "2026-06-18"
+    },
+    {
+     "id": "VzZtm-KS6fM",
+     "title": "귀티 나는 중년의 비밀 — 얼굴 평온함은 피부가 아니라 태도에서 옵니다",
+     "published": "2026-06-21"
+    },
+    {
+     "id": "mtqYYYhdJoI",
+     "title": "놓치면 평생 후회합니다! 중년 여성이 보내는 호감 신호와 연애의기술 8가지",
+     "published": "2026-06-24"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 4393.2,
+   "ratio_median": 23.51,
+   "success": 181,
+   "minutes_median": 20.15,
+   "title_len_avg": 45.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 117,
+     "share": 0.527
+    },
+    {
+     "name": "N가지",
+     "count": 65,
+     "share": 0.293
+    },
+    {
+     "name": "이유",
+     "count": 44,
+     "share": 0.198
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.131
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.126
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 17,
+     "share": 0.077
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.05
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.036
+    },
+    {
+     "name": "느낌표 !",
+     "count": 6,
+     "share": 0.027
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.027
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 43
+    },
+    {
+     "word": "인간관계",
+     "count": 25
+    },
+    {
+     "word": "특징",
+     "count": 22
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "사람들의",
+     "count": 18
+    },
+    {
+     "word": "심리",
+     "count": 18
+    },
+    {
+     "word": "중년",
+     "count": 16
+    },
+    {
+     "word": "오디오북",
+     "count": 16
+    },
+    {
+     "word": "사람",
+     "count": 15
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 212,
+    "없음": 10
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 101
+    },
+    {
+     "word": "아니라",
+     "count": 75
+    },
+    {
+     "word": "영상에서는",
+     "count": 74
+    },
+    {
+     "word": "그리고",
+     "count": 73
+    },
+    {
+     "word": "함께",
+     "count": 67
+    },
+    {
+     "word": "가장",
+     "count": 61
+    },
+    {
+     "word": "사람의",
+     "count": 60
+    },
+    {
+     "word": "마음을",
+     "count": 60
+    },
+    {
+     "word": "통해",
+     "count": 57
+    },
+    {
+     "word": "영상은",
+     "count": 55
+    },
+    {
+     "word": "바탕으로",
+     "count": 50
+    },
+    {
+     "word": "심리학",
+     "count": 46
+    }
+   ],
+   "chapters_share": 0.509,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 45301,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7574,
+     "share": 0.167
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 6468,
+     "share": 0.143
+    },
+    {
+     "name": "질문",
+     "count": 6057,
+     "share": 0.134
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3068,
+     "share": 0.068
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 994,
+     "share": 0.022
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 973,
+     "share": 0.021
+    }
+   ],
+   "comment_uncategorized": 0.562,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 22,
+   "label": "최근 22주",
+   "videos": 230,
+   "channels": 158,
+   "new_this_week": [
+    {
+     "id": "0zbHoy3g4A4",
+     "title": "나르시시스트가 되는 이유 | 정신과 의사가 본 2가지 성장환경",
+     "published": "2026-06-12"
+    },
+    {
+     "id": "ELs2L4rM2kg",
+     "title": "\"복수는 이렇게 하는 겁니다\" 정신과 의사가 알려주는 나르시시스트 복수",
+     "published": "2026-06-16"
+    },
+    {
+     "id": "JH2N6gHp_dw",
+     "title": "대화 잘하려면 이 말 자주하라 적도 내편되고 즉시 대접받는다 | 정약용 명언 | 인간관계 | 대화법 | 처세술 | 인생지혜 | 오디오북",
+     "published": "2026-06-13"
+    },
+    {
+     "id": "NV6XEbHUFQU",
+     "title": "항상 집이 깨끗한 사람들의 놀라운 특징 : 뇌를 바꾸고 부를 끌어당기는 정리의 뇌과학",
+     "published": "2026-06-14"
+    },
+    {
+     "id": "Vo_VOKwqjBs",
+     "title": "\"남자의 호감이 '헌신'으로 바뀌는 4단계: 연애 고수만 아는 심리 트리거\"",
+     "published": "2026-06-17"
+    },
+    {
+     "id": "__ks8rhsPvM",
+     "title": "남자가 진짜 사랑에 빠졌을 때 무의식적으로 하는 행동 6단계 (뇌과학 기반)ㅣ연애심리ㅣ남자심리ㅣ심리분석",
+     "published": "2026-06-14"
+    },
+    {
+     "id": "kL1_QtFbr2E",
+     "title": "한번 돌아서면 돌아보지 않는 사람의 심리",
+     "published": "2026-06-14"
+    },
+    {
+     "id": "rdRMbIVlBFM",
+     "title": "강아지의 1순위는 바로 '이 사람' (행동심리학이 알려드립니다)",
+     "published": "2026-06-11"
+    }
+   ],
+   "views_median": 163206.0,
+   "views_per_day_median": 4092.15,
+   "ratio_median": 23.51,
+   "success": 189,
+   "minutes_median": 20.0,
+   "title_len_avg": 45.0,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 119,
+     "share": 0.517
+    },
+    {
+     "name": "N가지",
+     "count": 66,
+     "share": 0.287
+    },
+    {
+     "name": "이유",
+     "count": 45,
+     "share": 0.196
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.126
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.122
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 18,
+     "share": 0.078
+    },
+    {
+     "name": "물음표 ?",
+     "count": 11,
+     "share": 0.048
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.035
+    },
+    {
+     "name": "느낌표 !",
+     "count": 6,
+     "share": 0.026
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.026
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.004
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 44
+    },
+    {
+     "word": "인간관계",
+     "count": 26
+    },
+    {
+     "word": "특징",
+     "count": 23
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "심리",
+     "count": 20
+    },
+    {
+     "word": "사람들의",
+     "count": 19
+    },
+    {
+     "word": "오디오북",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 16
+    },
+    {
+     "word": "중년",
+     "count": 16
+    },
+    {
+     "word": "심리학",
+     "count": 15
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 219,
+    "없음": 11
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 104
+    },
+    {
+     "word": "아니라",
+     "count": 77
+    },
+    {
+     "word": "영상에서는",
+     "count": 77
+    },
+    {
+     "word": "그리고",
+     "count": 74
+    },
+    {
+     "word": "함께",
+     "count": 69
+    },
+    {
+     "word": "가장",
+     "count": 65
+    },
+    {
+     "word": "사람의",
+     "count": 63
+    },
+    {
+     "word": "마음을",
+     "count": 62
+    },
+    {
+     "word": "영상은",
+     "count": 60
+    },
+    {
+     "word": "통해",
+     "count": 59
+    },
+    {
+     "word": "바탕으로",
+     "count": 50
+    },
+    {
+     "word": "심리학",
+     "count": 47
+    }
+   ],
+   "chapters_share": 0.509,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 46864,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 7804,
+     "share": 0.167
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 6679,
+     "share": 0.143
+    },
+    {
+     "name": "질문",
+     "count": 6250,
+     "share": 0.133
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3167,
+     "share": 0.068
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1012,
+     "share": 0.022
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 995,
+     "share": 0.021
+    }
+   ],
+   "comment_uncategorized": 0.563,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 23,
+   "label": "최근 23주",
+   "videos": 237,
+   "channels": 159,
+   "new_this_week": [
+    {
+     "id": "4g_Vs_r46nU",
+     "title": "늙을수록 친구를 손절하는 소름돋는 이유 ｜심리 ｜행동심리 ｜친구관계 ｜인간관계 ｜마인드 컨트롤 ｜자존감 ｜ 손절",
+     "published": "2026-06-09"
+    },
+    {
+     "id": "BjKVokKepsU",
+     "title": "인생을 바꾸고 싶다면 안쓰는 물건부터 버리세요!  65세까지는  아까워도 버려야 하는 진짜 이유! 뇌과학으로 본 비움의 과학",
+     "published": "2026-06-08"
+    },
+    {
+     "id": "Hcs1qGLZTz8",
+     "title": "중년 이후 친구가 필요 없는 진짜 이유 3가지 (절친 없는 사람들의 심리) 인간관계ㅣ심리학",
+     "published": "2026-06-05"
+    },
+    {
+     "id": "JekTv6i4ZGQ",
+     "title": "하트시그널5 우열은 왜 갑자기 유경에게 확신을 줬을까? l 기질과 결핍으로 보는 연애 심리",
+     "published": "2026-06-06"
+    },
+    {
+     "id": "gt-W6VAeAAg",
+     "title": "심리학자가 말하는 요즘 '개념있는 부모'가 진짜 보기 드문 이유ㅣ Ep. 사람산책 11 (김경일 교수님 1부)",
+     "published": "2026-06-10"
+    },
+    {
+     "id": "sspCBqfVhFw",
+     "title": "성공한 사람들이 매일 운동하는 진짜 이유 (뇌과학이 밝힌 놀라운 변화) 뇌과학 | 자기개발 | 동기부여 | 심리학",
+     "published": "2026-06-07"
+    },
+    {
+     "id": "vzendmOOrc8",
+     "title": "항상 집이 깨끗한 사람들은 '이 능력'이 특별하다?",
+     "published": "2026-06-07"
+    }
+   ],
+   "views_median": 167580,
+   "views_per_day_median": 3940.5,
+   "ratio_median": 23.55,
+   "success": 195,
+   "minutes_median": 19.8,
+   "title_len_avg": 45.3,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 124,
+     "share": 0.523
+    },
+    {
+     "name": "N가지",
+     "count": 67,
+     "share": 0.283
+    },
+    {
+     "name": "이유",
+     "count": 50,
+     "share": 0.211
+    },
+    {
+     "name": "vs 비교",
+     "count": 29,
+     "share": 0.122
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.118
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 18,
+     "share": 0.076
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.055
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.034
+    },
+    {
+     "name": "느낌표 !",
+     "count": 7,
+     "share": 0.03
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 6,
+     "share": 0.025
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.004
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 49
+    },
+    {
+     "word": "인간관계",
+     "count": 28
+    },
+    {
+     "word": "특징",
+     "count": 23
+    },
+    {
+     "word": "심리",
+     "count": 23
+    },
+    {
+     "word": "5가지",
+     "count": 21
+    },
+    {
+     "word": "사람들의",
+     "count": 20
+    },
+    {
+     "word": "심리학",
+     "count": 17
+    },
+    {
+     "word": "중년",
+     "count": 17
+    },
+    {
+     "word": "오디오북",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 16
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 226,
+    "없음": 11
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 105
+    },
+    {
+     "word": "아니라",
+     "count": 79
+    },
+    {
+     "word": "영상에서는",
+     "count": 78
+    },
+    {
+     "word": "그리고",
+     "count": 76
+    },
+    {
+     "word": "함께",
+     "count": 69
+    },
+    {
+     "word": "가장",
+     "count": 65
+    },
+    {
+     "word": "사람의",
+     "count": 63
+    },
+    {
+     "word": "영상은",
+     "count": 62
+    },
+    {
+     "word": "마음을",
+     "count": 62
+    },
+    {
+     "word": "통해",
+     "count": 60
+    },
+    {
+     "word": "심리학",
+     "count": 50
+    },
+    {
+     "word": "바탕으로",
+     "count": 50
+    }
+   ],
+   "chapters_share": 0.515,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 48738,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 8005,
+     "share": 0.164
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 6934,
+     "share": 0.142
+    },
+    {
+     "name": "질문",
+     "count": 6437,
+     "share": 0.132
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3256,
+     "share": 0.067
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1031,
+     "share": 0.021
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 999,
+     "share": 0.02
+    }
+   ],
+   "comment_uncategorized": 0.567,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 24,
+   "label": "최근 24주",
+   "videos": 242,
+   "channels": 163,
+   "new_this_week": [
+    {
+     "id": "B_rOPX-oLQM",
+     "title": "자존감 높은 사람들이 무서울 정도로 잘하는 습관 4가지 | 자존감 | 심리학 | 멘탈관리 | 감정조절",
+     "published": "2026-05-29"
+    },
+    {
+     "id": "Cy9S2YeMLbw",
+     "title": "\"결혼할 인연은 따로 있다\"  평생 함께 할 '운명의 상대' 특징 5가지 (뇌과학 기반)",
+     "published": "2026-05-30"
+    },
+    {
+     "id": "dypjVHQsGwM",
+     "title": "혼자 사는 X세대 중장년 남성의 심리학 완전 해설",
+     "published": "2026-05-31"
+    },
+    {
+     "id": "tbpcv9vAwhk",
+     "title": "남자가 진짜 좋아하면 나타나는 무의식 행동 7가지 | 연애심리 | 행동심리학",
+     "published": "2026-06-02"
+    },
+    {
+     "id": "v_1LXZktL2g",
+     "title": "인생은 결국 혼자입니다 외로움 없이 행복하게 살아가는 7가지 방법 | 김형석 독립기념관장",
+     "published": "2026-06-02"
+    }
+   ],
+   "views_median": 163506.5,
+   "views_per_day_median": 3716.45,
+   "ratio_median": 24.07,
+   "success": 200,
+   "minutes_median": 19.75,
+   "title_len_avg": 45.2,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 128,
+     "share": 0.529
+    },
+    {
+     "name": "N가지",
+     "count": 71,
+     "share": 0.293
+    },
+    {
+     "name": "이유",
+     "count": 50,
+     "share": 0.207
+    },
+    {
+     "name": "vs 비교",
+     "count": 30,
+     "share": 0.124
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.116
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 18,
+     "share": 0.074
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.054
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.033
+    },
+    {
+     "name": "느낌표 !",
+     "count": 7,
+     "share": 0.029
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 7,
+     "share": 0.029
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.004
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 49
+    },
+    {
+     "word": "인간관계",
+     "count": 28
+    },
+    {
+     "word": "특징",
+     "count": 24
+    },
+    {
+     "word": "심리",
+     "count": 23
+    },
+    {
+     "word": "5가지",
+     "count": 22
+    },
+    {
+     "word": "사람들의",
+     "count": 20
+    },
+    {
+     "word": "심리학",
+     "count": 19
+    },
+    {
+     "word": "중년",
+     "count": 17
+    },
+    {
+     "word": "오디오북",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 16
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 231,
+    "없음": 11
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 105
+    },
+    {
+     "word": "영상에서는",
+     "count": 81
+    },
+    {
+     "word": "아니라",
+     "count": 79
+    },
+    {
+     "word": "그리고",
+     "count": 78
+    },
+    {
+     "word": "함께",
+     "count": 71
+    },
+    {
+     "word": "가장",
+     "count": 67
+    },
+    {
+     "word": "영상은",
+     "count": 64
+    },
+    {
+     "word": "사람의",
+     "count": 63
+    },
+    {
+     "word": "마음을",
+     "count": 63
+    },
+    {
+     "word": "통해",
+     "count": 63
+    },
+    {
+     "word": "심리학",
+     "count": 53
+    },
+    {
+     "word": "바탕으로",
+     "count": 51
+    }
+   ],
+   "chapters_share": 0.512,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 49448,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 8073,
+     "share": 0.163
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 7151,
+     "share": 0.145
+    },
+    {
+     "name": "질문",
+     "count": 6498,
+     "share": 0.131
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3293,
+     "share": 0.067
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1036,
+     "share": 0.021
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 999,
+     "share": 0.02
+    }
+   ],
+   "comment_uncategorized": 0.566,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 25,
+   "label": "최근 25주",
+   "videos": 246,
+   "channels": 166,
+   "new_this_week": [
+    {
+     "id": "I1dI35HdZm0",
+     "title": "중년 이후 자식에게 흔들리는 엄마와 존경받는 엄마의 소름 돋는 심리학적 차이ㅣ자식에게 존경받는 엄마가 되는 방법… 99%가 모르는 비밀",
+     "published": "2026-05-27"
+    },
+    {
+     "id": "P065MMfxPhE",
+     "title": "자식을 망치고 부모를 파멸시키는 ‘한 집 살이’의 심리학 l 부모자식갈등 ㅣ관계심리 ㅣ인간관계 ㅣ가족갈등 ㅣ가족심리 ㅣ치유심리학 ㅣ분리독립",
+     "published": "2026-05-21"
+    },
+    {
+     "id": "S57RYhmF7kk",
+     "title": "중년 이후, 잘 풀리는 사람의 7가지",
+     "published": "2026-05-25"
+    },
+    {
+     "id": "pT3mDt8W7AQ",
+     "title": "본성 못된 사람이 자주 하는 말버릇 '6가지', 특히 1번 쓰레기다 | 인간관계 조언 | 인생 | 명언 | 행복 | 정약용",
+     "published": "2026-05-27"
+    }
+   ],
+   "views_median": 163506.5,
+   "views_per_day_median": 3699.35,
+   "ratio_median": 24.07,
+   "success": 204,
+   "minutes_median": 19.75,
+   "title_len_avg": 45.5,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 130,
+     "share": 0.528
+    },
+    {
+     "name": "N가지",
+     "count": 73,
+     "share": 0.297
+    },
+    {
+     "name": "이유",
+     "count": 50,
+     "share": 0.203
+    },
+    {
+     "name": "vs 비교",
+     "count": 30,
+     "share": 0.122
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 28,
+     "share": 0.114
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 18,
+     "share": 0.073
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.053
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.033
+    },
+    {
+     "name": "느낌표 !",
+     "count": 7,
+     "share": 0.028
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 7,
+     "share": 0.028
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.004
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 49
+    },
+    {
+     "word": "인간관계",
+     "count": 30
+    },
+    {
+     "word": "특징",
+     "count": 24
+    },
+    {
+     "word": "심리",
+     "count": 23
+    },
+    {
+     "word": "5가지",
+     "count": 22
+    },
+    {
+     "word": "사람들의",
+     "count": 20
+    },
+    {
+     "word": "심리학",
+     "count": 20
+    },
+    {
+     "word": "중년",
+     "count": 19
+    },
+    {
+     "word": "오디오북",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 16
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 235,
+    "없음": 11
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 106
+    },
+    {
+     "word": "영상에서는",
+     "count": 82
+    },
+    {
+     "word": "아니라",
+     "count": 80
+    },
+    {
+     "word": "그리고",
+     "count": 79
+    },
+    {
+     "word": "함께",
+     "count": 71
+    },
+    {
+     "word": "가장",
+     "count": 67
+    },
+    {
+     "word": "통해",
+     "count": 66
+    },
+    {
+     "word": "영상은",
+     "count": 65
+    },
+    {
+     "word": "마음을",
+     "count": 65
+    },
+    {
+     "word": "사람의",
+     "count": 64
+    },
+    {
+     "word": "심리학",
+     "count": 53
+    },
+    {
+     "word": "바탕으로",
+     "count": 52
+    }
+   ],
+   "chapters_share": 0.508,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 50343,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 8184,
+     "share": 0.163
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 7234,
+     "share": 0.144
+    },
+    {
+     "name": "질문",
+     "count": 6613,
+     "share": 0.131
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3375,
+     "share": 0.067
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1054,
+     "share": 0.021
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 1006,
+     "share": 0.02
+    }
+   ],
+   "comment_uncategorized": 0.567,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  },
+  {
+   "weeks": 26,
+   "label": "최근 26주",
+   "videos": 251,
+   "channels": 169,
+   "new_this_week": [
+    {
+     "id": "e322NAUIdHE",
+     "title": "집을 항상 깨끗하게 유지하는 사람들의 소름 돋는 심리 | 뇌과학·도파민 회로",
+     "published": "2026-05-18"
+    },
+    {
+     "id": "ezanOZKTOqQ",
+     "title": "나이 들면서 유독 표정이 편안한 사람들의 놀라운 공통 심리 5가지",
+     "published": "2026-05-15"
+    },
+    {
+     "id": "mopoYlkCYC4",
+     "title": "50대 이후, 인생이 술술 풀리는 여성들의 3가지 비밀 | 심리학 | 뇌과학 | 행복한노후 |",
+     "published": "2026-05-17"
+    },
+    {
+     "id": "tdp8oqX_xOo",
+     "title": "사람을 만나면 3가지 척하라 배신한 친구도 등 돌린 자식도 다시 돌아온다 | 정약용 명언 | 인간관계 | 인생지혜 | 친구관계 | 처세술",
+     "published": "2026-05-19"
+    },
+    {
+     "id": "zxP7GUqMmpY",
+     "title": "남자가 스스로 더 잘하게 되는 여자의 특징 (연애심리)",
+     "published": "2026-05-17"
+    }
+   ],
+   "views_median": 167580,
+   "views_per_day_median": 3441.0,
+   "ratio_median": 24.52,
+   "success": 209,
+   "minutes_median": 19.7,
+   "title_len_avg": 45.5,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 134,
+     "share": 0.534
+    },
+    {
+     "name": "N가지",
+     "count": 76,
+     "share": 0.303
+    },
+    {
+     "name": "이유",
+     "count": 50,
+     "share": 0.199
+    },
+    {
+     "name": "vs 비교",
+     "count": 31,
+     "share": 0.124
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 29,
+     "share": 0.116
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 18,
+     "share": 0.072
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.052
+    },
+    {
+     "name": "공통점",
+     "count": 8,
+     "share": 0.032
+    },
+    {
+     "name": "느낌표 !",
+     "count": 7,
+     "share": 0.028
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 7,
+     "share": 0.028
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.004
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 49
+    },
+    {
+     "word": "인간관계",
+     "count": 31
+    },
+    {
+     "word": "특징",
+     "count": 25
+    },
+    {
+     "word": "심리",
+     "count": 25
+    },
+    {
+     "word": "5가지",
+     "count": 23
+    },
+    {
+     "word": "사람들의",
+     "count": 22
+    },
+    {
+     "word": "심리학",
+     "count": 21
+    },
+    {
+     "word": "중년",
+     "count": 19
+    },
+    {
+     "word": "오디오북",
+     "count": 17
+    },
+    {
+     "word": "사람",
+     "count": 16
+    }
+   ],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 240,
+    "없음": 11
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 109
+    },
+    {
+     "word": "영상에서는",
+     "count": 85
+    },
+    {
+     "word": "아니라",
+     "count": 81
+    },
+    {
+     "word": "그리고",
+     "count": 80
+    },
+    {
+     "word": "함께",
+     "count": 73
+    },
+    {
+     "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "영상은",
+     "count": 68
+    },
+    {
+     "word": "마음을",
+     "count": 66
+    },
+    {
+     "word": "통해",
+     "count": 66
+    },
+    {
+     "word": "사람의",
+     "count": 64
+    },
+    {
+     "word": "심리학",
+     "count": 55
+    },
+    {
+     "word": "바탕으로",
+     "count": 54
+    }
+   ],
+   "chapters_share": 0.51,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "src": "설명",
+     "hook": "매주 수요일 저녁 8시 45분 tvN에서! we’re :DIGGLE family"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 51764,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 8317,
+     "share": 0.161
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 7732,
+     "share": 0.149
+    },
+    {
+     "name": "질문",
+     "count": 6686,
+     "share": 0.129
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 3443,
+     "share": 0.067
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1071,
+     "share": 0.021
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 1007,
+     "share": 0.019
+    }
+   ],
+   "comment_uncategorized": 0.565,
+   "top_comments": [
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 5991
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
+    },
+    {
+     "text": "아무 용건도 없는데 전화해서 떠드는 사람들이 더 신기함.",
+     "likes": 4515
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "OrEqoXAkIR0",
+     "title": "[#유퀴즈온더블럭] 혹시 나도 고기능 우울증인가🤔 하나라도 해당된다면 고기능 우울증일 수 있습니다💥",
+     "channel": "tvN D ENT",
+     "views": 1915444,
+     "views_per_day": 236389.1,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=OrEqoXAkIR0"
+    },
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461484,
+     "views_per_day": 190426.2,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381042,
+     "views_per_day": 106058.0,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1467073,
+     "views_per_day": 103035.0,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "KmYUFX0xqB4",
+     "title": "하이브리드 살까 전기차 살까, 15년 영수증을 다 모아 보면 답이 나옵니다",
+     "channel": "심리발견",
+     "views": 1334392,
+     "views_per_day": 98500.4,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=KmYUFX0xqB4"
+    }
+   ]
+  }
+ ]
+}

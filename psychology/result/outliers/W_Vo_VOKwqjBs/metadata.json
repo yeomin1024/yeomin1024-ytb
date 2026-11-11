@@ -1,0 +1,75 @@
+{
+ "id": "Vo_VOKwqjBs",
+ "title": "\"남자의 호감이 '헌신'으로 바뀌는 4단계: 연애 고수만 아는 심리 트리거\"",
+ "channel": "톡톡 연애심리",
+ "channel_id": "UC0y83i8Yuf2bHjRJbJzmlLw",
+ "subs": 6610,
+ "views": 123717,
+ "ratio": 18.72,
+ "age_days": 147,
+ "views_per_day": 841.6,
+ "minutes": 14.8,
+ "likes": 1896,
+ "comments": 55,
+ "published": "2026-06-17",
+ "queries": "검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=Vo_VOKwqjBs",
+ "flag": "",
+ "published_at": "2026-06-17T09:00:16Z",
+ "rank": "W144",
+ "set": "web",
+ "folder": "W_Vo_VOKwqjBs",
+ "sources": [
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "남자의 적극적인 행동, 과연 사랑일까?"
+  },
+  {
+   "start": 155,
+   "title": "도파민의 함정: '호감'과 '사랑'을 구분하는 법"
+  },
+  {
+   "start": 220,
+   "title": "[1단계] 취약성을 드러냈을 때, '안전지대'가 되어주는 법"
+  },
+  {
+   "start": 365,
+   "title": "[2단계] 남자의 가치를 인정하고 존경을 표현하는 언어"
+  },
+  {
+   "start": 510,
+   "title": "[3단계] 위기 상황에서 뇌를 안정시키는 '정서적 성숙함'"
+  },
+  {
+   "start": 648,
+   "title": "[4단계] 삶의 방향성과 가치관이 일치하는 '동기화'의 마법"
+  },
+  {
+   "start": 755,
+   "title": "남자의 확신을 끌어내는 3가지 실전 액션 플랜"
+  },
+  {
+   "start": 854,
+   "title": "결론: 당신을 대체 불가능한 존재로 만드는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 55,
+ "comments_top_level": 37,
+ "comments_replies": 18,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 55,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:24:57",
+ "approved": "2026-11-11T18:24+09:00"
+}

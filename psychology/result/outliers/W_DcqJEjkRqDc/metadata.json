@@ -1,0 +1,67 @@
+{
+ "id": "DcqJEjkRqDc",
+ "title": "[연휴 특선] 룸메 셋이 전부 나르시시스트인 하숙집 | 나르시시즘 하우스 전편 정주행 [EP.1~6]",
+ "channel": "나르시시즘 하우스 Narcissism House",
+ "channel_id": "UCPCajjnxNtzQBKmK6cuRygw",
+ "subs": 152,
+ "views": 11212,
+ "ratio": 73.76,
+ "age_days": 48,
+ "views_per_day": 229.2,
+ "minutes": 60.2,
+ "likes": 18,
+ "comments": 7,
+ "published": "2026-09-23",
+ "queries": "검색:나르시시스트",
+ "url": "https://www.youtube.com/watch?v=DcqJEjkRqDc",
+ "flag": "",
+ "published_at": "2026-09-23T11:21:16Z",
+ "rank": "W65",
+ "set": "web",
+ "folder": "W_DcqJEjkRqDc",
+ "sources": [
+  "검색:나르시시스트"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1화"
+  },
+  {
+   "start": 592,
+   "title": "2화"
+  },
+  {
+   "start": 1063,
+   "title": "3화"
+  },
+  {
+   "start": 1855,
+   "title": "4화"
+  },
+  {
+   "start": 2557,
+   "title": "5화"
+  },
+  {
+   "start": 3054,
+   "title": "6화"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7,
+ "comments_top_level": 6,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:21:08",
+ "approved": "2026-11-11T18:21+09:00"
+}

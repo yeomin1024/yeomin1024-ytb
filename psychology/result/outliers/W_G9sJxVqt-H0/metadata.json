@@ -1,0 +1,78 @@
+{
+ "id": "G9sJxVqt-H0",
+ "title": "자식은 부모의 사랑보다 이것을 기억합니다 ㅣ부모자식관계 ㅣ좋은 부모 ㅣ자식교육 ㅣ훈육 ㅣ애착이론",
+ "channel": "오늘은 심리학",
+ "channel_id": "UCWSkVDRzaeu_jrb1MN7y1iw",
+ "subs": 40600,
+ "views": 816236,
+ "ratio": 20.1,
+ "age_days": 98,
+ "views_per_day": 8254.5,
+ "minutes": 9.9,
+ "likes": 11684,
+ "comments": 698,
+ "published": "2026-08-04",
+ "queries": "검색:심리학 | 검색:심리 | 검색:대인관계 | 검색:감정조절",
+ "url": "https://www.youtube.com/watch?v=G9sJxVqt-H0",
+ "flag": "",
+ "published_at": "2026-08-04T12:00:06Z",
+ "rank": "W139",
+ "set": "web",
+ "folder": "W_G9sJxVqt-H0",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색:대인관계",
+  "검색:감정조절"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "자녀는 부모의 사랑보다 이것을 기억합니다"
+  },
+  {
+   "start": 138,
+   "title": "부모가 가장 많이 하는 착각"
+  },
+  {
+   "start": 287,
+   "title": "애착이론이 말하는 평생 관계의 비밀"
+  },
+  {
+   "start": 456,
+   "title": "자녀가 부모에게 마음을 닫는 진짜 이유"
+  },
+  {
+   "start": 628,
+   "title": "평생 내 편이 되는 부모의 대화법"
+  },
+  {
+   "start": 815,
+   "title": "사랑보다 중요한 심리적 안전기지"
+  },
+  {
+   "start": 984,
+   "title": "자녀의 마음을 잃지 않는 부모의 공통점"
+  },
+  {
+   "start": 1120,
+   "title": "오늘부터 바로 실천할 수 있는 한 가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 698,
+ "comments_top_level": 288,
+ "comments_replies": 410,
+ "comments_by_creator": 160,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 698,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:24:39",
+ "approved": "2026-11-11T18:24+09:00"
+}

@@ -1,0 +1,105 @@
+{
+ "id": "10qYTMc3tew",
+ "title": "자꾸 생각나네요? 여자들은 이런 사람에게 끌립니다｜연애심리 5가지",
+ "channel": "사랑의 비밀노트",
+ "channel_id": "UCaDw2Ew6T2Ve10KVlJQevGg",
+ "subs": 1070,
+ "views": 10103,
+ "ratio": 9.44,
+ "age_days": 53,
+ "views_per_day": 187.3,
+ "minutes": 19.2,
+ "likes": 61,
+ "comments": 0,
+ "published": "2026-09-18",
+ "queries": "검색:관계심리",
+ "url": "https://www.youtube.com/watch?v=10qYTMc3tew",
+ "flag": "",
+ "published_at": "2026-09-18T10:46:25Z",
+ "rank": "W188",
+ "set": "web",
+ "folder": "W_10qYTMc3tew",
+ "sources": [
+  "검색:관계심리"
+ ],
+ "source": "web",
+ "tags": [
+  "사랑심리",
+  "인간관계",
+  "연애심리",
+  "중년사랑이야기",
+  "노후사연",
+  "중년연애",
+  "감동사연",
+  "연애상담",
+  "사랑의기술",
+  "중년심리",
+  "여성심리",
+  "시니어쇼츠",
+  "연애심리학",
+  "남녀심리",
+  "관계심리",
+  "연애꿀팁",
+  "연애조언",
+  "썸심리",
+  "썸타는법",
+  "호감신호",
+  "호감얻는법",
+  "밀당",
+  "밀당하는법",
+  "남자여자심리",
+  "대화법",
+  "호감가는사람",
+  "이성에게끌리는사람",
+  "사랑의심리",
+  "연애잘하는법"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "밀당은 완전히 반대입니다 – 관계의 진짜 원리"
+  },
+  {
+   "start": 65,
+   "title": "첫 번째: 거리 조절의 심리학"
+  },
+  {
+   "start": 347,
+   "title": "두 번째: 작은 신호의 힘 (86% 법칙)"
+  },
+  {
+   "start": 482,
+   "title": "세 번째: 말의 기술 – 기억에 남는 칭찬법"
+  },
+  {
+   "start": 666,
+   "title": "네 번째: 대화의 여백과 미완성 효과"
+  },
+  {
+   "start": 830,
+   "title": "다섯 번째: 확신의 타이밍과 여백의 유통기한"
+  },
+  {
+   "start": 1055,
+   "title": "다섯 가지를 한 문장으로 정리"
+  },
+  {
+   "start": 1131,
+   "title": "마무리 – 상대를 흔들지 말고 스스로 확인하게 하라"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 0,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:26:43",
+ "approved": "2026-11-11T18:26+09:00"
+}

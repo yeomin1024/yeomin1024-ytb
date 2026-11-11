@@ -1,0 +1,106 @@
+{
+ "id": "yuE3QPpOL1U",
+ "title": "중년 여성이 보내는 호감 신호 9가지｜건강채널 | 중년사랑 | 인생지혜",
+ "channel": "남녀건강심리연구소",
+ "channel_id": "UCVLSAVS8ZB6VU_ST0VoRoCg",
+ "subs": 604,
+ "views": 26406,
+ "ratio": 43.72,
+ "age_days": 60,
+ "views_per_day": 433.0,
+ "minutes": 27.6,
+ "likes": 409,
+ "comments": 6,
+ "published": "2026-09-11",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=yuE3QPpOL1U",
+ "flag": "",
+ "published_at": "2026-09-11T09:33:06Z",
+ "rank": "W87",
+ "set": "web",
+ "folder": "W_yuE3QPpOL1U",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "건강채널",
+  "여성 심리",
+  "시니어건강",
+  "성기능개선",
+  "연애 심리학",
+  "여자 반응",
+  "남성건강",
+  "테스토스테론",
+  "활력증진",
+  "이성관계",
+  "남녀심리",
+  "전희",
+  "중년사랑",
+  "중년연애",
+  "호감신호",
+  "여자호감신호",
+  "중년여성심리",
+  "연애심리",
+  "사랑의신호",
+  "중년남녀",
+  "중년의사랑",
+  "인생지혜",
+  "인생조언",
+  "인간관계",
+  "중년생활",
+  "노후생활",
+  "심리학",
+  "사랑심리",
+  "중년오디오북",
+  "인생이야기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "중년 연애에서 놓치기 쉬운 호감 신호"
+  },
+  {
+   "start": 95,
+   "title": "물리적 거리를 허용하는 행동"
+  },
+  {
+   "start": 274,
+   "title": "그루밍과 자연스러운 스킨십"
+  },
+  {
+   "start": 452,
+   "title": "오래 머무는 시선과 눈맞춤"
+  },
+  {
+   "start": 623,
+   "title": "무의식적인 미러링 행동"
+  },
+  {
+   "start": 757,
+   "title": "손과 체온을 언급하는 신호"
+  },
+  {
+   "start": 921,
+   "title": "호감이 있을 때 달라지는 목소리"
+  },
+  {
+   "start": 1053,
+   "title": "술자리, 침묵, 스마트폰으로 확인하는 마지막 호감 신호"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 6,
+ "comments_top_level": 4,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:22:15",
+ "approved": "2026-11-11T18:22+09:00"
+}

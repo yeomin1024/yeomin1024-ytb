@@ -1,0 +1,119 @@
+{
+ "id": "__ks8rhsPvM",
+ "title": "남자가 진짜 사랑에 빠졌을 때 무의식적으로 하는 행동 6단계 (뇌과학 기반)ㅣ연애심리ㅣ남자심리ㅣ심리분석",
+ "channel": "심리조각",
+ "channel_id": "UCkGl2jieOVhGiHPdXF77Yyw",
+ "subs": 10900,
+ "views": 328525,
+ "ratio": 30.14,
+ "age_days": 149,
+ "views_per_day": 2191.2,
+ "minutes": 8.8,
+ "likes": 3104,
+ "comments": 246,
+ "published": "2026-06-14",
+ "queries": "검색:뇌과학 | 검색:심리 | 검색:심리분석 | 검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=__ks8rhsPvM",
+ "flag": "",
+ "published_at": "2026-06-14T11:00:01Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W___ks8rhsPvM",
+ "sources": [
+  "검색:뇌과학",
+  "검색:심리",
+  "검색:심리분석",
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": [
+  "연애심리",
+  "남자심리",
+  "심리분석",
+  "사랑",
+  "반함",
+  "반하는 순간",
+  "반하는 과정",
+  "반함단계",
+  "사랑할때",
+  "사랑에 빠졌을때",
+  "남자심리분석",
+  "연애심리학",
+  "뇌과학",
+  "심리학",
+  "진짜 사랑",
+  "찐사랑",
+  "도파민",
+  "연개조언",
+  "연애꿀팁",
+  "연애상담",
+  "연애조언",
+  "연애고민",
+  "반하는 단계",
+  "반했을때",
+  "남자가사랑할때 행동",
+  "남자행동",
+  "남자 속마음",
+  "남자가 사랑할때",
+  "남자가 진짜 좋아할때",
+  "호감신호",
+  "무의식적 행동",
+  "무의식 행동",
+  "반할때",
+  "남자가 좋아하는 여자",
+  "남자가 여자를 사랑할때",
+  "심리조각",
+  "simlipiece",
+  "남자가 여자한테 반했을때",
+  "남자가 여자한테 첫눈에 반했을때",
+  "남자가 관심있을때"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "남자가 잊지 못하는 여자의 특징"
+  },
+  {
+   "start": 29,
+   "title": "8.2초의 마법 vs 4초의 외면"
+  },
+  {
+   "start": 59,
+   "title": "1단계: 몸이 먼저 반응하는 본능적 각성"
+  },
+  {
+   "start": 108,
+   "title": "2단계: 도파민이 폭발하는 라포 형성기"
+  },
+  {
+   "start": 186,
+   "title": "3단계: 가면을 벗고 약점을 드러내다 (자기 개방)"
+  },
+  {
+   "start": 230,
+   "title": "4단계: 갑자기 차가워지는 충격적인 뇌과학적 이유"
+  },
+  {
+   "start": 320,
+   "title": "5단계: '나'에서 '우리'로 변하는 일상의 통합"
+  },
+  {
+   "start": 370,
+   "title": "6단계: 다른 여자를 보지 않는 완전한 헌신"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 246,
+ "comments_top_level": 84,
+ "comments_replies": 162,
+ "comments_by_creator": 78,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 246,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:23:04",
+ "approved": "2026-11-11T18:23+09:00"
+}

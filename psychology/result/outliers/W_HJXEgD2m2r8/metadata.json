@@ -1,0 +1,117 @@
+{
+ "id": "HJXEgD2m2r8",
+ "title": "힘든 삶에서, 괴롭지 않기 위한 인지심리학적 대처법",
+ "channel": "홍승주의 디스턴싱",
+ "channel_id": "UCKi1my0kbyqsapbI0Vj0ekA",
+ "subs": 29400,
+ "views": 499922,
+ "ratio": 17.0,
+ "age_days": 43,
+ "views_per_day": 11623.7,
+ "minutes": 26.5,
+ "likes": 2572,
+ "comments": 163,
+ "published": "2026-09-29",
+ "queries": "검색:심리학",
+ "url": "https://www.youtube.com/watch?v=HJXEgD2m2r8",
+ "flag": "",
+ "published_at": "2026-09-29T09:00:30Z",
+ "rank": "W152",
+ "set": "web",
+ "folder": "W_HJXEgD2m2r8",
+ "sources": [
+  "검색:심리학"
+ ],
+ "source": "web",
+ "tags": [
+  "우울증",
+  "불안",
+  "불안장애",
+  "대인기피",
+  "심리",
+  "심리치료",
+  "심리상담",
+  "디스턴싱",
+  "반추",
+  "우울",
+  "사회불안",
+  "자책",
+  "무기력",
+  "우울감",
+  "슬픔",
+  "생각",
+  "인정욕구",
+  "고립",
+  "공황",
+  "공황장애",
+  "중독",
+  "과민",
+  "통제",
+  "대인관계",
+  "자존감",
+  "홍승주",
+  "정신과",
+  "정신과상담",
+  "불안감 없애는 법",
+  "반추 멈추는법",
+  "반추 극복",
+  "불안감 극복",
+  "불안 장애",
+  "불안형",
+  "우울증 극복",
+  "우울증 증상",
+  "마음챙김",
+  "인지치료",
+  "인지행동치료",
+  "심리학",
+  "뇌과학",
+  "고통",
+  "인생이힘들때",
+  "삶",
+  "인생"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "#1. 고통스러운 인간"
+  },
+  {
+   "start": 86,
+   "title": "#2. 삶 자체가 어느 정도는 힘들 수밖에 없습니다"
+  },
+  {
+   "start": 243,
+   "title": "#3. 생각은 고통을 만듭니다"
+  },
+  {
+   "start": 594,
+   "title": "#4. 자아도 고통을 만듭니다"
+  },
+  {
+   "start": 757,
+   "title": "#5. 고통의 보편성을 분명히 보기"
+  },
+  {
+   "start": 1076,
+   "title": "#6. 고통에 고통을 더하지 않기"
+  },
+  {
+   "start": 1238,
+   "title": "#7. 고통을 다시 바라보기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 163,
+ "comments_top_level": 81,
+ "comments_replies": 82,
+ "comments_by_creator": 55,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 163,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:25:15",
+ "approved": "2026-11-11T18:25+09:00"
+}

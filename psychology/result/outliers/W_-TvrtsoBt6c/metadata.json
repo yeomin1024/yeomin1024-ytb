@@ -1,0 +1,107 @@
+{
+ "id": "-TvrtsoBt6c",
+ "title": "이 영상 하나로 안정형 재회법을 배웁니다ㅣ원규x지현 ST-NF 분석 《환승연애4》",
+ "channel": "마인드밍글",
+ "channel_id": "UC3b25K8eXGuRDYCKB4FNRPg",
+ "subs": 85600,
+ "views": 64386,
+ "ratio": 0.75,
+ "age_days": 4,
+ "views_per_day": 13605.1,
+ "minutes": 35.8,
+ "likes": 458,
+ "comments": 55,
+ "published": "2026-11-06",
+ "queries": "검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=-TvrtsoBt6c",
+ "flag": "",
+ "published_at": "2026-11-06T15:40:03Z",
+ "rank": "W232",
+ "set": "web",
+ "folder": "W_-TvrtsoBt6c",
+ "sources": [
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": [
+  "마인드밍글",
+  "환승연애4",
+  "환승연애4원규",
+  "환승연애4지현",
+  "원규지현",
+  "지현원규",
+  "원규mbti",
+  "지현Mbti",
+  "환승연애4원규지현",
+  "마인드밍글환승연애",
+  "환승연애4분석",
+  "환승연애4재회",
+  "환승연애4이별",
+  "istp",
+  "enfj"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 45,
+   "title": "(1) 차분히 빡친 남자ㅣ원규 ISTP"
+  },
+  {
+   "start": 201,
+   "title": "(2) 두 사람이 헤어진 이유ㅣ가치 교환"
+  },
+  {
+   "start": 623,
+   "title": "(3) 밝은 불안형의 심리ㅣ지현 ENFJ"
+  },
+  {
+   "start": 826,
+   "title": "(4) 또 다른 이별 사유ㅣISTP x ENFJ"
+  },
+  {
+   "start": 1060,
+   "title": "두 사람이 극복해야 하는 과제"
+  },
+  {
+   "start": 1122,
+   "title": "(5) 원규x지현의 진짜 심리ㅣ일본에서 터진 이유"
+  },
+  {
+   "start": 1454,
+   "title": "ST-NF 대화극복법"
+  },
+  {
+   "start": 1583,
+   "title": "직관불안형 극복법"
+  },
+  {
+   "start": 1668,
+   "title": "(6) 원규x지현의 재회 심리ㅣ똑똑한 사랑법"
+  },
+  {
+   "start": 1963,
+   "title": "(7) 안정형 재회를 원한다면ㅣ기능위계 보완법"
+  },
+  {
+   "start": 2056,
+   "title": "그렇다면, 당신은 어떤가요"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 55,
+ "comments_top_level": 27,
+ "comments_replies": 28,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 55,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:28:29",
+ "approved": "2026-11-11T18:28+09:00"
+}

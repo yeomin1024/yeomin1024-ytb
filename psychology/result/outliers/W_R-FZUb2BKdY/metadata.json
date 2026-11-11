@@ -1,0 +1,102 @@
+{
+ "id": "R-FZUb2BKdY",
+ "title": "중년 남성들이 바이크를 포기할 수 없는 진짜 이유",
+ "channel": "심리발견",
+ "channel_id": "UC9ZWI51We1akaR-FzKR9E_w",
+ "subs": 8210,
+ "views": 43351,
+ "ratio": 5.28,
+ "age_days": 7,
+ "views_per_day": 5813.3,
+ "minutes": 14.5,
+ "likes": 273,
+ "comments": 93,
+ "published": "2026-11-03",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=R-FZUb2BKdY",
+ "flag": "",
+ "published_at": "2026-11-03T22:16:23Z",
+ "rank": "W205",
+ "set": "web",
+ "folder": "W_R-FZUb2BKdY",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리발견",
+  "심리학",
+  "심리",
+  "인간심리",
+  "행동심리학",
+  "일상심리",
+  "심리분석",
+  "사람심리",
+  "성격심리",
+  "사회심리학",
+  "심리이야기",
+  "사람의 심리",
+  "왜 그럴까",
+  "심리학 채널",
+  "교양",
+  "지식채널",
+  "자기이해",
+  "생각정리",
+  "소비심리",
+  "관계심리",
+  "psychology",
+  "human behavior"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왜 저 나이에 아직도 오토바이를 탈까"
+  },
+  {
+   "start": 97,
+   "title": "이건 취미가 아니라 '도망'이다"
+  },
+  {
+   "start": 174,
+   "title": "첫 번째 이유: 가장 정직한 기계, 가장 정직한 세계"
+  },
+  {
+   "start": 269,
+   "title": "두 번째 이유: 시속 80에서는 아무 생각도 안 난다"
+  },
+  {
+   "start": 382,
+   "title": "세 번째 이유: 헬멧 쓰면 나는 아무개가 아니다"
+  },
+  {
+   "start": 484,
+   "title": "네 번째 이유: 손맛을 아는 사람들의 은밀한 만족"
+  },
+  {
+   "start": 581,
+   "title": "다섯 번째 이유: 아무도 못 들어오는 나만의 성역"
+  },
+  {
+   "start": 684,
+   "title": "그래서 못 끊는 게 아니라, 안 끊는 거다"
+  },
+  {
+   "start": 777,
+   "title": "말리지 말고, 한 번쯤 이해해보자"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 93,
+ "comments_top_level": 64,
+ "comments_replies": 29,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 93,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:23",
+ "approved": "2026-11-11T18:27+09:00"
+}

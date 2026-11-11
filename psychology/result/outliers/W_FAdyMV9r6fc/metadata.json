@@ -1,0 +1,80 @@
+{
+ "id": "FAdyMV9r6fc",
+ "title": "50대 중반부터 반드시 바꿔야 할 6가지 인생관 (심리학적 분석)",
+ "channel": "토닥교수의 심리학",
+ "channel_id": "UCH1vudPey53cxkXyugPVoVQ",
+ "subs": 26700,
+ "views": 268750,
+ "ratio": 10.07,
+ "age_days": 53,
+ "views_per_day": 5038.1,
+ "minutes": 20.0,
+ "likes": 981,
+ "comments": 23,
+ "published": "2026-09-19",
+ "queries": "검색:심리분석 | 검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=FAdyMV9r6fc",
+ "flag": "",
+ "published_at": "2026-09-19T01:00:27Z",
+ "rank": "W180",
+ "set": "web",
+ "folder": "W_FAdyMV9r6fc",
+ "sources": [
+  "검색:심리분석",
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 오십 넘어 찾아오는 이상한 순간"
+  },
+  {
+   "start": 47,
+   "title": "오십 이후 반드시 다시 생각해야 할 6가지"
+  },
+  {
+   "start": 63,
+   "title": "하나 — 산을 내려가는 새로운 자세"
+  },
+  {
+   "start": 191,
+   "title": "둘 — 순위 경쟁에서 조용히 내려오기"
+  },
+  {
+   "start": 351,
+   "title": "셋 — 채우는 삶에서 선택하는 삶으로"
+  },
+  {
+   "start": 500,
+   "title": "넷 — 명함이 사라진 뒤의 나만의 세계"
+  },
+  {
+   "start": 708,
+   "title": "다섯 — 관계의 밀도를 다시 설계하기"
+  },
+  {
+   "start": 886,
+   "title": "여섯 — \"언젠가\"를 지우고 지금 실행하기"
+  },
+  {
+   "start": 1003,
+   "title": "마무리 — 낡은 관성을 내려놓는 자유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 18,
+ "comments_replies": 5,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:26:26",
+ "approved": "2026-11-11T18:26+09:00"
+}

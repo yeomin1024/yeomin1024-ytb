@@ -1,0 +1,75 @@
+{
+ "id": "yGsOqn4ky4I",
+ "title": "단기간에 확 친해지는 법 4가지",
+ "channel": "김덤덤",
+ "channel_id": "UCUeb1PwnNM4kOkmRVziiE-Q",
+ "subs": 7630,
+ "views": 220950,
+ "ratio": 28.96,
+ "age_days": 74,
+ "views_per_day": 2985.4,
+ "minutes": 4.9,
+ "likes": 3919,
+ "comments": 87,
+ "published": "2026-08-29",
+ "queries": "검색:대인관계",
+ "url": "https://www.youtube.com/watch?v=yGsOqn4ky4I",
+ "flag": "",
+ "published_at": "2026-08-29T09:00:07Z",
+ "rank": "W111",
+ "set": "web",
+ "folder": "W_yGsOqn4ky4I",
+ "sources": [
+  "검색:대인관계"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1. 정보 말고 감정을 나누기"
+  },
+  {
+   "start": 32,
+   "title": "2. 특별한 존재로 느끼게 하는 법"
+  },
+  {
+   "start": 65,
+   "title": "3. 같이 겪기"
+  },
+  {
+   "start": 95,
+   "title": "대화의 한계"
+  },
+  {
+   "start": 151,
+   "title": "4. 만나게 하는 법"
+  },
+  {
+   "start": 186,
+   "title": "연락하는 법 1"
+  },
+  {
+   "start": 208,
+   "title": "연락하는 법 2"
+  },
+  {
+   "start": 240,
+   "title": "제일 중요한 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 87,
+ "comments_top_level": 50,
+ "comments_replies": 37,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 87,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:23:17",
+ "approved": "2026-11-11T18:23+09:00"
+}

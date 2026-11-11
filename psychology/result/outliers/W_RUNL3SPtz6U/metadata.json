@@ -1,0 +1,110 @@
+{
+ "id": "RUNL3SPtz6U",
+ "title": "나이 들수록 외모를 꾸며야 하는 절대적인 이유 | 쇼펜하우어 인생 조언",
+ "channel": "부자 패턴 연구소 ",
+ "channel_id": "UCAh64lu04ahez_RQElMxqRQ",
+ "subs": 10800,
+ "views": 354201,
+ "ratio": 32.8,
+ "age_days": 117,
+ "views_per_day": 3022.4,
+ "minutes": 16.4,
+ "likes": 4423,
+ "comments": 177,
+ "published": "2026-07-17",
+ "queries": "검색:인간관계조언",
+ "url": "https://www.youtube.com/watch?v=RUNL3SPtz6U",
+ "flag": "",
+ "published_at": "2026-07-17T04:40:28Z",
+ "rank": "W100",
+ "set": "web",
+ "folder": "W_RUNL3SPtz6U",
+ "sources": [
+  "검색:인간관계조언"
+ ],
+ "source": "web",
+ "tags": [
+  "부자 패턴 연구소",
+  "부자되는법",
+  "나폴레온 힐",
+  "잠재의식",
+  "자기 암시",
+  "머릿속 대사",
+  "생각 습관",
+  "마인드셋 강의",
+  "하루 15분",
+  "직장인 재테크",
+  "통장 잔액",
+  "가난한 생각",
+  "성공 습관",
+  "자기계발",
+  "부자 마인드",
+  "경제적 자유",
+  "인생 패턴",
+  "동기부여",
+  "현실 조언",
+  "성장 채널",
+  "돈 버는법",
+  "부자",
+  "성공",
+  "습관",
+  "부자되는습관",
+  "마인드셋"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 외모를 안 꾸며도 평범하게 살 수 있을 거란 착각 (내면만큼 외모가 중요한 이유)"
+  },
+  {
+   "start": 105,
+   "title": "[본론 1] 쇼펜하우어가 말하는 \"외모는 가장 첫 번째 명함이자 추천장이다\""
+  },
+  {
+   "start": 250,
+   "title": "외모를 방치했다가 대접까지 소홀해진 50대 남성의 뼈아픈 실화"
+  },
+  {
+   "start": 380,
+   "title": "무기력과 우울감을 외모 관리로 극복하고 인생 2막을 연 50대 여성의 반전 사례"
+  },
+  {
+   "start": 495,
+   "title": "[궁금증 해결] 도대체 외모를 얼마나 어떻게 꾸며야 운명이 바뀌는가?"
+  },
+  {
+   "start": 545,
+   "title": "[솔루션] 3065 중장년층을 위한 즉각적인 외모 가꾸기 3대 법칙 (청결·의복·자세)"
+  },
+  {
+   "start": 700,
+   "title": "[본론 2] 나이 들수록 단정함이 곧 그 사람의 '인생 그릇'을 나타내는 이유"
+  },
+  {
+   "start": 830,
+   "title": "[본론 3] 환경이 어려울수록 옷을 더 잘 입고 허리를 곧게 펴야 하는 본질"
+  },
+  {
+   "start": 910,
+   "title": "아웃트로: 무슨 일이 있어도 나를 끝까지 귀하게 대하고 가꾸는 자의 승리"
+  },
+  {
+   "start": 982,
+   "title": "영상 종료 및 구독자 감사 인사"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 177,
+ "comments_top_level": 103,
+ "comments_replies": 74,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 177,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:22:48",
+ "approved": "2026-11-11T18:22+09:00"
+}

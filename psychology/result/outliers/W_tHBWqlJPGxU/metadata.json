@@ -1,0 +1,119 @@
+{
+ "id": "tHBWqlJPGxU",
+ "title": "사귈수록 남자가 더 빠져드는 여자의 비밀 (시간이 지날수록 더 예뻐 보이기까지 하는 이유)",
+ "channel": "사강이",
+ "channel_id": "UCOsw3dPZAmy8FIAQODyh2tQ",
+ "subs": 13500,
+ "views": 60794,
+ "ratio": 4.5,
+ "age_days": 26,
+ "views_per_day": 2337.3,
+ "minutes": 20.8,
+ "likes": 626,
+ "comments": 33,
+ "published": "2026-10-16",
+ "queries": "검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=tHBWqlJPGxU",
+ "flag": "",
+ "published_at": "2026-10-16T09:00:25Z",
+ "rank": "W209",
+ "set": "web",
+ "folder": "W_tHBWqlJPGxU",
+ "sources": [
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": [
+  "연애",
+  "연애심리",
+  "연애상담",
+  "좋은남자",
+  "좋은남자특징",
+  "남자심리",
+  "여자심리",
+  "인간관계",
+  "자존감",
+  "사랑",
+  "연애조언",
+  "연애고민",
+  "심리학",
+  "썸",
+  "재회",
+  "결혼",
+  "장기연애",
+  "건강한연애",
+  "관계심리",
+  "감정관리",
+  "연애하는법",
+  "연애잘하는법",
+  "남자꼬시는법",
+  "여자꼬시는법",
+  "여자호감",
+  "남자호감",
+  "남자호감신호",
+  "여자호감신호",
+  "호감신호",
+  "결혼심리",
+  "사랑심리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "야, 내 여자친구 진짜 예쁘지 않냐..?"
+  },
+  {
+   "start": 98,
+   "title": "시간이 지나면 설렘은 줄어든다는데, 왜 어떤 사람은 반대일까"
+  },
+  {
+   "start": 179,
+   "title": "잘 아는 사람의 얼굴은 다르게 보인다"
+  },
+  {
+   "start": 382,
+   "title": "그래도 결국 처음 예뻤던 사람이 계속 예쁜 거 아닌가?"
+  },
+  {
+   "start": 483,
+   "title": "어린 왕자의 장미"
+  },
+  {
+   "start": 644,
+   "title": "시간을 써야만 보이는 것들이 있다"
+  },
+  {
+   "start": 776,
+   "title": "그럼 난 뭘 해야할까? 1. 그 사람이 자기를 좋아하게 되는 자리가 되기"
+  },
+  {
+   "start": 870,
+   "title": "그럼 난 뭘 해야할까? 2. 둘 만의 의식을 만들기"
+  },
+  {
+   "start": 934,
+   "title": "그럼 난 뭘 해야할까? 3. 그 사람의 일상에 밀밭을 남기기"
+  },
+  {
+   "start": 1021,
+   "title": "처음엔 평범했던 것들도 시간을 쓰고 마음을 쓰면 나만의 것이 된다"
+  },
+  {
+   "start": 1234,
+   "title": "Outro."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 33,
+ "comments_top_level": 31,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 33,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:32",
+ "approved": "2026-11-11T18:27+09:00"
+}

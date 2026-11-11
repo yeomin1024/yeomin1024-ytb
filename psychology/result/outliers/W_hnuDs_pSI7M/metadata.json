@@ -1,0 +1,63 @@
+{
+ "id": "hnuDs_pSI7M",
+ "title": "단절의 시대, 외로움에 휘둘리지 않는 법",
+ "channel": "도래기책방",
+ "channel_id": "UCO_ISW0FKnDj_XaDegOQiZg",
+ "subs": 11100,
+ "views": 89869,
+ "ratio": 8.1,
+ "age_days": 23,
+ "views_per_day": 3756.0,
+ "minutes": 15.4,
+ "likes": 1244,
+ "comments": 182,
+ "published": "2026-10-18",
+ "queries": "검색:외로움",
+ "url": "https://www.youtube.com/watch?v=hnuDs_pSI7M",
+ "flag": "",
+ "published_at": "2026-10-18T11:00:11Z",
+ "rank": "W192",
+ "set": "web",
+ "folder": "W_hnuDs_pSI7M",
+ "sources": [
+  "검색:외로움"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "만날 사람이 없네.."
+  },
+  {
+   "start": 76,
+   "title": "Part 1. 우리는 왜 외로움을 느끼는가?"
+  },
+  {
+   "start": 220,
+   "title": "Part 2. 나 자신과 진짜 관계를 맺는 법"
+  },
+  {
+   "start": 450,
+   "title": "Part 3. 먼저 마주할 용기"
+  },
+  {
+   "start": 659,
+   "title": "Part 4. 내 삶에서 외로움을 완전히 지워버린 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 182,
+ "comments_top_level": 81,
+ "comments_replies": 101,
+ "comments_by_creator": 78,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 182,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:26:52",
+ "approved": "2026-11-11T18:26+09:00"
+}

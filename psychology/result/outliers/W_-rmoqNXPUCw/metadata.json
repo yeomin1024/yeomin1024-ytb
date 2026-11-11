@@ -1,0 +1,88 @@
+{
+ "id": "-rmoqNXPUCw",
+ "title": "캠핑을 좋아하는 사람들의 7가지 공통점 | 심리학이 밝힌 그들의 진짜 성격",
+ "channel": "심리학 탐정",
+ "channel_id": "UCEbPp_MMeaw7Vyj2t-da31g",
+ "subs": 66000,
+ "views": 259608,
+ "ratio": 3.93,
+ "age_days": 11,
+ "views_per_day": 23379.7,
+ "minutes": 15.1,
+ "likes": 1965,
+ "comments": 252,
+ "published": "2026-10-31",
+ "queries": "검색:성격심리",
+ "url": "https://www.youtube.com/watch?v=-rmoqNXPUCw",
+ "flag": "",
+ "published_at": "2026-10-31T06:45:08Z",
+ "rank": "W211",
+ "set": "web",
+ "folder": "W_-rmoqNXPUCw",
+ "sources": [
+  "검색:성격심리"
+ ],
+ "source": "web",
+ "tags": [
+  "#심리학",
+  "인간관계",
+  "처세",
+  "심리 분석",
+  "자기 계발",
+  "동기 부여",
+  "뇌과학",
+  "자존감"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왜 불편함을 돈 내고 살까?"
+  },
+  {
+   "start": 95,
+   "title": "텐트 치는 손이 채우는 자기효능감"
+  },
+  {
+   "start": 211,
+   "title": "스스로 고른 불편이 마음을 단련한다"
+  },
+  {
+   "start": 324,
+   "title": "숲에 가면 머리가 맑아지는 진짜 이유"
+  },
+  {
+   "start": 425,
+   "title": "불멍할 때 혈압이 내려간다고?"
+  },
+  {
+   "start": 530,
+   "title": "넓은 인맥보다 모닥불 앞 서너 명"
+  },
+  {
+   "start": 631,
+   "title": "짐 목록 세 번 보는 사람의 즉흥성"
+  },
+  {
+   "start": 711,
+   "title": "떠나는 게 아니라 돌아오려고 간다"
+  },
+  {
+   "start": 789,
+   "title": "당신이 캠핑에 끌린 진짜 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 252,
+ "comments_top_level": 199,
+ "comments_replies": 53,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 252,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:37",
+ "approved": "2026-11-11T18:27+09:00"
+}

@@ -1,0 +1,90 @@
+{
+ "id": "K4HC7-FOhKk",
+ "title": "나르시시스트 전문 변호사가 말하는 나르의 8가지 통제 패턴 | [나르시시스트 전담 변호사 상담소 EP.04-1]",
+ "channel": "리걸 어벤져스 : 당신의 법률 파트너",
+ "channel_id": "UC5SvQ7eezQQ3aI5N0mNb_SA",
+ "subs": 3780,
+ "views": 283147,
+ "ratio": 74.91,
+ "age_days": 115,
+ "views_per_day": 2443.3,
+ "minutes": 13.4,
+ "likes": 57,
+ "comments": 3,
+ "published": "2026-07-18",
+ "queries": "검색:나르시시스트",
+ "url": "https://www.youtube.com/watch?v=K4HC7-FOhKk",
+ "flag": "",
+ "published_at": "2026-07-18T12:00:34Z",
+ "rank": "W62",
+ "set": "web",
+ "folder": "W_K4HC7-FOhKk",
+ "sources": [
+  "검색:나르시시스트"
+ ],
+ "source": "web",
+ "tags": [
+  "법무법인 슈가스퀘어",
+  "슈가스퀘어"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 26,
+   "title": "오프닝"
+  },
+  {
+   "start": 55,
+   "title": "오늘의 영상 주제"
+  },
+  {
+   "start": 92,
+   "title": "패턴 1: 경제적 통제"
+  },
+  {
+   "start": 184,
+   "title": "패턴 2: 인간관계 고립"
+  },
+  {
+   "start": 296,
+   "title": "패턴 3: 이중성"
+  },
+  {
+   "start": 390,
+   "title": "패턴 4: 정서적・물리적 방치"
+  },
+  {
+   "start": 471,
+   "title": "패턴 5: 가스라이팅"
+  },
+  {
+   "start": 585,
+   "title": "패턴 6: 외도"
+  },
+  {
+   "start": 674,
+   "title": "패턴 7: 침묵 처벌"
+  },
+  {
+   "start": 747,
+   "title": "패턴 8: 자녀를 통한 통제"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 3,
+ "comments_top_level": 3,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 3,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:21:01",
+ "approved": "2026-11-11T18:21+09:00"
+}

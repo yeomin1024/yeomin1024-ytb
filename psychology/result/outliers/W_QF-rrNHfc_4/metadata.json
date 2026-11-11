@@ -1,0 +1,112 @@
+{
+ "id": "QF-rrNHfc_4",
+ "title": "여자가 마음을 완전히 열었을 때 보이는 5가지 신호 | 중년연애 | 연애심리 | 여자심리 | 건강채널",
+ "channel": "남녀건강심리연구소",
+ "channel_id": "UCVLSAVS8ZB6VU_ST0VoRoCg",
+ "subs": 604,
+ "views": 23728,
+ "ratio": 39.28,
+ "age_days": 50,
+ "views_per_day": 465.8,
+ "minutes": 21.7,
+ "likes": 215,
+ "comments": 4,
+ "published": "2026-09-21",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=QF-rrNHfc_4",
+ "flag": "",
+ "published_at": "2026-09-21T10:42:49Z",
+ "rank": "W91",
+ "set": "web",
+ "folder": "W_QF-rrNHfc_4",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "건강채널",
+  "여성 심리",
+  "시니어건강",
+  "성기능개선",
+  "연애 심리학",
+  "여자 반응",
+  "남성건강",
+  "테스토스테론",
+  "활력증진",
+  "이성관계",
+  "남녀심리",
+  "전희",
+  "기쁜우리젊은날",
+  "여자심리",
+  "중년여자심리",
+  "중년연애",
+  "중년남자연애",
+  "여자유혹",
+  "여자관심신호",
+  "연애심리",
+  "연애꿀팁",
+  "연애기술",
+  "연애방법",
+  "연애노하우",
+  "성인연애",
+  "성인심리",
+  "관계심리",
+  "사랑심리",
+  "사랑심리학",
+  "현실연애",
+  "40대여자",
+  "50대여자",
+  "60대여자",
+  "40대연애",
+  "50대연애",
+  "60대연애"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "45cm로 알아보는 여자의 마음과 친밀감의 기준"
+  },
+  {
+   "start": 123,
+   "title": "친밀 영역에 들어오는 행동이 의미하는 것"
+  },
+  {
+   "start": 200,
+   "title": "첫 번째 신호, 스스로 거리를 좁히는 행동"
+  },
+  {
+   "start": 326,
+   "title": "두 번째 신호, 사적인 공간을 공유하는 행동"
+  },
+  {
+   "start": 473,
+   "title": "세 번째 신호, 상대의 단점까지 자연스럽게 받아들이는 모습"
+  },
+  {
+   "start": 638,
+   "title": "네 번째 신호, 헤어짐을 미루고 함께 있고 싶어 하는 행동"
+  },
+  {
+   "start": 803,
+   "title": "다섯 번째 신호, 신체 접촉을 자연스럽게 받아들이는 모습"
+  },
+  {
+   "start": 934,
+   "title": "관심이 없을 때 나타나는 반대 신호와 무너진 신뢰를 회복하는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 4,
+ "comments_top_level": 2,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 4,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:22:24",
+ "approved": "2026-11-11T18:22+09:00"
+}

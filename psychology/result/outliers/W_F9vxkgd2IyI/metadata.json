@@ -1,0 +1,83 @@
+{
+ "id": "F9vxkgd2IyI",
+ "title": "약속마다 꼭 \"10분 일찍\" 나오는 사람들의 \"공통점 4가지\"",
+ "channel": "심리쉽니",
+ "channel_id": "UCAMZXqG8XYJ6DLqGgTJc0uA",
+ "subs": 1160,
+ "views": 463665,
+ "ratio": 399.71,
+ "age_days": 49,
+ "views_per_day": 9396.6,
+ "minutes": 11.4,
+ "likes": 2979,
+ "comments": 367,
+ "published": "2026-09-23",
+ "queries": "검색:성격심리",
+ "url": "https://www.youtube.com/watch?v=F9vxkgd2IyI",
+ "flag": "",
+ "published_at": "2026-09-23T01:00:00Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_F9vxkgd2IyI",
+ "sources": [
+  "검색:성격심리"
+ ],
+ "source": "web",
+ "tags": [
+  "약속 시간보다 일찍 도착하는 사람",
+  "일찍 도착하는 사람 심리",
+  "약속 시간 심리",
+  "시간 약속 잘 지키는 사람",
+  "시간 관념",
+  "사람 심리",
+  "심리학",
+  "성격 특징",
+  "계획적인 사람",
+  "준비성 좋은 사람",
+  "걱정 많은 사람",
+  "시간 관리",
+  "인간 심리",
+  "행동 심리",
+  "심리쉽니"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 76,
+   "title": "기다리는 편이 더 편한 첫 번째 이유"
+  },
+  {
+   "start": 211,
+   "title": "약속을 다르게 받아들이는 두 번째 이유"
+  },
+  {
+   "start": 342,
+   "title": "미리 움직이게 되는 세 번째 심리"
+  },
+  {
+   "start": 474,
+   "title": "결국 시간을 먼저 쓰는 가장 큰 이유"
+  },
+  {
+   "start": 633,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 367,
+ "comments_top_level": 306,
+ "comments_replies": 61,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 367,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:18:16",
+ "approved": "2026-11-11T18:18+09:00"
+}

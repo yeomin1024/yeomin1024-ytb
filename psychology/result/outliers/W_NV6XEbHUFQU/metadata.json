@@ -1,0 +1,90 @@
+{
+ "id": "NV6XEbHUFQU",
+ "title": "항상 집이 깨끗한 사람들의 놀라운 특징 : 뇌를 바꾸고 부를 끌어당기는 정리의 뇌과학",
+ "channel": "최적화 심리학",
+ "channel_id": "UCVK-0VFXaADq3e1m3CVcmHg",
+ "subs": 12200,
+ "views": 303949,
+ "ratio": 24.91,
+ "age_days": 149,
+ "views_per_day": 2033.5,
+ "minutes": 10.7,
+ "likes": 6375,
+ "comments": 320,
+ "published": "2026-06-14",
+ "queries": "검색:뇌과학",
+ "url": "https://www.youtube.com/watch?v=NV6XEbHUFQU",
+ "flag": "",
+ "published_at": "2026-06-14T22:00:24Z",
+ "rank": "W123",
+ "set": "web",
+ "folder": "W_NV6XEbHUFQU",
+ "sources": [
+  "검색:뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "집이 깨끗한 사람 특징",
+  "청소 해야하는 이유",
+  "청소 뇌과학",
+  "무기력증 극복",
+  "만성피로 원인",
+  "자이가르닉 효과",
+  "행동 활성화",
+  "자기 효능감",
+  "환경 설계",
+  "동기부여",
+  "심리학",
+  "스트레스 해소법",
+  "전전두엽 활성화",
+  "성공 법칙",
+  "청소 습관",
+  "미루는 습관 고치기",
+  "2분 규칙",
+  "인생을 바꾸는 방법",
+  "부자들의 습관",
+  "공간 관리",
+  "뇌과학",
+  "청소",
+  "자기계발",
+  "집중력",
+  "불안",
+  "자기효능감"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "쉬어도 피곤한 사람과 깨끗한 집을 유지하는 사람의 뇌 차이"
+  },
+  {
+   "start": 50,
+   "title": "나중에'를 없애 뇌의 배터리를 아끼는 법 (자이가르닉 효과)"
+  },
+  {
+   "start": 189,
+   "title": "청소를 노동이 아닌 '뇌 리셋(재부팅)'으로 활용하기"
+  },
+  {
+   "start": 351,
+   "title": "의욕을 기다리지 않고 먼저 움직이는 기술 (행동 활성화 & 2분 규칙)"
+  },
+  {
+   "start": 523,
+   "title": "부와 성공을 끌어당기는 능력의 정체 (내적 통제성과 작은 질서의 힘)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 320,
+ "comments_top_level": 161,
+ "comments_replies": 159,
+ "comments_by_creator": 71,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 320,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:23:48",
+ "approved": "2026-11-11T18:23+09:00"
+}

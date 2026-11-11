@@ -1,0 +1,102 @@
+{
+ "id": "Hf1bwdBLcj4",
+ "title": "새 차만 사서 15년 타는 사람들, 이런 사람들입니다 (감가를 몰라서가 아닙니다)",
+ "channel": "심리발견",
+ "channel_id": "UC9ZWI51We1akaR-FzKR9E_w",
+ "subs": 8210,
+ "views": 592050,
+ "ratio": 72.11,
+ "age_days": 37,
+ "views_per_day": 15867.1,
+ "minutes": 12.9,
+ "likes": 1616,
+ "comments": 679,
+ "published": "2026-10-05",
+ "queries": "검색:심리",
+ "url": "https://www.youtube.com/watch?v=Hf1bwdBLcj4",
+ "flag": "",
+ "published_at": "2026-10-05T01:42:46Z",
+ "rank": "W66",
+ "set": "web",
+ "folder": "W_Hf1bwdBLcj4",
+ "sources": [
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리발견",
+  "심리학",
+  "심리",
+  "인간심리",
+  "행동심리학",
+  "일상심리",
+  "심리분석",
+  "사람심리",
+  "성격심리",
+  "사회심리학",
+  "심리이야기",
+  "사람의 심리",
+  "왜 그럴까",
+  "심리학 채널",
+  "교양",
+  "지식채널",
+  "자기이해",
+  "생각정리",
+  "소비심리",
+  "관계심리",
+  "psychology",
+  "human behavior"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "그 사람, 바보가 아닙니다"
+  },
+  {
+   "start": 68,
+   "title": "보유 기간 — 감가상각표를 이기는 단 하나의 숫자"
+  },
+  {
+   "start": 160,
+   "title": "전 주인의 역사 — 중고차를 안 사는 진짜 이유"
+  },
+  {
+   "start": 255,
+   "title": "결정 한 번을 오래 쓰는 사람들 — 고민은 길게, 사용은 더 길게"
+  },
+  {
+   "start": 344,
+   "title": "비교를 끊어버린 사람들 — 보여주는 물건에서 내가 쓰는 도구로"
+  },
+  {
+   "start": 433,
+   "title": "아낀 돈은 어디로 가는가 — 남들과 다른 우선순위표"
+  },
+  {
+   "start": 523,
+   "title": "오래 타는 게 항상 정답은 아닙니다 — 수리비와 안전 사양"
+  },
+  {
+   "start": 604,
+   "title": "그런데도 안 바꾸는 이유 — 감가가 아니라 적립"
+  },
+  {
+   "start": 683,
+   "title": "결국 차 이야기가 아니었습니다 — 그 숫자를 내가 정했느냐"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 679,
+ "comments_top_level": 499,
+ "comments_replies": 180,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 679,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:21:10",
+ "approved": "2026-11-11T18:21+09:00"
+}

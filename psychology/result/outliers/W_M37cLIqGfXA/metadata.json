@@ -1,0 +1,93 @@
+{
+ "id": "M37cLIqGfXA",
+ "title": "여자가 남자를 좋아하면 무심코 드러나는 5가지｜연애심리｜중년연애",
+ "channel": "여자심리연구소",
+ "channel_id": "UCF1NxY0Ejer0_jI6dJ3E7Rw",
+ "subs": 3970,
+ "views": 11817,
+ "ratio": 2.98,
+ "age_days": 14,
+ "views_per_day": 789.5,
+ "minutes": 36.8,
+ "likes": 121,
+ "comments": 1,
+ "published": "2026-10-27",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=M37cLIqGfXA",
+ "flag": "",
+ "published_at": "2026-10-27T10:02:33Z",
+ "rank": "W216",
+ "set": "web",
+ "folder": "W_M37cLIqGfXA",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "연애심리",
+  "여자심리",
+  "여성심리",
+  "중년연애",
+  "사랑심리",
+  "심리학",
+  "연애조언",
+  "여자 호감 신호",
+  "여자가 좋아할 때",
+  "남녀심리",
+  "중년사랑",
+  "호감 신호",
+  "연애상담"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "중년 여성의 호감은 왜 목소리부터 달라질까? 놓치기 쉬운 5가지 신호"
+  },
+  {
+   "start": 230,
+   "title": "중년 여성의 설렘이 더 조심스럽고 작은 신호로 나타나는 이유"
+  },
+  {
+   "start": 315,
+   "title": "첫 번째 신호｜마음이 끌리는 남자에게만 달라지는 목소리와 말투"
+  },
+  {
+   "start": 515,
+   "title": "두 번째 신호｜피했다가 다시 돌아오는 눈길과 미소, 몸의 방향"
+  },
+  {
+   "start": 720,
+   "title": "세 번째 신호｜그 남자가 오는 날에만 달라지는 차림과 분위기"
+  },
+  {
+   "start": 904,
+   "title": "네 번째 신호｜지나가듯 한 말을 기억하고 다시 묻는 질문"
+  },
+  {
+   "start": 1160,
+   "title": "호감 신호를 잘못 읽는 두 가지 착각｜과잉 해석과 호감의 틈"
+  },
+  {
+   "start": 1470,
+   "title": "다섯 번째 신호｜남자의 말투와 표현을 무의식적으로 따라 하는 행동"
+  },
+  {
+   "start": 1783,
+   "title": "호감 신호를 알아챘다면 어떻게 해야 할까? 천천히 다가가는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1,
+ "comments_top_level": 1,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:49",
+ "approved": "2026-11-11T18:27+09:00"
+}

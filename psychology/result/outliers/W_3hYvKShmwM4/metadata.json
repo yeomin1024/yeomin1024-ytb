@@ -1,0 +1,60 @@
+{
+ "id": "3hYvKShmwM4",
+ "title": "중년 남자가 여자를 사랑할 때 무조건 나타나는 행동(40대 50대 연애)",
+ "channel": "연연연애",
+ "channel_id": "UC1UXcnoGS_jgtPFRBgxAZww",
+ "subs": 39500,
+ "views": 78062,
+ "ratio": 1.98,
+ "age_days": 6,
+ "views_per_day": 11236.1,
+ "minutes": 9.3,
+ "likes": 412,
+ "comments": 42,
+ "published": "2026-11-04",
+ "queries": "검색:심리분석 | 검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=3hYvKShmwM4",
+ "flag": "",
+ "published_at": "2026-11-04T10:30:33Z",
+ "rank": "W219",
+ "set": "web",
+ "folder": "W_3hYvKShmwM4",
+ "sources": [
+  "검색:심리분석",
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "중년 남자가 사랑과 심리 분석"
+  },
+  {
+   "start": 79,
+   "title": "중년 남자 사랑할 때 행동"
+  },
+  {
+   "start": 265,
+   "title": "중년 남자 심리 대처법"
+  },
+  {
+   "start": 430,
+   "title": "중년 연애 잘하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 42,
+ "comments_top_level": 28,
+ "comments_replies": 14,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:27:57",
+ "approved": "2026-11-11T18:27+09:00"
+}

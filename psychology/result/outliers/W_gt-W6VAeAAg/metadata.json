@@ -1,0 +1,88 @@
+{
+ "id": "gt-W6VAeAAg",
+ "title": "심리학자가 말하는 요즘 '개념있는 부모'가 진짜 보기 드문 이유ㅣ Ep. 사람산책 11 (김경일 교수님 1부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 2246237,
+ "ratio": 1.74,
+ "age_days": 154,
+ "views_per_day": 14585.1,
+ "minutes": 30.1,
+ "likes": 13521,
+ "comments": 288,
+ "published": "2026-06-10",
+ "queries": "검색:심리학 | 검색:심리",
+ "url": "https://www.youtube.com/watch?v=gt-W6VAeAAg",
+ "flag": "",
+ "published_at": "2026-06-10T09:00:28Z",
+ "rank": "W222",
+ "set": "web",
+ "folder": "W_gt-W6VAeAAg",
+ "sources": [
+  "검색:심리학",
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 162,
+   "title": "일론 머스크가 성공할 수 있었던 1가지 이유"
+  },
+  {
+   "start": 207,
+   "title": "요즘 우리나라가 가지고 있는 심각한 문제점"
+  },
+  {
+   "start": 247,
+   "title": "유독 한국 사회만 가지고 있는 특이한 문화"
+  },
+  {
+   "start": 632,
+   "title": "유독 한국 사람들이 '이 콤플렉스'에 민감한 이유"
+  },
+  {
+   "start": 829,
+   "title": "심리학자가 말하는 인간의 본심이 나오는 찰나의 순간"
+  },
+  {
+   "start": 1086,
+   "title": "한국 사람들이 유독 힘들게 살아갈 수밖에 없는 이유"
+  },
+  {
+   "start": 1396,
+   "title": "길가다가 일부러 치고 가는 사람의 ‘진짜 심리’"
+  },
+  {
+   "start": 1556,
+   "title": "진짜 좋은 부모는 자녀가 불렀을 때 ‘이렇게’ 대답합니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 288,
+ "comments_top_level": 177,
+ "comments_replies": 111,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 288,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:28:04",
+ "approved": "2026-11-11T18:28+09:00"
+}

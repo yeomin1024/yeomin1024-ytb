@@ -1,0 +1,85 @@
+{
+ "id": "e322NAUIdHE",
+ "title": "집을 항상 깨끗하게 유지하는 사람들의 소름 돋는 심리 | 뇌과학·도파민 회로",
+ "channel": "심리치트키",
+ "channel_id": "UCYl-Q_re68bV-7RK6Ee5Czw",
+ "subs": 4700,
+ "views": 351060,
+ "ratio": 74.69,
+ "age_days": 177,
+ "views_per_day": 1981.9,
+ "minutes": 12.7,
+ "likes": 5289,
+ "comments": 332,
+ "published": "2026-05-18",
+ "queries": "검색:뇌과학 | 검색:심리",
+ "url": "https://www.youtube.com/watch?v=e322NAUIdHE",
+ "flag": "",
+ "published_at": "2026-05-18T06:00:20Z",
+ "rank": "W63",
+ "set": "web",
+ "folder": "W_e322NAUIdHE",
+ "sources": [
+  "검색:뇌과학",
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "공간심리학",
+  "정리정돈",
+  "마음챙김",
+  "번아웃",
+  "스트레스해소",
+  "자기계발",
+  "자존감",
+  "코르티솔",
+  "동기부여",
+  "정체성",
+  "습관만들기",
+  "치유",
+  "힐링",
+  "자기돌봄",
+  "뇌과학"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "프롤로그: 우리는 왜 청소 앞에서 무력해지는가?"
+  },
+  {
+   "start": 126,
+   "title": "공간의 과학"
+  },
+  {
+   "start": 291,
+   "title": "매일 치우는 사람들의 신경학적 보상 3가지"
+  },
+  {
+   "start": 455,
+   "title": "동기 부여의 대전환"
+  },
+  {
+   "start": 576,
+   "title": "실천 심리학 : 행동 전략 3가지"
+  },
+  {
+   "start": 668,
+   "title": "정돈된 공간이 당신에게 건네는 위로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 332,
+ "comments_top_level": 218,
+ "comments_replies": 114,
+ "comments_by_creator": 18,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 332,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:21:04",
+ "approved": "2026-11-11T18:21+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "HPxRqFYlbgY",
+ "title": "난 왜 이렇게 맨날 서운할까",
+ "channel": "에니어시온 EnneaXion",
+ "channel_id": "UCqWylzaaXUjEYN4V9fRTf5w",
+ "subs": 13400,
+ "views": 455258,
+ "ratio": 33.97,
+ "age_days": 70,
+ "views_per_day": 6502.8,
+ "minutes": 33.2,
+ "likes": 5116,
+ "comments": 253,
+ "published": "2026-09-02",
+ "queries": "검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=HPxRqFYlbgY",
+ "flag": "",
+ "published_at": "2026-09-02T09:00:36Z",
+ "rank": "W98",
+ "set": "web",
+ "folder": "W_HPxRqFYlbgY",
+ "sources": [
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 115,
+   "title": "본능이란 무엇인가"
+  },
+  {
+   "start": 277,
+   "title": "본능적 하위유형(subtypes) 설명: 자기보존(SP), 성적(SX), 사회적(SO)"
+  },
+  {
+   "start": 428,
+   "title": "실전 — 상대 본능 알아보는 법 & 테스트"
+  },
+  {
+   "start": 575,
+   "title": "자기보존(SP) 유형의 연애"
+  },
+  {
+   "start": 971,
+   "title": "성적(SX) 유형의 연애"
+  },
+  {
+   "start": 1294,
+   "title": "사회적(SO) 유형의 연애"
+  },
+  {
+   "start": 1600,
+   "title": "세 번째 본능 — 당신의 사각지대(맹점)"
+  },
+  {
+   "start": 1771,
+   "title": "에니어그램 역유형(Counter Types)"
+  },
+  {
+   "start": 1873,
+   "title": "총정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 253,
+ "comments_top_level": 154,
+ "comments_replies": 99,
+ "comments_by_creator": 55,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 253,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:22:44",
+ "approved": "2026-11-11T18:22+09:00"
+}

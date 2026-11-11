@@ -1,0 +1,68 @@
+{
+ "id": "P065MMfxPhE",
+ "title": "자식을 망치고 부모를 파멸시키는 ‘한 집 살이’의 심리학 l 부모자식갈등 ㅣ관계심리 ㅣ인간관계 ㅣ가족갈등 ㅣ가족심리 ㅣ치유심리학 ㅣ분리독립",
+ "channel": "치유심리학",
+ "channel_id": "UCvouTs1MemXhsa8Bgw77Scg",
+ "subs": 17200,
+ "views": 331541,
+ "ratio": 19.28,
+ "age_days": 173,
+ "views_per_day": 1906.4,
+ "minutes": 10.0,
+ "likes": 6957,
+ "comments": 618,
+ "published": "2026-05-21",
+ "queries": "검색:대인관계 | 검색:인간관계심리",
+ "url": "https://www.youtube.com/watch?v=P065MMfxPhE",
+ "flag": "",
+ "published_at": "2026-05-21T11:30:13Z",
+ "rank": "W142",
+ "set": "web",
+ "folder": "W_P065MMfxPhE",
+ "sources": [
+  "검색:대인관계",
+  "검색:인간관계심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 내 집인데도 자녀 눈치 보며 숨이 막히는 진짜 이유 (심리적 탯줄)"
+  },
+  {
+   "start": 60,
+   "title": "본론 1: 성인 자녀와 함께 살 때 뇌에서 일어나는 파괴적인 변화 (코르티솔과 영토 본능)"
+  },
+  {
+   "start": 125,
+   "title": "본론 2: 자식을 불구로 만드는 과보호, '가학적 친절'의 실체"
+  },
+  {
+   "start": 188,
+   "title": "솔루션 1: 물리적 공간 분리와 감정적 '타인 선언' 심리 기술"
+  },
+  {
+   "start": 252,
+   "title": "솔루션 2: 부모의 에너지 과녁 바꾸기와 학습된 무기력 대처법"
+  },
+  {
+   "start": 315,
+   "title": "아웃트로: 세상에서 가장 아름다운 이별, 온전한 홀로서기를 응원하며"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 618,
+ "comments_top_level": 292,
+ "comments_replies": 326,
+ "comments_by_creator": 24,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 618,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:24:49",
+ "approved": "2026-11-11T18:24+09:00"
+}

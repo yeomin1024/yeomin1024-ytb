@@ -1,0 +1,118 @@
+{
+ "id": "cgxJvqtZ5RU",
+ "title": "여자가 끌리는 남자는 따로 있습니다｜50대 이후 더 강해지는 8가지 연애심리와 매력",
+ "channel": "사랑의 비밀노트",
+ "channel_id": "UCaDw2Ew6T2Ve10KVlJQevGg",
+ "subs": 1070,
+ "views": 79817,
+ "ratio": 74.6,
+ "age_days": 59,
+ "views_per_day": 1331.8,
+ "minutes": 23.6,
+ "likes": 555,
+ "comments": 7,
+ "published": "2026-09-12",
+ "queries": "검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=cgxJvqtZ5RU",
+ "flag": "",
+ "published_at": "2026-09-12T10:50:19Z",
+ "rank": "W64",
+ "set": "web",
+ "folder": "W_cgxJvqtZ5RU",
+ "sources": [
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": [
+  "사랑심리",
+  "인간관계",
+  "연애심리",
+  "중년사랑이야기",
+  "노후사연",
+  "중년연애",
+  "감동사연",
+  "연애상담",
+  "사랑의기술",
+  "중년심리",
+  "여성심리",
+  "시니어쇼츠",
+  "50대연애",
+  "60대연애",
+  "50대 남자 매력",
+  "60대 남자 매력",
+  "여자가 끌리는 남자",
+  "여자가 좋아하는 남자",
+  "여자 심리",
+  "중년 남성 매력",
+  "중년의 사랑",
+  "시니어 연애",
+  "중년 인간관계",
+  "호감가는 남자",
+  "매력있는 남자",
+  "대화 잘하는 남자",
+  "사람을 끌어당기는 매력",
+  "연애 조언",
+  "인생 조언",
+  "중년 관계"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "50대 이후 더 강해지는 매력"
+  },
+  {
+   "start": 111,
+   "title": "행복한 관계의 비밀"
+  },
+  {
+   "start": 195,
+   "title": "① 안정된 눈빛"
+  },
+  {
+   "start": 338,
+   "title": "② 진심 어린 경청"
+  },
+  {
+   "start": 423,
+   "title": "③ 차분한 목소리와 따뜻한 말"
+  },
+  {
+   "start": 576,
+   "title": "④ 여유 있는 대화 리듬"
+  },
+  {
+   "start": 665,
+   "title": "⑤ 안심시키는 존재감"
+  },
+  {
+   "start": 774,
+   "title": "⑥ 진짜 미소의 힘"
+  },
+  {
+   "start": 910,
+   "title": "⑦ 기억에 남는 작은 행동"
+  },
+  {
+   "start": 982,
+   "title": "⑧ 삶의 경험에서 나온 깊이"
+  },
+  {
+   "start": 1123,
+   "title": "8가지 매력과 관계를 바꾸는 작은 시작"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7,
+ "comments_top_level": 4,
+ "comments_replies": 3,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:21:06",
+ "approved": "2026-11-11T18:21+09:00"
+}

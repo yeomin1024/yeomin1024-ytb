@@ -1,0 +1,96 @@
+{
+ "id": "jp5cWmhAW18",
+ "title": "다들 이정도는 버티고 사는 거 아닌가요?",
+ "channel": "장동선의 궁금한 뇌",
+ "channel_id": "UCI3mHMt-wivlZ3LS_1KiPHQ",
+ "subs": 759000,
+ "views": 1101831,
+ "ratio": 1.45,
+ "age_days": 33,
+ "views_per_day": 32477.0,
+ "minutes": 26.0,
+ "likes": 3787,
+ "comments": 378,
+ "published": "2026-10-08",
+ "queries": "검색:뇌과학 | 검색:우울증",
+ "url": "https://www.youtube.com/watch?v=jp5cWmhAW18",
+ "flag": "",
+ "published_at": "2026-10-08T11:00:37Z",
+ "rank": "W224",
+ "set": "web",
+ "folder": "W_jp5cWmhAW18",
+ "sources": [
+  "검색:뇌과학",
+  "검색:우울증"
+ ],
+ "source": "web",
+ "tags": [
+  "요즘 2030",
+  "2030",
+  "고기능우울증",
+  "우울증",
+  "비정형우울증",
+  "번아웃",
+  "포모"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 57,
+   "title": "고기능 우울증"
+  },
+  {
+   "start": 287,
+   "title": "고기능 우울증 특징"
+  },
+  {
+   "start": 337,
+   "title": "우울증과 번아웃"
+  },
+  {
+   "start": 415,
+   "title": "번아웃 대표적인 증상 세 가지"
+  },
+  {
+   "start": 465,
+   "title": "무쾌감증"
+  },
+  {
+   "start": 724,
+   "title": "무쾌감증에 빠져드는 사람 특징"
+  },
+  {
+   "start": 778,
+   "title": "한국의 문화적 토속병, 화병"
+  },
+  {
+   "start": 950,
+   "title": "FOMO? 이제는 FOBO"
+  },
+  {
+   "start": 1153,
+   "title": "고기능 우울증은 왜 자각하기 어려울까?"
+  },
+  {
+   "start": 1279,
+   "title": "우울증 판단 기준?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 378,
+ "comments_top_level": 236,
+ "comments_replies": 142,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 378,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:28:09",
+ "approved": "2026-11-11T18:28+09:00"
+}

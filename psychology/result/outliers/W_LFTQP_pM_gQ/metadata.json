@@ -1,0 +1,99 @@
+{
+ "id": "LFTQP_pM_gQ",
+ "title": "칼 융이 찾아낸, 중년 이후 다시 젊어지는 7가지 취미",
+ "channel": "심리의시간",
+ "channel_id": "UCfatp2SZjezR-ul6tk9hvrA",
+ "subs": 550,
+ "views": 105469,
+ "ratio": 191.76,
+ "age_days": 74,
+ "views_per_day": 1407.9,
+ "minutes": 24.5,
+ "likes": 599,
+ "comments": 38,
+ "published": "2026-08-28",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=LFTQP_pM_gQ",
+ "flag": "",
+ "published_at": "2026-08-28T11:18:58Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_LFTQP_pM_gQ",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "인간관계",
+  "사람의 심리",
+  "인간관계 심리학",
+  "사람심리",
+  "사람 보는 법",
+  "상대방 심리",
+  "무의식 심리",
+  "행동 심리학",
+  "남녀심리",
+  "연애심리",
+  "중년 심리",
+  "인생 조언",
+  "자기이해",
+  "감정 조절"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "25년 만의 동창회, 같은 나이 다른 얼굴"
+  },
+  {
+   "start": 71,
+   "title": "융이 말한 '인생의 오후'"
+  },
+  {
+   "start": 172,
+   "title": "첫 번째 문 – 새로운 것을 배우기"
+  },
+  {
+   "start": 261,
+   "title": "두 번째 문 – 호기심을 들고 걷기"
+  },
+  {
+   "start": 353,
+   "title": "세 번째 문 – 마음이 닿는 대화 나누기"
+  },
+  {
+   "start": 429,
+   "title": "네 번째 문 – 누군가를 돕는 시간 만들기"
+  },
+  {
+   "start": 504,
+   "title": "다섯 번째 문 – 손으로 무언가 만들기"
+  },
+  {
+   "start": 589,
+   "title": "여섯 번째 문 – 쓸모없는 놀이에 진심이 되기"
+  },
+  {
+   "start": 658,
+   "title": "일곱 번째 문 – 내 안의 세계를 탐험하기"
+  },
+  {
+   "start": 735,
+   "title": "늙게 만드는 것은 나이가 아니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 38,
+ "comments_top_level": 15,
+ "comments_replies": 23,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 38,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:18:56",
+ "approved": "2026-11-11T18:18+09:00"
+}

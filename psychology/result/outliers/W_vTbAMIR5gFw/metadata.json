@@ -1,0 +1,117 @@
+{
+ "id": "vTbAMIR5gFw",
+ "title": "남자가 알아야 할 여자의 본능 | 진화심리학과 여성의 무의식",
+ "channel": "더나은남자",
+ "channel_id": "UCB1rYQ-201F7T_68Ovip9ww",
+ "subs": 7180,
+ "views": 336567,
+ "ratio": 46.88,
+ "age_days": 61,
+ "views_per_day": 5441.5,
+ "minutes": 10.1,
+ "likes": 2529,
+ "comments": 223,
+ "published": "2026-09-10",
+ "queries": "검색:심리분석 | 검색:연애심리",
+ "url": "https://www.youtube.com/watch?v=vTbAMIR5gFw",
+ "flag": "",
+ "published_at": "2026-09-10T12:47:30Z",
+ "rank": "W83",
+ "set": "web",
+ "folder": "W_vTbAMIR5gFw",
+ "sources": [
+  "검색:심리분석",
+  "검색:연애심리"
+ ],
+ "source": "web",
+ "tags": [
+  "남자의 무관심",
+  "연애 심리 분석",
+  "여성의 심리",
+  "매력적인 태도"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "여자의 사랑이 남자와 다른 이유"
+  },
+  {
+   "start": 34,
+   "title": "여자는 남자를 '더 많이' 원한다"
+  },
+  {
+   "start": 70,
+   "title": "남자는 사랑이 일부, 여자는 전부"
+  },
+  {
+   "start": 109,
+   "title": "먼저 공을 넘겨라"
+  },
+  {
+   "start": 166,
+   "title": "먼저 건네되, 다 퍼주진 마라"
+  },
+  {
+   "start": 205,
+   "title": "다 퍼주면 매력이 사라지는 이유"
+  },
+  {
+   "start": 253,
+   "title": "너무 쉽게 다 얻으면 값이 떨어진다"
+  },
+  {
+   "start": 278,
+   "title": "인류에 새겨진 본능"
+  },
+  {
+   "start": 292,
+   "title": "원시시대 여자가 원한 강한 남자"
+  },
+  {
+   "start": 322,
+   "title": "적당히 막아설 때 여자는 안심한다"
+  },
+  {
+   "start": 370,
+   "title": "여자가 떠보는 것"
+  },
+  {
+   "start": 430,
+   "title": "한번 실망시켜 보라"
+  },
+  {
+   "start": 457,
+   "title": "5년이 아니라 5주 만에 아는 법"
+  },
+  {
+   "start": 511,
+   "title": "거절당하면 끌림이 오히려 커진다"
+  },
+  {
+   "start": 541,
+   "title": "연애에도 적당한 양념이 필요하다"
+  },
+  {
+   "start": 559,
+   "title": "여자가 살짝 더 좋아하는 균형"
+  },
+  {
+   "start": 586,
+   "title": "세 가지 원칙"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 223,
+ "comments_top_level": 110,
+ "comments_replies": 113,
+ "comments_by_creator": 6,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 223,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:22:04",
+ "approved": "2026-11-11T18:22+09:00"
+}

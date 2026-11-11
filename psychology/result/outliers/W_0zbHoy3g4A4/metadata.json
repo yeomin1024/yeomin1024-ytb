@@ -1,0 +1,63 @@
+{
+ "id": "0zbHoy3g4A4",
+ "title": "나르시시스트가 되는 이유 | 정신과 의사가 본 2가지 성장환경",
+ "channel": "정신과 의사 형원장",
+ "channel_id": "UCu3b7H9FdtTUAgC2rLVATug",
+ "subs": 1170,
+ "views": 104226,
+ "ratio": 89.08,
+ "age_days": 152,
+ "views_per_day": 685.3,
+ "minutes": 6.7,
+ "likes": 903,
+ "comments": 236,
+ "published": "2026-06-12",
+ "queries": "검색:나르시시스트",
+ "url": "https://www.youtube.com/watch?v=0zbHoy3g4A4",
+ "flag": "",
+ "published_at": "2026-06-12T07:00:31Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_0zbHoy3g4A4",
+ "sources": [
+  "검색:나르시시스트"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 70,
+   "title": "어린 시절의 영향"
+  },
+  {
+   "start": 94,
+   "title": "조건부 사랑을 받아서?"
+  },
+  {
+   "start": 194,
+   "title": "유리 같은 자존감"
+  },
+  {
+   "start": 225,
+   "title": "사랑받지 못한 영향?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 236,
+ "comments_top_level": 110,
+ "comments_replies": 126,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 236,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:20:39",
+ "approved": "2026-11-11T18:20+09:00"
+}

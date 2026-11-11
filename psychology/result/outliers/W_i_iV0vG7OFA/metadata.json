@@ -1,0 +1,85 @@
+{
+ "id": "i_iV0vG7OFA",
+ "title": "50대 이후, 무너지는 사람과 단단해지는 사람의 결정적 차이",
+ "channel": "심리충전소",
+ "channel_id": "UCe8ZTk7n9ilg8DWRTG9qYAA",
+ "subs": 21400,
+ "views": 271724,
+ "ratio": 12.7,
+ "age_days": 73,
+ "views_per_day": 3696.4,
+ "minutes": 21.4,
+ "likes": 1238,
+ "comments": 44,
+ "published": "2026-08-29",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=i_iV0vG7OFA",
+ "flag": "",
+ "published_at": "2026-08-29T21:00:21Z",
+ "rank": "W170",
+ "set": "web",
+ "folder": "W_i_iV0vG7OFA",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "뇌과학",
+  "인간관계",
+  "자존감",
+  "스트레스",
+  "마음공부",
+  "자기계발",
+  "힐링",
+  "멘탈관리",
+  "동기부여",
+  "나이들수록",
+  "심리충전소",
+  "50대"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왜 밤마다 억울할까"
+  },
+  {
+   "start": 217,
+   "title": "뇌가 적는 상실의 기록"
+  },
+  {
+   "start": 309,
+   "title": "쉰 이후 찾아오는 위기"
+  },
+  {
+   "start": 448,
+   "title": "정산되지 않은 마음의 대가"
+  },
+  {
+   "start": 654,
+   "title": "시작은 마음이 아니라 몸이다"
+  },
+  {
+   "start": 1007,
+   "title": "나는 이름을 지운 사람인가"
+  },
+  {
+   "start": 1158,
+   "title": "스스로 내리는 마지막 판결"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 44,
+ "comments_top_level": 20,
+ "comments_replies": 24,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:26:00",
+ "approved": "2026-11-11T18:26+09:00"
+}

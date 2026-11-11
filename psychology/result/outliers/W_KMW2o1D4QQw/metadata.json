@@ -1,0 +1,105 @@
+{
+ "id": "KMW2o1D4QQw",
+ "title": "인간은 사회적 동물이라는데… 뇌과학자가 말하는 혼자가 편한 이유",
+ "channel": "장동선의 궁금한 뇌",
+ "channel_id": "UCI3mHMt-wivlZ3LS_1KiPHQ",
+ "subs": 759000,
+ "views": 436076,
+ "ratio": 0.57,
+ "age_days": 12,
+ "views_per_day": 33736.9,
+ "minutes": 20.8,
+ "likes": 2559,
+ "comments": 309,
+ "published": "2026-10-29",
+ "queries": "검색:인간관계 | 검색:외로움",
+ "url": "https://www.youtube.com/watch?v=KMW2o1D4QQw",
+ "flag": "",
+ "published_at": "2026-10-29T11:00:22Z",
+ "rank": "W236",
+ "set": "web",
+ "folder": "W_KMW2o1D4QQw",
+ "sources": [
+  "검색:인간관계",
+  "검색:외로움"
+ ],
+ "source": "web",
+ "tags": [
+  "외로움",
+  "외로울때",
+  "외로울때듣는",
+  "외로움이기는",
+  "외로움을",
+  "외로움극복",
+  "혼잣말1시간",
+  "인간관계스트레스",
+  "인간관계책",
+  "인간관계정리",
+  "인간관계힘들때",
+  "인간관계론",
+  "데일카네기",
+  "손절한친구",
+  "왕따당할때",
+  "왕따드라마",
+  "왕따브이로그",
+  "일진참교육",
+  "친구생일선물",
+  "친구만들기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 63,
+   "title": "외롭지만 사람 만나는 건 힘든 이유"
+  },
+  {
+   "start": 169,
+   "title": "억지로라도 사람을 만나야 할까?"
+  },
+  {
+   "start": 254,
+   "title": "좁고 깊은 관계 vs 넓고 얕은 관계"
+  },
+  {
+   "start": 382,
+   "title": "외로움은 없애야 하는 감정일까"
+  },
+  {
+   "start": 510,
+   "title": "사람을 피하게 되는 이유"
+  },
+  {
+   "start": 729,
+   "title": "혼자가 편한 나는 이상한 걸까"
+  },
+  {
+   "start": 890,
+   "title": "그럼에도 인간관계가 필요한 이유"
+  },
+  {
+   "start": 993,
+   "title": "가장 외로운 세대?"
+  },
+  {
+   "start": 1119,
+   "title": "외로움을 건강하게 대하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 309,
+ "comments_top_level": 192,
+ "comments_replies": 117,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 309,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:28:43",
+ "approved": "2026-11-11T18:28+09:00"
+}

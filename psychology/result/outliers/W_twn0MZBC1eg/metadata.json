@@ -1,0 +1,94 @@
+{
+ "id": "twn0MZBC1eg",
+ "title": "아기들이 유독 쳐다보는 사람의 정체｜발달심리학이 밝힌 '아기를 끌어당기는 사람'의 공통점",
+ "channel": "심리 톡톡",
+ "channel_id": "UCUEyV9wWFVYjPJRJM8oOQjw",
+ "subs": 27500,
+ "views": 945423,
+ "ratio": 34.38,
+ "age_days": 27,
+ "views_per_day": 34950.0,
+ "minutes": 14.1,
+ "likes": 3274,
+ "comments": 470,
+ "published": "2026-10-15",
+ "queries": "검색:심리학 | 검색:심리",
+ "url": "https://www.youtube.com/watch?v=twn0MZBC1eg",
+ "flag": "",
+ "published_at": "2026-10-15T08:00:27Z",
+ "rank": "W96",
+ "set": "web",
+ "folder": "W_twn0MZBC1eg",
+ "sources": [
+  "검색:심리학",
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리톡톡",
+  "심리학",
+  "자기계발",
+  "멘탈관리",
+  "인간관계",
+  "애착유형",
+  "회피형",
+  "불안형 애착",
+  "나르시시스트",
+  "가스라이팅",
+  "손절",
+  "연애심리",
+  "자존감",
+  "예민한 사람",
+  "HSP",
+  "내향인",
+  "외로움",
+  "감정조절",
+  "착한아이 콤플렉스",
+  "도파민 디톡스",
+  "번아웃"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "들어가며"
+  },
+  {
+   "start": 57,
+   "title": "①번 특징"
+  },
+  {
+   "start": 212,
+   "title": "②번 특징"
+  },
+  {
+   "start": 378,
+   "title": "③번 특징"
+  },
+  {
+   "start": 529,
+   "title": "④번 특징"
+  },
+  {
+   "start": 660,
+   "title": "⑤번 특징"
+  },
+  {
+   "start": 803,
+   "title": "정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 470,
+ "comments_top_level": 335,
+ "comments_replies": 135,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 470,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:22:37",
+ "approved": "2026-11-11T18:22+09:00"
+}

@@ -1,0 +1,106 @@
+{
+ "id": "physQpG98Ys",
+ "title": "현명한 여자는 왜 이 5곳에 돈을 안 쓸까? 인생심리로 알아보는 소비의 비밀",
+ "channel": "인생심리노트",
+ "channel_id": "UCpiEndDauUB0oswhBHNBFsw",
+ "subs": 65,
+ "views": 22847,
+ "ratio": 228.47,
+ "age_days": 27,
+ "views_per_day": 818.1,
+ "minutes": 22.9,
+ "likes": 90,
+ "comments": 2,
+ "published": "2026-10-14",
+ "queries": "검색:중년심리",
+ "url": "https://www.youtube.com/watch?v=physQpG98Ys",
+ "flag": "",
+ "published_at": "2026-10-14T10:59:48Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_physQpG98Ys",
+ "sources": [
+  "검색:중년심리"
+ ],
+ "source": "web",
+ "tags": [
+  "인생심리",
+  "여성심리",
+  "인간관계",
+  "중년여성심리",
+  "중년심리",
+  "나이들수록",
+  "중년여성",
+  "노년의삶",
+  "인생조언",
+  "삶의지혜",
+  "인간관계정리",
+  "심리학",
+  "마음의변화",
+  "노후생활",
+  "행복한노후",
+  "소비습관",
+  "현명한소비",
+  "소비심리",
+  "돈관리",
+  "절약습관",
+  "현명한여자",
+  "중년생활",
+  "돈을아끼는법",
+  "충동구매",
+  "소비습관개선",
+  "인생의지혜"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "매일 반복되는 작은 지출이 1년 뒤 큰돈이 되는 이유"
+  },
+  {
+   "start": 69,
+   "title": "하루 5천원이 180만 원으로 보이지 않는 심리"
+  },
+  {
+   "start": 221,
+   "title": "첫 번째, 습관처럼 마시는 카페 커피"
+  },
+  {
+   "start": 353,
+   "title": "두 번째, 돈을 쓰고도 기분이 가라앉는 미용실"
+  },
+  {
+   "start": 495,
+   "title": "세 번째, 싸다는 이유로 사게 되는 세일 매대"
+  },
+  {
+   "start": 640,
+   "title": "네 번째, 남의 시선 때문에 시작되는 소비의 도미노"
+  },
+  {
+   "start": 1006,
+   "title": "다섯 번째, 체면 때문에 참석하는 모임과 관계"
+  },
+  {
+   "start": 1210,
+   "title": "돈을 현명하게 쓰는 3가지 기준과 실천법"
+  },
+  {
+   "start": 1341,
+   "title": "아끼는 것이 아니라 돈의 방향을 바꾸는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2,
+ "comments_top_level": 2,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T09:18:46",
+ "approved": "2026-11-11T18:18+09:00"
+}

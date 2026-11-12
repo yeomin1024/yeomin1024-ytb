@@ -1,6 +1,6 @@
 # 위기 상황 대본 — 시청자 페르소나 검토 (AI 에게 읽히는 파일)
 
-버전: v1.0 — 2026-11-12 — 새로 만듦. 사용자 지시 2026-11-12 "지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고". 꼴은 `economic/guides/viewer_review.md` v1.1 과 같음 (페르소나만 이 주제 분석으로).
+버전: v1.1 — 2026-11-12 — 대본 4편 주소를 커밋 a2b44b28 에 고정해 채움. (v1.0 — 2026-11-12 — 새로 만듦. 사용자 지시 2026-11-12 "지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고". 꼴은 `economic/guides/viewer_review.md` v1.1 과 같음 (페르소나만 이 주제 분석으로).)
 
 - 페르소나 근거 = 이 주제 분석 결과만 (`crisis/result/personas.md` 최종 F1~F4 — 댓글 2,685개). 지어낸 것은 이름·나이·말투뿐이다.
   - **나이는 판단이다** — 댓글에서 나이를 밝힌 사람이 2명뿐 (간접 단서: 10대 4 · 20대 5 · 30~40대 6 · 50대 이상 1).
@@ -46,7 +46,10 @@
 
 | 영상 | 제목 (R1) | 롱폼 대본 |
 |---|---|---|
-<!-- TABLE -->
+| 1 엘리베이터 | 엘리베이터 갇혔을 때 문 열면 위험, 기다린 9명은 무사했다 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/a2b44b28ea9559d1400cdac9e0abce2524fa9e2f/crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt |
+| 2 기내 연기 | 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/a2b44b28ea9559d1400cdac9e0abce2524fa9e2f/crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt |
+| 3 얼음 깨짐 | 얼음물에 빠졌을 때 허우적대면 위험, 왔던 쪽으로 돌아라 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/a2b44b28ea9559d1400cdac9e0abce2524fa9e2f/crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt |
+| 4 메신저피싱 | '엄마 나 폰 깨졌어' 문자에 3억 원 잃은 엄마와 막은 엄마 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/a2b44b28ea9559d1400cdac9e0abce2524fa9e2f/crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt |
 
 ### 볼 것 (헷갈린 곳만 — 억지로 많이 찾지 않는다)
 1. **무엇을 하라는지 없는 말** — 무엇을 어떻게 하는 건지 모르겠는 곳
@@ -83,4 +86,5 @@
 ## 변경 이력
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v1.1 | 2026-11-12 | 대본 4편 주소(커밋 a2b44b28 고정) 채움 |
 | v1.0 | 2026-11-12 | 새로 만듦 — 페르소나 4명(F1~F4, 나이는 판단), 근거 = `crisis/result/personas.md`, 대본 4개 주소, 답하는 꼴 (첫 40초 보기 고르기·확인해 달라 칸 더함) |

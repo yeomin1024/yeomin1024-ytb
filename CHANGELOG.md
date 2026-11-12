@@ -1,5 +1,15 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-12 (3) — 더블 클릭 실행 파일 `유튜브_업로드.bat` v1.0 · run_uploader.ps1 v1.2
+
+- 사용자 지시 "그냥 더블 클릭하면 실행되는 프로그램으로 만들어서 내가 다운 받을 수 있게 해줘".
+- `유튜브_업로드.bat` v1.0 (새, 저장소 맨 위): cmd 부분(ASCII)은 자기 파일의 `##PS##` 아래를 PowerShell 로 실행만 함 → ① 작업 폴더(파일 옆에 `run_uploader.ps1`·`run_analyzer.ps1`·`.env` 가 있으면 거기, 아니면 `문서\ytb`) ② 작업 폴더에 자기 복사 + 바탕화면 '유튜브 업로드' 바로가기(없을 때만) ③ `run_uploader.ps1` GitHub 최신(못 받으면 있던 것) ④ `-Web`. 실패하면 창이 닫히지 않음(pause).
+- 왜 .exe 가 아니라 .bat: 서명 없는 exe 가 PowerShell 을 실행하면 백신이 막는 일이 잦고, .bat 은 메모장으로 열어 무엇을 하는지 볼 수 있음. 처음 실행 때 Windows 'PC 보호' 창 → 추가 정보 → 실행.
+- `run_uploader.ps1` v1.2: Python 이 없으면 -Web·-Auth 때만 winget 설치를 물음(Y 일 때만) · PATH 에 없는 설치본(`%LOCALAPPDATA%\Programs\Python\Python3*` · `Program Files`)도 찾음.
+- `.gitattributes` `*.bat -text` — CRLF 를 그대로 (cmd 가 LF 만 있는 파일에서 가끔 틀림).
+- 시험: 바이트 점검(BOM 없음 · CRLF · cmd 부분 ASCII · 표시 `##PS##` 한 번). 이 환경에 PowerShell 이 없어 실제 실행은 사용자 PC 첫 실행으로 확인.
+- 문서: `guides/upload_guide.md` v1.14 13번 · CLAUDE.md 업로드 줄 · `guides/status.md` v3.99.
+
 ## 2026-11-12 (2) — PC 업로드 화면 (upload_web v1.1 · upload_pack v1.0 · youtube_auth v1.3 · run_uploader v1.1)
 
 - 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됏는지 확인 후 다 된게 있으면 내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘 토큰 만료되면 알아서 인증 코드 돌려서 설정 넣어주도록 하고 필요한 환경변수 값들 넣을 수 있는 웹 사이트 코드 만들어줘 주제별로 가능하도록 해줘".

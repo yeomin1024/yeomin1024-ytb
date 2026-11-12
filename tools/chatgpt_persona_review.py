@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-12 — 새로 (사용자 지시 2026-11-12 "4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"):
+# VERSION: v1.1 — 2026-11-12 — 반론 페르소나 (<주제>/result/outliers/rebuttal_persona.json — 실제 반박 댓글 갈래 K1~K8) 가 있으면 1-1절 + 답 양식에 '반론 댓글' 표
+#          (사용자 지시 2026-11-12 "근데 각 단계별로 페르소나 검증 다 거친거지?" — ChatGPT 검증도 일반 + 반론 페르소나 둘 다). build() 만 바뀜.
+# (v1.0 — 2026-11-12 — 새로 (사용자 지시 2026-11-12 "4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"):
 #          페르소나(<주제>/result/outliers/personas.json — 최근 흐름 포함) + 대본 검토 규칙 + 대본(문장 번호) + 편마다 근거 요약을 한 파일로 →
 #          ChatGPT 가 커밋 고정 주소 하나로 끝까지 읽고 페르소나마다 답하게. 편 목록은 <주제>/source/chatgpt_review_list.json.
-#          할당량·네트워크 0. ※ 연구·교육용.
+#          할당량·네트워크 0. ※ 연구·교육용.)
 """ChatGPT 페르소나 검증 파일 만들기
 
   python3 tools/chatgpt_persona_review.py psychology        # → psychology/source/chatgpt_persona_review.md
@@ -14,7 +16,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("gptreview")
 RULES = [
     "결론을 앞(첫 40초)에 말하고, 대본 전체가 그 결론을 증명하는 순서인가.",
@@ -76,6 +78,16 @@ def build(topic):
     if tr.get("rising_words"):
         L += ["### 요즘 흐름 (최근 28일 댓글)", "- 더 나오는 말: " + ", ".join(w["word"] for w in tr["rising_words"][:12]),
               "- 댓글이 몰린 영상: " + " / ".join(v["title"][:40] for v in tr["hot_videos"][:6]), ""]
+    rb_path = base / "result/outliers/rebuttal_persona.json"
+    rb = json.loads(rb_path.read_text("utf-8")) if rb_path.exists() else None
+    if rb:
+        L += [f"## 1-1. 반론 페르소나 — 내용에 반박하는 시청자 (실제 반박 댓글 {rb['picks']}개, `{topic}/result/outliers/rebuttal_persona.md`)", "",
+              "이 사람은 결론보다 **빈틈**을 먼저 찾는다. 갈래마다 '검토 질문'으로 대본을 읽고, 이 사람이 실제로 달 반박 댓글을 4번 양식에 적는다.", ""]
+        for k in rb["kinds"]:
+            ex = " / ".join(f"\"{x['text'][:90]}\"" for x in k["examples"][:2])
+            L += [f"- **{k['code']} {k['name']}** (반박 댓글 몫 {pct(k['share'])} · 좋아요 몫 {pct(k['like_share'])}) — 검토 질문: {k['question']}", f"  - 실제 댓글: {ex}"]
+        L += [""]
+    log("REBUTTAL", file=rb_path.relative_to(ROOT) if rb else "없음", kinds=len(rb["kinds"]) if rb else 0)
     L += ["## 2. 검토 규칙 (이 채널 대본 규칙 — 어기면 문장 번호로 적기)", ""] + [f"{i}. {r}" for i, r in enumerate(RULES, 1)] + ["", f"## 3. 대본 {len(eps)}편", ""]
     total = 0
     for e in eps:
@@ -98,7 +110,9 @@ def build(topic):
           "| 페르소나 | 제목·썸네일 보고 누를까 (1~5) | 끝까지 볼까 (1~5) | 이해 안 되는 문장 (번호) | 불편하거나 반발할 문장 (번호·까닭) | 더 알고 싶은 것 |",
           "|---|---|---|---|---|---|", "| P1 … | | | | | |", "",
           "| 규칙 (2번) | 어긴 문장 번호 | 원문 | 고친 문장 |", "|---|---|---|---|", "",
-          "| 사실 확인이 필요한 문장 | 까닭 |", "|---|---|", "",
+          "| 사실 확인이 필요한 문장 | 까닭 |", "|---|---|", ""] + ([
+          "| 반론 페르소나 갈래 (K1~K8) | 문장 번호 (제목·썸네일이면 '제목'·'썸네일') | 달릴 반박 댓글 (댓글처럼) | 심각도 (상 = 맞는 말이라 신뢰가 무너짐 · 중 = 일리 있음 · 하 = 트집) | 고친 문장 |",
+          "|---|---|---|---|---|", ""] if rb else []) + [
           "### 마지막에 한 번", f"- {len(eps)}편 가운데 첫 영상으로 가장 좋은 것 하나와 까닭 (페르소나 반응으로).", f"- {len(eps)}편 모두에 되풀이되는 문제 (있으면).", ""]
     out = base / "source/chatgpt_persona_review.md"
     out.write_text("\n".join(L), "utf-8")

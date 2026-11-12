@@ -15,6 +15,8 @@
 crisis/
 ├── README.md          ← 지금 이 안내
 ├── titles.md          ← ★ 제목·썸네일 문구 4쌍과 근거 (사람이 쓴 기획안)
+├── source/            ← ★ 대본 4편 (영상ID 폴더마다 대본 .txt · 자막 .srt · titles.md · checklist.md · README.md) + used_content.md
+├── guides/            ← 채널 설명(임시) channel.md · ChatGPT 페르소나 검토 viewer_review.md
 ├── CHANGELOG.md       ← 코드 버전별 변경·결과 비교
 ├── code/
 │   ├── crisis_lab.py        분석 코드 (수집 → 성공 사례 → 댓글 → 페르소나 → 추세)

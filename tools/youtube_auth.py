@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-10-15 — 권한에 Google Drive(drive) 추가 (사용자 지시 "구글 드라이브 내 드라이브에 youtube 폴더에 … 원본 영상 올리고 pc에서
+# VERSION: v1.3 — 2026-11-12 — 발급 과정을 함수 issue() 로 뗌 (사용자 지시 "토큰 만료되면 알아서 인증 코드 돌려서 설정 넣어주도록 하고" — tools/upload_web.py 가
+#          키가 만료되면 이 함수를 불러 브라우저 허용 → 주제의 .env 에 새 YOUTUBE_REFRESH_TOKEN 저장). 명령줄 동작은 그대로.
+# (v1.2 — 2026-10-15 — 권한에 Google Drive(drive) 추가 (사용자 지시 "구글 드라이브 내 드라이브에 youtube 폴더에 … 원본 영상 올리고 pc에서
 #          영상 및 환경설정을 받아서 업로드" — tools/drive_videos.py·tools/pc_upload.py), --save-env .env 로 PC 의 .env 에 바로 저장
 # (v1.1 — 2026-10-11 — 권한에 yt-analytics.readonly 추가 (tools/youtube_feedback.py 의 시청 지속·유입 경로 등 상세 분석), 발급 뒤 허용되지 않은 권한 경고)
 #          (v1.0: 유튜브 업로드용 OAuth 리프레시 토큰을 한 번 발급 (사용자 PC에서 실행, 표준 라이브러리만))
@@ -79,62 +81,80 @@ def save_env(path, values):
     p.write_text("\n".join(lines) + "\n", "utf-8")
 
 
-def main():
-    ap = argparse.ArgumentParser(description="유튜브 업로드용 리프레시 토큰 발급 (내 PC에서 한 번)")
-    ap.add_argument("--client-id", default=os.environ.get("YOUTUBE_CLIENT_ID", ""))
-    ap.add_argument("--client-secret", default=os.environ.get("YOUTUBE_CLIENT_SECRET", ""))
-    ap.add_argument("--save-env", default=None, help="이 .env 파일에 YOUTUBE_CLIENT_ID·SECRET·REFRESH_TOKEN 을 저장 (있던 줄은 바꿈, 다른 줄은 그대로)")
-    a = ap.parse_args()
-    if not a.client_id or not a.client_secret:
-        sys.exit("[AUTH] ❌ --client-id 와 --client-secret 이 필요합니다 (Google Cloud 콘솔 → 사용자 인증 정보 → 데스크톱 앱 OAuth 클라이언트)")
+class AuthError(Exception):
+    """issue() 가 실패한 까닭 (사람이 읽는 한국어 문장)."""
 
+
+def issue(client_id, client_secret, say=print, timeout=600, open_browser=True):
+    """v1.3: 브라우저로 로그인·허용 → (refresh_token, 빠진 권한 목록). 실패하면 AuthError.
+    say = 진행 문장을 받는 함수 (웹 화면 로그 · 터미널 print). 토큰 값은 say 로 내보내지 않는다."""
+    if not client_id or not client_secret:
+        raise AuthError("YOUTUBE_CLIENT_ID 와 YOUTUBE_CLIENT_SECRET 이 필요합니다 (Google Cloud 콘솔 → 사용자 인증 정보 → 데스크톱 앱 OAuth 클라이언트)")
+    _Handler.result = {}
     server = http.server.HTTPServer(("127.0.0.1", 0), _Handler)       # 빈 포트 자동 선택 (루프백)
     redirect = f"http://127.0.0.1:{server.server_port}"
     verifier = secrets.token_urlsafe(64)
     challenge = base64.urlsafe_b64encode(hashlib.sha256(verifier.encode()).digest()).rstrip(b"=").decode()
     state = secrets.token_urlsafe(16)
     url = AUTH_URL + "?" + urllib.parse.urlencode({
-        "client_id": a.client_id, "redirect_uri": redirect, "response_type": "code", "scope": " ".join(SCOPES),
+        "client_id": client_id, "redirect_uri": redirect, "response_type": "code", "scope": " ".join(SCOPES),
         "access_type": "offline", "prompt": "consent", "code_challenge": challenge, "code_challenge_method": "S256",
         "state": state})
-    print("[AUTH] 브라우저에서 유튜브 채널의 구글 계정으로 로그인하고 허용하세요.")
-    print(f"[AUTH] 브라우저가 열리지 않으면 이 주소를 직접 여세요:\n{url}\n")
+    say("[AUTH] 브라우저에서 유튜브 채널의 구글 계정으로 로그인하고 허용하세요 (권한 체크 칸은 모두 체크).")
+    say(f"[AUTH] 브라우저가 열리지 않으면 이 주소를 직접 여세요: {url}")
     threading.Thread(target=server.handle_request, daemon=True).start()
-    webbrowser.open(url)
-    try:
-        while not _Handler.result:
-            threading.Event().wait(0.3)
-    except KeyboardInterrupt:
-        sys.exit("[AUTH] 취소했습니다.")
+    if open_browser:
+        webbrowser.open(url)
+    waited = 0.0
+    while not _Handler.result:
+        threading.Event().wait(0.3)
+        waited += 0.3
+        if waited > timeout:
+            server.server_close()
+            raise AuthError(f"{timeout // 60}분 동안 허용하지 않아 멈췄습니다 → 다시 시도하세요")
+    server.server_close()
     r = _Handler.result
     if r.get("state") != state or "code" not in r:
-        sys.exit(f"[AUTH] ❌ 인증 실패: {r.get('error', 'state 불일치')} → 다시 실행하세요")
-
-    body = urllib.parse.urlencode({"code": r["code"], "client_id": a.client_id, "client_secret": a.client_secret,
+        raise AuthError(f"인증 실패: {r.get('error', 'state 불일치')} → 다시 시도하세요")
+    body = urllib.parse.urlencode({"code": r["code"], "client_id": client_id, "client_secret": client_secret,
                                    "redirect_uri": redirect, "grant_type": "authorization_code",
                                    "code_verifier": verifier}).encode()
     try:
         with urllib.request.urlopen(urllib.request.Request(TOKEN_URL, data=body), timeout=30) as resp:
             tok = json.load(resp)
     except urllib.error.HTTPError as e:
-        sys.exit(f"[AUTH] ❌ 토큰 교환 실패 ({e.code}): {e.read().decode(errors='replace')[:300]}")
+        raise AuthError(f"토큰 교환 실패 ({e.code}): {e.read().decode(errors='replace')[:300]}") from None
     if "refresh_token" not in tok:
-        sys.exit("[AUTH] ❌ 리프레시 토큰이 오지 않았습니다 → https://myaccount.google.com/permissions 에서 이 앱 권한을 지우고 다시 실행")
-
+        raise AuthError("리프레시 토큰이 오지 않았습니다 → https://myaccount.google.com/permissions 에서 이 앱 권한을 지우고 다시 시도")
     granted = set((tok.get("scope") or "").split())
     missing = [s.rsplit("/", 1)[-1] for s in SCOPES if s not in granted]
+    return tok["refresh_token"], missing
+
+
+def main():
+    ap = argparse.ArgumentParser(description="유튜브 업로드용 리프레시 토큰 발급 (내 PC에서 한 번)")
+    ap.add_argument("--client-id", default=os.environ.get("YOUTUBE_CLIENT_ID", ""))
+    ap.add_argument("--client-secret", default=os.environ.get("YOUTUBE_CLIENT_SECRET", ""))
+    ap.add_argument("--save-env", default=None, help="이 .env 파일에 YOUTUBE_CLIENT_ID·SECRET·REFRESH_TOKEN 을 저장 (있던 줄은 바꿈, 다른 줄은 그대로)")
+    a = ap.parse_args()
+    try:
+        refresh, missing = issue(a.client_id, a.client_secret)
+    except AuthError as e:
+        sys.exit(f"[AUTH] ❌ {e}")
+    except KeyboardInterrupt:
+        sys.exit("[AUTH] 취소했습니다.")
     if missing:   # 동의 화면에서 체크를 뺀 권한 — 그 기능만 403 이 난다
         print(f"[AUTH] ⚠️ 허용되지 않은 권한: {', '.join(missing)} → 그 기능은 안 됩니다 (자막 업로드: youtube.force-ssl, "
               "통계 상세 분석: yt-analytics.readonly, 영상 원본 Drive: drive). 모두 쓰려면 다시 실행해서 체크 칸을 모두 체크하세요.\n")
     if a.save_env:
         save_env(a.save_env, {"YOUTUBE_CLIENT_ID": a.client_id, "YOUTUBE_CLIENT_SECRET": a.client_secret,
-                              "YOUTUBE_REFRESH_TOKEN": tok["refresh_token"]})
+                              "YOUTUBE_REFRESH_TOKEN": refresh})
         print(f"[AUTH] 💾 {a.save_env} 에 저장했습니다 (PC 업로더가 씀). 클라우드 환경에도 같은 값을 넣어야 Claude 가 Drive 에 영상을 올립니다.\n")
     print("[AUTH] ✅ 발급 완료. 아래 3개를 Claude Code 클라우드 환경 설정(Network secrets 또는 환경 변수)에 넣으세요.")
     print("[AUTH]    채팅창에 붙여 넣지 말고, 이 터미널 창을 닫으면 다시 볼 수 없으니 바로 옮기세요.\n")
     print(f"YOUTUBE_CLIENT_ID={a.client_id}")
     print(f"YOUTUBE_CLIENT_SECRET={a.client_secret}")
-    print(f"YOUTUBE_REFRESH_TOKEN={tok['refresh_token']}")
+    print(f"YOUTUBE_REFRESH_TOKEN={refresh}")
 
 
 if __name__ == "__main__":

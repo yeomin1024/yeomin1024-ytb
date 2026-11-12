@@ -1,0 +1,23 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-12T07:51:55+00:00",
+ "file": "final_1080p.mp4",
+ "size": 181048398,
+ "sha256": "9455870ceecbc55a32170749060264ad1f479b28155cdedd324806496939e6e8",
+ "md5": "54685241f751fddf80c64b86c58271df",
+ "branch": "uploads",
+ "dir": "stock/bandeung-maesu-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "49531b4df861c86141288ac20d285c6455b21c3f095d5db3c659e480646a75f7"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 86676558,
+   "sha256": "7d198be1e4785c91537c9bba31b0f484e9c2adb5e9659f1e7dab8816e8d62182"
+  }
+ ],
+ "duration_s": 555.37
+}

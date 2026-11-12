@@ -1,0 +1,28 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-12T07:51:53+00:00",
+ "file": "final_1080p.mp4",
+ "size": 266628923,
+ "sha256": "d97bf9fb25c63d0f4e24d4ab2aa4a9c49f101dbc37efcffff2ac02c41f6bf4f5",
+ "md5": "d0fdcf8a6039a4f10e39eab8f3770f31",
+ "branch": "uploads",
+ "dir": "stock/manspi-jeonmang-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "4542b93197ba801dfec1ace5d0e920c304afd8cd5599389f2bd27293c5be285d"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 94371840,
+   "sha256": "30a83499dfa8de99edc47e15b6d95ced0ccedc5fa1c9d34d9eec9977ea53cc85"
+  },
+  {
+   "name": "final_1080p.mp4.part03",
+   "size": 77885243,
+   "sha256": "05d8c3d752e433b8a0178214c34b2ad269f81276ddd9d2c56d0f87b9d4249f4c"
+  }
+ ],
+ "duration_s": 476.23
+}

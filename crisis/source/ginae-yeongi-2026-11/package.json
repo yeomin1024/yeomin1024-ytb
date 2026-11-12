@@ -1,0 +1,19 @@
+{
+ "id": "ginae-yeongi-2026-11",
+ "persona": "P2",
+ "title": "비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로",
+ "thumb_main": [
+  "기내에 연기가 찼다",
+  "당신이라면 짐 챙긴다?"
+ ],
+ "thumb_sub": "90초",
+ "s_title": "",
+ "s_thumb_main": [],
+ "s_thumb_sub": "",
+ "variant": "A-A",
+ "experiments": [
+  "A-B",
+  "A-C"
+ ],
+ "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)"
+}

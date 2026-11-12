@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "ellibeiteo-gathim-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "951f837d62a66132",
+     "reviewers": [
+      "T1-P1",
+      "T1-반론"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_1.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_title_1",
+     "ours_idx": 10,
+     "text": "제목: 엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야\n썸네일 문구: 엘리베이터 멈추면 / 문부터 열지 마세요\n보조 문구: 비상벨 먼저",
+     "at": "2026-11-12T10:57:47Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "18db3e85e90a9c4e",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_1.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T10:57:47Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "18db3e85e90a9c4e",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_1.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T10:57:47Z"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "id": "pon-kkaejyeosseo-2026-11",
+ "persona": "P4",
+ "title": "'폰 깨졌어' 자녀 사칭 문자, 답장 말고 원래 번호로 전화",
+ "thumb_main": [
+  "답장하지 마세요",
+  "원래 번호로 전화"
+ ],
+ "thumb_sub": "3억 원 잃은 엄마",
+ "s_title": "",
+ "s_thumb_main": [],
+ "s_thumb_sub": "",
+ "variant": "P-B",
+ "experiments": [
+  "P-A",
+  "P-C"
+ ],
+ "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)"
+}

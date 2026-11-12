@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "pon-kkaejyeosseo-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "320662098ff166af",
+     "reviewers": [
+      "T1-P4",
+      "T1-반론"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_title_1.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_title_1",
+     "ours_idx": 4,
+     "text": "제목: '폰 깨졌어' 자녀 사칭 문자, 답장 말고 원래 번호로 전화\n썸네일 문구: 답장하지 마세요 / 원래 번호로 전화\n보조 문구: 3억 원 잃은 엄마",
+     "at": "2026-11-12T10:57:47Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "884a34931dedd8d0",
+     "reviewers": [
+      "E1-P4"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_1.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T10:57:47Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "884a34931dedd8d0",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_1.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T10:57:47Z"
+    }
+   }
+  }
+ }
+}

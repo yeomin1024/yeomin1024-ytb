@@ -1,0 +1,19 @@
+{
+ "id": "ellibeiteo-gathim-2026-11",
+ "persona": "P1",
+ "title": "엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야",
+ "thumb_main": [
+  "엘리베이터 멈추면",
+  "문부터 열지 마세요"
+ ],
+ "thumb_sub": "비상벨 먼저",
+ "s_title": "",
+ "s_thumb_main": [],
+ "s_thumb_sub": "",
+ "variant": "E-B",
+ "experiments": [
+  "E-A",
+  "E-C"
+ ],
+ "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)"
+}

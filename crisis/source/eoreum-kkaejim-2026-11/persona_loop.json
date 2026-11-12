@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "eoreum-kkaejim-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "a94fdbd31596d2a2",
+     "reviewers": [
+      "T1-P3",
+      "T1-반론"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_title_1.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_title_1",
+     "ours_idx": 7,
+     "text": "제목: 얼음물에 빠졌을 때 허우적대면 위험, 왔던 쪽으로 돌아라\n썸네일 문구: 얼음이 깨졌다 / 첫 1분, 당신이라면?\n보조 문구: ① 기슭 ② 왔던 쪽 ③ 올라서기",
+     "at": "2026-11-12T10:57:47Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "fdc60ef95d0653e7",
+     "reviewers": [
+      "E1-P3"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_1.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T10:57:47Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "fdc60ef95d0653e7",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_1.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T10:57:47Z"
+    }
+   }
+  }
+ }
+}

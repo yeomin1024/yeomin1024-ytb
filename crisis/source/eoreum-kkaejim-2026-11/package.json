@@ -1,0 +1,19 @@
+{
+ "id": "eoreum-kkaejim-2026-11",
+ "persona": "P3",
+ "title": "얼음물에 빠졌을 때 허우적대면 위험, 왔던 쪽으로 돌아라",
+ "thumb_main": [
+  "얼음이 깨졌다",
+  "첫 1분, 당신이라면?"
+ ],
+ "thumb_sub": "① 기슭 ② 왔던 쪽 ③ 올라서기",
+ "s_title": "",
+ "s_thumb_main": [],
+ "s_thumb_sub": "",
+ "variant": "I-A",
+ "experiments": [
+  "I-B",
+  "I-C"
+ ],
+ "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)"
+}

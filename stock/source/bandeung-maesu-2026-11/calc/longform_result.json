@@ -1,6 +1,6 @@
 {
- "version": "v1.2",
- "made": "2026-11-08T12:43:57Z",
+ "version": "v1.3",
+ "made": "2026-11-10T14:08:49Z",
  "source": {
   "spy": "stock/topics/precheck/data/SPY.csv",
   "irx": "stock/source/timing-test-2026-10/calc/irx_daily.csv",
@@ -304,20 +304,134 @@
     "close_vs_ma_on_decide": -0.2
    }
   ],
-  "sensitivity": {
-   "sell0.3_lad5/10/15_wait0": 6,
-   "sell0.3_lad5/10/15_wait1": 6,
-   "sell0.3_lad10/20/30_wait0": 6,
-   "sell0.3_lad10/20/30_wait1": 6,
-   "sell0.3_lad20/30/40_wait0": 6,
-   "sell0.3_lad20/30/40_wait1": 6,
-   "sell0.5_lad5/10/15_wait0": 5,
-   "sell0.5_lad5/10/15_wait1": 5,
-   "sell0.5_lad10/20/30_wait0": 5,
-   "sell0.5_lad10/20/30_wait1": 5,
-   "sell0.5_lad20/30/40_wait0": 4,
-   "sell0.5_lad20/30/40_wait1": 4
-  },
+  "sensitivity": [
+   {
+    "win": 5,
+    "ma": 20,
+    "fut": 63,
+    "hits": 12,
+    "actual_fake": 12
+   },
+   {
+    "win": 5,
+    "ma": 20,
+    "fut": 126,
+    "hits": 15,
+    "actual_fake": 15
+   },
+   {
+    "win": 5,
+    "ma": 20,
+    "fut": 252,
+    "hits": 16,
+    "actual_fake": 16
+   },
+   {
+    "win": 5,
+    "ma": 50,
+    "fut": 63,
+    "hits": 13,
+    "actual_fake": 12
+   },
+   {
+    "win": 5,
+    "ma": 50,
+    "fut": 126,
+    "hits": 16,
+    "actual_fake": 15
+   },
+   {
+    "win": 5,
+    "ma": 50,
+    "fut": 252,
+    "hits": 17,
+    "actual_fake": 16
+   },
+   {
+    "win": 10,
+    "ma": 20,
+    "fut": 63,
+    "hits": 14,
+    "actual_fake": 12
+   },
+   {
+    "win": 10,
+    "ma": 20,
+    "fut": 126,
+    "hits": 13,
+    "actual_fake": 15
+   },
+   {
+    "win": 10,
+    "ma": 20,
+    "fut": 252,
+    "hits": 12,
+    "actual_fake": 16
+   },
+   {
+    "win": 10,
+    "ma": 50,
+    "fut": 63,
+    "hits": 14,
+    "actual_fake": 12
+   },
+   {
+    "win": 10,
+    "ma": 50,
+    "fut": 126,
+    "hits": 15,
+    "actual_fake": 15
+   },
+   {
+    "win": 10,
+    "ma": 50,
+    "fut": 252,
+    "hits": 16,
+    "actual_fake": 16
+   },
+   {
+    "win": 20,
+    "ma": 20,
+    "fut": 63,
+    "hits": 13,
+    "actual_fake": 12
+   },
+   {
+    "win": 20,
+    "ma": 20,
+    "fut": 126,
+    "hits": 10,
+    "actual_fake": 15
+   },
+   {
+    "win": 20,
+    "ma": 20,
+    "fut": 252,
+    "hits": 9,
+    "actual_fake": 16
+   },
+   {
+    "win": 20,
+    "ma": 50,
+    "fut": 63,
+    "hits": 14,
+    "actual_fake": 13
+   },
+   {
+    "win": 20,
+    "ma": 50,
+    "fut": 126,
+    "hits": 14,
+    "actual_fake": 15
+   },
+   {
+    "win": 20,
+    "ma": 50,
+    "fut": 252,
+    "hits": 15,
+    "actual_fake": 16
+   }
+  ],
   "others": {
    "rsi30": {
     "hits": 10,
@@ -1446,6 +1560,7 @@
      "mdd": -24.9
     }
    ],
+   "B_new_sold": 12,
    "A_new_per": {
     "2000-04-17": 6.1,
     "2000-10-13": 4.3,
@@ -1692,6 +1807,7 @@
      "mdd": -20.3
     }
    ],
+   "B_new_sold": 13,
    "A_new_per": {
     "2000-04-17": -2.3,
     "2000-10-13": 15.4,
@@ -1843,6 +1959,69 @@
    "wait_mean_higher": 14,
    "n": 108,
    "mean_diff_median_pp": -1.1
+  }
+ },
+ "final_v5": {
+  "intro": {
+   "date": "2022-05-04",
+   "rebound_day": 3.0,
+   "low": "2022-06-16",
+   "more_drop": -14.5,
+   "loss_won": -1450000,
+   "weeks": 6.1
+  },
+  "signal": {
+   "n": 20,
+   "hits": 13,
+   "actual_fake": 15,
+   "always_fake_hits": 15,
+   "real_signals": 8,
+   "real_signals_then_fake": 5,
+   "fake_signals": 12,
+   "fake_signals_then_real": 2,
+   "sens_combos": 18,
+   "sens_hits_min": 9,
+   "sens_hits_max": 17,
+   "sens_all_correct": 0,
+   "sens_beats_always_fake": 7,
+   "others": {
+    "rsi30": 10,
+    "ma50": 14,
+    "ma200": 12
+   }
+  },
+  "cash_plan": {
+   "rule": {
+    "a0": 0.05,
+    "drop": 0.1,
+    "growth": 1.0
+   },
+   "loss20_plan_12m": 1,
+   "loss20_lump_12m": 8,
+   "median_plan_12m": 5.2,
+   "median_lump_12m": 13.7,
+   "plan_loss20_events": [
+    {
+     "rebound": "2008-03-11",
+     "mdd": -24.9
+    }
+   ],
+   "plan_worst_mdd": -24.9
+  },
+  "stuck": {
+   "recovered": 20,
+   "within_1y": 12,
+   "max_years": 6.0,
+   "max_event": "2000-04-17",
+   "hold_loss20_12m": 5,
+   "half_loss20_12m": 2,
+   "half_sold_12m": 12,
+   "n_36m": 19,
+   "hold_loss20_36m": 7,
+   "half_loss20_36m": 4,
+   "hold_median_36m": 36.6,
+   "half_median_36m": 29.1,
+   "half_sold_36m": 13
   }
  }
 }

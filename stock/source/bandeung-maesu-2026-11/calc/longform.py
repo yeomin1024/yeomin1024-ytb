@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-08 — 자주 오는 하락(−10%) 기준 · 바로 매수 vs 다음 반등 날 (type_v3) — 사용자 지시 "평단보다 20% 떨어진거는 너무 드문 거 아니야? 좀 빈번하게 일어나는 폭락으로 생각하고 다시 설정해 그리고 다음 반등에서 사는게 맞는거야니야?".
+# VERSION: v1.3 — 2026-11-10 — ① 버그: v1.1 에서 더한 유형 2 민감도 변수 이름(sens)이 판별법 민감도(sens)를 덮어써 result 의 signal.sensitivity 에 다른 표가 들어가 있었음 → bsens 로 나눔
+#   (로그 [SENS] 숫자는 맞았고 대본·설명란에 쓴 숫자도 로그 것이라 바뀌는 숫자 없음) ② 대본 v5 에 나오는 숫자를 한곳에 모은 final_v5 + 서로 맞는지 검사 ([FINAL]) ③ 절반 매도가 실제로 실행된 사건 수(B_new_sold)
+#   — 사용자 지시 2026-11-10 "진짜,가짜반등 대본도 고쳐보고 제목 등 영상 만들 때 필요한거 생성해줘".
+# (v1.2 — 2026-11-08 — 자주 오는 하락(−10%) 기준 · 바로 매수 vs 다음 반등 날 (type_v3) — 사용자 지시 "평단보다 20% 떨어진거는 너무 드문 거 아니야? 좀 빈번하게 일어나는 폭락으로 생각하고 다시 설정해 그리고 다음 반등에서 사는게 맞는거야니야?".
 # (v1.1 — 2026-11-08 — 사용자 대본 수정판의 유형 둘 시험 (plan_run · type_v2) — 사용자 지시 "아래 느낌으로 수정했는데 보완해서 다시 알려줘".
 # (v1.0 — 2026-11-08 — 롱폼 「바닥인 줄 알고 샀는데 — 진짜 반등 · 가짜 반등」 계산 (사용자 대본 틀 2026-11-08 "아래 대본 틀을 짜봤는데 이런 느낌으로 롱폼 대본 만들어봐").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-10 | signal.sensitivity 덮어쓰기 버그 고침(bsens) · final_v5(대본 v5 숫자 모음 + 일관성 검사) · B_new_sold | main |
 # | v1.2 | 2026-11-08 | type_v3: 빈도(반등 다음 날 값보다 5·7.5·10·15·20% 더 하락한 사건 수) · 유형 1 새 규칙(첫 5% · 평단 −10%마다 5%씩 · 최고가 되찾으면 나머지) · 유형 2 새 규칙(평단 −10% 아래 → 절반 매도 → 판 값 −10·20·30% 마다 1/3, 바로 매수) · 바로 vs 다음 반등 날 격자 108 · 유형 2 매도 기준 10·15·20% 민감도 | main(type_v3) — v1.0·v1.1 출력 그대로 |
 # | v1.1 | 2026-11-08 | 사용자 수정판 유형 1·2 시험: A(현금 많음) 대가 규칙 · 반등할 때마다 일정 비율(사용자 안) · 다음 반등 날 실행(사용자 안) / B(주식 80 · 현금 20) 보유 · 모두 매도 · 절반 매도 → 판 값 −10·20·30% 뒤 반등 날 현금 1/3씩 → 최고가 되찾으면 나머지(사용자 안 + quick_board 규칙 6) · 민감도 | plan_run · main(type_v2) — v1.0 출력은 그대로 |
 # | v1.0 | 2026-11-08 | 최초 (도입 = 2022-05-04 반등 날 종가에 1천만 원 · '1년 뒤' = 12개월(calc.py end_of 와 같음) · 사례마다 2주 안 20일선 대비 가장 높은 종가) — 흔한 판별법(반등 뒤 2주 안 20일선 + 거래량) 적중 · 다른 판별법·기간 민감도 · 사례 셋(2020-03 · 2022-06 · 2025-04) · 버핏 2008-10 · 유형 셋(물림·절반·현금) | 전부 (calc.py v2.0 의 load·events·Sim·master_next·ant_run 을 그대로 씀 — 쇼츠 숫자와 같게) |
@@ -41,7 +45,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import calc as C  # noqa: E402  (calc.py v2.0 — 쇼츠와 같은 사건·같은 시뮬레이션)
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 ROOT = C.ROOT
 OHLCV_CSV = HERE / "spy_ohlcv.csv"     # SPY 거래량 — Yahoo chart API v8, 2026-11-08 받음 (가격은 SPY.csv adjclose 를 씀)
 OUT = HERE / "longform_result.json"
@@ -376,15 +380,15 @@ def main() -> None:
         hs = B["half_sell"]
         tv[k]["B_half_detail"] = {"sold": sum(1 for x in hs if x["sold"]), "sold_then_peak": sum(1 for x in hs if x["sold"] and x["all_in"]),
                                   "sold_then_rebuy": sum(1 for x in hs if x["rebuys"])}
-        sens = {}
+        bsens = {}                                                      # v1.3: sens → bsens (판별법 민감도 sens 를 덮어쓰던 버그)
         for frac, lad, wr in itertools.product((0.3, 0.5), ([0.05, 0.10, 0.15], [0.10, 0.20, 0.30], [0.20, 0.30, 0.40]), (False, True)):
-            sens[f"sell{frac}_lad{'/'.join(str(int(x * 100)) for x in lad)}_wait{int(wr)}"] = summ(run(w0=0.8, partial=(0.20, frac, lad), wait_reb=wr, peak_all=True))["loss20"]
-        tv[k]["B_sens_loss20"] = sens
+            bsens[f"sell{frac}_lad{'/'.join(str(int(x * 100)) for x in lad)}_wait{int(wr)}"] = summ(run(w0=0.8, partial=(0.20, frac, lad), wait_reb=wr, peak_all=True))["loss20"]
+        tv[k]["B_sens_loss20"] = bsens
         for grp in ("A", "B"):
             for n, sm in tv[k][grp].items():
                 log("TYPE_V2", months=months, group=grp, who=n, **sm)
         log("TYPE_V2", months=months, group="B", who="half_detail", **tv[k]["B_half_detail"])
-        log("TYPE_V2", months=months, group="B", who="sens_loss20", min=min(sens.values()), max=max(sens.values()), detail=json.dumps(sens))
+        log("TYPE_V2", months=months, group="B", who="sens_loss20", min=min(bsens.values()), max=max(bsens.values()), detail=json.dumps(bsens))
 
     # 6. v1.2 — 자주 오는 하락 기준 (사용자 지시) · 바로 vs 다음 반등 날
     A3 = {"a0": 0.05, "drop": 0.10, "growth": 1.0}                 # 첫 5% · 평단 −10% 마다 처음 돈의 5% 씩 · 최고가 되찾으면 나머지
@@ -404,6 +408,7 @@ def main() -> None:
         t3v[k] = {"A_new": st(rA), "A_new_wait": st(rAw), "A_old_master_plus": st(run(w0=a0, step=MAS, peak_all=True)), "A_each_10": st(run(w0=0.10, each=0.10)),
                   "A_lump": st(run(w0=1.0)), "B_new": st(rB), "B_new_wait": st(rBw), "B_hold": st(run(w0=0.8)), "B_sell_all": st(run(w0=0.8, partial=(0.10, 1.0, [])))}
         t3v[k]["A_new_loss20_events"] = [{"rebound": spy.index[e].strftime("%Y-%m-%d"), "mdd": round(x["mdd"] * 100, 1)} for e, x in zip(ok, rA) if x["mdd"] < -C.LOSS_L]
+        t3v[k]["B_new_sold"] = sum(1 for x in rB if x.get("sold"))          # v1.3: 평단 −10% 에 닿아 절반 매도가 실제로 실행된 사건 수
         t3v[k]["A_new_per"] = {spy.index[e].strftime("%Y-%m-%d"): round(x["ret"] * 100, 1) for e, x in zip(ok, rA)}
         t3v[k]["B_trigger_sens"] = {f"trig{int(tg * 100)}_lad{'/'.join(str(int(x * 100)) for x in ld)}_wait{int(wr)}": st(run(w0=0.8, partial=(tg, 0.5, ld), wait_reb=wr, peak_all=True))
                                     for tg, ld, wr in itertools.product((0.10, 0.15, 0.20), ([0.05, 0.10, 0.15], [0.10, 0.20, 0.30]), (False, True))}
@@ -425,6 +430,34 @@ def main() -> None:
     t3v["wait_vs_now_grid"] = cmp_
     log("TYPE_V3", who="wait_vs_now_grid", **cmp_)
 
+    # 7. v1.3 — 대본 v5 에 나오는 숫자를 한곳에 (대본 ↔ 계산 대조용) + 서로 맞는지 검사
+    conf = main_rule["confusion"]
+    a12, b12, b36 = t3v["12m"], t3v["12m"], t3v["36m"]
+    fin = {"intro": {"date": intro["rebound"], "rebound_day": intro["rebound_day"], "low": intro["low"], "more_drop": intro["more_drop"], "loss_won": intro["loss_won"],
+                     "weeks": round((pd.Timestamp(intro["low"]) - pd.Timestamp(intro["rebound"])).days / 7, 1)},
+           "signal": {"n": len(J), "hits": hits, "actual_fake": fakes, "always_fake_hits": fakes, "real_signals": conf["real->real"] + conf["real->fake"],
+                      "real_signals_then_fake": conf["real->fake"], "fake_signals": conf["fake->fake"] + conf["fake->real"], "fake_signals_then_real": conf["fake->real"],
+                      "sens_combos": len(sens), "sens_hits_min": min(hr), "sens_hits_max": max(hr), "sens_all_correct": sum(1 for h in hr if h == len(J)),
+                      "sens_beats_always_fake": sum(1 for x in sens if x["hits"] > x["actual_fake"]), "others": {k_: v_["hits"] for k_, v_ in others.items()}},
+           "cash_plan": {"rule": A3, "loss20_plan_12m": a12["A_new"]["loss20"], "loss20_lump_12m": a12["A_lump"]["loss20"], "median_plan_12m": a12["A_new"]["median_ret"],
+                         "median_lump_12m": a12["A_lump"]["median_ret"], "plan_loss20_events": a12["A_new_loss20_events"], "plan_worst_mdd": a12["A_new"]["worst_mdd"]},
+           "stuck": {"recovered": len(t1["recovery"]["events"]) - t1["recovery"]["not_recovered"], "within_1y": t1["recovery"]["within_1y"], "max_years": t1["recovery"]["max_years"],
+                     "max_event": t1["recovery"]["max_event"], "hold_loss20_12m": b12["B_hold"]["loss20"], "half_loss20_12m": b12["B_new"]["loss20"], "half_sold_12m": b12["B_new_sold"],
+                     "n_36m": b36["B_hold"]["n"], "hold_loss20_36m": b36["B_hold"]["loss20"], "half_loss20_36m": b36["B_new"]["loss20"],
+                     "hold_median_36m": b36["B_hold"]["median_ret"], "half_median_36m": b36["B_new"]["median_ret"], "half_sold_36m": b36["B_new_sold"]}}
+    sg = fin["signal"]
+    checks = {"hits=맞힌 진짜+맞힌 가짜": sg["hits"] == conf["real->real"] + conf["fake->fake"], "신호 합=사건 수": sg["real_signals"] + sg["fake_signals"] == sg["n"],
+              "실제 가짜=진짜 신호 뒤 가짜+가짜 신호 뒤 가짜": sg["actual_fake"] == conf["real->fake"] + conf["fake->fake"],
+              "도입 손실=1천만 원×더 하락": abs(intro["loss_won"] - round(10_000_000 * intro["more_drop"] / 100, -4)) <= 10_000,
+              "36개월 표본 < 12개월 표본": fin["stuck"]["n_36m"] < len(J)}
+    for name_, ok_ in checks.items():
+        if not ok_:
+            log("FINAL", check=name_, result="FAIL", next="대본 v5 숫자를 쓰기 전에 이 검사를 먼저 고칠 것")
+            raise SystemExit(f"final_v5 검사 실패: {name_}")
+    for part, v_ in fin.items():
+        log("FINAL", part=part, **{k_: (json.dumps(x_, ensure_ascii=False) if isinstance(x_, (dict, list)) else x_) for k_, x_ in v_.items()})
+    log("FINAL", checks=len(checks), result="ok")
+
     res = {"version": VERSION, "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
            "source": {"spy": str(C.SPY_CSV.relative_to(ROOT)), "irx": str(C.IRX_CSV.relative_to(ROOT)), "volume": str(OHLCV_CSV.relative_to(ROOT))},
            "rules": {"signal": {"win_days": SIG_WIN, "ma": MA_N, "vol_avg_days": VOL_N, "bottom_days": BOTTOM_N, "fut_days": FUT_N},
@@ -434,7 +467,7 @@ def main() -> None:
            "type_v2": {"rules": {"A_master": {"a0": a0, "drop": dd_, "growth": g, "peak_all": True}, "A_each": "반등 날마다 처음 돈의 10%·20%",
                                  "B_start": "주식 80% · 현금 20% (반등 다음 날)", "B_half_sell": {"trigger_below_avg": 0.20, "sell": 0.5, "rebuy_below_sell_price": [0.10, 0.20, 0.30],
                                  "rebuy_size": "판 뒤 현금 1/3씩(마지막은 남은 돈)", "exec": "조건 뒤 반등 날", "peak_all": True}}, **tv},
-           "type_v3": t3v}
+           "type_v3": t3v, "final_v5": fin}
     OUT.write_text(json.dumps(res, ensure_ascii=False, indent=1, default=str), encoding="utf-8")
     log("DONE", out=OUT.relative_to(ROOT), sec=round(time.perf_counter() - t0, 2))
 

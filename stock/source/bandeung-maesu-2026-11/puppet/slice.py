@@ -33,8 +33,14 @@ spec.loader.exec_module(ms)
 SHEETS = {f"V{i}": ("V", "walk" if i == 25 else "feet", []) for i in range(18, 27)}   # V18~V26
 PROPS_B = {"PROPS-B": (4, 1), "BLDG": (4, 1), "TRAIN": (1, 1)}
 BOTTOM = {"BLDG"}                                    # 밑변 기준 (땅에 선 건물)
-# 배경 앞 물건 (배경 1536×864 좌표 사각형) — 배경 그림이 오면 재서 채움
-FG = {}
+# 배경 앞 물건 (배경 1536×864 좌표) — 다각형 안의 있는 픽셀만 (다각형 밖은 투명): 이름 → (배경 파일, [다각형, …])
+#   보관실: 책상 윗면·앞판(y 700~) + 왼쪽·오른쪽 책 더미 (그림에서 잰 윤곽 — 인물이 책상 뒤에 서면 책이 몸 앞에)
+FG = {"FG-ARCHIVE": ("BG-ARCHIVE.jpg", [
+    [(0, 700), (1536, 700), (1536, 864), (0, 864)],
+    [(0, 648), (20, 645), (150, 633), (250, 640), (263, 655), (262, 692), (290, 698), (300, 712), (300, 790), (0, 790)],
+    [(1236, 702), (1258, 690), (1260, 650), (1290, 637), (1370, 629), (1440, 634), (1525, 646), (1536, 646), (1536, 790), (1236, 790)]])}
+# 좌우를 뒤집은 원화를 하나 더 (V23 1·2번 칸이 같은 쪽 손이라 — 왼손 ↔ 오른손 고민이 보이게): 원래 → 새 이름
+MIRROR_COPY = {"V23-1": "V23-4"}
 
 
 def log(stage: str, **kv):
@@ -51,17 +57,38 @@ def ref_stand_v() -> float:
 
 
 def fg(man: dict) -> None:
-    for key, (src, (x0, y0, x1, y1)) in FG.items():
+    from PIL import ImageDraw
+    for key, (src, polys) in FG.items():
         p = HERE / src
         if not p.exists():
             log("FG", key=key, skip=f"{src} 없음")
             continue
         im = Image.open(p).convert("RGBA")
+        mask = Image.new("L", im.size, 0)
+        dr = ImageDraw.Draw(mask)
+        for poly in polys:
+            dr.polygon(poly, fill=255)
+        im.putalpha(mask)
+        x0, y0 = min(x for poly in polys for x, _ in poly), min(y for poly in polys for _, y in poly)
+        x1, y1 = max(x for poly in polys for x, _ in poly), max(y for poly in polys for _, y in poly)
         crop = im.crop((x0, y0, x1, y1))
         crop.save(OUT / f"{key}.png", optimize=True)
         k = 1920 / im.width
         man[key] = dict(kind="fg", w=crop.width, h=crop.height, x=round(x0 * k), y=round(y0 * k), sw=round(crop.width * k), sh=round(crop.height * k))
-        log("FG", key=key, src=src, box=f"{x0},{y0},{x1},{y1}")
+        log("FG", key=key, src=src, polys=len(polys), box=f"{x0},{y0},{x1},{y1}")
+
+
+def mirror_copies(man: dict) -> None:
+    for a, b in MIRROR_COPY.items():
+        if a not in man:
+            continue
+        im = Image.open(OUT / f"{a}.png").transpose(Image.FLIP_LEFT_RIGHT)
+        ms.save(im.convert("RGBA"), OUT / f"{b}.png")
+        m = dict(man[a]); w = m["w"]
+        m["ax"] = w - m["ax"]; m["mirror"] = True
+        m["pt"] = {k: [w - v[0], v[1], v[2], v[3]] for k, v in m.get("pt", {}).items()}
+        man[b] = m
+        log("MIRROR", src=a, out=b)
 
 
 def main() -> int:
@@ -84,6 +111,7 @@ def main() -> int:
         for k in list(man):
             if k.split("-")[0] in BOTTOM:
                 man[k]["ay"] = man[k]["h"]
+    mirror_copies(man)
     fg(man)
     (OUT / "manifest.json").write_text(json.dumps(man, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     (OUT / "manifest.js").write_text("// 자동 생성 — stock/source/bandeung-maesu-2026-11/puppet/slice.py (장면 파일 video/episodes/bandeung-maesu-2026-11/index.html 이 읽음)\n"

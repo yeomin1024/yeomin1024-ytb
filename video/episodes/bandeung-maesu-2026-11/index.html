@@ -4,7 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>반등 매도할까 버틸까</title>
-<!-- VERSION: v1.0 — 2026-11-12 — 사용자 지시 "오디오 만들었으니 반등 영상 만들어봐" → 화면 방식 "만스피처럼 만화 인물".
+<!-- VERSION: v1.2 — 2026-11-12 — still 을 보고: 크림 게시판 위 밝은 선(흐름·곡선·신호·닷컴)을 진한 남색으로 · 처음 카드 회색 · 판 위 기준 점선 진한 노랑 · 2008.10.13 이름표를 공 꼭대기 밖으로 · 코스피 제목 자리.
+     이전 v1.1 — 2026-11-12 — ChatGPT 그림 17장 받음(main f44ece38~67f76549, 검수 통과 — 글자 없음 · 만스피 V 와 같은 사람): HAVE 다섯 · 영역 표를 그림에서 잼 ·
+       보관실 책상·책 더미 앞 물건(FG-ARCHIVE, 다각형) · 계단 디딤 9개 자리 · 승강장 열차 크기(바퀴 y≈765)와 그래프 판을 앞에 띄움 · V23 왼손 = 뒤집은 V23-4.
+     이전 v1.0 — 2026-11-12 — 사용자 지시 "오디오 만들었으니 반등 영상 만들어봐" → 화면 방식 "만스피처럼 만화 인물".
      대본 stock/source/bandeung-maesu-2026-11/bandeung-maesu-2026-11.txt v7.2 (8장 129문장 · 오디오 9:13 — main 9c4e327e).
      · 엔진 = 만스피 편 장면 v3.1 그대로 (원화 3장 바꿔 끼우기 K.onSeek · 세계 층 카메라 · 앞 물건 겹침 · 영역 표 window.ZONES · zone-check 표시 .ft/.hd/.bd).
      · 인물 = 만스피 편 시청자 V 하나 (같은 기준 키 868 — puppet/slice.py 가 만스피 V-CALM 으로 맞춤). 만스피 조각은 그 폴더에서 바로 읽고(CUT_MANIFEST),
@@ -70,7 +73,7 @@ const D = window.D;
 const PUPA = "../../../stock/source/manspi-jeonmang-2026-11/puppet/", CUTA = PUPA + "cut/";
 const PUPB = "../../../stock/source/bandeung-maesu-2026-11/puppet/", CUTB = PUPB + "cut/";
 // 받은 배경만 HAVE 에 (없으면 단색 바탕 — 최종 렌더 전 다섯 다 있어야 함)
-const HAVE = [];
+const HAVE = ["STORE", "DAWN", "ARCHIVE", "STAIRS", "PLATFORM"];   // v1.1 다섯 장 모두 받음 (main f44ece38~4b05e781)
 const BGF = { STORE: PUPB + "BG-STORE.jpg", DAWN: PUPB + "BG-DAWN.jpg", ARCHIVE: PUPB + "BG-ARCHIVE.jpg", STAIRS: PUPB + "BG-STAIRS.jpg", PLATFORM: PUPB + "BG-PLATFORM.jpg" };
 const PH = { STORE: "linear-gradient(#1B2440 0 62%,#2A2F3C 62%)", DAWN: "linear-gradient(#E9C9C6 0 62%,#8D8F99 62%)", ARCHIVE: "linear-gradient(#3A2A1E 0 78%,#6B4A2E 78%)",
   STAIRS: "linear-gradient(#C9B79C,#9A8A73)", PLATFORM: "linear-gradient(#DDE6EE 0 40%,#22262E 40% 68%,#B9BEC6 68%)" };
@@ -90,6 +93,7 @@ function KEYB(k) {
 const M = k => { const r = KEYB(k); if (!r) throw new Error(`그림 없음: ${k}`); return MAN[r]; };
 const SRC = k => { const r = KEYB(k); return (MANB[r] ? CUTB : CUTA) + r + ".png"; };
 const RD = "#FF4D3D", TL = "#22C7B0", YL = "#FFD400", BL = "#3D7BFF", BLT = "#7FB2FF", RDT = "#FF8A7A";
+const INK = "#2B3038", YLD = "#D99A00";   // v1.1 크림 게시판 위: 선 = 진한 남색 · 기준 점선 = 진한 노랑 (밝은 선이 판에 묻히던 것)
 const B = n => Math.max(0, S(n) - 0.25);
 let seed = 20261112;
 const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
@@ -102,40 +106,42 @@ window.LAYOUT_ALLOW = [["WORLD", "CHAP"]];
 const SPOT = {
   STORE: [1240, 1010, 0.95], STORE_R: [1460, 1010, 0.95],
   ARC: [1655, 1205, 0.98],                  // 보관실 오른쪽 — 책상 뒤(허벅지 아래는 책상에 가림) · 게시판 오른쪽 밖
-  STAIRS_B: [1680, 985, 0.8],               // 계단 아래 오른쪽 마당
+  STAIRS_B: [1660, 990, 0.8],               // 계단 아래 앞쪽 광장 바닥 (계단 끝 마당 y 820 보다 앞)
   STAIRS_S: 0.46,                           // 계단을 오를 때 (작게 — 위 마당 발 y 454 에서도 머리가 화면 안)
-  PLAT: [1400, 1010, 0.95],
+  PLAT: [1400, 1010, 0.95],                // 승강장 (양쪽 기둥 x 16~200 · 1720~1900 사이)
 };
 
-/* ═════════════ 영역 표 v0 (배경 그림의 요청 자리로 정함 — 그림이 오면 재서 고침) ═════════════ */
+/* ═════════════ 영역 표 v1 (받은 배경 그림에서 잰 자리 — 1536×864 원본 × 1.25) ═════════════
+   편의점: 유리창 아래 끝 y≈720 · 왼쪽 탁자 x 0~480 · 오른쪽 화분·가로등 x 1660~ / 보관실: 게시판 안 x 445~1474 · y 120~620 · 책상 윗면 y 875~ · 책 더미 왼쪽 x 0~375 · 오른쪽 x 1545~ /
+   계단: 위 마당 y 450 (x ~560) · 디딤 9개 (폭 101 · 높이 37) · 계단 끝 마당 y 820 (x 1470~) · 앞 광장 바닥 y 880~ / 승강장: 노란 줄 y≈796 · 선로 y 560~760 · 기둥 x 16~200 · 1720~1900 */
 const AIRZ = { poly: [[96, 60], [1824, 60], [1824, 880], [96, 880]] }, FLYZ = { poly: [[-2400, -600], [4400, -600], [4400, 1700], [-2400, 1700]] };
 const STOREZ = {
-  FLOOR: { poly: [[700, 930], [1760, 930], [1760, 1050], [700, 1050]], h: [760, 880] },     // 유리창 앞 빈 보도
+  FLOOR: { poly: [[600, 930], [1600, 930], [1600, 1050], [600, 1050]], h: [760, 880] },     // 유리창 앞 빈 보도 (탁자·화분 사이)
   AIR: AIRZ, FLY: FLYZ,
 };
 window.ZONES = {
   STORE: STOREZ, DAWN: STOREZ,
   ARCHIVE: {
     BEHIND: { poly: [[1450, 1150], [1820, 1150], [1820, 1260], [1450, 1260]], h: [800, 900] },  // 책상 뒤 (게시판 오른쪽)
-    BOARD: { poly: [[440, 120], [1480, 120], [1480, 585], [440, 585]] },                       // 큰 빈 게시판 (기록 그래프)
-    DESK: { poly: [[0, 840], [1920, 840], [1920, 905], [0, 905]] },                            // 책상 윗면 (소품 밑변)
+    BOARD: { poly: [[445, 120], [1474, 120], [1474, 620], [445, 620]] },                       // 큰 빈 게시판 안쪽 (기록 그래프)
+    DESK: { poly: [[380, 870], [1540, 870], [1540, 990], [380, 990]] },                        // 책상 윗면 가운데 (책 더미 사이 — 소품 밑변)
     AIR: AIRZ, FLY: FLYZ,
   },
   STAIRS: {
-    LAND_B: { poly: [[1440, 960], [1900, 960], [1900, 1000], [1440, 1000]], h: [640, 760] },   // 아래 마당
-    STEPS: { poly: [[0, 410], [560, 410], [600, 450], [1480, 960], [1480, 1030], [600, 540], [560, 500], [0, 500]], h: [370, 430] },   // 위 마당 + 계단 디딤 (작은 V)
+    LAND_B: { poly: [[1300, 940], [1880, 940], [1880, 1050], [1300, 1050]], h: [640, 760] },   // 계단 앞 광장 바닥
+    STEPS: { poly: [[0, 425], [560, 425], [1500, 773], [1720, 790], [1720, 850], [1500, 853], [560, 508], [0, 475]], h: [370, 430] },   // 위 마당 + 디딤 + 계단 끝 마당 (작은 V)
     AIR: AIRZ, FLY: FLYZ,
   },
   PLATFORM: {
     FLOOR: { poly: [[280, 930], [1640, 930], [1640, 1050], [280, 1050]], h: [760, 880] },     // 승강장 바닥 (양쪽 기둥 사이)
-    TRACK: { poly: [[-2600, 420], [4600, 420], [4600, 745], [-2600, 745]] },                  // 선로 (열차)
-    WALLP: { poly: [[300, 100], [1620, 100], [1620, 410], [300, 410]] },                       // 맞은편 벽 빈 판 (그래프)
+    TRACK: { poly: [[-3200, 280], [5200, 280], [5200, 790], [-3200, 790]] },                  // 선로 (열차 — 맞은편 벽을 가리며 지나감)
+    WALLP: { poly: [[110, 50], [910, 50], [910, 350], [110, 350]] },                           // 떠 있는 그래프 판 (열차가 벽을 가리므로 앞에 띄움)
     AIR: AIRZ, FLY: FLYZ,
   },
 };
 const BOARD = [470, 140, 980, 420];                 // 게시판 안 그림 칸 [x, y, w, h] (세계 좌표)
-const WALLP = [330, 120, 760, 270];                 // 승강장 벽 판 안 그림 칸 (V 왼쪽 — 인물 뒤에 가리지 않게)
-const STEP = { x0: 538, y0: 454, x1: 1421, y1: 972, n: 10 };   // 계단: 위 마당 끝 → 아래 마당 시작 (디딤 n 개)
+const WALLP = [140, 70, 740, 260];                  // 승강장 앞에 띄운 그래프 판 안 그림 칸 (V 왼쪽 · 열차 위)
+const STEP = { x0: 560, y0: 450, x1: 1470, y1: 820, n: 9, dx: 101, dy: 37 };   // 계단: 위 마당 끝 x0 · 디딤 n 개(폭 dx · 높이 dy) · 끝 마당 y1 (그림에서 잼)
 function Z(n, zone, o) { n.dataset.zone = zone; if (o && o.owner) n.dataset.owner = o.owner; if (o && o.info) n.dataset.info = 1; if (o && o.bottom) n.dataset.anchor = "bottom"; return n; }
 
 /* ─────────── 장면 = 세계 + 층 (만스피 v3.1) ─────────── */
@@ -355,7 +361,13 @@ function chap(W_, title, t) {
 }
 // 게시판 칸 (보관실) — 안쪽 좌표 0..w, 0..h
 function boardBox(W_) { const [x, y, w, h] = BOARD; return Z(K.el(`<div class="box" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;overflow:visible"></div>`, W_.L.back), "BOARD", { info: 1 }); }
-function wallBox(W_) { const [x, y, w, h] = WALLP; return Z(K.el(`<div class="box" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;overflow:visible"></div>`, W_.L.back), "WALLP", { info: 1 }); }
+function wallBox(W_) {                              // v1.1 승강장 앞에 띄운 어두운 판 (열차가 맞은편 벽을 가리므로 벽 판 대신)
+  const [x, y, w, h] = WALLP;
+  const pnl = later(`<div class="box" style="left:${x - 30}px;top:${y - 20}px;width:${w + 60}px;height:${h + 40}px;border-radius:26px;background:rgba(14,22,44,.86);box-shadow:0 14px 30px rgba(0,0,0,.4)"></div>`, W_.L.fly);
+  Z(pnl, "WALLP");
+  const box = Z(K.el(`<div class="box" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;overflow:visible"></div>`, W_.L.fly), "WALLP", { info: 1 });
+  return { box, pnl };
+}
 // 선 그래프: pts=[[i, v]] → path (칸 x,y,w,h · 값 범위 lo..hi)
 function plot(parent, pts, x, y, w, h, lo, hi, color, width, i0, i1) {
   i0 = i0 == null ? pts[0][0] : i0; i1 = i1 == null ? pts[pts.length - 1][0] : i1;
@@ -367,7 +379,8 @@ function plot(parent, pts, x, y, w, h, lo, hi, color, width, i0, i1) {
 const idx = arr => arr.map((p, i) => [i, p[1]]);
 function dateIdx(arr, d) { let k = 0; while (k < arr.length - 1 && arr[k][0] < d) k++; return k; }
 function hline(parent, x, y, w, t, color) {          // 기준선 (노란 점선)
-  const n = later(`<div class="dash" style="left:${x}px;top:${y}px;width:${w}px;${color ? `border-top-color:${color}` : ""}"></div>`, parent);
+  const onBoard = parent.dataset && parent.dataset.zone === "BOARD";
+  const n = later(`<div class="dash" style="left:${x}px;top:${y}px;width:${w}px;${color || onBoard ? `border-top-color:${color || YLD}` : ""}"></div>`, parent);
   if (parent.dataset && parent.dataset.zone) { n.dataset.zone = parent.dataset.zone; n.dataset.info = 1; }
   tl.fromTo(n, { opacity: 0, scaleX: 0, transformOrigin: "0% 50%" }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power2.out", immediateRender: false }, t);
   return n;
@@ -382,7 +395,7 @@ function dot(parent, cx, cy, r, color, t) {
 function cardGrid(parent, n, cols, x, y, cw, ch, gap, t, dur) {
   const cs = [];
   for (let i = 0; i < n; i++) {
-    const c = later(`<div class="mini" style="left:${x + (i % cols) * (cw + gap)}px;top:${y + Math.floor(i / cols) * (ch + gap)}px;width:${cw}px;height:${ch}px;background:#FFFDF6"></div>`, parent);
+    const c = later(`<div class="mini" style="left:${x + (i % cols) * (cw + gap)}px;top:${y + Math.floor(i / cols) * (ch + gap)}px;width:${cw}px;height:${ch}px;background:#C9CED8"></div>`, parent);
     if (parent.dataset && parent.dataset.zone) { c.dataset.zone = parent.dataset.zone; c.dataset.info = 1; }
     cs.push(c);
   }
@@ -404,7 +417,7 @@ function ball(parent, size) {
   return Z(n, "FLY", { owner: "*" });
 }
 // 계단 디딤 k 의 윗면 가운데 (k = 0 위 마당 끝 … n 아래 마당 처음)
-function stepTop(k) { const dx = (STEP.x1 - STEP.x0) / STEP.n, dy = (STEP.y1 - STEP.y0) / STEP.n; return [STEP.x0 + dx * (k + 0.5), STEP.y0 + dy * (k + 1)]; }
+function stepTop(k) { return [STEP.x0 + STEP.dx * (k + 0.5), STEP.y0 + STEP.dy * (k + 1)]; }
 // 공이 디딤에서 디딤으로 튐 (from k0 → k1, 높이 up) — 걸린 시간을 돌려줌
 function bounce(n, t, k0, k1, up, d, size) {
   const p0 = k0 < 0 ? [STEP.x0 - 60, STEP.y0] : stepTop(k0), p1 = k1 >= STEP.n ? [STEP.x1 + 120, STEP.y1] : stepTop(k1);
@@ -474,9 +487,9 @@ shot(B(4), (a, b) => {
   const A = arcV(W_, ["V18-1", "V18-2", "V18-3"]);
   moves(A, [[a, "V18-1", 1, "hold"], [W(4, "셌습니다"), ["V18-1", "V18-2"], 3, "pp"], [W(5, "깼습니다"), "V18-3", 1, "hold"], [S(6), ["V18-1", "V18-2"], 3, "pp"]], b + 0.4);
   breathe(A, a, b);
-  const tlp = plot(bd, idx(D.tl), 20, 40, 940, 250, 30, 700, "#E8ECF4", 7);
+  const tlp = plot(bd, idx(D.tl), 20, 40, 940, 250, 30, 700, INK, 7);
   drawPath(tlp.p, a + 0.3, 1.6);
-  const marks = D.reb.map(([i, f]) => { const v = D.tl[i][1]; const d = dot(bd, tlp.X(i), tlp.Y(v), 9, "#FFFDF6"); return { d, f }; });
+  const marks = D.reb.map(([i, f]) => { const v = D.tl[i][1]; const d = dot(bd, tlp.X(i), tlp.Y(v), 9, "#8A93A6"); return { d, f }; });
   marks.forEach((m, k) => pop(m.d, W(5, "83번") - 0.6 + 1.2 * k / marks.length, 0.2));
   marks.forEach((m, k) => { if (m.f) tl.to(m.d, { backgroundColor: BL, duration: 0.15 }, W(5, "56번") + 0.8 * k / marks.length); else tl.to(m.d, { backgroundColor: RD, duration: 0.15 }, W(5, "56번") + 0.8 * k / marks.length); });
   const n83 = tag(bd, "83", 140, 345, 76, "#FFFDF6"); pop(n83, W(5, "83번"));
@@ -489,8 +502,8 @@ shot(B(4), (a, b) => {
 // 7~8 — 편의점 앞: 30% 넘게 물린 채 급반등 → 매도할까(SELL) 버틸까 — 두 손바닥 사이에서 고민
 shot(B(7), (a, b) => {
   const W_ = store(a, b);
-  const A = V(W_, ["V23-1", "V23-2", "V23-3"], SPOT.STORE);
-  moves(A, [[a, "V23-1", 1, "hold"], [W(8, "팔았어야"), "V23-1", 1, "hold"], [W(8, "버텼어야"), "V23-2", 1, "hold"], [E(8) - 0.5, "V23-3", 1, "hold"]], b + 0.4);
+  const A = V(W_, ["V23-1", "V23-4", "V23-3"], SPOT.STORE);
+  moves(A, [[a, "V23-3", 1, "hold"], [W(8, "팔았어야"), "V23-4", 1, "hold"], [W(8, "버텼어야"), "V23-1", 1, "hold"], [E(8) - 0.5, "V23-3", 1, "hold"]], b + 0.4);
   squash(A, W(8, "버텼어야")); breathe(A, a, b);
   const yrs = [["2000", W(7, "닷컴")], ["2008", W(7, "금융위기")], ["2020", W(7, "코로나")]];
   yrs.forEach(([y, t], i) => { const n = tag(W_.L.fly, y, 330 + i * 230, 210, 58, "#FFFDF6"); pop(n, t); hide(n, S(8)); });
@@ -509,7 +522,7 @@ shot(B(9), (a, b) => {
   breathe(A, a, b);
   const be = hline(bd, 40, 110, 880, a + 0.3);
   const lbl = tag(bd, "본전", 120, 70, 44, YL); pop(lbl, a + 0.5);
-  const path = svgIn(bd, 0, 0, 980, 420, `<path d="M60 120 C200 250 320 300 430 280 S620 200 700 112" fill="none" stroke="#E8ECF4" stroke-width="9" stroke-linecap="round"/>`);
+  const path = svgIn(bd, 0, 0, 980, 420, `<path d="M60 120 C200 250 320 300 430 280 S620 200 700 112" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round"/>`);
   drawPath(path.querySelector("path"), a + 0.4, W(9, "3.7년") - a - 0.2);
   const y37 = tag(bd, "3.7년", 760, 110, 70, YL); pop(y37, W(9, "3.7년"));
   hide([path, y37, lbl, be], S(10) - 0.1);
@@ -544,14 +557,14 @@ shot(B(13), (a, b) => {
   const three = [0, 1, 2].map(i => { const c = pinCard(bd, "", 330 + i * 160, 200, 120, 150, 40, (i - 1) * 3); pinIn(c, W(13, "세 번 중") + i * 0.15); return c; });
   tl.to(three[0], { backgroundColor: BL, duration: 0.2 }, W(13, "세 번 중") + 0.7); tl.to(three[1], { backgroundColor: BL, duration: 0.2 }, W(13, "세 번 중") + 0.9); tl.to(three[2], { backgroundColor: RD, duration: 0.2 }, W(13, "세 번 중") + 1.1);
   hide(three, S(14) - 0.1);
-  const tlp = plot(bd, idx(D.tl), 30, 60, 920, 250, 30, 700, "#E8ECF4", 7);
+  const tlp = plot(bd, idx(D.tl), 30, 60, 920, 250, 30, 700, INK, 7);
   drawPath(tlp.p, S(14), 1.4);
   const y0 = tag(bd, "2000", 70, 340, 46, "#FFFDF6"); pop(y0, W(14, "2000년부터"));
   const y1 = tag(bd, "2026.10", 880, 340, 46, "#FFFDF6"); pop(y1, W(14, "2026년"));
   const sp = tag(bd, "S&P 500", 470, 30, 50, "#FFFDF6"); pop(sp, W(14, "S&P"));
   hide([tlp.s, y0, y1, sp], S(15) - 0.1);
   // 반등 하나 확대: 떨어짐 → 20거래일 최저(노란 점선) → 급반등 → 다시 그 아래로 (가짜)
-  const zp = svgIn(bd, 0, 0, 980, 420, `<path d="M40 60 L160 120 L260 170 L330 250 L380 228 L420 268 L460 180 L560 210 L660 260 L760 330" fill="none" stroke="#E8ECF4" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`);
+  const zp = svgIn(bd, 0, 0, 980, 420, `<path d="M40 60 L160 120 L260 170 L330 250 L380 228 L420 268 L460 180 L560 210 L660 260 L760 330" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`);
   drawPath(zp.querySelector("path"), S(15), 1.0);
   const low = hline(bd, 300, 268, 600, W(15, "가장 낮았던"));
   const lowT = tag(bd, "20거래일 최저", 520, 320, 42, YL); pop(lowT, W(15, "20거래일"));
@@ -560,7 +573,7 @@ shot(B(13), (a, b) => {
   hide([zp, low, lowT, brk, d17], S(17) - 0.1);
   const bars = [67.5, 66.7, 66.7, 65.2, 55.6, 60.0].map((v, i) => {
     const x = 90 + i * 140;
-    const back = later(`<div class="mini" style="left:${x}px;top:70px;width:90px;height:260px;background:rgba(255,255,255,.18)"></div>`, bd);
+    const back = later(`<div class="mini" style="left:${x}px;top:70px;width:90px;height:260px;background:rgba(43,48,56,.14)"></div>`, bd);
     const fill = later(`<div class="mini" style="left:${x}px;top:${70 + 260 * (1 - v / 100)}px;width:90px;height:${260 * v / 100}px;background:${BL};transform-origin:50% 100%"></div>`, bd);
     [back, fill].forEach(n => { n.dataset.zone = "BOARD"; n.dataset.info = 1; });
     show(back, W(17, "여섯 가지") + i * 0.12, 0.2);
@@ -589,8 +602,8 @@ shot(B(18), (a, b) => {
   tl.to(bl, { y: p2[1] - 40, duration: 0.01 }, tBig - 0.05);
   tl.to(bl, { y: p2[1] - 420, duration: 0.7, ease: "power2.out" }, tBig);
   tl.to(bl, { y: p2[1] - 40, duration: 0.6, ease: "power2.in" }, tBig + 1.3);
-  const d08 = tag(W_.L.fly, "2008.10.13", 620, 140, 54, "#FFFDF6"); pop(d08, W(19, "2008년")); hide(d08, S(22));
-  const up = tag(W_.L.fly, "+11.6%", 560, 260, 84, RDT); pop(up, W(20, "11.6%")); hide(up, S(22));
+  const d08 = tag(W_.L.fly, "2008.10.13", 360, 180, 54, "#FFFDF6"); pop(d08, W(19, "2008년")); hide(d08, S(22));
+  const up = tag(W_.L.fly, "+11.6%", 360, 300, 84, RDT); pop(up, W(20, "11.6%")); hide(up, S(22));
   // 그날보다 32.6% 더 내려감: 디딤 2 → 9 까지 통통
   let t2 = S(22) + 0.1;
   for (let k = 2; k < 9; k++) t2 += bounce(bl, t2, k, k + 1, 40, 0.32, 80);
@@ -601,7 +614,7 @@ shot(B(18), (a, b) => {
   const tb = thinkBubble(W_, A, "V20-2", "바닥?", W(21, "바닥이라고"), S(22), 260, -1);
   // 20번 중 19번: 계단 위 작은 공 19개(파랑) + 아래 마당 하나(빨강)
   for (let i = 0; i < 20; i++) {
-    const k = i < 19 ? Math.min(9, Math.floor(i / 2)) : STEP.n, p = k >= STEP.n ? [STEP.x1 + 50, STEP.y1] : stepTop(k);
+    const k = i < 19 ? Math.min(8, Math.floor(i / 2.2)) : STEP.n, p = k >= STEP.n ? [STEP.x1 + 50, STEP.y1] : stepTop(k);
     const d = dot(W_.L.fly, p[0] + (i % 2 ? 22 : -22), p[1] - 26, 18, i < 19 ? BL : RD); Z(d, "FLY", { owner: "*" });
     pop(d, W(23, "20번") + i * 0.06, 0.2);
   }
@@ -619,11 +632,11 @@ shot(B(24), (a, b) => {
   moves(A, [[a, ["V13-1", "V13-2"], 1.4, "pp"], [S(26), "V19-1", 1, "hold"], [S(28), ["V19-2", "V19-3"], 4, "pp"], [S(30), "V19-1", 1, "hold"], [S(32), ["V19-2", "V19-3"], 4, "pp"]], b + 0.4);
   breathe(A, a, b);
   // 신호: 주가 선 · 20일 평균(노란 점선) · 거래량 막대
-  const pr = svgIn(bd, 0, 0, 980, 420, `<path d="M40 90 L150 150 L250 210 L330 250 L400 230 L470 170 L540 140" fill="none" stroke="#E8ECF4" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`);
+  const pr = svgIn(bd, 0, 0, 980, 420, `<path d="M40 90 L150 150 L250 210 L330 250 L400 230 L470 170 L540 140" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>`);
   drawPath(pr.querySelector("path"), S(25), 1.0);
   const ma = hline(bd, 60, 190, 700, W(26, "20일 평균"));
   const maT = tag(bd, "20일 평균", 820, 170, 44, YL); pop(maT, W(26, "20일 평균"));
-  const vols = [30, 28, 34, 40, 90, 110, 70].map((h, i) => { const n = later(`<div class="mini" style="left:${60 + i * 80}px;top:${380 - h}px;width:50px;height:${h}px;background:${i >= 4 ? RD : "rgba(255,255,255,.4)"};transform-origin:50% 100%"></div>`, bd); n.dataset.zone = "BOARD"; n.dataset.info = 1; tl.fromTo(n, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.3, immediateRender: false }, W(26, "거래가") + i * 0.08); return n; });
+  const vols = [30, 28, 34, 40, 90, 110, 70].map((h, i) => { const n = later(`<div class="mini" style="left:${60 + i * 80}px;top:${380 - h}px;width:50px;height:${h}px;background:${i >= 4 ? RD : "rgba(43,48,56,.35)"};transform-origin:50% 100%"></div>`, bd); n.dataset.zone = "BOARD"; n.dataset.info = 1; tl.fromTo(n, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.3, immediateRender: false }, W(26, "거래가") + i * 0.08); return n; });
   const ok = tag(bd, "✓", 600, 110, 80, RDT); pop(ok, W(26, "진짜라는"));
   hide([pr, ma, maT, ok, ...vols], S(27) - 0.1);
   // 83번 → 붙은 날 묶기 → 20장
@@ -678,9 +691,9 @@ shot(B(36), (a, b) => {
   const seg = dur / path.length;
   path.forEach((p, i) => tl.to(A.box, { x: p[0] - A.x, y: p[1] - A.y, duration: seg, ease: "sine.inOut" }, S(36) + 0.2 + i * seg));
   moves(A, [[a, ["V25-1", "V25-2", "V25-3"], 6, "loop"]], b + 0.4);
-  const n15 = tag(W_.L.fly, "15 / 15 ✓", 1300, 260, 76, RDT); pop(n15, W(36, "되찾았습니다"));
-  const n9 = tag(W_.L.fly, "9번 · 1년 안", 1300, 400, 62, "#FFFDF6"); pop(n9, W(37, "9번은"));
-  const n6 = tag(W_.L.fly, "최대 6년", 1300, 530, 70, YL); pop(n6, W(37, "6년"));
+  const n15 = tag(W_.L.fly, "15 / 15 ✓", 430, 575, 76, RDT); pop(n15, W(36, "되찾았습니다"));   // 위 마당 아래 빈 벽 (V 가 지나는 계단 선 밖)
+  const n9 = tag(W_.L.fly, "9번 · 1년 안", 430, 680, 62, "#FFFDF6"); pop(n9, W(37, "9번은"));
+  const n6 = tag(W_.L.fly, "최대 6년", 430, 780, 66, YL); pop(n6, W(37, "6년"));
   cam(W_, a, b, [1.0, 960, 540], [1.05, 760, 460]);
   K.cut(E(37) - 0.2, "37 6년");
 });
@@ -710,7 +723,7 @@ shot(B(38), (a, b) => {
   bars.forEach((o, i) => { const v = o.r.years_peak_to_recover; const yy = tag(bd, `${v}년`, o.x + 48, 345, 40, v < 1 ? "#FFFDF6" : YL); pop(yy, W(43, "세 번은") + i * 0.12); hide(yy, S(44) - 0.1); });
   hide([deep, ...bars.map(o => o.n), ...bars.map(o => o.y)], S(44) - 0.1);
   // 닷컴 꼭대기에 매수 — 본전 선(노랑) · 2006 넘음 · 2008 다시 아래 · 2011.12 마지막 아래 (11.7년)
-  const dp = plot(bd, idx(D.dot), 40, 40, 900, 300, 40, 155, "#E8ECF4", 8);
+  const dp = plot(bd, idx(D.dot), 40, 40, 900, 300, 40, 155, INK, 8);
   drawPath(dp.p, S(44), W(45, "11.7년") - S(44) - 0.2);
   const be = hline(bd, 40, dp.Y(100), 900, S(44) + 0.1);
   const beT = tag(bd, "본전", 90, dp.Y(100) - 40, 42, YL); pop(beT, W(44, "본전을"));
@@ -720,7 +733,7 @@ shot(B(38), (a, b) => {
   const last = dot(bd, dp.X(iLast), dp.Y(D.dot[iLast][1]), 14, BL); pop(last, W(45, "11.7년") - 0.3);
   const y117 = tag(bd, "11.7년", dp.X(iLast) - 40, 370, 72, YL); pop(y117, W(45, "11.7년"));
   hide([dp.s, be, beT, re, gfc, last, y117], S(46) - 0.1);
-  const all = plot(bd, idx(D.tl), 30, 30, 920, 300, 30, 700, "#E8ECF4", 7);
+  const all = plot(bd, idx(D.tl), 30, 30, 920, 300, 30, 700, INK, 7);
   drawPath(all.p, S(46), 1.2);
   const now = tag(bd, "본전 위 ✓", 820, 60, 52, RDT); pop(now, W(46, "본전 위"));
   hide([all.s, now], S(47) - 0.1);
@@ -738,16 +751,16 @@ shot(B(48), (a, b) => {
   const A = arcV(W_, ["V19-1", "V19-2", "V19-3"]);
   moves(A, [[a, "V19-1", 1, "hold"], [S(49), ["V19-2", "V19-3"], 4, "pp"]], b + 0.4);
   breathe(A, a, b);
-  const t0 = tag(bd, "코스피", 880, 60, 56, "#FFFDF6"); pop(t0, a + 0.2);
+  const t0 = tag(bd, "코스피", 80, 30, 50, "#FFFDF6"); pop(t0, a + 0.2);
   D.kospiRows.filter(r => r.recovered).forEach((r, i) => {
-    const x = 120 + i * 210, h = Math.abs(r.depth) * 3.6;
+    const x = 200 + i * 200, h = Math.abs(r.depth) * 3.6;
     const n = later(`<div class="mini" style="left:${x}px;top:100px;width:110px;height:${h}px;background:${BL};transform-origin:50% 0%"></div>`, bd);
     n.dataset.zone = "BOARD"; n.dataset.info = 1;
     tl.fromTo(n, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, W(49, "네 번을") - 0.3 + i * 0.15);
     const y = tag(bd, r.peak.slice(0, 4), x + 55, 80, 36, "#FFFDF6"); pop(y, W(49, "네 번을") - 0.3 + i * 0.15);
     const yr = tag(bd, `${r.years_peak_to_recover}년`, x + 55, 100 + h + 34, 40, r.years_peak_to_recover >= 5 ? YL : "#FFFDF6"); pop(yr, W(49, "5.5년") - 0.4 + i * 0.1);
   });
-  const p11 = tag(bd, "2011 → 6년", 830, 320, 54, YL); pop(p11, W(50, "2011년"));
+  const p11 = tag(bd, "2011 → 6년", 780, 380, 54, YL); pop(p11, W(50, "2011년"));
   K.cut(E(50) - 0.2, "50 2011 6년");
 });
 
@@ -788,43 +801,45 @@ shot(B(51), (a, b) => {
 //          2020 코로나: 바닥 전 급반등 다섯 번(가짜 — 열차가 섰다가 뒤로) → 3월 24일 여섯 번째 +9.1% · 믿으셨겠습니까? · 그 전날이 진짜 바닥 · 값을 치름
 shot(B(58), (a, b) => {
   const W_ = world(a, b, "PLATFORM");
-  const wb = wallBox(W_);
+  const WB = wallBox(W_), wb = WB.box;
+  gsap.set(WB.pnl, { opacity: 0 }); show(WB.pnl, W(62, "가짜와") - 0.4, 0.3);
   const A = V(W_, ["V21-1", "V21-2", "V21-3"], SPOT.PLAT);
   const sell = pinCard(W_.L.fly, "SELL", 560, 300, 240, 140, 66, -3); pinIn(sell, W(58, "매도하고")); hide(sell, S(59));
   const q = air(mk(`<div class="qm" style="font-size:120px">?</div>`, W_.L.fly)); gsap.set(q, { x: 760, y: 260 }); pop(q, W(58, "안전할까요")); hide(q, S(59));
   chap(W_, "매도하고 기다려도 공짜가 아니었다", S(59) - 0.6);
   // 바닥 뒤 한 달: 열차가 들어와 바로 떠남
-  const T1 = train(W_.L.back, -1400, 585, 1150);
+  const T1 = train(W_.L.back, -1600, 530, 1700);
   tl.set(T1, { opacity: 1 }, S(59));
   tl.to(T1, { x: 700, duration: 1.0, ease: "power2.out" }, S(59));
-  tl.to(T1, { x: 3600, duration: 1.4, ease: "power2.in" }, W(59, "15.0%"));
+  tl.to(T1, { x: 3800, duration: 1.4, ease: "power2.in" }, W(59, "15.0%"));
   const t15 = tag(W_.L.fly, "+15.0%", 560, 250, 88, RDT); pop(t15, W(59, "15.0%")); hide(t15, S(61));
   const t22 = tag(W_.L.fly, "2022 +10.7%", 600, 380, 62, RDT); pop(t22, W(60, "10.7%")); hide(t22, S(61));
   // 첫날은 가짜와 똑같이 — 벽 판에 같은 모양 두 개 + ?
-  const twin = [0, 1].map(i => { const s = svgIn(wb, 0, 0, 760, 270, `<path d="M${80 + i * 400} 220 L${180 + i * 400} 200 L${250 + i * 400} 110" fill="none" stroke="${RD}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`); drawPath(s.querySelector("path"), W(62, "가짜와") - 0.3 + i * 0.2, 0.4); return s; });
-  const eq = tag(wb, "=", 380, 160, 90, YL); pop(eq, W(62, "똑같이"));
+  const twin = [0, 1].map(i => { const s = svgIn(wb, 0, 0, 600, 190, `<path d="M${70 + i * 320} 170 L${150 + i * 320} 155 L${210 + i * 320} 60" fill="none" stroke="${RD}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>`); drawPath(s.querySelector("path"), W(62, "가짜와") - 0.3 + i * 0.2, 0.4); return s; });
+  const eq = tag(wb, "=", 300, 110, 80, YL); pop(eq, W(62, "똑같이"));
   hide([...twin, eq], S(63) - 0.1);
+  hide(WB.pnl, E(67) + 0.3);
   // 2020 코로나 — 벽 판 그래프 + 급반등 다섯 번(파랑 점) · 3월 24일(빨강)
-  const c20 = plot(wb, idx(D.d20), 30, 20, 700, 220, 210, 345, "#2B3038", 8);
+  const c20 = plot(wb, idx(D.d20), 10, 10, 580, 170, 210, 345, "#E8ECF4", 7);
   drawPath(c20.p, S(63), 1.2);
   D.r20.forEach((d, i) => { const k = dateIdx(D.d20, d); const p = dot(wb, c20.X(k), c20.Y(D.d20[k][1]), 13, i < 5 ? BL : RD); pop(p, i < 5 ? W(63, "다섯 번") + i * 0.15 : W(65, "3월 24일")); });
-  const f5 = tag(W_.L.fly, "가짜 5번", 600, 470, 58, BLT); pop(f5, S(64)); hide(f5, S(65));
-  const t91 = tag(W_.L.fly, "3/24 +9.1%", 640, 480, 66, RDT); pop(t91, W(65, "9.1%"));
+  const f5 = tag(W_.L.fly, "가짜 5번", 450, 420, 58, BLT); pop(f5, S(64)); hide(f5, S(65));
+  const t91 = tag(W_.L.fly, "3/24 +9.1%", 460, 420, 64, RDT); pop(t91, W(65, "9.1%"));
   // 가짜 열차 다섯 번: 들어왔다가 뒤로 빠짐 (빠르게)
   for (let i = 0; i < 5; i++) {
-    const T = train(W_.L.back, -1400, 585, 1150), t = W(63, "다섯 번") - 0.2 + i * 0.55;
+    const T = train(W_.L.back, -1600, 530, 1700), t = W(63, "다섯 번") - 0.2 + i * 0.55;
     tl.set(T, { opacity: 1 }, t);
     tl.to(T, { x: 200, duration: 0.25, ease: "power2.out" }, t);
-    tl.to(T, { x: -1400, duration: 0.25, ease: "power2.in" }, t + 0.27);
+    tl.to(T, { x: -1600, duration: 0.25, ease: "power2.in" }, t + 0.27);
     tl.set(T, { opacity: 0 }, t + 0.53);
   }
   // 여섯 번째(3월 24일): 열차가 들어와 섰다가 → 망설이는 사이 떠남
-  const T6 = train(W_.L.back, -1400, 585, 1150);
+  const T6 = train(W_.L.back, -1600, 530, 1700);
   tl.set(T6, { opacity: 1 }, W(65, "3월 24일"));
   tl.to(T6, { x: 700, duration: 0.9, ease: "power2.out" }, W(65, "3월 24일"));
-  tl.to(T6, { x: 3600, duration: 1.6, ease: "power2.in" }, S(67));
+  tl.to(T6, { x: 3800, duration: 1.6, ease: "power2.in" }, S(67));
   const qq = thinkBubble(W_, A, "V21-1", "믿을까?", W(66, "믿으셨겠습니까") - 0.3, S(67), 280, -1);
-  const lowT = tag(W_.L.fly, "3/23 진짜 바닥", 640, 360, 56, YL); pop(lowT, W(67, "진짜 바닥"));
+  const lowT = tag(W_.L.fly, "3/23 진짜 바닥", 460, 530, 56, YL); pop(lowT, W(67, "진짜 바닥"));
   moves(A, [[a, "V21-1", 1, "hold"], [S(59) + 0.6, "V21-2", 1, "hold"], [W(59, "15.0%") + 0.8, "V21-3", 1, "hold"], [S(61), "V21-1", 1, "hold"],
             [S(67) + 0.2, "V21-2", 1, "hold"], [S(68), "V21-3", 1, "hold"]], b + 0.4);
   squash(A, S(59) + 0.6); squash(A, S(67) + 0.2); breathe(A, a, b);
@@ -856,8 +871,8 @@ shot(B(69), (a, b) => {
 shot(B(74), (a, b) => {
   const W_ = store(a, b);
   chap(W_, "이미 많이 물렸다면", a + 0.3);
-  const A = V(W_, ["V23-1", "V23-2", "V23-3"], SPOT.STORE);
-  moves(A, [[a, "V23-3", 1, "hold"], [W(74, "매도할까"), "V23-1", 1, "hold"], [W(74, "버틸까"), "V23-2", 1, "hold"], [S(75), "V23-3", 1, "hold"]], b + 0.4);
+  const A = V(W_, ["V23-1", "V23-4", "V23-3"], SPOT.STORE);
+  moves(A, [[a, "V23-3", 1, "hold"], [W(74, "매도할까"), "V23-4", 1, "hold"], [W(74, "버틸까"), "V23-1", 1, "hold"], [S(75), "V23-3", 1, "hold"]], b + 0.4);
   breathe(A, a, b);
   const sell = pinCard(W_.L.fly, "SELL", 520, 300, 240, 140, 66, -4); pinIn(sell, W(74, "매도할까"));
   const hold = pinCard(W_.L.fly, "버팀", 1660, 300, 240, 140, 66, 3); pinIn(hold, W(74, "버틸까"));
@@ -903,7 +918,7 @@ shot(B(82), (a, b) => {
   const c = pinCard(bd, "버팀", 120, 60, 200, 100, 52, -3); pinIn(c, a + 0.2);
   const be = hline(bd, 60, 120, 860, S(83));
   const beT = tag(bd, "그날", 860, 90, 40, YL); pop(beT, S(83));
-  const p = svgIn(bd, 0, 0, 980, 420, `<path d="M60 120 C180 200 260 330 360 320 S560 180 640 160 S800 110 900 100" fill="none" stroke="#E8ECF4" stroke-width="9" stroke-linecap="round"/>`);
+  const p = svgIn(bd, 0, 0, 980, 420, `<path d="M60 120 C180 200 260 330 360 320 S560 180 640 160 S800 110 900 100" fill="none" stroke="${INK}" stroke-width="9" stroke-linecap="round"/>`);
   drawPath(p.querySelector("path"), S(83) + 0.1, E(84) - S(83) - 0.6);
   const dn = tag(bd, "-19.6%", 360, 380, 66, BLT); pop(dn, W(83, "19.6%"));
   const yr = tag(bd, "3.7년", 860, 200, 72, YL); pop(yr, W(84, "3.7년"));
@@ -978,8 +993,8 @@ shot(B(99), (a, b) => {
 // 103~107 — 편의점 앞: 따져 볼 것은 따로 — 몇 년 꺼내지 않아도 되는 돈? · 지수? 종목? → 몇 년 + 지수 = 본전 ✓ · 곧 쓸 돈·종목 = 기록 없음
 shot(B(103), (a, b) => {
   const W_ = store(a, b);
-  const A = V(W_, ["V23-1", "V23-2", "V23-3", "V26-3"], SPOT.STORE);
-  moves(A, [[a, "V23-3", 1, "hold"], [S(104), "V23-1", 1, "hold"], [S(105), "V23-2", 1, "hold"], [S(106), "V26-3", 1, "hold"], [S(107), "V23-3", 1, "hold"]], b + 0.4);
+  const A = V(W_, ["V23-1", "V23-4", "V23-3", "V26-3"], SPOT.STORE);
+  moves(A, [[a, "V23-3", 1, "hold"], [S(104), "V23-4", 1, "hold"], [S(105), "V23-1", 1, "hold"], [S(106), "V26-3", 1, "hold"], [S(107), "V23-3", 1, "hold"]], b + 0.4);
   breathe(A, a, b);
   const q1 = pinCard(W_.L.fly, "몇 년 안 꺼냄?", 470, 220, 360, 130, 48, -2); pinIn(q1, W(104, "몇 년"));
   const q2 = pinCard(W_.L.fly, "지수? 종목?", 470, 400, 360, 130, 52, 2); pinIn(q2, S(105));
@@ -1018,8 +1033,8 @@ shot(B(108), (a, b) => {
 shot(B(115), (a, b) => {
   const W_ = store(a, b, true);
   chap(W_, "남겨 둔 현금이나 월급이라면", a + 0.3);
-  const A = V(W_, ["V01-1", "V01-2", "V01-3", "V23-1", "V23-2", "V22-1", "V22-3"], SPOT.STORE);
-  moves(A, [[a, ["V01-1", "V01-3"], 1, "pp"], [S(116), "V23-1", 1, "hold"], [W(116, "기다릴까"), "V23-2", 1, "hold"], [S(117), "V22-3", 1, "hold"], [S(122), ["V22-3", "V22-1"], 1, "pp"]], b + 0.4);
+  const A = V(W_, ["V01-1", "V01-2", "V01-3", "V23-1", "V23-4", "V22-1", "V22-3"], SPOT.STORE);
+  moves(A, [[a, ["V01-1", "V01-3"], 1, "pp"], [S(116), "V23-4", 1, "hold"], [W(116, "기다릴까"), "V23-1", 1, "hold"], [S(117), "V22-3", 1, "hold"], [S(122), ["V22-3", "V22-1"], 1, "pp"]], b + 0.4);
   breathe(A, a, b);
   const pay = tag(W_.L.fly, "+ 월급", 520, 230, 66, RDT); pop(pay, W(115, "월급이")); hide(pay, S(117) - 0.1);
   const q1 = pinCard(W_.L.fly, "더 BUY?", 470, 380, 260, 120, 54, -3); pinIn(q1, W(116, "더 매수할까"));

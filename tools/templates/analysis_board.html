@@ -1,6 +1,6 @@
 <title>{{TITLE}}</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.1 — 2026-11-12 — 분석 현황에 안내 줄(표준 분석기 전 주제 — 위기). (v1.0 — 2026-11-12 — 주제별 분석 판 틀 (tools/analysis_board.py 가 {{TITLE}}·BOARD 칸을 채워 <주제>/boards/분석판.html 로 씀 — 손으로 고치지 않음).
+<!-- VERSION: v1.1 — 2026-11-12 — 분석 현황에 안내 줄(표준 분석기 전 주제 — 위기) · 소개 끝 고지는 주제마다(B.note). (v1.0 — 2026-11-12 — 주제별 분석 판 틀 (tools/analysis_board.py 가 {{TITLE}}·BOARD 칸을 채워 <주제>/boards/분석판.html 로 씀 — 손으로 고치지 않음).
      사용자 지시 2026-11-12 "탐색할 고정 채널을 아이디를 내가 넣을 수 있도록 주제별 아티팩트 만들기 · 다운 받아야 하는 적당한 대본 개수 설정해서 아티팩트에 명령 표시 ·
      시청자 페르소나들 만들어서 내용 아티팩트에 올린다 · 페르소나 업데이트 시 아티팩트에 어떤 근거로 어떻게 업데이트 했는지 짧막하게 내역 남기기".
      db: channels {input, memo, createdAt, status(new|done|fail), reply, updatedAt} — 사용자가 넣고 Claude 가 ArtifactData 로 읽어 tools/cloud_run.py <주제> add 뒤 done·reply.
@@ -188,7 +188,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   function renderStatic() {
     document.title = document.title || B.title;
     $("h1").textContent = B.title;
-    $("intro").textContent = `${B.name} 채널 시청자 페르소나(분석 결과로 만들고 매일 최근 유튜브 영상·댓글과 뉴스로 고침), 탐색할 고정 채널, PC에서 받을 대본 개수를 한 곳에 둡니다. 판 만든 때 ${B.made}. 연구·교육용이며 투자 권유가 아닙니다.`;
+    $("intro").textContent = `${B.name} 채널 시청자 페르소나(분석 결과로 만들고 매일 최근 유튜브 영상·댓글과 뉴스로 고침), 탐색할 고정 채널, PC에서 받을 대본 개수를 한 곳에 둡니다. 판 만든 때 ${B.made}. ${B.note || ""}`;
     const up = B.updated || "", ud = days(up);
     $("glance").innerHTML = [
       { k: "페르소나 업데이트", v: up || "아직", s: up ? (ud === 0 ? "오늘 고침" : `${ud}일 전`) : "첫 업데이트 전", c: up && ud === 0 ? "ok" : "warn" },

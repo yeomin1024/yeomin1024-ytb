@@ -11,12 +11,12 @@ VERSION: v1.0 — 2026-11-12 — 새로 (사용자 지시 2026-11-12 "새 새션
 
 | 주제 | 분석 판 (아티팩트) | 분석 코드 | 분석 결과 페르소나 | 대본 받기 | 대본·쇼츠 평가판 |
 |---|---|---|---|---|---|
-| 주식 `stock` | `stock/boards/urls.json` | `tools/cloud_run.py stock …` | `stock/result/outliers/personas.json` | `pc_transcribe.py list stock` | `stock/guides/quick_board.md` 의 2·3단계 판 |
-| 역사 `history` | `history/boards/urls.json` | `tools/cloud_run.py history …` | `history/result/outliers/personas.json` | `pc_transcribe.py list history` | `history/topics/` (없으면 처음 만듦 — 3-4) |
-| 심리 `psychology` | `psychology/boards/urls.json` | `tools/cloud_run.py psychology …` | `psychology/result/outliers/personas.json` | `pc_transcribe.py list psychology` | `psychology/topics/` (없으면 처음 만듦) |
-| 위기 `crisis` | `crisis/boards/urls.json` | `crisis/code/crisis_lab.py run·analyze` (표준 분석기 전) | `crisis/result/personas.json` (`final`) | 아직 없음 (1-0) | `crisis/topics/` (없으면 처음 만듦) |
+| 주식 `stock` | https://claude.ai/artifact/UtLoFFKzxNpBE5Wj5KvvBU | `tools/cloud_run.py stock …` | `stock/result/outliers/personas.json` | `pc_transcribe.py list stock` | `stock/guides/quick_board.md` 의 2·3단계 판 |
+| 역사 `history` | https://claude.ai/artifact/BVamDPm8MyXePoBXLWTttk | `tools/cloud_run.py history …` | `history/result/outliers/personas.json` | `pc_transcribe.py list history` | `history/topics/` (없으면 처음 만듦 — 3-4) |
+| 심리 `psychology` | https://claude.ai/artifact/FsxRtUKNLbUAPHSFYSYL7U | `tools/cloud_run.py psychology …` | `psychology/result/outliers/personas.json` | `pc_transcribe.py list psychology` | `psychology/topics/` (없으면 처음 만듦) |
+| 위기 `crisis` | https://claude.ai/artifact/LknhGN84g4NpgbwcjbK56C | `crisis/code/crisis_lab.py run·analyze` (표준 분석기 전) | `crisis/result/personas.json` (`final`) | 아직 없음 (1-0) | `crisis/topics/` (없으면 처음 만듦) |
 
-판 주소가 `urls.json` 에 없으면 그 판을 아직 올리지 않은 것 — 1-6 대로 처음 올리고 적는다.
+판 주소는 `<주제>/boards/urls.json` 에도 (도구가 읽음). 표에 없는 새 주제는 1-6 대로 처음 올리고 둘 다 적는다.
 
 ## 1단계 — 주제 분석 · 시청자 페르소나 · 분석 판
 

@@ -7,7 +7,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
-# | v1.1 | 2026-11-12 | 심리·위기 이름 · 표준 분석기 전 주제(crisis) 안내 줄 | build_data |
+# | v1.1 | 2026-11-12 | 심리·위기 이름 · 표준 분석기 전 주제(crisis) 안내 줄 · 주제마다 고지 줄(NOTES) | build_data |
 # | v1.0 | 2026-11-12 | 최초 | build_data·render·main |
 #
 # 읽는 것 (쓰지 않음): <주제>/result/persona/live.json (tools/persona_live.py) · <주제>/result/outliers/transcript_todo.json (tools/pc_transcribe.py list)
@@ -34,6 +34,8 @@ VERSION = "v1.1"
 TPL = ROOT / "tools" / "templates" / "analysis_board.html"
 BEGIN, END = "/*BOARD:BEGIN*/", "/*BOARD:END*/"
 NAMES = {"stock": "주식", "history": "역사", "psychology": "심리", "crisis": "위기", "economic": "재테크", "music": "음악", "test": "시험"}
+NOTES = {"stock": "연구·교육용이며 투자 권유가 아닙니다.", "history": "사실은 사료·연구로 확인합니다.",
+         "psychology": "연구·교육용이며 의료·심리 상담이 아닙니다.", "crisis": "안전 수칙은 공식 지침(소방청·경찰청·국민재난안전포털)으로 확인합니다."}
 LOG_ROWS = 60
 LOG = logging.getLogger("analysis_board")
 
@@ -87,7 +89,7 @@ def build_data(root: Path, topic: str, today: str | None = None) -> dict:
     for p in live.get("personas", []):
         personas.append({k: p.get(k) for k in ("key", "name", "n", "who", "situation", "habit", "curiosity", "worry", "anxiety", "wants", "quotes")})
     logs = [{**x, "persona_name": pname.get(x.get("persona"), "전체" if x.get("persona") == "*" else x.get("persona"))} for x in live.get("log", [])[:LOG_ROWS]]
-    D = {"tool": f"analysis_board.py {VERSION}", "topic": topic, "name": name, "title": f"{name} 분석 판", "made": datetime.now().strftime("%Y-%m-%d %H:%M"),
+    D = {"tool": f"analysis_board.py {VERSION}", "topic": topic, "name": name, "title": f"{name} 분석 판", "note": NOTES.get(topic, "연구·교육용입니다."), "made": datetime.now().strftime("%Y-%m-%d %H:%M"),
          "today": today, "updated": live.get("updated", ""), "stale_days": 14, "personas": personas, "log": logs,
          "videos": videos, "market": market, "news": news,
          "targets": [{"id": c["id"], "title": c.get("title", ""), "videos": c.get("videos"), "added": c.get("added", "")} for c in tg.get("channels") or []],

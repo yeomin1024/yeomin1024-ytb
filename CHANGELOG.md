@@ -15,6 +15,8 @@
   - `tools/script_feedback_board.py` v2.7 — 역사·심리·위기 기본 경로(`<주제>/topics/`) · 쇼츠 `"independent": true`(롱폼과 별개 쇼츠).
 - **새 설정**: `history/`·`psychology/`·`crisis/persona_judge.toml` v1.0 (trend_scan 최소 설정 — 검색어 10·8개).
 - **2026-11-12 훑기** (YOUTUBE_API_KEY — 하루 10,000 중): 주식 1,899 · 역사 1,361 · 심리 1,363 · 위기 1,302 + 1,076 · (재테크 1,361 — 지움). 남은 약 1,400.
+- **페르소나 첫 업데이트 (11-12 훑기 + 뉴스 4~5건씩 — apply 검사 통과)**: 주식 24 · 역사 16 · 심리 40 · 위기 20건. 뉴스 기사 본문은 이 환경에서 막혀 검색 결과 글로만 적음(제목 요약은 '(제목 요약)').
+- **분석 판 4장**: 주식 https://claude.ai/artifact/UtLoFFKzxNpBE5Wj5KvvBU · 역사 https://claude.ai/artifact/BVamDPm8MyXePoBXLWTttk · 심리 https://claude.ai/artifact/FsxRtUKNLbUAPHSFYSYL7U · 위기 https://claude.ai/artifact/LknhGN84g4NpgbwcjbK56C (db `channels` — 역사 판에서 시험 줄 쓰기·고치기·지우기 확인).
 - **지시사항**: `guides/flow.md` v1.0 신설 · CLAUDE.md '시작·문서' 첫 줄 + '쇼츠' 별개 쇼츠 줄 · `guides/shorts_guide.md` v1.18 · `guides/tts_guide.md` v1.22 5-5 · `guides/README.md` v1.38.
 
 ## 2026-11-12 — 심리 main 기준 정리 · 페르소나 최근 흐름 · 주제 밖 28개 빼기 (`tools/personas.py` v1.1.1 · `tools/comment_clusters.py` v1.1.1)

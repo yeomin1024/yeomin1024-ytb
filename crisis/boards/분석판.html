@@ -1,0 +1,271 @@
+<title>위기 분석 판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v1.1 — 2026-11-12 — 분석 현황에 안내 줄(표준 분석기 전 주제 — 위기) · 소개 끝 고지는 주제마다(B.note). (v1.0 — 2026-11-12 — 주제별 분석 판 틀 (tools/analysis_board.py 가 위기 분석 판·BOARD 칸을 채워 <주제>/boards/분석판.html 로 씀 — 손으로 고치지 않음).
+     사용자 지시 2026-11-12 "탐색할 고정 채널을 아이디를 내가 넣을 수 있도록 주제별 아티팩트 만들기 · 다운 받아야 하는 적당한 대본 개수 설정해서 아티팩트에 명령 표시 ·
+     시청자 페르소나들 만들어서 내용 아티팩트에 올린다 · 페르소나 업데이트 시 아티팩트에 어떤 근거로 어떻게 업데이트 했는지 짧막하게 내역 남기기".
+     db: channels {input, memo, createdAt, status(new|done|fail), reply, updatedAt} — 사용자가 넣고 Claude 가 ArtifactData 로 읽어 tools/cloud_run.py <주제> add 뒤 done·reply.
+     페르소나·내역·대본 명령은 페이지 안 BOARD 칸 (매일 업데이트 때 다시 만들어 같은 주소로 올림). 연구·교육용 — 투자 권유 아님. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 배치: 위 = 한눈에(네 칸) · 가운데 = 왼쪽 시청자 페르소나 카드 / 오른쪽 고정 채널 넣기·대본 받기 · 아래 = 업데이트 내역 표 (평가판들과 같은 색·글꼴) */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#1B2320; --muted:#5C6A65; --line:#DCE3E0;
+  --accent:#0E7466; --accent-ink:#FFFFFF; --accent-soft:#DDF1EC;
+  --ok:#2B7A55; --warn:#8A6A00; --bad:#B83227; --quote:#EEF2F0;
+  --shadow:0 10px 30px -18px rgba(20,40,35,.45);
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --warn:#E2C15A; --bad:#FF6E5E; --quote:#1F2926; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --warn:#E2C15A; --bad:#FF6E5E; --quote:#1F2926; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:18px}
+header.top{display:grid;gap:6px}
+header.top h1{font-size:clamp(20px,2.4vw,26px);margin:0;text-wrap:balance}
+header.top p{margin:0;color:var(--muted);font-size:14px;max-width:72ch}
+.status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.ok .dot{background:var(--ok)} .status.bad .dot{background:var(--bad)}
+.glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.tile .k{font-size:12px;color:var(--muted);letter-spacing:.02em}
+.tile .v{font:600 20px var(--f-mono);font-variant-numeric:tabular-nums}
+.tile .s{font-size:12.5px;color:var(--muted)}
+.tile.warn .v{color:var(--warn)} .tile.ok .v{color:var(--ok)}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.side{display:grid;gap:18px;position:sticky;top:env(safe-area-inset-top,0px)}
+section.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px;display:grid;gap:10px;min-width:0}
+section.box h2{margin:0;font-size:16px}
+.small{font-size:13px;color:var(--muted)}
+.personas{display:grid;gap:14px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:grid;min-width:0}
+.pcard .hd{padding:14px 18px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.pcard .hd h3{margin:0;font-size:17px;text-wrap:balance}
+.pcard .who{font-size:13px;color:var(--muted)}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:10px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .lab{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.02em;padding-top:2px}
+.items{display:grid;gap:8px;min-width:0}
+.item{display:grid;gap:4px}
+.item .t{font-size:15px}
+.item .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.chip{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;border:1px solid currentColor;white-space:nowrap}
+.chip.new{color:var(--accent)} .chip.old{color:var(--warn)} .chip.done{color:var(--ok)} .chip.fail{color:var(--bad)}
+.empty{font-size:13px;color:var(--muted)}
+details.src summary{cursor:pointer;font-size:12px;color:var(--accent);list-style:none}
+details.src summary::-webkit-details-marker{display:none}
+details.src ul,details.quotes ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13px}
+blockquote{margin:0;background:var(--quote);border-radius:8px;padding:6px 10px;font-size:13px}
+details.quotes{padding:10px 18px 14px;border-top:1px solid var(--line)}
+details.quotes summary{cursor:pointer;font-size:13px;font-weight:600}
+a{color:var(--accent)}
+textarea,input[type=text]{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+textarea{min-height:72px;resize:vertical}
+textarea:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 16px;font:600 14px var(--f-body);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.bad{border-color:var(--bad);background:transparent;color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:default}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.clist{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.clist li{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:4px}
+.clist .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.clist code{font:500 13px var(--f-mono);word-break:break-all}
+.cmd{display:grid;gap:6px}
+.cmd pre{margin:0;background:var(--quote);border-radius:10px;padding:10px 12px;font:500 12.5px/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-all}
+.num{font:600 34px var(--f-mono);font-variant-numeric:tabular-nums;line-height:1.1}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+td.d{font-family:var(--f-mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+.op{font-weight:700}
+.op.add{color:var(--ok)} .op.remove{color:var(--bad)} .op.replace,.op.set{color:var(--accent)} .op.keep,.op.init{color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:900px){.main{grid-template-columns:minmax(0,1fr)}.side{position:static}.glance{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.row{grid-template-columns:minmax(0,1fr);gap:4px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1 id="h1">분석 판</h1>
+    <p id="intro"></p>
+    <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+  </header>
+
+  <div class="glance" id="glance"></div>
+
+  <div class="main">
+    <div class="personas" id="personas"></div>
+    <div class="side">
+      <section class="box" aria-labelledby="ch-h">
+        <h2 id="ch-h">탐색할 고정 채널</h2>
+        <p class="small">채널 ID(UC로 시작), 채널 주소, @이름을 넣으세요. 여러 개는 줄을 바꿔서. Claude가 다음 분석 때 읽어 탐색 목록에 더하고, 결과를 아래에 적습니다.</p>
+        <label class="small" for="ch-in">채널</label>
+        <textarea id="ch-in" placeholder="UCxxxxxxxxxxxxxxxxxxxxxx&#10;@채널이름&#10;https://www.youtube.com/@채널이름"></textarea>
+        <label class="small" for="ch-memo">메모 (선택)</label>
+        <input type="text" id="ch-memo" placeholder="왜 넣는지 — 예: 비슷한 구독자 수에 조회수가 높음">
+        <div class="btnrow"><button class="btn" id="ch-add" type="button">채널 넣기</button><span class="small" id="ch-note"></span></div>
+        <ul class="clist" id="ch-list"></ul>
+        <details><summary class="small">지금 탐색에 들어간 고정 채널 <span id="tg-n"></span></summary><ul class="clist" id="tg-list"></ul></details>
+      </section>
+      <section class="box" aria-labelledby="tr-h">
+        <h2 id="tr-h">대본 받기 (PC)</h2>
+        <div class="num" id="tr-n">–</div>
+        <p class="small" id="tr-why"></p>
+        <div class="cmd"><pre id="tr-cmd"></pre><div class="btnrow"><button class="btn ghost" id="tr-copy" type="button">명령 복사</button><span class="small" id="tr-copied"></span></div></div>
+        <details><summary class="small">먼저 받을 영상</summary><ul class="clist" id="tr-first"></ul></details>
+      </section>
+    </div>
+  </div>
+
+  <section class="box" aria-labelledby="lg-h">
+    <h2 id="lg-h">페르소나 업데이트 내역</h2>
+    <p class="small">새것이 위. 근거 수를 누르면 무엇을 보고 바꿨는지(댓글 원문·영상·뉴스·시장) 보입니다.</p>
+    <div class="tablebox"><table><thead><tr><th>날짜</th><th>페르소나</th><th>칸</th><th>무엇을</th><th>근거</th></tr></thead><tbody id="log"></tbody></table></div>
+  </section>
+
+  <section class="box" aria-labelledby="an-h">
+    <h2 id="an-h">분석 현황</h2>
+    <div id="an" class="small"></div>
+  </section>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const BOARD = /*BOARD:BEGIN*/{"tool":"analysis_board.py v1.1","topic":"crisis","name":"위기","title":"위기 분석 판","note":"안전 수칙은 공식 지침(소방청·경찰청·국민재난안전포털)으로 확인합니다.","made":"2026-11-12 07:05","today":"2026-11-12","updated":"2026-11-12","stale_days":14,"personas":[{"key":"F1","name":"웃으려고 보는 쇼츠 시청자","n":448,"who":"쇼츠 댓글 96% · 본 위험 유형 사고 추락·시설 46%, 범죄 사기 36%, 사고 물·수난 7% · 장르 유머·장난 45%, 그 밖 42% · 근거 댓글 448개","situation":{"text":"이번 주 쇼츠 상위는 헬기가 화산 분화구에 떨어지고도 셋 다 산 실제 사건과 좀비 세상 '살아남기' 같은 오락 영상 — 위기 이야기를 재미로 넘겨 보는 판","date":"2026-11-12","src":["v:eOgHQiLbyDE","v:mGu3BYz8BGs","c:세명 다 구조된게 레전드네;;"],"basis":"쇼츠 하루 조회수 1위가 화산 생존담, 4위가 좀비 살아남기 오락 영상"},"habit":{"text":"밥 먹을 때 영상을 곁들여 보는 편 — 볼 영상이 남으면 밥을 한 번 더 차릴 정도","date":"2026-11-12","src":["c:밥 먹었는데 영상봐야돼서 또 차려요"],"basis":"공감 6920 댓글 — 영상을 식사 친구처럼 봄"},"curiosity":[{"text":"말도 안 되는 생존 — 맨손으로 화산 절벽을 올라 탈출한 사람처럼 '진짜 있었던 일'이 맞나 싶은 이야기","date":"2026-11-12","src":["c:세명 다 구조된게 레전드네;;","c:올라간 사람은 진짜 탈인간인데","c:작디 작은 뇌에서 살겠다는 의지 하나로 한없이 높은 화산절벽을 손으로 올라간게"],"basis":"화산 생존 쇼츠 댓글이 '레전드'·'탈인간'으로 감탄 (공감 2169·2931)"}],"worry":[],"anxiety":[],"wants":[{"text":"무겁지 않게 끝나는 반전 생존담 — 모두 무사했다는 결말에 감탄하고 웃으며 넘길 수 있는 이야기","date":"2026-11-12","src":["c:세분 다 무사하셔서 다행이다","c:세명 다 구조된게 레전드네;;"],"basis":"'다 무사해서 다행'·'레전드' 댓글이 공감 상위 (4816·2169)"}],"quotes":[{"text":"단체 소송 갈거니까 이미 고객이자 한팀임 ㅋㅋㅋ","likes":10780,"from":"personas.json"},{"text":"북극곰 \"쳐직이네 ㅋㅋ\" 였다가 \"쳐 직일까?\" 로 바뀌는거 겁나웃기네 ㅋㅋㅋ 그리고 살팽이는 어디서 잡아온건데 ㅋㅋㅋㅋㅋ","likes":1353,"from":"personas.json"},{"text":"I kill you ~ 가 왜 나와 ㅋㅋㅋㅋㅋ","likes":814,"from":"personas.json"}]},{"key":"F2","name":"참사에 감정이입하고 분노하는 사람","n":197,"who":"쇼츠 댓글 75% · 본 위험 유형 사고 항공·선박 42%, 범죄 흉기·폭력 27%, 기타·미분류 11% · 장르 영화·드라마 리뷰 49%, 뉴스·사건 보도 15% · 근거 댓글 197개","situation":{"text":"키우던 침팬지가 찾아온 친구를 공격한 쇼츠, 목사 남편에게 심리 지배를 받던 아내가 숨진 실화가 퍼지고, 경찰은 교제폭력·스토킹 3건 중 1건을 고위험으로 봄","date":"2026-11-12","src":["v:ftLflliJW1g","v:BotzDdbB1Go","n:https://www.newdaily.co.kr/site/data/html/2026/11/04/2026110400188.html"],"basis":"쇼츠 2위·롱폼 상위 영상 + 11/4 경찰 관계성 범죄 전수점검 발표"},"habit":null,"curiosity":[{"text":"피해자는 그 뒤 어떻게 살았는지, 동물 주인·가해자는 어떤 책임을 졌는지","date":"2026-11-12","src":["c:친구의 인생은 어디서 보상받냐","c:기억하기론 저 챔팬지 주인이 이후에도 정신 못차리고 챔팬지를 기르려했던걸로 암"],"basis":"최근 공감 1·2위 댓글(10450·9981)이 피해자 보상·주인의 뒤 행동"}],"worry":[{"text":"착하고 잘 참는 사람일수록 가까운 사람의 가스라이팅·폭력에서 빠져나오지 못할까 봐","date":"2026-11-12","src":["c:착한 분들이 유독 가스라이팅에 취약한 것 같아서 맘이 아픕니다ㅠ","c:가스라이팅,착취당하기가 너무 쉬움"],"basis":"가스라이팅 사건 댓글(공감 2058·1660)이 착한 사람이 더 당한다고 걱정"}],"anxiety":[{"text":"끔찍한 범죄를 당해도 가해자 처벌은 가볍고 피해자는 보상받지 못할 거라는 불안","date":"2026-11-12","src":["c:칼로 잔인하게 살해했는데 꼴랑 징역 15년이라니","c:친구의 인생은 어디서 보상받냐"],"basis":"형량·보상 댓글(공감 1570·10450) — 처벌·보상이 약하다고 느낌"}],"wants":[{"text":"가해자·책임자가 끝까지 대가를 치르는지까지 보여 주는 결말","date":"2026-11-12","src":["c:칼로 잔인하게 살해했는데 꼴랑 징역 15년이라니","c:저 챔팬지 주인이 이후에도 정신 못차리고"],"basis":"형량 분노·주인 뒤 행동 댓글이 공감 상위 (1570·9981)"},{"text":"'이건 아니다' 싶은 관계에서 빨리 벗어나라는 분명한 신호 — 혼자가 아니라는 말","date":"2026-11-12","src":["c:이건 좀 아니다 싶으면 제발헤어지세요제발좀... 세상은 당신편입니다"],"basis":"공감 2311 댓글이 '아니다 싶으면 헤어지라, 세상은 당신 편'"}],"quotes":[{"text":"무안은 착륙하고 안도의 한숨을 쉬다가 폭파되어 영문도 모르고 돌아가신분들이 많아 저 상황보다 더 충격적이었다.","likes":14476,"from":"personas.json"},{"text":"무안공항참사 국토부는 왜 책임을 아직도 안지고있나? 명백한 살인자들인다","likes":12723,"from":"personas.json"},{"text":"무안공항 참사에 애도를 표합니다.","likes":5305,"from":"personas.json"}]},{"key":"F3","name":"정보를 보태는 경험자·전문가","n":215,"who":"쇼츠 댓글 82% · 본 위험 유형 사고 물·수난 33%, 사고 추락·시설 21%, 범죄 흉기·폭력 11% · 장르 정보·대처법 39%, 그 밖 28% · 근거 댓글 215개","situation":{"text":"11월 불조심 강조의 달·보일러 점검 당부가 이어지는 때 — 쇼츠는 헬기 추락 생존, 롱폼은 해킹을 먼저 알린 사람 이야기가 상위","date":"2026-11-12","src":["n:https://view.asiae.co.kr/article/2026110311090546993","n:https://view.asiae.co.kr/article/2026103007480135416","v:eOgHQiLbyDE","v:R6ttTXNQBVA"],"basis":"소방청·행안부 11월 안전 안내 + 이번 주 상위 영상 두 편"},"habit":null,"curiosity":[{"text":"구조가 왜 그 순서로 됐는지 같은 '이유 따져 보기' — 잔해 크기 같은 단서로 스스로 풀어 봄","date":"2026-11-12","src":["c:보통 헬기잔해가 제일 크니깐 그 근처에 있던 조종사가 제일먼저 구조된거였네"],"basis":"헬기 생존 쇼츠 댓글(공감 3784)이 조종사가 먼저 구조된 까닭을 추리"}],"worry":[{"text":"먼저 위험을 알린 사람이 무시·조리돌림당해 경고가 묻힐까 봐","date":"2026-11-12","src":["c:홀로 외치는 의사를 멍청한 사람 취급하는 마을 주민들 보는거 같았음","c:최초 발견자 조리돌림하고 차단했던"],"basis":"해킹 영상 댓글(공감 1524·1076) — 경고한 사람을 무시한 데 답답함"}],"anxiety":[],"wants":[{"text":"머리가 하얘지는 순간에도 몸이 먼저 움직이게 미리 연습해 두는 법 (물에 빠졌을 때 등)","date":"2026-11-12","src":["c:발 안닿는 순간 생각 일도 안남 수시로 수영장에서 연습해야함"],"basis":"분석 원문(공감 2388) — 물에선 생각이 멈추니 평소 연습하자"},{"text":"사고를 처음부터 막는 법 — 통제할 수단 없이 맹수를 기른 것처럼 원인부터 짚는 설명","date":"2026-11-12","src":["c:제대로 통제할 수단이 없으면 키우면 안되지....","c:자기보다 힘쌘 동물을 키우면 안되는 이유"],"basis":"침팬지 사건 댓글(공감 1225·1154)이 '통제 못 하면 키우지 말라'"}],"quotes":[{"text":"변호사도 같이 소송걸어야 되니깐 돈안받고 알려주네","likes":7285,"from":"personas.json"},{"text":"무안공항에 비행기 착륙해서 조종사가 서서 두손을 막 흔들었는데 살거라고 생각했을뗀데 둔덕때문에 죽을줄은 애통하다.아까운 소중한 생명들","likes":2665,"from":"personas.json"},{"text":"발 안닿는 순간 생각 일도 안남 수시로 수영장에서 연습해야함","likes":2388,"from":"personas.json"}]},{"key":"F4","name":"선택을 판정하는 '나라면' 참여자","n":101,"who":"쇼츠 댓글 86% · 본 위험 유형 사고 항공·선박 23%, 범죄 사기 19%, 기타·미분류 13% · 장르 영화·드라마 리뷰 29%, 유머·장난 27% · 근거 댓글 101개","situation":{"text":"할머니가 보이스피싱범을 거꾸로 골탕 먹이는 영상이 작은 채널에서 크게 뜨고, 금감원은 주민센터·검사를 차례로 사칭하는 새 수법을 경고","date":"2026-11-12","src":["v:x8WZ8I31JUo","v:bTPMMbiG_6Y","n:https://www.etoday.co.kr/news/view/2647212","n:http://kspnews.com/2882512"],"basis":"작은 채널 배수 1·2위가 보이스피싱 역전극 + 11/12 금감원 소비자경보"},"habit":{"text":"남의 선택을 보고 '나라면' 하며 판정하거나 자기 모습을 돌아보는 댓글을 남김","date":"2026-11-12","src":["c:저 분 보고 난 얼마나 옹졸한 사람이었나 돌이켜 보게 됨","c:Cctv아저씨는 희생할 마음이 일도없었던거 같은데요"],"basis":"선택을 판정·자기 비교하는 댓글 (공감 2633·348)"},"curiosity":[{"text":"남과 다른 선택(맨손으로 절벽 오르기)을 한 사람이 무모했던 건지 옳았던 건지 따져 보기","date":"2026-11-12","src":["c:올라가서 탈출한 사람이 진짜 광기네"],"basis":"화산 생존 쇼츠 댓글(공감 6722)이 그 선택을 '광기'라고 판정"},{"text":"억울한 일을 겪고도 거의 모두를 용서한 선택 — 나라면 그럴 수 있었을지","date":"2026-11-12","src":["c:'그 한명' 빼고 전부 용서하시는 포용력에 진짜 감탄했음"],"basis":"조리돌림 뒤 용서한 사람에 감탄하며 자기를 돌아본 댓글(공감 2633)"}],"worry":[],"anxiety":[],"wants":[{"text":"사기 전화를 놀리듯 받아치면서도 끝까지 속지 않는 통쾌한 대응 장면","date":"2026-11-12","src":["c:보이스피싱범 놀리는듯 아닌듯~ 앵두 멍충미있으면서도 똑똑하다"],"basis":"분석 원문(공감 261)이 사기범을 받아친 대응을 '똑똑하다'고 칭찬"}],"quotes":[{"text":"Cctv아저씨는 희생할 마음이 일도없었던거 같은데요...","likes":348,"from":"personas.json"},{"text":"무안 승객들은 착륙하고 살았다고 좋아하고 있을 때 터졌을 거 아니야 진짜 억울하겠다","likes":268,"from":"personas.json"},{"text":"보이스피싱범 놀리는듯 아닌듯~ 앵두 멍충미있으면서도 똑똑하다~♡","likes":261,"from":"personas.json"}]}],"log":[{"date":"2026-11-12","persona":"F1","field":"situation","op":"set","before":"","after":"이번 주 쇼츠 상위는 헬기가 화산 분화구에 떨어지고도 셋 다 산 실제 사건과 좀비 세상 '살아남기' 같은 오락 영상 — 위기 이야기를 재미로 넘겨 보는 판","basis":"쇼츠 하루 조회수 1위가 화산 생존담, 4위가 좀비 살아남기 오락 영상","src":["v:eOgHQiLbyDE","v:mGu3BYz8BGs","c:세명 다 구조된게 레전드네;;"],"persona_name":"웃으려고 보는 쇼츠 시청자"},{"date":"2026-11-12","persona":"F1","field":"curiosity","op":"add","before":"","after":"말도 안 되는 생존 — 맨손으로 화산 절벽을 올라 탈출한 사람처럼 '진짜 있었던 일'이 맞나 싶은 이야기","basis":"화산 생존 쇼츠 댓글이 '레전드'·'탈인간'으로 감탄 (공감 2169·2931)","src":["c:세명 다 구조된게 레전드네;;","c:올라간 사람은 진짜 탈인간인데","c:작디 작은 뇌에서 살겠다는 의지 하나로 한없이 높은 화산절벽을 손으로 올라간게"],"persona_name":"웃으려고 보는 쇼츠 시청자"},{"date":"2026-11-12","persona":"F1","field":"wants","op":"add","before":"","after":"무겁지 않게 끝나는 반전 생존담 — 모두 무사했다는 결말에 감탄하고 웃으며 넘길 수 있는 이야기","basis":"'다 무사해서 다행'·'레전드' 댓글이 공감 상위 (4816·2169)","src":["c:세분 다 무사하셔서 다행이다","c:세명 다 구조된게 레전드네;;"],"persona_name":"웃으려고 보는 쇼츠 시청자"},{"date":"2026-11-12","persona":"F1","field":"habit","op":"set","before":"","after":"밥 먹을 때 영상을 곁들여 보는 편 — 볼 영상이 남으면 밥을 한 번 더 차릴 정도","basis":"공감 6920 댓글 — 영상을 식사 친구처럼 봄","src":["c:밥 먹었는데 영상봐야돼서 또 차려요"],"persona_name":"웃으려고 보는 쇼츠 시청자"},{"date":"2026-11-12","persona":"F2","field":"situation","op":"set","before":"","after":"키우던 침팬지가 찾아온 친구를 공격한 쇼츠, 목사 남편에게 심리 지배를 받던 아내가 숨진 실화가 퍼지고, 경찰은 교제폭력·스토킹 3건 중 1건을 고위험으로 봄","basis":"쇼츠 2위·롱폼 상위 영상 + 11/4 경찰 관계성 범죄 전수점검 발표","src":["v:ftLflliJW1g","v:BotzDdbB1Go","n:https://www.newdaily.co.kr/site/data/html/2026/11/04/2026110400188.html"],"persona_name":"참사에 감정이입하고 분노하는 사람"},{"date":"2026-11-12","persona":"F2","field":"curiosity","op":"add","before":"","after":"피해자는 그 뒤 어떻게 살았는지, 동물 주인·가해자는 어떤 책임을 졌는지","basis":"최근 공감 1·2위 댓글(10450·9981)이 피해자 보상·주인의 뒤 행동","src":["c:친구의 인생은 어디서 보상받냐","c:기억하기론 저 챔팬지 주인이 이후에도 정신 못차리고 챔팬지를 기르려했던걸로 암"],"persona_name":"참사에 감정이입하고 분노하는 사람"},{"date":"2026-11-12","persona":"F2","field":"worry","op":"add","before":"","after":"착하고 잘 참는 사람일수록 가까운 사람의 가스라이팅·폭력에서 빠져나오지 못할까 봐","basis":"가스라이팅 사건 댓글(공감 2058·1660)이 착한 사람이 더 당한다고 걱정","src":["c:착한 분들이 유독 가스라이팅에 취약한 것 같아서 맘이 아픕니다ㅠ","c:가스라이팅,착취당하기가 너무 쉬움"],"persona_name":"참사에 감정이입하고 분노하는 사람"},{"date":"2026-11-12","persona":"F2","field":"anxiety","op":"add","before":"","after":"끔찍한 범죄를 당해도 가해자 처벌은 가볍고 피해자는 보상받지 못할 거라는 불안","basis":"형량·보상 댓글(공감 1570·10450) — 처벌·보상이 약하다고 느낌","src":["c:칼로 잔인하게 살해했는데 꼴랑 징역 15년이라니","c:친구의 인생은 어디서 보상받냐"],"persona_name":"참사에 감정이입하고 분노하는 사람"},{"date":"2026-11-12","persona":"F2","field":"wants","op":"add","before":"","after":"가해자·책임자가 끝까지 대가를 치르는지까지 보여 주는 결말","basis":"형량 분노·주인 뒤 행동 댓글이 공감 상위 (1570·9981)","src":["c:칼로 잔인하게 살해했는데 꼴랑 징역 15년이라니","c:저 챔팬지 주인이 이후에도 정신 못차리고"],"persona_name":"참사에 감정이입하고 분노하는 사람"},{"date":"2026-11-12","persona":"F2","field":"wants","op":"add","before":"","after":"'이건 아니다' 싶은 관계에서 빨리 벗어나라는 분명한 신호 — 혼자가 아니라는 말","basis":"공감 2311 댓글이 '아니다 싶으면 헤어지라, 세상은 당신 편'","src":["c:이건 좀 아니다 싶으면 제발헤어지세요제발좀... 세상은 당신편입니다"],"persona_name":"참사에 감정이입하고 분노하는 사람"},{"date":"2026-11-12","persona":"F3","field":"situation","op":"set","before":"","after":"11월 불조심 강조의 달·보일러 점검 당부가 이어지는 때 — 쇼츠는 헬기 추락 생존, 롱폼은 해킹을 먼저 알린 사람 이야기가 상위","basis":"소방청·행안부 11월 안전 안내 + 이번 주 상위 영상 두 편","src":["n:https://view.asiae.co.kr/article/2026110311090546993","n:https://view.asiae.co.kr/article/2026103007480135416","v:eOgHQiLbyDE","v:R6ttTXNQBVA"],"persona_name":"정보를 보태는 경험자·전문가"},{"date":"2026-11-12","persona":"F3","field":"curiosity","op":"add","before":"","after":"구조가 왜 그 순서로 됐는지 같은 '이유 따져 보기' — 잔해 크기 같은 단서로 스스로 풀어 봄","basis":"헬기 생존 쇼츠 댓글(공감 3784)이 조종사가 먼저 구조된 까닭을 추리","src":["c:보통 헬기잔해가 제일 크니깐 그 근처에 있던 조종사가 제일먼저 구조된거였네"],"persona_name":"정보를 보태는 경험자·전문가"},{"date":"2026-11-12","persona":"F3","field":"worry","op":"add","before":"","after":"먼저 위험을 알린 사람이 무시·조리돌림당해 경고가 묻힐까 봐","basis":"해킹 영상 댓글(공감 1524·1076) — 경고한 사람을 무시한 데 답답함","src":["c:홀로 외치는 의사를 멍청한 사람 취급하는 마을 주민들 보는거 같았음","c:최초 발견자 조리돌림하고 차단했던"],"persona_name":"정보를 보태는 경험자·전문가"},{"date":"2026-11-12","persona":"F3","field":"wants","op":"add","before":"","after":"머리가 하얘지는 순간에도 몸이 먼저 움직이게 미리 연습해 두는 법 (물에 빠졌을 때 등)","basis":"분석 원문(공감 2388) — 물에선 생각이 멈추니 평소 연습하자","src":["c:발 안닿는 순간 생각 일도 안남 수시로 수영장에서 연습해야함"],"persona_name":"정보를 보태는 경험자·전문가"},{"date":"2026-11-12","persona":"F3","field":"wants","op":"add","before":"","after":"사고를 처음부터 막는 법 — 통제할 수단 없이 맹수를 기른 것처럼 원인부터 짚는 설명","basis":"침팬지 사건 댓글(공감 1225·1154)이 '통제 못 하면 키우지 말라'","src":["c:제대로 통제할 수단이 없으면 키우면 안되지....","c:자기보다 힘쌘 동물을 키우면 안되는 이유"],"persona_name":"정보를 보태는 경험자·전문가"},{"date":"2026-11-12","persona":"F4","field":"situation","op":"set","before":"","after":"할머니가 보이스피싱범을 거꾸로 골탕 먹이는 영상이 작은 채널에서 크게 뜨고, 금감원은 주민센터·검사를 차례로 사칭하는 새 수법을 경고","basis":"작은 채널 배수 1·2위가 보이스피싱 역전극 + 11/12 금감원 소비자경보","src":["v:x8WZ8I31JUo","v:bTPMMbiG_6Y","n:https://www.etoday.co.kr/news/view/2647212","n:http://kspnews.com/2882512"],"persona_name":"선택을 판정하는 '나라면' 참여자"},{"date":"2026-11-12","persona":"F4","field":"curiosity","op":"add","before":"","after":"남과 다른 선택(맨손으로 절벽 오르기)을 한 사람이 무모했던 건지 옳았던 건지 따져 보기","basis":"화산 생존 쇼츠 댓글(공감 6722)이 그 선택을 '광기'라고 판정","src":["c:올라가서 탈출한 사람이 진짜 광기네"],"persona_name":"선택을 판정하는 '나라면' 참여자"},{"date":"2026-11-12","persona":"F4","field":"curiosity","op":"add","before":"","after":"억울한 일을 겪고도 거의 모두를 용서한 선택 — 나라면 그럴 수 있었을지","basis":"조리돌림 뒤 용서한 사람에 감탄하며 자기를 돌아본 댓글(공감 2633)","src":["c:'그 한명' 빼고 전부 용서하시는 포용력에 진짜 감탄했음"],"persona_name":"선택을 판정하는 '나라면' 참여자"},{"date":"2026-11-12","persona":"F4","field":"wants","op":"add","before":"","after":"사기 전화를 놀리듯 받아치면서도 끝까지 속지 않는 통쾌한 대응 장면","basis":"분석 원문(공감 261)이 사기범을 받아친 대응을 '똑똑하다'고 칭찬","src":["c:보이스피싱범 놀리는듯 아닌듯~ 앵두 멍충미있으면서도 똑똑하다"],"persona_name":"선택을 판정하는 '나라면' 참여자"},{"date":"2026-11-12","persona":"F4","field":"habit","op":"set","before":"","after":"남의 선택을 보고 '나라면' 하며 판정하거나 자기 모습을 돌아보는 댓글을 남김","basis":"선택을 판정·자기 비교하는 댓글 (공감 2633·348)","src":["c:저 분 보고 난 얼마나 옹졸한 사람이었나 돌이켜 보게 됨","c:Cctv아저씨는 희생할 마음이 일도없었던거 같은데요"],"persona_name":"선택을 판정하는 '나라면' 참여자"},{"date":"2026-11-12","persona":"*","field":"*","op":"init","before":"","after":"4명","basis":"분석 결과 페르소나(댓글 묶음)로 처음 만듦 — 생각·원하는 것은 첫 업데이트에서","src":["crisis/result/personas.json (2026-11-12)"],"persona_name":"전체"}],"videos":{"R6ttTXNQBVA":"니케 해킹참사 막아낸 화이트해커, 억울함에 결국 본인등판","BotzDdbB1Go":"넷플릭스로 제작될 만큼 충격적인 미국실화, 완벽했던 목사 아내의 죽음","x8WZ8I31JUo":"유도 국가대표 감독 출신 세탁소 할머니를 건드린 보이스피싱 조직의 최후 | 다림질하는 손 1화","bTPMMbiG_6Y":"보이스피싱범이 잘못 걸었다 — 은행 30년 경력 72세 할머니에게 검사 사칭 전화를 건 결과","eOgHQiLbyDE":"화산 분화구로 빨려간 실제사건","ftLflliJW1g":"인사만 했을뿐인데 공격당한 실제사건","mGu3BYz8BGs":"좀비세상 살아남기 도파민"},"market":{},"news":{"https://www.etoday.co.kr/news/view/2647212":{"title":"“주민센터 직원인 줄 알았는데”…금감원, 보이스피싱 주의 소비자경보","source":"이투데이","date":"2026-11-12"},"http://kspnews.com/2882512":{"title":"중앙전파관리소-경찰청 통합대응단 전기통신금융사기 예방 위해 업무 협약 체결","source":"KSP뉴스","date":"2026-11-11"},"https://www.newdaily.co.kr/site/data/html/2026/11/04/2026110400188.html":{"title":"관계성 범죄 4만4540건 전수점검 … 3건 중 1건 '고위험'","source":"뉴데일리","date":"2026-11-04"},"https://view.asiae.co.kr/article/2026110311090546993":{"title":"“불조심 강조의 달” 소방청, 국민과 함께 화재예방 나선다","source":"아시아경제","date":"2026-11-03"},"https://view.asiae.co.kr/article/2026103007480135416":{"title":"“가동 전 꼭 점검하세요”…가정용 보일러 화재 11~1월 집중","source":"아시아경제","date":"2026-10-30"}},"targets":[],"transcript":{},"analysis":{"generated":"","success":0,"vpd":0,"views":0,"personas_made":"2026-11-12","note":"표준 분석기 전 — 자체 분석 결과(crisis/result/analysis.md)를 씀. 대본 받기·고정 채널 탐색은 표준 분석기로 옮긴 뒤 (guides/flow.md 1-0)"},"trend_date":"2026-11-12","news_date":"2026-11-12"}/*BOARD:END*/;
+(() => {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const B = BOARD || { topic: "?", name: "?", personas: [], log: [], targets: [], transcript: {}, analysis: {} };
+  const FIELDS = [["situation", "상황"], ["curiosity", "호기심"], ["worry", "걱정"], ["anxiety", "불안"], ["wants", "원하는 것"], ["habit", "버릇"]];
+  const FN = Object.fromEntries(FIELDS);
+  const OPN = { init: "처음 만듦", set: "고침", add: "더함", replace: "바꿈", remove: "뺌", keep: "다시 확인" };
+  const st = { db: null, canWrite: true, ch: [], busy: false, delAsk: null };
+  let tt = null;
+  const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2200); };
+  const days = d => { if (!d) return null; const x = (new Date(B.today + "T00:00:00") - new Date(d + "T00:00:00")) / 864e5; return Math.round(x); };
+
+  function srcHtml(s) {
+    const k = s.slice(0, 2), v = s.slice(2);
+    if (k === "c:") return `<li><blockquote>“${esc(v)}”</blockquote></li>`;
+    if (k === "v:") return `<li>영상 <a href="https://www.youtube.com/watch?v=${encodeURIComponent(v)}" target="_blank" rel="noopener">${esc((B.videos || {})[v] || v)}</a></li>`;
+    if (k === "n:") { const n = (B.news || {})[v] || {}; return `<li>뉴스 <a href="${esc(v)}" target="_blank" rel="noopener">${esc(n.title || v)}</a>${n.source ? ` · ${esc(n.source)}` : ""}${n.date ? ` · ${esc(n.date)}` : ""}</li>`; }
+    if (k === "m:") return `<li>시장 ${esc(v)}${(B.market || {})[v] ? ` — ${esc(B.market[v])}` : ""}</li>`;
+    return `<li>${esc(s)}</li>`;
+  }
+  function itemHtml(it) {
+    const d = days(it.date), old = d != null && d > (B.stale_days || 14);
+    return `<div class="item"><div class="t">${esc(it.text)}</div><div class="meta">
+      <span class="chip ${old ? "old" : "new"}">${esc(it.date || "?")}${old ? " · 오래됨" : ""}</span>
+      ${it.basis ? `<span>${esc(it.basis)}</span>` : ""}
+      ${(it.src || []).length ? `<details class="src"><summary>근거 ${it.src.length}</summary><ul>${it.src.map(srcHtml).join("")}</ul></details>` : ""}
+    </div></div>`;
+  }
+  function personaHtml(p) {
+    const rows = FIELDS.map(([f, nm]) => {
+      const its = f === "situation" || f === "habit" ? (p[f] ? [p[f]] : []) : (p[f] || []);
+      if (!its.length && f === "habit") return "";
+      return `<div class="row"><div class="lab">${nm}</div><div class="items">${its.length ? its.map(itemHtml).join("") : `<div class="empty">아직 없음 — 다음 업데이트에서 채웁니다</div>`}</div></div>`;
+    }).join("");
+    return `<article class="pcard"><div class="hd"><h3>${esc(p.name)}</h3><div class="who">${esc(p.who)}</div></div>
+      <div class="rows">${rows}</div>
+      ${(p.quotes || []).length ? `<details class="quotes"><summary>분석 때 모은 원문 댓글 ${p.quotes.length}개</summary><ul>${p.quotes.map(q => `<li><blockquote>“${esc(q.text)}” <span class="small">공감 ${q.likes}</span></blockquote></li>`).join("")}</ul></details>` : ""}
+    </article>`;
+  }
+  function renderStatic() {
+    document.title = document.title || B.title;
+    $("h1").textContent = B.title;
+    $("intro").textContent = `${B.name} 채널 시청자 페르소나(분석 결과로 만들고 매일 최근 유튜브 영상·댓글과 뉴스로 고침), 탐색할 고정 채널, PC에서 받을 대본 개수를 한 곳에 둡니다. 판 만든 때 ${B.made}. ${B.note || ""}`;
+    const up = B.updated || "", ud = days(up);
+    $("glance").innerHTML = [
+      { k: "페르소나 업데이트", v: up || "아직", s: up ? (ud === 0 ? "오늘 고침" : `${ud}일 전`) : "첫 업데이트 전", c: up && ud === 0 ? "ok" : "warn" },
+      { k: "시청자 페르소나", v: `${B.personas.length}명`, s: `분석 ${B.analysis.personas_made || "?"}`, c: "" },
+      { k: "받을 대본", v: `${(B.transcript || {}).n ?? "–"}개`, s: (B.transcript || {}).made ? `목록 ${B.transcript.made}` : "목록 없음", c: "" },
+      { k: "고정 채널", v: `${B.targets.length}곳`, s: "탐색에 들어간 것", c: "" },
+    ].map(t => `<div class="tile ${t.c}"><span class="k">${t.k}</span><span class="v">${esc(t.v)}</span><span class="s">${esc(t.s)}</span></div>`).join("");
+    $("personas").innerHTML = B.personas.length ? B.personas.map(personaHtml).join("") : `<section class="box"><p class="empty">페르소나가 아직 없습니다. Claude가 분석 결과로 만듭니다.</p></section>`;
+    const tr = B.transcript || {};
+    $("tr-n").textContent = tr.n != null ? `${tr.n}개` : "–";
+    $("tr-why").textContent = tr.why ? `${tr.why} 앞 5분 소리 약 ${tr.first_pass_audio_min}분.` : "대본 받을 목록이 아직 없습니다.";
+    $("tr-cmd").textContent = tr.command || "(받을 것 없음)";
+    $("tr-copy").disabled = !tr.command;
+    $("tr-first").innerHTML = (tr.first || []).map(r => `<li><div class="top"><span class="chip new">${esc(r.group_name)}</span><span class="small">${esc(r.minutes)}분 · ${esc(r.score)}</span></div><div>${esc(r.title)}</div></li>`).join("") || `<li class="small">없음</li>`;
+    $("tg-n").textContent = `(${B.targets.length})`;
+    $("tg-list").innerHTML = B.targets.map(c => `<li><div class="top"><strong>${esc(c.title || c.id)}</strong></div><code>${esc(c.id)}</code><span class="small">영상 ${esc(c.videos ?? "?")}개 · 더한 때 ${esc(c.added || "?")}</span></li>`).join("") || `<li class="small">아직 없음</li>`;
+    $("log").innerHTML = (B.log || []).map(x => {
+      const what = x.op === "replace" ? `${x.before} → ${x.after}` : (["remove", "keep"].includes(x.op) ? x.before : x.after);
+      return `<tr><td class="d">${esc(x.date)}</td><td>${esc(x.persona_name || x.persona)}</td><td>${esc(FN[x.field] || (x.field === "*" ? "전체" : x.field))}</td>
+        <td><span class="op ${esc(x.op)}">${esc(OPN[x.op] || x.op)}</span> ${esc(what)}</td>
+        <td>${esc(x.basis)}${(x.src || []).length ? `<details class="src"><summary>근거 ${x.src.length}</summary><ul>${x.src.map(srcHtml).join("")}</ul></details>` : ""}</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="small">내역 없음</td></tr>`;
+    const a = B.analysis || {};
+    $("an").innerHTML = (a.note ? `<p><strong>${esc(a.note)}</strong></p>` : "") + `<p>마지막 분석 ${esc(a.generated || "?")} · 성공 사례 ${esc(a.success ?? "?")}개 · 하루 조회수 상위 ${esc(a.vpd ?? "?")}개 · 조회수 상위 ${esc(a.views ?? "?")}개 · 최근 유튜브 훑기 ${esc(B.trend_date || "없음")} · 뉴스 ${esc(B.news_date || "없음")}</p>
+      <p>다음 일: 새 세션은 <code>guides/flow.md</code> 1단계대로 — 고정 채널 반영 → 분석 → 대본 목록 → 페르소나 업데이트 → 이 판 다시 올림.</p>`;
+  }
+  function renderChannels() {
+    const L = [...st.ch].sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+    const lab = { new: "반영 전", done: "반영됨", fail: "못 찾음" };
+    $("ch-list").innerHTML = L.map(c => `<li><div class="top"><span class="chip ${c.status === "done" ? "done" : c.status === "fail" ? "fail" : "new"}">${lab[c.status] || "반영 전"}</span>
+        <span class="small">${esc(String(c.createdAt || "").slice(0, 16).replace("T", " "))}</span></div>
+        <code>${esc(c.input)}</code>${c.memo ? `<span class="small">메모: ${esc(c.memo)}</span>` : ""}${c.reply ? `<span class="small">Claude: ${esc(c.reply)}</span>` : ""}
+        <div class="btnrow">${st.delAsk === c.id ? `<span class="small">지울까요?</span><button class="btn bad" type="button" data-act="delok" data-id="${esc(c.id)}">지우기</button><button class="btn ghost" type="button" data-act="delno">그대로</button>` : `<button class="btn ghost" type="button" data-act="del" data-id="${esc(c.id)}" ${st.canWrite ? "" : "disabled"}>지우기</button>`}</div></li>`).join("");
+  }
+  $("ch-add").addEventListener("click", async () => {
+    const raw = ($("ch-in").value || "").trim(), memo = ($("ch-memo").value || "").trim();
+    if (!raw || st.busy) return;
+    if (!st.db) { $("ch-note").textContent = "저장소에 연결되지 않아 저장할 수 없습니다."; return; }
+    const items = raw.split(/[\s,]+/).filter(Boolean).slice(0, 30);
+    st.busy = true; $("ch-add").disabled = true;
+    const now = new Date().toISOString();
+    try {
+      for (const x of items) await st.db.collection("channels").add({ input: x, memo, createdAt: now, updatedAt: now, status: "new", reply: "" });
+      $("ch-in").value = ""; $("ch-memo").value = ""; $("ch-note").textContent = ""; toast(`채널 ${items.length}개를 넣었습니다`);
+    } catch (e) { $("ch-note").textContent = e && e.code === "invalid_argument" ? "이 화면에서는 저장할 권한이 없습니다." : "저장하지 못했습니다. 다시 눌러 주세요."; }
+    st.busy = false; $("ch-add").disabled = false;
+  });
+  $("ch-list").addEventListener("click", async e => {
+    const b = e.target.closest("[data-act]"); if (!b || st.busy) return;
+    if (b.dataset.act === "del") { st.delAsk = b.dataset.id; renderChannels(); return; }
+    if (b.dataset.act === "delno") { st.delAsk = null; renderChannels(); return; }
+    st.busy = true;
+    try { await st.db.doc("channels/" + b.dataset.id).delete(); toast("지웠습니다"); } catch (err) { toast("지우지 못했습니다. 다시 눌러 주세요."); }
+    st.delAsk = null; st.busy = false; renderChannels();
+  });
+  $("tr-copy").addEventListener("click", async () => {
+    const t = $("tr-cmd").textContent;
+    try { await navigator.clipboard.writeText(t); $("tr-copied").textContent = "복사했습니다"; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents($("tr-cmd")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("tr-copied").textContent = "선택했습니다 — Ctrl+C 로 복사하세요"; }
+  });
+
+  renderStatic(); renderChannels();
+  (async () => {
+    const use = window.claude && window.claude.use ? n => window.claude.use(n) : () => Promise.resolve(null);
+    let db = null, user = null;
+    const timer = setTimeout(() => { if (!st.db) { $("status").className = "status bad"; $("status-t").textContent = "저장소가 응답하지 않습니다 — 페르소나는 볼 수 있지만 채널은 저장되지 않습니다."; } }, 10000);
+    try { [db, user] = await Promise.all([use("db"), use("user")]); } catch (e) { db = null; }
+    if (!db) { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "저장소에 연결하지 못했습니다 — 페르소나는 볼 수 있지만 채널은 저장되지 않습니다."; $("ch-add").disabled = true; return; }
+    st.db = db;
+    try { if (user && user.can && (await user.can("data.write")) === false) st.canWrite = false; } catch (e) { /* 모름 */ }
+    if (!st.canWrite) $("ch-add").disabled = true;
+    db.collection("channels").onSnapshot(s => {
+      clearTimeout(timer);
+      st.ch = s.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      $("status").className = "status " + (st.canWrite ? "ok" : ""); $("status-t").textContent = st.canWrite ? "저장소 연결됨 — 넣은 채널은 바로 저장되고 Claude가 읽습니다." : "보기 전용 — 이 화면에서는 채널을 넣을 수 없습니다.";
+      renderChannels();
+    }, () => { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "채널 목록을 읽지 못했습니다."; });
+  })();
+})();
+</script>

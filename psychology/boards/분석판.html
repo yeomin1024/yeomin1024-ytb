@@ -1,0 +1,271 @@
+<title>심리 분석 판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v1.1 — 2026-11-12 — 분석 현황에 안내 줄(표준 분석기 전 주제 — 위기) · 소개 끝 고지는 주제마다(B.note). (v1.0 — 2026-11-12 — 주제별 분석 판 틀 (tools/analysis_board.py 가 심리 분석 판·BOARD 칸을 채워 <주제>/boards/분석판.html 로 씀 — 손으로 고치지 않음).
+     사용자 지시 2026-11-12 "탐색할 고정 채널을 아이디를 내가 넣을 수 있도록 주제별 아티팩트 만들기 · 다운 받아야 하는 적당한 대본 개수 설정해서 아티팩트에 명령 표시 ·
+     시청자 페르소나들 만들어서 내용 아티팩트에 올린다 · 페르소나 업데이트 시 아티팩트에 어떤 근거로 어떻게 업데이트 했는지 짧막하게 내역 남기기".
+     db: channels {input, memo, createdAt, status(new|done|fail), reply, updatedAt} — 사용자가 넣고 Claude 가 ArtifactData 로 읽어 tools/cloud_run.py <주제> add 뒤 done·reply.
+     페르소나·내역·대본 명령은 페이지 안 BOARD 칸 (매일 업데이트 때 다시 만들어 같은 주소로 올림). 연구·교육용 — 투자 권유 아님. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 배치: 위 = 한눈에(네 칸) · 가운데 = 왼쪽 시청자 페르소나 카드 / 오른쪽 고정 채널 넣기·대본 받기 · 아래 = 업데이트 내역 표 (평가판들과 같은 색·글꼴) */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#1B2320; --muted:#5C6A65; --line:#DCE3E0;
+  --accent:#0E7466; --accent-ink:#FFFFFF; --accent-soft:#DDF1EC;
+  --ok:#2B7A55; --warn:#8A6A00; --bad:#B83227; --quote:#EEF2F0;
+  --shadow:0 10px 30px -18px rgba(20,40,35,.45);
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --warn:#E2C15A; --bad:#FF6E5E; --quote:#1F2926; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --warn:#E2C15A; --bad:#FF6E5E; --quote:#1F2926; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:18px}
+header.top{display:grid;gap:6px}
+header.top h1{font-size:clamp(20px,2.4vw,26px);margin:0;text-wrap:balance}
+header.top p{margin:0;color:var(--muted);font-size:14px;max-width:72ch}
+.status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.ok .dot{background:var(--ok)} .status.bad .dot{background:var(--bad)}
+.glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.tile .k{font-size:12px;color:var(--muted);letter-spacing:.02em}
+.tile .v{font:600 20px var(--f-mono);font-variant-numeric:tabular-nums}
+.tile .s{font-size:12.5px;color:var(--muted)}
+.tile.warn .v{color:var(--warn)} .tile.ok .v{color:var(--ok)}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.side{display:grid;gap:18px;position:sticky;top:env(safe-area-inset-top,0px)}
+section.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px;display:grid;gap:10px;min-width:0}
+section.box h2{margin:0;font-size:16px}
+.small{font-size:13px;color:var(--muted)}
+.personas{display:grid;gap:14px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:grid;min-width:0}
+.pcard .hd{padding:14px 18px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.pcard .hd h3{margin:0;font-size:17px;text-wrap:balance}
+.pcard .who{font-size:13px;color:var(--muted)}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:10px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .lab{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.02em;padding-top:2px}
+.items{display:grid;gap:8px;min-width:0}
+.item{display:grid;gap:4px}
+.item .t{font-size:15px}
+.item .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.chip{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;border:1px solid currentColor;white-space:nowrap}
+.chip.new{color:var(--accent)} .chip.old{color:var(--warn)} .chip.done{color:var(--ok)} .chip.fail{color:var(--bad)}
+.empty{font-size:13px;color:var(--muted)}
+details.src summary{cursor:pointer;font-size:12px;color:var(--accent);list-style:none}
+details.src summary::-webkit-details-marker{display:none}
+details.src ul,details.quotes ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13px}
+blockquote{margin:0;background:var(--quote);border-radius:8px;padding:6px 10px;font-size:13px}
+details.quotes{padding:10px 18px 14px;border-top:1px solid var(--line)}
+details.quotes summary{cursor:pointer;font-size:13px;font-weight:600}
+a{color:var(--accent)}
+textarea,input[type=text]{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+textarea{min-height:72px;resize:vertical}
+textarea:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 16px;font:600 14px var(--f-body);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.bad{border-color:var(--bad);background:transparent;color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:default}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.clist{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.clist li{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:4px}
+.clist .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.clist code{font:500 13px var(--f-mono);word-break:break-all}
+.cmd{display:grid;gap:6px}
+.cmd pre{margin:0;background:var(--quote);border-radius:10px;padding:10px 12px;font:500 12.5px/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-all}
+.num{font:600 34px var(--f-mono);font-variant-numeric:tabular-nums;line-height:1.1}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+td.d{font-family:var(--f-mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+.op{font-weight:700}
+.op.add{color:var(--ok)} .op.remove{color:var(--bad)} .op.replace,.op.set{color:var(--accent)} .op.keep,.op.init{color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:900px){.main{grid-template-columns:minmax(0,1fr)}.side{position:static}.glance{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.row{grid-template-columns:minmax(0,1fr);gap:4px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1 id="h1">분석 판</h1>
+    <p id="intro"></p>
+    <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+  </header>
+
+  <div class="glance" id="glance"></div>
+
+  <div class="main">
+    <div class="personas" id="personas"></div>
+    <div class="side">
+      <section class="box" aria-labelledby="ch-h">
+        <h2 id="ch-h">탐색할 고정 채널</h2>
+        <p class="small">채널 ID(UC로 시작), 채널 주소, @이름을 넣으세요. 여러 개는 줄을 바꿔서. Claude가 다음 분석 때 읽어 탐색 목록에 더하고, 결과를 아래에 적습니다.</p>
+        <label class="small" for="ch-in">채널</label>
+        <textarea id="ch-in" placeholder="UCxxxxxxxxxxxxxxxxxxxxxx&#10;@채널이름&#10;https://www.youtube.com/@채널이름"></textarea>
+        <label class="small" for="ch-memo">메모 (선택)</label>
+        <input type="text" id="ch-memo" placeholder="왜 넣는지 — 예: 비슷한 구독자 수에 조회수가 높음">
+        <div class="btnrow"><button class="btn" id="ch-add" type="button">채널 넣기</button><span class="small" id="ch-note"></span></div>
+        <ul class="clist" id="ch-list"></ul>
+        <details><summary class="small">지금 탐색에 들어간 고정 채널 <span id="tg-n"></span></summary><ul class="clist" id="tg-list"></ul></details>
+      </section>
+      <section class="box" aria-labelledby="tr-h">
+        <h2 id="tr-h">대본 받기 (PC)</h2>
+        <div class="num" id="tr-n">–</div>
+        <p class="small" id="tr-why"></p>
+        <div class="cmd"><pre id="tr-cmd"></pre><div class="btnrow"><button class="btn ghost" id="tr-copy" type="button">명령 복사</button><span class="small" id="tr-copied"></span></div></div>
+        <details><summary class="small">먼저 받을 영상</summary><ul class="clist" id="tr-first"></ul></details>
+      </section>
+    </div>
+  </div>
+
+  <section class="box" aria-labelledby="lg-h">
+    <h2 id="lg-h">페르소나 업데이트 내역</h2>
+    <p class="small">새것이 위. 근거 수를 누르면 무엇을 보고 바꿨는지(댓글 원문·영상·뉴스·시장) 보입니다.</p>
+    <div class="tablebox"><table><thead><tr><th>날짜</th><th>페르소나</th><th>칸</th><th>무엇을</th><th>근거</th></tr></thead><tbody id="log"></tbody></table></div>
+  </section>
+
+  <section class="box" aria-labelledby="an-h">
+    <h2 id="an-h">분석 현황</h2>
+    <div id="an" class="small"></div>
+  </section>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const BOARD = /*BOARD:BEGIN*/{"tool":"analysis_board.py v1.1","topic":"psychology","name":"심리","title":"심리 분석 판","note":"연구·교육용이며 의료·심리 상담이 아닙니다.","made":"2026-11-12 07:05","today":"2026-11-12","updated":"2026-11-12","stale_days":14,"personas":[{"key":"elder","name":"살아 보니 알게 된 5060","n":195,"who":"나이 50대·60대 · 아는 정도 기초 · 댓글로 본 처지 외로움·혼자 2%, 손절·연 끊음 1% · 근거 댓글 195개","situation":{"text":"혼자 남은 노년의 외로움을 다룬 영상이 이번 주 많이 보였다. 50대가 되어서도 부모 전화에 답답해하고, 시부모 병간호처럼 핏줄이라 끊지 못하는 관계를 안고 산다.","date":"2026-11-12","src":["v:O4cK9M5vwWY","c:전 50대인데 아직도 휴대폰에 엄마가 뜨연 가승부터 답답합니다."],"basis":"최근 7일 외로움 영상 상위 + 부모 통화·병간호 댓글"},"habit":null,"curiosity":[{"text":"밖에서라면 끊었을 대우를 하는 가족과도 핏줄이라는 이유로 계속 이어 가야 하는지, 거리를 두는 방법은 있는지","date":"2026-11-12","src":["c:밖에서 남에게 그런 대우를 받았다면 아마도 끊었을 인간관계인데"],"basis":"핏줄이라 보고 산다는 댓글"},{"text":"왜 며느리가 시부모 병간호를 맡게 되고, 안 하면 죄책감까지 느끼게 되는지","date":"2026-11-12","src":["c:왜 며느리는 병간호 안하면 죄의식을 가져야할까요?"],"basis":"며느리 병간호·죄의식 질문 댓글"}],"worry":[{"text":"부모 전화만 와도 가슴이 답답한데, 이런 마음을 품는 내가 나쁜 자식인 건 아닌지","date":"2026-11-12","src":["c:아직도 휴대폰에 엄마가 뜨연 가승부터 답답합니다"],"basis":"50대인데 엄마 전화에 답답하다는 댓글"}],"anxiety":[],"wants":[{"text":"끊지 못하는 가족 관계에서 덜 다치며 대하는 구체적인 말과 행동","date":"2026-11-12","src":["c:부모님과 통화할때 일부러 티비나 유튜브를 켜고, 통화내용을 반은 듣고 반은 흘려 듣습니다"],"basis":"통화를 반만 들으며 버틴다는 댓글"},{"text":"물건과 관계를 덜어 내며 마음을 가볍게 하는 나이 든 뒤의 정리법","date":"2026-11-12","src":["c:마음이 복잡할때 찾아서 하나라도 버리면 가벼움을 느낌"],"basis":"버리면 가벼워진다는 70대 댓글"}],"quotes":[{"text":"전 50대후반 주부입니다. 민음사세계문학전집 400여권, 5년전부터 30년간 읽을 계획이고, 현재진행중입니다. 고전의 위대함 감동받습니다.","likes":310,"from":"personas.json"},{"text":"못 버리는건 병이라고 생각중 난 70대 할매 너무 잘 버려서 영감왈 나도 갖다 버리것네! 마음이 복잡할때 찾아서 하나라도 버리면 가벼움을 느낌 그런데 영감은 아무것도 못 버리고 쌓아놓는 성질 평생의 스트레스 몰래 버리면 화내고 삐지고…","likes":258,"from":"personas.json"},{"text":"전 50대인데 아직도 휴대폰에 엄마가 뜨연 가승부터 답답합니다.","likes":133,"from":"personas.json"},{"text":"밖에서 남에게 그런 대우를 받았다면 아마도 끊었을 인간관계인데. 그냥 핏줄이라는 이유 하나만으로 보고 사는거죠. 자주 하지도 않지만, 부모님과 통화할때 일부러 티비나 유튜브를 켜고, 통화내용을 반은 듣고 반은 흘려 듣습니다. 그래야 …","likes":85,"from":"personas.json"},{"text":"​​싫어하는 사람에게 막무가내로 사과 줘놓고 왜 나에게 고마워하지 않지? 하면서 상대를 고마워하지 않는 사람 만들지 마세요 주고싶은 자기감정에 충실했으면 된거지 왜 요즘 세대는 어쩌구저쩌구 자기생각이 정답인냥 생각하나요? 주고싶은건 …","likes":6,"from":"personas.json"},{"text":"시부모가 아픈데.왜 며느리가 병간호 해야되나요? 그리고 왜 며느리는 병간호 안하면 죄의식을 가져야할까요?","likes":3,"from":"personas.json"}]},{"key":"mind","name":"우울·불안·공황을 겪는 사람","n":150,"who":"나이 20대·30대 · 아는 정도 기초 · 댓글로 본 처지 상담·치료 중 23%, 외로움·혼자 2%, 아이를 키우는 부모 1% · 근거 댓글 150개","situation":{"text":"우울증·불안장애로 진료받는 사람이 194만 명으로 늘었다는 기사가 나온 주. 약을 먹으며 상담을 받는 중이지만 몸의 변화와 진단에 대한 물음이 남아 있다.","date":"2026-11-12","src":["n:https://www.seoul.co.kr/news/life/health-news/2026/11/06/20261106500019","c:현재 몇년째 우울증약 복용중인데"],"basis":"진료 인원 증가 기사 + 몇 년째 약 복용 중이라는 댓글"},"habit":null,"curiosity":[{"text":"겉으로는 일상을 해내는 '고기능 우울증'도 검사로 확인되는지, 어떤 상태를 말하는지","date":"2026-11-12","src":["c:고기능 우울증이... 검사 받아서 진단도 나오나요?"],"basis":"고기능 우울증 진단을 묻는 댓글"}],"worry":[{"text":"몇 년째 치료를 받는데도 감각이 무뎌지는 것 같은 변화가 느껴져 무섭다","date":"2026-11-12","src":["c:가끔은 촉감도 후각도 없어지는거 같아요. 무섭습니다"],"basis":"촉감·후각이 없어지는 것 같다는 댓글"}],"anxiety":[{"text":"집에 있는 다 큰 자식을 돌보는 일이 버거워 상담을 받으며 하루하루 겨우 버티는 느낌","date":"2026-11-12","src":["c:데리고 사는데 너무 힘들어요ㅠ 정신과 상담 치료중입니다"],"basis":"자식 돌봄에 지쳐 상담 중이라는 댓글"}],"wants":[{"text":"약·상담과 함께 일상에서 마음을 다독일 수 있는, 연구로 확인된 생각법","date":"2026-11-12","src":["c:전 이 채널에서 많은 도움과 위로를 받아요.","v:1H_ziHU-LAI"],"basis":"채널에서 위로받는다는 댓글 + 정신건강 생각 영상 상위"},{"text":"나만 이런 게 아니라고 느끼게 해 주는, 다른 사람이 버텨 온 이야기","date":"2026-11-12","src":["c:살아내기에 몸부림치는 나도 남준이도 똑같은 사람이구나 싶다"],"basis":"남준이도 같은 사람이구나 싶어 위로받았다는 댓글"}],"quotes":[{"text":"공중파 나오셔도 약먹고 고치실 필요 없어요. 외형보다 컨텐츠가 중요히죠. 전 이 채널에서 많은 도움과 위로를 받아요.","likes":306,"from":"personas.json"},{"text":"능력은 없고 쿠팡도 싫고 대학도 안간다 하고 데리고 사는데 너무 힘들어요ㅠ 정신과 상담 치료중입니다 저는 죽지못해 사네요","likes":55,"from":"personas.json"},{"text":"고영님..유튜브 시청한지 얼마 안되었지만 .. 그동안 고영님이 자아에 대해 얼마나 깊고 긴 시간동안 많은 생각과 고민을 하면서 살아오셨는지를 여실히 느낄수 있는 영상이었어요,,,제가 느끼기엔 고영님에게 6년은 우울증을 겪었던 시간이라…","likes":27,"from":"personas.json"},{"text":"약 복용하면서 땀조절도 같이 안되서 머리에서 미치듯이 땀이 나오는데 써보고싶네요. 근데 저는 양극성인데 될런지…","likes":21,"from":"personas.json"},{"text":"나르시시스트 부모 밑에서 자란 남편은 매사에 의욕이 없고 부정적이며 자신감이 부족합니다 잘난 둘째와 비교 당하며 얼마나 끊임없이 자신의 가치를 증명해야 했을까요 먼들 그분들에게는 성에 안찼겠지만요..그렇게 순종적이고 수동적이며 부모 …","likes":10,"from":"personas.json"},{"text":"고기능 우울증이... 검사 받아서 진단도 나오나요? 현재 몇년째 우울증약 복용중인데 말씀하시는 부분에 다수 해당됩니다... 가끔은 촉감도 후각도 없어지는거 같아요. 무섭습니다..","likes":3,"from":"personas.json"}]},{"key":"worker","name":"직장 인간관계로 힘든 직장인","n":129,"who":"나이 20대·30대 · 아는 정도 기초 · 댓글로 본 처지 외로움·혼자 1%, 손절·연 끊음 1%, 다시 보는·저장해 두는 1% · 근거 댓글 129개","situation":{"text":"일터 괴롭힘을 겪은 돌봄 노동자의 우울 증상 비율이 6배 높았다는 조사가 나온 주. 주가 하락 분위기에 회사 사람들 표정도 가라앉아 있다.","date":"2026-11-12","src":["n:https://www.khan.co.kr/article/202611091311001/","c:회사사람들 표정이 완전 풀이죽어있음"],"basis":"일터 괴롭힘·우울 조사 기사 + 회사 분위기 댓글"},"habit":null,"curiosity":[{"text":"바꿀 수 없는 일을 버티느라 힘을 다 써 버리는 게 번아웃인지, 힘을 남기는 방법은 있는지","date":"2026-11-12","src":["c:내가 버티느라고 에너지를 다 써서, 내가 변화시킬 수 있는 것에 대한 에너지가 없는게 진짜 번아웃입니다"],"basis":"버티느라 에너지를 다 쓴다는 번아웃 댓글"},{"text":"회사 사람과 어디까지 속 얘기를 하고 어디서 선을 그어야 서로 편한지","date":"2026-11-12","src":["c:그냥 가까운사람 아니면 가벼운 스몰토크만 하면서 내얘기를 안하는게 편한거에요"],"basis":"스몰토크만 하는 게 편하다는 댓글"}],"worry":[{"text":"다들 웃으며 지내는 회사에서 나만 웃음이 안 나와 겉도는 것 같다","date":"2026-11-12","src":["c:회사에서 깔깔 웃으면서 이야기하는 동료들이 참 신기해요"],"basis":"동료들 웃음이 신기하다는 댓글"}],"anxiety":[{"text":"퇴근 뒤 회사 전화만 와도 크게 짜증이 나서 쉬어도 쉰 것 같지 않다","date":"2026-11-12","src":["c:퇴근했는데, 회사에서 전화오면 별거 아닌 일도 극도로 짜증나요"],"basis":"퇴근 후 회사 전화에 짜증 난다는 댓글"}],"wants":[{"text":"회사 사람과의 거리를 정하는 구체적인 기준과 바로 쓸 수 있는 말","date":"2026-11-12","src":["c:직장에서 깊고 진중한 얘기만 할수있을까요?오히려 다들 부담스러워해요"],"basis":"직장에서 깊은 얘기는 부담이라는 댓글"},{"text":"회사를 그만두기 전에 따져 볼 것 — 그만두고 후회하지 않게 판단하는 방법","date":"2026-11-12","src":["c:다시 돌아가면 절대 회사를 그만두지 않았을거다"],"basis":"그만둔 걸 후회한다는 댓글"}],"quotes":[{"text":"행복하지가 않아요 회사에서 깔깔 웃으면서 이야기하는 동료들이 참 신기해요 뭐가그렇게 재밌고 즐거울까 나는 하나도 웃음이 안나요","likes":132,"from":"personas.json"},{"text":"직장에서 깊고 진중한 얘기만 할수있을까요?오히려 다들 부담스러워해요 그냥 가까운사람 아니면 가벼운 스몰토크만 하면서 내얘기를 안하는게 편한거에요 자신만 특별하다는 착각들좀 버려요","likes":5,"from":"personas.json"},{"text":"5:06 현실은 내가 변화시킬 수 없는 것들이 나를 괴롭히는 거를 버텨야만 살아내지기 때문에 내가 버티느라고 에너지를 다 써서, 내가 변화시킬 수 있는 것에 대한 에너지가 없는게 진짜 번아웃입니다..... 직장에서 내가 손절하고 싶다…","likes":4,"from":"personas.json"},{"text":"오랜 직장생활에서 난 누구를 만나야 하는게 디폴트인줄 알았는데 명퇴후 모임이 점점 다 끊어져도 전혀 이상한 감정 안들고 오히려 혼자 있는게 너어어어무 좋음","likes":4,"from":"personas.json"},{"text":"김정운 교수님 강의 시리즈 재밌게 잘 봤습니다. 지금 제가 하고 있는 경험과 생각들과 너무 비슷한 말씀들을 해주셔서 더 빠져든것 같아요. 50이 되어 갑자기 잠이 안 오더라구요.이렇게 계속 살아도 되는가...남은 인생 이제 나의 삶을…","likes":2,"from":"personas.json"},{"text":"하는 사람들는 그럼 어떡하나요?","likes":1,"from":"personas.json"}]},{"key":"family_hurt","name":"부모·가족에게 상처받은 사람","n":120,"who":"나이 30대·40대 · 아는 정도 초급 · 댓글로 본 처지 손절·연 끊음 3%, 아이를 키우는 부모 2%, 외로움·혼자 2% · 근거 댓글 120개","situation":{"text":"일하는 엄마와 아이를 다룬 영상이 이번 주 하루 조회수 1위. 어린 시절 혼자 엄마를 기다리던 외로움을 꺼내는 댓글이 공감을 많이 받는다.","date":"2026-11-12","src":["v:QtqJF7nJkX8","n:https://www.fnnews.com/news/202611090605486899","c:아주 어렸을때 부터 혼자 집에서 엄마를 기다리던 시간이 있었다"],"basis":"워킹맘 통계 기사 + 최근 7일 1위 영상 + 엄마를 기다린 기억 댓글"},"habit":null,"curiosity":[{"text":"어릴 때 엄마를 기다리며 느낀 외로움이 어른이 된 지금의 마음과 꿈에 어떻게 남는지","date":"2026-11-12","src":["c:어른이 되어서도 엄마가 날 떠나고 버리는 꿈을 꿨다"],"basis":"어른이 되어서도 엄마가 떠나는 꿈을 꿨다는 댓글"},{"text":"어렵게 상처를 말해도 끝내 사과하지 않는 부모는 왜 그런지","date":"2026-11-12","src":["c:미안해의 미자도 말 안하더라고요"],"basis":"말해도 미안하다는 말이 없다는 댓글"}],"worry":[{"text":"부모를 이해하려고 애써도 나를 소유물처럼 대해, 계속 나 혼자만 애쓰는 관계로 남을까 봐","date":"2026-11-12","src":["c:그분들은 나를 인격체로 대하지 않고 소유물로 맨날 대하고"],"basis":"부모가 인격체로 대하지 않는다는 댓글"}],"anxiety":[{"text":"내가 겪은 외로움을 내 아이에게 물려줄까 봐 일과 육아 사이에서 마음이 쓰인다","date":"2026-11-12","src":["c:그런 기억이 모여서 저는 두 아이 낳고 온전히 12년 육아만 했고"],"basis":"그 기억 때문에 육아만 했다는 댓글"}],"wants":[{"text":"사과를 받지 못해도 부모에게 받은 상처를 정리하고 내 마음을 지키는 방법","date":"2026-11-12","src":["c:저도 큰 계기가 생기고 나서야 말을 했더니 반응도 똑같아요"],"basis":"말을 꺼내도 반응이 같았다는 댓글"},{"text":"어린 나이에 부모 사이 감정받이가 됐던 경험이 무엇이었는지 이름 붙여 주는 설명","date":"2026-11-12","src":["c:뭣도 모르는 어린애가 가정 쪼개질까봐 두 부모 사이에서 전전긍긍하며 감정쓰레기통을 하며 십수년 산 것이었다"],"basis":"엄마의 감정쓰레기통으로 살았다는 댓글"}],"quotes":[{"text":"안녕하세요 진배님, 인스타도 팔로우하고 보고있지만... 댓글은 처음 남겨봅니다. 저는 지금 30대 후반이고 제가 2살, 오빠가 5살 때 아빠가 사고로 돌아가셨어요. 다르게 생각하면 저희 엄마는 5살 2살 자식을 둔 채로 남편과 사별을…","likes":80,"from":"personas.json"},{"text":"나는 부모를 이해하려고 미친 듯이 심리 공부도 하고 트라우마 공부도 하고, 그분들의 삶이 너무 불쌍해서. 근데 그분들은 나를 인격체로 대하지 않고 소유물로 맨날 대하고 자기만 힘들고 불쌍하다고 늘 하시고. 오늘 선생님 말씀하신 애 어…","likes":31,"from":"personas.json"},{"text":"저희 엄마도 누우면 잠이 안 온다고 새벽까지 티비 틀어놓고 계셨는데.. 티비 소리 새벽까지 나면 아직 못 주무시는구나 했어요. 근데 올해 들어 엄마 저녁마다 리부틴이라는거 드시고부터는 기절시키듯 재우는게 아니고 잠 못 들게 하는 각성…","likes":13,"from":"personas.json"},{"text":"중학생 때 집안 풍비박산 난 뒤 결혼 직전까지 나는 엄마의 카운셀러를 자처했으나, 지나고 보니 뭣도 모르는 어린애가 가정 쪼개질까봐 두 부모 사이에서 전전긍긍하며 감정쓰레기통을 하며 십수년 산 것이었다. 집구석 생긴 것도 그 안의 사…","likes":13,"from":"personas.json"},{"text":"현재 한국의 학원 문화는 부모가 어린 자녀가 사회에서 뒤쳐지지 않기 위해, 즉 사회에서 받을 정신적 고통을 가정에서 미리 주는 것이 됨. 그리고 때문에 가족한테 의지가 어렵고 내 편이 없다는 감정을 느낌. 하지만 그 방식은 또 실제 …","likes":9,"from":"personas.json"},{"text":"저랑 정말 똑같아요. 제 기분을 정리해주시는 것 같아요. 저도 큰 계기가 생기고 나서야 말을 했더니 반응도 똑같아요. 미안해의 미자도 말 안하더라고요. 저희 엄마는 할머니 이야기를 했어요. 나는 우리 엄마(할머니)한테 안 그랬는데..…","likes":4,"from":"personas.json"}]},{"key":"young","name":"친구·연애 관계가 고민인 학생·청년","n":116,"who":"나이 30대·20대 · 아는 정도 기초 · 댓글로 본 처지 손절·연 끊음 4%, 외로움·혼자 3%, 상담·치료 중 1% · 근거 댓글 116개","situation":{"text":"일도 구직도 쉬는 미혼 청년의 결혼 의향이 가장 낮다는 보고서가 나온 주. 쉬다가 늦게 취업에 나선 청년, 오래된 친구를 손절한 이야기가 함께 보인다.","date":"2026-11-12","src":["n:https://asiae.co.kr/article/2026110917081608091","c:반강제적으로 쉬었음 청년 시기를 보내다 뒤늦게 취업 시장에 뛰어들고 있습니다"],"basis":"쉬었음 청년 보고서 기사 + 늦은 취업·손절 댓글"},"habit":null,"curiosity":[{"text":"한번 마음이 돌아서면 오래된 친구도 다시 안 보게 되는 마음은 왜 생기는지","date":"2026-11-12","src":["c:30년지기 친구 처음이자 마지막 유럽패키지 여행이후 손절","v:01QDEgEByok"],"basis":"30년지기 손절 댓글 + 등 돌리는 사람 심리 영상 배수 상위"},{"text":"밥값 눈치 같은 작은 돈 문제가 왜 친구 관계를 끊게 만드는지","date":"2026-11-12","src":["c:밥값 계산할때 눈치보는게 훤히 보여서 꼴보기가 싫어서요"],"basis":"밥값 눈치 때문에 손절했다는 댓글"}],"worry":[{"text":"'나는 못 하는 사람'이라고 미리 선을 긋다 보니 금방 포기하고 이룬 게 없다고 느낀다","date":"2026-11-12","src":["c:금방 포기하게 되고 결국이나이까지 이룬거하나 없더라구요"],"basis":"한계짓고 포기했다는 35살 댓글"}],"anxiety":[{"text":"쉬었던 시간이 부끄러워, 늦게 시작한 취업 준비가 잘될지 마음을 졸인다","date":"2026-11-12","src":["c:부끄럽지만 28살 취준생 입니다!"],"basis":"부끄럽지만 28살 취준생이라는 댓글"}],"wants":[{"text":"친구 관계를 이어 갈지 끊을지 판단하는 기준","date":"2026-11-12","src":["c:저도 중학교 친구 한명, 전 직장 동료 손절했습니다!"],"basis":"친구·동료를 손절했다는 댓글"},{"text":"스스로 한계를 긋는 생각을 바꾸는, 연구로 확인된 방법","date":"2026-11-12","src":["c:평생을 나는 못하는 사람이지 한계짓고"],"basis":"평생 한계짓고 살았다는 댓글"}],"quotes":[{"text":"35살 아줌마입니다 진짜 진짜 저게 맞는말이에요 진짜에요 평생을 나는 못하는 사람이지 한계짓고 도전하면서도 난 안될거같은데 라는 생각으로 살앗습니다 그러다보니 금방 포기하게 되고 결국이나이까지 이룬거하나 없더라구요 근데 이아줌마가 아…","likes":480,"from":"personas.json"},{"text":"부끄럽지만 28살 취준생 입니다! 대학을 졸업하고 3년간, 우울증에 심해 정신과적 치료를 받느라 반강제적으로 쉬었음 청년 시기를 보내다 뒤늦게 취업 시장에 뛰어들고 있습니다! 저도 30살까지 2년 남았습니다! 정일영 교수님께서 침착맨…","likes":63,"from":"personas.json"},{"text":"순간 눈물이 났습니다. 제나이 50 나에 일을 시작하려고 준비중인데 마치 내 얘기 같아서 눈물이 났어요 딸도 이제 20살 남편 과는 사이가 안좋고 헌신 하고 살았지만 결국 나만 느끼는 거고 서운함에서 벗어나야 헙니다 난 이제 20살 …","likes":38,"from":"personas.json"},{"text":"저도 중학교 친구 한명, 전 직장 동료 손절했습니다! 이것들이 밥값 계산할때 눈치보는게 훤히 보여서 꼴보기가 싫어서요!","likes":31,"from":"personas.json"},{"text":"30년지기 친구 처음이자 마지막 유럽패키지 여행이후 손절.. 한 친구가 주도를 했죠. 딸부잣집 막내라 언니들로부터 줏어들은 풍월로 말투마다 자신이 보는 세상이 전부요 옳다는식의.. 잠도 동전던지기로 매일 다른 사람과 때론 연속으로 같…","likes":20,"from":"personas.json"},{"text":"저는 일본에서 공부중인 유학생인데 너무 재밋엇는데 일본에서 살고있는 저도 당첨 될 가능성이 있을까요","likes":0,"from":"personas.json"}]},{"key":"spouse_inlaw","name":"배우자·시댁 문제로 힘든 사람","n":91,"who":"아는 정도 기초 · 댓글로 본 처지 이혼·별거 34%, 손절·연 끊음 2%, 외로움·혼자 1% · 근거 댓글 91개","situation":{"text":"유연근무가 오히려 엄마에게 육아를 몰아줄 수 있다는 연구가 보도된 주. 전업주부의 돌봄 노동이 인정받지 못한다는 댓글이 공감을 많이 받는다.","date":"2026-11-12","src":["n:https://m.news.nate.com/view/20261109n00351","c:돌봄 노동은 경력인정도 안되고 연금도 안나오고"],"basis":"유연근무·육아 부담 연구 기사 + 돌봄 노동 댓글"},"habit":{"text":"말해도 안 바뀌는 배우자의 습관은 더 말하지 않고 내가 대신 해 버린다","date":"2026-11-12","src":["c:이제는 얘기안합니다. 그냥 제가 넣어요"],"basis":"45년째 의자를 대신 넣는다는 댓글"},"curiosity":[{"text":"매번 사과하고 또 같은 행동을 하는 배우자는 왜 바뀌지 않는지, 기다리면 달라지는지","date":"2026-11-12","src":["c:매번 미안하다 잘못했다 다시는 안그런다라는 말을 믿고 기다려봣지만 남편은 개선이 안되는 사람"],"basis":"사과를 믿고 기다렸지만 그대로라는 댓글"},{"text":"배우자의 행동이 누구나 조금은 있는 미성숙함인지, 더 깊은 문제인지 가르는 기준","date":"2026-11-12","src":["c:정서적인 미성숙한 사람 보통 다들 어느정도있죠"],"basis":"정서적 미성숙과 나르시시스트를 묻는 댓글"}],"worry":[{"text":"헌신해도 공감 없이 소리치는 배우자 때문에 자존감이 계속 깎인다","date":"2026-11-12","src":["c:버럭질로 내 자존감을 짖이겨"],"basis":"버럭질로 자존감이 짓밟힌다는 댓글"}],"anxiety":[],"wants":[{"text":"집안 돌봄 노동이 얼마나 큰 일인지 연구와 숫자로 보여 주는 설명","date":"2026-11-12","src":["c:전업주부는 온 식구들에게 희생하는 존재입니다"],"basis":"전업주부도 희생하는 존재라는 댓글"},{"text":"바뀌지 않는 배우자와 지내면서도 내 자존감을 지키는 구체적인 방법","date":"2026-11-12","src":["c:남편역할 없는 남편을 챙기고 지지하고 헌신해도"],"basis":"헌신해도 공감 없는 남편 댓글"}],"quotes":[{"text":"남편역할 없는 남편을 챙기고 지지하고 헌신해도 남편은 공감조차없고 버럭질로 내 자존감을 짖이겨 자신이 위월감을 느끼는 패턴을 매번 미안하다 잘못했다 다시는 안그런다라는 말을 믿고 기다려봣지만 남편은 개선이 안되는 사람. 그전에는 울기…","likes":616,"from":"personas.json"},{"text":"사람이 다 잘할 수 없습니다. 본인이 잘하는 걸로 잘 먹고 살면 그만이에요. 돈 잘 버니 요리 못하면 맛있는 거 사먹으면 되는 거고 도우미 고용해서 할 수도 있는 건데 지난날 요리 못한 게 당연히 처음해본 거 못할 수 있는 거에요. …","likes":30,"from":"personas.json"},{"text":"퇴근했는데, 회사에서 전화오면 별거 아닌 일도 극도로 짜증나요","likes":25,"from":"personas.json"},{"text":"오... 저도 힘을 내봅니다... 인생 별거 아닌것 처럼 느껴지네요","likes":10,"from":"personas.json"},{"text":"정서적인 미성숙한 사람 보통 다들 어느정도있죠 정말 성숙한분들은 희귀품종 아닐까요? 하지만 병적인 정석적 미성숙자가 나르시시스트 아닐까요? 죽을때까지 치유하지 못하는 불치병이죠 14년째 결혼생활중인데..내가 잘못 살아온 나의 삶에 대…","likes":2,"from":"personas.json"},{"text":"저도 늘 습관인데요. 울 남편은 항상 식사후에 의자를 안넣어요..결혼 45년째~~ 제가 넣어달라구 아마도 지금까지 3~4번정도 부탁했는데요..2~3일이면 또 다시 그대로 두고 쇼파로 가지요..이제는 얘기안합니다. 그냥 제가 넣어요..…","likes":1,"from":"personas.json"}]}],"log":[{"date":"2026-11-12","persona":"elder","field":"situation","op":"set","before":"","after":"혼자 남은 노년의 외로움을 다룬 영상이 이번 주 많이 보였다. 50대가 되어서도 부모 전화에 답답해하고, 시부모 병간호처럼 핏줄이라 끊지 못하는 관계를 안고 산다.","basis":"최근 7일 외로움 영상 상위 + 부모 통화·병간호 댓글","src":["v:O4cK9M5vwWY","c:전 50대인데 아직도 휴대폰에 엄마가 뜨연 가승부터 답답합니다."],"persona_name":"살아 보니 알게 된 5060"},{"date":"2026-11-12","persona":"elder","field":"curiosity","op":"add","before":"","after":"밖에서라면 끊었을 대우를 하는 가족과도 핏줄이라는 이유로 계속 이어 가야 하는지, 거리를 두는 방법은 있는지","basis":"핏줄이라 보고 산다는 댓글","src":["c:밖에서 남에게 그런 대우를 받았다면 아마도 끊었을 인간관계인데"],"persona_name":"살아 보니 알게 된 5060"},{"date":"2026-11-12","persona":"elder","field":"curiosity","op":"add","before":"","after":"왜 며느리가 시부모 병간호를 맡게 되고, 안 하면 죄책감까지 느끼게 되는지","basis":"며느리 병간호·죄의식 질문 댓글","src":["c:왜 며느리는 병간호 안하면 죄의식을 가져야할까요?"],"persona_name":"살아 보니 알게 된 5060"},{"date":"2026-11-12","persona":"elder","field":"worry","op":"add","before":"","after":"부모 전화만 와도 가슴이 답답한데, 이런 마음을 품는 내가 나쁜 자식인 건 아닌지","basis":"50대인데 엄마 전화에 답답하다는 댓글","src":["c:아직도 휴대폰에 엄마가 뜨연 가승부터 답답합니다"],"persona_name":"살아 보니 알게 된 5060"},{"date":"2026-11-12","persona":"elder","field":"wants","op":"add","before":"","after":"끊지 못하는 가족 관계에서 덜 다치며 대하는 구체적인 말과 행동","basis":"통화를 반만 들으며 버틴다는 댓글","src":["c:부모님과 통화할때 일부러 티비나 유튜브를 켜고, 통화내용을 반은 듣고 반은 흘려 듣습니다"],"persona_name":"살아 보니 알게 된 5060"},{"date":"2026-11-12","persona":"elder","field":"wants","op":"add","before":"","after":"물건과 관계를 덜어 내며 마음을 가볍게 하는 나이 든 뒤의 정리법","basis":"버리면 가벼워진다는 70대 댓글","src":["c:마음이 복잡할때 찾아서 하나라도 버리면 가벼움을 느낌"],"persona_name":"살아 보니 알게 된 5060"},{"date":"2026-11-12","persona":"mind","field":"situation","op":"set","before":"","after":"우울증·불안장애로 진료받는 사람이 194만 명으로 늘었다는 기사가 나온 주. 약을 먹으며 상담을 받는 중이지만 몸의 변화와 진단에 대한 물음이 남아 있다.","basis":"진료 인원 증가 기사 + 몇 년째 약 복용 중이라는 댓글","src":["n:https://www.seoul.co.kr/news/life/health-news/2026/11/06/20261106500019","c:현재 몇년째 우울증약 복용중인데"],"persona_name":"우울·불안·공황을 겪는 사람"},{"date":"2026-11-12","persona":"mind","field":"curiosity","op":"add","before":"","after":"겉으로는 일상을 해내는 '고기능 우울증'도 검사로 확인되는지, 어떤 상태를 말하는지","basis":"고기능 우울증 진단을 묻는 댓글","src":["c:고기능 우울증이... 검사 받아서 진단도 나오나요?"],"persona_name":"우울·불안·공황을 겪는 사람"},{"date":"2026-11-12","persona":"mind","field":"worry","op":"add","before":"","after":"몇 년째 치료를 받는데도 감각이 무뎌지는 것 같은 변화가 느껴져 무섭다","basis":"촉감·후각이 없어지는 것 같다는 댓글","src":["c:가끔은 촉감도 후각도 없어지는거 같아요. 무섭습니다"],"persona_name":"우울·불안·공황을 겪는 사람"},{"date":"2026-11-12","persona":"mind","field":"anxiety","op":"add","before":"","after":"집에 있는 다 큰 자식을 돌보는 일이 버거워 상담을 받으며 하루하루 겨우 버티는 느낌","basis":"자식 돌봄에 지쳐 상담 중이라는 댓글","src":["c:데리고 사는데 너무 힘들어요ㅠ 정신과 상담 치료중입니다"],"persona_name":"우울·불안·공황을 겪는 사람"},{"date":"2026-11-12","persona":"mind","field":"wants","op":"add","before":"","after":"약·상담과 함께 일상에서 마음을 다독일 수 있는, 연구로 확인된 생각법","basis":"채널에서 위로받는다는 댓글 + 정신건강 생각 영상 상위","src":["c:전 이 채널에서 많은 도움과 위로를 받아요.","v:1H_ziHU-LAI"],"persona_name":"우울·불안·공황을 겪는 사람"},{"date":"2026-11-12","persona":"mind","field":"wants","op":"add","before":"","after":"나만 이런 게 아니라고 느끼게 해 주는, 다른 사람이 버텨 온 이야기","basis":"남준이도 같은 사람이구나 싶어 위로받았다는 댓글","src":["c:살아내기에 몸부림치는 나도 남준이도 똑같은 사람이구나 싶다"],"persona_name":"우울·불안·공황을 겪는 사람"},{"date":"2026-11-12","persona":"worker","field":"situation","op":"set","before":"","after":"일터 괴롭힘을 겪은 돌봄 노동자의 우울 증상 비율이 6배 높았다는 조사가 나온 주. 주가 하락 분위기에 회사 사람들 표정도 가라앉아 있다.","basis":"일터 괴롭힘·우울 조사 기사 + 회사 분위기 댓글","src":["n:https://www.khan.co.kr/article/202611091311001/","c:회사사람들 표정이 완전 풀이죽어있음"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"worker","field":"curiosity","op":"add","before":"","after":"바꿀 수 없는 일을 버티느라 힘을 다 써 버리는 게 번아웃인지, 힘을 남기는 방법은 있는지","basis":"버티느라 에너지를 다 쓴다는 번아웃 댓글","src":["c:내가 버티느라고 에너지를 다 써서, 내가 변화시킬 수 있는 것에 대한 에너지가 없는게 진짜 번아웃입니다"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"worker","field":"curiosity","op":"add","before":"","after":"회사 사람과 어디까지 속 얘기를 하고 어디서 선을 그어야 서로 편한지","basis":"스몰토크만 하는 게 편하다는 댓글","src":["c:그냥 가까운사람 아니면 가벼운 스몰토크만 하면서 내얘기를 안하는게 편한거에요"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"worker","field":"worry","op":"add","before":"","after":"다들 웃으며 지내는 회사에서 나만 웃음이 안 나와 겉도는 것 같다","basis":"동료들 웃음이 신기하다는 댓글","src":["c:회사에서 깔깔 웃으면서 이야기하는 동료들이 참 신기해요"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"worker","field":"anxiety","op":"add","before":"","after":"퇴근 뒤 회사 전화만 와도 크게 짜증이 나서 쉬어도 쉰 것 같지 않다","basis":"퇴근 후 회사 전화에 짜증 난다는 댓글","src":["c:퇴근했는데, 회사에서 전화오면 별거 아닌 일도 극도로 짜증나요"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"worker","field":"wants","op":"add","before":"","after":"회사 사람과의 거리를 정하는 구체적인 기준과 바로 쓸 수 있는 말","basis":"직장에서 깊은 얘기는 부담이라는 댓글","src":["c:직장에서 깊고 진중한 얘기만 할수있을까요?오히려 다들 부담스러워해요"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"worker","field":"wants","op":"add","before":"","after":"회사를 그만두기 전에 따져 볼 것 — 그만두고 후회하지 않게 판단하는 방법","basis":"그만둔 걸 후회한다는 댓글","src":["c:다시 돌아가면 절대 회사를 그만두지 않았을거다"],"persona_name":"직장 인간관계로 힘든 직장인"},{"date":"2026-11-12","persona":"family_hurt","field":"situation","op":"set","before":"","after":"일하는 엄마와 아이를 다룬 영상이 이번 주 하루 조회수 1위. 어린 시절 혼자 엄마를 기다리던 외로움을 꺼내는 댓글이 공감을 많이 받는다.","basis":"워킹맘 통계 기사 + 최근 7일 1위 영상 + 엄마를 기다린 기억 댓글","src":["v:QtqJF7nJkX8","n:https://www.fnnews.com/news/202611090605486899","c:아주 어렸을때 부터 혼자 집에서 엄마를 기다리던 시간이 있었다"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"family_hurt","field":"curiosity","op":"add","before":"","after":"어릴 때 엄마를 기다리며 느낀 외로움이 어른이 된 지금의 마음과 꿈에 어떻게 남는지","basis":"어른이 되어서도 엄마가 떠나는 꿈을 꿨다는 댓글","src":["c:어른이 되어서도 엄마가 날 떠나고 버리는 꿈을 꿨다"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"family_hurt","field":"curiosity","op":"add","before":"","after":"어렵게 상처를 말해도 끝내 사과하지 않는 부모는 왜 그런지","basis":"말해도 미안하다는 말이 없다는 댓글","src":["c:미안해의 미자도 말 안하더라고요"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"family_hurt","field":"worry","op":"add","before":"","after":"부모를 이해하려고 애써도 나를 소유물처럼 대해, 계속 나 혼자만 애쓰는 관계로 남을까 봐","basis":"부모가 인격체로 대하지 않는다는 댓글","src":["c:그분들은 나를 인격체로 대하지 않고 소유물로 맨날 대하고"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"family_hurt","field":"anxiety","op":"add","before":"","after":"내가 겪은 외로움을 내 아이에게 물려줄까 봐 일과 육아 사이에서 마음이 쓰인다","basis":"그 기억 때문에 육아만 했다는 댓글","src":["c:그런 기억이 모여서 저는 두 아이 낳고 온전히 12년 육아만 했고"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"family_hurt","field":"wants","op":"add","before":"","after":"사과를 받지 못해도 부모에게 받은 상처를 정리하고 내 마음을 지키는 방법","basis":"말을 꺼내도 반응이 같았다는 댓글","src":["c:저도 큰 계기가 생기고 나서야 말을 했더니 반응도 똑같아요"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"family_hurt","field":"wants","op":"add","before":"","after":"어린 나이에 부모 사이 감정받이가 됐던 경험이 무엇이었는지 이름 붙여 주는 설명","basis":"엄마의 감정쓰레기통으로 살았다는 댓글","src":["c:뭣도 모르는 어린애가 가정 쪼개질까봐 두 부모 사이에서 전전긍긍하며 감정쓰레기통을 하며 십수년 산 것이었다"],"persona_name":"부모·가족에게 상처받은 사람"},{"date":"2026-11-12","persona":"young","field":"situation","op":"set","before":"","after":"일도 구직도 쉬는 미혼 청년의 결혼 의향이 가장 낮다는 보고서가 나온 주. 쉬다가 늦게 취업에 나선 청년, 오래된 친구를 손절한 이야기가 함께 보인다.","basis":"쉬었음 청년 보고서 기사 + 늦은 취업·손절 댓글","src":["n:https://asiae.co.kr/article/2026110917081608091","c:반강제적으로 쉬었음 청년 시기를 보내다 뒤늦게 취업 시장에 뛰어들고 있습니다"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"young","field":"curiosity","op":"add","before":"","after":"한번 마음이 돌아서면 오래된 친구도 다시 안 보게 되는 마음은 왜 생기는지","basis":"30년지기 손절 댓글 + 등 돌리는 사람 심리 영상 배수 상위","src":["c:30년지기 친구 처음이자 마지막 유럽패키지 여행이후 손절","v:01QDEgEByok"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"young","field":"curiosity","op":"add","before":"","after":"밥값 눈치 같은 작은 돈 문제가 왜 친구 관계를 끊게 만드는지","basis":"밥값 눈치 때문에 손절했다는 댓글","src":["c:밥값 계산할때 눈치보는게 훤히 보여서 꼴보기가 싫어서요"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"young","field":"worry","op":"add","before":"","after":"'나는 못 하는 사람'이라고 미리 선을 긋다 보니 금방 포기하고 이룬 게 없다고 느낀다","basis":"한계짓고 포기했다는 35살 댓글","src":["c:금방 포기하게 되고 결국이나이까지 이룬거하나 없더라구요"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"young","field":"anxiety","op":"add","before":"","after":"쉬었던 시간이 부끄러워, 늦게 시작한 취업 준비가 잘될지 마음을 졸인다","basis":"부끄럽지만 28살 취준생이라는 댓글","src":["c:부끄럽지만 28살 취준생 입니다!"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"young","field":"wants","op":"add","before":"","after":"친구 관계를 이어 갈지 끊을지 판단하는 기준","basis":"친구·동료를 손절했다는 댓글","src":["c:저도 중학교 친구 한명, 전 직장 동료 손절했습니다!"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"young","field":"wants","op":"add","before":"","after":"스스로 한계를 긋는 생각을 바꾸는, 연구로 확인된 방법","basis":"평생 한계짓고 살았다는 댓글","src":["c:평생을 나는 못하는 사람이지 한계짓고"],"persona_name":"친구·연애 관계가 고민인 학생·청년"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"situation","op":"set","before":"","after":"유연근무가 오히려 엄마에게 육아를 몰아줄 수 있다는 연구가 보도된 주. 전업주부의 돌봄 노동이 인정받지 못한다는 댓글이 공감을 많이 받는다.","basis":"유연근무·육아 부담 연구 기사 + 돌봄 노동 댓글","src":["n:https://m.news.nate.com/view/20261109n00351","c:돌봄 노동은 경력인정도 안되고 연금도 안나오고"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"curiosity","op":"add","before":"","after":"매번 사과하고 또 같은 행동을 하는 배우자는 왜 바뀌지 않는지, 기다리면 달라지는지","basis":"사과를 믿고 기다렸지만 그대로라는 댓글","src":["c:매번 미안하다 잘못했다 다시는 안그런다라는 말을 믿고 기다려봣지만 남편은 개선이 안되는 사람"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"curiosity","op":"add","before":"","after":"배우자의 행동이 누구나 조금은 있는 미성숙함인지, 더 깊은 문제인지 가르는 기준","basis":"정서적 미성숙과 나르시시스트를 묻는 댓글","src":["c:정서적인 미성숙한 사람 보통 다들 어느정도있죠"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"worry","op":"add","before":"","after":"헌신해도 공감 없이 소리치는 배우자 때문에 자존감이 계속 깎인다","basis":"버럭질로 자존감이 짓밟힌다는 댓글","src":["c:버럭질로 내 자존감을 짖이겨"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"wants","op":"add","before":"","after":"집안 돌봄 노동이 얼마나 큰 일인지 연구와 숫자로 보여 주는 설명","basis":"전업주부도 희생하는 존재라는 댓글","src":["c:전업주부는 온 식구들에게 희생하는 존재입니다"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"wants","op":"add","before":"","after":"바뀌지 않는 배우자와 지내면서도 내 자존감을 지키는 구체적인 방법","basis":"헌신해도 공감 없는 남편 댓글","src":["c:남편역할 없는 남편을 챙기고 지지하고 헌신해도"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"spouse_inlaw","field":"habit","op":"set","before":"","after":"말해도 안 바뀌는 배우자의 습관은 더 말하지 않고 내가 대신 해 버린다","basis":"45년째 의자를 대신 넣는다는 댓글","src":["c:이제는 얘기안합니다. 그냥 제가 넣어요"],"persona_name":"배우자·시댁 문제로 힘든 사람"},{"date":"2026-11-12","persona":"*","field":"*","op":"init","before":"","after":"6명","basis":"분석 결과 페르소나(댓글 묶음)로 처음 만듦 — 생각·원하는 것은 첫 업데이트에서","src":["psychology/result/outliers/personas.json (2026-11-12T04:57:10Z)"],"persona_name":"전체"}],"videos":{"QtqJF7nJkX8":"“아이 두고 출근해도 괜찮을까요?” 일하는 엄마 밑에서 자란 정신과 의사의 대답 | 박정재 마음안 정신건강의학과의원 원장 | 육아 번아웃 재취업","O4cK9M5vwWY":"12남매 다 죽고 혼자 남아 외로움에 울던 세월 #외로움 #죽음 [다시보는 로드다큐 만남 91회-1]","1H_ziHU-LAI":"의외로 정신건강에 진짜 도움이 많이 되는 생각 (♤눈물주의♤)","01QDEgEByok":"한번 등을 돌리면 다시는 뒤돌아보지 않는 사람의 심리"},"market":{},"news":{"https://www.seoul.co.kr/news/life/health-news/2026/11/06/20261106500019":{"title":"이효리도 찾는다는 정신과…우울·불안장애 환자 194만명 [돋보기]","source":"서울신문","date":"2026-11-06"},"https://www.khan.co.kr/article/202611091311001/":{"title":"돌봄 노동자 5명 중 1명 중등도 이상 우울…일터 괴롭힘 경험 땐 6배","source":"경향신문","date":"2026-11-09"},"https://www.fnnews.com/news/202611090605486899":{"title":"기혼여성 10명 중 6명은 '워킹맘'…육아로 쉬는 여성 6년째 감소","source":"파이낸셜뉴스","date":"2026-11-09"},"https://m.news.nate.com/view/20261109n00351":{"title":"유연 근무의 역설…엄마가 '독박 육아'","source":"네이트 뉴스","date":"2026-11-09"},"https://asiae.co.kr/article/2026110917081608091":{"title":"'쉬었음' 청년, 2명 중 1명만 \"결혼하겠다\"","source":"아시아경제","date":"2026-11-09"}},"targets":[],"transcript":{"n":8,"why":"한국어 성공 사례 중 대본(앞 5분 이상)이 있는 42개 → 목표 50개까지 8개 모자람 · 성공 사례 8개 (성과 좋은 것부터, 앞 5분만)","command":"powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder psychology --groups success --limit 8 --first-only","first":[{"rank":27,"group_name":"성공 사례","id":"WsJxckYQlcA","minutes":38.3,"need":"전체","score":"#43","title":"[정약용 명언] 인복 많으려면 잘해주지 마라 미친듯이 ‘이 말’만 무조건 하면 된다 | 정"},{"rank":28,"group_name":"성공 사례","id":"0zbHoy3g4A4","minutes":6.7,"need":"전체","score":"#44","title":"나르시시스트가 되는 이유 | 정신과 의사가 본 2가지 성장환경"},{"rank":29,"group_name":"성공 사례","id":"WGDslk67vNQ","minutes":15.6,"need":"전체","score":"#45","title":"HSP들 당장 드루와..예민+불안러들 멘탈관리용 책 추천하러 왔다"},{"rank":30,"group_name":"성공 사례","id":"u7BS3D_Sylo","minutes":48.4,"need":"전체","score":"#46","title":"서울대 의사가 외롭고 사람이 두려운 이유 [심리상담 풀영상]"},{"rank":31,"group_name":"성공 사례","id":"LPV-iqsq2xE","minutes":23.6,"need":"전체","score":"#47","title":"새 차 한 번도 안 사본 사람들, 중고차만 타는 심리 (돈이 없어서가 아닙니다)"}],"made":"2026-11-12 06:55","first_pass_audio_min":40,"by_group":{"성공 사례":8}},"analysis":{"generated":"2026-11-12","success":94,"vpd":67,"views":73,"personas_made":"2026-11-12","note":""},"trend_date":"2026-11-12","news_date":"2026-11-12"}/*BOARD:END*/;
+(() => {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const B = BOARD || { topic: "?", name: "?", personas: [], log: [], targets: [], transcript: {}, analysis: {} };
+  const FIELDS = [["situation", "상황"], ["curiosity", "호기심"], ["worry", "걱정"], ["anxiety", "불안"], ["wants", "원하는 것"], ["habit", "버릇"]];
+  const FN = Object.fromEntries(FIELDS);
+  const OPN = { init: "처음 만듦", set: "고침", add: "더함", replace: "바꿈", remove: "뺌", keep: "다시 확인" };
+  const st = { db: null, canWrite: true, ch: [], busy: false, delAsk: null };
+  let tt = null;
+  const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2200); };
+  const days = d => { if (!d) return null; const x = (new Date(B.today + "T00:00:00") - new Date(d + "T00:00:00")) / 864e5; return Math.round(x); };
+
+  function srcHtml(s) {
+    const k = s.slice(0, 2), v = s.slice(2);
+    if (k === "c:") return `<li><blockquote>“${esc(v)}”</blockquote></li>`;
+    if (k === "v:") return `<li>영상 <a href="https://www.youtube.com/watch?v=${encodeURIComponent(v)}" target="_blank" rel="noopener">${esc((B.videos || {})[v] || v)}</a></li>`;
+    if (k === "n:") { const n = (B.news || {})[v] || {}; return `<li>뉴스 <a href="${esc(v)}" target="_blank" rel="noopener">${esc(n.title || v)}</a>${n.source ? ` · ${esc(n.source)}` : ""}${n.date ? ` · ${esc(n.date)}` : ""}</li>`; }
+    if (k === "m:") return `<li>시장 ${esc(v)}${(B.market || {})[v] ? ` — ${esc(B.market[v])}` : ""}</li>`;
+    return `<li>${esc(s)}</li>`;
+  }
+  function itemHtml(it) {
+    const d = days(it.date), old = d != null && d > (B.stale_days || 14);
+    return `<div class="item"><div class="t">${esc(it.text)}</div><div class="meta">
+      <span class="chip ${old ? "old" : "new"}">${esc(it.date || "?")}${old ? " · 오래됨" : ""}</span>
+      ${it.basis ? `<span>${esc(it.basis)}</span>` : ""}
+      ${(it.src || []).length ? `<details class="src"><summary>근거 ${it.src.length}</summary><ul>${it.src.map(srcHtml).join("")}</ul></details>` : ""}
+    </div></div>`;
+  }
+  function personaHtml(p) {
+    const rows = FIELDS.map(([f, nm]) => {
+      const its = f === "situation" || f === "habit" ? (p[f] ? [p[f]] : []) : (p[f] || []);
+      if (!its.length && f === "habit") return "";
+      return `<div class="row"><div class="lab">${nm}</div><div class="items">${its.length ? its.map(itemHtml).join("") : `<div class="empty">아직 없음 — 다음 업데이트에서 채웁니다</div>`}</div></div>`;
+    }).join("");
+    return `<article class="pcard"><div class="hd"><h3>${esc(p.name)}</h3><div class="who">${esc(p.who)}</div></div>
+      <div class="rows">${rows}</div>
+      ${(p.quotes || []).length ? `<details class="quotes"><summary>분석 때 모은 원문 댓글 ${p.quotes.length}개</summary><ul>${p.quotes.map(q => `<li><blockquote>“${esc(q.text)}” <span class="small">공감 ${q.likes}</span></blockquote></li>`).join("")}</ul></details>` : ""}
+    </article>`;
+  }
+  function renderStatic() {
+    document.title = document.title || B.title;
+    $("h1").textContent = B.title;
+    $("intro").textContent = `${B.name} 채널 시청자 페르소나(분석 결과로 만들고 매일 최근 유튜브 영상·댓글과 뉴스로 고침), 탐색할 고정 채널, PC에서 받을 대본 개수를 한 곳에 둡니다. 판 만든 때 ${B.made}. ${B.note || ""}`;
+    const up = B.updated || "", ud = days(up);
+    $("glance").innerHTML = [
+      { k: "페르소나 업데이트", v: up || "아직", s: up ? (ud === 0 ? "오늘 고침" : `${ud}일 전`) : "첫 업데이트 전", c: up && ud === 0 ? "ok" : "warn" },
+      { k: "시청자 페르소나", v: `${B.personas.length}명`, s: `분석 ${B.analysis.personas_made || "?"}`, c: "" },
+      { k: "받을 대본", v: `${(B.transcript || {}).n ?? "–"}개`, s: (B.transcript || {}).made ? `목록 ${B.transcript.made}` : "목록 없음", c: "" },
+      { k: "고정 채널", v: `${B.targets.length}곳`, s: "탐색에 들어간 것", c: "" },
+    ].map(t => `<div class="tile ${t.c}"><span class="k">${t.k}</span><span class="v">${esc(t.v)}</span><span class="s">${esc(t.s)}</span></div>`).join("");
+    $("personas").innerHTML = B.personas.length ? B.personas.map(personaHtml).join("") : `<section class="box"><p class="empty">페르소나가 아직 없습니다. Claude가 분석 결과로 만듭니다.</p></section>`;
+    const tr = B.transcript || {};
+    $("tr-n").textContent = tr.n != null ? `${tr.n}개` : "–";
+    $("tr-why").textContent = tr.why ? `${tr.why} 앞 5분 소리 약 ${tr.first_pass_audio_min}분.` : "대본 받을 목록이 아직 없습니다.";
+    $("tr-cmd").textContent = tr.command || "(받을 것 없음)";
+    $("tr-copy").disabled = !tr.command;
+    $("tr-first").innerHTML = (tr.first || []).map(r => `<li><div class="top"><span class="chip new">${esc(r.group_name)}</span><span class="small">${esc(r.minutes)}분 · ${esc(r.score)}</span></div><div>${esc(r.title)}</div></li>`).join("") || `<li class="small">없음</li>`;
+    $("tg-n").textContent = `(${B.targets.length})`;
+    $("tg-list").innerHTML = B.targets.map(c => `<li><div class="top"><strong>${esc(c.title || c.id)}</strong></div><code>${esc(c.id)}</code><span class="small">영상 ${esc(c.videos ?? "?")}개 · 더한 때 ${esc(c.added || "?")}</span></li>`).join("") || `<li class="small">아직 없음</li>`;
+    $("log").innerHTML = (B.log || []).map(x => {
+      const what = x.op === "replace" ? `${x.before} → ${x.after}` : (["remove", "keep"].includes(x.op) ? x.before : x.after);
+      return `<tr><td class="d">${esc(x.date)}</td><td>${esc(x.persona_name || x.persona)}</td><td>${esc(FN[x.field] || (x.field === "*" ? "전체" : x.field))}</td>
+        <td><span class="op ${esc(x.op)}">${esc(OPN[x.op] || x.op)}</span> ${esc(what)}</td>
+        <td>${esc(x.basis)}${(x.src || []).length ? `<details class="src"><summary>근거 ${x.src.length}</summary><ul>${x.src.map(srcHtml).join("")}</ul></details>` : ""}</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="small">내역 없음</td></tr>`;
+    const a = B.analysis || {};
+    $("an").innerHTML = (a.note ? `<p><strong>${esc(a.note)}</strong></p>` : "") + `<p>마지막 분석 ${esc(a.generated || "?")} · 성공 사례 ${esc(a.success ?? "?")}개 · 하루 조회수 상위 ${esc(a.vpd ?? "?")}개 · 조회수 상위 ${esc(a.views ?? "?")}개 · 최근 유튜브 훑기 ${esc(B.trend_date || "없음")} · 뉴스 ${esc(B.news_date || "없음")}</p>
+      <p>다음 일: 새 세션은 <code>guides/flow.md</code> 1단계대로 — 고정 채널 반영 → 분석 → 대본 목록 → 페르소나 업데이트 → 이 판 다시 올림.</p>`;
+  }
+  function renderChannels() {
+    const L = [...st.ch].sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+    const lab = { new: "반영 전", done: "반영됨", fail: "못 찾음" };
+    $("ch-list").innerHTML = L.map(c => `<li><div class="top"><span class="chip ${c.status === "done" ? "done" : c.status === "fail" ? "fail" : "new"}">${lab[c.status] || "반영 전"}</span>
+        <span class="small">${esc(String(c.createdAt || "").slice(0, 16).replace("T", " "))}</span></div>
+        <code>${esc(c.input)}</code>${c.memo ? `<span class="small">메모: ${esc(c.memo)}</span>` : ""}${c.reply ? `<span class="small">Claude: ${esc(c.reply)}</span>` : ""}
+        <div class="btnrow">${st.delAsk === c.id ? `<span class="small">지울까요?</span><button class="btn bad" type="button" data-act="delok" data-id="${esc(c.id)}">지우기</button><button class="btn ghost" type="button" data-act="delno">그대로</button>` : `<button class="btn ghost" type="button" data-act="del" data-id="${esc(c.id)}" ${st.canWrite ? "" : "disabled"}>지우기</button>`}</div></li>`).join("");
+  }
+  $("ch-add").addEventListener("click", async () => {
+    const raw = ($("ch-in").value || "").trim(), memo = ($("ch-memo").value || "").trim();
+    if (!raw || st.busy) return;
+    if (!st.db) { $("ch-note").textContent = "저장소에 연결되지 않아 저장할 수 없습니다."; return; }
+    const items = raw.split(/[\s,]+/).filter(Boolean).slice(0, 30);
+    st.busy = true; $("ch-add").disabled = true;
+    const now = new Date().toISOString();
+    try {
+      for (const x of items) await st.db.collection("channels").add({ input: x, memo, createdAt: now, updatedAt: now, status: "new", reply: "" });
+      $("ch-in").value = ""; $("ch-memo").value = ""; $("ch-note").textContent = ""; toast(`채널 ${items.length}개를 넣었습니다`);
+    } catch (e) { $("ch-note").textContent = e && e.code === "invalid_argument" ? "이 화면에서는 저장할 권한이 없습니다." : "저장하지 못했습니다. 다시 눌러 주세요."; }
+    st.busy = false; $("ch-add").disabled = false;
+  });
+  $("ch-list").addEventListener("click", async e => {
+    const b = e.target.closest("[data-act]"); if (!b || st.busy) return;
+    if (b.dataset.act === "del") { st.delAsk = b.dataset.id; renderChannels(); return; }
+    if (b.dataset.act === "delno") { st.delAsk = null; renderChannels(); return; }
+    st.busy = true;
+    try { await st.db.doc("channels/" + b.dataset.id).delete(); toast("지웠습니다"); } catch (err) { toast("지우지 못했습니다. 다시 눌러 주세요."); }
+    st.delAsk = null; st.busy = false; renderChannels();
+  });
+  $("tr-copy").addEventListener("click", async () => {
+    const t = $("tr-cmd").textContent;
+    try { await navigator.clipboard.writeText(t); $("tr-copied").textContent = "복사했습니다"; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents($("tr-cmd")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("tr-copied").textContent = "선택했습니다 — Ctrl+C 로 복사하세요"; }
+  });
+
+  renderStatic(); renderChannels();
+  (async () => {
+    const use = window.claude && window.claude.use ? n => window.claude.use(n) : () => Promise.resolve(null);
+    let db = null, user = null;
+    const timer = setTimeout(() => { if (!st.db) { $("status").className = "status bad"; $("status-t").textContent = "저장소가 응답하지 않습니다 — 페르소나는 볼 수 있지만 채널은 저장되지 않습니다."; } }, 10000);
+    try { [db, user] = await Promise.all([use("db"), use("user")]); } catch (e) { db = null; }
+    if (!db) { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "저장소에 연결하지 못했습니다 — 페르소나는 볼 수 있지만 채널은 저장되지 않습니다."; $("ch-add").disabled = true; return; }
+    st.db = db;
+    try { if (user && user.can && (await user.can("data.write")) === false) st.canWrite = false; } catch (e) { /* 모름 */ }
+    if (!st.canWrite) $("ch-add").disabled = true;
+    db.collection("channels").onSnapshot(s => {
+      clearTimeout(timer);
+      st.ch = s.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      $("status").className = "status " + (st.canWrite ? "ok" : ""); $("status-t").textContent = st.canWrite ? "저장소 연결됨 — 넣은 채널은 바로 저장되고 Claude가 읽습니다." : "보기 전용 — 이 화면에서는 채널을 넣을 수 없습니다.";
+      renderChannels();
+    }, () => { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "채널 목록을 읽지 못했습니다."; });
+  })();
+})();
+</script>

@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.15 — 2026-11-05 — **쇼츠 썸네일은 유튜브 처리가 끝난 뒤에** (사용자 지시 "그리고 왜 쇼츠 썸네일은 적용 안되는거야?"): 올리자마자(처리 전) thumbnails.set 을 하면 성공으로 답해도
+# VERSION: v1.16 — 2026-11-12 — 채널이 달라도 **사용자가 화면에서 확인한 채널 ID** 는 통과 (`ALLOW_CHANNEL` — tools/upload_web.py v1.2 가 확인 뒤 넣음 ·
+#          명령줄은 그대로 멈춤). 사용자 지시 "주식 채널명이 다르다고 업로드 실패했는데 그건 내가 채널명이 변경해서 그래 그러니까 달라도 업로드 할껀지 물어보고 하도록 하고".
+#          ※ 비교는 이름이 아니라 채널 ID(UC…) — 이름만 바꾼 채널은 ID 가 같아 멈추지 않음.
+# (v1.15) — 2026-11-05 — **쇼츠 썸네일은 유튜브 처리가 끝난 뒤에** (사용자 지시 "그리고 왜 쇼츠 썸네일은 적용 안되는거야?"): 올리자마자(처리 전) thumbnails.set 을 하면 성공으로 답해도
 #          쇼츠 세로 썸네일(snippet.thumbnails.shortsAspectRatio 720×1280)이 생기지 않음 — 2편 쇼츠 H0k8gbYeIYo 실측, 처리 뒤 다시 보내니 생김.
 #          → 쇼츠는 processingDetails 가 succeeded 일 때까지 기다린 뒤(15초마다, 최대 10분, 1단위씩) 보내고, shortsAspectRatio 가 생겼는지 확인 (없으면 한 번 더, 그래도 없으면 경고).
 # (v1.14) — 2026-11-05 — **이미 올린 영상의 썸네일만 바꾸기 `--thumbnail-only`** (thumbnails.set 50단위 — 영상·제목·자막·예약 시각 그대로).
@@ -413,13 +416,21 @@ def expected_channel(topic):
     return data
 
 
+ALLOW_CHANNEL: set = set()   # v1.16 사용자가 '이 채널에 올림'을 확인한 채널 ID (PC 업로드 화면만 넣음)
+
+
 def check_channel(topic, token):
-    """v1.7: 키의 채널이 이 주제의 채널인지. 다르면 멈춘다 (다른 채널에 올라가는 것을 막음). → (channel_id, 이름)."""
+    """v1.7: 키의 채널이 이 주제의 채널인지. 다르면 멈춘다 (다른 채널에 올라가는 것을 막음). → (channel_id, 이름).
+    v1.16: 채널 ID 비교 · 사용자가 확인한 ID(ALLOW_CHANNEL)는 경고만 남기고 통과."""
     cid, title = mine_channel(token)
     want = expected_channel(topic)
     if want is None:
         log("CHANNEL", status="unchecked", topic=topic, channel=title, channel_id=cid,
             note=f"{topic}/youtube_channel.json 없음 → 이 주제 채널이 맞는지 확인 안 함")
+        return cid, title
+    if cid != want["channel_id"] and cid in ALLOW_CHANNEL:
+        log("CHANNEL", status="override", topic=topic, channel=title, channel_id=cid, expected=want.get("name", "?"),
+            expected_id=want["channel_id"], note="사용자가 화면에서 '이 채널에 올림'을 확인함")
         return cid, title
     if cid != want["channel_id"]:
         raise SystemExit(f"[CHANNEL] ❌ 키의 채널 = {title} ({cid}), {topic} 채널 = {want.get('name', '?')} ({want['channel_id']}) "

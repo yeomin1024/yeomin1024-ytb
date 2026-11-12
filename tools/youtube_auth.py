@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-12 — 발급 과정을 함수 issue() 로 뗌 (사용자 지시 "토큰 만료되면 알아서 인증 코드 돌려서 설정 넣어주도록 하고" — tools/upload_web.py 가
+# VERSION: v1.4 — 2026-11-12 — 인증 때 계정 고르기 창을 늘 띄움(prompt=select_account consent) — 채널(브랜드 계정)을 잘못 골랐을 때 다시 고를 수 있게
+#          (사용자 지시 "주식 채널명이 다르다고 업로드 실패했는데 … 달라도 업로드 할껀지 물어보고 하도록 하고").
+# (v1.3) — 2026-11-12 — 발급 과정을 함수 issue() 로 뗌 (사용자 지시 "토큰 만료되면 알아서 인증 코드 돌려서 설정 넣어주도록 하고" — tools/upload_web.py 가
 #          키가 만료되면 이 함수를 불러 브라우저 허용 → 주제의 .env 에 새 YOUTUBE_REFRESH_TOKEN 저장). 명령줄 동작은 그대로.
 # (v1.2 — 2026-10-15 — 권한에 Google Drive(drive) 추가 (사용자 지시 "구글 드라이브 내 드라이브에 youtube 폴더에 … 원본 영상 올리고 pc에서
 #          영상 및 환경설정을 받아서 업로드" — tools/drive_videos.py·tools/pc_upload.py), --save-env .env 로 PC 의 .env 에 바로 저장
@@ -98,7 +100,7 @@ def issue(client_id, client_secret, say=print, timeout=600, open_browser=True):
     state = secrets.token_urlsafe(16)
     url = AUTH_URL + "?" + urllib.parse.urlencode({
         "client_id": client_id, "redirect_uri": redirect, "response_type": "code", "scope": " ".join(SCOPES),
-        "access_type": "offline", "prompt": "consent", "code_challenge": challenge, "code_challenge_method": "S256",
+        "access_type": "offline", "prompt": "select_account consent", "code_challenge": challenge, "code_challenge_method": "S256",
         "state": state})
     say("[AUTH] 브라우저에서 유튜브 채널의 구글 계정으로 로그인하고 허용하세요 (권한 체크 칸은 모두 체크).")
     say(f"[AUTH] 브라우저가 열리지 않으면 이 주소를 직접 여세요: {url}")

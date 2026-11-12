@@ -51,21 +51,49 @@
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_1.md",
       "text": "제목: 엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야\n썸네일 문구: 엘리베이터 멈추면 / 문부터 열지 마세요\n보조 문구: 비상벨 먼저"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-12T11:11:27Z",
+      "sha": "6fc9744573cbab3e",
+      "reviewers": [
+       {
+        "reviewer": "T2-P1",
+        "persona": "P1",
+        "feed_picks": [
+         8,
+         10
+        ],
+        "feed_why": "8번은 '떨어질 때 점프하면 살까?'가 다들 한 번쯤 해 본 상상이라 답이 궁금하고 웃길 것 같아서, 10번은 'ㄷㄷ'에 '여러 번 밟으면 더 안 선다'는 반전이 있어서 누름 — 나머지는 재판·오디오북·우주 얘기라 재미없어 보여 넘김",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "멈춤: '점프하면 살까?' · 넘기고 싶게 만든 말: '갇혔을 때 진짜 할 일'·'승강기안전공단의 답' (교육 영상·훈계처럼 들림)",
+        "fix": "'점프하면 살까'만 앞에 크게 남기고 '갇혔을 때 진짜 할 일'·'공단의 답'처럼 공익광고 같은 말은 빼거나 줄이기 — '다들 하는 그 점프, 실제로 하면?'처럼 답이 반전일 것 같은 느낌을 주면 바로 누름",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T2-반론",
+        "persona": "반론",
+        "feed_picks": [
+         10,
+         8
+        ],
+        "feed_why": "10번은 '여러 번 밟으면 더 안 선다'는 단정이 맞는지 따지러 먼저 누르고, 8번은 '점프하면 살까'라는 유명한 속설을 제대로 깨는지, 한국 승강기 현실(비상정지장치)을 빼먹지 않는지 확인하러 누른다 — 나머지는 생존 주제가 아니거나(1·4·7·9) 법률 홍보·사건 보도(3·5·6)라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "떨어질 때 점프하면 / 승강기안전공단의 답 (멈춤) · 진짜 할 일 ('진짜'가 낚시처럼 들려 의심)",
+        "fix": "한국 승강기가 실제로 떨어질 수 있는 조건(줄이 끊겨도 비상정지장치가 잡는다는 점 등)을 영상이 말한다는 게 보이게 하고, '진짜 할 일'은 비상벨·문 억지로 열지 않기처럼 구체적인 말로 바꾸면 과장 의심 없이 누름",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "2회차 지적 반영 (README v1.4)",
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_2.md",
+      "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답"
      }
-    ],
-    "pending": {
-     "n": 2,
-     "sha": "6fc9744573cbab3e",
-     "reviewers": [
-      "T2-P1",
-      "T2-반론"
-     ],
-     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_2.md",
-     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_title_2",
-     "ours_idx": 8,
-     "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답",
-     "at": "2026-11-12T11:06:47Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -123,21 +151,65 @@
       "pass": false,
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-12T11:11:27Z",
+      "sha": "b32674e8791b55f7",
+      "reviewers": [
+       {
+        "reviewer": "E2-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 13,
+          "why": "뻔함 — 8~11줄에서 이미 답을 들었는데 '결론부터' 세 가지를 또 말해서 훈계 시작되는 느낌 (15줄 '절대 하면 안 되는 일' 예고로 겨우 남음)"
+         },
+         {
+          "line": 49,
+          "why": "훈계 — '공단이 이렇게 안내합니다' 공식 안내문 읽는 느낌, 재미 포인트 없음"
+         },
+         {
+          "line": 51,
+          "why": "긴 설명 — 연기·불·물 예외 조건이 줄줄이 붙어서 늘어짐"
+         },
+         {
+          "line": 61,
+          "why": "뻔함·반복 — 9줄과 41~42줄에서 들은 '문 열면 틈으로 떨어진다'를 세 번째 듣는 중"
+         },
+         {
+          "line": 65,
+          "why": "훈계 — 행정안전부 안내문 그대로 읽어 줌, 여기서 손가락이 넘기기 쪽으로 감"
+         },
+         {
+          "line": 76,
+          "why": "긴 설명 — 버튼, 휴대전화, 문자, 두드리기까지 절차 나열이 길어 사실상 여기서 끔"
+         },
+         {
+          "line": 83,
+          "why": "지루함 — 법·안전관리자 얘기, 웃으려고 들어온 사람한테는 관계없는 얘기처럼 들림"
+         },
+         {
+          "line": 100,
+          "why": "뻔함 — 정리가 앞에서 한 말 그대로 다시 읽기"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": false,
+        "best": "36줄 — '지하 5층까지 떨어진 관리인은 끝내 숨졌습니다'에서 확 붙잡힘 (실제 추락 사고, 반전이 세게 옴 · 그다음은 55~57줄 '떨어질 때 맞춰 뛰면 산다'는 말 깨는 부분)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [13, 49, 51, 61, 65, 76, 83, 100]",
+         "끝까지 안 봄"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 지적 반영 (README v1.4)",
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_2.md"
      }
     ],
-    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
-    "pending": {
-     "n": 2,
-     "sha": "b32674e8791b55f7",
-     "reviewers": [
-      "E2-P1"
-     ],
-     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_2.md",
-     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_exit_2",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-12T11:06:47Z"
-    }
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -219,21 +291,80 @@
       "pass": false,
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-12T11:11:28Z",
+      "sha": "b32674e8791b55f7",
+      "reviewers": [
+       {
+        "reviewer": "K2-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 41,
+          "text": "강서 관리인은 문 열어서 주민을 무사히 꺼냈고, 돌아가신 건 짐 꺼내러 틈에 다시 다가가서잖아. '문 연 뒤에 숨졌다'는 문 연 게 원인이라는 증거가 아님 — 오히려 문 열어서 사람 살린 사례인데?",
+          "fix": "41~42줄을 '문을 연 것보다, 장비 없이 열린 틈 가까이 다가간 것이 사고로 이어졌다'로 바꾸고, 강서 사례의 교훈(짐은 두고 나온다 · 열린 틈에 다시 다가가지 않는다)을 원칙 둘이나 '이미 문을 열었다면'(91~92줄)에 한 문장으로 넣기. 관리인이 주민을 먼저 꺼낸 분이라는 점을 짚어 구조하던 사람 탓으로 들리지 않게."
+         },
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 83,
+          "text": "'법은 교육받은 안전관리자만' 하게 했다면서 바로 '보통은 관리 업체나 119가 한다'? 업체·119는 안전관리자가 아닌데 앞뒤가 안 맞음. 그리고 강서 관리인이 그 건물 안전관리자였으면 '교육받은 사람만'으로도 못 막은 거 아님?",
+          "fix": "어느 법인지 이름을 화면·설명란에 대고, '교육을 받은 안전관리자나 관리 업체 기술자, 119 구조대처럼 자격과 장비가 있는 사람'으로 한 문장 안에서 맞추기. 84줄 '경비원이나 이웃이라도'는 '교육과 장비 없이는 누구라도'로 바꿔 특정 직업(앞 사례의 관리인·경비원) 탓으로 들리지 않게."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 49,
+          "text": "한여름에 에어컨 꺼진 엘리베이터에 갇혀 봤는데 진짜 숨 막혀서 패닉 옴 (실제 경험자임). '숨 막힐 위험 없다'는 공기 얘기지, 더위·공황은 다름",
+          "fix": "49줄 뒤에 '공기는 충분하지만 덥고 답답할 수 있다 — 바닥에 앉아 숨을 고르고, 더위·어지럼·공황 증상은 신고할 때 바로 말한다'를 한 문장으로 붙여 77줄과 이어지게."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 37,
+          "text": "중국 아파트는 관리가 엉망이라 그런 거고 한국은 다름",
+          "fix": "중국 사례 끝에 '나라와 상관없이 층 사이에 멈추면 발밑 틈은 똑같이 깊다'를 한 마디 붙이거나, 한국 사례가 더 있으면 그것을 먼저."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 19,
+          "text": "119가 구조한 사람 4명 중 1명이 엘리베이터? 출처는? 그리고 '사고에서 나온 사람'이면 결국 엘리베이터가 위험하다는 얘기 아님?",
+          "fix": "'엘리베이터에 갇혀서 구조된 사람'으로 낱말을 바꾸고 어느 기관 통계인지 화면·설명란에. 바로 뒤에서 '흔하다'와 '위험하다'는 다르다는 것을 원칙 하나와 이어 주기."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 74,
+          "text": "119가 승강기 번호만 듣고 건물을 바로 찾는다고? 그냥 주소 말하는 게 확실하지",
+          "fix": "'번호와 함께 건물 이름·주소, 몇 호기인지도 말한다'로 바꾸고, '바로 찾을 수 있다'는 단정은 '찾기 쉬워진다' 정도로."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 72,
+          "text": "아파트 비상벨 눌러 봤자 밤엔 관리실에 아무도 안 받음. 얼마나 기다렸다가 휴대전화로 넘어가야 하는데?",
+          "fix": "'응답이 없으면 기다리지 말고 바로 휴대전화로'처럼 넘어가는 때를 분명히 하고, 72줄 '119나 업체'와 86줄 '119와 업체'를 같은 말·같은 순서로 맞추기."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답(2번)은 분명하고 불·연기·물 예외와 '탓하자는 게 아니다'도 챙겼지만, 강서 사례의 인과(문 연 뒤 ≠ 문 연 탓, 짐), '법은 안전관리자만' vs 업체·119의 앞뒤, 한여름 더위·공황 앞의 '숨 막힐 위험 없다'가 좋아요 받을 반박 자리 — 상 0 · 중 3 · 하 4.",
+        "pass": false,
+        "why": [
+         "중 3 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 지적 반영 (README v1.4)",
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_2.md"
      }
     ],
-    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
-    "pending": {
-     "n": 2,
-     "sha": "b32674e8791b55f7",
-     "reviewers": [
-      "K2-반론"
-     ],
-     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_2.md",
-     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_rebuttal_2",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-12T11:06:47Z"
-    }
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt"
    }
   }
  }

@@ -1,5 +1,22 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-12 (2) — 새 세션 3단계 흐름 `guides/flow.md` v1.0 (주식·역사·심리·위기) · 분석 판 · 살아 있는 페르소나 · 제목 중복 · TTS 꼴 검사
+
+- 사용자 지시 "새 새션이 생겨도 아래와 같이 똑같이 수행할 수 있도록 지시사항 파일들 수정해 1. 주제 분석 … 2.롱폼과 쇼츠 제목, 썸네일 문구 … 3.롱폼과 쇼츠 대본 작성 …" · 같은 날 "재테크는 하지 말고 심리, 위기 주제를 그렇게 만들어" (재테크용으로 만들던 판·설정·훑기 결과는 지움).
+- **새 도구**
+  - `tools/persona_live.py` v1.1 — init(분석 결과 페르소나로 — 표준 `personas.json` · 위기 `final` 꼴) · status · inputs(그날 재료 한 장) · apply(근거 검사: 줄마다 basis 80자 + src — 생각·원하는 것은 댓글 원문 `c:` 이 글자 그대로 있어야 · 정치 이름 ✗ · 하나라도 틀리면 안 바뀜) · feed(피드 시험 검토자 설명). 결과 `<주제>/result/persona/live.json`·`log.md`. selftest 12항목 ✅.
+  - `tools/analysis_board.py` v1.1 + 틀 `tools/templates/analysis_board.html` v1.1 — 주제별 분석 판(`<주제>/boards/분석판.html`): 페르소나 카드(상황·호기심·걱정·불안·원하는 것 · 근거 펼침) · 업데이트 내역 표 · 고정 채널 넣는 칸(db `channels`) · 대본 받기 개수·PC 명령(복사) · 분석 현황. selftest ✅.
+  - `tools/title_dupe.py` v1.0 — 제목 후보를 탐색 목록·사례·최근 훑기·우리 채널(+ `--live` 유튜브 검색 100단위)과 견줌: ❌ 같은 제목(jac ≥ 0.55 · cont ≥ 0.80) · 우리 채널과 비슷(jac ≥ 0.40) · 같은 내용 최근 180일 6개 이상 / ⚠ 비슷(jac ≥ 0.33) · 같은 내용 3개 이상. 시험: 「코스피 6000 붕괴, 지금 팔아야 하나?」 ❌(사례에 같은 제목) · 반등 편 최종안 둘 ✅ (주식 6,104 제목).
+  - `tools/tts_check.py` v1.0 — 사전 적용 뒤 남은 꼴: ❌ 소수·쉼표 숫자·물결 범위·기호·'A,'·숫자 분수 / ⚠ 영어·55음절·6음절·해라체·서수 쉼표·괄호·큰 숫자 · `--write-lexicon` 이 읽는 소리 줄(사십이 점 오 퍼센트)을 더함. 반등 편 v7.2 ❌ 0·⚠ 0 · 재테크 옛 대본 3편 ❌ 26~36. selftest 13항목 ✅.
+- **바꾼 도구**
+  - `tools/cloud_run.py` v1.7 — `add`·`remove`·`targets` (고정 채널 → `<주제>/targets.json`, web_ui 함수 그대로 · 채널마다 1단위).
+  - `tools/pc_transcribe.py` v1.2 (main 의 v1.1 `--first-only` 위에) — list 가 받을 개수 추천: 목표 한국어 성과 상위 50개에 앞 5분 대본, 모자란 만큼 성공 사례 → 하루 조회수 상위 → 조회수 상위 · 명령 `--groups … --limit N --first-only` → `transcript_todo.json`·md 위 줄. 2026-11-12: 주식 35(있음 15) · 역사 21(있음 29) · 심리 8(있음 42). selftest ✅.
+  - `tools/trend_scan.py` v1.1 — `TREND_COMMENT_KINDS`·`TREND_MIN_COMMENTS` 설정 · `--reuse-videos`(검색 0단위로 댓글만). 위기 첫 훑기가 롱폼 10개·댓글 0이라 쇼츠 댓글 + 넓은 검색어 8개·14일 → 영상 30·댓글 3,130.
+  - `tools/script_feedback_board.py` v2.7 — 역사·심리·위기 기본 경로(`<주제>/topics/`) · 쇼츠 `"independent": true`(롱폼과 별개 쇼츠).
+- **새 설정**: `history/`·`psychology/`·`crisis/persona_judge.toml` v1.0 (trend_scan 최소 설정 — 검색어 10·8개).
+- **2026-11-12 훑기** (YOUTUBE_API_KEY — 하루 10,000 중): 주식 1,899 · 역사 1,361 · 심리 1,363 · 위기 1,302 + 1,076 · (재테크 1,361 — 지움). 남은 약 1,400.
+- **지시사항**: `guides/flow.md` v1.0 신설 · CLAUDE.md '시작·문서' 첫 줄 + '쇼츠' 별개 쇼츠 줄 · `guides/shorts_guide.md` v1.18 · `guides/tts_guide.md` v1.22 5-5 · `guides/README.md` v1.38.
+
 ## 2026-11-12 — 심리 main 기준 정리 · 페르소나 최근 흐름 · 주제 밖 28개 빼기 (`tools/personas.py` v1.1.1 · `tools/comment_clusters.py` v1.1.1)
 
 - 사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외". 같은 날 두 세션이 심리를 따로 분석함 — main(승인 317) 을 기준으로, 브랜치 `claude/dazzling-dirac-qms8gm`(승인 251)의 자료는 버리고 쓸모 있는 것만 옮김 (merge 커밋 = main 트리 그대로, 강제 푸시 없음).

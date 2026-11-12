@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-# VERSION: v2.6 — 2026-11-03 — `--only long|short` — 한 세션에 판 하나 (사용자 지시 "새 세션 3개에서 … 세션당 평가판 하나야") — 다른 판 파일은 건드리지 않음.
+# VERSION: v2.7 — 2026-11-12 — 역사·심리·위기도 (TOPICS 에 없으면 <주제>/topics/ 기본 경로 — 판 파일·db 는 주제마다 따로) · 쇼츠 'independent': true = 롱폼과 별개 쇼츠
+#   (짝 롱폼 검사 안 함 — 사용자 지시 2026-11-12 "쇼츠는 꼭 롱폼 내용과 연결될 필요없이 별개로 생성하면 됨" · "재테크는 하지 말고 심리, 위기 주제를 그렇게 만들어").
+# (v2.6 — 2026-11-03 — `--only long|short` — 한 세션에 판 하나 (사용자 지시 "새 세션 3개에서 … 세션당 평가판 하나야") — 다른 판 파일은 건드리지 않음.)
 # (v2.5 — 2026-11-02 — 주식 쇼츠안 v7 (SHORT_VER).
 # (v2.4 — 2026-11-02 — 주식 쇼츠안 v6 (SHORT_VER — 쇼츠 판 피드백 8건).
 # (v2.3 — 2026-11-02 — 주제 인자 (재테크도 — 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"):
@@ -55,6 +57,11 @@ TOPICS = {
         "LONG_VER": {}, "NAME": "재테크", "NOTE": "정보 제공용 — 세무·법률 상담이 아닙니다.",
         "URL": {"topic": "", "long": "", "short": ""},     # economic/topics/board/urls.json 에서 채움 (판을 처음 올린 뒤)
     },
+}
+DEFAULT_TOPICS = {    # v2.7 TOPICS 에 없는 주제 — 이름·안내 줄만 (경로는 <주제>/topics/ 기본)
+    "history": ("역사", "사실은 사료·연구로 확인합니다."),
+    "psychology": ("심리", "연구·교육용 — 의료·심리 상담이 아닙니다."),
+    "crisis": ("위기", "안전 수칙은 공식 지침(소방청·경찰청·국민재난안전포털)으로 확인합니다."),
 }
 TOPIC, NAME, NOTE = "stock", "주식", "연구·교육용 — 투자 권유가 아닙니다."
 BEGIN, END = "/*SCRIPTS:BEGIN*/", "/*SCRIPTS:END*/"
@@ -186,7 +193,8 @@ def shortform(items_path):
             fields.append(["s_check", "점검 결과 (Claude — 일반·반론 페르소나 규칙)", " · ".join(notes) or "❌·⚠ 없음", False])
             out.append({"key": it["key"], "ep": it.get("ep", pid), "label": it.get("label", pid), "kind": "short",
                         "title": pk.get("s_title", ""), "ver": it.get("ver", "v1"), "file": it["file"],
-                        "long_key": it.get("long_key", f"{pid}-long"), "fields": fields, "lines": read_lines(ROOT / it["file"])})
+                        "long_key": "" if it.get("independent") else it.get("long_key", f"{pid}-long"),      # v2.7 별개 쇼츠
+                        "fields": fields, "lines": read_lines(ROOT / it["file"])})
         else:
             fail(stage="shorts_items", key=it.get("key"), issue="from 은 md 또는 file", file=str(items_path))
         s = out[-1]
@@ -245,8 +253,14 @@ def set_topic(topic):
     global TOPIC, NAME, NOTE, OUT_LONG, OUT_SHORT, LONG_INDEX, SHORTS_MD, EXTRA, SHORTS_ITEMS, LONG_VER, URL
     if topic == "stock":
         return
+    if topic not in TOPICS and topic in DEFAULT_TOPICS and (ROOT / topic).is_dir():      # v2.7
+        nm, nt = DEFAULT_TOPICS[topic]
+        TOPICS[topic] = {"OUT_LONG": ROOT / topic / "topics/대본평가판.html", "OUT_SHORT": ROOT / topic / "topics/쇼츠평가판.html",
+                         "LONG_INDEX": None, "SHORTS_MD": None, "EXTRA": ROOT / topic / "topics/board/script_board.json",
+                         "SHORTS_ITEMS": ROOT / topic / "topics/board/shorts_board.json", "LONG_VER": {}, "NAME": nm, "NOTE": nt,
+                         "URL": {"topic": "", "long": "", "short": ""}}
     if topic not in TOPICS:
-        fail(stage="topic", topic=topic, next="TOPICS 에 주제를 더함")
+        fail(stage="topic", topic=topic, next="TOPICS 또는 DEFAULT_TOPICS 에 주제를 더함")
     c = TOPICS[topic]
     TOPIC, NAME, NOTE = topic, c["NAME"], c["NOTE"]
     OUT_LONG, OUT_SHORT, LONG_INDEX, SHORTS_MD = c["OUT_LONG"], c["OUT_SHORT"], c["LONG_INDEX"], c["SHORTS_MD"]
@@ -279,7 +293,7 @@ def main(argv):
     sets = {"long": longform(), "short": shortform(items)}
     long_keys = {s["key"] for s in sets["long"]}
     for s in sets["short"]:
-        if s["long_key"] not in long_keys:
+        if s["long_key"] and s["long_key"] not in long_keys:            # v2.7 별개 쇼츠(long_key "")는 짝 검사 안 함
             log("WARN", board="short", script=s["key"], issue="짝 롱폼이 대본 평가판에 없음", long_key=s["long_key"])
     for kind, scripts in sets.items():
         if only and kind != only:
@@ -291,6 +305,7 @@ def main(argv):
             fields=sum(len(s.get("fields", [])) for s in scripts), bytes=len(data.encode("utf-8")),
             shorts_url_filled="{{SHORTS_URL}}" not in page)
         if not check:
+            out.parent.mkdir(parents=True, exist_ok=True)          # v2.7 새 주제는 topics/ 가 없을 수 있음
             out.write_text(page, encoding="utf-8")
         log("DONE", board=kind, wrote=not check, file=str(out.relative_to(ROOT)), changed=page != old)
     return sets

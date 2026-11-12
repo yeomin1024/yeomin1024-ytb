@@ -4,52 +4,167 @@
  "items": {
   "ginae-yeongi-2026-11": {
    "title": {
-    "rounds": [],
-    "pending": {
-     "n": 1,
-     "sha": "c62adf490acca8fd",
-     "reviewers": [
-      "T1-P2",
-      "T1-반론"
-     ],
-     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_title_1.md",
-     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_title_1",
-     "ours_idx": 6,
-     "text": "제목: 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로\n썸네일 문구: 기내에 연기가 찼다 / 당신이라면 짐 챙긴다?\n보조 문구: 90초",
-     "at": "2026-11-12T10:57:47Z"
-    }
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-12T11:02:06Z",
+      "sha": "c62adf490acca8fd",
+      "reviewers": [
+       {
+        "reviewer": "T1-P2",
+        "persona": "P2",
+        "feed_picks": [
+         1,
+         6
+        ],
+        "feed_why": "1은 실제 살인 사건에 신상공개라 '처벌은 되나' 궁금해서 먼저, 6은 비행기 사고라 무안 참사가 떠올라서 누름 — 9는 😰·'엽기적인 수법'이 사건을 구경거리로 다루는 느낌이라 넘김",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "기내에 연기가 찼다",
+        "fix": "'짐 챙긴다?'가 승객 탓으로 들리지 않게 — 탈출 못 한 사람을 나무라는 말 대신 '90초 안에 살아 나오는 법'처럼 살리는 쪽 말로",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T1-반론",
+        "persona": "반론",
+        "feed_picks": [
+         4,
+         6
+        ],
+        "feed_why": "4는 '절대 하면 안 되는 일'이라 예외를 따져 보고 싶어서, 6은 '승무원이 연 문으로'를 보자마자 '승무원이 못 열거나 쓰러지면?'이 떠올라서 그 빈틈을 영상이 다루는지 보려고 누름 — 6의 '짐 챙기면 위험'은 다 아는 말이라 그 부분만으로는 안 눌렀을 것",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "승무원이 연 문으로 (승무원이 못 열면? 에어부산 김해 화재 땐 승객이 비상구를 열었는데) · 90초 (인증 시험 기준인지 실제 탈출 시간인지) · 당신이라면 짐 챙긴다? (짐 챙긴 승객 탓으로 들림)",
+        "fix": "제목에 정답을 다 쓰지 말고 빠진 조건을 넣어 묻기 — 예 '승무원이 문을 못 열면 어느 문?'처럼 예외를 걸고, 썸네일 질문은 승객 탓이 아니라 '안내 방송이 안 알려 주는 것' 쪽으로",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_title_1.md",
+      "text": "제목: 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로\n썸네일 문구: 기내에 연기가 찼다 / 당신이라면 짐 챙긴다?\n보조 문구: 90초"
+     }
+    ]
    },
    "script_exit": {
-    "rounds": [],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
-    "pending": {
-     "n": 1,
-     "sha": "4ab0ed39a6d448f1",
-     "reviewers": [
-      "E1-P2"
-     ],
-     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_1.md",
-     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_exit_1",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-12T10:57:47Z"
-    }
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-12T11:02:06Z",
+      "sha": "4ab0ed39a6d448f1",
+      "reviewers": [
+       {
+        "reviewer": "E1-P2",
+        "persona": "P2",
+        "exits": [
+         {
+          "line": 49,
+          "why": "41명이 숨진 사고인데 불이 왜 났는지·누구 책임인지는 빠지고 '짐 챙긴 승객들로 통로가 막혔다'만 나와 피해자 탓처럼 들려 순간 끄고 싶었음 — 53줄 '탓하자는 게 아니다'에서 풀려 계속 봄"
+         }
+        ],
+        "hard_words": [
+         "해상보안청"
+        ],
+        "keep_watching": true,
+        "best": "29 — 전기가 끊긴 상황에서도 기장이 객실에 남은 사람이 없는지 확인하고 마지막으로 내렸다는 줄, 책임지는 모습이라 가장 붙잡힘",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [49]",
+         "모르는 말 ['해상보안청']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_1.md"
+     }
+    ],
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
    },
    "script_rebuttal": {
-    "rounds": [],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
-    "pending": {
-     "n": 1,
-     "sha": "4ab0ed39a6d448f1",
-     "reviewers": [
-      "K1-반론"
-     ],
-     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_1.md",
-     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_rebuttal_1",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-12T10:57:47Z"
-    }
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-12T11:02:06Z",
+      "sha": "4ab0ed39a6d448f1",
+      "reviewers": [
+       {
+        "reviewer": "K1-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 62,
+          "text": "하네다는 18분이나 걸렸는데 379명 다 살았다며? 그럼 가방 꺼내는 몇 초가 무슨 상관임. 정작 대표 사례가 '몇 초가 중요하다'를 반박하는데?",
+          "fix": "'몇 초가 중요하다'는 근거는 시뮬레이션 숫자(11.7%·90초에 3명 더)로만 잇고, 69줄 '하네다의 379명처럼 … 몇 초를 돌려준다'는 빼거나, 18분이 무엇을 잰 시간인지(마지막 사람·기장 확인까지)를 출처 확인 뒤 한 줄로 밝힌다"
+         },
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 78,
+          "text": "에어부산 때 승무원 안내 없이 승객이 알아서 비상구 열었다는 증언도 있었는데, '승무원 요청을 받고 열었다'고 단정해도 됨?",
+          "fix": "누구의 설명인지 밝히고(항공사·조사 기관 발표 등) 승객 증언이 엇갈린 점을 한마디 붙이거나, 이 사례 문장을 빼고 79줄 '안전 카드 문 여는 방법 봐 두기'만 남긴다"
+         },
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 89,
+          "text": "허리 숙이고 좌석 세면서 가면 오히려 느리지, '서서 뛰는 사람보다 빨리 나온다'는 근거가 어디 있음? 좁은 통로에서 숙이다 뒤에서 밀리면 넘어짐",
+          "fix": "'빨리 나온다' 대신 대본이 말한 까닭(연기를 덜 마시고 바닥 불빛·좌석 수로 길을 잃지 않는다)으로 바꾸고, 기어가지 말고 허리만 숙여 앞사람을 따라간다고 한마디"
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 96,
+          "text": "이미 선반에 여권·노트북 두고 내렸으면? 해외에서 여권 없으면 귀국도 못 하고, 두고 온 짐은 항공사가 물어주냐",
+          "fix": "'두고 내린 짐·여권은 나중에 되찾거나 다시 받을 수 있지만 몸은 그렇지 않다' 정도를 한 줄, 배상·재발급 절차를 말하려면 출처 확인 뒤 설명란에"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 110,
+          "text": "본문에선 '승무원이 안 보이면 창밖에 불 없는 쪽 문'이라더니 정리에선 '승무원이 연 문으로'만 남음. 승무원 안 보이면 그냥 기다리라는 거?",
+          "fix": "정리 둘째를 81줄처럼 '승무원 안내나 창밖을 보고 고른 문으로'로 맞춘다"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 65,
+          "text": "11.7%는 어떤 비행기, 몇 명 타고 문 몇 개 쓴 조건에서 나온 숫자임? '수없이 돌려 봤다'는 너무 뭉뚱그림",
+          "fix": "64줄 '수없이'를 빼고, 시뮬레이션 조건(기종·승객 수·쓴 문)을 한 구절로 붙이거나 설명란 출처에 적는다"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 100,
+          "text": "애 데리고 탄 부모나 거동 불편한 가족이랑 같이 탄 사람은? 짐 얘기만 있고 일행 얘기가 없음",
+          "fix": "'짐 대신 사람을 챙긴다 — 아이·일행은 손을 잡고 앞세운다'를 한 줄 더한다"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 13,
+          "text": "이건 비행기가 멈추고 나갈 시간이 있을 때 얘기지, 충돌하자마자 터지는 사고엔 해당 없음",
+          "fix": "도입 쪽에 '비행기가 멈추고 탈출할 수 있는 화재' 기준이라는 조건을 한 구절로 밝힌다 (특정 국내 참사를 끌어와 비교하지는 않는다)"
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답 3번은 상황(승무원이 외치고 가리킴)이 분명해 갈리지 않음 — 다만 '몇 초가 중요하다'를 18분 걸린 하네다로 받치는 논리, 에어부산 문 개방 주체 단정, '숙이면 빨리 나온다' 근거 없음이 믿음을 깎는 빈틈(상 0·중 3).",
+        "pass": false,
+        "why": [
+         "중 3 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_1.md"
+     }
+    ],
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
    }
   }
  }

@@ -1,19 +1,31 @@
 {
  "id": "ellibeiteo-gathim-2026-11",
  "persona": "P1",
- "title": "엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야",
+ "title": "엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일",
  "thumb_main": [
-  "엘리베이터 멈추면",
-  "문부터 열지 마세요"
+  "떨어질 때 점프하면",
+  "살 수 있을까?"
  ],
- "thumb_sub": "비상벨 먼저",
+ "thumb_sub": "승강기안전공단의 답",
  "s_title": "",
  "s_thumb_main": [],
  "s_thumb_sub": "",
- "variant": "E-B",
+ "variant": "E-C",
  "experiments": [
   "E-A",
   "E-C"
  ],
- "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)"
+ "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)",
+ "history": [
+  {
+   "title": "엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야",
+   "thumb_main": [
+    "엘리베이터 멈추면",
+    "문부터 열지 마세요"
+   ],
+   "thumb_sub": "비상벨 먼저",
+   "variant": "E-B",
+   "why_changed": "1회차: 대처법형(E-B)은 대상·반론 모두 '정답이 제목에 다 있어 훈계' — 안 누름"
+  }
+ ]
 }

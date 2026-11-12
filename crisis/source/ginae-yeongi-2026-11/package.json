@@ -4,9 +4,9 @@
  "title": "비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로",
  "thumb_main": [
   "기내에 연기가 찼다",
-  "당신이라면 짐 챙긴다?"
+  "가방, 두고 갈 수 있나?"
  ],
- "thumb_sub": "90초",
+ "thumb_sub": "379명 전원 탈출",
  "s_title": "",
  "s_thumb_main": [],
  "s_thumb_sub": "",
@@ -15,5 +15,17 @@
   "A-B",
   "A-C"
  ],
- "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)"
+ "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)",
+ "history": [
+  {
+   "title": "비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로",
+   "thumb_main": [
+    "기내에 연기가 찼다",
+    "당신이라면 짐 챙긴다?"
+   ],
+   "thumb_sub": "90초",
+   "variant": "A-A",
+   "why_changed": "1회차 통과 · '당신이라면 짐 챙긴다?'가 승객 탓으로 들림(P2) · 90초가 무슨 기준인지 모름(반론)"
+  }
+ ]
 }

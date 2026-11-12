@@ -1,7 +1,11 @@
 ﻿<#
 ================================================================================================
  YouTube 업로드 PC 실행기 (Windows PowerShell)
- VERSION: v1.0 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 (예: economic)맞는 폴더에
+ VERSION: v1.1 — 2026-11-12 — **-Web: 업로드 화면** (사용자 지시 "…내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘 토큰 만료되면 알아서
+          인증 코드 돌려서 설정 넣어주도록 하고 필요한 환경변수 값들 넣을 수 있는 웹 사이트 코드 만들어줘 주제별로 가능하도록 해줘"):
+          tools/upload_web.py 를 받아 이 PC 에서만 열리는 화면(http://127.0.0.1:8770) — 주제 탭 · 키 칸(<주제>/.env) · 자료 점검 · [업로드] = 7일 뒤 17:00 예약 ·
+          토큰 만료면 브라우저 인증을 저절로. 영상은 GitHub 'uploads' 브랜치 조각을 받아 이어 붙임 (Drive 원본이 없어도).
+ (v1.0 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 (예: economic)맞는 폴더에
           원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 만들어서 올리는 걸로 하자 자동 예약 기능도 있어야해"
           코드(tools/pc_upload.py 등)를 GitHub 에서 받고 → GitHub 의 업로드 설정 + Google Drive 내 드라이브/youtube/<주제>/<영상ID>.mp4 원본으로
           유튜브에 비공개 업로드 + 예약 공개(기본: 실행 시각 + 1시간) → youtube.json 을 GitHub 에 기록. 연구·교육용 — 투자·세무·보험 상담 아님.
@@ -16,6 +20,7 @@
    3) .env 의 GITHUB_TOKEN (분석기와 같은 토큰, Contents 쓰기) — 올린 기록(youtube.json)을 GitHub 에 남김
 
  자주 쓰는 실행:
+   powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -Web                  # ★★ (v1.1) 업로드 화면 — 주제별 키 · 자료 점검 · [업로드] 7일 뒤 예약
    powershell -ExecutionPolicy Bypass -File run_uploader.ps1                       # ★ 준비된 영상 전부 → 지금부터 1시간 뒤 공개
    powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -DryRun               # 올리지 않고 확인만 (설정·Drive 영상·예약 시각)
    powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -Gap 24h              # 여러 개면 하루에 하나씩 공개 (첫 영상 1시간 뒤)
@@ -44,6 +49,8 @@ param(
     [string]$Repo = "yeomin1024/yeomin1024-ytb",
     [string]$Branch = "main",
     [switch]$NoVenv,
+    [switch]$Web,
+    [int]$Port = 8770,
     [Parameter(ValueFromRemainingArguments = $true)][string[]]$ExtraArgs
 )
 $ErrorActionPreference = "Continue"
@@ -54,7 +61,7 @@ if ($PSScriptRoot) { Set-Location -Path $PSScriptRoot }
 
 $Base = "https://raw.githubusercontent.com/$Repo/$Branch"
 $CodeFiles = @("tools/pc_upload.py", "tools/drive_videos.py", "tools/youtube_upload.py", "tools/srt_tool.py", "tools/subtitle_widths.json",
-               "tools/youtube_auth.py")
+               "tools/youtube_auth.py", "tools/upload_web.py", "tools/upload_pack.py")
 $TaskName = "YouTubeUpload_$Topic"
 function Write-Step([string]$msg) { Write-Host "[UPLOADER] [$(Get-Date -Format s)] $msg" }
 
@@ -173,6 +180,14 @@ if ($Auth) {
     $csec = Get-Secret "YOUTUBE_CLIENT_SECRET"
     if (-not $cid -or -not $csec) { Write-Step "❌ .env 에 YOUTUBE_CLIENT_ID · YOUTUBE_CLIENT_SECRET 를 먼저 넣고 다시 -Auth (guides/pipeline.md '처음 한 번 할 일' B)"; exit 1 }
     & $pyExe @pyPre tools/youtube_auth.py --client-id $cid --client-secret $csec --save-env .env
+    exit $LASTEXITCODE
+}
+
+# -Web (v1.1): 업로드 화면 — 창을 닫으면 꺼짐
+if ($Web) {
+    $env:PYTHONIOENCODING = "utf-8"; $env:PYTHONUTF8 = "1"
+    Write-Step "업로드 화면을 엽니다 → 브라우저 http://127.0.0.1:$Port/ (이 창을 닫으면 화면도 꺼짐)"
+    & $pyExe @pyPre tools/upload_web.py --port $Port --repo $Repo
     exit $LASTEXITCODE
 }
 

@@ -1,10 +1,13 @@
 ﻿<#
 ================================================================================================
  YouTube 업로드 PC 실행기 (Windows PowerShell)
- VERSION: v1.1 — 2026-11-12 — **-Web: 업로드 화면** (사용자 지시 "…내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘 토큰 만료되면 알아서
+ VERSION: v1.2 — 2026-11-12 — 더블 클릭 실행 파일 '유튜브_업로드.bat' 이 이 스크립트를 받아 -Web 으로 실행 (사용자 지시 "그냥 더블 클릭하면 실행되는
+          프로그램으로 만들어서 내가 다운 받을 수 있게 해줘") · Python 이 없으면 -Web·-Auth 때 winget 으로 설치할지 물음(Y 일 때만) ·
+          PATH 에 없는 Python(%LOCALAPPDATA%\Programs\Python\Python3*) 도 찾음.
+ (v1.1 — 2026-11-12 — **-Web: 업로드 화면** (사용자 지시 "…내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘 토큰 만료되면 알아서
           인증 코드 돌려서 설정 넣어주도록 하고 필요한 환경변수 값들 넣을 수 있는 웹 사이트 코드 만들어줘 주제별로 가능하도록 해줘"):
           tools/upload_web.py 를 받아 이 PC 에서만 열리는 화면(http://127.0.0.1:8770) — 주제 탭 · 키 칸(<주제>/.env) · 자료 점검 · [업로드] = 7일 뒤 17:00 예약 ·
-          토큰 만료면 브라우저 인증을 저절로. 영상은 GitHub 'uploads' 브랜치 조각을 받아 이어 붙임 (Drive 원본이 없어도).
+          토큰 만료면 브라우저 인증을 저절로. 영상은 GitHub 'uploads' 브랜치 조각을 받아 이어 붙임 (Drive 원본이 없어도).)
  (v1.0 — 2026-10-15 — 사용자 지시 "압축본 올린거 삭제하고 구글 드라이브 내 드라이브에 youtube 폴더에 주제 (예: economic)맞는 폴더에
           원본 영상 올리고 pc에서 영상 및 환경설정을 받아서 업로드 하는 코드 만들어서 올리는 걸로 하자 자동 예약 기능도 있어야해"
           코드(tools/pc_upload.py 등)를 GitHub 에서 받고 → GitHub 의 업로드 설정 + Google Drive 내 드라이브/youtube/<주제>/<영상ID>.mp4 원본으로
@@ -20,6 +23,7 @@
    3) .env 의 GITHUB_TOKEN (분석기와 같은 토큰, Contents 쓰기) — 올린 기록(youtube.json)을 GitHub 에 남김
 
  자주 쓰는 실행:
+   유튜브_업로드.bat 더블 클릭                                                     # ★★★ (v1.2) 아래 -Web 과 같음 — 받기: GitHub main 의 유튜브_업로드.bat
    powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -Web                  # ★★ (v1.1) 업로드 화면 — 주제별 키 · 자료 점검 · [업로드] 7일 뒤 예약
    powershell -ExecutionPolicy Bypass -File run_uploader.ps1                       # ★ 준비된 영상 전부 → 지금부터 1시간 뒤 공개
    powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -DryRun               # 올리지 않고 확인만 (설정·Drive 영상·예약 시각)
@@ -152,9 +156,28 @@ function Find-Python {
         & $cand[0] @pre -c "import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)" 2>$null | Out-Null
         if ($LASTEXITCODE -eq 0) { return , @($cand) }
     }
+    # (v1.2) PATH 에 없는 설치본 — 이 사용자용 · 모든 사용자용 (새 버전 먼저)
+    $dirs = @("$env:LOCALAPPDATA\Programs\Python", "$env:ProgramFiles")
+    foreach ($exe in ($dirs | ForEach-Object { Get-ChildItem -Path $_ -Filter "Python3*" -Directory -ErrorAction SilentlyContinue } |
+                      Sort-Object Name -Descending | ForEach-Object { Join-Path $_.FullName "python.exe" })) {
+        if (-not (Test-Path $exe)) { continue }
+        & $exe -c "import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)" 2>$null | Out-Null
+        if ($LASTEXITCODE -eq 0) { return , @($exe) }
+    }
     return $null
 }
 $py = Find-Python
+# (v1.2) 없으면 화면(-Web)·인증(-Auth) 때만 설치할지 묻는다 — 예약 작업(-RegisterTask 로 돈 실행)에서는 묻지 않음
+if (-not $py -and ($Web -or $Auth) -and (Get-Command winget -ErrorAction SilentlyContinue)) {
+    Write-Step "Python 3.10 이상이 없습니다. 지금 설치할까요? (winget · Python 3.12 · 이 사용자만 · 몇 분) — Y 를 누르고 Enter"
+    $ans = Read-Host "설치 [Y/N]"
+    if ($ans -match '^\s*(y|yes|ㅛ|예|네)\s*$') {
+        winget install -e --id Python.Python.3.12 --scope user --accept-package-agreements --accept-source-agreements
+        $env:Path = [Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [Environment]::GetEnvironmentVariable("Path", "User")
+        $py = Find-Python
+        if ($py) { Write-Step "Python 설치 완료: $($py -join ' ')" }
+    } else { Write-Step "설치하지 않았습니다" }
+}
 if (-not $py) { Write-Step "❌ Python 3.10 이상이 없습니다 → https://www.python.org/downloads/ ('Add python.exe to PATH' 체크)"; exit 1 }
 $pyExe = $py[0]
 $pyPre = @()

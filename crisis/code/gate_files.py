@@ -1,4 +1,5 @@
-# VERSION: v1.1 — 2026-11-12 — 혐오·국적 탓 댓글을 반론 갈래·질문 예시에서 뺌 (v1.0 결과에 "경찰이 중국인 아님?"이 K3 예시로 들어감)
+# VERSION: v1.2 — 2026-11-12 — 나이 단서가 20개 미만이면 분포 대신 '단서 부족' 글로 (v1.1 에서 P4 나이가 '10대 100%'(단서 1개)로 찍혀 검토자가 10대로 읽음)
+# (이전) v1.1 — 2026-11-12 — 혐오·국적 탓 댓글을 반론 갈래·질문 예시에서 뺌 (v1.0 결과에 "경찰이 중국인 아님?"이 K3 예시로 들어감)
 # (이전) v1.0 — 2026-11-12 — 위기 상황 독립 분석 결과 → tools/persona_gate.py 가 읽는 꼴 (crisis/result/outliers/)
 """python3 crisis/code/gate_files.py
 
@@ -22,7 +23,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import crisis_lab as cl  # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 # 사람·국적·지역 탓 댓글은 반론도 질문도 아님 → 갈래·예시에서 뺌 (crisis/guides/channel.md 3번) — v1.1
 HATE = r"중국|중국인|조선족|짱깨|무비자|불법체류|외국인|이민자|짱꼴라|신안|밀양|전라도|홍어|경상도|제주도가 더|제주도는 우리나라"
 OUT = cl.ROOT / "result" / "outliers"
@@ -37,6 +38,17 @@ REBUTTAL = {  # 갈래: (이름, 규칙) — 영상 내용에 맞서는 댓글�
 
 def L(stage, **kv):
     logging.getLogger("gate").info(f"[{stage}] [{datetime.now():%Y-%m-%dT%H:%M:%S}] " + " ".join(f"{k}={v}" for k, v in kv.items()))
+
+
+AGE_GUESS = {"F1": "알 수 없음 (쇼츠 웃음 댓글 — 젊은 층으로 보이나 근거 없음)", "F2": "알 수 없음 (어른 — 참사·책임을 말함)",
+             "F3": "알 수 없음 (어른 — 현직·경험을 말함)", "F4": "알 수 없음 (어른 — 자녀·가족 이야기가 섞임, 부모 단서 포함)"}
+
+
+def age_text(f: dict) -> str:
+    n = sum((f.get("age_hint") or {}).values())
+    if n >= 20:
+        return {"dist": f["age_hint"], "level": "나이는 댓글 간접 단서"}
+    return f"{AGE_GUESS[f['id']]} — 나이 단서 {n}개뿐이라 나이로 읽지 말 것"
 
 
 def main() -> int:
@@ -67,7 +79,7 @@ def main() -> int:
         for k in f["from"]:
             words += segs.get(k, {}).get("top_words", [])[:4]
         out.append({"id": f"P{i}", "name": f["name"], "share": f"{f['share'] * 100:.0f}%",
-                    "age": {"dist": f["age_hint"] or {"나이 밝힌 댓글 거의 없음": 1}, "level": "나이는 추정"},
+                    "age": age_text(f),
                     "know": know[f["id"]], "known_terms": [[w] for w in words[:6]], "unknown_terms": [],
                     "want_terms": [[k] for k in list(f["top_danger"])[:2]], "want_words": [],
                     "dislikes_cat": [[d] for d in dislike[f["id"]]], "top_questions": [x.replace("\n", " ") for x in q],

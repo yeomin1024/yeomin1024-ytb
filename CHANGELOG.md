@@ -1158,6 +1158,29 @@
 | `economic/topics/topics.json`·`주제탐색.md`·`평가판.html` | 평가 0개라 처음부터 다시 셈 (T001~T025 ID 그대로, 새 T026~T035) → 35개 중 20개 · 평가판 https://claude.ai/artifact/KftXe7GXWXgA8MJ7RJDXZJ 3판 |
 | `economic/topics/settings.toml` | 그대로 (다시 셀 때만 SIZE 를 잠시 크게 — 되돌림) |
 
+## 2026-11-12 — 성공 사례에 조회수 5만 이상 (역사·심리) · 대본 받을 목록 다시
+
+### 왜 (사용자 지시)
+- "일단 대본 받아야 하니까 명령 좀 알려줘 코드는 이미 받았어 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `history/analysis_rules.toml` (v1.9) · `psychology/analysis_rules.toml` (v1.1) | `[success] MIN_VIEWS` 10000 → 50000 — 5만 = 그 주제 관련 롱폼(올린 지 7~182일·4분 이상) 조회수 가운데값 (역사 53,198 · 심리 55,419) |
+| `history/result/outliers/`·`psychology/result/outliers/` | `cloud_run.py <주제> analyze` (할당량 0) · `pc_transcribe.py list history psychology` |
+| `tools/ctr_check.py` (v1.5) | 제목 점수의 '성공'도 같은 잣대 (구독자당 하루 조회수 ≥ 0.1 그리고 조회수 ≥ MIN_VIEWS) |
+| `history/topics/ctr/` · `final_2026-11-11.md` (v1.1) | validate 다시 → 본안 기준 24 → 33 · N-B·I-A·I-C·S-A 제목에 근거 말 → 13회차 4편 통과 |
+| `CLAUDE.md` · `history/README.md` (v1.9) · `psychology/README.md` (v1.1) · `guides/status.md` (v3.95) | 규칙 한 줄 · 회차 · 인수인계 |
+
+### 확인 (전후 — 같은 날 같은 자료, 하한만 바꿈)
+- 역사 성공 사례: 하한 1만 369 → 5만 **308** (빠짐 61 — 예: 조회수 10,798 · 구독자 539) · 10-28 분석 414 에서 나머지 45 는 180일 지남.
+- 심리: 135 → **106** (빠짐 30 · 같은 채널 2개 자리가 비어 들어옴 1).
+- `[DONE] topic=history success=308` · `[DONE] topic=psychology success=106` · `[LIST] topic=history items=1456` · `[LIST] topic=psychology items=296 need_full=271 need_second=25`.
+- `[VALIDATE] auc=0.608 hit_min=33 miss_max=20 separates=True` · `[ROUND] n=13 W:W-B=제목 41 · 믿음 6.67 ✅ N:N-A=38 · 8.0 ✅ I:I-A=34 · 7.33 ✅ S:S-A=34 · 6.67 ✅`.
+
+### 한계
+- 재테크·주식·음악은 1만 그대로 (사용자가 말하면 같은 한 줄). 근거 문서(`history/guides/data_insights.md` v1.2·다음 영상 추천)는 예전 성공 사례 414로 셈 — 다시 쓸 때 308 기준.
+
 ## 2026-11-11 (2) — 역사 4편 × 3안 제목·썸네일 문구·보조 문구 + 클릭 검증 12회차
 
 ### 왜 (사용자 지시)

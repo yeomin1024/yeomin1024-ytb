@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-11 — validate: 제목 꼴 점수를 실제 성공으로 검증(5겹 교차 AUC · 앵커 빼고 배운 점수로 실제 성공·덜 된 영상 가름) · 판정 mode "title+trust" = 클릭은 검증된 제목 점수로, 페르소나는 믿음·고증 거름으로 (10회차 — 패널 v2 도 H 6.16 < M 6.75, 페르소나 클릭 점수는 두 판 모두 실제 결과를 못 가림).
+# VERSION: v1.5 — 2026-11-12 — 성공 = 구독자당 하루 조회수 ≥ MIN_VPD_SUBS 그리고 조회수 ≥ [success] MIN_VIEWS (사용자 지시 2026-11-12 "조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해" — 성공 사례와 같은 잣대).
+# (v1.4 — 2026-11-11 — validate: 제목 꼴 점수를 실제 성공으로 검증(5겹 교차 AUC · 앵커 빼고 배운 점수로 실제 성공·덜 된 영상 가름) · 판정 mode "title+trust" = 클릭은 검증된 제목 점수로, 페르소나는 믿음·고증 거름으로 (10회차 — 패널 v2 도 H 6.16 < M 6.75, 페르소나 클릭 점수는 두 판 모두 실제 결과를 못 가림).)
 # (v1.3 — 2026-11-11 — 패널 v2: 페르소나마다 1초 첫인상 클릭(P1~P3) + 본 뒤 믿음(trust) 따로 · 앵커 8편 · 판정은 패널이 성공 영상을 가릴 때만 (9회차 — v1 패널은 성공 H 4.65 < 덜 됨 M 5.48 로 거꾸로 매김: 낚시·AI 그림을 깎는 품질 심사였음).
 # (v1.2 — 2026-11-11 — 보정 앵커: 실제 성공·덜 된 영상을 패널에 몰래 섞어(K-n) 같은 회차 점수로 기준을 맞춤 · add 명령(검토자 답 평균) (8회차 뒤 — 6.2~6.8 에서 멈춰 7.0 이 실제 성공 영상보다 높은 막대인지 확인).)
 # (v1.1 — 2026-11-11 — report: 검토자 여러 명 평균 · 페르소나 몫 무게 평균 · 영상마다 판정(✅) (6회차 뒤 — 검토자 한 명 점수가 ±1 흔들려서, 무게는 personas.md 몫).)
 # (v1.0 — 2026-11-11 — 새로 (사용자 지시 2026-11-11 "4가지 주제 골라서 제목, 썸네일 문구, 보조문구 만들어봐 그리고 페르소나로
 #          썸네일 클릭율 잘나오는지 계속 검증해야해 잘나올 때까지 진행하고 최종 알려줘 영상 1개당 3개 만들면 돼").)
 # CHANGELOG
+#   v1.5 — 2026-11-12 — settings min_views · load_frames·pool_rows 성공 판정에 조회수 하한
 #   v1.4 — 2026-11-11 — FRAMES 왜: 임진왜란·왜구 등 뺌 · cmd_check data_score = title_model lift(있으면) · cmd_validate(title_model) · judge mode "title+trust" · add 스냅숏에 data_score · report 제목 점수 칸·검증 줄
 #   v1.3 — 2026-11-11 — panel_prompt v2(pass_rule.panel_version=2 — click·trust) · cmd_add trust 평균 · judge v2(가름 폭 min_gap · 믿음 하한) · report 믿음 칸
 #   v1.2 — 2026-11-11 — anchors(panel 에 K-n 으로 섞음 · report 에 성공 H·덜 된 M 평균) · judge 보정 기준(pass_rule.calibrated) · add(검토자 답 파일 → rounds)
@@ -23,7 +25,7 @@
 안.json: {"topic","made","videos":[{"id","theme","supply_rx","variants":[{"v":"A","title","thumb_main":["1줄","2줄"],"thumb_sub":["꼬리표"…],"image"}]}],
           "rounds":[{"n":1,"scores":{"<id>-<v>":{"P1":7,"P2":6,"P3":8,"flags":["…"],"feed":{"P1":2,…}}}}]}
 제목 꼴 숫자 = <주제>/result/web/explore.json 의 주제 관련 롱폼 중 구독자 5만 이하 · 올린 지 7~182일 · 주제 밖(analysis_rules [exclude] OFF_TOPIC) 뺌 —
-  성공 = 구독자당 하루 조회수 ≥ [success] MIN_VPD_SUBS. 꼴마다 성공 비율 − 전체 비율(%p). 표본이 15개보다 적은 꼴은 '표본 적음'.
+  성공 = 구독자당 하루 조회수 ≥ [success] MIN_VPD_SUBS 그리고 조회수 ≥ [success] MIN_VIEWS (v1.5). 꼴마다 성공 비율 − 전체 비율(%p). 표본이 15개보다 적은 꼴은 '표본 적음'.
 보정 앵커 (안.json 'anchors'): 실제 영상(성공 hit · 덜 된 miss)의 제목·썸네일 문구·그림을 '다른 편 후보 K-n'으로 섞어 — 패널이 실제 성공 영상에
   주는 점수(H)·덜 된 영상 점수(M)를 같은 회차에서 잰다. pass_rule.calibrated 이면: 가장 좋은 안 ≥ H · 나머지 두 안 ≥ (H+M)/2 · 그리고 H − M ≥ min_gap (가르지 못하면 패널 무효).
 패널 v2 (pass_rule.panel_version=2): 페르소나마다 클릭(폰 홈 피드 1~2초 첫인상 — P1~P3) + 안마다 믿음(trust — 본 뒤 '낚였다·고증 틀렸다'가 없을지).
@@ -45,7 +47,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import title_fit  # noqa: E402  모바일·PC 목록 2줄
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("ctr")
 MAIN_LINE_MAX = 14          # 썸네일 주요 문구 줄마다 띄어쓰기 빼고 (summary_ideas.lint_answer 와 같음)
 MIN_N = 15                  # 이보다 적은 꼴은 '표본 적음'
@@ -87,6 +89,7 @@ def settings(topic):
     if p.is_file():
         st = tomllib.loads(p.read_text("utf-8")).get("summary") or {}
     return {"min_vpd": float(ar.get("success", {}).get("MIN_VPD_SUBS") or 0.1),
+            "min_views": int(ar.get("success", {}).get("MIN_VIEWS") or 0),   # v1.5: 성공 = 구독자당 하루 조회수 + 조회수 하한 (성공 사례와 같은 잣대)
             "off": ar.get("exclude", {}).get("OFF_TOPIC") or [],
             "title_banned": st.get("TITLE_BANNED") or "", "banned": st.get("BANNED") or "",
             "sub_items": int(st.get("SUB_ITEMS") or 2), "sub_max": int(st.get("SUB_ITEM_MAX") or 6)}
@@ -104,7 +107,8 @@ def load_frames(topic, S):
     rows = [r for r in d["rows"] if r.get("relevant") and not r.get("short") and (r.get("minutes") or 0) >= 4
             and (r.get("subs") or 0) <= 50000 and 7 <= (r.get("age_days") or 0) <= 182
             and not (off and off.search(r["title"] + " " + (r.get("channel") or "")))]
-    ok = lambda r: (r.get("views_per_day") or 0) / max(100, r.get("subs") or 0) >= S["min_vpd"]  # noqa: E731
+    ok = lambda r: ((r.get("views_per_day") or 0) / max(100, r.get("subs") or 0) >= S["min_vpd"]  # noqa: E731
+                    and (r.get("views") or 0) >= S["min_views"])
     base = sum(map(ok, rows)) / max(1, len(rows))
     F = {}
     for k, rx in FRAMES.items():
@@ -121,7 +125,8 @@ def pool_rows(topic, S):
     rows = [r for r in d["rows"] if r.get("relevant") and not r.get("short") and (r.get("minutes") or 0) >= 4
             and (r.get("subs") or 0) <= 50000 and 7 <= (r.get("age_days") or 0) <= 182
             and not (off and off.search(r["title"] + " " + (r.get("channel") or "")))]
-    ok = lambda r: (r.get("views_per_day") or 0) / max(100, r.get("subs") or 0) >= S["min_vpd"]  # noqa: E731
+    ok = lambda r: ((r.get("views_per_day") or 0) / max(100, r.get("subs") or 0) >= S["min_vpd"]  # noqa: E731
+                    and (r.get("views") or 0) >= S["min_views"])
     return d, rows, ok
 
 

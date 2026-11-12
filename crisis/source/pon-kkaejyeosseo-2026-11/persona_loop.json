@@ -49,21 +49,49 @@
       "fixed_after": "1회차 지적 반영 (README v1.3) · 이탈 검토자는 페르소나 나이를 10대로 잘못 읽음(gate_files v1.1 버그)",
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_title_1.md",
       "text": "제목: '폰 깨졌어' 자녀 사칭 문자, 답장 말고 원래 번호로 전화\n썸네일 문구: 답장하지 마세요 / 원래 번호로 전화\n보조 문구: 3억 원 잃은 엄마"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-12T11:11:28Z",
+      "sha": "09039a5eca49c6f7",
+      "reviewers": [
+       {
+        "reviewer": "T2-P4",
+        "persona": "P4",
+        "feed_picks": [
+         5,
+         7
+        ],
+        "feed_why": "5번은 우리 애한테서 진짜 올 법한 문자라 '나라면 답장했을까' 싶어 바로 누름, 7번은 가족 태우고 운전하니 당장 써먹을 할 일이 있어서 — 영화 결말·좀비·벙커는 볼거리일 뿐 내가 할 일이 없어 넘김",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "'엄마 나 폰 깨졌어' / 막은 엄마 / 당신이라면 답장?",
+        "fix": "보조 문구 '앱 하나로 명의 대출까지'는 무슨 앱인지·'명의 대출'이 뭔지 한 번에 안 들어옴 — '링크 하나 눌렀더니 내 이름으로 대출'처럼 쉬운 말로, 3억이 어떻게 나갔는지 바로 그려지게",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T2-반론",
+        "persona": "반론",
+        "feed_picks": [
+         7,
+         5
+        ],
+        "feed_why": "7은 '여러 번 밟으면 더 안 선다'는 단정이 맞는지 따지러, 5는 문자 하나에 3억이 진짜 빠져나가는지(이체 한도·대출 구조) 확인하러 누름 — 나머지는 영화 요약·좀비 가정이라 따질 거리가 없음",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "'3억 원 잃은 엄마와 막은 엄마' — 액수가 과장 같고, '잃은 엄마 vs 막은 엄마'가 피해자 탓처럼 들림 · '당신이라면 답장?' — 답장만으로는 돈이 안 나가는데 진짜 갈림길(링크 앱 설치·신분증 사진)이 빠짐",
+        "fix": "3억의 구성(예금 이체 + 명의 대출)을 한마디로 보여 주고, 갈림길을 '답장'이 아니라 '앱 설치·신분증 사진'으로, 비교는 엄마가 아니라 수법·제도의 빈틈을 꼬집는 쪽으로",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "2회차 지적 반영 (README v1.4)",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_title_2.md",
+      "text": "제목: '엄마 나 폰 깨졌어' 문자에 3억 원 잃은 엄마와 막은 엄마\n썸네일 문구: 엄마 나 폰 깨졌어 / 당신이라면 답장?\n보조 문구: 앱 하나로 명의 대출까지"
      }
-    ],
-    "pending": {
-     "n": 2,
-     "sha": "09039a5eca49c6f7",
-     "reviewers": [
-      "T2-P4",
-      "T2-반론"
-     ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_title_2.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_title_2",
-     "ours_idx": 5,
-     "text": "제목: '엄마 나 폰 깨졌어' 문자에 3억 원 잃은 엄마와 막은 엄마\n썸네일 문구: 엄마 나 폰 깨졌어 / 당신이라면 답장?\n보조 문구: 앱 하나로 명의 대출까지",
-     "at": "2026-11-12T11:06:47Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -111,21 +139,43 @@
       "pass": false,
       "fixed_after": "1회차 지적 반영 (README v1.3) · 이탈 검토자는 페르소나 나이를 10대로 잘못 읽음(gate_files v1.1 버그)",
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-12T11:11:28Z",
+      "sha": "f59f85c0818400c2",
+      "reviewers": [
+       {
+        "reviewer": "E2-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 32,
+          "why": "지루함 — 63억·95억에 이어 238억·10명 중 7명까지 큰 숫자가 줄줄이 나와 뻔하게 느껴짐. 3억 엄마 이야기는 붙잡았는데, 두 번째 조직부터는 통계 나열 같음"
+         },
+         {
+          "line": 83,
+          "why": "어려운 말·지루함 — 권리를 없애는 절차, 2개월, 14일 안에 몫이 정해지는 법 절차가 이어져서 '나라면 지금 뭘 하지'에서 멀어짐 (85줄 '두 달 반쯤'만 있어도 충분)"
+         }
+        ],
+        "hard_words": [
+         "3영업일"
+        ],
+        "keep_watching": true,
+        "best": "11 — '진짜 너 맞아?'라고 물어도 사기범은 '응, 나야'라고 답할 뿐이라는 말. 내가 하려던 2번이 왜 틀렸는지 바로 와닿고, '그냥 끊고 원래 번호로'가 납득됨",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [32, 83]",
+         "모르는 말 ['3영업일']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 지적 반영 (README v1.4)",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_2.md"
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
-    "pending": {
-     "n": 2,
-     "sha": "f59f85c0818400c2",
-     "reviewers": [
-      "E2-P4"
-     ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_2.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_2",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-12T11:06:47Z"
-    }
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -221,21 +271,115 @@
       "pass": false,
       "fixed_after": "1회차 지적 반영 (README v1.3) · 이탈 검토자는 페르소나 나이를 10대로 잘못 읽음(gate_files v1.1 버그)",
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-12T11:11:28Z",
+      "sha": "f59f85c0818400c2",
+      "reviewers": [
+       {
+        "reviewer": "K2-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 44,
+          "text": "막은 엄마한테 뜬 번호가 아들 번호였다면서 '사기범이 보낸 번호가 아니라 내가 아는 번호로'라니 앞뒤가 안 맞음. 둘 다 같은 아들 번호였잖아.",
+          "fix": "'걸려 온 전화를 믿지 않고, 끊은 뒤 내가 직접 아들 번호로 다시 건 것'으로 바꿔, 핵심이 번호가 아니라 '내가 다시 거는 쪽'이라는 58줄과 맞춘다."
+         },
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 88,
+          "text": "원격 앱을 내가 깔아 줬으면 금융회사는 '본인 확인 다 했다'고 버팀. 3억 날린 엄마 같은 경우가 법에 있다고 그냥 돌려받는 거 아님.",
+          "fix": "'물어 주게 한 조항이 있다'로 낮추고, 이용자 과실이 있으면 어떻게 되는지 법 원문 조건을 한 줄 더한다. 28줄 피해 사례(앱 설치 → 대출)와 이어 읽혀도 기대가 과장되지 않게, 할 일(그 금융회사에 명의 도용을 알리고 대출 기록을 받아 둠)을 구체적으로."
+         },
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 102,
+          "text": "전원 끄면 끝? 다시 켜면 원격 앱 그대로 붙어 있음. 앱 지우고 초기화하고, 금융 비밀번호는 다른 기기로 바꾸라고 해야지.",
+          "fix": "끄기·비행기 모드는 '첫 단계'라고 밝히고, 신고 뒤 그 휴대폰을 다시 켜기 전에 할 일(앱 삭제·초기화, 금융 앱 비밀번호는 다른 기기에서 변경)을 출처를 확인해 한 문장 더한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 80,
+          "text": "3영업일 안에 내라더니 바로 '은행이 따로 정한 기한까지도'는 뭐임? 마감이 두 개야? 3일 넘겨도 된다는 거?",
+          "fix": "마감은 하나만 말한다 — '3영업일 안에 내야 하고, 늦으면 신청이 없던 것으로 될 수 있다'. 은행 유예 기한은 설명란으로."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 119,
+          "text": "2번(그 번호로 묻기)이 틀렸다면서 마지막엔 그 번호에 암호를 물으라는 거네? '답장하지 말라'랑 엇갈림.",
+          "fix": "'원래 번호·다른 가족 모두 안 닿을 때만, 그 번호에는 암호 하나만 묻고 다른 말엔 답하지 않는다'처럼 쓰는 때와 범위를 밝히고, 2번과 다른 점(사기범이 모르는 질문)을 한 줄로."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 39,
+          "text": "막은 엄마는 목소리가 이상해서 운 좋게 안 거 아님? 바로 뒤에서 목소리도 못 믿는다며. 문자만 받은 피해 엄마는 목소리 들을 기회도 없었는데 비교가 불공평함.",
+          "fix": "막은 이유를 '목소리가 이상해서'가 아니라 '이상하다 싶을 때 바로 믿지 않고 끊고 다시 걸었다'로 세우고, 34줄 '어떻게 알아챘을까요'를 '무엇이 갈랐을까요'처럼 피해자 탓으로 안 들리게."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 27,
+          "text": "'보험까지 중간에 깨서'는 폰 보험이야 엄마 보험이야? 앞에서 '보험 처리'라고 해서 헷갈림.",
+          "fix": "'엄마가 들어 둔 보험까지 해지해서, 그 돈도 빼 갔어요'로 23·24줄의 휴대폰 보험과 다른 보험임을 밝힌다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 85,
+          "text": "14일 '안에'면 빠르면 두 달 조금 넘는 건데 '빨라도 두 달 반'은 계산이 안 맞음.",
+          "fix": "'2개월을 기다린 뒤 길게는 14일이 더 걸려, 두 달 넘게 걸린다'로 83·84줄 숫자와 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 33,
+          "text": "피해액은 10월까지, 나이는 7월까지 — 기간이 왜 달라?",
+          "fix": "'1월부터 7월까지 자료로 피해자를 보면'처럼 다른 기간 자료임을 문장 앞에 밝히거나 같은 기간 숫자로 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 86,
+          "text": "'은행이 대신 물어 주는 제도'가 뭔데? 이름을 안 말해 주니 찾아볼 수가 없음.",
+          "fix": "제도 이름과 대상(무엇을 물어 주는지)을 한 번 밝히거나, 설명란에 적어 둔다고 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 62,
+          "text": "요즘은 문자보다 메신저 프로필 바꿔서 많이 오던데, 메신저로 오면?",
+          "fix": "'메신저로 와도 똑같습니다' 한 마디를 원칙 둘에 더한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 45,
+          "text": "원칙 둘(신분증·앱 안 넘기기)은 속기 전에 지키는 거지 '이미 속았을 때'가 아님.",
+          "fix": "'나머지 둘은 아이라고 믿어 버렸을 때, 이미 보냈을 때 피해를 막는 방법'으로 나눠 말한다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답 3번은 상황이 달라도 분명하고 피해자 탓도 피했지만, 막은 사례의 '번호' 설명이 앞뒤가 엇갈리고(44), 명의 도용 대출 배상 기대가 커 보이며(88), 앱을 깔았을 때 전원 끄기 뒤 할 일이 빠짐(102) — 중 3·하 9.",
+        "pass": false,
+        "why": [
+         "중 3 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 지적 반영 (README v1.4)",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_2.md"
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
-    "pending": {
-     "n": 2,
-     "sha": "f59f85c0818400c2",
-     "reviewers": [
-      "K2-반론"
-     ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_2.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_2",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-12T11:06:47Z"
-    }
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
    }
   }
  }

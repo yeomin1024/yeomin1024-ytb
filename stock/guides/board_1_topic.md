@@ -1,6 +1,7 @@
 # 주식 — 1단계 주제 평가판 세션 (이 세션은 이 판 하나만)
 
-VERSION: v1.1 — 2026-11-03 — 1~4편(이미 대본이 있는 편)도 판에 — `topics_1-4편.json` E1~E4 (`existing` 칸) — 사용자 지시 "주식 주제 평가판에 대본 4개 올려봐 피드백하게".
+VERSION: v1.2 — 2026-11-12 — 4번 맨 앞 **페르소나 반복 검증 `title`** (board_check v1.11 이 기록이 없으면 ❌) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+(v1.1 — 2026-11-03 — 1~4편(이미 대본이 있는 편)도 판에 — `topics_1-4편.json` E1~E4 (`existing` 칸) — 사용자 지시 "주식 주제 평가판에 대본 4개 올려봐 피드백하게".
 (v1.0 — 2026-11-03 — 사용자 지시 2026-11-03 "새 세션 3개에서 각각 '지시사항 읽고 주제 평가판, 대본 평가판, 쇼츠 평가판 만들어'라고만 해도 지금처럼 할 수 있게 … 세션당 평가판 하나야 그리고 주제는 분석결과도 참고하는거야".
 ※ 연구·교육용 — 투자 권유가 아님.
 
@@ -53,6 +54,12 @@ E
 - 사용자 피드백 규칙(quick_board 4번 '사용자 피드백 규칙' 1~17)이 기획안 단계에도 걸리는 것: 4년 안 · S&P 500 비교 · 종목은 ETF 말고 · 편끼리 항목·멘트 겹치지 않게(14·17) · 보기에 사람마다 다른 수치 ✗(12).
 
 ## 4. 점검 → 판 → 답
+
+**먼저 페르소나 반복 검증 `title`** (기획안마다 — 2회차 이상 · 회차마다 새 검토자 · `guides/persona_loop.md`):
+```bash
+python3 tools/persona_gate.py prompt stock title stock/topics/board/topics_<날짜>.persona.json <id> --plan stock/topics/board/topics_<날짜>.json#<id> --out <지시문.md>
+# → 새 Agent(general-purpose) 에게 '<지시문.md> 를 읽고 그대로 하라' → add → 고치고 → 다음 회차 → check ✅ (쇼츠 칸은 <id>-shorts · --shorts)
+```
 
 ```bash
 python3 tools/board_check.py package stock stock/topics/board/topics_<날짜>.json --write                # 롱폼 칸 ❌ 0 까지

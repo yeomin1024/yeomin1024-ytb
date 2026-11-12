@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.3 — 2026-11-12 — **대본 4편** (사용자 지시 "그래 content_analysis 고쳐 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"): `source/first_video.md` 1·5·6번 주제 4편 — `source/<영상ID>/<영상ID>.txt`·`.srt`·`대본_근거.md`·`persona_review.md` · ChatGPT 검증 파일 `source/chatgpt_persona_review.md` (`tools/chatgpt_persona_review.py` v1.0) · `content_analysis.py` v1.0.3 (앞 5분 대본은 흥미 장치 4구간을 세지 않음) · 성공 사례 대본 50개.
+VERSION: v1.4 — 2026-11-12 — **제목·썸네일·대본 페르소나 반복 검증** 절 (`guides/persona_loop.md`) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+(v1.3 — 2026-11-12 — **대본 4편** (사용자 지시 "그래 content_analysis 고쳐 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"): `source/first_video.md` 1·5·6번 주제 4편 — `source/<영상ID>/<영상ID>.txt`·`.srt`·`대본_근거.md`·`persona_review.md` · ChatGPT 검증 파일 `source/chatgpt_persona_review.md` (`tools/chatgpt_persona_review.py` v1.0) · `content_analysis.py` v1.0.3 (앞 5분 대본은 흥미 장치 4구간을 세지 않음) · 성공 사례 대본 50개.)
 (v1.2 — 2026-11-12 — **main 기준 정리** (사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외"): 주제 밖 28개 뺌(`excluded_videos.md`) · 페르소나 최근 흐름(`personas.toml` v1.2 TREND_DAYS 28 · `tools/personas.py` v1.1.1) · 썸네일 94장 분류(성공 사례 전부) · 댓글 96개 더 · 대본 47개(PC) · 추천에 다른 안 — 조회수 5만 규칙(v1.1)과 함께 성공 사례 **94**(`source/first_video.md` 6번).)
 (v1.1 — 2026-11-12 — 성공 사례에 조회수 5만 이상 (규칙 v1.1) · 분석 다시 · 대본 받을 목록 다시 (사용자 지시 2026-11-12 "일단 대본 받아야 하니까 명령 좀 알려줘 … 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해").)
 (v1.0 — 2026-11-11 — 새로 만듦 (사용자 지시 2026-11-11 "가장 최근에 주식 주제에서 했던 것처럼 심리 주제로 분석 코드 돌려서 해당 주제 유튜브 분석에 필요한 자료 받고 페르소나 구성해서 내가 어떤 제목, 썸네일 문구, 보조문구로 영상 만들어야 하는지 하나 알려줘봐 그리고 최근 트렌드도 반영해야 돼").)
@@ -56,6 +57,10 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 | 2026-11-12 13:37 KST (사용자 지시 2026-11-12 "일단 대본 받아야 하니까 명령 좀 알려줘 … 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해") | 규칙 v1.1 (`[success] MIN_VIEWS` 1만 → 5만 — 관련 롱폼 7~182일 조회수 가운데값 55,419) · `analyze` · `pc_transcribe.py list psychology` | 할당량 0 · 성공 사례 135 → **106** (조회수로 30 빠짐·채널 자리 1 들어옴) · 대본 받을 목록 296 (끝까지 271 · 2차 25) |
 
 | 2026-11-12 13:20~13:55 KST (사용자 지시 — main 기준 정리) | 주제 밖 28개 뺌 (사례 폴더 지움 · 푼 추천에 넣음 · OFF_TOPIC v1.1) · `resume` 댓글 96/125 · 분석 다시 (대본 47 — PC · 조회수 5만 규칙과 합침) · 페르소나 TREND_DAYS · 썸네일 94장 · 댓글 묶음·니즈·콘텐츠·확인 엑셀 다시 · 대본 목록 269 | 2,318 (댓글 — 오늘 몫 끝) | 승인 289 · 성공 사례 94 · 비교 집단 734 (24%) · 페르소나 6명 (최근 28일: 부모·가족 상처 12.2% → 16.0% · 직장 13.6% → 16.4%) |
+
+## 제목·썸네일·대본 — 페르소나 반복 검증 (빠뜨리지 않음 · 2026-11-12)
+- 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐" → 제목·썸네일 문구·보조 문구·대본(롱폼·쇼츠)을 쓰거나 바꿀 때마다 `guides/persona_loop.md` 세 단계(`title` · `script_exit` · `script_rebuttal`), 각 2회차 이상 · 회차마다 새 하위 에이전트 · 마지막 회차 = 지금 글. 기록 `psychology/source/<영상ID>/persona_loop.json` (`tools/persona_gate.py`) · 페르소나 = `result/outliers/personas.json` · 반론 = `rebuttal_persona.md`.
+- ChatGPT 페르소나 검증(`source/chatgpt_persona_review.md`)은 사용자가 돌리는 **덧붙임** — 그 답도 `persona_gate.py add` 로 회차에 넣을 수 있지만, Claude 하위 에이전트 회차를 대신하지 않는다 (사용자를 기다리느라 검증을 건너뛰지 않게).
 
 ## 다음 할 일
 1. 할당량이 초기화되면 (한국 17시) `resume` — 댓글 덜 받은 29개 · 같은 채널 기준선 107곳 → `analyze`.

@@ -1,6 +1,7 @@
 # 역사 주제 탐색 — 20개씩 · 평가를 배움 · 명확한 결론만 (+ 요약본 안 평가)
 
-버전: v1.0 — 2026-10-28 — 새로 (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐" — 주식 `stock/topics/README.md`·재테크 `economic/topics/README.md` 와 같은 꼴).
+버전: v1.1 — 2026-11-12 — 'Claude 가 하는 것' 0번 **페르소나 반복 검증** (`guides/persona_loop.md`) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+이전 v1.0 — 2026-10-28 — 새로 (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터 요약본까지 만들어봐" — 주식 `stock/topics/README.md`·재테크 `economic/topics/README.md` 와 같은 꼴).
 ※ 연구·교육용. 역사 사실은 사료·연구 원문으로 확인한 뒤 대본에 쓴다 — 여기 결론은 확인 전 예상.
 
 ## 순서 (분석 → 요약본)
@@ -31,6 +32,7 @@
 - 주제를 골라 Claude 에게 "T003 으로 요약본 만들어" → 그 주제는 작성중.
 
 ## Claude 가 하는 것 (순서)
+0. **★ 페르소나 반복 검증 — 빠뜨리지 않음** (2026-11-12 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐"): 요약본의 제목·썸네일 문구·보조 문구, 대본(롱폼·쇼츠)을 쓰거나 바꿀 때마다 `guides/persona_loop.md` (`title` · `script_exit` · `script_rebuttal`, 각 2회차 이상 · 회차마다 새 하위 에이전트 · 마지막 회차 = 지금 글). 기록 `history/source/<영상ID>/persona_loop.json` (`tools/persona_gate.py`). `tools/ctr_check.py` 패널은 제목 점수를 재는 도구 — 그 회차를 페르소나 검증으로 치려면 답을 `persona_gate.py add` 로 기록 (기록 없으면 board_check v1.11 ❌).
 1. **평가 가져오기**: `ArtifactData list` (url = 평가판 주소, collection `marks`) → 결과를 스크래치 파일에 그대로 저장 → `python3 tools/topic_ideas.py history import <파일>` → `평가.txt` 에 바뀐 것만 더함 → 점수·문서 다시. 채팅 평가는 `python3 tools/topic_ideas.py history mark T003 좋음 "까닭"`.
 2. **쓰기 시작**: 요약본에 `주제 ID: T003` 한 줄 (저절로 작성중) 또는 `… use T003 <영상ID>` · 다 쓰면 `… done T003`.
 3. **갱신**: `… status` 가 '갱신 필요'(이번 20개가 모두 작성중·작성함·나쁨)면 → `… material` → `material.md` 를 읽고 **새 후보 25개 안팎**을 `pool/<날짜>.json` 에 → `… add pool/<날짜>.json` → 새 20개 → 평가판을 같은 주소로 다시 올림 (Artifact publish `url`).

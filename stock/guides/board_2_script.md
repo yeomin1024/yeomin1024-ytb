@@ -1,6 +1,7 @@
 # 주식 — 2단계 대본 평가판 세션 (이 세션은 이 판 하나만)
 
-VERSION: v1.4 — 2026-11-04 — 말머리는 편마다 다르게 · 다른 편과 같은 문장 ✗ (quick_board 규칙 43 · board_check K10).
+VERSION: v1.5 — 2026-11-12 — 3번 **페르소나 반복 검증**(이탈·반론 2회차 이상 · 편 package.json 제목·썸네일 피드 시험) — board_check v1.11 이 기록이 없으면 ❌ — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+(v1.4) — 2026-11-04 — 말머리는 편마다 다르게 · 다른 편과 같은 문장 ✗ (quick_board 규칙 43 · board_check K10).
 (v1.3) — 2026-11-04 — 꼴 요약에 질문 뒤 '선택해 보세요.' · '3, 2, 1.' (quick_board 규칙 41).
 (v1.2 — 2026-11-04 — 꼴 요약 = 선택마다 바로 정답·해설 (quick_board 규칙 25).)
 (v1.1 — 2026-11-03 — 주제 판의 E1~E4(1~4편, `existing`)는 새로 쓰지 않음 · 주제 판 피드백 reply 의 '대본 반영 필요' 를 그 편 대본에.)
@@ -43,6 +44,11 @@ E
 ```bash
 python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"   # ❌ 0
 python3 tools/persona_review.py stock <대본.txt>
+# ★ 페르소나 반복 검증 (빠뜨리지 않음 — guides/persona_loop.md): 이탈(대상 페르소나 = 기획안 persona) · 반론, 각 2회차 이상 · 회차마다 새 Agent · 대본을 고치면 그 단계 다시
+python3 tools/persona_gate.py prompt stock script_exit <편 폴더>/persona_loop.json <영상ID> --script <대본.txt> --persona <P?> --out <지시문.md>
+python3 tools/persona_gate.py prompt stock script_rebuttal <편 폴더>/persona_loop.json <영상ID> --script <대본.txt> --out <지시문.md>
+python3 tools/persona_gate.py add … → check <편 폴더>/persona_loop.json <영상ID> --script <대본.txt> --plan <편 폴더>/package.json   # 모두 ✅
+# 편 제목·썸네일 문구는 <편 폴더>/package.json (기획안에서 옮김) — 바꾸면 title 피드 시험도 다시 (upload.md 1번 제목 = package.json title)
 # script_board.json 'extra' 에 {key:'B11-long', ep:'B11', label:'B11 <주제>', kind:'long', title, ver:'대본 v1', file}
 python3 tools/script_feedback_board.py --only long        # 대본피드백판.html 만 (쇼츠 판은 건드리지 않음)
 ```

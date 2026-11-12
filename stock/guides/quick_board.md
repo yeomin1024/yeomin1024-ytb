@@ -1,6 +1,7 @@
 # 주식 — 평가판 세 장으로 주제 → 대본 → 쇼츠 → 영상 (새 세션은 이 파일 하나로)
 
-VERSION: v3.11 — 2026-11-06 — 규칙 44 **그 편의 대표 종목 티커는 화면에 씀** (예: SOXL — 사용자 지시 "아니 대표 종목 티커 써야지 왜 안써 그리고 수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어 수정해").
+VERSION: v3.12 — 2026-11-12 — 0번 맨 위 **페르소나 반복 검증 — 빠뜨리지 않음** + 표 2·6번 줄 (`guides/persona_loop.md` · `tools/persona_gate.py` · board_check v1.11) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+(v3.11 — 2026-11-06 — 규칙 44 **그 편의 대표 종목 티커는 화면에 씀** (예: SOXL — 사용자 지시 "아니 대표 종목 티커 써야지 왜 안써 그리고 수익 곡선은 흐름만 간단히 표현하면 돼 수치 정확히 잴 필요 없어 수정해").
 (v3.10 — 2026-11-05 — 6번 5 오디오가 오면 `tools/audio_check.py` 먼저 (사용자 지시 "2편 음성 확인해서 발음 이상하거나 이상한 소리나는 부분 찾아봐").
 (v3.9 — 2026-11-05 — 규칙 40 다시: 「…사람들은 + 단순하고 자극적인 말 + 테스트」 (사용자 지시 "사람들은 까지는 똑같이 쓰고 '0점 맞는' 단순하지만 자극적인 표현으로 변하는 걸로 하자 2편은 내가 말한걸로 변경하고 나머지 다른 표현 찾아").)
 (v3.8 — 2026-11-05 — 규칙 40 2~4편 제목·썸네일 문구 = 자극하는 말을 편마다 다른 낱말로 (사용자 지시 "썸네일 주요 문구도 제목을 요약해서 수정하고 3,4편도 그런식으로 단어 겹치지 않게 수정해").)
@@ -38,17 +39,19 @@ VERSION: v3.11 — 2026-11-06 — 규칙 44 **그 편의 대표 종목 티커는
 
 ## 0. 한눈에
 
+> **★ 페르소나 반복 검증 — 빠뜨리지 않음** (2026-11-12 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐"): 제목·썸네일 문구·보조 문구·대본(롱폼·쇼츠)을 쓰거나 바꿀 때마다 `guides/persona_loop.md` 세 단계(`title` 피드 시험 · `script_exit` 이탈 · `script_rebuttal` 반론)를 **회차마다 새 하위 에이전트로 2회차 이상, 마지막 회차 = 지금 글**까지 — 기록은 `tools/persona_gate.py`, `tools/board_check.py` v1.11 이 기록을 읽어 없거나 오래되면 ❌ (판·시트·사용자에게 내놓지 않음). 규칙 점검(board_check)만으로는 페르소나 검증이 아니다.
+
 | 단계 | 하는 것 | 명령·판 |
 |---|---|---|
 | 1 | 주제 기획안 10개 (롱폼 5칸 + 쇼츠 4칸 + 확인 방법·근거 — 쇼츠 칸은 지금 써 두고 3단계에서 보임) | `stock/topics/board/topics_<날짜>.json` (꼴 = 2번) |
-| 2 | 판에 올리기 전 점검 — 일반·반론 페르소나 (규칙 · 토큰 0) | `python3 tools/board_check.py package stock <파일> --write` (롱폼 칸) → ❌ 0 까지 고침 |
+| 2 | 판에 올리기 전 점검 — 일반·반론 페르소나 (규칙 · 토큰 0) + **페르소나 반복 검증 `title`** (기획안마다 피드 시험 2회차 이상 — `guides/persona_loop.md`, 기록 `<topics>.persona.json`) | `python3 tools/board_check.py package stock <파일> --write` (롱폼 칸 · v1.11 이 피드 시험 기록도 봄) → ❌ 0 까지 고침 |
 | 3 | **1단계 주제 평가판**에 올림 (롱폼 칸만 보임) | `python3 tools/topic_board.py` → Artifact 다시 올림(같은 파일) — **https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN** |
 | 4 | 판정·피드백 읽기 | 주제 판 `ArtifactData list verdicts` · `query feedback where status == new` |
 | 5 | 주제 판 통과(pass)만 **롱폼 대본** — 계산 코드 → 대본 | `stock/topics/precheck/longform_items.py` 에 편 함수 · 대본 꼴 = 4번 |
-| 6 | 롱폼 대본 점검 | `python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"` → ❌ 0 |
+| 6 | 롱폼 대본 점검 + **페르소나 반복 검증 `script_exit`·`script_rebuttal`** (대본을 고칠 때마다 다시 — 기록 `<편 폴더>/persona_loop.json`) · 편 제목·썸네일을 바꾸면 `title` 도 (`package.json`) | `python3 tools/board_check.py script stock <대본.txt> --calc <json> --upload <upload.md> --allow "<사용자 문장 일부>"` → ❌ 0 (v1.11 — 검증 기록 없으면 ❌) |
 | 7 | **2단계 대본 평가판**에 올림 (롱폼만) | `stock/topics/board/script_board.json` 'extra' 에 한 줄 `{key:'B01-long', ep:'B01', label:'B01 빚내서 투자', kind:'long', title, ver:'대본 v1', file}` → `python3 tools/script_feedback_board.py` → Artifact 다시 올림 — **https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz** |
 | 8 | 롱폼 피드백 반영 반복 | 대본 판 `query feedback where status == new` → 고침 → 계산 다시 → 6번 → 판 다시 → 피드백마다 status=done·reply |
-| 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)')인 편만 **쇼츠 대본** | 쇼츠 대본 파일(한 줄 한 문장, `-장 이름` 줄 가능) · 꼴 = 2번 '쇼츠 대본 꼴' 줄 · **쇼츠 판엔 전달 내용 칸이 없고 대본으로 평가** · 쇼츠 칸(제목·썸네일 문구·보조) 점검 `board_check.py package stock <파일> --stage shorts --write` · 대본 점검 `board_check.py script stock <쇼츠.txt> --kind short` → ❌ 0 |
+| 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)')인 편만 **쇼츠 대본** (+ 쇼츠 칸 `title --shorts` · 쇼츠 대본 `script_exit`·`script_rebuttal` 반복 — `guides/persona_loop.md`) | 쇼츠 대본 파일(한 줄 한 문장, `-장 이름` 줄 가능) · 꼴 = 2번 '쇼츠 대본 꼴' 줄 · **쇼츠 판엔 전달 내용 칸이 없고 대본으로 평가** · 쇼츠 칸(제목·썸네일 문구·보조) 점검 `board_check.py package stock <파일> --stage shorts --write` · 대본 점검 `board_check.py script stock <쇼츠.txt> --kind short` → ❌ 0 |
 | 10 | **3단계 쇼츠 평가판**에 올림 | `stock/topics/board/shorts_board.json` 'items' 에 한 줄 → `python3 tools/script_feedback_board.py` (두 판을 함께 만듦) → Artifact 다시 올림 — **https://claude.ai/artifact/Mjfwm81meE2vyHH71UqAt2** |
 | 11 | 쇼츠 피드백 반영 반복 | 쇼츠 판 `query feedback where status == new` — 칸 피드백(`field` = s_title·s_thumb_main·s_thumb_sub)은 기획안 json 의 그 칸을, 줄 피드백(`lines`)은 쇼츠 대본을 고침 → 9번 점검 → 판 다시 |
 | 12 | 쇼츠 판 `verdicts/<key>.verdict == pass`('통과 (영상으로)') → 영상 | 6번 '영상 과정' (그림 ChatGPT → 장면 코드 → 오디오 → 렌더 → 썸네일) |

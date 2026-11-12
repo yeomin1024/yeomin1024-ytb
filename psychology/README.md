@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.2 — 2026-11-12 — **main 기준 정리** (사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외"): 주제 밖 28개 뺌(`excluded_videos.md`) · 페르소나 최근 흐름(`personas.toml` v1.2 TREND_DAYS 28 · `tools/personas.py` v1.1.1) · 썸네일 94장 분류(성공 사례 전부) · 댓글 96개 더 · 대본 47개(PC) · 추천에 다른 안 — 조회수 5만 규칙(v1.1)과 함께 성공 사례 **94**(`source/first_video.md` 6번).
+VERSION: v1.3 — 2026-11-12 — **대본 4편** (사용자 지시 "그래 content_analysis 고쳐 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"): `source/first_video.md` 1·5·6번 주제 4편 — `source/<영상ID>/<영상ID>.txt`·`.srt`·`대본_근거.md`·`persona_review.md` · ChatGPT 검증 파일 `source/chatgpt_persona_review.md` (`tools/chatgpt_persona_review.py` v1.0) · `content_analysis.py` v1.0.3 (앞 5분 대본은 흥미 장치 4구간을 세지 않음) · 성공 사례 대본 50개.
+(v1.2 — 2026-11-12 — **main 기준 정리** (사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외"): 주제 밖 28개 뺌(`excluded_videos.md`) · 페르소나 최근 흐름(`personas.toml` v1.2 TREND_DAYS 28 · `tools/personas.py` v1.1.1) · 썸네일 94장 분류(성공 사례 전부) · 댓글 96개 더 · 대본 47개(PC) · 추천에 다른 안 — 조회수 5만 규칙(v1.1)과 함께 성공 사례 **94**(`source/first_video.md` 6번).)
 (v1.1 — 2026-11-12 — 성공 사례에 조회수 5만 이상 (규칙 v1.1) · 분석 다시 · 대본 받을 목록 다시 (사용자 지시 2026-11-12 "일단 대본 받아야 하니까 명령 좀 알려줘 … 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해").)
 (v1.0 — 2026-11-11 — 새로 만듦 (사용자 지시 2026-11-11 "가장 최근에 주식 주제에서 했던 것처럼 심리 주제로 분석 코드 돌려서 해당 주제 유튜브 분석에 필요한 자료 받고 페르소나 구성해서 내가 어떤 제목, 썸네일 문구, 보조문구로 영상 만들어야 하는지 하나 알려줘봐 그리고 최근 트렌드도 반영해야 돼").)
 
@@ -40,6 +41,8 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 | `personas.toml` | 시청자 페르소나 설정 v1.0 → `result/outliers/personas.md` (분석 끝에 저절로) |
 | `result/outliers/` | 승인한 영상 자료(`W_<영상ID>/`) · `analysis.md` · `personas.md` · `comment_titles.md` · `comment_clusters.md` · `content_analysis.md` |
 | `source/first_video.md` | **첫 영상 제목·썸네일 문구·보조 문구 추천 (판단)** — 1번 추천 + 6번 다른 안(가족 편) |
+| `source/<영상ID>/` (4편) | 대본 v1.0 — `geureut-moa-2026-11`(그릇 모아 두는 사람) · `eomma-gibun-2026-11`(엄마 기분 살피던 사람) · `eomma-hasoyeon-2026-11`(엄마 하소연) · `sangcheo-gonggyeok-2026-11`(상처받은 사람이 공격적) — 대본·SRT(✅)·`대본_근거.md`(출처·확인 필요)·`persona_review.md` |
+| `source/chatgpt_persona_review.md` | ChatGPT 페르소나 검증 파일 (페르소나 6명 + 규칙 9 + 대본 4편 문장 번호 + 답 양식) — 다시 만들기 `python3 tools/chatgpt_persona_review.py psychology` (편 목록 `source/chatgpt_review_list.json`) |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 28개 (까닭·되살리기) — 종교·범죄 사건·뇌과학/공부법·육아·연애 예능 리뷰 등 |
 | `result/outliers/thumb_codes.tsv` | 성공 사례 썸네일 122장 분류 (Claude 가 그림을 봄) → `content_analysis.md` 2번 |
 | `cloud_cache/` | 탐색 캐시 묶음 |

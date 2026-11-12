@@ -2,24 +2,24 @@
  "tool": "weekly_analysis.py v1.5.2",
  "topic": "psychology",
  "name": "심리",
- "generated": "2026-11-12T04:56:34+00:00",
+ "generated": "2026-11-12T10:12:40+00:00",
  "cases": 289,
  "dated": 289,
  "older_than_windows": 91,
  "max_weeks": 52,
  "text_sources": {
   "자막": 20,
-  "음성인식": 27,
-  "설명": 232,
-  "없음": 10
+  "음성인식": 39,
+  "설명": 221,
+  "없음": 9
  },
  "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 50,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
  "windows": [
   {
    "weeks": 1,
    "label": "최근 1주",
-   "videos": 6,
-   "channels": 5,
+   "videos": 4,
+   "channels": 4,
    "new_this_week": [
     {
      "id": "6fsSvcZI1dk",
@@ -37,47 +37,32 @@
      "published": "2026-11-10"
     },
     {
-     "id": "PvrRhEH19LA",
-     "title": "성적표가 측정하지 못한 능력 | 공부머리와 일머리의 차이는? | #지식채널e",
-     "published": "2026-11-05"
-    },
-    {
-     "id": "xt6mOBcP5s0",
-     "title": "죽음에 임박한 나르시시스트가 하는 의외의 행동.",
-     "published": "2026-11-05"
-    },
-    {
      "id": "zUqsw81sVWw",
      "title": "쌉T 어른 언니의 고민상담… 인생, 돈, 인간관계 다 걱정이면 들어와",
      "published": "2026-11-09"
     }
    ],
-   "views_median": 24250.5,
-   "views_per_day_median": 12716.45,
-   "ratio_median": 0.38,
+   "views_median": 19684.0,
+   "views_per_day_median": 11229.45,
+   "ratio_median": 0.1,
    "success": 0,
-   "minutes_median": 19.85,
-   "title_len_avg": 35.0,
+   "minutes_median": 24.5,
+   "title_len_avg": 35.5,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 2,
-     "share": 0.333
-    },
-    {
-     "name": "물음표 ?",
-     "count": 1,
-     "share": 0.167
+     "share": 0.5
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.167
+     "share": 0.25
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.167
+     "share": 0.25
     }
    ],
    "title_words": [],
@@ -85,68 +70,34 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 6,
+    "설명": 4,
     "없음": 0
    },
    "content_words": [
     {
-     "word": "최고의",
-     "count": 3
+     "word": "사람들의",
+     "count": 2
     },
     {
      "word": "다양한",
-     "count": 3
+     "count": 2
     },
     {
-     "word": "사람들의",
-     "count": 3
+     "word": "최고의",
+     "count": 2
     },
     {
      "word": "통해",
-     "count": 3
+     "count": 2
     },
     {
      "word": "그리고",
-     "count": 3
-    },
-    {
-     "word": "있음을",
-     "count": 2
-    },
-    {
-     "word": "실천가의",
-     "count": 2
-    },
-    {
-     "word": "것이",
-     "count": 2
-    },
-    {
-     "word": "힘들어질까",
-     "count": 2
-    },
-    {
-     "word": "전문가의",
-     "count": 2
-    },
-    {
-     "word": "받는",
-     "count": 2
-    },
-    {
-     "word": "완벽한",
      "count": 2
     }
    ],
-   "chapters_share": 0.167,
+   "chapters_share": 0.25,
    "syl_per_sec_median": null,
    "hooks": [
-    {
-     "id": "PvrRhEH19LA",
-     "title": "성적표가 측정하지 못한 능력 | 공부머리와 일머리의 차이는? | #지식채널e",
-     "src": "설명",
-     "hook": "바보가 된 천재 공부머리와 일머리가 다른 이유는? 학교를 다니는 12년 동안 우리는 정답을 찾는 법을 배웠다. 지문에 밑줄을 긋고, 공식을 외우고, 다섯 개의 보기 중 하나를 고르는 법. 그런데 현실에는 정답이 없다. 문제는 예고 없이 찾아오고, 어지러운 상황을 타개할 정답은 아무도 모"
-    },
     {
      "id": "FzkUzvSS57s",
      "title": "자기관리 - 고급스러운 사람들의 특징 best3",
@@ -154,70 +105,67 @@
      "hook": "자기관리 - 고급스러운 사람들의 특징 best3 품위가 있거나 고급스러운 이미지를 가진 사람들은 기본적인 태도에서 차이가 납니다. 이런 태도는 작은 행동들이 무심코 쌓여 이루어집니다. 유세미 작가의 신작 '유세미의 인간수업'을 통해 그 비결을 알아봅니다. '유세미의 인간수업' 구매 안내"
     },
     {
-     "id": "xt6mOBcP5s0",
-     "title": "죽음에 임박한 나르시시스트가 하는 의외의 행동.",
+     "id": "zUqsw81sVWw",
+     "title": "쌉T 어른 언니의 고민상담… 인생, 돈, 인간관계 다 걱정이면 들어와",
      "src": "설명",
-     "hook": "[나르시시스트 대처법을 총망라한 책] ㅡ📖 '나는 왜 배려할 수록 더 힘들어질까(윤서람, 위즈덤하우스)' [나르시시스트의 심리를 상세히 파헤친 책] ㅡ📖 '그사람은 왜 사과하지 않을까(윤서람, 봄에)' 1. 정보를 알리기 위해 영상을 공유하는 것은 언제나 가능합니다. 2. 위 영상의 참"
+     "hook": "오늘은 여러분이 보내주신 다양한 고민들에 대해 저만의 솔직한 생각을 이야기해 봤는데요! 💬 인생의 방향부터 주식 투자, 공부, 인간관계, 연애까지! 최대한 다양한 주제를 골라봤어요. 워낙 파워 T인 사람이라 조금 매운맛일 수도 있지만ㅋㅋㅋ 단순히 듣기 좋은 위로보다는 제 경험과 가치관을"
+    },
+    {
+     "id": "BQEVZnK3PEE",
+     "title": "아줌마가 중년 남성에게 주려고 마음먹으면 나오는 신호 3가지!!  #중년 #중년사랑 #중년연애 #연애",
+     "src": "설명",
+     "hook": "오늘 하루도 수고하셨습니다. 잠시 쉬어가며 마음을 채워보세요."
     }
    ],
-   "comments": 374,
+   "comments": 101,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 66,
-     "share": 0.176
-    },
-    {
-     "name": "질문",
-     "count": 48,
-     "share": 0.128
-    },
-    {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 35,
-     "share": 0.094
+     "count": 24,
+     "share": 0.238
     },
     {
      "name": "칭찬·감사",
-     "count": 32,
-     "share": 0.086
+     "count": 20,
+     "share": 0.198
+    },
+    {
+     "name": "질문",
+     "count": 12,
+     "share": 0.119
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 10,
+     "share": 0.099
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 17,
-     "share": 0.045
+     "count": 6,
+     "share": 0.059
     },
     {
      "name": "도덕적 비난(도박·본인 책임)",
-     "count": 6,
-     "share": 0.016
+     "count": 4,
+     "share": 0.04
     }
    ],
-   "comment_uncategorized": 0.578,
+   "comment_uncategorized": 0.455,
    "top_comments": [
     {
-     "text": "내 생각에 일머리는 어떤 일에 대한 시뮬레이션과 변수 예측능력임..",
-     "likes": 555
+     "text": "나르남편을 관찰한 바로는  부정적인 감정처리를 스스로 못하고 내면에 쌓이는데 혼자 생각 속에서 나쁜쪽으로 증폭시키다 그것을 폭발시킬 대상을 찾지 못하니까 막 앓는소리를 내더라구요. 그러다가 가까운 사람에게 갑자기 폭",
+     "likes": 65
     },
     {
-     "text": "가장 무서운것은.... 일을 못하는데... 본인은 일을 잘한다고 생각하는 착각이 가장 무섭더라....",
-     "likes": 547
+     "text": "취약성 내현적 나르는 특히나 남의 안전과 안녕에 관심이 없습니다. 정말정말 위험합니다. 널리 알려야해요. 외향성이 있는 나르는 의외로 남 눈치도 좀 봐요. 그리고 그게 가족이라면 더욱 더 백만광년 거리로 도망가는게 ",
+     "likes": 32
     },
     {
-     "text": "Ai 시대에 ebs는 아직도 사람 나오는 영상이네 좋다 정말 수신료가 하나도 안아까워",
-     "likes": 487
+     "text": "'학대가 위험한 수준으로 심해졌던 내담자들은 모두 취약성(내현적) 나르시시스트인 가족이나 연인을 상대하고 있었다' 이부분에 가장 공감 되네요. 겪어보신 분들만 알고있는 추악하고 교활하고 더럽고 역겹고 찝찝한 느낌.",
+     "likes": 29
     }
    ],
    "top_videos": [
-    {
-     "id": "PvrRhEH19LA",
-     "title": "성적표가 측정하지 못한 능력 | 공부머리와 일머리의 차이는? | #지식채널e",
-     "channel": "EBS 지식채널e",
-     "views": 212292,
-     "views_per_day": 34246.1,
-     "published": "2026-11-05",
-     "url": "https://www.youtube.com/watch?v=PvrRhEH19LA"
-    },
     {
      "id": "FzkUzvSS57s",
      "title": "자기관리 - 고급스러운 사람들의 특징 best3",
@@ -226,15 +174,6 @@
      "views_per_day": 14036.8,
      "published": "2026-11-10",
      "url": "https://www.youtube.com/watch?v=FzkUzvSS57s"
-    },
-    {
-     "id": "xt6mOBcP5s0",
-     "title": "죽음에 임박한 나르시시스트가 하는 의외의 행동.",
-     "channel": "서람TV_힐링크리에이터",
-     "views": 87240,
-     "views_per_day": 13953.7,
-     "published": "2026-11-05",
-     "url": "https://www.youtube.com/watch?v=xt6mOBcP5s0"
     },
     {
      "id": "zUqsw81sVWw",
@@ -253,14 +192,23 @@
      "views_per_day": 10979.7,
      "published": "2026-11-09",
      "url": "https://www.youtube.com/watch?v=BQEVZnK3PEE"
+    },
+    {
+     "id": "6fsSvcZI1dk",
+     "title": "가장 위험한 나르시시즘 유형은 무엇일까.",
+     "channel": "서람TV_힐링크리에이터",
+     "views": 10351,
+     "views_per_day": 10351.0,
+     "published": "2026-11-11",
+     "url": "https://www.youtube.com/watch?v=6fsSvcZI1dk"
     }
    ]
   },
   {
    "weeks": 2,
    "label": "최근 2주",
-   "videos": 22,
-   "channels": 20,
+   "videos": 19,
+   "channels": 17,
    "new_this_week": [
     {
      "id": "1Y1UTkjMG00",
@@ -288,11 +236,6 @@
      "published": "2026-10-30"
     },
     {
-     "id": "JJ7h1S-DEGA",
-     "title": "\"틀어놓고 주무세요\" 사람 때문에 스트레스받을 때 나 자신을 지키는 단순한 방법 | 인간관계 기술 | 밤산책 Ep.3 (한석준 아나운서)",
-     "published": "2026-10-29"
-    },
-    {
      "id": "KMW2o1D4QQw",
      "title": "인간은 사회적 동물이라는데… 뇌과학자가 말하는 혼자가 편한 이유",
      "published": "2026-10-29"
@@ -306,6 +249,11 @@
      "id": "PcAIV7N3Rjc",
      "title": "【이시형 박사】 남자가 평생 미치도록 사랑하는 여자는 따로 있다｜당신도 해당될까 결정적 5가지 특징｜인간관계｜인생철학",
      "published": "2026-11-04"
+    },
+    {
+     "id": "PvrRhEH19LA",
+     "title": "성적표가 측정하지 못한 능력 | 공부머리와 일머리의 차이는? | #지식채널e",
+     "published": "2026-11-05"
     },
     {
      "id": "QtdxWLeHw_Q",
@@ -323,57 +271,52 @@
      "published": "2026-11-03"
     },
     {
-     "id": "a5koY9UwJD8",
-     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
-     "published": "2026-10-29"
-    },
-    {
      "id": "nPrLrMpBEdo",
      "title": "외로움은 누구의 잘못도 아니다, 유시민이 말하는 외로움과 열등감을 넘는 법",
      "published": "2026-11-02"
     },
     {
-     "id": "szFksvTqnCg",
-     "title": "돈을 대하는 태도에서 사람의 본모습이 드러납니다 (무심코 하는 행동입니다)",
-     "published": "2026-10-29"
-    },
-    {
      "id": "uIuc9x_u0cg",
      "title": "[지식뉴스] \"이 신호 보이면 당장 멈추세요\"...3040대에 가장 많이 무너집니다, 직장에서 끝까지 생존하는 법 / 교양이를 부탁해",
      "published": "2026-11-03"
+    },
+    {
+     "id": "xt6mOBcP5s0",
+     "title": "죽음에 임박한 나르시시스트가 하는 의외의 행동.",
+     "published": "2026-11-05"
     }
    ],
-   "views_median": 159113.0,
-   "views_per_day_median": 19260.25,
-   "ratio_median": 0.92,
-   "success": 3,
-   "minutes_median": 19.8,
-   "title_len_avg": 40.0,
+   "views_median": 155756,
+   "views_per_day_median": 18805.3,
+   "ratio_median": 0.78,
+   "success": 2,
+   "minutes_median": 20.0,
+   "title_len_avg": 38.0,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 9,
-     "share": 0.409
+     "share": 0.474
     },
     {
      "name": "이유",
      "count": 4,
-     "share": 0.182
+     "share": 0.211
     },
     {
      "name": "N가지",
      "count": 4,
-     "share": 0.182
+     "share": 0.211
     },
     {
      "name": "물음표 ?",
      "count": 1,
-     "share": 0.045
+     "share": 0.053
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.045
+     "share": 0.053
     }
    ],
    "title_words": [
@@ -390,23 +333,11 @@
      "count": 3
     },
     {
-     "word": "사람",
-     "count": 3
-    },
-    {
      "word": "특징",
      "count": 3
     },
     {
-     "word": "인간관계",
-     "count": 3
-    },
-    {
      "word": "가장",
-     "count": 2
-    },
-    {
-     "word": "방법",
      "count": 2
     },
     {
@@ -416,66 +347,78 @@
     {
      "word": "정확한",
      "count": 2
+    },
+    {
+     "word": "눈이",
+     "count": 2
+    },
+    {
+     "word": "사람",
+     "count": 2
+    },
+    {
+     "word": "말하는",
+     "count": 2
     }
    ],
-   "transcripts": 4,
+   "transcripts": 3,
    "text_sources": {
-    "자막": 4,
+    "자막": 3,
     "음성인식": 0,
-    "설명": 18,
+    "설명": 16,
     "없음": 0
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 9
-    },
-    {
-     "word": "가장",
      "count": 8
     },
     {
      "word": "그리고",
-     "count": 8
+     "count": 7
     },
     {
-     "word": "함께",
-     "count": 8
-    },
-    {
-     "word": "나는",
+     "word": "가장",
      "count": 7
     },
     {
      "word": "아닌",
-     "count": 7
+     "count": 6
+    },
+    {
+     "word": "나는",
+     "count": 6
+    },
+    {
+     "word": "함께",
+     "count": 6
     },
     {
      "word": "있을",
-     "count": 7
+     "count": 6
     },
     {
-     "word": "오늘은",
-     "count": 6
+     "word": "이야기",
+     "count": 5
+    },
+    {
+     "word": "사람들의",
+     "count": 5
+    },
+    {
+     "word": "않습니다",
+     "count": 5
+    },
+    {
+     "word": "다양한",
+     "count": 5
     },
     {
      "word": "것이",
-     "count": 6
-    },
-    {
-     "word": "대한",
-     "count": 6
-    },
-    {
-     "word": "많은",
-     "count": 6
-    },
-    {
-     "word": "위해",
-     "count": 6
+     "count": 5
     }
    ],
-   "chapters_share": 0.5,
+   "chapters_share": 0.474,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -485,52 +428,52 @@
      "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
     },
     {
-     "id": "a5koY9UwJD8",
-     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
-     "src": "설명",
-     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
-    },
-    {
      "id": "96_iCxMsCho",
      "title": "나를 사랑하고 자신감 있게 살아가는 방법 | 신여성 EP.37",
      "src": "설명",
      "hook": "🔥🔥신여성 X 헤드스파7, 최초 창립이래 역대급 최저가🔥🔥 판매 기간_11/3(화) ~ 11/9(월)_단 7일간 진행되는 신여성 특별 혜택 🎉 오직 신여성에서만!_두피부터 모발 끝까지 한 번에 관리하는 헤드스파7 BEST 헤어케어! 9년 연속 소비자의 선택을 받은 헤어케어 브랜드!_헤드"
+    },
+    {
+     "id": "PvrRhEH19LA",
+     "title": "성적표가 측정하지 못한 능력 | 공부머리와 일머리의 차이는? | #지식채널e",
+     "src": "설명",
+     "hook": "바보가 된 천재 공부머리와 일머리가 다른 이유는? 학교를 다니는 12년 동안 우리는 정답을 찾는 법을 배웠다. 지문에 밑줄을 긋고, 공식을 외우고, 다섯 개의 보기 중 하나를 고르는 법. 그런데 현실에는 정답이 없다. 문제는 예고 없이 찾아오고, 어지러운 상황을 타개할 정답은 아무도 모"
     }
    ],
-   "comments": 3469,
+   "comments": 3152,
    "comment_needs": [
     {
      "name": "칭찬·감사",
-     "count": 616,
-     "share": 0.178
+     "count": 545,
+     "share": 0.173
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 509,
-     "share": 0.147
+     "count": 458,
+     "share": 0.145
     },
     {
      "name": "질문",
-     "count": 461,
-     "share": 0.133
+     "count": 432,
+     "share": 0.137
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 306,
-     "share": 0.088
+     "count": 274,
+     "share": 0.087
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 99,
+     "count": 91,
      "share": 0.029
     },
     {
      "name": "요청",
-     "count": 48,
-     "share": 0.014
+     "count": 39,
+     "share": 0.012
     }
    ],
-   "comment_uncategorized": 0.56,
+   "comment_uncategorized": 0.564,
    "top_comments": [
     {
      "text": "자는 시간에 유튜브 등 SNS를 못하는게 너무 아까워서 보상심리로 안 자게됨..",
@@ -556,15 +499,6 @@
      "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
     },
     {
-     "id": "a5koY9UwJD8",
-     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
-     "channel": "한창수의 마음정비소",
-     "views": 1381158,
-     "views_per_day": 104642.3,
-     "published": "2026-10-29",
-     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
-    },
-    {
      "id": "96_iCxMsCho",
      "title": "나를 사랑하고 자신감 있게 살아가는 방법 | 신여성 EP.37",
      "channel": "롤링썬더",
@@ -574,15 +508,6 @@
      "url": "https://www.youtube.com/watch?v=96_iCxMsCho"
     },
     {
-     "id": "JJ7h1S-DEGA",
-     "title": "\"틀어놓고 주무세요\" 사람 때문에 스트레스받을 때 나 자신을 지키는 단순한 방법 | 인간관계 기술 | 밤산책 Ep.3 (한석준 아나운서)",
-     "channel": "책과삶",
-     "views": 671647,
-     "views_per_day": 50884.9,
-     "published": "2026-10-29",
-     "url": "https://www.youtube.com/watch?v=JJ7h1S-DEGA"
-    },
-    {
      "id": "PvrRhEH19LA",
      "title": "성적표가 측정하지 못한 능력 | 공부머리와 일머리의 차이는? | #지식채널e",
      "channel": "EBS 지식채널e",
@@ -590,20 +515,33 @@
      "views_per_day": 34246.1,
      "published": "2026-11-05",
      "url": "https://www.youtube.com/watch?v=PvrRhEH19LA"
+    },
+    {
+     "id": "KMW2o1D4QQw",
+     "title": "인간은 사회적 동물이라는데… 뇌과학자가 말하는 혼자가 편한 이유",
+     "channel": "장동선의 궁금한 뇌",
+     "views": 436138,
+     "views_per_day": 33252.6,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=KMW2o1D4QQw"
+    },
+    {
+     "id": "ArnroZu2rao",
+     "title": "정신과 의사들이 불안할 때 일단 뛰라는 이유｜크랩",
+     "channel": "크랩 KLAB",
+     "views": 371046,
+     "views_per_day": 32289.6,
+     "published": "2026-10-31",
+     "url": "https://www.youtube.com/watch?v=ArnroZu2rao"
     }
    ]
   },
   {
    "weeks": 3,
    "label": "최근 3주",
-   "videos": 39,
-   "channels": 35,
+   "videos": 36,
+   "channels": 33,
    "new_this_week": [
-    {
-     "id": "0tEc_K0czRw",
-     "title": "누구를 만나던 3가지 척 해라 | 쇼펜하우어 | 인간관계명언 | 처세술 |",
-     "published": "2026-10-22"
-    },
     {
      "id": "2GxDRxV0T9w",
      "title": "작은 선물을 자꾸 주는 사람의 심리. 당신도 그렇습니까? 일상심리학",
@@ -640,9 +578,19 @@
      "published": "2026-10-29"
     },
     {
+     "id": "JJ7h1S-DEGA",
+     "title": "\"틀어놓고 주무세요\" 사람 때문에 스트레스받을 때 나 자신을 지키는 단순한 방법 | 인간관계 기술 | 밤산책 Ep.3 (한석준 아나운서)",
+     "published": "2026-10-29"
+    },
+    {
      "id": "Qtn1XXIylOQ",
      "title": "인간관계에 지쳐 마음이 힘들 때 : 멘탈관리 마인드셋 영상",
      "published": "2026-10-24"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "published": "2026-10-29"
     },
     {
      "id": "eLOwkxX6ab4",
@@ -660,11 +608,6 @@
      "published": "2026-10-24"
     },
     {
-     "id": "oac6foLVHlI",
-     "title": "[1시간] \"사는 게 재미가 없습니다\" 열심히 살아도 행복하지 않은 이유｜김창옥의 번아웃·슬럼프 강연 #가치들어요",
-     "published": "2026-10-22"
-    },
-    {
      "id": "rL4yzXIKbNM",
      "title": "작은 선물을 자꾸 주는 사람의 심리학적 특징",
      "published": "2026-10-25"
@@ -675,9 +618,9 @@
      "published": "2026-10-24"
     },
     {
-     "id": "rswah8mIWkw",
-     "title": "나이 들고 친구 적은 걸 전혀 슬퍼할 필요없는 이유 (노후 편)",
-     "published": "2026-10-22"
+     "id": "szFksvTqnCg",
+     "title": "돈을 대하는 태도에서 사람의 본모습이 드러납니다 (무심코 하는 행동입니다)",
+     "published": "2026-10-29"
     },
     {
      "id": "xzy-rl7IlFU",
@@ -685,63 +628,58 @@
      "published": "2026-10-23"
     }
    ],
-   "views_median": 162470,
-   "views_per_day_median": 14036.8,
-   "ratio_median": 4.11,
+   "views_median": 159113.0,
+   "views_per_day_median": 13995.25,
+   "ratio_median": 4.41,
    "success": 10,
-   "minutes_median": 20.1,
-   "title_len_avg": 42.9,
+   "minutes_median": 20.05,
+   "title_len_avg": 42.6,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 17,
-     "share": 0.436
+     "count": 14,
+     "share": 0.389
     },
     {
      "name": "이유",
-     "count": 8,
-     "share": 0.205
+     "count": 6,
+     "share": 0.167
     },
     {
      "name": "N가지",
-     "count": 6,
-     "share": 0.154
+     "count": 5,
+     "share": 0.139
     },
     {
      "name": "물음표 ?",
      "count": 2,
-     "share": 0.051
+     "share": 0.056
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 2,
-     "share": 0.051
+     "share": 0.056
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.026
+     "share": 0.028
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 1,
-     "share": 0.026
-    },
-    {
-     "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 1,
-     "share": 0.026
+     "share": 0.028
     },
     {
      "name": "vs 비교",
      "count": 1,
-     "share": 0.026
+     "share": 0.028
     }
    ],
    "title_words": [
     {
      "word": "이유",
-     "count": 8
+     "count": 6
     },
     {
      "word": "심리",
@@ -764,80 +702,80 @@
      "count": 4
     },
     {
-     "word": "쇼펜하우어",
-     "count": 3
-    },
-    {
      "word": "사람의",
-     "count": 3
-    },
-    {
-     "word": "친구",
      "count": 3
     },
     {
      "word": "신호",
      "count": 3
+    },
+    {
+     "word": "5가지",
+     "count": 3
+    },
+    {
+     "word": "당신도",
+     "count": 2
     }
    ],
-   "transcripts": 13,
+   "transcripts": 12,
    "text_sources": {
-    "자막": 9,
+    "자막": 8,
     "음성인식": 4,
-    "설명": 25,
-    "없음": 1
+    "설명": 24,
+    "없음": 0
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 20
+     "count": 19
     },
     {
      "word": "가장",
-     "count": 18
+     "count": 17
     },
     {
      "word": "그리고",
      "count": 16
     },
     {
-     "word": "다른",
-     "count": 15
-    },
-    {
-     "word": "아니라",
-     "count": 15
-    },
-    {
      "word": "사람이",
-     "count": 15
+     "count": 14
+    },
+    {
+     "word": "다른",
+     "count": 14
     },
     {
      "word": "마음을",
-     "count": 15
-    },
-    {
-     "word": "있을",
      "count": 14
     },
     {
-     "word": "많은",
+     "word": "아니라",
      "count": 14
+    },
+    {
+     "word": "사람을",
+     "count": 13
+    },
+    {
+     "word": "오늘은",
+     "count": 13
     },
     {
      "word": "사람의",
-     "count": 14
+     "count": 13
     },
     {
-     "word": "함께",
-     "count": 14
+     "word": "먼저",
+     "count": 13
     },
     {
-     "word": "이야기를",
+     "word": "많은",
      "count": 13
     }
    ],
-   "chapters_share": 0.359,
+   "chapters_share": 0.361,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -859,31 +797,31 @@
      "hook": "누가 시킨 것도 아닌데, 일어날 때 의자를 꼭 밀어 넣는 사람. 혹시 “이거 난데?” 하고 고개를 끄덕이셨나요? 그냥 나가도 될 텐데, 굳이 의자를 정리하는 이유는 무엇일까요? 다음 사람을 위한 배려일까요? 아니면 제자리에 돌려놓아야 마음이 편해지는 걸까요? 오늘은 의자를 넣는 작은 습"
     }
    ],
-   "comments": 5975,
+   "comments": 5868,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1105,
-     "share": 0.185
+     "count": 1097,
+     "share": 0.187
     },
     {
      "name": "칭찬·감사",
-     "count": 913,
-     "share": 0.153
+     "count": 891,
+     "share": 0.152
     },
     {
      "name": "질문",
-     "count": 783,
+     "count": 771,
      "share": 0.131
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 425,
+     "count": 418,
      "share": 0.071
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 149,
+     "count": 148,
      "share": 0.025
     },
     {
@@ -958,9 +896,14 @@
   {
    "weeks": 4,
    "label": "최근 4주",
-   "videos": 61,
-   "channels": 53,
+   "videos": 59,
+   "channels": 52,
    "new_this_week": [
+    {
+     "id": "0tEc_K0czRw",
+     "title": "누구를 만나던 3가지 척 해라 | 쇼펜하우어 | 인간관계명언 | 처세술 |",
+     "published": "2026-10-22"
+    },
     {
      "id": "1B3sTUMN0uo",
      "title": "전 세계가 찾는 한국? 하지만 2027년 키워드는 '외로움' | 트렌드 코리아 2027 김난도 교수 | 최재천의 아마존",
@@ -970,11 +913,6 @@
      "id": "1owmdus3_pw",
      "title": "누구든 끌어당기는 심리학적 방법 (절대 악용하지 마세요) | 연애 다크심리학",
      "published": "2026-10-17"
-    },
-    {
-     "id": "6skfikfyY_M",
-     "title": "당신이 생각보다 호감인 이유",
-     "published": "2026-10-15"
     },
     {
      "id": "CFUR6ySGi7A",
@@ -1037,9 +975,14 @@
      "published": "2026-10-16"
     },
     {
-     "id": "twn0MZBC1eg",
-     "title": "아기들이 유독 쳐다보는 사람의 정체｜발달심리학이 밝힌 '아기를 끌어당기는 사람'의 공통점",
-     "published": "2026-10-15"
+     "id": "oac6foLVHlI",
+     "title": "[1시간] \"사는 게 재미가 없습니다\" 열심히 살아도 행복하지 않은 이유｜김창옥의 번아웃·슬럼프 강연 #가치들어요",
+     "published": "2026-10-22"
+    },
+    {
+     "id": "rswah8mIWkw",
+     "title": "나이 들고 친구 적은 걸 전혀 슬퍼할 필요없는 이유 (노후 편)",
+     "published": "2026-10-22"
     },
     {
      "id": "v9oeGZiRteE",
@@ -1072,68 +1015,63 @@
      "published": "2026-10-20"
     }
    ],
-   "views_median": 221809,
-   "views_per_day_median": 13953.7,
-   "ratio_median": 6.56,
-   "success": 22,
-   "minutes_median": 19.6,
-   "title_len_avg": 40.9,
+   "views_median": 212292,
+   "views_per_day_median": 13588.8,
+   "ratio_median": 5.51,
+   "success": 21,
+   "minutes_median": 19.7,
+   "title_len_avg": 41.2,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 28,
-     "share": 0.459
+     "count": 26,
+     "share": 0.441
     },
     {
      "name": "이유",
-     "count": 14,
-     "share": 0.23
+     "count": 13,
+     "share": 0.22
     },
     {
      "name": "N가지",
      "count": 9,
-     "share": 0.148
+     "share": 0.153
     },
     {
      "name": "물음표 ?",
      "count": 4,
-     "share": 0.066
+     "share": 0.068
     },
     {
      "name": "vs 비교",
      "count": 4,
-     "share": 0.066
+     "share": 0.068
     },
     {
      "name": "느낌표 !",
      "count": 3,
-     "share": 0.049
+     "share": 0.051
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 2,
-     "share": 0.033
+     "share": 0.034
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 2,
-     "share": 0.033
-    },
-    {
-     "name": "공통점",
-     "count": 1,
-     "share": 0.016
+     "share": 0.034
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 1,
-     "share": 0.016
+     "share": 0.017
     }
    ],
    "title_words": [
     {
      "word": "이유",
-     "count": 14
+     "count": 13
     },
     {
      "word": "특징",
@@ -1144,15 +1082,7 @@
      "count": 6
     },
     {
-     "word": "사람의",
-     "count": 6
-    },
-    {
      "word": "사람들의",
-     "count": 6
-    },
-    {
-     "word": "사람",
      "count": 6
     },
     {
@@ -1160,7 +1090,15 @@
      "count": 5
     },
     {
+     "word": "사람의",
+     "count": 5
+    },
+    {
      "word": "인간관계",
+     "count": 5
+    },
+    {
+     "word": "사람",
      "count": 5
     },
     {
@@ -1172,41 +1110,41 @@
      "count": 4
     }
    ],
-   "transcripts": 20,
+   "transcripts": 19,
    "text_sources": {
     "자막": 12,
-    "음성인식": 8,
-    "설명": 40,
+    "음성인식": 7,
+    "설명": 39,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 29
+     "count": 28
     },
     {
      "word": "가장",
-     "count": 27
-    },
-    {
-     "word": "다른",
-     "count": 24
+     "count": 26
     },
     {
      "word": "아니라",
-     "count": 24
-    },
-    {
-     "word": "그리고",
-     "count": 24
-    },
-    {
-     "word": "마음을",
      "count": 23
     },
     {
-     "word": "사람이",
+     "word": "다른",
+     "count": 23
+    },
+    {
+     "word": "그리고",
+     "count": 23
+    },
+    {
+     "word": "마음을",
      "count": 22
+    },
+    {
+     "word": "사람이",
+     "count": 21
     },
     {
      "word": "함께",
@@ -1217,19 +1155,19 @@
      "count": 20
     },
     {
+     "word": "오늘",
+     "count": 19
+    },
+    {
      "word": "어떤",
      "count": 19
     },
     {
-     "word": "사람의",
-     "count": 19
-    },
-    {
-     "word": "오늘",
-     "count": 19
+     "word": "내가",
+     "count": 18
     }
    ],
-   "chapters_share": 0.426,
+   "chapters_share": 0.407,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1251,36 +1189,36 @@
      "hook": "누가 시킨 것도 아닌데, 일어날 때 의자를 꼭 밀어 넣는 사람. 혹시 “이거 난데?” 하고 고개를 끄덕이셨나요? 그냥 나가도 될 텐데, 굳이 의자를 정리하는 이유는 무엇일까요? 다음 사람을 위한 배려일까요? 아니면 제자리에 돌려놓아야 마음이 편해지는 걸까요? 오늘은 의자를 넣는 작은 습"
     }
    ],
-   "comments": 13331,
+   "comments": 12132,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 2211,
-     "share": 0.166
+     "count": 2000,
+     "share": 0.165
     },
     {
      "name": "질문",
-     "count": 1906,
-     "share": 0.143
+     "count": 1753,
+     "share": 0.144
     },
     {
      "name": "칭찬·감사",
-     "count": 1696,
-     "share": 0.127
+     "count": 1499,
+     "share": 0.124
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 879,
-     "share": 0.066
+     "count": 830,
+     "share": 0.068
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 334,
-     "share": 0.025
+     "count": 312,
+     "share": 0.026
     },
     {
      "name": "요청",
-     "count": 125,
+     "count": 114,
      "share": 0.009
     }
    ],
@@ -1291,12 +1229,12 @@
      "likes": 7125
     },
     {
-     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
-     "likes": 6027
-    },
-    {
      "text": "한국은 유독 나이마다 해야하는걸 정해놓은 느낌이라 청년이 느끼는 스트레스가 매우 큼. 조금만 늦춰지면 \"너 이 나이에 뭐 했냐?\" 라는 소리를 듣기 때문..",
      "likes": 4397
+    },
+    {
+     "text": "그냥 자살율이 높다 라고 하는 것보다 매일 40명 정도가 자살이라니 심각성이 더 확 와닿...",
+     "likes": 4183
     }
    ],
    "top_videos": [
@@ -1328,15 +1266,6 @@
      "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
     },
     {
-     "id": "6skfikfyY_M",
-     "title": "당신이 생각보다 호감인 이유",
-     "channel": "심리학 고양이",
-     "views": 2188855,
-     "views_per_day": 80599.0,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=6skfikfyY_M"
-    },
-    {
      "id": "FtihJLjEkNk",
      "title": "번아웃부터 불안까지...주목해야 할 정신건강 이슈 모아봄 [스:크랩]｜크랩",
      "channel": "크랩 KLAB",
@@ -1344,6 +1273,15 @@
      "views_per_day": 71796.2,
      "published": "2026-10-18",
      "url": "https://www.youtube.com/watch?v=FtihJLjEkNk"
+    },
+    {
+     "id": "96_iCxMsCho",
+     "title": "나를 사랑하고 자신감 있게 살아가는 방법 | 신여성 EP.37",
+     "channel": "롤링썬더",
+     "views": 491377,
+     "views_per_day": 60237.8,
+     "published": "2026-11-03",
+     "url": "https://www.youtube.com/watch?v=96_iCxMsCho"
     }
    ]
   },
@@ -1357,6 +1295,11 @@
      "id": "2ej_Dk2tXKw",
      "title": "가까운 사람에게만 유독 화내는 사람의 심리",
      "published": "2026-10-09"
+    },
+    {
+     "id": "6skfikfyY_M",
+     "title": "당신이 생각보다 호감인 이유",
+     "published": "2026-10-15"
     },
     {
      "id": "G8lBmJpXwfs",
@@ -1382,6 +1325,11 @@
      "id": "m-dEVtGzOfE",
      "title": "부정적인 생각을 완전히 없애줄 7가지 냉철한 스토아학파의 법칙 - 마음을 재설계하라 | 스토아학파",
      "published": "2026-10-13"
+    },
+    {
+     "id": "twn0MZBC1eg",
+     "title": "아기들이 유독 쳐다보는 사람의 정체｜발달심리학이 밝힌 '아기를 끌어당기는 사람'의 공통점",
+     "published": "2026-10-15"
     },
     {
      "id": "u7BS3D_Sylo",
@@ -1489,28 +1437,28 @@
      "count": 4
     }
    ],
-   "transcripts": 23,
+   "transcripts": 24,
    "text_sources": {
     "자막": 14,
-    "음성인식": 9,
-    "설명": 44,
+    "음성인식": 10,
+    "설명": 43,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 32
+     "count": 31
     },
     {
      "word": "가장",
      "count": 29
     },
     {
-     "word": "아니라",
-     "count": 28
+     "word": "그리고",
+     "count": 29
     },
     {
-     "word": "그리고",
+     "word": "아니라",
      "count": 28
     },
     {
@@ -1519,18 +1467,22 @@
     },
     {
      "word": "마음을",
-     "count": 26
+     "count": 25
     },
     {
      "word": "사람이",
      "count": 25
     },
     {
-     "word": "함께",
+     "word": "오늘",
      "count": 24
     },
     {
-     "word": "오늘",
+     "word": "많은",
+     "count": 23
+    },
+    {
+     "word": "함께",
      "count": 23
     },
     {
@@ -1538,12 +1490,8 @@
      "count": 22
     },
     {
-     "word": "많은",
+     "word": "내가",
      "count": 22
-    },
-    {
-     "word": "사람의",
-     "count": 21
     }
    ],
    "chapters_share": 0.426,
@@ -1667,8 +1615,8 @@
   {
    "weeks": 6,
    "label": "최근 6주",
-   "videos": 78,
-   "channels": 65,
+   "videos": 76,
+   "channels": 64,
    "new_this_week": [
     {
      "id": "-593UnQhVPM",
@@ -1696,16 +1644,6 @@
      "published": "2026-10-02"
     },
     {
-     "id": "E1BISMVYakc",
-     "title": "만나기만 하면 얻어먹는 사람, 계속 만나도 될까요? | 이런 관계는 정리하세요ㅣ인생조언ㅣ노후준비ㅣ삶의지혜ㅣ시니어ㅣ오디오북ㅣ",
-     "published": "2026-10-01"
-    },
-    {
-     "id": "MUTQyEh7OSU",
-     "title": "자리 뜰 때 의자 집어넣는 사람, 심리학적 특징 3가지",
-     "published": "2026-10-01"
-    },
-    {
      "id": "TJxfS5rSpUA",
      "title": "요즘 사람들이 새벽 2-3시 사이 자꾸 깨는 이유 ㅣEp. 책과사람 169 (김지용 원장 2부)",
      "published": "2026-10-03"
@@ -1721,52 +1659,52 @@
      "published": "2026-10-02"
     }
    ],
-   "views_median": 222415.5,
+   "views_median": 220701.5,
    "views_per_day_median": 12674.9,
-   "ratio_median": 7.75,
-   "success": 32,
+   "ratio_median": 7.62,
+   "success": 30,
    "minutes_median": 19.65,
-   "title_len_avg": 40.6,
+   "title_len_avg": 40.4,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 36,
-     "share": 0.462
+     "count": 35,
+     "share": 0.461
     },
     {
      "name": "이유",
      "count": 17,
-     "share": 0.218
+     "share": 0.224
     },
     {
      "name": "N가지",
-     "count": 14,
-     "share": 0.179
+     "count": 13,
+     "share": 0.171
     },
     {
      "name": "물음표 ?",
-     "count": 6,
-     "share": 0.077
+     "count": 5,
+     "share": 0.066
     },
     {
      "name": "vs 비교",
      "count": 5,
-     "share": 0.064
+     "share": 0.066
     },
     {
      "name": "느낌표 !",
      "count": 3,
-     "share": 0.038
+     "share": 0.039
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 3,
-     "share": 0.038
+     "count": 2,
+     "share": 0.026
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 3,
-     "share": 0.038
+     "count": 2,
+     "share": 0.026
     },
     {
      "name": "공통점",
@@ -1786,11 +1724,7 @@
     },
     {
      "word": "특징",
-     "count": 10
-    },
-    {
-     "word": "사람",
-     "count": 8
+     "count": 9
     },
     {
      "word": "인간관계",
@@ -1809,76 +1743,80 @@
      "count": 7
     },
     {
-     "word": "심리학적",
+     "word": "사람",
      "count": 6
+    },
+    {
+     "word": "심리학적",
+     "count": 5
     },
     {
      "word": "관계",
      "count": 5
     },
     {
-     "word": "3가지",
+     "word": "방법",
      "count": 4
     }
    ],
-   "transcripts": 28,
+   "transcripts": 27,
    "text_sources": {
-    "자막": 16,
+    "자막": 15,
     "음성인식": 12,
-    "설명": 49,
+    "설명": 48,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 37
+     "count": 34
     },
     {
      "word": "아니라",
-     "count": 35
+     "count": 33
     },
     {
      "word": "가장",
-     "count": 33
+     "count": 32
     },
     {
      "word": "그리고",
-     "count": 33
-    },
-    {
-     "word": "다른",
-     "count": 30
-    },
-    {
-     "word": "사람이",
-     "count": 30
+     "count": 32
     },
     {
      "word": "마음을",
-     "count": 30
+     "count": 28
     },
     {
-     "word": "함께",
+     "word": "다른",
+     "count": 28
+    },
+    {
+     "word": "사람이",
      "count": 28
     },
     {
      "word": "오늘",
-     "count": 28
-    },
-    {
-     "word": "어떤",
      "count": 27
     },
     {
-     "word": "내가",
+     "word": "함께",
      "count": 26
+    },
+    {
+     "word": "어떤",
+     "count": 25
     },
     {
      "word": "많은",
      "count": 25
+    },
+    {
+     "word": "내가",
+     "count": 25
     }
    ],
-   "chapters_share": 0.436,
+   "chapters_share": 0.434,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1900,40 +1838,40 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 17925,
+   "comments": 16863,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3082,
-     "share": 0.172
+     "count": 2789,
+     "share": 0.165
     },
     {
      "name": "질문",
-     "count": 2474,
-     "share": 0.138
+     "count": 2352,
+     "share": 0.139
     },
     {
      "name": "칭찬·감사",
-     "count": 2274,
-     "share": 0.127
+     "count": 2163,
+     "share": 0.128
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1130,
-     "share": 0.063
+     "count": 1095,
+     "share": 0.065
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 448,
-     "share": 0.025
+     "count": 437,
+     "share": 0.026
     },
     {
      "name": "요청",
-     "count": 176,
+     "count": 171,
      "share": 0.01
     }
    ],
-   "comment_uncategorized": 0.578,
+   "comment_uncategorized": 0.579,
    "top_comments": [
     {
      "text": "나라 자체가 그냥 거대한 정신 병원이지 뭐……",
@@ -2008,6 +1946,11 @@
      "published": "2026-09-29"
     },
     {
+     "id": "E1BISMVYakc",
+     "title": "만나기만 하면 얻어먹는 사람, 계속 만나도 될까요? | 이런 관계는 정리하세요ㅣ인생조언ㅣ노후준비ㅣ삶의지혜ㅣ시니어ㅣ오디오북ㅣ",
+     "published": "2026-10-01"
+    },
+    {
      "id": "HJXEgD2m2r8",
      "title": "힘든 삶에서, 괴롭지 않기 위한 인지심리학적 대처법",
      "published": "2026-09-29"
@@ -2016,6 +1959,11 @@
      "id": "LQKzsAU_yxk",
      "title": "사별 스트레스는 인간의 신체를 어디까지 무너뜨릴 수 있을까",
      "published": "2026-09-27"
+    },
+    {
+     "id": "MUTQyEh7OSU",
+     "title": "자리 뜰 때 의자 집어넣는 사람, 심리학적 특징 3가지",
+     "published": "2026-10-01"
     },
     {
      "id": "VZWNm2j5jJU",
@@ -2138,28 +2086,28 @@
      "count": 5
     }
    ],
-   "transcripts": 28,
+   "transcripts": 30,
    "text_sources": {
     "자막": 16,
-    "음성인식": 12,
-    "설명": 56,
+    "음성인식": 14,
+    "설명": 54,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 40
+     "count": 39
     },
     {
      "word": "아니라",
      "count": 38
     },
     {
-     "word": "가장",
-     "count": 35
+     "word": "그리고",
+     "count": 37
     },
     {
-     "word": "그리고",
+     "word": "가장",
      "count": 35
     },
     {
@@ -2168,31 +2116,31 @@
     },
     {
      "word": "사람이",
+     "count": 32
+    },
+    {
+     "word": "오늘",
      "count": 31
     },
     {
      "word": "다른",
-     "count": 30
+     "count": 31
+    },
+    {
+     "word": "어떤",
+     "count": 29
+    },
+    {
+     "word": "내가",
+     "count": 29
     },
     {
      "word": "함께",
      "count": 29
     },
     {
-     "word": "오늘",
-     "count": 29
-    },
-    {
-     "word": "어떤",
-     "count": 28
-    },
-    {
-     "word": "내가",
-     "count": 27
-    },
-    {
      "word": "많은",
-     "count": 26
+     "count": 28
     }
    ],
    "chapters_share": 0.435,
@@ -2316,7 +2264,7 @@
   {
    "weeks": 8,
    "label": "최근 8주",
-   "videos": 93,
+   "videos": 92,
    "channels": 77,
    "new_this_week": [
     {
@@ -2345,11 +2293,6 @@
      "published": "2026-09-19"
     },
     {
-     "id": "lY7Ma2Utzd4",
-     "title": "요즘 사람들 카페도 미용실도 안가요. 돈 있어도 소비를 줄이는 진짜 이유",
-     "published": "2026-09-17"
-    },
-    {
      "id": "pK0Q8xRhNNk",
      "title": "\"진짜 스트레스를 푼다는 것은\" 고독과 외로움 스트레스가 어떻게 찾아오는지 또 어떻게 해결해야 하는지 김경일 교수의 올바르게 스트레스 다루는법 ｜나의두번째교과서｜알고e즘",
      "published": "2026-09-21"
@@ -2360,32 +2303,32 @@
      "published": "2026-09-22"
     }
    ],
-   "views_median": 252309,
-   "views_per_day_median": 11078.5,
-   "ratio_median": 9.44,
-   "success": 40,
-   "minutes_median": 20.1,
-   "title_len_avg": 42.0,
+   "views_median": 247085.5,
+   "views_per_day_median": 11278.85,
+   "ratio_median": 9.22,
+   "success": 39,
+   "minutes_median": 20.15,
+   "title_len_avg": 42.1,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 42,
-     "share": 0.452
+     "count": 41,
+     "share": 0.446
     },
     {
      "name": "이유",
-     "count": 19,
-     "share": 0.204
+     "count": 18,
+     "share": 0.196
     },
     {
      "name": "N가지",
      "count": 17,
-     "share": 0.183
+     "share": 0.185
     },
     {
      "name": "물음표 ?",
      "count": 8,
-     "share": 0.086
+     "share": 0.087
     },
     {
      "name": "vs 비교",
@@ -2405,7 +2348,7 @@
     {
      "name": "느낌표 !",
      "count": 3,
-     "share": 0.032
+     "share": 0.033
     },
     {
      "name": "공통점",
@@ -2421,7 +2364,7 @@
    "title_words": [
     {
      "word": "이유",
-     "count": 19
+     "count": 18
     },
     {
      "word": "특징",
@@ -2460,44 +2403,52 @@
      "count": 6
     }
    ],
-   "transcripts": 31,
+   "transcripts": 34,
    "text_sources": {
-    "자막": 17,
-    "음성인식": 14,
-    "설명": 61,
+    "자막": 16,
+    "음성인식": 18,
+    "설명": 57,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 44
-    },
-    {
-     "word": "아니라",
-     "count": 41
-    },
-    {
-     "word": "가장",
-     "count": 39
+     "count": 42
     },
     {
      "word": "그리고",
-     "count": 39
+     "count": 42
+    },
+    {
+     "word": "아니라",
+     "count": 40
+    },
+    {
+     "word": "가장",
+     "count": 38
+    },
+    {
+     "word": "오늘",
+     "count": 35
+    },
+    {
+     "word": "마음을",
+     "count": 35
+    },
+    {
+     "word": "다른",
+     "count": 34
     },
     {
      "word": "사람이",
      "count": 34
     },
     {
-     "word": "마음을",
-     "count": 34
+     "word": "어떤",
+     "count": 33
     },
     {
-     "word": "오늘",
-     "count": 34
-    },
-    {
-     "word": "다른",
+     "word": "내가",
      "count": 33
     },
     {
@@ -2505,19 +2456,11 @@
      "count": 32
     },
     {
-     "word": "어떤",
-     "count": 31
-    },
-    {
-     "word": "내가",
-     "count": 31
-    },
-    {
      "word": "많은",
-     "count": 30
+     "count": 31
     }
    ],
-   "chapters_share": 0.452,
+   "chapters_share": 0.457,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2539,40 +2482,40 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 21167,
+   "comments": 20998,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3550,
+     "count": 3531,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 3124,
+     "count": 3117,
      "share": 0.148
     },
     {
      "name": "질문",
-     "count": 2765,
+     "count": 2751,
      "share": 0.131
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1276,
+     "count": 1269,
      "share": 0.06
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 486,
+     "count": 485,
      "share": 0.023
     },
     {
      "name": "요청",
-     "count": 387,
+     "count": 386,
      "share": 0.018
     }
    ],
-   "comment_uncategorized": 0.572,
+   "comment_uncategorized": 0.571,
    "top_comments": [
     {
      "text": "나라 자체가 그냥 거대한 정신 병원이지 뭐……",
@@ -2638,18 +2581,13 @@
   {
    "weeks": 9,
    "label": "최근 9주",
-   "videos": 103,
-   "channels": 82,
+   "videos": 102,
+   "channels": 81,
    "new_this_week": [
     {
      "id": "2BNzTFYnW24",
      "title": "나를 손절하려는 사람이 미리 보내는 신호 - 정신과 의사",
      "published": "2026-09-16"
-    },
-    {
-     "id": "33-g3TpuawA",
-     "title": "똑똑한 사람은 손절할 때 이것을 절대 하지 않는다 (심리학적 분석)",
-     "published": "2026-09-10"
     },
     {
      "id": "FNSJWUxdhh0",
@@ -2682,6 +2620,11 @@
      "published": "2026-09-10"
     },
     {
+     "id": "lY7Ma2Utzd4",
+     "title": "요즘 사람들 카페도 미용실도 안가요. 돈 있어도 소비를 줄이는 진짜 이유",
+     "published": "2026-09-17"
+    },
+    {
      "id": "xk46_2WsjMk",
      "title": "친한 사람들과 여행 갔다가 사이가 틀어지는 진짜 이유(feat. 심리학) | 갈등심리학 | 우정 |",
      "published": "2026-09-12"
@@ -2692,27 +2635,27 @@
      "published": "2026-09-14"
     }
    ],
-   "views_median": 262076,
-   "views_per_day_median": 10351.0,
-   "ratio_median": 9.84,
-   "success": 48,
-   "minutes_median": 20.0,
+   "views_median": 260725.5,
+   "views_per_day_median": 10369.4,
+   "ratio_median": 9.78,
+   "success": 47,
+   "minutes_median": 20.05,
    "title_len_avg": 42.0,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 46,
-     "share": 0.447
+     "share": 0.451
     },
     {
      "name": "이유",
      "count": 23,
-     "share": 0.223
+     "share": 0.225
     },
     {
      "name": "N가지",
      "count": 17,
-     "share": 0.165
+     "share": 0.167
     },
     {
      "name": "물음표 ?",
@@ -2720,12 +2663,12 @@
      "share": 0.078
     },
     {
-     "name": "vs 비교",
-     "count": 6,
-     "share": 0.058
+     "name": "사연·오디오북·실화·고백",
+     "count": 5,
+     "share": 0.049
     },
     {
-     "name": "사연·오디오북·실화·고백",
+     "name": "vs 비교",
      "count": 5,
      "share": 0.049
     },
@@ -2780,49 +2723,49 @@
      "count": 8
     },
     {
-     "word": "심리학적",
-     "count": 7
-    },
-    {
      "word": "사람들의",
      "count": 7
     },
     {
      "word": "5가지",
      "count": 6
+    },
+    {
+     "word": "심리학적",
+     "count": 6
     }
    ],
-   "transcripts": 34,
+   "transcripts": 40,
    "text_sources": {
     "자막": 17,
-    "음성인식": 17,
-    "설명": 67,
+    "음성인식": 23,
+    "설명": 60,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 49
-    },
-    {
-     "word": "아니라",
-     "count": 45
+     "count": 48
     },
     {
      "word": "그리고",
-     "count": 45
+     "count": 48
+    },
+    {
+     "word": "아니라",
+     "count": 46
     },
     {
      "word": "가장",
-     "count": 41
+     "count": 42
     },
     {
      "word": "사람이",
-     "count": 39
+     "count": 40
     },
     {
      "word": "마음을",
-     "count": 38
+     "count": 39
     },
     {
      "word": "함께",
@@ -2830,26 +2773,26 @@
     },
     {
      "word": "오늘",
-     "count": 36
-    },
-    {
-     "word": "어떤",
-     "count": 35
+     "count": 37
     },
     {
      "word": "다른",
-     "count": 34
+     "count": 37
     },
     {
      "word": "내가",
-     "count": 34
+     "count": 37
+    },
+    {
+     "word": "어떤",
+     "count": 36
     },
     {
      "word": "먼저",
-     "count": 32
+     "count": 34
     }
    ],
-   "chapters_share": 0.456,
+   "chapters_share": 0.451,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2871,36 +2814,36 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 25255,
+   "comments": 25193,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4181,
-     "share": 0.166
+     "count": 4166,
+     "share": 0.165
     },
     {
      "name": "칭찬·감사",
-     "count": 3493,
-     "share": 0.138
+     "count": 3490,
+     "share": 0.139
     },
     {
      "name": "질문",
-     "count": 3358,
+     "count": 3348,
      "share": 0.133
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1572,
+     "count": 1561,
      "share": 0.062
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 563,
+     "count": 561,
      "share": 0.022
     },
     {
      "name": "요청",
-     "count": 424,
+     "count": 420,
      "share": 0.017
     }
    ],
@@ -2973,6 +2916,11 @@
    "videos": 107,
    "channels": 85,
    "new_this_week": [
+    {
+     "id": "33-g3TpuawA",
+     "title": "똑똑한 사람은 손절할 때 이것을 절대 하지 않는다 (심리학적 분석)",
+     "published": "2026-09-10"
+    },
     {
      "id": "J4Nf4oosnt8",
      "title": "모든 남자가 자신도 모르게 찾는 여자 | 남성 심리 | 칼 융",
@@ -3094,61 +3042,61 @@
      "count": 6
     }
    ],
-   "transcripts": 35,
+   "transcripts": 41,
    "text_sources": {
     "자막": 17,
-    "음성인식": 18,
-    "설명": 70,
+    "음성인식": 24,
+    "설명": 64,
     "없음": 2
    },
    "content_words": [
     {
-     "word": "있습니다",
+     "word": "그리고",
      "count": 50
     },
     {
-     "word": "그리고",
-     "count": 46
+     "word": "있습니다",
+     "count": 49
     },
     {
      "word": "아니라",
-     "count": 45
+     "count": 47
     },
     {
      "word": "가장",
-     "count": 43
+     "count": 44
     },
     {
      "word": "사람이",
+     "count": 41
+    },
+    {
+     "word": "오늘",
      "count": 39
     },
     {
      "word": "마음을",
-     "count": 38
-    },
-    {
-     "word": "함께",
-     "count": 38
+     "count": 39
     },
     {
      "word": "어떤",
-     "count": 37
+     "count": 39
     },
     {
-     "word": "오늘",
-     "count": 37
+     "word": "함께",
+     "count": 39
     },
     {
      "word": "다른",
-     "count": 35
+     "count": 38
     },
     {
      "word": "내가",
-     "count": 35
+     "count": 38
     },
     {
-     "word": "먼저",
-     "count": 32
+     "word": "아닙니다",
+     "count": 34
     }
    ],
    "chapters_share": 0.449,
@@ -3272,14 +3220,9 @@
   {
    "weeks": 11,
    "label": "최근 11주",
-   "videos": 118,
+   "videos": 117,
    "channels": 90,
    "new_this_week": [
-    {
-     "id": "1fkVDu1W2gw",
-     "title": "죽어도 먼저 연락 안 하지만 만나면 다정한 사람들 특징 (인간관계 편)",
-     "published": "2026-08-27"
-    },
     {
      "id": "6vphF76_Qgs",
      "title": "여자 심리, 남자들이 모르는 소름 돋는 호감 신호 7가지｜연애심리학",
@@ -3331,32 +3274,32 @@
      "published": "2026-08-29"
     }
    ],
-   "views_median": 260725.5,
-   "views_per_day_median": 10070.55,
-   "ratio_median": 13.34,
+   "views_median": 259375,
+   "views_per_day_median": 10040.0,
+   "ratio_median": 13.27,
    "success": 55,
    "minutes_median": 19.6,
-   "title_len_avg": 40.9,
+   "title_len_avg": 41.0,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 54,
-     "share": 0.458
+     "count": 53,
+     "share": 0.453
     },
     {
      "name": "이유",
      "count": 26,
-     "share": 0.22
+     "share": 0.222
     },
     {
      "name": "N가지",
      "count": 21,
-     "share": 0.178
+     "share": 0.179
     },
     {
      "name": "물음표 ?",
      "count": 9,
-     "share": 0.076
+     "share": 0.077
     },
     {
      "name": "vs 비교",
@@ -3366,7 +3309,7 @@
     {
      "name": "사연·오디오북·실화·고백",
      "count": 5,
-     "share": 0.042
+     "share": 0.043
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -3376,17 +3319,17 @@
     {
      "name": "느낌표 !",
      "count": 3,
-     "share": 0.025
+     "share": 0.026
     },
     {
      "name": "공통점",
      "count": 1,
-     "share": 0.008
+     "share": 0.009
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 1,
-     "share": 0.008
+     "share": 0.009
     }
    ],
    "title_words": [
@@ -3395,16 +3338,16 @@
      "count": 26
     },
     {
+     "word": "심리",
+     "count": 12
+    },
+    {
      "word": "특징",
-     "count": 13
+     "count": 12
     },
     {
      "word": "인간관계",
-     "count": 12
-    },
-    {
-     "word": "심리",
-     "count": 12
+     "count": 11
     },
     {
      "word": "5가지",
@@ -3423,72 +3366,72 @@
      "count": 8
     },
     {
-     "word": "방법",
+     "word": "심리학적",
      "count": 7
     },
     {
-     "word": "심리학적",
+     "word": "방법",
      "count": 7
     }
    ],
-   "transcripts": 37,
+   "transcripts": 44,
    "text_sources": {
     "자막": 18,
-    "음성인식": 19,
-    "설명": 79,
+    "음성인식": 26,
+    "설명": 71,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 57
+     "count": 56
     },
     {
      "word": "그리고",
-     "count": 49
+     "count": 53
     },
     {
      "word": "아니라",
-     "count": 48
+     "count": 51
     },
     {
      "word": "가장",
-     "count": 45
-    },
-    {
-     "word": "사람이",
-     "count": 41
-    },
-    {
-     "word": "마음을",
-     "count": 41
-    },
-    {
-     "word": "함께",
-     "count": 41
+     "count": 46
     },
     {
      "word": "오늘",
-     "count": 41
+     "count": 43
+    },
+    {
+     "word": "마음을",
+     "count": 43
+    },
+    {
+     "word": "사람이",
+     "count": 43
+    },
+    {
+     "word": "함께",
+     "count": 43
     },
     {
      "word": "어떤",
-     "count": 39
+     "count": 42
     },
     {
      "word": "내가",
-     "count": 38
+     "count": 41
     },
     {
      "word": "다른",
-     "count": 36
+     "count": 39
     },
     {
-     "word": "먼저",
-     "count": 36
+     "word": "아닙니다",
+     "count": 38
     }
    ],
-   "chapters_share": 0.475,
+   "chapters_share": 0.47,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -3510,40 +3453,40 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 32707,
+   "comments": 31252,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5675,
-     "share": 0.174
+     "count": 5273,
+     "share": 0.169
     },
     {
      "name": "질문",
-     "count": 4427,
-     "share": 0.135
+     "count": 4151,
+     "share": 0.133
     },
     {
      "name": "칭찬·감사",
-     "count": 3911,
-     "share": 0.12
+     "count": 3819,
+     "share": 0.122
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2115,
-     "share": 0.065
+     "count": 1976,
+     "share": 0.063
     },
     {
      "name": "빚·신용·미수",
      "count": 988,
-     "share": 0.03
+     "share": 0.032
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 768,
+     "count": 727,
      "share": 0.023
     }
    ],
-   "comment_uncategorized": 0.566,
+   "comment_uncategorized": 0.569,
    "top_comments": [
     {
      "text": "나라 자체가 그냥 거대한 정신 병원이지 뭐……",
@@ -3554,8 +3497,8 @@
      "likes": 6027
     },
     {
-     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
-     "likes": 5867
+     "text": "한국은 유독 나이마다 해야하는걸 정해놓은 느낌이라 청년이 느끼는 스트레스가 매우 큼. 조금만 늦춰지면 \"너 이 나이에 뭐 했냐?\" 라는 소리를 듣기 때문..",
+     "likes": 4397
     }
    ],
    "top_videos": [
@@ -3612,6 +3555,11 @@
    "videos": 121,
    "channels": 93,
    "new_this_week": [
+    {
+     "id": "1fkVDu1W2gw",
+     "title": "죽어도 먼저 연락 안 하지만 만나면 다정한 사람들 특징 (인간관계 편)",
+     "published": "2026-08-27"
+    },
     {
      "id": "YQ_hSUHVYl0",
      "title": "변호사와 고대생이 해주는 현실 고민상담",
@@ -3720,19 +3668,19 @@
      "count": 8
     },
     {
-     "word": "방법",
+     "word": "심리학적",
      "count": 7
     },
     {
-     "word": "심리학적",
+     "word": "방법",
      "count": 7
     }
    ],
-   "transcripts": 38,
+   "transcripts": 46,
    "text_sources": {
     "자막": 18,
-    "음성인식": 20,
-    "설명": 81,
+    "음성인식": 28,
+    "설명": 73,
     "없음": 2
    },
    "content_words": [
@@ -3742,47 +3690,47 @@
     },
     {
      "word": "그리고",
-     "count": 51
+     "count": 55
     },
     {
      "word": "아니라",
-     "count": 49
+     "count": 52
     },
     {
      "word": "가장",
-     "count": 46
-    },
-    {
-     "word": "사람이",
-     "count": 42
-    },
-    {
-     "word": "내가",
-     "count": 41
-    },
-    {
-     "word": "마음을",
-     "count": 41
-    },
-    {
-     "word": "함께",
-     "count": 41
+     "count": 48
     },
     {
      "word": "오늘",
-     "count": 41
+     "count": 45
+    },
+    {
+     "word": "사람이",
+     "count": 45
+    },
+    {
+     "word": "내가",
+     "count": 44
+    },
+    {
+     "word": "마음을",
+     "count": 43
     },
     {
      "word": "어떤",
-     "count": 40
+     "count": 43
     },
     {
-     "word": "먼저",
-     "count": 38
+     "word": "함께",
+     "count": 43
     },
     {
      "word": "다른",
-     "count": 37
+     "count": 41
+    },
+    {
+     "word": "아닙니다",
+     "count": 40
     }
    ],
    "chapters_share": 0.471,
@@ -3906,18 +3854,13 @@
   {
    "weeks": 13,
    "label": "최근 13주",
-   "videos": 133,
-   "channels": 101,
+   "videos": 131,
+   "channels": 100,
    "new_this_week": [
     {
      "id": "-eJcNrbEq6I",
      "title": "두 사람이 서로에게 호감을 느낄 때 반드시 나오는 8가지 신호 | 연애 다크심리학",
      "published": "2026-08-17"
-    },
-    {
-     "id": "1mLf2-ozZLI",
-     "title": "‘헤어지자’를 무기로 쓰는 사람의 심리ㅣ영업중EP.77 [EN]",
-     "published": "2026-08-13"
     },
     {
      "id": "2Xe2ATb6VI8",
@@ -3928,11 +3871,6 @@
      "id": "6Bit5jnPjHk",
      "title": "《정약용 명언》 노후에 절대 대답하면 안 되는 '4가지' 질문. 입을 다물면 존경받는다. l 인생명언 l 행복한 노후 l 삶의지혜 l 인간관계",
      "published": "2026-08-14"
-    },
-    {
-     "id": "7yhehYw6oDc",
-     "title": "10년 넘은 친구도 한순간에 끊어내는 사람들의 결정적 특징 (손절의 뇌구조)",
-     "published": "2026-08-13"
     },
     {
      "id": "BxrMEkahOXE",
@@ -3970,37 +3908,37 @@
      "published": "2026-08-13"
     }
    ],
-   "views_median": 259375,
+   "views_median": 255662,
    "views_per_day_median": 9568.7,
    "ratio_median": 13.84,
-   "success": 64,
+   "success": 63,
    "minutes_median": 20.0,
-   "title_len_avg": 40.7,
+   "title_len_avg": 40.8,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 61,
-     "share": 0.459
+     "count": 60,
+     "share": 0.458
     },
     {
      "name": "N가지",
      "count": 27,
-     "share": 0.203
+     "share": 0.206
     },
     {
      "name": "이유",
      "count": 26,
-     "share": 0.195
+     "share": 0.198
     },
     {
      "name": "물음표 ?",
      "count": 11,
-     "share": 0.083
+     "share": 0.084
     },
     {
      "name": "vs 비교",
      "count": 9,
-     "share": 0.068
+     "share": 0.069
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -4034,15 +3972,15 @@
      "count": 26
     },
     {
+     "word": "인간관계",
+     "count": 14
+    },
+    {
      "word": "특징",
-     "count": 15
+     "count": 14
     },
     {
      "word": "심리",
-     "count": 15
-    },
-    {
-     "word": "인간관계",
      "count": 14
     },
     {
@@ -4050,16 +3988,16 @@
      "count": 9
     },
     {
-     "word": "사람의",
-     "count": 9
-    },
-    {
      "word": "방법",
      "count": 9
     },
     {
+     "word": "사람의",
+     "count": 8
+    },
+    {
      "word": "사람들의",
-     "count": 9
+     "count": 8
     },
     {
      "word": "사람",
@@ -4070,64 +4008,64 @@
      "count": 8
     }
    ],
-   "transcripts": 41,
+   "transcripts": 49,
    "text_sources": {
     "자막": 19,
-    "음성인식": 22,
-    "설명": 90,
+    "음성인식": 30,
+    "설명": 80,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 64
+     "count": 63
     },
     {
      "word": "그리고",
-     "count": 58
+     "count": 61
     },
     {
      "word": "아니라",
-     "count": 55
+     "count": 58
     },
     {
      "word": "가장",
-     "count": 51
+     "count": 52
     },
     {
      "word": "사람이",
-     "count": 48
+     "count": 50
     },
     {
      "word": "오늘",
-     "count": 46
+     "count": 49
     },
     {
      "word": "마음을",
-     "count": 45
+     "count": 47
     },
     {
      "word": "어떤",
-     "count": 44
+     "count": 47
     },
     {
      "word": "내가",
-     "count": 44
+     "count": 47
     },
     {
      "word": "함께",
+     "count": 46
+    },
+    {
+     "word": "아닙니다",
      "count": 44
     },
     {
      "word": "먼저",
-     "count": 42
-    },
-    {
-     "word": "아닙니다",
-     "count": 40
+     "count": 44
     }
    ],
-   "chapters_share": 0.496,
+   "chapters_share": 0.489,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -4149,52 +4087,52 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 36818,
+   "comments": 35252,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6303,
-     "share": 0.171
+     "count": 6143,
+     "share": 0.174
     },
     {
      "name": "질문",
-     "count": 5146,
-     "share": 0.14
+     "count": 4914,
+     "share": 0.139
     },
     {
      "name": "칭찬·감사",
-     "count": 4412,
-     "share": 0.12
+     "count": 4338,
+     "share": 0.123
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2331,
-     "share": 0.063
+     "count": 2295,
+     "share": 0.065
     },
     {
      "name": "빚·신용·미수",
      "count": 990,
-     "share": 0.027
+     "share": 0.028
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 837,
+     "count": 812,
      "share": 0.023
     }
    ],
-   "comment_uncategorized": 0.57,
+   "comment_uncategorized": 0.564,
    "top_comments": [
-    {
-     "text": "네명끼리 하는 거 개조타",
-     "likes": 8124
-    },
-    {
-     "text": "확실히 4명에서 하는게 좀더 동물원같아서 좋다",
-     "likes": 7371
-    },
     {
      "text": "나라 자체가 그냥 거대한 정신 병원이지 뭐……",
      "likes": 7125
+    },
+    {
+     "text": "호감을 사랑이라고 착각하지 마세요.\n영상은 이성친구 만나는 법을 설명하는게 아니니까요.",
+     "likes": 6027
+    },
+    {
+     "text": "다들 안 친해지고 싶다느니 좋으면 먼저 연락한다느니 하는데 그건 그정도의 외향인에 가까운 내향인이 그런거고\n찐 내향인(집에서 기 충전한는)은 먼저 연락 안합니다. 필요한게 있어도 연락 안합니다. 아쉬운게 있어도 연락",
+     "likes": 5867
     }
    ],
    "top_videos": [
@@ -4255,6 +4193,16 @@
      "id": "0RcXdW8QbJk",
      "title": "남자가 절대로 떠나지 못하는 여자 특징 | 20년 차 상담심리전문가가 말하는 관계의 비밀",
      "published": "2026-08-07"
+    },
+    {
+     "id": "1mLf2-ozZLI",
+     "title": "‘헤어지자’를 무기로 쓰는 사람의 심리ㅣ영업중EP.77 [EN]",
+     "published": "2026-08-13"
+    },
+    {
+     "id": "7yhehYw6oDc",
+     "title": "10년 넘은 친구도 한순간에 끊어내는 사람들의 결정적 특징 (손절의 뇌구조)",
+     "published": "2026-08-13"
     },
     {
      "id": "JDJoW4x1DME",
@@ -4377,11 +4325,11 @@
      "count": 8
     }
    ],
-   "transcripts": 43,
+   "transcripts": 51,
    "text_sources": {
     "자막": 19,
-    "음성인식": 24,
-    "설명": 92,
+    "음성인식": 32,
+    "설명": 84,
     "없음": 2
    },
    "content_words": [
@@ -4391,47 +4339,47 @@
     },
     {
      "word": "그리고",
-     "count": 59
+     "count": 63
     },
     {
      "word": "아니라",
-     "count": 57
+     "count": 60
     },
     {
      "word": "가장",
-     "count": 53
+     "count": 55
     },
     {
      "word": "사람이",
-     "count": 50
-    },
-    {
-     "word": "마음을",
-     "count": 48
+     "count": 53
     },
     {
      "word": "오늘",
-     "count": 48
+     "count": 52
     },
     {
-     "word": "함께",
-     "count": 47
+     "word": "마음을",
+     "count": 50
     },
     {
      "word": "어떤",
-     "count": 46
+     "count": 49
+    },
+    {
+     "word": "함께",
+     "count": 49
     },
     {
      "word": "내가",
-     "count": 45
-    },
-    {
-     "word": "먼저",
-     "count": 43
+     "count": 48
     },
     {
      "word": "아닙니다",
-     "count": 42
+     "count": 46
+    },
+    {
+     "word": "먼저",
+     "count": 45
     }
    ],
    "chapters_share": 0.511,
@@ -4555,18 +4503,13 @@
   {
    "weeks": 15,
    "label": "최근 15주",
-   "videos": 142,
-   "channels": 109,
+   "videos": 141,
+   "channels": 108,
    "new_this_week": [
     {
      "id": "8xcIaR6kaQM",
      "title": "\"불안, 우울, 분노… 결국 원인은 딱 1가지입니다\" 공감 잘하는 사람이 오히려 먼저 망가지는 이유ㅣ Ep  책과사람 132 (이헌주 교수 1부)",
      "published": "2026-08-04"
-    },
-    {
-     "id": "AmNYmxOZSDA",
-     "title": "[EP.12] 인지심리학자 김경일 교수가 본 한국 문화의 특수성 (feat.이탈리아 절대 못 돌아간다는 크리스티나)ㅣ비정상수다",
-     "published": "2026-07-30"
     },
     {
      "id": "E0XTT7j4g3Q",
@@ -4584,27 +4527,27 @@
      "published": "2026-07-30"
     }
    ],
-   "views_median": 263067.5,
-   "views_per_day_median": 9035.05,
-   "ratio_median": 13.87,
-   "success": 69,
-   "minutes_median": 19.9,
-   "title_len_avg": 41.7,
+   "views_median": 262076,
+   "views_per_day_median": 9305.1,
+   "ratio_median": 13.95,
+   "success": 68,
+   "minutes_median": 19.8,
+   "title_len_avg": 41.5,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 65,
-     "share": 0.458
+     "share": 0.461
     },
     {
      "name": "이유",
      "count": 29,
-     "share": 0.204
+     "share": 0.206
     },
     {
      "name": "N가지",
      "count": 28,
-     "share": 0.197
+     "share": 0.199
     },
     {
      "name": "물음표 ?",
@@ -4613,18 +4556,18 @@
     },
     {
      "name": "vs 비교",
-     "count": 10,
-     "share": 0.07
+     "count": 9,
+     "share": 0.064
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 6,
-     "share": 0.042
+     "share": 0.043
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 6,
-     "share": 0.042
+     "share": 0.043
     },
     {
      "name": "느낌표 !",
@@ -4689,12 +4632,12 @@
      "count": 8
     }
    ],
-   "transcripts": 44,
+   "transcripts": 52,
    "text_sources": {
     "자막": 19,
-    "음성인식": 25,
-    "설명": 95,
-    "없음": 3
+    "음성인식": 33,
+    "설명": 87,
+    "없음": 2
    },
    "content_words": [
     {
@@ -4703,50 +4646,50 @@
     },
     {
      "word": "그리고",
-     "count": 60
+     "count": 64
     },
     {
      "word": "아니라",
-     "count": 58
+     "count": 61
     },
     {
      "word": "가장",
-     "count": 55
+     "count": 57
     },
     {
      "word": "사람이",
-     "count": 51
-    },
-    {
-     "word": "마음을",
-     "count": 49
+     "count": 54
     },
     {
      "word": "오늘",
-     "count": 49
+     "count": 53
     },
     {
-     "word": "함께",
-     "count": 48
+     "word": "마음을",
+     "count": 51
     },
     {
      "word": "어떤",
-     "count": 47
+     "count": 50
+    },
+    {
+     "word": "함께",
+     "count": 50
     },
     {
      "word": "내가",
-     "count": 46
-    },
-    {
-     "word": "먼저",
-     "count": 45
+     "count": 49
     },
     {
      "word": "아닙니다",
-     "count": 43
+     "count": 47
+    },
+    {
+     "word": "먼저",
+     "count": 47
     }
    ],
-   "chapters_share": 0.521,
+   "chapters_share": 0.525,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -4768,31 +4711,31 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 44695,
+   "comments": 44489,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7323,
+     "count": 7300,
      "share": 0.164
     },
     {
      "name": "질문",
-     "count": 6346,
+     "count": 6322,
      "share": 0.142
     },
     {
      "name": "칭찬·감사",
-     "count": 4880,
+     "count": 4864,
      "share": 0.109
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2994,
+     "count": 2981,
      "share": 0.067
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1035,
+     "count": 1032,
      "share": 0.023
     },
     {
@@ -4801,7 +4744,7 @@
      "share": 0.023
     }
    ],
-   "comment_uncategorized": 0.581,
+   "comment_uncategorized": 0.58,
    "top_comments": [
     {
      "text": "노동시간이 너무 길고 여유 생활을 즐길 수 없게 만든 게 제일 문제임",
@@ -4870,6 +4813,11 @@
    "videos": 143,
    "channels": 110,
    "new_this_week": [
+    {
+     "id": "AmNYmxOZSDA",
+     "title": "[EP.12] 인지심리학자 김경일 교수가 본 한국 문화의 특수성 (feat.이탈리아 절대 못 돌아간다는 크리스티나)ㅣ비정상수다",
+     "published": "2026-07-30"
+    },
     {
      "id": "acH9YlzJHIc",
      "title": "사람 좋아 인간들의 상처받고, 미워하고, 사랑하고, 성장하는 인간관계 토크(feat.승헌PD)",
@@ -4981,11 +4929,11 @@
      "count": 8
     }
    ],
-   "transcripts": 44,
+   "transcripts": 52,
    "text_sources": {
     "자막": 19,
-    "음성인식": 25,
-    "설명": 96,
+    "음성인식": 33,
+    "설명": 88,
     "없음": 3
    },
    "content_words": [
@@ -4995,47 +4943,47 @@
     },
     {
      "word": "그리고",
-     "count": 60
+     "count": 64
     },
     {
      "word": "아니라",
-     "count": 58
+     "count": 61
     },
     {
      "word": "가장",
-     "count": 55
+     "count": 57
     },
     {
      "word": "사람이",
-     "count": 51
+     "count": 54
     },
     {
      "word": "오늘",
-     "count": 50
+     "count": 54
     },
     {
      "word": "마음을",
-     "count": 49
-    },
-    {
-     "word": "함께",
-     "count": 48
+     "count": 51
     },
     {
      "word": "어떤",
-     "count": 47
+     "count": 50
+    },
+    {
+     "word": "함께",
+     "count": 50
     },
     {
      "word": "내가",
-     "count": 46
-    },
-    {
-     "word": "먼저",
-     "count": 45
+     "count": 49
     },
     {
      "word": "아닙니다",
-     "count": 43
+     "count": 47
+    },
+    {
+     "word": "먼저",
+     "count": 47
     }
    ],
    "chapters_share": 0.517,
@@ -5298,11 +5246,11 @@
      "count": 8
     }
    ],
-   "transcripts": 46,
+   "transcripts": 54,
    "text_sources": {
     "자막": 19,
-    "음성인식": 27,
-    "설명": 100,
+    "음성인식": 35,
+    "설명": 92,
     "없음": 3
    },
    "content_words": [
@@ -5311,48 +5259,48 @@
      "count": 72
     },
     {
-     "word": "아니라",
-     "count": 62
+     "word": "그리고",
+     "count": 66
     },
     {
-     "word": "그리고",
-     "count": 62
+     "word": "아니라",
+     "count": 65
     },
     {
      "word": "가장",
-     "count": 56
+     "count": 58
     },
     {
      "word": "오늘",
-     "count": 54
+     "count": 58
     },
     {
      "word": "사람이",
-     "count": 52
+     "count": 55
     },
     {
      "word": "마음을",
-     "count": 50
+     "count": 52
     },
     {
      "word": "함께",
-     "count": 50
+     "count": 52
     },
     {
      "word": "어떤",
-     "count": 48
+     "count": 51
     },
     {
      "word": "내가",
-     "count": 47
-    },
-    {
-     "word": "먼저",
-     "count": 47
+     "count": 50
     },
     {
      "word": "아닙니다",
-     "count": 45
+     "count": 49
+    },
+    {
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.51,
@@ -5615,61 +5563,61 @@
      "count": 9
     }
    ],
-   "transcripts": 46,
+   "transcripts": 56,
    "text_sources": {
     "자막": 19,
-    "음성인식": 27,
-    "설명": 106,
+    "음성인식": 37,
+    "설명": 96,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 76
+     "count": 77
     },
     {
      "word": "그리고",
-     "count": 64
+     "count": 69
     },
     {
      "word": "아니라",
-     "count": 63
-    },
-    {
-     "word": "가장",
-     "count": 58
+     "count": 68
     },
     {
      "word": "오늘",
-     "count": 57
+     "count": 62
+    },
+    {
+     "word": "가장",
+     "count": 60
     },
     {
      "word": "사람이",
-     "count": 53
-    },
-    {
-     "word": "함께",
-     "count": 52
-    },
-    {
-     "word": "마음을",
-     "count": 51
+     "count": 58
     },
     {
      "word": "어떤",
-     "count": 51
+     "count": 55
+    },
+    {
+     "word": "함께",
+     "count": 54
+    },
+    {
+     "word": "마음을",
+     "count": 53
     },
     {
      "word": "내가",
-     "count": 48
-    },
-    {
-     "word": "먼저",
-     "count": 48
+     "count": 52
     },
     {
      "word": "아닙니다",
-     "count": 46
+     "count": 50
+    },
+    {
+     "word": "먼저",
+     "count": 50
     }
    ],
    "chapters_share": 0.516,
@@ -5927,61 +5875,61 @@
      "count": 9
     }
    ],
-   "transcripts": 46,
+   "transcripts": 56,
    "text_sources": {
     "자막": 19,
-    "음성인식": 27,
-    "설명": 111,
+    "음성인식": 37,
+    "설명": 101,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 76
+     "count": 77
     },
     {
      "word": "아니라",
-     "count": 67
+     "count": 72
     },
     {
      "word": "그리고",
-     "count": 66
-    },
-    {
-     "word": "가장",
-     "count": 59
+     "count": 71
     },
     {
      "word": "오늘",
-     "count": 59
+     "count": 64
     },
     {
-     "word": "함께",
-     "count": 53
+     "word": "가장",
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 53
+     "count": 58
     },
     {
      "word": "어떤",
-     "count": 52
+     "count": 56
     },
     {
-     "word": "마음을",
-     "count": 51
+     "word": "함께",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 50
+     "count": 54
     },
     {
-     "word": "먼저",
-     "count": 48
+     "word": "마음을",
+     "count": 53
     },
     {
      "word": "아닙니다",
-     "count": 47
+     "count": 51
+    },
+    {
+     "word": "먼저",
+     "count": 50
     }
    ],
    "chapters_share": 0.506,
@@ -6219,61 +6167,61 @@
      "count": 9
     }
    ],
-   "transcripts": 46,
+   "transcripts": 56,
    "text_sources": {
     "자막": 19,
-    "음성인식": 27,
-    "설명": 112,
+    "음성인식": 37,
+    "설명": 102,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 77
+     "count": 78
     },
     {
      "word": "아니라",
-     "count": 67
+     "count": 72
     },
     {
      "word": "그리고",
-     "count": 66
+     "count": 71
     },
     {
      "word": "오늘",
-     "count": 60
+     "count": 65
     },
     {
      "word": "가장",
-     "count": 59
-    },
-    {
-     "word": "함께",
-     "count": 54
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 53
+     "count": 58
+    },
+    {
+     "word": "함께",
+     "count": 56
     },
     {
      "word": "어떤",
-     "count": 52
-    },
-    {
-     "word": "마음을",
-     "count": 51
+     "count": 56
     },
     {
      "word": "내가",
-     "count": 50
+     "count": 54
     },
     {
-     "word": "먼저",
-     "count": 48
+     "word": "마음을",
+     "count": 53
     },
     {
      "word": "아닙니다",
-     "count": 47
+     "count": 51
+    },
+    {
+     "word": "먼저",
+     "count": 50
     }
    ],
    "chapters_share": 0.509,
@@ -6397,56 +6345,46 @@
   {
    "weeks": 21,
    "label": "최근 21주",
-   "videos": 164,
+   "videos": 162,
    "channels": 122,
    "new_this_week": [
-    {
-     "id": "NE1wafMh8T4",
-     "title": "화났으면서 화 안 났다고 하는 여자의 심리ㅣ영업중EP.69 [EN]",
-     "published": "2026-06-18"
-    },
-    {
-     "id": "Vbi0Yc44SEs",
-     "title": "1분만 같이 있어도 느껴지는 그릇 큰 사람들의 특징 (성격 편)",
-     "published": "2026-06-18"
-    },
     {
      "id": "W3cSQrFISCk",
      "title": "나르시시스트 특",
      "published": "2026-06-24"
     }
    ],
-   "views_median": 278088.0,
-   "views_per_day_median": 8103.05,
-   "ratio_median": 15.97,
+   "views_median": 268544.0,
+   "views_per_day_median": 7837.55,
+   "ratio_median": 16.55,
    "success": 82,
    "minutes_median": 19.6,
    "title_len_avg": 41.9,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 76,
+     "count": 75,
      "share": 0.463
     },
     {
      "name": "이유",
      "count": 34,
-     "share": 0.207
+     "share": 0.21
     },
     {
      "name": "N가지",
      "count": 33,
-     "share": 0.201
+     "share": 0.204
     },
     {
      "name": "물음표 ?",
      "count": 12,
-     "share": 0.073
+     "share": 0.074
     },
     {
      "name": "vs 비교",
      "count": 10,
-     "share": 0.061
+     "share": 0.062
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -6461,12 +6399,12 @@
     {
      "name": "느낌표 !",
      "count": 3,
-     "share": 0.018
+     "share": 0.019
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 3,
-     "share": 0.018
+     "share": 0.019
     },
     {
      "name": "공통점",
@@ -6485,20 +6423,16 @@
      "count": 34
     },
     {
-     "word": "특징",
-     "count": 18
-    },
-    {
      "word": "인간관계",
      "count": 17
     },
     {
-     "word": "심리",
+     "word": "특징",
      "count": 17
     },
     {
-     "word": "사람들의",
-     "count": 12
+     "word": "심리",
+     "count": 16
     },
     {
      "word": "방법",
@@ -6506,6 +6440,10 @@
     },
     {
      "word": "심리학",
+     "count": 11
+    },
+    {
+     "word": "사람들의",
      "count": 11
     },
     {
@@ -6521,11 +6459,11 @@
      "count": 9
     }
    ],
-   "transcripts": 46,
+   "transcripts": 56,
    "text_sources": {
     "자막": 19,
-    "음성인식": 27,
-    "설명": 115,
+    "음성인식": 37,
+    "설명": 103,
     "없음": 3
    },
    "content_words": [
@@ -6535,50 +6473,50 @@
     },
     {
      "word": "아니라",
-     "count": 67
+     "count": 72
     },
     {
      "word": "그리고",
-     "count": 66
+     "count": 71
     },
     {
      "word": "오늘",
-     "count": 61
+     "count": 65
     },
     {
      "word": "가장",
-     "count": 59
-    },
-    {
-     "word": "함께",
-     "count": 54
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 53
+     "count": 58
+    },
+    {
+     "word": "함께",
+     "count": 56
     },
     {
      "word": "어떤",
-     "count": 52
-    },
-    {
-     "word": "마음을",
-     "count": 51
+     "count": 56
     },
     {
      "word": "내가",
-     "count": 50
+     "count": 54
     },
     {
-     "word": "먼저",
-     "count": 48
+     "word": "마음을",
+     "count": 53
     },
     {
      "word": "아닙니다",
-     "count": 47
+     "count": 51
+    },
+    {
+     "word": "먼저",
+     "count": 50
     }
    ],
-   "chapters_share": 0.512,
+   "chapters_share": 0.506,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -6600,40 +6538,40 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 55614,
+   "comments": 53376,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8796,
-     "share": 0.158
+     "count": 8579,
+     "share": 0.161
     },
     {
      "name": "질문",
-     "count": 7617,
-     "share": 0.137
+     "count": 7185,
+     "share": 0.135
     },
     {
      "name": "칭찬·감사",
-     "count": 7129,
-     "share": 0.128
+     "count": 7005,
+     "share": 0.131
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3515,
-     "share": 0.063
+     "count": 3408,
+     "share": 0.064
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1228,
+     "count": 1197,
      "share": 0.022
     },
     {
      "name": "빚·신용·미수",
-     "count": 1066,
-     "share": 0.019
+     "count": 1064,
+     "share": 0.02
     }
    ],
-   "comment_uncategorized": 0.582,
+   "comment_uncategorized": 0.579,
    "top_comments": [
     {
      "text": "노동시간이 너무 길고 여유 생활을 즐길 수 없게 만든 게 제일 문제임",
@@ -6718,9 +6656,19 @@
      "published": "2026-06-13"
     },
     {
+     "id": "NE1wafMh8T4",
+     "title": "화났으면서 화 안 났다고 하는 여자의 심리ㅣ영업중EP.69 [EN]",
+     "published": "2026-06-18"
+    },
+    {
      "id": "NV6XEbHUFQU",
      "title": "항상 집이 깨끗한 사람들의 놀라운 특징 : 뇌를 바꾸고 부를 끌어당기는 정리의 뇌과학",
      "published": "2026-06-14"
+    },
+    {
+     "id": "Vbi0Yc44SEs",
+     "title": "1분만 같이 있어도 느껴지는 그릇 큰 사람들의 특징 (성격 편)",
+     "published": "2026-06-18"
     },
     {
      "id": "ZbPijVInhtY",
@@ -6838,61 +6786,61 @@
      "count": 9
     }
    ],
-   "transcripts": 46,
+   "transcripts": 57,
    "text_sources": {
     "자막": 19,
-    "음성인식": 27,
-    "설명": 120,
-    "없음": 4
+    "음성인식": 38,
+    "설명": 110,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 79
-    },
-    {
-     "word": "아니라",
-     "count": 67
+     "count": 81
     },
     {
      "word": "그리고",
-     "count": 67
+     "count": 73
+    },
+    {
+     "word": "아니라",
+     "count": 72
     },
     {
      "word": "오늘",
-     "count": 63
+     "count": 69
     },
     {
      "word": "가장",
-     "count": 62
-    },
-    {
-     "word": "함께",
-     "count": 55
+     "count": 64
     },
     {
      "word": "사람이",
-     "count": 54
+     "count": 60
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 58
     },
     {
-     "word": "마음을",
-     "count": 52
+     "word": "함께",
+     "count": 57
     },
     {
      "word": "내가",
-     "count": 50
+     "count": 55
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "마음을",
+     "count": 54
     },
     {
      "word": "아닙니다",
-     "count": 48
+     "count": 52
+    },
+    {
+     "word": "먼저",
+     "count": 52
     }
    ],
    "chapters_share": 0.512,
@@ -7150,61 +7098,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 58,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 124,
-    "없음": 4
+    "음성인식": 38,
+    "설명": 114,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 80
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 74
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 74
     },
     {
      "word": "오늘",
-     "count": 65
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 63
-    },
-    {
-     "word": "함께",
-     "count": 56
+     "count": 65
     },
     {
      "word": "사람이",
-     "count": 55
+     "count": 61
     },
     {
      "word": "어떤",
-     "count": 54
+     "count": 59
+    },
+    {
+     "word": "함께",
+     "count": 58
     },
     {
      "word": "내가",
-     "count": 53
-    },
-    {
-     "word": "마음을",
-     "count": 52
+     "count": 58
     },
     {
      "word": "아닙니다",
-     "count": 52
+     "count": 56
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "마음을",
+     "count": 54
+    },
+    {
+     "word": "다른",
+     "count": 52
     }
    ],
    "chapters_share": 0.514,
@@ -7457,61 +7405,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 58,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 128,
-    "없음": 4
+    "음성인식": 38,
+    "설명": 118,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 80
-    },
-    {
-     "word": "아니라",
-     "count": 70
+     "count": 82
     },
     {
      "word": "그리고",
-     "count": 70
+     "count": 76
+    },
+    {
+     "word": "아니라",
+     "count": 75
     },
     {
      "word": "오늘",
-     "count": 67
+     "count": 73
     },
     {
      "word": "가장",
-     "count": 64
-    },
-    {
-     "word": "함께",
-     "count": 58
+     "count": 66
     },
     {
      "word": "사람이",
-     "count": 57
+     "count": 63
+    },
+    {
+     "word": "함께",
+     "count": 60
     },
     {
      "word": "어떤",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
+     "count": 60
     },
     {
      "word": "내가",
-     "count": 53
+     "count": 58
     },
     {
      "word": "아닙니다",
-     "count": 53
+     "count": 57
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "마음을",
+     "count": 56
+    },
+    {
+     "word": "다른",
+     "count": 52
     }
    ],
    "chapters_share": 0.514,
@@ -7749,61 +7697,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 58,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 129,
-    "없음": 4
+    "음성인식": 38,
+    "설명": 119,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 80
-    },
-    {
-     "word": "아니라",
-     "count": 70
+     "count": 82
     },
     {
      "word": "그리고",
-     "count": 70
+     "count": 76
+    },
+    {
+     "word": "아니라",
+     "count": 75
     },
     {
      "word": "오늘",
-     "count": 68
+     "count": 74
     },
     {
      "word": "가장",
-     "count": 64
-    },
-    {
-     "word": "함께",
-     "count": 58
+     "count": 66
     },
     {
      "word": "사람이",
-     "count": 57
+     "count": 63
+    },
+    {
+     "word": "함께",
+     "count": 60
     },
     {
      "word": "어떤",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 60
     },
     {
      "word": "내가",
-     "count": 53
+     "count": 58
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 58
+    },
+    {
+     "word": "마음을",
+     "count": 56
+    },
+    {
+     "word": "다른",
+     "count": 53
     }
    ],
    "chapters_share": 0.517,
@@ -8056,61 +8004,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 133,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 122,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
-    },
-    {
-     "word": "그리고",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 70
+     "count": 77
+    },
+    {
+     "word": "그리고",
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 68
+    },
+    {
+     "word": "사람이",
      "count": 65
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 59
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.511,
@@ -8342,61 +8290,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 133,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 122,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
-    },
-    {
-     "word": "그리고",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 70
+     "count": 77
+    },
+    {
+     "word": "그리고",
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 68
+    },
+    {
+     "word": "사람이",
      "count": 65
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 59
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.511,
@@ -8628,61 +8576,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 133,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 122,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
-    },
-    {
-     "word": "그리고",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 70
+     "count": 77
+    },
+    {
+     "word": "그리고",
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 68
+    },
+    {
+     "word": "사람이",
      "count": 65
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 59
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.511,
@@ -8914,61 +8862,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 133,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 122,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
-    },
-    {
-     "word": "그리고",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 70
+     "count": 77
+    },
+    {
+     "word": "그리고",
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 68
+    },
+    {
+     "word": "사람이",
      "count": 65
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 59
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.511,
@@ -9206,61 +9154,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 134,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 123,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
-     "count": 66
-    },
-    {
-     "word": "함께",
-     "count": 61
+     "count": 69
     },
     {
      "word": "사람이",
-     "count": 59
+     "count": 65
+    },
+    {
+     "word": "함께",
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.514,
@@ -9492,61 +9440,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 134,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 123,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
-     "count": 66
-    },
-    {
-     "word": "함께",
-     "count": 61
+     "count": 69
     },
     {
      "word": "사람이",
-     "count": 59
+     "count": 65
+    },
+    {
+     "word": "함께",
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.514,
@@ -9784,61 +9732,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 135,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 124,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.516,
@@ -10070,61 +10018,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 135,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 124,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.516,
@@ -10356,61 +10304,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 135,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 124,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.516,
@@ -10653,61 +10601,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 137,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 126,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 61
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 62
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
     },
     {
-     "word": "먼저",
-     "count": 49
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 53
     }
    ],
    "chapters_share": 0.521,
@@ -10950,61 +10898,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 139,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 128,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.526,
@@ -11236,61 +11184,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 139,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 128,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.526,
@@ -11528,61 +11476,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 140,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 129,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.529,
@@ -11706,36 +11654,30 @@
   {
    "weeks": 39,
    "label": "최근 39주",
-   "videos": 192,
+   "videos": 191,
    "channels": 139,
-   "new_this_week": [
-    {
-     "id": "3FlYEnsG4dE",
-     "title": "할 거 다 했는데 고백 안 하는 남자의 심리ㅣ영업중EP.53 [EN]",
-     "published": "2026-02-12"
-    }
-   ],
-   "views_median": 283981.0,
-   "views_per_day_median": 6884.5,
-   "ratio_median": 18.03,
+   "new_this_week": [],
+   "views_median": 283147,
+   "views_per_day_median": 6827.5,
+   "ratio_median": 18.05,
    "success": 102,
-   "minutes_median": 19.45,
-   "title_len_avg": 42.8,
+   "minutes_median": 19.4,
+   "title_len_avg": 42.9,
    "title_features": [
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 94,
-     "share": 0.49
+     "share": 0.492
     },
     {
      "name": "N가지",
      "count": 43,
-     "share": 0.224
+     "share": 0.225
     },
     {
      "name": "이유",
      "count": 40,
-     "share": 0.208
+     "share": 0.209
     },
     {
      "name": "물음표 ?",
@@ -11745,7 +11687,7 @@
     {
      "name": "vs 비교",
      "count": 12,
-     "share": 0.062
+     "share": 0.063
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -11754,8 +11696,8 @@
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 8,
-     "share": 0.042
+     "count": 7,
+     "share": 0.037
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -11793,7 +11735,7 @@
     },
     {
      "word": "심리",
-     "count": 21
+     "count": 20
     },
     {
      "word": "심리학",
@@ -11820,64 +11762,64 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 141,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 129,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 85
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
-   "chapters_share": 0.531,
+   "chapters_share": 0.529,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -11899,40 +11841,40 @@
      "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
     }
    ],
-   "comments": 67500,
+   "comments": 66375,
    "comment_needs": [
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10214,
-     "share": 0.151
+     "count": 10161,
+     "share": 0.153
     },
     {
      "name": "질문",
-     "count": 9191,
+     "count": 9016,
      "share": 0.136
     },
     {
      "name": "칭찬·감사",
-     "count": 8730,
-     "share": 0.129
+     "count": 8709,
+     "share": 0.131
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4209,
-     "share": 0.062
+     "count": 4188,
+     "share": 0.063
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1474,
+     "count": 1457,
      "share": 0.022
     },
     {
      "name": "빚·신용·미수",
      "count": 1101,
-     "share": 0.016
+     "share": 0.017
     }
    ],
-   "comment_uncategorized": 0.587,
+   "comment_uncategorized": 0.584,
    "top_comments": [
     {
      "text": "노동시간이 너무 길고 여유 생활을 즐길 수 없게 만든 게 제일 문제임",
@@ -12001,6 +11943,11 @@
    "videos": 193,
    "channels": 139,
    "new_this_week": [
+    {
+     "id": "3FlYEnsG4dE",
+     "title": "할 거 다 했는데 고백 안 하는 남자의 심리ㅣ영업중EP.53 [EN]",
+     "published": "2026-02-12"
+    },
     {
      "id": "X71gvsqMk4k",
      "title": "손해보며 살아야 하는 이유",
@@ -12112,61 +12059,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 142,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 131,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.534,
@@ -12404,61 +12351,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 143,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 132,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.536,
@@ -12690,61 +12637,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 143,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 132,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.536,
@@ -12976,61 +12923,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 143,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 132,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.536,
@@ -13262,61 +13209,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 143,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 132,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.536,
@@ -13548,61 +13495,61 @@
      "count": 9
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 143,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 132,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.536,
@@ -13845,61 +13792,61 @@
      "count": 10
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 145,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 134,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.541,
@@ -14137,61 +14084,61 @@
      "count": 10
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 146,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 135,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 86
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 49
+     "count": 54
     }
    ],
    "chapters_share": 0.543,
@@ -14315,6 +14262,292 @@
   {
    "weeks": 48,
    "label": "최근 48주",
+   "videos": 197,
+   "channels": 140,
+   "new_this_week": [],
+   "views_median": 301012,
+   "views_per_day_median": 6788.3,
+   "ratio_median": 17.05,
+   "success": 102,
+   "minutes_median": 19.4,
+   "title_len_avg": 42.6,
+   "title_features": [
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 98,
+     "share": 0.497
+    },
+    {
+     "name": "이유",
+     "count": 43,
+     "share": 0.218
+    },
+    {
+     "name": "N가지",
+     "count": 43,
+     "share": 0.218
+    },
+    {
+     "name": "물음표 ?",
+     "count": 13,
+     "share": 0.066
+    },
+    {
+     "name": "vs 비교",
+     "count": 12,
+     "share": 0.061
+    },
+    {
+     "name": "노후·퇴직금·은퇴·50~70대",
+     "count": 8,
+     "share": 0.041
+    },
+    {
+     "name": "사연·오디오북·실화·고백",
+     "count": 8,
+     "share": 0.041
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 5,
+     "share": 0.025
+    },
+    {
+     "name": "느낌표 !",
+     "count": 4,
+     "share": 0.02
+    },
+    {
+     "name": "공통점",
+     "count": 1,
+     "share": 0.005
+    },
+    {
+     "name": "직접·해보니·N년 기록",
+     "count": 1,
+     "share": 0.005
+    }
+   ],
+   "title_words": [
+    {
+     "word": "이유",
+     "count": 43
+    },
+    {
+     "word": "특징",
+     "count": 25
+    },
+    {
+     "word": "인간관계",
+     "count": 22
+    },
+    {
+     "word": "심리",
+     "count": 21
+    },
+    {
+     "word": "사람들의",
+     "count": 17
+    },
+    {
+     "word": "심리학",
+     "count": 16
+    },
+    {
+     "word": "방법",
+     "count": 13
+    },
+    {
+     "word": "5가지",
+     "count": 11
+    },
+    {
+     "word": "사람의",
+     "count": 10
+    },
+    {
+     "word": "EP",
+     "count": 10
+    }
+   ],
+   "transcripts": 59,
+   "text_sources": {
+    "자막": 20,
+    "음성인식": 39,
+    "설명": 135,
+    "없음": 3
+   },
+   "content_words": [
+    {
+     "word": "있습니다",
+     "count": 86
+    },
+    {
+     "word": "오늘",
+     "count": 78
+    },
+    {
+     "word": "그리고",
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
+    },
+    {
+     "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
+     "count": 66
+    },
+    {
+     "word": "함께",
+     "count": 63
+    },
+    {
+     "word": "어떤",
+     "count": 62
+    },
+    {
+     "word": "내가",
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
+    },
+    {
+     "word": "많은",
+     "count": 54
+    }
+   ],
+   "chapters_share": 0.543,
+   "syl_per_sec_median": null,
+   "hooks": [
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "src": "설명",
+     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
+    },
+    {
+     "id": "_NkXH6lILgY",
+     "title": "손절해야 하는 친구 특",
+     "src": "설명",
+     "hook": "오늘도 시청해주셔서 감사합니다!! ♥ [총몇명 스튜디오] 총감독 : 총몇명 / 부감독 : 호지 / 스토리보드 : 호빵 / 원동화 :네이처 / 편집 : 세영 / 배경 : 유진 / 기획 : 총몇명, Belli, 센 / 사운드 : 총몇명, Akuku, 호지 / 더빙 : Belli, 윤은서, "
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "src": "설명",
+     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
+    }
+   ],
+   "comments": 73107,
+   "comment_needs": [
+    {
+     "name": "경험(내 얘기·나도 잃음)",
+     "count": 10920,
+     "share": 0.149
+    },
+    {
+     "name": "칭찬·감사",
+     "count": 10089,
+     "share": 0.138
+    },
+    {
+     "name": "질문",
+     "count": 9828,
+     "share": 0.134
+    },
+    {
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 4552,
+     "share": 0.062
+    },
+    {
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 1577,
+     "share": 0.022
+    },
+    {
+     "name": "빚·신용·미수",
+     "count": 1109,
+     "share": 0.015
+    }
+   ],
+   "comment_uncategorized": 0.584,
+   "top_comments": [
+    {
+     "text": "노동시간이 너무 길고 여유 생활을 즐길 수 없게 만든 게 제일 문제임",
+     "likes": 18661
+    },
+    {
+     "text": "조카가 정신과 의사인건 진짜였구나...",
+     "likes": 13651
+    },
+    {
+     "text": "퇴근하면 내 시간이 없음, 저녁먹고 설거지 하고 씻으면 바로 잘 시간임\n삶을 사는게 아니라 생존하는 느낌",
+     "likes": 12798
+    }
+   ],
+   "top_videos": [
+    {
+     "id": "1Y1UTkjMG00",
+     "title": "빨리 자려고 할수록 손해보는 이유",
+     "channel": "심리학 고양이",
+     "views": 2461824,
+     "views_per_day": 187847.8,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
+    },
+    {
+     "id": "_NkXH6lILgY",
+     "title": "손절해야 하는 친구 특",
+     "channel": "총몇명",
+     "views": 3215293,
+     "views_per_day": 114020.8,
+     "published": "2026-10-14",
+     "url": "https://www.youtube.com/watch?v=_NkXH6lILgY"
+    },
+    {
+     "id": "a5koY9UwJD8",
+     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
+     "channel": "한창수의 마음정비소",
+     "views": 1381158,
+     "views_per_day": 104642.3,
+     "published": "2026-10-29",
+     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
+    },
+    {
+     "id": "GCvhkKjeClI",
+     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
+     "channel": "지혜로운 동반자",
+     "views": 1468050,
+     "views_per_day": 101839.1,
+     "published": "2026-10-28",
+     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
+    },
+    {
+     "id": "6skfikfyY_M",
+     "title": "당신이 생각보다 호감인 이유",
+     "channel": "심리학 고양이",
+     "views": 2188855,
+     "views_per_day": 80599.0,
+     "published": "2026-10-15",
+     "url": "https://www.youtube.com/watch?v=6skfikfyY_M"
+    }
+   ]
+  },
+  {
+   "weeks": 49,
+   "label": "최근 49주",
    "videos": 198,
    "channels": 140,
    "new_this_week": [
@@ -14429,347 +14662,61 @@
      "count": 10
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 147,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 136,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 84
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 87
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
-    },
-    {
-     "word": "내가",
-     "count": 55
-    },
-    {
-     "word": "많은",
-     "count": 50
-    }
-   ],
-   "chapters_share": 0.545,
-   "syl_per_sec_median": null,
-   "hooks": [
-    {
-     "id": "1Y1UTkjMG00",
-     "title": "빨리 자려고 할수록 손해보는 이유",
-     "src": "설명",
-     "hook": "🛏️ 베스트슬립 공식 🛒 베스트슬립 스마트스토어 🏠 베스트슬립 오늘의집 📮 매주 2,300명이 받아보는 심리학 편지 (무료) 💬 심리학 고양이 오픈카톡방 참고자료 Ansfield, M. E., Wegner, D. M., & Bowser, R. (1996). Ironic effects o"
-    },
-    {
-     "id": "_NkXH6lILgY",
-     "title": "손절해야 하는 친구 특",
-     "src": "설명",
-     "hook": "오늘도 시청해주셔서 감사합니다!! ♥ [총몇명 스튜디오] 총감독 : 총몇명 / 부감독 : 호지 / 스토리보드 : 호빵 / 원동화 :네이처 / 편집 : 세영 / 배경 : 유진 / 기획 : 총몇명, Belli, 센 / 사운드 : 총몇명, Akuku, 호지 / 더빙 : Belli, 윤은서, "
-    },
-    {
-     "id": "a5koY9UwJD8",
-     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
-     "src": "설명",
-     "hook": "EP.95  (존중 편) 한 평생 착하게 살았는데 왜 남들에게 존중받지 못하는 걸까요? 오늘 마음 정비소에서 남들에게 존중받는 비법 알아가세요 💼한창수 교수 고려대학교 의과대학 정신건강의학과 교수 고려대학교구로병원 정신건강의학과 저서 《관계의 분리수거》, 《무기력이 무기력해지도록》, 《"
-    }
-   ],
-   "comments": 73353,
-   "comment_needs": [
-    {
-     "name": "경험(내 얘기·나도 잃음)",
-     "count": 10926,
-     "share": 0.149
-    },
-    {
-     "name": "칭찬·감사",
-     "count": 10092,
-     "share": 0.138
-    },
-    {
-     "name": "질문",
-     "count": 9870,
-     "share": 0.135
-    },
-    {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4554,
-     "share": 0.062
-    },
-    {
-     "name": "비판(가짜·AI·뻔함)",
-     "count": 1580,
-     "share": 0.022
-    },
-    {
-     "name": "빚·신용·미수",
-     "count": 1109,
-     "share": 0.015
-    }
-   ],
-   "comment_uncategorized": 0.584,
-   "top_comments": [
-    {
-     "text": "노동시간이 너무 길고 여유 생활을 즐길 수 없게 만든 게 제일 문제임",
-     "likes": 18661
-    },
-    {
-     "text": "조카가 정신과 의사인건 진짜였구나...",
-     "likes": 13651
-    },
-    {
-     "text": "퇴근하면 내 시간이 없음, 저녁먹고 설거지 하고 씻으면 바로 잘 시간임\n삶을 사는게 아니라 생존하는 느낌",
-     "likes": 12798
-    }
-   ],
-   "top_videos": [
-    {
-     "id": "1Y1UTkjMG00",
-     "title": "빨리 자려고 할수록 손해보는 이유",
-     "channel": "심리학 고양이",
-     "views": 2461824,
-     "views_per_day": 187847.8,
-     "published": "2026-10-29",
-     "url": "https://www.youtube.com/watch?v=1Y1UTkjMG00"
-    },
-    {
-     "id": "_NkXH6lILgY",
-     "title": "손절해야 하는 친구 특",
-     "channel": "총몇명",
-     "views": 3215293,
-     "views_per_day": 114020.8,
-     "published": "2026-10-14",
-     "url": "https://www.youtube.com/watch?v=_NkXH6lILgY"
-    },
-    {
-     "id": "a5koY9UwJD8",
-     "title": "잘 해주지 말고 '이렇게' 해야 상대가 당신을 존중합니다 (인간 관계 편)",
-     "channel": "한창수의 마음정비소",
-     "views": 1381158,
-     "views_per_day": 104642.3,
-     "published": "2026-10-29",
-     "url": "https://www.youtube.com/watch?v=a5koY9UwJD8"
-    },
-    {
-     "id": "GCvhkKjeClI",
-     "title": "의자 꼭 넣고 가는 사람, 본인도 몰랐던 숨겨진 심리 5가지",
-     "channel": "지혜로운 동반자",
-     "views": 1468050,
-     "views_per_day": 101839.1,
-     "published": "2026-10-28",
-     "url": "https://www.youtube.com/watch?v=GCvhkKjeClI"
-    },
-    {
-     "id": "6skfikfyY_M",
-     "title": "당신이 생각보다 호감인 이유",
-     "channel": "심리학 고양이",
-     "views": 2188855,
-     "views_per_day": 80599.0,
-     "published": "2026-10-15",
-     "url": "https://www.youtube.com/watch?v=6skfikfyY_M"
-    }
-   ]
-  },
-  {
-   "weeks": 49,
-   "label": "최근 49주",
-   "videos": 198,
-   "channels": 140,
-   "new_this_week": [],
-   "views_median": 302475.0,
-   "views_per_day_median": 6494.3,
-   "ratio_median": 17.01,
-   "success": 102,
-   "minutes_median": 19.45,
-   "title_len_avg": 42.6,
-   "title_features": [
-    {
-     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 98,
-     "share": 0.495
-    },
-    {
-     "name": "이유",
-     "count": 43,
-     "share": 0.217
-    },
-    {
-     "name": "N가지",
-     "count": 43,
-     "share": 0.217
-    },
-    {
-     "name": "물음표 ?",
-     "count": 13,
-     "share": 0.066
-    },
-    {
-     "name": "vs 비교",
-     "count": 12,
-     "share": 0.061
-    },
-    {
-     "name": "노후·퇴직금·은퇴·50~70대",
-     "count": 8,
-     "share": 0.04
-    },
-    {
-     "name": "사연·오디오북·실화·고백",
-     "count": 8,
-     "share": 0.04
-    },
-    {
-     "name": "과정·벌어진 일·결말·결국",
-     "count": 5,
-     "share": 0.025
-    },
-    {
-     "name": "느낌표 !",
-     "count": 4,
-     "share": 0.02
-    },
-    {
-     "name": "공통점",
-     "count": 1,
-     "share": 0.005
-    },
-    {
-     "name": "직접·해보니·N년 기록",
-     "count": 1,
-     "share": 0.005
-    }
-   ],
-   "title_words": [
-    {
-     "word": "이유",
-     "count": 43
-    },
-    {
-     "word": "특징",
-     "count": 25
-    },
-    {
-     "word": "인간관계",
-     "count": 22
-    },
-    {
-     "word": "심리",
-     "count": 22
-    },
-    {
-     "word": "사람들의",
-     "count": 17
-    },
-    {
-     "word": "심리학",
-     "count": 16
-    },
-    {
-     "word": "방법",
-     "count": 13
-    },
-    {
-     "word": "5가지",
-     "count": 11
-    },
-    {
-     "word": "사람의",
-     "count": 10
-    },
-    {
-     "word": "EP",
-     "count": 10
-    }
-   ],
-   "transcripts": 47,
-   "text_sources": {
-    "자막": 20,
-    "음성인식": 27,
-    "설명": 147,
-    "없음": 4
-   },
-   "content_words": [
-    {
-     "word": "있습니다",
-     "count": 84
-    },
-    {
-     "word": "아니라",
-     "count": 71
-    },
-    {
-     "word": "오늘",
-     "count": 71
-    },
-    {
-     "word": "그리고",
-     "count": 71
-    },
-    {
-     "word": "가장",
-     "count": 66
-    },
-    {
-     "word": "함께",
      "count": 62
     },
     {
-     "word": "사람이",
-     "count": 60
-    },
-    {
-     "word": "어떤",
-     "count": 57
+     "word": "내가",
+     "count": 61
     },
     {
      "word": "아닙니다",
-     "count": 56
+     "count": 61
     },
     {
      "word": "마음을",
-     "count": 55
-    },
-    {
-     "word": "내가",
-     "count": 55
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 50
+     "count": 55
     }
    ],
    "chapters_share": 0.545,
@@ -15001,61 +14948,61 @@
      "count": 10
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 147,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 136,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 84
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 87
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 50
+     "count": 55
     }
    ],
    "chapters_share": 0.545,
@@ -15287,61 +15234,61 @@
      "count": 10
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 147,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 136,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 84
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 87
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 50
+     "count": 55
     }
    ],
    "chapters_share": 0.545,
@@ -15573,61 +15520,61 @@
      "count": 10
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 147,
-    "없음": 4
+    "음성인식": 39,
+    "설명": 136,
+    "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 84
-    },
-    {
-     "word": "아니라",
-     "count": 71
+     "count": 87
     },
     {
      "word": "오늘",
-     "count": 71
+     "count": 78
     },
     {
      "word": "그리고",
-     "count": 71
+     "count": 77
+    },
+    {
+     "word": "아니라",
+     "count": 76
     },
     {
      "word": "가장",
+     "count": 69
+    },
+    {
+     "word": "사람이",
      "count": 66
     },
     {
      "word": "함께",
-     "count": 62
-    },
-    {
-     "word": "사람이",
-     "count": 60
+     "count": 63
     },
     {
      "word": "어떤",
-     "count": 57
-    },
-    {
-     "word": "아닙니다",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 55
+     "count": 62
     },
     {
      "word": "내가",
-     "count": 55
+     "count": 61
+    },
+    {
+     "word": "아닙니다",
+     "count": 61
+    },
+    {
+     "word": "마음을",
+     "count": 57
     },
     {
      "word": "많은",
-     "count": 50
+     "count": 55
     }
    ],
    "chapters_share": 0.545,
@@ -16315,61 +16262,61 @@
      "count": 19
     }
    ],
-   "transcripts": 47,
+   "transcripts": 59,
    "text_sources": {
     "자막": 20,
-    "음성인식": 27,
-    "설명": 232,
-    "없음": 10
+    "음성인식": 39,
+    "설명": 221,
+    "없음": 9
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 94
+     "count": 97
     },
     {
      "word": "오늘",
-     "count": 76
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 74
+     "count": 79
     },
     {
      "word": "그리고",
-     "count": 72
+     "count": 78
     },
     {
      "word": "가장",
-     "count": 70
+     "count": 73
     },
     {
      "word": "오늘은",
-     "count": 69
-    },
-    {
-     "word": "함께",
-     "count": 64
+     "count": 73
     },
     {
      "word": "사람이",
-     "count": 64
+     "count": 70
     },
     {
      "word": "어떤",
-     "count": 63
+     "count": 68
+    },
+    {
+     "word": "함께",
+     "count": 65
     },
     {
      "word": "내가",
-     "count": 59
+     "count": 65
     },
     {
      "word": "많은",
-     "count": 57
+     "count": 62
     },
     {
-     "word": "마음을",
-     "count": 56
+     "word": "아닙니다",
+     "count": 61
     }
    ],
    "chapters_share": 0.502,

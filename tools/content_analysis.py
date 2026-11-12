@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.2 — 2026-10-28 — 엑셀 '읽는 법'의 썸네일 장 수·성공 사례 뜻을 주제 파일에서 (주식 167장이 굳어 있어 역사·재테크에 틀린 수가 찍혔음).
+# VERSION: v1.0.3 — 2026-11-12 — **앞 5분만 받은 대본(음성인식 1차, transcript.json partial_sec)은 '흥미 장치 4구간'을 세지 않음** — 그 대본의 끝(5분)을
+#          영상 끝으로 보고 4등분해 '끝까지 이어짐'이 틀리게 나왔음 (사용자 지시 2026-11-12 "그래 content_analysis 고쳐"). '대본 범위' 칸 · 통계 '끝까지 대본 수'.
+#          다른 칸(첫 60초·첫 문장·말투·/분 비율)은 앞 5분 안이라 그대로 셈.
+# (v1.0.2 — 2026-10-28 — 엑셀 '읽는 법'의 썸네일 장 수·성공 사례 뜻을 주제 파일에서 (주식 167장이 굳어 있어 역사·재테크에 틀린 수가 찍혔음).
 # (v1.0.1 — 2026-10-28 — 썸네일을 지금 묶음 기준으로 (다른 세션이 성공 기준을 고쳐 158 → 114개 — 통계는 지금 성공 사례만, 영상별 시트에 묶음·지금 번호·분류 때 번호).
 # (v1.0 — 2026-10-28 — 최초.) 사용자 지시 "아래처럼 분석하고 있는지 확인하고 아니면 반영해 그리고 내가 확인할 수 있는 엑셀 생성해 —
 #          제목: 문구 유형, 사용 단어 · 썸네일: 이미지, 주요 문구, 보조 문구 유형 · 대본 내용: 제목과 도입부 연결, 전개 방식, 말투, 정보를 알려주는 방식,
@@ -10,6 +13,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.0.3 | 2026-11-12 | 앞 5분 대본은 흥미 장치 4구간·끝까지 이어짐을 세지 않음 · 대본 범위 칸 · 끝까지 대본 수 | script_rows · script_stats · write_md |
 # | v1.0.2 | 2026-10-28 | 읽는 법 — 썸네일 분류 장 수 = thumb_codes.tsv 줄 수 · 성공 사례 뜻 = 주제 규칙 | GUIDE · write_xlsx · main |
 # | v1.0.1 | 2026-10-28 | 썸네일 통계 = 지금 성공 사례만 · 묶음·지금 번호 칸 | thumb_rows · thumb_stats |
 # | v1.0 | 2026-10-28 | 최초 | load · title_types · thumb_rows · script_rows · comment_rows · write_xlsx · write_md |
@@ -36,7 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import comment_types as ct  # noqa: E402
 
-VERSION = "v1.0.2"
+VERSION = "v1.0.3"
 log = logging.getLogger("content_analysis")
 
 
@@ -357,15 +361,19 @@ def script_rows(vids):
         first15, first30, first60 = text_between(sn, 0, 8), text_between(sn, 0, 30), text_between(sn, 0, 60)  # 첫 문장 ≈ 첫 8초 (자동 자막엔 문장 부호가 없음)
         tw = set(words(m.get("title") or ""))
         hit = [w for w in tw if w in first60]
-        quarters = []
-        for i in range(4):
-            seg = text_between(sn, dur * i / 4, dur * (i + 1) / 4)
-            quarters.append(len(RX_Q.findall(seg)) + len(RX_TEASE.findall(seg)))
+        partial = float(tr.get("partial_sec") or 0)          # v1.0.3: 앞 N초만 받은 대본 (음성인식 1차) — 영상 끝이 아님
+        quarters = [None] * 4
+        if not partial:
+            quarters = []
+            for i in range(4):
+                seg = text_between(sn, dur * i / 4, dur * (i + 1) / 4)
+                quarters.append(len(RX_Q.findall(seg)) + len(RX_TEASE.findall(seg)))
         f, p, pl = endings(full) if ko else (0, 0, 0)
         tot = f + p + pl
         tone = "외국어 — 원문 직접" if not ko else ("합니다체" if f >= max(p, pl) else "해요체" if p >= pl else "반말·해라체") if tot else ""
         ch = m.get("chapters") or []
         rows.append({"영상 ID": m.get("id"), "묶음": v["grp"], "제목": m.get("title"), "대본 언어": tr.get("lang"), "대본 길이(분)": round(dur / 60, 1),
+                     "대본 범위": f"앞 {round(partial / 60)}분만" if partial else "끝까지",
                      "도입 30초": short(first30, 400),
                      "제목 낱말 중 첫 60초에 나온 몫 %": share(len(hit), len(tw)) if tw else None, "첫 60초에 나온 제목 낱말": " ".join(sorted(hit)),
                      "첫 문장 유형": next((n for n, rx in FIRST_RX if rx.search(first15)), "그 밖") if ko else "외국어",
@@ -375,7 +383,7 @@ def script_rows(vids):
                      "사연·경험 표현 /분": round(len(RX_STORY.findall(full)) / mins, 2) if ko else None,
                      "질문 /분": round(len(RX_Q.findall(full)) / mins, 2), "예고·반전 표현 /분": round(len(RX_TEASE.findall(full)) / mins, 2) if ko else None,
                      "흥미 장치(질문+예고) 1/4": quarters[0], "2/4": quarters[1], "3/4": quarters[2], "4/4": quarters[3],
-                     "흥미 장치 끝까지 이어짐": ("예" if min(quarters) > 0 else "아니오") if ko else "",
+                     "흥미 장치 끝까지 이어짐": ("앞부분 대본 — 안 셈" if partial else ("예" if min(quarters) > 0 else "아니오")) if ko else "",
                      "목록형 전개 표현 수": len(RX_LIST.findall(full)) if ko else None,
                      "챕터 수": len(ch), "챕터": " / ".join(c.get("title", "") for c in ch)[:300],
                      "배수": m.get("ratio"), "하루 조회수": m.get("views_per_day")})
@@ -391,7 +399,9 @@ def script_stats(srows):
         row = {"묶음": g, "한국어 대본 수": len(rs), "표본": "적음 — 차이로 규칙을 만들지 않음" if len(rs) < 20 else ""}
         for c in cols:
             row[c + " (중앙값)"] = med([r[c] for r in rs])
-        row["흥미 장치 끝까지 이어진 몫 %"] = share(sum(1 for r in rs if r["흥미 장치 끝까지 이어짐"] == "예"), len(rs))
+        fr = [r for r in rs if r["대본 범위"] == "끝까지"]                    # v1.0.3: 4구간은 끝까지 받은 대본만
+        row["끝까지 대본 수"] = len(fr)
+        row["흥미 장치 끝까지 이어진 몫 %"] = share(sum(1 for r in fr if r["흥미 장치 끝까지 이어짐"] == "예"), len(fr))
         for k, c in Counter(r["첫 문장 유형"] for r in rs).most_common(3):
             row.setdefault("첫 문장 유형 상위", "")
             row["첫 문장 유형 상위"] += f"{k} {c} · "
@@ -557,7 +567,7 @@ def write_md(path, meta, tstat, base, lens, thstat, sstat, cstat):
         "- 이미지: " + " · ".join(f"{r['값']} {r['몫 %']}%" for r in img) + " · 표정: " + " · ".join(f"{r['값']} {r['몫 %']}%" for r in face),
         f"- 주요 문구와 제목의 같은 낱말 몫 중앙값 {ov.get('몫 %')}%", "",
         "## 3. 대본 (한국어 대본이 있는 영상만)",
-        f"- 성공 사례 {s.get('한국어 대본 수')}개 — 제목 낱말 첫 60초 몫 중앙값 {s.get('제목 낱말 중 첫 60초에 나온 몫 % (중앙값)')}% · 숫자 {s.get('숫자 /분 (중앙값)')}/분 · 질문 {s.get('질문 /분 (중앙값)')}/분 · 첫 문장 {s.get('첫 문장 유형 상위', '')}", "",
+        f"- 성공 사례 {s.get('한국어 대본 수')}개 (끝까지 {s.get('끝까지 대본 수')} · 나머지는 앞 5분만 — 흥미 장치 4구간은 끝까지 대본만, 끝까지 이어진 몫 {s.get('흥미 장치 끝까지 이어진 몫 %')}%) — 제목 낱말 첫 60초 몫 중앙값 {s.get('제목 낱말 중 첫 60초에 나온 몫 % (중앙값)')}% · 숫자 {s.get('숫자 /분 (중앙값)')}/분 · 질문 {s.get('질문 /분 (중앙값)')}/분 · 첫 문장 {s.get('첫 문장 유형 상위', '')}", "",
         "## 4. 댓글 (성공 사례)",
         "- " + " · ".join(f"{r['유형']} {r['몫 %']}%" for r in sorted([r for r in cstat if r['묶음'] == '성공 사례'], key=lambda r: -(r['몫 %'] or 0))[:6]),
         "- 영상별 좋았던·아쉬운 부분·공감 상위·시간 표시는 엑셀 '댓글_영상별'·'댓글_좋았던점'·'댓글_아쉬운점'.", ""]

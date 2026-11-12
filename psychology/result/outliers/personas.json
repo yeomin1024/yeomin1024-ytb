@@ -2,7 +2,7 @@
  "topic": "psychology",
  "tool": "personas.py v1.1.1",
  "config_version": "v1.2",
- "made": "2026-11-12T04:57:10Z",
+ "made": "2026-11-12T10:13:16Z",
  "rules": {
   "RECENT_DAYS": 180,
   "LANGS": [
@@ -210,11 +210,11 @@
      2
     ],
     [
-     "자식",
+     "며느리",
      2
     ],
     [
-     "며느리",
+     "자식",
      2
     ],
     [
@@ -222,27 +222,15 @@
      2
     ],
     [
-     "주고받는게",
+     "정답",
      1
     ],
     [
-     "줘놓고",
+     "호의",
      1
     ],
     [
-     "자기생각",
-     1
-    ],
-    [
-     "나에게",
-     1
-    ],
-    [
-     "h9m",
-     1
-    ],
-    [
-     "캔디아",
+     "나이지",
      1
     ],
     [
@@ -250,7 +238,19 @@
      1
     ],
     [
-     "사과",
+     "당신",
+     1
+    ],
+    [
+     "하면서",
+     1
+    ],
+    [
+     "나도",
+     1
+    ],
+    [
+     "싫어",
      1
     ]
    ],
@@ -347,8 +347,8 @@
    "trend": {
     "recent": 53,
     "old": 142,
-    "recent_share": 0.1809,
-    "old_share": 0.2375,
+    "recent_share": 0.1821,
+    "old_share": 0.2367,
     "rising_states": [],
     "rising_wants": [],
     "rising_words": [
@@ -517,11 +517,11 @@
      1
     ],
     [
-     "나르시시스트",
+     "눈치",
      1
     ],
     [
-     "눈치",
+     "나르시시스트",
      1
     ]
    ],
@@ -539,7 +539,7 @@
      2
     ],
     [
-     "못하",
+     "약이",
      2
     ],
     [
@@ -547,7 +547,7 @@
      2
     ],
     [
-     "약이",
+     "못하",
      2
     ],
     [
@@ -563,15 +563,15 @@
      2
     ],
     [
-     "쪄서",
+     "이야기부탁드립니다",
      1
     ],
     [
-     "없으셨",
+     "살이",
      1
     ],
     [
-     "인한",
+     "있으시다면",
      1
     ]
    ],
@@ -673,16 +673,16 @@
    "lang": "",
    "share": 0.1684,
    "trend": {
-    "recent": 47,
-    "old": 103,
-    "recent_share": 0.1604,
-    "old_share": 0.1722,
+    "recent": 46,
+    "old": 104,
+    "recent_share": 0.1581,
+    "old_share": 0.1733,
     "rising_states": [
      {
       "name": "상담·치료 중",
-      "recent_share": 0.234,
-      "old_share": 0.233,
-      "diff": 0.001,
+      "recent_share": 0.2391,
+      "old_share": 0.2308,
+      "diff": 0.0084,
       "recent": 11
      }
     ],
@@ -693,54 +693,54 @@
       "recent": 6,
       "old": 1,
       "videos": 4,
-      "recent_rate": 0.1277,
-      "old_rate": 0.0097,
-      "lift": 7.67
-     },
-     {
-      "word": "살고",
-      "recent": 4,
-      "old": 1,
-      "videos": 3,
-      "recent_rate": 0.0851,
-      "old_rate": 0.0097,
-      "lift": 5.48
+      "recent_rate": 0.1304,
+      "old_rate": 0.0096,
+      "lift": 7.91
      },
      {
       "word": "한번",
       "recent": 5,
       "old": 2,
       "videos": 3,
-      "recent_rate": 0.1064,
-      "old_rate": 0.0194,
-      "lift": 4.38
+      "recent_rate": 0.1087,
+      "old_rate": 0.0192,
+      "lift": 4.52
+     },
+     {
+      "word": "살고",
+      "recent": 4,
+      "old": 1,
+      "videos": 3,
+      "recent_rate": 0.087,
+      "old_rate": 0.0096,
+      "lift": 5.65
      },
      {
       "word": "순간",
       "recent": 4,
       "old": 2,
       "videos": 4,
-      "recent_rate": 0.0851,
-      "old_rate": 0.0194,
-      "lift": 3.65
+      "recent_rate": 0.087,
+      "old_rate": 0.0192,
+      "lift": 3.77
      },
      {
       "word": "하루",
       "recent": 4,
       "old": 2,
       "videos": 3,
-      "recent_rate": 0.0851,
-      "old_rate": 0.0194,
-      "lift": 3.65
+      "recent_rate": 0.087,
+      "old_rate": 0.0192,
+      "lift": 3.77
      },
      {
       "word": "ADHD",
       "recent": 5,
       "old": 4,
       "videos": 5,
-      "recent_rate": 0.1064,
-      "old_rate": 0.0388,
-      "lift": 2.63
+      "recent_rate": 0.1087,
+      "old_rate": 0.0385,
+      "lift": 2.71
      }
     ],
     "top_questions": [
@@ -851,11 +851,11 @@
      1
     ],
     [
-     "번아웃",
+     "손절",
      1
     ],
     [
-     "손절",
+     "번아웃",
      1
     ]
    ],
@@ -865,7 +865,7 @@
      5
     ],
     [
-     "퇴사",
+     "이직",
      2
     ],
     [
@@ -873,7 +873,7 @@
      2
     ],
     [
-     "이직",
+     "퇴사",
      2
     ],
     [
@@ -893,11 +893,11 @@
      2
     ],
     [
-     "않나",
+     "나를",
      2
     ],
     [
-     "나를",
+     "않나",
      2
     ],
     [
@@ -1000,8 +1000,8 @@
    "trend": {
     "recent": 48,
     "old": 81,
-    "recent_share": 0.1638,
-    "old_share": 0.1355,
+    "recent_share": 0.1649,
+    "old_share": 0.135,
     "rising_states": [],
     "rising_wants": [],
     "rising_words": [
@@ -1193,23 +1193,23 @@
      2
     ],
     [
-     "자식",
-     2
-    ],
-    [
      "이걸",
      2
     ],
     [
-     "속하갰네",
-     1
+     "자식",
+     2
     ],
     [
      "대부분",
      1
     ],
     [
-     "분류애",
+     "속하갰네",
+     1
+    ],
+    [
+     "학대하면서",
      1
     ],
     [
@@ -1217,7 +1217,7 @@
      1
     ],
     [
-     "하죠",
+     "너를",
      1
     ]
    ],
@@ -1321,8 +1321,8 @@
    "trend": {
     "recent": 47,
     "old": 73,
-    "recent_share": 0.1604,
-    "old_share": 0.1221,
+    "recent_share": 0.1615,
+    "old_share": 0.1217,
     "rising_states": [],
     "rising_wants": [],
     "rising_words": [
@@ -1372,7 +1372,7 @@
       "lift": 7.77
      },
      {
-      "word": "시절",
+      "word": "것을",
       "recent": 4,
       "old": 0,
       "videos": 3,
@@ -1381,7 +1381,7 @@
       "lift": 7.77
      },
      {
-      "word": "것을",
+      "word": "시절",
       "recent": 4,
       "old": 0,
       "videos": 3,
@@ -1523,7 +1523,7 @@
      1
     ],
     [
-     "손절",
+     "말투",
      1
     ],
     [
@@ -1531,7 +1531,7 @@
      1
     ],
     [
-     "말투",
+     "손절",
      1
     ]
    ],
@@ -1545,23 +1545,7 @@
      2
     ],
     [
-     "공부중인",
-     1
-    ],
-    [
-     "가능성",
-     1
-    ],
-    [
-     "당첨",
-     1
-    ],
-    [
      "살고있",
-     1
-    ],
-    [
-     "일본",
      1
     ],
     [
@@ -1569,11 +1553,27 @@
      1
     ],
     [
-     "욕하",
+     "가능성",
      1
     ],
     [
-     "영포티",
+     "공부중인",
+     1
+    ],
+    [
+     "당첨",
+     1
+    ],
+    [
+     "일본",
+     1
+    ],
+    [
+     "보다",
+     1
+    ],
+    [
+     "절대",
      1
     ],
     [
@@ -1581,7 +1581,7 @@
      1
     ],
     [
-     "인거인건",
+     "욕하",
      1
     ]
    ],
@@ -1675,10 +1675,10 @@
    "lang": "",
    "share": 0.1302,
    "trend": {
-    "recent": 33,
-    "old": 83,
-    "recent_share": 0.1126,
-    "old_share": 0.1388,
+    "recent": 32,
+    "old": 84,
+    "recent_share": 0.11,
+    "old_share": 0.14,
     "rising_states": [],
     "rising_wants": [],
     "rising_words": [
@@ -1687,27 +1687,9 @@
       "recent": 5,
       "old": 2,
       "videos": 4,
-      "recent_rate": 0.1515,
-      "old_rate": 0.0241,
-      "lift": 5.03
-     },
-     {
-      "word": "처음",
-      "recent": 4,
-      "old": 2,
-      "videos": 4,
-      "recent_rate": 0.1212,
-      "old_rate": 0.0241,
-      "lift": 4.19
-     },
-     {
-      "word": "친구",
-      "recent": 9,
-      "old": 14,
-      "videos": 8,
-      "recent_rate": 0.2727,
-      "old_rate": 0.1687,
-      "lift": 1.68
+      "recent_rate": 0.1562,
+      "old_rate": 0.0238,
+      "lift": 5.25
      }
     ],
     "top_questions": []
@@ -1812,11 +1794,15 @@
    ],
    "want_words": [
     [
+     "남편",
+     2
+    ],
+    [
      "년째",
      2
     ],
     [
-     "남편",
+     "있지",
      2
     ],
     [
@@ -1828,27 +1814,15 @@
      2
     ],
     [
-     "있지",
-     2
-    ],
-    [
      "하지",
      2
     ],
     [
-     "아마",
+     "그대",
      1
     ],
     [
-     "얘기안",
-     1
-    ],
-    [
-     "쇼파",
-     1
-    ],
-    [
-     "결혼",
+     "번정",
      1
     ],
     [
@@ -1856,7 +1830,15 @@
      1
     ],
     [
-     "가지",
+     "의자",
+     1
+    ],
+    [
+     "아마",
+     1
+    ],
+    [
+     "얘기안",
      1
     ]
    ],
@@ -1954,8 +1936,8 @@
    "trend": {
     "recent": 27,
     "old": 64,
-    "recent_share": 0.0922,
-    "old_share": 0.107,
+    "recent_share": 0.0928,
+    "old_share": 0.1067,
     "rising_states": [
      {
       "name": "이혼·별거",
@@ -2466,8 +2448,8 @@
  "trend": {
   "days": 28,
   "since": "2026-10-15",
-  "recent": 16974,
-  "old": 39715,
+  "recent": 16879,
+  "old": 39810,
   "no_date": 0,
   "segments": [
    {
@@ -2476,8 +2458,8 @@
     "chosen": false,
     "recent": 38,
     "old": 52,
-    "recent_share": 0.1297,
-    "old_share": 0.087
+    "recent_share": 0.1306,
+    "old_share": 0.0867
    },
    {
     "key": "family_hurt",
@@ -2485,8 +2467,8 @@
     "chosen": true,
     "recent": 47,
     "old": 73,
-    "recent_share": 0.1604,
-    "old_share": 0.1221
+    "recent_share": 0.1615,
+    "old_share": 0.1217
    },
    {
     "key": "worker",
@@ -2494,17 +2476,8 @@
     "chosen": true,
     "recent": 48,
     "old": 81,
-    "recent_share": 0.1638,
-    "old_share": 0.1355
-   },
-   {
-    "key": "mind",
-    "name": "우울·불안·공황을 겪는 사람",
-    "chosen": true,
-    "recent": 47,
-    "old": 103,
-    "recent_share": 0.1604,
-    "old_share": 0.1722
+    "recent_share": 0.1649,
+    "old_share": 0.135
    },
    {
     "key": "spouse_inlaw",
@@ -2512,17 +2485,26 @@
     "chosen": true,
     "recent": 27,
     "old": 64,
-    "recent_share": 0.0922,
-    "old_share": 0.107
+    "recent_share": 0.0928,
+    "old_share": 0.1067
+   },
+   {
+    "key": "mind",
+    "name": "우울·불안·공황을 겪는 사람",
+    "chosen": true,
+    "recent": 46,
+    "old": 104,
+    "recent_share": 0.1581,
+    "old_share": 0.1733
    },
    {
     "key": "young",
     "name": "친구·연애 관계가 고민인 학생·청년",
     "chosen": true,
-    "recent": 33,
-    "old": 83,
-    "recent_share": 0.1126,
-    "old_share": 0.1388
+    "recent": 32,
+    "old": 84,
+    "recent_share": 0.11,
+    "old_share": 0.14
    },
    {
     "key": "elder",
@@ -2530,24 +2512,24 @@
     "chosen": true,
     "recent": 53,
     "old": 142,
-    "recent_share": 0.1809,
-    "old_share": 0.2375
+    "recent_share": 0.1821,
+    "old_share": 0.2367
    }
   ],
-  "assigned_recent": 293,
-  "assigned_old": 598,
+  "assigned_recent": 291,
+  "assigned_old": 600,
   "states": [
-   {
-    "name": "상담·치료 중",
-    "recent_share": 0.0008,
-    "old_share": 0.001,
-    "recent": 14
-   },
    {
     "name": "이혼·별거",
     "recent_share": 0.0005,
     "old_share": 0.0007,
     "recent": 9
+   },
+   {
+    "name": "상담·치료 중",
+    "recent_share": 0.0008,
+    "old_share": 0.001,
+    "recent": 14
    },
    {
     "name": "아이를 키우는 부모",
@@ -2559,13 +2541,13 @@
     "name": "손절·연 끊음",
     "recent_share": 0.0015,
     "old_share": 0.0021,
-    "recent": 26
+    "recent": 25
    },
    {
     "name": "다시 보는·저장해 두는",
-    "recent_share": 0.0019,
+    "recent_share": 0.0018,
     "old_share": 0.0025,
-    "recent": 32
+    "recent": 31
    },
    {
     "name": "외로움·혼자",
@@ -2580,9 +2562,9 @@
     "recent": 50,
     "old": 1,
     "videos": 5,
-    "recent_rate": 0.0029,
+    "recent_rate": 0.003,
     "old_rate": 0.0,
-    "lift": 59.66
+    "lift": 60.14
    },
    {
     "word": "학번",
@@ -2591,16 +2573,16 @@
     "videos": 3,
     "recent_rate": 0.0043,
     "old_rate": 0.0002,
-    "lift": 19.24
+    "lift": 19.39
    },
    {
     "word": "잠이",
     "recent": 202,
     "old": 37,
     "videos": 8,
-    "recent_rate": 0.0119,
+    "recent_rate": 0.012,
     "old_rate": 0.0009,
-    "lift": 12.5
+    "lift": 12.6
    },
    {
     "word": "아기",
@@ -2609,7 +2591,7 @@
     "videos": 9,
     "recent_rate": 0.0091,
     "old_rate": 0.0008,
-    "lift": 10.99
+    "lift": 11.08
    },
    {
     "word": "수면",
@@ -2618,7 +2600,7 @@
     "videos": 9,
     "recent_rate": 0.0059,
     "old_rate": 0.0006,
-    "lift": 9.85
+    "lift": 9.93
    },
    {
     "word": "잠을",
@@ -2627,16 +2609,16 @@
     "videos": 11,
     "recent_rate": 0.01,
     "old_rate": 0.001,
-    "lift": 9.47
+    "lift": 9.55
    },
    {
     "word": "의자",
-    "recent": 460,
-    "old": 131,
+    "recent": 459,
+    "old": 132,
     "videos": 9,
-    "recent_rate": 0.0271,
+    "recent_rate": 0.0272,
     "old_rate": 0.0033,
-    "lift": 8.17
+    "lift": 8.16
    },
    {
     "word": "침대",
@@ -2645,16 +2627,16 @@
     "videos": 12,
     "recent_rate": 0.0061,
     "old_rate": 0.0008,
-    "lift": 7.16
+    "lift": 7.21
    },
    {
     "word": "세대",
-    "recent": 570,
-    "old": 203,
+    "recent": 569,
+    "old": 204,
     "videos": 17,
-    "recent_rate": 0.0336,
+    "recent_rate": 0.0337,
     "old_rate": 0.0051,
-    "lift": 6.55
+    "lift": 6.56
    },
    {
     "word": "앉았던",
@@ -2663,7 +2645,7 @@
     "videos": 3,
     "recent_rate": 0.0022,
     "old_rate": 0.0001,
-    "lift": 17.78
+    "lift": 17.92
    },
    {
     "word": "누우면",
@@ -2672,25 +2654,16 @@
     "videos": 3,
     "recent_rate": 0.0027,
     "old_rate": 0.0002,
-    "lift": 13.45
-   },
-   {
-    "word": "호감",
-    "recent": 73,
-    "old": 20,
-    "videos": 3,
-    "recent_rate": 0.0043,
-    "old_rate": 0.0005,
-    "lift": 8.24
+    "lift": 13.56
    },
    {
     "word": "넣고",
     "recent": 138,
     "old": 55,
     "videos": 10,
-    "recent_rate": 0.0081,
+    "recent_rate": 0.0082,
     "old_rate": 0.0014,
-    "lift": 5.81
+    "lift": 5.85
    },
    {
     "word": "넣는",
@@ -2699,16 +2672,25 @@
     "videos": 6,
     "recent_rate": 0.0026,
     "old_rate": 0.0002,
-    "lift": 13.16
+    "lift": 13.27
    },
    {
     "word": "imf",
     "recent": 38,
     "old": 5,
     "videos": 4,
-    "recent_rate": 0.0022,
+    "recent_rate": 0.0023,
     "old_rate": 0.0001,
-    "lift": 15.21
+    "lift": 15.33
+   },
+   {
+    "word": "호감",
+    "recent": 71,
+    "old": 22,
+    "videos": 3,
+    "recent_rate": 0.0042,
+    "old_rate": 0.0006,
+    "lift": 7.38
    }
   ],
   "rising_wants": [
@@ -2717,27 +2699,27 @@
     "recent": 26,
     "old": 3,
     "videos": 3,
-    "recent_rate": 0.043,
+    "recent_rate": 0.0432,
     "old_rate": 0.0022,
-    "lift": 14.91
+    "lift": 14.98
    },
    {
     "word": "나를",
     "recent": 33,
     "old": 27,
     "videos": 12,
-    "recent_rate": 0.0546,
+    "recent_rate": 0.0548,
     "old_rate": 0.0202,
-    "lift": 2.68
+    "lift": 2.69
    },
    {
     "word": "세대",
     "recent": 13,
     "old": 6,
     "videos": 4,
-    "recent_rate": 0.0215,
+    "recent_rate": 0.0216,
     "old_rate": 0.0045,
-    "lift": 4.42
+    "lift": 4.44
    },
    {
     "word": "기본",
@@ -2746,7 +2728,7 @@
     "videos": 3,
     "recent_rate": 0.0166,
     "old_rate": 0.003,
-    "lift": 4.86
+    "lift": 4.88
    },
    {
     "word": "미래",
@@ -2755,43 +2737,43 @@
     "videos": 7,
     "recent_rate": 0.0199,
     "old_rate": 0.0052,
-    "lift": 3.59
+    "lift": 3.61
    },
    {
     "word": "아닌",
     "recent": 20,
     "old": 22,
     "videos": 11,
-    "recent_rate": 0.0331,
+    "recent_rate": 0.0332,
     "old_rate": 0.0165,
-    "lift": 2.02
+    "lift": 2.03
    },
    {
     "word": "인간",
     "recent": 18,
     "old": 18,
     "videos": 14,
-    "recent_rate": 0.0298,
+    "recent_rate": 0.0299,
     "old_rate": 0.0135,
-    "lift": 2.21
+    "lift": 2.22
    },
    {
     "word": "주고",
     "recent": 8,
     "old": 3,
     "videos": 6,
-    "recent_rate": 0.0132,
+    "recent_rate": 0.0133,
     "old_rate": 0.0022,
-    "lift": 4.97
+    "lift": 4.99
    },
    {
     "word": "배려",
     "recent": 8,
     "old": 3,
     "videos": 5,
-    "recent_rate": 0.0132,
+    "recent_rate": 0.0133,
     "old_rate": 0.0022,
-    "lift": 4.97
+    "lift": 4.99
    },
    {
     "word": "분이",
@@ -2800,7 +2782,7 @@
     "videos": 11,
     "recent_rate": 0.0199,
     "old_rate": 0.006,
-    "lift": 3.19
+    "lift": 3.21
    }
   ],
   "hot_videos": [
@@ -2837,7 +2819,7 @@
    {
     "id": "6skfikfyY_M",
     "title": "당신이 생각보다 호감인 이유",
-    "recent_comments": 568
+    "recent_comments": 562
    },
    {
     "id": "twn0MZBC1eg",

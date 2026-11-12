@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-12 — ① '올린 적 없음' 칸 = main 기준 (main 에 youtube.json 이 없으면 ✅ — 이 PC 의 옛 youtube.json 때문에 ✗ 로 막히던 것 고침;
+# VERSION: v1.5 — 2026-11-12 — 썸네일 내려받기: 미리보기 썸네일마다 [내려받기] + [실험안 N장 내려받기] · '올린 영상' 줄에도 실험안 받기
+#          (실험안은 API 로 못 올림 → 공개 뒤 스튜디오 '테스트 및 비교'에 직접 넣음 · 이 PC 에 없으면 GitHub main 에서 받아 둠 · 파일 이름 <영상ID>_thumbnail_N.jpg)
+#          · 휴대전화 미리보기의 채널 이름도 뺌. 사용자 지시 2026-11-12 "나머지 2개 썸네일 다운 받는 기능도 추가해줘".
+# (v1.4 — 2026-11-12 — ① '올린 적 없음' 칸 = main 기준 (main 에 youtube.json 이 없으면 ✅ — 이 PC 의 옛 youtube.json 때문에 ✗ 로 막히던 것 고침;
 #          옛 기록은 v1.3 대로 업로드 때 youtube_old_<시각>.json 으로 옮김) ② 화면에서 채널 이름을 뺌 (영상 줄·키 칸 — 채널 확인은 ID 로만, 다를 때 묻는 창은 그대로).
-#          사용자 지시 2026-11-12 "채널이름 빼 자꾸 영상 올린적 없음 엑스로 되어 있어서 업로드 안되잖아 수정해".
+#          사용자 지시 2026-11-12 "채널이름 빼 자꾸 영상 올린적 없음 엑스로 되어 있어서 업로드 안되잖아 수정해".)
 # (v1.3 — 2026-11-12 — 다시 올리기: main 에 youtube.json 이 없어 목록에 다시 나온 대본인데 이 PC 에 옛 youtube.json 이 남아 있으면
 #          youtube_upload.run 이 '이미 업로드됨'으로 건너뛰고 그 옛 기록을 main 에 다시 올렸음 → 업로드 전에 이 PC 의 옛 기록을
 #          youtube_old_<시각>.json 으로 옮김 (지우지 않음 · 로그 REUPLOAD). 사용자 지시 2026-11-12 "만스피 대본 잘못 올라갔는데 다시 업로드 목록에 생기도록 해줘".)
@@ -60,7 +63,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -240,7 +243,10 @@ def list_videos(topic: str) -> dict:
                 st = json.loads(gh_raw(MAIN, base + "youtube.json") or b"{}")
             except (RuntimeError, json.JSONDecodeError):
                 st = {}
-            done.append({"vid": vid, "url": st.get("url", ""), "publishAt": st.get("publishAt", ""), "title": st.get("title", "")})
+            names = sorted(p.rsplit("/", 1)[-1] for p in main_paths if p.startswith(base + "thumbnails/") and up.THUMB_RE.match(p.rsplit("/", 1)[-1]))
+            main_name = f"thumbnail_{yu.paired_thumbnail(topic, vid)}"                # v1.5 titles.md 가 이 PC 에 없으면 1
+            thumbs = [{"name": n, "main": n.startswith(main_name + "."), "url": media_url(topic, vid, f"thumb/{n}") + "&dl=1"} for n in names]
+            done.append({"vid": vid, "url": st.get("url", ""), "publishAt": st.get("publishAt", ""), "title": st.get("title", ""), "thumbs": thumbs})
             continue
         fetch_settings(topic, vid, main_paths)
         r = up.check_one(topic, vid)
@@ -651,7 +657,8 @@ async function loadVideos(){const box=document.getElementById("videos");box.inne
   h+=`<tr><td><b>${esc(v.vid)}</b><br><span class="${v.ready?"ok":"bad"}">${v.ready?"준비됨":"부족"}</span>${v.downloaded?'<br><span class="muted">영상 받아 둠</span>':""}</td><td>${t}${ex}</td><td><div class="chips">${c}</div></td>
   <td style="white-space:nowrap"><button class="btn sec" onclick="openPv('${esc(v.vid)}')">미리보기</button> <button class="btn sec" onclick="test('${esc(v.vid)}')">시험</button> <button class="btn go" ${v.ready?"":"disabled"} onclick="upload('${esc(v.vid)}')">업로드</button></td></tr>`});
  h+=`</table>`;const kst=iso=>{if(!iso)return"";const d=new Date(iso);if(isNaN(d))return iso;const k=new Date(d.getTime()+(d.getTimezoneOffset()+540)*6e4),p=n=>String(n).padStart(2,"0");return `${k.getFullYear()}-${p(k.getMonth()+1)}-${p(k.getDate())} ${p(k.getHours())}:${p(k.getMinutes())} 공개`};
- if(s.uploaded.length)h+=`<p class="muted">올린 영상: `+s.uploaded.map(u=>`${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}`).join(" · ")+`</p>`;box.innerHTML=h}
+ if(s.uploaded.length)h+=`<h3>올린 영상</h3>`+s.uploaded.map(u=>{const ex=(u.thumbs||[]).filter(t=>!t.main);return `<p class="muted upl">${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}${ex.length?` · 실험안 썸네일 ${ex.map(t=>`<a class="dlx" href="${esc(t.url)}" download>${esc(t.name)}</a>`).join(" ")} <button class="btn sec" onclick="dlAll(this.closest('p'))">${ex.length}장 모두 받기</button>`:""}</p>`}).join("");box.innerHTML=h}
+function dlAll(root){const as=[...root.querySelectorAll("a.dlx")];as.forEach((a,i)=>setTimeout(()=>a.click(),i*700))}
 async function test(vid){PENDING=null;const r=await api("/api/test",{topic:TOPIC,vid});if(!r.ok)alert(r.error)}
 async function upload(vid,allow,remember){const s=sched();const v=VIDS[vid]||{};const title=v.titles&&v.titles[0]?v.titles[0].title:"";
  if(!allow&&!confirm(`${vid}\n제목: ${title}\n썸네일: 본안(thumbnail_1 — 시트의 짝)\n${s.label} (한국 시간) 공개로 예약 업로드할까요?\n그때까지는 비공개입니다.`))return;
@@ -672,8 +679,9 @@ async function openPv(vid){PVVID=vid;const ov=document.getElementById("pvov"),bo
   <h4>태그 ${r.tags.length}개 · ${r.tags_chars}자 / 500</h4><div class="chips">${r.tags.map(t=>`<span class="chip n">${esc(t)}</span>`).join("")}</div>
   ${r.pinned?`<h4>고정 댓글 (스튜디오에서 직접 — API 로 안 올림)</h4><div class="desc">${esc(r.pinned)}</div>`:""}</div>
  <div><h4 style="margin-top:0">휴대전화 홈 화면 (대략 — 줄 바꿈은 기기마다 조금 다름)</h4><div class="phone"><div class="th"><img src="${esc(main.url||"")}" alt="">${dur?`<span class="dur" id="pvdur">≈${esc(dur)}</span>`:""}</div>
-  <div class="meta"><div class="av"></div><div><div class="t2">${esc(r.title)}</div><div class="s">${esc(r.channel.name||"")} · 조회수 0회 · 예약 ${esc(s.label)}</div></div></div></div>
-  <h4>썸네일</h4><div class="thumbs">${r.thumbs.map(t=>`<figure class="${t.main?"main":""}"><img src="${esc(t.url)}" alt=""><figcaption>${esc(t.name)} · ${esc(t.role)}</figcaption></figure>`).join("")}</div>${exps}
+  <div class="meta"><div class="av"></div><div><div class="t2">${esc(r.title)}</div><div class="s">조회수 0회 · 예약 ${esc(s.label)}</div></div></div></div>
+  <h4>썸네일</h4><div class="thumbs">${r.thumbs.map(t=>`<figure class="${t.main?"main":""}"><img src="${esc(t.url)}" alt=""><figcaption>${esc(t.name)} · ${esc(t.role)} · <a href="${esc(t.url)}&dl=1" class="${t.main?"":"dlx"}" download>내려받기</a></figcaption></figure>`).join("")}</div>
+  ${r.thumbs.some(t=>!t.main)?`<p><button class="btn sec" onclick="dlAll(this.closest('#pv')||document)">실험안 썸네일 ${r.thumbs.filter(t=>!t.main).length}장 내려받기</button> <span class="muted">공개 뒤 스튜디오 '테스트 및 비교'에 넣을 것 — 브라우저가 여러 파일 받기를 물으면 허용</span></p>`:""}${exps}
   <h4>설정</h4><table class="kv">${Object.entries(r.settings).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v)}</td></tr>`).join("")}<tr><td>챕터</td><td>${r.chapters.length}개 (시각은 자막에서 다시 계산)</td></tr></table>
   <h4>자막 — 처음 ${r.srt.first.length}개 / 모두 ${r.srt.count}개 · 끝 ${esc(r.srt.end)}</h4>${r.srt.first.map(c=>`<div class="cue"><b>${esc(c.t)}</b>${esc(c.text)}</div>`).join("")}</div></div>
  <div class="foot"><button class="btn sec" onclick="closePv()">닫기</button><button class="btn go" ${ready&&!r.problems.length?"":"disabled"} onclick="closePv();upload('${esc(vid)}')">이대로 업로드 (${esc(s.label)} 공개)</button></div>`
@@ -732,8 +740,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return False
         return True
 
-    def _send_file(self, path: Path, ctype: str) -> None:
-        """(v1.2) 이 PC 의 파일 — 영상은 Range(이어 보기·건너뛰기)."""
+    def _send_file(self, path: Path, ctype: str, download: str = "") -> None:
+        """(v1.2) 이 PC 의 파일 — 영상은 Range(이어 보기·건너뛰기). v1.5 download = 내려받을 파일 이름 (Content-Disposition)."""
         size = path.stat().st_size
         start, end, code = 0, size - 1, 200
         m = re.match(r"bytes=(\d*)-(\d*)$", (self.headers.get("Range") or "").strip())
@@ -754,6 +762,8 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.send_header("Accept-Ranges", "bytes")
         self.send_header("Content-Length", str(end - start + 1))
         self.send_header("Cache-Control", "no-store")
+        if download:
+            self.send_header("Content-Disposition", f"attachment; filename=\"{download}\"; filename*=UTF-8''{urllib.parse.quote(download)}")
         if code == 206:
             self.send_header("Content-Range", f"bytes {start}-{end}/{size}")
         self.end_headers()
@@ -770,7 +780,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
             pass
 
-    def _media(self, parts: list[str]) -> None:
+    def _media(self, parts: list[str], q: dict | None = None) -> None:
         """/media/<주제>/<영상ID>/thumb/<thumbnail_N.jpg> · /media/<주제>/<영상ID>/video — 정해진 자리의 파일만."""
         if len(parts) < 3 or not TOPIC_RE.fullmatch(parts[0]) or not VID_RE.fullmatch(parts[1]) or ".." in parts[1]:
             return self._json({"error": "없음"}, 404)
@@ -782,9 +792,18 @@ class Handler(http.server.BaseHTTPRequestHandler):
             p, ctype = ROOT / topic / "out" / vid / "final_1080p.mp4", "video/mp4"
         else:
             return self._json({"error": "없음"}, 404)
+        if not p.is_file() and what == "thumb":                     # v1.5 올린 뒤 이 PC 에 없는 썸네일 — GitHub main 에서 받아 둠
+            body = gh_raw(MAIN, f"{topic}/source/{vid}/thumbnails/{parts[3]}")
+            if body:
+                p.parent.mkdir(parents=True, exist_ok=True)
+                p.write_bytes(body)
+                log("THUMB", video=vid, name=parts[3], fetched="GitHub_main", bytes=len(body))
         if not p.is_file():
             return self._json({"error": "파일 없음"}, 404)
-        self._send_file(p, ctype)
+        dl = f"{vid}_{parts[3]}" if what == "thumb" and (q or {}).get("dl") == "1" else ""
+        if dl:
+            log("THUMB", video=vid, name=parts[3], download=dl)
+        self._send_file(p, ctype, dl)
 
     def do_GET(self):
         if not self._guard():
@@ -800,7 +819,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(b)
             elif u.path.startswith("/media/"):
-                self._media([urllib.parse.unquote(x) for x in u.path[len("/media/"):].split("/")])
+                self._media([urllib.parse.unquote(x) for x in u.path[len("/media/"):].split("/")], q)
             elif u.path == "/api/topics":
                 self._json({"topics": topics()})
             elif u.path == "/api/env":

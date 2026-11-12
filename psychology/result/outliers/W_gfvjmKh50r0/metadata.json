@@ -4,10 +4,10 @@
  "channel": "스토아의 시선",
  "channel_id": "UCHPhpYnp_sFbwN4L59KOCwg",
  "subs": 901,
- "views": 20730,
- "ratio": 23.01,
+ "views": 20724,
+ "ratio": 23.0,
  "age_days": 13,
- "views_per_day": 1488.5,
+ "views_per_day": 1487.4,
  "minutes": 46.3,
  "likes": 190,
  "comments": 2,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=gfvjmKh50r0",
  "flag": "",
  "published_at": "2026-10-28T11:00:02Z",
- "rank": "W129",
+ "rank": "W93",
  "set": "web",
  "folder": "W_gfvjmKh50r0",
  "sources": [
@@ -41,7 +41,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 2,
@@ -52,6 +52,6 @@
  "comments_disabled": false,
  "comments_reported": 2,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:12",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:38:54",
+ "approved": "2026-11-11T22:38+09:00"
 }

@@ -4,25 +4,24 @@
  "channel": "숨겨진심리학",
  "channel_id": "UChqbr9O0XK-mNnbjoBrJS1Q",
  "subs": 37500,
- "views": 339718,
+ "views": 339722,
  "ratio": 9.06,
  "age_days": 85,
- "views_per_day": 3956.0,
+ "views_per_day": 3955.8,
  "minutes": 33.0,
  "likes": 2824,
  "comments": 67,
  "published": "2026-08-17",
- "queries": "검색:심리학 | 검색:심리 | 검색:연애심리",
+ "queries": "검색:심리학 | 검색:심리",
  "url": "https://www.youtube.com/watch?v=-eJcNrbEq6I",
  "flag": "",
  "published_at": "2026-08-17T12:15:12Z",
- "rank": "W191",
+ "rank": "W149",
  "set": "web",
  "folder": "W_-eJcNrbEq6I",
  "sources": [
   "검색:심리학",
-  "검색:심리",
-  "검색:연애심리"
+  "검색:심리"
  ],
  "source": "web",
  "tags": [
@@ -88,7 +87,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 67,
@@ -99,6 +98,6 @@
  "comments_disabled": false,
  "comments_reported": 67,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:49",
- "approved": "2026-11-11T18:26+09:00"
+ "collected": "2026-11-11T13:42:35",
+ "approved": "2026-11-11T22:42+09:00"
 }

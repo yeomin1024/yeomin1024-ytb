@@ -6,8 +6,8 @@
  "subs": 29400,
  "views": 221809,
  "ratio": 7.54,
- "age_days": 21,
- "views_per_day": 10082.4,
+ "age_days": 22,
+ "views_per_day": 10079.7,
  "minutes": 21.8,
  "likes": 1252,
  "comments": 210,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=w86qO4EjXWM",
  "flag": "",
  "published_at": "2026-10-20T09:15:14Z",
- "rank": "W196",
+ "rank": "W155",
  "set": "web",
  "folder": "W_w86qO4EjXWM",
  "sources": [
@@ -26,7 +26,7 @@
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 210,
@@ -37,6 +37,6 @@
  "comments_disabled": false,
  "comments_reported": 210,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:27:02",
- "approved": "2026-11-11T18:27+09:00"
+ "collected": "2026-11-11T13:43:15",
+ "approved": "2026-11-11T22:43+09:00"
 }

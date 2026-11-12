@@ -7,7 +7,7 @@
  "views": 35756,
  "ratio": 30.56,
  "age_days": 84,
- "views_per_day": 424.2,
+ "views_per_day": 424.1,
  "minutes": 37.4,
  "likes": 343,
  "comments": 10,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=2Xe2ATb6VI8",
  "flag": "",
  "published_at": "2026-08-19T02:05:33Z",
- "rank": "W105",
+ "rank": "W72",
  "set": "web",
  "folder": "W_2Xe2ATb6VI8",
  "sources": [
@@ -26,7 +26,7 @@
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 10,
@@ -37,6 +37,6 @@
  "comments_disabled": false,
  "comments_reported": 10,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:22:59",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:37:51",
+ "approved": "2026-11-11T22:37+09:00"
 }

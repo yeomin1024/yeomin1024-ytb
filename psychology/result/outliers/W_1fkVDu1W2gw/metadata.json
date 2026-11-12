@@ -4,27 +4,32 @@
  "channel": "한창수의 마음정비소",
  "channel_id": "UCrYTwrtIYWH_woB6mbgoTqQ",
  "subs": 127000,
- "views": 2922440,
+ "views": 2922478,
  "ratio": 23.01,
  "age_days": 76,
- "views_per_day": 38446.7,
+ "views_per_day": 38444.2,
  "minutes": 12.5,
  "likes": 11239,
  "comments": 1455,
  "published": "2026-08-27",
- "queries": "검색:인간관계 | 검색:대인관계 | 검색:친구관계 | 검색:인간관계 정리 | 검색:인간관계심리",
+ "queries": "검색:인간관계 | 검색:대인관계 | 검색:인간관계 심리 | 검색:인간관계고민 | 검색:인간관계 정리 | 검색:정신건강 | 검색(전체 기간):인간관계 | 검색(전체 기간):인간관계 심리 | 검색(전체 기간):인간관계고민 | 검색(전체 기간):인간관계 정리",
  "url": "https://www.youtube.com/watch?v=1fkVDu1W2gw",
  "flag": "",
  "published_at": "2026-08-27T08:55:08Z",
- "rank": "W128",
+ "rank": "W91",
  "set": "web",
  "folder": "W_1fkVDu1W2gw",
  "sources": [
   "검색:인간관계",
   "검색:대인관계",
-  "검색:친구관계",
+  "검색:인간관계 심리",
+  "검색:인간관계고민",
   "검색:인간관계 정리",
-  "검색:인간관계심리"
+  "검색:정신건강",
+  "검색(전체 기간):인간관계",
+  "검색(전체 기간):인간관계 심리",
+  "검색(전체 기간):인간관계고민",
+  "검색(전체 기간):인간관계 정리"
  ],
  "source": "web",
  "tags": [
@@ -67,7 +72,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 1455,
@@ -78,6 +83,6 @@
  "comments_disabled": false,
  "comments_reported": 1455,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:02",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:38:38",
+ "approved": "2026-11-11T22:38+09:00"
 }

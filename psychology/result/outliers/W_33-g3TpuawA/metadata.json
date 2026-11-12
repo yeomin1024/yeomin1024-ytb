@@ -4,25 +4,26 @@
  "channel": "토닥교수의 심리학",
  "channel_id": "UCH1vudPey53cxkXyugPVoVQ",
  "subs": 26700,
- "views": 264053,
+ "views": 264059,
  "ratio": 9.89,
  "age_days": 62,
- "views_per_day": 4246.8,
+ "views_per_day": 4246.5,
  "minutes": 19.5,
  "likes": 1133,
  "comments": 62,
  "published": "2026-09-10",
- "queries": "검색:대인관계 | 검색:인간관계 정리 | 검색:인간관계심리",
+ "queries": "검색:대인관계 | 검색:손절 | 검색:인간관계 심리 | 검색:인간관계 정리",
  "url": "https://www.youtube.com/watch?v=33-g3TpuawA",
  "flag": "",
  "published_at": "2026-09-10T05:00:30Z",
- "rank": "W182",
+ "rank": "W143",
  "set": "web",
  "folder": "W_33-g3TpuawA",
  "sources": [
   "검색:대인관계",
-  "검색:인간관계 정리",
-  "검색:인간관계심리"
+  "검색:손절",
+  "검색:인간관계 심리",
+  "검색:인간관계 정리"
  ],
  "source": "web",
  "tags": null,
@@ -61,7 +62,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 62,
@@ -72,6 +73,6 @@
  "comments_disabled": false,
  "comments_reported": 62,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:31",
- "approved": "2026-11-11T18:26+09:00"
+ "collected": "2026-11-11T13:42:29",
+ "approved": "2026-11-11T22:42+09:00"
 }

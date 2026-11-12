@@ -4,7 +4,7 @@
  "channel": "최적화 심리학",
  "channel_id": "UCVK-0VFXaADq3e1m3CVcmHg",
  "subs": 12200,
- "views": 259433,
+ "views": 259449,
  "ratio": 21.27,
  "age_days": 156,
  "views_per_day": 1652.8,
@@ -12,15 +12,14 @@
  "likes": 5795,
  "comments": 303,
  "published": "2026-06-07",
- "queries": "검색:심리학 | 검색:뇌과학",
+ "queries": "검색:뇌과학",
  "url": "https://www.youtube.com/watch?v=sspCBqfVhFw",
  "flag": "",
  "published_at": "2026-06-07T10:00:24Z",
- "rank": "W136",
+ "rank": "W99",
  "set": "web",
  "folder": "W_sspCBqfVhFw",
  "sources": [
-  "검색:심리학",
   "검색:뇌과학"
  ],
  "source": "web",
@@ -80,7 +79,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 303,
@@ -91,6 +90,6 @@
  "comments_disabled": false,
  "comments_reported": 303,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:31",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:39:06",
+ "approved": "2026-11-11T22:39+09:00"
 }

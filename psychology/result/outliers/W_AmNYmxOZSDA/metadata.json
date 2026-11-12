@@ -7,7 +7,7 @@
  "views": 378057,
  "ratio": 12.56,
  "age_days": 104,
- "views_per_day": 3634.8,
+ "views_per_day": 3634.6,
  "minutes": 31.6,
  "likes": 6082,
  "comments": 206,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=AmNYmxOZSDA",
  "flag": "",
  "published_at": "2026-07-30T09:00:21Z",
- "rank": "W172",
+ "rank": "W131",
  "set": "web",
  "folder": "W_AmNYmxOZSDA",
  "sources": [
@@ -33,7 +33,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 206,
@@ -44,6 +44,6 @@
  "comments_disabled": false,
  "comments_reported": 206,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:06",
- "approved": "2026-11-11T18:26+09:00"
+ "collected": "2026-11-11T13:41:15",
+ "approved": "2026-11-11T22:41+09:00"
 }

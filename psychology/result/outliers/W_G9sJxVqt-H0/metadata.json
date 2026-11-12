@@ -4,26 +4,26 @@
  "channel": "오늘은 심리학",
  "channel_id": "UCWSkVDRzaeu_jrb1MN7y1iw",
  "subs": 40600,
- "views": 816236,
+ "views": 816233,
  "ratio": 20.1,
  "age_days": 98,
- "views_per_day": 8254.5,
+ "views_per_day": 8253.9,
  "minutes": 9.9,
  "likes": 11684,
  "comments": 698,
  "published": "2026-08-04",
- "queries": "검색:심리학 | 검색:심리 | 검색:대인관계 | 검색:감정조절",
+ "queries": "검색:대인관계 | 검색:인간관계 심리 | 검색:감정조절 | 검색(전체 기간):심리학",
  "url": "https://www.youtube.com/watch?v=G9sJxVqt-H0",
  "flag": "",
  "published_at": "2026-08-04T12:00:06Z",
- "rank": "W139",
+ "rank": "W101",
  "set": "web",
  "folder": "W_G9sJxVqt-H0",
  "sources": [
-  "검색:심리학",
-  "검색:심리",
   "검색:대인관계",
-  "검색:감정조절"
+  "검색:인간관계 심리",
+  "검색:감정조절",
+  "검색(전체 기간):심리학"
  ],
  "source": "web",
  "tags": null,
@@ -62,7 +62,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 698,
@@ -73,6 +73,6 @@
  "comments_disabled": false,
  "comments_reported": 698,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:39",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:39:12",
+ "approved": "2026-11-11T22:39+09:00"
 }

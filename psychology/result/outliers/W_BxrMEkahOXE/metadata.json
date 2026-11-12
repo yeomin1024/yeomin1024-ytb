@@ -4,23 +4,23 @@
  "channel": "민고영",
  "channel_id": "UC4doHgl4BCXTw61U5E3Qtyw",
  "subs": 20100,
- "views": 432081,
+ "views": 432115,
  "ratio": 21.5,
  "age_days": 83,
- "views_per_day": 5147.0,
+ "views_per_day": 5147.1,
  "minutes": 11.3,
  "likes": 5065,
  "comments": 452,
  "published": "2026-08-19",
- "queries": "검색:우울증",
+ "queries": "검색:정신건강",
  "url": "https://www.youtube.com/watch?v=BxrMEkahOXE",
  "flag": "",
  "published_at": "2026-08-19T10:30:15Z",
- "rank": "W133",
+ "rank": "W96",
  "set": "web",
  "folder": "W_BxrMEkahOXE",
  "sources": [
-  "검색:우울증"
+  "검색:정신건강"
  ],
  "source": "web",
  "tags": [
@@ -53,7 +53,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 452,
@@ -64,6 +64,6 @@
  "comments_disabled": false,
  "comments_reported": 452,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:24",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:39:00",
+ "approved": "2026-11-11T22:39+09:00"
 }

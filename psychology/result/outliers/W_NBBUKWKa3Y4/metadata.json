@@ -4,7 +4,7 @@
  "channel": "비우는 삶",
  "channel_id": "UCgEfIE7qWQo8_Z03WEEyLRA",
  "subs": 2240,
- "views": 72449,
+ "views": 72448,
  "ratio": 32.34,
  "age_days": 113,
  "views_per_day": 639.8,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=NBBUKWKa3Y4",
  "flag": "",
  "published_at": "2026-07-21T03:34:05Z",
- "rank": "W102",
+ "rank": "W71",
  "set": "web",
  "folder": "W_NBBUKWKa3Y4",
  "sources": [
@@ -51,7 +51,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 462,
@@ -62,6 +62,6 @@
  "comments_disabled": false,
  "comments_reported": 462,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:22:53",
- "approved": "2026-11-11T18:22+09:00"
+ "collected": "2026-11-11T13:37:49",
+ "approved": "2026-11-11T22:37+09:00"
 }

@@ -1,0 +1,85 @@
+{
+ "id": "zZ-kJldRe8U",
+ "title": "좋아하는 사람을 만나도 지치는 이유｜예민한 사람의 관계 피로",
+ "channel": "정신과의사 뇌부자들",
+ "channel_id": "UCpJGzvFHpjMw3i-Wgr_eogw",
+ "subs": 334000,
+ "views": 330104,
+ "ratio": 0.99,
+ "age_days": 26,
+ "views_per_day": 12648.0,
+ "minutes": 28.6,
+ "likes": 1888,
+ "comments": 247,
+ "published": "2026-10-16",
+ "queries": "검색:대인관계",
+ "url": "https://www.youtube.com/watch?v=zZ-kJldRe8U",
+ "flag": "",
+ "published_at": "2026-10-16T07:00:15Z",
+ "rank": "W254",
+ "set": "web",
+ "folder": "W_zZ-kJldRe8U",
+ "sources": [
+  "검색:대인관계"
+ ],
+ "source": "web",
+ "tags": [
+  "뇌부자들",
+  "정신과",
+  "우울증",
+  "ADHD",
+  "공황장애",
+  "조현병",
+  "항우울제",
+  "수면제",
+  "상담"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "intro"
+  },
+  {
+   "start": 30,
+   "title": "쉽게 방전되는 나, 혹시 HSP 일까요?"
+  },
+  {
+   "start": 153,
+   "title": "왜 남들보다 쉽게 지칠까?"
+  },
+  {
+   "start": 320,
+   "title": "친구는 충전되는데 나는 방전되는 이유"
+  },
+  {
+   "start": 580,
+   "title": "HSP일까? 아닐까? 사례비교"
+  },
+  {
+   "start": 794,
+   "title": "HSP와 불안 차이점"
+  },
+  {
+   "start": 1048,
+   "title": "지치지 않는 만남을 하는 방법"
+  },
+  {
+   "start": 1485,
+   "title": "피로의 이유가 불안이라면?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 247,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:13",
+ "approved": "2026-11-11T22:47+09:00"
+}

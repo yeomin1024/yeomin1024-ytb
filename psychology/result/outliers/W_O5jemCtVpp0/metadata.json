@@ -7,27 +7,27 @@
  "views": 239974,
  "ratio": 47.52,
  "age_days": 119,
- "views_per_day": 2008.4,
+ "views_per_day": 2008.2,
  "minutes": 29.3,
  "likes": 818,
  "comments": 100,
  "published": "2026-07-14",
- "queries": "검색:심리학 | 검색:중년심리",
+ "queries": "검색:심리학 | 검색:인간관계 심리",
  "url": "https://www.youtube.com/watch?v=O5jemCtVpp0",
  "flag": "",
  "published_at": "2026-07-14T21:30:36Z",
- "rank": "W81",
+ "rank": "W56",
  "set": "web",
  "folder": "W_O5jemCtVpp0",
  "sources": [
   "검색:심리학",
-  "검색:중년심리"
+  "검색:인간관계 심리"
  ],
  "source": "web",
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 100,
@@ -38,6 +38,6 @@
  "comments_disabled": false,
  "comments_reported": 100,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:21:59",
- "approved": "2026-11-11T18:22+09:00"
+ "collected": "2026-11-11T13:37:16",
+ "approved": "2026-11-11T22:37+09:00"
 }

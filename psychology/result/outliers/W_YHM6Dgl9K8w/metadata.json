@@ -4,23 +4,23 @@
  "channel": "정신과의사 뇌부자들",
  "channel_id": "UCpJGzvFHpjMw3i-Wgr_eogw",
  "subs": 334000,
- "views": 306022,
+ "views": 306035,
  "ratio": 0.92,
  "age_days": 12,
- "views_per_day": 25304.8,
+ "views_per_day": 25293.7,
  "minutes": 25.8,
  "likes": 1216,
  "comments": 103,
  "published": "2026-10-30",
- "queries": "검색:우울증",
+ "queries": "검색:정신건강",
  "url": "https://www.youtube.com/watch?v=YHM6Dgl9K8w",
  "flag": "",
  "published_at": "2026-10-30T07:00:26Z",
- "rank": "W229",
+ "rank": "W257",
  "set": "web",
  "folder": "W_YHM6Dgl9K8w",
  "sources": [
-  "검색:우울증"
+  "검색:정신건강"
  ],
  "source": "web",
  "tags": [
@@ -65,17 +65,17 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
- "comments_fetched": 103,
- "comments_top_level": 70,
- "comments_replies": 33,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
  "comments_by_creator": 0,
- "comments_complete": true,
+ "comments_complete": false,
  "comments_disabled": false,
  "comments_reported": 103,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:28:20",
- "approved": "2026-11-11T18:28+09:00"
+ "collected": "2026-11-11T13:47:13",
+ "approved": "2026-11-11T22:47+09:00"
 }

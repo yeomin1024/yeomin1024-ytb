@@ -4,25 +4,26 @@
  "channel": "바로쓰는 심리학",
  "channel_id": "UCBCEvvfy9EOoo_l5nX6cPAw",
  "subs": 27100,
- "views": 722120,
+ "views": 722141,
  "ratio": 26.65,
  "age_days": 156,
- "views_per_day": 4627.8,
+ "views_per_day": 4627.7,
  "minutes": 15.2,
  "likes": 13266,
  "comments": 634,
  "published": "2026-06-08",
- "queries": "검색:심리학 | 검색:뇌과학 | 검색:심리",
+ "queries": "검색:심리학 | 검색:심리 | 검색:뇌과학 | 검색(전체 기간):심리학",
  "url": "https://www.youtube.com/watch?v=BjKVokKepsU",
  "flag": "",
  "published_at": "2026-06-08T08:15:05Z",
- "rank": "W120",
+ "rank": "W83",
  "set": "web",
  "folder": "W_BjKVokKepsU",
  "sources": [
   "검색:심리학",
+  "검색:심리",
   "검색:뇌과학",
-  "검색:심리"
+  "검색(전체 기간):심리학"
  ],
  "source": "web",
  "tags": [
@@ -71,7 +72,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 634,
@@ -82,6 +83,6 @@
  "comments_disabled": false,
  "comments_reported": 634,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:23:39",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:38:15",
+ "approved": "2026-11-11T22:38+09:00"
 }

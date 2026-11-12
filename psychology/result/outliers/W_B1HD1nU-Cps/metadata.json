@@ -1,0 +1,96 @@
+{
+ "id": "B1HD1nU-Cps",
+ "title": "이름 없던 감정 11가지, 전부 설명해드림",
+ "channel": "알아봤음",
+ "channel_id": "UC9dGGdketmyvNpGaj3nhb5g",
+ "subs": 83400,
+ "views": 1504062,
+ "ratio": 18.03,
+ "age_days": 204,
+ "views_per_day": 7341.0,
+ "minutes": 11.5,
+ "likes": 72485,
+ "comments": 1500,
+ "published": "2026-04-20",
+ "queries": "검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=B1HD1nU-Cps",
+ "flag": "",
+ "published_at": "2026-04-20T12:08:28Z",
+ "rank": "W110",
+ "set": "web",
+ "folder": "W_B1HD1nU-Cps",
+ "sources": [
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": [
+  "이름 없는 감정",
+  "감정 심리학",
+  "obscure sorrows",
+  "sonder",
+  "hiraeth",
+  "limerence",
+  "kenopsia",
+  "feelings with no name"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Sonder"
+  },
+  {
+   "start": 71,
+   "title": "Hiraeth"
+  },
+  {
+   "start": 135,
+   "title": "Limerence"
+  },
+  {
+   "start": 205,
+   "title": "Kenopsia"
+  },
+  {
+   "start": 148,
+   "title": "Chrysalism"
+  },
+  {
+   "start": 326,
+   "title": "Vellichor"
+  },
+  {
+   "start": 384,
+   "title": "Monachopsis"
+  },
+  {
+   "start": 448,
+   "title": "Mauerbauertraurigkeit"
+  },
+  {
+   "start": 511,
+   "title": "Anemoia"
+  },
+  {
+   "start": 568,
+   "title": "Occhiolism"
+  },
+  {
+   "start": 625,
+   "title": "Onism"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1500,
+ "comments_top_level": 1140,
+ "comments_replies": 360,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1500,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:38",
+ "approved": "2026-11-11T22:39+09:00"
+}

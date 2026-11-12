@@ -12,16 +12,17 @@
  "likes": 1840,
  "comments": 82,
  "published": "2026-05-29",
- "queries": "검색:자존감 | 검색:자존감높이는법",
+ "queries": "검색:자존감 | 검색:감정조절 | 검색:자존감 높이는 법",
  "url": "https://www.youtube.com/watch?v=B_rOPX-oLQM",
  "flag": "",
  "published_at": "2026-05-29T09:00:16Z",
- "rank": "W73",
+ "rank": "W51",
  "set": "web",
  "folder": "W_B_rOPX-oLQM",
  "sources": [
   "검색:자존감",
-  "검색:자존감높이는법"
+  "검색:감정조절",
+  "검색:자존감 높이는 법"
  ],
  "source": "web",
  "tags": [
@@ -94,7 +95,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 82,
@@ -105,6 +106,6 @@
  "comments_disabled": false,
  "comments_reported": 82,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:21:35",
- "approved": "2026-11-11T18:21+09:00"
+ "collected": "2026-11-11T13:37:10",
+ "approved": "2026-11-11T22:37+09:00"
 }

@@ -4,24 +4,24 @@
  "channel": "뇌생각 심리학",
  "channel_id": "UC0Sihb0O1YvwpDlTb3u8R3Q",
  "subs": 8200,
- "views": 411703,
+ "views": 411736,
  "ratio": 50.21,
  "age_days": 120,
  "views_per_day": 3430.6,
  "minutes": 13.1,
- "likes": 9696,
+ "likes": 9697,
  "comments": 540,
  "published": "2026-07-14",
- "queries": "검색:뇌과학 | 검색:심리",
+ "queries": "검색:심리 | 검색:뇌과학",
  "url": "https://www.youtube.com/watch?v=N9VBE85m_bo",
  "flag": "",
  "published_at": "2026-07-14T08:58:13Z",
- "rank": "W78",
+ "rank": "W53",
  "set": "web",
  "folder": "W_N9VBE85m_bo",
  "sources": [
-  "검색:뇌과학",
-  "검색:심리"
+  "검색:심리",
+  "검색:뇌과학"
  ],
  "source": "web",
  "tags": [
@@ -75,7 +75,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 540,
@@ -86,6 +86,6 @@
  "comments_disabled": false,
  "comments_reported": 540,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:21:50",
- "approved": "2026-11-11T18:21+09:00"
+ "collected": "2026-11-11T13:37:13",
+ "approved": "2026-11-11T22:37+09:00"
 }

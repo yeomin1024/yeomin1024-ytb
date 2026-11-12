@@ -1,0 +1,88 @@
+{
+ "id": "ksatAniUxvQ",
+ "title": "\"정신 연령이 낮다\" 몸만 어른인 사람들이 입에 달고 사는 ‘이 말’ (김경일 교수 통합본)",
+ "channel": "지식한상 ",
+ "channel_id": "UCw8hsZYZcasyyLrfOFP8D-w",
+ "subs": 1470000,
+ "views": 1037996,
+ "ratio": 0.71,
+ "age_days": 90,
+ "views_per_day": 11411.1,
+ "minutes": 53.8,
+ "likes": 8618,
+ "comments": 293,
+ "published": "2026-08-12",
+ "queries": "검색:심리학 | 검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=ksatAniUxvQ",
+ "flag": "",
+ "published_at": "2026-08-12T10:15:24Z",
+ "rank": "W268",
+ "set": "web",
+ "folder": "W_ksatAniUxvQ",
+ "sources": [
+  "검색:심리학",
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "나이들수록 품격 있는 사람들의 공통점"
+  },
+  {
+   "start": 60,
+   "title": "나이들수록 얼굴의 ‘이곳’이 중요한 이유"
+  },
+  {
+   "start": 425,
+   "title": "중년의 옷차림이 중요한 진짜 이유"
+  },
+  {
+   "start": 713,
+   "title": "일상적인 대화도 특별하게 만드는 사람의 특징"
+  },
+  {
+   "start": 934,
+   "title": "나이들수록 품격이 드러나는 사람들의 공통점"
+  },
+  {
+   "start": 1083,
+   "title": "노후가 잘 풀리는 사람이 자주 하는 행동"
+  },
+  {
+   "start": 1200,
+   "title": "50대 이후 돈복 쏟아지는 사람의 특징"
+  },
+  {
+   "start": 1703,
+   "title": "뭘 해도 잘되는 사람들이 절대 놓치지 않는 것"
+  },
+  {
+   "start": 1996,
+   "title": "주변에 이상한 사람만 꼬인다는 사람의 특징"
+  },
+  {
+   "start": 2294,
+   "title": "이상하게 주변에 귀인이 가득한 사람의 특징"
+  },
+  {
+   "start": 2579,
+   "title": "나도 모르게 돈과 운을 내쫓는 ‘이 행동’"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 293,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:15",
+ "approved": "2026-11-11T22:47+09:00"
+}

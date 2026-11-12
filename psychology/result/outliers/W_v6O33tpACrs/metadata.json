@@ -1,0 +1,85 @@
+{
+ "id": "v6O33tpACrs",
+ "title": "조현병이 시작되기 전 나타날 수 있는 변화들",
+ "channel": "정신과의사 뇌부자들",
+ "channel_id": "UCpJGzvFHpjMw3i-Wgr_eogw",
+ "subs": 334000,
+ "views": 719764,
+ "ratio": 2.15,
+ "age_days": 70,
+ "views_per_day": 10267.7,
+ "minutes": 20.7,
+ "likes": 2022,
+ "comments": 356,
+ "published": "2026-09-02",
+ "queries": "검색:정신건강",
+ "url": "https://www.youtube.com/watch?v=v6O33tpACrs",
+ "flag": "",
+ "published_at": "2026-09-02T07:00:03Z",
+ "rank": "W205",
+ "set": "web",
+ "folder": "W_v6O33tpACrs",
+ "sources": [
+  "검색:정신건강"
+ ],
+ "source": "web",
+ "tags": [
+  "뇌부자들",
+  "정신과",
+  "우울증",
+  "ADHD",
+  "공황장애",
+  "조현병",
+  "항우울제",
+  "수면제",
+  "상담"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "intro"
+  },
+  {
+   "start": 70,
+   "title": "조현병 초기에 나타나는 변화들"
+  },
+  {
+   "start": 192,
+   "title": "조현병 전구기 VS 사춘기 감별 포인트"
+  },
+  {
+   "start": 318,
+   "title": "미묘한 인지변화가 나타나는 조현병 전구기"
+  },
+  {
+   "start": 690,
+   "title": "한가지 변화보다 전반적인 변화의 흐름이 중요"
+  },
+  {
+   "start": 746,
+   "title": "우울증과 비슷해 보이는 이유"
+  },
+  {
+   "start": 960,
+   "title": "자녀에게 전구기 증상이 보인다면?"
+  },
+  {
+   "start": 1119,
+   "title": "거부감없이 치료받는법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 356,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:08",
+ "approved": "2026-11-11T22:47+09:00"
+}

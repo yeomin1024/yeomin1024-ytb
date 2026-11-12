@@ -4,10 +4,10 @@
  "channel": "오늘도 철학합니다",
  "channel_id": "UCogLbC1sRTdrb63sv6PJokA",
  "subs": 9810,
- "views": 222945,
+ "views": 223022,
  "ratio": 22.73,
  "age_days": 19,
- "views_per_day": 11176.5,
+ "views_per_day": 11177.1,
  "minutes": 46.0,
  "likes": 1750,
  "comments": 70,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=FsA8DIfbmjQ",
  "flag": "",
  "published_at": "2026-10-22T10:30:17Z",
- "rank": "W132",
+ "rank": "W94",
  "set": "web",
  "folder": "W_FsA8DIfbmjQ",
  "sources": [
@@ -182,7 +182,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 70,
@@ -193,6 +193,6 @@
  "comments_disabled": false,
  "comments_reported": 70,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:22",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:38:55",
+ "approved": "2026-11-11T22:38+09:00"
 }

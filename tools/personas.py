@@ -1,11 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-11 — **최근 흐름 (TREND_DAYS)** (사용자 지시 2026-11-11 "최근 트렌드도 파악해서 페르소나에 반영해야돼" — 심리 주제 첫 페르소나):
-#          설정 TREND_DAYS > 0 이면 댓글 단 날(댓글 published)이 최근 N일 안인 댓글 vs 그 전 댓글을 견줌 → 묶음(페르소나) 몫 변화 · 페르소나마다 늘어난 처지 ·
-#          요즘 더 묻는 말(질문 낱말 lift) · 최근 좋아요 많은 질문 · 전체에서 요즘 더 나오는 낱말 · 최근 댓글이 몰린 영상 → personas.md '2-1. 최근 흐름' ·
-#          0번 표 '최근 N일 몫' 줄 · personas.json 'trend' · 페르소나마다 'trend'. 기본 0 = 끔 (주식·재테크·역사 결과는 그대로 — 그 설정에 TREND_DAYS 없음).
-#          페르소나 고르기(몫·누적)는 그대로 전체 댓글로 — 최근 흐름은 고른 페르소나 위에 덧붙이는 칸.
-# (v1.0.2 — 2026-10-28 — **주식·재테크** (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터
+# VERSION: v1.0.2 — 2026-10-28 — **주식·재테크** (사용자 지시 2026-10-28 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 진행해서 유튜브 분석부터
 #          요약본까지 만들어봐" — 재테크 주제 탐색·요약본이 페르소나를 씀): economic/personas.toml 되살림 (git show 4e5f0838). 코드 그대로.
 # (v1.0.1 — 2026-10-28 — **주식만** (사용자 지시 2026-10-28 "아니 주식 쪽만 하면돼"): 설정 stock/personas.toml 만 둠 — 다른 주제는
 #          personas.toml 이 없어 분석 끝의 고리가 '만들지 않음'(INFO)만 남김 (예전 WARNING). 문서 3번 '쓰는 곳' = stock/guides/quick_test.md.
@@ -43,7 +38,7 @@ import statistics
 import sys
 import time
 from collections import Counter, defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -54,14 +49,13 @@ try:
 except ModuleNotFoundError:           # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.1"
+VERSION = "v1.0.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("persona")
 SEED = 20261028
 LANG_CODE = {"한국어": "ko", "영어": "en"}
 DEFAULTS = {"RECENT_DAYS": 180, "LANGS": ["한국어"], "MIN_SHARE": 0.08, "COVER": 0.80, "MIN_PERSONAS": 2, "MAX_PERSONAS": 6,
-            "MIN_N": 30, "NEED_SELF": True, "VIDEO_TITLE_RX": "", "SPLIT_LANG": False, "WANT_SKIP": "", "AGE_STRICT": False, "AGE_SKIP_BEFORE": "", "TOP_WANTS": 12, "TOP_TERMS": 10, "QUOTES": 4,
-            "TREND_DAYS": 0, "TREND_MIN_LIFT": 1.5}                # v1.1: 최근 흐름 (0 = 끔)
+            "MIN_N": 30, "NEED_SELF": True, "VIDEO_TITLE_RX": "", "SPLIT_LANG": False, "WANT_SKIP": "", "AGE_STRICT": False, "AGE_SKIP_BEFORE": "", "TOP_WANTS": 12, "TOP_TERMS": 10, "QUOTES": 4}
 GROUPS = ("성공 사례", "하루 조회수 상위", "그 밖의 승인 영상")
 
 
@@ -347,14 +341,6 @@ def stage_of(c, cfg):
 
 
 # ---------------------------------------------------------------- 만들기
-def _when(x):
-    """댓글 published('2026-11-03T12:34:56') → UTC 시각 (없거나 깨지면 None — 최근 흐름에서 빠짐)."""
-    try:
-        return datetime.fromisoformat(str(x)[:19]).replace(tzinfo=timezone.utc) if x else None
-    except ValueError:
-        return None
-
-
 def collect(topic, cfg, now, root=None):
     C = compile_cfg(cfg)
     rows, vids = [], []
@@ -366,8 +352,7 @@ def collect(topic, cfg, now, root=None):
             if m.get("creator") or not t.strip():
                 continue
             c = cues(t, Cl, now)
-            c.update({"text": ct.clean(t, 400), "likes": int(m.get("likes") or 0), "vid": v["id"], "group": v["group"], "lg": v["lg"], "code": Cl["code"],
-                      "when": _when(m.get("published"))})     # v1.1: 댓글 단 날 (최근 흐름)
+            c.update({"text": ct.clean(t, 400), "likes": int(m.get("likes") or 0), "vid": v["id"], "group": v["group"], "lg": v["lg"], "code": Cl["code"]})
             c["stage"] = stage_of(c, cfg)
             if c["stage"] and cfg["SPLIT_LANG"]:
                 c["stage"] = f"{c['stage']}@{v['lg']}"     # 언어마다 따로 (외국 댓글과 한국어 댓글을 한 페르소나로 섞지 않음)
@@ -466,93 +451,6 @@ def profile(key, rs, cfg, stage_def, state_names, like_names, dislike_names):
     }
 
 
-def _lift(cr, nr, co, no):
-    """요즘 더 나오는가: (최근 비율) ÷ (그 전 비율), 0 나누기를 막으려고 양쪽 +1 (작은 수는 부풀지 않게)."""
-    return ((cr + 1) / max(1, nr)) / ((co + 1) / max(1, no))
-
-
-def rising_words(rec, old, cfg, min_recent, k=10, terms=True):
-    """최근 댓글에서 그 전보다 더 자주 나온 낱말 (댓글마다 한 번) — lift ≥ TREND_MIN_LIFT · 최근 min_recent 번 이상."""
-    def cnt(rs):
-        c = Counter()
-        for r in rs:
-            ws = set(w for w in kw_tokens(r["text"], r["code"], cfg["stop"]) if w.lower() not in cfg["_terms"])
-            if terms:
-                ws |= set(r["basic"] + r["adv"])
-            c.update(ws)
-        return c
-    cr, co = cnt(rec), cnt(old)
-    out = []
-    for w, n in cr.items():
-        if n < min_recent:
-            continue
-        L = _lift(n, len(rec), co.get(w, 0), len(old))
-        if L >= cfg["TREND_MIN_LIFT"]:
-            out.append({"word": w, "recent": n, "old": co.get(w, 0), "recent_rate": round(n / max(1, len(rec)), 4),
-                        "old_rate": round(co.get(w, 0) / max(1, len(old)), 4), "lift": round(L, 2)})
-    out.sort(key=lambda x: (-x["lift"] * min(1.0, x["recent"] / (min_recent * 3)), -x["recent"]))   # 드문 말이 위를 덮지 않게 (최근 수가 적으면 깎음)
-    return out[:k]
-
-
-def trend(rows, assigned, seg, chosen, by, personas, cfg, now, vids, state_names, seg_name):
-    """v1.1 최근 흐름 — 댓글 단 날 기준 최근 TREND_DAYS 일 vs 그 전. 페르소나 고르기는 건드리지 않음 (덧붙이는 칸)."""
-    T = int(cfg["TREND_DAYS"])
-    cut = now - timedelta(days=T)
-    recent = lambda r: r["when"] is not None and r["when"] >= cut
-    older = lambda r: r["when"] is not None and r["when"] < cut
-    rec, old = [r for r in rows if recent(r)], [r for r in rows if older(r)]
-    D = {"days": T, "since": cut.strftime("%Y-%m-%d"), "recent": len(rec), "old": len(old), "no_date": sum(1 for r in rows if r["when"] is None)}
-    if len(rec) < cfg["MIN_N"] or len(old) < cfg["MIN_N"]:
-        D["note"] = f"최근·그 전 댓글이 {cfg['MIN_N']}개 미만 — 견주지 않음"
-        return D
-    ar, ao = [r for r in assigned if recent(r)], [r for r in assigned if older(r)]
-    sr, so = Counter(r["stage"] for r in ar), Counter(r["stage"] for r in ao)
-    D["segments"] = sorted([{"key": k, "name": seg_name(k), "chosen": k in chosen, "recent": sr.get(k, 0), "old": so.get(k, 0),
-                             "recent_share": round(sr.get(k, 0) / max(1, len(ar)), 4), "old_share": round(so.get(k, 0) / max(1, len(ao)), 4)}
-                            for k in seg], key=lambda x: -(x["recent_share"] - x["old_share"]))
-    D["assigned_recent"], D["assigned_old"] = len(ar), len(ao)
-    min_q = max(3, round(len(rec) * 0.0005))
-    for p in personas:
-        rs = by[p["key"]]
-        pr, po = [r for r in rs if recent(r)], [r for r in rs if older(r)]
-        st_r = Counter(s for r in pr for s in set(r["states"]))
-        st_o = Counter(s for r in po for s in set(r["states"]))
-        states = []
-        for s, n in st_r.items():
-            a, b = n / max(1, len(pr)), st_o.get(s, 0) / max(1, len(po))
-            if n >= 5:
-                states.append({"name": state_names.get(s, s), "recent_share": round(a, 4), "old_share": round(b, 4), "diff": round(a - b, 4), "recent": n})
-        states.sort(key=lambda x: -x["diff"])
-        qr = [r for r in pr if r["type"] == "Q" and not r["promo"]]
-        qo = [r for r in po if r["type"] == "Q" and not r["promo"]]
-        tq, seen = [], set()
-        for r in sorted(qr, key=lambda r: -r["likes"]):
-            if r["text"][:40] in seen or len(r["text"]) < 12:
-                continue
-            seen.add(r["text"][:40])
-            tq.append({"text": quote(r["text"]), "likes": r["likes"]})
-            if len(tq) >= 3:
-                break
-        p["trend"] = {"recent": len(pr), "old": len(po), "recent_share": round(len(pr) / max(1, len(ar)), 4), "old_share": round(len(po) / max(1, len(ao)), 4),
-                      "rising_states": states[:3], "rising_wants": rising_words(qr, qo, cfg, max(2, min_q // 2), 6) if len(qr) >= 10 else [],
-                      "rising_words": rising_words(pr, po, cfg, max(4, round(len(pr) * 0.004)), 8), "top_questions": tq}
-        log("TREND", id=p["id"], recent=len(pr), old=len(po), share=f"{p['trend']['old_share']:.3f}->{p['trend']['recent_share']:.3f}",
-            rising=",".join(w["word"] for w in p["trend"]["rising_words"][:4]) or "-")
-    st_r = Counter(s for r in rec for s in set(r["states"]))
-    st_o = Counter(s for r in old for s in set(r["states"]))
-    D["states"] = sorted([{"name": state_names.get(s, s), "recent_share": round(st_r.get(s, 0) / len(rec), 4), "old_share": round(st_o.get(s, 0) / len(old), 4),
-                           "recent": st_r.get(s, 0)} for s in set(st_r) | set(st_o)], key=lambda x: -(x["recent_share"] - x["old_share"]))
-    D["rising_words"] = rising_words(rec, old, cfg, max(8, round(len(rec) * 0.002)), 15)
-    D["rising_wants"] = rising_words([r for r in rec if r["type"] == "Q" and not r["promo"]], [r for r in old if r["type"] == "Q" and not r["promo"]],
-                                     cfg, min_q, 10)
-    title = {v["id"]: v["title"] for v in vids}
-    hot = Counter(r["vid"] for r in rec)
-    D["hot_videos"] = [{"id": v, "title": title.get(v, ""), "recent_comments": n} for v, n in hot.most_common(8)]
-    log("TREND", topic="all", days=T, recent=len(rec), old=len(old), rising=",".join(w["word"] for w in D["rising_words"][:6]) or "-",
-        hot=(D["hot_videos"][0]["title"][:30] if D["hot_videos"] else "-"))
-    return D
-
-
 def build(topic, now=None, root=None, write=True):
     t0 = time.monotonic()
     now = now or datetime.now(timezone.utc)
@@ -613,11 +511,6 @@ def build(topic, now=None, root=None, write=True):
         log("PERSONA", topic=topic, id=p["id"], key=k, n=p["n"], age_n=p["age"]["n"], age_median=p["age"]["median_decade"],
             level=p["know"]["level"], top_state=(p["states"][0]["name"] if p["states"] else "-"),
             top_want=(p["want_terms"][0][0] if p["want_terms"] else (p["want_words"][0][0] if p["want_words"] else "-")))
-    # v1.1 최근 흐름 (TREND_DAYS > 0)
-    trend_d = None
-    if int(cfg.get("TREND_DAYS") or 0) > 0:
-        trend_d = trend(rows, assigned, seg, chosen, by, personas, cfg, now, vids, state_names,
-                        lambda k: stage_def.get(base(k), {}).get("name", k) + (f" · {lang_of(k)}" if lang_of(k) else ""))
     # 모든 댓글 (참고 칸) — 페르소나에 안 든 다수의 지식·원하는 것·좋아함·불만 (칭찬·비판 갈래는 여기서 숫자가 큼)
     baselines = []
     for lg in (cfg["LANGS"] if cfg["SPLIT_LANG"] else [None]):
@@ -643,11 +536,11 @@ def build(topic, now=None, root=None, write=True):
     else:
         overall = wants(allq, personas)
     data = {"topic": topic, "tool": f"personas.py {VERSION}", "config_version": cfg["version"], "made": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "rules": {k: cfg[k] for k in ("RECENT_DAYS", "LANGS", "MIN_SHARE", "COVER", "MIN_PERSONAS", "MAX_PERSONAS", "MIN_N", "NEED_SELF", "VIDEO_TITLE_RX", "SPLIT_LANG", "AGE_STRICT", "TREND_DAYS")},
+            "rules": {k: cfg[k] for k in ("RECENT_DAYS", "LANGS", "MIN_SHARE", "COVER", "MIN_PERSONAS", "MAX_PERSONAS", "MIN_N", "NEED_SELF", "VIDEO_TITLE_RX", "SPLIT_LANG", "AGE_STRICT")},
             "data": {"videos": len(vids), "by_group": dict(Counter(v["group"] for v in vids)), "by_lang": dict(Counter(v["lg"] for v in vids)),
                      "comments": n, "any_cue": any_cue, "age": n_age, "assigned": len(assigned), "skipped": dict(skipped),
                      "questions": len(allq), "promo_skipped": sum(1 for r in rows if r["type"] == "Q" and r["promo"])},
-            "segments": table, "personas": personas, "baselines": baselines, "overall": overall, "trend": trend_d,
+            "segments": table, "personas": personas, "baselines": baselines, "overall": overall,
             "stage_defs": [{"key": s["key"], "name": s.get("name", s["key"]), "age": s.get("age"), "strong": bool(s.get("strong"))} for s in cfg["stages"]]}
     if write:
         out = Path(root or ROOT) / topic / "result" / "outliers"
@@ -727,11 +620,6 @@ def render_md(D):
         def row(label, f):
             L.append(f"| {label} | " + " | ".join(str(f(p)).replace("|", "/") for p in cols) + " |")
         row("몫 (묶음에 든 댓글 중)", lambda p: f"{pct(p['share'])} (댓글 {p['n']:,})" if p["id"] != "전체" else f"댓글 {p['n']:,}")
-        TD = D.get("trend") or {}
-        if TD.get("segments"):                        # v1.1
-            row(f"최근 {TD['days']}일 몫 (그 전 → 최근)", lambda p: (f"{pct(p['trend']['old_share'])} → **{pct(p['trend']['recent_share'])}** "
-                                                              f"({(p['trend']['recent_share'] - p['trend']['old_share']) * 100:+.0f}%p)") if p.get("trend") else "")
-            row(f"요즘 더 나오는 말 (최근 {TD['days']}일)", lambda p: join(p["trend"]["rising_words"], 5, lambda x: f"{x['word']} ×{x['lift']}") if p.get("trend") else "")
         row("연령 (밝힌 사람)", age_line)
         row("처한 상황 (많은 순)", lambda p: join(p["states"], 3, lambda s: f"{s['name']} {pct(s['share'])}"))
         row("지식 수준", know_line)
@@ -779,38 +667,6 @@ def render_md(D):
                 tag = (f"{q['age']}대 · " if q["age"] else "") + ", ".join(q["states"])
                 L.append(f"  - \"{q['text']}\" 👍{q['likes']}" + (f" ({tag})" if tag else ""))
         L.append("")
-    # 2-1. 최근 흐름 (v1.1)
-    TD = D.get("trend")
-    if TD:
-        L += [f"## 2-1. 최근 흐름 — 댓글 단 날 기준 최근 {TD['days']}일 ({TD['since']} 부터) vs 그 전", "",
-              f"사용자 지시 2026-11-11 \"최근 트렌드도 파악해서 페르소나에 반영해야돼\" · 설정 `TREND_DAYS = {TD['days']}` · 최근 댓글 {TD['recent']:,}개 · 그 전 {TD['old']:,}개"
-              + (f" · 날짜 없음 {TD['no_date']:,}" if TD.get("no_date") else "") + ". 페르소나 고르기(1번)는 전체 댓글 그대로 — 이 절은 그 위에 덧붙인 흐름이다.", ""]
-        if TD.get("note"):
-            L += [f"- {TD['note']}", ""]
-        else:
-            L += ["### 묶음 몫 — 최근 vs 그 전 (늘어난 순)", "", "| 묶음 | 그 전 몫 | 최근 몫 | 차이 | 페르소나 |", "|---|---|---|---|---|"]
-            for t in TD["segments"]:
-                L.append(f"| {t['name']} | {pct(t['old_share'])} ({t['old']:,}) | {pct(t['recent_share'])} ({t['recent']:,}) | "
-                         f"{(t['recent_share'] - t['old_share']) * 100:+.1f}%p | {'✅' if t['chosen'] else ''} |")
-            L += ["", "### 페르소나마다 — 요즘 늘어난 처지 · 더 묻는 말 · 최근 좋아요 많은 질문", ""]
-            for p in P:
-                tr = p.get("trend")
-                if not tr:
-                    continue
-                L.append(f"- **{p['id']} {p['name']}** — 최근 댓글 {tr['recent']:,} · 몫 {pct(tr['old_share'])} → {pct(tr['recent_share'])}")
-                L.append("  - 늘어난 처지: " + join(tr["rising_states"], 3, lambda x: f"{x['name']} {pct(x['old_share'])}→{pct(x['recent_share'])}"))
-                L.append("  - 요즘 더 나오는 말: " + join(tr["rising_words"], 8, lambda x: f"{x['word']} {x['recent']} (×{x['lift']})"))
-                L.append("  - 요즘 더 묻는 말 (질문 댓글): " + join(tr["rising_wants"], 6, lambda x: f"{x['word']} {x['recent']} (×{x['lift']})"))
-                if tr["top_questions"]:
-                    L.append("  - 최근 좋아요 많은 질문: " + " · ".join(f"\"{q['text']}\" 👍{q['likes']}" for q in tr["top_questions"]))
-            L += ["", "### 전체 — 요즘 더 나오는 낱말 · 처지 · 댓글이 몰린 영상", "",
-                  "- 요즘 더 나오는 낱말 (모든 댓글, 댓글마다 한 번 · lift = 최근 비율 ÷ 그 전 비율): "
-                  + join(TD["rising_words"], 15, lambda x: f"{x['word']} {x['recent']} (×{x['lift']})"),
-                  "- 요즘 더 묻는 말 (질문 댓글): " + join(TD["rising_wants"], 10, lambda x: f"{x['word']} {x['recent']} (×{x['lift']})"),
-                  "- 늘어난 처지 (자기 이야기 댓글 중 비율): " + join([s for s in TD["states"] if s["recent_share"] > s["old_share"]], 5,
-                                                         lambda x: f"{x['name']} {pct(x['old_share'])}→{pct(x['recent_share'])}"),
-                  "- 최근 댓글이 몰린 영상: " + join(TD["hot_videos"], 8, lambda x: f"{x['title'][:40]} ({x['recent_comments']:,})"), "",
-                  f"- ⚠️ 최근 댓글은 최근에 올라온 영상에 몰린다 — '사람이 바뀐 것'과 '요즘 올라온 영상 주제가 바뀐 것'이 섞인 숫자다. 영상별 원인은 `weekly.md`·`analysis.md` 1-3번과 같이 본다.", ""]
     # 3. 쓰는 법
     O = D["overall"].get("by_lang") or {"": D["overall"]}
     shared = [t for o in O.values() for t in o["shared_wants"][:8]]

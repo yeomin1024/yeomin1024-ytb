@@ -12,22 +12,22 @@
  "likes": 136,
  "comments": 8,
  "published": "2026-09-05",
- "queries": "검색:관계심리 | 검색:인간관계심리",
+ "queries": "검색:관계심리 | 검색(전체 기간):관계심리",
  "url": "https://www.youtube.com/watch?v=J4Nf4oosnt8",
  "flag": "",
  "published_at": "2026-09-05T01:00:08Z",
- "rank": "W92",
+ "rank": "W64",
  "set": "web",
  "folder": "W_J4Nf4oosnt8",
  "sources": [
   "검색:관계심리",
-  "검색:인간관계심리"
+  "검색(전체 기간):관계심리"
  ],
  "source": "web",
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 8,
@@ -38,6 +38,6 @@
  "comments_disabled": false,
  "comments_reported": 8,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:22:27",
- "approved": "2026-11-11T18:22+09:00"
+ "collected": "2026-11-11T13:37:33",
+ "approved": "2026-11-11T22:37+09:00"
 }

@@ -1,0 +1,110 @@
+{
+ "id": "KEymuZOLZEU",
+ "title": "마음공부 10년 저 처럼 뻘짓 하지말고, 그냥 이책 보세요",
+ "channel": "마음공간TOK",
+ "channel_id": "UCiaPalbB0uGuTErEajgwe3g",
+ "subs": 4460,
+ "views": 259375,
+ "ratio": 58.16,
+ "age_days": 26,
+ "views_per_day": 9631.2,
+ "minutes": 8.8,
+ "likes": 1475,
+ "comments": 196,
+ "published": "2026-10-15",
+ "queries": "검색:마음공부",
+ "url": "https://www.youtube.com/watch?v=KEymuZOLZEU",
+ "flag": "",
+ "published_at": "2026-10-15T11:03:11Z",
+ "rank": "W46",
+ "set": "web",
+ "folder": "W_KEymuZOLZEU",
+ "sources": [
+  "검색:마음공부"
+ ],
+ "source": "web",
+ "tags": [
+  "마음공부",
+  "EFT",
+  "심리",
+  "심리상담",
+  "감정자유기법",
+  "집단상담",
+  "화정심리상담",
+  "일산심리상담센터",
+  "자기이해",
+  "심리치료",
+  "EFT상담",
+  "고양심리상담",
+  "마음공간톡",
+  "마음공간TOK",
+  "자가치유",
+  "세도나메서드",
+  "릴리징",
+  "흘려보내기",
+  "내려놓음",
+  "명상",
+  "분리욕구",
+  "하나됨",
+  "깨달음",
+  "특별성",
+  "에고",
+  "레스터레븐슨"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10년 마음공부 후 깨달은 시행착오와 책 추천 시작"
+  },
+  {
+   "start": 30,
+   "title": "마음공부 입문 계기가 된 데이비드 호킨스 박사 《의식혁명》과 오열의 경험"
+  },
+  {
+   "start": 70,
+   "title": "머리로만 쌓은 지식(앎아리)의 함정과 깨달음의 허상"
+  },
+  {
+   "start": 138,
+   "title": "상태를 아는 것보다 \"어떻게 갈 것인가?\"가 중요한 이유"
+  },
+  {
+   "start": 184,
+   "title": "10년의 방황을 막아주는 마법 같은 책, 《세도나 메서드》"
+  },
+  {
+   "start": 196,
+   "title": "인간의 4가지 근원적 욕구란?"
+  },
+  {
+   "start": 242,
+   "title": "📖 [책 낭독] 어디에도 소속되지 못하는 이유: '분리되고 싶은 욕구'"
+  },
+  {
+   "start": 367,
+   "title": "📖 [책 낭독] 외로움과 연결감의 비밀: '하나 되려는 욕구'"
+  },
+  {
+   "start": 471,
+   "title": "근원적 욕구를 흘려보내고 제로 포인트로 가는 법"
+  },
+  {
+   "start": 512,
+   "title": "마음공부 필독서 《세도나 메서드》 마무리 추천"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 196,
+ "comments_top_level": 77,
+ "comments_replies": 119,
+ "comments_by_creator": 80,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 196,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:36:54",
+ "approved": "2026-11-11T22:36+09:00"
+}

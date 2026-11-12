@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=JH2N6gHp_dw",
  "flag": "",
  "published_at": "2026-06-13T21:15:16Z",
- "rank": "W161",
+ "rank": "W118",
  "set": "web",
  "folder": "W_JH2N6gHp_dw",
  "sources": [
@@ -33,7 +33,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 77,
@@ -44,6 +44,6 @@
  "comments_disabled": false,
  "comments_reported": 77,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:25:35",
- "approved": "2026-11-11T18:25+09:00"
+ "collected": "2026-11-11T13:40:26",
+ "approved": "2026-11-11T22:40+09:00"
 }

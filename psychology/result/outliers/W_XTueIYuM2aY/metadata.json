@@ -4,10 +4,10 @@
  "channel": "뇌생각 심리학",
  "channel_id": "UC0Sihb0O1YvwpDlTb3u8R3Q",
  "subs": 8200,
- "views": 231076,
+ "views": 231079,
  "ratio": 28.18,
  "age_days": 115,
- "views_per_day": 1992.6,
+ "views_per_day": 1992.5,
  "minutes": 14.2,
  "likes": 3096,
  "comments": 190,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=XTueIYuM2aY",
  "flag": "",
  "published_at": "2026-07-18T10:00:10Z",
- "rank": "W113",
+ "rank": "W81",
  "set": "web",
  "folder": "W_XTueIYuM2aY",
  "sources": [
@@ -33,7 +33,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 190,
@@ -44,6 +44,6 @@
  "comments_disabled": false,
  "comments_reported": 190,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:23:21",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:38:10",
+ "approved": "2026-11-11T22:38+09:00"
 }

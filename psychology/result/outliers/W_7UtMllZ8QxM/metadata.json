@@ -7,21 +7,21 @@
  "views": 39142,
  "ratio": 4.77,
  "age_days": 43,
- "views_per_day": 908.8,
+ "views_per_day": 908.6,
  "minutes": 35.2,
  "likes": 333,
  "comments": 6,
  "published": "2026-09-29",
- "queries": "검색:자존감 | 검색:자존감높이는법",
+ "queries": "검색:자존감 | 검색:자존감 높이는 법",
  "url": "https://www.youtube.com/watch?v=7UtMllZ8QxM",
  "flag": "",
  "published_at": "2026-09-29T07:30:22Z",
- "rank": "W207",
+ "rank": "W166",
  "set": "web",
  "folder": "W_7UtMllZ8QxM",
  "sources": [
   "검색:자존감",
-  "검색:자존감높이는법"
+  "검색:자존감 높이는 법"
  ],
  "source": "web",
  "tags": [
@@ -91,7 +91,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 6,
@@ -102,6 +102,6 @@
  "comments_disabled": false,
  "comments_reported": 6,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:27:27",
- "approved": "2026-11-11T18:27+09:00"
+ "collected": "2026-11-11T13:44:35",
+ "approved": "2026-11-11T22:44+09:00"
 }

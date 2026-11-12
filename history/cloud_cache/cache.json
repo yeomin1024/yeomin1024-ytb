@@ -1,12 +1,12 @@
 {
  "tool": "cloud_run.py v1.6",
  "topic": "history",
- "saved": "2026-11-11T00:40:28+09:00",
- "why": "explore",
+ "saved": "2026-11-11T23:40:15+09:00",
+ "why": "uncheck",
  "files": 38166,
  "bytes_raw": 100130365,
- "bytes_tgz": 51734673,
- "sha256": "3e0537abce7b208748d247ace74ff74aa92f05a0aff357bfd252a34616d3b94c",
+ "bytes_tgz": 51734428,
+ "sha256": "22b0ce9925f570a22125cd61e51734b4785213e89ae077b5329bf123e2e85f40",
  "parts": [
   "cache.tgz.001",
   "cache.tgz.002"

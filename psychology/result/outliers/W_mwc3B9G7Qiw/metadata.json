@@ -1,0 +1,87 @@
+{
+ "id": "mwc3B9G7Qiw",
+ "title": "대화가 자꾸 끊어지는 사람들이 말할 때 꼭 넣는 단어ㅣ지식인초대석 EP.15 (박재연 소장 1부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 5031098,
+ "ratio": 1.2,
+ "age_days": 690,
+ "views_per_day": 7287.8,
+ "minutes": 33.2,
+ "likes": 76721,
+ "comments": 2350,
+ "published": "2024-12-21",
+ "queries": "검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=mwc3B9G7Qiw",
+ "flag": "",
+ "published_at": "2024-12-21T01:00:27Z",
+ "rank": "W243",
+ "set": "web",
+ "folder": "W_mwc3B9G7Qiw",
+ "sources": [
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 18,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 41,
+   "title": "유독 남의 말을 꼬아듣기만 하는 사람의 특징"
+  },
+  {
+   "start": 179,
+   "title": "자존감 높은 사람만 대답할 수 있는 3가지 질문"
+  },
+  {
+   "start": 387,
+   "title": "자존감 낮은 사람들이 SNS에서 꼭 하는 행동"
+  },
+  {
+   "start": 564,
+   "title": "가진 것 없이도 자존감 높아지는 2가지 방법"
+  },
+  {
+   "start": 707,
+   "title": "대화가 자꾸 끊어지는 사람들이 사용하는 6가지 말버릇"
+  },
+  {
+   "start": 980,
+   "title": "생각만 해도 속이 꽉 막히는 가족들과 대화하는 법"
+  },
+  {
+   "start": 1254,
+   "title": "배우자에게 열등감 안 느끼고 자존감 높은 사람의 말버릇"
+  },
+  {
+   "start": 1397,
+   "title": "진짜 친구와 가짜 친구를 가려내는 대화"
+  },
+  {
+   "start": 1644,
+   "title": "가족, 친구라는 이름으로 돈 빌려달라는 사람 거절하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2350,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:12",
+ "approved": "2026-11-11T22:47+09:00"
+}

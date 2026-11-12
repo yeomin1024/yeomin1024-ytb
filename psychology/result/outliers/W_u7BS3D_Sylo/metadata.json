@@ -4,23 +4,24 @@
  "channel": "김지은의 뇌와 마음",
  "channel_id": "UCbG_EWCudcJm4KX-9tvinVA",
  "subs": 12900,
- "views": 193173,
- "ratio": 14.97,
+ "views": 193181,
+ "ratio": 14.98,
  "age_days": 28,
- "views_per_day": 6872.0,
+ "views_per_day": 6870.9,
  "minutes": 48.4,
  "likes": 1054,
  "comments": 192,
  "published": "2026-10-14",
- "queries": "검색:심리상담",
+ "queries": "검색:심리상담 | 검색:인간관계 심리",
  "url": "https://www.youtube.com/watch?v=u7BS3D_Sylo",
  "flag": "",
  "published_at": "2026-10-14T06:36:27Z",
- "rank": "W163",
+ "rank": "W120",
  "set": "web",
  "folder": "W_u7BS3D_Sylo",
  "sources": [
-  "검색:심리상담"
+  "검색:심리상담",
+  "검색:인간관계 심리"
  ],
  "source": "web",
  "tags": [
@@ -33,7 +34,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 192,
@@ -44,6 +45,6 @@
  "comments_disabled": false,
  "comments_reported": 192,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:25:41",
- "approved": "2026-11-11T18:25+09:00"
+ "collected": "2026-11-11T13:40:29",
+ "approved": "2026-11-11T22:40+09:00"
 }

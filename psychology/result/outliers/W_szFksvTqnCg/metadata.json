@@ -7,20 +7,20 @@
  "views": 135191,
  "ratio": 42.51,
  "age_days": 13,
- "views_per_day": 10292.3,
+ "views_per_day": 10287.7,
  "minutes": 14.5,
  "likes": 470,
  "comments": 21,
  "published": "2026-10-29",
- "queries": "검색:심리분석",
+ "queries": "검색:인간관계 심리",
  "url": "https://www.youtube.com/watch?v=szFksvTqnCg",
  "flag": "",
  "published_at": "2026-10-29T06:00:09Z",
- "rank": "W89",
+ "rank": "W59",
  "set": "web",
  "folder": "W_szFksvTqnCg",
  "sources": [
-  "검색:심리분석"
+  "검색:인간관계 심리"
  ],
  "source": "web",
  "tags": [
@@ -48,7 +48,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 21,
@@ -59,6 +59,6 @@
  "comments_disabled": false,
  "comments_reported": 21,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:22:20",
- "approved": "2026-11-11T18:22+09:00"
+ "collected": "2026-11-11T13:37:25",
+ "approved": "2026-11-11T22:37+09:00"
 }

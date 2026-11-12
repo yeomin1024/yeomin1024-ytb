@@ -4,10 +4,10 @@
  "channel": "도래기책방",
  "channel_id": "UCO_ISW0FKnDj_XaDegOQiZg",
  "subs": 11100,
- "views": 89869,
+ "views": 89868,
  "ratio": 8.1,
  "age_days": 23,
- "views_per_day": 3756.0,
+ "views_per_day": 3755.0,
  "minutes": 15.4,
  "likes": 1244,
  "comments": 182,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=hnuDs_pSI7M",
  "flag": "",
  "published_at": "2026-10-18T11:00:11Z",
- "rank": "W192",
+ "rank": "W151",
  "set": "web",
  "folder": "W_hnuDs_pSI7M",
  "sources": [
@@ -47,7 +47,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 182,
@@ -58,6 +58,6 @@
  "comments_disabled": false,
  "comments_reported": 182,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:52",
- "approved": "2026-11-11T18:26+09:00"
+ "collected": "2026-11-11T13:42:37",
+ "approved": "2026-11-11T22:42+09:00"
 }

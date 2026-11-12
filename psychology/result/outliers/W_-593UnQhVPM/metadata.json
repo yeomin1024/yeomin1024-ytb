@@ -7,7 +7,7 @@
  "views": 201430,
  "ratio": 5.02,
  "age_days": 39,
- "views_per_day": 5047.8,
+ "views_per_day": 5046.9,
  "minutes": 84.1,
  "likes": 1192,
  "comments": 65,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=-593UnQhVPM",
  "flag": "",
  "published_at": "2026-10-02T11:30:34Z",
- "rank": "W206",
+ "rank": "W164",
  "set": "web",
  "folder": "W_-593UnQhVPM",
  "sources": [
@@ -41,7 +41,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 65,
@@ -52,6 +52,6 @@
  "comments_disabled": false,
  "comments_reported": 65,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:27:25",
- "approved": "2026-11-11T18:27+09:00"
+ "collected": "2026-11-11T13:44:01",
+ "approved": "2026-11-11T22:44+09:00"
 }

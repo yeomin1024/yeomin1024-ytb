@@ -7,20 +7,19 @@
  "views": 212009,
  "ratio": 9.64,
  "age_days": 36,
- "views_per_day": 5738.4,
+ "views_per_day": 5737.5,
  "minutes": 15.9,
  "likes": 2048,
  "comments": 75,
  "published": "2026-10-05",
- "queries": "검색:연애심리 | 검색:대인관계",
+ "queries": "검색:대인관계",
  "url": "https://www.youtube.com/watch?v=2t0zuR72DIE",
  "flag": "",
  "published_at": "2026-10-05T10:33:03Z",
- "rank": "W185",
+ "rank": "W146",
  "set": "web",
  "folder": "W_2t0zuR72DIE",
  "sources": [
-  "검색:연애심리",
   "검색:대인관계"
  ],
  "source": "web",
@@ -84,7 +83,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 75,
@@ -95,6 +94,6 @@
  "comments_disabled": false,
  "comments_reported": 75,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:37",
- "approved": "2026-11-11T18:26+09:00"
+ "collected": "2026-11-11T13:42:33",
+ "approved": "2026-11-11T22:42+09:00"
 }

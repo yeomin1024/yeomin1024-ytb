@@ -1,0 +1,71 @@
+{
+ "id": "nDTTjoSAD1k",
+ "title": "불안하고 막막한 현대인들을 위한 뇌과학 모음.zip",
+ "channel": "장동선의 궁금한 뇌",
+ "channel_id": "UCI3mHMt-wivlZ3LS_1KiPHQ",
+ "subs": 759000,
+ "views": 1386633,
+ "ratio": 1.83,
+ "age_days": 1055,
+ "views_per_day": 1313.3,
+ "minutes": 43.3,
+ "likes": 23814,
+ "comments": 301,
+ "published": "2023-12-21",
+ "queries": "검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=nDTTjoSAD1k",
+ "flag": "",
+ "published_at": "2023-12-21T13:00:41Z",
+ "rank": "W210",
+ "set": "web",
+ "folder": "W_nDTTjoSAD1k",
+ "sources": [
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "도파민",
+  "도파미네이션",
+  "최선의고통",
+  "불안",
+  "불안장애",
+  "회피",
+  "회피형성격",
+  "회피형인간",
+  "회피형",
+  "미루기",
+  "우울"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "행복하려면 고통을 선택하라"
+  },
+  {
+   "start": 738,
+   "title": "완벽해지려다 미루기만 하는 당신에게"
+  },
+  {
+   "start": 1341,
+   "title": "늘 불안하고 걱정이 많은 당신에게"
+  },
+  {
+   "start": 1995,
+   "title": "회피형 성격에서 벗어나고 싶은 당신에게"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 301,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:08",
+ "approved": "2026-11-11T22:47+09:00"
+}

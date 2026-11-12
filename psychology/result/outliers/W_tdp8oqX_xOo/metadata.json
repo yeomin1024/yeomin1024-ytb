@@ -4,26 +4,24 @@
  "channel": "늘네편",
  "channel_id": "UC1Kt2oVitiN96oYakpv6diQ",
  "subs": 13900,
- "views": 254250,
+ "views": 254239,
  "ratio": 18.29,
  "age_days": 175,
- "views_per_day": 1448.8,
+ "views_per_day": 1448.7,
  "minutes": 82.3,
  "likes": 8228,
  "comments": 742,
  "published": "2026-05-19",
- "queries": "검색:대인관계 | 검색:친구관계 | 검색:인간관계 정리 | 검색:인간관계조언",
+ "queries": "검색:대인관계 | 검색:인간관계 정리",
  "url": "https://www.youtube.com/watch?v=tdp8oqX_xOo",
  "flag": "",
  "published_at": "2026-05-19T21:30:06Z",
- "rank": "W147",
+ "rank": "W108",
  "set": "web",
  "folder": "W_tdp8oqX_xOo",
  "sources": [
   "검색:대인관계",
-  "검색:친구관계",
-  "검색:인간관계 정리",
-  "검색:인간관계조언"
+  "검색:인간관계 정리"
  ],
  "source": "web",
  "tags": [
@@ -36,7 +34,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 742,
@@ -47,6 +45,6 @@
  "comments_disabled": false,
  "comments_reported": 742,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:25:03",
- "approved": "2026-11-11T18:25+09:00"
+ "collected": "2026-11-11T13:39:32",
+ "approved": "2026-11-11T22:39+09:00"
 }

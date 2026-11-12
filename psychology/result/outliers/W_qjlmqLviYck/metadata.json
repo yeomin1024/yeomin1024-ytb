@@ -1,0 +1,79 @@
+{
+ "id": "qjlmqLviYck",
+ "title": "\"이렇게 한 방 먹이세요.\" 두번 다시 만만히 보지 않도록, 당신의 격을 높이는 행동 (한창수 교수 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 2641393,
+ "ratio": 0.63,
+ "age_days": 1208,
+ "views_per_day": 2184.8,
+ "minutes": 15.7,
+ "likes": 49478,
+ "comments": 2199,
+ "published": "2023-07-21",
+ "queries": "검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=qjlmqLviYck",
+ "flag": "",
+ "published_at": "2023-07-21T10:15:41Z",
+ "rank": "W277",
+ "set": "web",
+ "folder": "W_qjlmqLviYck",
+ "sources": [
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 31,
+   "title": "남을 무시하는 한국인들의 숨겨진 심리"
+  },
+  {
+   "start": 107,
+   "title": "인간의 탈을 쓴 무례한 사람 거르는법"
+  },
+  {
+   "start": 185,
+   "title": "무례한 사람 ‘편안하게’ 제압하는법"
+  },
+  {
+   "start": 287,
+   "title": "대놓고 막말하는 사람, ‘이렇게’ 제압하세요"
+  },
+  {
+   "start": 399,
+   "title": "정신과 의사가 인간관계 손절하는 기준"
+  },
+  {
+   "start": 602,
+   "title": "감정 쓰레기통이 되지 않으려면 ‘이렇게’ 하세요"
+  },
+  {
+   "start": 775,
+   "title": "인간관계 자신감은 전부 ‘여기서’ 나옵니다"
+  },
+  {
+   "start": 863,
+   "title": "유독 인간관계가 어려운 사람들에게"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2199,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:16",
+ "approved": "2026-11-11T22:47+09:00"
+}

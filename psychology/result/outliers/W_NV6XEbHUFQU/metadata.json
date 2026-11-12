@@ -4,10 +4,10 @@
  "channel": "최적화 심리학",
  "channel_id": "UCVK-0VFXaADq3e1m3CVcmHg",
  "subs": 12200,
- "views": 303949,
+ "views": 303938,
  "ratio": 24.91,
  "age_days": 149,
- "views_per_day": 2033.5,
+ "views_per_day": 2033.4,
  "minutes": 10.7,
  "likes": 6375,
  "comments": 320,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=NV6XEbHUFQU",
  "flag": "",
  "published_at": "2026-06-14T22:00:24Z",
- "rank": "W123",
+ "rank": "W86",
  "set": "web",
  "folder": "W_NV6XEbHUFQU",
  "sources": [
@@ -74,7 +74,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 320,
@@ -85,6 +85,6 @@
  "comments_disabled": false,
  "comments_reported": 320,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:23:48",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:38:27",
+ "approved": "2026-11-11T22:38+09:00"
 }

@@ -4,25 +4,24 @@
  "channel": "공감의샘",
  "channel_id": "UC3BZRhXcV_FTSzDMuEy4dsA",
  "subs": 8980,
- "views": 320177,
- "ratio": 35.65,
+ "views": 320186,
+ "ratio": 35.66,
  "age_days": 52,
- "views_per_day": 6107.8,
+ "views_per_day": 6107.2,
  "minutes": 38.3,
  "likes": 4688,
  "comments": 651,
  "published": "2026-09-19",
- "queries": "검색:인간관계 | 검색:대인관계 | 검색:인간관계조언",
+ "queries": "검색:인간관계 | 검색:대인관계",
  "url": "https://www.youtube.com/watch?v=WsJxckYQlcA",
  "flag": "",
  "published_at": "2026-09-19T23:06:49Z",
- "rank": "W94",
+ "rank": "W66",
  "set": "web",
  "folder": "W_WsJxckYQlcA",
  "sources": [
   "검색:인간관계",
-  "검색:대인관계",
-  "검색:인간관계조언"
+  "검색:대인관계"
  ],
  "source": "web",
  "tags": [
@@ -90,7 +89,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 651,
@@ -101,6 +100,6 @@
  "comments_disabled": false,
  "comments_reported": 651,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:22:32",
- "approved": "2026-11-11T18:22+09:00"
+ "collected": "2026-11-11T13:37:35",
+ "approved": "2026-11-11T22:37+09:00"
 }

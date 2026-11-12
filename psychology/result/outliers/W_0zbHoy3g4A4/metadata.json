@@ -4,7 +4,7 @@
  "channel": "정신과 의사 형원장",
  "channel_id": "UCu3b7H9FdtTUAgC2rLVATug",
  "subs": 1170,
- "views": 104226,
+ "views": 104227,
  "ratio": 89.08,
  "age_days": 152,
  "views_per_day": 685.3,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=0zbHoy3g4A4",
  "flag": "",
  "published_at": "2026-06-12T07:00:31Z",
- "rank": "W53",
+ "rank": "W33",
  "set": "web",
  "folder": "W_0zbHoy3g4A4",
  "sources": [
@@ -47,7 +47,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 236,
@@ -58,6 +58,6 @@
  "comments_disabled": false,
  "comments_reported": 236,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:20:39",
- "approved": "2026-11-11T18:20+09:00"
+ "collected": "2026-11-11T13:35:50",
+ "approved": "2026-11-11T22:35+09:00"
 }

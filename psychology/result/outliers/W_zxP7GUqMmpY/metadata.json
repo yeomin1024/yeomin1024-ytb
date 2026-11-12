@@ -4,7 +4,7 @@
  "channel": "심리해킹",
  "channel_id": "UCEyKorcN-qJ2anvX4m1s6jw",
  "subs": 1280,
- "views": 176674,
+ "views": 176683,
  "ratio": 138.03,
  "age_days": 178,
  "views_per_day": 991.8,
@@ -12,25 +12,23 @@
  "likes": 1251,
  "comments": 35,
  "published": "2026-05-17",
- "queries": "검색:심리분석 | 검색:관계심리 | 검색:연애심리 | 검색:심리이야기 | 검색:인간관계심리",
+ "queries": "검색:관계심리 | 검색:인간관계 심리 | 검색(전체 기간):관계심리",
  "url": "https://www.youtube.com/watch?v=zxP7GUqMmpY",
  "flag": "",
  "published_at": "2026-05-17T05:52:47Z",
- "rank": "W34",
+ "rank": "W21",
  "set": "web",
  "folder": "W_zxP7GUqMmpY",
  "sources": [
-  "검색:심리분석",
   "검색:관계심리",
-  "검색:연애심리",
-  "검색:심리이야기",
-  "검색:인간관계심리"
+  "검색:인간관계 심리",
+  "검색(전체 기간):관계심리"
  ],
  "source": "web",
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 35,
@@ -41,6 +39,6 @@
  "comments_disabled": false,
  "comments_reported": 35,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:19:44",
- "approved": "2026-11-11T18:19+09:00"
+ "collected": "2026-11-11T13:34:35",
+ "approved": "2026-11-11T22:34+09:00"
 }

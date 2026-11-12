@@ -1,0 +1,67 @@
+{
+ "id": "EvAN7tdKUgE",
+ "title": "어릴 때 부모에게 사랑받지 못 한 사람들, 90%가 '이런 어른'이 됩니다. (최명기 원장 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1817579,
+ "ratio": 0.43,
+ "age_days": 1145,
+ "views_per_day": 1586.1,
+ "minutes": 21.4,
+ "likes": 28803,
+ "comments": 1619,
+ "published": "2023-09-22",
+ "queries": "검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=EvAN7tdKUgE",
+ "flag": "",
+ "published_at": "2023-09-22T10:04:26Z",
+ "rank": "W286",
+ "set": "web",
+ "folder": "W_EvAN7tdKUgE",
+ "sources": [
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 39,
+   "title": "아이를 사랑한다는 것은 부모의 착각일 수도 있습니다"
+  },
+  {
+   "start": 142,
+   "title": "어릴 때 사랑받지 못 한 아이는 ‘이렇게’ 자랍니다"
+  },
+  {
+   "start": 305,
+   "title": "과거의 기억에서 벗어나 조금 더 단단해지는 방법"
+  },
+  {
+   "start": 836,
+   "title": "3살 때의 버릇뿐만 아니라 성격도 여든까지 갑니다"
+  },
+  {
+   "start": 1049,
+   "title": "가치관이 달라서 싸운다는 말은 틀렸습니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1619,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:17",
+ "approved": "2026-11-11T22:47+09:00"
+}

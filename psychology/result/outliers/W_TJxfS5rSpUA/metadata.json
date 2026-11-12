@@ -1,0 +1,87 @@
+{
+ "id": "TJxfS5rSpUA",
+ "title": "요즘 사람들이 새벽 2-3시 사이 자꾸 깨는 이유 ㅣEp. 책과사람 169 (김지용 원장 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 2341849,
+ "ratio": 1.82,
+ "age_days": 39,
+ "views_per_day": 59514.0,
+ "minutes": 30.5,
+ "likes": 9204,
+ "comments": 708,
+ "published": "2026-10-03",
+ "queries": "검색:정신건강",
+ "url": "https://www.youtube.com/watch?v=TJxfS5rSpUA",
+ "flag": "",
+ "published_at": "2026-10-03T01:00:01Z",
+ "rank": "W211",
+ "set": "web",
+ "folder": "W_TJxfS5rSpUA",
+ "sources": [
+  "검색:정신건강"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 73,
+   "title": "요즘 사람들이 새벽 2-3시 사이 자꾸 깨는 이유"
+  },
+  {
+   "start": 217,
+   "title": "요즘 무섭게 늘고 있는 신종 정신질환"
+  },
+  {
+   "start": 401,
+   "title": "한국인이 유독 ‘우울증’에 더 취약한 진짜 이유"
+  },
+  {
+   "start": 756,
+   "title": "아이돌 노래가 사랑 얘기 아닌 '이것'으로 바뀐 무서운 이유"
+  },
+  {
+   "start": 826,
+   "title": "코로나가 우리 무의식에 몰래 심어놓은 '생존 불안'의 정체"
+  },
+  {
+   "start": 955,
+   "title": "정신과 의사들이 느끼는 요즘 환자 특징"
+  },
+  {
+   "start": 1439,
+   "title": "상위권 부모들이 예체능에 유독 집착하는 이유"
+  },
+  {
+   "start": 1549,
+   "title": "우울함을 멈추는 최고의 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 708,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:08",
+ "approved": "2026-11-11T22:47+09:00"
+}

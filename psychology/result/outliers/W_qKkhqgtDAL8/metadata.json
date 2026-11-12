@@ -1,0 +1,76 @@
+{
+ "id": "qKkhqgtDAL8",
+ "title": "\"오히려 역효과다.\" 사춘기 자녀에게 절대 하면 안 되는 언행 | 지식인초대석 EP.2 (김붕년 교수)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 2452875,
+ "ratio": 0.59,
+ "age_days": 795,
+ "views_per_day": 3081.8,
+ "minutes": 25.4,
+ "likes": 29601,
+ "comments": 2193,
+ "published": "2024-09-06",
+ "queries": "검색(전체 기간):심리 | 검색(전체 기간):심리상담",
+ "url": "https://www.youtube.com/watch?v=qKkhqgtDAL8",
+ "flag": "",
+ "published_at": "2024-09-06T11:19:32Z",
+ "rank": "W278",
+ "set": "web",
+ "folder": "W_qKkhqgtDAL8",
+ "sources": [
+  "검색(전체 기간):심리",
+  "검색(전체 기간):심리상담"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 19,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 52,
+   "title": "사춘기 아이들에게 공통적으로 나타나는 특징"
+  },
+  {
+   "start": 297,
+   "title": "자녀가 자꾸 반항하는 것처럼 느껴지면 이렇게 말해보세요"
+  },
+  {
+   "start": 553,
+   "title": "사춘기 자녀에게 절대 하면 안 되는 말과 행동"
+  },
+  {
+   "start": 852,
+   "title": "영유아기 시절이 사춘기에 미치는 영향"
+  },
+  {
+   "start": 1032,
+   "title": "문득 자녀가 미워진다면 이렇게 대처하세요"
+  },
+  {
+   "start": 1284,
+   "title": "소아정신과 명의가 사춘기 자녀에게 해 주고 싶었던 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2193,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:16",
+ "approved": "2026-11-11T22:47+09:00"
+}

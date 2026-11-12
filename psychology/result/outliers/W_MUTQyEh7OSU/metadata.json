@@ -7,21 +7,22 @@
  "views": 1929003,
  "ratio": 147.25,
  "age_days": 41,
- "views_per_day": 47038.3,
+ "views_per_day": 47031.4,
  "minutes": 11.9,
  "likes": 10894,
  "comments": 865,
  "published": "2026-10-01",
- "queries": "검색:심리학 | 검색:심리",
+ "queries": "검색:심리학 | 검색:심리 | 검색(전체 기간):심리학",
  "url": "https://www.youtube.com/watch?v=MUTQyEh7OSU",
  "flag": "",
  "published_at": "2026-10-01T09:00:12Z",
- "rank": "W32",
+ "rank": "W20",
  "set": "web",
  "folder": "W_MUTQyEh7OSU",
  "sources": [
   "검색:심리학",
-  "검색:심리"
+  "검색:심리",
+  "검색(전체 기간):심리학"
  ],
  "source": "web",
  "tags": [
@@ -89,17 +90,17 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
- "comments_fetched": 865,
- "comments_top_level": 628,
+ "comments_fetched": 866,
+ "comments_top_level": 629,
  "comments_replies": 237,
  "comments_by_creator": 22,
  "comments_complete": true,
  "comments_disabled": false,
  "comments_reported": 865,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:19:35",
- "approved": "2026-11-11T18:19+09:00"
+ "collected": "2026-11-11T13:34:27",
+ "approved": "2026-11-11T22:34+09:00"
 }

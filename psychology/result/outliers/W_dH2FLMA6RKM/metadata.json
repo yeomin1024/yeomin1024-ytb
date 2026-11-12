@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=dH2FLMA6RKM",
  "flag": "",
  "published_at": "2026-08-20T02:02:36Z",
- "rank": "W181",
+ "rank": "W141",
  "set": "web",
  "folder": "W_dH2FLMA6RKM",
  "sources": [
@@ -26,7 +26,7 @@
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 10,
@@ -37,6 +37,6 @@
  "comments_disabled": false,
  "comments_reported": 10,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:28",
- "approved": "2026-11-11T18:26+09:00"
+ "collected": "2026-11-11T13:41:56",
+ "approved": "2026-11-11T22:41+09:00"
 }

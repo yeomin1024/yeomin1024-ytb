@@ -7,27 +7,27 @@
  "views": 83294,
  "ratio": 7.71,
  "age_days": 26,
- "views_per_day": 3199.8,
+ "views_per_day": 3199.1,
  "minutes": 16.9,
  "likes": 373,
  "comments": 77,
  "published": "2026-10-16",
- "queries": "검색:관계심리 | 검색:인간관계심리",
+ "queries": "검색:관계심리 | 검색(전체 기간):관계심리",
  "url": "https://www.youtube.com/watch?v=lSB7a9jsQJY",
  "flag": "",
  "published_at": "2026-10-16T08:30:12Z",
- "rank": "W195",
+ "rank": "W154",
  "set": "web",
  "folder": "W_lSB7a9jsQJY",
  "sources": [
   "검색:관계심리",
-  "검색:인간관계심리"
+  "검색(전체 기간):관계심리"
  ],
  "source": "web",
  "tags": null,
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 77,
@@ -38,6 +38,6 @@
  "comments_disabled": false,
  "comments_reported": 77,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:26:59",
- "approved": "2026-11-11T18:27+09:00"
+ "collected": "2026-11-11T13:43:14",
+ "approved": "2026-11-11T22:43+09:00"
 }

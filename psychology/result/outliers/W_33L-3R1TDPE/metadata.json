@@ -1,0 +1,101 @@
+{
+ "id": "33L-3R1TDPE",
+ "title": "\"진짜 친구는 '여기' 있다\" 중년 이후 친구 없어도 괜찮은 극 현실적 이유 (이호선 교수 1부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 2582405,
+ "ratio": 2.0,
+ "age_days": 853,
+ "views_per_day": 3027.4,
+ "minutes": 17.2,
+ "likes": 27882,
+ "comments": 2042,
+ "published": "2024-07-11",
+ "queries": "검색(전체 기간):인간관계 | 검색(전체 기간):대인관계 | 검색(전체 기간):손절 | 검색(전체 기간):인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=33L-3R1TDPE",
+ "flag": "",
+ "published_at": "2024-07-11T09:00:02Z",
+ "rank": "W206",
+ "set": "web",
+ "folder": "W_33L-3R1TDPE",
+ "sources": [
+  "검색(전체 기간):인간관계",
+  "검색(전체 기간):대인관계",
+  "검색(전체 기간):손절",
+  "검색(전체 기간):인간관계 정리"
+ ],
+ "source": "web",
+ "tags": [
+  "뉴스",
+  "언론",
+  "이야기",
+  "위대한",
+  "깡통뉴스",
+  "위대한언니",
+  "위대한뉴스",
+  "얼큰한뉴스",
+  "일본반응",
+  "해외반응",
+  "문화비교",
+  "시사뉴스",
+  "해외뉴스",
+  "한국",
+  "국뽕",
+  "대한민국",
+  "일본",
+  "베트남"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 32,
+   "title": "오늘의 책과삶"
+  },
+  {
+   "start": 45,
+   "title": "한국인 대부분이 50세 이후 겪게 되는 현실"
+  },
+  {
+   "start": 103,
+   "title": "나이들면서 달라지는 우정의 의미"
+  },
+  {
+   "start": 252,
+   "title": "나이들어서 좋은 친구를 사귈 수 있는 방법"
+  },
+  {
+   "start": 285,
+   "title": "만나면 좋은 친구가 아닌 좋은 친구를 만나라"
+  },
+  {
+   "start": 330,
+   "title": "나이들어서 꼭만나야할 두 부류의 사람"
+  },
+  {
+   "start": 531,
+   "title": "중년 이후에 새로운 친구는 만나는게 좋은지?"
+  },
+  {
+   "start": 765,
+   "title": "나이들어서 절대 만나서는 안될 두 사람"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2042,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:08",
+ "approved": "2026-11-11T22:47+09:00"
+}

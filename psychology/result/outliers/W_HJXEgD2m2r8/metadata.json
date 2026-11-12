@@ -4,10 +4,10 @@
  "channel": "홍승주의 디스턴싱",
  "channel_id": "UCKi1my0kbyqsapbI0Vj0ekA",
  "subs": 29400,
- "views": 499922,
- "ratio": 17.0,
+ "views": 499969,
+ "ratio": 17.01,
  "age_days": 43,
- "views_per_day": 11623.7,
+ "views_per_day": 11622.9,
  "minutes": 26.5,
  "likes": 2572,
  "comments": 163,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=HJXEgD2m2r8",
  "flag": "",
  "published_at": "2026-09-29T09:00:30Z",
- "rank": "W152",
+ "rank": "W112",
  "set": "web",
  "folder": "W_HJXEgD2m2r8",
  "sources": [
@@ -101,7 +101,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 163,
@@ -112,6 +112,6 @@
  "comments_disabled": false,
  "comments_reported": 163,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:25:15",
- "approved": "2026-11-11T18:25+09:00"
+ "collected": "2026-11-11T13:39:51",
+ "approved": "2026-11-11T22:39+09:00"
 }

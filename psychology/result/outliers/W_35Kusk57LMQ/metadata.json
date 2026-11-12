@@ -1,0 +1,93 @@
+{
+ "id": "35Kusk57LMQ",
+ "title": "'이 행동'은 부부관계 끝났다는 마지막 신호입니다 ㅣ Ep. 33 책과사람 (이호선 교수 2부)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 1720134,
+ "ratio": 1.33,
+ "age_days": 399,
+ "views_per_day": 4307.3,
+ "minutes": 33.1,
+ "likes": 24389,
+ "comments": 1293,
+ "published": "2025-10-08",
+ "queries": "검색(전체 기간):심리상담 | 검색(전체 기간):인간관계 심리 | 검색(전체 기간):인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=35Kusk57LMQ",
+ "flag": "",
+ "published_at": "2025-10-08T01:00:04Z",
+ "rank": "W238",
+ "set": "web",
+ "folder": "W_35Kusk57LMQ",
+ "sources": [
+  "검색(전체 기간):심리상담",
+  "검색(전체 기간):인간관계 심리",
+  "검색(전체 기간):인간관계 정리"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 39,
+   "title": "자기소개"
+  },
+  {
+   "start": 119,
+   "title": "무조건 이혼해야 하는 3가지 상황"
+  },
+  {
+   "start": 312,
+   "title": "고부갈등에서 남편이 힘든 진짜 이유"
+  },
+  {
+   "start": 517,
+   "title": "나이들어도 변함없이 사이 좋은 부부 특징"
+  },
+  {
+   "start": 848,
+   "title": "부부관계에서 배우자에게 안정감을 주는 행동"
+  },
+  {
+   "start": 1022,
+   "title": "사람들이 착각하고 있는 행복의 의미"
+  },
+  {
+   "start": 1261,
+   "title": "부부상담 전문가인 내가 남편과 갈등 푸는 방법"
+  },
+  {
+   "start": 1468,
+   "title": "부부상담 집에서도 충분히 할 수 있습니다"
+  },
+  {
+   "start": 1743,
+   "title": "부부사이에 연기는 필수입니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1293,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:11",
+ "approved": "2026-11-11T22:47+09:00"
+}

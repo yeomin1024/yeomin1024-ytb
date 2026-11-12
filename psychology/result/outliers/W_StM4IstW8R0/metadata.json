@@ -4,23 +4,24 @@
  "channel": "심리세포",
  "channel_id": "UCNHhTJTUoHa_LZwl3Js-8pQ",
  "subs": 13400,
- "views": 740226,
+ "views": 740233,
  "ratio": 55.24,
  "age_days": 74,
- "views_per_day": 9873.9,
+ "views_per_day": 9873.2,
  "minutes": 5.3,
  "likes": 4290,
  "comments": 1121,
  "published": "2026-08-28",
- "queries": "검색:심리",
+ "queries": "검색:심리 | 검색:외로움",
  "url": "https://www.youtube.com/watch?v=StM4IstW8R0",
  "flag": "",
  "published_at": "2026-08-28T10:00:08Z",
- "rank": "W71",
+ "rank": "W50",
  "set": "web",
  "folder": "W_StM4IstW8R0",
  "sources": [
-  "검색:심리"
+  "검색:심리",
+  "검색:외로움"
  ],
  "source": "web",
  "tags": [
@@ -60,7 +61,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 1121,
@@ -71,6 +72,6 @@
  "comments_disabled": false,
  "comments_reported": 1121,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:21:25",
- "approved": "2026-11-11T18:21+09:00"
+ "collected": "2026-11-11T13:37:03",
+ "approved": "2026-11-11T22:37+09:00"
 }

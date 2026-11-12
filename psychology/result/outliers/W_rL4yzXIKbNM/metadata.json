@@ -7,21 +7,20 @@
  "views": 167580,
  "ratio": 89.14,
  "age_days": 16,
- "views_per_day": 10150.1,
+ "views_per_day": 10146.6,
  "minutes": 20.6,
  "likes": 362,
  "comments": 33,
  "published": "2026-10-25",
- "queries": "검색:중년심리 | 검색:성격심리",
+ "queries": "검색:인간관계 심리",
  "url": "https://www.youtube.com/watch?v=rL4yzXIKbNM",
  "flag": "",
  "published_at": "2026-10-25T21:00:18Z",
- "rank": "W52",
+ "rank": "W32",
  "set": "web",
  "folder": "W_rL4yzXIKbNM",
  "sources": [
-  "검색:중년심리",
-  "검색:성격심리"
+  "검색:인간관계 심리"
  ],
  "source": "web",
  "tags": null,
@@ -68,7 +67,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 33,
@@ -79,6 +78,6 @@
  "comments_disabled": false,
  "comments_reported": 33,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:20:36",
- "approved": "2026-11-11T18:20+09:00"
+ "collected": "2026-11-11T13:35:46",
+ "approved": "2026-11-11T22:35+09:00"
 }

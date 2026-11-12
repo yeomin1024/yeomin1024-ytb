@@ -7,23 +7,21 @@
  "views": 328525,
  "ratio": 30.14,
  "age_days": 149,
- "views_per_day": 2191.2,
+ "views_per_day": 2191.1,
  "minutes": 8.8,
  "likes": 3104,
  "comments": 246,
  "published": "2026-06-14",
- "queries": "검색:뇌과학 | 검색:심리 | 검색:심리분석 | 검색:연애심리",
+ "queries": "검색:심리 | 검색:뇌과학",
  "url": "https://www.youtube.com/watch?v=__ks8rhsPvM",
  "flag": "",
  "published_at": "2026-06-14T11:00:01Z",
- "rank": "W107",
+ "rank": "W74",
  "set": "web",
  "folder": "W___ks8rhsPvM",
  "sources": [
-  "검색:뇌과학",
   "검색:심리",
-  "검색:심리분석",
-  "검색:연애심리"
+  "검색:뇌과학"
  ],
  "source": "web",
  "tags": [
@@ -103,7 +101,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 246,
@@ -114,6 +112,6 @@
  "comments_disabled": false,
  "comments_reported": 246,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:23:04",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:37:52",
+ "approved": "2026-11-11T22:37+09:00"
 }

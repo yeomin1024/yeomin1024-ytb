@@ -1,19 +1,18 @@
 {
  "tool": "cloud_run.py v1.6",
  "topic": "psychology",
- "saved": "2026-11-11T22:40:03+09:00",
- "why": "demand",
- "files": 8286,
- "bytes_raw": 21331390,
- "bytes_tgz": 8138223,
- "sha256": "9b9d920b8b36fecd8ddcde543a84705824adf570eebc5b051313688f0cc6ad4d",
+ "saved": "2026-11-11T22:48:00+09:00",
+ "why": "approve",
+ "files": 3329,
+ "bytes_raw": 9533885,
+ "bytes_tgz": 3535574,
+ "sha256": "4cdd0165defa59fb9878eeb4aa8ae99dda9032598c326bfb8081d9924623fac1",
  "parts": [],
  "kinds": {
   "autocomplete.json": 1,
   "channels.json": 1,
-  "search": 58,
-  "uploads": 145,
-  "video": 8078,
+  "search": 86,
+  "video": 3238,
   "web": 3
  }
 }

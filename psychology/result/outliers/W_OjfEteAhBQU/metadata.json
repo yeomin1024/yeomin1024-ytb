@@ -4,10 +4,10 @@
  "channel": "하나둘 심리학",
  "channel_id": "UCYHo3mybWVkaNv4PPbXplWg",
  "subs": 658,
- "views": 160540,
- "ratio": 243.98,
+ "views": 160578,
+ "ratio": 244.04,
  "age_days": 69,
- "views_per_day": 2293.7,
+ "views_per_day": 2294.0,
  "minutes": 16.2,
  "likes": 548,
  "comments": 30,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=OjfEteAhBQU",
  "flag": "",
  "published_at": "2026-09-02T09:25:47Z",
- "rank": "W10",
+ "rank": "W9",
  "set": "web",
  "folder": "W_OjfEteAhBQU",
  "sources": [
@@ -67,7 +67,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 30,
@@ -78,6 +78,6 @@
  "comments_disabled": false,
  "comments_reported": 30,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:18:40",
- "approved": "2026-11-11T18:18+09:00"
+ "collected": "2026-11-11T13:33:52",
+ "approved": "2026-11-11T22:33+09:00"
 }

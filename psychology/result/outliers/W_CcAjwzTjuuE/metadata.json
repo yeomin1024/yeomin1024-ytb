@@ -12,16 +12,15 @@
  "likes": 2447,
  "comments": 60,
  "published": "2026-07-08",
- "queries": "검색:인간관계 | 검색:대인관계",
+ "queries": "검색:인간관계",
  "url": "https://www.youtube.com/watch?v=CcAjwzTjuuE",
  "flag": "",
  "published_at": "2026-07-08T11:00:25Z",
- "rank": "W150",
+ "rank": "W111",
  "set": "web",
  "folder": "W_CcAjwzTjuuE",
  "sources": [
-  "검색:인간관계",
-  "검색:대인관계"
+  "검색:인간관계"
  ],
  "source": "web",
  "tags": [
@@ -71,7 +70,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 60,
@@ -82,6 +81,6 @@
  "comments_disabled": false,
  "comments_reported": 60,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:25:10",
- "approved": "2026-11-11T18:25+09:00"
+ "collected": "2026-11-11T13:39:50",
+ "approved": "2026-11-11T22:39+09:00"
 }

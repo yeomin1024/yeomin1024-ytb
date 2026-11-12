@@ -4,7 +4,7 @@
  "channel": "브라보 인생후반전",
  "channel_id": "UCwTDoSa0GdMlUxZlpvD-K8A",
  "subs": 8530,
- "views": 522689,
+ "views": 522743,
  "ratio": 61.28,
  "age_days": 59,
  "views_per_day": 8791.0,
@@ -12,15 +12,16 @@
  "likes": 1891,
  "comments": 302,
  "published": "2026-09-12",
- "queries": "검색:심리학",
+ "queries": "검색:심리학 | 검색:인간관계 심리",
  "url": "https://www.youtube.com/watch?v=xk46_2WsjMk",
  "flag": "",
  "published_at": "2026-09-12T22:15:23Z",
- "rank": "W67",
+ "rank": "W43",
  "set": "web",
  "folder": "W_xk46_2WsjMk",
  "sources": [
-  "검색:심리학"
+  "검색:심리학",
+  "검색:인간관계 심리"
  ],
  "source": "web",
  "tags": [
@@ -95,7 +96,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 302,
@@ -106,6 +107,6 @@
  "comments_disabled": false,
  "comments_reported": 302,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:21:15",
- "approved": "2026-11-11T18:21+09:00"
+ "collected": "2026-11-11T13:36:48",
+ "approved": "2026-11-11T22:36+09:00"
 }

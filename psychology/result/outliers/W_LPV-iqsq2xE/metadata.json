@@ -7,7 +7,7 @@
  "views": 435427,
  "ratio": 29.62,
  "age_days": 61,
- "views_per_day": 7039.9,
+ "views_per_day": 7039.2,
  "minutes": 23.6,
  "likes": 1876,
  "comments": 848,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=LPV-iqsq2xE",
  "flag": "",
  "published_at": "2026-09-10T12:47:56Z",
- "rank": "W110",
+ "rank": "W78",
  "set": "web",
  "folder": "W_LPV-iqsq2xE",
  "sources": [
@@ -47,7 +47,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 848,
@@ -58,6 +58,6 @@
  "comments_disabled": false,
  "comments_reported": 848,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:23:11",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:38:01",
+ "approved": "2026-11-11T22:38+09:00"
 }

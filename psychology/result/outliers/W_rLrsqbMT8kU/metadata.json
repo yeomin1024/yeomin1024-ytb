@@ -1,0 +1,65 @@
+{
+ "id": "rLrsqbMT8kU",
+ "title": "굳이 남들에게 잘 보이려 하지 않고 무서울 정도로 안정된 특징 ㅣ Ep. 책과사람 (김경일 교수님 통합본)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 1725180,
+ "ratio": 1.34,
+ "age_days": 248,
+ "views_per_day": 6946.6,
+ "minutes": 72.6,
+ "likes": 13599,
+ "comments": 334,
+ "published": "2026-03-08",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리 | 검색(전체 기간):인간관계",
+ "url": "https://www.youtube.com/watch?v=rLrsqbMT8kU",
+ "flag": "",
+ "published_at": "2026-03-08T01:01:06Z",
+ "rank": "W234",
+ "set": "web",
+ "folder": "W_rLrsqbMT8kU",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리",
+  "검색(전체 기간):인간관계"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“쓸데없는 자기계발 말고” 옷부터 잘 입으세요"
+  },
+  {
+   "start": 1470,
+   "title": "무조건 평일에만 만나야 하는 사람 특징"
+  },
+  {
+   "start": 2995,
+   "title": "바르게 자랄수록 이상한 사람들이 꼬이는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 334,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:11",
+ "approved": "2026-11-11T22:47+09:00"
+}

@@ -1,0 +1,73 @@
+{
+ "id": "Lv3QwcAcDnA",
+ "title": "하버드대에서 밝힌 「삶에 여유가 없을수록 꼭 해야하는 1가지」",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 1333529,
+ "ratio": null,
+ "age_days": 593,
+ "views_per_day": 2245.6,
+ "minutes": 8.2,
+ "likes": 37304,
+ "comments": 975,
+ "published": "2025-03-27",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리",
+ "url": "https://www.youtube.com/watch?v=Lv3QwcAcDnA",
+ "flag": "",
+ "published_at": "2025-03-27T13:21:20Z",
+ "rank": "W315",
+ "set": "web",
+ "folder": "W_Lv3QwcAcDnA",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리"
+ ],
+ "source": "web",
+ "tags": [
+  "돈이없다",
+  "시간이없다",
+  "친구가없다",
+  "결핍의역설"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "돈이 없다"
+  },
+  {
+   "start": 69,
+   "title": "여유가 없다"
+  },
+  {
+   "start": 124,
+   "title": "친구가 없다"
+  },
+  {
+   "start": 217,
+   "title": "결핍의 덫"
+  },
+  {
+   "start": 314,
+   "title": "시간이 없다"
+  },
+  {
+   "start": 408,
+   "title": "늪에서 빠져나오는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 975,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

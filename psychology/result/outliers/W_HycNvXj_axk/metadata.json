@@ -4,24 +4,24 @@
  "channel": "브라보 인생후반전",
  "channel_id": "UCwTDoSa0GdMlUxZlpvD-K8A",
  "subs": 8530,
- "views": 490880,
+ "views": 490898,
  "ratio": 57.55,
  "age_days": 48,
- "views_per_day": 10138.9,
+ "views_per_day": 10137.9,
  "minutes": 25.1,
  "likes": 2362,
  "comments": 395,
  "published": "2026-09-23",
- "queries": "검색:심리학 | 검색:성격심리",
+ "queries": "검색:심리학 | 검색:인간관계 심리",
  "url": "https://www.youtube.com/watch?v=HycNvXj_axk",
  "flag": "",
  "published_at": "2026-09-23T23:15:12Z",
- "rank": "W68",
+ "rank": "W47",
  "set": "web",
  "folder": "W_HycNvXj_axk",
  "sources": [
   "검색:심리학",
-  "검색:성격심리"
+  "검색:인간관계 심리"
  ],
  "source": "web",
  "tags": [
@@ -93,17 +93,17 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
- "comments_fetched": 395,
- "comments_top_level": 169,
+ "comments_fetched": 397,
+ "comments_top_level": 171,
  "comments_replies": 226,
  "comments_by_creator": 166,
  "comments_complete": true,
  "comments_disabled": false,
  "comments_reported": 395,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:21:18",
- "approved": "2026-11-11T18:21+09:00"
+ "collected": "2026-11-11T13:36:56",
+ "approved": "2026-11-11T22:36+09:00"
 }

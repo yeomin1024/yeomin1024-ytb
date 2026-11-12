@@ -7,21 +7,21 @@
  "views": 18648,
  "ratio": 131.32,
  "age_days": 18,
- "views_per_day": 1035.4,
+ "views_per_day": 1035.1,
  "minutes": 32.0,
  "likes": 76,
  "comments": 6,
  "published": "2026-10-24",
- "queries": "검색:관계심리 | 검색:인간관계심리",
+ "queries": "검색:관계심리 | 검색(전체 기간):관계심리",
  "url": "https://www.youtube.com/watch?v=kTPr64XAJrQ",
  "flag": "",
  "published_at": "2026-10-24T09:00:27Z",
- "rank": "W38",
+ "rank": "W23",
  "set": "web",
  "folder": "W_kTPr64XAJrQ",
  "sources": [
   "검색:관계심리",
-  "검색:인간관계심리"
+  "검색(전체 기간):관계심리"
  ],
  "source": "web",
  "tags": [
@@ -70,7 +70,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 6,
@@ -81,6 +81,6 @@
  "comments_disabled": false,
  "comments_reported": 6,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:19:52",
- "approved": "2026-11-11T18:19+09:00"
+ "collected": "2026-11-11T13:34:40",
+ "approved": "2026-11-11T22:34+09:00"
 }

@@ -1,0 +1,113 @@
+{
+ "id": "HU1oAYTqjzM",
+ "title": "\"감정만 30년을 연구했다.\" 불안을 잠재우는 간단한 방법ㅣ지식인초대석 (김주환 교수 풀버전)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 3483524,
+ "ratio": 0.83,
+ "age_days": 591,
+ "views_per_day": 5890.8,
+ "minutes": 69.7,
+ "likes": 61843,
+ "comments": 1420,
+ "published": "2025-03-30",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리 | 검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=HU1oAYTqjzM",
+ "flag": "",
+ "published_at": "2025-03-30T01:00:23Z",
+ "rank": "W260",
+ "set": "web",
+ "folder": "W_HU1oAYTqjzM",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리",
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 19,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 53,
+   "title": "모든 불행의 원인은 딱 ‘1가지’ 입니다"
+  },
+  {
+   "start": 339,
+   "title": "내가 남들보다 쉽게 예민해지고 짜증나는 원인"
+  },
+  {
+   "start": 524,
+   "title": "“뇌과학으로 증명됐다” 불안을 잠재우는 간단한 방법"
+  },
+  {
+   "start": 948,
+   "title": "긴장 없애고 능력 100% 발휘하게 하는 마음 단련법"
+  },
+  {
+   "start": 1560,
+   "title": "밥 먹으면서도 할 수 있는 기적의 명상법"
+  },
+  {
+   "start": 1977,
+   "title": "“불면증 겪어보니..” 수면제 없이 잠 잘 자는 법"
+  },
+  {
+   "start": 2206,
+   "title": "건강해지려면 쓸데없는 것 말고 ‘이것’부터 하세요"
+  },
+  {
+   "start": 2301,
+   "title": "지금 이걸 깨닫지 못하면 평생을 불행하게 삽니다"
+  },
+  {
+   "start": 2508,
+   "title": "쉽게 발끈하는 사람들이요? 뇌가 고장난 거예요"
+  },
+  {
+   "start": 2688,
+   "title": "누군가 나를 비난해도 전혀 화가 나지 않는 방법"
+  },
+  {
+   "start": 2827,
+   "title": "‘이 단어’를 반복하면 인생이 놀랍게 바뀝니다"
+  },
+  {
+   "start": 3362,
+   "title": "내 자신이 끔찍이도 싫을 때, 자기혐오를 멈추는 법"
+  },
+  {
+   "start": 3614,
+   "title": "남들에겐 관대하고 자신에겐 엄격한 사람들의 문제"
+  },
+  {
+   "start": 3833,
+   "title": "“공부에 신경끄세요” 한국 아이들이 불행한 이유"
+  },
+  {
+   "start": 3989,
+   "title": "듣기만 해도 자존감이 차오르는 명상법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1420,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:14",
+ "approved": "2026-11-11T22:47+09:00"
+}

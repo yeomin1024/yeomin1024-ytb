@@ -7,7 +7,7 @@
  "views": 81169,
  "ratio": 28.28,
  "age_days": 52,
- "views_per_day": 1534.3,
+ "views_per_day": 1534.1,
  "minutes": 15.6,
  "likes": 1083,
  "comments": 25,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=WGDslk67vNQ",
  "flag": "",
  "published_at": "2026-09-19T11:35:05Z",
- "rank": "W112",
+ "rank": "W80",
  "set": "web",
  "folder": "W_WGDslk67vNQ",
  "sources": [
@@ -107,7 +107,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 25,
@@ -118,6 +118,6 @@
  "comments_disabled": false,
  "comments_reported": 25,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:23:19",
- "approved": "2026-11-11T18:23+09:00"
+ "collected": "2026-11-11T13:38:09",
+ "approved": "2026-11-11T22:38+09:00"
 }

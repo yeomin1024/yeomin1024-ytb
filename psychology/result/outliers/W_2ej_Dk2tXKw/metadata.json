@@ -7,7 +7,7 @@
  "views": 11152,
  "ratio": 111.52,
  "age_days": 33,
- "views_per_day": 334.5,
+ "views_per_day": 334.4,
  "minutes": 9.1,
  "likes": 54,
  "comments": 2,
@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=2ej_Dk2tXKw",
  "flag": "",
  "published_at": "2026-10-09T01:00:37Z",
- "rank": "W44",
+ "rank": "W28",
  "set": "web",
  "folder": "W_2ej_Dk2tXKw",
  "sources": [
@@ -47,7 +47,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 2,
@@ -58,6 +58,6 @@
  "comments_disabled": false,
  "comments_reported": 2,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:20:19",
- "approved": "2026-11-11T18:20+09:00"
+ "collected": "2026-11-11T13:35:14",
+ "approved": "2026-11-11T22:35+09:00"
 }

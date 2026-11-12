@@ -7,21 +7,20 @@
  "views": 308466,
  "ratio": 23.55,
  "age_days": 157,
- "views_per_day": 1960.5,
+ "views_per_day": 1960.4,
  "minutes": 11.2,
  "likes": 3648,
  "comments": 239,
  "published": "2026-06-07",
- "queries": "검색:뇌과학 | 검색:심리",
+ "queries": "검색:뇌과학",
  "url": "https://www.youtube.com/watch?v=vzendmOOrc8",
  "flag": "",
  "published_at": "2026-06-07T01:00:01Z",
- "rank": "W127",
+ "rank": "W89",
  "set": "web",
  "folder": "W_vzendmOOrc8",
  "sources": [
-  "검색:뇌과학",
-  "검색:심리"
+  "검색:뇌과학"
  ],
  "source": "web",
  "tags": [
@@ -77,7 +76,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 239,
@@ -88,6 +87,6 @@
  "comments_disabled": false,
  "comments_reported": 239,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:24:00",
- "approved": "2026-11-11T18:24+09:00"
+ "collected": "2026-11-11T13:38:31",
+ "approved": "2026-11-11T22:38+09:00"
 }

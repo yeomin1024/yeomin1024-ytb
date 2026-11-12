@@ -1,0 +1,85 @@
+{
+ "id": "zUqsw81sVWw",
+ "title": "쌉T 어른 언니의 고민상담… 인생, 돈, 인간관계 다 걱정이면 들어와",
+ "channel": "채린라벨 Cherry Park",
+ "channel_id": "UCgjhKcxZa_4v080XyYrg-9A",
+ "subs": 220000,
+ "views": 23703,
+ "ratio": 0.11,
+ "age_days": 1,
+ "views_per_day": 12598.1,
+ "minutes": 28.9,
+ "likes": 239,
+ "comments": 42,
+ "published": "2026-11-09",
+ "queries": "검색:인간관계고민",
+ "url": "https://www.youtube.com/watch?v=zUqsw81sVWw",
+ "flag": "",
+ "published_at": "2026-11-09T12:13:55Z",
+ "rank": "W306",
+ "set": "web",
+ "folder": "W_zUqsw81sVWw",
+ "sources": [
+  "검색:인간관계고민"
+ ],
+ "source": "web",
+ "tags": [
+  "자취생 일기",
+  "자취생 일상",
+  "자취 일상",
+  "자취생 브이로그",
+  "living alone in korea",
+  "living alone diaries",
+  "living alone vlogs",
+  "living alone vlog",
+  "korean vlogger"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 50,
+   "title": "20대 후반인데 아직도 인생을 잘 살고 있는지 모르겠어요"
+  },
+  {
+   "start": 362,
+   "title": "영어 공부에 수백만원 썼는데도 잘 못해요"
+  },
+  {
+   "start": 806,
+   "title": "고3인데 다이어트와 공부 중에서 고민돼요"
+  },
+  {
+   "start": 923,
+   "title": "주식 투자로 연봉을 잃었어요... 손절 해야해요?"
+  },
+  {
+   "start": 1405,
+   "title": "친구가 없어서 고민이에요"
+  },
+  {
+   "start": 1548,
+   "title": "전남친 트라우마로 새로운 사람을 못만나겠어요"
+  },
+  {
+   "start": 1693,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 42,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:19",
+ "approved": "2026-11-11T22:47+09:00"
+}

@@ -1,0 +1,72 @@
+{
+ "id": "j-J0dNs1sFQ",
+ "title": "뇌과학자가 추천하는 무기력에서 벗어나는 가장 간단한 방법 | 삶의 통제권 가져오기 | 무기력과 우울증",
+ "channel": "장동선의 궁금한 뇌",
+ "channel_id": "UCI3mHMt-wivlZ3LS_1KiPHQ",
+ "subs": 759000,
+ "views": 2038698,
+ "ratio": 2.69,
+ "age_days": 992,
+ "views_per_day": 2053.3,
+ "minutes": 10.7,
+ "likes": 40167,
+ "comments": 1254,
+ "published": "2024-02-22",
+ "queries": "검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=j-J0dNs1sFQ",
+ "flag": "",
+ "published_at": "2024-02-22T12:00:49Z",
+ "rank": "W192",
+ "set": "web",
+ "folder": "W_j-J0dNs1sFQ",
+ "sources": [
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "무기력",
+  "피곤",
+  "만성피로",
+  "장동선",
+  "뇌과학",
+  "알쓸신잡",
+  "동기부여",
+  "철학",
+  "인생",
+  "노잼시기",
+  "무기력원인",
+  "무기력함"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 51,
+   "title": "무기력증의 원인"
+  },
+  {
+   "start": 235,
+   "title": "무기력의 뇌과학적 상태"
+  },
+  {
+   "start": 287,
+   "title": "무기력증 솔루션"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1254,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:06",
+ "approved": "2026-11-11T22:47+09:00"
+}

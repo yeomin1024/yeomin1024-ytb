@@ -12,16 +12,15 @@
  "likes": 0,
  "comments": 0,
  "published": "2026-09-12",
- "queries": "검색:관계심리 | 검색:인간관계심리",
+ "queries": "검색:관계심리",
  "url": "https://www.youtube.com/watch?v=FNSJWUxdhh0",
  "flag": "",
  "published_at": "2026-09-12T04:00:02Z",
- "rank": "W202",
+ "rank": "W160",
  "set": "web",
  "folder": "W_FNSJWUxdhh0",
  "sources": [
-  "검색:관계심리",
-  "검색:인간관계심리"
+  "검색:관계심리"
  ],
  "source": "web",
  "tags": [
@@ -66,7 +65,7 @@
  ],
  "chapters": [],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 0,
@@ -77,6 +76,6 @@
  "comments_disabled": false,
  "comments_reported": 0,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:27:16",
- "approved": "2026-11-11T18:27+09:00"
+ "collected": "2026-11-11T13:43:22",
+ "approved": "2026-11-11T22:43+09:00"
 }

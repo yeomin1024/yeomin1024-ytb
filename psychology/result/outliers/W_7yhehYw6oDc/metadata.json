@@ -7,24 +7,23 @@
  "views": 394021,
  "ratio": 14.76,
  "age_days": 89,
- "views_per_day": 4380.0,
+ "views_per_day": 4379.7,
  "minutes": 14.6,
  "likes": 3072,
  "comments": 431,
  "published": "2026-08-13",
- "queries": "검색:심리 | 검색:대인관계 | 검색:친구관계 | 검색:인간관계 정리 | 검색:인간관계심리",
+ "queries": "검색:심리 | 검색:대인관계 | 검색:인간관계 심리 | 검색:인간관계 정리",
  "url": "https://www.youtube.com/watch?v=7yhehYw6oDc",
  "flag": "",
  "published_at": "2026-08-13T10:12:40Z",
- "rank": "W164",
+ "rank": "W121",
  "set": "web",
  "folder": "W_7yhehYw6oDc",
  "sources": [
   "검색:심리",
   "검색:대인관계",
-  "검색:친구관계",
-  "검색:인간관계 정리",
-  "검색:인간관계심리"
+  "검색:인간관계 심리",
+  "검색:인간관계 정리"
  ],
  "source": "web",
  "tags": null,
@@ -63,7 +62,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 431,
@@ -74,6 +73,6 @@
  "comments_disabled": false,
  "comments_reported": 431,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:25:43",
- "approved": "2026-11-11T18:25+09:00"
+ "collected": "2026-11-11T13:40:31",
+ "approved": "2026-11-11T22:40+09:00"
 }

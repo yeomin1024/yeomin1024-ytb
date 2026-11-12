@@ -1,0 +1,110 @@
+{
+ "id": "YkNReIcwlaI",
+ "title": "삶이라는 게임에서 승리하는 법",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 1245268,
+ "ratio": null,
+ "age_days": 666,
+ "views_per_day": 1867.5,
+ "minutes": 15.1,
+ "likes": 40063,
+ "comments": 1250,
+ "published": "2025-01-13",
+ "queries": "검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=YkNReIcwlaI",
+ "flag": "",
+ "published_at": "2025-01-13T13:53:09Z",
+ "rank": "W316",
+ "set": "web",
+ "folder": "W_YkNReIcwlaI",
+ "sources": [
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": [
+  "좌뇌우뇌",
+  "불교",
+  "선불교",
+  "뇌과학",
+  "명상",
+  "마음챙김"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "좌뇌의 거짓말, 거짓말, 거짓말"
+  },
+  {
+   "start": 78,
+   "title": "세상에서 가장 중독적인 것"
+  },
+  {
+   "start": 168,
+   "title": "같은 자극, 다른 해석"
+  },
+  {
+   "start": 224,
+   "title": "자아는 어디에 있을까?"
+  },
+  {
+   "start": 277,
+   "title": "'한국'을 보여줄 수 있나요?"
+  },
+  {
+   "start": 321,
+   "title": "마음은 왜 이렇게 시끄러울까?"
+  },
+  {
+   "start": 352,
+   "title": "10초만에 좌뇌를 느끼는 법"
+  },
+  {
+   "start": 436,
+   "title": "좌뇌는 어떻게 독재를 유지할까?"
+  },
+  {
+   "start": 509,
+   "title": "우뇌를 활성화하는 법: 그냥"
+  },
+  {
+   "start": 538,
+   "title": "우뇌의 직감 vs 좌뇌의 분석"
+  },
+  {
+   "start": 685,
+   "title": "좌뇌가 꺼지면 생기는 일"
+  },
+  {
+   "start": 676,
+   "title": "첫 번째 전략"
+  },
+  {
+   "start": 705,
+   "title": "두 번째 전략"
+  },
+  {
+   "start": 731,
+   "title": "세 번째 전략"
+  },
+  {
+   "start": 878,
+   "title": "자네, 좌뇌한테 속았네!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1250,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

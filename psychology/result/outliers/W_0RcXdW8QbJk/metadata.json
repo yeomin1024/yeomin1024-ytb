@@ -16,7 +16,7 @@
  "url": "https://www.youtube.com/watch?v=0RcXdW8QbJk",
  "flag": "",
  "published_at": "2026-08-07T18:09:44Z",
- "rank": "W28",
+ "rank": "W18",
  "set": "web",
  "folder": "W_0RcXdW8QbJk",
  "sources": [
@@ -67,7 +67,7 @@
   }
  ],
  "transcript_lang": "-",
- "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
  "video_lang": "ko",
  "foreign": false,
  "comments_fetched": 14,
@@ -78,6 +78,6 @@
  "comments_disabled": false,
  "comments_reported": 14,
  "tool": "outlier_research.py v2.7",
- "collected": "2026-11-11T09:19:26",
- "approved": "2026-11-11T18:19+09:00"
+ "collected": "2026-11-11T13:34:20",
+ "approved": "2026-11-11T22:34+09:00"
 }

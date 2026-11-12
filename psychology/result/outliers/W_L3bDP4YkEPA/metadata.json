@@ -1,0 +1,104 @@
+{
+ "id": "L3bDP4YkEPA",
+ "title": "일머리 좋은 사람들이 일하기 '3분' 전에 하는 남다른 생각ㅣ지식인초대석 EP.87 (김경일 교수)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1648101,
+ "ratio": 0.39,
+ "age_days": 319,
+ "views_per_day": 5160.8,
+ "minutes": 48.4,
+ "likes": 20471,
+ "comments": 311,
+ "published": "2025-12-27",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=L3bDP4YkEPA",
+ "flag": "",
+ "published_at": "2025-12-27T01:00:28Z",
+ "rank": "W292",
+ "set": "web",
+ "folder": "W_L3bDP4YkEPA",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 54,
+   "title": "해가 지날수록 시간이 빨리 흐르는 진짜 이유"
+  },
+  {
+   "start": 296,
+   "title": "게으름의 늪에서 빠져나오는 ‘2가지’ 행동 전략"
+  },
+  {
+   "start": 464,
+   "title": "일머리 좋은 사람들이 일하기 3분 전에 하는 생각"
+  },
+  {
+   "start": 631,
+   "title": "작은 행동만으로 뇌가 변하는 결정적 순간"
+  },
+  {
+   "start": 740,
+   "title": "이유없이 힘 빠지고 출근하기 싫은 의외의 이유"
+  },
+  {
+   "start": 853,
+   "title": "보어아웃에 가장 먼저 무너지는 사람 유형"
+  },
+  {
+   "start": 1030,
+   "title": "지금 기업들이 조용히 걸러내는 4050의 공통점"
+  },
+  {
+   "start": 1423,
+   "title": "미국 대기업들이 직장인의 미덕으로 여기는 ‘1가지’"
+  },
+  {
+   "start": 1697,
+   "title": "‘나이 탓 아닙니다’ 나이들수록 학습이 어려운 이유"
+  },
+  {
+   "start": 1850,
+   "title": "‘노력하지 마세요’ 성인에게 가장 잘 먹히는 학습 전략"
+  },
+  {
+   "start": 2118,
+   "title": "하기 싫은 공부를 ‘루틴’으로 만드는 법"
+  },
+  {
+   "start": 2316,
+   "title": "성인 뇌가 가장 빨리 배우는 영어 공부법"
+  },
+  {
+   "start": 2601,
+   "title": "미드·팝송이 영어 공부의 치트키인 이유"
+  },
+  {
+   "start": 2784,
+   "title": "퇴근 후 저녁 시간을 낭비하지 않는 ‘2가지’ 실천법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 312,
+ "comments_top_level": 235,
+ "comments_replies": 77,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 311,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:17",
+ "approved": "2026-11-11T22:47+09:00"
+}

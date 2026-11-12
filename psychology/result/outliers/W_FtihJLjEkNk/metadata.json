@@ -1,0 +1,111 @@
+{
+ "id": "FtihJLjEkNk",
+ "title": "번아웃부터 불안까지...주목해야 할 정신건강 이슈 모아봄 [스:크랩]｜크랩",
+ "channel": "크랩 KLAB",
+ "channel_id": "UCoxT1kQSLq564FwpK473w-g",
+ "subs": 1100000,
+ "views": 1758346,
+ "ratio": 1.6,
+ "age_days": 24,
+ "views_per_day": 72337.4,
+ "minutes": 36.5,
+ "likes": 7723,
+ "comments": 1723,
+ "published": "2026-10-18",
+ "queries": "검색:정신건강 | 검색:스트레스 | 검색:번아웃",
+ "url": "https://www.youtube.com/watch?v=FtihJLjEkNk",
+ "flag": "",
+ "published_at": "2026-10-18T02:00:26Z",
+ "rank": "W224",
+ "set": "web",
+ "folder": "W_FtihJLjEkNk",
+ "sources": [
+  "검색:정신건강",
+  "검색:스트레스",
+  "검색:번아웃"
+ ],
+ "source": "web",
+ "tags": [
+  "크랩",
+  "KLAB",
+  "크랩 모아보기",
+  "정신건강",
+  "정신건강 모아보기",
+  "정신건강 관리",
+  "정신건강의학과",
+  "정신질환",
+  "심리학",
+  "심리 건강",
+  "우울증",
+  "고기능 우울증",
+  "우울증 증상",
+  "2030 우울증",
+  "청년 정신건강",
+  "2030 자살률",
+  "청년 자살률",
+  "스트레스",
+  "스트레스 증상",
+  "스트레스 해소",
+  "스트레스 수면",
+  "수면",
+  "예민한 성격",
+  "과민반응",
+  "성인 ADHD",
+  "ADHD",
+  "성인 ADHD 증상",
+  "집중력 저하",
+  "타이레놀",
+  "우울증 약",
+  "성격 유형",
+  "MBTI",
+  "이향인",
+  "외향인",
+  "내향인",
+  "모아보기",
+  "건강관리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한국인이 유독 취약하다는 '고기능 우울증' (2026. 4. 24.)"
+  },
+  {
+   "start": 346,
+   "title": "최근 2030 자살률이 역대급으로 심각한 이유 (2026. 2. 21.)"
+  },
+  {
+   "start": 651,
+   "title": "예민해도 너무 예민한 나, 알고보니 OOO? (2025. 6. 22.)"
+  },
+  {
+   "start": 912,
+   "title": "‘우울할 때 타이레놀 먹는다'? 괜찮은지 알아봄 (2025. 5. 7.)"
+  },
+  {
+   "start": 1199,
+   "title": "스트레스 받으면 기절하듯 자는 사람 주목 (2026. 7. 26.)"
+  },
+  {
+   "start": 1498,
+   "title": "\"치료제 품귀까지\"..성인ADHD 폭증한 이유 (2025. 4. 19.)"
+  },
+  {
+   "start": 1810,
+   "title": "MBTI E도 I도 아닌 O형..나도 혹시 이향인? (2026. 5. 9.)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1732,
+ "comments_top_level": 891,
+ "comments_replies": 841,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1723,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:10",
+ "approved": "2026-11-11T22:47+09:00"
+}

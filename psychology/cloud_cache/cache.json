@@ -1,0 +1,18 @@
+{
+ "tool": "cloud_run.py v1.6",
+ "topic": "psychology",
+ "saved": "2026-11-12T13:49:47+09:00",
+ "why": "resume",
+ "files": 3329,
+ "bytes_raw": 9533885,
+ "bytes_tgz": 3535380,
+ "sha256": "3d9626e0bc8e376f6d0649f12b445b6c00b08761045ca2ea1de9f2fb3b97858f",
+ "parts": [],
+ "kinds": {
+  "autocomplete.json": 1,
+  "channels.json": 1,
+  "search": 86,
+  "video": 3238,
+  "web": 3
+ }
+}

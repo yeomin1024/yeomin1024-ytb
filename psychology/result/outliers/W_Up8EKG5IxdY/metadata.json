@@ -1,0 +1,90 @@
+{
+ "id": "Up8EKG5IxdY",
+ "title": "똑똑한 사람일수록 친구 적고 외로움 덜 타는 이유ㅣ인간설명서 EP.6",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1246872,
+ "ratio": 0.3,
+ "age_days": 704,
+ "views_per_day": 1768.7,
+ "minutes": 16.1,
+ "likes": 15512,
+ "comments": 2457,
+ "published": "2024-12-06",
+ "queries": "검색(전체 기간):인간관계 | 검색(전체 기간):대인관계 | 검색(전체 기간):인간관계 심리 | 검색(전체 기간):인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=Up8EKG5IxdY",
+ "flag": "",
+ "published_at": "2024-12-06T10:30:13Z",
+ "rank": "W304",
+ "set": "web",
+ "folder": "W_Up8EKG5IxdY",
+ "sources": [
+  "검색(전체 기간):인간관계",
+  "검색(전체 기간):대인관계",
+  "검색(전체 기간):인간관계 심리",
+  "검색(전체 기간):인간관계 정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 14,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 31,
+   "title": "구독자 사연"
+  },
+  {
+   "start": 91,
+   "title": "낼모레 50인데 친구가 한 명도 없어도 괜찮을까요?"
+  },
+  {
+   "start": 202,
+   "title": "친구 없이는 절대 못 사는 사람들의 문제?"
+  },
+  {
+   "start": 358,
+   "title": "인간관계에서 ‘을’이 되는 사람들의 특징?"
+  },
+  {
+   "start": 416,
+   "title": "외로울수록 사람을 멀리 해야 한다?"
+  },
+  {
+   "start": 551,
+   "title": "중년 이후 멀어져야 할 사람의 기준?"
+  },
+  {
+   "start": 691,
+   "title": "중년에 적당한 인간관계를 유지하기 위해서는?"
+  },
+  {
+   "start": 724,
+   "title": "혼자서도 시간을 유용하게 보내려면 무엇을 해야 할까요?"
+  },
+  {
+   "start": 813,
+   "title": "살아온 인생이 후회되는데 어떻게 해야 될까요?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2458,
+ "comments_top_level": 1659,
+ "comments_replies": 799,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2457,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:19",
+ "approved": "2026-11-11T22:47+09:00"
+}

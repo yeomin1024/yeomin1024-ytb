@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-23 — 사용자 지시 "국가별로 시트 나눠 그리고 영어는 번역한것도 컬럼 추가해 왜 최대 4주전 까지 밖에 없어? 48주까지 있어야 하고
+# VERSION: v1.1.1 — 2026-11-12 — md 표의 몫이 없을 때(그 기간 좋아요 합 0) '-' 로 — TypeError 로 멈추던 것 (심리 main 자료에서 주제 밖 28개를 뺀 뒤 처음 남). 숫자 그대로.
+# (v1.1 — 2026-10-23 — 사용자 지시 "국가별로 시트 나눠 그리고 영어는 번역한것도 컬럼 추가해 왜 최대 4주전 까지 밖에 없어? 48주까지 있어야 하고
 #          업로드 기간 대비 없이 그냥 영상 조회수 정렬한 결과도 시트로 추가해":
 #          · 나라(한국·미국·그 밖 나라 — title_comment_link 와 같은 규칙: 한국 = 한국어 영상, 미국 = 미국 채널의 영어 영상)마다 시트 8개 — 기간 요약 ·
 #            묶음 목록 · 기간별 · 기간 비교(댓글 수)·(좋아요) · 영상별(하루 조회수 순) · 영상별(조회수 순, 새로) · 영상×묶음. 몫 = 그 기간·그 나라 안 (v1.0 은 언어 안).
@@ -48,7 +49,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import comment_types as ct            # noqa: E402  lang_group (영상 언어 묶음) — 같은 규칙
 import title_comment_link as tcl      # noqa: E402  country_of (한국·미국) · 영어 STOP_EN
 
-VERSION = "v1.1"
+VERSION = "v1.1.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("cclu")
 SEED = 20261023
@@ -661,6 +662,11 @@ def by_country_videos(vrows):
     return {c: [r for r in vrows if r["나라"] == c] for c in COUNTRIES}
 
 
+def _share(x):
+    """몫 → '12%' · 없으면 '-' (v1.1.1: 그 기간 좋아요가 0 이면 몫이 None 이라 md 쓰기가 TypeError 로 멈췄음)."""
+    return "-" if x is None else f"{x:.0%}"
+
+
 def write_md(md_path, hits, ps, vby, n_comments, by, data_week):
     """깃허브에서 바로 보는 짧은 요약 (한국·미국, 기간 몇 개) — 자세한 것은 엑셀."""
     def cut(t, n):
@@ -683,7 +689,7 @@ def write_md(md_path, hits, ps, vby, n_comments, by, data_week):
                 if r.get("좋아요 1위 댓글 번역"):
                     top = top.split(" ", 1)[0] + " " + r["좋아요 1위 댓글 번역"]
                 label = r["주제 낱말"] + (f" ({r['주제 낱말 번역']})" if r.get("주제 낱말 번역") else "")
-                L.append(f"| {r['묶음']} | {cut(label, 70)} | {r['댓글 수']:,} ({r['댓글 몫']:.0%}) | {r['좋아요 합']:,} ({r['좋아요 몫']:.0%}) | "
+                L.append(f"| {r['묶음']} | {cut(label, 70)} | {r['댓글 수']:,} ({_share(r['댓글 몫'])}) | {r['좋아요 합']:,} ({_share(r['좋아요 몫'])}) | "
                          f"{cut(rep, 60)} | {cut(top, 80)} |")
             L.append("")
     for ctry in ("한국", "미국"):

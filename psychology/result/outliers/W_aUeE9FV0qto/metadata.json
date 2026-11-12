@@ -1,0 +1,92 @@
+{
+ "id": "aUeE9FV0qto",
+ "title": "\"정서적으로 미성숙한 부모\" 밑에서 자란 사람들이 평생 겪는 것 4가지",
+ "channel": "기분 관리소",
+ "channel_id": "UCW0kNW8jq_i0T05yf4SA9ew",
+ "subs": 615,
+ "views": 114202,
+ "ratio": 185.69,
+ "age_days": 85,
+ "views_per_day": 1330.9,
+ "minutes": 10.8,
+ "likes": 1005,
+ "comments": 153,
+ "published": "2026-08-17",
+ "queries": "검색:감정조절",
+ "url": "https://www.youtube.com/watch?v=aUeE9FV0qto",
+ "flag": "",
+ "published_at": "2026-08-17T14:00:23Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_aUeE9FV0qto",
+ "sources": [
+  "검색:감정조절"
+ ],
+ "source": "web",
+ "tags": [
+  "#정서적미성숙부모",
+  "#부모자식관계",
+  "#심리적통제",
+  "#부모화",
+  "#가족심리",
+  "#관계심리학",
+  "#기분관리소",
+  "#관계의진실",
+  "#자존감",
+  "#죄책감",
+  "#중년심리",
+  "#감정조절",
+  "#자기이해",
+  "#심리분석",
+  "#효도",
+  "#명절스트레스",
+  "#가족갈등",
+  "#심리상담",
+  "#자기치유",
+  "#상처받은마음"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "차 안에서 무거워진 마음"
+  },
+  {
+   "start": 81,
+   "title": "이유 하나. 걱정의 얼굴을 한 것들"
+  },
+  {
+   "start": 177,
+   "title": "이유 둘. 내 감정이 틀렸다고 배웠어요"
+  },
+  {
+   "start": 277,
+   "title": "이유 셋. 어릴 때 이미 어른 역할을 했어요"
+  },
+  {
+   "start": 365,
+   "title": "이유 넷. 그 집에선 나이가 사라져요"
+  },
+  {
+   "start": 594,
+   "title": "다음에 다녀오실 때, 세 가지만"
+  },
+  {
+   "start": 677,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 153,
+ "comments_top_level": 83,
+ "comments_replies": 70,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 153,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:34:12",
+ "approved": "2026-11-11T22:34+09:00"
+}

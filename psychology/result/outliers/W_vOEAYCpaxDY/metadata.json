@@ -1,0 +1,111 @@
+{
+ "id": "vOEAYCpaxDY",
+ "title": "부모가 인간관계를 정리해야 하는 이유!",
+ "channel": "이다랑의 육아낫얼론 ",
+ "channel_id": "UCy4bDeturOB2Uzb12Znp6bw",
+ "subs": 2770,
+ "views": 10063,
+ "ratio": 3.63,
+ "age_days": 26,
+ "views_per_day": 381.3,
+ "minutes": 32.3,
+ "likes": 59,
+ "comments": 23,
+ "published": "2026-10-16",
+ "queries": "검색:인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=vOEAYCpaxDY",
+ "flag": "",
+ "published_at": "2026-10-16T00:00:20Z",
+ "rank": "W178",
+ "set": "web",
+ "folder": "W_vOEAYCpaxDY",
+ "sources": [
+  "검색:인간관계 정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 35,
+   "title": "다랑쌤도 손절을? 점점 복잡해지는 인간관계"
+  },
+  {
+   "start": 76,
+   "title": "인간관계, 모두와 잘 지내는 게 좋지 않을까요?"
+  },
+  {
+   "start": 119,
+   "title": "부모의 인간관계가 육아에 미치는 영향"
+  },
+  {
+   "start": 270,
+   "title": "『관계의 그릇』 이헌주 교수님을 만나다"
+  },
+  {
+   "start": 334,
+   "title": "곁에 두면 좋지 않은 사람① 투사하는 사람"
+  },
+  {
+   "start": 429,
+   "title": "내가 투사를 당하고 있다는 신호"
+  },
+  {
+   "start": 498,
+   "title": "가까운 사람이 나에게 투사할 때 알아차리는 법"
+  },
+  {
+   "start": 620,
+   "title": "곁에 두면 좋지 않은 사람② 이기적인 사람"
+  },
+  {
+   "start": 666,
+   "title": "곁에 두면 좋은 사람의 기준 3가지"
+  },
+  {
+   "start": 968,
+   "title": "좋은 부모의 기준은 무엇일까요?"
+  },
+  {
+   "start": 1050,
+   "title": "나의 ‘관계의 원’ 그려보기"
+  },
+  {
+   "start": 1293,
+   "title": "관계를 정리한다는 것의 의미"
+  },
+  {
+   "start": 1475,
+   "title": "부모가 인간관계를 정리해야 하는 이유"
+  },
+  {
+   "start": 1626,
+   "title": "아이에게 좋은 부모가 되려면?"
+  },
+  {
+   "start": 1854,
+   "title": "관계의 원 & 아이와의 관계 체크리스트 이렇게 해보세요!"
+  },
+  {
+   "start": 1909,
+   "title": "11월에는 어떤 이야기를 나눌까요?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 11,
+ "comments_replies": 12,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:46:16",
+ "approved": "2026-11-11T22:46+09:00"
+}

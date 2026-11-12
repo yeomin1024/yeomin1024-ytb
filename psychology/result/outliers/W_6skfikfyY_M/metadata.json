@@ -1,0 +1,85 @@
+{
+ "id": "6skfikfyY_M",
+ "title": "당신이 생각보다 호감인 이유",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 2188855,
+ "ratio": null,
+ "age_days": 26,
+ "views_per_day": 81149.2,
+ "minutes": 8.0,
+ "likes": 23362,
+ "comments": 725,
+ "published": "2026-10-15",
+ "queries": "검색:심리학 | 검색:심리 | 검색(전체 기간):심리학",
+ "url": "https://www.youtube.com/watch?v=6skfikfyY_M",
+ "flag": "",
+ "published_at": "2026-10-15T10:00:44Z",
+ "rank": "W312",
+ "set": "web",
+ "folder": "W_6skfikfyY_M",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색(전체 기간):심리학"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "거짓말 게임"
+  },
+  {
+   "start": 68,
+   "title": "호감 격차"
+  },
+  {
+   "start": 137,
+   "title": "아름다운 엉망 효과"
+  },
+  {
+   "start": 184,
+   "title": "감독판과 극장판"
+  },
+  {
+   "start": 211,
+   "title": "깊은 질문 카드"
+  },
+  {
+   "start": 240,
+   "title": "감사 편지"
+  },
+  {
+   "start": 277,
+   "title": "착각은 언제부터 생길까?"
+  },
+  {
+   "start": 321,
+   "title": "고슴도치 이야기"
+  },
+  {
+   "start": 371,
+   "title": "딱 3가지"
+  },
+  {
+   "start": 410,
+   "title": "나만의 극장판"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 727,
+ "comments_top_level": 341,
+ "comments_replies": 386,
+ "comments_by_creator": 159,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 725,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

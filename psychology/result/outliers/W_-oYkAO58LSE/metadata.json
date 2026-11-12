@@ -1,0 +1,80 @@
+{
+ "id": "-oYkAO58LSE",
+ "title": "단 3일 만에 뇌를 리셋하고 무서울정도로  인생을 바꾸는 혼잣말의 뇌과학 비밀, 인생이 잘 풀리는 사람들은 말의힘을 알고 있습니다",
+ "channel": "바로쓰는 심리학",
+ "channel_id": "UCBCEvvfy9EOoo_l5nX6cPAw",
+ "subs": 27100,
+ "views": 524013,
+ "ratio": 19.34,
+ "age_days": 132,
+ "views_per_day": 3940.7,
+ "minutes": 12.1,
+ "likes": 9963,
+ "comments": 149,
+ "published": "2026-07-01",
+ "queries": "검색:심리학 | 검색:심리 | 검색:뇌과학",
+ "url": "https://www.youtube.com/watch?v=-oYkAO58LSE",
+ "flag": "",
+ "published_at": "2026-07-01T10:00:04Z",
+ "rank": "W104",
+ "set": "web",
+ "folder": "W_-oYkAO58LSE",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색:뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "심리학",
+  "뇌과학",
+  "자기계발",
+  "멘탈관리",
+  "마인드셋",
+  "동기부여"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하루의 운을 결정하는 진짜 원인, 혼잣말"
+  },
+  {
+   "start": 105,
+   "title": "뇌의 정보 필터 '망상활성계'가 작동하는 원리"
+  },
+  {
+   "start": 218,
+   "title": "혼잣말이 우리의 몸과 뇌 활동 패턴(fMRI)을 바꾸는 증거"
+  },
+  {
+   "start": 301,
+   "title": "당장 멈춰야 할, 인생을 정체시키는 무서운 3가지 단어"
+  },
+  {
+   "start": 492,
+   "title": "우리가 나쁜 말 습관을 쉽게 고치지 못했던 이유"
+  },
+  {
+   "start": 512,
+   "title": "단 3일 만에 뇌를 리셋하는 4가지 실전 말하기 기술"
+  },
+  {
+   "start": 684,
+   "title": "오늘 밤 당장 실천하는 가장 힘 있는 타이밍과 작은 미션"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 149,
+ "comments_top_level": 135,
+ "comments_replies": 14,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 149,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:19",
+ "approved": "2026-11-11T22:39+09:00"
+}

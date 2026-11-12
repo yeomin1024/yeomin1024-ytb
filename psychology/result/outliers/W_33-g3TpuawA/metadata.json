@@ -1,0 +1,78 @@
+{
+ "id": "33-g3TpuawA",
+ "title": "똑똑한 사람은 손절할 때 이것을 절대 하지 않는다 (심리학적 분석)",
+ "channel": "토닥교수의 심리학",
+ "channel_id": "UCH1vudPey53cxkXyugPVoVQ",
+ "subs": 26700,
+ "views": 264059,
+ "ratio": 9.89,
+ "age_days": 62,
+ "views_per_day": 4246.5,
+ "minutes": 19.5,
+ "likes": 1133,
+ "comments": 62,
+ "published": "2026-09-10",
+ "queries": "검색:대인관계 | 검색:손절 | 검색:인간관계 심리 | 검색:인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=33-g3TpuawA",
+ "flag": "",
+ "published_at": "2026-09-10T05:00:30Z",
+ "rank": "W143",
+ "set": "web",
+ "folder": "W_33-g3TpuawA",
+ "sources": [
+  "검색:대인관계",
+  "검색:손절",
+  "검색:인간관계 심리",
+  "검색:인간관계 정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 — 진짜 똑똑한 사람의 손절은 방식이 다르다"
+  },
+  {
+   "start": 288,
+   "title": "특징 1 — 서두르지 않고 조용히 오래 지켜본다"
+  },
+  {
+   "start": 404,
+   "title": "특징 2 — 상대를 내 입맛에 맞게 고쳐 쓰지 않는다"
+  },
+  {
+   "start": 471,
+   "title": "특징 3 — 말 대신 '거리'를 설계한다"
+  },
+  {
+   "start": 589,
+   "title": "특징 4 — 명분은 준비하되 남 탓은 하지 않는다"
+  },
+  {
+   "start": 676,
+   "title": "특징 5 — \"무슨 일 있어?\"에 설명하지 않는다"
+  },
+  {
+   "start": 828,
+   "title": "같은 방법, 왜 결과는 정반대인가 — 내 마음 상태 점검"
+  },
+  {
+   "start": 1005,
+   "title": "손절 전에 꼭 생각해봐야 할 것들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 62,
+ "comments_top_level": 38,
+ "comments_replies": 24,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 62,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:42:29",
+ "approved": "2026-11-11T22:42+09:00"
+}

@@ -1,0 +1,79 @@
+{
+ "id": "IQFqV92w_sk",
+ "title": "아무리 가까운 사람이라도 '이런' 자랑하면 절대 안 됩니다 (인간 관계 편)",
+ "channel": "한창수의 마음정비소",
+ "channel_id": "UCrYTwrtIYWH_woB6mbgoTqQ",
+ "subs": 127000,
+ "views": 566076,
+ "ratio": 4.46,
+ "age_days": 25,
+ "views_per_day": 22626.3,
+ "minutes": 18.3,
+ "likes": 2831,
+ "comments": 168,
+ "published": "2026-10-17",
+ "queries": "검색:인간관계 | 검색:대인관계 | 검색:인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=IQFqV92w_sk",
+ "flag": "",
+ "published_at": "2026-10-17T08:55:36Z",
+ "rank": "W168",
+ "set": "web",
+ "folder": "W_IQFqV92w_sk",
+ "sources": [
+  "검색:인간관계",
+  "검색:대인관계",
+  "검색:인간관계 심리"
+ ],
+ "source": "web",
+ "tags": [
+  "심리",
+  "정신건강",
+  "마음",
+  "우울",
+  "불안",
+  "자존감",
+  "자기효능감",
+  "인간관계",
+  "마음정비소",
+  "한창수",
+  "이호선",
+  "지식인사이드",
+  "책과삶",
+  "옹달책방",
+  "김미경",
+  "이창옥",
+  "이지영"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 29,
+   "title": "가까운 사람일수록 내 행복이 불편하다?"
+  },
+  {
+   "start": 468,
+   "title": "같은 사람에게 자랑해도 반응이 다른 이유"
+  },
+  {
+   "start": 692,
+   "title": "좋은 일은 누구한테, 어디까지 말할까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 168,
+ "comments_top_level": 104,
+ "comments_replies": 64,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 168,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:44:57",
+ "approved": "2026-11-11T22:44+09:00"
+}

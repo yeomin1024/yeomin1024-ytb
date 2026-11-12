@@ -1,0 +1,99 @@
+{
+ "id": "2t0zuR72DIE",
+ "title": "사랑받고 자란 사람은 이런 데서 티가 납니다. 의외의 행동 6가지",
+ "channel": "친절한심리학",
+ "channel_id": "UCidDkfy3URC9eEfu8mVXcKA",
+ "subs": 22000,
+ "views": 212009,
+ "ratio": 9.64,
+ "age_days": 36,
+ "views_per_day": 5737.5,
+ "minutes": 15.9,
+ "likes": 2048,
+ "comments": 75,
+ "published": "2026-10-05",
+ "queries": "검색:대인관계",
+ "url": "https://www.youtube.com/watch?v=2t0zuR72DIE",
+ "flag": "",
+ "published_at": "2026-10-05T10:33:03Z",
+ "rank": "W146",
+ "set": "web",
+ "folder": "W_2t0zuR72DIE",
+ "sources": [
+  "검색:대인관계"
+ ],
+ "source": "web",
+ "tags": [
+  "사랑받고 자란 사람",
+  "사랑받고 자란 사람 특징",
+  "사랑받고 자란 티",
+  "안정 애착",
+  "애착유형",
+  "애착이론",
+  "인간관계 심리",
+  "연애 심리",
+  "사랑 많이 받은 사람 특징",
+  "화해 심리",
+  "공감 대화",
+  "부모 사랑",
+  "친절한심리학",
+  "심리학",
+  "심리학 유튜브"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "사랑받고 자란 티는 의외의 순간에 납니다"
+  },
+  {
+   "start": 55,
+   "title": "같은 상황, 누구는 불안하고 누구는 편안한 이유"
+  },
+  {
+   "start": 95,
+   "title": "첫 번째, 의외로 남의 호의를 잘 받는다"
+  },
+  {
+   "start": 252,
+   "title": "두 번째, 싸움이 끝난 뒤 상대를 벌주지 않는다"
+  },
+  {
+   "start": 392,
+   "title": "세 번째, \"나라면 안 그럴 텐데\"를 쉽게 말하지 않는다"
+  },
+  {
+   "start": 519,
+   "title": "네 번째, 누구 탓보다 이제 어떻게 할지를 찾는다"
+  },
+  {
+   "start": 636,
+   "title": "다섯 번째, 좋은 것을 혼자 움켜쥐지 않는다"
+  },
+  {
+   "start": 753,
+   "title": "여섯 번째, 가까운 사람일수록 함부로 대하지 않는다"
+  },
+  {
+   "start": 857,
+   "title": "여섯 가지의 공통점"
+  },
+  {
+   "start": 896,
+   "title": "사랑을 덜 받았다고 느끼는 분들께"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 75,
+ "comments_top_level": 44,
+ "comments_replies": 31,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 75,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:42:33",
+ "approved": "2026-11-11T22:42+09:00"
+}

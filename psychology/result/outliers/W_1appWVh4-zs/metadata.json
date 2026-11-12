@@ -1,0 +1,79 @@
+{
+ "id": "1appWVh4-zs",
+ "title": "그 많던 인맥이 사라지고 깨달은 진짜 친구의 기준ㅣ지식인초대석 EP.37 (유시민 작가 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 3855272,
+ "ratio": 0.92,
+ "age_days": 550,
+ "views_per_day": 7005.1,
+ "minutes": 23.5,
+ "likes": 89358,
+ "comments": 5076,
+ "published": "2025-05-10",
+ "queries": "검색(전체 기간):인간관계",
+ "url": "https://www.youtube.com/watch?v=1appWVh4-zs",
+ "flag": "",
+ "published_at": "2025-05-10T01:00:06Z",
+ "rank": "W256",
+ "set": "web",
+ "folder": "W_1appWVh4-zs",
+ "sources": [
+  "검색(전체 기간):인간관계"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 16,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 45,
+   "title": "사람의 숨겨진 본모습이 그대로 드러나는 순간"
+  },
+  {
+   "start": 257,
+   "title": "그 많던 인맥이 사라지고 깨달은 진짜 친구의 기준"
+  },
+  {
+   "start": 365,
+   "title": "남을 미워하는 사람들이 결코 주류가 될 수 없는 이유"
+  },
+  {
+   "start": 562,
+   "title": "강한 자만이 살아남는다는 ‘적자생존’의 진실"
+  },
+  {
+   "start": 718,
+   "title": "나이들어서도 배움을 멈추지 않아야 하는 이유"
+  },
+  {
+   "start": 840,
+   "title": "작가 유시민이 인생의 황혼기를 보내는 법"
+  },
+  {
+   "start": 1050,
+   "title": "‘나’를 잃어버린 사람들을 위한 해법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 5079,
+ "comments_top_level": 4077,
+ "comments_replies": 1002,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 5076,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:13",
+ "approved": "2026-11-11T22:47+09:00"
+}

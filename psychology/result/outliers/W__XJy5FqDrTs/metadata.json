@@ -1,0 +1,84 @@
+{
+ "id": "_XJy5FqDrTs",
+ "title": "99%가 인생을 낭비하는 이유",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 1354551,
+ "ratio": null,
+ "age_days": 285,
+ "views_per_day": 4738.3,
+ "minutes": 9.6,
+ "likes": 31347,
+ "comments": 1140,
+ "published": "2026-01-29",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리",
+ "url": "https://www.youtube.com/watch?v=_XJy5FqDrTs",
+ "flag": "",
+ "published_at": "2026-01-29T12:25:24Z",
+ "rank": "W314",
+ "set": "web",
+ "folder": "W__XJy5FqDrTs",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "뉴코크 참사"
+  },
+  {
+   "start": 46,
+   "title": "한자와 터키어"
+  },
+  {
+   "start": 124,
+   "title": "동전 던지기"
+  },
+  {
+   "start": 207,
+   "title": "초콜릿 vs 머그잔"
+  },
+  {
+   "start": 259,
+   "title": "에페족의 선택"
+  },
+  {
+   "start": 301,
+   "title": "익숙한 지옥"
+  },
+  {
+   "start": 334,
+   "title": "제로베이스 기법"
+  },
+  {
+   "start": 400,
+   "title": "20초 기법"
+  },
+  {
+   "start": 435,
+   "title": "ABC 공식"
+  },
+  {
+   "start": 509,
+   "title": "인생의 방향"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1140,
+ "comments_top_level": 605,
+ "comments_replies": 535,
+ "comments_by_creator": 233,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1140,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "yaLd6Rl3eUI",
+ "title": "프로파일러가 상대방의 진짜 생각을 알아내는 방법ㅣ지식인초대석 EP.110 (권일용 교수 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 2076594,
+ "ratio": 0.5,
+ "age_days": 241,
+ "views_per_day": 8604.1,
+ "minutes": 23.2,
+ "likes": 21575,
+ "comments": 2763,
+ "published": "2026-03-15",
+ "queries": "검색(전체 기간):심리",
+ "url": "https://www.youtube.com/watch?v=yaLd6Rl3eUI",
+ "flag": "",
+ "published_at": "2026-03-15T01:01:04Z",
+ "rank": "W282",
+ "set": "web",
+ "folder": "W_yaLd6Rl3eUI",
+ "sources": [
+  "검색(전체 기간):심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 24,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 153,
+   "title": "남 자존감 깎아먹는 나르시시스트의 단골 멘트"
+  },
+  {
+   "start": 282,
+   "title": "요즘 내 주변 ‘빌런’들이 병적으로 늘어난 이유"
+  },
+  {
+   "start": 438,
+   "title": "나르시시스트가 회사에선 승승장구하는 이유"
+  },
+  {
+   "start": 492,
+   "title": "나르시시스트가 권력을 가지면 생기는 일"
+  },
+  {
+   "start": 615,
+   "title": "나르시시스트를 걸러내는 ‘한 가지’ 질문"
+  },
+  {
+   "start": 754,
+   "title": "사람 피말리는 관계를 당장 멈춰야 하는 이유"
+  },
+  {
+   "start": 921,
+   "title": "평범한 사람도 악인으로 만드는 ‘권위’의 함정"
+  },
+  {
+   "start": 1102,
+   "title": "프로파일러가 상대방의 속마음을 알아내는 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 2763,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:16",
+ "approved": "2026-11-11T22:47+09:00"
+}

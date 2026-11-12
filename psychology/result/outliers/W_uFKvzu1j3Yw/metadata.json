@@ -1,0 +1,97 @@
+{
+ "id": "uFKvzu1j3Yw",
+ "title": "'이것'이 어렵다면 경계선 지능일 수 있어요",
+ "channel": "장동선의 궁금한 뇌",
+ "channel_id": "UCI3mHMt-wivlZ3LS_1KiPHQ",
+ "subs": 759000,
+ "views": 907395,
+ "ratio": 1.2,
+ "age_days": 89,
+ "views_per_day": 10089.7,
+ "minutes": 36.2,
+ "likes": 5191,
+ "comments": 1393,
+ "published": "2026-08-13",
+ "queries": "검색:뇌과학",
+ "url": "https://www.youtube.com/watch?v=uFKvzu1j3Yw",
+ "flag": "",
+ "published_at": "2026-08-13T11:00:31Z",
+ "rank": "W244",
+ "set": "web",
+ "folder": "W_uFKvzu1j3Yw",
+ "sources": [
+  "검색:뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "경계선",
+  "아이큐테스트",
+  "취직고민",
+  "취업고민",
+  "경계선지능장애",
+  "경계선지능장애치료",
+  "우울증",
+  "지적장애",
+  "자폐",
+  "느린학습자",
+  "집중잘되는",
+  "adhd",
+  "adhd증상",
+  "adhd공부",
+  "직장동료가싫을때",
+  "동료때문에",
+  "경계선장애"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 143,
+   "title": "겉으로는 잘 드러나지 않는 경계선 지능"
+  },
+  {
+   "start": 211,
+   "title": "경계선 지능인의 특징"
+  },
+  {
+   "start": 320,
+   "title": "경계선 지능의 정의"
+  },
+  {
+   "start": 350,
+   "title": "경계선 지능과 지적 장애 차이"
+  },
+  {
+   "start": 530,
+   "title": "IQ에 대한 오해와 환상"
+  },
+  {
+   "start": 1036,
+   "title": "경계선 지능인이 겪는 어려움"
+  },
+  {
+   "start": 1504,
+   "title": "고용노동부 지원사업 소개"
+  },
+  {
+   "start": 1766,
+   "title": "일상에서 실천할 수 있는 팁들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1393,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:12",
+ "approved": "2026-11-11T22:47+09:00"
+}

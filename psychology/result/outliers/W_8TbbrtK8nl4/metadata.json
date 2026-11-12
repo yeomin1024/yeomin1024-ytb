@@ -1,0 +1,70 @@
+{
+ "id": "8TbbrtK8nl4",
+ "title": "친절한데 여유로운 사람들의 특징 (김경일 교수)",
+ "channel": "놀면서 배우는 심리학",
+ "channel_id": "UCONTlrUj5pVn7LammlleLJg",
+ "subs": 867000,
+ "views": 1281108,
+ "ratio": 1.48,
+ "age_days": 314,
+ "views_per_day": 4068.0,
+ "minutes": 13.2,
+ "likes": 14133,
+ "comments": 276,
+ "published": "2025-12-31",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리 | 검색(전체 기간):심리상담",
+ "url": "https://www.youtube.com/watch?v=8TbbrtK8nl4",
+ "flag": "",
+ "published_at": "2025-12-31T11:07:42Z",
+ "rank": "W228",
+ "set": "web",
+ "folder": "W_8TbbrtK8nl4",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리",
+  "검색(전체 기간):심리상담"
+ ],
+ "source": "web",
+ "tags": [
+  "심리",
+  "심리학",
+  "심리학 강의",
+  "심리 강의",
+  "대인관계",
+  "인간관계",
+  "감정",
+  "마음"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "착한데 여유로운 매력적인 사람 특징"
+  },
+  {
+   "start": 216,
+   "title": "균형을 잘 맞춰서 관찰하는 법"
+  },
+  {
+   "start": 493,
+   "title": "남들 눈치보는 게 싫어서 혼자를 택하는 사람"
+  },
+  {
+   "start": 576,
+   "title": "여유있는 사람이 되는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 277,
+ "comments_top_level": 182,
+ "comments_replies": 95,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 276,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:10",
+ "approved": "2026-11-11T22:47+09:00"
+}

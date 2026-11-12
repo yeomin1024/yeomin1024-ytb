@@ -1,0 +1,131 @@
+{
+ "id": "cBslvnhVNvw",
+ "title": "60,70년대에 태어난 사람들이 조금 특별한 이유",
+ "channel": "심리학타임",
+ "channel_id": "UC2w2VlC_ubDTFowX9FkPdpw",
+ "subs": 2450,
+ "views": 636961,
+ "ratio": 259.98,
+ "age_days": 36,
+ "views_per_day": 17523.5,
+ "minutes": 18.1,
+ "likes": 4048,
+ "comments": 559,
+ "published": "2026-10-06",
+ "queries": "검색:심리",
+ "url": "https://www.youtube.com/watch?v=cBslvnhVNvw",
+ "flag": "",
+ "published_at": "2026-10-06T01:00:37Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_cBslvnhVNvw",
+ "sources": [
+  "검색:심리"
+ ],
+ "source": "web",
+ "tags": [
+  "힐링",
+  "명언",
+  "인생조언",
+  "60년대생",
+  "70년대생",
+  "치유",
+  "자기계발"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 55,
+   "title": "60, 70년대생은 대체 뭐가 그렇게 특별할까"
+  },
+  {
+   "start": 105,
+   "title": "첫 번째 이유 — 아날로그와 디지털을 모두 겪은 마지막 세대"
+  },
+  {
+   "start": 211,
+   "title": "두 번째 이유 — 내일은 오늘보다 나아진다고 믿으며 자란 세대"
+  },
+  {
+   "start": 272,
+   "title": "열심히 산 믿음의 그림자 — 쉬는 게 불안한 사람들"
+  },
+  {
+   "start": 327,
+   "title": "세 번째 이유 — 위와 아래에서 동시에 끼인 세대"
+  },
+  {
+   "start": 429,
+   "title": "네 번째 이유 — 큰 위기를 여러 번 넘겨본 세대"
+  },
+  {
+   "start": 511,
+   "title": "다섯 번째 이유 — 표현은 서툴지만 마음은 누구보다 깊은 세대"
+  },
+  {
+   "start": 563,
+   "title": "실제 사례 — 58세 아버지와 30세 딸, 두 글자 \"그래\""
+  },
+  {
+   "start": 625,
+   "title": "핵심 반전 — 장점이면서 동시에 짐인 다섯 가지 경험"
+  },
+  {
+   "start": 677,
+   "title": "옛날 노래 한 곡에 가슴이 먹먹해지는 이유"
+  },
+  {
+   "start": 739,
+   "title": "짐은 내려놓고 장점은 키우는 네 가지 원칙"
+  },
+  {
+   "start": 751,
+   "title": "원칙 1 — 두 세계의 통역사 되기"
+  },
+  {
+   "start": 779,
+   "title": "원칙 2 — 쉬는 것에 허락 내려주기"
+  },
+  {
+   "start": 815,
+   "title": "원칙 3 — 짐을 혼자 지지 않기"
+  },
+  {
+   "start": 838,
+   "title": "원칙 4 — 마음을 한 줄로 표현하기"
+  },
+  {
+   "start": 866,
+   "title": "원칙을 실천하면 벌어지는 변화"
+  },
+  {
+   "start": 904,
+   "title": "처음 이야기로 돌아가서"
+  },
+  {
+   "start": 954,
+   "title": "너무 참기만 했다고 자책하지 않아도 되는 이유"
+  },
+  {
+   "start": 1026,
+   "title": "오늘 해볼 수 있는 작은 시도"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 559,
+ "comments_top_level": 361,
+ "comments_replies": 198,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 559,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:33:48",
+ "approved": "2026-11-11T22:33+09:00"
+}

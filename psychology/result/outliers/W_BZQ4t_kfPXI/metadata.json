@@ -1,0 +1,76 @@
+{
+ "id": "BZQ4t_kfPXI",
+ "title": "정신과의사 & 뇌과학자가 말하는 마음의 어려움에 대처하는 방법",
+ "channel": "장동선의 궁금한 뇌",
+ "channel_id": "UCI3mHMt-wivlZ3LS_1KiPHQ",
+ "subs": 759000,
+ "views": 1258999,
+ "ratio": 1.66,
+ "age_days": 803,
+ "views_per_day": 1566.1,
+ "minutes": 15.0,
+ "likes": 24916,
+ "comments": 820,
+ "published": "2024-08-29",
+ "queries": "검색(전체 기간):뇌과학",
+ "url": "https://www.youtube.com/watch?v=BZQ4t_kfPXI",
+ "flag": "",
+ "published_at": "2024-08-29T11:00:17Z",
+ "rank": "W222",
+ "set": "web",
+ "folder": "W_BZQ4t_kfPXI",
+ "sources": [
+  "검색(전체 기간):뇌과학"
+ ],
+ "source": "web",
+ "tags": [
+  "앤드류후버만",
+  "유재석유퀴즈모음",
+  "유퀴즈레전드",
+  "우울한기분",
+  "우울할때",
+  "정신병동에도아침이",
+  "자존감높은사람들특징",
+  "자살하는이유"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 83,
+   "title": "정신과의사도 힘들 때가 있어요"
+  },
+  {
+   "start": 180,
+   "title": "혼자서는 알아차리기 어려운 마음의 어려움"
+  },
+  {
+   "start": 381,
+   "title": "마이클 펠프스도 우울증을 겪습니다"
+  },
+  {
+   "start": 487,
+   "title": "우울도 전염될까?"
+  },
+  {
+   "start": 598,
+   "title": "정신과의사와 뇌과학자가 추천하는 마음관리법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 820,
+ "comments_top_level": 386,
+ "comments_replies": 434,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 820,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:09",
+ "approved": "2026-11-11T22:47+09:00"
+}

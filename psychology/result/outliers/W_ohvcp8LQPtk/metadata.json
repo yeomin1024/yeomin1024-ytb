@@ -1,0 +1,73 @@
+{
+ "id": "ohvcp8LQPtk",
+ "title": "나이만 먹고 감정조절 못하는 사람의 숨은 속내 (이헌주 교수 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1654999,
+ "ratio": 0.4,
+ "age_days": 533,
+ "views_per_day": 3105.0,
+ "minutes": 14.8,
+ "likes": 25293,
+ "comments": 1272,
+ "published": "2025-05-27",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리 | 검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=ohvcp8LQPtk",
+ "flag": "",
+ "published_at": "2025-05-27T09:01:17Z",
+ "rank": "W290",
+ "set": "web",
+ "folder": "W_ohvcp8LQPtk",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리",
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 19,
+   "title": "말투를 보면 사람의 지능 수준이 딱 보입니다"
+  },
+  {
+   "start": 174,
+   "title": "미성숙한 사람이 되지 않기 위해 지켜야 할 1가지"
+  },
+  {
+   "start": 359,
+   "title": "나이만 먹고 감정조절 못하는 사람들의 숨은 속내"
+  },
+  {
+   "start": 459,
+   "title": "나도 모르게 화가 치솟는다면 ‘이렇게’ 해보세요"
+  },
+  {
+   "start": 635,
+   "title": "내가 자기 혐오를 하고 있다는 ‘4가지’ 신호"
+  },
+  {
+   "start": 780,
+   "title": "인간답게 살아가기 위해 잃지 말아야 할 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1272,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:17",
+ "approved": "2026-11-11T22:47+09:00"
+}

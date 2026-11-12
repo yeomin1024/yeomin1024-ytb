@@ -1,0 +1,88 @@
+{
+ "id": "KrunRPqt54c",
+ "title": "함부로 손절하면 안되는 이유",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 643211,
+ "ratio": null,
+ "age_days": 55,
+ "views_per_day": 11487.0,
+ "minutes": 8.9,
+ "likes": 7947,
+ "comments": 674,
+ "published": "2026-09-16",
+ "queries": "검색:심리학 | 검색:심리 | 검색:인간관계 | 검색:대인관계 | 검색:손절 | 검색:인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=KrunRPqt54c",
+ "flag": "",
+ "published_at": "2026-09-16T09:29:40Z",
+ "rank": "W317",
+ "set": "web",
+ "folder": "W_KrunRPqt54c",
+ "sources": [
+  "검색:심리학",
+  "검색:심리",
+  "검색:인간관계",
+  "검색:대인관계",
+  "검색:손절",
+  "검색:인간관계 심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "우정 불황"
+  },
+  {
+   "start": 55,
+   "title": "숫자 vs 종류"
+  },
+  {
+   "start": 107,
+   "title": "전부 아니면 전무"
+  },
+  {
+   "start": 166,
+   "title": "두꺼비집"
+  },
+  {
+   "start": 247,
+   "title": "반대편 입장"
+  },
+  {
+   "start": 282,
+   "title": "선을 긋는 규칙"
+  },
+  {
+   "start": 326,
+   "title": "관계를 이어가는 힘"
+  },
+  {
+   "start": 385,
+   "title": "연락이 끊긴 사람"
+  },
+  {
+   "start": 446,
+   "title": "기둥들 이야기"
+  },
+  {
+   "start": 489,
+   "title": "이토록 타인이 홀가분해지는 순간"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 674,
+ "comments_top_level": 337,
+ "comments_replies": 337,
+ "comments_by_creator": 75,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 674,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:21",
+ "approved": "2026-11-11T22:47+09:00"
+}

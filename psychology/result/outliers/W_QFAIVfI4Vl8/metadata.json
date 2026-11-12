@@ -1,0 +1,63 @@
+{
+ "id": "QFAIVfI4Vl8",
+ "title": "\"친구 한 명도 없는 것, 오히려 좋다\" 혼자 있는 시간이 많을수록 점점 똑똑해지는 이유 (이헌주 교수 통합본)",
+ "channel": "책과삶",
+ "channel_id": "UCgUaqrLRGLL-dHislR1e2TA",
+ "subs": 1290000,
+ "views": 1426705,
+ "ratio": 1.11,
+ "age_days": 324,
+ "views_per_day": 4403.2,
+ "minutes": 38.8,
+ "likes": 19318,
+ "comments": 1437,
+ "published": "2025-12-22",
+ "queries": "검색(전체 기간):인간관계 심리",
+ "url": "https://www.youtube.com/watch?v=QFAIVfI4Vl8",
+ "flag": "",
+ "published_at": "2025-12-22T09:00:42Z",
+ "rank": "W248",
+ "set": "web",
+ "folder": "W_QFAIVfI4Vl8",
+ "sources": [
+  "검색(전체 기간):인간관계 심리"
+ ],
+ "source": "web",
+ "tags": [
+  "한국",
+  "대한민국",
+  "책추천",
+  "독서법",
+  "자기계발",
+  "교양",
+  "지식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "평소 ‘이런 취미’있으면 지능 높다는 증거입니다"
+  },
+  {
+   "start": 746,
+   "title": "빈손으로 남의 집 가면 안 되는 이유"
+  },
+  {
+   "start": 1675,
+   "title": "자식 다 컸다고 돈으로 갚으라구요?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1437,
+ "comments_top_level": 995,
+ "comments_replies": 442,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1437,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:12",
+ "approved": "2026-11-11T22:47+09:00"
+}

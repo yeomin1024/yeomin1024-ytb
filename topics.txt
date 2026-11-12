@@ -4,5 +4,6 @@ economic
 stock
 new
 history
+psychology
 music
 math

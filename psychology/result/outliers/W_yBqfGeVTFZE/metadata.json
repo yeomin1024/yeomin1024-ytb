@@ -1,0 +1,106 @@
+{
+ "id": "yBqfGeVTFZE",
+ "title": "가까운 사람을 함부로 집에 들이면 안 되는 이유",
+ "channel": "인생다시쓰기",
+ "channel_id": "UCKkrzNGgv_3XeIDS1lf91tw",
+ "subs": 9230,
+ "views": 152743,
+ "ratio": 16.55,
+ "age_days": 73,
+ "views_per_day": 2077.7,
+ "minutes": 17.0,
+ "likes": 1118,
+ "comments": 66,
+ "published": "2026-08-29",
+ "queries": "검색:대인관계",
+ "url": "https://www.youtube.com/watch?v=yBqfGeVTFZE",
+ "flag": "",
+ "published_at": "2026-08-29T21:00:37Z",
+ "rank": "W115",
+ "set": "web",
+ "folder": "W_yBqfGeVTFZE",
+ "sources": [
+  "검색:대인관계"
+ ],
+ "source": "web",
+ "tags": [
+  "50대",
+  "60대",
+  "70대",
+  "인간관계 스트레스",
+  "친구 집 방문",
+  "생활 습관 차이",
+  "대인관계 갈등",
+  "심리적 불편함",
+  "경계선 세우기",
+  "인간관계",
+  "친구관계",
+  "가까운사람",
+  "집에사람들이기",
+  "노후인간관계",
+  "시니어인간관계",
+  "60대인간관계",
+  "70대인간관계",
+  "친구와거리두기",
+  "인간관계거리",
+  "관계의경계",
+  "사생활",
+  "사생활보호",
+  "개인공간",
+  "친구갈등",
+  "가족같은친구",
+  "인간관계갈등",
+  "인간관계조언",
+  "노후생활",
+  "노후지혜",
+  "시니어생활",
+  "인생지혜",
+  "사람보는법",
+  "관계정리",
+  "좋은인간관계",
+  "중년인간관계",
+  "가까운사람일수록",
+  "노후",
+  "심리학"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "집에 몇 번 들였을 뿐인데 왜 불편해질까"
+  },
+  {
+   "start": 188,
+   "title": "집은 내가 말하지 않은 것까지 보여준다"
+  },
+  {
+   "start": 356,
+   "title": "한 번 허용된 것이 ‘당연한 권리’가 되는 순간"
+  },
+  {
+   "start": 499,
+   "title": "내 집인데도 피곤해지는 진짜 이유"
+  },
+  {
+   "start": 595,
+   "title": "옛집의 사랑채와 카페가 편한 이유"
+  },
+  {
+   "start": 740,
+   "title": "가까운 사이일수록 필요한 집의 경계"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 66,
+ "comments_top_level": 36,
+ "comments_replies": 30,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 66,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:39:56",
+ "approved": "2026-11-11T22:39+09:00"
+}

@@ -1,0 +1,96 @@
+{
+ "id": "X71gvsqMk4k",
+ "title": "손해보며 살아야 하는 이유",
+ "channel": "심리학 고양이",
+ "channel_id": "UCaJkv4faBajjsDGq2YPJN0A",
+ "subs": null,
+ "views": 2461142,
+ "ratio": null,
+ "age_days": 278,
+ "views_per_day": 8825.3,
+ "minutes": 8.0,
+ "likes": 57168,
+ "comments": 2440,
+ "published": "2026-02-05",
+ "queries": "검색(전체 기간):심리학 | 검색(전체 기간):심리",
+ "url": "https://www.youtube.com/watch?v=X71gvsqMk4k",
+ "flag": "",
+ "published_at": "2026-02-05T12:24:24Z",
+ "rank": "W311",
+ "set": "web",
+ "folder": "W_X71gvsqMk4k",
+ "sources": [
+  "검색(전체 기간):심리학",
+  "검색(전체 기간):심리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "극대화자"
+  },
+  {
+   "start": 43,
+   "title": "잼 실험"
+  },
+  {
+   "start": 82,
+   "title": "데이트 실험"
+  },
+  {
+   "start": 113,
+   "title": "하버드대 실험"
+  },
+  {
+   "start": 161,
+   "title": "행복은 발견하는 게 아닙니다"
+  },
+  {
+   "start": 183,
+   "title": "반사실적 사고"
+  },
+  {
+   "start": 240,
+   "title": "선택의 역설"
+  },
+  {
+   "start": 292,
+   "title": "물리적 제약"
+  },
+  {
+   "start": 306,
+   "title": "배수의 진"
+  },
+  {
+   "start": 322,
+   "title": "스티브 잡스 결정법"
+  },
+  {
+   "start": 339,
+   "title": "Good Enough"
+  },
+  {
+   "start": 370,
+   "title": "감사하기"
+  },
+  {
+   "start": 397,
+   "title": "가장 아름다운 별"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 2441,
+ "comments_top_level": 1670,
+ "comments_replies": 771,
+ "comments_by_creator": 399,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 2440,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:20",
+ "approved": "2026-11-11T22:47+09:00"
+}

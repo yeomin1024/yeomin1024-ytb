@@ -1,0 +1,95 @@
+{
+ "id": "J3gTaKMBcw8",
+ "title": "45년간 방송하며 느낀 모두와 잘 지낼 필요없는 이유ㅣ지식인초대석 EP.27 (이경규 2부)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 4645640,
+ "ratio": 1.11,
+ "age_days": 619,
+ "views_per_day": 7500.8,
+ "minutes": 28.0,
+ "likes": 89471,
+ "comments": 7216,
+ "published": "2025-03-02",
+ "queries": "검색(전체 기간):인간관계",
+ "url": "https://www.youtube.com/watch?v=J3gTaKMBcw8",
+ "flag": "",
+ "published_at": "2025-03-02T01:00:24Z",
+ "rank": "W247",
+ "set": "web",
+ "folder": "W_J3gTaKMBcw8",
+ "sources": [
+  "검색(전체 기간):인간관계"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 20,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 102,
+   "title": "무식한 사람이 신념을 가지면 큰일나는 이유"
+  },
+  {
+   "start": 259,
+   "title": "방송 45년하고 느낀 절대 가까워지면 안 되는 부류"
+  },
+  {
+   "start": 305,
+   "title": "모든 인간관계의 열쇠는 딱 ‘1가지’입니다"
+  },
+  {
+   "start": 469,
+   "title": "예능 대부가 평가하는 한국 예능의 현재와 미래"
+  },
+  {
+   "start": 691,
+   "title": "예능인 이경규가 반드시 지키는 코미디 철학"
+  },
+  {
+   "start": 879,
+   "title": "코미디언의 계급은 ‘이것’이 전부입니다"
+  },
+  {
+   "start": 986,
+   "title": "호탕함과 무례함 사이 선을 지키는 법"
+  },
+  {
+   "start": 1239,
+   "title": "기 약한 사람도 절대 만만해 보이지 않는 비결"
+  },
+  {
+   "start": 1331,
+   "title": "자녀를 키우면서 잔소리 한번 하지 않았던 이유"
+  },
+  {
+   "start": 1453,
+   "title": "45년차 예능 대부가 생각하는 한국 사회의 문제"
+  },
+  {
+   "start": 1568,
+   "title": "‘이경규’가 뽑은 죽기 전 꼭 배워야 할 단 하나의 지식"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 7211,
+ "comments_top_level": 6074,
+ "comments_replies": 1137,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 7216,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:12",
+ "approved": "2026-11-11T22:47+09:00"
+}

@@ -1,0 +1,86 @@
+{
+ "id": "oSMzpbVJB9U",
+ "title": "'수천명' 만나면서도, 인맥 관리에 집착하지 않는 이유 (최명기 원장, 한석준 아나운서, 이헌주 교수, 김아라 소장)",
+ "channel": "지식인사이드",
+ "channel_id": "UCA_hgsFzmynpv1zkvA5A7jA",
+ "subs": 4180000,
+ "views": 1491686,
+ "ratio": 0.36,
+ "age_days": 942,
+ "views_per_day": 1582.9,
+ "minutes": 27.4,
+ "likes": 19527,
+ "comments": 1083,
+ "published": "2024-04-13",
+ "queries": "검색(전체 기간):인간관계 | 검색(전체 기간):대인관계 | 검색(전체 기간):인간관계고민 | 검색(전체 기간):인간관계 정리",
+ "url": "https://www.youtube.com/watch?v=oSMzpbVJB9U",
+ "flag": "",
+ "published_at": "2024-04-13T01:00:19Z",
+ "rank": "W296",
+ "set": "web",
+ "folder": "W_oSMzpbVJB9U",
+ "sources": [
+  "검색(전체 기간):인간관계",
+  "검색(전체 기간):대인관계",
+  "검색(전체 기간):인간관계고민",
+  "검색(전체 기간):인간관계 정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 26,
+   "title": "구독자 인사"
+  },
+  {
+   "start": 65,
+   "title": "인맥 관리에 집착했던 경험이 있으신지?"
+  },
+  {
+   "start": 214,
+   "title": "나이들수록 친구가 점점 사라지는 이유"
+  },
+  {
+   "start": 334,
+   "title": "인간관계에 집착하게 되는 3가지 이유"
+  },
+  {
+   "start": 590,
+   "title": "인간관계에 집착하지 않고 홀로 서는 법"
+  },
+  {
+   "start": 975,
+   "title": "인간관계의 허무함을 깨닫게 되는 시기"
+  },
+  {
+   "start": 1104,
+   "title": "진짜 ‘나’를 찾아가는 방법"
+  },
+  {
+   "start": 1299,
+   "title": "친구가 없어도 잘사는 사람들 공통점"
+  },
+  {
+   "start": 1469,
+   "title": "무슨 일이 있어도 곁에 둬야 하는 친구"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-11 19:36까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 1083,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-11T13:47:18",
+ "approved": "2026-11-11T22:47+09:00"
+}

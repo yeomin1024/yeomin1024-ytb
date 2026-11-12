@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.22 — 2026-10-28 — 시청자 페르소나 = **주식·재테크·역사** (같은 날 사용자 지시 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 …" — `economic/personas.toml` · `history/personas.toml`, 분석 끝에 저절로). 음악은 만들지 않음.
+버전: v3.23 — 2026-11-12 — 대본만 받기: '몇 개면 충분한가'(성공 사례 50개 앞 5분) · `--first-only` (사용자 지시 "근데 솔직히 대본 몇개 받으면 충분해").
+이전 v3.22 — 2026-10-28 — 시청자 페르소나 = **주식·재테크·역사** (같은 날 사용자 지시 "주식 주제 관련 세션에서 했던것처럼 똑같은 방식으로 …" — `economic/personas.toml` · `history/personas.toml`, 분석 끝에 저절로). 음악은 만들지 않음.
 이전 v3.21 — 2026-10-28 — **대본만 받기** `run_analyzer.ps1 -Transcribe -Folder <주제>` (`tools/pc_transcribe.py` v1.0) — 클라우드 주제의 대본을 PC 가 받아 대본 두 파일만 main 에 (아래 '대본만 받기').
 이전 v3.20 — 2026-10-28 — 시청자 페르소나는 **주식만** (사용자 지시 "아니 주식 쪽만 하면돼" — 재테크·역사·음악 설정·결과를 지움).
 이전 v3.19 — 2026-10-28 — **시청자 페르소나** (`tools/personas.py` v1.0 → `<주제>/result/outliers/personas.md`·`.json`, 분석이 끝날 때 자동 — weekly_analysis v1.5) · 대본 검사 `tools/persona_review.py`.
@@ -138,7 +139,8 @@ bash run_analyzer.sh
 - **같은 함수**: 자막 = `outlier_research.transcript()` (요청 사이 1.5~3초 · 연속 2번 막히면 6시간 자막 쉼 `.yt_work/caption_block.json`) · 음성인식 = 분석기 `ytdlp_download(audio_only)` + `transcript_via_whisper` (설정 `stock/analyzer_config.toml` 의 `WHISPER_MODEL`, 외국 영상은 언어 자동) · 소리 파일은 바로 지움 · 대본 꼴도 같음 (`lang`·`snippets`, 음성인식은 `source`·앞부분만이면 `partial_sec`).
 - **안전**: 올리는 경로는 코드가 `<주제>/result/outliers/(W_|shorts/S_)<영상ID>/transcript.(json|txt)` 만 허용 · main 이 그 사이 바뀌면 새 main 위에 다시 커밋 (강제 푸시 없음) · PC 의 결과 폴더·웹 화면·분석기는 건드리지 않음 · 토큰은 머리글로만.
 - **이어서**: Ctrl+C 로 멈추면 받은 것부터 올리고 끝남. 다시 실행하면 `.yt_work/transcribe_<주제>.json` 과 GitHub 에 이미 있는 대본을 보고 남은 것만 (못 올린 것은 `.yt_work/transcribe/<주제>/pending/` 에서 먼저 올림). 같은 영상 음성인식은 3번까지.
-- **옵션**: `--limit 5`(시험 삼아) · `--korean-only` · `--groups success,shorts_success` · `--no-whisper`(자막만) · `--model medium`(NVIDIA GPU) · `--no-push`·`--dry-run` · 시험 `python tools/pc_transcribe.py selftest` (가짜 GitHub).
+- **몇 개면 충분한가** (2026-11-12 사용자 "근데 솔직히 대본 몇개 받으면 충분해"): 성공 사례 **50개를 앞 5분만** — 분석이 대본으로 세는 것(첫 20초 문장 유형·첫 1분·말 속도·초반 흐름)은 앞 5분 안이고, 50개면 비율이 ±14%p 안 (30개 ±18%p · 100개 ±10%p, 95%) → `-Transcribe -Folder <주제> --groups success --limit 50 --first-only` (`pc_transcribe.py` v1.1). 끝까지(2차)는 흥미 장치 4구간이 필요할 때만. 비교용 '그 밖 승인'은 하루 조회수 높은 순이라 덜 된 영상 대조군이 아님.
+- **옵션**: `--limit 5`(시험 삼아) · `--korean-only` · `--groups success,shorts_success` · `--no-whisper`(자막만) · `--first-only`(음성인식 앞 5분까지만 — v1.1) · `--model medium`(NVIDIA GPU) · `--no-push`·`--dry-run` · 시험 `python tools/pc_transcribe.py selftest` (가짜 GitHub).
 - **시간**: 자막을 받으면 영상 하나 몇 초. 사용자 PC 는 2026-10-14 에 자막 26/35 가 막혔고 음성인식이 영상 하나 10분 안팎 → 최대(자막 모두 막힘) 한국어 1차 약 35시간 · 전체 약 155시간 (`transcript_todo.md`). 봇 확인이 반복되면 음성인식을 멈추고 알려 줌 → YouTube 에 로그인한 브라우저에서 `cookies.txt` 를 내보내 실행 폴더에 두면 분석기가 저절로 씀 (`YTDLP_COOKIES_FILE` 이 비면 이 폴더의 `cookies*.txt` — 비밀값이라 GitHub 에 올리지 않음).
 
 ## 웹 화면 (실행하면 뜸 — 실행기 v3.0)

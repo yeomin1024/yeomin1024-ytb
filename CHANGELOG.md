@@ -3,13 +3,13 @@
 ## 2026-11-12 — 심리 main 기준 정리 · 페르소나 최근 흐름 · 주제 밖 28개 빼기 (`tools/personas.py` v1.1.1 · `tools/comment_clusters.py` v1.1.1)
 
 - 사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외". 같은 날 두 세션이 심리를 따로 분석함 — main(승인 317) 을 기준으로, 브랜치 `claude/dazzling-dirac-qms8gm`(승인 251)의 자료는 버리고 쓸모 있는 것만 옮김 (merge 커밋 = main 트리 그대로, 강제 푸시 없음).
-- **주제 밖 28개 뺌** — 승인 317개 제목을 Claude 가 읽고 **주제**로 가름 (관계 콩트·연애 토크처럼 꼴만 다른 것은 남김): 종교 법문 3 · 범죄 사건 4 · 뇌과학 일반·공부법·운동 7 · 육아·자녀 교육 7 · 연애 예능 리뷰·케이팝·시험 합격기·사회 평론·문학 해설·성인 사연·수학 교육 광고 7. 사례 폴더를 지우고(되살리기 `git checkout 8a12f5c7 -- …`) '푼 추천'에 넣음 · 목록 `psychology/excluded_videos.md` · 되풀이 낱말은 `analysis_rules.toml` v1.1 OFF_TOPIC · `keywords.toml` v1.1 EXCLUDE_KEYWORDS. 성공 사례 135 → 122 (14개는 성공 사례였음).
+- **주제 밖 28개 뺌** — 승인 317개 제목을 Claude 가 읽고 **주제**로 가름 (관계 콩트·연애 토크처럼 꼴만 다른 것은 남김): 종교 법문 3 · 범죄 사건 4 · 뇌과학 일반·공부법·운동 7 · 육아·자녀 교육 7 · 연애 예능 리뷰·케이팝·시험 합격기·사회 평론·문학 해설·성인 사연·수학 교육 광고 7. 사례 폴더를 지우고(되살리기 `git checkout 8a12f5c7 -- …`) '푼 추천'에 넣음 · 목록 `psychology/excluded_videos.md` · 되풀이 낱말은 `analysis_rules.toml` v1.1 OFF_TOPIC · `keywords.toml` v1.1 EXCLUDE_KEYWORDS. 14개는 성공 사례였음. 같은 날 main 의 조회수 5만 규칙(다른 세션, analysis_rules v1.1)과 합쳐 v1.2 → **성공 사례 94** · 비교 집단 734 (성공 24%).
 - **페르소나 최근 흐름**: `tools/personas.py` v1.1 을 main 에 (브랜치에서) + **v1.1.1** — 최근 흐름 낱말은 영상 3곳 이상에 나온 말만 (`TREND_MIN_VIDEOS` — 첫 실행 '요즘 더 나오는 말' 위가 한 영상의 출연자 이름이었던 것). `psychology/personas.toml` v1.2 `TREND_DAYS = 28`. 확인: 같은 자료로 v1.0.2 와 견주어 stock·economic·history 결과 같음 (trend 끔).
   결과: 6명 · 최근 28일 부모·가족 상처 12.2% → 16.0% · 직장 13.6% → 16.4% · 5060 23.8% → 18.1% · 요즘 더 나오는 말 학번·잠·아기·의자·세대.
 - `tools/comment_clusters.py` v1.1.1: 그 기간 좋아요 합이 0 이면 md 표의 몫이 None 이라 TypeError 로 멈추던 것 → '-' (숫자 그대로).
-- 썸네일 122장 분류 `thumb_codes.tsv` (같은 영상 84장은 브랜치 분류를 번호만 바꿔 씀 · 새 38장은 analysis_thumbs_01~06 을 봄) → 그림 인물 37% · 실사 인물 34% · 흰 캐릭터 21% · 보조 문구 44%.
-- `resume`: 댓글 96/125 (2,318단위 — 오늘 몫 끝) · 남은 댓글 29·기준선 107은 다음 할당량. 분석 다시 — PC 대본 43개 들어감 (자막 20 · 음성인식 앞 5분 23). 대본 받을 목록 269 (주제 밖 빠짐).
-- 추천 `psychology/source/first_video.md` v1.1 — 1번(그릇 모아 두는 사람) 그대로 + **6번 다른 안** 「어릴 때 엄마 기분부터 살피던 사람의 특징 5가지」 · 썸네일 「엄마 눈치 보며 자란 아이 / 어른이 돼도 남는 5가지」 · 보조 「"내가 참으면 되지..."」 — main 자료로 숫자 다시 (같은 내용 제목 3/3,238 · '5가지' 62% · '특징' 44% · '공통점'은 7개 29%라 뺌).
+- 썸네일 분류 `thumb_codes.tsv` — 지금 성공 사례 94장 전부 (브랜치 분류 84장 + 새로 본 39장, 규칙으로 빠진 29장도 남김) → 그림 인물 36% · 실사 인물 30% · 흰 캐릭터 26% · 보조 문구 47%.
+- `resume`: 댓글 96/125 (2,318단위 — 오늘 몫 끝) · 남은 댓글 29·기준선 107은 다음 할당량. 분석 다시 — PC 대본 47개 들어감 (자막 20 · 음성인식 앞 5분 27 · 주제 밖 폴더에 올라온 6개는 뺌). 대본 받을 목록 269 (주제 밖 빠짐).
+- 추천 `psychology/source/first_video.md` v1.1 — 1번(그릇 모아 두는 사람) 그대로 + **6번 다른 안** 「어릴 때 엄마 기분부터 살피던 사람의 특징 5가지」 · 썸네일 「엄마 눈치 보며 자란 아이 / 어른이 돼도 남는 5가지」 · 보조 「"내가 참으면 되지..."」 — main 자료로 숫자 다시 (같은 내용 제목 3/3,238 · 비교 집단 성공 24% 중 '5가지' 48% · '특징' 39% · '공통점'은 7개라 뺌).
 
 ## 2026-11-07 (3) — 반등 매수법 쇼츠 v2.1 — 실사 사진 넣음 (미리보기 — 소리 없음)
 
@@ -1168,6 +1168,29 @@
 | `economic/topics/pool/2026-11-02.json` (새로) | 후보 10개 (IRP 해지·비상금·계좌 순서·부업 종소세·리볼빙·저축률·70대 주식 비중·연금저축 vs ISA·혼인 증여 공제·은퇴 전 5년 납입) |
 | `economic/topics/topics.json`·`주제탐색.md`·`평가판.html` | 평가 0개라 처음부터 다시 셈 (T001~T025 ID 그대로, 새 T026~T035) → 35개 중 20개 · 평가판 https://claude.ai/artifact/KftXe7GXWXgA8MJ7RJDXZJ 3판 |
 | `economic/topics/settings.toml` | 그대로 (다시 셀 때만 SIZE 를 잠시 크게 — 되돌림) |
+
+## 2026-11-12 — 성공 사례에 조회수 5만 이상 (역사·심리) · 대본 받을 목록 다시
+
+### 왜 (사용자 지시)
+- "일단 대본 받아야 하니까 명령 좀 알려줘 코드는 이미 받았어 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해"
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `history/analysis_rules.toml` (v1.9) · `psychology/analysis_rules.toml` (v1.1) | `[success] MIN_VIEWS` 10000 → 50000 — 5만 = 그 주제 관련 롱폼(올린 지 7~182일·4분 이상) 조회수 가운데값 (역사 53,198 · 심리 55,419) |
+| `history/result/outliers/`·`psychology/result/outliers/` | `cloud_run.py <주제> analyze` (할당량 0) · `pc_transcribe.py list history psychology` |
+| `tools/ctr_check.py` (v1.5) | 제목 점수의 '성공'도 같은 잣대 (구독자당 하루 조회수 ≥ 0.1 그리고 조회수 ≥ MIN_VIEWS) |
+| `history/topics/ctr/` · `final_2026-11-11.md` (v1.1) | validate 다시 → 본안 기준 24 → 33 · N-B·I-A·I-C·S-A 제목에 근거 말 → 13회차 4편 통과 |
+| `CLAUDE.md` · `history/README.md` (v1.9) · `psychology/README.md` (v1.1) · `guides/status.md` (v3.95) | 규칙 한 줄 · 회차 · 인수인계 |
+
+### 확인 (전후 — 같은 날 같은 자료, 하한만 바꿈)
+- 역사 성공 사례: 하한 1만 369 → 5만 **308** (빠짐 61 — 예: 조회수 10,798 · 구독자 539) · 10-28 분석 414 에서 나머지 45 는 180일 지남.
+- 심리: 135 → **106** (빠짐 30 · 같은 채널 2개 자리가 비어 들어옴 1).
+- `[DONE] topic=history success=308` · `[DONE] topic=psychology success=106` · `[LIST] topic=history items=1456` · `[LIST] topic=psychology items=296 need_full=271 need_second=25`.
+- `[VALIDATE] auc=0.608 hit_min=33 miss_max=20 separates=True` · `[ROUND] n=13 W:W-B=제목 41 · 믿음 6.67 ✅ N:N-A=38 · 8.0 ✅ I:I-A=34 · 7.33 ✅ S:S-A=34 · 6.67 ✅`.
+
+### 한계
+- 재테크·주식·음악은 1만 그대로 (사용자가 말하면 같은 한 줄). 근거 문서(`history/guides/data_insights.md` v1.2·다음 영상 추천)는 예전 성공 사례 414로 셈 — 다시 쓸 때 308 기준.
 
 ## 2026-11-11 (2) — 역사 4편 × 3안 제목·썸네일 문구·보조 문구 + 클릭 검증 12회차
 

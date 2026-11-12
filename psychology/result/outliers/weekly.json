@@ -2,18 +2,18 @@
  "tool": "weekly_analysis.py v1.5.2",
  "topic": "psychology",
  "name": "심리",
- "generated": "2026-11-12T04:48:50+00:00",
+ "generated": "2026-11-12T04:56:34+00:00",
  "cases": 289,
  "dated": 289,
  "older_than_windows": 91,
  "max_weeks": 52,
  "text_sources": {
   "자막": 20,
-  "음성인식": 23,
-  "설명": 236,
+  "음성인식": 27,
+  "설명": 232,
   "없음": 10
  },
- "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 50,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
  "windows": [
   {
    "weeks": 1,
@@ -55,7 +55,7 @@
    "views_median": 24250.5,
    "views_per_day_median": 12716.45,
    "ratio_median": 0.38,
-   "success": 1,
+   "success": 0,
    "minutes_median": 19.85,
    "title_len_avg": 35.0,
    "title_features": [
@@ -90,11 +90,7 @@
    },
    "content_words": [
     {
-     "word": "그리고",
-     "count": 3
-    },
-    {
-     "word": "사람들의",
+     "word": "최고의",
      "count": 3
     },
     {
@@ -102,23 +98,27 @@
      "count": 3
     },
     {
+     "word": "사람들의",
+     "count": 3
+    },
+    {
      "word": "통해",
      "count": 3
     },
     {
-     "word": "최고의",
+     "word": "그리고",
      "count": 3
-    },
-    {
-     "word": "위해",
-     "count": 2
     },
     {
      "word": "있음을",
      "count": 2
     },
     {
-     "word": "Treatment",
+     "word": "실천가의",
+     "count": 2
+    },
+    {
+     "word": "것이",
      "count": 2
     },
     {
@@ -126,15 +126,15 @@
      "count": 2
     },
     {
-     "word": "참고자료",
+     "word": "전문가의",
      "count": 2
     },
     {
-     "word": "가능합니다",
+     "word": "받는",
      "count": 2
     },
     {
-     "word": "총망라한",
+     "word": "완벽한",
      "count": 2
     }
    ],
@@ -346,7 +346,7 @@
    "views_median": 159113.0,
    "views_per_day_median": 19260.25,
    "ratio_median": 0.92,
-   "success": 7,
+   "success": 3,
    "minutes_median": 19.8,
    "title_len_avg": 40.0,
    "title_features": [
@@ -410,11 +410,11 @@
      "count": 2
     },
     {
-     "word": "눈이",
+     "word": "보는",
      "count": 2
     },
     {
-     "word": "보는",
+     "word": "정확한",
      "count": 2
     }
    ],
@@ -431,11 +431,11 @@
      "count": 9
     },
     {
-     "word": "그리고",
+     "word": "가장",
      "count": 8
     },
     {
-     "word": "가장",
+     "word": "그리고",
      "count": 8
     },
     {
@@ -443,11 +443,11 @@
      "count": 8
     },
     {
-     "word": "아닌",
+     "word": "나는",
      "count": 7
     },
     {
-     "word": "나는",
+     "word": "아닌",
      "count": 7
     },
     {
@@ -459,11 +459,7 @@
      "count": 6
     },
     {
-     "word": "위해",
-     "count": 6
-    },
-    {
-     "word": "이야기를",
+     "word": "것이",
      "count": 6
     },
     {
@@ -471,7 +467,11 @@
      "count": 6
     },
     {
-     "word": "것이",
+     "word": "많은",
+     "count": 6
+    },
+    {
+     "word": "위해",
      "count": 6
     }
    ],
@@ -688,7 +688,7 @@
    "views_median": 162470,
    "views_per_day_median": 14036.8,
    "ratio_median": 4.11,
-   "success": 18,
+   "success": 10,
    "minutes_median": 20.1,
    "title_len_avg": 42.9,
    "title_features": [
@@ -801,7 +801,7 @@
      "count": 16
     },
     {
-     "word": "마음을",
+     "word": "다른",
      "count": 15
     },
     {
@@ -813,15 +813,15 @@
      "count": 15
     },
     {
-     "word": "다른",
+     "word": "마음을",
      "count": 15
     },
     {
-     "word": "많은",
+     "word": "있을",
      "count": 14
     },
     {
-     "word": "있을",
+     "word": "많은",
      "count": 14
     },
     {
@@ -833,7 +833,7 @@
      "count": 14
     },
     {
-     "word": "아닙니다",
+     "word": "이야기를",
      "count": 13
     }
    ],
@@ -1075,7 +1075,7 @@
    "views_median": 221809,
    "views_per_day_median": 13953.7,
    "ratio_median": 6.56,
-   "success": 33,
+   "success": 22,
    "minutes_median": 19.6,
    "title_len_avg": 40.9,
    "title_features": [
@@ -1172,48 +1172,52 @@
      "count": 4
     }
    ],
-   "transcripts": 19,
+   "transcripts": 20,
    "text_sources": {
     "자막": 12,
-    "음성인식": 7,
-    "설명": 41,
+    "음성인식": 8,
+    "설명": 40,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 30
+     "count": 29
     },
     {
      "word": "가장",
-     "count": 26
+     "count": 27
+    },
+    {
+     "word": "다른",
+     "count": 24
+    },
+    {
+     "word": "아니라",
+     "count": 24
+    },
+    {
+     "word": "그리고",
+     "count": 24
     },
     {
      "word": "마음을",
      "count": 23
     },
     {
-     "word": "아니라",
-     "count": 23
-    },
-    {
-     "word": "다른",
-     "count": 23
-    },
-    {
-     "word": "그리고",
-     "count": 23
-    },
-    {
      "word": "사람이",
-     "count": 21
+     "count": 22
     },
     {
      "word": "함께",
-     "count": 20
+     "count": 21
     },
     {
      "word": "많은",
+     "count": 20
+    },
+    {
+     "word": "어떤",
      "count": 19
     },
     {
@@ -1222,11 +1226,7 @@
     },
     {
      "word": "오늘",
-     "count": 18
-    },
-    {
-     "word": "아닙니다",
-     "count": 18
+     "count": 19
     }
    ],
    "chapters_share": 0.426,
@@ -1392,7 +1392,7 @@
    "views_median": 220701.5,
    "views_per_day_median": 13189.4,
    "ratio_median": 7.05,
-   "success": 38,
+   "success": 25,
    "minutes_median": 19.5,
    "title_len_avg": 39.9,
    "title_features": [
@@ -1489,28 +1489,32 @@
      "count": 4
     }
    ],
-   "transcripts": 22,
+   "transcripts": 23,
    "text_sources": {
     "자막": 14,
-    "음성인식": 8,
-    "설명": 45,
+    "음성인식": 9,
+    "설명": 44,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 33
+     "count": 32
     },
     {
      "word": "가장",
-     "count": 28
+     "count": 29
     },
     {
      "word": "아니라",
-     "count": 27
+     "count": 28
     },
     {
      "word": "그리고",
+     "count": 28
+    },
+    {
+     "word": "다른",
      "count": 27
     },
     {
@@ -1518,28 +1522,24 @@
      "count": 26
     },
     {
-     "word": "다른",
-     "count": 26
-    },
-    {
      "word": "사람이",
-     "count": 24
+     "count": 25
     },
     {
      "word": "함께",
-     "count": 23
+     "count": 24
     },
     {
      "word": "오늘",
+     "count": 23
+    },
+    {
+     "word": "어떤",
      "count": 22
     },
     {
      "word": "많은",
-     "count": 21
-    },
-    {
-     "word": "어떤",
-     "count": 21
+     "count": 22
     },
     {
      "word": "사람의",
@@ -1724,7 +1724,7 @@
    "views_median": 222415.5,
    "views_per_day_median": 12674.9,
    "ratio_median": 7.75,
-   "success": 46,
+   "success": 32,
    "minutes_median": 19.65,
    "title_len_avg": 40.6,
    "title_features": [
@@ -1821,60 +1821,60 @@
      "count": 4
     }
    ],
-   "transcripts": 27,
+   "transcripts": 28,
    "text_sources": {
     "자막": 16,
-    "음성인식": 11,
-    "설명": 50,
+    "음성인식": 12,
+    "설명": 49,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 38
+     "count": 37
     },
     {
      "word": "아니라",
-     "count": 34
+     "count": 35
     },
     {
      "word": "가장",
-     "count": 32
+     "count": 33
     },
     {
      "word": "그리고",
-     "count": 32
+     "count": 33
+    },
+    {
+     "word": "다른",
+     "count": 30
+    },
+    {
+     "word": "사람이",
+     "count": 30
     },
     {
      "word": "마음을",
      "count": 30
     },
     {
-     "word": "사람이",
-     "count": 29
-    },
-    {
-     "word": "다른",
-     "count": 29
+     "word": "함께",
+     "count": 28
     },
     {
      "word": "오늘",
-     "count": 27
-    },
-    {
-     "word": "함께",
-     "count": 27
+     "count": 28
     },
     {
      "word": "어떤",
-     "count": 26
+     "count": 27
     },
     {
      "word": "내가",
-     "count": 25
+     "count": 26
     },
     {
-     "word": "오늘은",
+     "word": "많은",
      "count": 25
     }
    ],
@@ -2041,7 +2041,7 @@
    "views_median": 241862,
    "views_per_day_median": 11575.0,
    "ratio_median": 8.1,
-   "success": 52,
+   "success": 36,
    "minutes_median": 20.0,
    "title_len_avg": 40.8,
    "title_features": [
@@ -2138,29 +2138,29 @@
      "count": 5
     }
    ],
-   "transcripts": 27,
+   "transcripts": 28,
    "text_sources": {
     "자막": 16,
-    "음성인식": 11,
-    "설명": 57,
+    "음성인식": 12,
+    "설명": 56,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 41
+     "count": 40
     },
     {
      "word": "아니라",
-     "count": 37
+     "count": 38
     },
     {
      "word": "가장",
-     "count": 34
+     "count": 35
     },
     {
      "word": "그리고",
-     "count": 34
+     "count": 35
     },
     {
      "word": "마음을",
@@ -2168,30 +2168,30 @@
     },
     {
      "word": "사람이",
-     "count": 30
+     "count": 31
     },
     {
      "word": "다른",
+     "count": 30
+    },
+    {
+     "word": "함께",
      "count": 29
     },
     {
      "word": "오늘",
-     "count": 28
-    },
-    {
-     "word": "함께",
-     "count": 28
+     "count": 29
     },
     {
      "word": "어떤",
-     "count": 27
+     "count": 28
     },
     {
      "word": "내가",
-     "count": 26
+     "count": 27
     },
     {
-     "word": "사람",
+     "word": "많은",
      "count": 26
     }
    ],
@@ -2363,7 +2363,7 @@
    "views_median": 252309,
    "views_per_day_median": 11078.5,
    "ratio_median": 9.44,
-   "success": 58,
+   "success": 40,
    "minutes_median": 20.1,
    "title_len_avg": 42.0,
    "title_features": [
@@ -2460,29 +2460,33 @@
      "count": 6
     }
    ],
-   "transcripts": 30,
+   "transcripts": 31,
    "text_sources": {
     "자막": 17,
-    "음성인식": 13,
-    "설명": 62,
+    "음성인식": 14,
+    "설명": 61,
     "없음": 1
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 45
+     "count": 44
     },
     {
      "word": "아니라",
-     "count": 40
+     "count": 41
     },
     {
      "word": "가장",
-     "count": 38
+     "count": 39
     },
     {
      "word": "그리고",
-     "count": 38
+     "count": 39
+    },
+    {
+     "word": "사람이",
+     "count": 34
     },
     {
      "word": "마음을",
@@ -2490,31 +2494,27 @@
     },
     {
      "word": "오늘",
-     "count": 33
-    },
-    {
-     "word": "사람이",
-     "count": 33
+     "count": 34
     },
     {
      "word": "다른",
-     "count": 32
+     "count": 33
     },
     {
      "word": "함께",
+     "count": 32
+    },
+    {
+     "word": "어떤",
      "count": 31
     },
     {
      "word": "내가",
-     "count": 30
-    },
-    {
-     "word": "어떤",
-     "count": 30
+     "count": 31
     },
     {
      "word": "많은",
-     "count": 29
+     "count": 30
     }
    ],
    "chapters_share": 0.452,
@@ -2695,7 +2695,7 @@
    "views_median": 262076,
    "views_per_day_median": 10351.0,
    "ratio_median": 9.84,
-   "success": 67,
+   "success": 48,
    "minutes_median": 20.0,
    "title_len_avg": 42.0,
    "title_features": [
@@ -2792,11 +2792,11 @@
      "count": 6
     }
    ],
-   "transcripts": 32,
+   "transcripts": 34,
    "text_sources": {
     "자막": 17,
-    "음성인식": 15,
-    "설명": 69,
+    "음성인식": 17,
+    "설명": 67,
     "없음": 2
    },
    "content_words": [
@@ -2806,47 +2806,47 @@
     },
     {
      "word": "아니라",
-     "count": 44
+     "count": 45
     },
     {
      "word": "그리고",
-     "count": 43
+     "count": 45
     },
     {
      "word": "가장",
+     "count": 41
+    },
+    {
+     "word": "사람이",
      "count": 39
     },
     {
      "word": "마음을",
-     "count": 37
-    },
-    {
-     "word": "사람이",
-     "count": 37
+     "count": 38
     },
     {
      "word": "함께",
-     "count": 36
+     "count": 38
     },
     {
      "word": "오늘",
-     "count": 35
+     "count": 36
     },
     {
      "word": "어떤",
-     "count": 33
+     "count": 35
     },
     {
      "word": "다른",
-     "count": 33
+     "count": 34
     },
     {
      "word": "내가",
-     "count": 32
+     "count": 34
     },
     {
-     "word": "순간",
-     "count": 31
+     "word": "먼저",
+     "count": 32
     }
    ],
    "chapters_share": 0.456,
@@ -2997,7 +2997,7 @@
    "views_median": 262076,
    "views_per_day_median": 10351.0,
    "ratio_median": 10.59,
-   "success": 70,
+   "success": 49,
    "minutes_median": 20.0,
    "title_len_avg": 41.6,
    "title_features": [
@@ -3094,11 +3094,11 @@
      "count": 6
     }
    ],
-   "transcripts": 33,
+   "transcripts": 35,
    "text_sources": {
     "자막": 17,
-    "음성인식": 16,
-    "설명": 72,
+    "음성인식": 18,
+    "설명": 70,
     "없음": 2
    },
    "content_words": [
@@ -3107,48 +3107,48 @@
      "count": 50
     },
     {
-     "word": "아니라",
-     "count": 44
+     "word": "그리고",
+     "count": 46
     },
     {
-     "word": "그리고",
-     "count": 44
+     "word": "아니라",
+     "count": 45
     },
     {
      "word": "가장",
-     "count": 41
-    },
-    {
-     "word": "마음을",
-     "count": 37
+     "count": 43
     },
     {
      "word": "사람이",
+     "count": 39
+    },
+    {
+     "word": "마음을",
+     "count": 38
+    },
+    {
+     "word": "함께",
+     "count": 38
+    },
+    {
+     "word": "어떤",
      "count": 37
     },
     {
      "word": "오늘",
-     "count": 36
-    },
-    {
-     "word": "함께",
-     "count": 36
-    },
-    {
-     "word": "어떤",
-     "count": 35
+     "count": 37
     },
     {
      "word": "다른",
-     "count": 34
+     "count": 35
     },
     {
      "word": "내가",
-     "count": 33
+     "count": 35
     },
     {
-     "word": "순간",
-     "count": 31
+     "word": "먼저",
+     "count": 32
     }
    ],
    "chapters_share": 0.449,
@@ -3334,7 +3334,7 @@
    "views_median": 260725.5,
    "views_per_day_median": 10070.55,
    "ratio_median": 13.34,
-   "success": 78,
+   "success": 55,
    "minutes_median": 19.6,
    "title_len_avg": 40.9,
    "title_features": [
@@ -3431,11 +3431,11 @@
      "count": 7
     }
    ],
-   "transcripts": 35,
+   "transcripts": 37,
    "text_sources": {
     "자막": 18,
-    "음성인식": 17,
-    "설명": 81,
+    "음성인식": 19,
+    "설명": 79,
     "없음": 2
    },
    "content_words": [
@@ -3444,48 +3444,48 @@
      "count": 57
     },
     {
-     "word": "아니라",
-     "count": 47
+     "word": "그리고",
+     "count": 49
     },
     {
-     "word": "그리고",
-     "count": 47
+     "word": "아니라",
+     "count": 48
     },
     {
      "word": "가장",
-     "count": 43
-    },
-    {
-     "word": "오늘",
-     "count": 40
-    },
-    {
-     "word": "마음을",
-     "count": 40
+     "count": 45
     },
     {
      "word": "사람이",
-     "count": 39
+     "count": 41
+    },
+    {
+     "word": "마음을",
+     "count": 41
     },
     {
      "word": "함께",
-     "count": 39
+     "count": 41
+    },
+    {
+     "word": "오늘",
+     "count": 41
     },
     {
      "word": "어떤",
-     "count": 37
+     "count": 39
     },
     {
      "word": "내가",
-     "count": 36
+     "count": 38
     },
     {
      "word": "다른",
-     "count": 35
+     "count": 36
     },
     {
      "word": "먼저",
-     "count": 34
+     "count": 36
     }
    ],
    "chapters_share": 0.475,
@@ -3631,7 +3631,7 @@
    "views_median": 255662,
    "views_per_day_median": 9997.6,
    "ratio_median": 13.58,
-   "success": 81,
+   "success": 57,
    "minutes_median": 19.6,
    "title_len_avg": 40.7,
    "title_features": [
@@ -3728,61 +3728,61 @@
      "count": 7
     }
    ],
-   "transcripts": 35,
+   "transcripts": 38,
    "text_sources": {
     "자막": 18,
-    "음성인식": 17,
-    "설명": 84,
+    "음성인식": 20,
+    "설명": 81,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 57
+     "count": 58
     },
     {
      "word": "그리고",
-     "count": 48
+     "count": 51
     },
     {
      "word": "아니라",
-     "count": 47
+     "count": 49
     },
     {
      "word": "가장",
-     "count": 43
-    },
-    {
-     "word": "오늘",
-     "count": 40
-    },
-    {
-     "word": "마음을",
-     "count": 40
+     "count": 46
     },
     {
      "word": "사람이",
-     "count": 39
-    },
-    {
-     "word": "함께",
-     "count": 39
+     "count": 42
     },
     {
      "word": "내가",
-     "count": 38
+     "count": 41
+    },
+    {
+     "word": "마음을",
+     "count": 41
+    },
+    {
+     "word": "함께",
+     "count": 41
+    },
+    {
+     "word": "오늘",
+     "count": 41
     },
     {
      "word": "어떤",
-     "count": 37
+     "count": 40
     },
     {
-     "word": "아닙니다",
-     "count": 35
+     "word": "먼저",
+     "count": 38
     },
     {
      "word": "다른",
-     "count": 35
+     "count": 37
     }
    ],
    "chapters_share": 0.471,
@@ -3973,7 +3973,7 @@
    "views_median": 259375,
    "views_per_day_median": 9568.7,
    "ratio_median": 13.84,
-   "success": 91,
+   "success": 64,
    "minutes_median": 20.0,
    "title_len_avg": 40.7,
    "title_features": [
@@ -4070,61 +4070,61 @@
      "count": 8
     }
    ],
-   "transcripts": 38,
+   "transcripts": 41,
    "text_sources": {
     "자막": 19,
-    "음성인식": 19,
-    "설명": 93,
+    "음성인식": 22,
+    "설명": 90,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 63
+     "count": 64
     },
     {
      "word": "그리고",
-     "count": 55
+     "count": 58
     },
     {
      "word": "아니라",
-     "count": 53
+     "count": 55
     },
     {
      "word": "가장",
+     "count": 51
+    },
+    {
+     "word": "사람이",
      "count": 48
     },
     {
      "word": "오늘",
-     "count": 45
-    },
-    {
-     "word": "사람이",
-     "count": 45
+     "count": 46
     },
     {
      "word": "마음을",
+     "count": 45
+    },
+    {
+     "word": "어떤",
+     "count": 44
+    },
+    {
+     "word": "내가",
      "count": 44
     },
     {
      "word": "함께",
-     "count": 42
-    },
-    {
-     "word": "내가",
-     "count": 41
-    },
-    {
-     "word": "어떤",
-     "count": 41
-    },
-    {
-     "word": "아닙니다",
-     "count": 39
+     "count": 44
     },
     {
      "word": "먼저",
-     "count": 39
+     "count": 42
+    },
+    {
+     "word": "아닙니다",
+     "count": 40
     }
    ],
    "chapters_share": 0.496,
@@ -4275,7 +4275,7 @@
    "views_median": 262076,
    "views_per_day_median": 9568.7,
    "ratio_median": 13.84,
-   "success": 93,
+   "success": 65,
    "minutes_median": 19.8,
    "title_len_avg": 41.0,
    "title_features": [
@@ -4377,61 +4377,61 @@
      "count": 8
     }
    ],
-   "transcripts": 39,
+   "transcripts": 43,
    "text_sources": {
     "자막": 19,
-    "음성인식": 20,
-    "설명": 96,
+    "음성인식": 24,
+    "설명": 92,
     "없음": 2
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 65
+     "count": 66
     },
     {
      "word": "그리고",
-     "count": 56
+     "count": 59
     },
     {
      "word": "아니라",
-     "count": 55
+     "count": 57
     },
     {
      "word": "가장",
-     "count": 49
-    },
-    {
-     "word": "마음을",
-     "count": 47
-    },
-    {
-     "word": "오늘",
-     "count": 47
+     "count": 53
     },
     {
      "word": "사람이",
-     "count": 46
+     "count": 50
+    },
+    {
+     "word": "마음을",
+     "count": 48
+    },
+    {
+     "word": "오늘",
+     "count": 48
     },
     {
      "word": "함께",
-     "count": 45
-    },
-    {
-     "word": "내가",
-     "count": 42
+     "count": 47
     },
     {
      "word": "어떤",
-     "count": 42
+     "count": 46
     },
     {
-     "word": "아닙니다",
-     "count": 40
+     "word": "내가",
+     "count": 45
     },
     {
      "word": "먼저",
-     "count": 39
+     "count": 43
+    },
+    {
+     "word": "아닙니다",
+     "count": 42
     }
    ],
    "chapters_share": 0.511,
@@ -4587,7 +4587,7 @@
    "views_median": 263067.5,
    "views_per_day_median": 9035.05,
    "ratio_median": 13.87,
-   "success": 97,
+   "success": 69,
    "minutes_median": 19.9,
    "title_len_avg": 41.7,
    "title_features": [
@@ -4689,61 +4689,61 @@
      "count": 8
     }
    ],
-   "transcripts": 40,
+   "transcripts": 44,
    "text_sources": {
     "자막": 19,
-    "음성인식": 21,
-    "설명": 99,
+    "음성인식": 25,
+    "설명": 95,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 68
+     "count": 69
     },
     {
      "word": "그리고",
-     "count": 57
+     "count": 60
     },
     {
      "word": "아니라",
-     "count": 56
+     "count": 58
     },
     {
      "word": "가장",
+     "count": 55
+    },
+    {
+     "word": "사람이",
      "count": 51
     },
     {
      "word": "마음을",
-     "count": 48
+     "count": 49
     },
     {
      "word": "오늘",
-     "count": 48
-    },
-    {
-     "word": "사람이",
-     "count": 47
+     "count": 49
     },
     {
      "word": "함께",
-     "count": 46
-    },
-    {
-     "word": "내가",
-     "count": 43
+     "count": 48
     },
     {
      "word": "어떤",
-     "count": 43
+     "count": 47
     },
     {
-     "word": "아닙니다",
-     "count": 41
+     "word": "내가",
+     "count": 46
     },
     {
      "word": "먼저",
-     "count": 41
+     "count": 45
+    },
+    {
+     "word": "아닙니다",
+     "count": 43
     }
    ],
    "chapters_share": 0.521,
@@ -4879,7 +4879,7 @@
    "views_median": 264059,
    "views_per_day_median": 9305.1,
    "ratio_median": 13.84,
-   "success": 97,
+   "success": 69,
    "minutes_median": 20.0,
    "title_len_avg": 41.7,
    "title_features": [
@@ -4981,61 +4981,61 @@
      "count": 8
     }
    ],
-   "transcripts": 40,
+   "transcripts": 44,
    "text_sources": {
     "자막": 19,
-    "음성인식": 21,
-    "설명": 100,
+    "음성인식": 25,
+    "설명": 96,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 69
+     "count": 70
     },
     {
      "word": "그리고",
-     "count": 57
+     "count": 60
     },
     {
      "word": "아니라",
-     "count": 56
+     "count": 58
     },
     {
      "word": "가장",
+     "count": 55
+    },
+    {
+     "word": "사람이",
      "count": 51
     },
     {
      "word": "오늘",
-     "count": 49
+     "count": 50
     },
     {
      "word": "마음을",
-     "count": 48
-    },
-    {
-     "word": "사람이",
-     "count": 47
+     "count": 49
     },
     {
      "word": "함께",
-     "count": 46
-    },
-    {
-     "word": "내가",
-     "count": 43
+     "count": 48
     },
     {
      "word": "어떤",
-     "count": 43
+     "count": 47
     },
     {
-     "word": "아닙니다",
-     "count": 41
+     "word": "내가",
+     "count": 46
     },
     {
      "word": "먼저",
-     "count": 41
+     "count": 45
+    },
+    {
+     "word": "아닙니다",
+     "count": 43
     }
    ],
    "chapters_share": 0.517,
@@ -5196,7 +5196,7 @@
    "views_median": 262076,
    "views_per_day_median": 8375.3,
    "ratio_median": 14.87,
-   "success": 103,
+   "success": 73,
    "minutes_median": 19.7,
    "title_len_avg": 42.3,
    "title_features": [
@@ -5298,61 +5298,61 @@
      "count": 8
     }
    ],
-   "transcripts": 42,
+   "transcripts": 46,
    "text_sources": {
     "자막": 19,
-    "음성인식": 23,
-    "설명": 104,
+    "음성인식": 27,
+    "설명": 100,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 71
+     "count": 72
     },
     {
      "word": "아니라",
-     "count": 60
+     "count": 62
     },
     {
      "word": "그리고",
-     "count": 59
-    },
-    {
-     "word": "오늘",
-     "count": 53
+     "count": 62
     },
     {
      "word": "가장",
+     "count": 56
+    },
+    {
+     "word": "오늘",
+     "count": 54
+    },
+    {
+     "word": "사람이",
      "count": 52
     },
     {
      "word": "마음을",
-     "count": 49
-    },
-    {
-     "word": "사람이",
-     "count": 48
+     "count": 50
     },
     {
      "word": "함께",
+     "count": 50
+    },
+    {
+     "word": "어떤",
      "count": 48
     },
     {
      "word": "내가",
-     "count": 44
-    },
-    {
-     "word": "어떤",
-     "count": 44
-    },
-    {
-     "word": "아닙니다",
-     "count": 43
+     "count": 47
     },
     {
      "word": "먼저",
-     "count": 43
+     "count": 47
+    },
+    {
+     "word": "아닙니다",
+     "count": 45
     }
    ],
    "chapters_share": 0.51,
@@ -5513,7 +5513,7 @@
    "views_median": 262076,
    "views_per_day_median": 8111.7,
    "ratio_median": 16.26,
-   "success": 108,
+   "success": 77,
    "minutes_median": 19.7,
    "title_len_avg": 42.1,
    "title_features": [
@@ -5615,61 +5615,61 @@
      "count": 9
     }
    ],
-   "transcripts": 42,
+   "transcripts": 46,
    "text_sources": {
     "자막": 19,
-    "음성인식": 23,
-    "설명": 110,
+    "음성인식": 27,
+    "설명": 106,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 75
-    },
-    {
-     "word": "아니라",
-     "count": 61
+     "count": 76
     },
     {
      "word": "그리고",
-     "count": 61
+     "count": 64
     },
     {
-     "word": "오늘",
-     "count": 56
+     "word": "아니라",
+     "count": 63
     },
     {
      "word": "가장",
-     "count": 54
+     "count": 58
     },
     {
-     "word": "마음을",
-     "count": 50
-    },
-    {
-     "word": "함께",
-     "count": 50
+     "word": "오늘",
+     "count": 57
     },
     {
      "word": "사람이",
-     "count": 49
+     "count": 53
+    },
+    {
+     "word": "함께",
+     "count": 52
+    },
+    {
+     "word": "마음을",
+     "count": 51
     },
     {
      "word": "어떤",
-     "count": 47
+     "count": 51
     },
     {
      "word": "내가",
-     "count": 45
-    },
-    {
-     "word": "아닙니다",
-     "count": 44
+     "count": 48
     },
     {
      "word": "먼저",
-     "count": 44
+     "count": 48
+    },
+    {
+     "word": "아닙니다",
+     "count": 46
     }
    ],
    "chapters_share": 0.516,
@@ -5825,7 +5825,7 @@
    "views_median": 263067.5,
    "views_per_day_median": 7837.55,
    "ratio_median": 16.55,
-   "success": 112,
+   "success": 81,
    "minutes_median": 19.65,
    "title_len_avg": 42.0,
    "title_features": [
@@ -5927,61 +5927,61 @@
      "count": 9
     }
    ],
-   "transcripts": 42,
+   "transcripts": 46,
    "text_sources": {
     "자막": 19,
-    "음성인식": 23,
-    "설명": 115,
+    "음성인식": 27,
+    "설명": 111,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 75
+     "count": 76
     },
     {
      "word": "아니라",
-     "count": 65
+     "count": 67
     },
     {
      "word": "그리고",
-     "count": 63
-    },
-    {
-     "word": "오늘",
-     "count": 58
+     "count": 66
     },
     {
      "word": "가장",
-     "count": 55
+     "count": 59
+    },
+    {
+     "word": "오늘",
+     "count": 59
     },
     {
      "word": "함께",
-     "count": 51
-    },
-    {
-     "word": "마음을",
-     "count": 50
+     "count": 53
     },
     {
      "word": "사람이",
-     "count": 49
+     "count": 53
     },
     {
      "word": "어떤",
-     "count": 48
+     "count": 52
+    },
+    {
+     "word": "마음을",
+     "count": 51
     },
     {
      "word": "내가",
-     "count": 47
-    },
-    {
-     "word": "아닙니다",
-     "count": 45
+     "count": 50
     },
     {
      "word": "먼저",
-     "count": 44
+     "count": 48
+    },
+    {
+     "word": "아닙니다",
+     "count": 47
     }
    ],
    "chapters_share": 0.506,
@@ -6117,7 +6117,7 @@
    "views_median": 264059,
    "views_per_day_median": 7580.7,
    "ratio_median": 16.63,
-   "success": 113,
+   "success": 82,
    "minutes_median": 19.6,
    "title_len_avg": 42.1,
    "title_features": [
@@ -6219,61 +6219,61 @@
      "count": 9
     }
    ],
-   "transcripts": 42,
+   "transcripts": 46,
    "text_sources": {
     "자막": 19,
-    "음성인식": 23,
-    "설명": 116,
+    "음성인식": 27,
+    "설명": 112,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 76
+     "count": 77
     },
     {
      "word": "아니라",
-     "count": 65
+     "count": 67
     },
     {
      "word": "그리고",
-     "count": 63
+     "count": 66
     },
     {
      "word": "오늘",
-     "count": 59
+     "count": 60
     },
     {
      "word": "가장",
-     "count": 55
+     "count": 59
     },
     {
      "word": "함께",
+     "count": 54
+    },
+    {
+     "word": "사람이",
+     "count": 53
+    },
+    {
+     "word": "어떤",
      "count": 52
     },
     {
      "word": "마음을",
-     "count": 50
-    },
-    {
-     "word": "사람이",
-     "count": 49
-    },
-    {
-     "word": "어떤",
-     "count": 48
+     "count": 51
     },
     {
      "word": "내가",
-     "count": 47
-    },
-    {
-     "word": "아닙니다",
-     "count": 45
+     "count": 50
     },
     {
      "word": "먼저",
-     "count": 44
+     "count": 48
+    },
+    {
+     "word": "아닙니다",
+     "count": 47
     }
    ],
    "chapters_share": 0.509,
@@ -6419,7 +6419,7 @@
    "views_median": 278088.0,
    "views_per_day_median": 8103.05,
    "ratio_median": 15.97,
-   "success": 113,
+   "success": 82,
    "minutes_median": 19.6,
    "title_len_avg": 41.9,
    "title_features": [
@@ -6521,61 +6521,61 @@
      "count": 9
     }
    ],
-   "transcripts": 42,
+   "transcripts": 46,
    "text_sources": {
     "자막": 19,
-    "음성인식": 23,
-    "설명": 119,
+    "음성인식": 27,
+    "설명": 115,
     "없음": 3
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 77
+     "count": 78
     },
     {
      "word": "아니라",
-     "count": 65
+     "count": 67
     },
     {
      "word": "그리고",
-     "count": 63
+     "count": 66
     },
     {
      "word": "오늘",
-     "count": 60
+     "count": 61
     },
     {
      "word": "가장",
-     "count": 55
+     "count": 59
     },
     {
      "word": "함께",
+     "count": 54
+    },
+    {
+     "word": "사람이",
+     "count": 53
+    },
+    {
+     "word": "어떤",
      "count": 52
     },
     {
      "word": "마음을",
-     "count": 50
-    },
-    {
-     "word": "사람이",
-     "count": 49
-    },
-    {
-     "word": "어떤",
-     "count": 48
+     "count": 51
     },
     {
      "word": "내가",
-     "count": 47
+     "count": 50
+    },
+    {
+     "word": "먼저",
+     "count": 48
     },
     {
      "word": "아닙니다",
-     "count": 45
-    },
-    {
-     "word": "많은",
-     "count": 44
+     "count": 47
     }
    ],
    "chapters_share": 0.512,
@@ -6736,7 +6736,7 @@
    "views_median": 268544.0,
    "views_per_day_median": 7444.5,
    "ratio_median": 16.55,
-   "success": 119,
+   "success": 88,
    "minutes_median": 19.55,
    "title_len_avg": 42.1,
    "title_features": [
@@ -6838,61 +6838,61 @@
      "count": 9
     }
    ],
-   "transcripts": 42,
+   "transcripts": 46,
    "text_sources": {
     "자막": 19,
-    "음성인식": 23,
-    "설명": 124,
+    "음성인식": 27,
+    "설명": 120,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 78
+     "count": 79
     },
     {
      "word": "아니라",
-     "count": 65
+     "count": 67
     },
     {
      "word": "그리고",
-     "count": 64
+     "count": 67
     },
     {
      "word": "오늘",
-     "count": 62
+     "count": 63
     },
     {
      "word": "가장",
-     "count": 58
+     "count": 62
     },
     {
      "word": "함께",
+     "count": 55
+    },
+    {
+     "word": "사람이",
+     "count": 54
+    },
+    {
+     "word": "어떤",
      "count": 53
     },
     {
      "word": "마음을",
-     "count": 51
-    },
-    {
-     "word": "사람이",
-     "count": 50
-    },
-    {
-     "word": "어떤",
-     "count": 49
+     "count": 52
     },
     {
      "word": "내가",
-     "count": 47
-    },
-    {
-     "word": "아닙니다",
-     "count": 46
+     "count": 50
     },
     {
      "word": "먼저",
-     "count": 45
+     "count": 49
+    },
+    {
+     "word": "아닙니다",
+     "count": 48
     }
    ],
    "chapters_share": 0.512,
@@ -7048,7 +7048,7 @@
    "views_median": 264059,
    "views_per_day_median": 7266.7,
    "ratio_median": 16.86,
-   "success": 124,
+   "success": 93,
    "minutes_median": 19.4,
    "title_len_avg": 42.3,
    "title_features": [
@@ -7150,61 +7150,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 128,
+    "음성인식": 27,
+    "설명": 124,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 79
+     "count": 80
     },
     {
      "word": "아니라",
-     "count": 67
+     "count": 69
     },
     {
      "word": "그리고",
-     "count": 65
+     "count": 68
     },
     {
      "word": "오늘",
-     "count": 64
+     "count": 65
     },
     {
      "word": "가장",
-     "count": 59
+     "count": 63
     },
     {
      "word": "함께",
-     "count": 54
-    },
-    {
-     "word": "마음을",
-     "count": 51
+     "count": 56
     },
     {
      "word": "사람이",
-     "count": 51
-    },
-    {
-     "word": "내가",
-     "count": 50
-    },
-    {
-     "word": "아닙니다",
-     "count": 50
+     "count": 55
     },
     {
      "word": "어떤",
-     "count": 50
+     "count": 54
     },
     {
-     "word": "사람",
-     "count": 45
+     "word": "내가",
+     "count": 53
+    },
+    {
+     "word": "마음을",
+     "count": 52
+    },
+    {
+     "word": "아닙니다",
+     "count": 52
+    },
+    {
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.514,
@@ -7355,7 +7355,7 @@
    "views_median": 259916,
    "views_per_day_median": 6827.5,
    "ratio_median": 17.57,
-   "success": 128,
+   "success": 96,
    "minutes_median": 19.4,
    "title_len_avg": 42.3,
    "title_features": [
@@ -7457,61 +7457,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 132,
+    "음성인식": 27,
+    "설명": 128,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 79
+     "count": 80
     },
     {
      "word": "아니라",
-     "count": 68
+     "count": 70
     },
     {
      "word": "그리고",
-     "count": 67
+     "count": 70
     },
     {
      "word": "오늘",
-     "count": 66
+     "count": 67
     },
     {
      "word": "가장",
-     "count": 60
+     "count": 64
     },
     {
      "word": "함께",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 53
+     "count": 58
     },
     {
      "word": "사람이",
+     "count": 57
+    },
+    {
+     "word": "어떤",
+     "count": 55
+    },
+    {
+     "word": "마음을",
+     "count": 54
+    },
+    {
+     "word": "내가",
      "count": 53
     },
     {
      "word": "아닙니다",
-     "count": 51
+     "count": 53
     },
     {
-     "word": "어떤",
-     "count": 51
-    },
-    {
-     "word": "내가",
-     "count": 50
-    },
-    {
-     "word": "사람",
-     "count": 45
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.514,
@@ -7647,7 +7647,7 @@
    "views_median": 260996.0,
    "views_per_day_median": 6807.9,
    "ratio_median": 18.06,
-   "success": 129,
+   "success": 97,
    "minutes_median": 19.35,
    "title_len_avg": 42.5,
    "title_features": [
@@ -7749,61 +7749,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 133,
+    "음성인식": 27,
+    "설명": 129,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 79
+     "count": 80
     },
     {
      "word": "아니라",
-     "count": 68
-    },
-    {
-     "word": "오늘",
-     "count": 67
+     "count": 70
     },
     {
      "word": "그리고",
-     "count": 67
+     "count": 70
+    },
+    {
+     "word": "오늘",
+     "count": 68
     },
     {
      "word": "가장",
-     "count": 60
+     "count": 64
     },
     {
      "word": "함께",
-     "count": 56
-    },
-    {
-     "word": "마음을",
-     "count": 53
+     "count": 58
     },
     {
      "word": "사람이",
-     "count": 53
-    },
-    {
-     "word": "아닙니다",
-     "count": 52
+     "count": 57
     },
     {
      "word": "어떤",
-     "count": 51
+     "count": 55
+    },
+    {
+     "word": "마음을",
+     "count": 54
+    },
+    {
+     "word": "아닙니다",
+     "count": 54
     },
     {
      "word": "내가",
-     "count": 50
+     "count": 53
     },
     {
-     "word": "사람",
-     "count": 45
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.517,
@@ -7954,7 +7954,7 @@
    "views_median": 260996.0,
    "views_per_day_median": 6143.45,
    "ratio_median": 18.34,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.7,
    "title_features": [
@@ -8056,61 +8056,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 137,
+    "음성인식": 27,
+    "설명": 133,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
-    },
-    {
-     "word": "오늘",
-     "count": 69
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 70
     },
     {
      "word": "가장",
-     "count": 61
+     "count": 65
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 59
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
+     "count": 56
+    },
+    {
+     "word": "마음을",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "많은",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.511,
@@ -8240,7 +8240,7 @@
    "views_median": 260996.0,
    "views_per_day_median": 6143.45,
    "ratio_median": 18.34,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.7,
    "title_features": [
@@ -8342,61 +8342,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 137,
+    "음성인식": 27,
+    "설명": 133,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
-    },
-    {
-     "word": "오늘",
-     "count": 69
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 70
     },
     {
      "word": "가장",
-     "count": 61
+     "count": 65
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 59
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
+     "count": 56
+    },
+    {
+     "word": "마음을",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "많은",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.511,
@@ -8526,7 +8526,7 @@
    "views_median": 260996.0,
    "views_per_day_median": 6143.45,
    "ratio_median": 18.34,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.7,
    "title_features": [
@@ -8628,61 +8628,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 137,
+    "음성인식": 27,
+    "설명": 133,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
-    },
-    {
-     "word": "오늘",
-     "count": 69
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 70
     },
     {
      "word": "가장",
-     "count": 61
+     "count": 65
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 59
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
+     "count": 56
+    },
+    {
+     "word": "마음을",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "많은",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.511,
@@ -8812,7 +8812,7 @@
    "views_median": 260996.0,
    "views_per_day_median": 6143.45,
    "ratio_median": 18.34,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.7,
    "title_features": [
@@ -8914,61 +8914,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 137,
+    "음성인식": 27,
+    "설명": 133,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
-    },
-    {
-     "word": "오늘",
-     "count": 69
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 70
     },
     {
      "word": "가장",
-     "count": 61
+     "count": 65
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 59
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
+     "count": 56
+    },
+    {
+     "word": "마음을",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "많은",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.511,
@@ -9104,7 +9104,7 @@
    "views_median": 262076,
    "views_per_day_median": 6200.3,
    "ratio_median": 18.31,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.3,
    "title_len_avg": 42.6,
    "title_features": [
@@ -9206,61 +9206,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 138,
+    "음성인식": 27,
+    "설명": 134,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 59
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
+     "count": 56
+    },
+    {
+     "word": "마음을",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "많은",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.514,
@@ -9390,7 +9390,7 @@
    "views_median": 262076,
    "views_per_day_median": 6200.3,
    "ratio_median": 18.31,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.3,
    "title_len_avg": 42.6,
    "title_features": [
@@ -9492,61 +9492,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 138,
+    "음성인식": 27,
+    "설명": 134,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
-     "count": 55
-    },
-    {
-     "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
+     "count": 59
     },
     {
      "word": "어떤",
-     "count": 53
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
+     "count": 56
+    },
+    {
+     "word": "마음을",
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "많은",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.514,
@@ -9682,7 +9682,7 @@
    "views_median": 263067.5,
    "views_per_day_median": 6494.3,
    "ratio_median": 18.29,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.6,
    "title_features": [
@@ -9784,61 +9784,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 139,
+    "음성인식": 27,
+    "설명": 135,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "사람의",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.516,
@@ -9968,7 +9968,7 @@
    "views_median": 263067.5,
    "views_per_day_median": 6494.3,
    "ratio_median": 18.29,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.6,
    "title_features": [
@@ -10070,61 +10070,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 139,
+    "음성인식": 27,
+    "설명": 135,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "사람의",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.516,
@@ -10254,7 +10254,7 @@
    "views_median": 263067.5,
    "views_per_day_median": 6494.3,
    "ratio_median": 18.29,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.35,
    "title_len_avg": 42.6,
    "title_features": [
@@ -10356,61 +10356,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 139,
+    "음성인식": 27,
+    "설명": 135,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "사람의",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.516,
@@ -10551,7 +10551,7 @@
    "views_median": 268544.0,
    "views_per_day_median": 6807.9,
    "ratio_median": 18.06,
-   "success": 133,
+   "success": 101,
    "minutes_median": 19.4,
    "title_len_avg": 42.7,
    "title_features": [
@@ -10653,61 +10653,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 141,
+    "음성인식": 27,
+    "설명": 137,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 59
+     "count": 61
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
-     "word": "사람의",
-     "count": 46
+     "word": "먼저",
+     "count": 49
     }
    ],
    "chapters_share": 0.521,
@@ -10848,7 +10848,7 @@
    "views_median": 278088.0,
    "views_per_day_median": 6807.9,
    "ratio_median": 18.06,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.8,
    "title_features": [
@@ -10950,61 +10950,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 143,
+    "음성인식": 27,
+    "설명": 139,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.526,
@@ -11134,7 +11134,7 @@
    "views_median": 278088.0,
    "views_per_day_median": 6807.9,
    "ratio_median": 18.06,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.8,
    "title_features": [
@@ -11236,61 +11236,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 143,
+    "음성인식": 27,
+    "설명": 139,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.526,
@@ -11426,7 +11426,7 @@
    "views_median": 283147,
    "views_per_day_median": 6827.5,
    "ratio_median": 18.05,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.9,
    "title_features": [
@@ -11528,61 +11528,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 144,
+    "음성인식": 27,
+    "설명": 140,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 81
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 82
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.529,
@@ -11718,7 +11718,7 @@
    "views_median": 283981.0,
    "views_per_day_median": 6884.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.45,
    "title_len_avg": 42.8,
    "title_features": [
@@ -11820,61 +11820,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 145,
+    "음성인식": 27,
+    "설명": 141,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.531,
@@ -12010,7 +12010,7 @@
    "views_median": 284815,
    "views_per_day_median": 6941.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.7,
    "title_features": [
@@ -12112,61 +12112,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 146,
+    "음성인식": 27,
+    "설명": 142,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.534,
@@ -12302,7 +12302,7 @@
    "views_median": 287881.0,
    "views_per_day_median": 6884.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.6,
    "title_features": [
@@ -12404,61 +12404,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 147,
+    "음성인식": 27,
+    "설명": 143,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.536,
@@ -12588,7 +12588,7 @@
    "views_median": 287881.0,
    "views_per_day_median": 6884.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.6,
    "title_features": [
@@ -12690,61 +12690,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 147,
+    "음성인식": 27,
+    "설명": 143,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.536,
@@ -12874,7 +12874,7 @@
    "views_median": 287881.0,
    "views_per_day_median": 6884.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.6,
    "title_features": [
@@ -12976,61 +12976,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 147,
+    "음성인식": 27,
+    "설명": 143,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.536,
@@ -13160,7 +13160,7 @@
    "views_median": 287881.0,
    "views_per_day_median": 6884.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.6,
    "title_features": [
@@ -13262,61 +13262,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 147,
+    "음성인식": 27,
+    "설명": 143,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.536,
@@ -13446,7 +13446,7 @@
    "views_median": 287881.0,
    "views_per_day_median": 6884.5,
    "ratio_median": 18.03,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.6,
    "title_features": [
@@ -13548,61 +13548,61 @@
      "count": 9
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 147,
+    "음성인식": 27,
+    "설명": 143,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.536,
@@ -13743,7 +13743,7 @@
    "views_median": 295979.5,
    "views_per_day_median": 6807.9,
    "ratio_median": 17.08,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.5,
    "title_features": [
@@ -13845,61 +13845,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 149,
+    "음성인식": 27,
+    "설명": 145,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.541,
@@ -14035,7 +14035,7 @@
    "views_median": 301012,
    "views_per_day_median": 6788.3,
    "ratio_median": 17.05,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.4,
    "title_len_avg": 42.6,
    "title_features": [
@@ -14137,61 +14137,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 150,
+    "음성인식": 27,
+    "설명": 146,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 82
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 83
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 47
+     "count": 49
     }
    ],
    "chapters_share": 0.543,
@@ -14327,7 +14327,7 @@
    "views_median": 302475.0,
    "views_per_day_median": 6494.3,
    "ratio_median": 17.01,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.45,
    "title_len_avg": 42.6,
    "title_features": [
@@ -14429,61 +14429,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 151,
+    "음성인식": 27,
+    "설명": 147,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 84
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 48
+     "count": 50
     }
    ],
    "chapters_share": 0.545,
@@ -14613,7 +14613,7 @@
    "views_median": 302475.0,
    "views_per_day_median": 6494.3,
    "ratio_median": 17.01,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.45,
    "title_len_avg": 42.6,
    "title_features": [
@@ -14715,61 +14715,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 151,
+    "음성인식": 27,
+    "설명": 147,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 84
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 48
+     "count": 50
     }
    ],
    "chapters_share": 0.545,
@@ -14899,7 +14899,7 @@
    "views_median": 302475.0,
    "views_per_day_median": 6494.3,
    "ratio_median": 17.01,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.45,
    "title_len_avg": 42.6,
    "title_features": [
@@ -15001,61 +15001,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 151,
+    "음성인식": 27,
+    "설명": 147,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 84
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 48
+     "count": 50
     }
    ],
    "chapters_share": 0.545,
@@ -15185,7 +15185,7 @@
    "views_median": 302475.0,
    "views_per_day_median": 6494.3,
    "ratio_median": 17.01,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.45,
    "title_len_avg": 42.6,
    "title_features": [
@@ -15287,61 +15287,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 151,
+    "음성인식": 27,
+    "설명": 147,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 84
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 48
+     "count": 50
     }
    ],
    "chapters_share": 0.545,
@@ -15471,7 +15471,7 @@
    "views_median": 302475.0,
    "views_per_day_median": 6494.3,
    "ratio_median": 17.01,
-   "success": 134,
+   "success": 102,
    "minutes_median": 19.45,
    "title_len_avg": 42.6,
    "title_features": [
@@ -15573,61 +15573,61 @@
      "count": 10
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 151,
+    "음성인식": 27,
+    "설명": 147,
     "없음": 4
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 83
-    },
-    {
-     "word": "오늘",
-     "count": 70
+     "count": 84
     },
     {
      "word": "아니라",
-     "count": 69
+     "count": 71
+    },
+    {
+     "word": "오늘",
+     "count": 71
     },
     {
      "word": "그리고",
-     "count": 68
+     "count": 71
     },
     {
      "word": "가장",
-     "count": 62
+     "count": 66
     },
     {
      "word": "함께",
-     "count": 60
+     "count": 62
     },
     {
      "word": "사람이",
+     "count": 60
+    },
+    {
+     "word": "어떤",
+     "count": 57
+    },
+    {
+     "word": "아닙니다",
      "count": 56
     },
     {
      "word": "마음을",
-     "count": 54
-    },
-    {
-     "word": "아닙니다",
-     "count": 54
-    },
-    {
-     "word": "어떤",
-     "count": 53
+     "count": 55
     },
     {
      "word": "내가",
-     "count": 52
+     "count": 55
     },
     {
      "word": "많은",
-     "count": 48
+     "count": 50
     }
    ],
    "chapters_share": 0.545,
@@ -16213,7 +16213,7 @@
    "views_median": 643211,
    "views_per_day_median": 3177.1,
    "ratio_median": 6.5,
-   "success": 134,
+   "success": 102,
    "minutes_median": 18.3,
    "title_len_avg": 44.0,
    "title_features": [
@@ -16315,61 +16315,61 @@
      "count": 19
     }
    ],
-   "transcripts": 43,
+   "transcripts": 47,
    "text_sources": {
     "자막": 20,
-    "음성인식": 23,
-    "설명": 236,
+    "음성인식": 27,
+    "설명": 232,
     "없음": 10
    },
    "content_words": [
     {
      "word": "있습니다",
-     "count": 93
+     "count": 94
     },
     {
      "word": "오늘",
-     "count": 75
+     "count": 76
     },
     {
      "word": "아니라",
-     "count": 72
+     "count": 74
     },
     {
      "word": "그리고",
-     "count": 69
-    },
-    {
-     "word": "오늘은",
-     "count": 67
+     "count": 72
     },
     {
      "word": "가장",
-     "count": 66
+     "count": 70
+    },
+    {
+     "word": "오늘은",
+     "count": 69
     },
     {
      "word": "함께",
-     "count": 62
+     "count": 64
     },
     {
      "word": "사람이",
-     "count": 60
+     "count": 64
     },
     {
      "word": "어떤",
-     "count": 59
+     "count": 63
     },
     {
      "word": "내가",
-     "count": 56
+     "count": 59
+    },
+    {
+     "word": "많은",
+     "count": 57
     },
     {
      "word": "마음을",
-     "count": 55
-    },
-    {
-     "word": "영상은",
-     "count": 55
+     "count": 56
     }
    ],
    "chapters_share": 0.502,

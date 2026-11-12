@@ -2,7 +2,7 @@
  "tool": "weekly_analysis.py v1.5.2",
  "topic": "history",
  "name": "역사",
- "generated": "2026-10-28T10:13:41+00:00",
+ "generated": "2026-11-12T04:33:53+00:00",
  "cases": 914,
  "dated": 914,
  "older_than_windows": 0,
@@ -13,11 +13,73 @@
   "설명": 890,
   "없음": 24
  },
- "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
+ "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 50,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
  "windows": [
   {
    "weeks": 1,
    "label": "최근 1주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "comment_uncategorized": null,
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 2,
+   "label": "최근 2주",
+   "videos": 0,
+   "channels": 0,
+   "new_this_week": [],
+   "views_median": null,
+   "views_per_day_median": null,
+   "ratio_median": null,
+   "success": 0,
+   "minutes_median": null,
+   "title_len_avg": null,
+   "title_features": [],
+   "title_words": [],
+   "transcripts": 0,
+   "text_sources": {
+    "자막": 0,
+    "음성인식": 0,
+    "설명": 0,
+    "없음": 0
+   },
+   "content_words": [],
+   "chapters_share": null,
+   "syl_per_sec_median": null,
+   "hooks": [],
+   "comments": 0,
+   "comment_needs": [],
+   "comment_uncategorized": null,
+   "top_comments": [],
+   "top_videos": []
+  },
+  {
+   "weeks": 3,
+   "label": "최근 3주",
    "videos": 5,
    "channels": 5,
    "new_this_week": [
@@ -50,7 +112,7 @@
    "views_median": 41634,
    "views_per_day_median": 31728.4,
    "ratio_median": 0.15,
-   "success": 2,
+   "success": 0,
    "minutes_median": 11.1,
    "title_len_avg": 39.2,
    "title_features": [
@@ -203,16 +265,11 @@
    ]
   },
   {
-   "weeks": 2,
-   "label": "최근 2주",
-   "videos": 40,
-   "channels": 32,
+   "weeks": 4,
+   "label": "최근 4주",
+   "videos": 36,
+   "channels": 29,
    "new_this_week": [
-    {
-     "id": "6UEopLVwlag",
-     "title": "조선 주막 방값은 공짜, 대신 목숨을 걸었다 | 승정원일기·실록으로 본 조선 주막",
-     "published": "2026-10-14"
-    },
     {
      "id": "6wJWzIdFLlY",
      "title": "자식만 1,000명 넘게 낳았다고? 과학자들도 경악한 인류 최강 번식력 왕 TOP 3",
@@ -262,11 +319,6 @@
      "id": "R-DGnnRUGwo",
      "title": "육영수 여사 피격 사건이 없었다면?ㅣ김진명 작가가 들려주는 근현대사",
      "published": "2026-10-16"
-    },
-    {
-     "id": "RPBvkCsjnSY",
-     "title": "\"일본어 너무 잘해서 턱 빠질 뻔\" 일제강점기 한국 드라마가 일본 넷플릭스 TOP10에 들자 일본 시청자들이 남긴 말",
-     "published": "2026-10-14"
     },
     {
      "id": "RXflUwO13U8",
@@ -324,11 +376,6 @@
      "published": "2026-10-20"
     },
     {
-     "id": "giDtG4GnREI",
-     "title": "[해외반응 1화] 1932년 조선에 외국인들이 빠져들었다🔥《100일의 거짓말》해외반응 리액션",
-     "published": "2026-10-14"
-    },
-    {
      "id": "iBsJYAMwbOI",
      "title": "[일본반응] 일본이 숨기고 싶었던 잔혹한 역사 한국 드라마로 넷플릭스 공개되자 일본이 발칵 뒤집혔다. 오히려 \"한국 역사 다시 공부하자\" 반전 분위기",
      "published": "2026-10-15"
@@ -337,11 +384,6 @@
      "id": "jdSxOyT1Yqg",
      "title": "쿠데타를 일으킨 수양대군 - 조선왕조4",
      "published": "2026-10-21"
-    },
-    {
-     "id": "jvUlU8AJDL4",
-     "title": "[공포·미스테리] 조선을 뒤흔들었던 사이비종교들",
-     "published": "2026-10-14"
     },
     {
      "id": "mlIydyEoGQ8",
@@ -384,57 +426,53 @@
      "published": "2026-10-17"
     }
    ],
-   "views_median": 101152.5,
+   "views_median": 93760.5,
    "views_per_day_median": 28117.4,
    "ratio_median": 8.38,
-   "success": 27,
+   "success": 15,
    "minutes_median": 16.2,
    "title_len_avg": 47.2,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 12,
-     "share": 0.3
+     "share": 0.333
     },
     {
      "name": "vs 비교",
      "count": 10,
-     "share": 0.25
+     "share": 0.278
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 3,
-     "share": 0.075
+     "share": 0.083
     },
     {
      "name": "이유",
      "count": 3,
-     "share": 0.075
+     "share": 0.083
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 2,
-     "share": 0.05
+     "share": 0.056
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 2,
-     "share": 0.05
+     "share": 0.056
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 2,
-     "share": 0.05
+     "share": 0.056
     }
    ],
    "title_words": [
     {
      "word": "임진왜란",
      "count": 6
-    },
-    {
-     "word": "조선",
-     "count": 5
     },
     {
      "word": "어떻게",
@@ -445,15 +483,19 @@
      "count": 4
     },
     {
-     "word": "지도로",
-     "count": 4
-    },
-    {
      "word": "만에",
      "count": 4
     },
     {
      "word": "보는",
+     "count": 4
+    },
+    {
+     "word": "지도로",
+     "count": 4
+    },
+    {
+     "word": "조선",
      "count": 4
     },
     {
@@ -473,7 +515,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 39,
+    "설명": 35,
     "없음": 1
    },
    "content_words": [
@@ -482,23 +524,7 @@
      "count": 13
     },
     {
-     "word": "실제",
-     "count": 12
-    },
-    {
-     "word": "조선의",
-     "count": 12
-    },
-    {
      "word": "바탕으로",
-     "count": 12
-    },
-    {
-     "word": "조선",
-     "count": 11
-    },
-    {
-     "word": "함께",
      "count": 11
     },
     {
@@ -506,15 +532,19 @@
      "count": 10
     },
     {
-     "word": "자료를",
-     "count": 9
+     "word": "조선",
+     "count": 10
     },
     {
-     "word": "AI",
-     "count": 9
+     "word": "실제",
+     "count": 10
     },
     {
-     "word": "않은",
+     "word": "조선의",
+     "count": 10
+    },
+    {
+     "word": "함께",
      "count": 9
     },
     {
@@ -522,11 +552,23 @@
      "count": 9
     },
     {
-     "word": "있습니다",
+     "word": "다른",
+     "count": 8
+    },
+    {
+     "word": "않은",
+     "count": 8
+    },
+    {
+     "word": "AI",
+     "count": 8
+    },
+    {
+     "word": "자료를",
      "count": 8
     }
    ],
-   "chapters_share": 0.425,
+   "chapters_share": 0.444,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -548,40 +590,40 @@
      "hook": "안녕하세요! 오늘은 그날을 보다 EP.22, 25~30 몰아보기를 준비해봤습니다. [EP.22] 제 2연평해전 [EP.25] 미국,이스라엘-이란 전쟁 [EP.26] 독수리 발톱 작전 [EP.28]  이스라엘의 이라크 원전 공습, 오퍼레이션 바빌론 작전 [EP.29] 대만을 침공했던 중국"
     }
    ],
-   "comments": 4542,
+   "comments": 4160,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 792,
-     "share": 0.174
+     "count": 736,
+     "share": 0.177
     },
     {
      "name": "칭찬·감사",
-     "count": 372,
-     "share": 0.082
+     "count": 337,
+     "share": 0.081
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 211,
-     "share": 0.046
+     "count": 195,
+     "share": 0.047
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 174,
-     "share": 0.038
+     "count": 166,
+     "share": 0.04
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 142,
-     "share": 0.031
+     "count": 138,
+     "share": 0.033
     },
     {
      "name": "요청",
-     "count": 107,
-     "share": 0.024
+     "count": 103,
+     "share": 0.025
     }
    ],
-   "comment_uncategorized": 0.651,
+   "comment_uncategorized": 0.646,
    "top_comments": [
     {
      "text": "중국인들이 이천년 동안 저걸 안 털었다고? 개가 웃을 소리...",
@@ -645,30 +687,25 @@
    ]
   },
   {
-   "weeks": 3,
-   "label": "최근 3주",
-   "videos": 86,
-   "channels": 61,
+   "weeks": 5,
+   "label": "최근 5주",
+   "videos": 78,
+   "channels": 54,
    "new_this_week": [
-    {
-     "id": "-L8e8sbeu3c",
-     "title": "조선 왕비 42명 중, 가장 행복했던 여자는 누구였을까?",
-     "published": "2026-10-07"
-    },
     {
      "id": "0y_c_-Ik_GQ",
      "title": "일반인은 상상도 못 하는 예루살렘의 진짜 모습ㅣ역사를 보다 EP.165",
      "published": "2026-10-11"
     },
     {
-     "id": "3fmE-O13adY",
-     "title": "[숨겨진 중국사] 제갈량보다 무서웠던 중국 최고의 책사 다섯명, 진짜 1위는? | 역사인물 | 야사 | 비사",
-     "published": "2026-10-08"
-    },
-    {
      "id": "6I_qpnaoM9Y",
      "title": "세종의 나라로 돌아온 예언 적중 베스트셀러 작가, 김진명! 한글을 통한 또 다른 예언 | 마당밖김재원 Ep.16 (김진명 작가)",
      "published": "2026-10-09"
+    },
+    {
+     "id": "6UEopLVwlag",
+     "title": "조선 주막 방값은 공짜, 대신 목숨을 걸었다 | 승정원일기·실록으로 본 조선 주막",
+     "published": "2026-10-14"
     },
     {
      "id": "7APWTz8uypE",
@@ -686,24 +723,9 @@
      "published": "2026-10-09"
     },
     {
-     "id": "B3nPKyxx39o",
-     "title": "세종대왕이 2026년 응급실에 실려 왔더니 벌어진 일",
-     "published": "2026-10-07"
-    },
-    {
      "id": "BF7Kb1zcVTo",
      "title": "📸 역사책에서 찾을 수 없었던 놀라운 순간들 | 희귀 역사 사진들",
      "published": "2026-10-11"
-    },
-    {
-     "id": "EbGTavxpfHc",
-     "title": "13살 성종이 한명회의 권력을 빼앗은 진짜 방법 | 재미진역사",
-     "published": "2026-10-07"
-    },
-    {
-     "id": "F-tooKrghZ0",
-     "title": "크메르 제국의 앙코르와트는 왜 밀림에 묻혔나?:세계에서 가장 넓었던 신의 도시가 버려진 이유!",
-     "published": "2026-10-07"
     },
     {
      "id": "F9x25Wtuv4s",
@@ -751,11 +773,6 @@
      "published": "2026-10-10"
     },
     {
-     "id": "Ml4SV0FTO2w",
-     "title": "세종대왕도 감동할 한글 580년의 기록 | 위대한 자산 한글",
-     "published": "2026-10-08"
-    },
-    {
      "id": "NAdCvYWmsRc",
      "title": "김진명이 들려주는 한글 창제 이야기｜한글날 제정 100주년 기념",
      "published": "2026-10-09"
@@ -766,14 +783,14 @@
      "published": "2026-10-11"
     },
     {
+     "id": "RPBvkCsjnSY",
+     "title": "\"일본어 너무 잘해서 턱 빠질 뻔\" 일제강점기 한국 드라마가 일본 넷플릭스 TOP10에 들자 일본 시청자들이 남긴 말",
+     "published": "2026-10-14"
+    },
+    {
      "id": "T9z8nPsgfvc",
      "title": "한국인은 왜 양고기를 거의 안 먹을까? 돼지고기와 100배 차이, 숨겨진 역사 이야기",
      "published": "2026-10-09"
-    },
-    {
-     "id": "UBBAEzyQQMA",
-     "title": "《한국사》 조선시대 가장 못생긴 왕은 누구였을까? 왕들의 실제 외모 l 역사 인물 l 조선왕조실록",
-     "published": "2026-10-08"
     },
     {
      "id": "UmJpb4Bco8g",
@@ -816,6 +833,11 @@
      "published": "2026-10-08"
     },
     {
+     "id": "giDtG4GnREI",
+     "title": "[해외반응 1화] 1932년 조선에 외국인들이 빠져들었다🔥《100일의 거짓말》해외반응 리액션",
+     "published": "2026-10-14"
+    },
+    {
      "id": "gokqAyJ4034",
      "title": "＂하늘이 내려준 능력을 가진 사람＂ 한글 창제부터 측우기까지 조선 천재 ＜세종대왕＞｜강연배틀쇼 사기꾼들 외｜JTBC 251009 방송 외",
      "published": "2026-10-09"
@@ -834,6 +856,11 @@
      "id": "iz1GI5SlMXk",
      "title": "오직 한국만 뚫지 못한 68혁명의 물결~ [1013]",
      "published": "2026-10-13"
+    },
+    {
+     "id": "jvUlU8AJDL4",
+     "title": "[공포·미스테리] 조선을 뒤흔들었던 사이비종교들",
+     "published": "2026-10-14"
     },
     {
      "id": "mfVPZP6s4Sw",
@@ -856,11 +883,6 @@
      "published": "2026-10-09"
     },
     {
-     "id": "r-JOlwuvsDA",
-     "title": "[조선 다잇소] 2화 : 세종대왕의 만성 두통을 타이레놀로 고쳐버렸다.",
-     "published": "2026-10-07"
-    },
-    {
      "id": "sL0JhnCbB6E",
      "title": "아무리 물을 마셔도 갈증이 가시지 않았던 세종대왕이 앓았던 질병은?ㅣ그때 그 사인",
      "published": "2026-10-09"
@@ -881,91 +903,83 @@
      "published": "2026-10-11"
     }
    ],
-   "views_median": 134902.5,
-   "views_per_day_median": 21579.1,
-   "ratio_median": 15.57,
-   "success": 57,
-   "minutes_median": 16.3,
-   "title_len_avg": 47.6,
+   "views_median": 153744.0,
+   "views_per_day_median": 21832.05,
+   "ratio_median": 9.23,
+   "success": 34,
+   "minutes_median": 16.2,
+   "title_len_avg": 48.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 29,
-     "share": 0.337
+     "count": 25,
+     "share": 0.321
     },
     {
      "name": "vs 비교",
-     "count": 12,
-     "share": 0.14
+     "count": 11,
+     "share": 0.141
     },
     {
      "name": "느낌표 !",
-     "count": 8,
-     "share": 0.093
+     "count": 7,
+     "share": 0.09
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 8,
-     "share": 0.093
+     "count": 7,
+     "share": 0.09
     },
     {
      "name": "이유",
-     "count": 8,
-     "share": 0.093
+     "count": 7,
+     "share": 0.09
     },
     {
      "name": "과정·벌어진 일·결말·결국",
-     "count": 3,
-     "share": 0.035
+     "count": 2,
+     "share": 0.026
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 2,
-     "share": 0.023
+     "share": 0.026
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 2,
-     "share": 0.023
+     "share": 0.026
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.012
+     "share": 0.013
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 1,
-     "share": 0.012
+     "share": 0.013
     }
    ],
    "title_words": [
     {
      "word": "조선",
-     "count": 12
+     "count": 10
     },
     {
      "word": "역사",
-     "count": 11
-    },
-    {
-     "word": "이유",
-     "count": 8
+     "count": 10
     },
     {
      "word": "임진왜란",
      "count": 7
     },
     {
+     "word": "이유",
+     "count": 7
+    },
+    {
      "word": "방송",
-     "count": 6
-    },
-    {
-     "word": "조선시대",
-     "count": 6
-    },
-    {
-     "word": "한글",
      "count": 6
     },
     {
@@ -979,66 +993,74 @@
     {
      "word": "KBS",
      "count": 5
+    },
+    {
+     "word": "조선시대",
+     "count": 5
+    },
+    {
+     "word": "보는",
+     "count": 5
     }
    ],
    "transcripts": 0,
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 84,
+    "설명": 76,
     "없음": 2
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 33
-    },
-    {
-     "word": "있습니다",
-     "count": 26
+     "count": 29
     },
     {
      "word": "함께",
-     "count": 25
+     "count": 24
+    },
+    {
+     "word": "있습니다",
+     "count": 22
     },
     {
      "word": "역사",
-     "count": 23
-    },
-    {
-     "word": "실제",
-     "count": 21
-    },
-    {
-     "word": "댓글로",
      "count": 19
     },
     {
      "word": "이야기",
-     "count": 19
+     "count": 18
     },
     {
-     "word": "조선",
+     "word": "실제",
      "count": 18
     },
     {
      "word": "바탕으로",
-     "count": 18
+     "count": 17
+    },
+    {
+     "word": "댓글로",
+     "count": 17
+    },
+    {
+     "word": "조선",
+     "count": 16
     },
     {
      "word": "이야기를",
-     "count": 18
+     "count": 16
     },
     {
      "word": "우리가",
-     "count": 18
+     "count": 16
     },
     {
      "word": "조선의",
-     "count": 16
+     "count": 15
     }
    ],
-   "chapters_share": 0.395,
+   "chapters_share": 0.372,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1060,40 +1082,40 @@
      "hook": "All rights reserved® Made by YOUTUBE GANDA.HYO"
     }
    ],
-   "comments": 11272,
+   "comments": 9965,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 1763,
-     "share": 0.156
+     "count": 1678,
+     "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 1311,
-     "share": 0.116
+     "count": 914,
+     "share": 0.092
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 605,
-     "share": 0.054
+     "count": 551,
+     "share": 0.055
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 457,
+     "count": 407,
      "share": 0.041
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 345,
-     "share": 0.031
+     "count": 319,
+     "share": 0.032
     },
     {
      "name": "요청",
-     "count": 233,
-     "share": 0.021
+     "count": 203,
+     "share": 0.02
     }
    ],
-   "comment_uncategorized": 0.646,
+   "comment_uncategorized": 0.654,
    "top_comments": [
     {
      "text": "어르신들 포함 당장 30년 전으로만 돌아가도 못살 걸",
@@ -1157,15 +1179,15 @@
    ]
   },
   {
-   "weeks": 4,
-   "label": "최근 4주",
-   "videos": 131,
+   "weeks": 6,
+   "label": "최근 6주",
+   "videos": 130,
    "channels": 97,
    "new_this_week": [
     {
-     "id": "-mwPtMkDlCE",
-     "title": "조선 한양을 공포에 떨게 한 칼잡이 조직 ‘검계’와 ‘살주계’ | 표철주와 포도대장 장붕익",
-     "published": "2026-10-01"
+     "id": "-L8e8sbeu3c",
+     "title": "조선 왕비 42명 중, 가장 행복했던 여자는 누구였을까?",
+     "published": "2026-10-07"
     },
     {
      "id": "13pZ6WmCiGs",
@@ -1191,6 +1213,11 @@
      "id": "2PzIlfWCTow",
      "title": "원수의 잔에 술을 따른 왕, 적국 왕실의 조상이 된 왕 | 한국사 망국 왕족 이야기",
      "published": "2026-10-01"
+    },
+    {
+     "id": "3fmE-O13adY",
+     "title": "[숨겨진 중국사] 제갈량보다 무서웠던 중국 최고의 책사 다섯명, 진짜 1위는? | 역사인물 | 야사 | 비사",
+     "published": "2026-10-08"
     },
     {
      "id": "4jEcvypcCuQ",
@@ -1233,6 +1260,11 @@
      "published": "2026-10-07"
     },
     {
+     "id": "B3nPKyxx39o",
+     "title": "세종대왕이 2026년 응급실에 실려 왔더니 벌어진 일",
+     "published": "2026-10-07"
+    },
+    {
      "id": "BMX7OmAc72s",
      "title": "2차세계대전 소련군을 박살내던 독일군은 왜 모스크바 앞에서 멈췄나",
      "published": "2026-10-06"
@@ -1241,6 +1273,16 @@
      "id": "CdyTqgp82Fo",
      "title": "사람을 밟아 죽이고 외딴섬으로 쫓겨났다, 조선 왕이 코끼리를 유배 보낸 사연",
      "published": "2026-10-04"
+    },
+    {
+     "id": "EbGTavxpfHc",
+     "title": "13살 성종이 한명회의 권력을 빼앗은 진짜 방법 | 재미진역사",
+     "published": "2026-10-07"
+    },
+    {
+     "id": "F-tooKrghZ0",
+     "title": "크메르 제국의 앙코르와트는 왜 밀림에 묻혔나?:세계에서 가장 넓었던 신의 도시가 버려진 이유!",
+     "published": "2026-10-07"
     },
     {
      "id": "G8V3NuJGQrQ",
@@ -1266,6 +1308,11 @@
      "id": "LZQFW5QA-BM",
      "title": "조선에서 가장 잊힌 왕, 정말 무능하고 나약했던 왕일까? | 역사이야기",
      "published": "2026-10-03"
+    },
+    {
+     "id": "Ml4SV0FTO2w",
+     "title": "세종대왕도 감동할 한글 580년의 기록 | 위대한 자산 한글",
+     "published": "2026-10-08"
     },
     {
      "id": "Mmv7xy1M_uM",
@@ -1301,6 +1348,11 @@
      "id": "TiyiiqTQTWs",
      "title": "[🌙조선시대]  조선 산성방어 왜 무너졌나? - 병자호란",
      "published": "2026-10-06"
+    },
+    {
+     "id": "UBBAEzyQQMA",
+     "title": "《한국사》 조선시대 가장 못생긴 왕은 누구였을까? 왕들의 실제 외모 l 역사 인물 l 조선왕조실록",
+     "published": "2026-10-08"
     },
     {
      "id": "V40fQEAfXbM",
@@ -1373,6 +1425,11 @@
      "published": "2026-10-06"
     },
     {
+     "id": "r-JOlwuvsDA",
+     "title": "[조선 다잇소] 2화 : 세종대왕의 만성 두통을 타이레놀로 고쳐버렸다.",
+     "published": "2026-10-07"
+    },
+    {
      "id": "vp1Eet1Rmfk",
      "title": "인도 정부가 1000년의 역사를 몰래 지우고 있는 이유 (공백의 1000년..?)ㅣ역사를 보다 EP.164",
      "published": "2026-10-04"
@@ -1388,27 +1445,27 @@
      "published": "2026-10-01"
     }
    ],
-   "views_median": 150928,
-   "views_per_day_median": 15556.5,
-   "ratio_median": 15.62,
-   "success": 89,
-   "minutes_median": 17.7,
+   "views_median": 153755.5,
+   "views_per_day_median": 15859.65,
+   "ratio_median": 14.45,
+   "success": 59,
+   "minutes_median": 17.95,
    "title_len_avg": 46.7,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 43,
-     "share": 0.328
+     "share": 0.331
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 17,
-     "share": 0.13
+     "share": 0.131
     },
     {
      "name": "이유",
      "count": 17,
-     "share": 0.13
+     "share": 0.131
     },
     {
      "name": "vs 비교",
@@ -1418,7 +1475,7 @@
     {
      "name": "느낌표 !",
      "count": 13,
-     "share": 0.099
+     "share": 0.1
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -1469,7 +1526,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 23
+     "count": 22
     },
     {
      "word": "이유",
@@ -1512,13 +1569,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 128,
+    "설명": 127,
     "없음": 3
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 50
+     "count": 49
     },
     {
      "word": "있습니다",
@@ -1533,28 +1590,24 @@
      "count": 31
     },
     {
-     "word": "조선",
-     "count": 30
-    },
-    {
      "word": "바탕으로",
      "count": 29
     },
     {
-     "word": "실제",
-     "count": 26
+     "word": "조선",
+     "count": 29
     },
     {
      "word": "이야기를",
      "count": 26
     },
     {
-     "word": "댓글로",
-     "count": 24
+     "word": "실제",
+     "count": 25
     },
     {
-     "word": "조선의",
-     "count": 23
+     "word": "댓글로",
+     "count": 24
     },
     {
      "word": "우리가",
@@ -1563,9 +1616,13 @@
     {
      "word": "영상은",
      "count": 23
+    },
+    {
+     "word": "이야기",
+     "count": 22
     }
    ],
-   "chapters_share": 0.435,
+   "chapters_share": 0.431,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1587,7 +1644,7 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 17594,
+   "comments": 17592,
    "comment_needs": [
     {
      "name": "질문",
@@ -1620,7 +1677,7 @@
      "share": 0.018
     }
    ],
-   "comment_uncategorized": 0.657,
+   "comment_uncategorized": 0.656,
    "top_comments": [
     {
      "text": "주제추천: 2026년 한국 해군기지에 간 이순신 장군",
@@ -1684,15 +1741,20 @@
    ]
   },
   {
-   "weeks": 5,
-   "label": "최근 5주",
-   "videos": 191,
-   "channels": 131,
+   "weeks": 7,
+   "label": "최근 7주",
+   "videos": 183,
+   "channels": 127,
    "new_this_week": [
     {
      "id": "-k1advAYe5E",
      "title": "통일 뒤에도 16년 동안 피가 흘렀다｜교과서가 말하지 않은 삼국통일",
      "published": "2026-09-25"
+    },
+    {
+     "id": "-mwPtMkDlCE",
+     "title": "조선 한양을 공포에 떨게 한 칼잡이 조직 ‘검계’와 ‘살주계’ | 표철주와 포도대장 장붕익",
+     "published": "2026-10-01"
     },
     {
      "id": "0NcpK50ihfw",
@@ -1760,11 +1822,6 @@
      "published": "2026-09-26"
     },
     {
-     "id": "FHUcs3n0o8Q",
-     "title": "[추석 특집] 대하 드라마 -문무- 방영 전, 삼국통일전쟁 몰아보기(3시간 통합 ver.)",
-     "published": "2026-09-23"
-    },
-    {
      "id": "GhH9jUSqkF0",
      "title": "임진왜란 의병장이 88세에 역적으로 참형당한 진짜 이유 | 재미진역사",
      "published": "2026-09-27"
@@ -1785,11 +1842,6 @@
      "published": "2026-09-25"
     },
     {
-     "id": "HlGkmhX0J6c",
-     "title": "\"충무공에 푹 빠진 미국\" 초능력도 없는 400년 전 이순신 장군 이야기에 열광하는 진짜 이유",
-     "published": "2026-09-23"
-    },
-    {
      "id": "ItASrjGgMvo",
      "title": "조선야담#20 어서 씻으라는 마님 # 옛날이야기  #민담  #전설",
      "published": "2026-09-29"
@@ -1805,19 +1857,9 @@
      "published": "2026-09-25"
     },
     {
-     "id": "JsI35FxQhQc",
-     "title": "조선에 오마카세를 열었더니 부자가 됐습니다",
-     "published": "2026-09-23"
-    },
-    {
      "id": "LHz299QKvXU",
      "title": "사극 BL [연화 戀畫] EP.04 그대를 연모하오",
      "published": "2026-09-24"
-    },
-    {
-     "id": "LSt1JUPzcQg",
-     "title": "뺨 한 대가 부른 피의 100년 | 고려 무신정변과 무신정권의 모든 것",
-     "published": "2026-09-23"
     },
     {
      "id": "MfUbyKigbfc",
@@ -1870,11 +1912,6 @@
      "published": "2026-09-26"
     },
     {
-     "id": "apLiHkAgHfY",
-     "title": "조선 왕의 침소는 왜 가장 추웠을까, 궁녀의 방이 더 따뜻했던 이유",
-     "published": "2026-09-23"
-    },
-    {
      "id": "dUD9yKNxGps",
      "title": "이순신을 살린 대한민국 함대, 1598년 조선에 갇혔다 | 1시간 Full Movie | 4K",
      "published": "2026-09-25"
@@ -1910,16 +1947,6 @@
      "published": "2026-09-25"
     },
     {
-     "id": "iuHGTcdrKzs",
-     "title": "미국 인터넷을 뜨겁게 달군 \"이순신 장군 열풍\"뜨거운 댓글 반응 / “이런 사람이 진짜 있었냐” 지금 미국이 이순신에 열광하는 진짜 이유",
-     "published": "2026-09-23"
-    },
-    {
-     "id": "j0kJwAlyYyA",
-     "title": "굶어 죽던 조선에 감자가 들어오자! 모두 미쳤다!",
-     "published": "2026-09-23"
-    },
-    {
      "id": "mxQjZK4Thq0",
      "title": "한국사 최고 천재가 일부러 욕먹은 이유 (원효 통합판)",
      "published": "2026-09-25"
@@ -1948,11 +1975,6 @@
      "id": "r7PovYPhfuc",
      "title": "[4K] 청량리에 홍릉이 있었다 | 명성황후의 옛 홍릉터와 영휘원·숭인원",
      "published": "2026-09-27"
-    },
-    {
-     "id": "soiH5GMxOqk",
-     "title": "왜 경기도 곤지암은 곤지암일까? | 우리가 몰랐던 진짜이야기 | 신립 | 허난설헌 | 탄금대 | 나들목 | 임진왜란 | 조총 | 문경새재 | 남한산성 #민담 #지명유래 #역사",
-     "published": "2026-09-23"
     },
     {
      "id": "t68eLyT7a-s",
@@ -1990,72 +2012,72 @@
      "published": "2026-09-25"
     }
    ],
-   "views_median": 150928,
-   "views_per_day_median": 12694.1,
-   "ratio_median": 16.21,
-   "success": 136,
+   "views_median": 150905,
+   "views_per_day_median": 12872.3,
+   "ratio_median": 17.85,
+   "success": 86,
    "minutes_median": 19.3,
-   "title_len_avg": 46.0,
+   "title_len_avg": 45.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 60,
-     "share": 0.314
+     "count": 59,
+     "share": 0.322
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 28,
-     "share": 0.147
+     "count": 25,
+     "share": 0.137
     },
     {
      "name": "이유",
-     "count": 27,
-     "share": 0.141
+     "count": 24,
+     "share": 0.131
     },
     {
      "name": "vs 비교",
-     "count": 25,
+     "count": 24,
      "share": 0.131
     },
     {
      "name": "느낌표 !",
-     "count": 17,
-     "share": 0.089
+     "count": 16,
+     "share": 0.087
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 6,
-     "share": 0.031
+     "share": 0.033
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 6,
-     "share": 0.031
+     "share": 0.033
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 2,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 2,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 2,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "AI",
      "count": 2,
-     "share": 0.01
+     "share": 0.011
     },
     {
      "name": "공통점",
@@ -2076,19 +2098,19 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 32
+     "count": 31
     },
     {
      "word": "이유",
-     "count": 26
+     "count": 23
     },
     {
      "word": "역사",
-     "count": 22
+     "count": 21
     },
     {
      "word": "이순신",
-     "count": 15
+     "count": 13
     },
     {
      "word": "방송",
@@ -2103,11 +2125,11 @@
      "count": 10
     },
     {
-     "word": "임진왜란",
-     "count": 10
+     "word": "EP",
+     "count": 9
     },
     {
-     "word": "EP",
+     "word": "임진왜란",
      "count": 9
     },
     {
@@ -2119,60 +2141,60 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 185,
-    "없음": 6
+    "설명": 178,
+    "없음": 5
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 73
-    },
-    {
-     "word": "조선",
-     "count": 50
+     "count": 70
     },
     {
      "word": "있습니다",
-     "count": 49
+     "count": 47
     },
     {
-     "word": "함께",
-     "count": 46
-    },
-    {
-     "word": "이야기를",
+     "word": "조선",
      "count": 46
     },
     {
      "word": "역사",
-     "count": 44
+     "count": 43
+    },
+    {
+     "word": "함께",
+     "count": 42
+    },
+    {
+     "word": "이야기를",
+     "count": 42
     },
     {
      "word": "이야기",
-     "count": 41
+     "count": 40
     },
     {
      "word": "바탕으로",
-     "count": 39
-    },
-    {
-     "word": "조선의",
-     "count": 35
-    },
-    {
-     "word": "영상은",
-     "count": 35
+     "count": 37
     },
     {
      "word": "실제",
-     "count": 34
+     "count": 33
+    },
+    {
+     "word": "조선의",
+     "count": 33
+    },
+    {
+     "word": "영상은",
+     "count": 33
     },
     {
      "word": "우리가",
-     "count": 33
+     "count": 32
     }
    ],
-   "chapters_share": 0.44,
+   "chapters_share": 0.443,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2194,40 +2216,40 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 30813,
+   "comments": 29822,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 5711,
-     "share": 0.185
+     "count": 5551,
+     "share": 0.186
     },
     {
      "name": "칭찬·감사",
-     "count": 2641,
-     "share": 0.086
+     "count": 2464,
+     "share": 0.083
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1513,
+     "count": 1470,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1191,
+     "count": 1153,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1075,
+     "count": 1039,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 428,
+     "count": 416,
      "share": 0.014
     }
    ],
-   "comment_uncategorized": 0.651,
+   "comment_uncategorized": 0.653,
    "top_comments": [
     {
      "text": "근데 이게 북한이 사실인냥 주장하며 만든 영화랑 내용 맥락이 똑같음...",
@@ -2291,9 +2313,9 @@
    ]
   },
   {
-   "weeks": 6,
-   "label": "최근 6주",
-   "videos": 230,
+   "weeks": 8,
+   "label": "최근 8주",
+   "videos": 229,
    "channels": 155,
    "new_this_week": [
     {
@@ -2322,6 +2344,11 @@
      "published": "2026-09-19"
     },
     {
+     "id": "FHUcs3n0o8Q",
+     "title": "[추석 특집] 대하 드라마 -문무- 방영 전, 삼국통일전쟁 몰아보기(3시간 통합 ver.)",
+     "published": "2026-09-23"
+    },
+    {
      "id": "FM5-izJ5M1s",
      "title": "조선의 유배객은 어떻게 수백 리를 갔을까 | 우리가 알던 귀양길은 틀렸다",
      "published": "2026-09-19"
@@ -2332,9 +2359,19 @@
      "published": "2026-09-22"
     },
     {
+     "id": "HlGkmhX0J6c",
+     "title": "\"충무공에 푹 빠진 미국\" 초능력도 없는 400년 전 이순신 장군 이야기에 열광하는 진짜 이유",
+     "published": "2026-09-23"
+    },
+    {
      "id": "Ik540m4wLcw",
      "title": "임진왜란 포로로 끌려간 10살 아이가, 일본 사무라이가 되어 나타났다 | KBS 역사스페셜 20110210 방송",
      "published": "2026-09-22"
+    },
+    {
+     "id": "JsI35FxQhQc",
+     "title": "조선에 오마카세를 열었더니 부자가 됐습니다",
+     "published": "2026-09-23"
     },
     {
      "id": "K6UbGyHCmSI",
@@ -2345,6 +2382,11 @@
      "id": "LMJeEzBPcwg",
      "title": "조선에는 원래 제사가 없었다? 제사는 언제부터 지냈나?",
      "published": "2026-09-20"
+    },
+    {
+     "id": "LSt1JUPzcQg",
+     "title": "뺨 한 대가 부른 피의 100년 | 고려 무신정변과 무신정권의 모든 것",
+     "published": "2026-09-23"
     },
     {
      "id": "Nxwp-fQdyb0",
@@ -2402,6 +2444,11 @@
      "published": "2026-09-20"
     },
     {
+     "id": "apLiHkAgHfY",
+     "title": "조선 왕의 침소는 왜 가장 추웠을까, 궁녀의 방이 더 따뜻했던 이유",
+     "published": "2026-09-23"
+    },
+    {
      "id": "bDb2YIZhBPw",
      "title": "잠들기 전 한국사🌙『 조선왕조실록 : 연산군의 비밀 』벌거벗은 한국사 _ 책읽어주는여자 _ 베스트셀러 오디오북 📖",
      "published": "2026-09-18"
@@ -2437,6 +2484,16 @@
      "published": "2026-09-20"
     },
     {
+     "id": "iuHGTcdrKzs",
+     "title": "미국 인터넷을 뜨겁게 달군 \"이순신 장군 열풍\"뜨거운 댓글 반응 / “이런 사람이 진짜 있었냐” 지금 미국이 이순신에 열광하는 진짜 이유",
+     "published": "2026-09-23"
+    },
+    {
+     "id": "j0kJwAlyYyA",
+     "title": "굶어 죽던 조선에 감자가 들어오자! 모두 미쳤다!",
+     "published": "2026-09-23"
+    },
+    {
      "id": "jiV-fQ_-uyE",
      "title": "세종대왕을 만나면 말이 통할까, 우리말은 500년 동안 얼마나 변했나",
      "published": "2026-09-23"
@@ -2462,9 +2519,9 @@
      "published": "2026-09-18"
     },
     {
-     "id": "sJALZovMFJM",
-     "title": "이순신의 일기에서 32일이 사라졌습니다,진짜  이순신의 모습",
-     "published": "2026-09-17"
+     "id": "soiH5GMxOqk",
+     "title": "왜 경기도 곤지암은 곤지암일까? | 우리가 몰랐던 진짜이야기 | 신립 | 허난설헌 | 탄금대 | 나들목 | 임진왜란 | 조총 | 문경새재 | 남한산성 #민담 #지명유래 #역사",
+     "published": "2026-09-23"
     },
     {
      "id": "tvOXhCQr_a8",
@@ -2492,47 +2549,47 @@
      "published": "2026-09-19"
     }
    ],
-   "views_median": 165120.0,
-   "views_per_day_median": 11115.5,
-   "ratio_median": 15.91,
-   "success": 165,
-   "minutes_median": 19.55,
+   "views_median": 164001,
+   "views_per_day_median": 11224.1,
+   "ratio_median": 16.21,
+   "success": 116,
+   "minutes_median": 19.5,
    "title_len_avg": 45.7,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 73,
-     "share": 0.317
+     "share": 0.319
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 37,
-     "share": 0.161
+     "share": 0.162
     },
     {
      "name": "이유",
      "count": 35,
-     "share": 0.152
+     "share": 0.153
     },
     {
      "name": "vs 비교",
      "count": 29,
-     "share": 0.126
+     "share": 0.127
     },
     {
      "name": "느낌표 !",
      "count": 18,
-     "share": 0.078
+     "share": 0.079
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 7,
-     "share": 0.03
+     "share": 0.031
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 7,
-     "share": 0.03
+     "share": 0.031
     },
     {
      "name": "AI",
@@ -2621,13 +2678,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 223,
+    "설명": 222,
     "없음": 7
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 89
+     "count": 88
     },
     {
      "word": "있습니다",
@@ -2638,11 +2695,11 @@
      "count": 58
     },
     {
-     "word": "역사",
-     "count": 53
+     "word": "함께",
+     "count": 52
     },
     {
-     "word": "함께",
+     "word": "역사",
      "count": 52
     },
     {
@@ -2651,7 +2708,7 @@
     },
     {
      "word": "영상은",
-     "count": 45
+     "count": 44
     },
     {
      "word": "이야기",
@@ -2659,7 +2716,7 @@
     },
     {
      "word": "바탕으로",
-     "count": 43
+     "count": 42
     },
     {
      "word": "조선의",
@@ -2674,7 +2731,7 @@
      "count": 39
     }
    ],
-   "chapters_share": 0.443,
+   "chapters_share": 0.445,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -2696,36 +2753,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 38866,
+   "comments": 38711,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 7368,
+     "count": 7338,
      "share": 0.19
     },
     {
      "name": "칭찬·감사",
-     "count": 3167,
-     "share": 0.081
+     "count": 3158,
+     "share": 0.082
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 1913,
+     "count": 1907,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1528,
+     "count": 1522,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 1422,
+     "count": 1419,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 558,
+     "count": 556,
      "share": 0.014
     }
    ],
@@ -2793,10 +2850,10 @@
    ]
   },
   {
-   "weeks": 7,
-   "label": "최근 7주",
-   "videos": 269,
-   "channels": 176,
+   "weeks": 9,
+   "label": "최근 9주",
+   "videos": 268,
+   "channels": 175,
    "new_this_week": [
     {
      "id": "0jpGanPQC-U",
@@ -2837,11 +2894,6 @@
      "id": "9ZEt85_5oyw",
      "title": "[🌙조선시대]  한편으로 보는 임진왜란 | 1592년-1599년, 7년 전쟁 전과정",
      "published": "2026-09-14"
-    },
-    {
-     "id": "C13y7E8GstI",
-     "title": "네팔의 비극 뒤에 숨겨진 역사… 중국이 히말라야에 묻어둔 230조 원짜리 덫의 정체",
-     "published": "2026-09-09"
     },
     {
      "id": "DButhfdWiN4",
@@ -2964,6 +3016,11 @@
      "published": "2026-09-11"
     },
     {
+     "id": "sJALZovMFJM",
+     "title": "이순신의 일기에서 32일이 사라졌습니다,진짜  이순신의 모습",
+     "published": "2026-09-17"
+    },
+    {
      "id": "tS5qj6B66kc",
      "title": "청나라를 위협한 '미지의 제국', 백두산정계비를 세우게 만든 진짜 이유",
      "published": "2026-09-12"
@@ -2994,17 +3051,17 @@
      "published": "2026-09-13"
     }
    ],
-   "views_median": 173311,
-   "views_per_day_median": 10683.2,
-   "ratio_median": 16.21,
-   "success": 192,
-   "minutes_median": 21.4,
+   "views_median": 173242.5,
+   "views_per_day_median": 10825.25,
+   "ratio_median": 15.91,
+   "success": 135,
+   "minutes_median": 21.65,
    "title_len_avg": 47.0,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 81,
-     "share": 0.301
+     "share": 0.302
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
@@ -3014,7 +3071,7 @@
     {
      "name": "이유",
      "count": 41,
-     "share": 0.152
+     "share": 0.153
     },
     {
      "name": "vs 비교",
@@ -3088,7 +3145,7 @@
     },
     {
      "word": "역사",
-     "count": 29
+     "count": 28
     },
     {
      "word": "이순신",
@@ -3123,7 +3180,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 262,
+    "설명": 261,
     "없음": 7
    },
    "content_words": [
@@ -3132,16 +3189,16 @@
      "count": 102
     },
     {
-     "word": "있습니다",
-     "count": 74
-    },
-    {
      "word": "조선",
      "count": 73
     },
     {
+     "word": "있습니다",
+     "count": 73
+    },
+    {
      "word": "역사",
-     "count": 64
+     "count": 63
     },
     {
      "word": "함께",
@@ -3153,7 +3210,7 @@
     },
     {
      "word": "영상은",
-     "count": 56
+     "count": 55
     },
     {
      "word": "이야기",
@@ -3165,7 +3222,7 @@
     },
     {
      "word": "바탕으로",
-     "count": 50
+     "count": 49
     },
     {
      "word": "어떻게",
@@ -3176,7 +3233,7 @@
      "count": 44
     }
    ],
-   "chapters_share": 0.428,
+   "chapters_share": 0.425,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -3198,26 +3255,26 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 46934,
+   "comments": 46843,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 8794,
-     "share": 0.187
+     "count": 8789,
+     "share": 0.188
     },
     {
      "name": "칭찬·감사",
-     "count": 3777,
-     "share": 0.08
+     "count": 3774,
+     "share": 0.081
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 2298,
+     "count": 2297,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 1797,
+     "count": 1790,
      "share": 0.038
     },
     {
@@ -3295,8 +3352,8 @@
    ]
   },
   {
-   "weeks": 8,
-   "label": "최근 8주",
+   "weeks": 10,
+   "label": "최근 10주",
    "videos": 303,
    "channels": 196,
    "new_this_week": [
@@ -3319,6 +3376,11 @@
      "id": "B5Yqnj_CfVg",
      "title": "[3부작] 이순신의 실제 얼굴을 찾아서(최종회)",
      "published": "2026-09-05"
+    },
+    {
+     "id": "C13y7E8GstI",
+     "title": "네팔의 비극 뒤에 숨겨진 역사… 중국이 히말라야에 묻어둔 230조 원짜리 덫의 정체",
+     "published": "2026-09-09"
     },
     {
      "id": "FNDoVzaL0pI",
@@ -3474,7 +3536,7 @@
    "views_median": 177438,
    "views_per_day_median": 10463.3,
    "ratio_median": 14.11,
-   "success": 211,
+   "success": 149,
    "minutes_median": 21.9,
    "title_len_avg": 47.6,
    "title_features": [
@@ -3777,10 +3839,10 @@
    ]
   },
   {
-   "weeks": 9,
-   "label": "최근 9주",
-   "videos": 341,
-   "channels": 215,
+   "weeks": 11,
+   "label": "최근 11주",
+   "videos": 336,
+   "channels": 212,
    "new_this_week": [
     {
      "id": "06ORKfm5PHU",
@@ -3843,11 +3905,6 @@
      "published": "2026-08-29"
     },
     {
-     "id": "MPhEoG48MGw",
-     "title": "🌙 고려 474년 전체 역사 몰아보기 풀버전｜한 번 보면 잊을 수 없는 고려 이야기",
-     "published": "2026-08-26"
-    },
-    {
      "id": "N9zFttW2fco",
      "title": "근친혼을 하면 나타나는 얼굴의 변화 | 의학의 역사 근친혼 편",
      "published": "2026-08-30"
@@ -3898,11 +3955,6 @@
      "published": "2026-09-01"
     },
     {
-     "id": "aDOcfa9fnjg",
-     "title": "광해를 내쫓고 왜 하필 인조를 세워서 나라를 망쳐놨을까?｜인조반정｜병자호란｜삼전도의굴욕｜한국사｜조선사｜역사",
-     "published": "2026-08-26"
-    },
-    {
      "id": "aMVakhKmWbE",
      "title": "우리가 배운 ‘최초 문명’ 이전 — 바다 밑에서 1만 년 전 흔적이 나왔다",
      "published": "2026-08-29"
@@ -3933,29 +3985,14 @@
      "published": "2026-08-27"
     },
     {
-     "id": "ptxr6rzOhA4",
-     "title": "[숨겨진 중국사]  만주의 주인은 중국이 아니었다, 금나라 정사 1권이 남긴 시조의 출신지   | 역사인물 | 야사 | 비사",
-     "published": "2026-08-27"
-    },
-    {
      "id": "qbc8clunueY",
      "title": "🌙성우 이지선 낭독 | 드라마보다 더 재밌는 백제 700년 풀스토리 | 잘듣세",
      "published": "2026-08-30"
     },
     {
-     "id": "sgral4YYJWE",
-     "title": "김이박이 절반인 이유 | 아무도 제대로 알려주지 않은 성씨의 역사",
-     "published": "2026-08-26"
-    },
-    {
      "id": "wl-pu2vCAY4",
      "title": "역모로 쫓긴 대감집 아씨를 가마니에 숨겨온 심마니, 조선 거상이 되다| 야담.수면 오디오북.조선야담.조선한국사.조선로맨스.조선사업이야기",
      "published": "2026-08-27"
-    },
-    {
-     "id": "xxipeQj8G1s",
-     "title": "기묘하게 닮은 한국과 폴란드 이야기 (feat.영화 피아니스트, 바르샤바봉기)",
-     "published": "2026-08-26"
     },
     {
      "id": "xxisrZG3d0I",
@@ -3973,52 +4010,52 @@
      "published": "2026-08-31"
     }
    ],
-   "views_median": 179098,
-   "views_per_day_median": 9788.9,
-   "ratio_median": 14.21,
-   "success": 238,
-   "minutes_median": 22.5,
+   "views_median": 178825.0,
+   "views_per_day_median": 9842.15,
+   "ratio_median": 14.56,
+   "success": 166,
+   "minutes_median": 22.15,
    "title_len_avg": 48.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 94,
-     "share": 0.276
+     "count": 93,
+     "share": 0.277
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 58,
+     "count": 57,
      "share": 0.17
     },
     {
      "name": "이유",
-     "count": 54,
+     "count": 53,
      "share": 0.158
     },
     {
      "name": "vs 비교",
      "count": 35,
-     "share": 0.103
+     "share": 0.104
     },
     {
      "name": "느낌표 !",
      "count": 29,
-     "share": 0.085
+     "share": 0.086
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 9,
-     "share": 0.026
+     "share": 0.027
     },
     {
      "name": "AI",
      "count": 9,
-     "share": 0.026
+     "share": 0.027
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 8,
-     "share": 0.023
+     "share": 0.024
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -4068,11 +4105,11 @@
     },
     {
      "word": "이유",
-     "count": 53
+     "count": 52
     },
     {
      "word": "역사",
-     "count": 46
+     "count": 43
     },
     {
      "word": "방송",
@@ -4083,12 +4120,12 @@
      "count": 20
     },
     {
-     "word": "한국사",
+     "word": "어떻게",
      "count": 18
     },
     {
-     "word": "어떻게",
-     "count": 18
+     "word": "한국사",
+     "count": 17
     },
     {
      "word": "EP",
@@ -4099,7 +4136,7 @@
      "count": 16
     },
     {
-     "word": "이야기",
+     "word": "KBS",
      "count": 15
     }
    ],
@@ -4107,21 +4144,21 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 329,
+    "설명": 324,
     "없음": 12
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 130
+     "count": 128
     },
     {
      "word": "있습니다",
-     "count": 93
+     "count": 91
     },
     {
      "word": "조선",
-     "count": 91
+     "count": 89
     },
     {
      "word": "역사",
@@ -4132,12 +4169,12 @@
      "count": 73
     },
     {
-     "word": "영상은",
-     "count": 71
-    },
-    {
      "word": "함께",
      "count": 70
+    },
+    {
+     "word": "영상은",
+     "count": 69
     },
     {
      "word": "이야기",
@@ -4160,7 +4197,7 @@
      "count": 55
     }
    ],
-   "chapters_share": 0.425,
+   "chapters_share": 0.423,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -4182,40 +4219,40 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 61665,
+   "comments": 60032,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 11174,
+     "count": 10872,
      "share": 0.181
     },
     {
      "name": "칭찬·감사",
-     "count": 5241,
+     "count": 5083,
      "share": 0.085
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 3008,
-     "share": 0.049
+     "count": 2876,
+     "share": 0.048
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 2422,
+     "count": 2341,
      "share": 0.039
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 2278,
-     "share": 0.037
+     "count": 2167,
+     "share": 0.036
     },
     {
      "name": "요청",
-     "count": 924,
+     "count": 893,
      "share": 0.015
     }
    ],
-   "comment_uncategorized": 0.653,
+   "comment_uncategorized": 0.654,
    "top_comments": [
     {
      "text": "여수박람회에 700억 쓸 돈을 EBS 제작비로 쓰자. 훨 값어치 하겠다.",
@@ -4279,8 +4316,8 @@
    ]
   },
   {
-   "weeks": 10,
-   "label": "최근 10주",
+   "weeks": 12,
+   "label": "최근 12주",
    "videos": 376,
    "channels": 235,
    "new_this_week": [
@@ -4360,6 +4397,11 @@
      "published": "2026-08-22"
     },
     {
+     "id": "MPhEoG48MGw",
+     "title": "🌙 고려 474년 전체 역사 몰아보기 풀버전｜한 번 보면 잊을 수 없는 고려 이야기",
+     "published": "2026-08-26"
+    },
+    {
      "id": "Mj85mD9KvmE",
      "title": "조선에서 라면팔면 팔릴까?",
      "published": "2026-08-21"
@@ -4400,6 +4442,11 @@
      "published": "2026-08-20"
     },
     {
+     "id": "aDOcfa9fnjg",
+     "title": "광해를 내쫓고 왜 하필 인조를 세워서 나라를 망쳐놨을까?｜인조반정｜병자호란｜삼전도의굴욕｜한국사｜조선사｜역사",
+     "published": "2026-08-26"
+    },
+    {
      "id": "bKSQ9iKsGA0",
      "title": "중국사ㅣ가족들, 집안에 갇혀 굶어 죽었다. 죽은 지 5개월 후 가문 몰락의 시작ㅣ스승이 죽자 복수를 시작한 만력제ㅣ명나라개혁ㅣ역사인물ㅣ시니어 역사",
      "published": "2026-08-24"
@@ -4435,6 +4482,11 @@
      "published": "2026-08-20"
     },
     {
+     "id": "ptxr6rzOhA4",
+     "title": "[숨겨진 중국사]  만주의 주인은 중국이 아니었다, 금나라 정사 1권이 남긴 시조의 출신지   | 역사인물 | 야사 | 비사",
+     "published": "2026-08-27"
+    },
+    {
      "id": "qfFNXeOMkFw",
      "title": "이름 자체가 ‘배신자’의 대명사로 박제된 세계 매국노 양대산맥 🤬",
      "published": "2026-08-24"
@@ -4443,6 +4495,11 @@
      "id": "rpZDV1r8ZAM",
      "title": "캐나다의 역사 (갈등의 원흉은 영국) [0825]",
      "published": "2026-08-25"
+    },
+    {
+     "id": "sgral4YYJWE",
+     "title": "김이박이 절반인 이유 | 아무도 제대로 알려주지 않은 성씨의 역사",
+     "published": "2026-08-26"
     },
     {
      "id": "vIJyE6oD7tQ",
@@ -4458,12 +4515,17 @@
      "id": "xuJSO9q8Wl8",
      "title": "세계를 다 삼킨 중국 황제 조선만은 못 건드린 이유",
      "published": "2026-08-20"
+    },
+    {
+     "id": "xxipeQj8G1s",
+     "title": "기묘하게 닮은 한국과 폴란드 이야기 (feat.영화 피아니스트, 바르샤바봉기)",
+     "published": "2026-08-26"
     }
    ],
    "views_median": 183356.5,
    "views_per_day_median": 9175.6,
    "ratio_median": 12.8,
-   "success": 261,
+   "success": 192,
    "minutes_median": 23.55,
    "title_len_avg": 48.0,
    "title_features": [
@@ -4766,10 +4828,10 @@
    ]
   },
   {
-   "weeks": 11,
-   "label": "최근 11주",
-   "videos": 406,
-   "channels": 252,
+   "weeks": 13,
+   "label": "최근 13주",
+   "videos": 405,
+   "channels": 251,
    "new_this_week": [
     {
      "id": "-H2SXWoldbw",
@@ -4857,11 +4919,6 @@
      "published": "2026-08-15"
     },
     {
-     "id": "PlAkehM46F0",
-     "title": "신화를 넘어서 팩트로 따라가 보는 고대 그리스 역사 시작의 흥미진진한 스토리 | 역사감동사연 | 역사라디오 | 시니어역사 | 오디오북",
-     "published": "2026-08-12"
-    },
-    {
      "id": "PpJ3imzubBw",
      "title": "노량해전의 숨겨진 기록에 충격! 전세계가 이순신 장군에 놀랄 수 밖에 없던 이유 #썬킴 #매불쇼 #이순신 #명량 #노량",
      "published": "2026-08-15"
@@ -4922,17 +4979,17 @@
      "published": "2026-08-16"
     }
    ],
-   "views_median": 183526.0,
-   "views_per_day_median": 8864.95,
-   "ratio_median": 12.61,
-   "success": 278,
-   "minutes_median": 25.2,
-   "title_len_avg": 48.0,
+   "views_median": 183657,
+   "views_per_day_median": 8869.3,
+   "ratio_median": 12.44,
+   "success": 207,
+   "minutes_median": 24.9,
+   "title_len_avg": 47.9,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 111,
-     "share": 0.273
+     "share": 0.274
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
@@ -4946,8 +5003,8 @@
     },
     {
      "name": "vs 비교",
-     "count": 44,
-     "share": 0.108
+     "count": 43,
+     "share": 0.106
     },
     {
      "name": "느낌표 !",
@@ -4956,8 +5013,8 @@
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 13,
-     "share": 0.032
+     "count": 12,
+     "share": 0.03
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -5021,7 +5078,7 @@
     },
     {
      "word": "역사",
-     "count": 57
+     "count": 56
     },
     {
      "word": "방송",
@@ -5056,7 +5113,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 393,
+    "설명": 392,
     "없음": 13
    },
    "content_words": [
@@ -5082,7 +5139,7 @@
     },
     {
      "word": "역사",
-     "count": 87
+     "count": 86
     },
     {
      "word": "이야기를",
@@ -5106,10 +5163,10 @@
     },
     {
      "word": "AI",
-     "count": 66
+     "count": 65
     }
    ],
-   "chapters_share": 0.433,
+   "chapters_share": 0.435,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -5131,16 +5188,16 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 84030,
+   "comments": 84018,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 14987,
+     "count": 14986,
      "share": 0.178
     },
     {
      "name": "칭찬·감사",
-     "count": 7826,
+     "count": 7818,
      "share": 0.093
     },
     {
@@ -5160,7 +5217,7 @@
     },
     {
      "name": "요청",
-     "count": 1198,
+     "count": 1195,
      "share": 0.014
     }
    ],
@@ -5228,10 +5285,10 @@
    ]
   },
   {
-   "weeks": 12,
-   "label": "최근 12주",
-   "videos": 446,
-   "channels": 267,
+   "weeks": 14,
+   "label": "최근 14주",
+   "videos": 444,
+   "channels": 266,
    "new_this_week": [
     {
      "id": "0w1HkLhUQpE",
@@ -5284,11 +5341,6 @@
      "published": "2026-08-09"
     },
     {
-     "id": "KKDzQPaZCao",
-     "title": "[세계사] 이슬람은 왜 돼지고기를 절대 안 먹을까? 1400년 금기의 진실과 역사 | 이슬람 돼지고기 꾸란 할랄 하람",
-     "published": "2026-08-05"
-    },
-    {
      "id": "KXcBlWpDsao",
      "title": "황제가 죽는 순간… 후궁들의 운명은 왜 이렇게 잔혹했을까？아무도 말하지 않았던 황궁의 잔혹한 진실 | 역사 |시니어역사 | 오디오북",
      "published": "2026-08-10"
@@ -5324,6 +5376,11 @@
      "published": "2026-08-08"
     },
     {
+     "id": "PlAkehM46F0",
+     "title": "신화를 넘어서 팩트로 따라가 보는 고대 그리스 역사 시작의 흥미진진한 스토리 | 역사감동사연 | 역사라디오 | 시니어역사 | 오디오북",
+     "published": "2026-08-12"
+    },
+    {
      "id": "Q9d1dEUVJHI",
      "title": "일본이 이순신보다 두려워 했던 인물? '괴물'이라 부르며 두려워했던 조선의 영웅",
      "published": "2026-08-07"
@@ -5342,11 +5399,6 @@
      "id": "U76L-1Lv5k4",
      "title": "빅토리아 시대 메이드가 된다면? 중세시대 하녀의 실체 이야기 [역사 타임슬립]",
      "published": "2026-08-10"
-    },
-    {
-     "id": "Wsm6NMRilPQ",
-     "title": "조선 최고의 비밀 임무 | 암행어사는 왜 목적지도 모른 채 떠나야 했나",
-     "published": "2026-08-05"
     },
     {
      "id": "Z37l5sHivjA",
@@ -5435,16 +5487,16 @@
     }
    ],
    "views_median": 180461.0,
-   "views_per_day_median": 8178.3,
+   "views_per_day_median": 8233.05,
    "ratio_median": 11.95,
-   "success": 303,
-   "minutes_median": 25.25,
+   "success": 226,
+   "minutes_median": 24.95,
    "title_len_avg": 48.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 126,
-     "share": 0.283
+     "count": 125,
+     "share": 0.282
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
@@ -5454,17 +5506,17 @@
     {
      "name": "이유",
      "count": 64,
-     "share": 0.143
+     "share": 0.144
     },
     {
      "name": "vs 비교",
-     "count": 50,
-     "share": 0.112
+     "count": 49,
+     "share": 0.11
     },
     {
      "name": "느낌표 !",
      "count": 35,
-     "share": 0.078
+     "share": 0.079
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -5474,12 +5526,12 @@
     {
      "name": "직접·해보니·N년 기록",
      "count": 14,
-     "share": 0.031
+     "share": 0.032
     },
     {
      "name": "AI",
      "count": 10,
-     "share": 0.022
+     "share": 0.023
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -5494,7 +5546,7 @@
     {
      "name": "금액(억·만원)",
      "count": 6,
-     "share": 0.013
+     "share": 0.014
     },
     {
      "name": "N가지",
@@ -5525,11 +5577,11 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 67
+     "count": 66
     },
     {
      "word": "역사",
-     "count": 66
+     "count": 65
     },
     {
      "word": "이유",
@@ -5568,13 +5620,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 433,
+    "설명": 431,
     "없음": 13
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 173
+     "count": 172
     },
     {
      "word": "있습니다",
@@ -5586,19 +5638,19 @@
     },
     {
      "word": "영상은",
-     "count": 98
+     "count": 97
     },
     {
      "word": "역사",
-     "count": 98
+     "count": 97
     },
     {
      "word": "함께",
-     "count": 94
+     "count": 93
     },
     {
      "word": "이야기를",
-     "count": 89
+     "count": 88
     },
     {
      "word": "어떻게",
@@ -5617,11 +5669,11 @@
      "count": 74
     },
     {
-     "word": "바탕으로",
-     "count": 74
+     "word": "실제",
+     "count": 73
     }
    ],
-   "chapters_share": 0.422,
+   "chapters_share": 0.419,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -5643,31 +5695,31 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 96457,
+   "comments": 96154,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 17123,
+     "count": 17072,
      "share": 0.178
     },
     {
      "name": "칭찬·감사",
-     "count": 9364,
+     "count": 9351,
      "share": 0.097
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4762,
+     "count": 4745,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 3781,
+     "count": 3760,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 3742,
+     "count": 3735,
      "share": 0.039
     },
     {
@@ -5740,20 +5792,15 @@
    ]
   },
   {
-   "weeks": 13,
-   "label": "최근 13주",
-   "videos": 477,
-   "channels": 276,
+   "weeks": 15,
+   "label": "최근 15주",
+   "videos": 473,
+   "channels": 275,
    "new_this_week": [
     {
      "id": "0Si50CybDIU",
      "title": "지는 사람 목을 벤다｜사백 년 전 두만강 군영에서 실제로 벌어진 일 |조선이 감춘 북방 근무 1년의 기록 | 부북일",
      "published": "2026-08-03"
-    },
-    {
-     "id": "1q5YBYRaeys",
-     "title": "중국이 끝까지 공개를 거부한 초거대 피라미드의 비밀(직접 가봤습니다!)ㅣ역사를 보다 시안 특집 EP.2",
-     "published": "2026-07-29"
     },
     {
      "id": "2KijxN_U_rs",
@@ -5796,6 +5843,11 @@
      "published": "2026-07-31"
     },
     {
+     "id": "KKDzQPaZCao",
+     "title": "[세계사] 이슬람은 왜 돼지고기를 절대 안 먹을까? 1400년 금기의 진실과 역사 | 이슬람 돼지고기 꾸란 할랄 하람",
+     "published": "2026-08-05"
+    },
+    {
      "id": "La_DA95E-Ag",
      "title": "왕의남자 감독이 만들고 주연급 배우만 10명이 나오는 역대급 명작 사극",
      "published": "2026-08-01"
@@ -5836,6 +5888,11 @@
      "published": "2026-08-02"
     },
     {
+     "id": "Wsm6NMRilPQ",
+     "title": "조선 최고의 비밀 임무 | 암행어사는 왜 목적지도 모른 채 떠나야 했나",
+     "published": "2026-08-05"
+    },
+    {
      "id": "_KdSJr42TXI",
      "title": "그리스 로마 신화 완벽 정리 : 태초의 창세부터 올림포스 12신, 트로이 전쟁의 종말까지 [🌙꿀잠 오디오북]",
      "published": "2026-07-31"
@@ -5866,11 +5923,6 @@
      "published": "2026-07-30"
     },
     {
-     "id": "iGUGL0N2TfM",
-     "title": "[숨겨진 중국사] 단4명의 제자가 전국시대를 지배할수 있었던 이유 귀곡자 완전해부 | 역사인물 | 야사 | 비사",
-     "published": "2026-07-30"
-    },
-    {
      "id": "jcUvSMjefq8",
      "title": "《중국 역사》 고대 중국, 남자 첩이 여자 첩보다 더 비극적이었던 이유는? l 역사 인물 l 고전",
      "published": "2026-08-03"
@@ -5889,49 +5941,39 @@
      "id": "s1EWzccBoFc",
      "title": "[타임슬립 AI영화] 임진왜란 울산성 전투 1편, 어서와 최루탄은 처음이지?",
      "published": "2026-08-01"
-    },
-    {
-     "id": "txdGjYYDZos",
-     "title": "대통령 무덤보다 더좋은 명당자리를궁녀출신 후궁이 차지하게된 놀라운 이유| 창빈안씨| 조선역사",
-     "published": "2026-07-29"
-    },
-    {
-     "id": "vJF-TCj9BFI",
-     "title": "[세계사] \"외계인이 만들었을까?\" 5,000년 전 초고대 이집트 문명이 남긴 미스터리 | 이집트 문명 피라미드 미라 파라오 미스터리",
-     "published": "2026-07-29"
     }
    ],
-   "views_median": 179098,
-   "views_per_day_median": 7740.0,
-   "ratio_median": 11.96,
-   "success": 323,
-   "minutes_median": 25.6,
-   "title_len_avg": 47.9,
+   "views_median": 181824,
+   "views_per_day_median": 7755.4,
+   "ratio_median": 12.26,
+   "success": 246,
+   "minutes_median": 25.2,
+   "title_len_avg": 47.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 135,
+     "count": 134,
      "share": 0.283
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 73,
-     "share": 0.153
+     "count": 71,
+     "share": 0.15
     },
     {
      "name": "이유",
-     "count": 68,
-     "share": 0.143
+     "count": 66,
+     "share": 0.14
     },
     {
      "name": "vs 비교",
-     "count": 56,
-     "share": 0.117
+     "count": 54,
+     "share": 0.114
     },
     {
      "name": "느낌표 !",
-     "count": 36,
-     "share": 0.075
+     "count": 35,
+     "share": 0.074
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -5940,8 +5982,8 @@
     },
     {
      "name": "직접·해보니·N년 기록",
-     "count": 15,
-     "share": 0.031
+     "count": 14,
+     "share": 0.03
     },
     {
      "name": "AI",
@@ -6000,7 +6042,7 @@
     },
     {
      "word": "이유",
-     "count": 66
+     "count": 64
     },
     {
      "word": "어떻게",
@@ -6011,12 +6053,12 @@
      "count": 27
     },
     {
-     "word": "EP",
+     "word": "방송",
      "count": 25
     },
     {
-     "word": "방송",
-     "count": 25
+     "word": "EP",
+     "count": 24
     },
     {
      "word": "한국사",
@@ -6027,7 +6069,7 @@
      "count": 22
     },
     {
-     "word": "역사를",
+     "word": "이야기",
      "count": 20
     }
    ],
@@ -6035,37 +6077,37 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 459,
+    "설명": 455,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 187
+     "count": 184
     },
     {
      "word": "조선",
-     "count": 126
+     "count": 125
     },
     {
      "word": "있습니다",
-     "count": 126
+     "count": 125
     },
     {
      "word": "영상은",
-     "count": 109
+     "count": 108
     },
     {
      "word": "역사",
-     "count": 104
+     "count": 103
     },
     {
      "word": "함께",
-     "count": 100
+     "count": 99
     },
     {
      "word": "이야기를",
-     "count": 94
+     "count": 93
     },
     {
      "word": "어떻게",
@@ -6073,7 +6115,7 @@
     },
     {
      "word": "조선의",
-     "count": 85
+     "count": 84
     },
     {
      "word": "AI",
@@ -6110,36 +6152,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 109299,
+   "comments": 108480,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 19135,
+     "count": 19033,
      "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 12341,
-     "share": 0.113
+     "count": 12184,
+     "share": 0.112
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5598,
+     "count": 5579,
      "share": 0.051
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4190,
+     "count": 4174,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4189,
+     "count": 4173,
      "share": 0.038
     },
     {
      "name": "요청",
-     "count": 1602,
+     "count": 1583,
      "share": 0.015
     }
    ],
@@ -6207,15 +6249,20 @@
    ]
   },
   {
-   "weeks": 14,
-   "label": "최근 14주",
-   "videos": 511,
-   "channels": 293,
+   "weeks": 16,
+   "label": "최근 16주",
+   "videos": 506,
+   "channels": 292,
    "new_this_week": [
     {
      "id": "0G6JWsVnOdc",
      "title": "\"어떻게 하루 종일 안지치고 싸웠을까?｜세계 최강 로마군의 ‘병력 교대’ 시스템\"",
      "published": "2026-07-28"
+    },
+    {
+     "id": "1q5YBYRaeys",
+     "title": "중국이 끝까지 공개를 거부한 초거대 피라미드의 비밀(직접 가봤습니다!)ㅣ역사를 보다 시안 특집 EP.2",
+     "published": "2026-07-29"
     },
     {
      "id": "2E5KIxU_k2U",
@@ -6238,16 +6285,6 @@
      "published": "2026-07-24"
     },
     {
-     "id": "AXj7fbQkVos",
-     "title": "조선시대엔 네비게이션도 없이 어떻게 한양까지 갔을까?선비들만 아는 지름길이 있었나?|김정호|대동여지도|한국사",
-     "published": "2026-07-22"
-    },
-    {
-     "id": "BL2vtVh5qWg",
-     "title": "조선시대에 유배를 당한 사람들은 어떻게 살았을까? #역사 #조선시대 #역사이야기",
-     "published": "2026-07-22"
-    },
-    {
      "id": "Ci7XAox-ZRQ",
      "title": "왜 전 세계는 같은 대홍수를 기억할까 | 수메르부터 마야, 한국까지",
      "published": "2026-07-27"
@@ -6261,11 +6298,6 @@
      "id": "I1I433SSBdE",
      "title": "🌙 조선왕조실록 500년｜건국부터 대한제국까지, 조선의 모든 것 (태조~순종)",
      "published": "2026-07-24"
-    },
-    {
-     "id": "IMg_-t4j4Q8",
-     "title": "팰월드 1.0 중후반 희귀 자원 쉽게 얻는 방법 (크로마이트,코랄리움,솔라이트,팰키사이트,고대 문명의 코어)",
-     "published": "2026-07-22"
     },
     {
      "id": "Kp25Hlg6e0M",
@@ -6323,11 +6355,6 @@
      "published": "2026-07-25"
     },
     {
-     "id": "c9t5mx2QjgE",
-     "title": "미 해병대 최악의 전투 '장진호' — 같은 호수, 한쪽만 살아 나온 이유",
-     "published": "2026-07-22"
-    },
-    {
      "id": "dY21RwhecaM",
      "title": "🔥데릴사위에서 국사로 등극! 시작부터 장손황후를 납치하고 유리와 우두법으로 당나라를 압도하다! 황제도 충격!#먼치킨 #판타지 #인생역전 #사이다",
      "published": "2026-07-26"
@@ -6341,6 +6368,11 @@
      "id": "fQRS02C7ZMY",
      "title": "이순신을 살린 대가… 대한민국 함대는 1598년에 갇혔다 | 대한국 프로젝트2 | 4K",
      "published": "2026-07-24"
+    },
+    {
+     "id": "iGUGL0N2TfM",
+     "title": "[숨겨진 중국사] 단4명의 제자가 전국시대를 지배할수 있었던 이유 귀곡자 완전해부 | 역사인물 | 야사 | 비사",
+     "published": "2026-07-30"
     },
     {
      "id": "itVdxpo0sWQ",
@@ -6358,19 +6390,24 @@
      "published": "2026-07-25"
     },
     {
-     "id": "oL_HHgAadmo",
-     "title": "최근 진시황릉 주변에서 나온 미스터리한 관의 정체(16톤짜리 ㄷㄷ)ㅣ역사를 보다 시안 특집 EP.1",
-     "published": "2026-07-22"
-    },
-    {
      "id": "tqMy509cZhs",
      "title": "세계를 몰락시킨 몽골이 끝내 감추고 싶었던 대몽항쟁의 진짜 역사 | 역사다큐 | 한국사 | 세계사 | 처인성전투 | 김윤후 | 살리타이 | 몽골 | 징키츠칸",
      "published": "2026-07-24"
     },
     {
+     "id": "txdGjYYDZos",
+     "title": "대통령 무덤보다 더좋은 명당자리를궁녀출신 후궁이 차지하게된 놀라운 이유| 창빈안씨| 조선역사",
+     "published": "2026-07-29"
+    },
+    {
      "id": "um-bKohXZK0",
      "title": "양반도 부러워했다?! 백정의 충격적인 사생활!! | 조선의 백정 | 한국사",
      "published": "2026-07-26"
+    },
+    {
+     "id": "vJF-TCj9BFI",
+     "title": "[세계사] \"외계인이 만들었을까?\" 5,000년 전 초고대 이집트 문명이 남긴 미스터리 | 이집트 문명 피라미드 미라 파라오 미스터리",
+     "published": "2026-07-29"
     },
     {
      "id": "yJ9x4dJJgwI",
@@ -6383,47 +6420,47 @@
      "published": "2026-07-24"
     }
    ],
-   "views_median": 172502,
-   "views_per_day_median": 6251.4,
-   "ratio_median": 11.96,
-   "success": 346,
-   "minutes_median": 25.7,
+   "views_median": 173242.5,
+   "views_per_day_median": 6374.0,
+   "ratio_median": 11.95,
+   "success": 262,
+   "minutes_median": 25.85,
    "title_len_avg": 48.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 147,
-     "share": 0.288
+     "count": 145,
+     "share": 0.287
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 79,
-     "share": 0.155
+     "count": 78,
+     "share": 0.154
     },
     {
      "name": "이유",
-     "count": 74,
-     "share": 0.145
+     "count": 73,
+     "share": 0.144
     },
     {
      "name": "vs 비교",
-     "count": 60,
-     "share": 0.117
+     "count": 57,
+     "share": 0.113
     },
     {
      "name": "느낌표 !",
      "count": 40,
-     "share": 0.078
+     "share": 0.079
     },
     {
      "name": "사연·오디오북·실화·고백",
      "count": 16,
-     "share": 0.031
+     "share": 0.032
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 16,
-     "share": 0.031
+     "share": 0.032
     },
     {
      "name": "AI",
@@ -6474,7 +6511,7 @@
    "title_words": [
     {
      "word": "역사",
-     "count": 76
+     "count": 75
     },
     {
      "word": "조선",
@@ -6482,95 +6519,95 @@
     },
     {
      "word": "이유",
-     "count": 70
+     "count": 69
     },
     {
      "word": "어떻게",
-     "count": 32
-    },
-    {
-     "word": "조선시대",
-     "count": 28
+     "count": 30
     },
     {
      "word": "한국사",
-     "count": 28
+     "count": 27
+    },
+    {
+     "word": "조선시대",
+     "count": 27
     },
     {
      "word": "EP",
-     "count": 27
+     "count": 26
     },
     {
      "word": "방송",
      "count": 25
     },
     {
-     "word": "역사를",
+     "word": "이순신",
      "count": 22
     },
     {
-     "word": "이순신",
-     "count": 22
+     "word": "역사를",
+     "count": 21
     }
    ],
    "transcripts": 0,
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 493,
+    "설명": 488,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 204
+     "count": 203
     },
     {
      "word": "조선",
-     "count": 137
-    },
-    {
-     "word": "있습니다",
      "count": 135
     },
     {
-     "word": "영상은",
-     "count": 121
+     "word": "있습니다",
+     "count": 133
     },
     {
-     "word": "함께",
-     "count": 113
+     "word": "영상은",
+     "count": 119
     },
     {
      "word": "역사",
      "count": 113
     },
     {
+     "word": "함께",
+     "count": 111
+    },
+    {
      "word": "이야기를",
-     "count": 103
+     "count": 100
     },
     {
      "word": "어떻게",
-     "count": 95
+     "count": 94
     },
     {
      "word": "조선의",
      "count": 92
     },
     {
-     "word": "AI",
-     "count": 88
-    },
-    {
      "word": "바탕으로",
      "count": 88
     },
     {
-     "word": "타임라인",
+     "word": "AI",
+     "count": 87
+    },
+    {
+     "word": "실제",
      "count": 83
     }
    ],
-   "chapters_share": 0.421,
+   "chapters_share": 0.417,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -6592,36 +6629,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 115106,
+   "comments": 113972,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 20115,
+     "count": 19912,
      "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 13147,
+     "count": 12993,
      "share": 0.114
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5864,
+     "count": 5827,
      "share": 0.051
     },
     {
-     "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4410,
+     "name": "비판(가짜·AI·뻔함)",
+     "count": 4375,
      "share": 0.038
     },
     {
-     "name": "비판(가짜·AI·뻔함)",
-     "count": 4397,
+     "name": "원칙·정답(시청자가 스스로 씀)",
+     "count": 4371,
      "share": 0.038
     },
     {
      "name": "요청",
-     "count": 1703,
+     "count": 1680,
      "share": 0.015
     }
    ],
@@ -6689,16 +6726,11 @@
    ]
   },
   {
-   "weeks": 15,
-   "label": "최근 15주",
-   "videos": 534,
-   "channels": 307,
+   "weeks": 17,
+   "label": "최근 17주",
+   "videos": 533,
+   "channels": 306,
    "new_this_week": [
-    {
-     "id": "5FJXjRvIW-s",
-     "title": "나를 멸시하던 양반집 아씨가 내 하녀로 팔려왔다 | 흑매화 장부의 비밀 |조선시대 창작야담 | 오디오북 | 수면동화",
-     "published": "2026-07-15"
-    },
     {
      "id": "5ZVR3QCPQb8",
      "title": "고려는 요녀라 적고 원나라는 총명하다 적었다 — 기황후의 두 얼굴 | 실제 역사 총정리",
@@ -6710,9 +6742,19 @@
      "published": "2026-07-17"
     },
     {
+     "id": "AXj7fbQkVos",
+     "title": "조선시대엔 네비게이션도 없이 어떻게 한양까지 갔을까?선비들만 아는 지름길이 있었나?|김정호|대동여지도|한국사",
+     "published": "2026-07-22"
+    },
+    {
      "id": "AcrIqDy_Okc",
      "title": "밥 한 끼에 3공기 먹고도 굶어 죽었다?\" 사극이 철저히 숨긴 조선 백성들의 소름 돋는 진짜 밥상",
      "published": "2026-07-19"
+    },
+    {
+     "id": "BL2vtVh5qWg",
+     "title": "조선시대에 유배를 당한 사람들은 어떻게 살았을까? #역사 #조선시대 #역사이야기",
+     "published": "2026-07-22"
     },
     {
      "id": "BrJfH7HySwo",
@@ -6723,6 +6765,11 @@
      "id": "CF4biSGrwOg",
      "title": "일본을 400년간 트라우마에 시달리게 한 장수. 이순신이 아닙니다 | 김시민",
      "published": "2026-07-16"
+    },
+    {
+     "id": "IMg_-t4j4Q8",
+     "title": "팰월드 1.0 중후반 희귀 자원 쉽게 얻는 방법 (크로마이트,코랄리움,솔라이트,팰키사이트,고대 문명의 코어)",
+     "published": "2026-07-22"
     },
     {
      "id": "J5wm-3Ctcfs",
@@ -6760,6 +6807,11 @@
      "published": "2026-07-20"
     },
     {
+     "id": "c9t5mx2QjgE",
+     "title": "미 해병대 최악의 전투 '장진호' — 같은 호수, 한쪽만 살아 나온 이유",
+     "published": "2026-07-22"
+    },
+    {
      "id": "f0eYMCDmOyM",
      "title": "밥값만 내면 하룻밤은 공짜? 조선시대 주막의 놀라운 비밀l사라진 줄 알았던 조선 주막ㅣ마지막 주모가 남긴 이야기, 삼강주막",
      "published": "2026-07-18"
@@ -6783,6 +6835,11 @@
      "id": "lUI6y2G873w",
      "title": "누만티아 공성전 (기원전 134–133년) — 난공불락의 요새: 로마군 6만 대 수비대 4천",
      "published": "2026-07-19"
+    },
+    {
+     "id": "oL_HHgAadmo",
+     "title": "최근 진시황릉 주변에서 나온 미스터리한 관의 정체(16톤짜리 ㄷㄷ)ㅣ역사를 보다 시안 특집 EP.1",
+     "published": "2026-07-22"
     },
     {
      "id": "tQ_hwMn7wqU",
@@ -6810,12 +6867,12 @@
      "published": "2026-07-22"
     }
    ],
-   "views_median": 170309.0,
-   "views_per_day_median": 5988.9,
-   "ratio_median": 12.21,
-   "success": 360,
-   "minutes_median": 26.35,
-   "title_len_avg": 48.2,
+   "views_median": 170592,
+   "views_per_day_median": 6001.3,
+   "ratio_median": 12.15,
+   "success": 275,
+   "minutes_median": 26.3,
+   "title_len_avg": 48.1,
    "title_features": [
     {
      "name": "물음표 ?",
@@ -6830,12 +6887,12 @@
     {
      "name": "이유",
      "count": 76,
-     "share": 0.142
+     "share": 0.143
     },
     {
      "name": "vs 비교",
-     "count": 66,
-     "share": 0.124
+     "count": 65,
+     "share": 0.122
     },
     {
      "name": "느낌표 !",
@@ -6844,8 +6901,8 @@
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 17,
-     "share": 0.032
+     "count": 16,
+     "share": 0.03
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -6855,7 +6912,7 @@
     {
      "name": "AI",
      "count": 12,
-     "share": 0.022
+     "share": 0.023
     },
     {
      "name": "과정·벌어진 일·결말·결국",
@@ -6875,7 +6932,7 @@
     {
      "name": "N가지",
      "count": 4,
-     "share": 0.007
+     "share": 0.008
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -6921,7 +6978,7 @@
     },
     {
      "word": "조선시대",
-     "count": 30
+     "count": 29
     },
     {
      "word": "EP",
@@ -6944,13 +7001,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 516,
+    "설명": 515,
     "없음": 18
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 218
+     "count": 217
     },
     {
      "word": "조선",
@@ -6962,7 +7019,7 @@
     },
     {
      "word": "영상은",
-     "count": 128
+     "count": 127
     },
     {
      "word": "역사",
@@ -6997,7 +7054,7 @@
      "count": 90
     }
    ],
-   "chapters_share": 0.423,
+   "chapters_share": 0.424,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -7019,16 +7076,16 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 121565,
+   "comments": 121551,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 21123,
+     "count": 21121,
      "share": 0.174
     },
     {
      "name": "칭찬·감사",
-     "count": 14020,
+     "count": 14018,
      "share": 0.115
     },
     {
@@ -7038,7 +7095,7 @@
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4665,
+     "count": 4664,
      "share": 0.038
     },
     {
@@ -7116,10 +7173,10 @@
    ]
   },
   {
-   "weeks": 16,
-   "label": "최근 16주",
-   "videos": 564,
-   "channels": 324,
+   "weeks": 18,
+   "label": "최근 18주",
+   "videos": 561,
+   "channels": 321,
    "new_this_week": [
     {
      "id": "-8cYcLki-GE",
@@ -7137,6 +7194,11 @@
      "published": "2026-07-13"
     },
     {
+     "id": "5FJXjRvIW-s",
+     "title": "나를 멸시하던 양반집 아씨가 내 하녀로 팔려왔다 | 흑매화 장부의 비밀 |조선시대 창작야담 | 오디오북 | 수면동화",
+     "published": "2026-07-15"
+    },
+    {
      "id": "5Rkq7lrGDAo",
      "title": "[한국사 위인] 인조는 폐왕 광해군을 왜 19년 동안 못죽였을까| 한국사 | 역사인물 | 조선 | 역사다큐 | 야사 | 비사 | 왕조",
      "published": "2026-07-13"
@@ -7145,11 +7207,6 @@
      "id": "78bT34zXITU",
      "title": "1592년, 임진왜란에 떨어진 대한민국 해병대 소대! 한양을 지켜라 | 맹호소대 5화",
      "published": "2026-07-12"
-    },
-    {
-     "id": "9MZ_w0MHkpE",
-     "title": "[감동 사극] 악독한 계모를 피해 도망친 두 자매! 자식 없이 늙어가는 농부의 수양딸이 되어 조선 최고의 거상으로 거듭난 기막힌 사연 (힐링 썰)",
-     "published": "2026-07-08"
     },
     {
      "id": "DisrEocrnVY",
@@ -7175,11 +7232,6 @@
      "id": "L3Zsj0CsYHs",
      "title": "[타임슬립] 천벌1부 | 임진왜란에 떨어진 한국군, 동래성을 구해내다",
      "published": "2026-07-11"
-    },
-    {
-     "id": "MiSjJNMeiGo",
-     "title": "세종대왕이 너무도 사랑한 하루도 빠짐없이 매일밤 찾아갈 수밖에 없었던 여인 신빈 김씨",
-     "published": "2026-07-08"
     },
     {
      "id": "REAZeDKjjbI",
@@ -7262,37 +7314,32 @@
      "published": "2026-07-12"
     },
     {
-     "id": "uqbaeQokoCI",
-     "title": "이순신 장군을 죽음에서 구한 단 한 명의 충신 | 조선 청백리, 오리 이원익",
-     "published": "2026-07-09"
-    },
-    {
      "id": "uu8Ffx5ZnfY",
      "title": "인간은 죽으면 어디로 가는가? 수메르 점토판이 밝힌 충격적인 진실… 아무도 그 함정을 보지 못했다",
      "published": "2026-07-12"
     }
    ],
-   "views_median": 168571.5,
-   "views_per_day_median": 5590.65,
-   "ratio_median": 12.21,
-   "success": 375,
+   "views_median": 169226,
+   "views_per_day_median": 5624.1,
+   "ratio_median": 11.96,
+   "success": 285,
    "minutes_median": 26.4,
-   "title_len_avg": 48.3,
+   "title_len_avg": 48.2,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 154,
-     "share": 0.273
+     "share": 0.275
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 84,
-     "share": 0.149
+     "share": 0.15
     },
     {
      "name": "이유",
      "count": 79,
-     "share": 0.14
+     "share": 0.141
     },
     {
      "name": "vs 비교",
@@ -7301,13 +7348,13 @@
     },
     {
      "name": "느낌표 !",
-     "count": 43,
-     "share": 0.076
+     "count": 42,
+     "share": 0.075
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 18,
-     "share": 0.032
+     "count": 17,
+     "share": 0.03
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -7362,12 +7409,12 @@
    ],
    "title_words": [
     {
-     "word": "조선",
-     "count": 82
-    },
-    {
      "word": "역사",
      "count": 81
+    },
+    {
+     "word": "조선",
+     "count": 80
     },
     {
      "word": "이유",
@@ -7406,7 +7453,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 546,
+    "설명": 543,
     "없음": 18
    },
    "content_words": [
@@ -7416,7 +7463,7 @@
     },
     {
      "word": "조선",
-     "count": 158
+     "count": 155
     },
     {
      "word": "있습니다",
@@ -7424,23 +7471,23 @@
     },
     {
      "word": "영상은",
-     "count": 139
+     "count": 138
     },
     {
      "word": "역사",
-     "count": 127
-    },
-    {
-     "word": "함께",
      "count": 126
     },
     {
+     "word": "함께",
+     "count": 125
+    },
+    {
      "word": "이야기를",
-     "count": 113
+     "count": 111
     },
     {
      "word": "조선의",
-     "count": 109
+     "count": 108
     },
     {
      "word": "어떻게",
@@ -7456,10 +7503,10 @@
     },
     {
      "word": "타임라인",
-     "count": 99
+     "count": 97
     }
    ],
-   "chapters_share": 0.424,
+   "chapters_share": 0.422,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -7481,36 +7528,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 130813,
+   "comments": 130453,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 22640,
+     "count": 22605,
      "share": 0.173
     },
     {
      "name": "칭찬·감사",
-     "count": 15107,
+     "count": 14994,
      "share": 0.115
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6581,
+     "count": 6574,
      "share": 0.05
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 4985,
+     "count": 4976,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4904,
+     "count": 4891,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 1992,
+     "count": 1986,
      "share": 0.015
     }
    ],
@@ -7578,9 +7625,9 @@
    ]
   },
   {
-   "weeks": 17,
-   "label": "최근 17주",
-   "videos": 586,
+   "weeks": 19,
+   "label": "최근 19주",
+   "videos": 585,
    "channels": 331,
    "new_this_week": [
     {
@@ -7597,6 +7644,11 @@
      "id": "2esMNsdBMQc",
      "title": "100년 전 부산의 모습｜1928년 일제강점기 컬러복원【Ep.01】｜Life in Busan under Japanese Rule (1928)",
      "published": "2026-07-05"
+    },
+    {
+     "id": "9MZ_w0MHkpE",
+     "title": "[감동 사극] 악독한 계모를 피해 도망친 두 자매! 자식 없이 늙어가는 농부의 수양딸이 되어 조선 최고의 거상으로 거듭난 기막힌 사연 (힐링 썰)",
+     "published": "2026-07-08"
     },
     {
      "id": "Dbs5fzxgIpc",
@@ -7622,6 +7674,11 @@
      "id": "MGvKBHt5020",
      "title": "왕비가 후궁보다 아기를 못낳는 충격적인 이유| 조선 왕실 합궁 규칙의 함정",
      "published": "2026-07-05"
+    },
+    {
+     "id": "MiSjJNMeiGo",
+     "title": "세종대왕이 너무도 사랑한 하루도 빠짐없이 매일밤 찾아갈 수밖에 없었던 여인 신빈 김씨",
+     "published": "2026-07-08"
     },
     {
      "id": "NDfA0b2Ujxg",
@@ -7679,11 +7736,6 @@
      "published": "2026-07-03"
     },
     {
-     "id": "nxTN1r6q7FE",
-     "title": "제자 4명이 전국시대를 지배했다ㅣ2500년간 금서였던 귀곡자 완전해부 | 역사 | 세계사 | 숨겨진 중국역사 | 귀곡자 | 손자병법 | 역사인물 | 오디오북",
-     "published": "2026-07-01"
-    },
-    {
      "id": "oziUkAAOReY",
      "title": "[이두로 읽는 한일고대사 1화",
      "published": "2026-07-03"
@@ -7692,13 +7744,18 @@
      "id": "tMIab7lVg88",
      "title": "역사에 기록된 가장 멋있었던 죽음들",
      "published": "2026-07-04"
+    },
+    {
+     "id": "uqbaeQokoCI",
+     "title": "이순신 장군을 죽음에서 구한 단 한 명의 충신 | 조선 청백리, 오리 이원익",
+     "published": "2026-07-09"
     }
    ],
-   "views_median": 166737.5,
-   "views_per_day_median": 5085.0,
-   "ratio_median": 12.47,
-   "success": 392,
-   "minutes_median": 26.45,
+   "views_median": 166611,
+   "views_per_day_median": 5033.9,
+   "ratio_median": 12.44,
+   "success": 299,
+   "minutes_median": 26.4,
    "title_len_avg": 48.2,
    "title_features": [
     {
@@ -7709,7 +7766,7 @@
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 87,
-     "share": 0.148
+     "share": 0.149
     },
     {
      "name": "이유",
@@ -7728,8 +7785,8 @@
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 20,
-     "share": 0.034
+     "count": 19,
+     "share": 0.032
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -7789,7 +7846,7 @@
     },
     {
      "word": "역사",
-     "count": 84
+     "count": 83
     },
     {
      "word": "이유",
@@ -7828,13 +7885,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 566,
+    "설명": 565,
     "없음": 20
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 240
+     "count": 239
     },
     {
      "word": "조선",
@@ -7881,7 +7938,7 @@
      "count": 101
     }
    ],
-   "chapters_share": 0.425,
+   "chapters_share": 0.426,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -7903,36 +7960,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 134748,
+   "comments": 134465,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 23130,
+     "count": 23078,
      "share": 0.172
     },
     {
      "name": "칭찬·감사",
-     "count": 15798,
+     "count": 15780,
      "share": 0.117
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6769,
+     "count": 6758,
      "share": 0.05
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5082,
+     "count": 5070,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 4994,
+     "count": 4978,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2085,
+     "count": 2082,
      "share": 0.015
     }
    ],
@@ -8000,10 +8057,10 @@
    ]
   },
   {
-   "weeks": 18,
-   "label": "최근 18주",
-   "videos": 612,
-   "channels": 343,
+   "weeks": 20,
+   "label": "최근 20주",
+   "videos": 611,
+   "channels": 342,
    "new_this_week": [
     {
      "id": "-j9jOJl_ERU",
@@ -8106,6 +8163,11 @@
      "published": "2026-06-28"
     },
     {
+     "id": "nxTN1r6q7FE",
+     "title": "제자 4명이 전국시대를 지배했다ㅣ2500년간 금서였던 귀곡자 완전해부 | 역사 | 세계사 | 숨겨진 중국역사 | 귀곡자 | 손자병법 | 역사인물 | 오디오북",
+     "published": "2026-07-01"
+    },
+    {
      "id": "o-x6sIGANPY",
      "title": "잊혀진 문명, 세계 최강이 사라진 이유",
      "published": "2026-07-01"
@@ -8129,19 +8191,14 @@
      "id": "tl9fSvSwS2g",
      "title": "좌의정을 하고도 비 새는 초가집에서 살은 청백리 정승 | 조선청백리,고불 맹사성",
      "published": "2026-06-29"
-    },
-    {
-     "id": "z6VcKlWaGoo",
-     "title": "[애절한 중국 사극 노래] “나만의 폐하를 사랑하지요” | 황제 무측천이 사랑한 단 하나의 태양 | 성세천하 ost | 이치원조 FMV | 《명명 | 明明》병음/가사",
-     "published": "2026-06-24"
     }
    ],
-   "views_median": 164061.5,
-   "views_per_day_median": 4761.6,
-   "ratio_median": 12.95,
-   "success": 408,
+   "views_median": 164122,
+   "views_per_day_median": 4763.2,
+   "ratio_median": 12.79,
+   "success": 312,
    "minutes_median": 26.5,
-   "title_len_avg": 48.3,
+   "title_len_avg": 48.2,
    "title_features": [
     {
      "name": "물음표 ?",
@@ -8151,7 +8208,7 @@
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 89,
-     "share": 0.145
+     "share": 0.146
     },
     {
      "name": "이유",
@@ -8242,11 +8299,11 @@
      "count": 36
     },
     {
-     "word": "조선시대",
+     "word": "한국사",
      "count": 34
     },
     {
-     "word": "한국사",
+     "word": "조선시대",
      "count": 34
     },
     {
@@ -8270,7 +8327,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 591,
+    "설명": 590,
     "없음": 21
    },
    "content_words": [
@@ -8296,7 +8353,7 @@
     },
     {
      "word": "함께",
-     "count": 139
+     "count": 138
     },
     {
      "word": "이야기를",
@@ -8345,36 +8402,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 139883,
+   "comments": 139776,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 23954,
+     "count": 23930,
      "share": 0.171
     },
     {
      "name": "칭찬·감사",
-     "count": 16441,
+     "count": 16438,
      "share": 0.118
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6998,
+     "count": 6992,
      "share": 0.05
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5330,
+     "count": 5328,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5158,
+     "count": 5154,
      "share": 0.037
     },
     {
      "name": "요청",
-     "count": 2152,
+     "count": 2150,
      "share": 0.015
     }
    ],
@@ -8442,20 +8499,15 @@
    ]
   },
   {
-   "weeks": 19,
-   "label": "최근 19주",
-   "videos": 639,
-   "channels": 356,
+   "weeks": 21,
+   "label": "최근 21주",
+   "videos": 637,
+   "channels": 355,
    "new_this_week": [
     {
      "id": "-FBIBpxt-FY",
      "title": "지구나이 45억년, 인류 이전 초거대 문명의 소름돋는 증거들",
      "published": "2026-06-22"
-    },
-    {
-     "id": "0RMUNVJ5n80",
-     "title": "진주성에 현대군이 간다면? | 임진왜란 퓨전 ",
-     "published": "2026-06-17"
     },
     {
      "id": "0gnfP3KZ31E",
@@ -8486,11 +8538,6 @@
      "id": "BZJ24uQ8qFQ",
      "title": "조선 역사상 가장 아까운 천재 1위 I 당신이 생각하는 천재는 누구?",
      "published": "2026-06-20"
-    },
-    {
-     "id": "CpZdaH5pASk",
-     "title": "태조가 세운 조선은 어떻게 500년 넘게 이어졌나ㅣ우리가 몰랐던 조선왕조실록 자세하고 깊게 몰아보기 | 역사",
-     "published": "2026-06-17"
     },
     {
      "id": "G4WR44Mrbq8",
@@ -8581,18 +8628,23 @@
      "id": "yjX-IdjN48M",
      "title": "임진왜란 이후 에도막부의 등장, 일본의 260년 극적인 변화는?",
      "published": "2026-06-18"
+    },
+    {
+     "id": "z6VcKlWaGoo",
+     "title": "[애절한 중국 사극 노래] “나만의 폐하를 사랑하지요” | 황제 무측천이 사랑한 단 하나의 태양 | 성세천하 ost | 이치원조 FMV | 《명명 | 明明》병음/가사",
+     "published": "2026-06-24"
     }
    ],
-   "views_median": 164122,
-   "views_per_day_median": 4431.8,
-   "ratio_median": 13.1,
-   "success": 423,
+   "views_median": 164263,
+   "views_per_day_median": 4541.2,
+   "ratio_median": 13.17,
+   "success": 325,
    "minutes_median": 26.8,
    "title_len_avg": 48.4,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 174,
+     "count": 173,
      "share": 0.272
     },
     {
@@ -8618,7 +8670,7 @@
     {
      "name": "사연·오디오북·실화·고백",
      "count": 22,
-     "share": 0.034
+     "share": 0.035
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -8678,19 +8730,19 @@
     },
     {
      "word": "역사",
-     "count": 93
+     "count": 92
     },
     {
      "word": "이유",
      "count": 85
     },
     {
-     "word": "어떻게",
+     "word": "한국사",
      "count": 37
     },
     {
-     "word": "한국사",
-     "count": 37
+     "word": "어떻게",
+     "count": 36
     },
     {
      "word": "조선시대",
@@ -8717,53 +8769,53 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 618,
+    "설명": 616,
     "없음": 21
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 263
+     "count": 262
     },
     {
      "word": "조선",
-     "count": 184
+     "count": 183
     },
     {
      "word": "있습니다",
-     "count": 173
+     "count": 172
     },
     {
      "word": "영상은",
-     "count": 169
+     "count": 167
     },
     {
      "word": "역사",
-     "count": 154
+     "count": 152
     },
     {
      "word": "함께",
-     "count": 145
+     "count": 144
     },
     {
      "word": "이야기를",
-     "count": 133
+     "count": 132
     },
     {
      "word": "조선의",
-     "count": 129
+     "count": 127
     },
     {
      "word": "어떻게",
-     "count": 128
+     "count": 126
     },
     {
      "word": "바탕으로",
-     "count": 120
+     "count": 119
     },
     {
      "word": "AI",
-     "count": 113
+     "count": 112
     },
     {
      "word": "가장",
@@ -8792,36 +8844,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 148502,
+   "comments": 148456,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 25294,
+     "count": 25291,
      "share": 0.17
     },
     {
      "name": "칭찬·감사",
-     "count": 17269,
+     "count": 17252,
      "share": 0.116
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7335,
+     "count": 7334,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 5728,
+     "count": 5727,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5409,
+     "count": 5407,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 2246,
+     "count": 2241,
      "share": 0.015
     }
    ],
@@ -8889,15 +8941,15 @@
    ]
   },
   {
-   "weeks": 20,
-   "label": "최근 20주",
-   "videos": 668,
-   "channels": 371,
+   "weeks": 22,
+   "label": "최근 22주",
+   "videos": 666,
+   "channels": 370,
    "new_this_week": [
     {
-     "id": "-Yturcnh4j8",
-     "title": "조선 최고의 검술은 어디서 시작되었나? 기록되지 않은 조선제일검의 계보 [아무도 들려주지 않는 조선왕조실록]",
-     "published": "2026-06-10"
+     "id": "0RMUNVJ5n80",
+     "title": "진주성에 현대군이 간다면? | 임진왜란 퓨전 ",
+     "published": "2026-06-17"
     },
     {
      "id": "1VORKOftvaM",
@@ -8920,6 +8972,11 @@
      "published": "2026-06-16"
     },
     {
+     "id": "CpZdaH5pASk",
+     "title": "태조가 세운 조선은 어떻게 500년 넘게 이어졌나ㅣ우리가 몰랐던 조선왕조실록 자세하고 깊게 몰아보기 | 역사",
+     "published": "2026-06-17"
+    },
+    {
      "id": "DY0tRfuxRhQ",
      "title": "조선 왕조 실록 1대 태조부터 27대 순종까지 한번에 몰아보기 | 27명의 임금 중 진짜 왕이 단 5명뿐인 소름 돋는 이유",
      "published": "2026-06-11"
@@ -8933,11 +8990,6 @@
      "id": "GTC_IBKGQgc",
      "title": "하필이면 은둔하며 평범히 살려 했던 조선 NO.1 검객을 못 알아보고 건드려 버린...",
      "published": "2026-06-12"
-    },
-    {
-     "id": "GaOAwSMZYl8",
-     "title": "[시니어역사] 주역, 세상이 아무리 바뀌어도 흔들리지 않는 법",
-     "published": "2026-06-10"
     },
     {
      "id": "HUl-kxbFBII",
@@ -9041,21 +9093,21 @@
     }
    ],
    "views_median": 166425.0,
-   "views_per_day_median": 4101.55,
-   "ratio_median": 13.78,
-   "success": 444,
+   "views_per_day_median": 4161.15,
+   "ratio_median": 13.52,
+   "success": 343,
    "minutes_median": 26.9,
    "title_len_avg": 48.4,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 180,
+     "count": 179,
      "share": 0.269
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 101,
-     "share": 0.151
+     "share": 0.152
     },
     {
      "name": "이유",
@@ -9070,7 +9122,7 @@
     {
      "name": "느낌표 !",
      "count": 49,
-     "share": 0.073
+     "share": 0.074
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -9085,12 +9137,12 @@
     {
      "name": "AI",
      "count": 15,
-     "share": 0.022
+     "share": 0.023
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 11,
-     "share": 0.016
+     "share": 0.017
     },
     {
      "name": "금액(억·만원)",
@@ -9105,33 +9157,33 @@
     {
      "name": "N가지",
      "count": 5,
-     "share": 0.007
+     "share": 0.008
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 3,
-     "share": 0.004
+     "share": 0.005
     },
     {
      "name": "두 금액(반전)",
      "count": 1,
-     "share": 0.001
+     "share": 0.002
     },
     {
      "name": "공통점",
      "count": 1,
-     "share": 0.001
+     "share": 0.002
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 1,
-     "share": 0.001
+     "share": 0.002
     }
    ],
    "title_words": [
     {
      "word": "조선",
-     "count": 103
+     "count": 102
     },
     {
      "word": "역사",
@@ -9174,7 +9226,7 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 646,
+    "설명": 644,
     "없음": 22
    },
    "content_words": [
@@ -9188,15 +9240,15 @@
     },
     {
      "word": "영상은",
-     "count": 187
+     "count": 185
     },
     {
      "word": "있습니다",
-     "count": 181
+     "count": 179
     },
     {
      "word": "역사",
-     "count": 161
+     "count": 160
     },
     {
      "word": "함께",
@@ -9204,11 +9256,11 @@
     },
     {
      "word": "이야기를",
-     "count": 137
+     "count": 135
     },
     {
      "word": "조선의",
-     "count": 135
+     "count": 134
     },
     {
      "word": "어떻게",
@@ -9216,7 +9268,7 @@
     },
     {
      "word": "바탕으로",
-     "count": 126
+     "count": 125
     },
     {
      "word": "AI",
@@ -9224,10 +9276,10 @@
     },
     {
      "word": "가장",
-     "count": 120
+     "count": 119
     }
    ],
-   "chapters_share": 0.427,
+   "chapters_share": 0.425,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -9249,36 +9301,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 158389,
+   "comments": 158103,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 26895,
+     "count": 26854,
      "share": 0.17
     },
     {
      "name": "칭찬·감사",
-     "count": 18530,
+     "count": 18445,
      "share": 0.117
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7756,
+     "count": 7747,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 6138,
+     "count": 6124,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5751,
+     "count": 5747,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 2419,
+     "count": 2415,
      "share": 0.015
     }
    ],
@@ -9346,15 +9398,15 @@
    ]
   },
   {
-   "weeks": 21,
-   "label": "최근 21주",
-   "videos": 696,
-   "channels": 386,
+   "weeks": 23,
+   "label": "최근 23주",
+   "videos": 693,
+   "channels": 384,
    "new_this_week": [
     {
-     "id": "2QiExRW-Dg8",
-     "title": "세종도 수양대군도 미치도록 사랑한 여인,!! 그런데 노비 출신이라고?ㅣ조선왕조실록ㅣ한국사",
-     "published": "2026-06-03"
+     "id": "-Yturcnh4j8",
+     "title": "조선 최고의 검술은 어디서 시작되었나? 기록되지 않은 조선제일검의 계보 [아무도 들려주지 않는 조선왕조실록]",
+     "published": "2026-06-10"
     },
     {
      "id": "5vBTGmcYA5w",
@@ -9377,6 +9429,11 @@
      "published": "2026-06-09"
     },
     {
+     "id": "GaOAwSMZYl8",
+     "title": "[시니어역사] 주역, 세상이 아무리 바뀌어도 흔들리지 않는 법",
+     "published": "2026-06-10"
+    },
+    {
      "id": "IbaIAa8VCR8",
      "title": "우리가 몰랐던 조선시대 평민들의 충격적인 삶 | 조선역사 | 한국사 | 조선왕조실록 | 자면서 듣기 좋은 역사 이야기 | 자면서 듣는 역사 이야기",
      "published": "2026-06-04"
@@ -9395,11 +9452,6 @@
      "id": "REHceL3oduo",
      "title": "세종대왕 아들 8명 거의 전멸한 진짜 이유 | 세종아들비극 | 천재DNA가부른저주",
      "published": "2026-06-09"
-    },
-    {
-     "id": "S0fim5zCQbI",
-     "title": "왜 11살 꼬마며느리는 망한 집에 웃으며 시집왔을까? 그 정체는? | 야담 | 조선시대 | 오디오북 | 전설 민담",
-     "published": "2026-06-03"
     },
     {
      "id": "U8mDpoSE4DA",
@@ -9482,32 +9534,27 @@
      "published": "2026-06-05"
     },
     {
-     "id": "uFgU7xSrF9I",
-     "title": "승은 한 번으로 조선을 뒤집은 5번의 밤 | 왕의 침실에서 시작된 조선 500년의 나비효과  | 한국사 | 조선왕조실록 |",
-     "published": "2026-06-03"
-    },
-    {
      "id": "wX-80QWb2tg",
      "title": "단종의 친누나 경혜공주, 세조에게 한 조선 역사상 가장 잔인한 복수",
      "published": "2026-06-08"
     }
    ],
-   "views_median": 166763.5,
-   "views_per_day_median": 3685.2,
-   "ratio_median": 13.96,
-   "success": 459,
-   "minutes_median": 27.1,
-   "title_len_avg": 48.6,
+   "views_median": 166663,
+   "views_per_day_median": 3731.7,
+   "ratio_median": 13.75,
+   "success": 357,
+   "minutes_median": 27.0,
+   "title_len_avg": 48.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 186,
-     "share": 0.267
+     "count": 184,
+     "share": 0.266
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 108,
-     "share": 0.155
+     "share": 0.156
     },
     {
      "name": "이유",
@@ -9516,18 +9563,18 @@
     },
     {
      "name": "vs 비교",
-     "count": 96,
-     "share": 0.138
+     "count": 95,
+     "share": 0.137
     },
     {
      "name": "느낌표 !",
-     "count": 52,
-     "share": 0.075
+     "count": 51,
+     "share": 0.074
     },
     {
      "name": "사연·오디오북·실화·고백",
-     "count": 25,
-     "share": 0.036
+     "count": 24,
+     "share": 0.035
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -9545,14 +9592,14 @@
      "share": 0.016
     },
     {
-     "name": "손실 낱말(망하·날린·잃은·반토막)",
-     "count": 9,
-     "share": 0.013
-    },
-    {
      "name": "금액(억·만원)",
      "count": 8,
-     "share": 0.011
+     "share": 0.012
+    },
+    {
+     "name": "손실 낱말(망하·날린·잃은·반토막)",
+     "count": 8,
+     "share": 0.012
     },
     {
      "name": "N가지",
@@ -9583,7 +9630,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 110
+     "count": 109
     },
     {
      "word": "역사",
@@ -9595,11 +9642,11 @@
     },
     {
      "word": "한국사",
-     "count": 47
+     "count": 45
     },
     {
      "word": "조선시대",
-     "count": 42
+     "count": 41
     },
     {
      "word": "어떻게",
@@ -9615,7 +9662,7 @@
     },
     {
      "word": "조선왕조실록",
-     "count": 32
+     "count": 30
     },
     {
      "word": "역사를",
@@ -9626,29 +9673,29 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 674,
+    "설명": 671,
     "없음": 22
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 283
+     "count": 282
     },
     {
      "word": "조선",
-     "count": 214
+     "count": 211
     },
     {
      "word": "영상은",
-     "count": 201
+     "count": 200
     },
     {
      "word": "있습니다",
-     "count": 195
+     "count": 192
     },
     {
      "word": "역사",
-     "count": 167
+     "count": 166
     },
     {
      "word": "함께",
@@ -9660,11 +9707,11 @@
     },
     {
      "word": "이야기를",
-     "count": 142
+     "count": 141
     },
     {
      "word": "어떻게",
-     "count": 141
+     "count": 140
     },
     {
      "word": "바탕으로",
@@ -9672,14 +9719,14 @@
     },
     {
      "word": "AI",
-     "count": 130
+     "count": 129
     },
     {
      "word": "가장",
-     "count": 128
+     "count": 125
     }
    ],
-   "chapters_share": 0.431,
+   "chapters_share": 0.43,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -9701,36 +9748,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 166516,
+   "comments": 165867,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 27978,
+     "count": 27910,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 20010,
-     "share": 0.12
+     "count": 19740,
+     "share": 0.119
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8156,
+     "count": 8124,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 6438,
+     "count": 6417,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 5950,
+     "count": 5939,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 2554,
+     "count": 2534,
      "share": 0.015
     }
    ],
@@ -9798,10 +9845,10 @@
    ]
   },
   {
-   "weeks": 22,
-   "label": "최근 22주",
-   "videos": 728,
-   "channels": 400,
+   "weeks": 24,
+   "label": "최근 24주",
+   "videos": 725,
+   "channels": 399,
    "new_this_week": [
     {
      "id": "212AYS3uovQ",
@@ -9814,9 +9861,9 @@
      "published": "2026-06-03"
     },
     {
-     "id": "25MhghC8gwg",
-     "title": "우리가 알고있던 중국의 역사는 가짜다! 병자호란의 판도를 뒤집는 낯선 진실 | 역사다큐 | 한국사 | 청나라 | 조선시대 | 조선왕조실록",
-     "published": "2026-05-28"
+     "id": "2QiExRW-Dg8",
+     "title": "세종도 수양대군도 미치도록 사랑한 여인,!! 그런데 노비 출신이라고?ㅣ조선왕조실록ㅣ한국사",
+     "published": "2026-06-03"
     },
     {
      "id": "DcJMoVuG9Jw",
@@ -9849,9 +9896,9 @@
      "published": "2026-06-01"
     },
     {
-     "id": "MbnWhQOwocM",
-     "title": "직업이 없던 시대, 고대 인류는 하루 종일 무엇을 했을까? | 인류역사",
-     "published": "2026-05-27"
+     "id": "S0fim5zCQbI",
+     "title": "왜 11살 꼬마며느리는 망한 집에 웃으며 시집왔을까? 그 정체는? | 야담 | 조선시대 | 오디오북 | 전설 민담",
+     "published": "2026-06-03"
     },
     {
      "id": "SiPh04Hz_ps",
@@ -9872,11 +9919,6 @@
      "id": "cIDNBw3QHus",
      "title": "중국 역사에서 갑자기 증발해버린 고대 문명의 흔적(의도적으로..?)ㅣ역사를 보다 EP.141",
      "published": "2026-05-31"
-    },
-    {
-     "id": "d1kg9gfbQkI",
-     "title": "200개 문명이 '같은 날'을 기억하는 소름 돋는 이유 ㅣ 전 세계 200개 문명이 증언하는 대홍수, 과학자들도 인정한 충격적 사실",
-     "published": "2026-05-27"
     },
     {
      "id": "dV8dR2TXhac",
@@ -9944,6 +9986,11 @@
      "published": "2026-06-01"
     },
     {
+     "id": "uFgU7xSrF9I",
+     "title": "승은 한 번으로 조선을 뒤집은 5번의 밤 | 왕의 침실에서 시작된 조선 500년의 나비효과  | 한국사 | 조선왕조실록 |",
+     "published": "2026-06-03"
+    },
+    {
      "id": "w6G1N2fUNQg",
      "title": "사수 전투 │ 고당전쟁 역사상 가장 위대했던 고구려와 연개소문의 승리. AI 단편 사극 영화",
      "published": "2026-05-29"
@@ -9964,37 +10011,37 @@
      "published": "2026-06-02"
     }
    ],
-   "views_median": 165251.0,
-   "views_per_day_median": 3304.5,
-   "ratio_median": 13.96,
-   "success": 475,
-   "minutes_median": 27.15,
+   "views_median": 166239,
+   "views_per_day_median": 3341.4,
+   "ratio_median": 13.75,
+   "success": 370,
+   "minutes_median": 27.2,
    "title_len_avg": 48.7,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 192,
-     "share": 0.264
+     "count": 191,
+     "share": 0.263
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 117,
-     "share": 0.161
+     "count": 116,
+     "share": 0.16
     },
     {
      "name": "이유",
-     "count": 110,
-     "share": 0.151
+     "count": 109,
+     "share": 0.15
     },
     {
      "name": "vs 비교",
-     "count": 106,
-     "share": 0.146
+     "count": 104,
+     "share": 0.143
     },
     {
      "name": "느낌표 !",
-     "count": 55,
-     "share": 0.076
+     "count": 54,
+     "share": 0.074
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -10059,7 +10106,7 @@
     },
     {
      "word": "이유",
-     "count": 103
+     "count": 102
     },
     {
      "word": "역사",
@@ -10067,11 +10114,11 @@
     },
     {
      "word": "한국사",
-     "count": 51
+     "count": 50
     },
     {
      "word": "조선시대",
-     "count": 47
+     "count": 46
     },
     {
      "word": "어떻게",
@@ -10083,7 +10130,7 @@
     },
     {
      "word": "조선왕조실록",
-     "count": 35
+     "count": 34
     },
     {
      "word": "충격적인",
@@ -10098,13 +10145,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 706,
+    "설명": 703,
     "없음": 22
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 296
+     "count": 294
     },
     {
      "word": "조선",
@@ -10112,23 +10159,23 @@
     },
     {
      "word": "영상은",
-     "count": 214
+     "count": 213
     },
     {
      "word": "있습니다",
-     "count": 203
+     "count": 201
     },
     {
      "word": "역사",
-     "count": 174
+     "count": 173
     },
     {
      "word": "함께",
-     "count": 162
+     "count": 161
     },
     {
      "word": "어떻게",
-     "count": 151
+     "count": 149
     },
     {
      "word": "조선의",
@@ -10136,7 +10183,7 @@
     },
     {
      "word": "이야기를",
-     "count": 148
+     "count": 146
     },
     {
      "word": "바탕으로",
@@ -10151,7 +10198,7 @@
      "count": 133
     }
    ],
-   "chapters_share": 0.427,
+   "chapters_share": 0.426,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -10173,37 +10220,37 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 176113,
+   "comments": 174163,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 29419,
+     "count": 29102,
      "share": 0.167
     },
     {
      "name": "칭찬·감사",
-     "count": 21174,
+     "count": 20897,
      "share": 0.12
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8588,
+     "count": 8489,
      "share": 0.049
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 6809,
+     "count": 6714,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 6280,
+     "count": 6203,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 2727,
-     "share": 0.015
+     "count": 2717,
+     "share": 0.016
     }
    ],
    "comment_uncategorized": 0.638,
@@ -10270,15 +10317,20 @@
    ]
   },
   {
-   "weeks": 23,
-   "label": "최근 23주",
-   "videos": 761,
-   "channels": 418,
+   "weeks": 25,
+   "label": "최근 25주",
+   "videos": 758,
+   "channels": 416,
    "new_this_week": [
     {
      "id": "0lfKtPz-4PY",
      "title": "주고후 – 영락제의 피를 이은 그는 왜 아버지의 ‘반역의 업보’를 그대로 되풀이했나?",
      "published": "2026-05-25"
+    },
+    {
+     "id": "25MhghC8gwg",
+     "title": "우리가 알고있던 중국의 역사는 가짜다! 병자호란의 판도를 뒤집는 낯선 진실 | 역사다큐 | 한국사 | 청나라 | 조선시대 | 조선왕조실록",
+     "published": "2026-05-28"
     },
     {
      "id": "5zc-yW_ecN8",
@@ -10324,6 +10376,11 @@
      "id": "KSw7CuSoNy0",
      "title": "무너진 일본 왕 무덤에서 쏟아진 충격적인 유물들..(출신이..우리쪽?)ㅣ역사를 보다 EP.140",
      "published": "2026-05-24"
+    },
+    {
+     "id": "MbnWhQOwocM",
+     "title": "직업이 없던 시대, 고대 인류는 하루 종일 무엇을 했을까? | 인류역사",
+     "published": "2026-05-27"
     },
     {
      "id": "N6THuYELTWU",
@@ -10386,14 +10443,9 @@
      "published": "2026-05-27"
     },
     {
-     "id": "eY_TrTKsIJ0",
-     "title": "[역사한줄] 조선시대 실제군인이 작성한 일기내용 #조선역사 #한국사  #부북일기",
-     "published": "2026-05-20"
-    },
-    {
-     "id": "gKhL7p_uupA",
-     "title": "조선 왕의 밥상에는 뭐가 올라왔을까 | 수라상, 하루 두 번 차려진 왕의 식탁",
-     "published": "2026-05-20"
+     "id": "d1kg9gfbQkI",
+     "title": "200개 문명이 '같은 날'을 기억하는 소름 돋는 이유 ㅣ 전 세계 200개 문명이 증언하는 대홍수, 과학자들도 인정한 충격적 사실",
+     "published": "2026-05-27"
     },
     {
      "id": "h49qZxvEQmM",
@@ -10416,11 +10468,6 @@
      "published": "2026-05-22"
     },
     {
-     "id": "rNrXJodHv8g",
-     "title": "2,500년 동안 누구도 답을 못 낸 고대 미스터리 TOP 7",
-     "published": "2026-05-20"
-    },
-    {
      "id": "s7LL9Av66No",
      "title": "강철소대: 타임슬립 1636 병자호란에 떨어진 대한민국 군대 1~5화 전편 몰아보기 [AI 단편 영화]",
      "published": "2026-05-23"
@@ -10441,27 +10488,27 @@
      "published": "2026-05-25"
     }
    ],
-   "views_median": 163896,
-   "views_per_day_median": 3155.6,
-   "ratio_median": 14.66,
-   "success": 497,
-   "minutes_median": 27.1,
+   "views_median": 163948.5,
+   "views_per_day_median": 3174.9,
+   "ratio_median": 14.4,
+   "success": 392,
+   "minutes_median": 27.15,
    "title_len_avg": 48.6,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 197,
-     "share": 0.259
+     "share": 0.26
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 118,
-     "share": 0.155
+     "share": 0.156
     },
     {
      "name": "vs 비교",
-     "count": 118,
-     "share": 0.155
+     "count": 116,
+     "share": 0.153
     },
     {
      "name": "이유",
@@ -10476,12 +10523,12 @@
     {
      "name": "사연·오디오북·실화·고백",
      "count": 27,
-     "share": 0.035
+     "share": 0.036
     },
     {
      "name": "직접·해보니·N년 기록",
-     "count": 22,
-     "share": 0.029
+     "count": 21,
+     "share": 0.028
     },
     {
      "name": "AI",
@@ -10491,7 +10538,7 @@
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 11,
-     "share": 0.014
+     "share": 0.015
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -10532,7 +10579,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 122
+     "count": 121
     },
     {
      "word": "이유",
@@ -10544,11 +10591,11 @@
     },
     {
      "word": "조선시대",
-     "count": 54
+     "count": 53
     },
     {
      "word": "한국사",
-     "count": 52
+     "count": 51
     },
     {
      "word": "어떻게",
@@ -10575,17 +10622,17 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 739,
+    "설명": 736,
     "없음": 22
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 309
+     "count": 308
     },
     {
      "word": "조선",
-     "count": 240
+     "count": 238
     },
     {
      "word": "영상은",
@@ -10593,7 +10640,7 @@
     },
     {
      "word": "있습니다",
-     "count": 211
+     "count": 210
     },
     {
      "word": "역사",
@@ -10605,7 +10652,7 @@
     },
     {
      "word": "어떻게",
-     "count": 156
+     "count": 155
     },
     {
      "word": "조선의",
@@ -10628,7 +10675,7 @@
      "count": 138
     }
    ],
-   "chapters_share": 0.424,
+   "chapters_share": 0.425,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -10650,36 +10697,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 190008,
+   "comments": 189671,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 31902,
+     "count": 31831,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 22134,
-     "share": 0.116
+     "count": 22117,
+     "share": 0.117
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 9146,
+     "count": 9136,
      "share": 0.048
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 7291,
+     "count": 7276,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 6738,
+     "count": 6717,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 2836,
+     "count": 2835,
      "share": 0.015
     }
    ],
@@ -10747,10 +10794,10 @@
    ]
   },
   {
-   "weeks": 24,
-   "label": "최근 24주",
-   "videos": 783,
-   "channels": 426,
+   "weeks": 26,
+   "label": "최근 26주",
+   "videos": 779,
+   "channels": 424,
    "new_this_week": [
     {
      "id": "6ddISd5RbWU",
@@ -10808,9 +10855,14 @@
      "published": "2026-05-16"
     },
     {
-     "id": "fZ5qKE4lh9Q",
-     "title": "[숨겨진 중국역사] 중국 역사 속 유령 병사와 2000년 동안 예외 없이 반복된 대제국 멸망의 공식 | 역사강의 | 역사인물 | 몽골역사 | 정사 | 야사",
-     "published": "2026-05-14"
+     "id": "eY_TrTKsIJ0",
+     "title": "[역사한줄] 조선시대 실제군인이 작성한 일기내용 #조선역사 #한국사  #부북일기",
+     "published": "2026-05-20"
+    },
+    {
+     "id": "gKhL7p_uupA",
+     "title": "조선 왕의 밥상에는 뭐가 올라왔을까 | 수라상, 하루 두 번 차려진 왕의 식탁",
+     "published": "2026-05-20"
     },
     {
      "id": "l8yHqJy1Ops",
@@ -10818,14 +10870,9 @@
      "published": "2026-05-16"
     },
     {
-     "id": "mVSr1ixtdfw",
-     "title": "아직도 설명할 수 없는 미스터리한 고대 발견 15가지",
-     "published": "2026-05-13"
-    },
-    {
-     "id": "pzplt858cEQ",
-     "title": "경복궁 3,000명의 화장실은 어디 갔을까?ㅣ지하 정화조ㅣ분뇨 경제학ㅣ조선 궁궐 순환 시스템 완전 해부",
-     "published": "2026-05-14"
+     "id": "rNrXJodHv8g",
+     "title": "2,500년 동안 누구도 답을 못 낸 고대 미스터리 TOP 7",
+     "published": "2026-05-20"
     },
     {
      "id": "tYhezr6EsTo",
@@ -10843,11 +10890,6 @@
      "published": "2026-05-14"
     },
     {
-     "id": "wScaIvRspYc",
-     "title": "승률 100% 이순신 장군이 설계한 지옥도",
-     "published": "2026-05-13"
-    },
-    {
      "id": "wZFzM4eh7yw",
      "title": "세계 최대 종교 기독교가 일본을 뚫지 못한 이유(신부님도 개종시켜버림..)ㅣ역사를 보다 EP.139",
      "published": "2026-05-17"
@@ -10863,32 +10905,32 @@
      "published": "2026-05-17"
     }
    ],
-   "views_median": 163896,
-   "views_per_day_median": 3018.0,
-   "ratio_median": 14.21,
-   "success": 504,
+   "views_median": 164001,
+   "views_per_day_median": 3056.6,
+   "ratio_median": 14.34,
+   "success": 399,
    "minutes_median": 27.5,
    "title_len_avg": 48.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 202,
+     "count": 201,
      "share": 0.258
     },
     {
      "name": "vs 비교",
-     "count": 123,
+     "count": 122,
      "share": 0.157
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 122,
-     "share": 0.156
+     "count": 121,
+     "share": 0.155
     },
     {
      "name": "이유",
      "count": 113,
-     "share": 0.144
+     "share": 0.145
     },
     {
      "name": "느낌표 !",
@@ -10902,8 +10944,8 @@
     },
     {
      "name": "직접·해보니·N년 기록",
-     "count": 23,
-     "share": 0.029
+     "count": 22,
+     "share": 0.028
     },
     {
      "name": "AI",
@@ -10921,12 +10963,12 @@
      "share": 0.014
     },
     {
-     "name": "N가지",
-     "count": 9,
-     "share": 0.011
+     "name": "금액(억·만원)",
+     "count": 8,
+     "share": 0.01
     },
     {
-     "name": "금액(억·만원)",
+     "name": "N가지",
      "count": 8,
      "share": 0.01
     },
@@ -10954,7 +10996,7 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 123
+     "count": 122
     },
     {
      "word": "이유",
@@ -10962,7 +11004,7 @@
     },
     {
      "word": "역사",
-     "count": 105
+     "count": 104
     },
     {
      "word": "조선시대",
@@ -10997,21 +11039,21 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 760,
+    "설명": 756,
     "없음": 23
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 319
+     "count": 317
     },
     {
      "word": "조선",
-     "count": 248
+     "count": 247
     },
     {
      "word": "영상은",
-     "count": 238
+     "count": 237
     },
     {
      "word": "있습니다",
@@ -11019,7 +11061,7 @@
     },
     {
      "word": "역사",
-     "count": 187
+     "count": 185
     },
     {
      "word": "함께",
@@ -11047,10 +11089,10 @@
     },
     {
      "word": "가장",
-     "count": 144
+     "count": 142
     }
    ],
-   "chapters_share": 0.423,
+   "chapters_share": 0.425,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -11072,40 +11114,40 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 195946,
+   "comments": 195358,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 32826,
+     "count": 32755,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 23180,
+     "count": 23039,
      "share": 0.118
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 9462,
+     "count": 9445,
      "share": 0.048
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 7485,
+     "count": 7473,
      "share": 0.038
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 6926,
+     "count": 6914,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 2962,
+     "count": 2960,
      "share": 0.015
     }
    ],
-   "comment_uncategorized": 0.639,
+   "comment_uncategorized": 0.64,
    "top_comments": [
     {
      "text": "이제는 딱히 숨길 생각도 없는 놈들...",
@@ -11169,10 +11211,10 @@
    ]
   },
   {
-   "weeks": 25,
-   "label": "최근 25주",
-   "videos": 827,
-   "channels": 451,
+   "weeks": 27,
+   "label": "최근 27주",
+   "videos": 823,
+   "channels": 449,
    "new_this_week": [
     {
      "id": "0aRr9dRPf-I",
@@ -11213,11 +11255,6 @@
      "id": "5dELsNr_kgU",
      "title": "왕이 직접 만든 괴물 | 조선 역사상 가장 위험한 남자 홍윤성의 모든 것",
      "published": "2026-05-07"
-    },
-    {
-     "id": "67_mrdQlz5g",
-     "title": "한명회보다 더 악랄했던 남자, 결국 \"이렇게\" 죽었다",
-     "published": "2026-05-06"
     },
     {
      "id": "7_UjHlAN6-E",
@@ -11280,11 +11317,6 @@
      "published": "2026-05-08"
     },
     {
-     "id": "P9nHouyJ1Hg",
-     "title": "단종보다 10배 더 슬픈 광해군의 19년 생지옥… 원수의 파멸을 두 눈으로 지켜본 늙은 왕!",
-     "published": "2026-05-06"
-    },
-    {
      "id": "Xl4HbydufoE",
      "title": "한때 노인정 휩쓸던 '수지침'이 한순간에 사라진 충격적인 이유 | 고려수지요법",
      "published": "2026-05-13"
@@ -11295,11 +11327,6 @@
      "published": "2026-05-07"
     },
     {
-     "id": "dIT9jkOlx2A",
-     "title": "🌙 들으면서 주무세요 | 약소국에서 삼국통일까지, 신라 천 년의 이야기 ｜달빛 역사관",
-     "published": "2026-05-06"
-    },
-    {
      "id": "dfG1m38EBcw",
      "title": "'세종이 한글을 만든 건 중국 때문?!' 시대를 앞서간 세종의 미친 통찰력 (w.김진명 작가) | 로컬수다 EP.12",
      "published": "2026-05-07"
@@ -11308,6 +11335,11 @@
      "id": "esb1CTy8ggc",
      "title": "교과서에서 통째로 삭제된 조선 천재들-왜 이걸 안 가르쳐줬을까?",
      "published": "2026-05-11"
+    },
+    {
+     "id": "fZ5qKE4lh9Q",
+     "title": "[숨겨진 중국역사] 중국 역사 속 유령 병사와 2000년 동안 예외 없이 반복된 대제국 멸망의 공식 | 역사강의 | 역사인물 | 몽골역사 | 정사 | 야사",
+     "published": "2026-05-14"
     },
     {
      "id": "i88zvql3pbc",
@@ -11350,6 +11382,11 @@
      "published": "2026-05-11"
     },
     {
+     "id": "mVSr1ixtdfw",
+     "title": "아직도 설명할 수 없는 미스터리한 고대 발견 15가지",
+     "published": "2026-05-13"
+    },
+    {
      "id": "p-seGJdExSo",
      "title": "조선을 멸망에서 구한 건 세조였다? 우리가 몰랐던 1453년 계유정난의 충격적 진실 | 역사 선생님도 안알려주는 단종의 무능함",
      "published": "2026-05-09"
@@ -11358,6 +11395,11 @@
      "id": "p2GdsHXjYk0",
      "title": "400년 전 조선 사람들은 도대체 뭘 먹었을까?",
      "published": "2026-05-07"
+    },
+    {
+     "id": "pzplt858cEQ",
+     "title": "경복궁 3,000명의 화장실은 어디 갔을까?ㅣ지하 정화조ㅣ분뇨 경제학ㅣ조선 궁궐 순환 시스템 완전 해부",
+     "published": "2026-05-14"
     },
     {
      "id": "rMcAaykM45c",
@@ -11385,9 +11427,9 @@
      "published": "2026-05-12"
     },
     {
-     "id": "u_tS1xBdjn8",
-     "title": "고조선 이전_또 다른 문명이 있었다",
-     "published": "2026-05-06"
+     "id": "wScaIvRspYc",
+     "title": "승률 100% 이순신 장군이 설계한 지옥도",
+     "published": "2026-05-13"
     },
     {
      "id": "xKKVorC9KHQ",
@@ -11396,36 +11438,36 @@
     }
    ],
    "views_median": 162322,
-   "views_per_day_median": 2755.1,
-   "ratio_median": 14.93,
-   "success": 532,
+   "views_per_day_median": 2787.5,
+   "ratio_median": 14.91,
+   "success": 420,
    "minutes_median": 27.5,
    "title_len_avg": 48.4,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 219,
-     "share": 0.265
+     "share": 0.266
     },
     {
      "name": "vs 비교",
      "count": 130,
-     "share": 0.157
+     "share": 0.158
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 129,
-     "share": 0.156
+     "share": 0.157
     },
     {
      "name": "이유",
      "count": 119,
-     "share": 0.144
+     "share": 0.145
     },
     {
      "name": "느낌표 !",
-     "count": 63,
-     "share": 0.076
+     "count": 62,
+     "share": 0.075
     },
     {
      "name": "사연·오디오북·실화·고백",
@@ -11440,17 +11482,17 @@
     {
      "name": "AI",
      "count": 21,
-     "share": 0.025
-    },
-    {
-     "name": "과정·벌어진 일·결말·결국",
-     "count": 12,
-     "share": 0.015
+     "share": 0.026
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 12,
      "share": 0.015
+    },
+    {
+     "name": "과정·벌어진 일·결말·결국",
+     "count": 11,
+     "share": 0.013
     },
     {
      "name": "N가지",
@@ -11529,29 +11571,29 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 804,
+    "설명": 800,
     "없음": 23
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 336
+     "count": 335
     },
     {
      "word": "조선",
-     "count": 262
+     "count": 260
     },
     {
      "word": "영상은",
-     "count": 254
+     "count": 252
     },
     {
      "word": "있습니다",
-     "count": 229
+     "count": 227
     },
     {
      "word": "역사",
-     "count": 205
+     "count": 203
     },
     {
      "word": "함께",
@@ -11559,30 +11601,30 @@
     },
     {
      "word": "어떻게",
-     "count": 167
+     "count": 166
     },
     {
      "word": "조선의",
-     "count": 164
+     "count": 163
     },
     {
      "word": "바탕으로",
-     "count": 162
-    },
-    {
-     "word": "이야기를",
      "count": 161
     },
     {
+     "word": "이야기를",
+     "count": 159
+    },
+    {
      "word": "가장",
-     "count": 156
+     "count": 154
     },
     {
      "word": "AI",
-     "count": 153
+     "count": 151
     }
    ],
-   "chapters_share": 0.424,
+   "chapters_share": 0.423,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -11604,36 +11646,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 206934,
+   "comments": 206020,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 34758,
+     "count": 34644,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 25092,
-     "share": 0.121
+     "count": 24781,
+     "share": 0.12
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10019,
+     "count": 9988,
      "share": 0.048
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8024,
+     "count": 7985,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 7316,
+     "count": 7294,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 3265,
+     "count": 3251,
      "share": 0.016
     }
    ],
@@ -11701,10 +11743,10 @@
    ]
   },
   {
-   "weeks": 26,
-   "label": "최근 26주",
-   "videos": 855,
-   "channels": 466,
+   "weeks": 28,
+   "label": "최근 28주",
+   "videos": 851,
+   "channels": 465,
    "new_this_week": [
     {
      "id": "0kHYAVTIdno",
@@ -11722,9 +11764,9 @@
      "published": "2026-05-02"
     },
     {
-     "id": "7e2VTJTPgf4",
-     "title": "\"이순신 장군 앞에 세종대왕함이 나타났더니... 나고야성 일본 함대 700척이 단 하루 만에 사라졌다\"",
-     "published": "2026-04-30"
+     "id": "67_mrdQlz5g",
+     "title": "한명회보다 더 악랄했던 남자, 결국 \"이렇게\" 죽었다",
+     "published": "2026-05-06"
     },
     {
      "id": "8Bsvg1loL0c",
@@ -11757,6 +11799,11 @@
      "published": "2026-05-01"
     },
     {
+     "id": "P9nHouyJ1Hg",
+     "title": "단종보다 10배 더 슬픈 광해군의 19년 생지옥… 원수의 파멸을 두 눈으로 지켜본 늙은 왕!",
+     "published": "2026-05-06"
+    },
+    {
      "id": "SbAPKCB9hbk",
      "title": "세종대왕이 사랑한 단 한 여자, 노비에서 정1품 빈이 된 숨겨진 사랑 이야기",
      "published": "2026-05-06"
@@ -11772,11 +11819,6 @@
      "published": "2026-04-30"
     },
     {
-     "id": "W9NKVCxalr4",
-     "title": "\"세종 없으면 이 사람이 1등?\" 100년을 앞서간 조선 최고의 두뇌",
-     "published": "2026-04-29"
-    },
-    {
      "id": "Yg9WfFY9xlc",
      "title": "24년 인내 끝에 왕이 된 정조, 즉위 20일 만에 숙의 문씨를 처형한 역사적 비극",
      "published": "2026-05-03"
@@ -11787,19 +11829,14 @@
      "published": "2026-05-02"
     },
     {
-     "id": "fBGYgo0VyNo",
-     "title": "[타임슬립] 조선군이 몰살당하기 1초 전, 하늘에서 '괴물'이 내려왔다",
+     "id": "dIT9jkOlx2A",
+     "title": "🌙 들으면서 주무세요 | 약소국에서 삼국통일까지, 신라 천 년의 이야기 ｜달빛 역사관",
      "published": "2026-05-06"
     },
     {
-     "id": "fo3UgV-bl8E",
-     "title": "무자비한 파괴자...? 고대문명을 몰락시킨 미스터리한 바다 민족의 충격적인 실체 l 바다민족의 역사",
-     "published": "2026-04-29"
-    },
-    {
-     "id": "gGpaFL6zZYE",
-     "title": "[역사한줄] 조선시대 막걸리 사극은 100% 거짓말이다.#조선역사 #한국사",
-     "published": "2026-04-29"
+     "id": "fBGYgo0VyNo",
+     "title": "[타임슬립] 조선군이 몰살당하기 1초 전, 하늘에서 '괴물'이 내려왔다",
+     "published": "2026-05-06"
     },
     {
      "id": "gimD7JtQT68",
@@ -11842,32 +11879,37 @@
      "published": "2026-05-01"
     },
     {
+     "id": "u_tS1xBdjn8",
+     "title": "고조선 이전_또 다른 문명이 있었다",
+     "published": "2026-05-06"
+    },
+    {
      "id": "wZQ8lD6HGgc",
      "title": "[4K] 서울을 열광시키는 이순신의 후예들  , 대한민국 해군 의장대 퍼레이드 | Seoul ROK - Navy Honor Guard parade",
      "published": "2026-05-04"
     }
    ],
-   "views_median": 157309,
-   "views_per_day_median": 2581.8,
-   "ratio_median": 14.73,
-   "success": 543,
+   "views_median": 157443,
+   "views_per_day_median": 2583.7,
+   "ratio_median": 14.91,
+   "success": 430,
    "minutes_median": 27.1,
    "title_len_avg": 48.5,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 226,
-     "share": 0.264
+     "count": 224,
+     "share": 0.263
     },
     {
      "name": "vs 비교",
-     "count": 136,
-     "share": 0.159
+     "count": 134,
+     "share": 0.157
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 131,
-     "share": 0.153
+     "share": 0.154
     },
     {
      "name": "이유",
@@ -11938,11 +11980,11 @@
    "title_words": [
     {
      "word": "조선",
-     "count": 138
+     "count": 137
     },
     {
      "word": "역사",
-     "count": 115
+     "count": 114
     },
     {
      "word": "이유",
@@ -11950,11 +11992,11 @@
     },
     {
      "word": "한국사",
-     "count": 62
+     "count": 61
     },
     {
      "word": "조선시대",
-     "count": 61
+     "count": 60
     },
     {
      "word": "어떻게",
@@ -11970,7 +12012,7 @@
     },
     {
      "word": "충격적인",
-     "count": 38
+     "count": 37
     },
     {
      "word": "역사를",
@@ -11981,29 +12023,29 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 832,
+    "설명": 828,
     "없음": 23
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 340
+     "count": 339
     },
     {
      "word": "조선",
-     "count": 269
+     "count": 267
     },
     {
      "word": "영상은",
-     "count": 265
+     "count": 264
     },
     {
      "word": "있습니다",
-     "count": 235
+     "count": 234
     },
     {
      "word": "역사",
-     "count": 214
+     "count": 213
     },
     {
      "word": "함께",
@@ -12011,7 +12053,7 @@
     },
     {
      "word": "어떻게",
-     "count": 172
+     "count": 171
     },
     {
      "word": "조선의",
@@ -12027,7 +12069,7 @@
     },
     {
      "word": "AI",
-     "count": 162
+     "count": 161
     },
     {
      "word": "가장",
@@ -12056,36 +12098,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 212739,
+   "comments": 211847,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 35658,
+     "count": 35507,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 25958,
+     "count": 25868,
      "share": 0.122
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10240,
+     "count": 10203,
      "share": 0.048
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8257,
+     "count": 8231,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 7534,
+     "count": 7515,
      "share": 0.035
     },
     {
      "name": "요청",
-     "count": 3395,
+     "count": 3388,
      "share": 0.016
     }
    ],
@@ -12153,9 +12195,9 @@
    ]
   },
   {
-   "weeks": 27,
-   "label": "최근 27주",
-   "videos": 896,
+   "weeks": 29,
+   "label": "최근 29주",
+   "videos": 895,
    "channels": 488,
    "new_this_week": [
     {
@@ -12187,6 +12229,11 @@
      "id": "7S3HBJxmMqY",
      "title": "《한국사》 마패 한 장 들고 떠난 암행어사의 고독한 여정 l 역사 인물 l 조선시대 l 야사",
      "published": "2026-04-28"
+    },
+    {
+     "id": "7e2VTJTPgf4",
+     "title": "\"이순신 장군 앞에 세종대왕함이 나타났더니... 나고야성 일본 함대 700척이 단 하루 만에 사라졌다\"",
+     "published": "2026-04-30"
     },
     {
      "id": "7yBPNr3ALpE",
@@ -12259,9 +12306,9 @@
      "published": "2026-04-24"
     },
     {
-     "id": "XI61XGQiilU",
-     "title": "칭기즈칸보다 잔혹했던 절름발이 몸으로 유라시아를 떨게 한 공포의 정복자 티무르",
-     "published": "2026-04-22"
+     "id": "W9NKVCxalr4",
+     "title": "\"세종 없으면 이 사람이 1등?\" 100년을 앞서간 조선 최고의 두뇌",
+     "published": "2026-04-29"
     },
     {
      "id": "_6pNuFtoURo",
@@ -12289,9 +12336,19 @@
      "published": "2026-04-28"
     },
     {
+     "id": "fo3UgV-bl8E",
+     "title": "무자비한 파괴자...? 고대문명을 몰락시킨 미스터리한 바다 민족의 충격적인 실체 l 바다민족의 역사",
+     "published": "2026-04-29"
+    },
+    {
      "id": "fzzx9_4Sh7A",
      "title": "임진왜란 원흉 도요토미 히데요시가 조카 히데쓰구를 할복시키고 처첩 39명을 집단 참수한 끔찍한 이유",
      "published": "2026-04-25"
+    },
+    {
+     "id": "gGpaFL6zZYE",
+     "title": "[역사한줄] 조선시대 막걸리 사극은 100% 거짓말이다.#조선역사 #한국사",
+     "published": "2026-04-29"
     },
     {
      "id": "gbQwCONfulQ",
@@ -12364,11 +12421,11 @@
      "published": "2026-04-26"
     }
    ],
-   "views_median": 156491.0,
-   "views_per_day_median": 2335.9,
-   "ratio_median": 14.5,
-   "success": 559,
-   "minutes_median": 27.55,
+   "views_median": 156399,
+   "views_per_day_median": 2310.3,
+   "ratio_median": 14.46,
+   "success": 443,
+   "minutes_median": 27.5,
    "title_len_avg": 48.6,
    "title_features": [
     {
@@ -12389,7 +12446,7 @@
     {
      "name": "이유",
      "count": 124,
-     "share": 0.138
+     "share": 0.139
     },
     {
      "name": "느낌표 !",
@@ -12498,13 +12555,13 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 872,
+    "설명": 871,
     "없음": 24
    },
    "content_words": [
     {
      "word": "그리고",
-     "count": 357
+     "count": 356
     },
     {
      "word": "조선",
@@ -12512,7 +12569,7 @@
     },
     {
      "word": "영상은",
-     "count": 276
+     "count": 275
     },
     {
      "word": "있습니다",
@@ -12520,7 +12577,7 @@
     },
     {
      "word": "역사",
-     "count": 229
+     "count": 228
     },
     {
      "word": "함께",
@@ -12532,10 +12589,6 @@
     },
     {
      "word": "바탕으로",
-     "count": 176
-    },
-    {
-     "word": "AI",
      "count": 175
     },
     {
@@ -12543,15 +12596,19 @@
      "count": 175
     },
     {
+     "word": "AI",
+     "count": 174
+    },
+    {
      "word": "이야기를",
      "count": 170
     },
     {
      "word": "가장",
-     "count": 167
+     "count": 166
     }
    ],
-   "chapters_share": 0.419,
+   "chapters_share": 0.418,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -12573,36 +12630,36 @@
      "hook": "오늘은 '파키스탄의 군사력'에 대해 알아봤습니다! ⭐오늘의 출연진 MC 허준님 중동학자 박현도 교수님 유라시아 고고학자 강인욱 교수님 이집트 고고학자 곽민수 소장님 인더스 고전학자 김용준 교수님 역사를 보다 시리즈의 세계관을 담아낸 2026년 프리미엄 가죽 다이어리 출시!! 하루가 자연"
     }
    ],
-   "comments": 224037,
+   "comments": 223654,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 37698,
+     "count": 37652,
      "share": 0.168
     },
     {
      "name": "칭찬·감사",
-     "count": 27249,
+     "count": 27183,
      "share": 0.122
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10786,
+     "count": 10778,
      "share": 0.048
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8693,
+     "count": 8675,
      "share": 0.039
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 7994,
+     "count": 7988,
      "share": 0.036
     },
     {
      "name": "요청",
-     "count": 3599,
+     "count": 3595,
      "share": 0.016
     }
    ],
@@ -12670,8 +12727,8 @@
    ]
   },
   {
-   "weeks": 28,
-   "label": "최근 28주",
+   "weeks": 30,
+   "label": "최근 30주",
    "videos": 914,
    "channels": 496,
    "new_this_week": [
@@ -12736,6 +12793,11 @@
      "published": "2026-04-20"
     },
     {
+     "id": "XI61XGQiilU",
+     "title": "칭기즈칸보다 잔혹했던 절름발이 몸으로 유라시아를 떨게 한 공포의 정복자 티무르",
+     "published": "2026-04-22"
+    },
+    {
      "id": "YjpJgo3xmZ4",
      "title": "러시아가 몽골 타타르 기병 박살 낸 방법 – 몰로디 전투 1572",
      "published": "2026-04-20"
@@ -12769,7 +12831,7 @@
    "views_median": 156597.0,
    "views_per_day_median": 2257.0,
    "ratio_median": 14.38,
-   "success": 563,
+   "success": 448,
    "minutes_median": 27.5,
    "title_len_avg": 48.6,
    "title_features": [

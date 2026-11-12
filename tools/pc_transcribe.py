@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-# VERSION: v1.0 — 2026-10-28 — 최초 (사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘")
+# VERSION: v1.1 — 2026-11-12 — run --first-only: 음성인식은 앞 5분(1차)까지만, 끝까지(2차)는 안 함 · --limit 과 같이 쓰면 앞 5분 대본이 아직 없는 영상만 셈 (사용자 지시 2026-11-12 "근데 솔직히 대본 몇개 받으면 충분해" — 도입·첫 1분·말 속도는 앞 5분으로 셈).
+# (v1.0 — 2026-10-28 — 최초 (사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘"))
 # CHANGELOG
+#   v1.1 — 2026-11-12 — --first-only (Runner.run ③ 건너뜀 · cmd_run limit 고르기) · selftest 한 줄
 #   v1.0 — 2026-10-28 — list(클라우드: 받을 목록 transcript_todo.csv·.md) · run(PC: 자막 → 음성인식 앞 5분 → 전체,
 #          대본 두 파일만 GitHub API 로 한 커밋씩) · selftest(가짜 GitHub). 함수: build_list·write_list·GitHub·run_topic·selftest
 """대본 받기 — 목록은 클라우드에서 정하고, 받기·올리기는 PC 에서.
@@ -12,6 +14,7 @@
   클라우드(Claude)  python3 tools/pc_transcribe.py list stock      → stock/result/outliers/transcript_todo.csv · transcript_todo.md
   PC(사용자)        powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock
                     (= .venv\\Scripts\\python.exe tools/pc_transcribe.py run stock · 시험 삼아 몇 개만: … -Transcribe -Folder stock --limit 5)
+                    몇 개만 앞 5분: … -Transcribe -Folder history --groups success --limit 50 --first-only   (v1.1)
   시험              python3 tools/pc_transcribe.py selftest      (가짜 GitHub·가짜 저장소 이름 — 진짜로 올리지 않음)
 
 목록 순서 (list): 한국어 영상 먼저 — ① 성공 사례 → ② 성공 쇼츠 → ③ 하루 조회수 상위 → ④ 조회수 상위 → ⑤ 그 밖 승인 롱폼 → ⑥ 그 밖 쇼츠,
@@ -45,7 +48,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("transcribe")
 TOPIC_RX = re.compile(r"^[a-z][a-z0-9_-]{1,30}$")
 VID_RX = re.compile(r"^[0-9A-Za-z_-]{11}$")
@@ -529,6 +532,9 @@ class Runner:
             self.push(f"{lang} 음성인식 1차 끝", force=True)
             if self.whisper_off:
                 continue
+            if getattr(self.opts, "first_only", False):     # v1.1: 앞 5분까지만 (도입·첫 1분·말 속도는 앞 5분으로 셈)
+                log("PASS", lang=lang, step="③ 음성인식 2차 건너뜀 (--first-only)")
+                continue
             todo3 = [r for r in rows if (self.rec(r["id"]).get("done") == "whisper_partial" or (r["need"] == "2차" and not self.rec(r["id"]).get("done")))
                      and self.rec(r["id"])["w2"] < MAX_ATTEMPTS]
             log("PASS", lang=lang, step="③ 음성인식 2차 (끝까지)", items=len(todo3), audio_min=round(sum(r["minutes"] for r in todo3)))
@@ -640,9 +646,11 @@ def cmd_run(opts):
         if opts.limit:
             left = [r for r in rows if not runner.rec(r["id"]).get("done")
                     and (r["need"] == "2차" or f"{r['folder']}/transcript.json" not in existing)]   # '2차' 는 앞 5분 대본이 이미 있음
+            if opts.first_only:                             # v1.1: 앞 5분만이면 앞 5분 대본이 이미 있는 '2차' 줄·앞 5분을 받은 영상은 셈에서 뺌
+                left = [r for r in left if r["need"] == "전체" and runner.rec(r["id"]).get("done") != "whisper_partial"]
             runner.rows = left[:opts.limit]
         log("RUN", topic=topic, list=len(rows), this_run=len(runner.rows), already_on_github=len(existing), model=cfg["WHISPER_MODEL"],
-            first_sec=FIRST_SEC, push_every=opts.push_every, no_whisper=opts.no_whisper, dry_run=opts.dry_run, repo=opts.repo)
+            first_sec=FIRST_SEC, first_only=opts.first_only, push_every=opts.push_every, no_whisper=opts.no_whisper, dry_run=opts.dry_run, repo=opts.repo)
         try:
             tot = runner.run()
         except KeyboardInterrupt:
@@ -833,6 +841,12 @@ def selftest():
         sj = json.loads(ents[f"demo/result/outliers/shorts/S_{ids['shs1']}/transcript.json"])
         check("말 없는 쇼츠 = no_speech", sj.get("no_speech") is True and sj["snippets"] == [])
         check("올릴 것이 남지 않음", not runner.pending_files() and tot["commits"] >= 2, commits=tot["commits"])
+        calls.clear()                                       # v1.1: --first-only — 앞 5분까지만, 끝까지(2차)는 부르지 않음
+        opts1 = types.SimpleNamespace(push_every=3, push_min=999, no_push=True, dry_run=False, no_whisper=False, first_only=True)
+        r1 = Runner("demo", rows2, gh, caption, whisper, base / ".yt_work_first", opts1, existing=frozenset(), now=lambda: 0.0)
+        r1.run()
+        check("--first-only: 1차 앞 5분만 · 2차 없음", ("succ1", 300, False) in calls and not any(c[1] is None and not c[2] for c in calls)
+              and r1.state[ids["succ1"]]["done"] == "whisper_partial")
         calls.clear()                                       # 이어서: 같은 상태로 다시 돌리면 끝난 영상은 다시 하지 않음
         runner2 = Runner("demo", rows2, gh, caption, whisper, work, opts, existing=frozenset(ex), now=lambda: 0.0)
         runner2.run()
@@ -871,6 +885,7 @@ def main(argv=None):
     pr.add_argument("--korean-only", action="store_true", help="한국어 영상만")
     pr.add_argument("--groups", default="", help="묶음만: " + ",".join(k for k, _ in GROUPS))
     pr.add_argument("--no-whisper", action="store_true", help="자막만 (음성인식 안 함)")
+    pr.add_argument("--first-only", action="store_true", help="음성인식은 앞 5분까지만 (끝까지 받는 2차는 안 함) — v1.1")
     pr.add_argument("--model", default="", help="Whisper 모델 (기본 = 설정 파일 WHISPER_MODEL, 보통 small · NVIDIA GPU 면 medium)")
     pr.add_argument("--push-every", type=int, default=PUSH_EVERY, help=f"영상 몇 개마다 올릴지 (기본 {PUSH_EVERY})")
     pr.add_argument("--push-min", type=float, default=PUSH_EVERY_MIN, help=f"또는 몇 분마다 (기본 {PUSH_EVERY_MIN})")

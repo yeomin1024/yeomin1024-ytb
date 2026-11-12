@@ -45,7 +45,20 @@
       "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_title_1.md",
       "text": "제목: 얼음물에 빠졌을 때 허우적대면 위험, 왔던 쪽으로 돌아라\n썸네일 문구: 얼음이 깨졌다 / 첫 1분, 당신이라면?\n보조 문구: ① 기슭 ② 왔던 쪽 ③ 올라서기"
      }
-    ]
+    ],
+    "pending": {
+     "n": 2,
+     "sha": "8c05386e8e5b0e16",
+     "reviewers": [
+      "T2-P3",
+      "T2-반론"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_title_2.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_title_2",
+     "ours_idx": 8,
+     "text": "제목: 얼음이 깨져 물에 빠졌을 때, 가까운 기슭 말고 왔던 쪽으로\n썸네일 문구: 얼음이 깨졌다 / 첫 1분, 당신이라면?\n보조 문구: ① 가까운 기슭 ② 왔던 쪽",
+     "at": "2026-11-12T11:06:47Z"
+    }
    },
    "script_exit": {
     "rounds": [
@@ -81,7 +94,19 @@
       "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_1.md"
      }
     ],
-    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt"
+    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt",
+    "pending": {
+     "n": 2,
+     "sha": "c3e26f9b81ad5d65",
+     "reviewers": [
+      "E2-P3"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_2.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_script_exit_2",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:06:47Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -186,7 +211,19 @@
       "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_1.md"
      }
     ],
-    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt"
+    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt",
+    "pending": {
+     "n": 2,
+     "sha": "c3e26f9b81ad5d65",
+     "reviewers": [
+      "K2-반론"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_2.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_script_rebuttal_2",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:06:47Z"
+    }
    }
   }
  }

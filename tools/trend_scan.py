@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-10 — 새로: '지금 판' 훑기 — ① 오늘 시장 상태(가격) ② 최근 N일(오늘 포함) 주식 유튜브 영상·댓글 → 판단용 페르소나(stock/guides/persona_judge.md)에 대입할 재료.
+# VERSION: v1.1 — 2026-11-12 — ① 댓글 받을 영상 꼴·최소 댓글 수를 설정으로 (persona_judge.toml TREND_COMMENT_KINDS · TREND_MIN_COMMENTS 기본 30 — 기본 ["long"] 그대로 · 위기는 쇼츠 댓글이 75~96%라 ["long", "short"])
+#   ② --reuse-videos: 그날 videos_<날짜>.json 을 다시 써서 검색 없이 댓글만 (영상마다 2단위). 사용자 지시 2026-11-12 "재테크는 하지 말고 심리, 위기 주제를 그렇게 만들어"
+#   (위기 첫 훑기가 롱폼 10개뿐이라 댓글 0개였음).
+# (v1.0 — 2026-11-10 — 새로: '지금 판' 훑기 — ① 오늘 시장 상태(가격) ② 최근 N일(오늘 포함) 주식 유튜브 영상·댓글 → 판단용 페르소나(stock/guides/persona_judge.md)에 대입할 재료.
 #   사용자 지시 2026-11-10 "현재 트렌드를 페르소나에 대입해서 사람들의 심리를 파악해서 그들이 만족하게 할 수 있는 영상을 만들어야해 예를 들면 현재 주식시장의 상태,
 #   최근(오늘 포함) 주식 관련 유튜브 분석 등을 페르소나에 대입해 생각해보는거지".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-12 | TREND_COMMENT_KINDS · --reuse-videos | pick_targets·main |
 # | v1.0 | 2026-11-10 | 최초 | market·scan·comments·summarize·render·selftest |
 #
 # 하는 일 (분석기 결과 result/outliers 는 건드리지 않음 — 따로 <주제>/result/trend/ 에):
@@ -43,7 +47,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 import persona_evidence as PE  # noqa: E402  (설정·묶음 규칙·all_comments·log)
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 logging.basicConfig(level=os.environ.get("LOG_LEVEL", "INFO"), format="%(message)s", stream=sys.stdout)   # persona_evidence 는 main 에서만 설정 — 여기서도 켬
 log = PE.log
 HANGUL = re.compile(r"[가-힣]")
@@ -181,8 +185,8 @@ def scan(api, cfg: dict, days: int, now: datetime) -> tuple[list[dict], dict]:
 
 
 # ------------------------------------------------------------------ 3. 댓글
-def pick_targets(rows: list[dict], n_top: int, n_small: int) -> list[dict]:
-    longs = [r for r in rows if r["kind"] == "long" and r["g"] not in ("N_news", "E_event") and r["comments"] >= 30]
+def pick_targets(rows: list[dict], n_top: int, n_small: int, kinds: tuple = ("long",), min_comments: int = 30) -> list[dict]:
+    longs = [r for r in rows if r["kind"] in kinds and r["g"] not in ("N_news", "E_event") and r["comments"] >= min_comments]
     top = sorted(longs, key=lambda r: -r["views_per_day"])[:n_top]
     small = [r for r in sorted(longs, key=lambda r: -(r["ratio"] or 0)) if r["subs"] and r["subs"] <= 50000 and r not in top][:n_small]
     return top + small
@@ -338,6 +342,7 @@ def main(argv: list[str]) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("topic"); ap.add_argument("--days", type=int, default=7); ap.add_argument("--videos", type=int, default=30); ap.add_argument("--small", type=int, default=10)
     ap.add_argument("--quota", type=int, default=2500); ap.add_argument("--market-only", action="store_true")
+    ap.add_argument("--reuse-videos", action="store_true", help="그날 videos_<날짜>.json 으로 댓글만 (검색 0단위) — v1.1")
     a = ap.parse_args(argv)
     t0 = time.time()
     now = datetime.now(timezone.utc)
@@ -354,8 +359,16 @@ def main(argv: list[str]) -> int:
             log("FAIL", logging.ERROR, stage="auth", missing="YOUTUBE_API_KEY", next="환경 변수에 키를 넣거나 --market-only")
             return 2
         api = orr.Api(key, a.quota, ledger=pc.KeyLedger(key), what="trend_scan", topic=a.topic)
-        rows, dropped = scan(api, cfg, a.days, now)
-        targets = pick_targets(rows, a.videos, a.small)
+        vj = out_dir / f"videos_{date}.json"
+        if a.reuse_videos and vj.is_file():                       # v1.1 검색 없이 그날 찾은 영상으로 댓글만
+            rows, dropped = json.loads(vj.read_text(encoding="utf-8")), {"reused": str(vj.relative_to(ROOT))}
+            log("SCAN", reused=str(vj.relative_to(ROOT)), videos=len(rows), units=0)
+        else:
+            rows, dropped = scan(api, cfg, a.days, now)
+        kinds = tuple(cfg.get("TREND_COMMENT_KINDS") or ("long",))
+        minc = int(cfg.get("TREND_MIN_COMMENTS", 30))
+        targets = pick_targets(rows, a.videos, a.small, kinds, minc)
+        log("TARGETS", kinds=",".join(kinds), min_comments=minc, videos=len(targets))
         since = (now - timedelta(days=a.days)).strftime("%Y-%m-%d")
         core, cdrop = comments(api, targets, cfg, since)
         base = None

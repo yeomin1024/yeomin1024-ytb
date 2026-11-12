@@ -1,0 +1,61 @@
+{
+ "topic": "psychology",
+ "made": "2026-11-12 06:55",
+ "tool": "pc_transcribe.py v1.2",
+ "n": 8,
+ "target": 50,
+ "have": 42,
+ "by_group": {
+  "성공 사례": 8
+ },
+ "first_pass_audio_min": 40,
+ "why": "한국어 성공 사례 중 대본(앞 5분 이상)이 있는 42개 → 목표 50개까지 8개 모자람 · 성공 사례 8개 (성과 좋은 것부터, 앞 5분만)",
+ "command": "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder psychology --groups success --limit 8 --first-only",
+ "first": [
+  {
+   "rank": 27,
+   "group_name": "성공 사례",
+   "id": "WsJxckYQlcA",
+   "minutes": 38.3,
+   "need": "전체",
+   "score": "#43",
+   "title": "[정약용 명언] 인복 많으려면 잘해주지 마라 미친듯이 ‘이 말’만 무조건 하면 된다 | 정"
+  },
+  {
+   "rank": 28,
+   "group_name": "성공 사례",
+   "id": "0zbHoy3g4A4",
+   "minutes": 6.7,
+   "need": "전체",
+   "score": "#44",
+   "title": "나르시시스트가 되는 이유 | 정신과 의사가 본 2가지 성장환경"
+  },
+  {
+   "rank": 29,
+   "group_name": "성공 사례",
+   "id": "WGDslk67vNQ",
+   "minutes": 15.6,
+   "need": "전체",
+   "score": "#45",
+   "title": "HSP들 당장 드루와..예민+불안러들 멘탈관리용 책 추천하러 왔다"
+  },
+  {
+   "rank": 30,
+   "group_name": "성공 사례",
+   "id": "u7BS3D_Sylo",
+   "minutes": 48.4,
+   "need": "전체",
+   "score": "#46",
+   "title": "서울대 의사가 외롭고 사람이 두려운 이유 [심리상담 풀영상]"
+  },
+  {
+   "rank": 31,
+   "group_name": "성공 사례",
+   "id": "LPV-iqsq2xE",
+   "minutes": 23.6,
+   "need": "전체",
+   "score": "#47",
+   "title": "새 차 한 번도 안 사본 사람들, 중고차만 타는 심리 (돈이 없어서가 아닙니다)"
+  }
+ ]
+}

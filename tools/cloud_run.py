@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-28 — explore --alltime-only: 보통 검색은 받아 둔 결과 그대로(캐시가 지났어도 0단위) 쓰고 ③ 기간 없는 검색만
-#          (할당량이 orr.ALLTIME_RESERVE 넘게 남을 때만 — web_ui v2.5). 사용자 지시 2026-10-28 "3은 할당량 남으면 진행하도록 해".
+# VERSION: v1.7 — 2026-11-12 — 고정 채널: add · remove · targets 명령 (web_ui.add_targets·remove_target·load_targets 그대로 — <주제>/targets.json).
+#          사용자 지시 2026-11-12 "탐색할 고정 채널을 아이디를 내가 넣을 수 있도록 주제별 아티팩트 만들기" — 분석 판(tools/analysis_board.py)에 넣은
+#          채널 ID·주소·@이름을 Claude 가 읽어 이 명령으로 더함 → 다음 explore 부터 그 채널의 최근 N주 롱폼·쇼츠가 '추가한 채널'로 체크됨.
+#          채널 하나 찾기 = 1단위 (channels/search) · 탐색 로직은 그대로.
+# (v1.6 — 2026-10-28 — explore --alltime-only: 보통 검색은 받아 둔 결과 그대로(캐시가 지났어도 0단위) 쓰고 ③ 기간 없는 검색만
+#          (할당량이 orr.ALLTIME_RESERVE 넘게 남을 때만 — web_ui v2.5). 사용자 지시 2026-10-28 "3은 할당량 남으면 진행하도록 해")
 # (v1.5.1 — 2026-10-21 — '-' 로 시작하는 영상 ID(예: -Fl1y9riPs4)를 check·uncheck·approve 에 주면 argparse 가 옵션으로 읽어 멈추던 것
 #          (exit 2 — 132개 승인이 시작도 못 함) → 11자 영상 ID 꼴이면서 아는 옵션이 아닌 낱말은 ID 로 읽음. `--` 를 앞에 둬도 됨. 다른 동작 그대로
 # (v1.5 — 2026-10-21 — 푼 추천 기억: uncheck 한 영상을 <주제>/result/web/dismissed.json(쇼츠 shorts_dismissed.json — 캐시 묶음에 함께)에 남기고
@@ -47,6 +51,8 @@
   python3 tools/cloud_run.py stock cache-save | cache-load  # 탐색 캐시 ↔ <주제>/cloud_cache/cache.tgz (보통은 저절로)
   python3 tools/cloud_run.py stock foreign on|off          # [외국 영상도] (analyzer_config.toml INCLUDE_FOREIGN)
   python3 tools/cloud_run.py stock wait-reset [--then resume]   # 태평양 자정 +10분까지 기다림 (할당량 초기화)
+  python3 tools/cloud_run.py stock add UCxxxx @이름 https://www.youtube.com/@이름   # v1.7 고정 채널 더하기 (<주제>/targets.json, 채널마다 1단위)
+  python3 tools/cloud_run.py stock remove UCxxxx | targets  # v1.7 고정 채널 빼기 · 지금 목록
 
 로그: [STAGE] [시각] key=value (web_ui·outlier_research 와 같은 꼴) — 화면과 .yt_work/cloud_run_<주제>.log
 끝 줄: [RESULT] [시각] cmd=… result={JSON}
@@ -68,7 +74,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import pc_analysis as pc                 # noqa: E402
 import web_ui as w                       # noqa: E402
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 VIDEO_ID_RX = re.compile(r"-[0-9A-Za-z_-]{10}")   # v1.5.1: '-' 로 시작하는 11자 영상 ID (argparse 가 옵션으로 읽지 않게)
 ROOT = pc.ROOT
 LOG = logging.getLogger("cloud")
@@ -433,6 +439,34 @@ def cmd_captions(t, a):
     return res
 
 
+def cmd_targets(t, a):
+    """v1.7 고정 채널·영상 — add(ID·주소·@이름 여러 개) · remove(채널 ID) · targets(목록). web_ui 함수 그대로 (탐색 로직 아님)."""
+    if a.cmd == "add":
+        if not a.ids:
+            raise w.UserError("add 뒤에 채널 ID·주소·@이름을 넣으세요 (여러 개는 띄어서)")
+        got = w.add_targets(t, " ".join(a.ids))
+        for g in got:
+            log("TARGET", topic=t, input=g["input"], ok=g["ok"], kind=g.get("kind", "-"), id=g.get("id", "-"),
+                title=g.get("title", "")[:40], note=g.get("note") or g.get("error") or "")
+        bad = [g for g in got if not g["ok"]]
+        if bad:
+            log("TARGET", logging.WARNING, topic=t, failed=len(bad), next="주소·ID 를 확인 — 채널 ID 는 UC 로 시작하는 24자, @이름은 채널 주소의 @ 뒤")
+        res = {"added": [g for g in got if g["ok"]], "failed": bad}
+    elif a.cmd == "remove":
+        if not a.ids:
+            raise w.UserError("remove 뒤에 뺄 채널 ID(UC…)를 넣으세요")
+        for cid in a.ids:
+            w.remove_target(t, "channel", cid)
+            log("TARGET", topic=t, removed=cid)
+        res = {"removed": a.ids}
+    tg = w.load_targets(t)
+    res = res if a.cmd != "targets" else {}
+    res.update(channels=[{"id": c["id"], "title": c.get("title", ""), "videos": c.get("videos"), "added": c.get("added", "")} for c in tg["channels"]],
+               videos=len(tg["videos"]), file=f"{t}/targets.json")
+    log("TARGET", topic=t, channels=len(tg["channels"]), videos=len(tg["videos"]), note="다음 explore 부터 반영 — targets.json 은 git 으로 main 에")
+    return res
+
+
 def cmd_wait_reset(t, a):
     nxt, how = pc.next_quota_reset(datetime.now(timezone.utc), margin_min=w.RESUME_MARGIN_MIN)
     log("WAIT", topic=t, until_kst=nxt.astimezone(w.KST).isoformat(timespec="minutes"), how=how,
@@ -450,8 +484,9 @@ def parse_args(argv=None):
     ap = argparse.ArgumentParser(description="클라우드 분석 실행기 — 웹 화면(tools/web_ui.py) 작업을 명령으로")
     ap.add_argument("topic", help="주제 폴더 (예: stock)")
     ap.add_argument("cmd", choices=["status", "explore", "list", "check", "uncheck", "approve", "baseline", "comments", "demand",
-                                    "analyze", "resume", "startup", "foreign", "wait-reset", "cache-save", "cache-load", "captions"])
-    ap.add_argument("ids", nargs="*", help="check·uncheck·approve 할 영상 ID (foreign 은 on|off)")
+                                    "analyze", "resume", "startup", "foreign", "wait-reset", "cache-save", "cache-load", "captions",
+                                    "add", "remove", "targets"])
+    ap.add_argument("ids", nargs="*", help="check·uncheck·approve 할 영상 ID (foreign 은 on|off · add 는 채널 ID·주소·@이름 · remove 는 채널 ID)")
     ap.add_argument("--weeks", type=int, default=8, help="explore: 최근 몇 주 (웹 화면 기본 8, 1~52)")
     ap.add_argument("--no-keywords", action="store_true", help="explore: 검색어 없이 추가한 채널·영상만")
     ap.add_argument("--alltime-only", action="store_true", help="explore: 보통 검색은 받아 둔 결과 그대로, 기간 없는 검색(③)만 — 할당량이 남을 때만")
@@ -540,6 +575,8 @@ def main(argv=None):
             res = cache_load(t, force=a.force)
         elif a.cmd == "wait-reset":
             res = cmd_wait_reset(t, a)
+        elif a.cmd in ("add", "remove", "targets"):
+            res = cmd_targets(t, a)
         else:
             res = {}
     except w.UserError as e:

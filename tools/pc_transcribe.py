@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
-# VERSION: v1.1 — 2026-11-12 — run --first-only: 음성인식은 앞 5분(1차)까지만, 끝까지(2차)는 안 함 · --limit 과 같이 쓰면 앞 5분 대본이 아직 없는 영상만 셈 (사용자 지시 2026-11-12 "근데 솔직히 대본 몇개 받으면 충분해" — 도입·첫 1분·말 속도는 앞 5분으로 셈).
+# VERSION: v1.2 — 2026-11-12 — list 가 '받을 개수 추천'을 함께 냄 (transcript_todo.md 위 줄 + transcript_todo.json — 분석 판 tools/analysis_board.py 가 PC 명령과 함께 보여 줌).
+#   목표 = 한국어 성과 상위 RECOMMEND_TARGET(50)개에 앞 5분 대본 (v1.1 결정 — 분석이 세는 첫 20초·첫 1분·말 속도는 앞 5분 안 · 50개면 비율 ±14%p) → 모자란 만큼만,
+#   성공 사례 먼저 · 모자라면 하루 조회수 상위·조회수 상위로 채움. 명령 = -Transcribe -Folder <주제> --groups … --limit N --first-only.
+#   사용자 지시 2026-11-12 "다운 받아야 하는 적당한 대본 개수 설정해서 아티팩트에 명령 표시, 대본은 성과가 좋은거 위주로 받는다".
+# (v1.1 — 2026-11-12 — run --first-only: 음성인식은 앞 5분(1차)까지만, 끝까지(2차)는 안 함 · --limit 과 같이 쓰면 앞 5분 대본이 아직 없는 영상만 셈 (사용자 지시 2026-11-12 "근데 솔직히 대본 몇개 받으면 충분해" — 도입·첫 1분·말 속도는 앞 5분으로 셈).)
 # (v1.0 — 2026-10-28 — 최초 (사용자 지시 "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘"))
 # CHANGELOG
+#   v1.2 — 2026-11-12 — recommend()·write_recommend() — 받을 개수 추천 (cmd_list · list --target)
 #   v1.1 — 2026-11-12 — --first-only (Runner.run ③ 건너뜀 · cmd_run limit 고르기) · selftest 한 줄
 #   v1.0 — 2026-10-28 — list(클라우드: 받을 목록 transcript_todo.csv·.md) · run(PC: 자막 → 음성인식 앞 5분 → 전체,
 #          대본 두 파일만 GitHub API 로 한 커밋씩) · selftest(가짜 GitHub). 함수: build_list·write_list·GitHub·run_topic·selftest
@@ -48,7 +53,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.1"
+VERSION = "v1.2"
 LOG = logging.getLogger("transcribe")
 TOPIC_RX = re.compile(r"^[a-z][a-z0-9_-]{1,30}$")
 VID_RX = re.compile(r"^[0-9A-Za-z_-]{11}$")
@@ -63,6 +68,9 @@ GROUPS = [("success", "성공 사례"), ("shorts_success", "성공 쇼츠"), ("v
 GROUP_NAME = dict(GROUPS)
 GROUP_RANK = {k: i for i, (k, _) in enumerate(GROUPS)}
 CSV_COLS = ["rank", "group", "group_name", "lang", "id", "minutes", "need", "score", "title", "folder"]
+RECOMMEND_TARGET = 50                # v1.2 한국어 성과 상위 몇 개에 앞 5분 대본이면 충분한가 (v1.1 결정 — 50개면 비율 ±14%p, 95%)
+RECOMMEND_FILL = ("vpd", "views")    # v1.2 성공 사례가 모자라면 이 묶음으로 채움 (성과 좋은 것 위주 — 그 밖 승인은 넣지 않음)
+PS_CMD = "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder {topic} --groups {groups} --limit {n} --first-only"
 
 
 def log(stage, level=logging.INFO, **kv):
@@ -671,12 +679,62 @@ def cmd_run(opts):
     return 0
 
 
+def recommend(topic, rows, target=RECOMMEND_TARGET, base=ROOT):
+    """v1.2 받을 개수 추천 → dict. '있음' = 한국어 성공 사례 중 대본(앞 5분 이상)이 있는 수 · 모자란 만큼(target − 있음)을
+    성공 사례(대본 없음) → 하루 조회수 상위 → 조회수 상위 순서로. run 은 목록 순서대로 --limit 개라 = 성과 상위부터."""
+    od = Path(base) / topic / "result" / "outliers"
+    a = _read_json(od / "analysis.json", {}) or {}
+    have = 0
+    for x in a.get("success_cases") or []:
+        d = od / f"W_{x['id']}"
+        meta = _read_json(d / "metadata.json", {}) or {}
+        foreign = bool(meta["foreign"]) if "foreign" in meta else bool(x.get("foreign"))
+        if not foreign and d.is_dir() and _transcript_state(d) in ("full", "partial"):
+            have += 1
+    need = max(0, target - have)
+    ko = [r for r in rows if r["lang"] == "한국어" and r["need"] == "전체"]            # 앞 5분도 없는 것만 (--first-only 와 같은 셈)
+    succ = [r for r in ko if r["group"] == "success"]
+    fill = [r for r in ko if r["group"] in RECOMMEND_FILL]
+    picked = (succ + fill)[:need]
+    groups = ["success"] + [g for g in RECOMMEND_FILL if any(r["group"] == g for r in picked)]
+    by = {}
+    for r in picked:
+        by[r["group_name"]] = by.get(r["group_name"], 0) + 1
+    n = len(picked)
+    audio = sum(min(r["minutes"], FIRST_SEC / 60) for r in picked)
+    if n:
+        why = (f"한국어 성공 사례 중 대본(앞 5분 이상)이 있는 {have}개 → 목표 {target}개까지 {need}개 모자람 · "
+               + " · ".join(f"{k} {v}" for k, v in by.items()) + "개 (성과 좋은 것부터, 앞 5분만)")
+    else:
+        why = f"한국어 성공 사례 중 대본(앞 5분 이상)이 있는 것 {have}개 — 목표 {target}개를 채움 · 받을 것 없음"
+    return {"topic": topic, "made": datetime.now().strftime("%Y-%m-%d %H:%M"), "tool": f"pc_transcribe.py {VERSION}", "n": n, "target": target,
+            "have": have, "by_group": by, "first_pass_audio_min": round(audio), "why": why,
+            "command": PS_CMD.format(topic=topic, groups=",".join(groups), n=n) if n else "",
+            "first": [{k: r[k] for k in ("rank", "group_name", "id", "minutes", "need", "score", "title")} for r in picked[:5]]}
+
+
+def write_recommend(topic, rec, base=ROOT):
+    od = Path(base) / topic / "result" / "outliers"
+    (od / f"{LIST_NAME}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=1) + "\n", "utf-8")
+    md = od / f"{LIST_NAME}.md"
+    if md.is_file():
+        L = md.read_text("utf-8").splitlines()
+        line = f"- **받을 개수 추천: {rec['n']}개** — {rec['why']}" + (f" · 앞 5분 소리 약 {rec['first_pass_audio_min']}분\n  - PC 명령: `{rec['command']}`" if rec["command"] else "")
+        at = next((i for i, x in enumerate(L) if x.startswith("- 사례 폴더")), 2)
+        L.insert(at + 1, line)
+        md.write_text("\n".join(L) + "\n", "utf-8")
+
+
 def cmd_list(opts):
     setup_logging(opts.log_level)
     for topic in opts.topics:
         t0 = time.perf_counter()
         rows, seen = build_list(check_topic(topic))
         write_list(topic, rows, seen)
+        rec = recommend(topic, rows, target=getattr(opts, "target", RECOMMEND_TARGET) or RECOMMEND_TARGET)
+        write_recommend(topic, rec)
+        log("RECOMMEND", topic=topic, n=rec["n"], have=rec["have"], target=rec["target"], by_group=json.dumps(rec["by_group"], ensure_ascii=False),
+            audio_min=rec["first_pass_audio_min"], command=rec["command"] or "-")
         log("LIST", topic=topic, elapsed_sec=round(time.perf_counter() - t0, 2))
     return 0
 
@@ -879,6 +937,7 @@ def main(argv=None):
     sub = ap.add_subparsers(dest="cmd", required=True)
     pl = sub.add_parser("list", help="받을 목록 만들기 → <주제>/result/outliers/transcript_todo.csv·.md")
     pl.add_argument("topics", nargs="+")
+    pl.add_argument("--target", type=int, default=RECOMMEND_TARGET, help=f"앞 5분 대본을 갖출 한국어 성과 상위 수 (기본 {RECOMMEND_TARGET})")
     pr = sub.add_parser("run", help="PC: 목록대로 자막 → 음성인식 → 대본 파일만 GitHub 에")
     pr.add_argument("topics", nargs="+")
     pr.add_argument("--limit", type=int, default=0, help="이번에 할 영상 수 (시험 삼아 --limit 5)")

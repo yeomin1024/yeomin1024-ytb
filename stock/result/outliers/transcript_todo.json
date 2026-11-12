@@ -1,0 +1,61 @@
+{
+ "topic": "stock",
+ "made": "2026-11-12 06:55",
+ "tool": "pc_transcribe.py v1.2",
+ "n": 35,
+ "target": 50,
+ "have": 15,
+ "by_group": {
+  "성공 사례": 35
+ },
+ "first_pass_audio_min": 175,
+ "why": "한국어 성공 사례 중 대본(앞 5분 이상)이 있는 15개 → 목표 50개까지 35개 모자람 · 성공 사례 35개 (성과 좋은 것부터, 앞 5분만)",
+ "command": "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock --groups success --limit 35 --first-only",
+ "first": [
+  {
+   "rank": 1,
+   "group_name": "성공 사례",
+   "id": "fdlfOCtDBqc",
+   "minutes": 13.6,
+   "need": "전체",
+   "score": "#1",
+   "title": "왜 내가 사면 떨어지고 팔면 오를까? 개미가 주식으로 돈 못 버는 4가지 이유"
+  },
+  {
+   "rank": 2,
+   "group_name": "성공 사례",
+   "id": "UcHK1WoTPtY",
+   "minutes": 23.2,
+   "need": "전체",
+   "score": "#2",
+   "title": "S&P500은 최고인데 내 ETF는 마이너스… 지금 환헤지로 갈아타면 늦는 진짜 이유"
+  },
+  {
+   "rank": 3,
+   "group_name": "성공 사례",
+   "id": "c3vq8lj05Yk",
+   "minutes": 18.9,
+   "need": "전체",
+   "score": "#3",
+   "title": "이재명 \"집 팔아 주식 사라더니…\" 코스피 폭락에 국민연금 증발 실태 #이재명 #코스피 #"
+  },
+  {
+   "rank": 4,
+   "group_name": "성공 사례",
+   "id": "_fnvM4hpX44",
+   "minutes": 16.4,
+   "need": "전체",
+   "score": "#4",
+   "title": "S&P 500에 투자하면 노후 걱정 전혀 없습니다! 주식으로 부자 되는 가장 빠른 방법"
+  },
+  {
+   "rank": 5,
+   "group_name": "성공 사례",
+   "id": "IbkLrISwBiU",
+   "minutes": 14.4,
+   "need": "전체",
+   "score": "#6",
+   "title": "나스닥은 버티는데 아이온큐가 일주일 새 20% 빠진 건 망해서가 아닙니다 — 가트너가 말한"
+  }
+ ]
+}

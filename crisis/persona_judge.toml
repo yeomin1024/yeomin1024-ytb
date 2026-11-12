@@ -1,0 +1,23 @@
+# VERSION: v1.0 — 2026-11-12 — 새로 (위기): tools/trend_scan.py 가 읽는 최소 설정 — 최근 유튜브 영상·댓글 훑기(페르소나 매일 업데이트 재료).
+#   사용자 지시 2026-11-12 "페르소나는 주제와 관련된 최근 유튜브 영상과 최근 트렌드(뉴스 등 외부 정보)들을 수집해서 … 매일 업데이트 해야함" · "재테크는 하지 말고 심리, 위기 주제를 그렇게 만들어".
+#   stock/persona_judge.toml 을 본뜸 — 댓글 주제 분류([[topic]]·[[ask_type]])는 아직 없음 → trend_<날짜>.md 3번 표 없이 영상·댓글 원문만 (tools/persona_live.py inputs 가 읽음).
+#   검색어 = 넓은 말 8개 (crisis_lab.py QUERIES 의 긴 문구로는 최근 7일에 댓글 30개 넘는 영상이 0개였음 — 2026-11-12 첫 훑기) · 14일 (--days 14)
+#   검색 1번 100단위 × (8 + TREND_FRESH 2) ≈ 1,000 + 요청 약 60.
+# 연구·교육용 — 의료·심리 상담·안전 지침이 아님.
+VERSION = "v1.0"
+TREND_QUERIES = ["실제 사건", "사건 사고", "생존 실화", "보이스피싱", "당신이라면", "살아남기", "참사", "범죄 실화"]
+TREND_FRESH = 2
+TREND_SYMBOLS = {}
+MIN_VIDEO_COMMENTS = 30
+NOW_FROM = "2026-11-01"
+TREND_COMMENT_KINDS = ["long", "short"]   # 위기 댓글은 쇼츠가 75~96% (crisis/result/personas.json shorts_share)
+TREND_MIN_COMMENTS = 5     # 위기 영상은 작은 채널이 많고 댓글이 적음 (첫 훑기 최대 6개)
+
+[exclude]
+OFF = {}
+EVENT = {}
+NEWS_CHANNEL = 'KBS|MBC|SBS|YTN|채널A|KNN|연합뉴스|JTBC|TV조선|TVCHOSUN|조선일보|MBN|KBC|뉴스헌터스|한국경제TV뉴스|매경|서정욱|성창경|정치시간|윤석종|스타판|장르만 여의도|뉴스TOP|14F|꽉TV|GROUND C|강신업|주진우|매불쇼'
+POLITICS_TITLE = '이재명|대통령|윤석열|국민의힘|민주당|한동훈|탄핵'
+OFF_TITLE = '먹방|게임 공략|운세|사주|타로|주식|코인|부동산'
+SPAM = '당첨|수령|010-|문자 보내|뜨밤|구독 / |고정댓글 링크|리딩방|카톡|텔레그램|오픈채팅|t\.me|bit\.ly|무료 ?체험'
+POLITICS_COMMENT = '대통령|이재명|정권|좌파|우파|민주당|국힘|윤석열'

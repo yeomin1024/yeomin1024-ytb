@@ -1,8 +1,10 @@
-# 대본 받을 목록 — stock (2026-10-28, tools/pc_transcribe.py v1.0)
+# 대본 받을 목록 — stock (2026-11-12, tools/pc_transcribe.py v1.2)
 
 ※ 숫자만. 순서·영상은 `transcript_todo.csv` (PC 가 이 순서대로 받음). 다시 만들기: `python3 tools/pc_transcribe.py list stock`
 
 - 사례 폴더 995개 중 대본이 끝까지 있는 24개 · 뺀 쇼츠(부풀림 의심·주제 밖) 13개를 빼고 **958개**
+- **받을 개수 추천: 35개** — 한국어 성공 사례 중 대본(앞 5분 이상)이 있는 15개 → 목표 50개까지 35개 모자람 · 성공 사례 35개 (성과 좋은 것부터, 앞 5분만) · 앞 5분 소리 약 175분
+  - PC 명령: `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock --groups success --limit 35 --first-only`
 - 할 일: '전체' = 대본 없음 (자막 → 없으면 음성인식 앞 5분 → 끝까지) · '2차' = 앞 5분만 있음 (음성인식으로 끝까지)
 
 | 순서 | 언어 | 묶음 | 영상 | 전체 | 2차 | 1차 소리(분) | 전체 소리(분) |

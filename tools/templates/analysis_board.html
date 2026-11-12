@@ -1,0 +1,271 @@
+<title>{{TITLE}}</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v1.1 — 2026-11-12 — 분석 현황에 안내 줄(표준 분석기 전 주제 — 위기). (v1.0 — 2026-11-12 — 주제별 분석 판 틀 (tools/analysis_board.py 가 {{TITLE}}·BOARD 칸을 채워 <주제>/boards/분석판.html 로 씀 — 손으로 고치지 않음).
+     사용자 지시 2026-11-12 "탐색할 고정 채널을 아이디를 내가 넣을 수 있도록 주제별 아티팩트 만들기 · 다운 받아야 하는 적당한 대본 개수 설정해서 아티팩트에 명령 표시 ·
+     시청자 페르소나들 만들어서 내용 아티팩트에 올린다 · 페르소나 업데이트 시 아티팩트에 어떤 근거로 어떻게 업데이트 했는지 짧막하게 내역 남기기".
+     db: channels {input, memo, createdAt, status(new|done|fail), reply, updatedAt} — 사용자가 넣고 Claude 가 ArtifactData 로 읽어 tools/cloud_run.py <주제> add 뒤 done·reply.
+     페르소나·내역·대본 명령은 페이지 안 BOARD 칸 (매일 업데이트 때 다시 만들어 같은 주소로 올림). 연구·교육용 — 투자 권유 아님. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 배치: 위 = 한눈에(네 칸) · 가운데 = 왼쪽 시청자 페르소나 카드 / 오른쪽 고정 채널 넣기·대본 받기 · 아래 = 업데이트 내역 표 (평가판들과 같은 색·글꼴) */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --ink:#1B2320; --muted:#5C6A65; --line:#DCE3E0;
+  --accent:#0E7466; --accent-ink:#FFFFFF; --accent-soft:#DDF1EC;
+  --ok:#2B7A55; --warn:#8A6A00; --bad:#B83227; --quote:#EEF2F0;
+  --shadow:0 10px 30px -18px rgba(20,40,35,.45);
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --warn:#E2C15A; --bad:#FF6E5E; --quote:#1F2926; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201D; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --warn:#E2C15A; --bad:#FF6E5E; --quote:#1F2926; --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1180px;margin:0 auto;display:grid;gap:18px}
+header.top{display:grid;gap:6px}
+header.top h1{font-size:clamp(20px,2.4vw,26px);margin:0;text-wrap:balance}
+header.top p{margin:0;color:var(--muted);font-size:14px;max-width:72ch}
+.status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.status .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.status.ok .dot{background:var(--ok)} .status.bad .dot{background:var(--bad)}
+.glance{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.tile .k{font-size:12px;color:var(--muted);letter-spacing:.02em}
+.tile .v{font:600 20px var(--f-mono);font-variant-numeric:tabular-nums}
+.tile .s{font-size:12.5px;color:var(--muted)}
+.tile.warn .v{color:var(--warn)} .tile.ok .v{color:var(--ok)}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.side{display:grid;gap:18px;position:sticky;top:env(safe-area-inset-top,0px)}
+section.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:16px 18px;display:grid;gap:10px;min-width:0}
+section.box h2{margin:0;font-size:16px}
+.small{font-size:13px;color:var(--muted)}
+.personas{display:grid;gap:14px}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);display:grid;min-width:0}
+.pcard .hd{padding:14px 18px;border-bottom:1px solid var(--line);display:grid;gap:4px}
+.pcard .hd h3{margin:0;font-size:17px;text-wrap:balance}
+.pcard .who{font-size:13px;color:var(--muted)}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:92px minmax(0,1fr);gap:10px;padding:10px 18px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row .lab{font-size:12.5px;font-weight:700;color:var(--muted);letter-spacing:.02em;padding-top:2px}
+.items{display:grid;gap:8px;min-width:0}
+.item{display:grid;gap:4px}
+.item .t{font-size:15px}
+.item .meta{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.chip{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;border:1px solid currentColor;white-space:nowrap}
+.chip.new{color:var(--accent)} .chip.old{color:var(--warn)} .chip.done{color:var(--ok)} .chip.fail{color:var(--bad)}
+.empty{font-size:13px;color:var(--muted)}
+details.src summary{cursor:pointer;font-size:12px;color:var(--accent);list-style:none}
+details.src summary::-webkit-details-marker{display:none}
+details.src ul,details.quotes ul{margin:6px 0 0;padding-left:18px;display:grid;gap:4px;font-size:13px}
+blockquote{margin:0;background:var(--quote);border-radius:8px;padding:6px 10px;font-size:13px}
+details.quotes{padding:10px 18px 14px;border-top:1px solid var(--line)}
+details.quotes summary{cursor:pointer;font-size:13px;font-weight:600}
+a{color:var(--accent)}
+textarea,input[type=text]{width:100%;font:15px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+textarea{min-height:72px;resize:vertical}
+textarea:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 16px;font:600 14px var(--f-body);cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.bad{border-color:var(--bad);background:transparent;color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:default}
+.btnrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.clist{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.clist li{border:1px solid var(--line);border-radius:10px;padding:8px 10px;display:grid;gap:4px}
+.clist .top{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.clist code{font:500 13px var(--f-mono);word-break:break-all}
+.cmd{display:grid;gap:6px}
+.cmd pre{margin:0;background:var(--quote);border-radius:10px;padding:10px 12px;font:500 12.5px/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-all}
+.num{font:600 34px var(--f-mono);font-variant-numeric:tabular-nums;line-height:1.1}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.02em}
+td.d{font-family:var(--f-mono);white-space:nowrap;font-variant-numeric:tabular-nums}
+.op{font-weight:700}
+.op.add{color:var(--ok)} .op.remove{color:var(--bad)} .op.replace,.op.set{color:var(--accent)} .op.keep,.op.init{color:var(--muted)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:20}
+@media (max-width:900px){.main{grid-template-columns:minmax(0,1fr)}.side{position:static}.glance{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.row{grid-template-columns:minmax(0,1fr);gap:4px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <h1 id="h1">분석 판</h1>
+    <p id="intro"></p>
+    <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+  </header>
+
+  <div class="glance" id="glance"></div>
+
+  <div class="main">
+    <div class="personas" id="personas"></div>
+    <div class="side">
+      <section class="box" aria-labelledby="ch-h">
+        <h2 id="ch-h">탐색할 고정 채널</h2>
+        <p class="small">채널 ID(UC로 시작), 채널 주소, @이름을 넣으세요. 여러 개는 줄을 바꿔서. Claude가 다음 분석 때 읽어 탐색 목록에 더하고, 결과를 아래에 적습니다.</p>
+        <label class="small" for="ch-in">채널</label>
+        <textarea id="ch-in" placeholder="UCxxxxxxxxxxxxxxxxxxxxxx&#10;@채널이름&#10;https://www.youtube.com/@채널이름"></textarea>
+        <label class="small" for="ch-memo">메모 (선택)</label>
+        <input type="text" id="ch-memo" placeholder="왜 넣는지 — 예: 비슷한 구독자 수에 조회수가 높음">
+        <div class="btnrow"><button class="btn" id="ch-add" type="button">채널 넣기</button><span class="small" id="ch-note"></span></div>
+        <ul class="clist" id="ch-list"></ul>
+        <details><summary class="small">지금 탐색에 들어간 고정 채널 <span id="tg-n"></span></summary><ul class="clist" id="tg-list"></ul></details>
+      </section>
+      <section class="box" aria-labelledby="tr-h">
+        <h2 id="tr-h">대본 받기 (PC)</h2>
+        <div class="num" id="tr-n">–</div>
+        <p class="small" id="tr-why"></p>
+        <div class="cmd"><pre id="tr-cmd"></pre><div class="btnrow"><button class="btn ghost" id="tr-copy" type="button">명령 복사</button><span class="small" id="tr-copied"></span></div></div>
+        <details><summary class="small">먼저 받을 영상</summary><ul class="clist" id="tr-first"></ul></details>
+      </section>
+    </div>
+  </div>
+
+  <section class="box" aria-labelledby="lg-h">
+    <h2 id="lg-h">페르소나 업데이트 내역</h2>
+    <p class="small">새것이 위. 근거 수를 누르면 무엇을 보고 바꿨는지(댓글 원문·영상·뉴스·시장) 보입니다.</p>
+    <div class="tablebox"><table><thead><tr><th>날짜</th><th>페르소나</th><th>칸</th><th>무엇을</th><th>근거</th></tr></thead><tbody id="log"></tbody></table></div>
+  </section>
+
+  <section class="box" aria-labelledby="an-h">
+    <h2 id="an-h">분석 현황</h2>
+    <div id="an" class="small"></div>
+  </section>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
+(() => {
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const B = BOARD || { topic: "?", name: "?", personas: [], log: [], targets: [], transcript: {}, analysis: {} };
+  const FIELDS = [["situation", "상황"], ["curiosity", "호기심"], ["worry", "걱정"], ["anxiety", "불안"], ["wants", "원하는 것"], ["habit", "버릇"]];
+  const FN = Object.fromEntries(FIELDS);
+  const OPN = { init: "처음 만듦", set: "고침", add: "더함", replace: "바꿈", remove: "뺌", keep: "다시 확인" };
+  const st = { db: null, canWrite: true, ch: [], busy: false, delAsk: null };
+  let tt = null;
+  const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2200); };
+  const days = d => { if (!d) return null; const x = (new Date(B.today + "T00:00:00") - new Date(d + "T00:00:00")) / 864e5; return Math.round(x); };
+
+  function srcHtml(s) {
+    const k = s.slice(0, 2), v = s.slice(2);
+    if (k === "c:") return `<li><blockquote>“${esc(v)}”</blockquote></li>`;
+    if (k === "v:") return `<li>영상 <a href="https://www.youtube.com/watch?v=${encodeURIComponent(v)}" target="_blank" rel="noopener">${esc((B.videos || {})[v] || v)}</a></li>`;
+    if (k === "n:") { const n = (B.news || {})[v] || {}; return `<li>뉴스 <a href="${esc(v)}" target="_blank" rel="noopener">${esc(n.title || v)}</a>${n.source ? ` · ${esc(n.source)}` : ""}${n.date ? ` · ${esc(n.date)}` : ""}</li>`; }
+    if (k === "m:") return `<li>시장 ${esc(v)}${(B.market || {})[v] ? ` — ${esc(B.market[v])}` : ""}</li>`;
+    return `<li>${esc(s)}</li>`;
+  }
+  function itemHtml(it) {
+    const d = days(it.date), old = d != null && d > (B.stale_days || 14);
+    return `<div class="item"><div class="t">${esc(it.text)}</div><div class="meta">
+      <span class="chip ${old ? "old" : "new"}">${esc(it.date || "?")}${old ? " · 오래됨" : ""}</span>
+      ${it.basis ? `<span>${esc(it.basis)}</span>` : ""}
+      ${(it.src || []).length ? `<details class="src"><summary>근거 ${it.src.length}</summary><ul>${it.src.map(srcHtml).join("")}</ul></details>` : ""}
+    </div></div>`;
+  }
+  function personaHtml(p) {
+    const rows = FIELDS.map(([f, nm]) => {
+      const its = f === "situation" || f === "habit" ? (p[f] ? [p[f]] : []) : (p[f] || []);
+      if (!its.length && f === "habit") return "";
+      return `<div class="row"><div class="lab">${nm}</div><div class="items">${its.length ? its.map(itemHtml).join("") : `<div class="empty">아직 없음 — 다음 업데이트에서 채웁니다</div>`}</div></div>`;
+    }).join("");
+    return `<article class="pcard"><div class="hd"><h3>${esc(p.name)}</h3><div class="who">${esc(p.who)}</div></div>
+      <div class="rows">${rows}</div>
+      ${(p.quotes || []).length ? `<details class="quotes"><summary>분석 때 모은 원문 댓글 ${p.quotes.length}개</summary><ul>${p.quotes.map(q => `<li><blockquote>“${esc(q.text)}” <span class="small">공감 ${q.likes}</span></blockquote></li>`).join("")}</ul></details>` : ""}
+    </article>`;
+  }
+  function renderStatic() {
+    document.title = document.title || B.title;
+    $("h1").textContent = B.title;
+    $("intro").textContent = `${B.name} 채널 시청자 페르소나(분석 결과로 만들고 매일 최근 유튜브 영상·댓글과 뉴스로 고침), 탐색할 고정 채널, PC에서 받을 대본 개수를 한 곳에 둡니다. 판 만든 때 ${B.made}. 연구·교육용이며 투자 권유가 아닙니다.`;
+    const up = B.updated || "", ud = days(up);
+    $("glance").innerHTML = [
+      { k: "페르소나 업데이트", v: up || "아직", s: up ? (ud === 0 ? "오늘 고침" : `${ud}일 전`) : "첫 업데이트 전", c: up && ud === 0 ? "ok" : "warn" },
+      { k: "시청자 페르소나", v: `${B.personas.length}명`, s: `분석 ${B.analysis.personas_made || "?"}`, c: "" },
+      { k: "받을 대본", v: `${(B.transcript || {}).n ?? "–"}개`, s: (B.transcript || {}).made ? `목록 ${B.transcript.made}` : "목록 없음", c: "" },
+      { k: "고정 채널", v: `${B.targets.length}곳`, s: "탐색에 들어간 것", c: "" },
+    ].map(t => `<div class="tile ${t.c}"><span class="k">${t.k}</span><span class="v">${esc(t.v)}</span><span class="s">${esc(t.s)}</span></div>`).join("");
+    $("personas").innerHTML = B.personas.length ? B.personas.map(personaHtml).join("") : `<section class="box"><p class="empty">페르소나가 아직 없습니다. Claude가 분석 결과로 만듭니다.</p></section>`;
+    const tr = B.transcript || {};
+    $("tr-n").textContent = tr.n != null ? `${tr.n}개` : "–";
+    $("tr-why").textContent = tr.why ? `${tr.why} 앞 5분 소리 약 ${tr.first_pass_audio_min}분.` : "대본 받을 목록이 아직 없습니다.";
+    $("tr-cmd").textContent = tr.command || "(받을 것 없음)";
+    $("tr-copy").disabled = !tr.command;
+    $("tr-first").innerHTML = (tr.first || []).map(r => `<li><div class="top"><span class="chip new">${esc(r.group_name)}</span><span class="small">${esc(r.minutes)}분 · ${esc(r.score)}</span></div><div>${esc(r.title)}</div></li>`).join("") || `<li class="small">없음</li>`;
+    $("tg-n").textContent = `(${B.targets.length})`;
+    $("tg-list").innerHTML = B.targets.map(c => `<li><div class="top"><strong>${esc(c.title || c.id)}</strong></div><code>${esc(c.id)}</code><span class="small">영상 ${esc(c.videos ?? "?")}개 · 더한 때 ${esc(c.added || "?")}</span></li>`).join("") || `<li class="small">아직 없음</li>`;
+    $("log").innerHTML = (B.log || []).map(x => {
+      const what = x.op === "replace" ? `${x.before} → ${x.after}` : (["remove", "keep"].includes(x.op) ? x.before : x.after);
+      return `<tr><td class="d">${esc(x.date)}</td><td>${esc(x.persona_name || x.persona)}</td><td>${esc(FN[x.field] || (x.field === "*" ? "전체" : x.field))}</td>
+        <td><span class="op ${esc(x.op)}">${esc(OPN[x.op] || x.op)}</span> ${esc(what)}</td>
+        <td>${esc(x.basis)}${(x.src || []).length ? `<details class="src"><summary>근거 ${x.src.length}</summary><ul>${x.src.map(srcHtml).join("")}</ul></details>` : ""}</td></tr>`;
+    }).join("") || `<tr><td colspan="5" class="small">내역 없음</td></tr>`;
+    const a = B.analysis || {};
+    $("an").innerHTML = (a.note ? `<p><strong>${esc(a.note)}</strong></p>` : "") + `<p>마지막 분석 ${esc(a.generated || "?")} · 성공 사례 ${esc(a.success ?? "?")}개 · 하루 조회수 상위 ${esc(a.vpd ?? "?")}개 · 조회수 상위 ${esc(a.views ?? "?")}개 · 최근 유튜브 훑기 ${esc(B.trend_date || "없음")} · 뉴스 ${esc(B.news_date || "없음")}</p>
+      <p>다음 일: 새 세션은 <code>guides/flow.md</code> 1단계대로 — 고정 채널 반영 → 분석 → 대본 목록 → 페르소나 업데이트 → 이 판 다시 올림.</p>`;
+  }
+  function renderChannels() {
+    const L = [...st.ch].sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+    const lab = { new: "반영 전", done: "반영됨", fail: "못 찾음" };
+    $("ch-list").innerHTML = L.map(c => `<li><div class="top"><span class="chip ${c.status === "done" ? "done" : c.status === "fail" ? "fail" : "new"}">${lab[c.status] || "반영 전"}</span>
+        <span class="small">${esc(String(c.createdAt || "").slice(0, 16).replace("T", " "))}</span></div>
+        <code>${esc(c.input)}</code>${c.memo ? `<span class="small">메모: ${esc(c.memo)}</span>` : ""}${c.reply ? `<span class="small">Claude: ${esc(c.reply)}</span>` : ""}
+        <div class="btnrow">${st.delAsk === c.id ? `<span class="small">지울까요?</span><button class="btn bad" type="button" data-act="delok" data-id="${esc(c.id)}">지우기</button><button class="btn ghost" type="button" data-act="delno">그대로</button>` : `<button class="btn ghost" type="button" data-act="del" data-id="${esc(c.id)}" ${st.canWrite ? "" : "disabled"}>지우기</button>`}</div></li>`).join("");
+  }
+  $("ch-add").addEventListener("click", async () => {
+    const raw = ($("ch-in").value || "").trim(), memo = ($("ch-memo").value || "").trim();
+    if (!raw || st.busy) return;
+    if (!st.db) { $("ch-note").textContent = "저장소에 연결되지 않아 저장할 수 없습니다."; return; }
+    const items = raw.split(/[\s,]+/).filter(Boolean).slice(0, 30);
+    st.busy = true; $("ch-add").disabled = true;
+    const now = new Date().toISOString();
+    try {
+      for (const x of items) await st.db.collection("channels").add({ input: x, memo, createdAt: now, updatedAt: now, status: "new", reply: "" });
+      $("ch-in").value = ""; $("ch-memo").value = ""; $("ch-note").textContent = ""; toast(`채널 ${items.length}개를 넣었습니다`);
+    } catch (e) { $("ch-note").textContent = e && e.code === "invalid_argument" ? "이 화면에서는 저장할 권한이 없습니다." : "저장하지 못했습니다. 다시 눌러 주세요."; }
+    st.busy = false; $("ch-add").disabled = false;
+  });
+  $("ch-list").addEventListener("click", async e => {
+    const b = e.target.closest("[data-act]"); if (!b || st.busy) return;
+    if (b.dataset.act === "del") { st.delAsk = b.dataset.id; renderChannels(); return; }
+    if (b.dataset.act === "delno") { st.delAsk = null; renderChannels(); return; }
+    st.busy = true;
+    try { await st.db.doc("channels/" + b.dataset.id).delete(); toast("지웠습니다"); } catch (err) { toast("지우지 못했습니다. 다시 눌러 주세요."); }
+    st.delAsk = null; st.busy = false; renderChannels();
+  });
+  $("tr-copy").addEventListener("click", async () => {
+    const t = $("tr-cmd").textContent;
+    try { await navigator.clipboard.writeText(t); $("tr-copied").textContent = "복사했습니다"; }
+    catch (e) { const r = document.createRange(); r.selectNodeContents($("tr-cmd")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); $("tr-copied").textContent = "선택했습니다 — Ctrl+C 로 복사하세요"; }
+  });
+
+  renderStatic(); renderChannels();
+  (async () => {
+    const use = window.claude && window.claude.use ? n => window.claude.use(n) : () => Promise.resolve(null);
+    let db = null, user = null;
+    const timer = setTimeout(() => { if (!st.db) { $("status").className = "status bad"; $("status-t").textContent = "저장소가 응답하지 않습니다 — 페르소나는 볼 수 있지만 채널은 저장되지 않습니다."; } }, 10000);
+    try { [db, user] = await Promise.all([use("db"), use("user")]); } catch (e) { db = null; }
+    if (!db) { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "저장소에 연결하지 못했습니다 — 페르소나는 볼 수 있지만 채널은 저장되지 않습니다."; $("ch-add").disabled = true; return; }
+    st.db = db;
+    try { if (user && user.can && (await user.can("data.write")) === false) st.canWrite = false; } catch (e) { /* 모름 */ }
+    if (!st.canWrite) $("ch-add").disabled = true;
+    db.collection("channels").onSnapshot(s => {
+      clearTimeout(timer);
+      st.ch = s.docs.map(d => Object.assign({ id: d.id }, d.data()));
+      $("status").className = "status " + (st.canWrite ? "ok" : ""); $("status-t").textContent = st.canWrite ? "저장소 연결됨 — 넣은 채널은 바로 저장되고 Claude가 읽습니다." : "보기 전용 — 이 화면에서는 채널을 넣을 수 없습니다.";
+      renderChannels();
+    }, () => { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "채널 목록을 읽지 못했습니다."; });
+  })();
+})();
+</script>

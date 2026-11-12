@@ -1,0 +1,139 @@
+{
+ "topic": "crisis",
+ "tool": "persona_live.py v1.1",
+ "made": "2026-11-12",
+ "updated": "",
+ "source_personas": "crisis/result/personas.json (2026-11-12)",
+ "personas": [
+  {
+   "key": "F1",
+   "name": "웃으려고 보는 쇼츠 시청자",
+   "n": 448,
+   "who": "쇼츠 댓글 96% · 본 위험 유형 사고 추락·시설 46%, 범죄 사기 36%, 사고 물·수난 7% · 장르 유머·장난 45%, 그 밖 42% · 근거 댓글 448개",
+   "situation": null,
+   "habit": null,
+   "curiosity": [],
+   "worry": [],
+   "anxiety": [],
+   "wants": [],
+   "quotes": [
+    {
+     "text": "단체 소송 갈거니까 이미 고객이자 한팀임 ㅋㅋㅋ",
+     "likes": 10780,
+     "from": "personas.json"
+    },
+    {
+     "text": "북극곰 \"쳐직이네 ㅋㅋ\" 였다가 \"쳐 직일까?\" 로 바뀌는거 겁나웃기네 ㅋㅋㅋ 그리고 살팽이는 어디서 잡아온건데 ㅋㅋㅋㅋㅋ",
+     "likes": 1353,
+     "from": "personas.json"
+    },
+    {
+     "text": "I kill you ~ 가 왜 나와 ㅋㅋㅋㅋㅋ",
+     "likes": 814,
+     "from": "personas.json"
+    }
+   ]
+  },
+  {
+   "key": "F2",
+   "name": "참사에 감정이입하고 분노하는 사람",
+   "n": 197,
+   "who": "쇼츠 댓글 75% · 본 위험 유형 사고 항공·선박 42%, 범죄 흉기·폭력 27%, 기타·미분류 11% · 장르 영화·드라마 리뷰 49%, 뉴스·사건 보도 15% · 근거 댓글 197개",
+   "situation": null,
+   "habit": null,
+   "curiosity": [],
+   "worry": [],
+   "anxiety": [],
+   "wants": [],
+   "quotes": [
+    {
+     "text": "무안은 착륙하고 안도의 한숨을 쉬다가 폭파되어 영문도 모르고 돌아가신분들이 많아 저 상황보다 더 충격적이었다.",
+     "likes": 14476,
+     "from": "personas.json"
+    },
+    {
+     "text": "무안공항참사 국토부는 왜 책임을 아직도 안지고있나? 명백한 살인자들인다",
+     "likes": 12723,
+     "from": "personas.json"
+    },
+    {
+     "text": "무안공항 참사에 애도를 표합니다.",
+     "likes": 5305,
+     "from": "personas.json"
+    }
+   ]
+  },
+  {
+   "key": "F3",
+   "name": "정보를 보태는 경험자·전문가",
+   "n": 215,
+   "who": "쇼츠 댓글 82% · 본 위험 유형 사고 물·수난 33%, 사고 추락·시설 21%, 범죄 흉기·폭력 11% · 장르 정보·대처법 39%, 그 밖 28% · 근거 댓글 215개",
+   "situation": null,
+   "habit": null,
+   "curiosity": [],
+   "worry": [],
+   "anxiety": [],
+   "wants": [],
+   "quotes": [
+    {
+     "text": "변호사도 같이 소송걸어야 되니깐 돈안받고 알려주네",
+     "likes": 7285,
+     "from": "personas.json"
+    },
+    {
+     "text": "무안공항에 비행기 착륙해서 조종사가 서서 두손을 막 흔들었는데 살거라고 생각했을뗀데 둔덕때문에 죽을줄은 애통하다.아까운 소중한 생명들",
+     "likes": 2665,
+     "from": "personas.json"
+    },
+    {
+     "text": "발 안닿는 순간 생각 일도 안남 수시로 수영장에서 연습해야함",
+     "likes": 2388,
+     "from": "personas.json"
+    }
+   ]
+  },
+  {
+   "key": "F4",
+   "name": "선택을 판정하는 '나라면' 참여자",
+   "n": 101,
+   "who": "쇼츠 댓글 86% · 본 위험 유형 사고 항공·선박 23%, 범죄 사기 19%, 기타·미분류 13% · 장르 영화·드라마 리뷰 29%, 유머·장난 27% · 근거 댓글 101개",
+   "situation": null,
+   "habit": null,
+   "curiosity": [],
+   "worry": [],
+   "anxiety": [],
+   "wants": [],
+   "quotes": [
+    {
+     "text": "Cctv아저씨는 희생할 마음이 일도없었던거 같은데요...",
+     "likes": 348,
+     "from": "personas.json"
+    },
+    {
+     "text": "무안 승객들은 착륙하고 살았다고 좋아하고 있을 때 터졌을 거 아니야 진짜 억울하겠다",
+     "likes": 268,
+     "from": "personas.json"
+    },
+    {
+     "text": "보이스피싱범 놀리는듯 아닌듯~ 앵두 멍충미있으면서도 똑똑하다~♡",
+     "likes": 261,
+     "from": "personas.json"
+    }
+   ]
+  }
+ ],
+ "log": [
+  {
+   "date": "2026-11-12",
+   "persona": "*",
+   "field": "*",
+   "op": "init",
+   "before": "",
+   "after": "4명",
+   "basis": "분석 결과 페르소나(댓글 묶음)로 처음 만듦 — 생각·원하는 것은 첫 업데이트에서",
+   "src": [
+    "crisis/result/personas.json (2026-11-12)"
+   ]
+  }
+ ]
+}

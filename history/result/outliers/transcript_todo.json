@@ -1,0 +1,61 @@
+{
+ "topic": "history",
+ "made": "2026-11-12 06:55",
+ "tool": "pc_transcribe.py v1.2",
+ "n": 21,
+ "target": 50,
+ "have": 29,
+ "by_group": {
+  "성공 사례": 21
+ },
+ "first_pass_audio_min": 105,
+ "why": "한국어 성공 사례 중 대본(앞 5분 이상)이 있는 29개 → 목표 50개까지 21개 모자람 · 성공 사례 21개 (성과 좋은 것부터, 앞 5분만)",
+ "command": "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder history --groups success --limit 21 --first-only",
+ "first": [
+  {
+   "rank": 30,
+   "group_name": "성공 사례",
+   "id": "EwZnhWBu_-Y",
+   "minutes": 98.4,
+   "need": "전체",
+   "score": "#30",
+   "title": "고려에 조공하던 여진족은 어떻게 중국을 두 번 지배했을까? 그 후손은 지금 어디에"
+  },
+  {
+   "rank": 31,
+   "group_name": "성공 사례",
+   "id": "8nGtdAH4vHw",
+   "minutes": 6.4,
+   "need": "전체",
+   "score": "#31",
+   "title": "고대 전투에서 맨 앞줄은 누가 섰을까?"
+  },
+  {
+   "rank": 32,
+   "group_name": "성공 사례",
+   "id": "6UEopLVwlag",
+   "minutes": 11.5,
+   "need": "전체",
+   "score": "#32",
+   "title": "조선 주막 방값은 공짜, 대신 목숨을 걸었다 | 승정원일기·실록으로 본 조선 주막"
+  },
+  {
+   "rank": 33,
+   "group_name": "성공 사례",
+   "id": "6I_qpnaoM9Y",
+   "minutes": 34.2,
+   "need": "전체",
+   "score": "#33",
+   "title": "세종의 나라로 돌아온 예언 적중 베스트셀러 작가, 김진명! 한글을 통한 또 다른 예언 | "
+  },
+  {
+   "rank": 34,
+   "group_name": "성공 사례",
+   "id": "LMJeEzBPcwg",
+   "minutes": 15.3,
+   "need": "전체",
+   "score": "#34",
+   "title": "조선에는 원래 제사가 없었다? 제사는 언제부터 지냈나?"
+  }
+ ]
+}

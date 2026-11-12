@@ -1,0 +1,20 @@
+# VERSION: v1.0 — 2026-11-12 — 새로 (역사): tools/trend_scan.py 가 읽는 최소 설정 — 최근 유튜브 영상·댓글 훑기(페르소나 매일 업데이트 재료).
+#   사용자 지시 2026-11-12 "페르소나는 주제와 관련된 최근 유튜브 영상과 최근 트렌드(뉴스 등 외부 정보)들을 수집해서 … 매일 업데이트 해야함".
+#   stock/persona_judge.toml 을 본뜸 — 댓글 주제 분류([[topic]]·[[ask_type]])는 아직 없음 → trend_<날짜>.md 3번 표 없이 영상·댓글 원문만 (tools/persona_live.py inputs 가 읽음).
+#   검색어 = history/keywords.txt 에서 역사 채널 컨셉에 가까운 것 10개 (검색 1번 100단위 × (10 + TREND_FRESH 3) ≈ 1,300 + 요청 약 60).
+# 연구·교육용 — 투자 권유 아님.
+VERSION = "v1.0"
+TREND_QUERIES = ["조선", "조선시대", "한국사", "역사 이야기", "세계사", "역사미스터리", "야사", "임진왜란", "고려", "역사다큐"]
+TREND_FRESH = 3
+TREND_SYMBOLS = {}
+MIN_VIDEO_COMMENTS = 30
+NOW_FROM = "2026-11-01"
+
+[exclude]
+OFF = {}
+EVENT = {}
+NEWS_CHANNEL = 'KBS|MBC|SBS|YTN|채널A|KNN|연합뉴스|JTBC|TV조선|TVCHOSUN|조선일보|MBN|KBC|뉴스헌터스|한국경제TV뉴스|매경|서정욱|성창경|정치시간|윤석종|스타판|장르만 여의도|뉴스TOP|14F|꽉TV|GROUND C|강신업|주진우|매불쇼'
+POLITICS_TITLE = '이재명|대통령|윤석열|국민의힘|민주당|한동훈|탄핵'
+OFF_TITLE = '먹방|게임 공략|운세|사주|타로|주식|코인|부동산'
+SPAM = '당첨|수령|010-|문자 보내|뜨밤|구독 / |고정댓글 링크|리딩방|카톡|텔레그램|오픈채팅|t\.me|bit\.ly|무료 ?체험'
+POLITICS_COMMENT = '대통령|이재명|정권|좌파|우파|민주당|국힘|윤석열'

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-12 — 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됏는지 확인 후 다 된게 있으면
+# VERSION: v1.1 — 2026-11-12 — 인증 주소를 줄이지 않고 로그에(say=print) · 키가 없을 때와 토큰 만료를 다른 말로 · 화면 다듬음(긴 로그 줄바꿈 ·
+#          제목 고르기 줄 · 시각 칸 너비 · 올린 영상 공개 시각을 KST 로)
+# (v1.0 — 2026-11-12 — 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됏는지 확인 후 다 된게 있으면
 #          내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘 토큰 만료되면 알아서 인증 코드 돌려서 설정 넣어주도록 하고
-#          필요한 환경변수 값들 넣을 수 있는 웹 사이트 코드 만들어줘 주제별로 가능하도록 해줘".
+#          필요한 환경변수 값들 넣을 수 있는 웹 사이트 코드 만들어줘 주제별로 가능하도록 해줘".)
 #   PC 에서 켜는 업로드 화면 (이 PC 에서만 — 127.0.0.1). 실행기: run_uploader.ps1 -Web (또는 python tools/upload_web.py)
 #   · 주제 탭(topics.txt + youtube_channel.json 이 있는 폴더) · 탭마다 키 칸 → <주제>/.env (YOUTUBE_CLIENT_ID · SECRET · REFRESH_TOKEN), 공통 GITHUB_TOKEN → .env
 #     화면에는 값을 다시 보여 주지 않음(설정됨 · 끝 4자리만).
@@ -284,10 +286,12 @@ def ensure_auth(topic: str) -> tuple[str, str]:
             if attempt == 2 or not expired:
                 raise
             if not (os.environ.get("YOUTUBE_CLIENT_ID") and os.environ.get("YOUTUBE_CLIENT_SECRET")):
-                raise SystemExit("[AUTH] ❌ 토큰이 만료됐는데 YOUTUBE_CLIENT_ID · YOUTUBE_CLIENT_SECRET 이 없어 다시 인증할 수 없음 → 위 키 칸에 넣고 저장")
+                had = bool(os.environ.get("YOUTUBE_REFRESH_TOKEN"))
+                raise SystemExit("[AUTH] ❌ " + ("토큰이 만료됐는데 " if had else "이 주제의 키가 없음 — ") +
+                                 "YOUTUBE_CLIENT_ID · YOUTUBE_CLIENT_SECRET 이 없어 인증할 수 없음 → 위 키 칸에 넣고 [저장] (토큰은 [업로드]·[다시 인증] 때 저절로)")
             log("AUTH", status="expired", topic=topic, action="브라우저 인증을 띄움 — 이 주제 채널의 구글 계정으로 로그인 · 체크 칸 모두 허용")
             try:
-                refresh, missing = ya.issue(os.environ["YOUTUBE_CLIENT_ID"], os.environ["YOUTUBE_CLIENT_SECRET"], say=lambda s: log("AUTH", note=s.replace(" ", "_")[:300]))
+                refresh, missing = ya.issue(os.environ["YOUTUBE_CLIENT_ID"], os.environ["YOUTUBE_CLIENT_SECRET"], say=print)
             except ya.AuthError as ae:
                 raise SystemExit(f"[AUTH] ❌ {ae}") from None
             ya.save_env(topic_env_path(topic), {"YOUTUBE_CLIENT_ID": os.environ["YOUTUBE_CLIENT_ID"],
@@ -408,8 +412,10 @@ input{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px
 .muted{color:var(--sub);font-size:13px}.ok{color:var(--ok)}.bad{color:var(--bad)}
 table{width:100%;border-collapse:collapse}td,th{border-top:1px solid var(--line);padding:8px 6px;vertical-align:top;text-align:left;font-size:14px}
 .chips{display:flex;flex-wrap:wrap;gap:4px}.chip{font-size:12px;border-radius:999px;padding:2px 8px;background:#EEF7F2;color:var(--ok)}.chip.x{background:#FDEEEC;color:var(--bad)}
-pre{background:#10141D;color:#D9E1F2;border-radius:10px;padding:12px;max-height:360px;overflow:auto;font-size:12px;white-space:pre-wrap;margin:0}
-label.t{display:block;margin:2px 0;font-size:14px}.sched{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.sched input{width:90px}
+pre{background:#10141D;color:#D9E1F2;border-radius:10px;padding:12px;max-height:360px;overflow:auto;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-all;margin:0}
+main>*{min-width:0}
+label.t{display:flex;gap:6px;align-items:flex-start;margin:3px 0;font-size:14px;cursor:pointer}label.t input{width:auto;margin-top:4px}
+.sched{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.sched input{width:90px}.sched input[type=time]{width:150px}
 @media(max-width:700px){.row{grid-template-columns:1fr}}
 </style></head><body>
 <header><h1>유튜브 업로드 (이 PC 에서만 열림)</h1><p>자료가 다 된 대본만 [업로드] — 비공개로 올리고 정한 날 자동 공개 · 키는 이 PC 의 .env 에만 저장 · 연구·교육용 영상 (투자 권유 아님)</p></header>
@@ -449,7 +455,8 @@ async function loadVideos(){const box=document.getElementById("videos");box.inne
   const c=Object.entries(v.items).map(([k,[ok,n]])=>`<span class="chip ${ok?"":"x"}" title="${esc(n)}">${ok?"✓":"✗"} ${esc(k)}</span>`).join("");
   h+=`<tr><td><b>${esc(v.vid)}</b><br><span class="${v.ready?"ok":"bad"}">${v.ready?"준비됨":"부족"}</span>${v.downloaded?'<br><span class="muted">영상 받아 둠</span>':""}</td><td>${t}</td><td><div class="chips">${c}</div></td>
   <td style="white-space:nowrap"><button class="btn sec" onclick="test('${v.vid}')">시험</button> <button class="btn go" ${v.ready?"":"disabled"} onclick="upload('${v.vid}')">업로드</button></td></tr>`});
- h+=`</table>`;if(s.uploaded.length)h+=`<p class="muted">올린 영상: `+s.uploaded.map(u=>`${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(u.publishAt||"")}`).join(" · ")+`</p>`;box.innerHTML=h}
+ h+=`</table>`;const kst=iso=>{if(!iso)return"";const d=new Date(iso);if(isNaN(d))return iso;const k=new Date(d.getTime()+(d.getTimezoneOffset()+540)*6e4),p=n=>String(n).padStart(2,"0");return `${k.getFullYear()}-${p(k.getMonth()+1)}-${p(k.getDate())} ${p(k.getHours())}:${p(k.getMinutes())} 공개`};
+ if(s.uploaded.length)h+=`<p class="muted">올린 영상: `+s.uploaded.map(u=>`${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}`).join(" · ")+`</p>`;box.innerHTML=h}
 async function test(vid){const r=await api("/api/test",{topic:TOPIC,vid});if(!r.ok)alert(r.error)}
 async function upload(vid){const sel=document.querySelector(`input[name="t_${vid}"]:checked`);const n=sel?+sel.value:1;const d=+document.getElementById("days").value||7,h=document.getElementById("hhmm").value||"17:00";
  if(!confirm(`${vid}\n${d}일 뒤 ${h} (한국 시간) 공개로 예약 업로드할까요?`))return;const r=await api("/api/upload",{topic:TOPIC,vid,title:n,days:d,hhmm:h});if(!r.ok)alert(r.error)}
@@ -546,7 +553,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                     ya_cid = os.environ.get("YOUTUBE_CLIENT_ID")
                     if not ya_cid:
                         raise SystemExit("[AUTH] ❌ YOUTUBE_CLIENT_ID · SECRET 을 먼저 넣고 저장")
-                    refresh, missing = ya.issue(os.environ["YOUTUBE_CLIENT_ID"], os.environ["YOUTUBE_CLIENT_SECRET"], say=lambda s: log("AUTH", note=s.replace(" ", "_")[:300]))
+                    refresh, missing = ya.issue(os.environ["YOUTUBE_CLIENT_ID"], os.environ["YOUTUBE_CLIENT_SECRET"], say=print)
                     ya.save_env(topic_env_path(topic), {"YOUTUBE_CLIENT_ID": os.environ["YOUTUBE_CLIENT_ID"], "YOUTUBE_CLIENT_SECRET": os.environ["YOUTUBE_CLIENT_SECRET"], "YOUTUBE_REFRESH_TOKEN": refresh})
                     log("AUTH", status="saved", file=f"{topic}/.env", missing_scopes=",".join(missing) or "-")
                     return {"ok": True, "channel": ensure_auth(topic)[1]}

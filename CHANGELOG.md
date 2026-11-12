@@ -1,5 +1,16 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-12 (2) — PC 업로드 화면 (upload_web v1.1 · upload_pack v1.0 · youtube_auth v1.3 · run_uploader v1.1)
+
+- 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됏는지 확인 후 다 된게 있으면 내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘 토큰 만료되면 알아서 인증 코드 돌려서 설정 넣어주도록 하고 필요한 환경변수 값들 넣을 수 있는 웹 사이트 코드 만들어줘 주제별로 가능하도록 해줘".
+- 앞서 "만스피 영상은 자동 예약 일주일 후로" 는 클라우드 키의 갱신 토큰 만료(`invalid_grant`)로 못 함 → PC 에서 다시 인증하며 올리는 길로.
+- `tools/upload_pack.py` v1.0 (새): `check` = 대본별 준비 표(시트 · 챕터 · 설명란 · 태그 · 자막 · 대본 · 썸네일 · 합성 콘텐츠 · video.json · youtube.json) · `pack` = 영상을 90MB 조각으로 `uploads` 브랜치(부모 없는 커밋 하나 · 강제 푸시 · 올린 영상은 빠짐)에, main 에 `video.json`(크기 · sha256 · md5 · 조각). Drive MCP 는 10MB 제한이라 못 씀.
+- `tools/upload_web.py` v1.0 → v1.1 (새): 127.0.0.1 전용 화면 · 화면 토큰 · 주제 탭 · 키 칸(값은 다시 안 보임) · GitHub 에서 목록 · 제목 안 고르기(짝 썸네일) · [시험] · [업로드] → 키 확인 → 만료면 `youtube_auth.issue()` 로 브라우저 인증 → `<주제>/.env` 저장 → 채널 확인 → 조각 받아 sha256 확인 → `youtube_upload.run` 비공개 + 예약 → `youtube.json` main. v1.1 = 인증 주소 전체를 로그에 · 키 없음/만료 문구 구분 · 화면 다듬음.
+- `tools/youtube_auth.py` v1.3: `issue()` 함수로 뺌(화면과 명령이 같이 씀) · `AuthError`.
+- `run_uploader.ps1` v1.1: `-Web` · `-Port` · 받는 코드에 두 도구.
+- 시험(가짜 PC 폴더 · 키 없음 · 가짜 클라이언트): 목록 READY 2 · 인증 흐름이 Google 토큰 교환까지 감 · 조각 이어 붙여 sha256 같음 · 제목 고르기 → 짝 썸네일 · `youtube_upload` dry-run '문제 없음' 공개 2026-11-19 17:00 KST. 실제 업로드는 사용자 키로 PC 에서.
+- 문서: `guides/upload_guide.md` v1.13 13번 · CLAUDE.md 업로드 줄 · `guides/status.md` v3.98.
+
 ## 2026-11-12 — 심리 main 기준 정리 · 페르소나 최근 흐름 · 주제 밖 28개 빼기 (`tools/personas.py` v1.1.1 · `tools/comment_clusters.py` v1.1.1)
 
 - 사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외". 같은 날 두 세션이 심리를 따로 분석함 — main(승인 317) 을 기준으로, 브랜치 `claude/dazzling-dirac-qms8gm`(승인 251)의 자료는 버리고 쓸모 있는 것만 옮김 (merge 커밋 = main 트리 그대로, 강제 푸시 없음).

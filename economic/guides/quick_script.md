@@ -123,6 +123,7 @@ python3 tools/srt_tool.py build economic/source/<ID>/<ID>.txt economic/source/<I
 python3 tools/srt_tool.py check economic/source/<ID>/<ID>.txt economic/source/<ID>/<ID>.srt
 python3 tools/persona_review.py economic economic/source/<ID>/<ID>.txt      # 페르소나 검사 → persona_review.md
 ```
+- **★ 그다음 페르소나 반복 검증 (빠뜨리지 않음 — 2026-11-12 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐")**: `guides/persona_loop.md` — 대본 이탈(README [페르소나] P 번호) · 반론(`economic/result/outliers/rebuttal_persona.md`) 각 2회차 이상, 회차마다 새 하위 에이전트, 대본을 고치면 다시 (`tools/persona_gate.py` → `economic/source/<ID>/persona_loop.json`).
 | 항목 | 목표 |
 |---|---|
 | 길이 | 읽는 음절 2,150~2,450 (÷5.1 = 7~8분, srt_tool 추정은 0.6~0.8분 더 김). 넘치면 뺄 후보(문장 번호·초)를 README 5번에 적고 사용자가 고른다 |

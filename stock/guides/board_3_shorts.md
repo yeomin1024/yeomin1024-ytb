@@ -1,6 +1,7 @@
 # 주식 — 3단계 쇼츠 평가판 세션 (이 세션은 이 판 하나만)
 
-VERSION: v1.0 — 2026-11-03 — 사용자 지시 2026-11-03 "새 세션 3개에서 각각 '지시사항 읽고 주제 평가판, 대본 평가판, 쇼츠 평가판 만들어'라고만 해도 지금처럼 할 수 있게 … 세션당 평가판 하나야".
+VERSION: v1.1 — 2026-11-12 — 3번 **페르소나 반복 검증**(쇼츠 칸 title --shorts · 쇼츠 대본 이탈·반론 2회차 이상) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+(v1.0 — 2026-11-03 — 사용자 지시 2026-11-03 "새 세션 3개에서 각각 '지시사항 읽고 주제 평가판, 대본 평가판, 쇼츠 평가판 만들어'라고만 해도 지금처럼 할 수 있게 … 세션당 평가판 하나야".)
 ※ 연구·교육용 — 투자 권유가 아님.
 
 **사용자가 "지시사항 읽고 쇼츠 평가판 만들어"(또는 "쇼츠 피드백 했어") → 이 파일만 읽고 아래 순서대로.** 이 세션은 쇼츠 대본·쇼츠 칸·`stock/topics/board/shorts_board.json`·`stock/topics/board/shorts_pk.json`·`stock/topics/쇼츠안_2026-10-30.md`·`stock/topics/쇼츠평가판.html` 만 고친다 (롱폼 대본·주제 기획안은 다른 세션).
@@ -39,6 +40,7 @@ E
 python3 tools/board_check.py script stock <쇼츠.txt> --kind short --calc <짝 롱폼 계산 json> --allow "<사용자 문장 일부>"  # ❌ 0 (끝 멘트·숫자 대조)
 python3 tools/board_check.py package stock stock/topics/board/shorts_pk.json --stage shorts --write                         # 새 편 칸
 python3 tools/script_feedback_board.py --only short          # 쇼츠평가판.html 만 (대본 판은 건드리지 않음)
+# ★ 판에 올리기 전 페르소나 반복 검증 (빠뜨리지 않음 — guides/persona_loop.md): 쇼츠 칸 title --shorts (항목 <id>-shorts) · 쇼츠 대본 script_exit·script_rebuttal (기록 = 쇼츠 대본 폴더 persona_loop.json) — 각 2회차 이상
 ```
 - 1~4편 쇼츠 대본을 점검할 땐 md 표를 파일로 뽑아서: `python3 -c "import sys;sys.argv=['x'];sys.path.insert(0,'tools');import script_feedback_board as M;e,_=M.shorts_md();open('<scratchpad>/eN.txt','w').write('\n'.join(l['t'] for l in e[N]['lines']))"`.
 - 판 올리기: 다른 세션에서 처음 올릴 땐 `Artifact action=read url=<판>` 한 번 → `Artifact publish file_path=stock/topics/쇼츠평가판.html url=<판>`.

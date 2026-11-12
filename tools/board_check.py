@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-11-04 — 정답 줄 말머리를 편마다 다르게 읽음(ANS_RE) · K10 새로: 같은 묶음 다른 편과 똑같은 문장 ❌ · 같은 말머리 ⚠ · 글 겹침 15% ⚠ (유튜브 '진정성 없는 콘텐츠' 막기 — 사용자 지시 "2~4편 1은 최대한 형식을 유지하면서 다르게 할 수 있는 부분은 다르게해 3은 수정하고 2는 영상 만들 때 최대한 피하도록 해" · "그리고 정책에 위반되지 않게 지시사항에도 반영하고").
+# VERSION: v1.11 — 2026-11-12 — **페르소나 반복 검증 관문** (사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐"):
+#          script → 같은 폴더 persona_loop.json 의 script_exit·script_rebuttal (+ 편 기획 칸 package.json 이 있으면 title · upload.md 제목 = package.json 제목) ·
+#          package → <기획안>.persona.json 의 title — tools/persona_gate.py 규칙(2회차 이상 · 회차마다 새 검토자 · 마지막 통과 · 본 글 = 지금 글)을 못 넘으면 ❌. guides/persona_loop.md.
+# (v1.10) — 2026-11-04 — 정답 줄 말머리를 편마다 다르게 읽음(ANS_RE) · K10 새로: 같은 묶음 다른 편과 똑같은 문장 ❌ · 같은 말머리 ⚠ · 글 겹침 15% ⚠ (유튜브 '진정성 없는 콘텐츠' 막기 — 사용자 지시 "2~4편 1은 최대한 형식을 유지하면서 다르게 할 수 있는 부분은 다르게해 3은 수정하고 2는 영상 만들 때 최대한 피하도록 해" · "그리고 정책에 위반되지 않게 지시사항에도 반영하고").
 # (v1.9) — 2026-11-04 — K9 새로: 질문 두 줄 뒤 '선택해 보세요.' → '3, 2, 1.' → '이때는 …옳은 선택입니다.' (사용자 지시 2026-11-04 "매수 하시겠습니까? 선택 항목 다음에 선택해보세요. 멘트 추가하고 3, 2, 1 카운트 후에 정답 얘기하도록수정해 다른 대본도 그렇게 하고" — quick_board 규칙 41) · K7 은 그 두 줄을 건너뛰고 보기를 찾음.
 # (v1.8) — 2026-11-04 — K6·K7 질문형 선택(바로 정답·해설)도 읽음 (아래 줄).
 # (v1.7) — 2026-11-03 — 기획안 `user_fields`(사용자가 준 칸) 의 제목 2줄 넘침은 ❌ 대신 ⚠ — 사용자 문구는 한 글자도 안 바꾸므로 판에서 빠지지 않게 (주제 판 피드백 2026-11-03 E2·E3 제목).
@@ -35,7 +38,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.8"
+VERSION = "v1.11"
 SENT_MAX = 50
 
 # K8 권유·과장 — 사용자가 정한 제목 꼴('절대 통과 못하는')은 뺌
@@ -330,6 +333,33 @@ def check_package(topic, pk, personas, adv, stage="topic"):
     return fails, warns, oks
 
 
+import persona_gate as PG  # noqa: E402  (v1.11)
+
+
+def gate_script(path, upload=None, short=False):
+    """(v1.11) 대본 → 같은 폴더 persona_loop.json — 이탈·반론 반복 검증 · 편 기획 칸 package.json 이 있으면 제목·썸네일 피드 시험과 upload.md 제목 일치."""
+    sp = Path(path).resolve()
+    rec, item = sp.parent / "persona_loop.json", sp.stem
+    cur = PG.sha(PG.script_text(sp))
+    fails, oks = [], []
+    for stg in ("script_exit", "script_rebuttal"):
+        pr = PG.problems(rec, item, stg, cur)
+        (fails.extend(f"페르소나 반복 검증 ❌ {x}" for x in pr)) if pr else oks.append(f"페르소나 반복 검증: {PG.STAGES[stg]} 통과 (persona_gate)")
+    plan = sp.parent / "package.json"
+    if plan.is_file():
+        pk = json.loads(plan.read_text("utf-8"))
+        pr = PG.problems(rec, item, "title", PG.sha(PG.title_text(pk, short)))
+        (fails.extend(f"페르소나 반복 검증 ❌ {x}" for x in pr)) if pr else oks.append("페르소나 반복 검증: 제목·썸네일 피드 시험 통과 (persona_gate)")
+        if upload and Path(upload).is_file() and not short:
+            m = re.search(r"^##\s*\d+\.\s*[^\n]*제목[^\n]*\n(.*?)(?=^##\s|\Z)", Path(upload).read_text("utf-8"), re.M | re.S)
+            c = re.search(r"```[^\n]*\n(.*?)\n```", m.group(1), re.S) if m else None
+            ut = c.group(1).strip() if c else ""
+            (oks if ut == txt(pk.get("title")).strip() else fails).append(f"업로드 시트 제목 = package.json 제목: {'같음' if ut == txt(pk.get('title')).strip() else '❌ 다름 — 바꿨으면 package.json 도 바꾸고 피드 시험 다시'}")
+    else:
+        oks.append("페르소나 반복 검증: package.json 없음 — 제목·썸네일 피드 시험은 기획안 묶음(<기획안>.persona.json)에서 확인")
+    return fails, oks
+
+
 def main(argv):
     if len(argv) < 3 or argv[0] not in ("script", "package"):
         print(__doc__)
@@ -340,6 +370,8 @@ def main(argv):
     log("START", tool=f"board_check.py {VERSION}", mode=mode, topic=topic, path=path)
     if mode == "script":
         f, w, o = check_script(topic, path, opt("--calc"), opt("--upload"), allow, opt("--kind") or "long")
+        gf, go = gate_script(path, opt("--upload"), (opt("--kind") or "long") == "short")      # v1.11 페르소나 반복 검증
+        f, o = f + gf, o + go
         out = Path(path).resolve().with_name("board_check.md" if (opt("--kind") or "long") == "long" else "board_check_shorts.md")
         md = [f"# 평가판 전 점검 — {Path(path).name} ({time.strftime('%Y-%m-%d')}, board_check.py {VERSION})", "", f"결과: {'❌ 고칠 것 ' + str(len(f)) if f else '✅ 통과'} · ⚠ 사람 확인 {len(w)}", ""]
         md += [f"- ❌ {x}" for x in f] + [f"- ⚠ {x}" for x in w] + [f"- ✅ {x}" for x in o]
@@ -358,8 +390,13 @@ def main(argv):
     D = json.loads(Path(path).read_text("utf-8"))
     bad = 0
     stage = opt("--stage") or "topic"
+    rec = Path(path).with_suffix(".persona.json")                                                   # v1.11 기획안 묶음의 피드 시험 기록
     for pk in D["packages"]:
         f, w, o = check_package(topic, pk, personas, adv, stage)
+        if not pk.get("existing"):                                                                   # 이미 대본이 있는 옛 편(E1~)은 그 편 폴더에서
+            item = pk.get("id", "") + ("-shorts" if stage == "shorts" else "")
+            pr = PG.problems(rec, item, "title", PG.sha(PG.title_text(pk, stage == "shorts")))
+            f, o = (f + [f"페르소나 반복 검증 ❌ {x}" for x in pr]) if pr else f, (o if pr else o + ["페르소나 반복 검증: 제목·썸네일 피드 시험 통과 (persona_gate)"])
         pk["check" if stage == "topic" else "check_shorts"] = {"tool": f"board_check.py {VERSION}", "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "pass": not f,
                        "fail": f, "warn": w, "ok": o}
         bad += bool(f)

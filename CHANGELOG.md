@@ -1,5 +1,15 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-12 (5) — 페르소나 반복 검증을 관문으로 (persona_loop v1.0 · persona_gate v1.0 · board_check v1.11)
+
+- 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐 그리고 새 영상 2개 대본까지 만들어봐" (앞부분 — 새 영상 2개는 따로 항목).
+- 까닭: 주식 평가판 지시서(board_1~3)에는 규칙 점검(board_check)과 `persona_review.py` 한 번만 있고, 반복 검증(반론 페르소나 5회차·피드 시험)은 `quick_test.md` 0번·편 기록에만 있어 새 세션이 건너뜀. 2026-11-12 만스피 제목 본안도 분석 숫자만으로 골라 피드 시험을 빠뜨림.
+- `guides/persona_loop.md` v1.0 (새): 세 단계 `title`(실제 영상 제목 9개에 섞은 홈 화면 + 제목·썸네일 문구 — 대상 + 반론 페르소나) · `script_exit`(대상 페르소나 — 끄고 싶은 줄 0) · `script_rebuttal`(반론 페르소나 K1~K8 — 상 0 · 중 ≤1) · 회차마다 새 하위 에이전트 · 2회차 이상 · 마지막 회차 = 지금 글 · 5회차에도 안 되면 사용자에게.
+- `tools/persona_gate.py` v1.0 (새): `prompt`(지시문 + 본 글 sha · 검토자 이름 겹치면 멈춤) · `add`(답 JSON → 회차 · 통과 셈) · `check`(2회차 · 새 검토자 · 마지막 통과 · sha 같음) · `status`.
+- `tools/board_check.py` v1.11: script → `persona_loop.json` 의 이탈·반론 (+ 편 `package.json` 이 있으면 제목·썸네일 피드 시험 · 업로드 시트 제목 = package.json 제목) · package → `<기획안>.persona.json` 의 title — 못 넘으면 ❌.
+- 지시사항: 주식 `quick_board.md` v3.12(0번 맨 위 + 표 2·6·9) · `board_1_topic.md` v1.2 · `board_2_script.md` v1.5 · `board_3_shorts.md` v1.1 · `quick_test.md` 0번 · 재테크 `quick_board.md` v1.3 · `quick_script.md` 6번 · `quick_package.md` 1번 · 역사 `topics/README.md` v1.1 · 심리 `README.md` v1.4 · 위기 `guides/channel.md` v1.1 · `guides/README.md` v1.38 · CLAUDE.md '주제·제목·대본' 한 줄.
+- 시험: 기획안 B14 로 prompt(홈 화면 10개 — 한국어 제목만 · 우리 것 섞임) → 가짜 답 2개(하나 낚시 판정) → add → check ❌(1회차뿐 · 마지막 통과 못 함) · 옛 대본(gongpo) board_check → 기록 없음 ❌ 2줄 (점검 파일은 되돌림).
+
 ## 2026-11-12 (2) — 심리 대본 4편 · ChatGPT 페르소나 검증 파일 · content_analysis v1.0.3
 
 - 사용자 지시 "그래 content_analysis 고쳐 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고".

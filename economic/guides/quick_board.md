@@ -1,6 +1,7 @@
 # 재테크 — 평가판 세 장으로 주제 → 대본 → 쇼츠 → 영상 (새 세션은 이 파일 하나로)
 
-VERSION: v1.2 — 2026-11-02 — **제목 = 따옴표 속 시청자 말 + 사실** (사용자 지시 "제목좀 더 자극적으로 해봐 댓글보면 나라가 일을 안한다 도둑놈이다…") — 2번 title 줄 · 3번 '놈' · `tools/anger_words.py`.
+VERSION: v1.3 — 2026-11-12 — 0번 맨 위 **페르소나 반복 검증 — 빠뜨리지 않음** + 표 2·6번 (`guides/persona_loop.md`) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+(이전) VERSION: v1.2 — 2026-11-02 — **제목 = 따옴표 속 시청자 말 + 사실** (사용자 지시 "제목좀 더 자극적으로 해봐 댓글보면 나라가 일을 안한다 도둑놈이다…") — 2번 title 줄 · 3번 '놈' · `tools/anger_words.py`.
 (v1.1 — 2026-11-02 — **쇼츠 판 = 쇼츠 제목·썸네일 문구·보조 칸 + 쇼츠 대본** (주식 v1.5 와 같이 — 전달 내용 칸 뺌, 주식 사용자 지시 "쇼츠 평가판에 전달내용 빼고 대본써서 하는걸로 하자") · `board_check.py` v1.5 · `script_feedback_board.py` v2.3.)
 (v1.0 — 2026-11-02 — 최초, 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해" — 주식 `stock/guides/quick_board.md` v1.4 의 판 세 장·점검·db 읽기를 그대로 쓰고, 재테크에서 다른 것만 여기에 적음.)
 ※ 정보 제공용 — 세무·법률 상담이 아님.
@@ -9,15 +10,17 @@ VERSION: v1.2 — 2026-11-02 — **제목 = 따옴표 속 시청자 말 + 사실
 
 ## 0. 한눈에
 
+> **★ 페르소나 반복 검증 — 빠뜨리지 않음** (2026-11-12 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐"): 제목·썸네일 문구·보조 문구·대본(롱폼·쇼츠)을 쓰거나 바꿀 때마다 `guides/persona_loop.md` 세 단계(`title` 피드 시험 · `script_exit` 이탈 · `script_rebuttal` 반론)를 **회차마다 새 하위 에이전트로 2회차 이상, 마지막 회차 = 지금 글**까지 — 기록은 `tools/persona_gate.py`, `tools/board_check.py` v1.11 이 기록을 읽어 없거나 오래되면 ❌ (판·시트·사용자에게 내놓지 않음). 규칙 점검(board_check)만으로는 페르소나 검증이 아니다.
+
 | 단계 | 하는 것 | 명령·판 |
 |---|---|---|
 | 0 | 후보 = 주제 탐색 20개 (`economic/topics/주제탐색.md` — 꼬집을 제도가 있는 것만, `tools/topic_ideas.py economic`) | 기획안을 쓸 때 고름 (`topic_id`) |
 | 1 | 주제 기획안 10개 (꼬집는 제도 + 롱폼 5칸 + 쇼츠 4칸 + 확인 방법·근거) | `economic/topics/board/topics_<날짜>.json` (꼴 = 2번) |
-| 2 | 판에 올리기 전 점검 — 일반·반론 페르소나 (규칙 · 토큰 0) | `python3 tools/board_check.py package economic <파일> --write` (+ `--stage shorts --write`) → ❌ 0 까지 고침 |
+| 2 | 판에 올리기 전 점검 — 일반·반론 페르소나 (규칙 · 토큰 0) + **페르소나 반복 검증 `title`** (기획안마다 2회차 이상 — `guides/persona_loop.md`, 기록 `<topics>.persona.json`) | `python3 tools/board_check.py package economic <파일> --write` (+ `--stage shorts --write`) → ❌ 0 까지 고침 (v1.11 — 피드 시험 기록 없으면 ❌) |
 | 3 | **1단계 주제 평가판** (롱폼 칸만) | `python3 tools/topic_board.py economic` → Artifact 다시 올림(같은 파일 `economic/topics/주제평가판.html`) — **https://claude.ai/artifact/EtFeGPhdVV9GXyTSzU8o1G** |
 | 4 | 판정·피드백 읽기 | `ArtifactData list verdicts` · `query feedback where status == new` (주식 판과 db 가 따로) |
 | 5 | 통과(pass)만 **롱폼 대본** — 법 원문 → 계산 → 대본 | `tools/law_text.py --source auto` · `economic/source/<영상ID>/calc/calc.py` · 대본 꼴 = 3번 |
-| 6 | 롱폼 대본 점검 | `python3 tools/board_check.py script economic <대본.txt> --calc <json> --upload <upload.md>` → ❌ 0 (+ `tools/persona_review.py economic`) |
+| 6 | 롱폼 대본 점검 + **페르소나 반복 검증 `script_exit`·`script_rebuttal`** (대본을 고칠 때마다 — 기록 `<편 폴더>/persona_loop.json`) | `python3 tools/board_check.py script economic <대본.txt> --calc <json> --upload <upload.md>` → ❌ 0 (+ `tools/persona_review.py economic` · v1.11 — 검증 기록 없으면 ❌) |
 | 7 | **2단계 대본 평가판** | `economic/topics/board/script_board.json` 'extra' 에 한 줄 `{key:'E01-long', ep:'E01', label:'E01 연금저축 1,500만 원 문턱', kind:'long', title, ver:'대본 v1', file}` → `python3 tools/script_feedback_board.py economic` → Artifact 다시 올림 — **https://claude.ai/artifact/6SbgVekYkvvh2vWXrDrFtk** |
 | 8 | 롱폼 피드백 반영 반복 | 주식 판과 같음 (반영 → 계산 다시 → 6번 → 판 다시 → status=done·reply) |
 | 9 | 대본 판 `verdicts/<key>.verdict == pass`('통과 (쇼츠로)') 인 편만 **쇼츠 대본** (프롤로그형 — 기획안 s_message 를 대본으로 늘림) | 쇼츠 대본 파일(한 줄 한 문장) · **쇼츠 판엔 전달 내용 칸이 없고 대본으로 평가** · 쇼츠 칸(제목·썸네일 문구·보조) 점검 `board_check.py package economic <파일> --stage shorts --write` · 대본 점검 `board_check.py script economic <쇼츠.txt> --kind short` (끝 멘트 「…아래 영상에서 확인하세요.」 를 마지막 두 줄에서 확인 — 없으면 ❌) → ❌ 0 |

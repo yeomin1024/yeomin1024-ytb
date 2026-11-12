@@ -52,7 +52,20 @@
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_1.md",
       "text": "제목: 엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야\n썸네일 문구: 엘리베이터 멈추면 / 문부터 열지 마세요\n보조 문구: 비상벨 먼저"
      }
-    ]
+    ],
+    "pending": {
+     "n": 2,
+     "sha": "6fc9744573cbab3e",
+     "reviewers": [
+      "T2-P1",
+      "T2-반론"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_2.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_title_2",
+     "ours_idx": 8,
+     "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답",
+     "at": "2026-11-12T11:06:47Z"
+    }
    },
    "script_exit": {
     "rounds": [
@@ -112,7 +125,19 @@
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_1.md"
      }
     ],
-    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt"
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
+    "pending": {
+     "n": 2,
+     "sha": "b32674e8791b55f7",
+     "reviewers": [
+      "E2-P1"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_2.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_exit_2",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:06:47Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -196,7 +221,19 @@
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_1.md"
      }
     ],
-    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt"
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
+    "pending": {
+     "n": 2,
+     "sha": "b32674e8791b55f7",
+     "reviewers": [
+      "K2-반론"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_2.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_rebuttal_2",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:06:47Z"
+    }
    }
   }
  }

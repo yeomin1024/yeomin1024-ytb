@@ -46,7 +46,20 @@
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_title_1.md",
       "text": "제목: 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로\n썸네일 문구: 기내에 연기가 찼다 / 당신이라면 짐 챙긴다?\n보조 문구: 90초"
      }
-    ]
+    ],
+    "pending": {
+     "n": 2,
+     "sha": "91efc4bac54fadc3",
+     "reviewers": [
+      "T2-P2",
+      "T2-반론"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_title_2.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_title_2",
+     "ours_idx": 2,
+     "text": "제목: 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로\n썸네일 문구: 기내에 연기가 찼다 / 가방, 두고 갈 수 있나?\n보조 문구: 379명 전원 탈출",
+     "at": "2026-11-12T11:06:47Z"
+    }
    },
    "script_exit": {
     "rounds": [
@@ -81,7 +94,19 @@
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_1.md"
      }
     ],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
+    "pending": {
+     "n": 2,
+     "sha": "11238fc2060d3915",
+     "reviewers": [
+      "E2-P2"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_2.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_exit_2",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:06:47Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -164,7 +189,19 @@
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_1.md"
      }
     ],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
+    "pending": {
+     "n": 2,
+     "sha": "11238fc2060d3915",
+     "reviewers": [
+      "K2-반론"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_2.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_rebuttal_2",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:06:47Z"
+    }
    }
   }
  }

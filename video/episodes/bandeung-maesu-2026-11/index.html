@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>반등 매도할까 버틸까</title>
-<!-- VERSION: v1.2 — 2026-11-12 — still 을 보고: 크림 게시판 위 밝은 선(흐름·곡선·신호·닷컴)을 진한 남색으로 · 처음 카드 회색 · 판 위 기준 점선 진한 노랑 · 2008.10.13 이름표를 공 꼭대기 밖으로 · 코스피 제목 자리.
+<!-- VERSION: v1.3 — 2026-11-12 — 렌더한 mp4 를 문장마다 보고: 회사 여덟 곳 이름표 겹침 → 노란 밑줄 + '10년+ · 6곳' 하나 · 109번 ✓·? 와 '전부 SELL ×' 겹침 · 40번 판이 4초 빔 → 막대를 문장 처음부터.
+     이전 v1.2 — 2026-11-12 — still 을 보고: 크림 게시판 위 밝은 선(흐름·곡선·신호·닷컴)을 진한 남색으로 · 처음 카드 회색 · 판 위 기준 점선 진한 노랑 · 2008.10.13 이름표를 공 꼭대기 밖으로 · 코스피 제목 자리.
      이전 v1.1 — 2026-11-12 — ChatGPT 그림 17장 받음(main f44ece38~67f76549, 검수 통과 — 글자 없음 · 만스피 V 와 같은 사람): HAVE 다섯 · 영역 표를 그림에서 잼 ·
        보관실 책상·책 더미 앞 물건(FG-ARCHIVE, 다각형) · 계단 디딤 9개 자리 · 승강장 열차 크기(바퀴 y≈765)와 그래프 판을 앞에 띄움 · V23 왼손 = 뒤집은 V23-4.
      이전 v1.0 — 2026-11-12 — 사용자 지시 "오디오 만들었으니 반등 영상 만들어봐" → 화면 방식 "만스피처럼 만화 인물".
@@ -713,8 +714,8 @@ shot(B(38), (a, b) => {
     const x = 70 + i * 150, h = Math.abs(r.depth) * 4.2;
     const n = later(`<div class="mini" style="left:${x}px;top:60px;width:96px;height:${h}px;background:${BL};transform-origin:50% 0%"></div>`, bd);
     n.dataset.zone = "BOARD"; n.dataset.info = 1;
-    tl.fromTo(n, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, W(40, "여섯 번") - 0.3 + i * 0.15);
-    const y = tag(bd, r.peak.slice(0, 4), x + 48, 30, 38, "#FFFDF6"); pop(y, W(40, "여섯 번") - 0.3 + i * 0.15);
+    tl.fromTo(n, { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.45, ease: "power2.out", immediateRender: false }, S(40) + 0.6 + i * 0.4);
+    const y = tag(bd, r.peak.slice(0, 4), x + 48, 30, 38, "#FFFDF6"); pop(y, S(40) + 0.6 + i * 0.4);
     return { n, x, h, y, r };
   });
   const deep = tag(bd, "-55.2%", bars[1].x + 48, 60 + bars[1].h + 40, 58, BLT); pop(deep, W(41, "55.2%")); hide(deep, S(42));
@@ -779,13 +780,18 @@ shot(B(51), (a, b) => {
     n.dataset.zone = "BOARD"; n.dataset.info = 1;
     tl.fromTo(n, { opacity: 0, y: "+=40" }, { opacity: 1, y: "-=40", duration: 0.35, ease: "back.out(2)", immediateRender: false }, W(52, "여덟 곳") - 0.2 + i * 0.1);
     let yr = null;
-    if (o.years > 10) { yr = tag(bd, "10년+", cx, 380, 38, YL); pop(yr, W(53, "10년이") - 0.6 + i * 0.08); }
+    if (o.years > 10) {
+      yr = later(`<div class="mini" style="left:${cx - 40}px;top:350px;width:80px;height:14px;background:${YLD};transform-origin:50% 50%"></div>`, bd);
+      yr.dataset.zone = "BOARD"; yr.dataset.info = 1;
+      tl.fromTo(yr, { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "back.out(2)", immediateRender: false }, W(53, "10년이") - 0.6 + i * 0.08);
+    }
     return { n, o, cx, yr };
   });
+  const ten = tag(bd, "10년+ · 6곳", 490, 395, 50, YL); pop(ten, W(53, "10년이"));
   const c = bs.find(x => x.o.t === "CSCO");
   const cs = tag(bd, "시스코 21년", c.cx + 40, 40, 56, YL); pop(cs, W(54, "21년") - 0.3);
   tl.to(c.n, { scale: 1.12, duration: 0.25, yoyo: true, repeat: 1 }, W(54, "21년"));
-  hide([...bs.map(x => x.n), ...bs.map(x => x.yr).filter(Boolean), cs], S(55) + 0.2);
+  hide([...bs.map(x => x.n), ...bs.map(x => x.yr).filter(Boolean), cs, ten], S(55) + 0.2);
   const citi = bldg(W_.L.back, 2, BOARD[0] + 490, BOARD[1] + 330, 260); citi.dataset.zone = "BOARD"; citi.dataset.info = 1;
   show(citi, S(55) + 0.2, 0.3);
   tl.to(citi, { y: "+=96", rotation: 4, duration: 1.2, ease: "power2.in" }, W(56, "67%") - 0.4);
@@ -1011,7 +1017,7 @@ shot(B(108), (a, b) => {
   const A = arcV(W_, ["V19-1", "V19-2", "V19-3", "V16-1", "V16-2", "V16-3"]);
   moves(A, [[a, "V19-1", 1, "hold"], [S(108), ["V19-2", "V19-3"], 4, "pp"], [S(111), ["V16-1", "V16-2"], 2, "pp"], [S(114), "V16-3", 1, "hold"]], b + 0.4);
   breathe(A, a, b);
-  const no = tag(bd, "전부 SELL ×", 490, 60, 58, YL); pop(no, W(108, "전부 매도")); hide(no, S(110) - 0.1);
+  const no = tag(bd, "전부 SELL ×", 490, 60, 58, YL); pop(no, W(108, "전부 매도")); hide(no, S(109) - 0.1);
   const b1 = bldg(W_.L.back, 4, BOARD[0] + 300, BOARD[1] + 360, 230); b1.dataset.zone = "BOARD"; b1.dataset.info = 1;
   tl.fromTo(b1, { opacity: 0, rotation: 14 }, { opacity: 1, rotation: 0, duration: 1.0, ease: "power2.out", immediateRender: false }, W(109, "오래 걸려"));
   const b2 = bldg(W_.L.back, 2, BOARD[0] + 680, BOARD[1] + 360, 230); b2.dataset.zone = "BOARD"; b2.dataset.info = 1;

@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-12 — 사용자 지시 "주식 채널명이 다르다고 업로드 실패했는데 그건 내가 채널명이 변경해서 그래 그러니까 달라도 업로드 할껀지
+# VERSION: v1.3 — 2026-11-12 — 다시 올리기: main 에 youtube.json 이 없어 목록에 다시 나온 대본인데 이 PC 에 옛 youtube.json 이 남아 있으면
+#          youtube_upload.run 이 '이미 업로드됨'으로 건너뛰고 그 옛 기록을 main 에 다시 올렸음 → 업로드 전에 이 PC 의 옛 기록을
+#          youtube_old_<시각>.json 으로 옮김 (지우지 않음 · 로그 REUPLOAD). 사용자 지시 2026-11-12 "만스피 대본 잘못 올라갔는데 다시 업로드 목록에 생기도록 해줘".
+# (v1.2 — 2026-11-12 — 사용자 지시 "주식 채널명이 다르다고 업로드 실패했는데 그건 내가 채널명이 변경해서 그래 그러니까 달라도 업로드 할껀지
 #          물어보고 하도록 하고 업로드 미리보기 기능도 넣어 그리고 … 3안 중 사이트에서 나한테 선택하게 하지말고 너가 가장 괜찮은걸로 하나 정해":
 #   · 채널 확인 = 채널 ID(UC…) 비교 (이름만 바꾼 채널은 ID 가 같아 그대로 통과). ID 가 다르면 멈추지 않고 화면에 두 채널(이름 · ID)을 보여 주고 물음 →
 #     [이 채널에 올림] (그 ID 만 이번 업로드에 허용 — youtube_upload.ALLOW_CHANNEL) · '다음부터 이 채널로 기억'(GitHub <주제>/youtube_channel.json 갱신) ·
 #     [다른 채널로 다시 인증] (계정 고르기 창 — youtube_auth v1.4).
 #   · [미리보기]: 올라갈 그대로 — 썸네일(본안 + 실험안) · 휴대전화 목록 모양 · 제목 · 설명란(챕터 시각을 다시 계산한 것) · 태그 · 공개 시각 · 설정 ·
 #     자막 앞부분 · 고정 댓글 · 영상(받아 둔 경우 재생 — 아니면 [영상 받기]) · 자료 점검 결과. 이 PC 의 파일만 보여 줌(/media — 화면 토큰 필요).
-#   · 제목 고르기 칸을 뺌 — 업로드 시트 1번의 본안 하나만 올림(Claude 가 정함), 실험안은 미리보기에 '스튜디오 테스트 및 비교용'으로만.
+#   · 제목 고르기 칸을 뺌 — 업로드 시트 1번의 본안 하나만 올림(Claude 가 정함), 실험안은 미리보기에 '스튜디오 테스트 및 비교용'으로만.)
 # (v1.1 — 2026-11-12 — 인증 주소를 줄이지 않고 로그에(say=print) · 키가 없을 때와 토큰 만료를 다른 말로 · 화면 다듬음(긴 로그 줄바꿈 ·
 #          제목 고르기 줄 · 시각 칸 너비 · 올린 영상 공개 시각을 KST 로)
 # (v1.0 — 2026-11-12 — 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됏는지 확인 후 다 된게 있으면
@@ -54,7 +57,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -538,6 +541,13 @@ def do_upload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", remem
     title = yu.read_sheet(topic, vid)["title"]
     log("TITLE", video=vid, title=title[:60].replace(" ", "_"), thumbnail=f"thumbnail_{yu.paired_thumbnail(topic, vid)}", note="업로드 시트 1번 본안 (실험안은 스튜디오)")
     path = get_video(topic, vid)
+    stale = ROOT / topic / "source" / vid / "youtube.json"
+    if stale.is_file():                                   # v1.3 main 에는 없음(목록에 있으니) = 이 PC 에만 남은 옛 기록 → 옮기고 새로 올림
+        old_rec = json.loads(stale.read_text("utf-8") or "{}")
+        moved = stale.with_name(f"youtube_old_{dt.datetime.now(dt.timezone.utc):%Y%m%d%H%M%S}.json")
+        stale.rename(moved)
+        log("REUPLOAD", video=vid, old_video_id=old_rec.get("videoId", "-"), moved_to=moved.name,
+            note="main 에 youtube.json 이 없어 새로 올림 — 옛 영상은 스튜디오에서 지우지 않으면 그대로 남음 (예약 공개면 그 시각에 공개됨)")
     res = yu.run(topic, vid, video=str(path), publish_at=when.strftime("%Y-%m-%dT%H:%M:%SZ"))
     state = ROOT / topic / "source" / vid / "youtube.json"
     pushed = gh_put_new(f"{topic}/source/{vid}/youtube.json", state.read_bytes(),

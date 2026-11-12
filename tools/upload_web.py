@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-12 — 다시 올리기: main 에 youtube.json 이 없어 목록에 다시 나온 대본인데 이 PC 에 옛 youtube.json 이 남아 있으면
+# VERSION: v1.4 — 2026-11-12 — ① '올린 적 없음' 칸 = main 기준 (main 에 youtube.json 이 없으면 ✅ — 이 PC 의 옛 youtube.json 때문에 ✗ 로 막히던 것 고침;
+#          옛 기록은 v1.3 대로 업로드 때 youtube_old_<시각>.json 으로 옮김) ② 화면에서 채널 이름을 뺌 (영상 줄·키 칸 — 채널 확인은 ID 로만, 다를 때 묻는 창은 그대로).
+#          사용자 지시 2026-11-12 "채널이름 빼 자꾸 영상 올린적 없음 엑스로 되어 있어서 업로드 안되잖아 수정해".
+# (v1.3 — 2026-11-12 — 다시 올리기: main 에 youtube.json 이 없어 목록에 다시 나온 대본인데 이 PC 에 옛 youtube.json 이 남아 있으면
 #          youtube_upload.run 이 '이미 업로드됨'으로 건너뛰고 그 옛 기록을 main 에 다시 올렸음 → 업로드 전에 이 PC 의 옛 기록을
-#          youtube_old_<시각>.json 으로 옮김 (지우지 않음 · 로그 REUPLOAD). 사용자 지시 2026-11-12 "만스피 대본 잘못 올라갔는데 다시 업로드 목록에 생기도록 해줘".
+#          youtube_old_<시각>.json 으로 옮김 (지우지 않음 · 로그 REUPLOAD). 사용자 지시 2026-11-12 "만스피 대본 잘못 올라갔는데 다시 업로드 목록에 생기도록 해줘".)
 # (v1.2 — 2026-11-12 — 사용자 지시 "주식 채널명이 다르다고 업로드 실패했는데 그건 내가 채널명이 변경해서 그래 그러니까 달라도 업로드 할껀지
 #          물어보고 하도록 하고 업로드 미리보기 기능도 넣어 그리고 … 3안 중 사이트에서 나한테 선택하게 하지말고 너가 가장 괜찮은걸로 하나 정해":
 #   · 채널 확인 = 채널 ID(UC…) 비교 (이름만 바꾼 채널은 ID 가 같아 그대로 통과). ID 가 다르면 멈추지 않고 화면에 두 채널(이름 · ID)을 보여 주고 물음 →
@@ -57,7 +60,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -242,6 +245,8 @@ def list_videos(topic: str) -> dict:
         fetch_settings(topic, vid, main_paths)
         r = up.check_one(topic, vid)
         items = {k: list(v) for k, v in r["items"].items()}
+        stale = (ROOT / topic / "source" / vid / "youtube.json").is_file()      # v1.4 기준은 main (위에서 main 에 youtube.json 없음을 확인함)
+        items["올린 적 없음"] = [True, "main 에 업로드 기록 없음" + (" — 이 PC 의 옛 기록은 업로드 때 youtube_old_… 로 옮김" if stale else "")]
         vj = ROOT / topic / "source" / vid / "video.json"
         if vj.is_file():
             rec = json.loads(vj.read_text("utf-8"))
@@ -626,7 +631,7 @@ const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;"
 async function api(p,body){const r=await fetch(p,body?{method:"POST",headers:{"Content-Type":"application/json","X-Upload-Token":TOKEN},body:JSON.stringify(body)}:{headers:{"X-Upload-Token":TOKEN}});return r.json()}
 async function boot(){const s=await api("/api/topics");const t=document.getElementById("tabs");t.innerHTML="";s.topics.forEach(n=>{const b=document.createElement("button");b.textContent=n;b.onclick=()=>pick(n);b.id="tab_"+n;t.appendChild(b)});pick(s.topics.includes("stock")?"stock":s.topics[0]);setInterval(pollJob,1500);upd()}
 async function pick(n){TOPIC=n;document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.id==="tab_"+n));document.getElementById("tname").textContent=n;await loadKeys();loadVideos()}
-async function loadKeys(){const s=await api("/api/env?topic="+encodeURIComponent(TOPIC));document.getElementById("chan").textContent=s.channel&&s.channel.channel_id?`(채널 기록: ${s.channel.name||""} ${s.channel.channel_id})`:"(youtube_channel.json 없음 — 채널 확인 안 함)";
+async function loadKeys(){const s=await api("/api/env?topic="+encodeURIComponent(TOPIC));document.getElementById("chan").textContent=s.channel&&s.channel.channel_id?`(채널 기록 ID: ${s.channel.channel_id})`:"(youtube_channel.json 없음 — 채널 확인 안 함)";
  document.getElementById("keys").innerHTML=KEYS.map(k=>`<div class="row"><span>${k}</span><input id="k_${k}" type="password" autocomplete="off" placeholder="${k==="YOUTUBE_REFRESH_TOKEN"?"비워 두면 [다시 인증]으로 저절로":""}"><span class="muted">${esc(s.status[k]||"없음")}</span></div>`).join("");
  document.getElementById("s_GITHUB_TOKEN").textContent=s.status.GITHUB_TOKEN||"없음"}
 async function saveKeys(){const v={};KEYS.concat(["GITHUB_TOKEN"]).forEach(k=>{const x=document.getElementById("k_"+k).value.trim();if(x)v[k]=x});const r=await api("/api/env",{topic:TOPIC,values:v});alert(r.ok?"저장했습니다 ("+r.saved.join(", ")+")":"실패: "+r.error);loadKeys()}
@@ -662,7 +667,7 @@ async function openPv(vid){PVVID=vid;const ov=document.getElementById("pvov"),bo
  const exps=r.experiments.length?`<h4>실험안 (API 로 올리지 않음 — 공개 뒤 스튜디오 '테스트 및 비교')</h4>`+r.experiments.map(e=>`<div class="cue"><b>${esc(e.name)}</b>${esc(e.title)} <span class="muted">· thumbnail_${e.thumb}</span></div>`).join(""):"";
  box.innerHTML=`<button class="cls" onclick="closePv()" title="닫기">×</button><h2>미리보기 — ${esc(vid)}</h2><p class="muted" style="margin:0 0 10px">이 PC 에 받아 둔 업로드 시트·자막·썸네일 그대로 · 공개 <b>${esc(s.label)}</b> (한국 시간) · 그때까지 비공개</p>${probs}
  <div class="pv"><div><div class="player">${player}</div>
-  <div class="wtitle">${esc(r.title)}</div><div class="muted">${esc(r.channel.name||"채널 기록 없음")} ${r.channel.channel_id?"· "+esc(r.channel.channel_id):""} · 제목 ${r.title_chars}자</div>
+  <div class="wtitle">${esc(r.title)}</div><div class="muted">제목 ${r.title_chars}자</div>
   <div class="desc">${tsLinks(r.description)}</div>
   <h4>태그 ${r.tags.length}개 · ${r.tags_chars}자 / 500</h4><div class="chips">${r.tags.map(t=>`<span class="chip n">${esc(t)}</span>`).join("")}</div>
   ${r.pinned?`<h4>고정 댓글 (스튜디오에서 직접 — API 로 안 올림)</h4><div class="desc">${esc(r.pinned)}</div>`:""}</div>

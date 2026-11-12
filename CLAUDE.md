@@ -50,6 +50,7 @@
 - 롱폼과 짝 쇼츠는 같은 시각에 공개, 짝끼리 1시간 간격. 할당량(영상 약 2,050단위·하루 10,000·한국 16시 초기화, 예약은 올린 뒤에만)이 모자라면 롱폼부터, 짝 쇼츠가 늦어지면 이미 올린 롱폼 공개 시각을 옮김(videos.update — 합성 콘텐츠 칸 같이) — 12번. 쇼츠 썸네일은 유튜브 처리가 끝난 뒤 보내야 세로 썸네일로 붙음(`youtube_upload.py` v1.15 가 기다림 — 이미 올린 건 `--thumbnail-only`) · 공개 뒤 `i.ytimg.com/vi/<ID>/oardefault.jpg` 로 확인, 안 보이면 사용자가 앱에서 0초 장면. Drive 권한은 없음(mp4 는 컨테이너에만).
 - '변경되거나 합성된 콘텐츠' = **예** (AI 음성) — 업로드 시트에 적고 도구가 등록.
 - PC 업로더 길(`run_uploader.ps1` → `tools/pc_upload.py`, Drive 원본, 예약 기본 +1시간, 하루 최대 4개) — 11번.
+- **PC 업로드 화면** (사용자 지시 2026-11-12 "…업로드 버튼 누르면 일주일 후 자동 예약으로 … 토큰 만료되면 알아서 인증 … 주제별로"): Claude 가 `tools/upload_pack.py check` → READY 면 `pack`(영상 = `uploads` 브랜치 90MB 조각 · main `video.json`) → 사용자 PC `run_uploader.ps1 -Web` → 주제 탭 키 칸(`<주제>/.env`) · [업로드] = 7일 뒤 17:00 KST 예약 · `invalid_grant` 면 저절로 브라우저 인증 → 새 토큰 저장 — 13번.
 
 ## 주식 `stock/` — 분석 + 이야기형 종이인형극 (2026-10-25)
 - **분석 결과·설정·캐시·근거 문서만 남김** (사용자 지시 2026-10-25 — 범위 '주식만'): `result/`·`cloud_cache/`·분석 설정·`stock/guides/`(`data_insights.md`·`shorts_insights.md`·`research_2026-10-15.md`·`viewer_review.md`)·올린 영상 기록 `uploaded_videos.md`. 제작 지시사항·이야기형 시리즈·영상 소스·주식 전용 도구는 지움 (`stock/README.md` '지운 것', 되살리기 `git checkout 2a0427d0 -- <경로>`). 새 제작 방향은 사용자가 정하기 전에는 만들지 않는다. 분석은 아래 공통 규칙대로. **2026-10-26 다시 — `stock/` 안의 영상 소스(`source/`·`puppet/`·`out/`)를 지우고 분석만 남김** (사용자 지시 "stock 폴더 내에서만 삭제해").

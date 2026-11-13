@@ -1,5 +1,5 @@
 {
- "tool": "persona_gate.py v1.0",
+ "tool": "persona_gate.py v1.1",
  "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
  "items": {
   "pon-kkaejyeosseo-2026-11": {
@@ -133,12 +133,17 @@
          "끄고 싶은 줄 [35, 80, 92, 103]",
          "모르는 말 [\"해지 (27줄 '보험까지 해지해서' — 무슨 뜻인지 풀이 없음)\", \"사칭 (57줄 '자녀 사칭 사기')\", '금융감독원 (57·69·81줄 — 어떤 곳인지 풀이 없이 계속 나옴)']",
          "끝까지 안 봄"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (README v1.3) · 이탈 검토자는 페르소나 나이를 10대로 잘못 읽음(gate_files v1.1 버그)",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_1.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -167,12 +172,17 @@
         "why": [
          "끄고 싶은 줄 [32, 83]",
          "모르는 말 ['3영업일']"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_2.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 3,
@@ -197,12 +207,17 @@
         "why": [
          "끄고 싶은 줄 [81]",
          "모르는 말 ['자율 배상']"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.5: '자율 배상' → '명의 도용 피해 일부를 스스로 물어 주는 기준' · 78~81줄 '그리고' 겹침 뺌",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_3.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -224,12 +239,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [85]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.6: 대출 배상 줄을 할 일 먼저로 · 은행 기준 줄 뺌",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_4.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 5,
@@ -260,15 +280,32 @@
         "why": [
          "끄고 싶은 줄 [92, 106]",
          "모르는 말 ['여신거래', '개인정보노출자 사고예방시스템', '계좌정보통합관리서비스']"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_5.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "28c7648b248b8705",
+     "reviewers": [
+      "E6-P4"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_6.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:43:57Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -357,13 +394,18 @@
         "pass": false,
         "why": [
          "상 1 (줄 [79])",
-         "중 5 > 1"
-        ]
+         "중 5 > 3"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (README v1.3) · 이탈 검토자는 페르소나 나이를 10대로 잘못 읽음(gate_files v1.1 버그)",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_1.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -461,15 +503,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 3번은 상황이 달라도 분명하고 피해자 탓도 피했지만, 막은 사례의 '번호' 설명이 앞뒤가 엇갈리고(44), 명의 도용 대출 배상 기대가 커 보이며(88), 앱을 깔았을 때 전원 끄기 뒤 할 일이 빠짐(102) — 중 3·하 9.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_2.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 3,
@@ -546,15 +592,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 3번은 상황이 바뀌어도 분명하고(원래 번호가 꺼진 경우도 50번 줄이 받쳐 줌) 대본 안 숫자 앞뒤도 맞음 — 빈틈은 명의도용 대출 배상 조건(83)과 비행기 모드 와이파이(97) 두 곳, 나머지는 조건 한 줄씩이면 막힘.",
-        "pass": false,
-        "why": [
-         "중 2 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "v1.5: 대출 배상은 '물어 달라고 할 길' + 원격 앱으로 인증까지 됐으면 다툼 · 바로 알림·기록 · 전원 끄기 먼저, 못 끄면 비행기 모드+와이파이 끔 · 같은 계좌 피해자끼리 나눠 받음(특별법 제10조②) · 안심차단은 새로 만드는 것만 · 암호는 만나서 말로 · '너 맞아?' 대신 암호 · 나이 집계 기간 · 주말과 공휴일 · 부끄러움 → 잘못이 아님·망설이지 말고",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_3.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 4,
@@ -617,15 +667,19 @@
         ],
         "answer_clear": true,
         "summary": "정답(답장 말고 원래 번호로 직접 전화)은 분명하고 피해자 탓도 피했지만, '이미 보냈다면' 절에 훅에서 달라고 한 카드 번호와 61번 줄의 휴대폰 개통 대응이 빠졌고, 암호를 맞히면 보내도 된다는 듯한 마무리가 원칙 둘과 부딪힌다.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "v1.6: 카드 번호 보냈으면 카드사 정지·재발급 · 신분증 보냈으면 엠세이퍼도 · 암호 맞혀도 문자로 안 보냄 · 다른 전화로 거는 까닭 · 112 신고해도 서류는 은행에(특별법 제3조①) · 비대면 계좌 '노립니다'로 낮춤 · 아빠·할머니·할아버지에게도",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_4.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 5,
@@ -688,18 +742,34 @@
         ],
         "answer_clear": true,
         "summary": "정답(원래 번호로 직접 전화)은 상황과 상관없이 분명하고 피해자 탓도 없지만, 피해구제 서류·명의도용 대출 배상 같은 돈·법 대목에서 '현실은 다르다' 반박이 붙을 수 있고, 마지막 암호 묻기가 정답의 '답장하지 않고'와 부딪힌다.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_5.md"
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "28c7648b248b8705",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_6.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:43:57Z"
+    }
    }
   }
  }

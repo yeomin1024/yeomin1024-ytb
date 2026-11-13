@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "eomma-hasoyeon-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "63393a262e32d9c9",
+     "reviewers": [
+      "T1-P4",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_title_1.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_title_1",
+     "ours_idx": 1,
+     "text": "제목: 엄마 하소연을 혼자 다 받아 주면 안 되는 이유 3가지\n썸네일 문구: 엄마 하소연 다 받아 주면 / 딸 혼자 지칩니다\n보조 문구: \"나 아니면 들어 줄 사람이 없잖아...\"",
+     "at": "2026-11-13T03:04:26Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "88ba80f40882ec87",
+     "reviewers": [
+      "E1-P4"
+     ],
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_1.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:26Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "88ba80f40882ec87",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_1.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:26Z"
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "geureut-moa-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "1d9b2fb669fd6221",
+     "reviewers": [
+      "T1-P1",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_title_1.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_title_1",
+     "ours_idx": 5,
+     "text": "제목: 식당에서 그릇 모아 두는 사람, 심리학적 특징 3가지\n썸네일 문구: 식당 그릇 모아 두는 사람 / 의외의 속마음\n보조 문구: \"안 치우면 거슬려서요\"",
+     "at": "2026-11-13T03:04:25Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "3ef625e7b2acabb8",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_1.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:25Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "3ef625e7b2acabb8",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_1.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:25Z"
+    }
+   }
+  }
+ }
+}

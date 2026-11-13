@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "eomma-gibun-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "b4e59f2caf1f5965",
+     "reviewers": [
+      "T1-P4",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_title_1.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_title_1",
+     "ours_idx": 4,
+     "text": "제목: 어릴 때 엄마 기분부터 살피던 사람의 특징 5가지\n썸네일 문구: 엄마 눈치 보며 자란 아이 / 커서도 남을 수 있는 5가지\n보조 문구: \"내가 참으면 되지...\"",
+     "at": "2026-11-13T03:04:26Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "5ff23f756d9652e1",
+     "reviewers": [
+      "E1-P4"
+     ],
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_1.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:26Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "5ff23f756d9652e1",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_1.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:26Z"
+    }
+   }
+  }
+ }
+}

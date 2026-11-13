@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.0",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "sangcheo-gonggyeok-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "66be77c752c77024",
+     "reviewers": [
+      "T1-P3",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_title_1.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_title_1",
+     "ours_idx": 7,
+     "text": "제목: 상처받은 사람이 오히려 공격적이 되는 이유 3가지\n썸네일 문구: 상처받은 사람이 / 오히려 공격적이 되는 이유\n보조 문구: \"왜, 안 어울려?\"",
+     "at": "2026-11-13T03:04:26Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "97ccd5f15898edd0",
+     "reviewers": [
+      "E1-P3"
+     ],
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_1.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:26Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "97ccd5f15898edd0",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_1.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T03:04:26Z"
+    }
+   }
+  }
+ }
+}

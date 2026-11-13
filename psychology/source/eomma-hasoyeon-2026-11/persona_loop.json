@@ -257,7 +257,19 @@
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_5.md"
      }
     ],
-    "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt"
+    "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "8e4f47a0cff44628",
+     "reviewers": [
+      "E6-P4"
+     ],
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_6.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:39:25Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -648,7 +660,19 @@
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_5.md"
      }
     ],
-    "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt"
+    "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "8e4f47a0cff44628",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_6.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:39:25Z"
+    }
    }
   }
  }

@@ -256,7 +256,19 @@
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_5.md"
      }
     ],
-    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt"
+    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "97743920cc903157",
+     "reviewers": [
+      "E6-P1"
+     ],
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_6.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:39:25Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -659,7 +671,19 @@
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_5.md"
      }
     ],
-    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt"
+    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "97743920cc903157",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_6.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:39:25Z"
+    }
    }
   }
  }

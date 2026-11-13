@@ -230,21 +230,45 @@
       "pass": false,
       "fixed_after": "v1.6: 대출 배상 줄을 할 일 먼저로 · 은행 기준 줄 뺌",
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_4.md"
+     },
+     {
+      "n": 5,
+      "at": "2026-11-13T03:25:06Z",
+      "sha": "07d11fbe7f8b1ef4",
+      "reviewers": [
+       {
+        "reviewer": "E5-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 92,
+          "why": "어려운 말 — '여신거래 안심차단'에서 '여신'이 무슨 뜻인지 안 알려 줘서 순간 은행 용어 강의처럼 들림 (93줄 풀이로 겨우 버팀)"
+         },
+         {
+          "line": 106,
+          "why": "어려운 말이 몰림 — '개인정보노출자 사고예방시스템'·엠세이퍼·'계좌정보통합관리서비스'가 106~109줄에 줄줄이 나와 받아 적어야 하나 싶어 지침"
+         }
+        ],
+        "hard_words": [
+         "여신거래",
+         "개인정보노출자 사고예방시스템",
+         "계좌정보통합관리서비스"
+        ],
+        "keep_watching": true,
+        "best": "11줄 — 내가 고를 뻔한 2번('진짜 너 맞아?')이 왜 소용없는지 '응, 나야'로 바로 짚어 줘서, '나라면 어떻게 했을까'를 제대로 따져 보게 됨",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [92, 106]",
+         "모르는 말 ['여신거래', '개인정보노출자 사고예방시스템', '계좌정보통합관리서비스']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_5.md"
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
-    "pending": {
-     "n": 5,
-     "sha": "07d11fbe7f8b1ef4",
-     "reviewers": [
-      "E5-P4"
-     ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_5.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-13T03:20:40Z"
-    }
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -602,21 +626,80 @@
       "pass": false,
       "fixed_after": "v1.6: 카드 번호 보냈으면 카드사 정지·재발급 · 신분증 보냈으면 엠세이퍼도 · 암호 맞혀도 문자로 안 보냄 · 다른 전화로 거는 까닭 · 112 신고해도 서류는 은행에(특별법 제3조①) · 비대면 계좌 '노립니다'로 낮춤 · 아빠·할머니·할아버지에게도",
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_4.md"
+     },
+     {
+      "n": 5,
+      "at": "2026-11-13T03:25:06Z",
+      "sha": "07d11fbe7f8b1ef4",
+      "reviewers": [
+       {
+        "reviewer": "K5-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 77,
+          "text": "전화로 지급정지 걸고 은행에 신청서랑 신분증 사본만 내면 끝인 줄 알면 큰일남. 경찰서 피해신고 확인서(사건사고사실확인원)도 기한 안에 내야 지급정지 안 풀리는 걸로 아는데 그게 빠졌네요.",
+          "fix": "통신사기피해환급법·시행령 원문에서 피해구제 신청 서류와 기한을 다시 확인하고, 수사기관 확인서가 필요하면 '무엇을·어디서 떼서·언제까지'를 이 줄에 같이 말한다."
+         },
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 84,
+          "text": "'물어 주게 하는 법 조항이 있다'고 하면 다들 돌려받는 줄 알죠. 현실은 원격 앱으로 본인 인증이 다 된 거라 은행은 '절차 다 거쳤다'며 거의 안 물어줍니다.",
+          "fix": "어느 법의 어느 조항인지 이름을 대고, '본인 확인 절차를 거쳤으면 인정받기 어렵다 — 그래서 기록을 받아 두고 금융감독원 분쟁조정까지 간다'처럼 기대치를 현실대로 낮춰 말한다."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 121,
+          "text": "정답 3번이 '답장하지 않고'였는데, 마지막엔 그 번호에 암호를 물으라네요. 결국 답장하라는 거 아님? 답장하면 살아 있는 번호로 찍혀서 문자 더 옵니다.",
+          "fix": "정답 3번과 마무리를 맞춘다 — 예: '원래 번호·다른 가족이 다 닿지 않을 때만, 그 번호에는 암호 하나만 묻고 다른 말은 하지 않는다'를 원칙 1(51~52줄)에도 같은 말로 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 60,
+          "text": "'문자로' 보내지 말라는데, 사기범이 '그럼 전화로 불러 줘'하면 불러 줘도 된다는 건가요?",
+          "fix": "'문자로' 대신 '문자·메신저·전화 어떤 길로도 불러 주거나 보내지 않는다'로 넓히고, 122줄도 같이 고친다."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 56,
+          "text": "악성 앱이 이미 깔린 폰이면 원래 번호로 걸어도 사기범이 가로채 받는데 '가장 확실'은 아니죠.",
+          "fix": "56줄에 '링크를 눌러 앱을 깔았다면 다른 전화로 건다(102줄)'를 짧게 붙여 단서를 앞에서도 준다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 109,
+          "text": "폰은 끄라면서 계좌정보통합관리서비스는 본인 인증 뭘로 하라는 거예요?",
+          "fix": "'다른 휴대폰이나 컴퓨터로, 은행 창구에서' 등 앱 깔린 폰 없이 확인하는 길을 한마디 넣거나 설명란에 적는다고 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 86,
+          "text": "'한마디로,'가 장마다 똑같이 나와서 틀로 찍은 AI 대본 티가 남.",
+          "fix": "58·69·86줄의 '한마디로,' 가운데 둘은 다른 말머리로 바꾸거나 빼고 문장만 남긴다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답(원래 번호로 직접 전화)은 상황과 상관없이 분명하고 피해자 탓도 없지만, 피해구제 서류·명의도용 대출 배상 같은 돈·법 대목에서 '현실은 다르다' 반박이 붙을 수 있고, 마지막 암호 묻기가 정답의 '답장하지 않고'와 부딪힌다.",
+        "pass": false,
+        "why": [
+         "중 3 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_5.md"
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
-    "pending": {
-     "n": 5,
-     "sha": "07d11fbe7f8b1ef4",
-     "reviewers": [
-      "K5-반론"
-     ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_5.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-13T03:20:40Z"
-    }
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
    }
   }
  }

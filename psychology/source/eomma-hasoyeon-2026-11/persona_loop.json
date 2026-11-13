@@ -44,21 +44,48 @@
       "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_title_1.md",
       "text": "제목: 엄마 하소연을 혼자 다 받아 주면 안 되는 이유 3가지\n썸네일 문구: 엄마 하소연 다 받아 주면 / 딸 혼자 지칩니다\n보조 문구: \"나 아니면 들어 줄 사람이 없잖아...\""
+     },
+     {
+      "n": 2,
+      "at": "2026-11-13T03:16:21Z",
+      "sha": "63393a262e32d9c9",
+      "reviewers": [
+       {
+        "reviewer": "T2-P4",
+        "persona": "P4",
+        "feed_picks": [
+         5,
+         10
+        ],
+        "feed_why": "5번은 '엄마 하소연'이 바로 제 얘기라 1초도 안 걸려 눌렀고, 10번은 엄마한테 더는 말 안 하게 된 제 모습 같아서 — 2번은 방송 자극 영상 같아 넘김",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "딸 혼자 지칩니다 · \"나 아니면 들어 줄 사람이 없잖아...\"",
+        "fix": "",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T2-반론",
+        "persona": "반론",
+        "feed_picks": [
+         5
+        ],
+        "feed_why": "'이유 3가지'라 세 가지를 정말 주는지, 엄마 탓으로 흐르지 않는지 확인하려고 5번만 누름 — 나머지는 방송·특징 나열·단정 제목이라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "안 되는 이유 · 딸 혼자 지칩니다",
+        "fix": "'안 되는 이유'가 엄마를 끊으라는 말로 읽히지 않게, 썸네일·제목 어딘가에 '엄마를 탓하자는 게 아니라 나누자는 것'이 보이게(예: 받아 주는 사람이 하나뿐이면) — 아들·다른 가족도 듣는 경우를 대본에서 짚기",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_title_2.md",
+      "text": "제목: 엄마 하소연을 혼자 다 받아 주면 안 되는 이유 3가지\n썸네일 문구: 엄마 하소연 다 받아 주면 / 딸 혼자 지칩니다\n보조 문구: \"나 아니면 들어 줄 사람이 없잖아...\""
      }
-    ],
-    "pending": {
-     "n": 2,
-     "sha": "63393a262e32d9c9",
-     "reviewers": [
-      "T2-P4",
-      "T2-반론"
-     ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_title_2.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_title_2",
-     "ours_idx": 5,
-     "text": "제목: 엄마 하소연을 혼자 다 받아 주면 안 되는 이유 3가지\n썸네일 문구: 엄마 하소연 다 받아 주면 / 딸 혼자 지칩니다\n보조 문구: \"나 아니면 들어 줄 사람이 없잖아...\"",
-     "at": "2026-11-13T03:11:30Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -100,20 +127,55 @@
       "pass": false,
       "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-13T03:16:21Z",
+      "sha": "65586e71c80557b2",
+      "reviewers": [
+       {
+        "reviewer": "E2-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 16,
+          "why": "도입에서 내 얘기 같아 붙잡혔는데 바로 '엄마 입장에서는 딸이 편하다'로 엄마 사정부터 감싸 주니, 상처받은 쪽에선 또 엄마 편 드는 얘기인가 싶어 손이 감"
+         },
+         {
+          "line": 36,
+          "why": "2002년 미국 이혼 가정 10대 딸 62명 — 오래되고 내 상황(지금 30~40대, 이혼 아님)과 멀어서 연구 소개가 길어지는 대목이 지루함"
+         },
+         {
+          "line": 72,
+          "why": "39줄에 이어 또 '원인까지는 알 수 없습니다'·74줄 '연구가 잰 것은 아니지만' — 단서가 거듭 나와 맥이 빠짐"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "109 — '하소연 끝에 늘 나를 탓하거나 깎아내린다면 하소연을 넘어선 일'이라고 선을 그어 줘서, 사과 한 번 없던 우리 엄마 얘기를 처음으로 짚어 준 느낌 (80줄 '나는 나쁜 딸인가' 죄책감도 똑같아서 붙잡힘)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [16, 36, 72]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_2.md"
      }
     ],
     "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
     "pending": {
-     "n": 2,
-     "sha": "65586e71c80557b2",
+     "n": 3,
+     "sha": "1f3488bb5f2e9274",
      "reviewers": [
-      "E2-P4"
+      "E3-P4"
      ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_2.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_2",
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_3.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_3",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:11:30Z"
+     "at": "2026-11-13T03:17:53Z"
     }
    },
    "script_rebuttal": {
@@ -202,20 +264,96 @@
       "pass": false,
       "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-13T03:16:21Z",
+      "sha": "65586e71c80557b2",
+      "reviewers": [
+       {
+        "reviewer": "K2-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 40,
+          "text": "이혼한 지 2년도 안 된 집에서 엄마가 돈 걱정·전남편 불만을 10대 딸에게 털어놓은 연구(62명) 하나로, 퇴근길 직장인 딸 통화까지 '내 이야기일 수 있다'고 하는 건 비약 아닌가? 둘째 이유(48번)도 같은 연구 하나뿐이다.",
+          "fix": "28번은 나이 차이만 밝힌다. 39~40번 사이에 '이혼 직후라는 무거운 때의 연구라 평소 하소연에 그대로 옮기긴 어렵지만'처럼 상황 차이도 한 줄로 밝히고, 48번은 '그 연구의 10대 딸들은'으로 범위를 문장 안에 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 7,
+          "text": "'안 되는 이유'라고 해 놓고 세 이유가 모두 '~수 있다'이고, 둘째 이유는 손해가 아니라 '기대한 만큼 가까워지지 않는다'는 것이라 '안 된다'까지는 아니다.",
+          "fix": "7번(116번·제목 포함)을 근거 세기에 맞춰 '혼자 다 받아 주지 않아도 되는 이유'처럼 낮추거나, 둘째 이유를 '듣는 쪽만 지치고 관계는 그대로'처럼 손해가 보이게 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 22,
+          "text": "어른 딸이 엄마 전화를 들어 주는 걸 '정서적 부모화'라고 부르면, 효도까지 병처럼 만드는 것 아닌가?",
+          "fix": "22~23번 뒤에 '가끔 들어 주는 것은 부모화가 아니라, 오랫동안 혼자 떠맡아 내 마음을 돌볼 틈이 없을 때를 가리키는 말입니다'처럼 기준을 한 줄 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 17,
+          "text": "우리 엄마는 친구랑 아빠 흉 잘만 보는데? 엄마들이 다 남편·친구에게는 말을 못 한다는 건 일반화다.",
+          "fix": "17번 '걱정됩니다' → '걱정되기도 합니다'. 같은 꼴로 단정한 33번 '떠나지 않습니다'·62번 '서운함이 앞섭니다'도 '~기도 합니다'로 낮춘다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 26,
+          "text": "95편이 다 같은 결과였나? '많이 나타났다'만 말하면 부모화가 불안·우울의 원인처럼 들린다. 뒤의 두 연구(39·72번)에는 붙인 단서가 여기만 빠졌다.",
+          "fix": "26번을 '~할수록 불안이나 우울이 함께 나타나는 경향이 있었습니다'처럼 연관으로 말하거나, 39·72번처럼 '원인이라고 단정한 것은 아닙니다'를 한 줄 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 100,
+          "text": "형제와 번갈아 들으면 형제도 똑같이 사이에 끼이는 것 아닌가? 엄마가 '오빠는 연락도 없다'며 흉보는 그 형제에게 넘기라는 건가? 이모가 없는 집은?",
+          "fix": "98~100번 범위를 '다른 가족 흉이 아닌 엄마 자신의 속상함은 이모·오랜 친구·모임과도'로 정하고(흉은 95번 말로 따로), 형제는 '듣는 일을 나누자고 먼저 말해 보기'로 바꾼다."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 63,
+          "text": "외도·폭력이 아니면 다 '흉'인가? 엄마가 오래 참고 산 서운함에도 맞는 말이 있을 수 있다.",
+          "fix": "66번 앞뒤에 '엄마의 속상함이 틀렸다는 뜻이 아니라, 엄마와 아빠 사이의 일을 내가 판정하지 않아도 된다는 뜻입니다' 한 줄을 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 102,
+          "text": "'설명란의 24시간 상담 전화'가 뒤에 나오는 일공구와 같은 건지 다른 건지 듣기만 해서는 모른다.",
+          "fix": "102번에서 그 전화의 이름을 말하거나, '뒤에서 말씀드릴 일공구처럼 24시간 받는 상담 전화'로 묶는다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "연구의 대상·인원·한계와 예외(아들·외동·반대 경험·폭력·자살 위험)를 먼저 밝혀서 상급 반박은 없다. 가장 큰 빈틈은 이유 둘이 '이혼 직후 10대 딸 62명' 연구 하나에 기대는데 그 상황 차이를 밝히지 않은 점이고, 나머지는 단정 어미, '안 된다'의 세기, 대안의 범위를 다듬을 거리다.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_2.md"
      }
     ],
     "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
     "pending": {
-     "n": 2,
-     "sha": "65586e71c80557b2",
+     "n": 3,
+     "sha": "1f3488bb5f2e9274",
      "reviewers": [
-      "K2-반론"
+      "K3-반론"
      ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_2.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_2",
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_3.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_3",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:11:30Z"
+     "at": "2026-11-13T03:17:53Z"
     }
    }
   }

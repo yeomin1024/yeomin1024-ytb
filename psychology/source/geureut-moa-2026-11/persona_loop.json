@@ -45,21 +45,48 @@
       "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_title_1.md",
       "text": "제목: 식당에서 그릇 모아 두는 사람, 심리학적 특징 3가지\n썸네일 문구: 식당 그릇 모아 두는 사람 / 의외의 속마음\n보조 문구: \"안 치우면 거슬려서요\""
+     },
+     {
+      "n": 2,
+      "at": "2026-11-13T03:16:21Z",
+      "sha": "1d9b2fb669fd6221",
+      "reviewers": [
+       {
+        "reviewer": "T2-P1",
+        "persona": "P1",
+        "feed_picks": [
+         9,
+         5
+        ],
+        "feed_why": "식당에서 그릇 모아 두는 건 나도 늘 하는 일이라 '나는 어떤 사람으로 보이나' 싶어 9번부터, 나이 들어 인간관계 정리는 요즘 내 고민이라 5번. 결혼지옥·첫사랑·연애 감정 조절은 내 얘기가 아니고, 테슬라·칼 융 이름 붙인 건 지어낸 말 같아 안 누름",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "식당 그릇 모아 두는 사람 · \"안 치우면 거슬려서요\"",
+        "fix": "나는 직원 고생 덜라고 모으는 건데 보조 문구 '거슬려서요'는 깔끔 떠는 사람처럼만 들려 서운함 — 배려(호의)인지 성격인지 둘 다 있다는 게 보이게 (예: \"일하는 사람 생각해서요\" 같은 말도 같이)",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T2-반론",
+        "persona": "반론",
+        "feed_picks": [
+         9
+        ],
+        "feed_why": "구체적인 행동 하나를 '심리학적 특징 3가지'로 묶었으니 근거가 있는지, 사람마다 다른 걸 일반화하는지 확인하려고 9번만 누름. 나머지는 유명인 이름 붙인 인생 조언이나 자극적 사연이라 따질 거리도 안 됨",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "심리학적 특징 3가지 · 의외의 속마음",
+        "fix": "'특징'이라 단정하지 말고 이유가 사람마다 다르다는 게 보이게 (예: '그릇 모아 두는 이유 3가지 — 배려일까 습관일까') · '의외의 속마음'처럼 숨은 진실을 약속하는 말은 대본이 연구로 정확히 보여 줄 때만 — 아니면 빼기",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_title_2.md",
+      "text": "제목: 식당에서 그릇 모아 두는 사람, 심리학적 특징 3가지\n썸네일 문구: 식당 그릇 모아 두는 사람 / 의외의 속마음\n보조 문구: \"안 치우면 거슬려서요\""
      }
-    ],
-    "pending": {
-     "n": 2,
-     "sha": "1d9b2fb669fd6221",
-     "reviewers": [
-      "T2-P1",
-      "T2-반론"
-     ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_title_2.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_title_2",
-     "ours_idx": 9,
-     "text": "제목: 식당에서 그릇 모아 두는 사람, 심리학적 특징 3가지\n썸네일 문구: 식당 그릇 모아 두는 사람 / 의외의 속마음\n보조 문구: \"안 치우면 거슬려서요\"",
-     "at": "2026-11-13T03:11:29Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -97,20 +124,54 @@
       "pass": false,
       "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-13T03:16:21Z",
+      "sha": "f147a902b72582c0",
+      "reviewers": [
+       {
+        "reviewer": "E2-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 43,
+          "why": "어려운 말·관련 없음 — 중국 청소년 설문인데 '그 사이의 일부를 공감이 설명했습니다'가 무슨 뜻인지 모르겠고, 바로 다음 줄에서 어른 얘기도 아니라니 왜 들려주나 싶어 지루해짐"
+         },
+         {
+          "line": 73,
+          "why": "김빠짐 — 앞에서도 '다만 ~는 아닙니다'가 여러 번 나왔는데 여기서 또 '연구가 아니라 댓글 보고 짐작한 것'이라 하니, 확실한 게 뭐냐 싶어 손이 리모컨으로 감"
+         }
+        ],
+        "hard_words": [
+         "그 사이의 일부를 공감이 설명했습니다"
+        ],
+        "keep_watching": true,
+        "best": "96~97줄 — '왜 나만 치우지' 서운함과 '왜 나를 게으른 사람으로 보지' 억울함이 우리 집 부부·자식 사이 얘기 그대로라, 여기서부터는 끝까지 보고 싶어짐",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [43, 73]",
+         "모르는 말 ['그 사이의 일부를 공감이 설명했습니다']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_2.md"
      }
     ],
     "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
     "pending": {
-     "n": 2,
-     "sha": "f147a902b72582c0",
+     "n": 3,
+     "sha": "4dfb75b836460693",
      "reviewers": [
-      "E2-P1"
+      "E3-P1"
      ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_2.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_2",
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_3.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_3",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:11:29Z"
+     "at": "2026-11-13T03:17:53Z"
     }
    },
    "script_rebuttal": {
@@ -183,20 +244,96 @@
       "pass": true,
       "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_1.md"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-13T03:16:21Z",
+      "sha": "f147a902b72582c0",
+      "reviewers": [
+       {
+        "reviewer": "K2-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 113,
+          "text": "12번 줄에서 '연구로 보면 어디까지 맞나' 물어 놓고, 그릇 연구는 없다면서(13줄) 마지막엔 '배려라는 말은 둘째만큼은 맞다'고 못 박네요. 근거는 중국 청소년 한 번 설문(성실-돕기-공감)뿐이고 그것도 그릇이나 직원 얘기는 아니잖아요.",
+          "fix": "'맞다' 대신 '배려라는 말은 둘째와 가장 가깝지만, 그릇 행동을 직접 잰 연구는 없어 셋 중 하나일 뿐입니다'처럼 본문의 '~수 있다' 수준으로 낮춤."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 26,
+          "text": "'성실성은 행동 하나로 알 수 없다'면서 그릇 모으는 행동 하나로 성실한 사람 특징이라고 하면 앞뒤가 안 맞지 않나요?",
+          "fix": "26줄 뒤에 '그래서 그릇을 모은다고 성실하다는 뜻은 아니고, 성실성과 닮은 모습이라는 뜻입니다' 한 문장을 더하거나 9·110줄을 '마무리하려는 성향과 닮은 모습'으로."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 35,
+          "text": "연구는 '방'을 본 건데 '정리된 식탁'으로 넓혔고, 그것도 남이 그렇게 본다는 것뿐이라 첫째 특징(본인이 성실하다)의 근거는 아니네요.",
+          "fix": "'방을 본 연구지만, 정리된 자리도 비슷하게 보일 수 있습니다'처럼 넓힌 것을 밝힘."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 29,
+          "text": "약 160명이 세 실험을 합친 수인지 실험마다인지 헷갈립니다.",
+          "fix": "'세 번의 실험에 모두 합쳐 약 160명'처럼 한 문장으로."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 58,
+          "text": "1등 댓글은 '그냥 기본 아닌가'인데 그건 건너뛰고 2등·5등 댓글로 '불편해서'를 뽑았네요. 1등 말대로면 성향이 아니라 배운 예절 아닌가요?",
+          "fix": "58줄 앞에 '1등 댓글처럼 배운 예절로 하는 분이 가장 많을 수 있습니다' 반 문장을 더해 14·115줄과 이음. 그리고 의자 영상 댓글이라 그릇과는 다른 행동이라는 점도 한 번 밝힘."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 63,
+          "text": "2022년 메타분석이라면서 연구 몇 개, 몇 명을 모았는지는 안 나옵니다.",
+          "fix": "'연구 ○개, 약 ○명을 모은' 식으로 규모를 한 구절 넣음(계산·원문 확인 뒤)."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 68,
+          "text": "강박증을 '찜찜함이 아주 강하게 드는 것'이라고 하면, 그릇을 꼭 모아야 하는 사람은 강박증에 가깝다는 말처럼 들립니다. 강박증의 핵심은 원치 않는 생각과 멈추지 못하는 행동이죠.",
+          "fix": "'강박증은 원치 않는 생각이 자꾸 떠오르고, 그것을 없애려는 확인·정리를 멈추지 못하는 병입니다'로 69줄과 묶어 찜찜함은 그 일부로만 말함."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 89,
+          "text": "찜찜함이 그대로면 '며칠 더 해 보라'는데, 며칠 해도 그대로면 어떻게 하라는 건지 끝이 없습니다.",
+          "fix": "'며칠 해도 그대로라면 아래처럼 전문가와 이야기해 보세요'로 90~91줄과 이음."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "단정 대신 '~수 있다'를 쓰고 연구 한계·강박증과의 차이·예외를 먼저 밝혀 큰 반박거리는 없지만, 마무리 '배려는 둘째만큼은 맞다'(113줄)가 본문 근거보다 세고 '행동 하나로 알 수 없다'(26줄)와 특징 단정이 살짝 부딪힘.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_2.md"
      }
     ],
     "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
     "pending": {
-     "n": 2,
-     "sha": "f147a902b72582c0",
+     "n": 3,
+     "sha": "4dfb75b836460693",
      "reviewers": [
-      "K2-반론"
+      "K3-반론"
      ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_2.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_2",
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_3.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_3",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:11:29Z"
+     "at": "2026-11-13T03:17:53Z"
     }
    }
   }

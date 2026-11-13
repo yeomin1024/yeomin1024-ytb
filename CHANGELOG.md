@@ -2,12 +2,12 @@
 
 ## 2026-11-13 — 심리 네 편 영상 (만스피 꼴) · `psy_anim.js` v1.0 · `puppet_slice.py` v1.0
 
-- 사용자 지시 "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어" — 매시 확인 예약을 걸었으나(첫 확인 때 이미 네 편 오디오가 다 있음) 오디오 순서(엄마 기분 07:19 · 하소연 07:50 · 그릇 08:19 · 상처 08:50 UTC)대로 바로 만듦. 네 편 확인이 끝나면 예약을 지움.
+- 사용자 지시 "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어" — 매시 확인 예약을 걸었으나(첫 확인 때 이미 네 편 오디오가 다 있음) 오디오 순서(엄마 기분 07:19 · 하소연 07:50 · 그릇 08:19 · 상처 08:50 UTC)대로 바로 만듦. 네 편 완성 확인 뒤 예약을 지움.
 - `psychology/source/puppet_slice.py` v1.0 (새): 기준·동작 시트 3칸 · 소품 4칸 · 키 맞춤(같은 사람이 시트마다 629~921px → 900px, 앉은 자세 비율 POSE) · 발 기준점 · 머리 상자 · 식당 식탁 앞판 FG.
 - `video/render/psy_anim.js` v1.0 (새): 만스피 v3.1 엔진 바탕 — world·cam·shake·dark · actor·moves(hold/once/loop/pp/talk)·explain(가리킴 → 말하기) · bubble(머리 옆 — 얼굴 안 가림)·voice·board·title·label(HEAD/LOW)·list · 날씨·물결·하트 효과.
 - 장면 4개 `video/episodes/{eomma-gibun,eomma-hasoyeon,geureut-moa,sangcheo-gonggyeok}-2026-11/index.html` — render check 0 · layout-check 0 · 장면 사진·완성 mp4 를 보고 고침(위 이름표가 말풍선·머리에 겹침 → 제목 먼저 내림 · 휴대전화 마침표 동그라미 · 회의실 먼지떨이 → 집 장면 · 그릇 소품이 자막에 가림 → 식탁 먼 쪽으로 · 지하철 손잡이 높이 · 엄마 기분 정리 판 4초 빔 · 하소연 꼬리표가 엄마 얼굴에).
 - 자막: `align-audio.mjs` 로 네 편 SRT 를 실제 오디오 시각에 (srt_tool check ✅) · 잡음 검사 `audio_check.md`(보고 수준만).
-- 렌더: 네 편 1080p — 엄마 기분 7:44 (-14.13 LUFS / -1.53 dBTP) · 하소연 7:56 · 그릇 7:28 (-14.27 / -1.6) · 상처 7:44 (-14.2 / -1.51 — 음량 맞춤이 8번 안에 못 맞춰 `--target -13.9` 로 다시, 기본 기준으로 재어 안).
+- 렌더: 네 편 1080p — 엄마 기분 7:44 (-14.13 LUFS / -1.53 dBTP) · 하소연 7:56 (-13.8 / -1.61) · 그릇 7:28 (-14.27 / -1.6) · 상처 7:44 (-14.2 / -1.51 — 음량 맞춤이 8번 안에 못 맞춰 `--target -13.9` 로 다시, 기본 기준으로 재어 안).
 - 문서: `psychology/README.md` '영상' · `guides/status.md`.
 
 ## 2026-11-13 (3) — 심리 네 편 그림 요청 파일 (만스피 꼴) · `psychology/source/images_build.py` v1.0

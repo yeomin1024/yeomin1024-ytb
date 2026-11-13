@@ -1,5 +1,5 @@
 {
- "tool": "persona_gate.py v1.0",
+ "tool": "persona_gate.py v1.1",
  "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
  "items": {
   "ginae-yeongi-2026-11": {
@@ -114,12 +114,17 @@
         "why": [
          "끄고 싶은 줄 [49]",
          "모르는 말 ['해상보안청']"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_1.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -141,12 +146,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [49]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_2.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 3,
@@ -168,12 +178,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [85]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.5: '연기는 위로' 뻔한 줄 → 바닥 비상 불빛 줄의 까닭(높은 곳 불빛이 가려져도 보이게 — 14 CFR 25.812(e))",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_3.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -195,12 +210,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [61]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.6: 18분·90초 단서 두 줄을 한 줄로",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_4.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 5,
@@ -215,15 +235,32 @@
         "keep_watching": true,
         "best": "29 — 기장이 객실에 남은 사람이 없는지 확인하고 마지막으로 내렸다는 줄: 책임지는 사람 이야기라 가장 마음이 움직였고, 바로 이어 50줄에서 짐 챙긴 승객을 탓하지 않는다고 짚어 줘서 끝까지 볼 마음이 생김",
         "pass": true,
-        "why": []
+        "why": [],
+        "pass_before": true
        }
       ],
       "pass": true,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_5.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "9a1d472e7eb63517",
+     "reviewers": [
+      "E6-P2"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_6.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:43:57Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -295,15 +332,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 3번은 상황(승무원이 외치고 가리킴)이 분명해 갈리지 않음 — 다만 '몇 초가 중요하다'를 18분 걸린 하네다로 받치는 논리, 에어부산 문 개방 주체 단정, '숙이면 빨리 나온다' 근거 없음이 믿음을 깎는 빈틈(상 0·중 3).",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_1.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 2,
@@ -380,15 +421,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 3번과 근거 흐름은 분명하고 숫자도 대본 안에서 앞뒤가 맞음 — 다만 두고 온 여권·노트북의 뒤처리(보상) 공백과 아에로플로트 '항공사가 동의하지 않은 결론'의 모호함이 반박받기 쉬운 빈틈",
-        "pass": false,
-        "why": [
-         "중 2 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_2.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 3,
@@ -473,12 +518,17 @@
         "answer_clear": true,
         "summary": "정답 3번과 결론 세 원칙, 사고 숫자(379명·8개 중 3개·18분·300명·176명·78명 중 41명·11.7%)는 대본 안에서 앞뒤가 맞고 '짐 하나로 갈렸다고 말할 수 없다'는 단서도 있어 피해자 탓 반박은 막혀 있음 — 국내 사고인 에어부산을 항공사 해명으로 설명한 78줄이 가장 큰 반박거리(중), 나머지는 조건 한 줄·말 맞추기 수준.",
         "pass": true,
-        "why": []
+        "why": [],
+        "pass_before": true
        }
       ],
       "pass": true,
       "fixed_after": "v1.5: 에어부산 항공사 해명 줄 뺌 · 승무원이 안 보일 때 조건(탈출 지시·완전히 멈춤) · 원칙 둘 = 승무원이 연 문, 창밖은 예외로 정리와 맞춤 · 장 제목 '짐을 든 사람이 많았던 비행기' · 90초 3명 먼저 · 신발은 처음부터 편한 것 · 기어가지 말고 허리만 · 휴대전화는 주머니, 두 손 비움 · '새로 만든 여객기 기종' · 90줄 문장 꼬임",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_3.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -564,13 +614,18 @@
         "summary": "결론(짐 두고·승무원이 연 문·몸 낮춤)과 대본 안 숫자 앞뒤는 맞고 정답도 분명함 — 빈틈은 비상구 좌석 승객의 실제 역할·에어부산 문 열림 사례, 사망 사고를 '짐' 장에 묶은 틀(피해자 탓으로 들림), 시뮬레이션 '3명'의 분모, 짐을 챙기는 현실 이유(보상·재발급).",
         "pass": false,
         "why": [
-         "중 5 > 1"
-        ]
+         "중 5 > 3"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.6: 비상구 옆자리 = 지시·정지 뒤 창밖 보고 여는 역할 · 보기 2번 '창밖은 볼 틈 없이' · 장 제목 '통로가 막혔던 비행기' · 아에로플로트 원인 먼저 뒤 사망자 · 에미레이트 소방관 줄 순서 · 짐 챙기는 까닭(잃으면 손해) 인정 · 명언 줄 하나 뺌 · '앞이나 뒤의 다음 출구' · 늘 먹는 약 (에어부산 문 열림·시뮬레이션 분모는 원문 확인 못 해 그대로)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_4.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 5,
@@ -649,16 +704,33 @@
         "summary": "숫자(379명·문 8개 중 3개·18분·300명·176명·78명 중 41명)는 대본 안에서 앞뒤가 맞고 첫 문제 정답(3번)도 분명함. 빈틈은 두고 온 짐의 돈 문제(K5), 탈출할 틈이 없던 사고와 피해자 탓으로 들리는 순서, 시뮬레이션 숫자가 작아 보이는 점 — 모두 한 줄씩 더하면 막을 수 있음.",
         "pass": false,
         "why": [
-         "중 4 > 1"
-        ]
+         "중 4 > 3"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_5.md"
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "9a1d472e7eb63517",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_6.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:43:57Z"
+    }
    }
   }
  }

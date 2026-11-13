@@ -1,5 +1,5 @@
 {
- "tool": "persona_gate.py v1.0",
+ "tool": "persona_gate.py v1.1",
  "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
  "items": {
   "ellibeiteo-gathim-2026-11": {
@@ -93,7 +93,20 @@
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_2.md",
       "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답"
      }
-    ]
+    ],
+    "pending": {
+     "n": 3,
+     "sha": "6fc9744573cbab3e",
+     "reviewers": [
+      "T3-P4",
+      "T3-반론"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_3.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_title_3",
+     "ours_idx": 7,
+     "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답",
+     "at": "2026-11-13T04:43:57Z"
+    }
    },
    "script_exit": {
     "rounds": [
@@ -145,12 +158,17 @@
          "끄고 싶은 줄 [13, 20, 47, 54, 68, 86, 103]",
          "모르는 말 ['공단']",
          "끝까지 안 봄"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_1.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -201,12 +219,17 @@
         "why": [
          "끄고 싶은 줄 [13, 49, 51, 61, 65, 76, 83, 100]",
          "끝까지 안 봄"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_2.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 3,
@@ -252,12 +275,17 @@
          "끄고 싶은 줄 [13, 44, 50, 64, 82, 97]",
          "모르는 말 ['소화전함']",
          "끝까지 안 봄"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.5: 앞 '결론부터' 세 줄 뺌(정답 풀이와 겹침) · '누구를 탓하자는' 두 줄 뺌 · 원칙 하나를 '점프하면 산다?'로 시작 · '물리학자들' 뺌 · 행정안전부 안내문 줄 뺌 · '업체 기다림=법이 정한 순서' 줄 뺌 · 소화전함→소화전 상자",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_3.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -300,12 +328,17 @@
         "why": [
          "끄고 싶은 줄 [44, 53, 59, 77, 88, 94]",
          "끝까지 안 봄"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.6: 원칙 예고 줄 뺌 · 원칙 하나 할 일 나열 줄임(아이·불 줄) · 원칙 둘 높이 차이 되풀이 뺌 · 법 줄 짧게 · '문이 열려 있어도 할 일은 같다' 두 줄 뺌 · '한마디로' 셋 중 둘 다른 꼴",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_4.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 5,
@@ -348,15 +381,32 @@
         "why": [
          "끄고 싶은 줄 [8, 17, 44, 52, 66, 89]",
          "끝까지 안 봄"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_5.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt"
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "f2b48fa2aeeac5bc",
+     "reviewers": [
+      "E6-P4"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_6.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:43:57Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -430,14 +480,18 @@
         "summary": "퀴즈 정답 2번은 대본의 상황(층 사이 고장, 바닥이 한참 아래)에서 분명하다. 다만 '안에 있으면 안전, 할 일은 안 바뀐다'에 불·연기·침수 조건이 빠진 것이 가장 크게 반박받을 빈틈(상)이다. '떨어지지 않는다' 단정, 1~2층에서 20미터 추락, 관리인 사례와 '교육받은 사람만 연다' 규칙 사이의 빈틈은 믿음을 깎는다(중).",
         "pass": false,
         "why": [
-         "상 1 (줄 [51])",
-         "중 3 > 1"
-        ]
+         "상 1 (줄 [51])"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (2회차 지시문 전 고침 — README v1.3)",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_1.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -500,15 +554,19 @@
         ],
         "answer_clear": true,
         "summary": "정답(2번)은 분명하고 불·연기·물 예외와 '탓하자는 게 아니다'도 챙겼지만, 강서 사례의 인과(문 연 뒤 ≠ 문 연 탓, 짐), '법은 안전관리자만' vs 업체·119의 앞뒤, 한여름 더위·공황 앞의 '숨 막힐 위험 없다'가 좋아요 받을 반박 자리 — 상 0 · 중 3 · 하 4.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_2.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 3,
@@ -573,14 +631,18 @@
         "summary": "퀴즈 정답 2번은 상황(바닥이 한참 아래)이 정해져 있어 분명함. 다만 '구조하러 온 사람이 시키는 대로'(75줄)가 두 사고(모두 도우러 온 사람이 문을 엶)와 부딪치고, 46·82줄은 돌아가신 관리인을 탓하는 말로 들릴 수 있음. 이 세 곳을 고치면 좋아요가 몰릴 반박은 대부분 사라짐.",
         "pass": false,
         "why": [
-         "상 1 (줄 [75])",
-         "중 2 > 1"
-        ]
+         "상 1 (줄 [75])"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.5: 문은 '119 구조대나 관리 업체 기술자'가 엶(67·75줄) · 누가 열어 줘도 바닥 높이가 다르면 나가지 않음 · 46줄 '알았어야' → 갇힌 쪽/돕는 쪽이 지킬 것 · 승강기 안전관리법 이름 · 기다림이 길면 119에 다시 · 숫자에 '갇힘을 포함한 엘리베이터 사고' · 50/59/97줄 '떨어질 위험 없다'로 맞춤 · 연기·물 땐 119 안내대로",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_3.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -666,13 +728,18 @@
         "summary": "정답 2번과 세 원칙은 상황에 따라 갈리지 않고 분명하며 상급 빈틈은 없지만, 주민을 구하고 숨진 관리인을 '문을 연 경우'로 대비시킨 틀, '장비 없이'와 '열쇠로 열었다'의 충돌, 관리인 자격·법 문장의 애매함, 연기·물에 전화까지 안 될 때의 빈칸이 반박 댓글감이다.",
         "pass": false,
         "why": [
-         "중 4 > 1"
-        ]
+         "중 4 > 3"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.6: 관리인 = 짐까지 꺼내 주려다 · '다시 다가갔을 때' 뺌 · '장비 없이' → '바닥 높이를 맞추지 않은 채' · 안전관리자를 목록에 · 강서 관리인 교육 여부(보도) · 연결 안 되면 비상벨·문자 계속, 연기면 코와 입 · '고장으로 멈췄다면' 범위 · 20미터 = 지하까지 · 분모 약 11만 명(calc v1.2) · 높이 차가 작아 보여도 · 조금 벌어진 문틈",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_4.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 5,
@@ -752,16 +819,33 @@
         "pass": false,
         "why": [
          "상 1 (줄 [73])",
-         "중 4 > 1"
-        ]
+         "중 4 > 3"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_5.md"
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt"
+    "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "f2b48fa2aeeac5bc",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_6.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-13T04:43:57Z"
+    }
    }
   }
  }

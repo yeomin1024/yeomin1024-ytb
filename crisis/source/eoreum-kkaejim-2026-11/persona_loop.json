@@ -1,5 +1,5 @@
 {
- "tool": "persona_gate.py v1.0",
+ "tool": "persona_gate.py v1.1",
  "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
  "items": {
   "eoreum-kkaejim-2026-11": {
@@ -114,12 +114,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [102, 109]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (README v1.3)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_1.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -141,12 +146,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [109]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_2.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 3,
@@ -172,12 +182,17 @@
         "pass": false,
         "why": [
          "끄고 싶은 줄 [103, 114]"
-        ]
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.5: 내밀 때 기슭에서 엎드리거나 몸을 낮춤 · 얼음낚시 준비물에 얼음 송곳",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_3.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -192,12 +207,17 @@
         "keep_watching": true,
         "best": "63 — 다리를 뒤로 차서 세로로 잠긴 몸을 눕힌 뒤 배를 밀어 올린다는 줄: 다른 영상이 자주 빼먹는 실제로 맞는 기술이고, 앞의 1분·10분·1시간(50~52줄, 출처 있음)과 팔 걸쳐 버티기(76~77줄)까지 조건이 붙어 있어 고쳐 줄 데가 없었음",
         "pass": true,
-        "why": []
+        "why": [],
+        "pass_before": true
        }
       ],
       "pass": true,
       "fixed_after": "v1.6: (이탈 통과) 반론 지적만 고침",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_4.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 5,
@@ -212,12 +232,17 @@
         "keep_watching": true,
         "best": "53 — '1분·10분·1시간'을 말한 바로 뒤에 '10분보다 훨씬 짧을 수 있다'는 단서를 스스로 붙여서, 경험자로서 댓글로 바로잡으려던 부분(10분 믿고 꾸물거리면 위험)을 대본이 먼저 막음. 그 뒤 66·102·114처럼 '10분이 안 됐어도'·'구명환이 있어도'·'흐르는 하천은 더'로 조건이 계속 붙어 끝까지 믿고 봄",
         "pass": true,
-        "why": []
+        "why": [],
+        "pass_before": true
        }
       ],
       "pass": true,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_5.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt"
@@ -316,13 +341,18 @@
         "pass": false,
         "why": [
          "상 1 (줄 [99])",
-         "중 5 > 1"
-        ]
+         "중 5 > 3"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "1회차 지적 반영 (README v1.3)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_1.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 2,
@@ -406,15 +436,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 2번과 물속 세 원칙은 대체로 분명하지만, 70번 '얼음 깨며 나아가기'가 오답 1번과 겹쳐 보이고, 옆 사람 구조는 104(엎드려 다가가기 허용)와 119(다가가지 말 것)가 엇갈리며, 롱패딩·부츠 같은 한국 겨울 옷차림 조건이 빠져 반박이 붙을 자리 — 상 0·중 3·하 7.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_2.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 3,
@@ -514,14 +548,18 @@
         "summary": "정답 2번과 세 원칙은 앞뒤가 맞고 선택도 상황 따라 갈리지 않지만, 전주 사례(소방관이 다가가 구함)가 '다가가지 말라'는 규칙과 부딪혀 반박이 몰릴 자리이고, 나오기를 언제 멈출지(70·83줄)와 혼자 나온 뒤 할 일이 빠져 있다.",
         "pass": false,
         "why": [
-         "상 1 (줄 [98])",
-         "중 2 > 1"
-        ]
+         "상 1 (줄 [98])"
+        ],
+        "pass_before": false
        }
       ],
       "pass": false,
       "fixed_after": "v1.5: 전주 사례 → 구명환을 쥐었기에 버팀 · 맨손이면 둘 다 빠짐 · 우리는 기슭에서 · 나오기 기준 '팔에 힘이 남은 10분'으로 하나 · 혼자일 때도 할 일 같음 · 혼자 나온 뒤 따뜻한 곳·119·병원 · 기슭이 가까워도 · 사례 범위(스스로 못 나옴) · 홍천 신고자 단정 뺌 · 오후 까닭 · 찬물 단체 무엇이 짧은지 · 얼음 송곳 · '그리고' 겹침 · 앞 '결론부터' 세 줄 뺌(길이 8분)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_3.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      },
      {
       "n": 4,
@@ -598,15 +636,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 2번과 세 원칙은 앞뒤가 맞고 피해자·구조자 탓으로 들리는 말도 잘 피했지만, 전주 사례가 '구명환 들면 다가가도 된다'로 읽히는 점, '10분' 기준이 53줄 경고와 엇갈리는 점, 저수지 기준인지 하천까지인지가 반박 댓글감이다.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "v1.6: 구명환이 있어도 얼음 위로 안 나감 · 넘어가는 기준 = 두세 번 해도 안 되거나 팔이 무거워지면 · 고인 물 기준·하천은 더 위험 · 오후 까닭 낮춤 · 외칠 말 둘로 · '절대 하면 안 되는 행동' 약속 받음 · 얼음 사고 137건 바탕 · '그리고' 뺌",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_4.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_4.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      },
      {
       "n": 5,
@@ -690,15 +732,19 @@
         ],
         "answer_clear": true,
         "summary": "정답 2번과 세 원칙은 분명하고(고인 물 기준이라고 114줄에 밝힘) 숫자도 앞뒤가 맞지만, 반박은 전주 소방관 예시 뒤 '구명환이 있어도 나가지 마라'가 구조한 사람 탓처럼 거꾸로 읽히는 점, 옷 벗기기·가슴 압박의 법적 걱정, 혼자일 때 두세 번 만에 버티기로 넘어가는 점에 몰릴 것.",
-        "pass": false,
-        "why": [
-         "중 3 > 1"
-        ]
+        "pass": true,
+        "why": [],
+        "pass_before": false
        }
       ],
-      "pass": false,
+      "pass": true,
       "fixed_after": "5회차 = 최대 — 고치지 않고 멈춤, 사용자 결정 대기 (guides/persona_loop.md 4번)",
-      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_5.md"
+      "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "pass_before": false
      }
     ],
     "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt"

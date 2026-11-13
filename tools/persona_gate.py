@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-12 — 페르소나 반복 검증을 빠뜨리지 못하게 하는 관문 (사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데
+# VERSION: v1.1 — 2026-11-13 — 주제별 통과 기준 <주제>/persona_gate.json (예 crisis: 반론 중 ≤ 3 — 사용자 지시 2026-11-13 "반론은 중 3 이하로 해") ·
+#          rejudge 명령(바뀐 기준으로 지난 회차 판정을 다시 셈 — 옛 판정은 pass_before 에 남김). 기준 파일이 없는 주제는 v1.0 과 같음 (중 ≤ 1).
+# (이전) v1.0 — 2026-11-12 — 페르소나 반복 검증을 빠뜨리지 못하게 하는 관문 (사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데
 #          빼먹지 말도록 주제별 지시사항 수정해봐"). 절차 = guides/persona_loop.md.
 #   단계 3개: title(제목·썸네일 피드 시험 — 대상 + 반론 페르소나) · script_exit(대본 이탈 — 대상 페르소나) · script_rebuttal(대본 반론 — 반론 페르소나)
 #   · prompt : 검토자(새 하위 에이전트) 지시문을 만듦 — 회차 번호·검토자 이름·본 글의 sha 를 기록 'pending' 에 적음
@@ -15,6 +17,7 @@ r"""
   python3 tools/persona_gate.py add    <기록.json> <항목> <단계> <답.json> [<답.json> …] [--fixed "이 회차 뒤 고친 것"]
   python3 tools/persona_gate.py check  <기록.json> <항목> [--script <대본.txt>] [--plan <…>] [--shorts] [--stages title,script_exit,script_rebuttal]
   python3 tools/persona_gate.py status <기록.json>
+  python3 tools/persona_gate.py rejudge <기록.json>     # 주제 기준(<주제>/persona_gate.json)이 바뀐 뒤 지난 회차 판정 다시 셈
 끝 코드: check 에 ❌ 가 있으면 1.
 """
 from __future__ import annotations
@@ -29,9 +32,34 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.0"
+VERSION = "v1.1"
 STAGES = {"title": "제목·썸네일 피드 시험", "script_exit": "대본 이탈 검토 (대상 페르소나)", "script_rebuttal": "대본 반론 검토 (반론 페르소나)"}
 RULE = {"min_rounds": 2, "max_rounds": 5, "feed_real": 5, "feed_days": 90, "rebuttal_mid_max": 1}
+RULE_KEYS_TOPIC = ("rebuttal_mid_max", "max_rounds")  # 주제 파일로 바꿀 수 있는 값만 (v1.1)
+
+
+def topic_of(rec: Path) -> str | None:
+    """기록 파일 경로의 첫 폴더 = 주제 (예 crisis/source/<편>/persona_loop.json → crisis)."""
+    try:
+        return Path(rec).resolve().relative_to(ROOT).parts[0]
+    except (ValueError, IndexError):
+        return None
+
+
+def rules_for(topic: str | None) -> dict:
+    """기본 RULE 에 <주제>/persona_gate.json 의 값을 덮음 — 없거나 깨지면 기본값 (깨지면 알림)."""
+    r = dict(RULE)
+    f = ROOT / topic / "persona_gate.json" if topic else None
+    if f and f.is_file():
+        try:
+            cfg = json.loads(f.read_text("utf-8"))
+        except json.JSONDecodeError as e:
+            log("RULE", topic=topic, error=f"{f.name} 읽기 실패 {e} — 기본 기준", next="JSON 꼴을 고칠 것")
+            return r
+        for k in RULE_KEYS_TOPIC:
+            if k in cfg and isinstance(cfg[k], int):
+                r[k] = cfg[k]
+    return r
 
 
 def log(tag: str, /, **kv) -> None:
@@ -217,8 +245,9 @@ def cmd_prompt(a: list[str]) -> int:
     d = load(rec)
     st = stage_of(d, item, stage)
     n = len(st["rounds"]) + 1
-    if n > RULE["max_rounds"]:
-        log("PROMPT", item=item, stage=stage, note=f"{RULE['max_rounds']}회차를 넘음 — 남은 지적을 사용자에게 알리고 사용자 결정 (guides/persona_loop.md 4번)")
+    mx = rules_for(topic_of(rec))["max_rounds"]
+    if n > mx:
+        log("PROMPT", item=item, stage=stage, note=f"{mx}회차를 넘음 — 남은 지적을 사용자에게 알리고 사용자 결정 (guides/persona_loop.md 4번)")
     used = used_reviewers(st)
     P = personas(topic)
     if stage == "title":
@@ -259,7 +288,8 @@ def cmd_prompt(a: list[str]) -> int:
 
 
 # ─────────── 판정 ───────────
-def judge(stage: str, ans: dict, ours_idx) -> tuple[bool, list[str]]:
+def judge(stage: str, ans: dict, ours_idx, rule: dict | None = None) -> tuple[bool, list[str]]:
+    rule = rule or RULE
     why = []
     if stage == "title":
         picks = ans.get("feed_picks") or []
@@ -284,8 +314,8 @@ def judge(stage: str, ans: dict, ours_idx) -> tuple[bool, list[str]]:
     mid = [x for x in f if str(x.get("level", "")).strip().startswith("중")]
     if hi:
         why.append(f"상 {len(hi)} (줄 {[x.get('line') for x in hi]})")
-    if len(mid) > RULE["rebuttal_mid_max"]:
-        why.append(f"중 {len(mid)} > {RULE['rebuttal_mid_max']}")
+    if len(mid) > rule["rebuttal_mid_max"]:
+        why.append(f"중 {len(mid)} > {rule['rebuttal_mid_max']}")
     if ans.get("answer_clear") is False:
         why.append("옳은 선택이 분명하지 않음")
     return not why, why
@@ -301,9 +331,10 @@ def cmd_add(a: list[str]) -> int:
     if not pend:
         raise SystemExit("[ADD] ❌ 먼저 prompt (본 글의 sha 를 남겨야 함)")
     revs = []
+    rule = rules_for(topic_of(rec))
     for f in files:
         ans = json.loads(Path(f).read_text("utf-8"))
-        ok, why = judge(stage, ans, pend.get("ours_idx"))
+        ok, why = judge(stage, ans, pend.get("ours_idx"), rule)
         revs.append({**ans, "pass": ok, "why": why})
         log("ADD", item=item, stage=stage, round=pend["n"], reviewer=ans.get("reviewer"), ok=ok, why=";".join(why) or "-")
     names = {r.get("reviewer") for r in revs}
@@ -312,7 +343,8 @@ def cmd_add(a: list[str]) -> int:
         if miss:
             raise SystemExit(f"[ADD] ❌ 답이 없는 검토자 {miss} — 대상·반론 둘 다 있어야 함")
     rd = {"n": pend["n"], "at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "sha": pend["sha"], "reviewers": revs,
-          "pass": bool(revs) and all(r["pass"] for r in revs), "fixed_after": fixed, "prompt": pend.get("prompt")}
+          "pass": bool(revs) and all(r["pass"] for r in revs), "fixed_after": fixed, "prompt": pend.get("prompt"),
+          "rule": {k: rule[k] for k in RULE_KEYS_TOPIC}}
     if pend.get("text"):
         rd["text"] = pend["text"]
     st["rounds"].append(rd)
@@ -375,11 +407,40 @@ def cmd_status(a: list[str]) -> int:
     return 0
 
 
+def cmd_rejudge(a: list[str]) -> int:
+    """주제 기준이 바뀐 뒤 지난 회차를 다시 셈 (답 JSON 은 그대로 · 옛 판정은 pass_before · 바뀐 회차만 로그)."""
+    rec = Path(a[0])
+    d = load(rec)
+    rule = rules_for(topic_of(rec))
+    changed = 0
+    for item, sts in d.get("items", {}).items():
+        for stg, st in sts.items():
+            for rd in st.get("rounds", []):
+                old = rd.get("pass")
+                for r in rd.get("reviewers", []):
+                    ok, why = judge(stg, r, None if stg != "title" else (rd.get("ours_idx") or None), rule)
+                    if stg == "title":  # 제목은 기준이 안 바뀜 — 저장된 판정 그대로
+                        continue
+                    r.setdefault("pass_before", r.get("pass"))
+                    r["pass"], r["why"] = ok, why
+                if stg != "title":
+                    rd["pass"] = bool(rd.get("reviewers")) and all(r["pass"] for r in rd["reviewers"])
+                    rd["rule"] = {k: rule[k] for k in RULE_KEYS_TOPIC}
+                if rd.get("pass") != old:
+                    changed += 1
+                    rd.setdefault("pass_before", old)
+                    log("REJUDGE", item=item, stage=stg, round=rd["n"], before="통과" if old else "고칠 것",
+                        after="통과" if rd["pass"] else "고칠 것", rule=rd.get("rule"))
+    save(rec, d)
+    log("REJUDGE", rec=rec, topic=topic_of(rec), rebuttal_mid_max=rule["rebuttal_mid_max"], changed_rounds=changed)
+    return 0
+
+
 def main(argv: list[str]) -> int:
-    if not argv or argv[0] not in ("prompt", "add", "check", "status"):
+    if not argv or argv[0] not in ("prompt", "add", "check", "status", "rejudge"):
         print(__doc__)
         return 2
-    return {"prompt": cmd_prompt, "add": cmd_add, "check": cmd_check, "status": cmd_status}[argv[0]](argv[1:])
+    return {"prompt": cmd_prompt, "add": cmd_add, "check": cmd_check, "status": cmd_status, "rejudge": cmd_rejudge}[argv[0]](argv[1:])
 
 
 if __name__ == "__main__":

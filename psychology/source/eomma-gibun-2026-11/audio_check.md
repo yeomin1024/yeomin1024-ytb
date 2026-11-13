@@ -1,6 +1,6 @@
 # 내레이션 확인 후보 — eomma-gibun-2026-11
 
-> `tools/audio_check.py` v1.0 · 2026-11-13 08:41 UTC · 오디오 `/home/user/yeomin1024-ytb/psychology/source/eomma-gibun-2026-11/narration.mp3` (tts_narration.py v1.18.1) · 문장 111개 · 말 빠르기 가운데값 6.8 음절/초
+> `tools/audio_check.py` v1.0 · 2026-11-13 09:14 UTC · 오디오 `/home/user/yeomin1024-ytb/psychology/source/eomma-gibun-2026-11/narration.mp3` (tts_narration.py v1.18.1) · 문장 111개 · 말 빠르기 가운데값 6.8 음절/초
 > 이 환경은 음성 인식 모델을 받을 수 없어 **무엇을 말했는지는 듣지 못함** — 소리 모양으로 찾은 후보 + 틀리기 쉬운 낱말. 들을 조각 `psychology/out/eomma-gibun-2026-11/audio_check_clips.mp3` (후보 순서대로, 삐 소리로 나눔). 연구·교육용.
 
 ## 1. 소리 후보

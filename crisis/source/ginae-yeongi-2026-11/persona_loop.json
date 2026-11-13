@@ -149,7 +149,19 @@
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_2.md"
      }
     ],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
+    "pending": {
+     "n": 3,
+     "sha": "b6a45c0de74e2c51",
+     "reviewers": [
+      "E3-P2"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_3.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_exit_3",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:13:28Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -317,7 +329,19 @@
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_2.md"
      }
     ],
-    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt"
+    "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
+    "pending": {
+     "n": 3,
+     "sha": "b6a45c0de74e2c51",
+     "reviewers": [
+      "K3-반론"
+     ],
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_3.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_rebuttal_3",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:13:28Z"
+    }
    }
   }
  }

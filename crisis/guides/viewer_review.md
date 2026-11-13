@@ -1,6 +1,7 @@
 # 위기 상황 대본 — 시청자 페르소나 검토 (AI 에게 읽히는 파일)
 
-버전: v1.3 — 2026-11-13 — 대본 주소를 v1.6(커밋 4eb7afcc)으로 · 제목·썸네일 본안을 페르소나 관문 통과안으로 (E-C·A-A 새 썸네일·I-A 새 제목·P-A)
+버전: v1.4 — 2026-11-13 — 대본 주소를 관문 10회차 글(커밋 d1e17fbb)로 · 엘리베이터 대상 페르소나 P4
+이전 v1.3 — 2026-11-13 — 대본 주소를 v1.6(커밋 4eb7afcc)으로 · 제목·썸네일 본안을 페르소나 관문 통과안으로 (E-C·A-A 새 썸네일·I-A 새 제목·P-A)
 이전 v1.2 — 2026-11-12 — 제목·썸네일 3안 표 더함 (사용자 지시 "썸네일, 대본 등 페르소나 검증 했어?" — 썸네일이 빠져 있었음, Claude 패널 2회차 최종 `crisis/source/ctr/final_2026-11-12.md`) · 답하는 꼴 1번을 3안 비교로. (v1.1 — 2026-11-12 — 대본 4편 주소를 커밋 a2b44b28 에 고정해 채움. (v1.0 — 2026-11-12 — 새로 만듦. 사용자 지시 2026-11-12 "지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고". 꼴은 `economic/guides/viewer_review.md` v1.1 과 같음 (페르소나만 이 주제 분석으로).)
 
 - 페르소나 근거 = 이 주제 분석 결과만 (`crisis/result/personas.md` 최종 F1~F4 — 댓글 2,685개). 지어낸 것은 이름·나이·말투뿐이다.
@@ -45,12 +46,12 @@
 ### 읽을 대본 (주소를 열어 끝까지 읽는다)
 문장 번호 = 빈 줄과 `-` 로 시작하는 줄(챕터 이름)을 빼고 위에서부터 1, 2, 3… (헷갈리지 않게 **그 문장도 그대로 옮겨 적는다**).
 
-| 영상 | 제목 (본안) | 롱폼 대본 (v1.6) |
+| 영상 | 제목 (본안) | 롱폼 대본 (엘리베이터·메신저피싱 v1.11 · 기내 v1.7 · 얼음 v1.6) |
 |---|---|---|
-| 1 엘리베이터 | 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/4eb7afcc5bf8a1ab9b9b2d333e25afeb75b3f92a/crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt |
-| 2 기내 연기 | 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/4eb7afcc5bf8a1ab9b9b2d333e25afeb75b3f92a/crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt |
-| 3 얼음 깨짐 | 얼음이 깨져 물에 빠졌을 때, 가까운 기슭 말고 왔던 쪽으로 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/4eb7afcc5bf8a1ab9b9b2d333e25afeb75b3f92a/crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt |
-| 4 메신저피싱 | '엄마 나 폰 깨졌어' 문자에 3억 원 잃은 엄마와 막은 엄마 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/4eb7afcc5bf8a1ab9b9b2d333e25afeb75b3f92a/crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt |
+| 1 엘리베이터 | 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/d1e17fbb22b0449d3211e3e88bb28a80573e8b2c/crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt |
+| 2 기내 연기 | 비행기 비상 탈출 때 짐 챙기면 위험, 승무원이 연 문으로 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/d1e17fbb22b0449d3211e3e88bb28a80573e8b2c/crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt |
+| 3 얼음 깨짐 | 얼음이 깨져 물에 빠졌을 때, 가까운 기슭 말고 왔던 쪽으로 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/d1e17fbb22b0449d3211e3e88bb28a80573e8b2c/crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt |
+| 4 메신저피싱 | '엄마 나 폰 깨졌어' 문자에 3억 원 잃은 엄마와 막은 엄마 | https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/d1e17fbb22b0449d3211e3e88bb28a80573e8b2c/crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt |
 
 
 ### 제목·썸네일 (영상마다 3안 — 본안 1 + 실험안 2)
@@ -106,6 +107,7 @@
 ## 변경 이력
 | 버전 | 날짜 | 내용 |
 |---|---|---|
+| v1.4 | 2026-11-13 | 대본 주소 커밋 d1e17fbb 고정 (엘리베이터·메신저피싱 v1.11 · 기내 v1.7 · 얼음 v1.6) |
 | v1.3 | 2026-11-13 | 대본 v1.6 주소(커밋 4eb7afcc 고정) · 본안 = 관문 title 통과안 (E-C · A-A 썸네일 '가방, 두고 갈 수 있나?'/379명 전원 탈출 · I-A 제목 '…가까운 기슭 말고 왔던 쪽으로' · P-A '당신이라면 답장?'/앱 하나로 명의 대출까지) |
 | v1.2 | 2026-11-12 | 제목·썸네일 3안 표 · 답하는 꼴 1번 3안 비교 · 고칠 5곳에 썸네일 포함 |
 | v1.1 | 2026-11-12 | 대본 4편 주소(커밋 a2b44b28 고정) 채움 |

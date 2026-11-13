@@ -1,5 +1,5 @@
 {
- "tool": "persona_gate.py v1.0",
+ "tool": "persona_gate.py v1.1",
  "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
  "items": {
   "geureut-moa-2026-11": {
@@ -285,21 +285,44 @@
       "pass": false,
       "fixed_after": "7회차 앞에 고침 (대본 v1.9 — 사용자 지시 '계속 진행해')",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_6.md"
+     },
+     {
+      "n": 7,
+      "at": "2026-11-13T04:46:51Z",
+      "sha": "4bb777803825cf91",
+      "reviewers": [
+       {
+        "reviewer": "E7-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 55,
+          "why": "남의 의자 영상 댓글을 좋아요 첫째·둘째·다섯째 하고 순위까지 세니 지루하고 내 얘기에서 멀어짐"
+         },
+         {
+          "line": 59,
+          "why": "그릇 모으는 얘기 하다가 갑자기 '강박 증상 점수'가 나와 내가 병 있다는 소리인가 싶어 찜찜함 (61줄에서 풀어 줘서 다시 봄)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "89 — '왜 나만 치우지' 하고 서운해지는 건 명절 설거지 때 우리 집 얘기라 딱 붙잡힘",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [55, 59]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_7.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
-    "pending": {
-     "n": 7,
-     "sha": "4bb777803825cf91",
-     "reviewers": [
-      "E7-P1"
-     ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_7.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_7",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-13T04:43:33Z"
-    }
+    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -757,21 +780,103 @@
       "pass": false,
       "fixed_after": "7회차 앞에 고침 (대본 v1.9 — 사용자 지시 '계속 진행해')",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_6.md"
+     },
+     {
+      "n": 7,
+      "at": "2026-11-13T04:46:51Z",
+      "sha": "4bb777803825cf91",
+      "reviewers": [
+       {
+        "reviewer": "K7-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 58,
+          "text": "'여러 연구를 모아 다시 계산한 분석'이라는데 몇 편, 몇 명을 어떻게(설문?) 조사했는지 한 마디도 없네요. 그리고 그 연구는 그릇 모으는 사람을 조사한 것도 아니잖아요.",
+          "fix": "58줄을 '연구 ○편, ○명(강박증 환자와 일반인)을 설문으로 조사한 결과를 모은 분석'처럼 누구를·몇 명·어떻게를 한 문장에 넣고, 59~60줄 뒤에 '그릇을 모으는 사람을 직접 조사한 연구는 아닙니다'를 한 문장 더한다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 52,
+          "text": "좋아요 1등 댓글 하나 보고 '가장 많은 분이 예절로 본 것'이라니요. 좋아요 수가 사람 수는 아니죠. 3등, 4등 댓글은 왜 건너뛰셨어요?",
+          "fix": "52줄을 '좋아요를 가장 많이 받은 건 이것을 그냥 배운 예절로 본 댓글이었습니다'로 바꿔 사람 수로 단정하지 않는다. 55줄 '좋아요 다섯째'는 '좋아요를 많이 받은 다른 댓글'로 줄여서 고른 것처럼 보이지 않게 한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 8,
+          "text": "영상이 보여 준 댓글에서도 1등이 '그냥 기본 예절'인데, 정작 '특징 세 가지'에는 배운 예절이 없네요. 그냥 예절인 걸 성격 분석까지 하는 것 같아요.",
+          "fix": "14줄을 '배운 예절이라 그런 분이 가장 많을 수 있고'처럼 앞으로 당기고, 103줄 정리에서도 '세 가지 말고 그냥 배운 습관인 분도 많습니다'를 한 번 더 말한다(109줄과 맞춤)."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 22,
+          "text": "성실성 정의에 '정리'가 들어 있는데, 정리하는 사람은 성실하다는 건 같은 말을 되풀이한 거 아닌가요? 성실성이 높은 사람이 그릇을 모은다는 연구가 있긴 해요?",
+          "fix": "22줄 앞에 '그릇 모으기와 성실성을 직접 잰 연구는 아니고, 성실성의 뜻에 비추어 본 것입니다'를 넣어 107줄 '첫째는 성격 이론'과 미리 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 26,
+          "text": "'남의 눈이 쓰여서'가 진짜 이유인 사람도 많을 텐데, 첫째 성향 장에서 슬쩍 꺼내고 끝이네요. 세 가지 어디에도 안 들어가요.",
+          "fix": "26줄의 '남의 눈' 이유를 14줄 예외 문장(예절·식당 일 경험)으로 옮기거나, 109줄 '그냥 배운 습관인지' 옆에 '남의 눈 때문인지'를 같이 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 37,
+          "text": "둘째 근거가 그릇이 아니라 의자 넣는 영상 댓글이네요. 그릇 모으는 사람 마음을 의자 댓글로 말하는 건 좀 멀어요.",
+          "fix": "37줄을 '그릇은 아니지만 비슷한 행동인, 의자를 다시 넣는 사람을 다룬 영상에도'처럼 다른 행동의 댓글임을 그 문장에서 밝힌다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 59,
+          "text": "'찜찜함이 클수록 강박 증상 점수가 높다' → '그릇 모으는 분은 찜찜함을 더 느낄 수 있다'를 이어 보면, 결국 그릇 모으면 강박 증상이 있다는 소리로 들려요.",
+          "fix": "59줄을 '강박 쪽 성향 점수가 조금 더 높은 경향이 있었습니다'처럼 정도를 낮추고, 65줄 앞에 '이 연구는 함께 나타난다는 것이지, 그릇을 모으게 만든다는 뜻은 아닙니다'를 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 12,
+          "text": "도입에서 '배려심이 깊다는 말이 어디까지 맞을까요' 물어 놓고, 끝에서 그 답을 딱 말해 주지 않네요.",
+          "fix": "107줄 뒤에 '배려심이 깊다는 말은 세 가지 중 둘째 하나에 맞는 말입니다'처럼 도입 질문의 답을 한 문장으로 준다."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 73,
+          "text": "'자리에서 일어나지 못할 정도라면 이야기가 다릅니다'에서 뭐가 다른지 안 나와요. 바로 뒤 예시(같이 간 사람에게 화남)도 이 말과 다른 상황이고요.",
+          "fix": "73줄을 '그때는 습관이 나를 돕는 게 아니라 나를 힘들게 하는 것일 수 있습니다'처럼 무엇이 다른지 그 문장에서 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 40,
+          "text": "'정해진 순서대로 치운다'면 모아 두는 것도 방해일 수 있는데, 다음 줄은 겹치는 이야기, 그다음 줄은 '모아만 두면 된다'라 앞뒤가 안 이어져요.",
+          "fix": "40줄을 빼거나 '식당에 따라서는 그릇을 옮기지 않는 편이 더 편한 곳도 있습니다'로 바꿔 43줄 '그대로 두셔도 됩니다'와 잇는다. 41~42줄 겹치지 말라는 말은 그대로 둔다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단·탓·일반화는 대본이 미리 잘 막았고 할 일(겹치지 말고 모으기·직원 말 따르기·30분 뒤 씻기·끝나는 시각과 몫 정하기)도 분명하다. 다만 셋째 장의 2022년 분석에 몇 편·몇 명·어떻게가 없어 출처를 따지는 댓글이 달릴 빈틈이 하나 있고(중), 나머지는 좋아요 수 해석·도입 질문의 답·말 다듬기 수준(하)이다.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_7.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
-    "pending": {
-     "n": 7,
-     "sha": "4bb777803825cf91",
-     "reviewers": [
-      "K7-반론"
-     ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_7.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_7",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-13T04:43:33Z"
-    }
+    "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt"
    }
   }
  }

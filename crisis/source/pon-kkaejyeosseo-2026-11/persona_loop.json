@@ -368,20 +368,51 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 8,
+      "at": "2026-11-13T04:58:56Z",
+      "sha": "1e52ec118e84dcf6",
+      "reviewers": [
+       {
+        "reviewer": "E8-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 77,
+          "why": "지루함·어려운 말 — 73줄부터 신청서·사흘·두 달·피해 금액대로 나눠 받기·법 조항이 줄줄이 이어져, 아직 돈을 안 보낸 나한테는 은행 서류 설명처럼 들려 손이 정지 버튼으로 감 (81줄 '원격 앱으로 인증까지 됐다면 인정받기 어려울 수'도 무슨 뜻인지 한 번에 안 들어옴)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "6줄 — '여러분이라면 어떻게 하시겠습니까?' 하고 보기 세 개를 주니 바로 '나라면 2번 했을 텐데' 하고 따라 고르게 됨, 11줄에서 2번이 왜 틀렸는지 바로 풀어 줘서 끝까지 볼 마음이 생김",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [77]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.10: 돌려받는 절차 9줄 → 7줄, '사흘' 하나로 묶음 · 배상 줄 쉬운 말 · (반론 8회차) 아이가 다쳤다·붙잡혔다 하면 112 · 암호 못 대면 끊음 · '이런 수법으로'",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_8.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
     "pending": {
-     "n": 8,
-     "sha": "1e52ec118e84dcf6",
+     "n": 9,
+     "sha": "313b04932de34337",
      "reviewers": [
-      "E8-P4"
+      "E9-P4"
      ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_8.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_8",
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_9.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_9",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:54:00Z"
+     "at": "2026-11-13T04:58:56Z"
     }
    },
    "script_rebuttal": {
@@ -957,20 +988,79 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 8,
+      "at": "2026-11-13T04:58:56Z",
+      "sha": "1e52ec118e84dcf6",
+      "reviewers": [
+       {
+        "reviewer": "K8-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 118,
+          "text": "AI로 애 우는 소리까지 들려주면서 다쳤다·잡혀 있다고 하면, 연락 닿을 때까지 그냥 기다리라고? 그럴 땐 112부터 해야지.",
+          "fix": "118줄에 '아이가 위험하다는 말이 나오면 기다리는 동안 112에 신고해 경찰이 아이가 안전한지 확인하게 합니다'를 더한다 (49줄 울음소리 경보와 짝을 맞춤)."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 14,
+          "text": "'이 문자로 막아 낸 엄마'라더니 막아 낸 사례는 문자가 아니라 전화잖아.",
+          "fix": "14줄을 '이런 수법으로 피해를 본 엄마와, 막아 낸 엄마의 경우'로 바꾼다 (37줄 '문자가 아니라 전화였지만'과 맞게)."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 117,
+          "text": "암호를 물었는데 '폰 깨져서 정신없어, 기억 안 나'라고 하면 어떡함? 그다음이 없음.",
+          "fix": "117줄 뒤에 '암호를 못 대거나 얼버무리면 끊고, 확인될 때까지 아무것도 보내지 않습니다'를 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 25,
+          "text": "'이런 수법'이 정확히 뭐임? 자녀 사칭 문자 전체야, 원격 앱 깔게 하는 것만이야? 238억이 어디까지인지 모르겠음.",
+          "fix": "25줄에서 집계 범위를 이름으로 밝힌다 (예: '가족·자녀인 척하는 메신저 사기로만')."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 88,
+          "text": "안심차단 꼭 은행 가야 함? 앱으로 된다는 말도 있던데, 어르신들은 은행 가야 하는 줄 알고 미룸.",
+          "fix": "88줄 '은행에 가서'를 '은행에서'로 줄이고 창구·앱 등 신청 길은 설명란(93·110줄)으로 넘긴다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답 3번(답장 없이 원래 번호로 직접 전화)은 2번과의 차이(11줄)·발신번호 조작(32·50줄)·앱 설치 뒤 다른 폰(52·98줄)·암호(117줄)까지 받쳐 줘 흔들리지 않고, 숫자(3억 900만·155명 63억·238억)도 대본 안에서 앞뒤가 맞으며 피해자 탓도 38·107줄로 막았다. 남은 반박은 울음소리·위급 협박 때 '기다리기'만으로 끝나는 빈틈(중) 하나와 말 다듬기뿐.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(통과 — 이탈 고치느라 글이 바뀌어 9회차에 다시)",
+      "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_8.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
     "pending": {
-     "n": 8,
-     "sha": "1e52ec118e84dcf6",
+     "n": 9,
+     "sha": "313b04932de34337",
      "reviewers": [
-      "K8-반론"
+      "K9-반론"
      ],
-     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_8.md",
-     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_8",
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_9.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_9",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:54:00Z"
+     "at": "2026-11-13T04:58:56Z"
     }
    }
   }

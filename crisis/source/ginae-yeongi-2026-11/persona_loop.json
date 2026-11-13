@@ -147,20 +147,47 @@
       "pass": false,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_2.md"
+     },
+     {
+      "n": 3,
+      "at": "2026-11-13T03:12:37Z",
+      "sha": "b6a45c0de74e2c51",
+      "reviewers": [
+       {
+        "reviewer": "E3-P2",
+        "persona": "P2",
+        "exits": [
+         {
+          "line": 85,
+          "why": "뻔함 — 사고 사례(19~49줄)는 빨려 들었는데, '연기는 위로 올라가니 몸을 낮춰라'는 화재 대피 훈련마다 듣는 말이라 여기서 손이 감 (끄진 않고 넘김)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "29 — 기장이 남은 사람이 없는지 확인하고 마지막으로 내렸다는 줄: 책임지는 사람이 있었다는 장면이라 가장 마음이 움직였고, 50줄 '짐 챙긴 사람을 탓하자는 것은 아닙니다'에서 피해자 탓을 안 해서 계속 볼 마음이 생김",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [85]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.5: '연기는 위로' 뻔한 줄 → 바닥 비상 불빛 줄의 까닭(높은 곳 불빛이 가려져도 보이게 — 14 CFR 25.812(e))",
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_3.md"
      }
     ],
     "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
     "pending": {
-     "n": 3,
-     "sha": "b6a45c0de74e2c51",
+     "n": 4,
+     "sha": "71448c436a14223b",
      "reviewers": [
-      "E3-P2"
+      "E4-P2"
      ],
-     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_3.md",
-     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_exit_3",
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_exit_4.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_exit_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-12T11:13:28Z"
+     "at": "2026-11-13T03:12:49Z"
     }
    },
    "script_rebuttal": {
@@ -327,20 +354,110 @@
       "pass": false,
       "fixed_after": "2회차 지적 반영 (README v1.4)",
       "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_2.md"
+     },
+     {
+      "n": 3,
+      "at": "2026-11-13T03:12:37Z",
+      "sha": "b6a45c0de74e2c51",
+      "reviewers": [
+       {
+        "reviewer": "K3-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 78,
+          "text": "에어부산 때 승무원보다 승객이 먼저 문 열었다는 말도 많았는데, 항공사 해명을 그대로 '바른 예'로 쓰네요.",
+          "fix": "항공사 설명 대신 조사 기관 발표로 바꾸거나, 이 줄을 빼고 '비상구 좌석은 승무원 지시가 있을 때 연다'는 안전 카드·연방항공청 안내로만 설명한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 80,
+          "text": "승무원 안 보인다고 승객이 알아서 문 고르면, 탈출 지시도 없는데 문 여는 사람 나옴.",
+          "fix": "'탈출하라는 지시가 나왔고 비행기가 완전히 멈췄는데 승무원이 보이지 않는다면'처럼 조건을 문장 앞에 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 72,
+          "text": "원칙 둘은 '승무원이 연 문으로'라더니 정리에선 '창밖 보고 고른 문'도 된다네요. 어느 쪽?",
+          "fix": "72줄을 82·112줄과 같은 말('승무원 안내나 창밖을 보고 고른 문')로 맞추거나, 14줄 결론까지 같은 한 문장으로 통일한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 43,
+          "text": "에어부산은 176명 다 나왔는데 승객 한 명 인터뷰만으로 '탈출이 늦어진 비행기'에 넣는 건 좀...",
+          "fix": "장 제목을 '짐을 든 사람이 많았던 비행기'처럼 34줄과 맞추거나, 에어부산은 '통로가 혼란스러웠다는 증언' 사례로만 소개한다."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 64,
+          "text": "4명 중 1명이 짐 챙겨도 11.7%밖에 안 늘면 나 하나 가방 들고 나가는 건 별 차이 없겠네.",
+          "fix": "65줄 '90초에 3명 더 남는다'를 먼저 말하고, 늘어난 시간은 연기 속 맨 뒷사람이 견디는 시간이라는 점을 한 문장으로 잇는다."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 89,
+          "text": "신발 벗느라 미끄럼대 앞에서 멈추면 가방 꺼내는 거랑 뭐가 다름?",
+          "fix": "'굽 높은 신발은 타기 전에 갈아 신거나, 앉을 때 미리 벗어 둡니다'처럼 탈출 중에 멈추지 않는 쪽으로 바꾼다."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 84,
+          "text": "좁은 통로에서 몸 낮추면 오히려 느려지고 뒤에서 밀려 넘어짐.",
+          "fix": "'기어가지 말고, 걸으면서 허리만 숙여'를 넣어 속도를 늦추라는 말이 아님을 분명히 한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 97,
+          "text": "짐은 두고 몸만 나가라면서 휴대전화는 챙기래요? 휴대폰 들고 영상 찍는 사람 때문에 늦어지는데.",
+          "fix": "'주머니에 넣어 두고, 탈출할 때 두 손은 비웁니다'를 붙여 손에 드는 것과 몸에 지니는 것을 나눈다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 58,
+          "text": "새 비행기마다 90초 시험 하는 줄 알겠네. 기종마다 하는 거 아님?",
+          "fix": "'새로 만든 여객기 기종은'으로 바꾼다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 90,
+          "text": "'중요한 것은 … 중요합니다' 문장 꼬임.",
+          "fix": "'연기 속에서는 허리를 숙여 연기를 덜 마시고, 좌석을 세며 길을 잃지 않는 것이 중요합니다.'로 줄인다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답 3번과 결론 세 원칙, 사고 숫자(379명·8개 중 3개·18분·300명·176명·78명 중 41명·11.7%)는 대본 안에서 앞뒤가 맞고 '짐 하나로 갈렸다고 말할 수 없다'는 단서도 있어 피해자 탓 반박은 막혀 있음 — 국내 사고인 에어부산을 항공사 해명으로 설명한 78줄이 가장 큰 반박거리(중), 나머지는 조건 한 줄·말 맞추기 수준.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "v1.5: 에어부산 항공사 해명 줄 뺌 · 승무원이 안 보일 때 조건(탈출 지시·완전히 멈춤) · 원칙 둘 = 승무원이 연 문, 창밖은 예외로 정리와 맞춤 · 장 제목 '짐을 든 사람이 많았던 비행기' · 90초 3명 먼저 · 신발은 처음부터 편한 것 · 기어가지 말고 허리만 · 휴대전화는 주머니, 두 손 비움 · '새로 만든 여객기 기종' · 90줄 문장 꼬임",
+      "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_3.md"
      }
     ],
     "path": "crisis/source/ginae-yeongi-2026-11/ginae-yeongi-2026-11.txt",
     "pending": {
-     "n": 3,
-     "sha": "b6a45c0de74e2c51",
+     "n": 4,
+     "sha": "71448c436a14223b",
      "reviewers": [
-      "K3-반론"
+      "K4-반론"
      ],
-     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_3.md",
-     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_rebuttal_3",
+     "prompt": "crisis/source/ginae-yeongi-2026-11/persona_ginae-yeongi-2026-11_script_rebuttal_4.md",
+     "answers": "crisis/source/ginae-yeongi-2026-11/answers_ginae-yeongi-2026-11_script_rebuttal_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-12T11:13:28Z"
+     "at": "2026-11-13T03:12:49Z"
     }
    }
   }

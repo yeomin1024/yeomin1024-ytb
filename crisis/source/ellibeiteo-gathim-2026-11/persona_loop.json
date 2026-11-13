@@ -92,21 +92,53 @@
       "fixed_after": "2회차 지적 반영 (README v1.4)",
       "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_2.md",
       "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답"
+     },
+     {
+      "n": 3,
+      "at": "2026-11-13T04:47:37Z",
+      "sha": "6fc9744573cbab3e",
+      "reviewers": [
+       {
+        "reviewer": "T3-P4",
+        "persona": "P4",
+        "feed_picks": [
+         7,
+         5
+        ],
+        "feed_why": "7은 '점프하면 살까?'가 바로 '나라면 어떻게 했을까'를 떠올리게 하고 '진짜 할 일'이 있어 끝까지 볼 것 같음 · 5는 거스름돈 사기가 궁금해서 (오래된 방송이라 두 번째)",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "떨어질 때 점프하면 / 살 수 있을까? · 승강기안전공단의 답",
+        "fix": "썸네일 문구가 제목 앞부분과 거의 같아서, 썸네일에는 '갇혔을 때 이것부터' 처럼 할 일 쪽을 한 번 더 보여 주면 더 눌림",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T3-반론",
+        "persona": "반론",
+        "feed_picks": [
+         7,
+         10
+        ],
+        "feed_why": "7번은 '떨어질 때 점프하면 산다' 속설이 맞는지 공식 답으로 따져 보려고, 10번은 법 현실이 말과 다른지 확인하려고 누름 — 3·4·6번은 영화·사건 모음이라 따질 거리도 할 일도 없음",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "'떨어질 때' — 한국 승강기는 줄이 여러 가닥이고 비상정지장치가 있어 통째로 떨어지는 일 자체가 드문데 전제가 과장 같음 · 제목 앞은 추락, 뒤 '진짜 할 일'은 갇혔을 때라 두 상황이 섞임 · '승강기안전공단의 답'은 믿게 만든 말",
+        "fix": "추락이 실제로 얼마나 드문지(사고 기록) 한마디를 보조 문구나 제목에 넣어 겁주기 느낌을 빼고, 점프 질문과 '갇혔을 때 할 일'이 한 상황으로 이어지게 묶기",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(통과 — 대상 페르소나 P4 로 바뀐 뒤 첫 제목 회차)",
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답"
      }
-    ],
-    "pending": {
-     "n": 3,
-     "sha": "6fc9744573cbab3e",
-     "reviewers": [
-      "T3-P4",
-      "T3-반론"
-     ],
-     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_title_3.md",
-     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_title_3",
-     "ours_idx": 7,
-     "text": "제목: 엘리베이터 떨어질 때 점프하면 살까? 갇혔을 때 진짜 할 일\n썸네일 문구: 떨어질 때 점프하면 / 살 수 있을까?\n보조 문구: 승강기안전공단의 답",
-     "at": "2026-11-13T04:43:57Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -392,20 +424,58 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 6,
+      "at": "2026-11-13T04:47:37Z",
+      "sha": "f2b48fa2aeeac5bc",
+      "reviewers": [
+       {
+        "reviewer": "E6-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 17,
+          "why": "지루함 — 바로 앞 '2만 8천 명'이면 충분한데 '11만 명 가운데 4명 중 1명꼴'까지 숫자를 한 번 더 셈하니 사연을 기다리다 잠깐 늘어짐"
+         },
+         {
+          "line": 90,
+          "why": "뻔함 — 원칙 셋을 방금 들었는데 정리에서 같은 말을 또 하니, 할 일(버튼판 보기)만 알고 싶은 사람은 여기서 끄기 쉬움"
+         }
+        ],
+        "hard_words": [
+         "교육받은 안전관리자"
+        ],
+        "keep_watching": true,
+        "best": "33 — 주민을 다 꺼내 준 관리인이 짐까지 꺼내 주려다 그 틈으로 떨어졌다는 줄에서 '나라면 나도 도와주려다 저랬겠구나' 싶어 숨이 멎음",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [17, 90]",
+         "모르는 말 ['교육받은 안전관리자']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.8: 11만 명 분모 줄 줄임 · 정리 첫째~셋째 짧게 · '안전관리자' 풀이 · (반론 6회차 중) 구조대·기술자가 아닌 사람이 열었을 때로 좁힘·문 여는 사람 목록 통일·연기 때도 지시대로",
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_6.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "f2b48fa2aeeac5bc",
+     "n": 7,
+     "sha": "3f4cfd365826b7f4",
      "reviewers": [
-      "E6-P4"
+      "E7-P4"
      ],
-     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_6.md",
-     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_exit_6",
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_exit_7.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_exit_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:43:57Z"
+     "at": "2026-11-13T04:49:23Z"
     }
    },
    "script_rebuttal": {
@@ -831,20 +901,93 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 6,
+      "at": "2026-11-13T04:47:37Z",
+      "sha": "f2b48fa2aeeac5bc",
+      "reviewers": [
+       {
+        "reviewer": "K6-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 61,
+          "text": "교육받은 안전관리자가 열 때까지 기다리라더니, 강서구 오피스텔 70대 관리인이 바로 그 안전관리자였던 거 아님? 교육받은 사람이 열어도 떨어진 거면 누구를 기다리라는 거고, 아니면 주민 구해 준 고인이 무자격이라 죽었다는 말로 들림",
+          "fix": "강서구 관리인이 안전관리자였는지는 확인된 만큼만 말하고(모르면 단정하지 않음), 61·74줄에 '교육받은 사람도 엘리베이터를 바닥 높이에 맞춘 뒤에 연다'를 한 문장 더해 위험의 원인을 사람이 아니라 40줄의 '높이를 맞추지 않은 채 열린 문'으로 못박기"
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 83,
+          "text": "'누군가 밖에서 열어 줬다면 나가지 말라'는데, 119가 문 열고 나오라고 해도 버티라는 거임? 70줄 '구조대가 시키는 대로'랑 부딪힘",
+          "fix": "83줄을 '구조대나 기술자가 아닌 사람이 열었다면'으로 좁히고, 84줄 뒤에 '구조대·기술자가 바닥 높이를 맞추고 나오라고 할 때만 나온다'를 더함"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 70,
+          "text": "61줄은 안전관리자도 열 수 있다더니 70줄은 119·업체 기술자만 따르라고 함 — 관리사무소 안전관리자가 오면 따라도 됨?",
+          "fix": "문을 열 수 있는 사람 목록(119 구조대·업체 기술자·교육받은 안전관리자)을 61·70·75줄에서 똑같이 씀"
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 55,
+          "text": "엘베 떨어졌다는 뉴스 가끔 나오는데 '떨어질 일이 아닙니다'는 단정은 과장",
+          "fix": "92줄처럼 '바닥까지 떨어질 일은 사실상 없습니다'로 통일하고 근거는 49줄 공단 안내로 묶음"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 52,
+          "text": "불 나서 연기 들어오는데도 안에서 기다리라고? 물 들어올 때는 '지시대로'라고 했는데 연기는 그 말이 없음",
+          "fix": "52줄에도 '119 지시대로 하고, 스스로 문을 열지 않습니다'를 53줄과 같은 꼴로 덧붙임"
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 74,
+          "text": "'법에서 안전관리자가 맡게 해 두었다' — 무슨 법 몇 조인데?",
+          "fix": "법 이름과 조항을 원문 확인 뒤 화면·설명란에 밝힘"
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 17,
+          "text": "119 구조 4명 중 1명이 엘리베이터라고? '약 11만 명'이 뭘 센 숫자인지 모르겠음",
+          "fix": "'2024년 119가 모든 사고에서 구조한 약 11만 명'처럼 무엇의 전체인지 밝히고 출처(소방청 통계)를 화면에"
+         }
+        ],
+        "answer_clear": true,
+        "summary": "정답 2번은 상황에 따라 갈리지 않고 숫자도 대본 안에서 맞음(28천/11만≈1/4) — 상은 없고, 강서구 관리인의 자격이 비어 '안전관리자를 기다려라'와 부딪히며 고인 탓으로 들릴 수 있는 점, '누가 열어 주면 나와도 되나' 조건이 빈틈(중 2).",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(통과 — 이탈 고치느라 글이 바뀌어 7회차에 다시)",
+      "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_6.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/ellibeiteo-gathim-2026-11/ellibeiteo-gathim-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "f2b48fa2aeeac5bc",
+     "n": 7,
+     "sha": "3f4cfd365826b7f4",
      "reviewers": [
-      "K6-반론"
+      "K7-반론"
      ],
-     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_6.md",
-     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_rebuttal_6",
+     "prompt": "crisis/source/ellibeiteo-gathim-2026-11/persona_ellibeiteo-gathim-2026-11_script_rebuttal_7.md",
+     "answers": "crisis/source/ellibeiteo-gathim-2026-11/answers_ellibeiteo-gathim-2026-11_script_rebuttal_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:43:57Z"
+     "at": "2026-11-13T04:49:23Z"
     }
    }
   }

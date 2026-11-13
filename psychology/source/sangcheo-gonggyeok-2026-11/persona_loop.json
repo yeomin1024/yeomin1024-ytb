@@ -216,21 +216,40 @@
       "pass": false,
       "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
       "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_4.md"
+     },
+     {
+      "n": 5,
+      "at": "2026-11-13T03:32:20Z",
+      "sha": "68c75935fc6d82b2",
+      "reviewers": [
+       {
+        "reviewer": "E5-P3",
+        "persona": "P3",
+        "exits": [
+         {
+          "line": 19,
+          "why": "지루함 — 회사에서 겪는 일 얘기를 기대했는데 '설문들이 잰 것은'부터 연구 방법 설명이 이어져(19~26줄) 강의처럼 느껴짐"
+         },
+         {
+          "line": 49,
+          "why": "관련 없음 — 직장인인데 '한국 대학생 250명 온라인 설문'이 나오니 내 얘기가 아닌 것 같고, 공격의 정의를 50줄에서 또 반복해 늘어짐"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "57~58줄 — 상사가 '이 부분 다시 볼까요?' 했을 때 '나를 무능하다고 보는구나'로 들린다는 말이 딱 내 회사 생활이라 붙잡힘",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [19, 49]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_5.md"
      }
     ],
-    "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
-    "pending": {
-     "n": 5,
-     "sha": "68c75935fc6d82b2",
-     "reviewers": [
-      "E5-P3"
-     ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_5.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_exit_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-13T03:28:21Z"
-    }
+    "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -534,21 +553,78 @@
       "pass": true,
       "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
       "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_4.md"
+     },
+     {
+      "n": 5,
+      "at": "2026-11-13T03:32:20Z",
+      "sha": "68c75935fc6d82b2",
+      "reviewers": [
+       {
+        "reviewer": "K5-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 9,
+          "text": "19줄에서 설문이 잰 건 '상처'가 아니라 '거절 예민함'이라고 해 놓고, 9줄은 '거절로 상처받은 뒤라면 까닭은 세 가지'라고 원인처럼 말함. 실험(24줄)이 보여 준 건 방금 겪은 거절 뒤 공격이 늘었다는 것까지고, 상처가 예민함·나쁜 해석·흐린 자기 개념을 만든다는 건 나오지 않았음. 날카로워서 거절을 더 당하고 그래서 예민해진 걸 수도 있지 않나?",
+          "fix": "9줄을 '거절로 상처받은 사람에게서 자주 함께 보이는 것은 세 가지입니다'처럼 '함께 나타남'으로 바꾸거나, 26줄 뒤에 '상처가 이 세 가지를 만든다는 것까지 확인된 것은 아닙니다' 한 문장을 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 110,
+          "text": "24~25줄에선 실험에서 거절을 겪게 한 '뒤' 더 공격적이었다며 순서를 보여 줬는데, 마지막엔 연구가 본 건 약한 연결이라 순서를 모른다고 함. 또 51·73줄은 '경향이 강했다'인데 여기선 '약한 연결'이라 앞뒤가 다르게 들림.",
+          "fix": "'세 가지 까닭을 본 연구는 한 번 잰 설문이라, 무엇이 먼저인지는 아직 모릅니다'처럼 범위를 세 가지 까닭으로 좁히고, 51·73줄의 '강했습니다'는 '더 높았습니다'로 바꿔 크기로 들리지 않게 한다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 12,
+          "text": "'내가 어떤 사람인지에 대한 생각이 흔들리고 있다'는 상처 때문에 지금 흔들린다는 말로 들리는데, 72줄 연구는 한 번 잰 '흐린 정도'일 뿐 상처가 흔들었다는 근거가 아님. 65줄 '자기 개념이 분명한 사람은 덜 흔들린다'도 근거 없이 단정.",
+          "fix": "12·62·109줄을 '내가 어떤 사람인지에 대한 생각이 흐린 편일 수 있습니다'로 바꾸고, 65줄은 72줄 연구 결과와 이어서 '그 연구에서는 ~였습니다' 꼴로 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 58,
+          "text": "두 번째 이유(나를 공격하려는 뜻으로 읽음)의 예가 '나를 무능하다고 보는구나'인데, 이건 공격 의도가 아니라 나에 대한 평가라 세 번째 이유(70줄 오타 지적)와 같은 장면·같은 말임. 2번과 3번이 뭐가 다른지 흐려짐. 또 '들립니다'만 단정형.",
+          "fix": "58줄을 '일부러 사람들 앞에서 나를 망신 주려는구나'처럼 나쁜 의도를 읽는 말로 바꾸고 '들리기 쉽습니다'로 맞춘다. 상사 지적 장면은 세 번째 이유에만 둔다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 32,
+          "text": "첫 번째 이유는 '상처받기 전에 먼저 쏘아붙인다'인데, 근거(36줄)는 '순간 맞받아치는 공격'에서 그랬다고 함. 먼저 치는 것과 맞받아치는 것은 반대 아닌가?",
+          "fix": "32줄을 '거절의 낌새가 보이면 바로 맞받아치기도 합니다'로 바꿔 36·37줄과 같은 말로 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 22,
+          "text": "2021년 분석은 52편, 2023년은 250명이라고 밝히면서 2022년 메타분석만 연구 몇 편·공격을 무엇으로 쟀는지·얼마나 더 공격적이었는지가 빠짐.",
+          "fix": "22~24줄에 모은 연구 수와 실험실에서 '공격'을 잰 방법을 한 구절씩 넣고, 차이가 작다면 35줄처럼 '조금 더'를 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 77,
+          "text": "'해 볼 만한 것이 세 가지'라고 했는데 84줄 틈을 버는 말, 88줄 일과 나를 나눠 말하기까지 실제로는 네다섯 가지이고, 88줄은 세 번째(밑에 있는 마음 말하기)와 다른 이야기임.",
+          "fix": "88줄을 빼거나 세 번째 묶음에 맞게 '지적을 받으면 \"오타 하나 지적이라 조금 속상해\"처럼 마음을 말해 보세요'로 바꾼다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "예외 인정·연구 한계·가해를 감싸지 않는 선·진단 없는 상담 안내는 잘 챙겼다. 다만 근거가 보여 준 것은 '거절 예민함'과 날카로움이 함께 나타난다는 것까지인데 '상처받은 뒤의 까닭 세 가지'라는 틀이 원인처럼 들리고, 마지막 '순서는 모른다'가 앞의 실험과 부딪히는 등 앞뒤 말 맞추기가 남았다.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_5.md"
      }
     ],
-    "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
-    "pending": {
-     "n": 5,
-     "sha": "68c75935fc6d82b2",
-     "reviewers": [
-      "K5-반론"
-     ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_5.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_rebuttal_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-13T03:28:21Z"
-    }
+    "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt"
    }
   }
  }

@@ -255,20 +255,51 @@
       "pass": false,
       "fixed_after": "",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_5.md"
+     },
+     {
+      "n": 6,
+      "at": "2026-11-13T04:42:59Z",
+      "sha": "8e4f47a0cff44628",
+      "reviewers": [
+       {
+        "reviewer": "E6-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 11,
+          "why": "'엄마를 탓하자는 게 아니라'가 너무 일찍 나와서 또 엄마 편 드는 영상 같음 — 나는 거리 두거나 손절해도 된다는 말을 듣고 싶었는데 그 이야기는 103줄에 가서야 나옴"
+         },
+         {
+          "line": 107,
+          "why": "'늘 하시는 말이어도 넘기지 말고' — 우리 엄마는 그 말로 나를 붙잡는데, 결국 또 딸이 다 떠안으라는 말처럼 들려 죄책감이 올라옴"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "4번 — '엄마 목소리는 조금 밝아지고 나는 녹초가 됩니다'가 딱 내 통화 끝난 뒤 기분이라 바로 붙잡힘",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [11, 107]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "7회차 앞에 고침 (대본 v1.9 — 사용자 지시 '계속 진행해')",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_6.md"
      }
     ],
     "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "8e4f47a0cff44628",
+     "n": 7,
+     "sha": "9b2d76e9b0979fab",
      "reviewers": [
-      "E6-P4"
+      "E7-P4"
      ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_6.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_6",
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_7.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:39:25Z"
+     "at": "2026-11-13T04:43:33Z"
     }
    },
    "script_rebuttal": {
@@ -658,20 +689,75 @@
       "pass": false,
       "fixed_after": "",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_5.md"
+     },
+     {
+      "n": 6,
+      "at": "2026-11-13T04:42:59Z",
+      "sha": "8e4f47a0cff44628",
+      "reviewers": [
+       {
+        "reviewer": "K6-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 94,
+          "text": "15줄에서 '남편에게 말하면 싸움이 된다'서 딸한테 온다고 해 놓고, 아빠 불만은 아빠한테 직접 말하라고 돌려드리라니요? 싸움 날까 봐 못 하는 엄마 사정은 어디 갔나요. 폭언하는 아빠라면 더 위험하고요.",
+          "fix": "15줄과 맞게 바꾼다 — 예 '싸움이 될까 봐 못 한 말이라면, 아빠에게 어떻게 말할지 같이 정리해 드리거나 앞에서 말한 가족 상담을 권해도 됩니다' · 폭력·폭언이면 이 방법 대신 56~58줄 도움 길이라는 단서를 한 마디 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 93,
+          "text": "엄마가 친구한테는 흉 될까 봐(15줄) 딸한테 말하는 건데 '가까운 분과도 나눠 봐'가 통하나요?",
+          "fix": "'가까운 분' 대신 엄마가 믿고 말해 온 사람(이모·오래된 친구 등)으로 좁히거나, 흉이 새지 않을 곳(상담 전화·센터)과 이어서 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 7,
+          "text": "저는 엄마 하소연 들어도 별로 안 힘든데, '받아 주면 안 된다'고 하니 제가 잘못하고 있는 것 같네요.",
+          "fix": "11줄 근처나 76줄 뒤에 '듣는 게 힘들지 않다면 지금 그대로도 괜찮습니다' 한 문장을 둔다 (이유 셋이 모두 '~수 있습니다'인데 7줄만 '안 되는'으로 단정적)."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 62,
+          "text": "연구는 '사이에 끼인 느낌'과 가족 만족도를 본 건데, 장 제목은 '다른 가족과 멀어진다'이고 형제 이야기(55줄)는 연구에 없잖아요.",
+          "fix": "장 제목·49줄을 '다른 가족과의 사이까지 불편해질 수 있다' 쪽으로 낮추거나, 64~65줄이 부모 사이 이야기만 다뤘다는 점을 한 마디로 밝힌다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 19,
+          "text": "부모화는 '아이'가 부모 역할을 떠맡는 거라면서, 다 큰 딸이 엄마 전화 받는 걸 거기에 붙이는 건 과하지 않나요?",
+          "fix": "22줄 뒤에 '어릴 때부터 이 역할이 이어져 왔다면 더 무겁게 느껴질 수 있습니다'처럼 어른인 지금과 잇는 다리 한 문장을 둔다 — 시청자를 그 이름으로 부르지 않는 지금 꼴은 유지."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자·연구 설명은 상관관계로 조심스럽게 말하고 예외·위기 번호도 챙겨 상은 없음 — 다만 네 번째 말의 '아빠에게 직접 말하라'가 15줄 '남편에게 말하면 싸움이 된다'와 부딪혀 엄마 사정을 무시한다는 반박(중)이 나올 만하고, 나머지는 말 다듬기 수준.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "7회차 앞에 고침 (대본 v1.9 — 사용자 지시 '계속 진행해')",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_6.md"
      }
     ],
     "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "8e4f47a0cff44628",
+     "n": 7,
+     "sha": "9b2d76e9b0979fab",
      "reviewers": [
-      "K6-반론"
+      "K7-반론"
      ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_6.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_6",
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_7.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:39:25Z"
+     "at": "2026-11-13T04:43:33Z"
     }
    }
   }

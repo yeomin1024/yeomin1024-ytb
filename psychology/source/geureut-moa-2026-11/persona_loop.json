@@ -254,20 +254,51 @@
       "pass": false,
       "fixed_after": "",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_5.md"
+     },
+     {
+      "n": 6,
+      "at": "2026-11-13T04:42:59Z",
+      "sha": "97743920cc903157",
+      "reviewers": [
+       {
+        "reviewer": "E6-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 28,
+          "why": "지루함 — 갑자기 '2019년 미국, 실험 세 번, 160명'이 나오는데 내용은 어질러진 방 얘기라 내 식당 그릇 얘기와 멀게 느껴짐"
+         },
+         {
+          "line": 84,
+          "why": "겁주기 — 그릇 좀 모으는 얘기에 '하루 한 시간'·'전문가'·'상담 전화'까지 나오니 내가 환자 취급받는 것 같아 과함"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "89 — '왜 나만 치우지' 하고 서운해지는 마음은 딱 우리 집 남편·자식 얘기라, 다음에 어떻게 하라는지 끝까지 듣고 싶어짐",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [28, 84]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "7회차 앞에 고침 (대본 v1.9 — 사용자 지시 '계속 진행해')",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_6.md"
      }
     ],
     "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "97743920cc903157",
+     "n": 7,
+     "sha": "4bb777803825cf91",
      "reviewers": [
-      "E6-P1"
+      "E7-P1"
      ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_6.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_6",
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_exit_7.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_exit_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:39:25Z"
+     "at": "2026-11-13T04:43:33Z"
     }
    },
    "script_rebuttal": {
@@ -669,20 +700,77 @@
       "pass": false,
       "fixed_after": "",
       "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_5.md"
+     },
+     {
+      "n": 6,
+      "at": "2026-11-13T04:42:59Z",
+      "sha": "97743920cc903157",
+      "reviewers": [
+       {
+        "reviewer": "K6-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 107,
+          "text": "배려만 '연구가 아니라 댓글'이라는데, 첫째도 그릇 모으는 사람이 성실하다는 연구는 없고 '어질러진 방 주인을 덜 성실하게 본다'는 남의 시선 연구뿐이잖아요. 셋째 연구도 그릇이 아니라 '딱 맞지 않는 느낌'과 강박 증상 점수 사이 관계고요. 이러면 첫째·셋째는 연구로 확인된 것처럼 들립니다.",
+          "fix": "107번 줄에서 세 특징의 근거를 하나씩 밝힌다. 예: '첫째는 성격 이론으로 짐작한 것이고, 둘째는 댓글, 셋째는 닮은 느낌을 다룬 연구와 댓글로 본 것입니다. 그릇 모으는 사람을 직접 조사한 연구는 아닙니다.'"
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 53,
+          "text": "좋아요 1등 댓글이 '의자 넣는 건 기본 아닌가'면 사람들이 가장 많이 공감한 답은 그냥 예절이라는 건데, 그 말은 한 줄 소개만 하고 바로 2등 댓글로 넘어가네요. 결론은 왜 성격 특징 세 가지인가요?",
+          "fix": "53번 줄 뒤에 한 문장을 넣는다. 예: '가장 많은 분이 그냥 기본 예절로 본 것입니다. 앞에서 말한 배워서 하는 경우가 가장 흔하다는 뜻입니다.' 그런 다음 '그다음 댓글은 뜻이 조금 달랐습니다'로 잇는다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 31,
+          "text": "첫째 챕터 제목은 '끝까지 마무리하려는 성향'인데 '한마디로'는 '남에게 성실해 보인다'로 바뀌었어요. 게다가 연구는 어질러진 방이었는데 정리된 식탁 이야기로 넓혔고요.",
+          "fix": "31번 줄에서 연구가 다룬 범위를 밝힌다. 예: '이 연구는 방을 본 것이고 그릇 모으는 사람을 조사한 것은 아니지만, 정리된 자리가 남에게 성실해 보일 수는 있습니다.' 챕터는 성향으로 마무리한다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 59,
+          "text": "2019년 연구는 몇 명을 어떻게 조사했는지 말했는데, 2022년 분석은 연구를 몇 편 모았고 몇 명이었는지가 빠졌어요.",
+          "fix": "59번 줄에 모은 연구 수와 참가자 수를 한 마디로 넣는다(출처 숫자 그대로). 설명란 출처와 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 79,
+          "text": "문제로 든 건 '같이 간 사람이 그릇을 흩어 놓으면 화가 남'과 '가족이 컵을 안 치우면 하루 종일 기분이 상함'처럼 남 때문에 생기는 일인데, 해 보라는 건 내 컵을 30분 늦게 씻기네요. 처방이 문제와 맞지 않고, 30분·일주일·하루 한 시간이라는 기준이 어디서 왔는지도 말하지 않았습니다.",
+          "fix": "75~76번 줄의 예를 '내가 정리를 못 하면 불편한 경우'로 맞추거나, 남 때문에 생기는 경우에 맞는 연습을 한 줄 더한다. 79~83번 줄에는 이것이 치료가 아니라 스스로 살펴보는 작은 연습이라는 말을 넣고, '하루 한 시간'은 전문가들이 흔히 쓰는 눈금이라고만 밝힌다(진단처럼 들리지 않게)."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "예외를 먼저 인정하고, 강박증과 선을 긋고(전문가 진단), 식당·집에서 할 일도 분명해 큰 반박은 없다. 다만 첫째·셋째 연구가 그릇 모으는 사람을 직접 본 것이 아닌데 정리 문장이 연구로 확인된 듯 들리는 점과, 좋아요 1등 '기본 예절' 댓글을 소개만 하고 넘긴 점이 반박 댓글감이다.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "7회차 앞에 고침 (대본 v1.9 — 사용자 지시 '계속 진행해')",
+      "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_6.md"
      }
     ],
     "path": "psychology/source/geureut-moa-2026-11/geureut-moa-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "97743920cc903157",
+     "n": 7,
+     "sha": "4bb777803825cf91",
      "reviewers": [
-      "K6-반론"
+      "K7-반론"
      ],
-     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_6.md",
-     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_6",
+     "prompt": "psychology/source/geureut-moa-2026-11/persona_geureut-moa-2026-11_script_rebuttal_7.md",
+     "answers": "psychology/source/geureut-moa-2026-11/answers_geureut-moa-2026-11_script_rebuttal_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T04:39:25Z"
+     "at": "2026-11-13T04:43:33Z"
     }
    }
   }

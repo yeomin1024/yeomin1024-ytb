@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-10 — 새로: YouTube Reporting API 의 도달범위 보고서(썸네일 노출 수·노출 클릭률)를 받아 영상별로 모음.
+# VERSION: v1.0.1 — 2026-11-13 — 토큰 실패 로그가 log() 의 stage 인자와 겹쳐 TypeError 로 죽던 것 고침 (stage= → step=). 동작 그대로.
+# (v1.0 — 2026-11-10 — 새로: YouTube Reporting API 의 도달범위 보고서(썸네일 노출 수·노출 클릭률)를 받아 영상별로 모음.)
 #   사용자 지시 2026-11-10 "노출수랑 클릭률은 조회가 안돼?" → "reporting api 허용했으니 참고하고 …".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.0.1 | 2026-11-13 | 토큰 실패 로그 TypeError 고침 | token |
 # | v1.0 | 2026-11-10 | 최초 — list(작업·보고서 수) · fetch(새 보고서 받아 영상별 합계 `<주제>/result/channel/reach.md`·`.json`) · --selftest | jobs·reports·summarize·main |
 #
 # 왜: 통계 API(v2)는 노출·클릭률을 주지 않는다 (2026-11-10 열 가지 조합 모두 '지원하지 않는 질의'). Reporting API 는 '작업'을 만들어 두면 날마다 CSV 보고서를 만들어 준다
@@ -33,7 +35,7 @@ from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://youtubereporting.googleapis.com/v1/"
 TYPES = ("channel_reach_basic_a1", "channel_reach_combined_a1")
@@ -58,7 +60,7 @@ def token() -> str:
         with urllib.request.urlopen(urllib.request.Request("https://oauth2.googleapis.com/token", data=body), timeout=40) as r:
             return json.load(r)["access_token"]
     except urllib.error.HTTPError as e:
-        log("FAIL", logging.ERROR, stage="auth", http=e.code, next="키가 만료됐는지 tools/youtube_upload.py --check-auth 로 확인")
+        log("FAIL", logging.ERROR, step="auth", http=e.code, next="키가 만료됐는지 tools/youtube_upload.py --check-auth 로 확인")
         raise SystemExit(2)
 
 

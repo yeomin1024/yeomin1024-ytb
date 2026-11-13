@@ -1,0 +1,194 @@
+{
+ "tool": "longform_b14.py v1.3",
+ "made": "2026-11-13",
+ "story": [
+  "2021-12-31",
+  "2025-12-31"
+ ],
+ "basis": "S&P 500 배당 포함(^SP500TR) 일별 · 예금 대신 13주 국채 이자 · 원 = 달러 기준 변화율(환율·세금·수수료 뺌)",
+ "holding": {
+  "2m": {
+   "starts": 9026,
+   "loss_share": 0.3015,
+   "dd20_share": 0.0146,
+   "worst_end": -0.3544,
+   "label": "2개월"
+  },
+  "3m": {
+   "starts": 9003,
+   "loss_share": 0.2751,
+   "dd20_share": 0.0254,
+   "worst_end": -0.4056,
+   "label": "3개월"
+  },
+  "4m": {
+   "starts": 8982,
+   "loss_share": 0.2626,
+   "dd20_share": 0.0373,
+   "worst_end": -0.3704,
+   "label": "4개월"
+  },
+  "1y": {
+   "starts": 8817,
+   "loss_share": 0.1694,
+   "dd20_share": 0.1317,
+   "worst_end": -0.475,
+   "label": "1년"
+  },
+  "2y": {
+   "starts": 8565,
+   "loss_share": 0.1458,
+   "dd20_share": 0.1856,
+   "worst_end": -0.4955,
+   "label": "2년"
+  },
+  "3y": {
+   "starts": 8315,
+   "loss_share": 0.1519,
+   "dd20_share": 0.2385,
+   "worst_end": -0.4331,
+   "label": "3년"
+  },
+  "5y": {
+   "starts": 7812,
+   "loss_share": 0.1381,
+   "dd20_share": 0.3342,
+   "worst_end": -0.348,
+   "label": "5년"
+  },
+  "10y": {
+   "starts": 6553,
+   "loss_share": 0.0722,
+   "dd20_share": 0.3797,
+   "worst_end": -0.3718,
+   "label": "10년"
+  },
+  "15y": {
+   "starts": 5295,
+   "loss_share": 0.0,
+   "dd20_share": 0.4718,
+   "worst_end": 0.6595,
+   "label": "15년"
+  }
+ },
+ "choices": {
+  "1": {
+   "day": "2021-12-31",
+   "need": "2022-12-30",
+   "tr_2021": 0.2871,
+   "spx_peak_next": [
+    "2022-01-03",
+    -0.0006296220547334919
+   ],
+   "wrong": -0.1811,
+   "low": [
+    -0.24009935676255667,
+    "2022-10-12"
+   ],
+   "cash": 0.0194,
+   "record_close_day": "2022-01-03"
+  },
+  "2": {
+   "day": "2022-08-16",
+   "need": "2022-12-30",
+   "from_peak": -0.0938,
+   "rally_from_june_low": 0.1768,
+   "wrong": -0.1021,
+   "low": [
+    -0.16677556832577312,
+    "2022-10-12"
+   ],
+   "rally_top_day": "2022-08-16"
+  },
+  "3": {
+   "day": "2022-10-12",
+   "from_peak": -0.2449,
+   "from_start": -0.2401,
+   "hold_to_end": 1.0056,
+   "hold_from_start": 0.5241,
+   "sold_cash_to_end": 0.1573,
+   "sold_total_from_start": -0.1205,
+   "back_to_start": "2023-12-11"
+  },
+  "4": {
+   "day": "2023-07-31",
+   "ytd": 0.2065,
+   "invest_to_end": 0.5426,
+   "wait_to_0219_then": 0.2152,
+   "dip_1027": -0.0994,
+   "after20_10y": {
+    "th": 0.2,
+    "years": 10,
+    "starts": 1908,
+    "loss_share": 0.1326,
+    "gain_share": 0.8674
+   },
+   "wait_vs_now": {
+    "th": 0.2,
+    "years": 10,
+    "starts": 605,
+    "start_years": 9,
+    "year_list": [
+     "1991",
+     "1995",
+     "1996",
+     "1997",
+     "1998",
+     "1999",
+     "2003",
+     "2009",
+     "2013"
+    ],
+    "now_wins": 0.8446,
+    "never_came": 0.8446,
+    "now_wins_when_never": 1.0,
+    "wait_wins": 0.1554,
+    "last_start_year": "2013",
+    "start_to": "2015"
+   },
+   "came_back_2022_level": null,
+   "summer_top_day": "2023-07-31"
+  },
+  "5": {
+   "day": "2025-02-19",
+   "need": "2025-04-08",
+   "two_years": 0.5513,
+   "contract_to_day": 0.0257,
+   "wrong": -0.1875,
+   "back_day": "2025-06-26",
+   "to_end": 0.1266,
+   "record_before": "2025-02-19"
+  }
+ },
+ "paths": {
+  "spent_man": 8000,
+  "put_in_man": 17000,
+  "long_put_man": 9000,
+  "good_end_man": 13874,
+  "yoon_end_man": 7135,
+  "yoon_vs_long": -0.2072,
+  "good_vs_long": 0.5415,
+  "yoon_vs_good": -0.4857,
+  "sold_at_low_man": 8432,
+  "index_4y": 0.5241,
+  "spx_4y": 0.4363,
+  "note": "굴린 돈 1억 7천만 원 · 쓴 돈 8천만 원(전세금 4천 · 잔금 4천)은 두 길 모두 같음 → 남은 돈을 오래 둘 돈 9천만 원(노후 7천 + 보험 만기금 2천)에 대어 봄"
+ },
+ "krw_check": {
+  "c1_wrong": -0.1327,
+  "c2_wrong": -0.1368,
+  "c3_hold": 0.8417,
+  "c3_sold": -0.0907,
+  "c4_invest": 0.7357,
+  "c5_wrong": -0.1615,
+  "fx": {
+   "2021-12-31": 1189.9,
+   "2022-10-12": 1423.9,
+   "2022-12-30": 1260.3,
+   "2023-07-31": 1277.9,
+   "2025-02-19": 1440.1,
+   "2025-04-08": 1486.1,
+   "2025-12-31": 1437.9
+  }
+ }
+}

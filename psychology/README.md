@@ -62,7 +62,16 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 - 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐" → 제목·썸네일 문구·보조 문구·대본(롱폼·쇼츠)을 쓰거나 바꿀 때마다 `guides/persona_loop.md` 세 단계(`title` · `script_exit` · `script_rebuttal`), 각 2회차 이상 · 회차마다 새 하위 에이전트 · 마지막 회차 = 지금 글. 기록 `psychology/source/<영상ID>/persona_loop.json` (`tools/persona_gate.py`) · 페르소나 = `result/outliers/personas.json` · 반론 = `rebuttal_persona.md`.
 - ChatGPT 페르소나 검증(`source/chatgpt_persona_review.md`)은 사용자가 돌리는 **덧붙임** — 그 답도 `persona_gate.py add` 로 회차에 넣을 수 있지만, Claude 하위 에이전트 회차를 대신하지 않는다 (사용자를 기다리느라 검증을 건너뛰지 않게).
 
+## 영상 — 만스피 꼴 (2026-11-13)
+- 사용자 지시 "만스피 영상처럼 영상 만들거니까 챗지피티한테 만들 이미지 생성 명령 알려줘" → "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어".
+- 그림: `source/<영상ID>/images_chatgpt.md` (생성 `source/images_build.py`) → ChatGPT 가 `puppet/`(배경판) · `puppet/motion/`(기준·동작 3장·소품) · `images/TH-CHAR.jpg`(썸네일 그림, 문구는 코드).
+- 자르기: `python3 psychology/source/puppet_slice.py <영상ID>` → `puppet/cut/` + `manifest.js` (시트마다 그린 키가 달라 900px 로 맞춤 · 앉은 자세 비율 `POSE` · 앞 물건 `FG`).
+- 장면: `video/episodes/<영상ID>/index.html` + 공통 엔진 `video/render/psy_anim.js` (만스피 v3.1 엔진 바탕 — 세계 층 카메라 · 원화 바꿔 끼우기 · 머리 옆 말풍선 · 판 카드 · 배치 칸 HEAD/LOW/LIST).
+- 순서: 오디오 → `node video/scripts/align-audio.mjs psychology <영상ID> --no-export`(자막을 실제 오디오에) → `render.mjs sync` → `check`·`layout-check` 문제 0 → `render.mjs video` → 완성 mp4 장면을 직접 봄 (음량 맞춤이 8번 안에 못 맞추면 `tools/loudnorm.py <mp4> --target -13.9` 뒤 기본 기준으로 다시 잼).
+- 결과 (2026-11-13, 이 컨테이너 `psychology/out/<영상ID>/final_1080p.mp4` — git 에는 넣지 않음): 엄마 기분 7:44 · 하소연 7:56 · 그릇 7:28 · 상처 7:44 — 모두 -14 LUFS 안팎 · 트루 피크 -1.5 dBTP 이하.
+
 ## 다음 할 일
+0. 영상 네 편 — 썸네일(`images/TH-CHAR.jpg` + 문구 코드)·업로드 시트는 사용자가 정한 뒤 (대본 페르소나 관문: 이탈 단계 네 편 ❌ · 하소연 반론 ❌ 결정 기다림).
 1. 할당량이 초기화되면 (한국 17시) `resume` — 댓글 덜 받은 29개 · 같은 채널 기준선 107곳 → `analyze`.
 2. 쇼츠 탐색 `explore --shorts --weeks 26` (28번 ≈ 2,800단위) → 추천 훑기 → 승인.
 3. 사용자 PC 대본만 받기 이어서 (`transcript_todo.md` — 분석 뒤 다시 만든 목록 · 01:31 오류로 한 번 멈춤, 같은 명령으로 이어 받음 · PC 로그 `.yt_work\transcribe_log_psychology.txt`) → `analyze` 다시.

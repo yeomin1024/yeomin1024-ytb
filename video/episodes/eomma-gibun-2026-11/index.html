@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>엄마 눈치 보며 자란 아이</title>
-<!-- VERSION: v1.0 — 2026-11-13 — 사용자 지시 "만스피 영상처럼 영상 만들거니까 …" → "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어".
+<!-- VERSION: v1.1 — 2026-11-13 — 완성 mp4 를 보고: 정리 장면 화이트보드가 434~439초 비어 있던 것 → 머리 카드를 첫 항목까지 둠.
+     이전 v1.0 — 2026-11-13 — 사용자 지시 "만스피 영상처럼 영상 만들거니까 …" → "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어".
      대본 psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt v1.7 (111문장 · 오디오 7:42) · 그림 = ChatGPT 20장 (images_chatgpt.md v1.0) →
      psychology/source/puppet_slice.py v1.0 (cut/) · 엔진 video/render/psy_anim.js v1.0 (만스피 v3.1 엔진 바탕 — 원화 바꿔 끼우기 · 세계 층 카메라).
      무대 5 (복도 · 어린 시절 거실 = 기억(바랜 색) · 회의실 · 지금의 원룸 · 상담실 화이트보드) · 인물 A(어른) · C(아홉 살 A) · M(그때의 엄마).
@@ -516,12 +517,11 @@ shot(B(99), (a, b) => {
 /* ═════════════ 정리 (103~111) ═════════════ */
 shot(B(103), (a, b) => {
   const { W_ } = counsel(a, b, [105, 106, 107, 108, 109].map(n => S(n)));
-  wb(W_, `<div class="k" style="font-size:80px">오늘 내용 정리</div>`, S(103), S(104) + 0.5);
+  wb(W_, `<div class="k" style="font-size:80px">오늘 내용 정리</div><div class="mu" style="font-size:52px;margin-top:14px">엄마 기분부터 살피던 사람</div><div class="k rd" style="font-size:100px">특징 5가지</div>`, S(103), S(105) - 0.1);
   const items = [["1", "표정·말투를 빨리 알아챔", 105], ["2", "부탁을 거절하기 어려움", 106], ["3", "내 기분은 뒤로 미룸", 107], ["4", "쉬면 괜히 마음이 불편", 108], ["5", "남을 돌보는 일은 잘함", 109]];
   items.forEach(([no, text, n], i) => {
     board(W_, [500, 158 + i * 76, 930, 72], `<div class="row" style="justify-content:flex-start;width:100%;font-size:48px"><span class="pchip" style="background:${i === 4 ? "#0E9C88" : "#1B2030"};font-size:40px;padding:6px 20px">${no}</span><span class="ink">${text}</span></div>`, S(n), null);
   });
-  label(W_, "엄마 기분부터 살피던 사람 · 특징 다섯 가지", S(104), S(105), { size: 48, top: 620 });
   K.cut(E(109) - 0.3, "109 정리 목록");
 });
 shot(B(110), (a, b) => {

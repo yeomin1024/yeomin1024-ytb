@@ -1,6 +1,6 @@
 # 페르소나 검사 — `psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt`
 
-`tools/persona_review.py v1.0.1` · 페르소나 `psychology/result/outliers/personas.md` (2026-11-12T10:13:16Z · 6명) · 문장 111개 · 길이 어림 7.6분 (H17 6.3음절/초).
+`tools/persona_review.py v1.0.1` · 페르소나 `psychology/result/outliers/personas.md` (2026-11-12T10:13:16Z · 6명) · 문장 105개 · 길이 어림 7.3분 (H17 6.3음절/초).
 이 검사는 **알아듣기·원하는 것**만 본다. 숫자·법이 맞는지는 `guides/script_guide.md` 3번이 따로. ※ 연구·교육용.
 
 ## 0. 한눈에
@@ -56,7 +56,7 @@
 ## 2. 불만 갈래에 걸리는 곳 (모든 페르소나 공통)
 
 - **길다** — 50자 넘는 문장 0개
-- **반복** — 앞 40문장 안의 문장과 낱말 70% 이상 같은 문장 0개
+- **반복** — 앞 40문장 안의 문장과 낱말 70% 이상 같은 문장 1개: 문장 70≈49
 - **광고·구독 유도** — 0문장
 - **겁주기 말** — 0문장
 

@@ -151,20 +151,51 @@
       "pass": false,
       "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
       "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_2.md"
+     },
+     {
+      "n": 3,
+      "at": "2026-11-13T03:21:29Z",
+      "sha": "ce18c8b587d0450b",
+      "reviewers": [
+       {
+        "reviewer": "E3-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 32,
+          "why": "지루함 — 29~32줄에 '원인은 아니다·모두 같지 않다·꼭 그렇게 자란 건 아니다' 단서가 줄줄이 나와 강의 듣는 느낌이 들고, 방금까지 '내 얘기'였던 몰입이 식음"
+         },
+         {
+          "line": 63,
+          "why": "뻔함 — 설문 하나 소개하고 또 '원인까지는 알 수 없다'로 끝나 앞 장과 같은 단서를 되풀이, 이 대목은 넘기고 싶어짐"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "102 — '엄마의 기분은 엄마의 몫이다'는 사과 한마디 없는 엄마 때문에 아직도 죄책감 드는 나한테 허락받는 말 같았고, 109줄 '거리를 두는 것도 나를 지키는 방법'까지 이어져 끝까지 볼 마음이 생김",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [32, 63]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_3.md"
      }
     ],
     "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
     "pending": {
-     "n": 3,
-     "sha": "ce18c8b587d0450b",
+     "n": 4,
+     "sha": "61d2b46c89c5b4b9",
      "reviewers": [
-      "E3-P4"
+      "E4-P4"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_3.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_3",
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_4.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:17:53Z"
+     "at": "2026-11-13T03:23:19Z"
     }
    },
    "script_rebuttal": {
@@ -320,20 +351,84 @@
       "pass": true,
       "fixed_after": "3회차 앞에 고침 (대본 v1.5)",
       "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_2.md"
+     },
+     {
+      "n": 3,
+      "at": "2026-11-13T03:21:29Z",
+      "sha": "ce18c8b587d0450b",
+      "reviewers": [
+       {
+        "reviewer": "K3-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 17,
+          "text": "엄마 탓 아니라면서 그때 엄마 사정은 한마디도 없네요. 우리 엄마도 기댈 사람 없이 혼자 버틴 거였어요.",
+          "fix": "17줄 뒤에 그 시절 엄마의 사정을 짧게 인정하는 한 문장을 넣는다(예: '그때 엄마도 기댈 사람 없이 혼자 버티고 있었을 수 있습니다'). 30줄의 '기댈 사람'과 이어지고, 가해를 감싸는 말로는 넘어가지 않게 한 문장으로만."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 53,
+          "text": "거절 못 하는 건 엄마 때문이 아니라 직장에서 찍힐까 봐서죠. 한국 회사 다니면 다 그래요.",
+          "fix": "3장(71줄)·4장(77줄)처럼 2장에도 다른 까닭을 먼저 인정하는 '물론' 문장을 하나 넣는다(예: '물론 직장 위계나 원래 성격 때문에 거절이 어려운 사람도 많습니다')."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 39,
+          "text": "눈치 빠르다고 다 '나 때문인가' 하진 않아요. 원래 성격이 예민한 사람도, 일 때문에 눈치가 는 사람도 있어요.",
+          "fix": "'읽는다는 것입니다'를 '읽기 쉽다는 것입니다'로 낮추고, 1장에도 기질·직업 같은 다른 까닭을 짧게 짚는다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 90,
+          "text": "남 챙기는 사람이 다 자기를 안 챙기는 건 아니죠.",
+          "fix": "'잘 쓰지 않는다는 것입니다'를 '잘 쓰지 않기 쉽다는 것입니다'로 낮춘다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 88,
+          "text": "95편 중에 몇 편이 그렇다는 거예요? 공감 능력 크다는 것도 본인이 그렇다고 답한 거 아닌가요?",
+          "fix": "'경우가 있었습니다' 대신 일부 연구에서 스스로 그렇게 답한 사람이 있었다는 것을 분명히 말한다(예: '일부 연구에서는 공감하는 힘이 크다고 스스로 답한 사람도 있었습니다')."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 15,
+          "text": "1·2·4번 특징은 연구가 하나도 안 나오네요. 결국 상담사 블로그 글 모은 거 아닌가요?",
+          "fix": "대본은 이미 밝혔으니 그대로 두고, 설명란 글 목록에 특징마다 어느 글·연구에서 나왔는지 같이 적는다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단 말·인과 단정·숫자 앞뒤는 깔끔하고 예외도 잘 인정하지만, 엄마의 그 시절 사정을 인정하는 문장이 없고 2장(거절)에만 다른 까닭(직장 위계·성격)을 인정하는 문장이 빠져 있어 반박 댓글이 붙을 빈틈이 두 군데 남음 — 상 없음.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_3.md"
      }
     ],
     "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
     "pending": {
-     "n": 3,
-     "sha": "ce18c8b587d0450b",
+     "n": 4,
+     "sha": "61d2b46c89c5b4b9",
      "reviewers": [
-      "K3-반론"
+      "K4-반론"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_3.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_3",
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_4.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:17:53Z"
+     "at": "2026-11-13T03:23:19Z"
     }
    }
   }

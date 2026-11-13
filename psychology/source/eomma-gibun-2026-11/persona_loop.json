@@ -4,51 +4,213 @@
  "items": {
   "eomma-gibun-2026-11": {
    "title": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-13T03:08:04Z",
+      "sha": "b4e59f2caf1f5965",
+      "reviewers": [
+       {
+        "reviewer": "T1-P4",
+        "persona": "P4",
+        "feed_picks": [
+         4,
+         1
+        ],
+        "feed_why": "4번은 '엄마 기분부터 살피던'이 딱 내 얘기라 바로 누름, 1번은 아프게 하고도 태연한 엄마가 떠올라 눌러 보지만 '충격적'·이모지·인용 이름이 과장 같아 둘째",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "엄마 눈치 보며 자란 아이 · \"내가 참으면 되지...\"",
+        "fix": "'특징 5가지'만이면 또 뻔한 목록일까 싶음 — 썸네일 한쪽에 '이제 엄마에게 할 수 있는 말'처럼 끝에 할 일까지 준다는 걸 보이면 더 망설임 없이 누름",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T1-반론",
+        "persona": "반론",
+        "feed_picks": [
+         4,
+         3
+        ],
+        "feed_why": "4번은 '특징 5가지'로 사람을 묶는 말이 맞는지 따져 보려고, 3번은 방송 전문가 이름이 있어 근거를 기대하고 누름 — 1번은 '충격적'·🔥 과장, 7번은 '나르시시스트' 낙인이라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "사람의 특징 5가지 (제목은 '특징'으로 단정 — 썸네일의 '남을 수 있는'보다 셈) · 엄마 (엄마 탓으로 흐르지 않나)",
+        "fix": "제목도 썸네일처럼 '남을 수 있는'·'흔한'으로 단정을 낮추고, 아빠·다른 보호자나 그렇지 않은 사람도 있다는 걸 대본 첫머리에서 바로 인정하면 의심 없이 볼 것",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_title_1.md",
+      "text": "제목: 어릴 때 엄마 기분부터 살피던 사람의 특징 5가지\n썸네일 문구: 엄마 눈치 보며 자란 아이 / 커서도 남을 수 있는 5가지\n보조 문구: \"내가 참으면 되지...\""
+     }
+    ],
     "pending": {
-     "n": 1,
+     "n": 2,
      "sha": "b4e59f2caf1f5965",
      "reviewers": [
-      "T1-P4",
-      "T1-반론"
+      "T2-P4",
+      "T2-반론"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_title_1.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_title_1",
-     "ours_idx": 4,
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_title_2.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_title_2",
+     "ours_idx": 2,
      "text": "제목: 어릴 때 엄마 기분부터 살피던 사람의 특징 5가지\n썸네일 문구: 엄마 눈치 보며 자란 아이 / 커서도 남을 수 있는 5가지\n보조 문구: \"내가 참으면 되지...\"",
-     "at": "2026-11-13T03:04:26Z"
+     "at": "2026-11-13T03:11:29Z"
     }
    },
    "script_exit": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-13T03:08:05Z",
+      "sha": "5ff23f756d9652e1",
+      "reviewers": [
+       {
+        "reviewer": "E1-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 18,
+          "why": "미안하다는 말 한마디 없던 엄마 때문에 보는 건데, 시작하자마자 '엄마에게 사정이 있었을 수 있다'부터 나오니 또 엄마 편을 들라는 말처럼 들려 서운함"
+         },
+         {
+          "line": 38,
+          "why": "29~38줄 내내 논문 편수·나라 수·'원인은 아니다'·'꼭 그렇게 자란 건 아니다'가 이어져 특징 하나 안 나왔는데 지루함 — 마음을 닫은 사람 얘기는 관련 없음"
+         },
+         {
+          "line": 86,
+          "why": "엄마를 도와서 칭찬받은 기억이 없는 사람도 있는데 '좋은 기억입니다'로 단정해서 내 얘기가 아닌 것 같아짐 — 45·60·79·85줄마다 '물론 누구나'가 붙어 내 상처가 별것 아닌 것처럼 느껴지는 것도 겹침"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "110줄 — '엄마의 기분은 엄마의 몫이다'는 평생 엄마 한숨에 내 탓부터 했던 죄책감을 내려놓게 해 주고, 116줄에서 거리 두기(손절)도 나를 지키는 방법이라고 해 줘서 끝까지 볼 까닭이 됨",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [18, 38, 86]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_1.md"
+     }
+    ],
     "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
     "pending": {
-     "n": 1,
-     "sha": "5ff23f756d9652e1",
+     "n": 2,
+     "sha": "5bae0fa0b7a92292",
      "reviewers": [
-      "E1-P4"
+      "E2-P4"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_1.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_1",
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_2.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:04:26Z"
+     "at": "2026-11-13T03:11:29Z"
     }
    },
    "script_rebuttal": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-13T03:08:05Z",
+      "sha": "5ff23f756d9652e1",
+      "reviewers": [
+       {
+        "reviewer": "K1-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 85,
+          "text": "쉬면 불편한 건 바쁜 사람 누구나 겪는다고 영상이 직접 말해 놓고 왜 이게 '특징'임? 그냥 바넘 효과 아닌가요.",
+          "fix": "85줄을 다른 점을 짚는 문장으로 바꾼다 — 예 '바빠서 불편한 것과 달리, 할 일이 다 끝났는데도 불편하다면 이쪽에 가깝습니다.' (87줄 '쉬는 나는 쓸모없게'가 다른 점이니 그것을 앞으로)"
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 35,
+          "text": "4줄 앞에서 '부모화가 원인이라고 밝힌 것은 아니다'라더니 바로 '해롭다'? 그럼 원인이라는 말이잖아요.",
+          "fix": "'해로울 수 있다고 봤습니다' 또는 '그럴 때 어려움이 더 많이 보고됐다고 정리했습니다'처럼 원인 단정을 빼고, 2017년 논문이 무엇을 모았는지 한 구절 더한다"
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 15,
+          "text": "다섯 가지 목록의 근거가 '해외 상담 전문가들의 글'뿐이면 출처가 어디인지는 알려 줘야죠.",
+          "fix": "누가 쓴 어떤 글·책인지 설명란에 출처로 적고, 대본에 '설명란에 출처를 적어 두었습니다' 한 구절"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 46,
+          "text": "눈치 빠른 사람이 다 '나 때문인가'로 읽진 않아요. 그냥 분위기 잘 읽는 사람도 많습니다.",
+          "fix": "'문제는 ~읽는다는 것입니다' → '문제가 되는 건 알아챈 것을 자꾸 나 때문으로 읽게 될 때입니다'처럼 조건으로"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 41,
+          "text": "'누가 기분이 안 좋은지 바로 압니다' — 다 아는 것처럼 단정하네요.",
+          "fix": "'금방 알아차리곤 합니다'처럼 '~곤 합니다'·'~기도 합니다'로 (54줄 '형편이 어려워도 마련해 줍니다', 59줄 '자주 바쁘고 지칩니다', 98줄 '나에게는 잘 쓰지 않는다는 것입니다'도 같은 결)"
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 67,
+          "text": "말 못 하는 이유를 '엄마가 더 힘들어질 것 같았기 때문'이라고 딱 정해 버리네요. 나는 그냥 들어 줄 사람이 없었던 건데.",
+          "fix": "'~같았을 수 있습니다'로 바꿔 66줄 '~라면'의 조건 말투와 맞춘다"
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 86,
+          "text": "넷째 특징은 '엄마 기분 살피기'가 아니라 '도울 때만 칭찬받음' 이야기라 제목 주제와 연결이 약하고, 칭찬받았다는 것도 다 그런 건 아니죠.",
+          "fix": "'엄마 기분이 좋아지는 건 내가 도왔을 때뿐이었다면'처럼 엄마 기분과 이어 주고, '좋은 기억입니다' 단정은 빼거나 '~이었을 수 있습니다'로"
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 110,
+          "text": "'엄마의 기분은 엄마의 몫'이라니, 아프시거나 혼자 되신 엄마한테도 그러라는 건가요? 좀 차갑게 들려요.",
+          "fix": "112줄 뒤에 '엄마가 아프시거나 많이 힘들어 보이면 함께 도움을 찾되, 그 기분을 나 혼자 책임지지 않는다는 뜻입니다' 한 문장"
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 107,
+          "text": "작은 거절 했더니 진짜 연락 끊긴 사람도 있는데요? 그럼 확인 결과가 '관계 끝남'이면 어떡하나요.",
+          "fix": "'혹시 멀어지는 사람이 있더라도, 그 거절이 잘못이었다는 뜻은 아닙니다' 한 문장"
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단·부모 탓·일반화를 미리 막는 문장이 촘촘해 큰 반박은 없지만, 넷째 특징은 스스로 '누구나 겪는다'고 인정해 바넘 효과 반박을 부르고, 몇 문장('바로 압니다'·'때문입니다'·'해롭다')이 앞의 조심스러운 말투와 어긋난다.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_1.md"
+     }
+    ],
     "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
     "pending": {
-     "n": 1,
-     "sha": "5ff23f756d9652e1",
+     "n": 2,
+     "sha": "5bae0fa0b7a92292",
      "reviewers": [
-      "K1-반론"
+      "K2-반론"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_1.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_1",
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_2.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:04:26Z"
+     "at": "2026-11-13T03:11:30Z"
     }
    }
   }

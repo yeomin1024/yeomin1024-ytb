@@ -4,51 +4,217 @@
  "items": {
   "sangcheo-gonggyeok-2026-11": {
    "title": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-13T03:08:05Z",
+      "sha": "66be77c752c77024",
+      "reviewers": [
+       {
+        "reviewer": "T1-P3",
+        "persona": "P3",
+        "feed_picks": [
+         7,
+         3
+        ],
+        "feed_why": "회사에서 날 세우는 동료가 떠올라 '왜 공격적이 되는지' 3가지가 궁금했고, 스몰토크에 지친 나한테 '혼자가 편한 이유'도 끌림 — 1번은 손절 얘기라 끌렸지만 명언·오디오북 태그 줄이 길어 넘김",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "오히려 공격적이 되는 이유",
+        "fix": "직장 장면이 안 보임 — 보조 문구를 회사에서 들을 법한 말('왜 나한테만 날 세워?' 같은)로 바꾸면 내 얘기 같아서 더 확실히 누를 듯, '왜, 안 어울려?'는 무슨 뜻인지 바로 안 들어옴",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T1-반론",
+        "persona": "반론",
+        "feed_picks": [
+         7
+        ],
+        "feed_why": "3가지라고 수를 밝혀 약속이 분명하고 '절대'·'모두'·'소름' 같은 센 말이 없어 눌러 봄 — 다만 '상처받은 사람이'가 다 그렇다는 말인지 확인하려는 마음이 큼, 나머지는 '절대 대답 못한다'·'모두 카르마' 같은 단정이라 안 누름",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "상처받은 사람이 오히려",
+        "fix": "'상처받은 사람이' 전부처럼 읽혀 상처받은 쪽 탓으로 들림(K1·K3) — '상처가 공격으로 나오는 사람이 있는 이유'처럼 일부로 좁히거나, 대본 첫머리에서 '모든 상처받은 사람이 그렇진 않다'를 먼저 짚으면 의심이 줄 듯 · 보조 문구 '왜, 안 어울려?'는 누구 말인지·무슨 뜻인지 애매해 비꼬는 말로 읽힐 수 있음",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_title_1.md",
+      "text": "제목: 상처받은 사람이 오히려 공격적이 되는 이유 3가지\n썸네일 문구: 상처받은 사람이 / 오히려 공격적이 되는 이유\n보조 문구: \"왜, 안 어울려?\""
+     }
+    ],
     "pending": {
-     "n": 1,
+     "n": 2,
      "sha": "66be77c752c77024",
      "reviewers": [
-      "T1-P3",
-      "T1-반론"
+      "T2-P3",
+      "T2-반론"
      ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_title_1.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_title_1",
-     "ours_idx": 7,
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_title_2.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_title_2",
+     "ours_idx": 3,
      "text": "제목: 상처받은 사람이 오히려 공격적이 되는 이유 3가지\n썸네일 문구: 상처받은 사람이 / 오히려 공격적이 되는 이유\n보조 문구: \"왜, 안 어울려?\"",
-     "at": "2026-11-13T03:04:26Z"
+     "at": "2026-11-13T03:11:30Z"
     }
    },
    "script_exit": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-13T03:08:05Z",
+      "sha": "97ccd5f15898edd0",
+      "reviewers": [
+       {
+        "reviewer": "E1-P3",
+        "persona": "P3",
+        "exits": [
+         {
+          "line": 13,
+          "why": "'첫째를 출발점으로, 둘째와 셋째를 두 길로' — 무슨 구조인지 머리에 안 그려지고, 곧 연구 얘기가 길게 나올 것 같아 지루해질 예감이 듦"
+         },
+         {
+          "line": 27,
+          "why": "어릴 때 학대 이야기로 넘어감 — 나는 회사 사람 때문에 힘든 건데 내 얘기가 아닌 것 같아 멀어짐 (여기까지 예시도 옷·친구 연락뿐, 직장 얘기가 없음)"
+         },
+         {
+          "line": 37,
+          "why": "메타분석이 세 번째 — 연도·편수·인원 숫자와 '크지 않다·알 수 없다'가 되풀이돼 지루함, 결론은 10~12줄에서 이미 들었으니 넘기거나 끄고 싶어짐"
+         }
+        ],
+        "hard_words": [
+         "관계의 크기"
+        ],
+        "keep_watching": true,
+        "best": "73~74줄 — 상사가 '이 부분 다시 볼까요?' 한 말이 '나를 무능하다고 보는구나'로 들린다는 게 딱 내 회사 얘기라 확 붙잡힘 (86줄 보고서 오타 지적도 같은 까닭)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [13, 27, 37]",
+         "모르는 말 ['관계의 크기']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_1.md"
+     }
+    ],
     "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
     "pending": {
-     "n": 1,
-     "sha": "97ccd5f15898edd0",
+     "n": 2,
+     "sha": "44f8cb5fd726bc53",
      "reviewers": [
-      "E1-P3"
+      "E2-P3"
      ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_1.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_exit_1",
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_2.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_exit_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:04:26Z"
+     "at": "2026-11-13T03:11:30Z"
     }
    },
    "script_rebuttal": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-13T03:08:05Z",
+      "sha": "97ccd5f15898edd0",
+      "reviewers": [
+       {
+        "reviewer": "K1-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 52,
+          "text": "첫째 이유가 '또 거절당할까 봐(걱정)' 날을 세운다는 건데, 근거로 든 2021년 메타분석은 걱정보다 화부터 나는 쪽에서 더 뚜렷했다면서요? '에서도'라고 받칠 근거가 아니라 오히려 이름과 어긋납니다.",
+          "fix": "첫째 이유 이름을 '또 거절당할 거라 여기고 미리 화를 냄'처럼 걱정 대신 미리 난 화 쪽으로 바꾸고(10·44·45·124줄 같이), 52줄은 '에서도' 대신 '다만 2021년 메타분석에서는 걱정보다 화부터 나는 쪽에서 더 뚜렷했습니다'로 앞말과 이어지게."
+         },
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 115,
+          "text": "가까운 사람이 날카로우면 '내 뜻을 다시 말해 주라'뿐이네요. 내 말이 정말 서운했을 수도 있는데, 상처받은 쪽의 해석만 고치라는 말로 들립니다. '네가 오해한 거야'가 더 상처일 때도 있어요.",
+          "fix": "115줄 앞에 '먼저 내 말이 정말 서운하게 들릴 만했는지 한 번 돌아보세요' 또는 '혹시 서운했어?' 하고 묻기를 넣고, 그다음에 내 뜻을 짧게 다시 말하는 순서로."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 13,
+          "text": "세 가지 이유라더니 한국 연구에선 첫째가 나머지 둘의 '출발점'이라고요? 그럼 나란한 이유 셋이 아니라 출발점 하나와 길 둘 아닌가요?",
+          "fix": "'한국 연구는 거절에 예민한 마음을 출발점으로, 둘째와 셋째를 공격으로 가는 두 길로 봤습니다'처럼 출발점을 '첫째 이유'가 아니라 '거절 예민함'으로 적기."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 37,
+          "text": "2022년 실험 메타분석만 몇 편·몇 명인지, 관계가 얼마나 컸는지, 공격을 어떻게 쟀는지가 빠져서 이것만 센 결과처럼 들립니다.",
+          "fix": "다른 두 메타분석처럼 편수·인원을 넣고, 38줄을 '평균적으로 조금 더 공격적으로 행동했습니다'처럼 크기를 맞추고, 실험실에서 공격을 무엇으로 쟀는지 한 마디."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 47,
+          "text": "거절에 예민한 사람은 답장이 늦으면 '나를 싫어하나'가 먼저 든다고 단정하네요. 다 그런 건 아니죠.",
+          "fix": "'먼저 들기 쉽습니다'로 바꾸기."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 84,
+          "text": "'무너질 것 같아 더 세게 맞선다'는 연구가 잰 건가요? 첫째 장에선 '하나의 설명일 뿐'이라고 했는데 셋째 장엔 그 말이 없습니다.",
+          "fix": "84줄 뒤나 88줄 앞에 '이것도 하나의 설명이고, 연구가 잰 것은 생각이 흐린 정도와 공격의 관계입니다'를 한 줄."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 14,
+          "text": "상처받은 사람이 다 날카로워지는 건 아니라고만 했지, 날카로운 사람이 다 상처받은 사람인 것도 아니잖아요. 그냥 무례한 사람도 있습니다.",
+          "fix": "15줄 뒤에 '날카로운 사람이 모두 상처받은 사람인 것도 아닙니다'를 한 줄 더하기."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 103,
+          "text": "화가 올라온 순간 물 마시고 숨 고르기가 되면 애초에 날카롭지 않죠. 다 아는 말이고, 그게 안 되니까 문제인 겁니다. 그리고 세 번째 이유(자기 개념)에 맞는 할 일은 없네요.",
+          "fix": "그 순간 바로 쓸 짧은 말('잠깐만, 이따 얘기하자')처럼 틈을 버는 구체 문장을 넣고, 셋째 이유에 맞춰 '지적받은 일과 나라는 사람을 나눠 말해 보기(오타는 오타, 나는 나)' 같은 할 일 하나를 더하기."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 123,
+          "text": "본문에선 관계가 작고 무엇이 먼저인지 모른다더니, 정리에선 '까닭은 세 가지'로만 남아 원인처럼 들립니다.",
+          "fix": "123줄 뒤에 '다만 관계는 작은 편이고, 모든 사람에게 해당하지는 않습니다' 한 줄."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "연구 한계(작은 관계·한 번 한 설문·어른 상처는 모름)를 대본이 먼저 밝혀서 큰 반박거리는 없지만, 첫째 이유의 '걱정' 이름이 근거로 든 메타분석(걱정보다 화)과 어긋나고, 가까운 사람 장에서 상대의 서운함을 '오해'로만 다루는 점이 믿음을 깎는 빈틈이다.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "2회차 앞에 고침 (대본 v1.4 · package v1.1 — 대본_반론_검토.md 관문 절)",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_1.md"
+     }
+    ],
     "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
     "pending": {
-     "n": 1,
-     "sha": "97ccd5f15898edd0",
+     "n": 2,
+     "sha": "44f8cb5fd726bc53",
      "reviewers": [
-      "K1-반론"
+      "K2-반론"
      ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_1.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_rebuttal_1",
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_2.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_rebuttal_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:04:26Z"
+     "at": "2026-11-13T03:11:30Z"
     }
    }
   }

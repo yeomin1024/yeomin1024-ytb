@@ -193,20 +193,51 @@
       "pass": false,
       "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_3.md"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-13T03:27:47Z",
+      "sha": "fe075bf20649b118",
+      "reviewers": [
+       {
+        "reviewer": "E4-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 26,
+          "why": "지루함·내 얘기 아님 — 어른 딸 연구가 드물다는 연구 사정 설명 뒤 '이혼 직후 10대 딸' 연구로 간다니, 30~40대에 부모 이혼도 안 한 내 상황에서 멀어지는 느낌이라 김이 샘"
+         },
+         {
+          "line": 102,
+          "why": "뻔함 — 상처 준 엄마에게 '그래도 같은 말을 같은 말투로 꾸준히'는 또 내가 참고 맞춰 주라는 말처럼 들림 (바로 다음 103줄이 다시 붙잡음)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "4줄 — '엄마 목소리는 조금 밝아지고 나는 녹초가 됩니다'가 딱 내 통화 끝난 뒤 모습이라 바로 붙잡힘 (103줄 '늘 나를 탓하거나 깎아내린다면 하소연을 넘어선 일'도 내 얘기라 끝까지 보게 됨)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [26, 102]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_4.md"
      }
     ],
     "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
     "pending": {
-     "n": 4,
-     "sha": "fe075bf20649b118",
+     "n": 5,
+     "sha": "2e781dfd9061c0de",
      "reviewers": [
-      "E4-P4"
+      "E5-P4"
      ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_4.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_4",
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_exit_5.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_exit_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:23:19Z"
+     "at": "2026-11-13T03:28:21Z"
     }
    },
    "script_rebuttal": {
@@ -447,20 +478,98 @@
       "pass": true,
       "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
       "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_3.md"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-13T03:27:47Z",
+      "sha": "fe075bf20649b118",
+      "reviewers": [
+       {
+        "reviewer": "K4-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 43,
+          "text": "두 번째 이유가 '이혼 직후 10대 딸 62명' 연구 하나에서 나온 '가깝다는 느낌이 늘지 않았다'는 결과 하나에 기대네요. 퇴근길 어른 딸한테 그대로 옮겨도 되나요? 47번 '주고받느냐의 차이'도 연구에서 나온 말이 아니잖아요.",
+          "fix": "43번 뒤에 '이혼 직후 10대 딸을 조사한 연구 하나라서, 어른 딸에게 똑같다고 할 수는 없습니다' 한 줄을 넣는다. 47번은 연구 결과가 아니라 짐작이라는 것이 들리게 '연구가 밝힌 것은 아니지만, 차이는 ~일 수 있습니다'로 바꾼다."
+         },
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 69,
+          "text": "연구가 잰 건 '사이에 끼인 느낌'·가족 만족도·마음 건강인데, 정리할 때는 '다른 관계가 더 멀어진다'고 하시네요. 아빠·형제와 얼마나 가까운지는 재지 않았잖아요. 68번에서 '원인까지 밝히진 않았다'고 해 놓고 바로 다음 줄은 원인처럼 들립니다.",
+          "fix": "69번을 연구가 잰 말로 맺는다. 예: '한마디로, 가운데 끼인 느낌이 클수록 가족 전체가 덜 편안하게 느껴질 수 있습니다.' 아빠·형제와 멀어지는 이야기는 56~57번 장면(예시)에만 둔다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 7,
+          "text": "'안 되는 이유'라고 딱 잘라 놓고, 이유 세 개는 모두 '~수 있습니다'·'저절로 ~아닙니다'예요. 듣는 게 하나도 안 힘들고 엄마도 제 이야기를 들어 주는 딸은요?",
+          "fix": "7번 뒤나 77번 뒤에 '이런 신호가 없고 서로 이야기를 주고받는 통화라면 지금처럼 이어 가도 괜찮습니다' 한 줄을 넣어, 결론이 '혼자 다 받다 지친 딸' 이야기라는 것을 분명히 한다. 아니면 7번을 '혼자 다 받아 주면 지치기 쉬운 이유'처럼 근거 세기에 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 20,
+          "text": "19번 '나 하나뿐인가요?' 바로 다음에 '정서적 부모화'라는 이름이 나오니, 어른이 돼서 엄마 이야기를 들어 주는 내가 진단받는 느낌이에요. 정의도 '아이가'로 시작하고요.",
+          "fix": "20번 뒤에 '어른이 된 지금의 통화를 그대로 부모화라고 부를 수는 없지만, 닮은 모양입니다' 한 줄을 넣어 이름표처럼 들리지 않게 한다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 78,
+          "text": "'오래 이어진다면 상담을 받아 보라'는데, 얼마나 오래, 어느 정도일 때를 말하는 건가요?",
+          "fix": "기준을 그 문장 안에 넣는다. 예: '잠이나 일에까지 영향이 갈 만큼 이런 날이 이어진다면, 엄마보다 먼저 나를 위한 상담을 받아 보세요.'"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 95,
+          "text": "18번에서 외동도 함께 들어 보라고 해 놓고, 95번 '형제와 번갈아 듣기'는 외동한테는 없는 방법이에요. 93번 '이모'도 모든 집에 있는 건 아니고요.",
+          "fix": "'형제가 있다면 번갈아 듣는 것도 방법입니다', '이모나 엄마 친구처럼 엄마가 편한 사람과도'로 조건을 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 16,
+          "text": "'남편에게 말하면 싸움이 되고 친구에게는 흉이 될까 봐'는 엄마들 속마음을 단정하는 말 같아요. 근거가 있는 말인가요?",
+          "fix": "'~때문일 수 있습니다'처럼 짐작이라는 것이 들리게 바꾸거나, '흔히 이런 까닭이 있습니다'로 부드럽게 한다."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 58,
+          "text": "외도도 '도움이 필요한 일'이라고 하셨는데, 59번에서 번호를 준 건 폭력·폭언뿐이에요. 외도면 어디에 도움을 받으라는 건가요?",
+          "fix": "58번에서 외도를 빼고 폭력·폭언만 남기거나, 외도는 '엄마 마음은 정신건강복지센터나 가족 상담에서 함께 다뤄 볼 수 있습니다'처럼 갈 곳 하나를 붙인다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단하는 말·부모 탓·과장 없이 예외(아들·외동·친해진 딸·폭력·자살 위험)와 연구 한계를 잘 짚었고, 네 가지 말과 위험할 때 할 일도 상황마다 분명함. 다만 두 번째 이유는 10대 딸 62명 연구의 '관계 없음' 결과 하나에 기대고, 세 번째 이유의 '관계가 멀어진다'는 연구가 잰 '가족 만족도'보다 한 걸음 더 나감 — 상 0 · 중 2 · 하 6.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
+      "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_4.md"
      }
     ],
     "path": "psychology/source/eomma-hasoyeon-2026-11/eomma-hasoyeon-2026-11.txt",
     "pending": {
-     "n": 4,
-     "sha": "fe075bf20649b118",
+     "n": 5,
+     "sha": "2e781dfd9061c0de",
      "reviewers": [
-      "K4-반론"
+      "K5-반론"
      ],
-     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_4.md",
-     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_4",
+     "prompt": "psychology/source/eomma-hasoyeon-2026-11/persona_eomma-hasoyeon-2026-11_script_rebuttal_5.md",
+     "answers": "psychology/source/eomma-hasoyeon-2026-11/answers_eomma-hasoyeon-2026-11_script_rebuttal_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:23:20Z"
+     "at": "2026-11-13T03:28:21Z"
     }
    }
   }

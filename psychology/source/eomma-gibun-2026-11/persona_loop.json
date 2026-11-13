@@ -182,20 +182,51 @@
       "pass": false,
       "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
       "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_3.md"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-13T03:27:47Z",
+      "sha": "61d2b46c89c5b4b9",
+      "reviewers": [
+       {
+        "reviewer": "E4-P4",
+        "persona": "P4",
+        "exits": [
+         {
+          "line": 14,
+          "why": "도입에 확 끌렸는데 바로 '연구로 확인된 목록이 아니다'부터 17·18줄까지 단서가 다섯 줄 이어져 힘이 빠짐 — 끄진 않았지만 손이 감"
+         },
+         {
+          "line": 102,
+          "why": "'엄마도 기댈 곳 없이 버텨 왔을 수 있지만' — 사과 한마디 없이 할머니 얘기로 넘기던 엄마가 떠올라 엄마 편 드는 말처럼 들림, 뒤 절이 받쳐 줘서 넘어감"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "66 — '말해도 되는 줄 몰랐어', 딱 내 얘기라 소름 돋았고 이 줄 때문에 끝까지 봄",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [14, 102]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_4.md"
      }
     ],
     "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
     "pending": {
-     "n": 4,
-     "sha": "61d2b46c89c5b4b9",
+     "n": 5,
+     "sha": "e52015ecc9e49930",
      "reviewers": [
-      "E4-P4"
+      "E5-P4"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_4.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_4",
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_exit_5.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_exit_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:23:19Z"
+     "at": "2026-11-13T03:28:21Z"
     }
    },
    "script_rebuttal": {
@@ -415,20 +446,105 @@
       "pass": false,
       "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
       "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_3.md"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-13T03:27:47Z",
+      "sha": "61d2b46c89c5b4b9",
+      "reviewers": [
+       {
+        "reviewer": "K4-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 85,
+          "text": "'공감하는 힘이 크다고 답한 사람이 있었다'는 아무것도 증명하지 않는다. 부모화를 많이 겪은 사람일수록 공감이 높았다는 건가, 아닌가? 게다가 스스로 답한 공감과 '돌보는 일을 잘한다'는 다른 이야기다.",
+          "fix": "비교로 말한다: '일부 연구에선 부모화를 많이 겪었다는 사람일수록 공감 점수가 높게 나왔습니다(스스로 답한 설문).' 연구 결과가 엇갈렸다면 그렇다고 밝히고, 82~84줄의 '잘한다'는 연구가 아니라 흔히 보이는 모습이라고 구분한다."
+         },
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 105,
+          "text": "엄마가 정말 우울증이거나 위험한 말을 하는 상황인데도 '오늘은 여기까지 들을게' 하고 끊으라는 건가? 아픈 부모를 둔 사람에겐 차갑게 들린다.",
+          "fix": "한 문장을 더한다: '엄마가 너무 힘들어 보이면, 내가 다 받아 주는 대신 엄마도 상담 전화나 병원에 이어 드리면 됩니다.' 선 긋기와 외면이 다르다는 것을 보여 준다."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 87,
+          "text": "나는 어릴 때 돌보느라 지쳐서 오히려 남 챙기는 일 자체가 싫어졌다. 다섯째 특징은 나와 반대다.",
+          "fix": "2·3·4장처럼 예외 한 줄을 넣는다: '반대로 돌보는 일에 지쳐 아예 피하게 된 사람도 있습니다.'"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 42,
+          "text": "눈치 빠른 건 타고난 기질이나 서비스직 경험 때문일 수도 있다. 1장만 다른 까닭을 인정하는 문장이 없다.",
+          "fix": "2~4장처럼 '물론 타고난 성향이나 하는 일 때문일 수도 있습니다' 한 줄을 넣는다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 60,
+          "text": "387명 설문 한 번이면 같이 나타났다는 것뿐인데, 앞 문장의 '어릴 때 삼키게 됐다'는 이야기의 증거처럼 붙어 있다.",
+          "fix": "'더 누르는 경향이 함께 나타났습니다'처럼 함께 나타났다는 말로 바꾸거나, 원인을 증명한 것은 아니라고 짧게 덧붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 28,
+          "text": "연구 95편이라는데 아이를 조사했는지 어른을 조사했는지, 어떻게 쟀는지가 안 나온다.",
+          "fix": "'주로 어른에게 어린 시절을 되묻는 설문 연구들'처럼 누구를·어떻게 조사했는지 반 문장만 더한다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 7,
+          "text": "14줄에서 연구로 확인된 목록이 아니라고 해 놓고 '결론부터'라며 '특징은 다섯 가지입니다'로 못 박는다.",
+          "fix": "'자주 이야기되는 특징은 다섯 가지입니다'로 바꾸고, 113줄도 같게 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 79,
+          "text": "넷째 '쉬면 불편함'은 설명만 있고 해 볼 것이 없다. 늦잠 자면 하루 버린 것 같다는 건 누구나 아는 말이다.",
+          "fix": "'지금 해 볼 수 있는 것'에 쉬는 시간 하나를 정해 할 일 없이 보내 보기 같은 짧은 연습을 넣거나, 4장에 새로 알게 되는 장면을 하나 더한다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 96,
+          "text": "회사에서 상사 부탁을 거절하면 실제로 불이익을 받는다. 관계가 이어지는지 확인하라는 말은 현실과 다를 수 있다.",
+          "fix": "'거절해도 괜찮은 작은 부탁, 가까운 사람부터'처럼 시작할 자리를 짚어 준다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단하는 말은 없고, 예외 인정과 부모 탓하지 않기도 대체로 잘 지켰다. 다만 공감 연구를 인용한 85줄의 근거가 약하고, 엄마가 정말 아플 때 선 긋는 방법(105줄)이 빠져 있다. 나머지는 예외 한 줄이나 말 다듬기 수준이다.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
+      "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_4.md"
      }
     ],
     "path": "psychology/source/eomma-gibun-2026-11/eomma-gibun-2026-11.txt",
     "pending": {
-     "n": 4,
-     "sha": "61d2b46c89c5b4b9",
+     "n": 5,
+     "sha": "e52015ecc9e49930",
      "reviewers": [
-      "K4-반론"
+      "K5-반론"
      ],
-     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_4.md",
-     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_4",
+     "prompt": "psychology/source/eomma-gibun-2026-11/persona_eomma-gibun-2026-11_script_rebuttal_5.md",
+     "answers": "psychology/source/eomma-gibun-2026-11/answers_eomma-gibun-2026-11_script_rebuttal_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:23:19Z"
+     "at": "2026-11-13T03:28:21Z"
     }
    }
   }

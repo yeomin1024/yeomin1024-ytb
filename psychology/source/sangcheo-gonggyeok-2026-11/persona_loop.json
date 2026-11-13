@@ -189,20 +189,47 @@
       "pass": false,
       "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
       "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_3.md"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-13T03:27:48Z",
+      "sha": "ca553502ef426d8d",
+      "reviewers": [
+       {
+        "reviewer": "E4-P3",
+        "persona": "P3",
+        "exits": [
+         {
+          "line": 28,
+          "why": "연구 장에서 '다만'이 26·28줄에 잇달아 나오고, 어릴 때 얘기를 꺼냈다가 바로 '연결은 약했다'로 접어서 강의처럼 늘어짐 — 회사 얘기는 언제 나오나 싶어 잠깐 끄고 싶었음 (29줄 첫 번째 이유로 넘어가면서 다시 붙잡힘)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "59~60줄 — 상사가 '이 부분 다시 볼까요?' 했을 때 '나를 무능하다고 보는구나'로 들린다는 말이 딱 내 회사 얘기라 붙잡힘 (72줄 보고서 오타 지적도 같은 까닭)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [28]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_4.md"
      }
     ],
     "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
     "pending": {
-     "n": 4,
-     "sha": "ca553502ef426d8d",
+     "n": 5,
+     "sha": "68c75935fc6d82b2",
      "reviewers": [
-      "E4-P3"
+      "E5-P3"
      ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_4.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_exit_4",
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_exit_5.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_exit_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:23:20Z"
+     "at": "2026-11-13T03:28:21Z"
     }
    },
    "script_rebuttal": {
@@ -438,20 +465,89 @@
       "pass": false,
       "fixed_after": "4회차 앞에 고침 (대본 v1.6)",
       "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_3.md"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-13T03:27:48Z",
+      "sha": "ca553502ef426d8d",
+      "reviewers": [
+       {
+        "reviewer": "K4-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 9,
+          "text": "'상처받은 사람이 날카로워지는 이유 세 가지'라더니, 상처를 직접 본 건 실험실에서 잠깐 겪은 따돌림(24)하고 '약했다'는 어린 시절 연결(28)뿐이네요. 둘째·셋째는 거절 예민함·자기 개념 이야기지 상처 이야기가 아닌데, 상처랑 무슨 상관인가요?",
+          "fix": "9~12 결론 대상을 '상처 뒤 거절에 예민해진 사람이 날카로워질 때, 연구로 볼 수 있는 까닭 세 가지'처럼 좁히거나, 셋째 장에 상처와의 관계를 한 문장으로 밝히기(연구가 보지 않았다면 '상처와 이어지는지는 이 연구가 보지 않았다')."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 70,
+          "text": "'무너질 것 같아 더 세게 맞선다'는 건 설문이 보여 준 게 아니죠. 자주 부딪혀서 나에 대한 생각이 흐려졌을 수도 있는데, 셋째 장엔 둘째 장(56)처럼 '무엇이 먼저인지 모른다'는 말이 없네요.",
+          "fix": "74~75 뒤에 '이것도 같은 한 번 설문이라, 흐린 자기 개념이 먼저인지 자주 부딪혀서 흐려진 것인지는 모릅니다'를 한 문장 넣고, 70은 '~ 같아서일 수 있습니다'로 낮추기."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 32,
+          "text": "첫째 예시(답장 늦으면 '나를 싫어하나', 회의에서 '무시당했다')가 둘째 '남의 행동을 나쁜 뜻으로 읽기'랑 같은 장면인데, 세 가지가 따로 있는 게 맞나요?",
+          "fix": "첫째 예시는 '읽기'가 아니라 '미리 대비하고 먼저 쏘아붙이는' 장면(35처럼)으로 바꾸거나, 둘째 장 첫머리에 '첫째의 예민함이 이 해석을 거쳐 공격이 된다'고 고리로 이어 말하기."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 22,
+          "text": "2022년 메타분석은 몇 편·몇 명을 모았고 실험실에서 '공격'을 어떻게 쟀는지 말이 없고, 27의 '분석도 있습니다'는 연도·규모도 없네요. 52편(37)·250명(51)은 말하면서요.",
+          "fix": "22~24에 모은 연구 수와 공격을 잰 방식 한 구절, 27에 연도·조사 방식 한 구절을 더하기."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 111,
+          "text": "'둘째와 셋째는 설문 하나라 순서는 모른다'고 하면 첫째는 순서가 확인된 것처럼 들리는데, 37의 52편 분석도 '예민할수록 공격이 조금 더 많았다'는 연결일 뿐이잖아요.",
+          "fix": "'실험으로 본 것은 잠깐 겪은 거절뿐이고, 예민함·해석·자기 개념과 공격은 함께 나타난 연결이라 순서는 아직 모릅니다'처럼 세 가지 모두에 맞게."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 58,
+          "text": "평소에 옷 지적을 자주 해 온 사람이 '그 옷 새로 샀어?' 하면 비꼼일 수도 있는데, 옷 이야기는 '비난으로 읽은 것입니다'라고 단정하네요.",
+          "fix": "58을 '~로 읽었을 수 있습니다'로 낮추고, 48~49처럼 '평소 말투가 그랬다면 알아챈 것'이라는 짧은 단서를 이 예시에도 붙이기."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 79,
+          "text": "이유는 세 가지라더니 할 일은 '다른 뜻 떠올리기·숨 고르기·서운하다고 말하기'로 둘째 이유에만 맞춰져 있고, 셋째(나에 대한 생각이 흔들림)엔 무엇을 하라는 말이 없네요.",
+          "fix": "셋째 이유에 맞춘 한 줄(예: 지적받은 일과 나라는 사람을 나눠 '이건 오타 하나 이야기다'라고 말해 보기)을 더하거나, 79에 세 가지 할 일이 어느 이유에 닿는지 짚기."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단·부모 탓·가해 감싸기·과장은 없고 한계도 여러 번 밝혀 큰 반박거리는 없지만, '상처받은 사람'이라는 대상과 실제 연구(거절 예민함·자기 개념)의 연결이 얇고 셋째 이유는 상처와 이어지지 않아 '상처랑 무슨 상관이냐'는 댓글은 나올 수 있음.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "5회차 앞에 고침 (대본 v1.7)",
+      "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_4.md"
      }
     ],
     "path": "psychology/source/sangcheo-gonggyeok-2026-11/sangcheo-gonggyeok-2026-11.txt",
     "pending": {
-     "n": 4,
-     "sha": "ca553502ef426d8d",
+     "n": 5,
+     "sha": "68c75935fc6d82b2",
      "reviewers": [
-      "K4-반론"
+      "K5-반론"
      ],
-     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_4.md",
-     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_rebuttal_4",
+     "prompt": "psychology/source/sangcheo-gonggyeok-2026-11/persona_sangcheo-gonggyeok-2026-11_script_rebuttal_5.md",
+     "answers": "psychology/source/sangcheo-gonggyeok-2026-11/answers_sangcheo-gonggyeok-2026-11_script_rebuttal_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-13T03:23:20Z"
+     "at": "2026-11-13T03:28:21Z"
     }
    }
   }

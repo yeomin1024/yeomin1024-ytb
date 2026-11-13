@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# VERSION: v1.2 — 2026-11-02 — 주제 인자 (재테크도 — 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"):
+# VERSION: v1.3 — 2026-11-13 — 기획안 묶음을 읽을 때 페르소나 검증 기록(topics_<날짜>.persona.json — persona_gate.py 가 기획안 옆에 만듦)은 건너뜀 (그 전엔 KeyError 'packages' 로 멈춤).
+# (v1.2) — 2026-11-02 — 주제 인자 (재테크도 — 사용자 지시 2026-11-02 "지시사항 수정됐으니 stock/guides/quick_board.md 대로 평가판 구성해"):
 #   <주제>/topics/주제평가판.html · <주제>/topics/board/topics_*.json. 주제를 빼면 stock (옛 명령 그대로).
 # (v1.1) — 2026-11-02 — 주제 평가판은 롱폼 칸만 (쇼츠 칸 s_*·check_shorts 는 판 데이터에서 뺌 — 쇼츠는 3단계 쇼츠 평가판에서,
 #   사용자 지시 2026-11-02 "주제 탐색 평가판 -> 대본 평가판 -> 쇼츠 평가판 이렇게 3단계로 나누자").
@@ -32,6 +33,8 @@ def main(argv):
     log("START", topic=topic, board=str(BOARD.relative_to(ROOT)))
     batches, skipped = [], []
     for f in sorted(SRC.glob("topics_*.json")):
+        if f.name.endswith(".persona.json"):            # v1.3 페르소나 검증 기록 — 기획안 묶음이 아님
+            continue
         D = json.loads(f.read_text("utf-8"))
         ok = []
         for pk in D["packages"]:

@@ -1,6 +1,7 @@
 # 지금 상태·다음 할 일 (인수인계)
 
-버전: v4.05 — 2026-11-13 — **주식 새 편 대본 2개** (같은 지시 뒷부분 "새 영상 2개 대본까지 만들어봐" → "계속 진행해"): `stock/source/sseulnal-test-2026-11/`(B14 곧 쓸 돈) · `inverse-test-2026-11/`(B19 인버스) — 제목·썸네일 피드 시험 통과 · 대본 이탈·반론 5회차까지 통과 못 함 → 사용자 결정 기다림 (2-1 맨 위)
+버전: v4.06 — 2026-11-13 — **주식 옛 기획안(B01~B20)·B14·B19 두 편 지움 → 새 주제 기획안 3개 B21~B23 · 주제 평가판** (사용자 지시 "예전 만들어 놓았던건 다 삭제해 니가 새로 만들어야지 지시사항대로 하면 돼잖아" → "판정 기록은 남기고 시작해") — 판정 기다림 (2-1 맨 위)
+이전 v4.05 — 2026-11-13 — **주식 새 편 대본 2개** (같은 지시 뒷부분 "새 영상 2개 대본까지 만들어봐" → "계속 진행해"): `stock/source/sseulnal-test-2026-11/`(B14 곧 쓸 돈) · `inverse-test-2026-11/`(B19 인버스) — 제목·썸네일 피드 시험 통과 · 대본 이탈·반론 5회차까지 통과 못 함 → 사용자 결정 기다림 (2-1 맨 위)
 이전 v4.04 — 2026-11-13 — **위기 상황 대본 4편 페르소나 관문 5회차까지** (사용자 지시 "썸네일, 대본 등 페르소나 검증 했어?" → "계속 진행해"): 대본 v1.1~v1.6 · 제목 ✅ · 이탈 기내·얼음 ✅ · 나머지 ❌ → `guides/persona_loop.md` 4번대로 멈추고 사용자 결정 (위기 상황 줄).
 이전 v4.03 — 2026-11-12 — **페르소나 반복 검증을 관문으로** (사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐 그리고 새 영상 2개 대본까지 만들어봐" 앞부분): `guides/persona_loop.md` v1.0(제목·썸네일 피드 시험 · 대본 이탈 · 대본 반론 — 회차마다 새 하위 에이전트 · 2회차 이상 · 마지막 회차 = 지금 글) · `tools/persona_gate.py` v1.0(prompt·add·check·status) · `tools/board_check.py` v1.11(기록 없거나 오래되면 ❌) · 주제별 지시사항(주식 quick_board v3.12·board_1~3·quick_test · 재테크 quick_board·quick_script·quick_package · 역사 topics/README · 심리 README · 위기 channel) · CLAUDE.md 한 줄.
 이전 v4.02 — 2026-11-12 — **위기 상황 대본 4편** (사용자 지시 "블로그 쪽은 지워 그럼 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"): `crisis/source/` 엘리베이터·기내 연기·얼음 깨짐·메신저피싱 — 편마다 대본·SRT(✅)·제목 3안(title_fit ✅)·확인표(대부분 ⚠️ 보도·발췌 — 이 환경에서 공식 누리집 403)·README · ChatGPT 검토 파일 `crisis/guides/viewer_review.md` (페르소나 4명) · 블로그 저장소의 옛 crisis 폴더는 지움.
@@ -341,7 +342,7 @@
 
 ### 2-1. 주식 — 제작 (2026-10-25 지움)
 
-- **2026-11-13 새 편 대본 2개 — 사용자 결정 기다림** `stock/source/sseulnal-test-2026-11/`(B14 · 윤씨 · 「주식에 1년 안에 쓸 돈 넣는 사람들은 바로 탈락하는 테스트」) · `inverse-test-2026-11/`(B19 · 임씨 · 「주식 폭락 때 계좌 건드리는 사람들은 낙제하는 테스트」): 대본·`package.json`·`upload.md`·calc(`precheck/longform_b14.py` v1.5 · `longform_b19.py` v1.4). 페르소나 반복 검증 = 제목 통과 · **대본 이탈·반론 5회차 미통과** (`python3 tools/persona_gate.py status stock/source/<편>/persona_loop.json`). 사용자가 (가) 회차를 더 돌릴지 (나) 선택 구성을 바꿀지(정답이 늘 같은 쪽 — 뻔함) (다) 이대로 대본 평가판에 올릴지 정하면 → 통과 뒤 `script_board.json` extra 에 `B14-long`·`B19-long` 줄 + `script_feedback_board.py --only long` + 판 https://claude.ai/artifact/7UQobTs4TU45V4GCMqWCZz.
+- **2026-11-13 새 주제 기획안 3개 — 주제 평가판 판정 기다림** `stock/topics/board/topics_2026-11-13.json` B21(ETF 물렸을 때 본전 찾기 · P1) · B22(손절로 노후 지키기 · P3) · B23(ETF 여러 개 = 겹친 분산 · P1) — 제목 페르소나 검증 통과 · 판 https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN. 통과(pass)한 것만 대본 평가판 세션(`board_2_script.md`). 옛 B01~B20 기획안과 B14·B19 두 편(판정 없이 쓴 대본)은 지움 — 판정은 `board/verdicts_record.json`·판 db.
 - **2026-10-31 쇼츠 v4 · 롱폼 요약본 v2.0** — 채널 목적(리스크 최소 · 천천히 · 장기)에 맞춰 다시 씀: 숫자는 '덜 잃었나'로만 (`precheck/purpose_numbers_2026-10-31.json` · episodes portfolio/timing · timing_cases · T001 · T046 · R4_stop).
 - **2026-10-30 쇼츠 v3 · 롱폼 요약본** `stock/topics/쇼츠안_2026-10-30.md` (4편 · 끝 멘트 「실제 데이터로 돌려 본 결과는 채널 구독하고 확인하세요.」) · `stock/topics/롱폼요약본_2026-10-30.md` (짝 롱폼 L1~L4 · 숫자 출처 `#` 주석 — `precheck/timing_cases_2026-10-30.json` · `longform_extra_2026-10-30.json` · r3·r4 json). ⚠ L1 연구 두 편(대만·브라질) 숫자와 L4 '2016년 인텔이 훨씬 큰 회사'는 대본 전에 원문 확인.
 - **2026-10-28 채널 설명** `stock/guides/channel.md` — 새 편(주제·요약본·대본·제목·썸네일·쇼츠)은 이 목적·전달 방식에 맞게. 1번 '한눈에'는 `stock/topics/material.md`·`요약본_material.md` 0번에 저절로 들어감 · 점검은 3번 다섯 줄.

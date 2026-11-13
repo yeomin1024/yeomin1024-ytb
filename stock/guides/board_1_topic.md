@@ -1,6 +1,7 @@
 # 주식 — 1단계 주제 평가판 세션 (이 세션은 이 판 하나만)
 
-VERSION: v1.2 — 2026-11-12 — 4번 맨 앞 **페르소나 반복 검증 `title`** (board_check v1.11 이 기록이 없으면 ❌) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+VERSION: v1.3 — 2026-11-13 — 0번 목록 명령이 페르소나 검증 기록(topics_<날짜>.persona.json)을 건너뜀 (topic_board.py v1.3 와 같게).
+(v1.2 — 2026-11-12 — 4번 맨 앞 **페르소나 반복 검증 `title`** (board_check v1.11 이 기록이 없으면 ❌) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
 (v1.1 — 2026-11-03 — 1~4편(이미 대본이 있는 편)도 판에 — `topics_1-4편.json` E1~E4 (`existing` 칸) — 사용자 지시 "주식 주제 평가판에 대본 4개 올려봐 피드백하게".
 (v1.0 — 2026-11-03 — 사용자 지시 2026-11-03 "새 세션 3개에서 각각 '지시사항 읽고 주제 평가판, 대본 평가판, 쇼츠 평가판 만들어'라고만 해도 지금처럼 할 수 있게 … 세션당 평가판 하나야 그리고 주제는 분석결과도 참고하는거야".
 ※ 연구·교육용 — 투자 권유가 아님.
@@ -15,7 +16,7 @@ git pull --rebase origin main
 python3 tools/flow_status.py stock 2>&1 | tail -n 25      # 분석이 언제 것인지 (읽기만)
 python3 - <<'E'                                            # 지금 묶음의 기획안 id·주제 (이미 낸 것과 겹치지 않게)
 import json,glob
-for f in sorted(glob.glob('stock/topics/board/topics_*.json')):
+for f in sorted(x for x in glob.glob('stock/topics/board/topics_*.json') if not x.endswith('.persona.json')):
     for p in json.load(open(f))['packages']: print(f[-15:-5], p['id'], p['theme'])
 E
 ```

@@ -1,5 +1,15 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-13 (2) — 주식 옛 기획안·두 편 지움 → 새 주제 기획안 3개 (B21~B23) · 주제 평가판
+
+- 사용자 지시 "예전 만들어 놓았던건 다 삭제해 니가 새로 만들어야지 지시사항대로 하면 돼잖아" → "판정 기록은 남기고 시작해". 까닭: B14·B19 대본은 주제 평가판 판정 없이 쓴 것(B11~B20 은 판정 전) · B14 는 탈락한 B09 '곧 쓸 돈'과 겹침.
+- 지움: `stock/topics/board/topics_2026-11-02.json`(B01~B10) · `topics_2026-11-04.json`(B11~B20) · `stock/source/sseulnal-test-2026-11/`·`inverse-test-2026-11/` · `precheck/longform_b14·b19.py` + json · SH·SDS·SPXU·SQQQ·UVXY 자료. 되살리기 `git checkout 052a2d288 -- <경로>`.
+- 남김: 판 db `verdicts`(B01~B10 탈락) + `stock/topics/board/verdicts_record.json`(판정·주제·제목 — 비슷한 주제를 다시 쓰지 않게).
+- 새 묶음 `stock/topics/board/topics_2026-11-13.json` — `board_1_topic.md` 2번 분석 자료로 후보를 고르고 걸렀다: ① 정답 미리 확인 `stock/topics/precheck/board_2026-11-13.py` v1.2(안정 수익 확률 — 예금보다 더 + 원금 20% 넘게 안 줄어듦)에서 뒤집힌 커버드콜·'조금 오르면 팔고 다시 사기'·작년 1등 업종 따라가기 뺌 ② 지난 평가(`stock/topics/평가.txt`) '뻔하다·관심 없다'였던 레버리지·빚 단독·전문가 예측·예금 적립·배당 재투자·공모주·커버드콜 뺌 ③ 탈락 B01~B10·1~4편과 겹침 뺌 → 통과한 1~4편 결(넓은 '투자자 행동·생각')로 **3개**: B21 「주식 ETF 물렸을 때 본전 찾는 사람들은 탈락하는 테스트」(P1) · B22 「주식 손절로 노후 지키려는 사람들은 낙제하는 테스트」(P3) · B23 「주식 ETF 여러 개로 분산한 사람들은 과락 나오는 테스트」(P1).
+- 페르소나 반복 검증(title): B21 3회차 · B22 2회차 · B23 2회차 통과 (`topics_2026-11-13.persona.json` · 지시문·답 `board/persona_2026-11-13/`). 쇼츠 칸은 써 두기만(3단계 판에서 검증).
+- `tools/topic_board.py` v1.3: 기획안 묶음을 읽을 때 `topics_<날짜>.persona.json`(persona_gate 기록)을 건너뜀 — 그 전엔 KeyError 로 멈춤 · `board_1_topic.md` v1.3 0번 목록 명령도 같게.
+- 주제 평가판 https://claude.ai/artifact/Rawg2U7g3tEdSvEu5skTDN = 1~4편(E1~E4) + B21~B23 (옛 B01~B20 카드는 빠짐 — 판정은 db 에 그대로).
+
 ## 2026-11-13 (1) — 주식 새 편 대본 2개 (B14 곧 쓸 돈 · B19 인버스로 폭락 대비) — 페르소나 반복 검증 5회차까지
 
 - 사용자 지시 "…그리고 새 영상 2개 대본까지 만들어봐" (뒷부분) → "계속 진행해".

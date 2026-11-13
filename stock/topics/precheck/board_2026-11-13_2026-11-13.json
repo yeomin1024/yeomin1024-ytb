@@ -1,0 +1,828 @@
+{
+ "tool": "board_2026-11-13.py v1.2",
+ "made": "2026-11-13",
+ "rule": "끝에 예금보다 더 + 원금보다 20% 넘게 안 줄어듦 · 시작일 20거래일마다",
+ "checks": {
+  "B21_leverage": [
+   {
+    "name": "QLD",
+    "years": 2,
+    "from": "2006-06-21",
+    "n": 32,
+    "stable": 0.0938,
+    "spy_stable": 0.0312,
+    "diff_pp": 0.0626
+   },
+   {
+    "name": "QLD",
+    "years": 2,
+    "from": "2009-01-06",
+    "n": 199,
+    "stable": 0.6181,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.2713
+   },
+   {
+    "name": "QLD",
+    "years": 4,
+    "from": "2006-06-21",
+    "n": 32,
+    "stable": 0.0,
+    "spy_stable": 0.0,
+    "diff_pp": 0.0
+   },
+   {
+    "name": "QLD",
+    "years": 4,
+    "from": "2009-01-06",
+    "n": 174,
+    "stable": 0.5862,
+    "spy_stable": 0.908,
+    "diff_pp": -0.3218
+   },
+   {
+    "name": "QQQ",
+    "years": 2,
+    "from": "1999-03-10",
+    "n": 124,
+    "stable": 0.4113,
+    "spy_stable": 0.3871,
+    "diff_pp": 0.0242
+   },
+   {
+    "name": "QQQ",
+    "years": 2,
+    "from": "2009-01-16",
+    "n": 199,
+    "stable": 0.8744,
+    "spy_stable": 0.8794,
+    "diff_pp": -0.005
+   },
+   {
+    "name": "QQQ",
+    "years": 4,
+    "from": "1999-03-10",
+    "n": 124,
+    "stable": 0.2419,
+    "spy_stable": 0.2258,
+    "diff_pp": 0.0161
+   },
+   {
+    "name": "QQQ",
+    "years": 4,
+    "from": "2009-01-16",
+    "n": 174,
+    "stable": 0.8851,
+    "spy_stable": 0.8908,
+    "diff_pp": -0.0057
+   }
+  ],
+  "B27_coveredcall": [
+   {
+    "name": "QYLD",
+    "years": 2,
+    "from": "2013-12-12",
+    "n": 137,
+    "stable": 0.8029,
+    "spy_stable": 0.854,
+    "diff_pp": -0.0511
+   },
+   {
+    "name": "QYLD",
+    "years": 4,
+    "from": "2013-12-12",
+    "n": 112,
+    "stable": 0.875,
+    "spy_stable": 0.8571,
+    "diff_pp": 0.0179
+   },
+   {
+    "name": "XYLD",
+    "years": 2,
+    "from": "2013-06-24",
+    "n": 143,
+    "stable": 0.7622,
+    "spy_stable": 0.8601,
+    "diff_pp": -0.0979
+   },
+   {
+    "name": "XYLD",
+    "years": 4,
+    "from": "2013-06-24",
+    "n": 118,
+    "stable": 0.7881,
+    "spy_stable": 0.8644,
+    "diff_pp": -0.0763
+   },
+   {
+    "name": "JEPI",
+    "years": 2,
+    "from": "2020-05-21",
+    "n": 56,
+    "stable": 0.9821,
+    "spy_stable": 0.8929,
+    "diff_pp": 0.0892
+   },
+   {
+    "name": "JEPI",
+    "years": 4,
+    "from": "2020-05-21",
+    "n": 31,
+    "stable": 1.0,
+    "spy_stable": 0.9032,
+    "diff_pp": 0.0968
+   },
+   {
+    "name": "JEPQ",
+    "years": 2,
+    "from": "2022-05-04",
+    "n": 32,
+    "stable": 1.0,
+    "spy_stable": 1.0,
+    "diff_pp": 0.0
+   }
+  ],
+  "B24_sector": [
+   {
+    "name": "XLK",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.381,
+    "spy_stable": 0.381,
+    "diff_pp": 0.0
+   },
+   {
+    "name": "XLK",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.8945,
+    "spy_stable": 0.8894,
+    "diff_pp": 0.0051
+   },
+   {
+    "name": "XLK",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.2222,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.0
+   },
+   {
+    "name": "XLK",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.8966,
+    "spy_stable": 0.8966,
+    "diff_pp": 0.0
+   },
+   {
+    "name": "XLE",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.4921,
+    "spy_stable": 0.381,
+    "diff_pp": 0.1111
+   },
+   {
+    "name": "XLE",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.5477,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.3417
+   },
+   {
+    "name": "XLE",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.3016,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.0794
+   },
+   {
+    "name": "XLE",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.3793,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.5173
+   },
+   {
+    "name": "XLF",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.4286,
+    "spy_stable": 0.381,
+    "diff_pp": 0.0476
+   },
+   {
+    "name": "XLF",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.6533,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.2361
+   },
+   {
+    "name": "XLF",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.2063,
+    "spy_stable": 0.2222,
+    "diff_pp": -0.0159
+   },
+   {
+    "name": "XLF",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.5747,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.3219
+   },
+   {
+    "name": "XLV",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.3968,
+    "spy_stable": 0.381,
+    "diff_pp": 0.0158
+   },
+   {
+    "name": "XLV",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.8894,
+    "spy_stable": 0.8894,
+    "diff_pp": 0.0
+   },
+   {
+    "name": "XLV",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.2619,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.0397
+   },
+   {
+    "name": "XLV",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.9368,
+    "spy_stable": 0.8966,
+    "diff_pp": 0.0402
+   },
+   {
+    "name": "XLY",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.3651,
+    "spy_stable": 0.381,
+    "diff_pp": -0.0159
+   },
+   {
+    "name": "XLY",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.804,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.0854
+   },
+   {
+    "name": "XLY",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.246,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.0238
+   },
+   {
+    "name": "XLY",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.7989,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.0977
+   },
+   {
+    "name": "XLP",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.4683,
+    "spy_stable": 0.381,
+    "diff_pp": 0.0873
+   },
+   {
+    "name": "XLP",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.9095,
+    "spy_stable": 0.8894,
+    "diff_pp": 0.0201
+   },
+   {
+    "name": "XLP",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.381,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.1588
+   },
+   {
+    "name": "XLP",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.9655,
+    "spy_stable": 0.8966,
+    "diff_pp": 0.0689
+   },
+   {
+    "name": "XLU",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.4921,
+    "spy_stable": 0.381,
+    "diff_pp": 0.1111
+   },
+   {
+    "name": "XLU",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.8693,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.0201
+   },
+   {
+    "name": "XLU",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.254,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.0318
+   },
+   {
+    "name": "XLU",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.9138,
+    "spy_stable": 0.8966,
+    "diff_pp": 0.0172
+   },
+   {
+    "name": "XLI",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.4524,
+    "spy_stable": 0.381,
+    "diff_pp": 0.0714
+   },
+   {
+    "name": "XLI",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.7739,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.1155
+   },
+   {
+    "name": "XLI",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.2222,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.0
+   },
+   {
+    "name": "XLI",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.7241,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.1725
+   },
+   {
+    "name": "XLB",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.5,
+    "spy_stable": 0.381,
+    "diff_pp": 0.119
+   },
+   {
+    "name": "XLB",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.6231,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.2663
+   },
+   {
+    "name": "XLB",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.3492,
+    "spy_stable": 0.2222,
+    "diff_pp": 0.127
+   },
+   {
+    "name": "XLB",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.5747,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.3219
+   },
+   {
+    "name": "XLRE",
+    "years": 2,
+    "from": "2015-10-08",
+    "n": 114,
+    "stable": 0.6579,
+    "spy_stable": 0.807,
+    "diff_pp": -0.1491
+   },
+   {
+    "name": "XLRE",
+    "years": 4,
+    "from": "2015-10-08",
+    "n": 89,
+    "stable": 0.6404,
+    "spy_stable": 0.809,
+    "diff_pp": -0.1686
+   },
+   {
+    "name": "XLC",
+    "years": 2,
+    "from": "2018-06-19",
+    "n": 80,
+    "stable": 0.6,
+    "spy_stable": 0.75,
+    "diff_pp": -0.15
+   },
+   {
+    "name": "XLC",
+    "years": 4,
+    "from": "2018-06-19",
+    "n": 55,
+    "stable": 0.4,
+    "spy_stable": 0.7273,
+    "diff_pp": -0.3273
+   },
+   {
+    "name": "SOX",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.2619,
+    "spy_stable": 0.381,
+    "diff_pp": -0.1191
+   },
+   {
+    "name": "SOX",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "stable": 0.7136,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.1758
+   },
+   {
+    "name": "SOX",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "stable": 0.1032,
+    "spy_stable": 0.2222,
+    "diff_pp": -0.119
+   },
+   {
+    "name": "SOX",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "stable": 0.7414,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.1552
+   }
+  ],
+  "B30_lump_vs_dca": [
+   {
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "lump_stable": 0.381,
+    "dca_stable": 0.4762,
+    "lump_dd20": 0.5079,
+    "dca_dd20": 0.3968,
+    "lump_ends_higher": 0.5635
+   },
+   {
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "lump_stable": 0.8894,
+    "dca_stable": 0.8945,
+    "lump_dd20": 0.0905,
+    "dca_dd20": 0.0302,
+    "lump_ends_higher": 0.8241
+   },
+   {
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "lump_stable": 0.2222,
+    "dca_stable": 0.3254,
+    "lump_dd20": 0.7698,
+    "dca_dd20": 0.6667,
+    "lump_ends_higher": 0.5635
+   },
+   {
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "lump_stable": 0.8966,
+    "dca_stable": 0.9655,
+    "lump_dd20": 0.1034,
+    "dca_dd20": 0.0345,
+    "lump_ends_higher": 0.7989
+   }
+  ],
+  "B22_swing": [
+   {
+    "rule": "+5% 팔고 −3% 다시",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "hold_stable": 0.381,
+    "swing_stable": 0.5,
+    "swing_beats_hold": 0.3889,
+    "trades_median": 2
+   },
+   {
+    "rule": "+5% 팔고 −3% 다시",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "hold_stable": 0.8894,
+    "swing_stable": 0.9447,
+    "swing_beats_hold": 0.2412,
+    "trades_median": 3
+   },
+   {
+    "rule": "+5% 팔고 −3% 다시",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "hold_stable": 0.2222,
+    "swing_stable": 0.2381,
+    "swing_beats_hold": 0.6111,
+    "trades_median": 3
+   },
+   {
+    "rule": "+5% 팔고 −3% 다시",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "hold_stable": 0.8966,
+    "swing_stable": 0.9483,
+    "swing_beats_hold": 0.0,
+    "trades_median": 3
+   },
+   {
+    "rule": "+10% 팔고 −5% 다시",
+    "years": 2,
+    "from": "1999-01-04",
+    "n": 126,
+    "hold_stable": 0.381,
+    "swing_stable": 0.4762,
+    "swing_beats_hold": 0.3651,
+    "trades_median": 1
+   },
+   {
+    "rule": "+10% 팔고 −5% 다시",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "hold_stable": 0.8894,
+    "swing_stable": 0.9397,
+    "swing_beats_hold": 0.3166,
+    "trades_median": 3
+   },
+   {
+    "rule": "+10% 팔고 −5% 다시",
+    "years": 4,
+    "from": "1999-01-04",
+    "n": 126,
+    "hold_stable": 0.2222,
+    "swing_stable": 0.2302,
+    "swing_beats_hold": 0.5317,
+    "trades_median": 2
+   },
+   {
+    "rule": "+10% 팔고 −5% 다시",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "hold_stable": 0.8966,
+    "swing_stable": 0.9425,
+    "swing_beats_hold": 0.0115,
+    "trades_median": 3
+   }
+  ],
+  "B26_deposit_only": [
+   {
+    "years": 4,
+    "from": "1990-01-23",
+    "n": 239,
+    "index_beats_deposit": 0.6485
+   },
+   {
+    "years": 4,
+    "from": "2009-01-08",
+    "n": 174,
+    "index_beats_deposit": 1.0
+   },
+   {
+    "years": 10,
+    "from": "1990-01-23",
+    "n": 239,
+    "index_beats_deposit": 0.8703
+   },
+   {
+    "years": 10,
+    "from": "2009-01-08",
+    "n": 99,
+    "index_beats_deposit": 1.0
+   }
+  ],
+  "B28_quit_after_loss_year": [
+   {
+    "years": 4,
+    "from": "1990-01-23",
+    "n_with_loss_year": 130,
+    "quit_ends_higher": 0.4308
+   },
+   {
+    "years": 4,
+    "from": "2009-01-08",
+    "n_with_loss_year": 76,
+    "quit_ends_higher": 0.0
+   },
+   {
+    "years": 10,
+    "from": "1990-01-23",
+    "n_with_loss_year": 225,
+    "quit_ends_higher": 0.3244
+   },
+   {
+    "years": 10,
+    "from": "2009-01-08",
+    "n_with_loss_year": 78,
+    "quit_ends_higher": 0.0
+   }
+  ],
+  "B24_chase_last_year_best_sector": [
+   {
+    "years": 2,
+    "from": "2000-01-13",
+    "n": 113,
+    "chase_stable": 0.469,
+    "spy_stable": 0.4159,
+    "chase_ends_higher": 0.5841
+   },
+   {
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "chase_stable": 0.8543,
+    "spy_stable": 0.8894,
+    "chase_ends_higher": 0.4221
+   },
+   {
+    "years": 4,
+    "from": "2000-01-13",
+    "n": 113,
+    "chase_stable": 0.354,
+    "spy_stable": 0.2478,
+    "chase_ends_higher": 0.6195
+   },
+   {
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "chase_stable": 0.8678,
+    "spy_stable": 0.8966,
+    "chase_ends_higher": 0.3966
+   }
+  ],
+  "B25_fake_diversification": [
+   {
+    "mix": "기술 겹침 QQQ+XLK+SOX",
+    "years": 2,
+    "from": "1999-03-31",
+    "n": 123,
+    "mix_stable": 0.3577,
+    "spy_stable": 0.3821,
+    "diff_pp": -0.0244
+   },
+   {
+    "mix": "기술 겹침 QQQ+XLK+SOX",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "mix_stable": 0.8492,
+    "spy_stable": 0.8894,
+    "diff_pp": -0.0402
+   },
+   {
+    "mix": "기술 겹침 QQQ+XLK+SOX",
+    "years": 4,
+    "from": "1999-03-31",
+    "n": 123,
+    "mix_stable": 0.187,
+    "spy_stable": 0.2276,
+    "diff_pp": -0.0406
+   },
+   {
+    "mix": "기술 겹침 QQQ+XLK+SOX",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "mix_stable": 0.8678,
+    "spy_stable": 0.8966,
+    "diff_pp": -0.0288
+   },
+   {
+    "mix": "업종 셋 XLK+XLV+XLP",
+    "years": 2,
+    "from": "1999-03-31",
+    "n": 123,
+    "mix_stable": 0.4146,
+    "spy_stable": 0.3821,
+    "diff_pp": 0.0325
+   },
+   {
+    "mix": "업종 셋 XLK+XLV+XLP",
+    "years": 2,
+    "from": "2009-01-09",
+    "n": 199,
+    "mix_stable": 0.9598,
+    "spy_stable": 0.8894,
+    "diff_pp": 0.0704
+   },
+   {
+    "mix": "업종 셋 XLK+XLV+XLP",
+    "years": 4,
+    "from": "1999-03-31",
+    "n": 123,
+    "mix_stable": 0.2602,
+    "spy_stable": 0.2276,
+    "diff_pp": 0.0326
+   },
+   {
+    "mix": "업종 셋 XLK+XLV+XLP",
+    "years": 4,
+    "from": "2009-01-09",
+    "n": 174,
+    "mix_stable": 0.977,
+    "spy_stable": 0.8966,
+    "diff_pp": 0.0804
+   }
+  ]
+ }
+}

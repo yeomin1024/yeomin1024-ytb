@@ -149,7 +149,19 @@
       "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_2.md"
      }
     ],
-    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt"
+    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt",
+    "pending": {
+     "n": 3,
+     "sha": "313542e4f6ec42c9",
+     "reviewers": [
+      "E3-P3"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_exit_3.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_script_exit_3",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:13:28Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -346,7 +358,19 @@
       "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_2.md"
      }
     ],
-    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt"
+    "path": "crisis/source/eoreum-kkaejim-2026-11/eoreum-kkaejim-2026-11.txt",
+    "pending": {
+     "n": 3,
+     "sha": "313542e4f6ec42c9",
+     "reviewers": [
+      "K3-반론"
+     ],
+     "prompt": "crisis/source/eoreum-kkaejim-2026-11/persona_eoreum-kkaejim-2026-11_script_rebuttal_3.md",
+     "answers": "crisis/source/eoreum-kkaejim-2026-11/answers_eoreum-kkaejim-2026-11_script_rebuttal_3",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:13:28Z"
+    }
    }
   }
  }

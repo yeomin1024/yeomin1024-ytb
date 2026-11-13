@@ -175,7 +175,19 @@
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_2.md"
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
+    "pending": {
+     "n": 3,
+     "sha": "273b9d17e9fbc567",
+     "reviewers": [
+      "E3-P4"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_exit_3.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_exit_3",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:13:28Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -379,7 +391,19 @@
       "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_2.md"
      }
     ],
-    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt"
+    "path": "crisis/source/pon-kkaejyeosseo-2026-11/pon-kkaejyeosseo-2026-11.txt",
+    "pending": {
+     "n": 3,
+     "sha": "273b9d17e9fbc567",
+     "reviewers": [
+      "K3-반론"
+     ],
+     "prompt": "crisis/source/pon-kkaejyeosseo-2026-11/persona_pon-kkaejyeosseo-2026-11_script_rebuttal_3.md",
+     "answers": "crisis/source/pon-kkaejyeosseo-2026-11/answers_pon-kkaejyeosseo-2026-11_script_rebuttal_3",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-12T11:13:28Z"
+    }
    }
   }
  }

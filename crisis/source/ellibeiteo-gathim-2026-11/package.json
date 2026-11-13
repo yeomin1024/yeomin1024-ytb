@@ -13,9 +13,9 @@
  "variant": "E-C",
  "experiments": [
   "E-A",
-  "E-C"
+  "E-B"
  ],
- "note": "본안 = crisis/source/ctr/final_2026-11-12.md (제목 점수 + 믿음 패널 2회차). persona = crisis/result/outliers/personas.json P1~P4 (최종 F1~F4)",
+ "note": "본안 = 페르소나 관문 title 2회차 통과안 (crisis/source/<영상ID>/persona_loop.json) — ctr/final_2026-11-12.md 의 E-B·P-B 본안은 관문 1회차에서 바뀜. persona = crisis/result/outliers/personas.json P1~P4",
  "history": [
   {
    "title": "엘리베이터 멈추면 문부터 열지 말고, 비상벨 누르고 기다려야",

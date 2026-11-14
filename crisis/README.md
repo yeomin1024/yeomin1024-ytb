@@ -16,6 +16,7 @@ crisis/
 ├── README.md          ← 지금 이 안내
 ├── titles.md          ← ★ 제목·썸네일 문구 4쌍과 근거 (사람이 쓴 기획안)
 ├── source/            ← ★ 대본 4편 (영상ID 폴더마다 대본 .txt · 자막 .srt · titles.md · checklist.md · README.md) + used_content.md
+│   ├── images_build.py      ★ ChatGPT 그림 요청 파일 만들기 v1.0 (만스피 꼴 — 배경판·기준 그림·동작 3장·물속 3장·소품·썸네일 그림, 글자 0) → 편마다 images_chatgpt.md · 그림은 puppet/ · puppet/motion/ · images/TH-CHAR.jpg
 ├── guides/            ← 채널 설명(임시) channel.md · ChatGPT 페르소나 검토 viewer_review.md
 ├── CHANGELOG.md       ← 코드 버전별 변경·결과 비교
 ├── code/

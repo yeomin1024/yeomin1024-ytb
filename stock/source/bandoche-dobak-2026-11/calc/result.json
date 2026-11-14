@@ -1,38 +1,38 @@
 {
-  "version": "v1.0",
+  "version": "v1.1",
   "given": {
     "first_buy_won": 10000000,
     "first_drop": 0.2,
     "add_won": 10000000,
-    "next_move": 0.3,
+    "next_move": 0.2,
     "recovery_drop": 0.4,
-    "lev_down": 0.2,
-    "lev_up": 0.25,
+    "lev_down": 0.1,
+    "lev_up": 0.1,
     "leverage": 2.0
   },
   "averaging_down": {
     "after_drop": 8000000,
     "down": {
-      "with_add_value": 12600000,
-      "with_add_pnl": -7400000,
-      "without_value": 5600000,
-      "without_pnl": -4400000
+      "with_add_value": 14400000,
+      "with_add_pnl": -5600000,
+      "without_value": 6400000,
+      "without_pnl": -3600000
     },
     "up": {
-      "with_add_value": 23400000,
-      "with_add_pnl": 3400000,
-      "without_value": 10400000,
-      "without_pnl": 400000
+      "with_add_value": 21600000,
+      "with_add_pnl": 1600000,
+      "without_value": 9600000,
+      "without_pnl": -400000
     },
-    "extra_loss_from_add": 3000000,
-    "range_with_add": 10800000,
-    "range_without": 4800000,
+    "extra_loss_from_add": 2000000,
+    "range_with_add": 7200000,
+    "range_without": 3200000,
     "range_ratio": 2.25
   },
   "recovery_pct_after_40": 66.7,
   "leverage_round_trip": {
-    "base_pct": 0.0,
-    "lev_pct": -10.0
+    "base_pct": -1.0,
+    "lev_pct": -4.0
   },
   "kospi_oct_to_1109_pct": -27.83,
   "nvda_intraday_swing_pctp": 9.66,

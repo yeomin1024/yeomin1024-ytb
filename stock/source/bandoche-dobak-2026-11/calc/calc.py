@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-14 — 최초 (사용자 지시 2026-11-14 "현재 반도체 주식에 투자하는건 도박이잖아 … 그 흐름으로 대본 만들어서 파일로 줘봐").
+# VERSION: v1.1 — 2026-11-14 — 반론 1회차 반영: 물타기 뒤 움직임 ±30% → ±20% (코스피 한 달 28% 와 같은 잣대 — 앞으로 한 달 움직임) · 2배 왕복 -20/+25 → 하루 -10%·다음 날 +10% (하루 단위 조건을 대본에 밝힘) · 엔비디아 하루 흔들림은 대본에서 뺌(숫자 유지)
+# (v1.0 — 2026-11-14 — 최초 (사용자 지시 2026-11-14 "현재 반도체 주식에 투자하는건 도박이잖아 … 그 흐름으로 대본 만들어서 파일로 줘봐").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-14 | next_move 0.30→0.20 · lev_down/up 0.20/0.25 → 0.10/0.10 · assert 새 값 | GIVEN·main |
 # | v1.0 | 2026-11-14 | 물타기 손익 · 본전 회복에 필요한 상승률 · 2배 상품 제자리 손해 · 코스피 하락률 · 엔비디아 하루 흔들림 · 보도 숫자(출처)를 result.json 에 | averaging_down·recovery·leverage_round_trip·pct_change·main |
 #
 # 대본 bandoche-dobak-2026-11.txt 의 숫자는 이 출력(result.json)만 쓴다.
-#   계산 숫자 = 아래 함수 (가정은 GIVEN 에 — 30% 는 가정, 근거는 코스피 10월 초 → 11월 9일 하락률).
+#   계산 숫자 = 아래 함수 (가정은 GIVEN 에 — 20% 는 가정, 근거는 코스피 10월 초 → 11월 9일 하락률).
 #   보도 숫자 = FACTS (2026-11-14 검색 결과 요약 — 이 환경에선 기사 사이트가 막혀 원문을 못 엶 → checklist.md '확인 필요').
 # 로그: [STAGE] [시각] key=value (START · GIVEN · CALC · FACTS · WRITE · DONE). 무작위 없음 (seed 불필요). 세금·수수료 없음.
 # ※ 연구·교육용 — 투자 권유가 아님.
@@ -19,7 +21,7 @@ import sys
 import time
 from pathlib import Path
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 HERE = Path(__file__).resolve().parent
 LOG = logging.getLogger("calc")
 
@@ -27,9 +29,9 @@ GIVEN = {
     "first_buy_won": 10_000_000,      # 처음 매수 1,000만 원 (예시)
     "first_drop": 0.20,               # 처음 하락 20% (예시)
     "add_won": 10_000_000,            # 물타기 1,000만 원 (예시 — 처음과 같은 금액)
-    "next_move": 0.30,                # 그 뒤 ±30% (가정 — 근거: kospi_drop)
+    "next_move": 0.20,                # 그 뒤 ±20% (가정 — 근거: 코스피 한 달 남짓 -27.83%, 같은 한 달 잣대)
     "recovery_drop": 0.40,            # 10월 2배 상품 평균 -39.99% 를 반올림한 40%
-    "lev_down": 0.20, "lev_up": 0.25, # 2배 상품 왕복 예: 기초 주가 -20% → +25% (제자리)
+    "lev_down": 0.10, "lev_up": 0.10, # 2배 상품 왕복 예: 기초 주가 하루 -10% → 다음 날 +10%
     "leverage": 2.0,
 }
 
@@ -115,8 +117,8 @@ def main() -> int:
     log("CALC", recovery_after_40=res["recovery_pct_after_40"], lev_round_trip=res["leverage_round_trip"],
         kospi_drop=res["kospi_oct_to_1109_pct"], nvda_swing_pctp=res["nvda_intraday_swing_pctp"])
     # 점검 — 계산이 기대와 어긋나면 멈춤 (대본 숫자와 짝)
-    assert ad["down"]["with_add_value"] == 12_600_000 and ad["extra_loss_from_add"] == 3_000_000, ad
-    assert res["leverage_round_trip"]["base_pct"] == 0.0 and res["leverage_round_trip"]["lev_pct"] == -10.0
+    assert ad["down"]["with_add_value"] == 14_400_000 and ad["extra_loss_from_add"] == 2_000_000, ad
+    assert res["leverage_round_trip"]["base_pct"] == -1.0 and res["leverage_round_trip"]["lev_pct"] == -4.0
     log("FACTS", n=len(FACTS), unverified=sum("확인 필요" in s for *_, s in FACTS))
     out = HERE / "result.json"
     out.write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")

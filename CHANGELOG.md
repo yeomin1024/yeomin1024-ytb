@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-14 — 심리 네 편 업로드 시트 · uploads 브랜치 (`psychology/source/upload_sheets.py` v1.0)
+
+- 사용자 지시 "업로드 시트 만들고 uploads 브랜치에 올려".
+- `upload.md` 네 장: 1 제목(package.json — 관문 title 통과 · title_fit 모든 화면 2줄 ✅) · 1-1 실험안(같은 제목 · thumbnail_2·3) · 2 설명란(소개 2줄 · ■ 챕터 — 올릴 때 SRT 로 다시 계산 · ■ 출처 — 대본_근거.md 1번 표 중 지금 대본에 남은 연구만, 논문 제목은 근거 문서에 있는 것만 · ■ 알려 드립니다 · ■ 도움받을 곳 위기 번호 · 해시태그 2) · 3 챕터 명령(대본 장 시작 문장) · 4 태그(편 낱말 + tag_candidates 상위) · 5 고정 댓글 · 7 설정(합성 콘텐츠 예 · 교육 · 아동용 아님 · 추천 공개 순서) · 8 점검(페르소나 관문 결과를 그대로 — 이탈·반론 ❌ 은 통과로 적지 않음).
+- `tools/upload_pack.py check psychology` 네 편 모두 ✅ (챕터 7~9개 · 설명 988~1,127자 · 태그 19~21개). `pack` → `uploads` 브랜치 = 심리 네 편(편마다 90MB 조각 3개 · 198~226MB) — 있던 주식 두 편은 main 에 youtube.json(이미 올림)이라 도구 규칙대로 빠짐 · main 에 `video.json` 4개.
+- ⚠ `psychology/youtube_channel.json` 없음 → 올리는 도구가 채널을 확인하지 못함 — PC 화면 psychology 탭에 심리 채널 키만.
+
 ## 2026-11-13 — 심리 네 편 썸네일 3안 · `psychology/source/thumbs_build.py` v1.2
 
 - 사용자 지시 "썸네일 만스피처럼 문구 코드로 얹어서 만들어" — 그림 = ChatGPT `images/TH-CHAR.jpg`(글자 없음) · 문구 = `video/render/thumb.mjs`(Noto Sans KR 900).

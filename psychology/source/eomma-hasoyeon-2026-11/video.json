@@ -1,0 +1,28 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-14T04:36:56+00:00",
+ "file": "final_1080p.mp4",
+ "size": 206916020,
+ "sha256": "bf2bd8bc1d2046b81529e268ce9ee5f0571241aedf9ba546386968e1db15afbb",
+ "md5": "326865a6c7aff385b3fcf89f58d27a7c",
+ "branch": "uploads",
+ "dir": "psychology/eomma-hasoyeon-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "e865db9cc4aaa3ad73719a4b976bcc173625af92fb6228473cc2aeb916813842"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 94371840,
+   "sha256": "8af9c21b7594f9451a99f81ec12746a87b0d0e3be562fe10c7acd28b6d20c018"
+  },
+  {
+   "name": "final_1080p.mp4.part03",
+   "size": 18172340,
+   "sha256": "179391b96cee259abb0c6c9260a9ceb116d6e85a57b8fc42f3b00cc7f0982691"
+  }
+ ],
+ "duration_s": 476.5
+}

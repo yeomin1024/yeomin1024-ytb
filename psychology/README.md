@@ -69,10 +69,11 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 - 장면: `video/episodes/<영상ID>/index.html` + 공통 엔진 `video/render/psy_anim.js` (만스피 v3.1 엔진 바탕 — 세계 층 카메라 · 원화 바꿔 끼우기 · 머리 옆 말풍선 · 판 카드 · 배치 칸 HEAD/LOW/LIST).
 - 순서: 오디오 → `node video/scripts/align-audio.mjs psychology <영상ID> --no-export`(자막을 실제 오디오에) → `render.mjs sync` → `check`·`layout-check` 문제 0 → `render.mjs video` → 완성 mp4 장면을 직접 봄 (음량 맞춤이 8번 안에 못 맞추면 `tools/loudnorm.py <mp4> --target -13.9` 뒤 기본 기준으로 다시 잼).
 - 썸네일 (2026-11-13 — 사용자 지시 "썸네일 만스피처럼 문구 코드로 얹어서 만들어"): `python3 psychology/source/thumbs_build.py` → `source/<영상ID>/thumbnails/thumbnail_{1,2,3}.json`·`.jpg` (그림 = `images/TH-CHAR.jpg` · 문구 = `video/render/thumb.mjs`). 1 = 본안(아래 2줄 + 흰 말풍선) · 2 = 실험(보조 문구 없음) · 3 = 실험(강조 색 바꿈 + 노란 말풍선) — 문구는 package.json 그대로(페르소나 관문 title 통과 · 다르면 도구가 멈춤) · 말풍선은 머리 옆 빈 곳, 꼬리는 말하는 사람 쪽 · 2줄째는 오른쪽 아래 18% 비움. 문구가 다른 실험안은 persona_loop title 단계부터.
+- 업로드 (2026-11-14 — 사용자 지시 "업로드 시트 만들고 uploads 브랜치에 올려"): 시트 `source/<영상ID>/upload.md` (생성 `source/upload_sheets.py` — 제목 = package.json · 설명란 소개 2줄·챕터·출처·알려 드립니다·도움받을 곳·해시태그 2 · 태그 19~21개 · 고정 댓글) · `tools/upload_pack.py check psychology …` 네 편 ✅ · `pack` → 영상 = `uploads` 브랜치 `psychology/<영상ID>/` 90MB 조각 3개 · 확인값 main `source/<영상ID>/video.json`. 추천 공개 순서 = 그릇 → 엄마 기분 → 상처 → 하소연 (하루 한 편). ⚠ `psychology/youtube_channel.json` 없음 → PC 화면 psychology 탭에 심리 채널 키만 · 처음 올린 뒤 '기억'.
 - 결과 (2026-11-13, 이 컨테이너 `psychology/out/<영상ID>/final_1080p.mp4` — git 에는 넣지 않음): 엄마 기분 7:44 · 하소연 7:56 · 그릇 7:28 · 상처 7:44 — 모두 -14 LUFS 안팎 · 트루 피크 -1.5 dBTP 이하.
 
 ## 다음 할 일
-0. 영상 네 편 — 썸네일 3안 끝(본안 = thumbnail_1) · 업로드 시트는 사용자가 정한 뒤 (대본 페르소나 관문: 이탈 단계 네 편 ❌ · 하소연 반론 ❌ 결정 기다림).
+0. 영상 네 편 — 썸네일·업로드 시트·uploads 브랜치 끝 → 사용자 PC `유튜브_업로드.bat` → psychology 탭에서 [업로드] (하루 한 편 · 예약 날짜 칸) (대본 페르소나 관문: 이탈 단계 네 편 ❌ · 하소연 반론 ❌ 결정 기다림).
 1. 할당량이 초기화되면 (한국 17시) `resume` — 댓글 덜 받은 29개 · 같은 채널 기준선 107곳 → `analyze`.
 2. 쇼츠 탐색 `explore --shorts --weeks 26` (28번 ≈ 2,800단위) → 추천 훑기 → 승인.
 3. 사용자 PC 대본만 받기 이어서 (`transcript_todo.md` — 분석 뒤 다시 만든 목록 · 01:31 오류로 한 번 멈춤, 같은 명령으로 이어 받음 · PC 로그 `.yt_work\transcribe_log_psychology.txt`) → `analyze` 다시.

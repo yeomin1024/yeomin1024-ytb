@@ -1,0 +1,28 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-14T04:36:54+00:00",
+ "file": "final_1080p.mp4",
+ "size": 226333874,
+ "sha256": "689f675faf853d987a4273ed2147856dc9607560586d56fbcb160076f9d792d8",
+ "md5": "631cbd6774f20fcb7a60a24482410207",
+ "branch": "uploads",
+ "dir": "psychology/eomma-gibun-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "99aee1bc91f5193c61fa91fcff74b5c98a0a5deea378648f101394ae178f9ca3"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 94371840,
+   "sha256": "fc508ee966196439e1b6d40dfda5821969b043581e4b1861ca97107b8eea9559"
+  },
+  {
+   "name": "final_1080p.mp4.part03",
+   "size": 37590194,
+   "sha256": "d839df79a19817c9f20d499e2df78a6fe8c6a7c9515c370267304679fc3bf15e"
+  }
+ ],
+ "duration_s": 464.5
+}

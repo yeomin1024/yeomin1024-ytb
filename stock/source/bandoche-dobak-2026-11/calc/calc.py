@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-14 — 반론 1회차 반영: 물타기 뒤 움직임 ±30% → ±20% (코스피 한 달 28% 와 같은 잣대 — 앞으로 한 달 움직임) · 2배 왕복 -20/+25 → 하루 -10%·다음 날 +10% (하루 단위 조건을 대본에 밝힘) · 엔비디아 하루 흔들림은 대본에서 뺌(숫자 유지)
+# VERSION: v1.2 — 2026-11-14 — 반론 3회차: 나눠 사기 예(600만 원 ÷ 6개월) · 물타기 손실률(28% vs 36%) 출력
+# (v1.1 — 2026-11-14 — 반론 1회차 반영: 물타기 뒤 움직임 ±30% → ±20% (코스피 한 달 28% 와 같은 잣대 — 앞으로 한 달 움직임) · 2배 왕복 -20/+25 → 하루 -10%·다음 날 +10% (하루 단위 조건을 대본에 밝힘) · 엔비디아 하루 흔들림은 대본에서 뺌(숫자 유지)
 # (v1.0 — 2026-11-14 — 최초 (사용자 지시 2026-11-14 "현재 반도체 주식에 투자하는건 도박이잖아 … 그 흐름으로 대본 만들어서 파일로 줘봐").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-14 | split_example · averaging_down 손실률 | GIVEN·averaging_down·main |
 # | v1.1 | 2026-11-14 | next_move 0.30→0.20 · lev_down/up 0.20/0.25 → 0.10/0.10 · assert 새 값 | GIVEN·main |
 # | v1.0 | 2026-11-14 | 물타기 손익 · 본전 회복에 필요한 상승률 · 2배 상품 제자리 손해 · 코스피 하락률 · 엔비디아 하루 흔들림 · 보도 숫자(출처)를 result.json 에 | averaging_down·recovery·leverage_round_trip·pct_change·main |
 #
@@ -21,7 +23,7 @@ import sys
 import time
 from pathlib import Path
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 HERE = Path(__file__).resolve().parent
 LOG = logging.getLogger("calc")
 
@@ -33,6 +35,8 @@ GIVEN = {
     "recovery_drop": 0.40,            # 10월 2배 상품 평균 -39.99% 를 반올림한 40%
     "lev_down": 0.10, "lev_up": 0.10, # 2배 상품 왕복 예: 기초 주가 하루 -10% → 다음 날 +10%
     "leverage": 2.0,
+    "split_total_won": 6_000_000,     # 나눠 사기 예: 사기로 정한 금액
+    "split_months": 6,                # 여섯 달에 나눔
 }
 
 FACTS = [  # (key, 값, 단위, 무엇, 출처) — 대본 문장과 짝은 checklist.md
@@ -72,6 +76,8 @@ def averaging_down(first: int, drop: float, add: int, move: float) -> dict:
             "with_add_value": round(with_add), "with_add_pnl": round(with_add - (first + add)),
             "without_value": round(without), "without_pnl": round(without - first),
         }
+    out["down"]["with_add_loss_rate_pct"] = round(out["down"]["with_add_pnl"] / (first + add) * 100, 1)
+    out["down"]["without_loss_rate_pct"] = round(out["down"]["without_pnl"] / first * 100, 1)
     out["extra_loss_from_add"] = out["down"]["without_pnl"] - out["down"]["with_add_pnl"]
     out["range_with_add"] = out["up"]["with_add_pnl"] - out["down"]["with_add_pnl"]
     out["range_without"] = out["up"]["without_pnl"] - out["down"]["without_pnl"]
@@ -107,6 +113,7 @@ def main() -> int:
         "averaging_down": averaging_down(GIVEN["first_buy_won"], GIVEN["first_drop"], GIVEN["add_won"], GIVEN["next_move"]),
         "recovery_pct_after_40": recovery(GIVEN["recovery_drop"]),
         "leverage_round_trip": leverage_round_trip(GIVEN["lev_down"], GIVEN["lev_up"], GIVEN["leverage"]),
+        "split_per_month_won": GIVEN["split_total_won"] // GIVEN["split_months"],
         "kospi_oct_to_1109_pct": pct_change(f["kospi_oct_start"], f["kospi_1109"]),
         "nvda_intraday_swing_pctp": round(f["nvda_open_drop_pct"] - f["nvda_close_drop_pct"], 2),
         "facts": [{"key": k, "value": v, "unit": u, "what": w, "source": s} for k, v, u, w, s in FACTS],
@@ -119,6 +126,8 @@ def main() -> int:
     # 점검 — 계산이 기대와 어긋나면 멈춤 (대본 숫자와 짝)
     assert ad["down"]["with_add_value"] == 14_400_000 and ad["extra_loss_from_add"] == 2_000_000, ad
     assert res["leverage_round_trip"]["base_pct"] == -1.0 and res["leverage_round_trip"]["lev_pct"] == -4.0
+    log("CALC", split_per_month=res["split_per_month_won"], loss_rate_with_add=ad["down"]["with_add_loss_rate_pct"], loss_rate_without=ad["down"]["without_loss_rate_pct"])
+    assert res["split_per_month_won"] == 1_000_000
     log("FACTS", n=len(FACTS), unverified=sum("확인 필요" in s for *_, s in FACTS))
     out = HERE / "result.json"
     out.write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")

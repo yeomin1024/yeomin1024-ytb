@@ -1,5 +1,5 @@
 {
-  "version": "v1.1",
+  "version": "v1.2",
   "given": {
     "first_buy_won": 10000000,
     "first_drop": 0.2,
@@ -8,7 +8,9 @@
     "recovery_drop": 0.4,
     "lev_down": 0.1,
     "lev_up": 0.1,
-    "leverage": 2.0
+    "leverage": 2.0,
+    "split_total_won": 6000000,
+    "split_months": 6
   },
   "averaging_down": {
     "after_drop": 8000000,
@@ -16,7 +18,9 @@
       "with_add_value": 14400000,
       "with_add_pnl": -5600000,
       "without_value": 6400000,
-      "without_pnl": -3600000
+      "without_pnl": -3600000,
+      "with_add_loss_rate_pct": -28.0,
+      "without_loss_rate_pct": -36.0
     },
     "up": {
       "with_add_value": 21600000,
@@ -34,6 +38,7 @@
     "base_pct": -1.0,
     "lev_pct": -4.0
   },
+  "split_per_month_won": 1000000,
   "kospi_oct_to_1109_pct": -27.83,
   "nvda_intraday_swing_pctp": 9.66,
   "facts": [

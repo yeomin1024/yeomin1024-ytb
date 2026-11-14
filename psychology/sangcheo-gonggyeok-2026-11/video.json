@@ -1,0 +1,28 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-14T04:36:55+00:00",
+ "file": "final_1080p.mp4",
+ "size": 199103061,
+ "sha256": "91072870993d9b88741ce0f26734881047167787df56286799231c1f0b72eabb",
+ "md5": "842b1a18c9c89a6cab909c831bdea5f9",
+ "branch": "uploads",
+ "dir": "psychology/sangcheo-gonggyeok-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "373d26fa42e7de89aa9b51dcf17a3cb8dec89cc1dda43019d4dc07477a462fbc"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 94371840,
+   "sha256": "66a24829c4cfd0a349df641e88ec0a04c8918bef056bf5a9bcb0247ac88df71c"
+  },
+  {
+   "name": "final_1080p.mp4.part03",
+   "size": 10359381,
+   "sha256": "5d1fb0233e28dec6cdfca8116b1a6fe6548d84dff776f37f93f4b6174bc44517"
+  }
+ ],
+ "duration_s": 464.13
+}

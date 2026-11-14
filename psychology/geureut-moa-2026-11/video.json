@@ -1,0 +1,28 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-14T04:36:52+00:00",
+ "file": "final_1080p.mp4",
+ "size": 198220840,
+ "sha256": "0c14922f08cad967933fa5cce4d92f4aa40a26b2f14024b200c049b6acb6c230",
+ "md5": "00e9efe981e31c30ea45b32b2f50599c",
+ "branch": "uploads",
+ "dir": "psychology/geureut-moa-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "45a6657349d908e34079c29c8cc0cb2a8becb0bcd733c3942191ba3beb4dc495"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 94371840,
+   "sha256": "a6178570adccaba164e340eb9b5acd6644bbba6360cf9381fc60bd4115eea2ed"
+  },
+  {
+   "name": "final_1080p.mp4.part03",
+   "size": 9477160,
+   "sha256": "7ef8456d71a69ea30863c1648723e54c162c8c54cbdb44c887269b1b101e7f9a"
+  }
+ ],
+ "duration_s": 447.77
+}

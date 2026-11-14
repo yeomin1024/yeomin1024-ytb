@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-14 — 대본 v6(사용자 도입 · 리스크 자세히) 보도 숫자 더함: 메가스피드 48억 달러·24만 개 · 시게이트 3억 달러(2023) · 수출 통제 일곱 나라 · 싱가포르 청구 20% · HBM 3분의 2 · 미국 반도체 지수 3.43%
+# VERSION: v1.4 — 2026-11-14 — 사용자 대본 수정본("주가는 어떻게 됐는지 간단하게 언급"): 시게이트(STX) 2023-04 일별 종가 — Yahoo chart API, 캐시 calc/stx_2023-04.json (있으면 다시 안 받음) · 발표 전날→다음 날 등락
+# (v1.3 — 2026-11-14 — 대본 v6(사용자 도입 · 리스크 자세히) 보도 숫자 더함: 메가스피드 48억 달러·24만 개 · 시게이트 3억 달러(2023) · 수출 통제 일곱 나라 · 싱가포르 청구 20% · HBM 3분의 2 · 미국 반도체 지수 3.43%
 # (v1.2 — 2026-11-14 — 반론 3회차: 나눠 사기 예(600만 원 ÷ 6개월) · 물타기 손실률(28% vs 36%) 출력
 # (v1.1 — 2026-11-14 — 반론 1회차 반영: 물타기 뒤 움직임 ±30% → ±20% (코스피 한 달 28% 와 같은 잣대 — 앞으로 한 달 움직임) · 2배 왕복 -20/+25 → 하루 -10%·다음 날 +10% (하루 단위 조건을 대본에 밝힘) · 엔비디아 하루 흔들림은 대본에서 뺌(숫자 유지)
 # (v1.0 — 2026-11-14 — 최초 (사용자 지시 2026-11-14 "현재 반도체 주식에 투자하는건 도박이잖아 … 그 흐름으로 대본 만들어서 파일로 줘봐").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-11-14 | seagate_reaction (Yahoo · 캐시 · 실패 시 WARNING + 없음) | seagate_reaction·main |
 # | v1.3 | 2026-11-14 | FACTS 8개 더함 (대본 v6·v7 — 시게이트 5년 조건 포함) | FACTS |
 # | v1.2 | 2026-11-14 | split_example · averaging_down 손실률 | GIVEN·averaging_down·main |
 # | v1.1 | 2026-11-14 | next_move 0.30→0.20 · lev_down/up 0.20/0.25 → 0.10/0.10 · assert 새 값 | GIVEN·main |
@@ -25,7 +27,7 @@ import sys
 import time
 from pathlib import Path
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 HERE = Path(__file__).resolve().parent
 LOG = logging.getLogger("calc")
 
@@ -107,6 +109,44 @@ def leverage_round_trip(down: float, up: float, lev: float) -> dict:
     return {"base_pct": round((base - 1) * 100, 1), "lev_pct": round((lever - 1) * 100, 1)}
 
 
+def seagate_reaction() -> dict | None:
+    """시게이트 STX 2023-04-12 ~ 05-05 일별 종가 (수정 안 한 종가) — 벌금 발표 2023-04-19(장중) · 실적 발표 04-20.
+    캐시 calc/stx_2023-04.json 이 있으면 그것을 씀 (같은 과거 자료 — 다시 받지 않음)."""
+    import urllib.request
+    cache = HERE / "stx_2023-04.json"
+    if cache.exists():
+        raw = json.loads(cache.read_text("utf-8"))
+        log("DATA", source="cache", path=cache.name)
+    else:
+        url = ("https://query1.finance.yahoo.com/v8/finance/chart/STX?period1=1681257600&period2=1683331200&interval=1d")
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=20) as r:
+                raw = json.loads(r.read().decode("utf-8"))
+        except Exception as e:  # 외부 호출 — 실패해도 다른 계산은 계속
+            LOG.warning("[DATA] [%s] stage=seagate_fetch error=%r next='네트워크 확인 뒤 다시 실행 — 대본의 시게이트 주가 줄은 쓰지 말 것'", time.strftime("%Y-%m-%dT%H:%M:%S"), e)
+            return None
+        cache.write_text(json.dumps(raw), encoding="utf-8")
+        log("DATA", source="yahoo", path=cache.name)
+    res = raw["chart"]["result"][0]
+    ts = res["timestamp"]; close = res["indicators"]["quote"][0]["close"]
+    days = {time.strftime("%Y-%m-%d", time.gmtime(t - 4 * 3600)): c for t, c in zip(ts, close) if c is not None}
+    bad = [d for d, c in days.items() if not (1 < c < 1000)]
+    if bad:
+        LOG.warning("[DATA] stage=seagate_check out_of_range=%s", bad)
+    d = sorted(days)
+    log("DATA", rows=len(d), first=d[0], last=d[-1])
+    def chg(a, b):
+        return round((days[b] / days[a] - 1) * 100, 2)
+    out = {"closes": {k: round(v, 2) for k, v in days.items()},
+           "d0418_to_0419_pct": chg("2023-04-18", "2023-04-19"),
+           "d0419_to_0420_pct": chg("2023-04-19", "2023-04-20"),
+           "d0418_to_0420_pct": chg("2023-04-18", "2023-04-20"),
+           "d0418_to_0428_pct": chg("2023-04-18", "2023-04-28"),
+           "note": "04-19 장중 벌금 발표 · 04-20 실적(매출 기대 미달)과 겹침 — 벌금만의 효과는 가를 수 없음"}
+    return out
+
+
 def pct_change(a: float, b: float) -> float:
     return round((b / a - 1) * 100, 2)
 
@@ -126,6 +166,7 @@ def main() -> int:
         "split_per_month_won": GIVEN["split_total_won"] // GIVEN["split_months"],
         "kospi_oct_to_1109_pct": pct_change(f["kospi_oct_start"], f["kospi_1109"]),
         "nvda_intraday_swing_pctp": round(f["nvda_open_drop_pct"] - f["nvda_close_drop_pct"], 2),
+        "seagate_2023": seagate_reaction(),
         "facts": [{"key": k, "value": v, "unit": u, "what": w, "source": s} for k, v, u, w, s in FACTS],
     }
     ad = res["averaging_down"]
@@ -138,6 +179,9 @@ def main() -> int:
     assert res["leverage_round_trip"]["base_pct"] == -1.0 and res["leverage_round_trip"]["lev_pct"] == -4.0
     log("CALC", split_per_month=res["split_per_month_won"], loss_rate_with_add=ad["down"]["with_add_loss_rate_pct"], loss_rate_without=ad["down"]["without_loss_rate_pct"])
     assert res["split_per_month_won"] == 1_000_000
+    sg = res["seagate_2023"]
+    if sg:
+        log("CALC", seagate_0418_0419=sg["d0418_to_0419_pct"], seagate_0419_0420=sg["d0419_to_0420_pct"], seagate_0418_0420=sg["d0418_to_0420_pct"], seagate_0418_0428=sg["d0418_to_0428_pct"])
     log("FACTS", n=len(FACTS), unverified=sum("확인 필요" in s for *_, s in FACTS))
     out = HERE / "result.json"
     out.write_text(json.dumps(res, ensure_ascii=False, indent=2), encoding="utf-8")

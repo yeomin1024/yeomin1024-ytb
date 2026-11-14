@@ -1,5 +1,11 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-14 — 젠슨 황 리스크 대본 v8 · 제목·썸네일 3안 (`stock/source/bandoche-dobak-2026-11/`)
+
+- 사용자 수정본을 다듬음 (문장 나눔·연결 말·HBM 풀이·'그 결과는 아무도 미리 알 수 없습니다' 보탬) · 빈칸: 시게이트 주가 · '~에 대해 알아보았습니다' · 생각 한마디(한 업종에 몰지 않기) · 바뀔 수 있다는 한 줄.
+- `calc/calc.py` v1.4: `seagate_reaction()` — STX 2023-04 일별 종가(Yahoo chart API, 캐시 `stx_2023-04.json`, 실패 시 WARNING) → 04-19 −2.19% · 04-20 −9.20% · 이틀 −11.19%.
+- `titles.md` · `package.json` — 본안 + 실험안 2 (title_fit 모두 ✅ · 근거 data_insights 5-1). 페르소나 검증은 사용자 지시로 안 함.
+
 ## 2026-11-14 — 젠슨 황 리스크 대본 v6·v7 (`stock/source/bandoche-dobak-2026-11/`)
 
 - 사용자 지시: 사용자가 쓴 도입(빈칸만 채움) · 명확·핵심만 · 7분 채우지 않음 · 리스크 자세히 · 쓸모없는 부분 삭제.

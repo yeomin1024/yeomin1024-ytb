@@ -7,7 +7,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
-# | v1.3 | 2026-11-14 | FACTS 7개 더함 (대본 v6) | FACTS |
+# | v1.3 | 2026-11-14 | FACTS 8개 더함 (대본 v6·v7 — 시게이트 5년 조건 포함) | FACTS |
 # | v1.2 | 2026-11-14 | split_example · averaging_down 손실률 | GIVEN·averaging_down·main |
 # | v1.1 | 2026-11-14 | next_move 0.30→0.20 · lev_down/up 0.20/0.25 → 0.10/0.10 · assert 새 값 | GIVEN·main |
 # | v1.0 | 2026-11-14 | 물타기 손익 · 본전 회복에 필요한 상승률 · 2배 상품 제자리 손해 · 코스피 하락률 · 엔비디아 하루 흔들림 · 보도 숫자(출처)를 result.json 에 | averaging_down·recovery·leverage_round_trip·pct_change·main |
@@ -51,6 +51,7 @@ FACTS = [  # (key, 값, 단위, 무엇, 출처) — 대본 문장과 짝은 chec
     ("megaspeed_usd_100m", 48, "억 달러 넘게", "메가스피드가 2년 동안 산 엔비디아 칩 (뉴욕타임스)", "https://www.cbsnews.com/news/nvidia-jensen-huang-investigation-china-intelligence/"),
     ("chips_banned_count_10k", 24, "만 개", "중국 수출 금지 칩 24만 개 의혹 (수사 당국)", "https://www.cbsnews.com/news/nvidia-jensen-huang-investigation-china-intelligence/"),
     ("seagate_fine_usd_100m", 3, "억 달러", "2023 시게이트 화웨이 수출 위반 벌금 — 상무부 단독 최대 · 순이익 두 배 넘게", "https://stblaw.com/about-us/publications/view/2023/04/28/bis-imposes-$300m-fine-largest-penalty-ever-against-seagate-for-violating-huawei-foreign-direct-product-rule"),
+    ("seagate_denial_order_years", 5, "년", "시게이트 합의 — 5년 수출 금지 명령 유예(어기면 발동)", "https://stblaw.com/about-us/publications/view/2023/04/28/bis-imposes-$300m-fine-largest-penalty-ever-against-seagate-for-violating-huawei-foreign-direct-product-rule"),
     ("export_rule_countries", 7, "나라", "AI 칩 수출 통제 대상에 더한다는 나라 (싱가포르·말레이시아·태국·인도네시아·브라질·노르웨이·남아공 — 보도, 확정 전)", "https://en.sedaily.com/world/2026/11/12/us-set-to-tighten-ai-chip-export-curbs-on-singapore"),
     ("nvda_singapore_bill_pct", 20, "%", "엔비디아 FY2026 1분기(2025-02~04) 매출 중 싱가포르 청구 몫 — 청구지 기준 (검색 요약: 공시 인용)", "https://fourweekmba.com/ai-chip-export-rules-explained-nvidia-billed-52b-to-singapore/ — 10-Q 원문 확인 필요"),
     ("hynix_nvda_hbm4_share", "3분의 2", "", "엔비디아 차세대(베라 루빈) HBM4 물량 중 SK하이닉스 몫 (보도)", "https://m.news.nate.com/view/20260128n33368"),

@@ -106,6 +106,13 @@
       "source": "https://stblaw.com/about-us/publications/view/2023/04/28/bis-imposes-$300m-fine-largest-penalty-ever-against-seagate-for-violating-huawei-foreign-direct-product-rule"
     },
     {
+      "key": "seagate_denial_order_years",
+      "value": 5,
+      "unit": "년",
+      "what": "시게이트 합의 — 5년 수출 금지 명령 유예(어기면 발동)",
+      "source": "https://stblaw.com/about-us/publications/view/2023/04/28/bis-imposes-$300m-fine-largest-penalty-ever-against-seagate-for-violating-huawei-foreign-direct-product-rule"
+    },
+    {
       "key": "export_rule_countries",
       "value": 7,
       "unit": "나라",

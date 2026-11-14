@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-14 — 반론 3회차: 나눠 사기 예(600만 원 ÷ 6개월) · 물타기 손실률(28% vs 36%) 출력
+# VERSION: v1.3 — 2026-11-14 — 대본 v6(사용자 도입 · 리스크 자세히) 보도 숫자 더함: 메가스피드 48억 달러·24만 개 · 시게이트 3억 달러(2023) · 수출 통제 일곱 나라 · 싱가포르 청구 20% · HBM 3분의 2 · 미국 반도체 지수 3.43%
+# (v1.2 — 2026-11-14 — 반론 3회차: 나눠 사기 예(600만 원 ÷ 6개월) · 물타기 손실률(28% vs 36%) 출력
 # (v1.1 — 2026-11-14 — 반론 1회차 반영: 물타기 뒤 움직임 ±30% → ±20% (코스피 한 달 28% 와 같은 잣대 — 앞으로 한 달 움직임) · 2배 왕복 -20/+25 → 하루 -10%·다음 날 +10% (하루 단위 조건을 대본에 밝힘) · 엔비디아 하루 흔들림은 대본에서 뺌(숫자 유지)
 # (v1.0 — 2026-11-14 — 최초 (사용자 지시 2026-11-14 "현재 반도체 주식에 투자하는건 도박이잖아 … 그 흐름으로 대본 만들어서 파일로 줘봐").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-14 | FACTS 7개 더함 (대본 v6) | FACTS |
 # | v1.2 | 2026-11-14 | split_example · averaging_down 손실률 | GIVEN·averaging_down·main |
 # | v1.1 | 2026-11-14 | next_move 0.30→0.20 · lev_down/up 0.20/0.25 → 0.10/0.10 · assert 새 값 | GIVEN·main |
 # | v1.0 | 2026-11-14 | 물타기 손익 · 본전 회복에 필요한 상승률 · 2배 상품 제자리 손해 · 코스피 하락률 · 엔비디아 하루 흔들림 · 보도 숫자(출처)를 result.json 에 | averaging_down·recovery·leverage_round_trip·pct_change·main |
@@ -23,7 +25,7 @@ import sys
 import time
 from pathlib import Path
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 HERE = Path(__file__).resolve().parent
 LOG = logging.getLogger("calc")
 
@@ -46,6 +48,13 @@ FACTS = [  # (key, 값, 단위, 무엇, 출처) — 대본 문장과 짝은 chec
     ("years_at_nvidia", 33, "년", "33년 만에 퇴진", "https://www.hankyung.com/article/2026111339411"),
     ("hynix_1113_drop_pct", 3.03, "%", "11-13 한국 SK하이닉스 하락 (121만 6천 원)", "검색 요약 — 기사 확인 필요 (blockmedia/wowtv 추정)"),
     ("samsung_1113_drop_pct", 0.96, "%", "11-13 한국 삼성전자 하락 (20만 6천 원)", "검색 요약 — 기사 확인 필요"),
+    ("megaspeed_usd_100m", 48, "억 달러 넘게", "메가스피드가 2년 동안 산 엔비디아 칩 (뉴욕타임스)", "https://www.cbsnews.com/news/nvidia-jensen-huang-investigation-china-intelligence/"),
+    ("chips_banned_count_10k", 24, "만 개", "중국 수출 금지 칩 24만 개 의혹 (수사 당국)", "https://www.cbsnews.com/news/nvidia-jensen-huang-investigation-china-intelligence/"),
+    ("seagate_fine_usd_100m", 3, "억 달러", "2023 시게이트 화웨이 수출 위반 벌금 — 상무부 단독 최대 · 순이익 두 배 넘게", "https://stblaw.com/about-us/publications/view/2023/04/28/bis-imposes-$300m-fine-largest-penalty-ever-against-seagate-for-violating-huawei-foreign-direct-product-rule"),
+    ("export_rule_countries", 7, "나라", "AI 칩 수출 통제 대상에 더한다는 나라 (싱가포르·말레이시아·태국·인도네시아·브라질·노르웨이·남아공 — 보도, 확정 전)", "https://en.sedaily.com/world/2026/11/12/us-set-to-tighten-ai-chip-export-curbs-on-singapore"),
+    ("nvda_singapore_bill_pct", 20, "%", "엔비디아 FY2026 1분기(2025-02~04) 매출 중 싱가포르 청구 몫 — 청구지 기준 (검색 요약: 공시 인용)", "https://fourweekmba.com/ai-chip-export-rules-explained-nvidia-billed-52b-to-singapore/ — 10-Q 원문 확인 필요"),
+    ("hynix_nvda_hbm4_share", "3분의 2", "", "엔비디아 차세대(베라 루빈) HBM4 물량 중 SK하이닉스 몫 (보도)", "https://m.news.nate.com/view/20260128n33368"),
+    ("h200_china_approval", "2025-12", "", "몇 달 로비 끝에 트럼프가 H200 중국 판매 허가 (25% 몫)", "https://www.pbs.org/newshour/world/trump-approves-sale-of-more-advanced-nvidia-computer-chips-used-in-ai-to-china"),
     ("sox_1113_drop_pct", 3.43, "%", "11-13 미국 필라델피아 반도체지수 하락", "검색 요약 — 기사 확인 필요"),
     ("samsung_1110_open_pct", 5, "%", "11-10 삼성전자 시초가 상승 (5.00%)", "https://www.fnnews.com/news/202611101041161898"),
     ("hynix_1110_open_pct", 6.87, "%", "11-10 SK하이닉스 시초가 상승", "https://www.fnnews.com/news/202611101041161898"),

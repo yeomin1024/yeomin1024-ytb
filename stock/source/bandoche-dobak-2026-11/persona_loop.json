@@ -199,7 +199,19 @@
       }
      }
     ],
-    "path": "stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt"
+    "path": "stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "703b1b8f6f935e25",
+     "reviewers": [
+      "E6-P1"
+     ],
+     "prompt": "stock/source/bandoche-dobak-2026-11/persona/r6_exit_prompt.md",
+     "answers": "stock/source/bandoche-dobak-2026-11/persona/answers_bandoche-dobak-2026-11_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-14T09:37:26Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -699,7 +711,19 @@
       }
      }
     ],
-    "path": "stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt"
+    "path": "stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt",
+    "pending": {
+     "n": 6,
+     "sha": "703b1b8f6f935e25",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "stock/source/bandoche-dobak-2026-11/persona/r6_rebuttal_prompt.md",
+     "answers": "stock/source/bandoche-dobak-2026-11/persona/answers_bandoche-dobak-2026-11_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-14T09:37:26Z"
+    }
    }
   }
  }

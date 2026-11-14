@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>젠슨 황 리스크 — 반도체 지금 사도 될까</title>
+<!-- VERSION: v1.1 — 2026-11-14 — still 42장을 보고: 판 클래스 이름이 kit.css .panel 과 겹쳐 흐린 상자 → .ppan · 튀어나오는 칸이 제 시각 전에 보이던 것(PSY.pop 은 그 전 투명이 아님) → pp() · 원룸 장면 아래 이름표가 Y 머리를 가림 → Y 를 왼쪽 3분의 1로·이름표는 위 · STX 그래프 글이 선·서로 겹침 → 다시 배치 · 지도 아래 글 겹침 → 중국 점 뺌·+3개국 위로·'이달 안'을 판 안으로 · 20% 고리와 아래 이름표 겹침 → 27줄은 위 이름표.
+     이전 v1.0 — 2026-11-14 — 사용자 지시 "그럼 영상 만들어봐 카메라 워크 신경쓰면서 만스피 영상 처럼".
+     대본 stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt v8 (53문장 · 오디오 4:15) · 사진 = ChatGPT 실사 23장 (images_chatgpt.md v1.0) →
+     stock/source/bandoche-dobak-2026-11/slice.py v1.0 (cut/) · 엔진 video/render/psy_anim.js v1.0 (만스피 꼴 — 원화 바꿔 끼우기 · 조각 · 글자 칸).
+     실사 배경은 1536×1024(3:2) → 무대 1920×1280 으로 놓고 영상 창(1920×1080)이 그 안에서 움직임 (pw · pcam — 위아래 200px 여유로 훑기).
+     카메라·얹는 것 = camera_plan.md v1.1 (줄마다). 숫자 = calc/result.json (calc.py v1.4) 만 · 색: 오르면 빨강 · 내리면 파랑(한국 앱) · 기준 노란 점선.
+     화면 글 = 짧은 한국어 + 티커(NVDA·STX) + BUY (주식 규칙 44). 실제 인물 사진 없음 (주인공 Y = 얼굴 안 보이는 일반인).
+     ※ 연구·교육용 — 투자 권유가 아님. 수사·의혹은 보도 기준. -->
+<meta name="end-hold" content="2.0">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#stage{background:#05070D}
+.world.pw{width:1920px;height:1280px}
+.lay.pl{width:1920px;height:1280px}
+.bgp2{position:absolute;left:0;top:0;width:1920px;height:1280px}
+.light.pl{height:1280px}
+.ppan{position:absolute;left:150px;top:120px;width:1620px;height:700px}
+.pcardx{position:absolute;border-radius:34px;background:rgba(8,12,24,.88);border:3px solid rgba(255,255,255,.16);box-shadow:0 18px 50px rgba(0,0,0,.45);color:#F4F6FA;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:900;word-break:keep-all;line-height:1.12}
+.pcardx .n{font-size:150px;letter-spacing:-4px;line-height:1}
+.pcardx .u{font-size:64px}
+.pcardx .s{font-size:46px;font-weight:800;color:#C9D2E3;margin-top:14px}
+.chain{position:absolute;display:flex;align-items:center;gap:26px}
+.chain .bx{width:330px;height:190px;border-radius:28px;background:rgba(8,12,24,.9);border:3px solid rgba(91,140,255,.55);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:#F4F6FA;font-weight:900;font-size:44px;line-height:1.15;text-align:center;word-break:keep-all}
+.chain .bx b{color:#5B8CFF;font-size:60px}
+.chain .ar{color:#5B8CFF;font-size:64px;font-weight:900}
+.mapbg{position:absolute;inset:0;border-radius:36px;background:rgba(6,10,22,.9);border:3px solid rgba(255,255,255,.14)}
+.mlbl{position:absolute;transform:translate(-50%,-50%);padding:8px 22px;border-radius:999px;background:#F4F6FA;color:#1B2030;font-weight:900;font-size:40px;white-space:nowrap}
+.tagw{position:absolute;transform:translate(-50%,-50%);padding:10px 26px;border-radius:999px;background:rgba(255,253,246,.95);color:#1B2030;font-weight:900;font-size:40px;white-space:nowrap;border:4px solid #1B2030}
+.buy{position:absolute;display:grid;place-items:center;border-radius:40px;background:#FF5A4A;color:#fff;font-weight:900;font-size:44px;letter-spacing:2px}
+.chartlbl{position:absolute;font-weight:900;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"bandoche-dobak-2026-11","topic":"stock","duration":256.45,"audio":"../../../stock/source/bandoche-dobak-2026-11/narration.mp3","thumb":null,"synced":"2026-11-14T14:26:24Z","tts":"2026-11-14T13:33:28","script_sha1":"8942d27a94e11312","sent":[{"n":1,"part":"도입","text":"젠슨 황의 불륜 사실이 드러나면서, 엔비디아 주가 하락은 물론, 반등하고 있던 반도체, AI 관련 주식들의 주가도 다시 하락하기 시작했죠.","start":0.3,"end":9.806},{"n":2,"part":"도입","text":"일부 증권가에서는, CEO 리스크 문제와 AI 투자 흐름은 별개이고, 장기적으로 큰 기업들의 AI 투자는 줄지 않는다는 분석도 있는데요.","start":10.186,"end":19.33},{"n":3,"part":"도입","text":"그 말대로 정말 지금이 매수 기회일까요, 아니면 결과를 모르고 돈을 거는 도박일까요?","start":19.71,"end":25.374},{"n":4,"part":"도입","text":"젠슨 황 퇴진으로 인한 어떤 리스크가 있는지, 반도체, AI 관련 주식에는 어떤 영향이 있는지 알아보겠습니다.","start":25.754,"end":32.659},{"n":5,"part":"현재 해결되지 않은 리스크들","text":"이번 젠슨 황 이슈로 인한 리스크는 세 가지입니다.","start":33.659,"end":36.607},{"n":6,"part":"현재 해결되지 않은 리스크들","text":"첫 번째는 칩 밀수출 수사입니다.","start":36.987,"end":39.157},{"n":7,"part":"현재 해결되지 않은 리스크들","text":"젠슨 황과 가까웠던 여성은, 싱가포르의 엔비디아 고객사 메가스피드의 임원이었습니다.","start":39.537,"end":45.005},{"n":8,"part":"현재 해결되지 않은 리스크들","text":"뉴욕타임스 보도에 따르면, 미국 정보 당국은 이 여성을 중국 간첩으로 보고 있습니다.","start":45.385,"end":50.641},{"n":9,"part":"현재 해결되지 않은 리스크들","text":"메가스피드는 지난 2년 동안 엔비디아 칩을 48억 달러어치 넘게 샀습니다.","start":51.021,"end":55.891},{"n":10,"part":"현재 해결되지 않은 리스크들","text":"수사 당국은 이 경로로, 중국 수출이 금지된 칩 24만 개가 넘어갔는지 보고 있습니다.","start":56.271,"end":61.788},{"n":11,"part":"현재 해결되지 않은 리스크들","text":"비슷한 사례가 있습니다.","start":62.168,"end":63.447},{"n":12,"part":"현재 해결되지 않은 리스크들","text":"2023년, 시게이트는 화웨이에 허가 없이 하드디스크를 팔았습니다.","start":63.827,"end":68.389},{"n":13,"part":"현재 해결되지 않은 리스크들","text":"미국 상무부는 시게이트에 3억 달러 벌금을 매겼습니다.","start":68.769,"end":72.069},{"n":14,"part":"현재 해결되지 않은 리스크들","text":"어기면 수출을 막는다는 조건도 5년 동안 붙였습니다.","start":72.449,"end":75.431},{"n":15,"part":"현재 해결되지 않은 리스크들","text":"벌금이 발표된 날 시게이트 주가는 2.19% 내렸습니다.","start":75.811,"end":79.7},{"n":16,"part":"현재 해결되지 않은 리스크들","text":"다음 날에는 실적 부진까지 겹쳐 9.2% 더 빠졌습니다.","start":80.08,"end":83.968},{"n":17,"part":"현재 해결되지 않은 리스크들","text":"이틀 만에 11% 넘게 빠진 것입니다.","start":84.348,"end":86.953},{"n":18,"part":"현재 해결되지 않은 리스크들","text":"엔비디아도 수사 결과에 따라 벌금과 판매 제한을 받을 수 있습니다.","start":87.333,"end":91.373},{"n":19,"part":"현재 해결되지 않은 리스크들","text":"두 번째는 칩 수출 규칙이 더 엄해지는 것입니다.","start":91.753,"end":94.655},{"n":20,"part":"현재 해결되지 않은 리스크들","text":"그러면 엔비디아가 칩을 팔 수 있는 곳이 줄어듭니다.","start":95.035,"end":97.913},{"n":21,"part":"현재 해결되지 않은 리스크들","text":"미국 의회는 젠슨 황과, 수출을 관리하는 상무부 장관까지 불러 증언을 듣기로 했습니다.","start":98.293,"end":104.112},{"n":22,"part":"현재 해결되지 않은 리스크들","text":"여기에 미국이 AI 칩 수출 통제 대상에 일곱 나라를 더한다는 보도도 나왔습니다.","start":104.492,"end":109.142},{"n":23,"part":"현재 해결되지 않은 리스크들","text":"싱가포르, 말레이시아, 태국, 인도네시아 등입니다.","start":109.522,"end":113.145},{"n":24,"part":"현재 해결되지 않은 리스크들","text":"빠르면 이달 안에 발표될 수 있다고 합니다.","start":113.525,"end":115.695},{"n":25,"part":"현재 해결되지 않은 리스크들","text":"엔비디아에게 이 나라들은 작은 시장이 아닙니다.","start":116.075,"end":118.969},{"n":26,"part":"현재 해결되지 않은 리스크들","text":"작년 한 분기에는 엔비디아 매출의 20%를, 싱가포르에서 대금을 치른 고객들이 냈습니다.","start":119.349,"end":125.078},{"n":27,"part":"현재 해결되지 않은 리스크들","text":"칩이 모두 싱가포르로 간 건 아니지만, 그만큼 큰 고객들이 이 지역에 있습니다.","start":125.458,"end":130.284},{"n":28,"part":"현재 해결되지 않은 리스크들","text":"이 나라들에 팔 때마다 허가가 필요해지면, 판매가 늦어지거나 줄 수 있습니다.","start":130.664,"end":135.06},{"n":29,"part":"현재 해결되지 않은 리스크들","text":"세 번째는 CEO 자리가 비었다는 것입니다.","start":135.44,"end":137.96},{"n":30,"part":"현재 해결되지 않은 리스크들","text":"그러면 미국 정부와의 협상이 약해질 수 있습니다.","start":138.34,"end":141.08},{"n":31,"part":"현재 해결되지 않은 리스크들","text":"젠슨 황은 몇 달 동안 미국 정부를 설득한 끝에, 작년 12월 중국 판매 허가를 받아 냈습니다.","start":141.46,"end":147.429},{"n":32,"part":"현재 해결되지 않은 리스크들","text":"지금은 재무 책임자가 임시 CEO를 맡고 있고, 정식 CEO는 언제 정해질지 모릅니다.","start":147.809,"end":153.159},{"n":33,"part":"현재 해결되지 않은 리스크들","text":"게다가 중국과 얽힌 의혹까지 생겨서, 협상은 더 어려워질 수 있습니다.","start":153.539,"end":157.616},{"n":34,"part":"현재 해결되지 않은 리스크들","text":"그럼 이 리스크들로 인해, 반도체와 AI 관련 주식에는 어떤 영향이 있을까요?","start":157.996,"end":162.736},{"n":35,"part":"결과에 따른 장단기 여파","text":"앞서 말한 리스크가 좋게 해소되면, 주가 반등을 기대해 볼 수 있습니다.","start":163.736,"end":167.715},{"n":36,"part":"결과에 따른 장단기 여파","text":"하지만 엔비디아에도 책임이 있다고 나오거나, 동남아 수출 규칙이 엄해질 수 있습니다.","start":168.095,"end":172.895},{"n":37,"part":"결과에 따른 장단기 여파","text":"그러면 다른 반도체와 AI 관련 주식도 같이 빠질 수 있습니다.","start":173.275,"end":177.204},{"n":38,"part":"결과에 따른 장단기 여파","text":"특히 에스케이하이닉스는 엔비디아 소식에 더 크게 흔들립니다.","start":177.584,"end":181.821},{"n":39,"part":"결과에 따른 장단기 여파","text":"엔비디아 차세대 칩의 고성능 메모리, HBM의 약 3분의 2를 맡고 있어서입니다.","start":182.201,"end":187.31},{"n":40,"part":"결과에 따른 장단기 여파","text":"길게 보면, 증권가 말대로 큰 기업들의 AI 투자는 줄지 않을 수도 있습니다.","start":187.69,"end":192.51},{"n":41,"part":"결과에 따른 장단기 여파","text":"하지만 칩을 팔 수 있는 나라가 줄면, 투자가 이어져도 엔비디아 몫은 줄 수 있습니다.","start":192.89,"end":197.605},{"n":42,"part":"결과에 따른 장단기 여파","text":"그러면 HBM 주문과, 삼성전자와 에스케이하이닉스의 이익 전망도 깎일 수 있습니다.","start":197.985,"end":203.555},{"n":43,"part":"결과에 따른 장단기 여파","text":"한마디로, 지금은 수사와 증언 결과 하나에 주가가 크게 갈립니다.","start":203.935,"end":208.184},{"n":44,"part":"결과에 따른 장단기 여파","text":"그리고 그 결과는 아무도 미리 알 수 없습니다.","start":208.564,"end":211.304},{"n":45,"part":"결과에 따른 장단기 여파","text":"따라서 지금 반도체, AI 관련 주식에 투자하는 건 도박이나 마찬가지입니다.","start":211.684,"end":216.635},{"n":46,"part":"결과에 따른 장단기 여파","text":"주가가 떨어졌다고, 싸게 매수할 수 있는 기회가 아닙니다.","start":217.015,"end":220.373},{"n":47,"part":"결과에 따른 장단기 여파","text":"싼지 비싼지를 정하는 이익 전망부터 흔들리고 있기 때문입니다.","start":220.753,"end":224.389},{"n":48,"part":"결과에 따른 장단기 여파","text":"그렇기 때문에 리스크가 해소되기 전에는, 반도체와 AI 관련 주식을 신규 매수하거나 물타기하지 않는 것이 좋습니다.","start":224.769,"end":231.929},{"n":49,"part":"결과에 따른 장단기 여파","text":"지금까지 젠슨 황 퇴진으로 생긴 리스크와 그 영향에 대해 알아보았습니다.","start":232.309,"end":236.409},{"n":50,"part":"결과에 따른 장단기 여파","text":"오늘 내용은 지금까지의 보도를 바탕으로 했고, 수사 결과에 따라 달라질 수 있습니다.","start":236.789,"end":241.908},{"n":51,"part":"결과에 따른 장단기 여파","text":"제 생각을 한마디 하자면, 한 사람의 문제가 업종 전체를 흔들 수 있다는 겁니다.","start":242.288,"end":247.056},{"n":52,"part":"결과에 따른 장단기 여파","text":"그래서 한 업종에 몰아 두지 않는 것이, 이런 일에 가장 확실한 대비라고 생각합니다.","start":247.436,"end":252.138},{"n":53,"part":"결과에 따른 장단기 여파","text":"시청해주셔서 감사합니다.","start":252.518,"end":254.048}],"subs":[[0.2,4.578,"젠슨 황의 불륜 사실이 드러나면서, 엔비디아 주가 하락은 물론,"],[4.578,10.186,"반등하고 있던 반도체,\nAI 관련 주식들의 주가도 다시 하락하기 시작했죠."],[10.186,19.71,"일부 증권가에서는, CEO 리스크 문제와 AI 투자 흐름은 별개이고,\n장기적으로 큰 기업들의 AI 투자는 줄지 않는다는 분석도 있는데요."],[19.71,25.754,"그 말대로 정말 지금이 매수 기회일까요,\n아니면 결과를 모르고 돈을 거는 도박일까요?"],[25.754,33.659,"젠슨 황 퇴진으로 인한 어떤 리스크가 있는지, 반도체,\nAI 관련 주식에는 어떤 영향이 있는지 알아보겠습니다."],[33.659,36.987,"이번 젠슨 황 이슈로 인한 리스크는 세 가지입니다."],[36.987,39.537,"첫 번째는 칩 밀수출 수사입니다."],[39.537,45.385,"젠슨 황과 가까웠던 여성은,\n싱가포르의 엔비디아 고객사 메가스피드의 임원이었습니다."],[45.385,51.021,"뉴욕타임스 보도에 따르면,\n미국 정보 당국은 이 여성을 중국 간첩으로 보고 있습니다."],[51.021,56.271,"메가스피드는 지난 2년 동안 엔비디아 칩을\n48억 달러어치 넘게 샀습니다."],[56.271,62.168,"수사 당국은 이 경로로,\n중국 수출이 금지된 칩 24만 개가 넘어갔는지 보고 있습니다."],[62.168,63.827,"비슷한 사례가 있습니다."],[63.827,68.769,"2023년, 시게이트는 화웨이에 허가 없이 하드디스크를 팔았습니다."],[68.769,72.449,"미국 상무부는 시게이트에 3억 달러 벌금을 매겼습니다."],[72.449,75.811,"어기면 수출을 막는다는 조건도 5년 동안 붙였습니다."],[75.811,80.08,"벌금이 발표된 날 시게이트 주가는 2.19% 내렸습니다."],[80.08,84.348,"다음 날에는 실적 부진까지 겹쳐 9.2% 더 빠졌습니다."],[84.348,87.333,"이틀 만에 11% 넘게 빠진 것입니다."],[87.333,91.753,"엔비디아도 수사 결과에 따라 벌금과 판매 제한을 받을 수 있습니다."],[91.753,95.035,"두 번째는 칩 수출 규칙이 더 엄해지는 것입니다."],[95.035,98.293,"그러면 엔비디아가 칩을 팔 수 있는 곳이 줄어듭니다."],[98.293,104.492,"미국 의회는 젠슨 황과,\n수출을 관리하는 상무부 장관까지 불러 증언을 듣기로 했습니다."],[104.492,109.522,"여기에 미국이 AI 칩 수출 통제 대상에\n일곱 나라를 더한다는 보도도 나왔습니다."],[109.522,113.525,"싱가포르, 말레이시아, 태국, 인도네시아 등입니다."],[113.525,116.075,"빠르면 이달 안에 발표될 수 있다고 합니다."],[116.075,119.349,"엔비디아에게 이 나라들은 작은 시장이 아닙니다."],[119.349,125.458,"작년 한 분기에는 엔비디아 매출의 20%를,\n싱가포르에서 대금을 치른 고객들이 냈습니다."],[125.458,130.664,"칩이 모두 싱가포르로 간 건 아니지만,\n그만큼 큰 고객들이 이 지역에 있습니다."],[130.664,135.44,"이 나라들에 팔 때마다 허가가 필요해지면,\n판매가 늦어지거나 줄 수 있습니다."],[135.44,138.34,"세 번째는 CEO 자리가 비었다는 것입니다."],[138.34,141.46,"그러면 미국 정부와의 협상이 약해질 수 있습니다."],[141.46,147.809,"젠슨 황은 몇 달 동안 미국 정부를 설득한 끝에,\n작년 12월 중국 판매 허가를 받아 냈습니다."],[147.809,153.539,"지금은 재무 책임자가 임시 CEO를 맡고 있고,\n정식 CEO는 언제 정해질지 모릅니다."],[153.539,157.996,"게다가 중국과 얽힌 의혹까지 생겨서, 협상은 더 어려워질 수 있습니다."],[157.996,163.736,"그럼 이 리스크들로 인해,\n반도체와 AI 관련 주식에는 어떤 영향이 있을까요?"],[163.736,168.095,"앞서 말한 리스크가 좋게 해소되면, 주가 반등을 기대해 볼 수 있습니다."],[168.095,173.275,"하지만 엔비디아에도 책임이 있다고 나오거나,\n동남아 수출 규칙이 엄해질 수 있습니다."],[173.275,177.584,"그러면 다른 반도체와 AI 관련 주식도 같이 빠질 수 있습니다."],[177.584,182.201,"특히 에스케이하이닉스는 엔비디아 소식에 더 크게 흔들립니다."],[182.201,187.69,"엔비디아 차세대 칩의 고성능 메모리,\nHBM의 약 3분의 2를 맡고 있어서입니다."],[187.69,192.89,"길게 보면,\n증권가 말대로 큰 기업들의 AI 투자는 줄지 않을 수도 있습니다."],[192.89,197.985,"하지만 칩을 팔 수 있는 나라가 줄면,\n투자가 이어져도 엔비디아 몫은 줄 수 있습니다."],[197.985,203.935,"그러면 HBM 주문과,\n삼성전자와 에스케이하이닉스의 이익 전망도 깎일 수 있습니다."],[203.935,208.564,"한마디로, 지금은 수사와 증언 결과 하나에 주가가 크게 갈립니다."],[208.564,211.684,"그리고 그 결과는 아무도 미리 알 수 없습니다."],[211.684,217.015,"따라서 지금 반도체,\nAI 관련 주식에 투자하는 건 도박이나 마찬가지입니다."],[217.015,220.753,"주가가 떨어졌다고, 싸게 매수할 수 있는 기회가 아닙니다."],[220.753,224.769,"싼지 비싼지를 정하는 이익 전망부터 흔들리고 있기 때문입니다."],[224.769,232.309,"그렇기 때문에 리스크가 해소되기 전에는, 반도체와 AI 관련 주식을\n신규 매수하거나 물타기하지 않는 것이 좋습니다."],[232.309,236.789,"지금까지 젠슨 황 퇴진으로\n생긴 리스크와 그 영향에 대해 알아보았습니다."],[236.789,242.288,"오늘 내용은 지금까지의 보도를 바탕으로 했고,\n수사 결과에 따라 달라질 수 있습니다."],[242.288,247.436,"제 생각을 한마디 하자면,\n한 사람의 문제가 업종 전체를 흔들 수 있다는 겁니다."],[247.436,252.518,"그래서 한 업종에 몰아 두지 않는 것이,\n이런 일에 가장 확실한 대비라고 생각합니다."],[252.518,254.448,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../../stock/source/bandoche-dobak-2026-11/puppet/cut/manifest.js"></script>
+<script src="../../render/psy_anim.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false, introPart: "도입", introOk: true });   // 도입 = 사용자가 쓴 문장 (2026-11-14 사용자 지시)
+const { S, E, W } = K;
+const tl = K.tl;
+const SRC = "../../../stock/source/bandoche-dobak-2026-11/";
+PSY.setup({ man: window.CUT_MANIFEST, cut: SRC + "puppet/cut/", bg: {},
+  layout: { WORLD: [-700, -700, 3400, 2400], PANEL: [150, 110, 1620, 720] },
+  allow: [["PANEL", "WORLD"], ["PANEL", "HEAD"], ["PANEL", "LOW"]] });
+const { shot, actor, moves, show, hide, pop, squash, breathe, title, label, list } = PSY;
+const RD = "#FF5A4A", BL = "#5B8CFF", YL = "#FFD400", TL = "#22C7B0";
+const B = n => Math.max(0, S(n) - 0.25);
+
+/* ── 실사 무대: 배경 1920×1280 · 층은 엔진과 같음 ── */
+const BG = { ROOM: "BG-ROOM", DESK: "BG-DESKTOP", CASINO: "BG-CASINO", STAGE: "BG-STAGE", PORT: "BG-PORT", SKY: "BG-SKYLINE", EVID: "BG-EVIDENCE",
+  HDD: "BG-HDD", MON: "BG-MONITOR", CAP: "BG-CAPITOL", HEAR: "BG-HEARING", BOARD: "BG-BOARDROOM", FAB: "BG-FAB", DC: "BG-DATACENTER", MORN: "BG-MORNING" };
+function pw(a, b, key, opt) {
+  opt = opt || {};
+  const sc = K.scene(a, b + 0.4);
+  const w = K.el(`<div class="world pw" data-slot="WORLD" data-bg="${key}"></div>`, sc);
+  const L = {};
+  for (const k of ["bg", "back", "act", "front", "fly", "light"]) L[k] = K.el(`<div class="lay pl" data-l="${k}"></div>`, w);
+  const img = K.el(`<img class="bgp2" src="${SRC}puppet/${BG[key]}.jpg" alt="">`, L.bg);
+  if (opt.filter) img.style.filter = opt.filter;
+  if (opt.tint) K.el(`<div class="light pl" style="background:${opt.tint}"></div>`, L.light);
+  return { sc, w, L, a, b };
+}
+// 카메라: [배율, 초점 x, 초점 y] — 초점이 화면 가운데 오도록, 무대 밖이 보이지 않게 막음 (무대 1920×1280)
+function pcam(W_, a, b, from, to, ease) {
+  const xy = ([s, fx, fy]) => ({ scale: s, x: Math.min(0, Math.max(1920 - 1920 * s, 960 - fx * s)), y: Math.min(0, Math.max(1080 - 1280 * s, 540 - fy * s)) });
+  tl.fromTo(W_.w, xy(from), Object.assign(xy(to), { duration: Math.max(0.1, b - a), ease: ease || "sine.inOut", immediateRender: false }), a);
+  if (a <= W_.a + 0.01) gsap.set(W_.w, xy(from));
+}
+function prop(W_, key, cx, cy, size, t, layer) {          // 소품 사진 조각 (세계 안 — 카메라와 같이)
+  const n = PSY.spr(W_.L[layer || "fly"], key, cx, cy, size, ";filter:drop-shadow(0 24px 30px rgba(0,0,0,.55))");
+  tl.fromTo(n, { opacity: 0, y: cy + 60, scale: 0.9 }, { opacity: 1, y: cy, scale: 1, duration: 0.55, ease: "power3.out", immediateRender: false }, t);
+  return n;
+}
+const pp = (n, t, s0) => { gsap.set(n, { opacity: 0 }); PSY.pop(n, t, s0); };   // 제 시각 전에는 투명
+function panel(W_, t, out) {                              // 화면 고정 판 (PANEL 칸)
+  const n = K.el(`<div class="ppan" data-slot="PANEL"></div>`, W_.sc);
+  gsap.set(n, { opacity: 0 });
+  tl.to(n, { opacity: 1, duration: 0.3 }, t);
+  if (out) tl.to(n, { opacity: 0, duration: 0.3 }, out);
+  return n;
+}
+function bigCard(W_, x, y, w, h, html, t, out) {          // 큰 숫자 카드 (PANEL 안)
+  const p = panel(W_, t - 0.05, out);
+  const c = K.el(`<div class="pcardx" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">${html}</div>`, p);
+  pp(c, t, 0.6);
+  return c;
+}
+const lab = (W_, html, t, out, o) => label(W_, html, t, out, Object.assign({ size: 52 }, o || {}));
+const low = (W_, html, t, out, o) => label(W_, html, t, out, Object.assign({ size: 50, top: 640 }, o || {}));
+const sky = (s) => `<span style="color:${BL}">${s}</span>`, red = (s) => `<span style="color:${RD}">${s}</span>`, yel = (s) => `<span style="color:${YL}">${s}</span>`;
+
+/* 자리 표 — 배경 사진에서 잰 자리 (무대 1920×1280) */
+const SP = {
+  ROOM_Y: [430, 1215, 1.02],         // 원룸 · 책상 앞 의자 (뒷모습 — 바퀴 끝) · 왼쪽 3분의 1 (이름표가 머리를 가리지 않게)
+  MON_ROOM: [980, 395],              // 원룸 모니터 가운데
+  PHONE_BTN: [977, 728, 230, 60],    // 책상 위 휴대전화의 빈 단추 [가운데 x, 가운데 y, 폭, 높이]
+  HAND: [1068, 1592, 1.0],           // 손 조각 (손목 끝이 무대 아래 밖) — 검지 끝이 단추 위
+  MON: [400, 220, 1140, 640],        // 거래 책상 모니터 화면 [x, y, w, h]
+};
+
+/* ═════════════ 도입 (1~4) ═════════════ */
+// 1~2 — 원룸: Y 가 휴대전화를 보다 어깨가 처짐 · 모니터 쪽으로 다가가기
+shot(0, (a, b) => {
+  const W_ = pw(a, b, "ROOM");
+  const [x, y, s] = SP.ROOM_Y;
+  const A = actor(W_, ["Y01-1", "Y01-2"], x, y, s, { shadow: false });
+  moves(A, [[a, "Y01-1", 1, "hold"], [W(1, "하락은") - 0.2, "Y01-2", 1, "hold"]], b + 0.4);
+  squash(A, W(1, "하락은") - 0.2, 0.02); breathe(A, a, b);
+  pcam(W_, a, b, [1.0, 960, 640], [1.14, 960, 470]);
+  lab(W_, `NVDA ${sky("↓")}`, W(1, "엔비디아"), W(1, "반등하고") - 0.1);
+  lab(W_, `반도체 · AI 주식 ${sky("다시 ↓")}`, W(1, "반등하고"), S(2) - 0.1);
+  lab(W_, `증권가: CEO 리스크 ≠ AI 투자 흐름`, S(2) + 0.2, W(2, "장기적으로") - 0.1);
+  lab(W_, `장기적으로 AI 투자는 줄지 않는다?`, W(2, "장기적으로"), b);
+  K.cut(W(1, "주식들의") + 0.5, "1 원룸 · 하락"); K.cut(W(2, "장기적으로") + 1, "2 증권가 분석");
+}, 0);
+// 3 — 룰렛 위 휴대전화에서 물러나며 칩 더미 드러내기 · 기회? 도박?
+shot(B(3), (a, b) => {
+  const W_ = pw(a, b, "CASINO");
+  pcam(W_, a, b, [1.38, 1005, 800], [1.0, 960, 640], "power2.inOut");
+  const p = panel(W_, W(3, "매수") - 0.1, b);
+  const c1 = K.el(`<div class="pcardx" style="left:120px;top:200px;width:620px;height:260px;font-size:84px">매수 기회?</div>`, p);
+  const c2 = K.el(`<div class="pcardx" style="left:880px;top:200px;width:620px;height:260px;font-size:84px;color:${YL}">도박?</div>`, p);
+  pp(c1, W(3, "매수"), 0.6); pp(c2, W(3, "도박"), 0.6);
+  K.cut(W(3, "도박") + 0.6, "3 기회? 도박?");
+});
+// 4 — 빈 발표 무대 · 조명 아래 빈 의자로 다가가기
+shot(B(4), (a, b) => {
+  const W_ = pw(a, b, "STAGE");
+  pcam(W_, a, b, [1.0, 960, 640], [1.16, 976, 700]);
+  lab(W_, `젠슨 황 퇴진 → 남은 리스크는?`, W(4, "퇴진"), b);
+  K.cut(E(4) - 0.6, "4 빈 무대");
+});
+
+/* ═════════════ 현재 해결되지 않은 리스크들 (5~34) ═════════════ */
+// 5 — 리스크 세 가지 목록 (빈 무대 위)
+shot(B(5), (a, b) => {
+  const W_ = pw(a, b, "STAGE", { tint: "rgba(5,8,20,.35)" });
+  pcam(W_, a, b, [1.16, 976, 700], [1.2, 976, 720]);
+  list(W_, [430, 230, 1060], [["1", RD, "칩 밀수출 수사", W(5, "리스크")], ["2", YL, "칩 수출 규칙 강화", W(5, "세") - 0.1], ["3", TL, "CEO 공백", W(5, "가지")]], b);
+  K.cut(E(5) - 0.3, "5 리스크 3가지");
+});
+// 6 — 밤 항구 · 크레인 따라 옆으로
+shot(B(6), (a, b) => {
+  const W_ = pw(a, b, "PORT");
+  pcam(W_, a, b, [1.12, 760, 700], [1.12, 1180, 700]);
+  title(W_, "1", RD, "칩 밀수출 수사", W(6, "칩"), b);
+  K.cut(E(6) - 0.4, "6 ① 칩 밀수출 수사");
+});
+// 7 — 싱가포르 빌딩숲으로 다가가기
+shot(B(7), (a, b) => {
+  const W_ = pw(a, b, "SKY");
+  pcam(W_, a, b, [1.0, 960, 640], [1.14, 965, 600]);
+  lab(W_, `싱가포르 엔비디아 고객사 · 메가스피드`, W(7, "싱가포르"), b);
+  low(W_, `젠슨 황과 가까웠던 여성 = 이 회사 임원`, W(7, "임원") - 0.6, b);
+  K.cut(E(7) - 0.4, "7 싱가포르");
+});
+// 8 — 수사실: 빨간 실 판을 위에서 아래로 훑기
+shot(B(8), (a, b) => {
+  const W_ = pw(a, b, "EVID");
+  pcam(W_, a, b, [1.14, 940, 360], [1.14, 940, 720]);
+  lab(W_, `뉴욕타임스 보도`, W(8, "뉴욕타임스"), b);
+  low(W_, `미국 정보 당국 → ${red("중국 간첩")}으로 봄`, W(8, "중국"), b);
+  K.cut(E(8) - 0.4, "8 수사실");
+});
+// 9 — 48억 달러 (항구 흐리게 + 칩 보드 조각)
+shot(B(9), (a, b) => {
+  const W_ = pw(a, b, "PORT", { filter: "blur(6px) brightness(.55)" });
+  pcam(W_, a, b, [1.05, 960, 640], [1.12, 960, 620]);
+  prop(W_, "PROPS-1", 560, 640, 620, S(9) + 0.2);
+  const c = bigCard(W_, 860, 150, 640, 400, `<div><span class="n">0</span><span class="u">억 달러</span></div><div class="s">2년 동안 산 엔비디아 칩</div>`, W(9, "엔비디아"), b);
+  K.counter(c.querySelector(".n"), 0, 48, W(9, "48억"), 1.0);
+  K.cut(E(9) - 0.3, "9 48억 달러");
+});
+// 10 — 24만 개 (수사실 상자로 다가가기 + 돋보기)
+shot(B(10), (a, b) => {
+  const W_ = pw(a, b, "EVID");
+  pcam(W_, a, b, [1.0, 960, 640], [1.2, 885, 1000]);
+  prop(W_, "PROPS-7", 1180, 980, 420, W(10, "수출"));
+  const c = bigCard(W_, 1000, 120, 600, 330, `<div><span class="n">0</span><span class="u">만 개</span></div><div class="s">${red("중국 수출 금지")} 칩</div>`, W(10, "중국"), b);
+  K.counter(c.querySelector(".n"), 0, 24, W(10, "24만"), 0.9);
+  K.cut(E(10) - 0.3, "10 24만 개");
+});
+// 11~12 — 하드디스크 더미를 따라 옆으로
+shot(B(11), (a, b) => {
+  const W_ = pw(a, b, "HDD");
+  pcam(W_, a, b, [1.12, 640, 820], [1.12, 1060, 820]);
+  lab(W_, `비슷한 사례 · 2023년`, W(11, "비슷한"), b);
+  low(W_, `시게이트 → 화웨이 · ${red("허가 없이")} 하드디스크 판매`, S(12) + 0.2, b);
+  K.cut(E(12) - 0.4, "12 시게이트");
+});
+// 13~14 — 의사봉으로 다가가기 · 3억 달러 · 5년 조건
+shot(B(13), (a, b) => {
+  const W_ = pw(a, b, "HDD");
+  pcam(W_, a, b, [1.12, 1260, 900], [1.3, 1560, 1010]);
+  const c = bigCard(W_, 80, 140, 640, 360, `<div><span class="n" style="color:${RD}">0</span><span class="u">억 달러</span></div><div class="s">미국 상무부 벌금</div>`, W(13, "3억"), b);
+  K.counter(c.querySelector(".n"), 0, 3, W(13, "3억"), 0.7);
+  low(W_, `어기면 수출 금지 · ${yel("5년")} 조건`, W(14, "어기면"), b, { top: 600 });
+  K.cut(E(14) - 0.3, "14 벌금 · 5년 조건");
+});
+// 15~17 — 거래 모니터에 시게이트(STX) 실제 종가 그래프 (calc/result.json seagate_2023.closes)
+shot(B(15), (a, b) => {
+  const W_ = pw(a, b, "MON");
+  pcam(W_, a, b, [1.0, 970, 560], [1.13, 970, 540]);
+  const C = [["04-12", 66.38], ["04-13", 65.35], ["04-14", 63.96], ["04-17", 64.25], ["04-18", 64.27], ["04-19", 62.86], ["04-20", 57.08], ["04-21", 56.42],
+    ["04-24", 57.01], ["04-25", 56.09], ["04-26", 56.34], ["04-27", 56.8], ["04-28", 58.77], ["05-01", 58.56], ["05-02", 56.85], ["05-03", 55.92], ["05-04", 55.12], ["05-05", 55.94]];
+  const [mx, my, mw, mh] = SP.MON, px0 = mx + 90, px1 = mx + mw - 70, py0 = my + 110, py1 = my + mh - 60, vmin = 50, vmax = 70;
+  const X = i => px0 + (px1 - px0) * i / (C.length - 1), Y = v => py1 - (py1 - py0) * (v - vmin) / (vmax - vmin);
+  const pts = C.map(([, v], i) => `${X(i).toFixed(1)},${Y(v).toFixed(1)}`).join(" ");
+  const base = Y(64.27);
+  const svg = K.el(`<svg style="position:absolute;left:0;top:0" width="1920" height="1280" viewBox="0 0 1920 1280">
+    <line x1="${px0}" y1="${base}" x2="${px1}" y2="${base}" stroke="${YL}" stroke-width="4" stroke-dasharray="14 12" opacity=".9"/>
+    <polyline id="stxl" points="${pts}" fill="none" stroke="${BL}" stroke-width="9" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle id="d19" cx="${X(5)}" cy="${Y(62.86)}" r="16" fill="${BL}" stroke="#fff" stroke-width="5"/>
+    <circle id="d20" cx="${X(6)}" cy="${Y(57.08)}" r="18" fill="${BL}" stroke="#fff" stroke-width="5"/>
+    <rect id="brk" x="${X(4)}" y="${base}" width="${X(6) - X(4)}" height="${Y(57.08) - base}" fill="rgba(91,140,255,.22)"/>
+  </svg>`, W_.L.back);
+  const len = 2600;
+  const pl = svg.querySelector("#stxl");
+  gsap.set(pl, { attr: { "stroke-dasharray": len, "stroke-dashoffset": len } });
+  tl.to(pl, { attr: { "stroke-dashoffset": 0 }, duration: 3.2, ease: "none" }, S(15));
+  const d19 = svg.querySelector("#d19"), d20 = svg.querySelector("#d20"), brk = svg.querySelector("#brk");
+  gsap.set([d19, d20, brk], { opacity: 0 });
+  const t1 = K.el(`<div class="chartlbl" style="left:${mx + 40}px;top:${my + 30}px;font-size:52px;color:#F4F6FA">STX <span style="font-size:40px;color:#C9D2E3">2023년 4월 종가</span></div>`, W_.L.back);
+  PSY.show(t1, S(15) - 0.1, 0.3);
+  const l19 = K.el(`<div class="chartlbl" style="left:${X(5) - 330}px;top:${Y(62.86) + 40}px;font-size:44px;color:${BL};text-align:right;line-height:1.1;width:300px">벌금 발표<br><span style="font-size:56px">−2.19%</span></div>`, W_.L.back);
+  const l20 = K.el(`<div class="chartlbl" style="left:${X(6) + 30}px;top:${Y(55) + 6}px;font-size:44px;color:${BL};line-height:1.1">실적 부진까지<br><span style="font-size:56px">−9.2%</span></div>`, W_.L.back);
+  const lb = K.el(`<div class="chartlbl" style="left:${X(6) + 40}px;top:${base - 96}px;font-size:52px;color:#F4F6FA;background:rgba(8,12,24,.85);padding:6px 20px;border-radius:16px">이틀 ${sky("−11%")}</div>`, W_.L.back);
+  gsap.set([l19, l20, lb], { opacity: 0 });
+  PSY.pop(d19, W(15, "2.19%") - 0.2, 0.4); PSY.show(l19, W(15, "2.19%") - 0.1, 0.3);
+  PSY.pop(d20, W(16, "9.2%") - 0.2, 0.4); PSY.show(l20, W(16, "9.2%") - 0.1, 0.3);
+  PSY.show(brk, S(17), 0.3); PSY.show(lb, W(17, "11%") - 0.2, 0.3);
+  K.cut(E(17) - 0.3, "15~17 STX 그래프");
+});
+// 18 — 엔비디아도: 칩 보드 + 자물쇠 (수사실 흐리게)
+shot(B(18), (a, b) => {
+  const W_ = pw(a, b, "EVID", { filter: "blur(7px) brightness(.5)" });
+  pcam(W_, a, b, [1.04, 960, 640], [1.12, 960, 640]);
+  prop(W_, "PROPS-1", 860, 640, 660, S(18) + 0.1);
+  prop(W_, "PROPS-5", 1180, 720, 360, W(18, "판매"));
+  lab(W_, `엔비디아도 → 벌금 · ${red("판매 제한")}?`, W(18, "벌금"), b);
+  K.cut(E(18) - 0.3, "18 벌금 · 판매 제한");
+});
+// 19~20 — 항구에서 물러나며 넓게 · ② 수출 규칙
+shot(B(19), (a, b) => {
+  const W_ = pw(a, b, "PORT");
+  pcam(W_, a, b, [1.2, 960, 760], [1.0, 960, 640]);
+  title(W_, "2", YL, "칩 수출 규칙 강화", W(19, "칩"), b);
+  low(W_, `엔비디아가 칩을 팔 수 있는 곳 ${sky("↓")}`, S(20) + 0.2, b);
+  K.cut(E(20) - 0.3, "19~20 ② 수출 규칙");
+});
+// 21 — 국회의사당 올려 보기 → 청문회장 옆으로
+shot(B(21), (a, b) => {
+  const W_ = pw(a, b, "CAP");
+  pcam(W_, a, b, [1.12, 965, 1010], [1.12, 965, 430]);
+  lab(W_, `미국 의회 증언`, W(21, "의회"), b);
+  K.cut(W(21, "젠슨") + 0.3, "21 국회의사당");
+});
+shot(W(21, "수출을") - 0.3, (a, b) => {
+  const W_ = pw(a, b, "HEAR");
+  pcam(W_, a, b, [1.14, 620, 700], [1.14, 1300, 700]);
+  lab(W_, `젠슨 황 + 상무부 장관 증언`, a + 0.3, b);
+  K.cut(E(21) - 0.2, "21 청문회장");
+});
+// 22~24 — 동남아 점 지도 (싱가포르 빌딩 흐리게 뒤에)
+shot(B(22), (a, b) => {
+  const W_ = pw(a, b, "SKY", { filter: "blur(8px) brightness(.4)" });
+  pcam(W_, a, b, [1.0, 960, 640], [1.06, 960, 640]);
+  const p = panel(W_, S(22), b);
+  K.el(`<div class="mapbg"></div>`, p);
+  const map = K.el(`<div style="position:absolute;inset:0;transform-origin:650px 453px"></div>`, p);
+  const P = (lat, lon) => [60 + (lon - 92) / 30 * 1500, 40 + (22 - lat) / 31 * 620];   // 위도 22 ~ −9 · 경도 92 ~ 122
+  let grid = "";
+  for (let lo = 95; lo <= 120; lo += 5) { const [x] = P(0, lo); grid += `<line x1="${x}" y1="20" x2="${x}" y2="680" stroke="rgba(255,255,255,.08)" stroke-width="2"/>`; }
+  for (let la = 20; la >= -5; la -= 5) { const [, y] = P(la, 92); grid += `<line x1="20" y1="${y}" x2="1600" y2="${y}" stroke="rgba(255,255,255,.08)" stroke-width="2"/>`; }
+  const C = [["태국", 13.75, 100.5, W(23, "태국")], ["말레이시아", 3.14, 101.7, W(23, "말레이시아")], ["싱가포르", 1.35, 103.8, W(23, "싱가포르")], ["인도네시아", -6.2, 106.8, W(23, "인도네시아")]];
+  K.el(`<svg style="position:absolute;left:0;top:0" width="1620" height="720" viewBox="0 0 1620 720">${grid}</svg>`, map);
+  C.forEach(([nm, la, lo, t], i) => {
+    const [x, y] = P(la, lo);
+    const dot = K.el(`<div style="position:absolute;left:${x - 22}px;top:${y - 22}px;width:44px;height:44px;border-radius:50%;background:${RD};box-shadow:0 0 0 10px rgba(255,90,74,.25)"></div>`, map);
+    const lb = K.el(`<div class="mlbl" style="left:${x + (i % 2 ? -190 : 190)}px;top:${y}px">${nm}</div>`, map);
+    gsap.set([dot, lb], { opacity: 0 });
+    PSY.pop(dot, t - 0.1, 0.3); PSY.show(lb, t, 0.25);
+  });
+  const more = K.el(`<div class="mlbl" style="left:1180px;top:165px;background:${YL}">+ 3개국 (브라질 · 노르웨이 · 남아공)</div>`, p);   // 확대되는 지도 밖 (화면 안에 남게)
+  gsap.set(more, { opacity: 0 }); PSY.show(more, W(23, "등"), 0.3);
+  const head = K.el(`<div class="mlbl" style="left:810px;top:60px;background:#F4F6FA;font-size:46px">AI 칩 수출 통제 대상 ${red("일곱 나라")} 추가 (보도)</div>`, p);
+  gsap.set(head, { opacity: 0 }); PSY.show(head, W(22, "일곱"), 0.3);
+  tl.fromTo(map, { scale: 1 }, { scale: 1.22, duration: Math.max(0.5, E(23) - W(23, "싱가포르")), ease: "sine.inOut", immediateRender: false }, W(23, "싱가포르"));
+  const soon = K.el(`<div class="mlbl" style="left:1200px;top:640px;font-size:48px">빠르면 ${red("이달 안")} 발표</div>`, p);
+  gsap.set(soon, { opacity: 0 }); PSY.show(soon, S(24) + 0.1, 0.3);
+  K.cut(E(23) - 0.3, "22~23 동남아 지도"); K.cut(E(24) - 0.3, "24 이달 안");
+});
+// 25~27 — 마리나 베이를 따라 옆으로 · 매출 20% 고리
+shot(B(25), (a, b) => {
+  const W_ = pw(a, b, "SKY");
+  pcam(W_, a, b, [1.12, 700, 620], [1.12, 1220, 620]);
+  lab(W_, `엔비디아에게 ${yel("작은 시장이 아님")}`, W(25, "작은"), S(26) - 0.1);
+  const p = panel(W_, S(26), S(27) + 1.2);
+  const r = 130, L = 2 * Math.PI * r;
+  const dn = K.el(`<div class="pcardx" style="left:1010px;top:120px;width:560px;height:520px">
+    <svg width="320" height="320" viewBox="0 0 320 320"><circle cx="160" cy="160" r="${r}" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="44"/>
+    <circle class="arc" cx="160" cy="160" r="${r}" fill="none" stroke="${YL}" stroke-width="44" stroke-dasharray="${L}" stroke-dashoffset="${L}" transform="rotate(-90 160 160)"/>
+    <text x="160" y="185" text-anchor="middle" font-size="76" font-weight="900" fill="#F4F6FA" font-family="Noto Sans KR">20%</text></svg>
+    <div class="s" style="font-size:40px;margin-top:8px">작년 한 분기 엔비디아 매출 중<br>싱가포르에서 대금 낸 고객</div></div>`, p);
+  pp(dn, S(26), 0.7);
+  tl.to(dn.querySelector(".arc"), { attr: { "stroke-dashoffset": L * 0.8 }, duration: 1.0, ease: "power2.out" }, W(26, "20%"));
+  lab(W_, `칩이 간 곳 ≠ 대금 낸 곳 · 큰 고객이 이 지역에`, S(27) + 0.1, b);
+  K.cut(E(26) - 0.3, "26 20%"); K.cut(E(27) - 0.3, "27 대금 낸 곳");
+});
+// 28 — 항구 · 나라마다 허가 → 판매 지연
+shot(B(28), (a, b) => {
+  const W_ = pw(a, b, "PORT", { tint: "rgba(5,8,22,.25)" });
+  pcam(W_, a, b, [1.06, 960, 700], [1.12, 900, 760]);
+  prop(W_, "PROPS-4", 1430, 860, 360, S(28) + 0.2);
+  lab(W_, `팔 때마다 허가 필요 → 판매 ${sky("지연 · 감소")}`, W(28, "허가"), b);
+  K.cut(E(28) - 0.3, "28 허가 → 지연");
+});
+// 29~32 — 빈 이사회실 · 끝자리 의자로 천천히 다가가기
+shot(B(29), (a, b) => {
+  const W_ = pw(a, b, "BOARD");
+  pcam(W_, a, b, [1.0, 960, 640], [1.24, 909, 560]);
+  title(W_, "3", TL, "CEO 공백", W(29, "CEO"), b);
+  low(W_, `미국 정부와의 협상 ${sky("약해질 수")}`, W(30, "협상"), S(31) - 0.1);
+  low(W_, `몇 달 설득 끝에 → ${yel("2025.12")} 중국 판매 허가`, W(31, "작년"), S(32) - 0.1);
+  low(W_, `지금: 임시 CEO = 재무 책임자 · 정식 CEO ?`, S(32) + 0.1, b);
+  K.cut(E(30) - 0.3, "30 협상"); K.cut(E(31) - 0.3, "31 중국 판매 허가"); K.cut(E(32) - 0.3, "32 임시 CEO");
+});
+// 33 — 청문회장 증인석으로 다가가기
+shot(B(33), (a, b) => {
+  const W_ = pw(a, b, "HEAR", { tint: "rgba(5,8,22,.2)" });
+  pcam(W_, a, b, [1.0, 960, 640], [1.18, 960, 700]);
+  lab(W_, `중국 얽힌 의혹 → 협상 ${red("더 어려움")}`, W(33, "의혹"), b);
+  K.cut(E(33) - 0.3, "33 의혹");
+});
+// 34 — 원룸: Y 가 팔짱 끼고 생각 · 멀어지기
+shot(B(34), (a, b) => {
+  const W_ = pw(a, b, "ROOM");
+  const A = actor(W_, ["Y02-1", "Y02-2"], 560, 1215, 1.05, { shadow: false });
+  moves(A, [[a, "Y02-1", 1, "hold"], [W(34, "반도체") - 0.2, "Y02-2", 1, "hold"]], b + 0.4);
+  breathe(A, a, b);
+  pcam(W_, a, b, [1.12, 960, 560], [1.0, 960, 640]);
+  lab(W_, `반도체 · AI 주식에는 어떤 영향?`, W(34, "반도체"), b);
+  K.cut(E(34) - 0.3, "34 영향은?");
+});
+
+/* ═════════════ 결과에 따른 장단기 여파 (35~53) ═════════════ */
+// 35 — 데이터센터 통로 따라 앞으로 · 좋게 풀리면
+shot(B(35), (a, b) => {
+  const W_ = pw(a, b, "DC");
+  pcam(W_, a, b, [1.0, 960, 560], [1.2, 965, 509]);
+  lab(W_, `리스크가 좋게 해소되면 → 반등 ${red("↑")}`, W(35, "좋게"), b);
+  K.cut(E(35) - 0.3, "35 반등");
+});
+// 36~37 — 어두운 항구 · 나쁘게 나오면
+shot(B(36), (a, b) => {
+  const W_ = pw(a, b, "PORT", { tint: "rgba(4,8,30,.45)" });
+  pcam(W_, a, b, [1.15, 960, 700], [1.0, 960, 640]);
+  lab(W_, `엔비디아 책임? · 동남아 수출 규칙?`, W(36, "엔비디아"), S(37) - 0.1);
+  const p = panel(W_, S(37), b);
+  const names = ["엔비디아", "반도체", "AI 주식"];
+  names.forEach((nm, i) => {
+    const c = K.el(`<div class="pcardx" style="left:${130 + i * 480}px;top:230px;width:400px;height:220px;font-size:60px">${nm}<div style="color:${BL};font-size:80px;line-height:1">↓</div></div>`, p);
+    pp(c, S(37) + 0.2 + i * 0.35, 0.6);
+  });
+  K.cut(E(36) - 0.3, "36 나쁜 결과"); K.cut(E(37) - 0.3, "37 같이 빠짐");
+});
+// 38~39 — 클린룸 안으로 · HBM 3분의 2
+shot(B(38), (a, b) => {
+  const W_ = pw(a, b, "FAB");
+  pcam(W_, a, b, [1.0, 960, 640], [1.18, 965, 590]);
+  lab(W_, `에스케이하이닉스 → 엔비디아 소식에 ${sky("더 크게")} 흔들림`, W(38, "에스케이하이닉스"), b);
+  prop(W_, "PROPS-2", 620, 700, 460, S(39));
+  const p = panel(W_, S(39) + 0.1, b);
+  const r = 120, L = 2 * Math.PI * r;
+  const dn = K.el(`<div class="pcardx" style="left:960px;top:150px;width:560px;height:500px">
+    <svg width="300" height="300" viewBox="0 0 300 300"><circle cx="150" cy="150" r="${r}" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="44"/>
+    <circle class="arc" cx="150" cy="150" r="${r}" fill="none" stroke="${YL}" stroke-width="44" stroke-dasharray="${L}" stroke-dashoffset="${L}" transform="rotate(-90 150 150)"/>
+    <text x="150" y="170" text-anchor="middle" font-size="56" font-weight="900" fill="#F4F6FA" font-family="Noto Sans KR">약 2/3</text></svg>
+    <div class="s" style="font-size:40px;margin-top:8px">엔비디아 차세대 칩의 HBM<br>에스케이하이닉스 몫</div></div>`, p);
+  pp(dn, S(39) + 0.1, 0.7);
+  tl.to(dn.querySelector(".arc"), { attr: { "stroke-dashoffset": L / 3 }, duration: 1.0, ease: "power2.out" }, W(39, "3분의"));
+  K.cut(E(39) - 0.3, "39 HBM 2/3");
+});
+// 40~42 — 데이터센터 옆으로 · 사슬 그림
+shot(B(40), (a, b) => {
+  const W_ = pw(a, b, "DC", { filter: "brightness(.85)" });
+  pcam(W_, a, b, [1.12, 760, 560], [1.12, 1160, 560]);
+  lab(W_, `길게 보면: AI 투자는 이어질 수도`, W(40, "길게"), S(41) - 0.1);
+  const p = panel(W_, S(41), b);
+  const ch = K.el(`<div class="chain" style="left:0px;top:260px"></div>`, p);
+  const items = [["팔 수 있는 나라", W(41, "나라")], ["엔비디아 몫", W(41, "엔비디아")], ["HBM 주문", W(42, "HBM")], ["두 회사 이익 전망", W(42, "이익")]];
+  items.forEach(([txt, t], i) => {
+    if (i) { const ar = K.el(`<div class="ar">→</div>`, ch); gsap.set(ar, { opacity: 0 }); PSY.show(ar, t - 0.15, 0.2); }
+    const bx = K.el(`<div class="bx">${txt}<b>↓</b></div>`, ch);
+    pp(bx, t - 0.1, 0.6);
+  });
+  K.cut(E(41) - 0.3, "41 사슬 1"); K.cut(E(42) - 0.3, "42 사슬 2");
+});
+// 43~45 — 룰렛으로 다가가기 · 도박이나 마찬가지
+shot(B(43), (a, b) => {
+  const W_ = pw(a, b, "CASINO");
+  pcam(W_, a, b, [1.0, 960, 640], [1.2, 1300, 420]);
+  lab(W_, `수사 · 증언 결과 하나에 주가가 갈림`, W(43, "수사와"), S(44) - 0.1);
+  lab(W_, `그 결과는 ${yel("아무도 모름")}`, S(44) + 0.1, S(45) - 0.1);
+  const big = K.el(`<div class="ptitle" data-slot="LOW" style="left:50%;top:600px;padding:26px 60px;font-size:84px;background:${YL};color:#1B2030;border-color:#1B2030">도박이나 마찬가지</div>`, W_.sc);
+  gsap.set(big, { xPercent: -50, opacity: 0 });
+  tl.fromTo(big, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)", immediateRender: false }, W(45, "도박"));
+  K.cut(E(44) - 0.3, "44 아무도 모름"); K.cut(E(45) - 0.3, "45 도박");
+});
+// 46~47 — 원룸: Y 가 뒷목을 주무름 · 기회 아님
+shot(B(46), (a, b) => {
+  const W_ = pw(a, b, "ROOM", { tint: "rgba(5,8,22,.18)" });
+  const [x, y, s] = SP.ROOM_Y;
+  const A = actor(W_, ["Y01-2", "Y01-3"], x, y, s, { shadow: false });
+  moves(A, [[a, "Y01-2", 1, "hold"], [W(46, "기회가") - 0.2, "Y01-3", 1, "hold"]], b + 0.4);
+  breathe(A, a, b);
+  pcam(W_, a, b, [1.0, 960, 640], [1.1, 900, 560]);
+  lab(W_, `떨어졌다고 ${red("싸게 살 기회 ✗")}`, W(46, "싸게"), S(47) - 0.1);
+  lab(W_, `싼지 비싼지 정하는 이익 전망부터 흔들림`, S(47) + 0.1, b);
+  K.cut(E(46) - 0.3, "46 기회 아님"); K.cut(E(47) - 0.3, "47 이익 전망");
+});
+// 48 — 책상 위 휴대전화: 손이 BUY 를 누르려다 멈추고 거둠
+shot(B(48), (a, b) => {
+  const W_ = pw(a, b, "DESK");
+  pcam(W_, a, b, [1.0, 975, 640], [1.12, 975, 600]);
+  const [bx, by, bw, bh] = SP.PHONE_BTN;
+  const buy = K.el(`<div class="buy" style="left:${bx - bw / 2}px;top:${by - bh / 2}px;width:${bw}px;height:${bh}px">BUY</div>`, W_.L.back);
+  gsap.set(buy, { opacity: 0 }); PSY.show(buy, a + 0.2, 0.3);
+  const [hx, hy, hs] = SP.HAND;
+  const H = actor(W_, ["H01-1", "H01-2", "H01-3"], hx, hy, hs, { shadow: false, layer: "front" });
+  const tStop = W(48, "물타기") - 0.2, tBack = W(48, "않는") - 0.2;
+  moves(H, [[a, "H01-1", 1, "hold"], [tStop, "H01-2", 1, "hold"], [tBack, "H01-3", 1, "hold"]], b + 0.4);
+  tl.fromTo(H.box, { y: 420 }, { y: 0, duration: 1.0, ease: "power2.out", immediateRender: false }, a + 0.3);
+  tl.to(H.box, { y: 160, duration: 0.8, ease: "power2.inOut" }, tBack + 0.2);
+  tl.to(buy, { opacity: 0.25, filter: "grayscale(1)", duration: 0.4 }, tBack);
+  lab(W_, `리스크 해소 전 → 신규 매수 · 물타기 ✗`, W(48, "신규") - 0.3, b);
+  K.cut(tStop + 0.6, "48 손이 멈춤"); K.cut(E(48) - 0.3, "48 거둠");
+});
+// 49~50 — 원룸: Y 끄덕임 · 정리 목록
+shot(B(49), (a, b) => {
+  const W_ = pw(a, b, "ROOM", { tint: "rgba(5,8,22,.35)" });
+  const A = actor(W_, ["Y02-3"], 560, 1215, 1.05, { shadow: false });
+  moves(A, [[a, "Y02-3", 1, "hold"]], b + 0.4);
+  breathe(A, a, b);
+  pcam(W_, a, b, [1.12, 960, 560], [1.0, 960, 640]);
+  list(W_, [430, 170, 1060], [["1", RD, "칩 밀수출 수사", S(49) + 0.2], ["2", YL, "칩 수출 규칙 강화", S(49) + 0.5], ["3", TL, "CEO 공백", S(49) + 0.8]], S(50) - 0.1);
+  lab(W_, `지금까지의 보도 기준 · 수사 결과에 따라 달라질 수 있음`, S(50) + 0.1, b, { size: 44 });
+  K.cut(E(49) - 0.3, "49 정리"); K.cut(E(50) - 0.3, "50 보도 기준");
+});
+// 51~53 — 아침 식탁: 바구니마다 나눠 담은 달걀 · 옆으로
+shot(B(51), (a, b) => {
+  const W_ = pw(a, b, "MORN");
+  pcam(W_, a, b, [1.12, 640, 690], [1.12, 1300, 690]);
+  lab(W_, `한 사람의 문제 → 업종 전체가 흔들림`, W(51, "한"), S(52) - 0.1);
+  const tags = [["반도체", 300], ["금융", 640], ["헬스케어", 960], ["소비재", 1280], ["에너지", 1610]];
+  tags.forEach(([nm, x], i) => {
+    const t = K.el(`<div class="tagw" style="left:${x}px;top:560px">${nm}</div>`, W_.L.fly);
+    gsap.set(t, { opacity: 0 });
+    pp(t, W(52, "한") + i * 0.3, 0.5);
+  });
+  lab(W_, `한 업종에 몰아 두지 않기`, W(52, "몰아"), b);
+  PSY.dark(W_, E(53) + 0.3, 1, "rgba(0,0,0,1)", 1.2);
+  K.cut(E(52) - 0.3, "52 나눠 담기");
+});
+
+PSY.build();
+K.done && K.done();
+})();
+</script>
+</body>
+</html>

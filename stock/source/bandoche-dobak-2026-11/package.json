@@ -16,7 +16,7 @@
     "문제가 아니다"
    ],
    "thumb_sub": "삼성·하이닉스까지?",
-   "thumb_bg": "images/TH-BG-2.jpg"
+   "thumb_bg": "images/TH-BG-1.jpg"
   },
   {
    "v": "3안",
@@ -26,10 +26,15 @@
     "리스크 3가지"
    ],
    "thumb_sub": "매수 전 꼭 확인",
-   "thumb_bg": "images/TH-BG-3.jpg"
+   "thumb_bg": "images/TH-BG-1.jpg"
   }
  ],
  "note": "2026-11-14 사용자 제목 3안(1안 채택) · 썸네일 = 배경(ChatGPT, 사람 없음) + 젠슨 황 실제 사진(이용 허락) + 코드 문구 · 페르소나 검증 안 함(사용자 지시) · title_fit 세 안 모두 PC 다음 동영상 좁은 칸 3줄(사용자 문구라 그대로)",
  "thumb_bg": "images/TH-BG-1.jpg",
- "thumb_person": "images/jensen/JENSEN.jpg (사용자 — 이용 허락 실제 사진)"
+ "thumb_person": "TH-BG-1 안의 AI 인물 (ChatGPT) — 합성 콘텐츠 표시 '예'",
+ "thumbnails": [
+  "thumbnails/thumbnail_1.jpg",
+  "thumbnails/thumbnail_2.jpg",
+  "thumbnails/thumbnail_3.jpg"
+ ]
 }

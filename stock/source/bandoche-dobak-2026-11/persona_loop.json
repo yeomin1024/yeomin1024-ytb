@@ -1,0 +1,40 @@
+{
+ "tool": "persona_gate.py v1.1",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "bandoche-dobak-2026-11": {
+   "script_exit": {
+    "rounds": [],
+    "path": "stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "a32bbf640b23d448",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "stock/source/bandoche-dobak-2026-11/persona/r1_exit_prompt.md",
+     "answers": "stock/source/bandoche-dobak-2026-11/persona/answers_bandoche-dobak-2026-11_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-14T08:42:24Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "stock/source/bandoche-dobak-2026-11/bandoche-dobak-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "a32bbf640b23d448",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "stock/source/bandoche-dobak-2026-11/persona/r1_rebuttal_prompt.md",
+     "answers": "stock/source/bandoche-dobak-2026-11/persona/answers_bandoche-dobak-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-14T08:42:24Z"
+    }
+   }
+  }
+ }
+}

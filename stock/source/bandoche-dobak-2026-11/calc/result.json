@@ -1,0 +1,167 @@
+{
+  "version": "v1.0",
+  "given": {
+    "first_buy_won": 10000000,
+    "first_drop": 0.2,
+    "add_won": 10000000,
+    "next_move": 0.3,
+    "recovery_drop": 0.4,
+    "lev_down": 0.2,
+    "lev_up": 0.25,
+    "leverage": 2.0
+  },
+  "averaging_down": {
+    "after_drop": 8000000,
+    "down": {
+      "with_add_value": 12600000,
+      "with_add_pnl": -7400000,
+      "without_value": 5600000,
+      "without_pnl": -4400000
+    },
+    "up": {
+      "with_add_value": 23400000,
+      "with_add_pnl": 3400000,
+      "without_value": 10400000,
+      "without_pnl": 400000
+    },
+    "extra_loss_from_add": 3000000,
+    "range_with_add": 10800000,
+    "range_without": 4800000,
+    "range_ratio": 2.25
+  },
+  "recovery_pct_after_40": 66.7,
+  "leverage_round_trip": {
+    "base_pct": 0.0,
+    "lev_pct": -10.0
+  },
+  "kospi_oct_to_1109_pct": -27.83,
+  "nvda_intraday_swing_pctp": 9.66,
+  "facts": [
+    {
+      "key": "nvda_open_drop_pct",
+      "value": 14,
+      "unit": "%",
+      "what": "퇴진 발표일(미국 11-12) 엔비디아 장 초반 하락",
+      "source": "https://www.fnnews.com/news/202611122331487035"
+    },
+    {
+      "key": "nvda_close_drop_pct",
+      "value": 4.34,
+      "unit": "%",
+      "what": "같은 날 종가 하락",
+      "source": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+    },
+    {
+      "key": "nvda_month_drop_pct",
+      "value": 20,
+      "unit": "%",
+      "what": "그 전 한 달 하락 ('more than 20%')",
+      "source": "https://www.cnbc.com/2026/11/12/nvidia-nvda-jensen-huang-second-affair.html"
+    },
+    {
+      "key": "years_at_nvidia",
+      "value": 33,
+      "unit": "년",
+      "what": "33년 만에 퇴진",
+      "source": "https://www.hankyung.com/article/2026111339411"
+    },
+    {
+      "key": "hynix_1113_drop_pct",
+      "value": 3.03,
+      "unit": "%",
+      "what": "11-13 한국 SK하이닉스 하락 (121만 6천 원)",
+      "source": "검색 요약 — 기사 확인 필요 (blockmedia/wowtv 추정)"
+    },
+    {
+      "key": "samsung_1113_drop_pct",
+      "value": 0.96,
+      "unit": "%",
+      "what": "11-13 한국 삼성전자 하락 (20만 6천 원)",
+      "source": "검색 요약 — 기사 확인 필요"
+    },
+    {
+      "key": "sox_1113_drop_pct",
+      "value": 3.43,
+      "unit": "%",
+      "what": "11-13 미국 필라델피아 반도체지수 하락",
+      "source": "검색 요약 — 기사 확인 필요"
+    },
+    {
+      "key": "samsung_1110_open_pct",
+      "value": 5,
+      "unit": "%",
+      "what": "11-10 삼성전자 시초가 상승 (5.00%)",
+      "source": "https://www.fnnews.com/news/202611101041161898"
+    },
+    {
+      "key": "hynix_1110_open_pct",
+      "value": 6.87,
+      "unit": "%",
+      "what": "11-10 SK하이닉스 시초가 상승",
+      "source": "https://www.fnnews.com/news/202611101041161898"
+    },
+    {
+      "key": "chips_diverted_usd_100m",
+      "value": 75,
+      "unit": "억 달러",
+      "what": "중국 등으로 넘어갔다는 칩 (보도 — '최소')",
+      "source": "검색 요약 — 한국 보도 (hankyung/fnnews/nate 중) 확인 필요"
+    },
+    {
+      "key": "chips_diverted_krw_jo",
+      "value": 10,
+      "unit": "조 원",
+      "what": "위 금액의 원화 (보도 '약 10조원')",
+      "source": "검색 요약 — 확인 필요"
+    },
+    {
+      "key": "house_committees",
+      "value": 3,
+      "unit": "곳",
+      "what": "젠슨 황을 부른 하원 위원회",
+      "source": "https://www.cnn.com/2026/11/11/business/live-news/nvidia-jensen-huang-investigation-fallout"
+    },
+    {
+      "key": "foreign_sell_2days_jo",
+      "value": 6,
+      "unit": "조 원 넘게",
+      "what": "11월 초 폭락 이틀 외국인 순매도 (6조 1,620억 원)",
+      "source": "https://m.news.nate.com/view/20261106n23018"
+    },
+    {
+      "key": "kospi_crash_day_pct",
+      "value": 8,
+      "unit": "% 넘게",
+      "what": "11월 초 코스피 장중 하락 → 서킷브레이커",
+      "source": "https://m.news.nate.com/view/20261106n23018"
+    },
+    {
+      "key": "kospi_oct_start",
+      "value": 6971.35,
+      "unit": "pt",
+      "what": "10월 초 코스피",
+      "source": "https://www.fnnews.com/news/202611091833468507"
+    },
+    {
+      "key": "kospi_1109",
+      "value": 5031.48,
+      "unit": "pt",
+      "what": "11-09 코스피",
+      "source": "https://www.fnnews.com/news/202611091833468507"
+    },
+    {
+      "key": "lev_etf_count",
+      "value": 14,
+      "unit": "종",
+      "what": "삼성전자·SK하이닉스 2배 상품 수",
+      "source": "검색 요약 — 아주경제·서울경제TV·딜사이트 중 확인 필요"
+    },
+    {
+      "key": "lev_etf_oct_avg_pct",
+      "value": -39.99,
+      "unit": "%",
+      "what": "10월 한 달 2배 상품 14종 평균 수익률",
+      "source": "검색 요약 — 확인 필요"
+    }
+  ]
+}

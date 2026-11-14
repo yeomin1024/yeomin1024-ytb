@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-14 — 젠슨 황 리스크 편 영상 · 썸네일 (`stock/source/bandoche-dobak-2026-11/` · `video/episodes/bandoche-dobak-2026-11/`)
+
+- `slice.py` v1.0 — 실사 WebP 시트 → `puppet/cut/` 20조각 + manifest (3칸 시트는 같은 자르기 상자로 겹침 그대로 · 소품은 칸마다 가장 큰 덩어리만 — ChatGPT 가 남긴 조각 지움).
+- `index.html` v1.0 → v1.1 — psy_anim.js 엔진 + 실사 무대(pw: 배경 1920×1280) · 카메라(pcam: [배율, 초점 x, 초점 y] 가운데로, 무대 밖 안 보이게) · camera_plan.md 대로 29장면 · STX 2023-04 종가 그래프(calc v1.4) · 동남아 점 지도 · 20%·2/3 고리 · 사슬 · BUY + 손 3장. v1.1 = still 42장을 보고: kit.css .panel 과 이름 겹침 → .ppan · 튀어나오는 칸 미리 보임 → pp() · Y 를 왼쪽 3분의 1·이름표 위로 · 그래프·지도 글 겹침 다시 배치.
+- SRT: srt_tool build → align-audio(tts_narration.json 시각) · render.mjs sync/check 0/video → final_1080p.mp4 4:16 · loudnorm -14.15 LUFS / TP -1.54.
+- 썸네일 3안 (사용자 지시 — TH-BG-1 하나 + 안마다 문구): `thumbnails/thumbnail_{1,2,3}.json` → thumb.mjs. TH-BG-1 안 AI 인물(젠슨 황 닮음) — 그림 그대로 · 말풍선 대신 꼬리표(실제 인물의 말로 읽히지 않게) · 합성 콘텐츠 표시 필요.
+
 ## 2026-11-14 — 젠슨 황 리스크 편 제목 3안 · 썸네일 배경 요청 (`stock/source/bandoche-dobak-2026-11/`)
 
 - 제목 = 사용자 3안 (1안 채택 「젠슨 황 불륜으로 하락한 반도체 AI 주식, 매수 기회일까? 다시 폭락할까?」) — title_fit: 세 안 모두 PC 다음 동영상 좁은 칸 3줄(사용자 문구라 그대로, 줄인 안은 `titles.md`).

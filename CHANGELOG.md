@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-15 — 젠슨 황 리스크 편 영상 v2 · 썸네일 문구 (`video/episodes/bandoche-dobak-2026-11/` · `stock/source/bandoche-dobak-2026-11/`)
+
+- 사용자 지시 "썸네일 문구에 젠슨 황 단어가 무조건 들어가도록 해 그리고 보조문구 빼고 영상 좀 너무 텍스트만 나오게 하지마 이미지 좀 생성해서 대본 내용 이해 돕게 하라고 그리고 무슨 의자에 앉은 인물 같은것도 나오는데 그것도 빼 썸네일 젠슨황 사진도 쓰고 회사 로고 같은건 써도 되잖아 검은 인물 실루엣 같은것도 써도돼".
+- 썸네일 `thumbnails/thumbnail_{1,2,3}.json` — 세 안 모두 '젠슨 황' 들어감 · 보조 문구(꼬리표) 뺌 · 문구 블록 하나(아래 2줄).
+- `index.html` v1.1 → v2.0 — 의자에 앉은 Y 를 모든 장면에서 뺌(1~2 · 34 · 46~47 · 49~50) · 글 이름표를 줄이고 그림 판(로고 칩 · 젠슨 황 사진 칸 · 검은 실루엣 · 그려지는 화살표 · 사진 소품 · 허가 도장 · 막대)으로 · still 44장 보고 고침(가로선 · 칩 흐름 방향 · 20% 카드 뒤 글 · ✕ 가 글을 가림). check 0 · layout-check 0 (0.5초마다도).
+- 새 부품 `video/episodes/bandoche-dobak-2026-11/assets/` — `logos.json`·`logos.js` (simple-icons 13.21.0, CC0 데이터 · 상표는 각 회사) · `jensen_card.jpg` (TH-BG-1 의 AI 닮은 인물 — 합성 콘텐츠 표시 필요) · `README.md`.
+- `camera_plan.md` v1.1 → v1.2 — Y 줄 바꿈 · 그림 판 설명.
+
 ## 2026-11-14 — 젠슨 황 리스크 편 영상 · 썸네일 (`stock/source/bandoche-dobak-2026-11/` · `video/episodes/bandoche-dobak-2026-11/`)
 
 - `slice.py` v1.0 — 실사 WebP 시트 → `puppet/cut/` 20조각 + manifest (3칸 시트는 같은 자르기 상자로 겹침 그대로 · 소품은 칸마다 가장 큰 덩어리만 — ChatGPT 가 남긴 조각 지움).

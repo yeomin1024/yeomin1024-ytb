@@ -1,0 +1,23 @@
+{
+ "tool": "upload_pack.py v1.0",
+ "made": "2026-11-15T03:40:56+00:00",
+ "file": "final_1080p.mp4",
+ "size": 158262954,
+ "sha256": "20da7623a810553029285f099773734f2c4c5ccce66db6192d1ff7f3d4459199",
+ "md5": "52edc3820df81de464e46e57c91a2384",
+ "branch": "uploads",
+ "dir": "stock/bandoche-dobak-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "b2ca532820fb6c3fd47e22cde5f67177b62b1e124bd82921d5612586e909ce30"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 63891114,
+   "sha256": "ca3adb8e05424d77c8df0b42a1432041f2fc0a221156e0f24941051b9c6e7b8f"
+  }
+ ],
+ "duration_s": 256.47
+}

@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-15 — 젠슨 황 리스크 편 업로드 시트 · upload_pack (`stock/source/bandoche-dobak-2026-11/`)
+
+- 사용자 지시 "업로드 시트랑 upload_pack 만들어줘".
+- `upload.md` v1.0 — 제목 본안(사용자 1안) + 실험안 2개 · 설명란(quick_board 규칙 45: 소개 2줄 · 챕터 · 출처 · 알려 드립니다 · 해시태그 2개) · 챕터 7개(srt_tool ✅) · 태그 25개 · 고정 댓글 · 업로드 설정(합성 콘텐츠 '예' — AI 음성 + AI 닮은 인물) · 점검(보도 숫자 원문 확인 · 공개 시각 주의).
+- `titles.md` v1.4 · `package.json` — 지금 썸네일 문구(보조 문구 없음)로 맞춤 · 채택 줄 `[x] … 짝 썸네일: thumbnail_1`.
+- `tools/upload_pack.py check` ✅ → `pack`: `uploads` 브랜치 `171e95ea` (조각 2 · sha256 확인) · `video.json` main.
+
 ## 2026-11-15 — 젠슨 황 리스크 편 영상 v2 · 썸네일 문구 (`video/episodes/bandoche-dobak-2026-11/` · `stock/source/bandoche-dobak-2026-11/`)
 
 - 사용자 지시 "썸네일 문구에 젠슨 황 단어가 무조건 들어가도록 해 그리고 보조문구 빼고 영상 좀 너무 텍스트만 나오게 하지마 이미지 좀 생성해서 대본 내용 이해 돕게 하라고 그리고 무슨 의자에 앉은 인물 같은것도 나오는데 그것도 빼 썸네일 젠슨황 사진도 쓰고 회사 로고 같은건 써도 되잖아 검은 인물 실루엣 같은것도 써도돼".

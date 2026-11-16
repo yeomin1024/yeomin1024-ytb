@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI 안경 수능 쇼츠</title>
-<!-- VERSION: v1.1 — 2026-11-16 — S11·S12 받음 → HAVE 에 더함 (대신 그림 없음).
+<!-- VERSION: v1.2 — 2026-11-16 — 0초 장면 가운데 칸이 검정이던 것 고침 (첫 사진은 0초부터 불투명 — 완성 mp4 0초 프레임에서 찾음).
+     (이전 v1.1) — 2026-11-16 — S11·S12 받음 → HAVE 에 더함 (대신 그림 없음).
      (이전 v1.0) — 2026-11-16 — AI 안경 수능 늑장 대응 쇼츠 (사용자 지시 2026-11-16 "음성은 이걸로 하고 1시간마다 이미지 생성된거 확인해서 다 되면 영상 만들어
        문구는 수능 코앞인데 이제서야? / 레전드 늑장대응한 정부 이렇게 하자" · 앞 지시 "면세 쇼츠처럼 위아래 문구 영역있고 중간에만 이미지넣을 거야").
      꼴 = '세 칸' (면세 쇼츠와 같음): 위 칸 y 0~691 검정 + 고정 문구 2줄 · 가운데 칸 y 691~1382 실사 사진 (1080×691, 천천히 확대) · 아래 칸 검정 + 구운 자막.
@@ -57,7 +58,8 @@ const SHOTS = [];
 function shot(name, a, b, note) {
   const img = el(`<img src="${DIR}${pic(name)}" alt="">`, mid);
   const fade = SHOTS.length ? 0.3 : 0;
-  tl.fromTo(img, { opacity: 0 }, { opacity: 1, duration: Math.max(0.01, fade), ease: "none" }, Math.max(0, a - fade));
+  if (fade) tl.fromTo(img, { opacity: 0 }, { opacity: 1, duration: fade, ease: "none" }, Math.max(0, a - fade));
+  else gsap.set(img, { opacity: 1 });              // v1.2 첫 사진은 0초부터 보임 (0초 장면 = 업로드 썸네일 — v1.1 은 0초에 가운데 칸이 검정)
   tl.fromTo(img, { scale: 1.0 }, { scale: 1.07, duration: Math.max(0.5, b - a + fade), ease: "none" }, Math.max(0, a - fade));
   SHOTS.push({ name, a, b });
   K.cut(Math.min(b - 0.15, a + 1.2), `${name}${HAVE.includes(name) ? "" : "(대신 " + FALLBACK[name] + ")"} · ${note}`);

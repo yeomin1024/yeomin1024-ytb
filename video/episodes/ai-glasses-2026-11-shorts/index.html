@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI 안경 수능 쇼츠</title>
+<!-- VERSION: v1.0 — 2026-11-16 — AI 안경 수능 늑장 대응 쇼츠 (사용자 지시 2026-11-16 "음성은 이걸로 하고 1시간마다 이미지 생성된거 확인해서 다 되면 영상 만들어
+       문구는 수능 코앞인데 이제서야? / 레전드 늑장대응한 정부 이렇게 하자" · 앞 지시 "면세 쇼츠처럼 위아래 문구 영역있고 중간에만 이미지넣을 거야").
+     꼴 = '세 칸' (면세 쇼츠와 같음): 위 칸 y 0~691 검정 + 고정 문구 2줄 · 가운데 칸 y 691~1382 실사 사진 (1080×691, 천천히 확대) · 아래 칸 검정 + 구운 자막.
+     사진 = new/shorts/ai-glasses-2026-11/images/S00~S12.jpg (ChatGPT) — 아직 안 온 그림은 HAVE 에 없으면 비슷한 장면으로 대신 (오면 HAVE 에 이름만 더해 다시 렌더).
+     장면 시각 = 문장 시각(K.S·K.E — tools/external_audio_align.py 가 사용자 음성의 쉼·음절 봉우리로 맞춤) · 낱말 시각(K.W). 시사 쇼츠 — 정보 전달용. -->
+<meta name="video-size" content="1080x1920">
+<meta name="video-safe" content="150 60 1384 60">
+<meta name="end-hold" content="0.8">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#wrap{max-width:420px;margin:0 auto;aspect-ratio:9/16}
+body.render #wrap{width:1080px;height:1920px;max-width:none;margin:0}
+#stage{width:1080px;height:1920px;background:#000}
+#cc{left:540px;bottom:390px;max-width:870px;font-size:46px;padding:12px 16px;text-wrap:balance}
+.mid{position:absolute;left:0;top:691px;width:1080px;height:691px;overflow:hidden;background:#000}
+.mid img{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
+.hl{position:absolute;left:540px;top:318px;display:grid;gap:14px;justify-items:center;text-align:center}
+.hl div{font-weight:900;line-height:1.08;white-space:nowrap;letter-spacing:-2px}
+.hl .l1{font-size:88px;color:#F4F6FA}
+.hl .l2{font-size:96px;color:#FFD400}
+.hl .l2 b{color:#FF4D3D;font-weight:900}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"ai-glasses-2026-11-shorts","topic":"new","duration":52.24,"audio":"../../../new/source/ai-glasses-2026-11/shorts/narration.mp3","thumb":null,"synced":"2026-11-16T15:11:04Z","tts":"2026-11-16T15:10:02","script_sha1":"15cc3eea4224fbc6","sent":[{"n":1,"part":"","text":"또 일 못하는 정부 때문에 애꿎은 수험생들만 피해 보게 생겼음.","start":0.302,"end":4.046},{"n":2,"part":"","text":"우리나라 AI 안경 최초 적발 사례는 5월 중순, 자격증 시험과 토익이었는데","start":4.528,"end":8.922},{"n":3,"part":"","text":"걸린 사람은 벌금형, 수능 금지 물품 목록에 AI 안경 한 줄 넣은 게 다였음.","start":9.264,"end":13.626},{"n":4,"part":"","text":"이게 말이 안 되는 게, 다른 나라엔 이미 선례가 있었음.","start":14.026,"end":16.62},{"n":5,"part":"","text":"중국은 AI 안경의 부정행위 위험을 빠르게 파악해서 교육부랑 전파 당국, 경찰에 AI 회사까지 한꺼번에 움직였음.","start":16.808,"end":22.402},{"n":6,"part":"","text":"그래서 6월 수능 규모의 시험에서도 안경을 벗겨서 검사하고, 시험장 전파까지 막는 등 철저하게 대처했음.","start":23.024,"end":27.915},{"n":7,"part":"","text":"근데 우리나라는 수능이 코앞인데 이제서야 구체적인 대책 논의 하고 있음.","start":28.356,"end":32.248},{"n":8,"part":"","text":"이건 그냥 수험생들한테 \"난 몰라, 니들이 알아서 해\" 하는 수준임.","start":32.85,"end":36.586},{"n":9,"part":"","text":"만약 5월에 위기를 인식하고 탐지 장비랑 감독 매뉴얼부터 준비했다면, 감독관 눈에만 맡기는 지경까진 안 왔을 거임.","start":37.253,"end":43.691},{"n":10,"part":"","text":"더 놀라운 건, 세무사 수석 합격자가 자백 안 했으면 공론화 되지도 않아서 추가 대책 논의도 안했을 거임.","start":43.942,"end":48.774},{"n":11,"part":"","text":"무능도 정도가 있지, 이건 너무 심한 거 아님?","start":48.816,"end":51.438}],"subs":[[0.302,4.046,"또 일 못하는 정부 때문에 애꿎은\n수험생들만 피해 보게 생겼음."],[4.528,8.922,"우리나라 AI 안경 최초 적발 사례는\n5월 중순, 자격증 시험과 토익이었는데"],[9.264,13.626,"걸린 사람은 벌금형, 수능 금지 물품 목록에\nAI 안경 한 줄 넣은 게 다였음."],[14.026,16.62,"이게 말이 안 되는 게,\n다른 나라엔 이미 선례가 있었음."],[16.808,20.318,"중국은 AI 안경의 부정행위 위험을\n빠르게 파악해서 교육부랑 전파 당국,"],[20.318,22.402,"경찰에 AI 회사까지 한꺼번에 움직였음."],[23.024,25.868,"그래서 6월 수능 규모의 시험에서도\n안경을 벗겨서 검사하고,"],[25.868,27.915,"시험장 전파까지\n막는 등 철저하게 대처했음."],[28.356,32.248,"근데 우리나라는 수능이 코앞인데\n이제서야 구체적인 대책 논의 하고 있음."],[32.85,36.586,"이건 그냥 수험생들한테 \"난 몰라,\n니들이 알아서 해\" 하는 수준임."],[37.253,41.225,"만약 5월에 위기를 인식하고\n탐지 장비랑 감독 매뉴얼부터 준비했다면,"],[41.225,43.691,"감독관 눈에만 맡기는\n지경까진 안 왔을 거임."],[43.942,46.299,"더 놀라운 건,\n세무사 수석 합격자가 자백 안 했으면"],[46.299,48.774,"공론화 되지도 않아서\n추가 대책 논의도 안했을 거임."],[48.816,51.438,"무능도 정도가 있지,\n이건 너무 심한 거 아님?"]]};/*EP-DATA:END*/</script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false, w: 1080 });
+const { S, E, W, el } = K;
+const tl = K.tl;
+const DIR = "../../../new/shorts/ai-glasses-2026-11/images/";
+// 받은 그림 (ChatGPT) — S11·S12 가 오면 여기에 더한다
+const HAVE = ["S00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09", "S10"];
+const FALLBACK = { S11: "S07", S12: "S02" };       // 아직 없을 때 쓸 비슷한 장면 (S11 회의·상황실 → S07 회의실 · S12 감독관 → S02 감독관)
+const pic = name => (HAVE.includes(name) ? name : FALLBACK[name]) + ".jpg";
+
+/* 위 칸 — 영상 내내 같은 문구 (0초 장면 = 쇼츠 썸네일) */
+const hl = el(`<div class="a cx hl"><div class="l1">수능 코앞인데 이제서야?</div><div class="l2">레전드 <b>늑장대응</b>한 정부</div></div>`);
+gsap.set(hl, { xPercent: -50 });
+
+/* 가운데 칸 — 사진 한 장씩: 앞 사진 위로 0.3초 겹쳐 나타나고, 그동안 천천히 확대 (1.00 → 1.07) */
+const mid = el(`<div class="mid"></div>`);
+const SHOTS = [];
+function shot(name, a, b, note) {
+  const img = el(`<img src="${DIR}${pic(name)}" alt="">`, mid);
+  const fade = SHOTS.length ? 0.3 : 0;
+  tl.fromTo(img, { opacity: 0 }, { opacity: 1, duration: Math.max(0.01, fade), ease: "none" }, Math.max(0, a - fade));
+  tl.fromTo(img, { scale: 1.0 }, { scale: 1.07, duration: Math.max(0.5, b - a + fade), ease: "none" }, Math.max(0, a - fade));
+  SHOTS.push({ name, a, b });
+  K.cut(Math.min(b - 0.15, a + 1.2), `${name}${HAVE.includes(name) ? "" : "(대신 " + FALLBACK[name] + ")"} · ${note}`);
+}
+const mark = (n, w) => W(n, w);
+// 문장 → 사진 (요청 파일 images_chatgpt_add1.md '장면 순서')
+shot("S00", 0, mark(1, "애꿎은"), "첫 장면 = 썸네일");
+shot("S01", mark(1, "애꿎은"), S(2), "1 애꿎은 수험생");
+shot("S02", S(2), S(3), "2 최초 적발 5월");
+shot("S03", S(3), S(4), "3 벌금형 · 한 줄");
+shot("S04", S(4), S(5), "4 다른 나라 선례");
+shot("S11", S(5), S(6), "5 중국 한꺼번에 움직임");
+shot("S05", S(6), mark(6, "시험장"), "6 안경 벗겨 검사");
+shot("S06", mark(6, "시험장"), S(7), "6 전파 차단");
+shot("S07", S(7), S(8), "7 이제서야 대책 논의");
+shot("S08", S(8), S(9), "8 난 몰라");
+shot("S12", S(9), S(10), "9 감독관 눈에만");
+shot("S09", S(10), S(11), "10 세무사 자백");
+shot("S10", S(11), K.D, "11 무능도 정도가 있지");
+K.cut(0.05, "0초 = 썸네일 (문구 + S00)");
+K.cut(K.D - 0.2, "끝");
+K.done();
+})();
+</script>
+</body>
+</html>

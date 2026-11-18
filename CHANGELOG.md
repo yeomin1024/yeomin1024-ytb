@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-18 — 주식 분석·페르소나 갱신 · 제목 5안 (`stock/result/outliers/` · `stock/topics/titles_2026-11-18/`)
+
+- 사용자 지시 "주식 주제 페르소나와 유튜브 분석 결과를 최신화하여 참고해서 만들 영상 제목 5개 알려줘봐".
+- 분석: `cloud_run.py stock explore --weeks 26` (한국어 검색 끝 · 영어 17·쇼츠는 할당량 초기화 뒤) · 주제 밖 14편 체크 풂 · 최근 45일 한국어 25편 승인 → 페르소나(423편) · `comment_clusters.py`(scikit-learn·kiwipiepy 설치) · `content_analysis.py`.
+- 제목: `calc.py` v1.1 (Yahoo — SPY·^GSPC·^NDX·QQQ·^SOX·배당 ETF 6개) → 5안 · `title_fit` 2줄 ✅ · `persona_gate.py` 피드 시험 18회 검토(새 하위 에이전트 36명) 모두 ✅. 반도체 안은 P1 이 두 번 안 눌러 나스닥100 으로 바꿈.
+- 한계: 할당량으로 승인 대기 75편 등 남음 · 자막·썸네일 그림은 네트워크가 막음.
+
 ## 2026-11-15 — 젠슨 황 리스크 편 업로드 시트 · upload_pack (`stock/source/bandoche-dobak-2026-11/`)
 
 - 사용자 지시 "업로드 시트랑 upload_pack 만들어줘".

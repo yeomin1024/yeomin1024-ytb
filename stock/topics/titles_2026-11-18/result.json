@@ -1,0 +1,373 @@
+{
+ "tool": "calc.py v1.1",
+ "made": "2026-11-18T09:31:20+00:00",
+ "A_view_interval": {
+  "symbol": "SPY",
+  "from": "1993-01-29",
+  "to": "2026-11-17",
+  "by_interval": {
+   "1일": {
+    "loss_pct": 45.3,
+    "samples": 8508
+   },
+   "1달": {
+    "loss_pct": 34.2,
+    "samples": 8488
+   },
+   "1년": {
+    "loss_pct": 18.1,
+    "samples": 8257
+   },
+   "3년": {
+    "loss_pct": 16.3,
+    "samples": 7753
+   },
+   "5년": {
+    "loss_pct": 15.1,
+    "samples": 7249
+   }
+  }
+ },
+ "B_bear20": {
+  "symbol": "^GSPC (가격 지수)",
+  "events": [
+   {
+    "day": "1957-10-21",
+    "peak_day": "1956-08-02",
+    "hold_1y_pct": 31.0,
+    "worst_from_peak_pct": -21.5,
+    "more_drop_after_day_pct": -0.4,
+    "recovered": "1958-09-24"
+   },
+   {
+    "day": "1962-05-28",
+    "peak_day": "1961-12-12",
+    "hold_1y_pct": 26.1,
+    "worst_from_peak_pct": -28.0,
+    "more_drop_after_day_pct": -5.7,
+    "recovered": "1963-09-03"
+   },
+   {
+    "day": "1966-08-29",
+    "peak_day": "1966-02-09",
+    "hold_1y_pct": 24.3,
+    "worst_from_peak_pct": -22.2,
+    "more_drop_after_day_pct": -1.8,
+    "recovered": "1967-05-04"
+   },
+   {
+    "day": "1970-01-29",
+    "peak_day": "1968-11-29",
+    "hold_1y_pct": 11.1,
+    "worst_from_peak_pct": -36.1,
+    "more_drop_after_day_pct": -19.1,
+    "recovered": "1972-03-06"
+   },
+   {
+    "day": "1973-11-27",
+    "peak_day": "1973-01-11",
+    "hold_1y_pct": -26.9,
+    "worst_from_peak_pct": -48.2,
+    "more_drop_after_day_pct": -34.9,
+    "recovered": "1980-07-17"
+   },
+   {
+    "day": "1982-02-22",
+    "peak_day": "1980-11-28",
+    "hold_1y_pct": 30.4,
+    "worst_from_peak_pct": -27.1,
+    "more_drop_after_day_pct": -8.2,
+    "recovered": "1982-11-03"
+   },
+   {
+    "day": "1987-10-19",
+    "peak_day": "1987-08-25",
+    "hold_1y_pct": 23.2,
+    "worst_from_peak_pct": -33.5,
+    "more_drop_after_day_pct": -0.4,
+    "recovered": "1989-07-26"
+   },
+   {
+    "day": "2001-03-12",
+    "peak_day": "2000-03-24",
+    "hold_1y_pct": -1.2,
+    "worst_from_peak_pct": -49.1,
+    "more_drop_after_day_pct": -34.2,
+    "recovered": "2007-05-30"
+   },
+   {
+    "day": "2008-07-09",
+    "peak_day": "2007-10-09",
+    "hold_1y_pct": -29.1,
+    "worst_from_peak_pct": -56.8,
+    "more_drop_after_day_pct": -45.6,
+    "recovered": "2013-03-28"
+   },
+   {
+    "day": "2020-03-12",
+    "peak_day": "2020-02-19",
+    "hold_1y_pct": 59.0,
+    "worst_from_peak_pct": -33.9,
+    "more_drop_after_day_pct": -9.8,
+    "recovered": "2020-08-18"
+   },
+   {
+    "day": "2022-06-13",
+    "peak_day": "2022-01-03",
+    "hold_1y_pct": 16.5,
+    "worst_from_peak_pct": -25.4,
+    "more_drop_after_day_pct": -4.6,
+    "recovered": "2024-01-19"
+   }
+  ],
+  "n_with_1y": 11,
+  "sell_wins": 3,
+  "hold_wins": 8
+ },
+ "C_dividend_etf": {
+  "rule": "SPY 고점~저점 구간 안에서 각 ETF 의 첫날 대비 가장 낮은 값 (수정 종가)",
+  "windows": [
+   {
+    "spy_peak": "2007-10-09",
+    "spy_trough": "2009-03-09",
+    "SPY": -55.2,
+    "SCHD": null,
+    "VYM": -57.0,
+    "DVY": -61.1,
+    "JEPI": null,
+    "QYLD": null,
+    "XYLD": null
+   },
+   {
+    "spy_peak": "2018-09-20",
+    "spy_trough": "2018-12-24",
+    "SPY": -19.3,
+    "SCHD": -16.9,
+    "VYM": -15.9,
+    "DVY": -15.1,
+    "JEPI": null,
+    "QYLD": -18.5,
+    "XYLD": -18.1
+   },
+   {
+    "spy_peak": "2020-02-19",
+    "spy_trough": "2020-03-23",
+    "SPY": -33.7,
+    "SCHD": -32.8,
+    "VYM": -34.6,
+    "DVY": -40.8,
+    "JEPI": null,
+    "QYLD": -24.8,
+    "XYLD": -33.5
+   },
+   {
+    "spy_peak": "2022-01-03",
+    "spy_trough": "2022-10-12",
+    "SPY": -24.5,
+    "SCHD": -15.7,
+    "VYM": -13.9,
+    "DVY": -10.7,
+    "JEPI": -12.6,
+    "QYLD": -24.0,
+    "XYLD": -17.8
+   },
+   {
+    "spy_peak": "2025-02-19",
+    "spy_trough": "2025-04-08",
+    "SPY": -18.8,
+    "SCHD": -12.9,
+    "VYM": -14.5,
+    "DVY": -13.4,
+    "JEPI": -13.3,
+    "QYLD": -18.9,
+    "XYLD": -15.5
+   }
+  ]
+ },
+ "D_sox_half": {
+  "symbol": "^SOX (가격)",
+  "events": [
+   {
+    "peak": "1995-09-11",
+    "half_day": "1996-07-15",
+    "trough": "1996-07-24",
+    "worst_pct": -52.3,
+    "recovered": "1997-05-02",
+    "years_to_recover": 1.6,
+    "years_from_half_day": 0.8
+   },
+   {
+    "peak": "1997-08-20",
+    "half_day": "1998-08-31",
+    "trough": "1998-10-08",
+    "worst_pct": -53.0,
+    "recovered": "1999-01-20",
+    "years_to_recover": 1.4,
+    "years_from_half_day": 0.4
+   },
+   {
+    "peak": "2000-03-10",
+    "half_day": "2000-10-17",
+    "trough": "2008-11-20",
+    "worst_pct": -87.1,
+    "recovered": "2017-11-21",
+    "years_to_recover": 17.7,
+    "years_from_half_day": 17.1
+   }
+  ],
+  "now": {
+   "last": "2026-11-17",
+   "from_peak_pct": -34.1,
+   "peak": "2026-06-22"
+  }
+ },
+ "F_ndx30": {
+  "price": {
+   "series": "^NDX 가격",
+   "events": [
+    {
+     "peak": "1987-10-05",
+     "trough": "1987-10-26",
+     "worst_pct": -39.9,
+     "recovered": "1989-05-26",
+     "years": 1.6,
+     "months": 19.7
+    },
+    {
+     "peak": "1990-07-16",
+     "trough": "1990-10-11",
+     "worst_pct": -32.9,
+     "recovered": "1991-02-06",
+     "years": 0.6,
+     "months": 6.7
+    },
+    {
+     "peak": "2000-03-27",
+     "trough": "2002-10-07",
+     "worst_pct": -82.9,
+     "recovered": "2015-11-03",
+     "years": 15.6,
+     "months": 187.2
+    },
+    {
+     "peak": "2021-11-19",
+     "trough": "2022-12-28",
+     "worst_pct": -35.6,
+     "recovered": "2023-12-15",
+     "years": 2.1,
+     "months": 24.8
+    }
+   ],
+   "now_from_peak_pct": -13.5,
+   "peak": "2026-10-06",
+   "last": "2026-11-17"
+  },
+  "total_return": {
+   "series": "QQQ 수정 종가 (배당 포함)",
+   "events": [
+    {
+     "peak": "2000-03-27",
+     "trough": "2002-10-09",
+     "worst_pct": -83.0,
+     "recovered": "2015-02-20",
+     "years": 14.9,
+     "months": 178.8
+    },
+    {
+     "peak": "2021-12-27",
+     "trough": "2022-11-03",
+     "worst_pct": -35.1,
+     "recovered": "2023-12-13",
+     "years": 2.0,
+     "months": 23.5
+    }
+   ],
+   "now_from_peak_pct": -13.5,
+   "peak": "2026-10-06",
+   "last": "2026-11-17"
+  }
+ },
+ "E_dca_pause": {
+  "rule": "매달 첫 거래일 1(돈 단위) — 멈춤 = 그달 첫날 S&P 500 가격이 그때까지 고점의 80% 이하면 현금으로, 아니면 모은 현금까지 삼 · 배당은 SPY 수정 종가로",
+  "starts": {
+   "2000": {
+    "months": 323,
+    "paused_months": 86,
+    "paid": 323.0,
+    "keep": 1881.49,
+    "pause": 1726.02,
+    "pause_vs_keep_pct": -8.3,
+    "to": "2026-11-17"
+   },
+   "2007": {
+    "months": 239,
+    "paused_months": 35,
+    "paid": 239.0,
+    "keep": 1069.1,
+    "pause": 1005.54,
+    "pause_vs_keep_pct": -5.9,
+    "to": "2026-11-17"
+   },
+   "2019": {
+    "months": 95,
+    "paused_months": 4,
+    "paid": 95.0,
+    "keep": 174.19,
+    "pause": 173.38,
+    "pause_vs_keep_pct": -0.5,
+    "to": "2026-11-17"
+   },
+   "2021": {
+    "months": 71,
+    "paused_months": 3,
+    "paid": 71.0,
+    "keep": 109.54,
+    "pause": 109.15,
+    "pause_vs_keep_pct": -0.4,
+    "to": "2026-11-17"
+   }
+  }
+ },
+ "E5_dca_pause_short": {
+  "2000-03+5y": {
+   "months": 60,
+   "paused_months": 44,
+   "keep_return_pct": 12.6,
+   "pause_return_pct": -1.7,
+   "diff_krw_if_500k_month": 4271972,
+   "end": "2005-02-28"
+  },
+  "2007-10+5y": {
+   "months": 60,
+   "paused_months": 31,
+   "keep_return_pct": 30.7,
+   "pause_return_pct": 14.6,
+   "diff_krw_if_500k_month": 4850695,
+   "end": "2012-09-28"
+  },
+  "2008-01+5y": {
+   "months": 60,
+   "paused_months": 31,
+   "keep_return_pct": 30.0,
+   "pause_return_pct": 13.8,
+   "diff_krw_if_500k_month": 4832167,
+   "end": "2012-12-31"
+  },
+  "2020-02+3y": {
+   "months": 36,
+   "paused_months": 4,
+   "keep_return_pct": 10.5,
+   "pause_return_pct": 9.3,
+   "diff_krw_if_500k_month": 209855,
+   "end": "2023-01-31"
+  },
+  "2022-01+3y": {
+   "months": 36,
+   "paused_months": 3,
+   "keep_return_pct": 33.4,
+   "pause_return_pct": 32.5,
+   "diff_krw_if_500k_month": 153512,
+   "end": "2024-12-31"
+  }
+ }
+}

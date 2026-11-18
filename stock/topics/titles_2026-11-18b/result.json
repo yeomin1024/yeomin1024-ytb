@@ -1,0 +1,133 @@
+{
+ "tool": "calc.py v1.0",
+ "made": "2026-11-18T12:47:19+00:00",
+ "P_kospi_peak_4people": {
+  "start": "2026-06-22",
+  "end": "2026-11-18",
+  "kospi_peak": 9114.55,
+  "usdkrw_change_pct": -13.4,
+  "spy_usd_pct": -1.4,
+  "people": {
+   "삼성전자": {
+    "won": 55077793,
+    "pct": -44.9
+   },
+   "SK하이닉스": {
+    "won": 39191504,
+    "pct": -60.8
+   },
+   "KODEX 200 (코스피)": {
+    "won": 53706165,
+    "pct": -46.3
+   },
+   "S&P 500 (SPY, 원화)": {
+    "won": 85426021,
+    "pct": -14.6
+   },
+   "반반 (SK하이닉스 5천 + S&P 500 5천)": {
+    "won": 62308763,
+    "pct": -37.7
+   }
+  }
+ },
+ "R_retire_timing": {
+  "rule": "^GSPC 가격(배당 뺌) 20년 매달 50만 원 · 은퇴 달 마지막 거래일 값",
+  "endings": {
+   "2000-03": {
+    "value_won": 677278954,
+    "paid_won": 120500000,
+    "multiple": 5.62,
+    "last_day": "2000-03-28"
+   },
+   "2002-10": {
+    "value_won": 297170307,
+    "paid_won": 120500000,
+    "multiple": 2.47,
+    "last_day": "2002-10-28"
+   },
+   "2007-10": {
+    "value_won": 305716954,
+    "paid_won": 120500000,
+    "multiple": 2.54,
+    "last_day": "2007-10-26"
+   },
+   "2009-03": {
+    "value_won": 142634916,
+    "paid_won": 120500000,
+    "multiple": 1.18,
+    "last_day": "2009-03-27"
+   }
+  }
+ },
+ "L_qld_dca_2000": {
+  "QLD(2배)": {
+   "start": "2000-03-01",
+   "months": 321,
+   "paid_won": 160500000,
+   "now_won": 6405045742,
+   "worst_vs_paid_pct": -79.9,
+   "last_day_below_paid": "2010-09-15",
+   "years_until_last_below": 10.5
+  },
+  "QQQ": {
+   "start": "2000-03-01",
+   "months": 321,
+   "paid_won": 160500000,
+   "now_won": 1763042176,
+   "worst_vs_paid_pct": -54.1,
+   "last_day_below_paid": "2009-07-17",
+   "years_until_last_below": 9.4
+  }
+ },
+ "D_dca_pause_won": {
+  "2008-01+5y": {
+   "months": 60,
+   "paused_months": 31,
+   "keep_return_pct": 30.0,
+   "pause_return_pct": 13.8,
+   "diff_krw_if_500k_month": 4832167,
+   "end": "2012-12-31",
+   "paid_won": 30000000,
+   "keep_won": 39000000,
+   "pause_won": 34140000
+  },
+  "2000-03+5y": {
+   "months": 60,
+   "paused_months": 44,
+   "keep_return_pct": 12.6,
+   "pause_return_pct": -1.7,
+   "diff_krw_if_500k_month": 4271972,
+   "end": "2005-02-28",
+   "paid_won": 30000000,
+   "keep_won": 33780000,
+   "pause_won": 29490000
+  },
+  "2007-10+5y": {
+   "months": 60,
+   "paused_months": 31,
+   "keep_return_pct": 30.7,
+   "pause_return_pct": 14.6,
+   "diff_krw_if_500k_month": 4850695,
+   "end": "2012-09-28",
+   "paid_won": 30000000,
+   "keep_won": 39210000,
+   "pause_won": 34380000
+  }
+ },
+ "X_fx": {
+  "2026-06-22": {
+   "spy_usd_pct": -1.4,
+   "usdkrw_pct": -13.4,
+   "spy_krw_pct": -14.6,
+   "fx_start": 1539.1,
+   "fx_now": 1332.9
+  },
+  "2026-10-06": {
+   "spy_usd_pct": -6.0,
+   "usdkrw_pct": -0.5,
+   "spy_krw_pct": -6.5,
+   "fx_start": 1339.7,
+   "fx_now": 1332.9
+  }
+ }
+}

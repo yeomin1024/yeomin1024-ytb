@@ -1,0 +1,75 @@
+{
+ "id": "YNz-ogrUOB4",
+ "title": "\"이것만 알면 계좌 지킨다\" -50% 계좌 탈출하는 법 ( 김동엽 대표 )",
+ "channel": "경제 원탑",
+ "channel_id": "UCDjaj6eENGMvgIXfeRErPmA",
+ "subs": 555000,
+ "views": 68957,
+ "ratio": 0.12,
+ "age_days": 1,
+ "views_per_day": 49244.6,
+ "minutes": 17.7,
+ "likes": 506,
+ "comments": 13,
+ "published": "2026-11-16",
+ "queries": "검색:주식하는법",
+ "url": "https://www.youtube.com/watch?v=YNz-ogrUOB4",
+ "flag": "",
+ "published_at": "2026-11-16T23:30:05Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_YNz-ogrUOB4",
+ "sources": [
+  "검색:주식하는법"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 38,
+   "title": "약세장에서는 도망가려는 생각보다 열심히 모아야 할 때입니다."
+  },
+  {
+   "start": 391,
+   "title": "미국 주식보다는 국내 반도체 주식에 투자하는 것이 더 유리할 수 있습니다."
+  },
+  {
+   "start": 651,
+   "title": "장기적인 투자 마인드를 가지면 시장의 공포를 극복할 수 있습니다."
+  },
+  {
+   "start": 730,
+   "title": "반도체 소부장, 로봇, 보안주, 통신주에 대한 투자가 유망합니다."
+  },
+  {
+   "start": 769,
+   "title": "반등하지 않는 주식은 포트폴리오에서 비중을 줄이는 것이 좋습니다."
+  },
+  {
+   "start": 882,
+   "title": "로봇주는 AI 확장과 함께 내년에 다시 주목받을 가능성이 큽니다."
+  },
+  {
+   "start": 951,
+   "title": "어려운 시기를 포기하지 말고 견뎌내면 평화롭고 따뜻한 시기가 올 것입니다."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 13,
+ "comments_top_level": 11,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T09:09:37",
+ "approved": "2026-11-18T18:09+09:00"
+}

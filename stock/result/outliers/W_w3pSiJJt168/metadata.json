@@ -1,0 +1,86 @@
+{
+ "id": "w3pSiJJt168",
+ "title": "혹시, 주식 하시나요? 연령별 현실 주식 투자 l 마곡역",
+ "channel": "주식에 미친 사람들",
+ "channel_id": "UCHEWCYP9MbA9RSUiMPvqK9A",
+ "subs": 159000,
+ "views": 52931,
+ "ratio": 0.33,
+ "age_days": 3,
+ "views_per_day": 16483.0,
+ "minutes": 18.8,
+ "likes": 266,
+ "comments": 44,
+ "published": "2026-11-15",
+ "queries": "검색:주식공부 | 검색:주식기초",
+ "url": "https://www.youtube.com/watch?v=w3pSiJJt168",
+ "flag": "",
+ "published_at": "2026-11-15T04:02:07Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_w3pSiJJt168",
+ "sources": [
+  "검색:주식공부",
+  "검색:주식기초"
+ ],
+ "source": "web",
+ "tags": [
+  "#주식트레이더 #주식브이로그 #주식단타"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝(출연자별 미리 보기)"
+  },
+  {
+   "start": 25,
+   "title": "첫 번째 주인공"
+  },
+  {
+   "start": 219,
+   "title": "두 번째 주인공"
+  },
+  {
+   "start": 316,
+   "title": "세 번째 주인공"
+  },
+  {
+   "start": 446,
+   "title": "네 번째 주인공"
+  },
+  {
+   "start": 575,
+   "title": "귀여워 귀여워 ヾ(≧▽≦*)o (김민 아나운서)"
+  },
+  {
+   "start": 592,
+   "title": "다섯 번째 주인공"
+  },
+  {
+   "start": 698,
+   "title": "여섯 번째 주인공"
+  },
+  {
+   "start": 833,
+   "title": "일곱 번째 주인공"
+  },
+  {
+   "start": 1035,
+   "title": "엔딩(김민 아나운서)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 44,
+ "comments_top_level": 29,
+ "comments_replies": 15,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T09:10:05",
+ "approved": "2026-11-18T18:10+09:00"
+}

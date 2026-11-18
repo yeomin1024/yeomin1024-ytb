@@ -1,0 +1,86 @@
+{
+ "id": "1NuMdHW8lio",
+ "title": "젠슨 황의 사임이 불러온, 반도체 주가 폭락",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3740000,
+ "views": 805092,
+ "ratio": 0.22,
+ "age_days": 0,
+ "views_per_day": 805092.0,
+ "minutes": 40.0,
+ "likes": 4051,
+ "comments": 463,
+ "published": "2026-11-17",
+ "queries": "검색:주가",
+ "url": "https://www.youtube.com/watch?v=1NuMdHW8lio",
+ "flag": "",
+ "published_at": "2026-11-17T10:43:01Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_1NuMdHW8lio",
+ "sources": [
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "\"My gun's too powerful\""
+  },
+  {
+   "start": 550,
+   "title": "2번째"
+  },
+  {
+   "start": 933,
+   "title": "3번째"
+  },
+  {
+   "start": 1082,
+   "title": "다음 CEO는 누구일까"
+  },
+  {
+   "start": 1405,
+   "title": "동남아 대규모 데이터센터를 왜 짓나?"
+  },
+  {
+   "start": 2166,
+   "title": "다가오는 앤트로픽 상장, 엔비디아 실적 발표"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 463,
+ "comments_top_level": 326,
+ "comments_replies": 137,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 463,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T09:09:23",
+ "approved": "2026-11-18T18:09+09:00"
+}

@@ -1,0 +1,78 @@
+{
+ "id": "QBSm6BJko4A",
+ "title": "코스피 5,000 붕괴, AI 서사는 무너졌는가",
+ "channel": "슈카월드",
+ "channel_id": "UCsJ6RuBiTVWRX156FVbeaGg",
+ "subs": 3740000,
+ "views": 1126010,
+ "ratio": 0.3,
+ "age_days": 6,
+ "views_per_day": 163056.1,
+ "minutes": 43.2,
+ "likes": 5228,
+ "comments": 819,
+ "published": "2026-11-11",
+ "queries": "검색:코스피",
+ "url": "https://www.youtube.com/watch?v=QBSm6BJko4A",
+ "flag": "",
+ "published_at": "2026-11-11T11:22:17Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_QBSm6BJko4A",
+ "sources": [
+  "검색:코스피"
+ ],
+ "source": "web",
+ "tags": [
+  "슈카",
+  "슈카월드",
+  "경제",
+  "시사",
+  "이슈",
+  "뉴스",
+  "상식",
+  "면접",
+  "논술",
+  "자소서",
+  "취업",
+  "주식",
+  "증시",
+  "주가",
+  "시장",
+  "자산",
+  "투자",
+  "금리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한여름 밤의 꿈"
+  },
+  {
+   "start": 1133,
+   "title": "미국 민주당의 주요 승리 요인"
+  },
+  {
+   "start": 1715,
+   "title": "이번 공화당 패배의 최대 피해자는?"
+  },
+  {
+   "start": 2421,
+   "title": "이 시점, 大현자의 말"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 818,
+ "comments_top_level": 586,
+ "comments_replies": 232,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 819,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T09:10:50",
+ "approved": "2026-11-18T18:10+09:00"
+}

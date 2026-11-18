@@ -1,0 +1,78 @@
+{
+ "id": "EyHsOY3Hiqo",
+ "title": "코스피 폭락에도 개미들이 2.8조 쓸어 담은 배당 ETF 2개 (ft. 월 175만 원 현금흐름 세팅법) | 절세미녀",
+ "channel": "절세미녀 김희연 회계사",
+ "channel_id": "UC2ByczqyZtt0Lj2DCkQuXJA",
+ "subs": 202000,
+ "views": 154356,
+ "ratio": 0.76,
+ "age_days": 3,
+ "views_per_day": 46249.6,
+ "minutes": 13.0,
+ "likes": 985,
+ "comments": 99,
+ "published": "2026-11-15",
+ "queries": "검색:배당ETF | 검색:월배당ETF | 검색:커버드콜ETF | 검색:월배당 | 검색:코스피200",
+ "url": "https://www.youtube.com/watch?v=EyHsOY3Hiqo",
+ "flag": "",
+ "published_at": "2026-11-15T01:00:27Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_EyHsOY3Hiqo",
+ "sources": [
+  "검색:배당ETF",
+  "검색:월배당ETF",
+  "검색:커버드콜ETF",
+  "검색:월배당",
+  "검색:코스피200"
+ ],
+ "source": "web",
+ "tags": [
+  "KODEX200타겟위클리커버드콜",
+  "KODEX200커버드콜액티브",
+  "커버드콜ETF",
+  "월배당ETF",
+  "월분배",
+  "금융소득종합과세",
+  "은퇴생활비",
+  "코스피200",
+  "절세미녀",
+  "배당"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1억 투자로 월 2회(월초·중순) 175만 원 현금 흐름 만드는 법"
+  },
+  {
+   "start": 72,
+   "title": "하락장에도 커버드콜에 돈이 몰리는 3가지 이유"
+  },
+  {
+   "start": 232,
+   "title": "치명적 단점: 원금 손실(-25%)과 분배금 변동성"
+  },
+  {
+   "start": 362,
+   "title": "핵심 장점: 옵션 프리미엄 비과세와 금융소득종합과세 방어"
+  },
+  {
+   "start": 501,
+   "title": "두 상품 비교 및 내 계좌에 맞게 세팅하는 실전 전략"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "zxx",
+ "foreign": false,
+ "comments_fetched": 99,
+ "comments_top_level": 65,
+ "comments_replies": 34,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 99,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T09:10:00",
+ "approved": "2026-11-18T18:10+09:00"
+}

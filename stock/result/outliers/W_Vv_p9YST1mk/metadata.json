@@ -1,0 +1,106 @@
+{
+ "id": "Vv_p9YST1mk",
+ "title": "한국에선 8년 연속 1만 대 팔렸는데… 주가는 87% 폭락? 볼보가 위기에 빠진 이유 | 🌊딥다이브🌊",
+ "channel": "딥다이브",
+ "channel_id": "UCnWqng3MswATmWIBUDTWdBg",
+ "subs": 51700,
+ "views": 561422,
+ "ratio": 10.86,
+ "age_days": 6,
+ "views_per_day": 92861.2,
+ "minutes": 8.7,
+ "likes": 1431,
+ "comments": 567,
+ "published": "2026-11-12",
+ "queries": "검색:주가",
+ "url": "https://www.youtube.com/watch?v=Vv_p9YST1mk",
+ "flag": "",
+ "published_at": "2026-11-12T08:00:31Z",
+ "rank": "W25",
+ "set": "web",
+ "folder": "W_Vv_p9YST1mk",
+ "sources": [
+  "검색:주가"
+ ],
+ "source": "web",
+ "tags": [
+  "볼보",
+  "전기차",
+  "볼보자동차",
+  "볼보전기차",
+  "EX60",
+  "EX90",
+  "XC90",
+  "자동차",
+  "차량",
+  "자동차산업",
+  "유럽자동차",
+  "테슬라",
+  "스웨덴",
+  "유럽",
+  "중국",
+  "미국",
+  "경제",
+  "위기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "위기에 빠진 볼보자동차"
+  },
+  {
+   "start": 30,
+   "title": "충격적인 볼보의 올해 3분기 실적"
+  },
+  {
+   "start": 105,
+   "title": "볼보를 위기로 몰아넣은 주범의 정체"
+  },
+  {
+   "start": 112,
+   "title": "지리자동차 인수로 시작된 볼보의 전성기"
+  },
+  {
+   "start": 182,
+   "title": "2030년까지 전기차 100%, 볼보의 파격적인 계획"
+  },
+  {
+   "start": 236,
+   "title": "전기차 시장에 닥친 캐즘과 보조금 폐지"
+  },
+  {
+   "start": 292,
+   "title": "EX90에서 발생한 소프트웨어 대참사"
+  },
+  {
+   "start": 296,
+   "title": "소프트웨어 오류의 원인"
+  },
+  {
+   "start": 395,
+   "title": "구원투수로 돌아온 사무엘손 CEO"
+  },
+  {
+   "start": 430,
+   "title": "신형 전기차 EX60의 생산 차질"
+  },
+  {
+   "start": 486,
+   "title": "'퍼스트 펭귄'의 저주에 빠진 볼보"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 567,
+ "comments_top_level": 394,
+ "comments_replies": 173,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 567,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T09:10:58",
+ "approved": "2026-11-18T18:11+09:00"
+}

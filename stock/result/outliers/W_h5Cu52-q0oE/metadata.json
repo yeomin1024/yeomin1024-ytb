@@ -1,0 +1,106 @@
+{
+ "id": "h5Cu52-q0oE",
+ "title": "S&P500 적립식, 다들 거꾸로 하고 있습니다… 5천만원 갈리는 진짜 이유",
+ "channel": "뒤집는경제",
+ "channel_id": "UC23xjihRXvOSrA_ZqxIld4g",
+ "subs": 945,
+ "views": 235115,
+ "ratio": 248.8,
+ "age_days": 39,
+ "views_per_day": 6027.0,
+ "minutes": 24.9,
+ "likes": 950,
+ "comments": 70,
+ "published": "2026-10-10",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=h5Cu52-q0oE",
+ "flag": "",
+ "published_at": "2026-10-10T08:56:08Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_h5Cu52-q0oE",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "S&P500 적립식",
+  "S&P500",
+  "S&P500 ETF",
+  "미국 ETF",
+  "ETF 투자",
+  "국내상장 ETF",
+  "해외직투",
+  "해외 직투 vs 국내상장",
+  "연금저축",
+  "연금저축펀드",
+  "ISA",
+  "ISA 계좌",
+  "IRP",
+  "절세 계좌",
+  "ETF 세금",
+  "양도소득세",
+  "금융소득종합과세",
+  "배당소득세",
+  "세액공제",
+  "환헤지",
+  "환노출",
+  "노후 준비",
+  "적립식 투자",
+  "직장인 재테크",
+  "미국 주식",
+  "뒤집는경제"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "같은 50만 원, 다른 결과"
+  },
+  {
+   "start": 95,
+   "title": "S&P500을 사는 세 갈래 길"
+  },
+  {
+   "start": 288,
+   "title": "15.4%가 함정이 되는 순간"
+  },
+  {
+   "start": 564,
+   "title": "세율 22% 해외 직투의 반격"
+  },
+  {
+   "start": 801,
+   "title": "진짜 돈이 새는 곳, 환헤지 H"
+  },
+  {
+   "start": 926,
+   "title": "월 50만 원과 연금저축의 비밀"
+  },
+  {
+   "start": 1113,
+   "title": "네 가지 길, 최종 성적표"
+  },
+  {
+   "start": 1170,
+   "title": "계좌 옮기기 전 체크할 세 가지"
+  },
+  {
+   "start": 1362,
+   "title": "결론과 상황별 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 70,
+ "comments_top_level": 24,
+ "comments_replies": 46,
+ "comments_by_creator": 34,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 70,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T13:19:48",
+ "approved": "2026-11-18T22:19+09:00"
+}

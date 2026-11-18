@@ -1,0 +1,80 @@
+{
+ "id": "DB_5UlPa3Rk",
+ "title": "미국 110년 인플레이션 9번, 무엇이 끝냈나",
+ "channel": "차트 너머",
+ "channel_id": "UC5BwsbgUiimuihlA2sQv7-Q",
+ "subs": 5100,
+ "views": 71085,
+ "ratio": 13.94,
+ "age_days": 7,
+ "views_per_day": 9654.4,
+ "minutes": 12.2,
+ "likes": 315,
+ "comments": 37,
+ "published": "2026-11-11",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=DB_5UlPa3Rk",
+ "flag": "",
+ "published_at": "2026-11-11T04:34:20Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_DB_5UlPa3Rk",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "인플레이션",
+  "물가",
+  "미국경제",
+  "연준",
+  "금리",
+  "폴볼커",
+  "케빈워시",
+  "경제역사"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "휘발유 한 달 21%"
+  },
+  {
+   "start": 64,
+   "title": "110년 물가를 세다"
+  },
+  {
+   "start": 95,
+   "title": "원인은 세 갈래"
+  },
+  {
+   "start": 254,
+   "title": "무엇이 끝냈나"
+  },
+  {
+   "start": 370,
+   "title": "두 번째 파도"
+  },
+  {
+   "start": 525,
+   "title": "2022년과 지금"
+  },
+  {
+   "start": 640,
+   "title": "세 길과 볼 신호"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 37,
+ "comments_top_level": 14,
+ "comments_replies": 23,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 37,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T13:17:02",
+ "approved": "2026-11-18T22:17+09:00"
+}

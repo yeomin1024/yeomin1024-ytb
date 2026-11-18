@@ -2,15 +2,15 @@
  "tool": "weekly_analysis.py v1.5.2",
  "topic": "stock",
  "name": "주식",
- "generated": "2026-11-18T09:12:15+00:00",
- "cases": 748,
- "dated": 748,
+ "generated": "2026-11-18T13:19:54+00:00",
+ "cases": 753,
+ "dated": 753,
  "older_than_windows": 0,
  "max_weeks": 52,
  "text_sources": {
   "자막": 24,
   "음성인식": 46,
-  "설명": 642,
+  "설명": 647,
   "없음": 36
  },
  "criteria": "성공 사례 = 구독자 50,000 이하 · 조회수 10,000 이상 · 구독자당 하루 조회수 ≥ 0.1 (하루 조회수 ÷ 구독자)",
@@ -18,7 +18,7 @@
   {
    "weeks": 1,
    "label": "최근 1주",
-   "videos": 25,
+   "videos": 24,
    "channels": 20,
    "new_this_week": [
     {
@@ -75,11 +75,6 @@
      "id": "KigB-wyyngc",
      "title": "사상 최초 코스피 추월, ETF 하루 거래 20조 원대",
      "published": "2026-11-16"
-    },
-    {
-     "id": "QBSm6BJko4A",
-     "title": "코스피 5,000 붕괴, AI 서사는 무너졌는가",
-     "published": "2026-11-11"
     },
     {
      "id": "VJgkA_L5Tnk",
@@ -147,85 +142,81 @@
      "published": "2026-11-16"
     }
    ],
-   "views_median": 139529,
-   "views_per_day_median": 49168.8,
-   "ratio_median": 0.28,
+   "views_median": 118017.0,
+   "views_per_day_median": 47691.85,
+   "ratio_median": 0.25,
    "success": 1,
-   "minutes_median": 13.8,
-   "title_len_avg": 40.1,
+   "minutes_median": 13.55,
+   "title_len_avg": 40.7,
    "title_features": [
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 12,
-     "share": 0.48
+     "count": 11,
+     "share": 0.458
     },
     {
      "name": "물음표 ?",
      "count": 4,
-     "share": 0.16
+     "share": 0.167
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 4,
-     "share": 0.16
+     "share": 0.167
     },
     {
      "name": "이유",
      "count": 3,
-     "share": 0.12
+     "share": 0.125
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 3,
-     "share": 0.12
+     "share": 0.125
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.08
+     "share": 0.083
     },
     {
      "name": "vs 비교",
      "count": 2,
-     "share": 0.08
-    },
-    {
-     "name": "AI",
-     "count": 2,
-     "share": 0.08
+     "share": 0.083
     },
     {
      "name": "두 금액(반전)",
      "count": 1,
-     "share": 0.04
+     "share": 0.042
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.04
+     "share": 0.042
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.04
+     "share": 0.042
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.04
+     "share": 0.042
+    },
+    {
+     "name": "AI",
+     "count": 1,
+     "share": 0.042
     }
    ],
    "title_words": [
     {
      "word": "코스피",
-     "count": 9
+     "count": 8
     },
     {
      "word": "주식",
-     "count": 3
-    },
-    {
-     "word": "붕괴",
      "count": 3
     },
     {
@@ -233,15 +224,11 @@
      "count": 3
     },
     {
-     "word": "주식투자",
-     "count": 2
-    },
-    {
      "word": "하루",
      "count": 2
     },
     {
-     "word": "AI",
+     "word": "주식투자",
      "count": 2
     },
     {
@@ -253,7 +240,15 @@
      "count": 2
     },
     {
+     "word": "ETF",
+     "count": 2
+    },
+    {
      "word": "배당",
+     "count": 2
+    },
+    {
+     "word": "세팅법",
      "count": 2
     }
    ],
@@ -262,7 +257,7 @@
     "자막": 0,
     "음성인식": 0,
     "설명": 22,
-    "없음": 3
+    "없음": 2
    },
    "content_words": [
     {
@@ -286,11 +281,11 @@
      "count": 5
     },
     {
-     "word": "버는",
+     "word": "공식",
      "count": 4
     },
     {
-     "word": "공식",
+     "word": "버는",
      "count": 4
     },
     {
@@ -298,11 +293,11 @@
      "count": 4
     },
     {
-     "word": "감사합니다",
+     "word": "집중",
      "count": 4
     },
     {
-     "word": "집중",
+     "word": "감사합니다",
      "count": 4
     },
     {
@@ -314,7 +309,7 @@
      "count": 4
     }
    ],
-   "chapters_share": 0.24,
+   "chapters_share": 0.208,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -336,40 +331,40 @@
      "hook": "🚨[👇실전 경매 단타 절대 강자 '김선비'의 2026 소액 경매 단타 무료특강👇]🚨 🤔 \"내 돈 2,000만 원밖에 없는 초보도, 임장 갈 시간 없는 바쁜 직장인도 진짜 가능할까요?\" 실제 컨설팅 수강생분들의 단독 낙찰 후기가 증명합니다. 해외에 거주하며 비대면으로 처리한 50대 직장인"
     }
    ],
-   "comments": 8856,
+   "comments": 8038,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 1543,
-     "share": 0.174
+     "count": 1430,
+     "share": 0.178
     },
     {
      "name": "칭찬·감사",
-     "count": 827,
-     "share": 0.093
+     "count": 817,
+     "share": 0.102
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 750,
-     "share": 0.085
+     "count": 705,
+     "share": 0.088
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 672,
-     "share": 0.076
+     "count": 579,
+     "share": 0.072
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 525,
-     "share": 0.059
+     "count": 485,
+     "share": 0.06
     },
     {
      "name": "빚·신용·미수",
-     "count": 443,
-     "share": 0.05
+     "count": 434,
+     "share": 0.054
     }
    ],
-   "comment_uncategorized": 0.558,
+   "comment_uncategorized": 0.548,
    "top_comments": [
     {
      "text": "외인들 선물 당일로 매매햘때 증거금 필요 없는것도 폐지해라",
@@ -435,75 +430,86 @@
   {
    "weeks": 2,
    "label": "최근 2주",
-   "videos": 25,
-   "channels": 20,
-   "new_this_week": [],
-   "views_median": 139529,
-   "views_per_day_median": 49168.8,
-   "ratio_median": 0.28,
-   "success": 1,
-   "minutes_median": 13.8,
-   "title_len_avg": 40.1,
+   "videos": 26,
+   "channels": 21,
+   "new_this_week": [
+    {
+     "id": "DB_5UlPa3Rk",
+     "title": "미국 110년 인플레이션 9번, 무엇이 끝냈나",
+     "published": "2026-11-11"
+    },
+    {
+     "id": "QBSm6BJko4A",
+     "title": "코스피 5,000 붕괴, AI 서사는 무너졌는가",
+     "published": "2026-11-11"
+    }
+   ],
+   "views_median": 118017.0,
+   "views_per_day_median": 47691.85,
+   "ratio_median": 0.29,
+   "success": 2,
+   "minutes_median": 13.55,
+   "title_len_avg": 39.5,
    "title_features": [
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 12,
-     "share": 0.48
+     "share": 0.462
     },
     {
      "name": "물음표 ?",
      "count": 4,
-     "share": 0.16
+     "share": 0.154
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 4,
-     "share": 0.16
+     "share": 0.154
     },
     {
      "name": "이유",
      "count": 3,
-     "share": 0.12
+     "share": 0.115
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
      "count": 3,
-     "share": 0.12
+     "share": 0.115
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.08
+     "share": 0.077
     },
     {
      "name": "vs 비교",
      "count": 2,
-     "share": 0.08
+     "share": 0.077
     },
     {
      "name": "AI",
      "count": 2,
-     "share": 0.08
+     "share": 0.077
     },
     {
      "name": "두 금액(반전)",
      "count": 1,
-     "share": 0.04
+     "share": 0.038
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.04
+     "share": 0.038
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.04
+     "share": 0.038
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.04
+     "share": 0.038
     }
    ],
    "title_words": [
@@ -524,11 +530,11 @@
      "count": 3
     },
     {
-     "word": "주식투자",
+     "word": "하루",
      "count": 2
     },
     {
-     "word": "하루",
+     "word": "주식투자",
      "count": 2
     },
     {
@@ -544,7 +550,7 @@
      "count": 2
     },
     {
-     "word": "배당",
+     "word": "ETF",
      "count": 2
     }
    ],
@@ -552,16 +558,16 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 22,
+    "설명": 23,
     "없음": 3
    },
    "content_words": [
     {
-     "word": "투자",
-     "count": 6
+     "word": "11월",
+     "count": 7
     },
     {
-     "word": "11월",
+     "word": "투자",
      "count": 6
     },
     {
@@ -573,6 +579,10 @@
      "count": 5
     },
     {
+     "word": "공식",
+     "count": 5
+    },
+    {
      "word": "바로가기",
      "count": 5
     },
@@ -581,15 +591,7 @@
      "count": 4
     },
     {
-     "word": "공식",
-     "count": 4
-    },
-    {
      "word": "위한",
-     "count": 4
-    },
-    {
-     "word": "감사합니다",
      "count": 4
     },
     {
@@ -597,15 +599,19 @@
      "count": 4
     },
     {
-     "word": "대표",
+     "word": "감사합니다",
      "count": 4
     },
     {
-     "word": "부자",
+     "word": "미국",
+     "count": 4
+    },
+    {
+     "word": "대표",
      "count": 4
     }
    ],
-   "chapters_share": 0.24,
+   "chapters_share": 0.269,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -627,36 +633,36 @@
      "hook": "🚨[👇실전 경매 단타 절대 강자 '김선비'의 2026 소액 경매 단타 무료특강👇]🚨 🤔 \"내 돈 2,000만 원밖에 없는 초보도, 임장 갈 시간 없는 바쁜 직장인도 진짜 가능할까요?\" 실제 컨설팅 수강생분들의 단독 낙찰 후기가 증명합니다. 해외에 거주하며 비대면으로 처리한 50대 직장인"
     }
    ],
-   "comments": 8856,
+   "comments": 8893,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 1543,
+     "count": 1547,
      "share": 0.174
     },
     {
      "name": "칭찬·감사",
-     "count": 827,
+     "count": 829,
      "share": 0.093
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 750,
+     "count": 752,
      "share": 0.085
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 672,
+     "count": 673,
      "share": 0.076
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 525,
+     "count": 529,
      "share": 0.059
     },
     {
      "name": "빚·신용·미수",
-     "count": 443,
+     "count": 444,
      "share": 0.05
     }
    ],
@@ -726,75 +732,81 @@
   {
    "weeks": 3,
    "label": "최근 3주",
-   "videos": 25,
-   "channels": 20,
-   "new_this_week": [],
+   "videos": 27,
+   "channels": 21,
+   "new_this_week": [
+    {
+     "id": "QG40SUfIML8",
+     "title": "이번 하락은 어디에 가까울까 | 공포탐욕지수 39번으로 본 금리와 물가",
+     "published": "2026-11-04"
+    }
+   ],
    "views_median": 139529,
-   "views_per_day_median": 49168.8,
-   "ratio_median": 0.28,
-   "success": 1,
-   "minutes_median": 13.8,
-   "title_len_avg": 40.1,
+   "views_per_day_median": 46214.9,
+   "ratio_median": 0.3,
+   "success": 3,
+   "minutes_median": 13.3,
+   "title_len_avg": 39.5,
    "title_features": [
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 12,
-     "share": 0.48
+     "share": 0.444
     },
     {
      "name": "물음표 ?",
      "count": 4,
-     "share": 0.16
+     "share": 0.148
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 4,
-     "share": 0.16
+     "share": 0.148
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 4,
+     "share": 0.148
     },
     {
      "name": "이유",
      "count": 3,
-     "share": 0.12
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 3,
-     "share": 0.12
+     "share": 0.111
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.08
+     "share": 0.074
     },
     {
      "name": "vs 비교",
      "count": 2,
-     "share": 0.08
+     "share": 0.074
     },
     {
      "name": "AI",
      "count": 2,
-     "share": 0.08
+     "share": 0.074
     },
     {
      "name": "두 금액(반전)",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     }
    ],
    "title_words": [
@@ -815,11 +827,11 @@
      "count": 3
     },
     {
-     "word": "주식투자",
+     "word": "하루",
      "count": 2
     },
     {
-     "word": "하루",
+     "word": "주식투자",
      "count": 2
     },
     {
@@ -835,7 +847,7 @@
      "count": 2
     },
     {
-     "word": "배당",
+     "word": "ETF",
      "count": 2
     }
    ],
@@ -843,16 +855,16 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 22,
+    "설명": 24,
     "없음": 3
    },
    "content_words": [
     {
-     "word": "투자",
-     "count": 6
+     "word": "11월",
+     "count": 7
     },
     {
-     "word": "11월",
+     "word": "투자",
      "count": 6
     },
     {
@@ -864,6 +876,14 @@
      "count": 5
     },
     {
+     "word": "공식",
+     "count": 5
+    },
+    {
+     "word": "미국",
+     "count": 5
+    },
+    {
      "word": "바로가기",
      "count": 5
     },
@@ -872,15 +892,7 @@
      "count": 4
     },
     {
-     "word": "공식",
-     "count": 4
-    },
-    {
      "word": "위한",
-     "count": 4
-    },
-    {
-     "word": "감사합니다",
      "count": 4
     },
     {
@@ -888,15 +900,15 @@
      "count": 4
     },
     {
-     "word": "대표",
+     "word": "감사합니다",
      "count": 4
     },
     {
-     "word": "부자",
+     "word": "대표",
      "count": 4
     }
    ],
-   "chapters_share": 0.24,
+   "chapters_share": 0.296,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -918,40 +930,40 @@
      "hook": "🚨[👇실전 경매 단타 절대 강자 '김선비'의 2026 소액 경매 단타 무료특강👇]🚨 🤔 \"내 돈 2,000만 원밖에 없는 초보도, 임장 갈 시간 없는 바쁜 직장인도 진짜 가능할까요?\" 실제 컨설팅 수강생분들의 단독 낙찰 후기가 증명합니다. 해외에 거주하며 비대면으로 처리한 50대 직장인"
     }
    ],
-   "comments": 8856,
+   "comments": 9102,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 1543,
-     "share": 0.174
+     "count": 1589,
+     "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 827,
+     "count": 844,
      "share": 0.093
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 750,
-     "share": 0.085
+     "count": 783,
+     "share": 0.086
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 672,
-     "share": 0.076
+     "count": 683,
+     "share": 0.075
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 525,
-     "share": 0.059
+     "count": 546,
+     "share": 0.06
     },
     {
      "name": "빚·신용·미수",
-     "count": 443,
+     "count": 455,
      "share": 0.05
     }
    ],
-   "comment_uncategorized": 0.558,
+   "comment_uncategorized": 0.556,
    "top_comments": [
     {
      "text": "외인들 선물 당일로 매매햘때 증거금 필요 없는것도 폐지해라",
@@ -1017,75 +1029,75 @@
   {
    "weeks": 4,
    "label": "최근 4주",
-   "videos": 25,
-   "channels": 20,
+   "videos": 27,
+   "channels": 21,
    "new_this_week": [],
    "views_median": 139529,
-   "views_per_day_median": 49168.8,
-   "ratio_median": 0.28,
-   "success": 1,
-   "minutes_median": 13.8,
-   "title_len_avg": 40.1,
+   "views_per_day_median": 46214.9,
+   "ratio_median": 0.3,
+   "success": 3,
+   "minutes_median": 13.3,
+   "title_len_avg": 39.5,
    "title_features": [
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 12,
-     "share": 0.48
+     "share": 0.444
     },
     {
      "name": "물음표 ?",
      "count": 4,
-     "share": 0.16
+     "share": 0.148
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 4,
-     "share": 0.16
+     "share": 0.148
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 4,
+     "share": 0.148
     },
     {
      "name": "이유",
      "count": 3,
-     "share": 0.12
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 3,
-     "share": 0.12
+     "share": 0.111
     },
     {
      "name": "금액(억·만원)",
      "count": 2,
-     "share": 0.08
+     "share": 0.074
     },
     {
      "name": "vs 비교",
      "count": 2,
-     "share": 0.08
+     "share": 0.074
     },
     {
      "name": "AI",
      "count": 2,
-     "share": 0.08
+     "share": 0.074
     },
     {
      "name": "두 금액(반전)",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     },
     {
      "name": "느낌표 !",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     },
     {
      "name": "N가지",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 1,
-     "share": 0.04
+     "share": 0.037
     }
    ],
    "title_words": [
@@ -1106,11 +1118,11 @@
      "count": 3
     },
     {
-     "word": "주식투자",
+     "word": "하루",
      "count": 2
     },
     {
-     "word": "하루",
+     "word": "주식투자",
      "count": 2
     },
     {
@@ -1126,7 +1138,7 @@
      "count": 2
     },
     {
-     "word": "배당",
+     "word": "ETF",
      "count": 2
     }
    ],
@@ -1134,16 +1146,16 @@
    "text_sources": {
     "자막": 0,
     "음성인식": 0,
-    "설명": 22,
+    "설명": 24,
     "없음": 3
    },
    "content_words": [
     {
-     "word": "투자",
-     "count": 6
+     "word": "11월",
+     "count": 7
     },
     {
-     "word": "11월",
+     "word": "투자",
      "count": 6
     },
     {
@@ -1155,6 +1167,14 @@
      "count": 5
     },
     {
+     "word": "공식",
+     "count": 5
+    },
+    {
+     "word": "미국",
+     "count": 5
+    },
+    {
      "word": "바로가기",
      "count": 5
     },
@@ -1163,15 +1183,7 @@
      "count": 4
     },
     {
-     "word": "공식",
-     "count": 4
-    },
-    {
      "word": "위한",
-     "count": 4
-    },
-    {
-     "word": "감사합니다",
      "count": 4
     },
     {
@@ -1179,15 +1191,15 @@
      "count": 4
     },
     {
-     "word": "대표",
+     "word": "감사합니다",
      "count": 4
     },
     {
-     "word": "부자",
+     "word": "대표",
      "count": 4
     }
    ],
-   "chapters_share": 0.24,
+   "chapters_share": 0.296,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -1209,40 +1221,40 @@
      "hook": "🚨[👇실전 경매 단타 절대 강자 '김선비'의 2026 소액 경매 단타 무료특강👇]🚨 🤔 \"내 돈 2,000만 원밖에 없는 초보도, 임장 갈 시간 없는 바쁜 직장인도 진짜 가능할까요?\" 실제 컨설팅 수강생분들의 단독 낙찰 후기가 증명합니다. 해외에 거주하며 비대면으로 처리한 50대 직장인"
     }
    ],
-   "comments": 8856,
+   "comments": 9102,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 1543,
-     "share": 0.174
+     "count": 1589,
+     "share": 0.175
     },
     {
      "name": "칭찬·감사",
-     "count": 827,
+     "count": 844,
      "share": 0.093
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 750,
-     "share": 0.085
+     "count": 783,
+     "share": 0.086
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 672,
-     "share": 0.076
+     "count": 683,
+     "share": 0.075
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 525,
-     "share": 0.059
+     "count": 546,
+     "share": 0.06
     },
     {
      "name": "빚·신용·미수",
-     "count": 443,
+     "count": 455,
      "share": 0.05
     }
    ],
-   "comment_uncategorized": 0.558,
+   "comment_uncategorized": 0.556,
    "top_comments": [
     {
      "text": "외인들 선물 당일로 매매햘때 증거금 필요 없는것도 폐지해라",
@@ -1308,8 +1320,8 @@
   {
    "weeks": 5,
    "label": "최근 5주",
-   "videos": 325,
-   "channels": 227,
+   "videos": 311,
+   "channels": 217,
    "new_this_week": [
     {
      "id": "-Fl1y9riPs4",
@@ -1385,11 +1397,6 @@
      "id": "3eKMA0rNoGc",
      "title": "Ex-Banker Explains: How to Invest for Beginners in 2027",
      "published": "2026-10-18"
-    },
-    {
-     "id": "3pAgtfybuQY",
-     "title": "반등에 실패한 코스피 진짜 문제는 자사주 종료가 아니다",
-     "published": "2026-10-14"
     },
     {
      "id": "4BooxjnAfPY",
@@ -1577,11 +1584,6 @@
      "published": "2026-10-16"
     },
     {
-     "id": "9rfCwm4PqzI",
-     "title": "Support & Resistance की सबसे आसान Trading Strategy! | High Risk-to-Reward Trading Setup",
-     "published": "2026-10-14"
-    },
-    {
      "id": "9zV78pvlDJ4",
      "title": "S&P500とNASDAQ100は崩れない。プロ投資家が あの日 まで買わない理由【米国株最新】",
      "published": "2026-10-16"
@@ -1612,16 +1614,6 @@
      "published": "2026-10-19"
     },
     {
-     "id": "AjM6b8kACtk",
-     "title": "주가가 폭락하고 현금흐름까지 마이너스였다…테슬라 재무제표에 남은 ‘테라팹’의 흔적 | 맹성준 작가 [2부]",
-     "published": "2026-10-14"
-    },
-    {
-     "id": "AzDeLScgm_I",
-     "title": "【残り3か月】S&P500はここから1年が黄金期…！過去チャート検証",
-     "published": "2026-10-14"
-    },
-    {
      "id": "BCG0vPE1Ox0",
      "title": "The Honest Downside of SCHD Nobody Talks About",
      "published": "2026-10-16"
@@ -1645,11 +1637,6 @@
      "id": "CL1Ff_kj2mQ",
      "title": "The Stock Market Is Flashing Warning Signs + Inflation Is Ramping Up",
      "published": "2026-10-15"
-    },
-    {
-     "id": "CNIJDaTD6-Q",
-     "title": "How Trading Changed My Life in 6 Years | Losses to Success",
-     "published": "2026-10-14"
     },
     {
      "id": "CZSZnrkMW84",
@@ -1832,11 +1819,6 @@
      "published": "2026-10-14"
     },
     {
-     "id": "K_Ez5-iTaao",
-     "title": "나스닥100 말고 '이 주식' 사세요, 5천만원 묻어두면 20억이 된다 (라오어 작가)",
-     "published": "2026-10-14"
-    },
-    {
      "id": "L2GG_DeUDa0",
      "title": "지옥 같은 코스피에서 살아남을 단어 '양극단' | 윤지호 경제평론가 [주말인터뷰]",
      "published": "2026-10-16"
@@ -1942,6 +1924,11 @@
      "published": "2026-10-17"
     },
     {
+     "id": "OPL1VmC5nC4",
+     "title": "주식투자 5년간 실패하던 내가 깨달은 '이것'",
+     "published": "2026-10-19"
+    },
+    {
      "id": "Ol1yDI6F17o",
      "title": "코스피 7% 빠지던 '순간', 대통령 모두 발언 들어보니",
      "published": "2026-10-15"
@@ -1974,11 +1961,6 @@
     {
      "id": "PYv3VL3uDXU",
      "title": "ಸರ್ಕಾರಕ್ಕೆ SBI ವಾರ್ನಿಂಗ್ | LTCG-STT | Nirmala Sitharaman | Double taxation | Masth Magaa | Amar",
-     "published": "2026-10-14"
-    },
-    {
-     "id": "PrEHp2DoRVU",
-     "title": "금리 5.5%가 증시 충격 마지노선? 월가 초고수들의 경고, 대비해야 할까",
      "published": "2026-10-14"
     },
     {
@@ -2082,11 +2064,6 @@
      "published": "2026-10-16"
     },
     {
-     "id": "Uje3UWOGFuM",
-     "title": "\"내일 아침 무서운 일 터진다\" 오늘 밤 삼전 개미들 잠 다 잤습니다 (이승조 무극선생 / 1부)",
-     "published": "2026-10-14"
-    },
-    {
      "id": "UlkFX8ai4OI",
      "title": "월 배당 100만원, JEPQ는 7년 10개월. SCHD는 15년 해도 못 갔다 (그런데 반전) [ 재테크/미국주식/배당주식/슈드/노후대책 ]",
      "published": "2026-10-14"
@@ -2172,11 +2149,6 @@
      "published": "2026-10-19"
     },
     {
-     "id": "_-rdF2o1v0c",
-     "title": "POV: Gaji Sama dengan Temanmu, Tapi Kamu Keluar dari Pabrik Lebih Awal Berkat Dividen",
-     "published": "2026-10-14"
-    },
-    {
      "id": "_FatIixwAx0",
      "title": "\"월요일 폭락에 놀라지 마라\" 66조 빚더미가 만든 가짜 공포, 삼성전자•하이닉스 던지기 전 반드시 보세요",
      "published": "2026-10-18"
@@ -2215,11 +2187,6 @@
      "id": "b5r605QwdAM",
      "title": "“다들 잘못 알고 있다” 코스피 폭락한 진짜 이유. 곧 어마무시한 일 터진다 | 박현상 이사 풀버전",
      "published": "2026-10-15"
-    },
-    {
-     "id": "bIyLia5qhU0",
-     "title": "S$240K a Year in Dividends: AK71 on Banks, REITs and Retirement",
-     "published": "2026-10-14"
     },
     {
      "id": "bXPvKI3FRGI",
@@ -2280,11 +2247,6 @@
      "id": "dI2RVBK-C_s",
      "title": "【格差拡大】2027年以降、日本の資産格差が爆増するヤバすぎる真実、NISA民がさらに有利になる理由！",
      "published": "2026-10-16"
-    },
-    {
-     "id": "dbQ_xk3IiPg",
-     "title": "QLD 거치식 투자, 2배까지 얼마나 걸릴까? QQQ와 비교했더니,, 충격!",
-     "published": "2026-10-14"
     },
     {
      "id": "e8lRkHckkkw",
@@ -2400,11 +2362,6 @@
      "id": "hxsXKa-M9MI",
      "title": "半導体株が世界で急落。それでも持ち続けるべき理由はコレです。",
      "published": "2026-10-15"
-    },
-    {
-     "id": "iaDwiehwAac",
-     "title": "This Is A Stock Market Warning - Get Ready Before It's Too Late | Graham Stephan",
-     "published": "2026-10-14"
     },
     {
      "id": "igE-cvzsUJw",
@@ -2597,11 +2554,6 @@
      "published": "2026-10-18"
     },
     {
-     "id": "r4whFhA2IiY",
-     "title": "【精華】主動式ETF經理人誰最強？健檢00418A 1招大啖代理式AI商機《鈔錢部署》盧燕俐 ft.沈萬鈞 20261014",
-     "published": "2026-10-14"
-    },
-    {
      "id": "rgEQY8FX6dw",
      "title": "'Stocks Are Undervalued': 5 Stocks to Own, 5 to Avoid",
      "published": "2026-10-19"
@@ -2610,11 +2562,6 @@
      "id": "rwQYUZwBxeU",
      "title": "#1853 Market News Analysis",
      "published": "2026-10-15"
-    },
-    {
-     "id": "ry7RZzDxjqE",
-     "title": "India’s Big Breakup: Why Foreign Investors Are Dumping Indian Stocks in 2026 |Indian Express Special",
-     "published": "2026-10-14"
     },
     {
      "id": "sWtVhEHFKoI",
@@ -2657,11 +2604,6 @@
      "published": "2026-10-15"
     },
     {
-     "id": "tSBe7HJLC70",
-     "title": "더 최악의 시나리오가 아직 남았습니다 (이승조) | 팔로더머니 2026년 10월14일 방송",
-     "published": "2026-10-14"
-    },
-    {
      "id": "tU1kVGy52qE",
      "title": "제 살 깎는 커버드콜 etf 투자하는 이유 | 이렇게 써야 망하지 않고 효과 대박입니다 (ft. 커버드콜 etf 배당 세금 건보료)",
      "published": "2026-10-18"
@@ -2690,11 +2632,6 @@
      "id": "tnTZnTqhc3g",
      "title": "월요일 아침 코스피 대폭락? 11월부터 한국증시 완전히 뒤집힐 겁니다, 글로벌 AI주식 폭락한 숨겨진 이유 [긴급점검]",
      "published": "2026-10-18"
-    },
-    {
-     "id": "uiQnHMlY0sI",
-     "title": "[속보] 미국 9월 CPI 물가 3.7% 급등 : 인플레 쇼크와 국채금리 폭등 [즉시분석]",
-     "published": "2026-10-14"
     },
     {
      "id": "uir-YQKvFxU",
@@ -2777,11 +2714,6 @@
      "published": "2026-10-15"
     },
     {
-     "id": "yUIcS9aKUzg",
-     "title": "70배당할머니 배당금으로 자동차 샀어요",
-     "published": "2026-10-14"
-    },
-    {
      "id": "y_mvodyrXhQ",
      "title": "지난 폭락과는 완전히 다릅니다…코스피가 진짜 위험한 이유 (Feat. 박병창 MP파트너스 대표) [딥플 Deep-ple]",
      "published": "2026-10-16"
@@ -2814,85 +2746,85 @@
    ],
    "views_median": 164995,
    "views_per_day_median": 37662.4,
-   "ratio_median": 0.36,
+   "ratio_median": 0.37,
    "success": 50,
-   "minutes_median": 18.8,
-   "title_len_avg": 55.5,
+   "minutes_median": 18.3,
+   "title_len_avg": 55.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 90,
-     "share": 0.277
+     "count": 88,
+     "share": 0.283
     },
     {
      "name": "코스피·폭락·급락·하락장",
-     "count": 79,
-     "share": 0.243
+     "count": 77,
+     "share": 0.248
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 47,
+     "count": 45,
      "share": 0.145
     },
     {
      "name": "AI",
-     "count": 37,
-     "share": 0.114
+     "count": 36,
+     "share": 0.116
     },
     {
      "name": "느낌표 !",
-     "count": 36,
-     "share": 0.111
+     "count": 34,
+     "share": 0.109
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
      "count": 34,
-     "share": 0.105
+     "share": 0.109
     },
     {
      "name": "이유",
      "count": 27,
-     "share": 0.083
+     "share": 0.087
     },
     {
      "name": "금액(억·만원)",
-     "count": 10,
-     "share": 0.031
+     "count": 9,
+     "share": 0.029
     },
     {
      "name": "vs 비교",
      "count": 8,
-     "share": 0.025
+     "share": 0.026
     },
     {
      "name": "N가지",
      "count": 7,
-     "share": 0.022
+     "share": 0.023
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 7,
-     "share": 0.022
+     "share": 0.023
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 5,
-     "share": 0.015
+     "share": 0.016
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 5,
-     "share": 0.015
-    },
-    {
-     "name": "두 금액(반전)",
-     "count": 3,
-     "share": 0.009
+     "share": 0.016
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 3,
-     "share": 0.009
+     "share": 0.01
+    },
+    {
+     "name": "두 금액(반전)",
+     "count": 2,
+     "share": 0.006
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -2903,15 +2835,15 @@
    "title_words": [
     {
      "word": "코스피",
-     "count": 42
+     "count": 41
     },
     {
      "word": "Market",
-     "count": 33
+     "count": 32
     },
     {
      "word": "Stocks",
-     "count": 29
+     "count": 28
     },
     {
      "word": "이유",
@@ -2919,11 +2851,11 @@
     },
     {
      "word": "Stock",
-     "count": 25
+     "count": 24
     },
     {
      "word": "AI",
-     "count": 23
+     "count": 22
     },
     {
      "word": "대표",
@@ -2931,75 +2863,75 @@
     },
     {
      "word": "주식",
-     "count": 21
+     "count": 20
     },
     {
      "word": "to",
-     "count": 21
+     "count": 19
     },
     {
      "word": "ETF",
-     "count": 20
+     "count": 19
     }
    ],
-   "transcripts": 22,
+   "transcripts": 20,
    "text_sources": {
     "자막": 0,
-    "음성인식": 22,
-    "설명": 281,
+    "음성인식": 20,
+    "설명": 269,
     "없음": 22
    },
    "content_words": [
     {
      "word": "to",
-     "count": 101
+     "count": 97
     },
     {
      "word": "is",
-     "count": 96
-    },
-    {
-     "word": "in",
      "count": 92
     },
     {
      "word": "of",
-     "count": 92
+     "count": 89
+    },
+    {
+     "word": "in",
+     "count": 88
     },
     {
      "word": "on",
-     "count": 87
+     "count": 83
     },
     {
      "word": "this",
-     "count": 81
+     "count": 77
     },
     {
      "word": "or",
-     "count": 75
+     "count": 72
     },
     {
      "word": "are",
-     "count": 75
+     "count": 72
     },
     {
      "word": "investment",
-     "count": 69
-    },
-    {
-     "word": "not",
-     "count": 68
-    },
-    {
-     "word": "financial",
      "count": 67
     },
     {
+     "word": "not",
+     "count": 66
+    },
+    {
+     "word": "financial",
+     "count": 65
+    },
+    {
      "word": "market",
-     "count": 64
+     "count": 61
     }
    ],
-   "chapters_share": 0.348,
+   "chapters_share": 0.357,
    "syl_per_sec_median": null,
    "hooks": [
     {
@@ -3021,40 +2953,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 96448,
+   "comments": 93512,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 14497,
-     "share": 0.15
+     "count": 14153,
+     "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 8414,
-     "share": 0.087
+     "count": 7822,
+     "share": 0.084
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 6399,
-     "share": 0.066
+     "count": 6361,
+     "share": 0.068
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 6262,
-     "share": 0.065
+     "count": 6189,
+     "share": 0.066
     },
     {
      "name": "칭찬·감사",
-     "count": 4314,
+     "count": 4218,
      "share": 0.045
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 4237,
-     "share": 0.044
+     "count": 4189,
+     "share": 0.045
     }
    ],
-   "comment_uncategorized": 0.61,
+   "comment_uncategorized": 0.609,
    "top_comments": [
     {
      "text": "뭐야 인공지능이 아녔어?",
@@ -3120,8 +3052,8 @@
   {
    "weeks": 6,
    "label": "최근 6주",
-   "videos": 438,
-   "channels": 263,
+   "videos": 440,
+   "channels": 264,
    "new_this_week": [
     {
      "id": "-2R5j7R_DLI",
@@ -3172,6 +3104,11 @@
      "id": "3I4PkGerclk",
      "title": "#1851 Market News Analysis",
      "published": "2026-10-13"
+    },
+    {
+     "id": "3pAgtfybuQY",
+     "title": "반등에 실패한 코스피 진짜 문제는 자사주 종료가 아니다",
+     "published": "2026-10-14"
     },
     {
      "id": "4Wt_PZqM5ZE",
@@ -3239,6 +3176,21 @@
      "published": "2026-10-14"
     },
     {
+     "id": "9rfCwm4PqzI",
+     "title": "Support & Resistance की सबसे आसान Trading Strategy! | High Risk-to-Reward Trading Setup",
+     "published": "2026-10-14"
+    },
+    {
+     "id": "AjM6b8kACtk",
+     "title": "주가가 폭락하고 현금흐름까지 마이너스였다…테슬라 재무제표에 남은 ‘테라팹’의 흔적 | 맹성준 작가 [2부]",
+     "published": "2026-10-14"
+    },
+    {
+     "id": "AzDeLScgm_I",
+     "title": "【残り3か月】S&P500はここから1年が黄金期…！過去チャート検証",
+     "published": "2026-10-14"
+    },
+    {
      "id": "Azoffhprpf8",
      "title": "[하우머니] K-반도체 역대급 실적에도 주가 박스권…앞으로의 변수는?",
      "published": "2026-10-08"
@@ -3247,6 +3199,11 @@
      "id": "B6BWv1OZV7w",
      "title": "코스피 다 맞춘 무당이 알려드립니다 ! 달러 환율 & 코인 전망 확인하세요 ! X월 이 금액이 보인다 ?! / 코인전망 , 환율전망",
      "published": "2026-10-09"
+    },
+    {
+     "id": "CNIJDaTD6-Q",
+     "title": "How Trading Changed My Life in 6 Years | Losses to Success",
+     "published": "2026-10-14"
     },
     {
      "id": "Cx2KhmXJI7k",
@@ -3292,6 +3249,11 @@
      "id": "ILs31CN-_VA",
      "title": "AI투자 판도 조용히 바뀌는 중? 부진했던 빅테크, 팔란티어의 수상한 신고가",
      "published": "2026-10-12"
+    },
+    {
+     "id": "K_Ez5-iTaao",
+     "title": "나스닥100 말고 '이 주식' 사세요, 5천만원 묻어두면 20억이 된다 (라오어 작가)",
+     "published": "2026-10-14"
     },
     {
      "id": "LIL6iepoiYw",
@@ -3359,6 +3321,11 @@
      "published": "2026-10-13"
     },
     {
+     "id": "PrEHp2DoRVU",
+     "title": "금리 5.5%가 증시 충격 마지노선? 월가 초고수들의 경고, 대비해야 할까",
+     "published": "2026-10-14"
+    },
+    {
      "id": "QOnqsPMBl-0",
      "title": "【50-60代必見】「オルカンとS＆P500は結局どっちがいいの？」→結論、一番は〇〇です。【元ゴールドマンサックスが徹底解説】",
      "published": "2026-10-12"
@@ -3394,6 +3361,11 @@
      "published": "2026-10-12"
     },
     {
+     "id": "Uje3UWOGFuM",
+     "title": "\"내일 아침 무서운 일 터진다\" 오늘 밤 삼전 개미들 잠 다 잤습니다 (이승조 무극선생 / 1부)",
+     "published": "2026-10-14"
+    },
+    {
      "id": "V_ubgqw3CNA",
      "title": "[홍장원의 불앤베어] 반도체 주가에는 새 도파민이 필요하다",
      "published": "2026-10-12"
@@ -3417,6 +3389,11 @@
      "id": "_-oDwfCiOkI",
      "title": "年間配当収入800万円超！増配株投資で配当金を増やし続け、FIREを実現したRickyさんの投資術――億り人の必勝法 vol.15【ザイの資産形成塾】",
      "published": "2026-10-10"
+    },
+    {
+     "id": "_-rdF2o1v0c",
+     "title": "POV: Gaji Sama dengan Temanmu, Tapi Kamu Keluar dari Pabrik Lebih Awal Berkat Dividen",
+     "published": "2026-10-14"
     },
     {
      "id": "_4UqP5Io0YE",
@@ -3449,9 +3426,9 @@
      "published": "2026-10-11"
     },
     {
-     "id": "bL2q1ZfwdJA",
-     "title": "끌로드, 챗GPT가 주식투자도 대신해준다? AI 실생활 침투 가속화의 수혜주들",
-     "published": "2026-10-07"
+     "id": "bIyLia5qhU0",
+     "title": "S$240K a Year in Dividends: AK71 on Banks, REITs and Retirement",
+     "published": "2026-10-14"
     },
     {
      "id": "bMR3jvlYDgo",
@@ -3472,6 +3449,11 @@
      "id": "d4gqZGtuUxo",
      "title": "\"다 비쳐요? 살색 속옷 입으세요\" 오만함의 대가는 혹독했다⎜핵심만 3분",
      "published": "2026-10-08"
+    },
+    {
+     "id": "dbQ_xk3IiPg",
+     "title": "QLD 거치식 투자, 2배까지 얼마나 걸릴까? QQQ와 비교했더니,, 충격!",
+     "published": "2026-10-14"
     },
     {
      "id": "doIdYnKboc0",
@@ -3499,6 +3481,11 @@
      "published": "2026-10-13"
     },
     {
+     "id": "h5Cu52-q0oE",
+     "title": "S&P500 적립식, 다들 거꾸로 하고 있습니다… 5천만원 갈리는 진짜 이유",
+     "published": "2026-10-10"
+    },
+    {
      "id": "hTRG4ehA6NU",
      "title": "한국 증시 또 급락, 언제 반등할까? (박종훈의 지식한방)",
      "published": "2026-10-12"
@@ -3509,9 +3496,9 @@
      "published": "2026-10-13"
     },
     {
-     "id": "iOiQ1ABs9M8",
-     "title": "【全資産公開】インデックス全力投資で8400万円達成！からの散財！俺は虚無億り人にならない！オルカン/S&P500/NASDAQ100/使う力",
-     "published": "2026-10-07"
+     "id": "iaDwiehwAac",
+     "title": "This Is A Stock Market Warning - Get Ready Before It's Too Late | Graham Stephan",
+     "published": "2026-10-14"
     },
     {
      "id": "ifmtlCJa3K8",
@@ -3599,9 +3586,19 @@
      "published": "2026-10-14"
     },
     {
+     "id": "r4whFhA2IiY",
+     "title": "【精華】主動式ETF經理人誰最強？健檢00418A 1招大啖代理式AI商機《鈔錢部署》盧燕俐 ft.沈萬鈞 20261014",
+     "published": "2026-10-14"
+    },
+    {
      "id": "rR8NdSlupEs",
      "title": "【必見】50代60代はこの金額になれば積み立てをやめてOK",
      "published": "2026-10-11"
+    },
+    {
+     "id": "ry7RZzDxjqE",
+     "title": "India’s Big Breakup: Why Foreign Investors Are Dumping Indian Stocks in 2026 |Indian Express Special",
+     "published": "2026-10-14"
     },
     {
      "id": "rzJgx0WfXlY",
@@ -3627,6 +3624,16 @@
      "id": "tPIHG6h_UfA",
      "title": "Best Investment Plan For Your Child | Best Child Financial Plan | SAGAR SINHA",
      "published": "2026-10-08"
+    },
+    {
+     "id": "tSBe7HJLC70",
+     "title": "더 최악의 시나리오가 아직 남았습니다 (이승조) | 팔로더머니 2026년 10월14일 방송",
+     "published": "2026-10-14"
+    },
+    {
+     "id": "uiQnHMlY0sI",
+     "title": "[속보] 미국 9월 CPI 물가 3.7% 급등 : 인플레 쇼크와 국채금리 폭등 [즉시분석]",
+     "published": "2026-10-14"
     },
     {
      "id": "v3lby9QzpS0",
@@ -3664,6 +3671,11 @@
      "published": "2026-10-13"
     },
     {
+     "id": "yUIcS9aKUzg",
+     "title": "70배당할머니 배당금으로 자동차 샀어요",
+     "published": "2026-10-14"
+    },
+    {
      "id": "yWrGDJ30LgU",
      "title": "코스피 주가 더 빠진다? 앞으로 '이렇게' 흘러갑니다 (이창환 iM증권 서울금융센터 이사, 황유현 신한투자증권 PB팀장)",
      "published": "2026-10-13"
@@ -3689,52 +3701,52 @@
      "published": "2026-10-12"
     }
    ],
-   "views_median": 179738.5,
-   "views_per_day_median": 34430.6,
+   "views_median": 179299.0,
+   "views_per_day_median": 34275.85,
    "ratio_median": 0.41,
-   "success": 70,
-   "minutes_median": 18.7,
-   "title_len_avg": 54.8,
+   "success": 74,
+   "minutes_median": 18.55,
+   "title_len_avg": 54.6,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 126,
-     "share": 0.288
+     "count": 125,
+     "share": 0.284
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 104,
-     "share": 0.237
+     "share": 0.236
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 60,
-     "share": 0.137
+     "count": 61,
+     "share": 0.139
     },
     {
      "name": "느낌표 !",
      "count": 48,
-     "share": 0.11
+     "share": 0.109
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 44,
-     "share": 0.1
+     "count": 45,
+     "share": 0.102
     },
     {
      "name": "AI",
-     "count": 43,
-     "share": 0.098
+     "count": 42,
+     "share": 0.095
     },
     {
      "name": "이유",
-     "count": 37,
-     "share": 0.084
+     "count": 38,
+     "share": 0.086
     },
     {
      "name": "금액(억·만원)",
-     "count": 18,
-     "share": 0.041
+     "count": 19,
+     "share": 0.043
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -3744,7 +3756,7 @@
     {
      "name": "vs 비교",
      "count": 9,
-     "share": 0.021
+     "share": 0.02
     },
     {
      "name": "N가지",
@@ -3788,7 +3800,7 @@
     },
     {
      "word": "이유",
-     "count": 36
+     "count": 37
     },
     {
      "word": "Stocks",
@@ -3816,32 +3828,32 @@
     },
     {
      "word": "AI",
-     "count": 25
+     "count": 24
     }
    ],
    "transcripts": 31,
    "text_sources": {
     "자막": 1,
     "음성인식": 30,
-    "설명": 377,
+    "설명": 379,
     "없음": 30
    },
    "content_words": [
     {
      "word": "to",
-     "count": 127
+     "count": 128
     },
     {
      "word": "is",
      "count": 121
     },
     {
-     "word": "in",
-     "count": 115
+     "word": "of",
+     "count": 116
     },
     {
-     "word": "of",
-     "count": 114
+     "word": "in",
+     "count": 116
     },
     {
      "word": "on",
@@ -3872,11 +3884,11 @@
      "count": 82
     },
     {
-     "word": "video",
+     "word": "market",
      "count": 78
     }
    ],
-   "chapters_share": 0.34,
+   "chapters_share": 0.345,
    "syl_per_sec_median": 5.86,
    "hooks": [
     {
@@ -3898,40 +3910,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 137349,
+   "comments": 137080,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 20609,
-     "share": 0.15
+     "count": 20662,
+     "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 13315,
+     "count": 13319,
      "share": 0.097
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 9344,
+     "count": 9360,
      "share": 0.068
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 8796,
+     "count": 8837,
      "share": 0.064
     },
     {
      "name": "칭찬·감사",
-     "count": 6060,
-     "share": 0.044
+     "count": 6133,
+     "share": 0.045
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 5868,
+     "count": 5902,
      "share": 0.043
     }
    ],
-   "comment_uncategorized": 0.605,
+   "comment_uncategorized": 0.603,
    "top_comments": [
     {
      "text": "India needs its own social media",
@@ -3997,8 +4009,8 @@
   {
    "weeks": 7,
    "label": "최근 7주",
-   "videos": 486,
-   "channels": 283,
+   "videos": 490,
+   "channels": 285,
    "new_this_week": [
     {
      "id": "-HgmZvx5G40",
@@ -4171,6 +4183,11 @@
      "published": "2026-10-06"
     },
     {
+     "id": "bL2q1ZfwdJA",
+     "title": "끌로드, 챗GPT가 주식투자도 대신해준다? AI 실생활 침투 가속화의 수혜주들",
+     "published": "2026-10-07"
+    },
+    {
      "id": "fPU6Gefdad8",
      "title": "I Just Bought 1,000 Shares Of SCHD: Here's The Dividends It Pays Me",
      "published": "2026-10-04"
@@ -4184,6 +4201,11 @@
      "id": "iJQ8M3oCzas",
      "title": "S&P500はこれまでのように増えない？金融機関が発表した今後10年間の弱気予想を検証します！",
      "published": "2026-10-05"
+    },
+    {
+     "id": "iOiQ1ABs9M8",
+     "title": "【全資産公開】インデックス全力投資で8400万円達成！からの散財！俺は虚無億り人にならない！オルカン/S&P500/NASDAQ100/使う力",
+     "published": "2026-10-07"
     },
     {
      "id": "izM605Qavok",
@@ -4242,51 +4264,51 @@
     }
    ],
    "views_median": 197111.0,
-   "views_per_day_median": 33397.15,
-   "ratio_median": 0.42,
-   "success": 74,
-   "minutes_median": 18.55,
-   "title_len_avg": 54.6,
+   "views_per_day_median": 33250.8,
+   "ratio_median": 0.43,
+   "success": 78,
+   "minutes_median": 18.5,
+   "title_len_avg": 54.4,
    "title_features": [
     {
      "name": "물음표 ?",
      "count": 139,
-     "share": 0.286
+     "share": 0.284
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 105,
-     "share": 0.216
+     "share": 0.214
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 70,
-     "share": 0.144
+     "count": 72,
+     "share": 0.147
     },
     {
      "name": "느낌표 !",
      "count": 53,
-     "share": 0.109
+     "share": 0.108
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 48,
-     "share": 0.099
+     "count": 49,
+     "share": 0.1
     },
     {
      "name": "AI",
      "count": 47,
-     "share": 0.097
+     "share": 0.096
     },
     {
      "name": "이유",
-     "count": 40,
-     "share": 0.082
+     "count": 41,
+     "share": 0.084
     },
     {
      "name": "금액(억·만원)",
-     "count": 21,
-     "share": 0.043
+     "count": 22,
+     "share": 0.045
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -4296,12 +4318,12 @@
     {
      "name": "vs 비교",
      "count": 11,
-     "share": 0.023
+     "share": 0.022
     },
     {
      "name": "N가지",
      "count": 9,
-     "share": 0.019
+     "share": 0.018
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -4339,12 +4361,12 @@
      "count": 41
     },
     {
-     "word": "Stocks",
+     "word": "이유",
      "count": 39
     },
     {
-     "word": "이유",
-     "count": 38
+     "word": "Stocks",
+     "count": 39
     },
     {
      "word": "Stock",
@@ -4375,25 +4397,25 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 31,
-    "설명": 422,
+    "설명": 426,
     "없음": 32
    },
    "content_words": [
     {
      "word": "to",
-     "count": 145
+     "count": 146
     },
     {
      "word": "is",
      "count": 134
     },
     {
-     "word": "in",
-     "count": 131
+     "word": "of",
+     "count": 132
     },
     {
-     "word": "of",
-     "count": 130
+     "word": "in",
+     "count": 132
     },
     {
      "word": "on",
@@ -4412,11 +4434,11 @@
      "count": 106
     },
     {
-     "word": "video",
+     "word": "not",
      "count": 95
     },
     {
-     "word": "not",
+     "word": "video",
      "count": 95
     },
     {
@@ -4428,7 +4450,7 @@
      "count": 92
     }
    ],
-   "chapters_share": 0.344,
+   "chapters_share": 0.349,
    "syl_per_sec_median": 5.86,
    "hooks": [
     {
@@ -4450,36 +4472,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 157852,
+   "comments": 158246,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 23629,
+     "count": 23695,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 15929,
+     "count": 15949,
      "share": 0.101
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 10214,
+     "count": 10266,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 9983,
+     "count": 9999,
      "share": 0.063
     },
     {
      "name": "칭찬·감사",
-     "count": 6674,
-     "share": 0.042
+     "count": 6752,
+     "share": 0.043
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6631,
+     "count": 6669,
      "share": 0.042
     }
    ],
@@ -4549,8 +4571,8 @@
   {
    "weeks": 8,
    "label": "최근 8주",
-   "videos": 516,
-   "channels": 299,
+   "videos": 520,
+   "channels": 300,
    "new_this_week": [
     {
      "id": "1_8Z4disq9M",
@@ -4576,6 +4598,11 @@
      "id": "CI5yWWTjJfc",
      "title": "'이 ETF 두 가지'만 하면 평생 부자로 살 수 있습니다.  (존리 대표 2부) #존리 #부자학교 #금융문맹 #투자일기",
      "published": "2026-09-24"
+    },
+    {
+     "id": "DRvywv-HRmM",
+     "title": "역사상 최악의 날에만 주식을 산 사람, 41년 뒤 계좌는? (S&P 500 실제 데이터)",
+     "published": "2026-09-26"
     },
     {
      "id": "E7pl0tqzIUQ",
@@ -4693,62 +4720,57 @@
      "published": "2026-09-29"
     },
     {
-     "id": "yfj7s3Rs1cE",
-     "title": "슈카야 주식 그렇게 하는 거 아니야",
-     "published": "2026-09-23"
-    },
-    {
      "id": "yzFcWRov45c",
      "title": "\"어차피 손절도 못 하면서...\" 주식 투자로 매번 망하는 사람들의 치명적 착각 1가지 | 존리 | ETF아는형",
      "published": "2026-09-23"
     }
    ],
    "views_median": 204095.0,
-   "views_per_day_median": 31502.45,
-   "ratio_median": 0.45,
-   "success": 77,
-   "minutes_median": 18.45,
-   "title_len_avg": 54.4,
+   "views_per_day_median": 31257.35,
+   "ratio_median": 0.46,
+   "success": 82,
+   "minutes_median": 18.4,
+   "title_len_avg": 54.3,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 148,
+     "count": 149,
      "share": 0.287
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 107,
-     "share": 0.207
+     "share": 0.206
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 80,
-     "share": 0.155
+     "count": 83,
+     "share": 0.16
     },
     {
      "name": "느낌표 !",
      "count": 56,
-     "share": 0.109
+     "share": 0.108
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 50,
-     "share": 0.097
+     "count": 51,
+     "share": 0.098
     },
     {
      "name": "AI",
      "count": 48,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "이유",
-     "count": 41,
-     "share": 0.079
+     "count": 42,
+     "share": 0.081
     },
     {
      "name": "금액(억·만원)",
-     "count": 23,
-     "share": 0.045
+     "count": 24,
+     "share": 0.046
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -4768,12 +4790,12 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 8,
-     "share": 0.016
+     "share": 0.015
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 7,
-     "share": 0.014
+     "share": 0.013
     },
     {
      "name": "두 금액(반전)",
@@ -4801,16 +4823,16 @@
      "count": 44
     },
     {
+     "word": "이유",
+     "count": 40
+    },
+    {
      "word": "Stocks",
      "count": 40
     },
     {
-     "word": "이유",
-     "count": 39
-    },
-    {
      "word": "주식",
-     "count": 36
+     "count": 35
     },
     {
      "word": "Stock",
@@ -4837,17 +4859,17 @@
    "text_sources": {
     "자막": 1,
     "음성인식": 33,
-    "설명": 450,
+    "설명": 454,
     "없음": 32
    },
    "content_words": [
     {
      "word": "to",
-     "count": 155
+     "count": 156
     },
     {
      "word": "in",
-     "count": 145
+     "count": 146
     },
     {
      "word": "is",
@@ -4855,7 +4877,7 @@
     },
     {
      "word": "of",
-     "count": 139
+     "count": 141
     },
     {
      "word": "on",
@@ -4890,7 +4912,7 @@
      "count": 98
     }
    ],
-   "chapters_share": 0.355,
+   "chapters_share": 0.36,
    "syl_per_sec_median": 5.86,
    "hooks": [
     {
@@ -4912,40 +4934,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 168637,
+   "comments": 169033,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 24956,
+     "count": 25039,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 17605,
+     "count": 17629,
      "share": 0.104
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 10908,
+     "count": 10995,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10250,
+     "count": 10271,
      "share": 0.061
     },
     {
      "name": "칭찬·감사",
-     "count": 7176,
+     "count": 7268,
      "share": 0.043
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 6954,
+     "count": 7000,
      "share": 0.041
     }
    ],
-   "comment_uncategorized": 0.609,
+   "comment_uncategorized": 0.608,
    "top_comments": [
     {
      "text": "India needs its own social media",
@@ -5011,8 +5033,8 @@
   {
    "weeks": 9,
    "label": "최근 9주",
-   "videos": 541,
-   "channels": 307,
+   "videos": 545,
+   "channels": 308,
    "new_this_week": [
     {
      "id": "3K6DVydKmAM",
@@ -5115,11 +5137,6 @@
      "published": "2026-09-21"
     },
     {
-     "id": "kUhfmmGn3pU",
-     "title": "“개미의 90%는 결국 잃는다” 주식으로 돈 버는 10%의 투자법ㅣ돈크라테스 EP.31",
-     "published": "2026-09-16"
-    },
-    {
      "id": "knkqhQrQS60",
      "title": "Corporate Slave to Financially Free: The Passive Income 🐐",
      "published": "2026-09-22"
@@ -5138,54 +5155,59 @@
      "id": "y-cIp2qsOBQ",
      "title": "월배당 ETF 1등의 반전 \"나스닥 아닌 '이것' 삽니다 | 절세미녀",
      "published": "2026-09-22"
+    },
+    {
+     "id": "yfj7s3Rs1cE",
+     "title": "슈카야 주식 그렇게 하는 거 아니야",
+     "published": "2026-09-23"
     }
    ],
    "views_median": 212195,
-   "views_per_day_median": 30335.6,
+   "views_per_day_median": 30283.3,
    "ratio_median": 0.46,
-   "success": 82,
-   "minutes_median": 18.5,
-   "title_len_avg": 54.4,
+   "success": 87,
+   "minutes_median": 18.4,
+   "title_len_avg": 54.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 151,
+     "count": 152,
      "share": 0.279
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 107,
-     "share": 0.198
+     "share": 0.196
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 86,
-     "share": 0.159
+     "count": 89,
+     "share": 0.163
     },
     {
      "name": "느낌표 !",
      "count": 58,
-     "share": 0.107
+     "share": 0.106
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 54,
-     "share": 0.1
+     "count": 55,
+     "share": 0.101
     },
     {
      "name": "AI",
      "count": 52,
-     "share": 0.096
+     "share": 0.095
     },
     {
      "name": "이유",
-     "count": 45,
-     "share": 0.083
+     "count": 46,
+     "share": 0.084
     },
     {
      "name": "금액(억·만원)",
-     "count": 25,
-     "share": 0.046
+     "count": 26,
+     "share": 0.048
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -5204,8 +5226,8 @@
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
-     "count": 9,
-     "share": 0.017
+     "count": 8,
+     "share": 0.015
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -5219,8 +5241,8 @@
     },
     {
      "name": "과정·벌어진 일·결말·결국",
-     "count": 5,
-     "share": 0.009
+     "count": 4,
+     "share": 0.007
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -5239,7 +5261,7 @@
     },
     {
      "word": "이유",
-     "count": 43
+     "count": 44
     },
     {
      "word": "Stocks",
@@ -5274,17 +5296,17 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 34,
-    "설명": 473,
+    "설명": 477,
     "없음": 32
    },
    "content_words": [
     {
      "word": "to",
-     "count": 162
+     "count": 163
     },
     {
      "word": "in",
-     "count": 153
+     "count": 154
     },
     {
      "word": "is",
@@ -5292,7 +5314,7 @@
     },
     {
      "word": "of",
-     "count": 147
+     "count": 149
     },
     {
      "word": "on",
@@ -5327,7 +5349,7 @@
      "count": 102
     }
    ],
-   "chapters_share": 0.36,
+   "chapters_share": 0.365,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -5349,36 +5371,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 182171,
+   "comments": 182496,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 27562,
+     "count": 27616,
      "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 19632,
+     "count": 19652,
      "share": 0.108
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 11845,
+     "count": 11895,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10589,
+     "count": 10601,
      "share": 0.058
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7556,
-     "share": 0.041
+     "count": 7577,
+     "share": 0.042
     },
     {
      "name": "칭찬·감사",
-     "count": 7459,
+     "count": 7539,
      "share": 0.041
     }
    ],
@@ -5448,7 +5470,7 @@
   {
    "weeks": 10,
    "label": "최근 10주",
-   "videos": 565,
+   "videos": 568,
    "channels": 315,
    "new_this_week": [
     {
@@ -5522,11 +5544,6 @@
      "published": "2026-09-10"
     },
     {
-     "id": "Z5vSAOiHkss",
-     "title": "#촌집수리#시골집수리#한옥수리#미장#매쉬미장#",
-     "published": "2026-09-09"
-    },
-    {
      "id": "aXeLelB8lng",
      "title": "なぜ日本の金利上昇がS&P500まで動かすのか？30年ぶりに起こる長期金利3％への上昇が与える米国株への影響を解説します！",
      "published": "2026-09-12"
@@ -5535,6 +5552,11 @@
      "id": "e3EY2JJMgDw",
      "title": "노후 자금 주식에 올인했다간 큰일 납니다, 은퇴자가 무조건 사서 묻어둬야 할 ETF 종목 | 존리 | ETF아는형",
      "published": "2026-09-11"
+    },
+    {
+     "id": "kUhfmmGn3pU",
+     "title": "“개미의 90%는 결국 잃는다” 주식으로 돈 버는 10%의 투자법ㅣ돈크라테스 EP.31",
+     "published": "2026-09-16"
     },
     {
      "id": "pTDvC51fEoY",
@@ -5549,11 +5571,6 @@
     {
      "id": "ukjHHCtLq2g",
      "title": "The UNTHINKABLE is About to Happen to Stocks",
-     "published": "2026-09-09"
-    },
-    {
-     "id": "uq_rbVjdX2w",
-     "title": "현금 5천만원 '이 주식' 사라, 하늘이 내린 기회 왔습니다 (안유화 교수)",
      "published": "2026-09-09"
     },
     {
@@ -5572,27 +5589,32 @@
      "published": "2026-09-12"
     }
    ],
-   "views_median": 220803,
-   "views_per_day_median": 29528.9,
+   "views_median": 221060.0,
+   "views_per_day_median": 29491.8,
    "ratio_median": 0.48,
-   "success": 89,
-   "minutes_median": 18.6,
-   "title_len_avg": 54.2,
+   "success": 93,
+   "minutes_median": 18.5,
+   "title_len_avg": 54.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 155,
-     "share": 0.274
+     "count": 156,
+     "share": 0.275
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 107,
-     "share": 0.189
+     "share": 0.188
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 93,
-     "share": 0.165
+     "count": 96,
+     "share": 0.169
+    },
+    {
+     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+     "count": 61,
+     "share": 0.107
     },
     {
      "name": "느낌표 !",
@@ -5600,24 +5622,19 @@
      "share": 0.106
     },
     {
-     "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 60,
-     "share": 0.106
-    },
-    {
      "name": "AI",
      "count": 54,
-     "share": 0.096
+     "share": 0.095
     },
     {
      "name": "이유",
-     "count": 48,
-     "share": 0.085
+     "count": 49,
+     "share": 0.086
     },
     {
      "name": "금액(억·만원)",
      "count": 28,
-     "share": 0.05
+     "share": 0.049
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -5671,18 +5688,18 @@
     },
     {
      "word": "이유",
-     "count": 46
+     "count": 47
     },
     {
      "word": "Stocks",
      "count": 44
     },
     {
-     "word": "주식",
-     "count": 39
+     "word": "ETF",
+     "count": 38
     },
     {
-     "word": "ETF",
+     "word": "주식",
      "count": 38
     },
     {
@@ -5706,17 +5723,17 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 35,
-    "설명": 495,
+    "설명": 498,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 169
+     "count": 170
     },
     {
      "word": "in",
-     "count": 160
+     "count": 161
     },
     {
      "word": "is",
@@ -5724,7 +5741,7 @@
     },
     {
      "word": "of",
-     "count": 153
+     "count": 155
     },
     {
      "word": "on",
@@ -5759,7 +5776,7 @@
      "count": 106
     }
    ],
-   "chapters_share": 0.358,
+   "chapters_share": 0.364,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -5781,36 +5798,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 192709,
+   "comments": 193058,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 28977,
+     "count": 29030,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 20731,
-     "share": 0.108
+     "count": 20751,
+     "share": 0.107
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 12475,
+     "count": 12557,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 10876,
+     "count": 10900,
      "share": 0.056
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 7965,
+     "count": 8009,
      "share": 0.041
     },
     {
      "name": "칭찬·감사",
-     "count": 7864,
+     "count": 7934,
      "share": 0.041
     }
    ],
@@ -5880,8 +5897,8 @@
   {
    "weeks": 11,
    "label": "최근 11주",
-   "videos": 585,
-   "channels": 323,
+   "videos": 589,
+   "channels": 324,
    "new_this_week": [
     {
      "id": "0cS1EHLkDiQ",
@@ -5902,11 +5919,6 @@
      "id": "EkR5dj-diWw",
      "title": "다음주 코스피 심상치 않습니다 '이때' 팔고 바로 현금 챙기세요 (이승조 대표 / 통합본 1부)",
      "published": "2026-09-03"
-    },
-    {
-     "id": "Gwk2gkxpx3I",
-     "title": "'2가지' ETF만 모아도 됩니다. 100억 자산관리사의 꿀팁 (백승호 단장 2부) #ETF #배당주 #주식 #미국주식 #백승호",
-     "published": "2026-09-02"
     },
     {
      "id": "Hr25OgC10W0",
@@ -5944,6 +5956,11 @@
      "published": "2026-09-07"
     },
     {
+     "id": "Z5vSAOiHkss",
+     "title": "#촌집수리#시골집수리#한옥수리#미장#매쉬미장#",
+     "published": "2026-09-09"
+    },
+    {
      "id": "ZvMote2D6eY",
      "title": "Once Your Portfolio Hits THIS Number, Saving More Barely Matters",
      "published": "2026-09-07"
@@ -5969,6 +5986,11 @@
      "published": "2026-09-03"
     },
     {
+     "id": "uq_rbVjdX2w",
+     "title": "현금 5천만원 '이 주식' 사라, 하늘이 내린 기회 왔습니다 (안유화 교수)",
+     "published": "2026-09-09"
+    },
+    {
      "id": "voZNeHkvkaI",
      "title": "\"이 원칙만 제발 지키세요\" 내가 사면 떨어지고 팔면 올라가는 진짜 이유",
      "published": "2026-09-04"
@@ -5984,27 +6006,27 @@
      "published": "2026-09-05"
     }
    ],
-   "views_median": 224338,
-   "views_per_day_median": 28354.9,
-   "ratio_median": 0.49,
-   "success": 94,
-   "minutes_median": 18.8,
-   "title_len_avg": 54.4,
+   "views_median": 224810,
+   "views_per_day_median": 28318.0,
+   "ratio_median": 0.51,
+   "success": 99,
+   "minutes_median": 18.5,
+   "title_len_avg": 54.3,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 160,
-     "share": 0.274
+     "count": 161,
+     "share": 0.273
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 108,
-     "share": 0.185
+     "share": 0.183
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 100,
-     "share": 0.171
+     "count": 102,
+     "share": 0.173
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
@@ -6019,12 +6041,12 @@
     {
      "name": "AI",
      "count": 56,
-     "share": 0.096
+     "share": 0.095
     },
     {
      "name": "이유",
-     "count": 51,
-     "share": 0.087
+     "count": 52,
+     "share": 0.088
     },
     {
      "name": "금액(억·만원)",
@@ -6038,13 +6060,13 @@
     },
     {
      "name": "N가지",
-     "count": 13,
-     "share": 0.022
+     "count": 12,
+     "share": 0.02
     },
     {
      "name": "vs 비교",
      "count": 12,
-     "share": 0.021
+     "share": 0.02
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -6059,12 +6081,12 @@
     {
      "name": "두 금액(반전)",
      "count": 5,
-     "share": 0.009
+     "share": 0.008
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 5,
-     "share": 0.009
+     "share": 0.008
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -6083,7 +6105,7 @@
     },
     {
      "word": "이유",
-     "count": 49
+     "count": 50
     },
     {
      "word": "Stocks",
@@ -6091,11 +6113,11 @@
     },
     {
      "word": "ETF",
-     "count": 42
+     "count": 41
     },
     {
      "word": "주식",
-     "count": 41
+     "count": 40
     },
     {
      "word": "Stock",
@@ -6118,17 +6140,17 @@
    "text_sources": {
     "자막": 2,
     "음성인식": 36,
-    "설명": 514,
+    "설명": 518,
     "없음": 33
    },
    "content_words": [
     {
      "word": "to",
-     "count": 175
+     "count": 176
     },
     {
      "word": "in",
-     "count": 165
+     "count": 166
     },
     {
      "word": "is",
@@ -6136,7 +6158,7 @@
     },
     {
      "word": "of",
-     "count": 159
+     "count": 161
     },
     {
      "word": "on",
@@ -6171,7 +6193,7 @@
      "count": 110
     }
    ],
-   "chapters_share": 0.357,
+   "chapters_share": 0.363,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -6193,36 +6215,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 198973,
+   "comments": 199472,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 29938,
+     "count": 30019,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 21460,
+     "count": 21486,
      "share": 0.108
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 12935,
+     "count": 13021,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11085,
+     "count": 11109,
      "share": 0.056
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8264,
+     "count": 8306,
      "share": 0.042
     },
     {
      "name": "칭찬·감사",
-     "count": 8062,
+     "count": 8155,
      "share": 0.041
     }
    ],
@@ -6292,8 +6314,8 @@
   {
    "weeks": 12,
    "label": "최근 12주",
-   "videos": 607,
-   "channels": 332,
+   "videos": 612,
+   "channels": 333,
    "new_this_week": [
     {
      "id": "35-9KG8v1M8",
@@ -6329,6 +6351,11 @@
      "id": "9C7_sKVcPiQ",
      "title": "40대 은퇴 후 월급 대신 배당 받으며 사는 법｜실제 포트폴리오 공개 | 최영민 작가",
      "published": "2026-08-31"
+    },
+    {
+     "id": "Gwk2gkxpx3I",
+     "title": "'2가지' ETF만 모아도 됩니다. 100억 자산관리사의 꿀팁 (백승호 단장 2부) #ETF #배당주 #주식 #미국주식 #백승호",
+     "published": "2026-09-02"
     },
     {
      "id": "HamGf6jGanE",
@@ -6406,52 +6433,52 @@
      "published": "2026-08-31"
     }
    ],
-   "views_median": 225687,
-   "views_per_day_median": 27739.6,
-   "ratio_median": 0.53,
-   "success": 103,
+   "views_median": 225809.5,
+   "views_per_day_median": 27582.2,
+   "ratio_median": 0.54,
+   "success": 108,
    "minutes_median": 18.8,
-   "title_len_avg": 54.4,
+   "title_len_avg": 54.3,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 163,
-     "share": 0.269
+     "count": 164,
+     "share": 0.268
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 109,
-     "share": 0.18
+     "share": 0.178
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 105,
-     "share": 0.173
+     "count": 108,
+     "share": 0.176
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 68,
-     "share": 0.112
+     "count": 69,
+     "share": 0.113
     },
     {
      "name": "느낌표 !",
      "count": 62,
-     "share": 0.102
+     "share": 0.101
     },
     {
      "name": "AI",
      "count": 57,
-     "share": 0.094
+     "share": 0.093
     },
     {
      "name": "이유",
-     "count": 52,
-     "share": 0.086
+     "count": 53,
+     "share": 0.087
     },
     {
      "name": "금액(억·만원)",
-     "count": 31,
-     "share": 0.051
+     "count": 32,
+     "share": 0.052
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -6500,12 +6527,12 @@
      "count": 58
     },
     {
-     "word": "Market",
+     "word": "이유",
      "count": 51
     },
     {
-     "word": "이유",
-     "count": 50
+     "word": "Market",
+     "count": 51
     },
     {
      "word": "Stocks",
@@ -6533,24 +6560,24 @@
     },
     {
      "word": "S&P500",
-     "count": 29
+     "count": 30
     }
    ],
    "transcripts": 39,
    "text_sources": {
     "자막": 2,
     "음성인식": 37,
-    "설명": 533,
+    "설명": 538,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 179
+     "count": 180
     },
     {
      "word": "in",
-     "count": 168
+     "count": 169
     },
     {
      "word": "is",
@@ -6558,7 +6585,7 @@
     },
     {
      "word": "of",
-     "count": 162
+     "count": 164
     },
     {
      "word": "on",
@@ -6589,11 +6616,11 @@
      "count": 114
     },
     {
-     "word": "financial",
+     "word": "투자",
      "count": 112
     }
    ],
-   "chapters_share": 0.367,
+   "chapters_share": 0.373,
    "syl_per_sec_median": 2.93,
    "hooks": [
     {
@@ -6615,36 +6642,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 207288,
+   "comments": 207854,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 30880,
+     "count": 30978,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 21964,
+     "count": 21990,
      "share": 0.106
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13512,
+     "count": 13604,
      "share": 0.065
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11391,
+     "count": 11417,
      "share": 0.055
     },
     {
      "name": "칭찬·감사",
-     "count": 8932,
+     "count": 9029,
      "share": 0.043
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8682,
+     "count": 8732,
      "share": 0.042
     }
    ],
@@ -6714,8 +6741,8 @@
   {
    "weeks": 13,
    "label": "최근 13주",
-   "videos": 621,
-   "channels": 338,
+   "videos": 626,
+   "channels": 339,
    "new_this_week": [
     {
      "id": "2hEQ_7smoy8",
@@ -6788,32 +6815,32 @@
      "published": "2026-08-20"
     }
    ],
-   "views_median": 224338,
-   "views_per_day_median": 27365.7,
-   "ratio_median": 0.54,
-   "success": 111,
-   "minutes_median": 18.7,
-   "title_len_avg": 54.3,
+   "views_median": 224574.0,
+   "views_per_day_median": 27034.9,
+   "ratio_median": 0.55,
+   "success": 116,
+   "minutes_median": 18.55,
+   "title_len_avg": 54.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 167,
-     "share": 0.269
+     "count": 168,
+     "share": 0.268
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 111,
+     "share": 0.177
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 109,
-     "share": 0.176
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 108,
      "share": 0.174
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 71,
-     "share": 0.114
+     "count": 72,
+     "share": 0.115
     },
     {
      "name": "느낌표 !",
@@ -6823,17 +6850,17 @@
     {
      "name": "AI",
      "count": 59,
-     "share": 0.095
+     "share": 0.094
     },
     {
      "name": "이유",
-     "count": 55,
+     "count": 56,
      "share": 0.089
     },
     {
      "name": "금액(억·만원)",
-     "count": 34,
-     "share": 0.055
+     "count": 35,
+     "share": 0.056
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -6848,7 +6875,7 @@
     {
      "name": "N가지",
      "count": 14,
-     "share": 0.023
+     "share": 0.022
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -6883,7 +6910,7 @@
     },
     {
      "word": "이유",
-     "count": 53
+     "count": 54
     },
     {
      "word": "Market",
@@ -6915,24 +6942,24 @@
     },
     {
      "word": "S&P500",
-     "count": 30
+     "count": 31
     }
    ],
    "transcripts": 42,
    "text_sources": {
     "자막": 4,
     "음성인식": 38,
-    "설명": 544,
+    "설명": 549,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 183
+     "count": 184
     },
     {
      "word": "in",
-     "count": 171
+     "count": 172
     },
     {
      "word": "is",
@@ -6940,7 +6967,7 @@
     },
     {
      "word": "of",
-     "count": 166
+     "count": 168
     },
     {
      "word": "on",
@@ -6963,19 +6990,19 @@
      "count": 123
     },
     {
-     "word": "not",
+     "word": "투자",
      "count": 119
     },
     {
-     "word": "투자",
-     "count": 118
+     "word": "not",
+     "count": 119
     },
     {
      "word": "investment",
      "count": 117
     }
    ],
-   "chapters_share": 0.374,
+   "chapters_share": 0.379,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -6997,36 +7024,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 212889,
+   "comments": 213455,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 31833,
+     "count": 31931,
      "share": 0.15
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 22805,
+     "count": 22831,
      "share": 0.107
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 13905,
-     "share": 0.065
+     "count": 13997,
+     "share": 0.066
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11479,
+     "count": 11505,
      "share": 0.054
     },
     {
      "name": "칭찬·감사",
-     "count": 9175,
+     "count": 9272,
      "share": 0.043
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 8992,
+     "count": 9042,
      "share": 0.042
     }
    ],
@@ -7096,8 +7123,8 @@
   {
    "weeks": 14,
    "label": "최근 14주",
-   "videos": 628,
-   "channels": 340,
+   "videos": 633,
+   "channels": 341,
    "new_this_week": [
     {
      "id": "5HkW_43tZPs",
@@ -7135,52 +7162,52 @@
      "published": "2026-08-16"
     }
    ],
-   "views_median": 224574.0,
-   "views_per_day_median": 27034.9,
-   "ratio_median": 0.55,
-   "success": 114,
-   "minutes_median": 18.8,
-   "title_len_avg": 54.3,
+   "views_median": 224810,
+   "views_per_day_median": 26872.6,
+   "ratio_median": 0.56,
+   "success": 119,
+   "minutes_median": 18.7,
+   "title_len_avg": 54.2,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 169,
+     "count": 170,
      "share": 0.269
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 111,
+     "share": 0.175
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 109,
-     "share": 0.174
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 108,
      "share": 0.172
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 73,
-     "share": 0.116
+     "count": 74,
+     "share": 0.117
     },
     {
      "name": "느낌표 !",
      "count": 64,
-     "share": 0.102
+     "share": 0.101
     },
     {
      "name": "AI",
      "count": 60,
-     "share": 0.096
+     "share": 0.095
     },
     {
      "name": "이유",
-     "count": 57,
-     "share": 0.091
+     "count": 58,
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
-     "count": 35,
-     "share": 0.056
+     "count": 36,
+     "share": 0.057
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -7200,7 +7227,7 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 11,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
@@ -7215,7 +7242,7 @@
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 6,
-     "share": 0.01
+     "share": 0.009
     },
     {
      "name": "두 금액(반전)",
@@ -7230,7 +7257,7 @@
     },
     {
      "word": "이유",
-     "count": 55
+     "count": 56
     },
     {
      "word": "Market",
@@ -7262,24 +7289,24 @@
     },
     {
      "word": "S&P500",
-     "count": 30
+     "count": 31
     }
    ],
    "transcripts": 43,
    "text_sources": {
     "자막": 5,
     "음성인식": 38,
-    "설명": 550,
+    "설명": 555,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 185
+     "count": 186
     },
     {
      "word": "in",
-     "count": 173
+     "count": 174
     },
     {
      "word": "is",
@@ -7287,7 +7314,7 @@
     },
     {
      "word": "of",
-     "count": 168
+     "count": 170
     },
     {
      "word": "on",
@@ -7314,15 +7341,15 @@
      "count": 121
     },
     {
-     "word": "investment",
+     "word": "투자",
      "count": 119
     },
     {
-     "word": "투자",
-     "count": 118
+     "word": "investment",
+     "count": 119
     }
    ],
-   "chapters_share": 0.376,
+   "chapters_share": 0.381,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -7344,36 +7371,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 219326,
+   "comments": 219892,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 32460,
+     "count": 32558,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 23257,
+     "count": 23283,
      "share": 0.106
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 14627,
+     "count": 14719,
      "share": 0.067
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11735,
-     "share": 0.054
+     "count": 11761,
+     "share": 0.053
     },
     {
      "name": "칭찬·감사",
-     "count": 10170,
-     "share": 0.046
+     "count": 10267,
+     "share": 0.047
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 9444,
+     "count": 9494,
      "share": 0.043
     }
    ],
@@ -7443,14 +7470,9 @@
   {
    "weeks": 15,
    "label": "최근 15주",
-   "videos": 635,
+   "videos": 639,
    "channels": 346,
    "new_this_week": [
-    {
-     "id": "2BAwO2Ltyf0",
-     "title": "最先端のイノベーションを先取る⁉　インベスコTV　「インベスコQQQ」チャンネル",
-     "published": "2026-08-05"
-    },
     {
      "id": "2uJq7OQhpGg",
      "title": "Ben Felix: Stock Picking Is Dead | Investi (Ep. 59)",
@@ -7483,31 +7505,31 @@
     }
    ],
    "views_median": 224310,
-   "views_per_day_median": 26872.6,
+   "views_per_day_median": 26628.3,
    "ratio_median": 0.56,
-   "success": 118,
-   "minutes_median": 18.7,
-   "title_len_avg": 54.2,
+   "success": 122,
+   "minutes_median": 18.6,
+   "title_len_avg": 54.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 169,
+     "count": 170,
      "share": 0.266
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 110,
-     "share": 0.173
+     "count": 113,
+     "share": 0.177
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 110,
-     "share": 0.173
+     "share": 0.172
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 75,
-     "share": 0.118
+     "count": 76,
+     "share": 0.119
     },
     {
      "name": "느낌표 !",
@@ -7521,13 +7543,13 @@
     },
     {
      "name": "이유",
-     "count": 58,
-     "share": 0.091
+     "count": 59,
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
-     "count": 36,
-     "share": 0.057
+     "count": 37,
+     "share": 0.058
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -7577,7 +7599,7 @@
     },
     {
      "word": "이유",
-     "count": 56
+     "count": 57
     },
     {
      "word": "Market",
@@ -7609,14 +7631,14 @@
     },
     {
      "word": "S&P500",
-     "count": 30
+     "count": 31
     }
    ],
-   "transcripts": 46,
+   "transcripts": 45,
    "text_sources": {
-    "자막": 7,
+    "자막": 6,
     "음성인식": 39,
-    "설명": 554,
+    "설명": 559,
     "없음": 35
    },
    "content_words": [
@@ -7630,47 +7652,47 @@
     },
     {
      "word": "is",
-     "count": 174
+     "count": 173
     },
     {
      "word": "of",
-     "count": 171
+     "count": 172
     },
     {
      "word": "on",
-     "count": 156
+     "count": 155
     },
     {
      "word": "this",
-     "count": 156
+     "count": 155
     },
     {
      "word": "or",
-     "count": 141
+     "count": 140
     },
     {
      "word": "are",
-     "count": 137
+     "count": 136
     },
     {
      "word": "video",
-     "count": 127
+     "count": 126
     },
     {
      "word": "not",
-     "count": 124
-    },
-    {
-     "word": "investment",
-     "count": 122
+     "count": 123
     },
     {
      "word": "투자",
-     "count": 120
+     "count": 121
+    },
+    {
+     "word": "investment",
+     "count": 121
     }
    ],
-   "chapters_share": 0.376,
-   "syl_per_sec_median": 0.0,
+   "chapters_share": 0.38,
+   "syl_per_sec_median": 2.62,
    "hooks": [
     {
      "id": "jk61l5VCSGM",
@@ -7691,36 +7713,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 220712,
+   "comments": 221278,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 32642,
+     "count": 32740,
      "share": 0.148
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 23447,
+     "count": 23473,
      "share": 0.106
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 14737,
+     "count": 14829,
      "share": 0.067
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 11743,
+     "count": 11769,
      "share": 0.053
     },
     {
      "name": "칭찬·감사",
-     "count": 10213,
-     "share": 0.046
+     "count": 10310,
+     "share": 0.047
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 9500,
+     "count": 9550,
      "share": 0.043
     }
    ],
@@ -7790,9 +7812,14 @@
   {
    "weeks": 16,
    "label": "최근 16주",
-   "videos": 644,
-   "channels": 353,
+   "videos": 649,
+   "channels": 354,
    "new_this_week": [
+    {
+     "id": "2BAwO2Ltyf0",
+     "title": "最先端のイノベーションを先取る⁉　インベスコTV　「インベスコQQQ」チャンネル",
+     "published": "2026-08-05"
+    },
     {
      "id": "7FrJ3wuJDaY",
      "title": "어떤 투자는 '도박'이다? 주식 투자 때문에 인생이 무너진 사람들 | 추적60분 KBS 방송",
@@ -7839,31 +7866,31 @@
      "published": "2026-07-30"
     }
    ],
-   "views_median": 224324.0,
-   "views_per_day_median": 26631.4,
+   "views_median": 224338,
+   "views_per_day_median": 26498.5,
    "ratio_median": 0.57,
-   "success": 124,
-   "minutes_median": 18.8,
-   "title_len_avg": 54.1,
+   "success": 129,
+   "minutes_median": 18.7,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 171,
-     "share": 0.266
+     "count": 172,
+     "share": 0.265
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 114,
+     "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 112,
-     "share": 0.174
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 111,
-     "share": 0.172
+     "share": 0.173
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 77,
+     "count": 78,
      "share": 0.12
     },
     {
@@ -7873,18 +7900,18 @@
     },
     {
      "name": "이유",
-     "count": 60,
-     "share": 0.093
+     "count": 61,
+     "share": 0.094
     },
     {
      "name": "AI",
      "count": 60,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
-     "count": 38,
-     "share": 0.059
+     "count": 39,
+     "share": 0.06
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -7894,7 +7921,7 @@
     {
      "name": "vs 비교",
      "count": 19,
-     "share": 0.03
+     "share": 0.029
     },
     {
      "name": "N가지",
@@ -7934,7 +7961,7 @@
     },
     {
      "word": "이유",
-     "count": 57
+     "count": 58
     },
     {
      "word": "Market",
@@ -7966,24 +7993,24 @@
     },
     {
      "word": "S&P500",
-     "count": 31
+     "count": 32
     }
    ],
    "transcripts": 48,
    "text_sources": {
     "자막": 7,
     "음성인식": 41,
-    "설명": 561,
+    "설명": 566,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 189
+     "count": 190
     },
     {
      "word": "in",
-     "count": 177
+     "count": 178
     },
     {
      "word": "is",
@@ -7991,7 +8018,7 @@
     },
     {
      "word": "of",
-     "count": 172
+     "count": 174
     },
     {
      "word": "on",
@@ -8023,10 +8050,10 @@
     },
     {
      "word": "투자",
-     "count": 120
+     "count": 121
     }
    ],
-   "chapters_share": 0.376,
+   "chapters_share": 0.381,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -8048,40 +8075,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 236207,
+   "comments": 236773,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 35652,
+     "count": 35750,
      "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 24063,
+     "count": 24089,
      "share": 0.102
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 16966,
+     "count": 17058,
      "share": 0.072
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 12536,
+     "count": 12562,
      "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 10826,
+     "count": 10876,
      "share": 0.046
     },
     {
      "name": "칭찬·감사",
-     "count": 10594,
+     "count": 10691,
      "share": 0.045
     }
    ],
-   "comment_uncategorized": 0.597,
+   "comment_uncategorized": 0.596,
    "top_comments": [
     {
      "text": "Thank god I was starting to have my own thoughts and opinions",
@@ -8147,7 +8174,7 @@
   {
    "weeks": 17,
    "label": "최근 17주",
-   "videos": 651,
+   "videos": 655,
    "channels": 359,
    "new_this_week": [
     {
@@ -8159,11 +8186,6 @@
      "id": "AOs5sAd3hKM",
      "title": "\"안정을 기대한다\"더니 하루만에 코스피 -10.84%🔥올해 8번째 서킷브레이커🔥정부, 왜 손놓고 있나🔥증안펀드•리밸런싱•공매도🔥삼성전자 -14% SK하이닉스 -16%🔥중국반도체쇼크",
      "published": "2026-07-28"
-    },
-    {
-     "id": "JExUQaROk40",
-     "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
-     "published": "2026-07-22"
     },
     {
      "id": "Qu38GuSvadg",
@@ -8186,52 +8208,52 @@
      "published": "2026-07-28"
     }
    ],
-   "views_median": 221842,
-   "views_per_day_median": 26496.1,
-   "ratio_median": 0.57,
-   "success": 127,
+   "views_median": 224310,
+   "views_per_day_median": 26430.4,
+   "ratio_median": 0.59,
+   "success": 131,
    "minutes_median": 18.8,
-   "title_len_avg": 54.1,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 172,
+     "count": 173,
      "share": 0.264
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 115,
+     "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 113,
-     "share": 0.174
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 112,
-     "share": 0.172
+     "share": 0.173
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 78,
-     "share": 0.12
+     "count": 79,
+     "share": 0.121
     },
     {
      "name": "느낌표 !",
      "count": 69,
-     "share": 0.106
+     "share": 0.105
+    },
+    {
+     "name": "이유",
+     "count": 61,
+     "share": 0.093
     },
     {
      "name": "AI",
      "count": 61,
-     "share": 0.094
-    },
-    {
-     "name": "이유",
-     "count": 60,
-     "share": 0.092
+     "share": 0.093
     },
     {
      "name": "금액(억·만원)",
-     "count": 38,
-     "share": 0.058
+     "count": 39,
+     "share": 0.06
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -8281,7 +8303,7 @@
     },
     {
      "word": "이유",
-     "count": 57
+     "count": 58
     },
     {
      "word": "Market",
@@ -8313,24 +8335,24 @@
     },
     {
      "word": "S&P500",
-     "count": 31
+     "count": 32
     }
    ],
    "transcripts": 48,
    "text_sources": {
     "자막": 7,
     "음성인식": 41,
-    "설명": 568,
+    "설명": 572,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 190
+     "count": 191
     },
     {
      "word": "in",
-     "count": 179
+     "count": 180
     },
     {
      "word": "is",
@@ -8338,7 +8360,7 @@
     },
     {
      "word": "of",
-     "count": 173
+     "count": 175
     },
     {
      "word": "on",
@@ -8373,7 +8395,7 @@
      "count": 122
     }
    ],
-   "chapters_share": 0.375,
+   "chapters_share": 0.38,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -8395,36 +8417,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 240057,
+   "comments": 240520,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 36172,
+     "count": 36253,
      "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 24132,
-     "share": 0.101
+     "count": 24157,
+     "share": 0.1
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 17898,
+     "count": 17969,
      "share": 0.075
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 12632,
+     "count": 12652,
      "share": 0.053
     },
     {
      "name": "칭찬·감사",
-     "count": 11524,
+     "count": 11594,
      "share": 0.048
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 11434,
+     "count": 11469,
      "share": 0.048
     }
    ],
@@ -8494,13 +8516,18 @@
   {
    "weeks": 18,
    "label": "최근 18주",
-   "videos": 662,
-   "channels": 363,
+   "videos": 667,
+   "channels": 364,
    "new_this_week": [
     {
      "id": "3IqzhX-8yhY",
      "title": "5년째 마이너스인데 왜 안 파나요? 배당투자, 커버드콜의 비밀 (조윤진 2부) #세미파이어 #배당투자",
      "published": "2026-07-21"
+    },
+    {
+     "id": "JExUQaROk40",
+     "title": "복리가 부를 만드는 진짜 시작점｜언제부터 돈이 스스로 일하기 시작할까",
+     "published": "2026-07-22"
     },
     {
      "id": "Lb9ht5PE0vU",
@@ -8553,67 +8580,67 @@
      "published": "2026-07-20"
     }
    ],
-   "views_median": 223076.0,
-   "views_per_day_median": 26283.05,
-   "ratio_median": 0.59,
-   "success": 132,
-   "minutes_median": 18.85,
-   "title_len_avg": 54.2,
+   "views_median": 224310,
+   "views_per_day_median": 25944.0,
+   "ratio_median": 0.6,
+   "success": 137,
+   "minutes_median": 18.8,
+   "title_len_avg": 54.1,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 174,
-     "share": 0.263
+     "count": 175,
+     "share": 0.262
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 115,
-     "share": 0.174
+     "count": 118,
+     "share": 0.177
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 115,
-     "share": 0.174
+     "share": 0.172
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 81,
-     "share": 0.122
+     "count": 82,
+     "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 69,
-     "share": 0.104
+     "share": 0.103
     },
     {
      "name": "이유",
-     "count": 63,
-     "share": 0.095
+     "count": 64,
+     "share": 0.096
     },
     {
      "name": "AI",
      "count": 62,
-     "share": 0.094
+     "share": 0.093
     },
     {
      "name": "금액(억·만원)",
-     "count": 39,
-     "share": 0.059
+     "count": 40,
+     "share": 0.06
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 23,
-     "share": 0.035
+     "share": 0.034
     },
     {
      "name": "vs 비교",
      "count": 21,
-     "share": 0.032
+     "share": 0.031
     },
     {
      "name": "N가지",
      "count": 17,
-     "share": 0.026
+     "share": 0.025
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -8633,7 +8660,7 @@
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 7,
-     "share": 0.011
+     "share": 0.01
     },
     {
      "name": "두 금액(반전)",
@@ -8648,7 +8675,7 @@
     },
     {
      "word": "이유",
-     "count": 60
+     "count": 61
     },
     {
      "word": "Market",
@@ -8680,24 +8707,24 @@
     },
     {
      "word": "S&P500",
-     "count": 33
+     "count": 34
     }
    ],
    "transcripts": 50,
    "text_sources": {
     "자막": 8,
     "음성인식": 42,
-    "설명": 577,
+    "설명": 582,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 193
+     "count": 194
     },
     {
      "word": "in",
-     "count": 182
+     "count": 183
     },
     {
      "word": "is",
@@ -8705,7 +8732,7 @@
     },
     {
      "word": "of",
-     "count": 176
+     "count": 178
     },
     {
      "word": "this",
@@ -8733,14 +8760,14 @@
     },
     {
      "word": "투자",
-     "count": 126
+     "count": 127
     },
     {
      "word": "investment",
      "count": 125
     }
    ],
-   "chapters_share": 0.375,
+   "chapters_share": 0.379,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -8762,36 +8789,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 253764,
+   "comments": 254330,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 38445,
-     "share": 0.151
+     "count": 38543,
+     "share": 0.152
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 25453,
+     "count": 25479,
      "share": 0.1
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19404,
-     "share": 0.076
+     "count": 19496,
+     "share": 0.077
     },
     {
      "name": "칭찬·감사",
-     "count": 13544,
-     "share": 0.053
+     "count": 13641,
+     "share": 0.054
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13378,
+     "count": 13404,
      "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 12706,
+     "count": 12756,
      "share": 0.05
     }
    ],
@@ -8861,8 +8888,8 @@
   {
    "weeks": 19,
    "label": "최근 19주",
-   "videos": 671,
-   "channels": 368,
+   "videos": 676,
+   "channels": 369,
    "new_this_week": [
     {
      "id": "0T0eTmqUDBo",
@@ -8910,31 +8937,31 @@
      "published": "2026-07-14"
     }
    ],
-   "views_median": 220803,
-   "views_per_day_median": 25829.8,
-   "ratio_median": 0.6,
-   "success": 136,
+   "views_median": 221060.0,
+   "views_per_day_median": 25584.75,
+   "ratio_median": 0.61,
+   "success": 141,
    "minutes_median": 18.8,
-   "title_len_avg": 54.1,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 177,
-     "share": 0.264
+     "count": 178,
+     "share": 0.263
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 119,
-     "share": 0.177
+     "share": 0.176
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 115,
-     "share": 0.171
+     "count": 118,
+     "share": 0.175
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 81,
+     "count": 82,
      "share": 0.121
     },
     {
@@ -8944,8 +8971,8 @@
     },
     {
      "name": "이유",
-     "count": 63,
-     "share": 0.094
+     "count": 64,
+     "share": 0.095
     },
     {
      "name": "AI",
@@ -8954,8 +8981,8 @@
     },
     {
      "name": "금액(억·만원)",
-     "count": 39,
-     "share": 0.058
+     "count": 40,
+     "share": 0.059
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -9005,7 +9032,7 @@
     },
     {
      "word": "이유",
-     "count": 60
+     "count": 61
     },
     {
      "word": "Market",
@@ -9037,24 +9064,24 @@
     },
     {
      "word": "S&P500",
-     "count": 33
+     "count": 34
     }
    ],
    "transcripts": 52,
    "text_sources": {
     "자막": 9,
     "음성인식": 43,
-    "설명": 584,
+    "설명": 589,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 194
+     "count": 195
     },
     {
      "word": "in",
-     "count": 183
+     "count": 184
     },
     {
      "word": "is",
@@ -9062,7 +9089,7 @@
     },
     {
      "word": "of",
-     "count": 177
+     "count": 179
     },
     {
      "word": "this",
@@ -9090,14 +9117,14 @@
     },
     {
      "word": "투자",
-     "count": 128
+     "count": 129
     },
     {
      "word": "investment",
      "count": 126
     }
    ],
-   "chapters_share": 0.377,
+   "chapters_share": 0.382,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -9119,36 +9146,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 260007,
+   "comments": 260573,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 39620,
+     "count": 39718,
      "share": 0.152
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 25726,
+     "count": 25752,
      "share": 0.099
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 19833,
+     "count": 19925,
      "share": 0.076
     },
     {
      "name": "칭찬·감사",
-     "count": 14132,
-     "share": 0.054
+     "count": 14229,
+     "share": 0.055
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13700,
+     "count": 13726,
      "share": 0.053
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13181,
+     "count": 13231,
      "share": 0.051
     }
    ],
@@ -9218,8 +9245,8 @@
   {
    "weeks": 20,
    "label": "최근 20주",
-   "videos": 677,
-   "channels": 372,
+   "videos": 682,
+   "channels": 373,
    "new_this_week": [
     {
      "id": "8GzhXhRZsn0",
@@ -9252,32 +9279,32 @@
      "published": "2026-07-05"
     }
    ],
-   "views_median": 221317,
-   "views_per_day_median": 25487.5,
+   "views_median": 221579.5,
+   "views_per_day_median": 25338.25,
    "ratio_median": 0.61,
-   "success": 138,
-   "minutes_median": 18.9,
-   "title_len_avg": 54.1,
+   "success": 143,
+   "minutes_median": 18.8,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 179,
+     "count": 180,
      "share": 0.264
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 120,
+     "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 119,
-     "share": 0.176
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 117,
-     "share": 0.173
+     "share": 0.174
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 82,
-     "share": 0.121
+     "count": 83,
+     "share": 0.122
     },
     {
      "name": "느낌표 !",
@@ -9286,18 +9313,18 @@
     },
     {
      "name": "이유",
-     "count": 64,
+     "count": 65,
      "share": 0.095
     },
     {
      "name": "AI",
      "count": 63,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
-     "count": 40,
-     "share": 0.059
+     "count": 41,
+     "share": 0.06
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -9347,7 +9374,7 @@
     },
     {
      "word": "이유",
-     "count": 61
+     "count": 62
     },
     {
      "word": "Market",
@@ -9379,24 +9406,24 @@
     },
     {
      "word": "S&P500",
-     "count": 34
+     "count": 35
     }
    ],
    "transcripts": 53,
    "text_sources": {
     "자막": 9,
     "음성인식": 44,
-    "설명": 589,
+    "설명": 594,
     "없음": 35
    },
    "content_words": [
     {
      "word": "to",
-     "count": 196
+     "count": 197
     },
     {
      "word": "in",
-     "count": 183
+     "count": 184
     },
     {
      "word": "is",
@@ -9404,7 +9431,7 @@
     },
     {
      "word": "of",
-     "count": 179
+     "count": 181
     },
     {
      "word": "this",
@@ -9427,19 +9454,19 @@
      "count": 136
     },
     {
-     "word": "not",
+     "word": "투자",
      "count": 131
     },
     {
-     "word": "투자",
-     "count": 130
+     "word": "not",
+     "count": 131
     },
     {
      "word": "investment",
      "count": 126
     }
    ],
-   "chapters_share": 0.378,
+   "chapters_share": 0.383,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -9461,36 +9488,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 262648,
+   "comments": 263214,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 40163,
+     "count": 40261,
      "share": 0.153
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 25915,
+     "count": 25941,
      "share": 0.099
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20187,
+     "count": 20279,
      "share": 0.077
     },
     {
      "name": "칭찬·감사",
-     "count": 14243,
+     "count": 14340,
      "share": 0.054
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13784,
+     "count": 13810,
      "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13418,
+     "count": 13468,
      "share": 0.051
     }
    ],
@@ -9560,8 +9587,8 @@
   {
    "weeks": 21,
    "label": "최근 21주",
-   "videos": 683,
-   "channels": 376,
+   "videos": 688,
+   "channels": 377,
    "new_this_week": [
     {
      "id": "2G0epuL2UbI",
@@ -9594,31 +9621,31 @@
      "published": "2026-06-26"
     }
    ],
-   "views_median": 220803,
-   "views_per_day_median": 25300.5,
-   "ratio_median": 0.61,
-   "success": 139,
-   "minutes_median": 18.9,
-   "title_len_avg": 54.1,
+   "views_median": 221060.0,
+   "views_per_day_median": 25215.4,
+   "ratio_median": 0.63,
+   "success": 144,
+   "minutes_median": 18.8,
+   "title_len_avg": 53.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 180,
-     "share": 0.264
+     "count": 181,
+     "share": 0.263
+    },
+    {
+     "name": "S&P500·ETF·지수·나스닥",
+     "count": 121,
+     "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.176
-    },
-    {
-     "name": "S&P500·ETF·지수·나스닥",
-     "count": 118,
-     "share": 0.173
+     "share": 0.174
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 83,
+     "count": 84,
      "share": 0.122
     },
     {
@@ -9628,8 +9655,8 @@
     },
     {
      "name": "이유",
-     "count": 65,
-     "share": 0.095
+     "count": 66,
+     "share": 0.096
     },
     {
      "name": "AI",
@@ -9638,13 +9665,13 @@
     },
     {
      "name": "금액(억·만원)",
-     "count": 41,
-     "share": 0.06
+     "count": 42,
+     "share": 0.061
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 23,
-     "share": 0.034
+     "share": 0.033
     },
     {
      "name": "vs 비교",
@@ -9659,7 +9686,7 @@
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 12,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "직접·해보니·N년 기록",
@@ -9689,7 +9716,7 @@
     },
     {
      "word": "이유",
-     "count": 61
+     "count": 62
     },
     {
      "word": "Market",
@@ -9721,24 +9748,24 @@
     },
     {
      "word": "S&P500",
-     "count": 34
+     "count": 35
     }
    ],
    "transcripts": 53,
    "text_sources": {
     "자막": 9,
     "음성인식": 44,
-    "설명": 594,
+    "설명": 599,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 196
+     "count": 197
     },
     {
      "word": "in",
-     "count": 183
+     "count": 184
     },
     {
      "word": "is",
@@ -9746,7 +9773,7 @@
     },
     {
      "word": "of",
-     "count": 179
+     "count": 181
     },
     {
      "word": "this",
@@ -9770,7 +9797,7 @@
     },
     {
      "word": "투자",
-     "count": 131
+     "count": 132
     },
     {
      "word": "not",
@@ -9781,7 +9808,7 @@
      "count": 126
     }
    ],
-   "chapters_share": 0.378,
+   "chapters_share": 0.382,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -9803,40 +9830,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 266480,
+   "comments": 267046,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 40785,
+     "count": 40883,
      "share": 0.153
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 26030,
+     "count": 26056,
      "share": 0.098
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20467,
+     "count": 20559,
      "share": 0.077
     },
     {
      "name": "칭찬·감사",
-     "count": 14435,
+     "count": 14532,
      "share": 0.054
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13844,
+     "count": 13870,
      "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13583,
+     "count": 13633,
      "share": 0.051
     }
    ],
-   "comment_uncategorized": 0.589,
+   "comment_uncategorized": 0.588,
    "top_comments": [
     {
      "text": "The AI bubble just K-Popped.",
@@ -9902,8 +9929,8 @@
   {
    "weeks": 22,
    "label": "최근 22주",
-   "videos": 690,
-   "channels": 379,
+   "videos": 695,
+   "channels": 380,
    "new_this_week": [
     {
      "id": "0ftjA5wsqtQ",
@@ -9941,31 +9968,31 @@
      "published": "2026-06-20"
     }
    ],
-   "views_median": 221060.0,
-   "views_per_day_median": 25153.35,
-   "ratio_median": 0.63,
-   "success": 141,
+   "views_median": 221317,
+   "views_per_day_median": 24942.6,
+   "ratio_median": 0.64,
+   "success": 146,
    "minutes_median": 18.8,
-   "title_len_avg": 54.2,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 184,
-     "share": 0.267
+     "count": 185,
+     "share": 0.266
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 120,
-     "share": 0.174
+     "count": 123,
+     "share": 0.177
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.174
+     "share": 0.173
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 84,
+     "count": 85,
      "share": 0.122
     },
     {
@@ -9975,8 +10002,8 @@
     },
     {
      "name": "이유",
-     "count": 65,
-     "share": 0.094
+     "count": 66,
+     "share": 0.095
     },
     {
      "name": "AI",
@@ -9985,8 +10012,8 @@
     },
     {
      "name": "금액(억·만원)",
-     "count": 42,
-     "share": 0.061
+     "count": 43,
+     "share": 0.062
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -10036,7 +10063,7 @@
     },
     {
      "word": "이유",
-     "count": 61
+     "count": 62
     },
     {
      "word": "Market",
@@ -10068,24 +10095,24 @@
     },
     {
      "word": "S&P500",
-     "count": 34
+     "count": 35
     }
    ],
    "transcripts": 56,
    "text_sources": {
     "자막": 11,
     "음성인식": 45,
-    "설명": 598,
+    "설명": 603,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 198
+     "count": 199
     },
     {
      "word": "in",
-     "count": 185
+     "count": 186
     },
     {
      "word": "is",
@@ -10093,7 +10120,7 @@
     },
     {
      "word": "of",
-     "count": 181
+     "count": 183
     },
     {
      "word": "this",
@@ -10117,7 +10144,7 @@
     },
     {
      "word": "투자",
-     "count": 134
+     "count": 135
     },
     {
      "word": "not",
@@ -10128,7 +10155,7 @@
      "count": 128
     }
    ],
-   "chapters_share": 0.378,
+   "chapters_share": 0.383,
    "syl_per_sec_median": 0.0,
    "hooks": [
     {
@@ -10150,40 +10177,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 269263,
+   "comments": 269829,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 41373,
+     "count": 41471,
      "share": 0.154
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 26325,
+     "count": 26351,
      "share": 0.098
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20736,
+     "count": 20828,
      "share": 0.077
     },
     {
      "name": "칭찬·감사",
-     "count": 14736,
+     "count": 14833,
      "share": 0.055
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 13994,
+     "count": 14020,
      "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13785,
+     "count": 13835,
      "share": 0.051
     }
    ],
-   "comment_uncategorized": 0.588,
+   "comment_uncategorized": 0.587,
    "top_comments": [
     {
      "text": "The AI bubble just K-Popped.",
@@ -10249,8 +10276,8 @@
   {
    "weeks": 23,
    "label": "최근 23주",
-   "videos": 694,
-   "channels": 380,
+   "videos": 699,
+   "channels": 381,
    "new_this_week": [
     {
      "id": "2hoDeWXy9M8",
@@ -10273,57 +10300,57 @@
      "published": "2026-06-15"
     }
    ],
-   "views_median": 220699.5,
-   "views_per_day_median": 24978.9,
-   "ratio_median": 0.64,
-   "success": 143,
-   "minutes_median": 18.85,
-   "title_len_avg": 54.1,
+   "views_median": 220803,
+   "views_per_day_median": 24875.0,
+   "ratio_median": 0.65,
+   "success": 148,
+   "minutes_median": 18.8,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 184,
+     "count": 185,
      "share": 0.265
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 120,
-     "share": 0.173
+     "count": 123,
+     "share": 0.176
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.173
+     "share": 0.172
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 85,
-     "share": 0.122
+     "count": 86,
+     "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 72,
-     "share": 0.104
+     "share": 0.103
     },
     {
      "name": "이유",
-     "count": 65,
+     "count": 66,
      "share": 0.094
     },
     {
      "name": "AI",
      "count": 65,
-     "share": 0.094
+     "share": 0.093
     },
     {
      "name": "금액(억·만원)",
-     "count": 42,
-     "share": 0.061
+     "count": 43,
+     "share": 0.062
     },
     {
      "name": "vs 비교",
      "count": 24,
-     "share": 0.035
+     "share": 0.034
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -10368,7 +10395,7 @@
     },
     {
      "word": "이유",
-     "count": 61
+     "count": 62
     },
     {
      "word": "주식",
@@ -10400,24 +10427,24 @@
     },
     {
      "word": "S&P500",
-     "count": 34
+     "count": 35
     }
    ],
    "transcripts": 59,
    "text_sources": {
     "자막": 14,
     "음성인식": 45,
-    "설명": 599,
+    "설명": 604,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 199
+     "count": 200
     },
     {
      "word": "in",
-     "count": 186
+     "count": 187
     },
     {
      "word": "is",
@@ -10425,7 +10452,7 @@
     },
     {
      "word": "of",
-     "count": 182
+     "count": 184
     },
     {
      "word": "this",
@@ -10444,12 +10471,12 @@
      "count": 145
     },
     {
-     "word": "video",
+     "word": "투자",
      "count": 138
     },
     {
-     "word": "투자",
-     "count": 137
+     "word": "video",
+     "count": 138
     },
     {
      "word": "not",
@@ -10460,7 +10487,7 @@
      "count": 128
     }
    ],
-   "chapters_share": 0.379,
+   "chapters_share": 0.383,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -10482,40 +10509,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 270410,
+   "comments": 270976,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 41618,
+     "count": 41716,
      "share": 0.154
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 26399,
+     "count": 26425,
      "share": 0.098
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20854,
+     "count": 20946,
      "share": 0.077
     },
     {
      "name": "칭찬·감사",
-     "count": 14834,
+     "count": 14931,
      "share": 0.055
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14024,
+     "count": 14050,
      "share": 0.052
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13841,
+     "count": 13891,
      "share": 0.051
     }
    ],
-   "comment_uncategorized": 0.588,
+   "comment_uncategorized": 0.587,
    "top_comments": [
     {
      "text": "The AI bubble just K-Popped.",
@@ -10581,18 +10608,13 @@
   {
    "weeks": 24,
    "label": "최근 24주",
-   "videos": 698,
+   "videos": 702,
    "channels": 384,
    "new_this_week": [
     {
      "id": "3fmFpSlxHIc",
      "title": "주식으로 전재산 날리는 사람들이 공통적으로 하는 착각 4가지",
      "published": "2026-06-05"
-    },
-    {
-     "id": "4qpBzE19WRs",
-     "title": "股市最愛修理聰明人？華爾街操盤手教你「最笨卻最賺」的投資法｜【初日會客室】闕又上老師",
-     "published": "2026-06-03"
     },
     {
      "id": "Y78TMfV12ic",
@@ -10606,31 +10628,31 @@
     }
    ],
    "views_median": 220699.5,
-   "views_per_day_median": 24876.1,
+   "views_per_day_median": 24771.1,
    "ratio_median": 0.65,
-   "success": 143,
-   "minutes_median": 18.85,
-   "title_len_avg": 54.1,
+   "success": 148,
+   "minutes_median": 18.8,
+   "title_len_avg": 54.0,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 184,
+     "count": 185,
      "share": 0.264
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 120,
-     "share": 0.172
+     "count": 123,
+     "share": 0.175
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.172
+     "share": 0.171
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 86,
-     "share": 0.123
+     "count": 87,
+     "share": 0.124
     },
     {
      "name": "느낌표 !",
@@ -10639,8 +10661,8 @@
     },
     {
      "name": "이유",
-     "count": 65,
-     "share": 0.093
+     "count": 66,
+     "share": 0.094
     },
     {
      "name": "AI",
@@ -10649,8 +10671,8 @@
     },
     {
      "name": "금액(억·만원)",
-     "count": 42,
-     "share": 0.06
+     "count": 43,
+     "share": 0.061
     },
     {
      "name": "vs 비교",
@@ -10665,7 +10687,7 @@
     {
      "name": "N가지",
      "count": 20,
-     "share": 0.029
+     "share": 0.028
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -10705,7 +10727,7 @@
     },
     {
      "word": "이유",
-     "count": 61
+     "count": 62
     },
     {
      "word": "주식",
@@ -10737,24 +10759,24 @@
     },
     {
      "word": "S&P500",
-     "count": 34
+     "count": 35
     }
    ],
    "transcripts": 59,
    "text_sources": {
     "자막": 14,
     "음성인식": 45,
-    "설명": 603,
+    "설명": 607,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 201
+     "count": 202
     },
     {
      "word": "in",
-     "count": 187
+     "count": 188
     },
     {
      "word": "is",
@@ -10762,7 +10784,7 @@
     },
     {
      "word": "of",
-     "count": 183
+     "count": 185
     },
     {
      "word": "this",
@@ -10781,12 +10803,12 @@
      "count": 146
     },
     {
-     "word": "video",
+     "word": "투자",
      "count": 139
     },
     {
-     "word": "투자",
-     "count": 138
+     "word": "video",
+     "count": 139
     },
     {
      "word": "not",
@@ -10797,7 +10819,7 @@
      "count": 129
     }
    ],
-   "chapters_share": 0.38,
+   "chapters_share": 0.383,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -10819,40 +10841,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 279691,
+   "comments": 279250,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 42231,
+     "count": 42296,
      "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 30235,
+     "count": 30242,
      "share": 0.108
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 20905,
+     "count": 20968,
      "share": 0.075
     },
     {
      "name": "칭찬·감사",
-     "count": 14845,
-     "share": 0.053
+     "count": 14942,
+     "share": 0.054
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14036,
+     "count": 14062,
      "share": 0.05
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 13932,
+     "count": 13969,
      "share": 0.05
     }
    ],
-   "comment_uncategorized": 0.586,
+   "comment_uncategorized": 0.584,
    "top_comments": [
     {
      "text": "The AI bubble just K-Popped.",
@@ -10918,18 +10940,18 @@
   {
    "weeks": 25,
    "label": "최근 25주",
-   "videos": 704,
-   "channels": 388,
+   "videos": 708,
+   "channels": 389,
    "new_this_week": [
+    {
+     "id": "4qpBzE19WRs",
+     "title": "股市最愛修理聰明人？華爾街操盤手教你「最笨卻最賺」的投資法｜【初日會客室】闕又上老師",
+     "published": "2026-06-03"
+    },
     {
      "id": "55hFmXD0lh0",
      "title": "단타 천재가 개발한 하이킨아시 스캘핑 매매법, 죽어라 이것만 하세요.",
      "published": "2026-06-02"
-    },
-    {
-     "id": "HQoEjtdRI_0",
-     "title": "The BEST 3 ETF Portfolio for F.I.R.E. (Hold FOREVER!)",
-     "published": "2026-05-27"
     },
     {
      "id": "ITzgH6CeZns",
@@ -10953,51 +10975,51 @@
     }
    ],
    "views_median": 220699.5,
-   "views_per_day_median": 24730.6,
-   "ratio_median": 0.65,
-   "success": 148,
+   "views_per_day_median": 24533.4,
+   "ratio_median": 0.66,
+   "success": 153,
    "minutes_median": 18.8,
-   "title_len_avg": 54.0,
+   "title_len_avg": 53.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 186,
+     "count": 187,
      "share": 0.264
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 123,
-     "share": 0.175
+     "count": 125,
+     "share": 0.177
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.17
+     "share": 0.169
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 87,
+     "count": 88,
      "share": 0.124
     },
     {
      "name": "느낌표 !",
-     "count": 74,
-     "share": 0.105
+     "count": 73,
+     "share": 0.103
     },
     {
      "name": "이유",
-     "count": 66,
-     "share": 0.094
+     "count": 67,
+     "share": 0.095
     },
     {
      "name": "AI",
      "count": 66,
-     "share": 0.094
+     "share": 0.093
     },
     {
      "name": "금액(억·만원)",
-     "count": 43,
-     "share": 0.061
+     "count": 44,
+     "share": 0.062
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -11037,7 +11059,7 @@
     {
      "name": "두 금액(반전)",
      "count": 6,
-     "share": 0.009
+     "share": 0.008
     },
     {
      "name": "공통점",
@@ -11052,15 +11074,15 @@
     },
     {
      "word": "이유",
-     "count": 62
-    },
-    {
-     "word": "ETF",
-     "count": 54
+     "count": 63
     },
     {
      "word": "주식",
      "count": 54
+    },
+    {
+     "word": "ETF",
+     "count": 53
     },
     {
      "word": "Market",
@@ -11084,14 +11106,14 @@
     },
     {
      "word": "S&P500",
-     "count": 34
+     "count": 35
     }
    ],
    "transcripts": 60,
    "text_sources": {
     "자막": 14,
     "음성인식": 46,
-    "설명": 608,
+    "설명": 612,
     "없음": 36
    },
    "content_words": [
@@ -11100,20 +11122,20 @@
      "count": 202
     },
     {
-     "word": "is",
-     "count": 187
+     "word": "in",
+     "count": 188
     },
     {
-     "word": "in",
-     "count": 187
+     "word": "is",
+     "count": 186
     },
     {
      "word": "of",
-     "count": 184
+     "count": 185
     },
     {
      "word": "this",
-     "count": 167
+     "count": 166
     },
     {
      "word": "on",
@@ -11121,18 +11143,18 @@
     },
     {
      "word": "or",
-     "count": 152
+     "count": 151
     },
     {
      "word": "are",
      "count": 146
     },
     {
-     "word": "video",
+     "word": "투자",
      "count": 140
     },
     {
-     "word": "투자",
+     "word": "video",
      "count": 139
     },
     {
@@ -11140,11 +11162,11 @@
      "count": 135
     },
     {
-     "word": "you",
-     "count": 130
+     "word": "investment",
+     "count": 129
     }
    ],
-   "chapters_share": 0.384,
+   "chapters_share": 0.387,
    "syl_per_sec_median": 2.62,
    "hooks": [
     {
@@ -11166,40 +11188,40 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 282837,
+   "comments": 283015,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 42773,
+     "count": 42801,
      "share": 0.151
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 30329,
+     "count": 30305,
      "share": 0.107
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21189,
+     "count": 21233,
      "share": 0.075
     },
     {
      "name": "칭찬·감사",
-     "count": 15625,
-     "share": 0.055
+     "count": 15722,
+     "share": 0.056
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14096,
+     "count": 14122,
      "share": 0.05
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 14073,
+     "count": 14113,
      "share": 0.05
     }
    ],
-   "comment_uncategorized": 0.585,
+   "comment_uncategorized": 0.584,
    "top_comments": [
     {
      "text": "The AI bubble just K-Popped.",
@@ -11265,8 +11287,8 @@
   {
    "weeks": 26,
    "label": "최근 26주",
-   "videos": 712,
-   "channels": 393,
+   "videos": 717,
+   "channels": 394,
    "new_this_week": [
     {
      "id": "3mIsnHTgylg",
@@ -11282,6 +11304,11 @@
      "id": "61yzienNygE",
      "title": "【オルカンvsS&P500】2026年どっちが正解？｜乗り換えた人、50年ぶりの罠にハマってます",
      "published": "2026-05-23"
+    },
+    {
+     "id": "HQoEjtdRI_0",
+     "title": "The BEST 3 ETF Portfolio for F.I.R.E. (Hold FOREVER!)",
+     "published": "2026-05-27"
     },
     {
      "id": "PzWL53BrkcQ",
@@ -11309,62 +11336,62 @@
      "published": "2026-05-24"
     }
    ],
-   "views_median": 219611.0,
-   "views_per_day_median": 24358.65,
-   "ratio_median": 0.66,
-   "success": 148,
+   "views_median": 220596,
+   "views_per_day_median": 24265.5,
+   "ratio_median": 0.67,
+   "success": 153,
    "minutes_median": 18.8,
-   "title_len_avg": 54.0,
+   "title_len_avg": 53.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 187,
-     "share": 0.263
+     "count": 188,
+     "share": 0.262
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 127,
-     "share": 0.178
+     "count": 130,
+     "share": 0.181
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.169
+     "share": 0.167
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 87,
-     "share": 0.122
+     "count": 88,
+     "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 76,
-     "share": 0.107
+     "share": 0.106
     },
     {
      "name": "이유",
-     "count": 66,
+     "count": 67,
      "share": 0.093
     },
     {
      "name": "AI",
      "count": 66,
-     "share": 0.093
+     "share": 0.092
     },
     {
      "name": "금액(억·만원)",
-     "count": 45,
-     "share": 0.063
+     "count": 46,
+     "share": 0.064
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 24,
-     "share": 0.034
+     "share": 0.033
     },
     {
      "name": "vs 비교",
      "count": 24,
-     "share": 0.034
+     "share": 0.033
     },
     {
      "name": "N가지",
@@ -11409,7 +11436,7 @@
     },
     {
      "word": "이유",
-     "count": 62
+     "count": 63
     },
     {
      "word": "ETF",
@@ -11441,32 +11468,32 @@
     },
     {
      "word": "S&P500",
-     "count": 35
+     "count": 36
     }
    ],
    "transcripts": 61,
    "text_sources": {
     "자막": 15,
     "음성인식": 46,
-    "설명": 615,
+    "설명": 620,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 205
+     "count": 206
+    },
+    {
+     "word": "in",
+     "count": 192
     },
     {
      "word": "is",
      "count": 191
     },
     {
-     "word": "in",
-     "count": 191
-    },
-    {
      "word": "of",
-     "count": 188
+     "count": 190
     },
     {
      "word": "this",
@@ -11490,7 +11517,7 @@
     },
     {
      "word": "투자",
-     "count": 142
+     "count": 143
     },
     {
      "word": "not",
@@ -11501,7 +11528,7 @@
      "count": 133
     }
    ],
-   "chapters_share": 0.381,
+   "chapters_share": 0.385,
    "syl_per_sec_median": 5.24,
    "hooks": [
     {
@@ -11523,36 +11550,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 292119,
+   "comments": 292685,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 44474,
+     "count": 44572,
      "share": 0.152
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 31627,
+     "count": 31653,
      "share": 0.108
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21553,
+     "count": 21645,
      "share": 0.074
     },
     {
      "name": "칭찬·감사",
-     "count": 15985,
+     "count": 16082,
      "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 14360,
+     "count": 14410,
      "share": 0.049
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14140,
+     "count": 14166,
      "share": 0.048
     }
    ],
@@ -11622,8 +11649,8 @@
   {
    "weeks": 27,
    "label": "최근 27주",
-   "videos": 720,
-   "channels": 397,
+   "videos": 725,
+   "channels": 398,
    "new_this_week": [
     {
      "id": "3tIO_BBDMMo",
@@ -11666,52 +11693,52 @@
      "published": "2026-05-19"
     }
    ],
-   "views_median": 216597.0,
-   "views_per_day_median": 24154.75,
-   "ratio_median": 0.67,
-   "success": 149,
-   "minutes_median": 18.85,
-   "title_len_avg": 54.0,
+   "views_median": 216672,
+   "views_per_day_median": 24038.7,
+   "ratio_median": 0.68,
+   "success": 154,
+   "minutes_median": 18.8,
+   "title_len_avg": 53.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 188,
+     "count": 189,
      "share": 0.261
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 129,
-     "share": 0.179
+     "count": 132,
+     "share": 0.182
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.167
+     "share": 0.166
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 88,
-     "share": 0.122
+     "count": 89,
+     "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 77,
-     "share": 0.107
+     "share": 0.106
     },
     {
      "name": "이유",
-     "count": 67,
-     "share": 0.093
+     "count": 68,
+     "share": 0.094
     },
     {
      "name": "AI",
      "count": 66,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
-     "count": 47,
-     "share": 0.065
+     "count": 48,
+     "share": 0.066
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -11766,7 +11793,7 @@
     },
     {
      "word": "이유",
-     "count": 63
+     "count": 64
     },
     {
      "word": "ETF",
@@ -11798,32 +11825,32 @@
     },
     {
      "word": "S&P500",
-     "count": 35
+     "count": 36
     }
    ],
    "transcripts": 62,
    "text_sources": {
     "자막": 16,
     "음성인식": 46,
-    "설명": 622,
+    "설명": 627,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 206
+     "count": 207
+    },
+    {
+     "word": "in",
+     "count": 193
     },
     {
      "word": "is",
      "count": 192
     },
     {
-     "word": "in",
-     "count": 192
-    },
-    {
      "word": "of",
-     "count": 188
+     "count": 190
     },
     {
      "word": "this",
@@ -11843,7 +11870,7 @@
     },
     {
      "word": "투자",
-     "count": 146
+     "count": 147
     },
     {
      "word": "video",
@@ -11858,7 +11885,7 @@
      "count": 134
     }
    ],
-   "chapters_share": 0.378,
+   "chapters_share": 0.382,
    "syl_per_sec_median": 5.27,
    "hooks": [
     {
@@ -11880,36 +11907,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 294815,
+   "comments": 295381,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 45038,
+     "count": 45136,
      "share": 0.153
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 31699,
-     "share": 0.108
+     "count": 31725,
+     "share": 0.107
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 21953,
-     "share": 0.074
+     "count": 22045,
+     "share": 0.075
     },
     {
      "name": "칭찬·감사",
-     "count": 16450,
+     "count": 16547,
      "share": 0.056
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 14628,
+     "count": 14678,
      "share": 0.05
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14227,
+     "count": 14253,
      "share": 0.048
     }
    ],
@@ -11979,8 +12006,8 @@
   {
    "weeks": 28,
    "label": "최근 28주",
-   "videos": 731,
-   "channels": 405,
+   "videos": 736,
+   "channels": 406,
    "new_this_week": [
     {
      "id": "02hqxRMURPs",
@@ -12038,52 +12065,52 @@
      "published": "2026-05-12"
     }
    ],
-   "views_median": 216522,
-   "views_per_day_median": 23836.4,
-   "ratio_median": 0.69,
-   "success": 151,
-   "minutes_median": 18.9,
-   "title_len_avg": 54.0,
+   "views_median": 216597.0,
+   "views_per_day_median": 23686.25,
+   "ratio_median": 0.7,
+   "success": 156,
+   "minutes_median": 18.8,
+   "title_len_avg": 53.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 190,
+     "count": 191,
      "share": 0.26
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 133,
-     "share": 0.182
+     "count": 136,
+     "share": 0.185
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.164
+     "share": 0.163
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 89,
+     "count": 90,
      "share": 0.122
     },
     {
      "name": "느낌표 !",
      "count": 79,
-     "share": 0.108
+     "share": 0.107
     },
     {
      "name": "이유",
-     "count": 67,
+     "count": 68,
      "share": 0.092
     },
     {
      "name": "AI",
      "count": 67,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
-     "count": 48,
-     "share": 0.066
+     "count": 49,
+     "share": 0.067
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -12143,7 +12170,7 @@
     },
     {
      "word": "이유",
-     "count": 63
+     "count": 64
     },
     {
      "word": "ETF",
@@ -12175,24 +12202,24 @@
     },
     {
      "word": "S&P500",
-     "count": 36
+     "count": 37
     }
    ],
    "transcripts": 65,
    "text_sources": {
     "자막": 19,
     "음성인식": 46,
-    "설명": 630,
+    "설명": 635,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 208
+     "count": 209
     },
     {
      "word": "in",
-     "count": 194
+     "count": 195
     },
     {
      "word": "is",
@@ -12200,7 +12227,7 @@
     },
     {
      "word": "of",
-     "count": 190
+     "count": 192
     },
     {
      "word": "this",
@@ -12220,7 +12247,7 @@
     },
     {
      "word": "투자",
-     "count": 149
+     "count": 150
     },
     {
      "word": "video",
@@ -12235,7 +12262,7 @@
      "count": 136
     }
    ],
-   "chapters_share": 0.38,
+   "chapters_share": 0.385,
    "syl_per_sec_median": 5.3,
    "hooks": [
     {
@@ -12257,36 +12284,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 309619,
+   "comments": 310185,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 45989,
+     "count": 46087,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 35853,
+     "count": 35879,
      "share": 0.116
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 22387,
+     "count": 22479,
      "share": 0.072
     },
     {
      "name": "칭찬·감사",
-     "count": 16961,
+     "count": 17058,
      "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15748,
+     "count": 15798,
      "share": 0.051
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14376,
+     "count": 14402,
      "share": 0.046
     }
    ],
@@ -12356,18 +12383,13 @@
   {
    "weeks": 29,
    "label": "최근 29주",
-   "videos": 736,
-   "channels": 405,
+   "videos": 740,
+   "channels": 406,
    "new_this_week": [
     {
      "id": "-K8-ccMcIBE",
      "title": "These 2 NEW Weekly Dividend ETFs Are Beating Monthly Income",
      "published": "2026-05-01"
-    },
-    {
-     "id": "7rtO_hfLvF8",
-     "title": "국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기",
-     "published": "2026-04-29"
     },
     {
      "id": "BRFRMfkGfpM",
@@ -12386,41 +12408,41 @@
     }
    ],
    "views_median": 216597.0,
-   "views_per_day_median": 23642.45,
+   "views_per_day_median": 23616.3,
    "ratio_median": 0.7,
-   "success": 153,
+   "success": 157,
    "minutes_median": 18.8,
-   "title_len_avg": 54.0,
+   "title_len_avg": 53.9,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 190,
+     "count": 191,
      "share": 0.258
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 137,
-     "share": 0.186
+     "count": 139,
+     "share": 0.188
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 120,
-     "share": 0.163
+     "share": 0.162
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 90,
-     "share": 0.122
+     "count": 91,
+     "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 80,
-     "share": 0.109
+     "share": 0.108
     },
     {
      "name": "이유",
-     "count": 68,
-     "share": 0.092
+     "count": 69,
+     "share": 0.093
     },
     {
      "name": "AI",
@@ -12430,7 +12452,7 @@
     {
      "name": "금액(억·만원)",
      "count": 49,
-     "share": 0.067
+     "share": 0.066
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -12440,12 +12462,12 @@
     {
      "name": "vs 비교",
      "count": 27,
-     "share": 0.037
+     "share": 0.036
     },
     {
      "name": "N가지",
      "count": 21,
-     "share": 0.029
+     "share": 0.028
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
@@ -12465,12 +12487,12 @@
     {
      "name": "두 금액(반전)",
      "count": 7,
-     "share": 0.01
+     "share": 0.009
     },
     {
      "name": "과정·벌어진 일·결말·결국",
      "count": 7,
-     "share": 0.01
+     "share": 0.009
     },
     {
      "name": "공통점",
@@ -12490,11 +12512,11 @@
     },
     {
      "word": "이유",
-     "count": 64
+     "count": 65
     },
     {
      "word": "ETF",
-     "count": 62
+     "count": 61
     },
     {
      "word": "주식",
@@ -12522,24 +12544,24 @@
     },
     {
      "word": "S&P500",
-     "count": 36
+     "count": 37
     }
    ],
    "transcripts": 66,
    "text_sources": {
     "자막": 20,
     "음성인식": 46,
-    "설명": 634,
+    "설명": 638,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 210
+     "count": 211
     },
     {
      "word": "in",
-     "count": 196
+     "count": 197
     },
     {
      "word": "is",
@@ -12547,7 +12569,7 @@
     },
     {
      "word": "of",
-     "count": 191
+     "count": 193
     },
     {
      "word": "this",
@@ -12582,7 +12604,7 @@
      "count": 138
     }
    ],
-   "chapters_share": 0.382,
+   "chapters_share": 0.386,
    "syl_per_sec_median": 5.27,
    "hooks": [
     {
@@ -12604,36 +12626,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 310800,
+   "comments": 311082,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 46225,
+     "count": 46257,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 35955,
+     "count": 35972,
      "share": 0.116
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 22572,
+     "count": 22571,
      "share": 0.073
     },
     {
      "name": "칭찬·감사",
-     "count": 17152,
+     "count": 17175,
      "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15805,
+     "count": 15829,
      "share": 0.051
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14389,
+     "count": 14404,
      "share": 0.046
     }
    ],
@@ -12703,9 +12725,14 @@
   {
    "weeks": 30,
    "label": "최근 30주",
-   "videos": 742,
-   "channels": 409,
+   "videos": 747,
+   "channels": 410,
    "new_this_week": [
+    {
+     "id": "7rtO_hfLvF8",
+     "title": "국민연금 빈칸 메우는 한국 ETF 3개 — 월 200만 원 평생 월급 만들기",
+     "published": "2026-04-29"
+    },
     {
      "id": "9UMGCbCyz6c",
      "title": "I Got Rich Off NVIDIA. This Is Even Bigger.",
@@ -12737,57 +12764,57 @@
      "published": "2026-04-28"
     }
    ],
-   "views_median": 216094.5,
-   "views_per_day_median": 23348.8,
-   "ratio_median": 0.7,
-   "success": 154,
+   "views_median": 216340,
+   "views_per_day_median": 23303.4,
+   "ratio_median": 0.72,
+   "success": 159,
    "minutes_median": 18.8,
-   "title_len_avg": 53.9,
+   "title_len_avg": 53.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 194,
+     "count": 195,
      "share": 0.261
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 140,
-     "share": 0.189
+     "count": 143,
+     "share": 0.191
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 121,
-     "share": 0.163
+     "share": 0.162
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 91,
+     "count": 92,
      "share": 0.123
     },
     {
      "name": "느낌표 !",
      "count": 80,
-     "share": 0.108
+     "share": 0.107
     },
     {
      "name": "이유",
-     "count": 68,
+     "count": 69,
      "share": 0.092
     },
     {
      "name": "AI",
      "count": 68,
-     "share": 0.092
+     "share": 0.091
     },
     {
      "name": "금액(억·만원)",
-     "count": 50,
-     "share": 0.067
+     "count": 51,
+     "share": 0.068
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
      "count": 28,
-     "share": 0.038
+     "share": 0.037
     },
     {
      "name": "vs 비교",
@@ -12797,22 +12824,22 @@
     {
      "name": "N가지",
      "count": 22,
-     "share": 0.03
+     "share": 0.029
     },
     {
      "name": "손실 낱말(망하·날린·잃은·반토막)",
      "count": 13,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "직접·해보니·N년 기록",
      "count": 13,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "빚투·신용·미수·레버리지·대출",
      "count": 13,
-     "share": 0.018
+     "share": 0.017
     },
     {
      "name": "두 금액(반전)",
@@ -12842,7 +12869,7 @@
     },
     {
      "word": "이유",
-     "count": 64
+     "count": 65
     },
     {
      "word": "ETF",
@@ -12874,24 +12901,24 @@
     },
     {
      "word": "S&P500",
-     "count": 36
+     "count": 37
     }
    ],
    "transcripts": 68,
    "text_sources": {
     "자막": 22,
     "음성인식": 46,
-    "설명": 638,
+    "설명": 643,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 213
+     "count": 214
     },
     {
      "word": "in",
-     "count": 199
+     "count": 200
     },
     {
      "word": "is",
@@ -12899,7 +12926,7 @@
     },
     {
      "word": "of",
-     "count": 194
+     "count": 196
     },
     {
      "word": "this",
@@ -12918,11 +12945,11 @@
      "count": 154
     },
     {
-     "word": "video",
-     "count": 152
+     "word": "투자",
+     "count": 153
     },
     {
-     "word": "투자",
+     "word": "video",
      "count": 152
     },
     {
@@ -12934,7 +12961,7 @@
      "count": 141
     }
    ],
-   "chapters_share": 0.381,
+   "chapters_share": 0.386,
    "syl_per_sec_median": 5.08,
    "hooks": [
     {
@@ -12956,36 +12983,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 313434,
+   "comments": 314000,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 46695,
+     "count": 46793,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 36350,
+     "count": 36376,
      "share": 0.116
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 22763,
+     "count": 22855,
      "share": 0.073
     },
     {
      "name": "칭찬·감사",
-     "count": 17177,
+     "count": 17274,
      "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15848,
+     "count": 15898,
      "share": 0.051
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14396,
+     "count": 14422,
      "share": 0.046
     }
    ],
@@ -13055,8 +13082,8 @@
   {
    "weeks": 31,
    "label": "최근 31주",
-   "videos": 748,
-   "channels": 414,
+   "videos": 753,
+   "channels": 415,
    "new_this_week": [
     {
      "id": "0mTAjI7LL4Y",
@@ -13089,52 +13116,52 @@
      "published": "2026-04-18"
     }
    ],
-   "views_median": 216094.5,
-   "views_per_day_median": 23276.55,
-   "ratio_median": 0.72,
-   "success": 154,
+   "views_median": 216340,
+   "views_per_day_median": 23178.4,
+   "ratio_median": 0.74,
+   "success": 159,
    "minutes_median": 18.8,
-   "title_len_avg": 53.9,
+   "title_len_avg": 53.8,
    "title_features": [
     {
      "name": "물음표 ?",
-     "count": 194,
+     "count": 195,
      "share": 0.259
     },
     {
      "name": "S&P500·ETF·지수·나스닥",
-     "count": 142,
-     "share": 0.19
+     "count": 145,
+     "share": 0.193
     },
     {
      "name": "코스피·폭락·급락·하락장",
      "count": 121,
-     "share": 0.162
+     "share": 0.161
     },
     {
      "name": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-     "count": 93,
-     "share": 0.124
+     "count": 94,
+     "share": 0.125
     },
     {
      "name": "느낌표 !",
      "count": 80,
-     "share": 0.107
+     "share": 0.106
     },
     {
      "name": "이유",
-     "count": 69,
-     "share": 0.092
+     "count": 70,
+     "share": 0.093
     },
     {
      "name": "AI",
      "count": 68,
-     "share": 0.091
+     "share": 0.09
     },
     {
      "name": "금액(억·만원)",
-     "count": 51,
-     "share": 0.068
+     "count": 52,
+     "share": 0.069
     },
     {
      "name": "노후·퇴직금·은퇴·50~70대",
@@ -13194,7 +13221,7 @@
     },
     {
      "word": "이유",
-     "count": 65
+     "count": 66
     },
     {
      "word": "ETF",
@@ -13226,24 +13253,24 @@
     },
     {
      "word": "S&P500",
-     "count": 37
+     "count": 38
     }
    ],
    "transcripts": 70,
    "text_sources": {
     "자막": 24,
     "음성인식": 46,
-    "설명": 642,
+    "설명": 647,
     "없음": 36
    },
    "content_words": [
     {
      "word": "to",
-     "count": 213
+     "count": 214
     },
     {
      "word": "in",
-     "count": 199
+     "count": 200
     },
     {
      "word": "is",
@@ -13251,7 +13278,7 @@
     },
     {
      "word": "of",
-     "count": 195
+     "count": 197
     },
     {
      "word": "this",
@@ -13266,11 +13293,11 @@
      "count": 162
     },
     {
-     "word": "are",
-     "count": 154
+     "word": "투자",
+     "count": 155
     },
     {
-     "word": "투자",
+     "word": "are",
      "count": 154
     },
     {
@@ -13286,7 +13313,7 @@
      "count": 141
     }
    ],
-   "chapters_share": 0.384,
+   "chapters_share": 0.388,
    "syl_per_sec_median": 5.08,
    "hooks": [
     {
@@ -13308,36 +13335,36 @@
      "hook": "⭐ See What I'm Investing In ⭐ Trade Alerts ⭐ Get Your Questions Answered ⭐ Join Our Private Chatroom ⭐ Exclusive Content About Markets 📘 My Book on Wealth-Build"
     }
    ],
-   "comments": 315465,
+   "comments": 316031,
    "comment_needs": [
     {
      "name": "질문",
-     "count": 47010,
+     "count": 47108,
      "share": 0.149
     },
     {
      "name": "비판(가짜·AI·뻔함)",
-     "count": 36402,
+     "count": 36428,
      "share": 0.115
     },
     {
      "name": "원칙·정답(시청자가 스스로 씀)",
-     "count": 22897,
+     "count": 22989,
      "share": 0.073
     },
     {
      "name": "칭찬·감사",
-     "count": 17428,
+     "count": 17525,
      "share": 0.055
     },
     {
      "name": "경험(내 얘기·나도 잃음)",
-     "count": 15995,
+     "count": 16045,
      "share": 0.051
     },
     {
      "name": "2026 시장(폭락·불장·서킷)",
-     "count": 14516,
+     "count": 14542,
      "share": 0.046
     }
    ],

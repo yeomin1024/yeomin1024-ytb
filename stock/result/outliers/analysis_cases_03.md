@@ -1,8 +1,74 @@
-# 주식 — 성공 사례 분석: 사례별 자세히 #81–#104
+# 주식 — 성공 사례 분석: 사례별 자세히 #81–#108
 
-`analysis.md` 의 9번 (같은 # 번호). 자동 생성 — `tools/success_analysis.py` v1.6 (2026-11-18 09:13 UTC). ※ 연구·교육용 — 투자 권유가 아님.
+`analysis.md` 의 9번 (같은 # 번호). 자동 생성 — `tools/success_analysis.py` v1.6 (2026-11-18 13:20 UTC). ※ 연구·교육용 — 투자 권유가 아님.
 
-### 81. The Honest Downside of SCHD Nobody Talks About
+### 81. I've Invested in Dividends for 30 Years. Here's What Most People Get Wrong
+
+- https://www.youtube.com/watch?v=M7l-A6Mk9zQ · BudgetMoney · 구독자 2,550 · 조회수 52,974 (×20.8, 하루 440.1) · 좋아요 1,044 (2.0%) · 27.4분 · 2026-07-21 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_M7l-A6Mk9zQ` (웹 승인)
+- 썸네일: <img src="W_M7l-A6Mk9zQ/thumbnail.jpg" width="320">
+- 챕터: 0:00 Why yield alone can fool you · 1:45 The investor-first approach: … · 1:43 Free tools I use (Value Line … · 3:00 Case study: sorting six Dow s… · 3:59 Dividend growth rates: what t… · 9:32 case study · 11:35 McDonald's case study · 13:06 Home Depot case study · 16:35 Chevron case study · 18:46 Microsoft case study · 20:43 Nvidia case study · 23:01 Earnings predictability
+- 설명 앞부분: Not financial advice. For educational purposes only. Most people sort dividend stocks by yield and call it research. That's not analysis — that's sorting a list.After 30 years of dividend investing, I've learned that the question isn't "what's the yield?" It's "does this dividend actually fit my li…
+- 같은 채널 평소 대비 ×188.5 (채널 최근 롱폼 중앙값 281회) · 평소 영상: The Real Reason You Can't Find a Starter Home (281회) / 30 Years of Investing Taught Me That Less Activit… (279회)
+- 대본 (자막, 0.0 음절/초) 첫 20초: “Chevron pays 3.9% dividend. Microsoft pays under 1%. Most people would call Chevron the better dividend play. Its own earnings history though says otherwise. I've been investing in dividend stocks for over 30 years and yield alone still doesn't tell you if the company can keep paying it or if that d” — 도입부 유형: 숫자로 시작
+- 첫 1분: “Chevron pays 3.9% dividend. Microsoft pays under 1%. Most people would call Chevron the better dividend play. Its own earnings history though says otherwise. I've been investing in dividend stocks for over 30 years and yield alone still doesn't tell you if the company can keep paying it or if that dividend even fits your life. And here's what I mean by fits. My son is 28 and I'm 57. When he mentio”
+- 흐름 (90초마다 첫 문장): 0:00 Chevron pays 3.9% dividend. Microsoft → 1:30 30-year-old and a 60-year-old can both → 3:00 On these Value Line sheets, Chevron → 4:30 McDonald's is 7 and 1/2%. Coca-Cola, 4 → 6:00 out um from these growth rates. → 7:30 out as dividends. If a company earns $2 → 9:00 Home Depot is different again. It has → 10:31 But because the business is so → 12:00 period shown here on the sheet. → 13:31 interest rates are high and people → 15:00 another. → 16:30 large-ticket spending. → 18:00 The page shows A++ financial strength → 19:30 all dividends to net profit around the → 21:01 The dividend grew dramatically after the → 22:32 The questions here are different. Can → 24:01 different industries, but they may all → 25:31 Now, in this video, I'm focused on → 27:01 dividend stock?" Ask, "What am I trying
+- 댓글 233/233: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+
+### 82. 주식 거래시간 밤 8시까지?☑️KRX 애프터마켓 꼭 알아야 할 변화
+
+- https://www.youtube.com/watch?v=xXBHBu6hnCc · 주식캐스터 여니 · 구독자 42,800 · 조회수 475,707 (×11.1, 하루 7,206.7) · 좋아요 1,960 (0.4%) · 9분 · 2026-09-13 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_xXBHBu6hnCc` (웹 승인)
+- 썸네일: <img src="W_xXBHBu6hnCc/thumbnail.jpg" width="320">
+- 같은 채널 평소 대비 ×137.6 (채널 최근 롱폼 중앙값 3,456회) · 평소 영상: 경린이 탈출 1화. 경제가 좋아진다는 말, 우리는 어디까지 이해하고 있을까? (3,456회) / 증권사 목표주가만 보고 투자하면 벌어지는 일 (3,246회)
+- 대본 없음 (없음) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 361/361: 좋은 점 — 영상 6 · 감사·응원 20 · 더 알고 싶은 것 2 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 4 · 정치·사회 30 · 경험 공유 3 · 구독·다음 기대 0
+  - 좋은 점 — 영상 👍31 “정리해 주셔서 감사합니다. 그냥 더 피곤해지는 느낌이 드네요..ㅎ”
+  - 좋은 점 — 영상 👍1 “좋은 영상 감사합니다. 100% 남이 돈 버는거 배아파서 따라 만든거.”
+  - 감사·응원 👍31 “정리해 주셔서 감사합니다. 그냥 더 피곤해지는 느낌이 드네요..ㅎ”
+  - 감사·응원 👍27 “개인투자자들에게 꼭 필요한 정보를 똑 부러지게 잘 설명해 주셨습니다. 감사합니다.”
+  - 더 알고 싶은 것 👍1 “SOR이 뭔지 알려주세요. 그동안 NXT이용한다고, 설정해둔것 같은데, KRX거래가 안되네요???”
+  - 더 알고 싶은 것 👍1 “오전장몇시부터시작해요?아신분댓글부탁해요”
+  - 반박·불만 — 의견 다름 👍8 “국민들 소액주주가 원하는건 거래시간 늘리는게 아닌데.. 그저 재벌들이 자회사, 손자회사, 까지만들면서 0.1% 도 안되는 지주사 지분으로 99.9% 지분의 국민들의 회사를 지배하는 이런 구조를 개선해달라는거다... 자회사 IPO 하는거라면 자회사 주식 지분에 따라 무…”
+  - 반박·불만 — 의견 다름 👍6 “금융카르텔들만 좋을일 낫구먼유 삼전닉스 거래대금 빼면 언발에 오줌눟킨데 말도 안되는 이유로 카르텔 배불리기만”
+  - 정치·사회 👍21 “재명이정권 지지율 떡락하는소리 들린다”
+  - 정치·사회 👍12 “개인 투자자에겐 지옥문이 열린것이다 이재명 아웃 정권 타도”
+  - 경험 공유 👍0 “도박쟁이들 왜케 많냐?단타만 맨날 쳐하니까 핸드폰만 8시까지 보란소리냐 이딴 소리 하고있지 사팔사팔해봤자 결국엔 손해임 걍 넣어놓고 분기별로 한번씩만 보면 됨 한국사람 주식보유기간 길어봤자 3달이고 평균 10일이라더니 여기다 모여있네 하긴 S&P500 나스닥100 같…”
+
+### 83. I'm Not Selling — I'm Buying These 4 Stocks After the Selloff
+
+- https://www.youtube.com/watch?v=tgeA8bHVywM · Navellier Market Buzz · 구독자 33,100 · 조회수 189,967 (×5.7, 하루 5,491.8) · 좋아요 2,800 (1.5%) · 13.7분 · 2026-10-14 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_tgeA8bHVywM` (웹 승인)
+- 썸네일: <img src="W_tgeA8bHVywM/thumbnail.jpg" width="320">
+- 챕터: 0:00 Wall Street Is Panicking Over… · 0:17 Why Big Tech Is Borrowing Bil… · 1:33 Why Memory Stocks Are So Vola… · 2:42 Stock #1: Back Up the Truck · 4:22 Stock #2: Still Growing or Ov… · 5:15 CPI & PPI Preview: What Louie… · 5:56 Europe's Contagion Risk · 7:13 Why Foreign Money Is Pouring … · 8:08 Will the Fed Hike Before the … · 9:04 Stock #3: Louie's Longest-Hel… · 9:33 Stock #4: Head-to-Head Matchup · 10:05 Earnings Season Is About to S… · 11:17 Bonus: 3 Stocks Making Windfa… · 12:49 Final Thoughts
+- 설명 앞부분: Memory stocks just took a hit, but Louis Navellier says this could be the buying opportunity investors have been waiting for. With Big Tech borrowing billions to fund AI data centers, is Wall Street overreacting to the selloff? In this week's Navellier Market Buzz, Crystal and Louis Navellier break…
+- 같은 채널 평소 대비 ×5.4 (채널 최근 롱폼 중앙값 35,300회) · 평소 영상: 2 AI Data Center Stocks Just Woke Up (Here's What… (36,883회) / NVDA, AMD, PLTR: Buy, Sell or Hold? + Louie's 4 B… (36,933회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 201/224: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
+
+### 84. 내 주변에 주식으로 돈 번 사람이 '진짜' 단 1명도 없는 소름 돋는 이유 ∣ 교수 정선용 (통합본)
+
+- https://www.youtube.com/watch?v=SwW4n0ERlS8 · 너와 나의 경제학교 · 구독자 39,300 · 조회수 620,890 (×15.8, 하루 6,468.0) · 좋아요 11,614 (1.9%) · 52.7분 · 2026-08-14 · 주제 묶음 11. 투자 일반 · 형식 인터뷰·강연·대담 · 폴더 `W_SwW4n0ERlS8` (웹 승인)
+- 썸네일: <img src="W_SwW4n0ERlS8/thumbnail.jpg" width="320">
+- 설명 앞부분: 정선용, 달리고 읽고 쓰는 사람의 하이
+- 같은 채널 평소 대비 ×22.7 (채널 최근 롱폼 중앙값 27,396회) · 평소 영상: 단 이틀 만에 시총 1,500억 증발! 바닥에서 매집한 큰손들이 개미에게 고점 주식을 떠… (27,396회) / "지금 당장 도망치세요" AI 버블 붕괴 직전 나타나는 3가지 결정적 신호 ∣ 교수 정선… (27,658회)
+- 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
+- 댓글 1,622/1,622: 좋은 점 — 영상 54 · 감사·응원 77 · 더 알고 싶은 것 15 · 아쉬운 점 — 영상 15 · 반박·불만 — 의견 다름 53 · 정치·사회 45 · 경험 공유 131 · 구독·다음 기대 3
+  - 좋은 점 — 영상 👍332 “이분이 최고의 주식 전문가 입니다 인정합니다 허황된 꿈을 부추기지 않고 현실적인 필요하고 도움되는 얘기만 하시네요”
+  - 좋은 점 — 영상 👍196 “구구절절 맞는말입니다 사람 좋아 보이는거랑 그들의 속마음은 다르다는걸 알았습니다”
+  - 감사·응원 👍242 “귀한말씀 너무 늦게 들어서 안타까울 따름입니다 삼전 65만 하닉 400간다고 하면서 정작 자신들은 팔고 있었다는것을 나중에 알게됐습니다. 그렇게 보고서를 낸 증권사나 그걸 유튜브에서 전파한 사람들은 앞으로 다신 보지않을것입니다 귀한말씀 다시한번 감사드립니다”
+  - 감사·응원 👍221 “안그래도 느꼈어요 요즘은 증권방송 보기도 싷더라구요 소위 주식 전문가들 증권사 직원들 에널리스트들 전부 자기밥그릇 챙기느라 혈안ᆢ 한통속 이예요 ᆢ 그들의 만행을 속시원히 알려주니 감사하네요 ᆢ”
+  - 더 알고 싶은 것 👍3 “어떻게 사셨길래 99%가 잃는 주변인만 뒀나요? 교수님 과장도 적당히 하셔요”
+  - 더 알고 싶은 것 👍3 “때가어느때인데유투버보고피같은돈을투자할까요?”
+  - 아쉬운 점 — 영상 👍6 “어머니 돈을 불려 주겠다고 600만원을 받아서 투자를 하는데 많이 버는것 보다 잃으면 절대 안되겠다 생각이 먼저 들었습니다. 종목을 결정하는데 얼마나 벌지 모르지만 안 잃을거 같은 종목만 매수 해서 시장의 관심을 받으면 매도하고 다시 반복해서 현재 연복리65% 수익에…”
+  - 아쉬운 점 — 영상 👍3 “이 사람도 결국에는 공포 마케팅으로 구독자 어그로 끄는 거임”
+  - 반박·불만 — 의견 다름 👍31 “누구 믿고 투자한다는 인간들은 절대 투자하지 말아야 될 사람이에요. 결국 그 의존성 때문에 손실납니다. 그냥 저축하는 편이 안 망하는 길입니다. 주식은 원금 지키며 쌓는 저축이 아닙니다. 손실 볼 수 있는 투자에요.”
+  - 반박·불만 — 의견 다름 👍24 “대가들의 책만 몇권 읽어봐도 알게됩니다. 전문가,교수,애널리스트들은 당신들의 편이 아닙니다. 그들은 당신들을 이용해서 돈을 버는것이지, 당신들을 부자로 만들어즐 이유가 1도 없어요.”
+  - 정치·사회 👍189 “개미들 돈 누가 다 먹었을까요? 다 외국인 기관들한테 갔습니다 증권사는 수수료로 돈 잔치 했겠죠. 그동안 주식해서 번돈 다시 재투자하면서 이제 원금입니다 ㅠ 그나마 다행이지요. ㅠㅠ 그동안 무료 봉사 했어요 주식에~~~~”
+  - 정치·사회 👍88 “딱 맞아요... 애널리스트 증권회사 삐끼들입니다. 개미들은 털리게 돼 있어요. 주식은 전문가가 없어요. 나스닥 하세요. 코스피는 증권회사 외국인들 땜에 절대 돈 벌기 힘든 구조예요. 어느정도 이익오면 우선 반은 빼고 시작하세요”
+  - 경험 공유 👍314 “진짜 맞습니다 이번에 처음으로 주식하는 분들 많이 당했을꺼에요 저도 그중 한명이네요 ~~~”
+  - 경험 공유 👍302 “피같은 돈 주식으로 다 날리고 몇년째 투잡하고 있습니다... 주식으로 3억잃으니 인생이 골로 가는 듯 합니다 무주식이 상팔자입니다”
+  - 구독·다음 기대 👍29 “매일매일 듣고 보고 있습니다교수님 감사해요”
+  - 구독·다음 기대 👍12 “미국Etf투자 6년째 평균 70프로. 이익중. 노후자금으로 기대됩니다”
+
+### 85. The Honest Downside of SCHD Nobody Talks About
 
 - https://www.youtube.com/watch?v=BCG0vPE1Ox0 · Drawn Investor · 구독자 2,930 · 조회수 15,458 (×5.3, 하루 476.9) · 좋아요 145 (0.9%) · 12.8분 · 2026-10-16 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_BCG0vPE1Ox0` (웹 승인)
 - 썸네일: <img src="W_BCG0vPE1Ox0/thumbnail.jpg" width="320">
@@ -12,7 +78,7 @@
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 16/16: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 82. 더이상 배당주는 사지 않아요/40대 워킹맘
+### 86. 더이상 배당주는 사지 않아요/40대 워킹맘
 
 - https://www.youtube.com/watch?v=P0j4XK5PaJY · 마스 심플라이프 MasSimpleLife · 구독자 41,800 · 조회수 257,932 (×6.2, 하루 6,724.3) · 좋아요 1,404 (0.5%) · 10.8분 · 2026-10-11 · 주제 묶음 3. 배당 · 형식 브이로그·직접 해본 이야기 · 폴더 `W_P0j4XK5PaJY` (웹 승인)
 - 썸네일: <img src="W_P0j4XK5PaJY/thumbnail.jpg" width="320">
@@ -32,7 +98,7 @@
   - 경험 공유 👍49 “난 주식 20년차인데 결국 배당주가 답이라는걸 찾음”
   - 경험 공유 👍14 “남말에 귀닫고 노동소득의 80%는 한국주식을 사고있는 50살 23년차 주식쟁이입니다 에코프로는 10년 이상 3만주 이상을 들고 있으며 에코프로로 노후준비는 다 끝났습니다 개인연금저축펀드 퇴직연금IRP는 20년째 들고 있습니다 주식에는 전문가란게 없고 과학이 아니라서 …”
 
-### 83. QLD는 몇 년 들고 있어야 안전할까? 20년치 모든 매수 시점을 계산해봤습니다.
+### 87. QLD는 몇 년 들고 있어야 안전할까? 20년치 모든 매수 시점을 계산해봤습니다.
 
 - https://www.youtube.com/watch?v=PWr2oclRWKs · 여의도 아빠  · 구독자 2,290 · 조회수 13,240 (×5.8, 하루 368.1) · 좋아요 98 (0.7%) · 6.7분 · 2026-10-13 · 주제 묶음 7. 매매·전략 · 형식 브이로그·직접 해본 이야기 · 폴더 `W_PWr2oclRWKs` (웹 승인)
 - 썸네일: <img src="W_PWr2oclRWKs/thumbnail.jpg" width="320">
@@ -43,7 +109,7 @@
   - 감사·응원 👍1 “영상 정말 잘봤습니다. 감사합니다.”
   - 더 알고 싶은 것 👍3 “이번영상도 시청사수입니다! 지금과 같은 고금리가 유지 혹은 더 올라간다면 QQQ대비 QLD의 매력,효율성은 이자비용으로 인해서라도 이전에 비해 많이 떨어질지 궁금하네요”
 
-### 84. 주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)
+### 88. 주식 상위 2%만 아는 10가지 절대 생존 원칙 (돈의 원리)
 
 - https://www.youtube.com/watch?v=fFURFeLTdAg · 준의 경제노트 (jun’s Note) · 구독자 12,500 · 조회수 308,396 (×24.7, 하루 1,922.2) · 좋아요 6,936 (2.2%) · 21.6분 · 2026-06-10 · 주제 묶음 11. 투자 일반 · 형식 오디오북·낭독 (명언·인생조언) · 폴더 `W_fFURFeLTdAg` (웹 승인)
 - 썸네일: <img src="W_fFURFeLTdAg/thumbnail.jpg" width="320">
@@ -65,7 +131,7 @@
   - 경험 공유 👍137 “120만원으로 시작해서 7년만에 1억 4천넘게 벌어보고 느낀점 버핏옹의 투자원칙 첫번째 원칙 돈을 지켜라 두번째 원칙 첫번째 원칙을 지켜라 이말은 진리고 내가 주식시장에서 돈을 벌 수 있던 말이다 저말을 뜻을 깨닫는다면 시장에서 돈을 벌수 있다 이걸 설명하기 어려운건…”
   - 경험 공유 👍4 “저는 초단타 14년차 1억으로 무한 3%”
 
-### 85. 월 배당 100만원, JEPQ는 7년 10개월. SCHD는 15년 해도 못 갔다 (그런데 반전) [ 재테크/미국주식/배당주식/슈드/노후대책 ]
+### 89. 월 배당 100만원, JEPQ는 7년 10개월. SCHD는 15년 해도 못 갔다 (그런데 반전) [ 재테크/미국주식/배당주식/슈드/노후대책 ]
 
 - https://www.youtube.com/watch?v=UlkFX8ai4OI · 경제기상도 · 구독자 4,470 · 조회수 23,326 (×5.2, 하루 676.8) · 좋아요 54 (0.2%) · 20.1분 · 2026-10-14 · 주제 묶음 4. 미국·해외주식 · 형식 인터뷰·강연·대담 · 폴더 `W_UlkFX8ai4OI` (웹 승인)
 - 썸네일: <img src="W_UlkFX8ai4OI/thumbnail.jpg" width="320">
@@ -75,7 +141,7 @@
 - 댓글 2/3: 좋은 점 — 영상 0 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
   - 감사·응원 👍0 “잘 들었습니다~ 감사합니다 ^^”
 
-### 86. 월배당 ETF 10억 투자하면 정말 배당금 얼마? ∣ 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)
+### 90. 월배당 ETF 10억 투자하면 정말 배당금 얼마? ∣ 종합소득세·건강보험료 계산법 (은퇴 현금흐름 설계)
 
 - https://www.youtube.com/watch?v=yRDpbgaZahc · 은퇴머니 - 은퇴 현금흐름 설계 · 구독자 30,000 · 조회수 761,342 (×25.4, 하루 4,465.3) · 좋아요 10,301 (1.4%) · 11.4분 · 2026-05-31 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_yRDpbgaZahc` (웹 승인)
 - 썸네일: <img src="W_yRDpbgaZahc/thumbnail.jpg" width="320">
@@ -98,7 +164,7 @@
   - 구독·다음 기대 👍32 “이제까지 봤던 은퇴관련 배당 컨텐츠중에서 가장 실용적이고 퀄리티높은 !!!! 구독합니다.”
   - 구독·다음 기대 👍19 “제피큐 모으고 있어서 궁금했던 내용인데 영상 잘 봤습니다 ㅎ 구독하고 갑니다”
 
-### 87. 매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다
+### 91. 매일 아침 7시, 내 포트폴리오를 관리해주는 AI 주식 비서를 만들어봤습니다
 
 - https://www.youtube.com/watch?v=ITzgH6CeZns · 스티브의 파도타기 | AI 시대 일하는 법 · 구독자 29,600 · 조회수 761,400 (×25.7, 하루 4,381.6) · 좋아요 16,644 (2.2%) · 14.8분 · 2026-05-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_ITzgH6CeZns` (웹 승인)
 - 썸네일: <img src="W_ITzgH6CeZns/thumbnail.jpg" width="320">
@@ -120,7 +186,7 @@
   - 구독·다음 기대 👍0 “오~구독했습니다~바로 공유하고~좋아요^^ 이런 유요한 꿀팁이 클로드 써보면서 이런정보가 있는지😅”
   - 구독·다음 기대 👍0 “너무 좋은 정보 감사합니다. 구독하고 갑니다.~”
 
-### 88. 불기둥 세운 코스피, 코스닥! 폭등한 이유와 향후 전략
+### 92. 불기둥 세운 코스피, 코스닥! 폭등한 이유와 향후 전략
 
 - https://www.youtube.com/watch?v=Pel5gTXKRkQ · K파민 · 구독자 6,460 · 조회수 102,742 (×15.9, 하루 933.5) · 좋아요 1,605 (1.6%) · 24.8분 · 2026-07-31 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_Pel5gTXKRkQ` (웹 승인)
 - 썸네일: <img src="W_Pel5gTXKRkQ/thumbnail.jpg" width="320">
@@ -140,7 +206,7 @@
   - 경험 공유 👍2 “코스피 곧 만 넘게 간다고 했었는데😢 재해처럼 어느날 갑자기 뒤집어질 수 있다는 걸 겪으면서 배우네요. 근데 수업료가 너~무 비싸서 과다 출혈이 문제”
   - 경험 공유 👍2 “경제 주식에 대해 공부하지 않고 남들이 하니 나도 해봐야지,주식이 계속 오르네? 나도 들어가 봐야지 란 인식으로 주식을 접해 피해를 보시는 분들이 없었으면 좋겠습니다. 주식 투자는 본인의 의지고 본인의 책임이 따르기 때문에 어설프게 다가가서 힘들어 하지 마시고 그런분…”
 
-### 89. [슬기로운 금융생활] 국장 복귀하면 양도세 감면?! – RIA계좌 혜택도, 유의점도 슬기롭게
+### 93. [슬기로운 금융생활] 국장 복귀하면 양도세 감면?! – RIA계좌 혜택도, 유의점도 슬기롭게
 
 - https://www.youtube.com/watch?v=O4jq0bK4MbI · 예금보험공사 예보TV · 구독자 7,840 · 조회수 142,713 (×18.2, 하루 1,019.6) · 좋아요 32 (0.0%) · 5.6분 · 2026-05-29 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_O4jq0bK4MbI` (웹 승인)
 - 썸네일: <img src="W_O4jq0bK4MbI/thumbnail.jpg" width="320">
@@ -153,7 +219,7 @@
   - 감사·응원 👍1 “유익한 정보 감사합니다”
   - 감사·응원 👍0 “옥상형수 잘 보았읍니다. 좋은 정보 감사합니다.”
 
-### 90. "안정을 기대한다"더니 하루만에 코스피 -10.84%🔥올해 8번째 서킷브레이커🔥정부, 왜 손놓고 있나🔥증안펀드•리밸런싱•공매도🔥삼성전자 -14% SK하이닉스 -…
+### 94. "안정을 기대한다"더니 하루만에 코스피 -10.84%🔥올해 8번째 서킷브레이커🔥정부, 왜 손놓고 있나🔥증안펀드•리밸런싱•공매도🔥삼성전자 -14% SK하이닉스 -…
 
 - https://www.youtube.com/watch?v=AOs5sAd3hKM · 리얼경제 · 구독자 1,340 · 조회수 19,146 (×14.3, 하루 169.8) · 좋아요 745 (3.9%) · 16.1분 · 2026-07-28 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_AOs5sAd3hKM` (웹 승인)
 - 썸네일: <img src="W_AOs5sAd3hKM/thumbnail.jpg" width="320">
@@ -173,7 +239,7 @@
   - 경험 공유 👍25 “내가보기에 정말 잘못된건 민주당을 20년 지지했다는 고백 그것이 최악의 선택이었다~무능정권을 넘어 야바위정권! 선무당이 사람잡고 반풍수가 집안거들냈다~그래놓고 헌법개정해서 한번 더해 먹겠단다? 우라질~~”
   - 경험 공유 👍13 “저도 평생민주당 .. 이제 뒤도 안돌어 보고 싶네요 신속 실행해야지 이건 아닌거 같네요”
 
-### 91. This New Fidelity ETF Has CRUSHED Every Dividend ETF
+### 95. This New Fidelity ETF Has CRUSHED Every Dividend ETF
 
 - https://www.youtube.com/watch?v=LgszhYR0rFQ · Jake Wealth Hacks · 구독자 6,790 · 조회수 28,240 (×4.2, 하루 841.2) · 좋아요 323 (1.1%) · 10.1분 · 2026-10-15 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_LgszhYR0rFQ` (웹 승인)
 - 썸네일: <img src="W_LgszhYR0rFQ/thumbnail.jpg" width="320">
@@ -182,19 +248,19 @@
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 13/16: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 92. [주식차트보는법] 슈퍼개미들이 절대 말 안해주는 '실전 최고의 단타기법' 제가 욕먹을 각오로 상한가 차트패턴 시원하게 오픈하겠습니다! (차트분석,주식하는법)
+### 96. [주식차트보는법] 슈퍼개미들이 절대 말 안해주는 '실전 최고의 단타기법' 제가 욕먹을 각오로 상한가 차트패턴 시원하게 오픈하겠습니다! (차트분석,주식하는법)
 
 - https://www.youtube.com/watch?v=JGzbftUZPXs · 주식차트연구소 · 구독자 1,440 · 조회수 14,420 (×10.0, 하루 175.9) · 좋아요 342 (2.4%) · 33.2분 · 2026-08-28 · 주제 묶음 6. 종목 고르기·분석 · 형식 정보·해설 (그 밖) · 폴더 `W_JGzbftUZPXs` (웹 승인)
 - 썸네일: <img src="W_JGzbftUZPXs/thumbnail.jpg" width="320">
 - 설명 앞부분: [주식차트보는법] 슈퍼개미들이 절대 말 안해주는 '실전 최고의 단타기법' 제가 욕먹을 각오로 상한가 차트패턴 시원하게 오픈하겠습니다! (차트분석,주식하는법)
-- 같은 채널 평소 대비 ×22.7 (채널 최근 롱폼 중앙값 635회) · 평소 영상: [주식차트보는법] 국장에서 특히 단타가 잘 통하는 이유 오늘 적나라하게 다 밝혀 드립니다… (640회) / [주식차트보는법] 단타를 못해도 '이것' 하나로 수익낼 수 있습니다! 이 차트패턴으로 1… (630회)
+- 같은 채널 평소 대비 ×22.9 (채널 최근 롱폼 중앙값 630회) · 평소 영상: [주식차트보는법] 단타를 못해도 '이것' 하나로 수익낼 수 있습니다! 이 차트패턴으로 1… (630회) / [주식차트보는법] 국장에서 특히 단타가 잘 통하는 이유 오늘 적나라하게 다 밝혀 드립니다… (640회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 8/8: 좋은 점 — 영상 2 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
   - 좋은 점 — 영상 👍0 “좋은 정보네요 일봉으로하는건가요? 해당 종목 찾기가 매우 어려울것같네요요..”
   - 좋은 점 — 영상 👍0 “매번 감사합니다. 매매에 큰 도움이 될거 같아요.”
   - 감사·응원 👍0 “매번 감사합니다. 매매에 큰 도움이 될거 같아요.”
 
-### 93. 단타 천재가 개발한 하이킨아시 스캘핑 매매법, 죽어라 이것만 하세요.
+### 97. 단타 천재가 개발한 하이킨아시 스캘핑 매매법, 죽어라 이것만 하세요.
 
 - https://www.youtube.com/watch?v=55hFmXD0lh0 · 알파개미 · 구독자 2,780 · 조회수 54,854 (×19.7, 하루 324.7) · 좋아요 1,776 (3.2%) · 19.6분 · 2026-06-02 · 주제 묶음 7. 매매·전략 · 형식 인터뷰·강연·대담 · 폴더 `W_55hFmXD0lh0` (웹 승인)
 - 썸네일: <img src="W_55hFmXD0lh0/thumbnail.jpg" width="320">
@@ -214,7 +280,7 @@
   - 구독·다음 기대 👍1 “알파 하이킨아시 신청했습니다. 영상 내용도 좋고 하이킨아시 차트 지표도 좋아보이네요. 영상 잘 챙겨볼께요~”
   - 구독·다음 기대 👍0 “구독했씁니당 알파하이킨아시”
 
-### 94. How to Borrow Against Your Stock Portfolio: Buy, Borrow, Die
+### 98. How to Borrow Against Your Stock Portfolio: Buy, Borrow, Die
 
 - https://www.youtube.com/watch?v=NPcgV0dq03Q · Sacco Financial  · 구독자 21,500 · 조회수 321,391 (×14.9, 하루 2,477.8) · 좋아요 5,220 (1.6%) · 9.4분 · 2026-06-20 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_NPcgV0dq03Q` (웹 승인)
 - 썸네일: <img src="W_NPcgV0dq03Q/thumbnail.jpg" width="320">
@@ -225,7 +291,7 @@
 - 흐름 (90초마다 첫 문장): 0:00 What if I told you there's a way to → 1:31 And here's the answer. Yes, you do. But → 3:01 some blue-chip positions you plan to → 4:31 dedicated structured credit facility → 6:01 That's why sizing matters enormously. → 7:30 it can go sideways fast if you are not → 9:00 The rates, the loan structure, how I'm
 - 댓글 603/622: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 95. 배당금으로 혼자 사는 미혼남, 3억 파이어 미니멀라이프
+### 99. 배당금으로 혼자 사는 미혼남, 3억 파이어 미니멀라이프
 
 - https://www.youtube.com/watch?v=iGI_fzwOyoY · 배당아저씨 · 구독자 33,700 · 조회수 233,471 (×6.9, 하루 3,872.1) · 좋아요 2,140 (0.9%) · 8.6분 · 2026-09-19 · 주제 묶음 3. 배당 · 형식 정보·해설 (그 밖) · 폴더 `W_iGI_fzwOyoY` (웹 승인)
 - 썸네일: <img src="W_iGI_fzwOyoY/thumbnail.jpg" width="320">
@@ -247,7 +313,7 @@
   - 경험 공유 👍49 “다른 사람들이 하는 오해가 <집에 있으면 답답할 것 같다>인데 집수니인 저의 입장에서는 너무나 행복한 일이에요 저도 퇴사 해서 집에만 있는 게 너무너무 좋아요.다른 사람 신경 쓰지 말고 삽시다 우리 ^^”
   - 구독·다음 기대 👍1 “안녕하세요. 구독하고 처음으로 댓글 다네요. ^^ 힘내시고 앞으로도 계속 쭉 성공투자 이어가길 응원합니다. 항상 건강하고 편안한 시간 보내세요. 😊 화이팅입니다~~”
 
-### 96. "역대급 저평가라던 코스피" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 진실
+### 100. "역대급 저평가라던 코스피" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 진실
 
 - https://www.youtube.com/watch?v=6VAsPNYeTRQ · 더 리치 - 돈의 흐름을 읽어라 · 구독자 8,020 · 조회수 116,610 (×14.5, 하루 911.0) · 좋아요 3,100 (2.7%) · 21.2분 · 2026-07-13 · 주제 묶음 5. 국내주식 · 형식 정보·해설 (그 밖) · 폴더 `W_6VAsPNYeTRQ` (웹 승인)
 - 썸네일: <img src="W_6VAsPNYeTRQ/thumbnail.jpg" width="320">
@@ -270,7 +336,7 @@
   - 경험 공유 👍15 “내가 말햇잖아 낙수효과로 관련 중소형주 사라고 코스닥에 주목해 코스피와 갭차이가 너무나서 이젠 차이가 줄어들게되어있다 삼전닉스로 단타치는 단타쟁이들 재미좀 보다가 작살나는 시기다”
   - 경험 공유 👍1 “근본적으로 경제를 정치논리로 밀어 부치는 이재명 정부 주관도 없고 전문성도 없는 김용범정책실장이 단일종목 레버리지ETF 출시로 주식시장을 투기판으로 만들어 개미투자들에게 깡통차게 한 놈! 이게 시장경제 정책이냐!!! 오죽하면 금융감독원장 이찬진이 레버리지ETF 출시를…”
 
-### 97. 와..미친.. 캔들 차트 보는 법 핵심을 공개한다고? (주식 강의 추천, 주식 초보 매매 방법)
+### 101. 와..미친.. 캔들 차트 보는 법 핵심을 공개한다고? (주식 강의 추천, 주식 초보 매매 방법)
 
 - https://www.youtube.com/watch?v=KwvGol5A8m4 · 트트남 | 주식 차트 보는법 · 구독자 1,420 · 조회수 12,858 (×9.1, 하루 160.4) · 좋아요 167 (1.3%) · 15.8분 · 2026-08-30 · 주제 묶음 1. 주식 기초·초보 · 형식 인터뷰·강연·대담 · 폴더 `W_KwvGol5A8m4` (웹 승인)
 - 썸네일: <img src="W_KwvGol5A8m4/thumbnail.jpg" width="320">
@@ -280,7 +346,7 @@
 - 댓글 2/2: 좋은 점 — 영상 0 · 감사·응원 1 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
   - 감사·응원 👍1 “😊감사합니다 열씨미 노력해 보겠습니다 ❤”
 
-### 98. Chip Stocks Selling Off: When I Switch From Buying Dips to Shorting (NVDA, AMD, AVGO, TSL…
+### 102. Chip Stocks Selling Off: When I Switch From Buying Dips to Shorting (NVDA, AMD, AVGO, TSL…
 
 - https://www.youtube.com/watch?v=JVzvv_YZD7Y · Danielle Shay · 구독자 6,830 · 조회수 25,037 (×3.7, 하루 769.4) · 좋아요 135 (0.5%) · 8.3분 · 2026-10-16 · 주제 묶음 기타 · 형식 정보·해설 (그 밖) · 폴더 `W_JVzvv_YZD7Y` (웹 승인)
 - 썸네일: <img src="W_JVzvv_YZD7Y/thumbnail.jpg" width="320">
@@ -289,7 +355,7 @@
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 61/61: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 99. ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀버전) #ETF #배당주 #주식 #백승호
+### 103. ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁(백승호 단장 풀버전) #ETF #배당주 #주식 #백승호
 
 - https://www.youtube.com/watch?v=1qlywudP2oY · 자람들 - 자립하는사람들 · 구독자 35,900 · 조회수 262,222 (×7.3, 하루 4,022.3) · 좋아요 2,269 (0.9%) · 69.7분 · 2026-09-14 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 인터뷰·강연·대담 · 폴더 `W_1qlywudP2oY` (웹 승인)
 - 썸네일: <img src="W_1qlywudP2oY/thumbnail.jpg" width="320">
@@ -308,7 +374,7 @@
   - 정치·사회 👍7 “영상 감사드립니다🎉 Kodex200커버드콜 같은 것을 지금 사도 될 지 모르갰어오..우리나라가 갑자기 넘 오른 거 같아서요😅”
   - 구독·다음 기대 👍3 “찐 투자의 길라잡이네요. 빽담화TV 구독과 알림 설정 들어갑니다.^^”
 
-### 100. “아이렌 긴급 ,30달러 깨질듯한 상황.. 손절각인가??(ft.코어위브/CPI)아이렌맨.
+### 104. “아이렌 긴급 ,30달러 깨질듯한 상황.. 손절각인가??(ft.코어위브/CPI)아이렌맨.
 
 - https://www.youtube.com/watch?v=cTlVY95Qzlk · 아이렌맨 : IREN을 사랑하는 남자 · 구독자 7,940 · 조회수 30,242 (×3.8, 하루 885.1) · 좋아요 342 (1.1%) · 8.8분 · 2026-10-15 · 주제 묶음 8. 투자 심리·실패 · 형식 인터뷰·강연·대담 · 폴더 `W_cTlVY95Qzlk` (웹 승인)
 - 썸네일: <img src="W_cTlVY95Qzlk/thumbnail.jpg" width="320">
@@ -330,7 +396,7 @@
   - 경험 공유 👍16 “주가가 얼마나 떨어지던 물타고 버티고 하는 종목은 대형주에나 해당되는 말이고요.. 아이렌같은 부도날 가능성도 있는 중소형주는 그렇게 하다가 골로간 사람들 한둘이 아닙니다. 아이렌은 절대 부도 안난다구요?? 지금 cds 폭등하는게 안보이시나요? 코로나때 저금리로 유동성…”
   - 구독·다음 기대 👍2 “항상 볼때마다 잘생겼어ㅎㅎ아이렌 떨어져도 아이렌남 보면서 버티는 중 하루에 1영상이면 좋겠네요. 기다려집니다”
 
-### 101. 연금저축 IRP 계좌에서 사모을 ETF 3대장 추천! 결국 국내상장 나스닥 S&P500 다우존스 ETF 적립식으로 사모으는 방법이 추천 됩니다
+### 105. 연금저축 IRP 계좌에서 사모을 ETF 3대장 추천! 결국 국내상장 나스닥 S&P500 다우존스 ETF 적립식으로 사모으는 방법이 추천 됩니다
 
 - https://www.youtube.com/watch?v=yITsxwpiFOw · 소금달 - 소액 금 달러 투자 · 구독자 2,800 · 조회수 10,305 (×3.7, 하루 302.3) · 좋아요 35 (0.3%) · 20분 · 2026-10-15 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_yITsxwpiFOw` (웹 승인)
 - 썸네일: <img src="W_yITsxwpiFOw/thumbnail.jpg" width="320">
@@ -342,7 +408,7 @@
 - 흐름 (90초마다 첫 문장): 0:00 미국에는 S&P 500, 다우존스 지수 이렇게 3대장이 있는데 이 지수… → 1:36 상품 설명에는 대부분 표면 총보소까지만 나와 있는데 실질 부담 비용까지… → 3:01 수익률만 보면 나스닥 100 액티브 ETF가 더 좋을 수도 있습니다. … → 4:39 매달 루틴을 만들어 투자하실 계획이라면 매달 월급날 25만 원씩 투자하…
 - 댓글 2/2: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 102. QLD 거치식 투자, 2배까지 얼마나 걸릴까? QQQ와 비교했더니,, 충격!
+### 106. QLD 거치식 투자, 2배까지 얼마나 걸릴까? QQQ와 비교했더니,, 충격!
 
 - https://www.youtube.com/watch?v=dbQ_xk3IiPg · 두배럭 2XLuck · 구독자 3,120 · 조회수 11,677 (×3.7, 하루 333.7) · 좋아요 162 (1.4%) · 16분 · 2026-10-14 · 주제 묶음 11. 투자 일반 · 형식 브이로그·직접 해본 이야기 · 폴더 `W_dbQ_xk3IiPg` (웹 승인)
 - 썸네일: <img src="W_dbQ_xk3IiPg/thumbnail.jpg" width="320">
@@ -359,17 +425,17 @@
   - 더 알고 싶은 것 👍4 “Tqqq도 궁금합니다~”
   - 경험 공유 👍3 “수고 많으셨습니다. '3배 되는 시기' 좀 해주시면 감사하겠습니다. 제가 3배씩 이익실현 하는 플랜을 짜고 있어서 그렇습니다. 감사합니다 ~”
 
-### 103. Jeden Monat Miete ohne eigene Immobilie - warum ich jetzt Realty Income kaufe
+### 107. Jeden Monat Miete ohne eigene Immobilie - warum ich jetzt Realty Income kaufe
 
 - https://www.youtube.com/watch?v=jeVV2buqJ_k · Aktienhai · 구독자 2,910 · 조회수 10,444 (×3.6, 하루 309.4) · 좋아요 129 (1.2%) · 11분 · 2026-10-15 · 주제 묶음 2. 장기투자·ETF·지수 · 형식 정보·해설 (그 밖) · 폴더 `W_jeVV2buqJ_k` (웹 승인)
 - 썸네일: <img src="W_jeVV2buqJ_k/thumbnail.jpg" width="320">
 - 챕터: 0:00 Jeden Monat Miete, trotzdem b… · 0:52 Realty Income (ISIN: US756109… · 1:53 Warum die Aktie seit Jahren f… · 3:22 Umsatz, FFO und AFFO · 5:06 Bewertung, Dividende, Schulden · 7:10 Was bei Realty Income wirklic… · 8:35 NNN REIT und Agree Realty im … · 8:58 Der Haken · 9:57 Score und Fazit · 10:25 Würde ich kaufen?
 - 설명 앞부분: Realty Income zahlt über 670 Monatsdividenden in Folge und hat ein Geschäft, das jedes Jahr wächst: Trotzdem steht die Aktie von Realty Income rund ein Viertel unter Ende 2021. Für alle, die sich eine monatliche Miete ins Depot holen wollen, ist das die spannende Frage: Schnäppchen oder Falle? 🎁 Si…
-- 같은 채널 평소 대비 ×3.1 (채널 최근 롱폼 중앙값 3,368회) · 평소 영상: Größer als der KI-BOOM?! Diese 5 Aktien könnten d… (3,429회) / Rechenzentren statt Nvidia? So kassierst du Divid… (3,306회)
+- 같은 채널 평소 대비 ×3.0 (채널 최근 롱폼 중앙값 3,429회) · 평소 영상: Größer als der KI-BOOM?! Diese 5 Aktien könnten d… (3,429회) / Rechenzentren statt Nvidia? So kassierst du Divid… (3,306회)
 - 대본 없음 (설명) — 음성인식이 끝나면 도입부·흐름이 들어감
 - 댓글 38/38: 좋은 점 — 영상 0 · 감사·응원 0 · 더 알고 싶은 것 0 · 아쉬운 점 — 영상 0 · 반박·불만 — 의견 다름 0 · 정치·사회 0 · 경험 공유 0 · 구독·다음 기대 0
 
-### 104. 다음주 코스피 심상치 않습니다 '이때' 팔고 바로 현금 챙기세요 (이승조 대표 / 통합본 1부)
+### 108. 다음주 코스피 심상치 않습니다 '이때' 팔고 바로 현금 챙기세요 (이승조 대표 / 통합본 1부)
 
 - https://www.youtube.com/watch?v=EkR5dj-diWw · 웅달책방_투자 · 구독자 3,260 · 조회수 14,673 (×4.5, 하루 343.3) · 좋아요 262 (1.8%) · 31.7분 · 2026-09-03 · 주제 묶음 5. 국내주식 · 형식 인터뷰·강연·대담 · 폴더 `W_EkR5dj-diWw` (웹 승인)
 - 썸네일: <img src="W_EkR5dj-diWw/thumbnail.jpg" width="320">

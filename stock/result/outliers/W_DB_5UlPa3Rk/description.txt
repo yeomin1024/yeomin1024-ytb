@@ -1,0 +1,37 @@
+2026년 3월, 미국 휘발유 값이 한 달 만에 21% 뛰었습니다. 9월 미국 소비자물가는 3.7%, 중앙은행은 3년여 만에 금리를 올렸습니다.
+1913년부터 미국 물가가 5% 넘게 오른 때를 전부 세어, 무엇이 올렸고 무엇이 끝냈는지, 이번은 어느 길에 서 있는지 따라갑니다.
+
+※ 투자 권유가 아닙니다. 특정 자산의 매수·매도를 권하지 않으며, 과거 기록이 앞날을 보장하지 않습니다.
+※ 2026년 11월 11일 기준입니다. 10월 소비자물가는 2025년 10월 정부 셧다운으로 비교 기준이 없어 1년 전 대비 공식 숫자가 발표되지 않았습니다(한 달 새 +0.4%).
+※ '물가 폭풍'은 소비자물가가 1년 전보다 5% 넘게 오른 달이 이어진 구간으로 셌습니다(12개월 안의 틈은 합침). 대공황에서 막 빠져나오던 1934·1937년 반등은 뺐습니다.
+
+⏱ 챕터
+0:00 휘발유 한 달 21%
+1:04 110년 물가를 세다
+1:35 원인은 세 갈래
+4:14 무엇이 끝냈나
+6:10 두 번째 파도
+8:45 2022년과 지금
+10:40 세 길과 볼 신호
+
+📊 자료
+- 미국 소비자물가(CPI-U, 근원 CPI), 기준금리, 실업률, 통화량(M2), 국제유가(WTI), 휘발유 물가 지수, 주간 휘발유 평균값(EIA), 뉴욕 연준 재할인율(1919~21): FRED(세인트루이스 연방준비은행)
+- 2026년 3월·9월·10월 물가: 미국 노동통계국(BLS) 발표, CNBC·CBS 보도 / 2026년 9월 금리 인상: CNBC
+- 원유 공시가(1973~74): AAPG / 1971-08-16 다우 상승폭: 당시 보도
+- 연설 원문: 트루먼 「Radio Report to the Nation Announcing the Lifting of Major Price Controls」(1946-10-14, 트루먼 도서관), 닉슨 「Radio Address About the Nation's Economy」(1973-07-01, The American Presidency Project)
+- 1946년 고기값: 미국 상무부 Survey of Current Business(1946-08), 당시 보도 / 1973년 병아리: TIME(1973)
+
+📷 사진·영상 (Wikimedia Commons·Internet Archive 파일 이름, 일부 잘라 씀)
+- Gas Prices on Easter Sunday (2026).jpg – Rick Obst, CC BY 4.0 (https://commons.wikimedia.org/wiki/File:Gas_Prices_on_Easter_Sunday_%282026%29.jpg)
+- View of Port of Los Angeles with container ships.jpg – Downtowngal, CC BY-SA 4.0 (https://commons.wikimedia.org/wiki/File:View_of_Port_of_Los_Angeles_with_container_ships.jpg)
+- Broiler Chickens 001.jpg – Icem4k, CC BY-SA 4.0 (https://commons.wikimedia.org/wiki/File:Broiler_Chickens_001.jpg)
+- Car keys.jpg – chen chin (ducktail964) from taipei, taiwan, CC BY 2.0 (https://commons.wikimedia.org/wiki/File:Car_keys.jpg)
+- Lehman Brothers-NYC-20080915.jpg – Robert Scoble, CC BY 2.0 (https://commons.wikimedia.org/wiki/File:Lehman_Brothers-NYC-20080915.jpg)
+- 기록 영화 「The Great Swindle」(1948), 「When the Circuit Breaks: America's Energy Crisis」(1975): Prelinger Archives·Internet Archive(퍼블릭 도메인, 소리 뺌)
+- 퍼블릭 도메인: 미국 연방준비제도(연준 건물·워시·파월·볼커), 백악관(워시, 썸네일), 미 국립문서보관소(NARA: 트루먼, 닉슨, 전쟁 국채·가격 상한 포스터, 1973 주유 대기 줄 David Falconer, 1946 정육점 Russell Lee), 제럴드 포드 도서관(포드, WIN 배지), 미 육군(아서 번스), 미 공군(베트남전), 미 해군(쿠웨이트 유정), CDC(코로나바이러스 그림), USDA(사료 옥수수), Dorothea Lange(1936), Walter Hunt Everett(1918 포스터), 국립 미국사 박물관(배급 수첩, Daderot)
+- 지도: Natural Earth(퍼블릭 도메인)
+- 라이선스 전문: https://creativecommons.org/licenses/
+
+이 영상의 나레이션은 AI 음성(제미나이 TTS)입니다. 배경음악은 쓰지 않았습니다.
+
+#인플레이션 #물가 #미국경제 #연준 #폴볼커 #차트너머

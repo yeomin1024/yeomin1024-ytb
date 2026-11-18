@@ -1,6 +1,6 @@
 {
- "tool": "calc.py v1.0",
- "made": "2026-11-18T12:47:19+00:00",
+ "tool": "calc.py v1.1",
+ "made": "2026-11-18T13:40:20+00:00",
  "P_kospi_peak_4people": {
   "start": "2026-06-22",
   "end": "2026-11-18",
@@ -112,6 +112,501 @@
    "paid_won": 30000000,
    "keep_won": 39210000,
    "pause_won": 34380000
+  }
+ },
+ "K_kospi40": {
+  "rule": "^KS11 가격 · 고점 대비 −45% 를 처음 찍은 날 → 그 뒤 바닥까지 더 빠진 폭 · 고점 되찾기까지",
+  "events": [
+   {
+    "peak": "1997-06-17",
+    "hit": "1997-10-31",
+    "trough": "1998-06-16",
+    "more_fall_pct": -40.5,
+    "worst_pct": -64.7,
+    "recovered": "1999-04-27",
+    "years_hit_to_recover": 1.5,
+    "years_peak_to_recover": 1.9
+   },
+   {
+    "peak": "2000-01-04",
+    "hit": "2000-09-15",
+    "trough": "2001-09-17",
+    "more_fall_pct": -25.4,
+    "worst_pct": -55.7,
+    "recovered": "2005-07-14",
+    "years_hit_to_recover": 4.8,
+    "years_peak_to_recover": 5.5
+   },
+   {
+    "peak": "2007-10-31",
+    "hit": "2008-10-16",
+    "trough": "2008-10-24",
+    "more_fall_pct": -22.7,
+    "worst_pct": -54.5,
+    "recovered": "2011-01-03",
+    "years_hit_to_recover": 2.2,
+    "years_peak_to_recover": 3.2
+   },
+   {
+    "peak": "2018-01-29",
+    "hit": "2020-03-19",
+    "trough": "2020-03-19",
+    "more_fall_pct": 0.0,
+    "worst_pct": -43.9,
+    "recovered": "2020-11-23",
+    "years_hit_to_recover": 0.7,
+    "years_peak_to_recover": 2.8
+   },
+   {
+    "peak": "2026-06-22",
+    "hit": "2026-11-05",
+    "trough": "2026-11-17",
+    "more_fall_pct": -7.7,
+    "worst_pct": -45.5,
+    "recovered": null,
+    "years_hit_to_recover": null,
+    "years_peak_to_recover": null
+   }
+  ],
+  "now": {
+   "last": "2026-11-18",
+   "close": 5067.44,
+   "from_peak_pct": -44.4,
+   "max_dd_pct": -45.5
+  }
+ },
+ "K_kospi45": {
+  "rule": "^KS11 가격 · 고점 대비 −45% 를 처음 찍은 날 → 그 뒤 바닥까지 더 빠진 폭 · 고점 되찾기까지",
+  "events": [
+   {
+    "peak": "1997-06-17",
+    "hit": "1997-11-27",
+    "trough": "1998-06-16",
+    "more_fall_pct": -35.3,
+    "worst_pct": -64.7,
+    "recovered": "1999-04-27",
+    "years_hit_to_recover": 1.4,
+    "years_peak_to_recover": 1.9
+   },
+   {
+    "peak": "2000-01-04",
+    "hit": "2000-09-18",
+    "trough": "2001-09-17",
+    "more_fall_pct": -18.8,
+    "worst_pct": -55.7,
+    "recovered": "2005-07-14",
+    "years_hit_to_recover": 4.8,
+    "years_peak_to_recover": 5.5
+   },
+   {
+    "peak": "2007-10-31",
+    "hit": "2008-10-22",
+    "trough": "2008-10-24",
+    "more_fall_pct": -17.3,
+    "worst_pct": -54.5,
+    "recovered": "2011-01-03",
+    "years_hit_to_recover": 2.2,
+    "years_peak_to_recover": 3.2
+   },
+   {
+    "peak": "2026-06-22",
+    "hit": "2026-11-17",
+    "trough": "2026-11-17",
+    "more_fall_pct": 0.0,
+    "worst_pct": -45.5,
+    "recovered": null,
+    "years_hit_to_recover": null,
+    "years_peak_to_recover": null
+   }
+  ],
+  "now": {
+   "last": "2026-11-18",
+   "close": 5067.44,
+   "from_peak_pct": -44.4,
+   "max_dd_pct": -45.5
+  }
+ },
+ "S_sell20_kospi": {
+  "rule": "^KS11 가격(배당 뺌) 매달 첫 거래일 50만 원 · 판 사람 = 고점 대비 −20% 면 다 팔고 현금(이자 0)으로 모으다 그 고점을 되찾으면 다시 다 삼",
+  "starts": {
+   "1997-01-01": {
+    "paid_won": 179500000,
+    "keep_won": 723480524,
+    "sell20_won": 372486823,
+    "sells": 8,
+    "sell20_now_in_cash": true,
+    "keep_account_mdd_pct": -52.8,
+    "sell20_account_mdd_pct": -21.3
+   },
+   "2000-01-01": {
+    "paid_won": 161500000,
+    "keep_won": 555911849,
+    "sell20_won": 334651574,
+    "sells": 6,
+    "sell20_now_in_cash": true,
+    "keep_account_mdd_pct": -51.9,
+    "sell20_account_mdd_pct": -21.0
+   },
+   "2007-01-01": {
+    "paid_won": 119500000,
+    "keep_won": 285668787,
+    "sell20_won": 230662986,
+    "sells": 5,
+    "sell20_now_in_cash": true,
+    "keep_account_mdd_pct": -45.1,
+    "sell20_account_mdd_pct": -20.3
+   },
+   "2010-01-01": {
+    "paid_won": 101500000,
+    "keep_won": 225114191,
+    "sell20_won": 200404061,
+    "sells": 5,
+    "sell20_now_in_cash": true,
+    "keep_account_mdd_pct": -45.0,
+    "sell20_account_mdd_pct": -20.3
+   },
+   "2016-01-01": {
+    "paid_won": 65500000,
+    "keep_won": 130911802,
+    "sell20_won": 132795861,
+    "sells": 3,
+    "sell20_now_in_cash": true,
+    "keep_account_mdd_pct": -44.7,
+    "sell20_account_mdd_pct": -20.2
+   }
+  }
+ },
+ "H_ath_buy": {
+  "^KS11": {
+   "from": "2007-07-01",
+   "ath_days": 172,
+   "ath_days_by_year": {
+    "2007": 16,
+    "2011": 14,
+    "2017": 35,
+    "2018": 3,
+    "2020": 18,
+    "2021": 15,
+    "2025": 22,
+    "2026": 49
+   },
+   "1y": {
+    "with": 123,
+    "loss_pct": 60.2,
+    "median_pct": -5.1,
+    "worst_pct": -45.3,
+    "all_days_loss_pct": 40.2
+   },
+   "3y": {
+    "with": 101,
+    "loss_pct": 91.1,
+    "median_pct": -6.9,
+    "worst_pct": -21.6,
+    "all_days_loss_pct": 23.5
+   },
+   "loss_1y_pct": 60.2
+  },
+  "^GSPC": {
+   "from": "1950-01-01",
+   "ath_days": 1537,
+   "ath_days_by_year": {
+    "1950": 49,
+    "1951": 34,
+    "1952": 36,
+    "1953": 1,
+    "1954": 77,
+    "1955": 45,
+    "1956": 16,
+    "1958": 23,
+    "1959": 27,
+    "1961": 40,
+    "1963": 12,
+    "1964": 65,
+    "1965": 37,
+    "1966": 9,
+    "1967": 14,
+    "1968": 34,
+    "1972": 32,
+    "1973": 3,
+    "1980": 24,
+    "1982": 2,
+    "1983": 30,
+    "1985": 43,
+    "1986": 31,
+    "1987": 47,
+    "1989": 13,
+    "1990": 6,
+    "1991": 22,
+    "1992": 18,
+    "1993": 16,
+    "1994": 5,
+    "1995": 77,
+    "1996": 39,
+    "1997": 45,
+    "1998": 47,
+    "1999": 35,
+    "2000": 4,
+    "2007": 9,
+    "2013": 45,
+    "2014": 53,
+    "2015": 10,
+    "2016": 18,
+    "2017": 62,
+    "2018": 19,
+    "2019": 35,
+    "2020": 33,
+    "2021": 70,
+    "2022": 1,
+    "2024": 57,
+    "2025": 39,
+    "2026": 28
+   },
+   "1y": {
+    "with": 1506,
+    "loss_pct": 25.2,
+    "median_pct": 11.2,
+    "worst_pct": -32.5,
+    "all_days_loss_pct": 25.4
+   },
+   "3y": {
+    "with": 1413,
+    "loss_pct": 9.8,
+    "median_pct": 25.8,
+    "worst_pct": -43.4,
+    "all_days_loss_pct": 14.4
+   },
+   "loss_1y_pct": 25.2
+  },
+  "^GSPC_2007": {
+   "from": "2007-07-01",
+   "ath_days": 475,
+   "ath_days_by_year": {
+    "2007": 5,
+    "2013": 45,
+    "2014": 53,
+    "2015": 10,
+    "2016": 18,
+    "2017": 62,
+    "2018": 19,
+    "2019": 35,
+    "2020": 33,
+    "2021": 70,
+    "2022": 1,
+    "2024": 57,
+    "2025": 39,
+    "2026": 28
+   },
+   "1y": {
+    "with": 444,
+    "loss_pct": 22.5,
+    "median_pct": 12.6,
+    "worst_pct": -32.5,
+    "all_days_loss_pct": 18.5
+   },
+   "3y": {
+    "with": 351,
+    "loss_pct": 1.4,
+    "median_pct": 26.2,
+    "worst_pct": -33.9,
+    "all_days_loss_pct": 6.7
+   },
+   "loss_1y_pct": 22.5
+  },
+  "note": "코스피는 1994년 고점(1,145.66)을 처음 넘은 2007-07 부터 셈 (Yahoo 자료가 1996-12 부터) · ^GSPC_2007 = 같은 기간 S&P 500 · 1년 = 250 · 3년 = 750거래일 · 가격 지수 · 최고 날은 몇 해에 몰림(ath_days_by_year) — 날 수로 센 몫"
+ },
+ "G_glide": {
+  "rule": "^GSPC 가격(배당 뺌) 20년 매달 50만 원 · 나눠 옮김 = 은퇴 5년 전부터 새 돈은 현금, 주식은 남은 달 수로 나눠 매달 현금으로(13주 국채 ^IRX 이자) · 환율 뺌",
+  "endings": {
+   "2000-03": {
+    "paid_won": 120500000.0,
+    "stay_won": 677278954,
+    "glide_won": 459482865,
+    "end": "2000-03-28"
+   },
+   "2002-10": {
+    "paid_won": 120500000.0,
+    "stay_won": 297170307,
+    "glide_won": 440294475,
+    "end": "2002-10-28"
+   },
+   "2007-10": {
+    "paid_won": 120500000.0,
+    "stay_won": 305716954,
+    "glide_won": 257975479,
+    "end": "2007-10-26"
+   },
+   "2009-03": {
+    "paid_won": 120500000.0,
+    "stay_won": 142634916,
+    "glide_won": 235481435,
+    "end": "2009-03-27"
+   },
+   "2020-03": {
+    "paid_won": 120500000.0,
+    "stay_won": 217227965,
+    "glide_won": 220173448,
+    "end": "2020-03-27"
+   },
+   "2022-10": {
+    "paid_won": 120500000.0,
+    "stay_won": 299146573,
+    "glide_won": 263090968,
+    "end": "2022-10-28"
+   }
+  }
+ },
+ "G2_glide_all": {
+  "rule": "^GSPC 가격(배당 뺌) · 은퇴 달 = 매달 첫 거래일(1982-01~지금) · 그 전 240달 매달 50만 원(넣은 돈 1.2억) · 나눠 옮김 = 마지막 60달은 새 돈 현금 + 주식을 남은 달 수로 나눠 현금으로(^IRX 이자)",
+  "months": 539,
+  "first": "1982-01-04",
+  "last": "2026-11-02",
+  "stay": {
+   "min_eok": 1.22,
+   "min_at": "2009-03-02",
+   "glide_same_day_eok": 2.37,
+   "p10_eok": 1.89,
+   "median_eok": 2.98,
+   "max_eok": 6.7
+  },
+  "glide": {
+   "min_eok": 1.5,
+   "min_at": "2013-10-01",
+   "p10_eok": 1.7,
+   "median_eok": 2.59,
+   "max_eok": 4.93
+  },
+  "glide_more_pct": 18.9
+ },
+ "C30_cash_mix": {
+  "rule": "SPY 수정 종가(배당 포함) 1993-01-29~ · 현금 = 13주 미국 국채(^IRX) 이자 · 해마다 첫 거래일에 비중을 다시 맞춤 · 달러 기준 · 세금·수수료 뺌",
+  "stock100": {
+   "cagr_pct": 10.64,
+   "mdd_pct": -55.2,
+   "longest_under_years": 6.6,
+   "multiple": 30.45,
+   "loss_1y_pct": 18.1,
+   "worst_1y_pct": -47.4
+  },
+  "stock70": {
+   "cagr_pct": 8.48,
+   "mdd_pct": -40.8,
+   "longest_under_years": 5.5,
+   "multiple": 15.66,
+   "loss_1y_pct": 17.3,
+   "worst_1y_pct": -34.1
+  },
+  "stock50": {
+   "cagr_pct": 6.9,
+   "mdd_pct": -30.0,
+   "longest_under_years": 4.9,
+   "multiple": 9.53,
+   "loss_1y_pct": 16.2,
+   "worst_1y_pct": -24.6
+  }
+ },
+ "S_rules": {
+  "rule": "S 와 같고 되사는 때만 바꿈 — peak = 판 때의 전 고점 회복 · sellpx = 판 값 회복 · low20 = 판 뒤 바닥에서 +20%",
+  "starts": {
+   "1997-01-01": {
+    "peak": {
+     "keep_eok": 7.23,
+     "sell_eok": 3.72,
+     "sells": 8,
+     "now_cash": true
+    },
+    "sellpx": {
+     "keep_eok": 7.23,
+     "sell_eok": 4.66,
+     "sells": 30,
+     "now_cash": false
+    },
+    "low20": {
+     "keep_eok": 7.23,
+     "sell_eok": 7.38,
+     "sells": 19,
+     "now_cash": true
+    }
+   },
+   "2000-01-01": {
+    "peak": {
+     "keep_eok": 5.56,
+     "sell_eok": 3.35,
+     "sells": 6,
+     "now_cash": true
+    },
+    "sellpx": {
+     "keep_eok": 5.56,
+     "sell_eok": 3.9,
+     "sells": 23,
+     "now_cash": false
+    },
+    "low20": {
+     "keep_eok": 5.56,
+     "sell_eok": 6.17,
+     "sells": 14,
+     "now_cash": true
+    }
+   },
+   "2007-01-01": {
+    "peak": {
+     "keep_eok": 2.86,
+     "sell_eok": 2.31,
+     "sells": 5,
+     "now_cash": true
+    },
+    "sellpx": {
+     "keep_eok": 2.86,
+     "sell_eok": 2.15,
+     "sells": 13,
+     "now_cash": false
+    },
+    "low20": {
+     "keep_eok": 2.86,
+     "sell_eok": 3.17,
+     "sells": 7,
+     "now_cash": true
+    }
+   },
+   "2010-01-01": {
+    "peak": {
+     "keep_eok": 2.25,
+     "sell_eok": 2.0,
+     "sells": 5,
+     "now_cash": true
+    },
+    "sellpx": {
+     "keep_eok": 2.25,
+     "sell_eok": 1.71,
+     "sells": 10,
+     "now_cash": false
+    },
+    "low20": {
+     "keep_eok": 2.25,
+     "sell_eok": 2.4,
+     "sells": 7,
+     "now_cash": true
+    }
+   },
+   "2016-01-01": {
+    "peak": {
+     "keep_eok": 1.31,
+     "sell_eok": 1.33,
+     "sells": 3,
+     "now_cash": true
+    },
+    "sellpx": {
+     "keep_eok": 1.31,
+     "sell_eok": 1.01,
+     "sells": 8,
+     "now_cash": false
+    },
+    "low20": {
+     "keep_eok": 1.31,
+     "sell_eok": 1.38,
+     "sells": 5,
+     "now_cash": true
+    }
+   }
   }
  },
  "X_fx": {

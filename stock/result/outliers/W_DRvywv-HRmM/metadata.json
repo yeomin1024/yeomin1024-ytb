@@ -1,0 +1,111 @@
+{
+ "id": "DRvywv-HRmM",
+ "title": "역사상 최악의 날에만 주식을 산 사람, 41년 뒤 계좌는? (S&P 500 실제 데이터)",
+ "channel": "머니언박싱",
+ "channel_id": "UCwq22yCnf8XSUHOUWJCo1UQ",
+ "subs": 2780,
+ "views": 241296,
+ "ratio": 86.8,
+ "age_days": 53,
+ "views_per_day": 4542.9,
+ "minutes": 8.0,
+ "likes": 681,
+ "comments": 172,
+ "published": "2026-09-26",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=DRvywv-HRmM",
+ "flag": "",
+ "published_at": "2026-09-26T10:35:01Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_DRvywv-HRmM",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "S&P500",
+  "에스앤피500",
+  "미국주식",
+  "장기투자",
+  "적립식투자",
+  "마켓타이밍",
+  "최악의타이밍",
+  "블랙먼데이",
+  "닷컴버블",
+  "금융위기",
+  "코로나폭락",
+  "폭락장",
+  "존버",
+  "배당재투자",
+  "머니언박싱"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "다섯 번의 꼭대기"
+  },
+  {
+   "start": 38,
+   "title": "네 명의 투자자와 규칙"
+  },
+  {
+   "start": 86,
+   "title": "1987년, 블랙먼데이"
+  },
+  {
+   "start": 116,
+   "title": "13년을 기다려 산 곳이 닷컴버블 꼭대기"
+  },
+  {
+   "start": 152,
+   "title": "24년을 투자했는데 원금보다 적다"
+  },
+  {
+   "start": 189,
+   "title": "한 달 만에 2억 6천만 원이 사라지다"
+  },
+  {
+   "start": 224,
+   "title": "마지막 꼭대기, 그리고 지금"
+  },
+  {
+   "start": 253,
+   "title": "결과 공개"
+  },
+  {
+   "start": 293,
+   "title": "신의 손은 왜 졌을까"
+  },
+  {
+   "start": 322,
+   "title": "공포 씨는 왜 꼴찌가 됐을까"
+  },
+  {
+   "start": 359,
+   "title": "이 결과를 믿기 전에"
+  },
+  {
+   "start": 393,
+   "title": "보너스: 원화로 계산하면?"
+  },
+  {
+   "start": 440,
+   "title": "우리는 네 명 중 누구일까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 172,
+ "comments_top_level": 88,
+ "comments_replies": 84,
+ "comments_by_creator": 36,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 172,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T13:19:50",
+ "approved": "2026-11-18T22:19+09:00"
+}

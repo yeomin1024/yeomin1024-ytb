@@ -1,8 +1,8 @@
-# 주식 — 승인한 영상 748개 (업로드 최근 순)
+# 주식 — 승인한 영상 753개 (업로드 최근 순)
 
-자동 생성 — `tools/weekly_analysis.py` v1.5.2 (2026-11-18 09:12 UTC). 글 출처 = 분석에 쓴 글: 자막 → 음성인식 → **설명**(자막을 못 받아 영상 설명으로 대신 분석, 음성인식 대본이 생기면 바뀜) → 없음. 사례 폴더(`W_<영상ID>` — 설명·자막·댓글 전부·썸네일)도 GitHub 에 올라감 (폴더 열에서 바로). ※ 연구·교육용 — 투자 권유가 아님.
+자동 생성 — `tools/weekly_analysis.py` v1.5.2 (2026-11-18 13:19 UTC). 글 출처 = 분석에 쓴 글: 자막 → 음성인식 → **설명**(자막을 못 받아 영상 설명으로 대신 분석, 음성인식 대본이 생기면 바뀜) → 없음. 사례 폴더(`W_<영상ID>` — 설명·자막·댓글 전부·썸네일)도 GitHub 에 올라감 (폴더 열에서 바로). ※ 연구·교육용 — 투자 권유가 아님.
 
-글 출처: 자막 24개 · 음성인식 46개 · 설명 642개 · 없음 36개
+글 출처: 자막 24개 · 음성인식 46개 · 설명 647개 · 없음 36개
 
 | 업로드 | 제목 | 채널 | 구독자 | 조회수 | 배수 | 하루 조회수 | 길이(분) | 글 출처 | 댓글 | 썸네일 | 폴더 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -31,6 +31,8 @@
 | 2026-11-12 | [하루 최대 수익 600만 원. 3년간 주식 거래액만 100억 원인 주부｜아내가 도박처럼 단](https://www.youtube.com/watch?v=056mnyfsMWI) | EBSDocumentary ( | 5,480,000 | 2,015,308 | 0.4 | 339,035.0 | 40.8 | 설명 | 0 | ✗ | `W_056mnyfsMWI` |
 | 2026-11-12 | [한국에선 8년 연속 1만 대 팔렸는데… 주가는 87% 폭락? 볼보가 위기에 빠진 이유 ∣ ](https://www.youtube.com/watch?v=Vv_p9YST1mk) | 딥다이브 | 51,700 | 561,422 | 10.9 | 92,813.5 | 8.7 | 설명 | 567 | ✗ | `W_Vv_p9YST1mk` |
 | 2026-11-11 | [코스피 5,000 붕괴, AI 서사는 무너졌는가](https://www.youtube.com/watch?v=QBSm6BJko4A) | 슈카월드 | 3,740,000 | 1,126,010 | 0.3 | 162,984.0 | 43.2 | 없음 | 818 | ✗ | `W_QBSm6BJko4A` |
+| 2026-11-11 | [미국 110년 인플레이션 9번, 무엇이 끝냈나](https://www.youtube.com/watch?v=DB_5UlPa3Rk) ⭐ | 차트 너머 | 5,100 | 71,085 | 13.9 | 9,654.4 | 12.2 | 설명 | 37 | ✗ | `W_DB_5UlPa3Rk` |
+| 2026-11-04 | [이번 하락은 어디에 가까울까 ∣ 공포탐욕지수 39번으로 본 금리와 물가](https://www.youtube.com/watch?v=QG40SUfIML8) ⭐ | 차트 너머 | 5,100 | 338,667 | 66.4 | 24,179.2 | 11.1 | 설명 | 209 | ✗ | `W_QG40SUfIML8` |
 | 2026-10-20 | [SCHD's Dividend Growth Just Hit Its Lowest Point i](https://www.youtube.com/watch?v=V5gTH3N_kL0) ⭐ | Tom - Lazy Divid | 2,090 | 10,448 | 5.0 | 7,892.0 | 34.0 | 설명 | 24 | ✓ | `W_V5gTH3N_kL0` |
 | 2026-10-19 | [This Pullback is a Gift. I'm Buying These Stocks N](https://www.youtube.com/watch?v=GQm2sHqU0kg) | Ticker Symbol: Y | 666,000 | 287,396 | 0.4 | 206,525.8 | 20.6 | 설명 | 422 | ✓ | `W_GQm2sHqU0kg` |
 | 2026-10-19 | [This Stock Is Undervalued](https://www.youtube.com/watch?v=4BooxjnAfPY) | Joseph Carlson A | 262,000 | 193,515 | 0.7 | 138,303.9 | 38.5 | 설명 | 339 | ✓ | `W_4BooxjnAfPY` |
@@ -63,6 +65,7 @@
 | 2026-10-19 | [The Market Dip is a GIFT (6 Stocks to Buy Now)](https://www.youtube.com/watch?v=TRzVVgId6us) | Chris Sain | 1,110,000 | 64,638 | 0.1 | 27,837.3 | 14.7 | 설명 | 358 | ✓ | `W_TRzVVgId6us` |
 | 2026-10-19 | [[속보]코스피, 3%대 하락…유승민 “바보 정책 때문에 증시 붕괴” [뉴스플레이리스트] /](https://www.youtube.com/watch?v=6ZfypnsvFMs) | 채널A News | 3,530,000 | 256,540 | 0.1 | 110,833.0 | 4.7 | 설명 | 529 | ✓ | `W_6ZfypnsvFMs` |
 | 2026-10-19 | [【Eng Sub】AI泡沫會爆嗎？美股一直升？基金經理教你選ETF與科技股｜US Stocks 10](https://www.youtube.com/watch?v=fMHfTr51OfM) ⭐ | City Spotlight 傾 | 30,600 | 99,008 | 3.2 | 42,629.5 | 50.3 | 설명 | 120 | ✓ | `W_fMHfTr51OfM` |
+| 2026-10-19 | [주식투자 5년간 실패하던 내가 깨달은 '이것'](https://www.youtube.com/watch?v=OPL1VmC5nC4) ⭐ | 리채피 richappy | 10,100 | 168,981 | 16.7 | 5,530.4 | 18.3 | 설명 | 78 | ✗ | `W_OPL1VmC5nC4` |
 | 2026-10-18 | [Could You Wait Out A 50% S&P 500 Crash? How To Pre](https://www.youtube.com/watch?v=UaTZemnT8WM) | Diamond NestEgg | 249,000 | 75,242 | 0.3 | 31,708.5 | 29.5 | 설명 | 32 | ✓ | `W_UaTZemnT8WM` |
 | 2026-10-18 | ["이걸 왜 이제야 냈을까?" 서학개미들 환호할 반도체 ETF 나왔다! 엔비디아를 중심으로 ](https://www.youtube.com/watch?v=4R8a0gCwleE) | 힐링여행자  | 455,000 | 63,954 | 0.1 | 25,834.8 | 17.2 | 설명 | 88 | ✓ | `W_4R8a0gCwleE` |
 | 2026-10-18 | [BLACK MONDAY 2.0? Wall Street Is Bracing for a Mar](https://www.youtube.com/watch?v=wtvfu3W-0yw) | Redacted Invest | 290,000 | 205,356 | 0.7 | 81,701.7 | 13.4 | 설명 | 513 | ✓ | `W_wtvfu3W-0yw` |
@@ -423,6 +426,7 @@
 | 2026-10-10 | [The Stock Market Is Ignoring a HUGE Warning Sign](https://www.youtube.com/watch?v=lbAiv5sUn3A) | Investing Simpli | 477,000 | 155,859 | 0.3 | 14,432.5 | 13.1 | 설명 | 225 | ✓ | `W_lbAiv5sUn3A` |
 | 2026-10-10 | [반도체 -4.6% 급락, 펠로시도 위기준비 시작했다!](https://www.youtube.com/watch?v=NF5abNaJIic) | 수페TV | 839,000 | 302,655 | 0.4 | 27,600.3 | 19.8 | 설명 | 105 | ✓ | `W_NF5abNaJIic` |
 | 2026-10-10 | [年間配当収入800万円超！増配株投資で配当金を増やし続け、FIREを実現したRickyさんの投資術―](https://www.youtube.com/watch?v=_-oDwfCiOkI) | ダイヤモンド公式チャンネル | 272,000 | 263,102 | 1.0 | 24,000.1 | 37.9 | 설명 | 51 | ✓ | `W__-oDwfCiOkI` |
+| 2026-10-10 | [S&P500 적립식, 다들 거꾸로 하고 있습니다… 5천만원 갈리는 진짜 이유](https://www.youtube.com/watch?v=h5Cu52-q0oE) ⭐ | 뒤집는경제 | 945 | 235,115 | 248.8 | 6,000.4 | 24.9 | 설명 | 70 | ✗ | `W_h5Cu52-q0oE` |
 | 2026-10-10 | [20년 차 베테랑 투자자가 이야기하는 초보도 주식 시장에서 승리하는 방법ㅣ주식투자자 깡토](https://www.youtube.com/watch?v=0cfnnb5kiyA) | Turbo832 TV | 417,000 | 225,687 | 0.5 | 20,162.0 | 39.3 | 설명 | 97 | ✓ | `W_0cfnnb5kiyA` |
 | 2026-10-10 | ["ISA는 가입했다고 끝이 아닙니다"...만들어놓고 멈춰버린 계좌를 채우는 '가장 단순한 ](https://www.youtube.com/watch?v=nttINf-CD18) | 이효석아카데미 | 729,000 | 496,232 | 0.7 | 43,767.4 | 18.4 | 설명 | 264 | ✓ | `W_nttINf-CD18` |
 | 2026-10-09 | [A Once In A 100 Year Investment Opportunity Just S](https://www.youtube.com/watch?v=eKQsjwdRrhA) | Tom Nash | 698,000 | 326,833 | 0.5 | 28,231.3 | 35.6 | 설명 | 459 | ✓ | `W_eKQsjwdRrhA` |
@@ -511,6 +515,7 @@
 | 2026-09-27 | [So würde ich 2027 starten! 500 € im Monat investie](https://www.youtube.com/watch?v=7lWroPQ55EQ) | FINANZFOKUS | 172,000 | 353,300 | 2.0 | 14,700.7 | 15.1 | 설명 | 215 | ✓ | `W_7lWroPQ55EQ` |
 | 2026-09-27 | [🔥성장주/배당주, 코스피/S&P500, 자가/월세 등 주식과 부동산 전략 대토론 @Tamg](https://www.youtube.com/watch?v=1_8Z4disq9M) | 미키피디아 | 377,000 | 475,508 | 1.3 | 19,639.9 | 53.4 | 설명 | 252 | ✓ | `W_1_8Z4disq9M` |
 | 2026-09-26 | [5천만원으로 '이 주식' 담으세요, 내년까지 무섭게 오를 겁니다 (박세익 대표)](https://www.youtube.com/watch?v=w8unj8A0nF4) | 김작가 TV | 2,730,000 | 469,463 | 0.2 | 18,866.4 | 18.1 | 설명 | 113 | ✓ | `W_w8unj8A0nF4` |
+| 2026-09-26 | [역사상 최악의 날에만 주식을 산 사람, 41년 뒤 계좌는? (S&P 500 실제 데이터)](https://www.youtube.com/watch?v=DRvywv-HRmM) ⭐ | 머니언박싱 | 2,780 | 241,296 | 86.8 | 4,542.9 | 8.0 | 설명 | 172 | ✗ | `W_DRvywv-HRmM` |
 | 2026-09-26 | [復活の3ヶ月、ついに始まる！【S&P500, NASDAQ100】](https://www.youtube.com/watch?v=MBsKMEu23iQ) | S&P500最強伝説 | 336,000 | 344,496 | 1.0 | 13,824.0 | 36.8 | 설명 | 168 | ✓ | `W_MBsKMEu23iQ` |
 | 2026-09-25 | [How to Use Liquidity in Trading? ∣∣ Masterclass](https://www.youtube.com/watch?v=IOBoaM71MUA) | Booming Bulls | 4,130,000 | 923,210 | 0.2 | 35,809.3 | 25.9 | 설명 | 1,247 | ✓ | `W_IOBoaM71MUA` |
 | 2026-09-25 | [What Happens When a Country’s Debt Grows Faster Th](https://www.youtube.com/watch?v=PdoVd-uxeHE) | Investing With U | 136,000 | 415,490 | 3.1 | 16,095.8 | 88.5 | 설명 | 349 | ✓ | `W_PdoVd-uxeHE` |

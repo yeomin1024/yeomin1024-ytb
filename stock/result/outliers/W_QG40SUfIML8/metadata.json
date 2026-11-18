@@ -1,0 +1,96 @@
+{
+ "id": "QG40SUfIML8",
+ "title": "이번 하락은 어디에 가까울까 | 공포탐욕지수 39번으로 본 금리와 물가",
+ "channel": "차트 너머",
+ "channel_id": "UC5BwsbgUiimuihlA2sQv7-Q",
+ "subs": 5100,
+ "views": 338667,
+ "ratio": 66.41,
+ "age_days": 14,
+ "views_per_day": 24179.2,
+ "minutes": 11.1,
+ "likes": 2795,
+ "comments": 209,
+ "published": "2026-11-04",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=QG40SUfIML8",
+ "flag": "",
+ "published_at": "2026-11-04T13:07:32Z",
+ "rank": "W1",
+ "set": "web",
+ "folder": "W_QG40SUfIML8",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "공포탐욕지수",
+  "미국주식",
+  "금리",
+  "물가",
+  "S&P500",
+  "공포에 사라",
+  "주식 하락",
+  "차트너머"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10월의 하락"
+  },
+  {
+   "start": 47,
+   "title": "공포탐욕지수와 39번"
+  },
+  {
+   "start": 94,
+   "title": "공포에 사면 더 나았을까"
+  },
+  {
+   "start": 114,
+   "title": "2021년과 2023년"
+  },
+  {
+   "start": 186,
+   "title": "차이는 금리"
+  },
+  {
+   "start": 273,
+   "title": "다섯 가지 경우"
+  },
+  {
+   "start": 351,
+   "title": "두 번째·세 번째·네 번째"
+  },
+  {
+   "start": 463,
+   "title": "다섯 번째, 가장 나빴던 때"
+  },
+  {
+   "start": 549,
+   "title": "이번은 어디에 가까울까"
+  },
+  {
+   "start": 600,
+   "title": "남은 매"
+  },
+  {
+   "start": 645,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 209,
+ "comments_top_level": 85,
+ "comments_replies": 124,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 209,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-18T13:16:59",
+ "approved": "2026-11-18T22:17+09:00"
+}

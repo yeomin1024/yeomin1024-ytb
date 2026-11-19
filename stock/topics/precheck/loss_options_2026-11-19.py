@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-19 — 블로그 반론 검토 3회차 반영 (review/answers_blog_script_rebuttal_3/K3-반론.json):
+# VERSION: v1.6 — 2026-11-19 — 블로그 반론 검토 4회차 반영 (review/answers_blog_script_rebuttal_4/K4-반론.json):
+#          · 지금과 같은 깊이(고점 대비 지금 값)에 닿았던 과거 사건만 — 그날부터 고점 되찾기까지 (`same_depth`) · 거기서 더 빠진 횟수 (`same_depth_further`)
+#            (첫날 기준 숫자는 하이닉스처럼 첫날보다 더 내려온 사람에겐 맞지 않음)
+#          · 길마다 1·3·5년 뒤 S&P 500 원화 변화 (`sp_krw_pct`) · 반은 현금으로 (`half_cash`) · 버티기 > 반만 횟수 (`hold_gt_half`)
+#          · 다른 곳도 빠질 때 몫 상한 (`stress.max_weight_rest_down` — 하이닉스 2007 1년 뒤 S&P 500 원화 변화만큼)
+#          · 6월 고점 뒤 S&P 500 원화 변화 (`sp_since_peak`) · 사건별 고점 전 1년 오른 폭은 events 에 이미 있음
+# (v1.5 — 2026-11-19 — 블로그 반론 검토 3회차 반영 (review/answers_blog_script_rebuttal_3/K3-반론.json):
 #          · 5년 뒤도 (댓글 질문이 '5년 이상') · 진행 중 사건은 첫날 대비 지금(`now_vs_hit_pct`)과 지금까지 가장 낮았던 곳을 따로
 #          · 하이닉스 2000 은 3년 안 가장 낮은 값과 그 뒤 전체 가장 낮은 값·날짜를 따로 (`low3y_vs_peak` · `low_vs_peak` · `low_date`)
 #          · 쓸 날까지 남은 기간(1·2·3·5년) 안에 고점을 되찾은 횟수 (`recover_within` — 2004년 뒤 9번 · 13번)
@@ -76,7 +82,12 @@ def run_up(d, px, ip):
 
 
 def main():
-    fx_d, fx = series("KRW=X", date(2003, 12, 1))               # 시작일 = 자료 첫날 (더 이르게 주면 캐시가 짧다고 보고 매번 다시 받아 값이 흔들림)
+    fx_d, fx = series("KRW=X", date(2003, 12, 1))
+    depth = {}                                                         # 지금 깊이 (지금 값 ÷ 고점) — 과거 사건이 이 깊이에 닿았는지 보려고 먼저 셈
+    for sym, nm in (("005930.KS", "삼성전자"), ("000660.KS", "SK하이닉스"), ("^KS11", "코스피")):
+        dd, pp = series(sym, date(1996, 12, 1) if sym == "^KS11" else date(2000, 1, 1))
+        depth[nm] = float(pp[-1] / pp.max())
+    log("DEPTH", **{k: round(v * 100, 1) for k, v in depth.items()})               # 시작일 = 자료 첫날 (더 이르게 주면 캐시가 짧다고 보고 매번 다시 받아 값이 흔들림)
     spy_d, spy = series("SPY", date(1993, 1, 1))
     gsp_d, gsp = series("^GSPC", date(1990, 1, 1))
     out = {"rule": "직전 고점 대비 −40% 를 처음 찍은 날 · 고점에 100 넣은 사람이 그날 고른 길 → 1년·3년 뒤 금액 (삼전·하닉 = 배당 포함 수정 종가 ↔ SPY 배당 포함 원화 환산 · 코스피 = 가격 지수 ↔ S&P 500 가격 지수 원화 환산 (둘 다 배당 뺌) · 세금·수수료·환전 비용 뺌)",
@@ -114,6 +125,7 @@ def main():
                     spr = sp_krw(d[j]) / sp_krw(d[h])
                     ev[f"{yrs}y"] = {"hold": round(v0 * hold * 100), "half_sp": round(v0 * (0.5 * hold + 0.5 * spr) * 100), "all_sp": round(v0 * spr * 100), "cash": round(v0 * 100),
                                      "cash_3pct": round(v0 * 1.03 ** yrs * 100, 1), "hold_exact": round(float(v0 * hold * 100), 1),
+                                     "half_cash": round(v0 * (0.5 * hold + 0.5) * 100), "sp_krw_pct": round(float(spr - 1) * 100, 1),
                                      "krw": round(float(at(fx_d, fx, d[j]))), "sp_usd_pct": round(float(at(sp_d, sp, d[j]) / at(sp_d, sp, d[h]) - 1) * 100, 1)}
                 j3 = min(n - 1, int(np.searchsorted(d, date(d[h].year + 3, d[h].month, min(d[h].day, 28)))))
                 ev["further_drop_3y_pct"] = round(float(px[h:j3 + 1].min() / px[h] - 1) * 100, 1)
@@ -123,6 +135,17 @@ def main():
                 while k < n and px[k] < peak:
                     k += 1
                 ev["years_to_peak"] = round((d[k] - d[h]).days / 365.25, 1) if k < n else None
+                if k < n:                                              # 지금 세 곳과 같은 깊이에 닿은 날 → 고점까지 · 그 뒤 3년 안 더 빠진 폭
+                    ev["same_depth"] = {}
+                    for nm, D in depth.items():
+                        hit = np.flatnonzero(px[h:k] <= D * peak)
+                        if len(hit) == 0:
+                            ev["same_depth"][nm] = None
+                            continue
+                        jd = h + int(hit[0])
+                        j3d = min(n - 1, int(np.searchsorted(d, date(d[jd].year + 3, d[jd].month, min(d[jd].day, 28)))))
+                        ev["same_depth"][nm] = {"day": str(d[jd]), "years_to_peak": round((d[k] - d[jd]).days / 365.25, 1),
+                                                "further_3y_pct": round(float(px[jd:j3d + 1].min() / px[jd] - 1) * 100, 1)}
                 out["events"].append(ev)
                 i = k if k < n else n
                 continue
@@ -150,6 +173,13 @@ def main():
                                   "low3y_vs_peak": round(float(px[h:j3 + 1].min() / run[h] * 100), 1),
                                   "low_vs_peak": round(float(px[h:].min() / run[h] * 100), 1), "low_date": str(d[h + int(np.argmin(px[h:]))]),
                                   "years_to_peak": round((d[k] - d[h]).days / 365.25, 1) if k is not None else None, "back": str(d[k]) if k is not None else None}
+    out["hynix_2000"]["event"]["same_depth"] = {}
+    for nm, D in depth.items():
+        hit = np.flatnonzero(px[h:k] <= D * run[h])
+        jd = h + int(hit[0])
+        j3d = min(len(px) - 1, int(np.searchsorted(d, date(d[jd].year + 3, d[jd].month, min(d[jd].day, 28)))))
+        out["hynix_2000"]["event"]["same_depth"][nm] = {"day": str(d[jd]), "years_to_peak": round((d[k] - d[jd]).days / 365.25, 1),
+                                                        "further_3y_pct": round(float(px[jd:j3d + 1].min() / px[jd] - 1) * 100, 1)}
     log("HYNIX2000", **out["hynix_2000"])
     hy_hit = next(e for e in out["events"] if e["name"] == "SK하이닉스" and not e.get("1y"))
     out["now"]["SK하이닉스"]["value_at_hit_now"] = [hy_hit["value_at_hit"], round(out["now"]["SK하이닉스"]["per_1000_manwon_now"] / 10, 1)]
@@ -183,6 +213,13 @@ def main():
                              "hold_lt_cash": sum(1 for e in g if e[y]["hold"] < e[y]["cash"]), "hold_lt_cash3": sum(1 for e in g if e[y]["hold_exact"] < e[y]["cash_3pct"])}
                          for y, g in (("1y", one), ("3y", done), ("5y", five))}
     out["fx_now"] = {"date": str(fx_d[-1]), "krw": round(float(fx[-1]))}
+    for y, g in (("1y", one), ("3y", done), ("5y", five)):
+        out["by_horizon"][y]["hold_gt_half"] = sum(1 for e in g if e[y]["hold"] > e[y]["half_sp"])
+        out["by_horizon"][y]["half_cash_ge100"] = sum(1 for e in g if e[y]["half_cash"] >= 100)
+        out["by_horizon"][y]["half_cash_range"] = [min(e[y]["half_cash"] for e in g), max(e[y]["half_cash"] for e in g)]
+    pk = date(2026, 6, 22)
+    out["sp_since_peak"] = {"from": str(pk), "to": str(min(spy_d[-1], fx_d[-1])),
+                            "spy_krw_pct": round(float(at(spy_d, spy, spy_d[-1]) * at(fx_d, fx, spy_d[-1]) / (at(spy_d, spy, pk) * at(fx_d, fx, pk)) - 1) * 100, 1)}
     # 단순 계산 (가정을 글에 같이 밝힘 — 앞날 예측이 아님)
     yrs = sorted(e["years_to_peak"] for e in fxe if e["years_to_peak"] is not None)
     out["recovery"] = {"years_sorted": yrs, "over_2y": sum(1 for y in yrs if y > 2), "over_3y": sum(1 for y in yrs if y > 3), "n": len(yrs)}
@@ -197,6 +234,18 @@ def main():
     f13l = [e["further_drop_3y_pct"] for e in out["events"] if e["years_to_peak"] is not None] + [hy["further_drop_3y_pct"]]
     out["further_13"] = {f"over_{t}": sum(1 for f in f13l if f <= -t) for t in (10, 25, 50)}
     out["recovery_13"] = {"n": len(y13), "range": [y13[0], y13[-1]], "over_2y": sum(1 for y in y13 if y > 2), "over_3y": sum(1 for y in y13 if y > 3), "further_over_25": f13}
+    past = [e for e in out["events"] if e["years_to_peak"] is not None] + [hy]
+    out["same_depth"] = {}
+    for nm, D in depth.items():
+        rows = [(e.get("name", "SK하이닉스"), e["hit"], e["same_depth"][nm]) for e in past if e["same_depth"].get(nm)]
+        ys = sorted(r[2]["years_to_peak"] for r in rows)
+        fs = [r[2]["further_3y_pct"] for r in rows]
+        out["same_depth"][nm] = {"depth_pct": round((D - 1) * 100, 1), "need_gain_pct": round((1 / D - 1) * 100, 1), "n": len(rows), "of": len(past),
+                                 "years_range": [ys[0], ys[-1]] if ys else None,
+                                 "within": {f"{N}y": sum(1 for y in ys if y <= N) for N in (1, 2, 3, 5)},
+                                 "further_over": {f"{t}": sum(1 for f in fs if f <= -t) for t in (10, 25, 50)},
+                                 "events": [f"{r[0]} {r[1]} → {r[2]['day']} · {r[2]['years_to_peak']}년 · 더 {r[2]['further_3y_pct']}%" for r in rows]}
+    out["first_day_need_gain_pct"] = [round((100 / v - 1) * 100, 1) for v in (min(e["value_at_hit"] for e in past), max(e["value_at_hit"] for e in past))]
     ru = [e["run_up_1y_pct"] for e in out["events"] if e["years_to_peak"] is not None and e["run_up_1y_pct"] is not None]
     out["run_up"] = {"past_done_n": len(ru), "past_done_range": [min(ru), max(ru)], "now": {k: v["run_up_1y_pct"] for k, v in out["now"].items()},
                      "counter": {k: v["run_up_1y_pct"] for k, v in out["counter"].items()}}
@@ -210,6 +259,10 @@ def main():
     out["stress"] = {"assume": f"그 종목이 한 번 더 {worst}% 빠진다면 (하이닉스 2007 이 −40% 뒤 더 빠진 폭) · 나머지 돈은 그대로",
                      "drop_pct": worst, "rows": [{"weight_pct": w, "total_loss_pct": round(w * worst / 100, 1)} for w in (100, 50, 30, 10)],
                      "max_weight": [{"total_loss_limit_pct": L, "max_weight_pct": round(L / worst * 100, 1)} for L in (10, 20, 30)]}
+    hy07 = next(e for e in fxe if e["name"] == "SK하이닉스" and e["hit"] == "2007-10-25")
+    rest = -hy07["1y"]["sp_krw_pct"]                                   # 그때 S&P 500 원화로 빠진 폭 (양수)
+    out["stress"]["max_weight_rest_down"] = {"rest_drop_pct": rest, "basis": "하이닉스 2007-10-25 뒤 1년 S&P 500 원화 변화",
+                                             "rows": [{"total_loss_limit_pct": L, "max_weight_pct": round(max(0.0, (L - rest) / (worst - rest)) * 100, 1)} for L in (10, 20, 30)]}
     log("EXTRA", recovery_all=out["recovery_all"], run_up=out["run_up"], recovery=out["recovery"], split=[r["stock_share_pct"] for r in out["split"]["rows"]], stress=[r["total_loss_pct"] for r in out["stress"]["rows"]])
     p = Path(__file__).with_suffix(".json")
     p.write_text(json.dumps(out, ensure_ascii=False, indent=1), "utf-8")

@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-19 — **바람·개념 이해 추론** (사용자 지시 "아니 댓글 그대로를 정리하지 말고 댓글을 쓴 사람이 할법한 생각을 유추하라고
+# VERSION: v1.2 — 2026-11-19 — **투자 욕구** (사용자 지시 "주식 시장 하락을 예측하고 싶다 / 반등할 때 딱 매수하고 싶다 / 향후 크게 상승할 종목을 알고 싶다
+#          이런거는 왜 없어?"): v1.1 바람 목록이 '댓글을 쓰는 이유'(알리기·화풀이·공감)와 '투자에서 원하는 것'을 섞어, 예측성 댓글이 '알리고 싶다'로 흩어짐
+#          (추론 문장에 하락·떨어짐이 든 152개 중 W01 은 57개) → `invest`: 같은 표본을 '투자에서 얻고 싶은 결과·정보'만으로 다시 추론 (INVEST I01~I26 — 사용자 예 그대로 포함).
+#          v1.1 의 W 갈래는 '댓글을 쓴 이유'로 남김.
+# (v1.1 — 2026-11-19 — **바람·개념 이해 추론** (사용자 지시 "아니 댓글 그대로를 정리하지 말고 댓글을 쓴 사람이 할법한 생각을 유추하라고
 #          예를 들어 '주식 시장 하락을 예측하고 싶다' 이런 생각 말이야 주식에 대한 뭘 원하는지를 파악해야지 … 그리고 주식에 대해 어느정도까지 알고있는지도
 #          파악해야 돼 예를 들어 금리, 포트폴리오 분배, 국면 파악 등등 여러가지 주식에 있어 중요한 개념들을 파악하고 있는지도 탐색해"):
 #          `wants` (같은 무작위 표본 2,400개 → 새 검토자가 댓글마다 '이 사람이 주식에서 원하는 것' 추론 문장 + 바람 갈래 W01~ + 확신 ·
@@ -42,7 +46,7 @@ import comment_clusters as cc          # noqa: E402  cluster_lang (같은 묶기
 import comment_types as ct             # noqa: E402  iter_videos · lang_group · classify · TYPES
 import personas as ps                  # noqa: E402  cues (나이·생애 단계·처지·지식) — 부가 정보만
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("vthought")
 SEED = 20261119
@@ -552,6 +556,44 @@ CONCEPTS = [  # 주식 핵심 개념
     ("C18", "수급 (외국인·기관·국민연금·개인 매매 흐름)"), ("C19", "공매도·선물·파생"), ("C20", "위험 관리 (손절·현금 비중·최대 낙폭·빚 한도)"),
     ("C21", "투자 심리·행동 편향 (공포·탐욕·손실 회피·포모)"), ("C22", "환헤지"), ("C23", "정책·제도 (주주환원·상법·규제)"),
 ]
+INVEST = [  # 투자 욕구 — 그 사람이 투자에서 얻고 싶은 결과·정보 (댓글을 쓰는 이유가 아님)
+    ("I01", "주식 시장 하락(폭락)을 미리 알고 피하고 싶다"),
+    ("I02", "바닥·반등할 때 딱 매수하고 싶다"),
+    ("I03", "고점에서·떨어지기 전에 팔아 수익을 지키고 싶다"),
+    ("I04", "시장이 다시 오를지·언제 회복할지 알고 싶다"),
+    ("I05", "향후 크게 상승할 종목·업종을 알고 싶다"),
+    ("I06", "지금 가진 종목(삼전·하닉 등)이 오를지·회복할지 알고 싶다"),
+    ("I07", "무엇을 사야 할지(종목·ETF) 골라 주길 바란다"),
+    ("I08", "종목이 싼지 비싼지(적정 가격)를 알고 싶다"),
+    ("I09", "물린 손실을 되찾고 본전에 탈출하고 싶다"),
+    ("I10", "빨리 크게 벌고 싶다 (레버리지·급등주·한방)"),
+    ("I11", "크게 잃지 않고 원금을 지키고 싶다"),
+    ("I12", "매달 꾸준한 현금흐름(배당·분배금)을 원한다"),
+    ("I13", "오래 두고 꾸준히 불리고 싶다 (적립·복리·장기)"),
+    ("I14", "노후·은퇴 자금을 마련하고 지키고 싶다"),
+    ("I15", "세금·수수료를 아끼고 싶다 (절세 계좌)"),
+    ("I16", "외국인·기관·세력·국민연금의 움직임을 미리 알고 따라가고 싶다"),
+    ("I17", "금리·환율·경기·미국 변수가 시장에 미칠 영향을 알고 싶다"),
+    ("I18", "정부 정책·제도가 시장에 미칠 영향을 알고 싶다"),
+    ("I19", "누구 전망이 맞는지, 믿을 만한 정보를 가려내고 싶다"),
+    ("I20", "내 판단·보유가 맞다는 확신·안심을 얻고 싶다"),
+    ("I21", "투자 원칙·방법을 배워 스스로 판단하고 싶다"),
+    ("I22", "정부가 증시를 떠받치고 개미를 지켜 주길 바란다"),
+    ("I23", "공정한 시장(공매도·외국인 특혜 없는)을 원한다"),
+    ("I24", "손실의 책임을 정부·남에게 묻고 싶다"),
+    ("I25", "국장 대신 미국·부동산·예금·코인으로 옮기고 싶다"),
+    ("I26", "경제적 자유(파이어)·여유로운 삶을 원한다"),
+    ("I00", "투자 욕구를 추론할 수 없음 (인사·잡담·주식과 무관·너무 짧음)"),
+]
+INVEST_FAMILY = [  # 투자 욕구 묶음 (첫째·둘째 욕구 중 하나라도 들면 그 묶음)
+    ("F1", "앞으로 오를지·내릴지 미리 알고 사고팔고 싶다 (시장 예측·반등 매수·고점 매도·오를 종목·내 종목 회복·수급·금리·정책 영향)",
+     ["I01", "I02", "I03", "I04", "I05", "I06", "I07", "I08", "I16", "I17", "I18"]),
+    ("F2", "잃지 않고 꾸준히 불리고 싶다 (원금 지키기·장기 적립·현금흐름·노후·절세·파이어)", ["I11", "I12", "I13", "I14", "I15", "I26"]),
+    ("F3", "믿을 근거·원칙으로 스스로 판단하고 싶다 (누구 말이 맞나·확신·원칙 배우기)", ["I19", "I20", "I21"]),
+    ("F4", "정부·제도가 지켜 주고, 손실 책임을 묻고 싶다", ["I22", "I23", "I24"]),
+    ("F5", "물린 손실을 되찾거나 빨리 크게 벌고 싶다", ["I09", "I10"]),
+    ("F6", "국장을 떠나 다른 데로 옮기고 싶다", ["I25"]),
+]
 WANTS_N = 2400
 WANTS_BATCH = 300
 
@@ -636,6 +678,7 @@ def wants_report(topic):
     ex_mis = defaultdict(list)
     ex_gap = defaultdict(list)
     know_n_concepts = Counter()
+    per_w = {}
     for wid, a in got.items():
         r = ko[idmap[wid]]
         want_txt, cat, conf, con, gap, know, memo = (x.strip() for x in a[1:8])
@@ -647,6 +690,7 @@ def wants_report(topic):
                 W2[c] += 1
         CONF[(w1, conf[:1])] += 1
         lv = next((v for k_, v in norm_level.items() if know.startswith(k_)), "판단불가")
+        per_w[wid] = {"lv": lv, "gaps": set(re.findall(r"C\d\d", gap)), "concepts": {c for c, _ in re.findall(r"(C\d\d)\s*:\s*(이해|언급|오해)", con)}}
         KNOW[lv] += 1
         know_by_want[w1][lv] += 1
         cs = re.findall(r"(C\d\d)\s*:\s*(이해|언급|오해)", con)
@@ -682,7 +726,68 @@ def wants_report(topic):
         cl.append({"code": c, "concept": t, "mentions": m, "share": m / n, "understand": lv.get("이해", 0), "mention_only": lv.get("언급", 0),
                    "misunderstand": lv.get("오해", 0), "gap": C_gap.get(c, 0), "mis_examples": ex_mis.get(c, []), "gap_examples": ex_gap.get(c, [])})
     cl.sort(key=lambda x: -(x["mentions"] + x["gap"]))
-    D = {"topic": topic, "tool": f"viewer_thoughts.py {VERSION}", "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+    INV = None
+    ik = P["dir"] / "invest_keys.json"
+    if ik.is_file():
+        IK = json.loads(ik.read_text("utf-8"))
+        imap = {x["id"]: x for x in IK["keys"]}
+        igot = {}
+        for f in sorted((P["dir"] / "invest").glob("*.tsv")):
+            for i, line in enumerate(Path(f).read_text("utf-8").splitlines()):
+                if i == 0 or not line.strip():
+                    continue
+                a = (line.split("\t") + [""] * 5)[:5]
+                if a[0].strip() in imap:
+                    igot[a[0].strip()] = a
+        if igot:
+            ni = len(igot)
+            P1, ANY, FAM, FAM1 = Counter(), Counter(), Counter(), Counter()
+            fam_of = {c: f for f, _, cs in INVEST_FAMILY for c in cs}
+            ex, kn, gp = defaultdict(list), defaultdict(Counter), defaultdict(Counter)
+            for vid, a in igot.items():
+                x = imap[vid]
+                r = ko[x["row"]]
+                c1 = (re.findall(r"I\d\d", a[1].upper()) or ["I00"])[0]
+                c2 = (re.findall(r"I\d\d", a[2].upper()) or [""])[0]
+                P1[c1] += 1
+                ANY[c1] += 1
+                fs = {fam_of[c] for c in (c1, c2) if c in fam_of}
+                for f_ in fs:
+                    FAM[f_] += 1
+                if c1 in fam_of:
+                    FAM1[fam_of[c1]] += 1
+                if c2 and c2 != c1:
+                    ANY[c2] += 1
+                w = per_w.get(x["wid"])
+                if w:
+                    kn[c1][w["lv"]] += 1
+                    for g in w["gaps"]:
+                        gp[c1][g] += 1
+                conf = a[4].strip()[:1]
+                if c1 != "I00" and a[3].strip() not in ("", "-") and conf in ("상", "중"):
+                    ex[c1].append({"want": a[3].strip(), "text": one_line(r["text"], 120), "likes": r["likes"], "conf": conf})
+            inferable = ni - P1.get("I00", 0)
+            il = []
+            for c, t in IK["invest"]:
+                k = P1.get(c, 0)
+                lo, hi = wilson(k, ni)
+                ka = ANY.get(c, 0)
+                alo, ahi = wilson(ka, ni)
+                il.append({"code": c, "want": t, "k": k, "share": k / ni, "lo": lo, "hi": hi, "any": ka, "any_share": ka / ni, "any_lo": alo, "any_hi": ahi,
+                           "share_inferable": (k / inferable) if (inferable and c != "I00") else None, "est": round(k / ni * IK["n_ko"]),
+                           "know": dict(kn.get(c, {})), "gap_top": gp.get(c, Counter()).most_common(4),
+                           "examples": sorted(ex.get(c, []), key=lambda e: (e["conf"] != "상", -e["likes"]))[:4]})
+            il.sort(key=lambda x: (x["code"] == "I00", -x["k"]))
+            fl = []
+            for f_, t, cs in INVEST_FAMILY:
+                k, k1 = FAM.get(f_, 0), FAM1.get(f_, 0)
+                lo, hi = wilson(k, ni)
+                fl.append({"code": f_, "family": t, "members": cs, "any": k, "first": k1, "share": k / ni, "lo": lo, "hi": hi,
+                           "share_inferable": k / inferable if inferable else 0})
+            fl.sort(key=lambda x: -x["any"])
+            INV = {"n": ni, "inferable": inferable, "rows": il, "families": fl}
+            log("INVEST_REPORT", n=ni, inferable=inferable, top=[(x["code"], x["k"], x["any"]) for x in il[:8]])
+    D = {"invest": INV, "topic": topic, "tool": f"viewer_thoughts.py {VERSION}", "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
          "n": n, "planned": len(idmap), "n_ko": K["n_ko"], "meaningful": meaningful, "stock_related": stock_rel, "wants": wl, "concepts": cl,
          "know": dict(KNOW), "concepts_per_comment": dict(know_n_concepts)}
     (P["out"] / "viewer_wants.json").write_text(json.dumps(D, ensure_ascii=False, indent=1), "utf-8")
@@ -703,16 +808,39 @@ def write_wants_md(path, D):
          f"- 추론 불가(이모지·ㅋㅋ·너무 짧음)·목록에 없음 = W00. 뜻 있는 댓글 = {m:,}개 ({m / n * 100:.1f}%) — '뜻 있는 댓글 중 몫' 칸이 그 안의 몫.",
          "- **개념** = 댓글에 드러난 주식 핵심 개념 23개(C01~C23)를 이해(정확히 씀)·언급(깊이를 알기 어려움)·오해(틀리게 앎)로. **빠진 개념** = 그 사람의 바람·판단에 꼭 필요한데 놓친 것 같은 개념 (근거가 약하면 안 씀).",
          "- 개념은 **댓글에 나온 것만** 판단할 수 있다 — 안 쓴 개념을 모른다는 뜻은 아님. 빠진 개념은 검토자의 추론.", ""]
-    L += ["## 1. 바람 — 주식에서 원하는 것 (많은 순)", "",
+    cn = {c["code"]: c["concept"].split(" (")[0] for c in D["concepts"]}
+    INV = D.get("invest")
+    if INV:
+        ni, inf = INV["n"], INV["inferable"]
+        L += ["## 1. 투자 욕구 — 투자에서 얻고 싶은 것 (많은 순)", "",
+              f"댓글을 쓰는 이유(알리기·화풀이·공감)는 빼고 '그 말을 하게 만든 투자 쪽 바람'만 추론 (`thoughts/invest/*.tsv`, 새 검토자 8명). 추론 가능 {inf:,}개 / {ni:,}개 ({inf / ni * 100:.1f}%).",
+              "'욕구2 포함' = 첫째나 둘째로 그 욕구가 나온 댓글 (한 댓글이 두 칸에 들 수 있어 합이 100%를 넘음).", "",
+              "### 1-0. 욕구 묶음 (첫째·둘째 중 하나라도 들면)", "", "| 묶음 | 댓글 | 몫 (95% 범위) | 추론 가능 중 | 첫째 욕구로만 | 든 욕구 |", "|---|---|---|---|---|---|"]
+        for f_ in INV["families"]:
+            L.append(f"| **{f_['family']}** | {f_['any']} | {f_['share'] * 100:.1f}% ({f_['lo'] * 100:.1f}~{f_['hi'] * 100:.1f}%) | {f_['share_inferable'] * 100:.1f}% | {f_['first']} | {' '.join(f_['members'])} |")
+        L += ["", "### 1-0-1. 욕구 하나씩", "",
+              "| 순위 | 투자 욕구 | 첫째 표본 | 몫 (95% 범위) | 추론 가능 중 | 욕구2 포함 | 전체 어림 | 이 욕구에 자주 빠진 개념 |", "|---|---|---|---|---|---|---|---|"]
+        for i, w in enumerate(INV["rows"], 1):
+            si = f"{w['share_inferable'] * 100:.1f}%" if w["share_inferable"] is not None else "-"
+            gaps = " · ".join(f"{cn.get(c, c)} {k}" for c, k in w["gap_top"]) or "-"
+            L.append(f"| {i} | **{w['want']}** ({w['code']}) | {w['k']} | {w['share'] * 100:.1f}% ({w['lo'] * 100:.1f}~{w['hi'] * 100:.1f}%) | {si} | {w['any']} ({w['any_share'] * 100:.1f}%) | 약 {w['est']:,} | {gaps} |")
+        L += ["", "### 1-1. 투자 욕구마다 — 추론 문장과 원래 댓글 (추론 '상'·'중', 좋아요 순)", ""]
+        for w in INV["rows"]:
+            if w["code"] == "I00" or not w["examples"]:
+                continue
+            L.append(f"**{w['code']} {w['want']}** — 첫째 {w['k']} · 욕구2 포함 {w['any']} · 지식 " + " · ".join(f"{a} {b}" for a, b in sorted(w["know"].items(), key=lambda x: -x[1])))
+            for e in w["examples"]:
+                L.append(f"- 추론: {e['want']}  ← 댓글: \"{e['text']}\" 👍{e['likes']:,}")
+            L.append("")
+    L += ["## 1-2. (참고) 댓글을 쓴 이유 — v1.1 바람 갈래 (알리기·화풀이·공감이 섞인 목록)" if INV else "## 1. 바람 — 주식에서 원하는 것 (많은 순)", "",
           f"주식과 닿는 바람(W00 추론 불가·W19 주식 무관 뺌) = {D['stock_related']:,}개 ({D['stock_related'] / n * 100:.1f}%) — '주식 바람 중' 칸이 그 안의 몫.", "",
           "| 순위 | 바람 | 표본 | 몫 (95% 범위) | 주식 바람 중 | 전체 어림 | 둘째로도 | 추론 '상' | 이 바람에 자주 빠진 개념 |", "|---|---|---|---|---|---|---|---|---|"]
-    cn = {c["code"]: c["concept"].split(" (")[0] for c in D["concepts"]}
     for i, w in enumerate(D["wants"], 1):
         sm = f"{w['share_stock'] * 100:.1f}%" if w["share_stock"] is not None else "-"
         gaps = " · ".join(f"{cn.get(c, c)} {k}" for c, k in w["gap_top"]) or "-"
         L.append(f"| {i} | **{w['want']}** ({w['code']}) | {w['k']} | {w['share'] * 100:.1f}% ({w['lo'] * 100:.1f}~{w['hi'] * 100:.1f}%) | {sm} | 약 {w['est']:,} | {w['also']} | {w['conf_high']} | {gaps} |")
-    L += ["", "### 1-1. 바람마다 — 추론 문장과 원래 댓글 (추론 '상'·'중', 좋아요 순)", ""]
-    for w in D["wants"]:
+    L += ["", "### 바람(댓글을 쓴 이유)마다 — 추론 문장과 원래 댓글" if INV else "### 1-1. 바람마다 — 추론 문장과 원래 댓글 (추론 '상'·'중', 좋아요 순)", ""]
+    for w in (D["wants"] if not INV else []):
         if w["code"] == "W00" or not w["examples"]:
             continue
         L.append(f"**{w['code']} {w['want']}** — 표본 {w['k']} · 지식 " + " · ".join(f"{a} {b}" for a, b in sorted(w["know"].items(), key=lambda x: -x[1])))
@@ -746,6 +874,51 @@ def write_wants_md(path, D):
           "- 개념은 댓글에 드러난 것만 — 대부분의 댓글은 개념을 쓰지 않으므로, '빠짐' 은 그 사람의 바람·판단에 꼭 필요할 때만 셌다.",
           "- 표본 2,400개 — 몫이 1% 아래인 갈래·개념끼리의 순위 차이는 뜻이 작다. 같은 사람의 여러 댓글은 따로 셈.", ""]
     Path(path).write_text("\n".join(L), "utf-8")
+
+
+def invest_todo(topic):
+    """같은 무작위 표본(wants_keys.json) → 투자 욕구 추론 할 일 (invest_todo/V01..V08.md)."""
+    P = paths(topic)
+    K = json.loads((P["dir"] / "wants_keys.json").read_text("utf-8"))
+    rows = [json.loads(l) for l in gzip.open(P["work"] / "rows.jsonl.gz", "rt", encoding="utf-8")]
+    ko = [r for r in rows if r["lang"] == "한국어"]
+    d = P["dir"] / "invest_todo"
+    d.mkdir(parents=True, exist_ok=True)
+    (P["dir"] / "invest").mkdir(parents=True, exist_ok=True)
+    for f in d.glob("*.md"):
+        f.unlink()
+    il = "\n".join(f"- {c}: {t}" for c, t in INVEST)
+    keys = []
+    for b in range(0, len(K["keys"]), WANTS_BATCH):
+        part = K["keys"][b: b + WANTS_BATCH]
+        name = f"V{b // WANTS_BATCH + 1:02d}"
+        out = P["dir"] / "invest" / f"{name}.tsv"
+        L = [f"# 댓글을 쓴 사람이 투자에서 얻고 싶은 것 — {name} (댓글 {len(part)}개)", "",
+             "너는 처음 이 글을 보는 검토자다. 아래 주식 유튜브 시청자 댓글마다, 이 댓글을 쓴 사람이 **투자에서 얻고 싶은 결과·정보**를 추론한다.",
+             "**댓글을 쓰는 이유(내 생각을 알리고 싶다·인정받고 싶다·화풀이·공감·조롱)는 답이 아니다.** 그 말을 하게 만든 투자 쪽 바람을 본다. 댓글 내용을 요약하지 않는다.", "",
+             "예:",
+             "- \"형님 죄송하지만 대하락 전 마지막 반등입니다\" → I01 \"다가올 큰 하락을 미리 알고 피하고 싶다\"",
+             "- \"하닉 100까지 빠질 것 같음\" → I06/I01 \"가진 하이닉스가 얼마나 더 빠질지 미리 알고 싶다\"",
+             "- \"지금이 바닥이다 줍줍 갑니다\" → I02 \"바닥에서 싸게 사고 싶다\"",
+             "- \"엔비디아는 창업자가 있어 더 오른다\" → I05/I20 \"크게 오를 종목을 골라 확신을 갖고 싶다\"",
+             "- \"경쟁사가 다 증설하면 공급이 넘쳐 값이 떨어진다\" → I06/I08 \"반도체 주가가 꺾일지 미리 알고 싶다\"",
+             "- \"정부가 국민연금으로 장난쳐서 다 망했다\" → I22/I24 \"정부가 증시를 떠받쳐 내 손실을 막아 주길 바란다\"",
+             "- \"외인들 다 털고 나갔네\" → I16 \"외국인 매매를 미리 알고 따라가고 싶다\"",
+             "- \"ㅋㅋㅋ 형 옷 뭐야\" → I00", "",
+             "## 칸",
+             "- `욕구1`: 아래 목록에서 가장 뚜렷한 것 하나. `욕구2`: 둘째가 뚜렷하면 하나 더 (없으면 비움).",
+             "- `추론`: 그 사람이 투자에서 원하는 것을 '~하고 싶다·~를 알고 싶다·~이길 바란다' 한 문장으로 (I00 이면 `-`).",
+             "- `확신`: 상·중·하.",
+             "- 목록에 딱 맞는 게 없으면 가장 가까운 것을 고르고 `추론` 문장에 정확히 적는다.",
+             f"- 다른 파일은 읽지 않는다. 답은 TSV 로 `{out.relative_to(ROOT)}` 에 저장 — 머리줄 `댓글\t욕구1\t욕구2\t추론\t확신`, 댓글마다 한 줄, 빠짐없이 (칸 안에 탭·줄바꿈 ✗).", "",
+             "## 투자 욕구 목록", "", il, "", "## 댓글", ""]
+        for j, k in enumerate(part, 1):
+            vid = f"{name}-{j:03d}"
+            keys.append({"id": vid, "row": k["row"], "cid": k["cid"], "wid": k["id"]})
+            L.append(f"- {vid}: {one_line(ko[k['row']]['text'], 220)}")
+        (d / f"{name}.md").write_text("\n".join(L), "utf-8")
+    (P["dir"] / "invest_keys.json").write_text(json.dumps({"keys": keys, "n_ko": K["n_ko"], "invest": INVEST}, ensure_ascii=False), "utf-8")
+    log("INVEST_TODO", sample=len(keys), files=len(list(d.glob("*.md"))), dir=d)
 
 
 def stage_names(topic):
@@ -905,7 +1078,7 @@ def main(argv=None):
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     ap = argparse.ArgumentParser(description="시청자 공통 생각 — 모든 댓글")
     ap.add_argument("topic")
-    ap.add_argument("cmd", choices=["build", "report", "verify", "classify", "wants"])
+    ap.add_argument("cmd", choices=["build", "report", "verify", "classify", "wants", "invest"])
     a = ap.parse_args(argv)
     t0 = time.time()
     if a.cmd == "build":
@@ -916,6 +1089,8 @@ def main(argv=None):
         classify_todo(a.topic)
     elif a.cmd == "wants":
         wants_todo(a.topic)
+    elif a.cmd == "invest":
+        invest_todo(a.topic)
     else:
         report(a.topic)
         wants_report(a.topic)

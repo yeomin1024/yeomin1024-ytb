@@ -1,0 +1,1031 @@
+{
+ "rule": "종가(배당 뺌) · 모양 = 고점 −365일~+150일 log(값/고점) RMSE (5일 간격) · 그 뒤 = 고점 150일 뒤에 있던 사람 기준",
+ "now": {
+  "코스피": {
+   "peak": "2026-06-22",
+   "run_1y_pct": 201.6,
+   "run_6m_pct": 122.0,
+   "run_from_2y_low_pct": 297.4,
+   "low_to_peak_days": 439,
+   "days_to_minus40": 136,
+   "at_150d_pct": -44.0,
+   "low_within_150d_pct": -45.5,
+   "after_further_drop_3y_pct": 0.0,
+   "after_1y_pct": null,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": null,
+   "peak_regained": null,
+   "now_pct": -44.0,
+   "last": "2026-11-19"
+  },
+  "삼성전자": {
+   "peak": "2026-06-18",
+   "run_1y_pct": 506.2,
+   "run_6m_pct": 236.9,
+   "run_from_2y_low_pct": 626.5,
+   "low_to_peak_days": 581,
+   "days_to_minus40": 41,
+   "at_150d_pct": -43.2,
+   "low_within_150d_pct": -47.9,
+   "after_further_drop_3y_pct": -7.6,
+   "after_1y_pct": null,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": null,
+   "peak_regained": null,
+   "now_pct": -46.2,
+   "last": "2026-11-19"
+  },
+  "SK하이닉스": {
+   "peak": "2026-06-22",
+   "run_1y_pct": 1035.8,
+   "run_6m_pct": 403.3,
+   "run_from_2y_low_pct": 1810.3,
+   "low_to_peak_days": 641,
+   "days_to_minus40": 36,
+   "at_150d_pct": -59.8,
+   "low_within_150d_pct": -62.4,
+   "after_further_drop_3y_pct": 0.0,
+   "after_1y_pct": null,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": null,
+   "peak_regained": null,
+   "now_pct": -59.8,
+   "last": "2026-11-19"
+  }
+ },
+ "cands": [
+  {
+   "peak": "2000-01-04",
+   "run_1y_pct": 80.2,
+   "run_6m_pct": 7.0,
+   "run_from_2y_low_pct": 278.2,
+   "low_to_peak_days": 567,
+   "days_to_minus40": 255,
+   "at_150d_pct": -28.2,
+   "low_within_150d_pct": -38.1,
+   "after_further_drop_3y_pct": -38.4,
+   "after_1y_pct": -20.2,
+   "after_3y_pct": -14.7,
+   "after_5y_pct": 27.6,
+   "years_150d_to_peak": 5.1,
+   "peak_regained": "2005-07-14",
+   "symbol": "^KS11",
+   "name": "코스피",
+   "data_first": "1996-12-11",
+   "rmse": {
+    "코스피": {
+     "all": 0.377,
+     "up": 0.439,
+     "down": 0.127
+    },
+    "삼성전자": {
+     "all": 0.716,
+     "up": 0.843,
+     "down": 0.156
+    },
+    "SK하이닉스": {
+     "all": 1.127,
+     "up": 1.316,
+     "down": 0.359
+    }
+   }
+  },
+  {
+   "peak": "2007-10-31",
+   "run_1y_pct": 51.3,
+   "run_6m_pct": 32.9,
+   "run_from_2y_low_pct": 78.3,
+   "low_to_peak_days": 730,
+   "days_to_minus40": 351,
+   "at_150d_pct": -17.6,
+   "low_within_150d_pct": -23.8,
+   "after_further_drop_3y_pct": -44.8,
+   "after_1y_pct": -27.3,
+   "after_3y_pct": 21.8,
+   "after_5y_pct": 17.8,
+   "years_150d_to_peak": 2.8,
+   "peak_regained": "2011-01-03",
+   "symbol": "^KS11",
+   "name": "코스피",
+   "data_first": "1996-12-11",
+   "rmse": {
+    "코스피": {
+     "all": 0.424,
+     "up": 0.484,
+     "down": 0.208
+    },
+    "삼성전자": {
+     "all": 0.768,
+     "up": 0.899,
+     "down": 0.228
+    },
+    "SK하이닉스": {
+     "all": 1.188,
+     "up": 1.379,
+     "down": 0.448
+    }
+   }
+  },
+  {
+   "peak": "2011-05-02",
+   "run_1y_pct": 28.0,
+   "run_6m_pct": 16.4,
+   "run_from_2y_low_pct": 63.8,
+   "low_to_peak_days": 678,
+   "days_to_minus40": null,
+   "at_150d_pct": -20.6,
+   "low_within_150d_pct": -25.9,
+   "after_further_drop_3y_pct": -5.8,
+   "after_1y_pct": 12.8,
+   "after_3y_pct": 14.8,
+   "after_5y_pct": 16.0,
+   "years_150d_to_peak": 5.6,
+   "peak_regained": "2017-05-04",
+   "symbol": "^KS11",
+   "name": "코스피",
+   "data_first": "1996-12-11",
+   "rmse": {
+    "코스피": {
+     "all": 0.503,
+     "up": 0.576,
+     "down": 0.234
+    },
+    "삼성전자": {
+     "all": 0.848,
+     "up": 0.992,
+     "down": 0.259
+    },
+    "SK하이닉스": {
+     "all": 1.266,
+     "up": 1.469,
+     "down": 0.476
+    }
+   }
+  },
+  {
+   "peak": "2018-01-29",
+   "run_1y_pct": 24.7,
+   "run_6m_pct": 8.1,
+   "run_from_2y_low_pct": 41.6,
+   "low_to_peak_days": 717,
+   "days_to_minus40": 780,
+   "at_150d_pct": -10.9,
+   "low_within_150d_pct": -10.9,
+   "after_further_drop_3y_pct": -37.0,
+   "after_1y_pct": -7.9,
+   "after_3y_pct": 42.7,
+   "after_5y_pct": 10.8,
+   "years_150d_to_peak": 2.4,
+   "peak_regained": "2020-11-23",
+   "symbol": "^KS11",
+   "name": "코스피",
+   "data_first": "1996-12-11",
+   "rmse": {
+    "코스피": {
+     "all": 0.565,
+     "up": 0.642,
+     "down": 0.294
+    },
+    "삼성전자": {
+     "all": 0.909,
+     "up": 1.058,
+     "down": 0.313
+    },
+    "SK하이닉스": {
+     "all": 1.328,
+     "up": 1.535,
+     "down": 0.538
+    }
+   }
+  },
+  {
+   "peak": "2021-07-06",
+   "run_1y_pct": 51.1,
+   "run_6m_pct": 10.5,
+   "run_from_2y_low_pct": 126.8,
+   "low_to_peak_days": 474,
+   "days_to_minus40": null,
+   "at_150d_pct": -10.2,
+   "low_within_150d_pct": -14.1,
+   "after_further_drop_3y_pct": -27.4,
+   "after_1y_pct": -18.0,
+   "after_3y_pct": -17.3,
+   "after_5y_pct": null,
+   "years_150d_to_peak": 3.8,
+   "peak_regained": "2025-09-10",
+   "symbol": "^KS11",
+   "name": "코스피",
+   "data_first": "1996-12-11",
+   "rmse": {
+    "코스피": {
+     "all": 0.487,
+     "up": 0.548,
+     "down": 0.283
+    },
+    "삼성전자": {
+     "all": 0.826,
+     "up": 0.96,
+     "down": 0.303
+    },
+    "SK하이닉스": {
+     "all": 1.247,
+     "up": 1.439,
+     "down": 0.527
+    }
+   }
+  },
+  {
+   "peak": "2000-07-13",
+   "run_1y_pct": null,
+   "run_6m_pct": 35.9,
+   "run_from_2y_low_pct": null,
+   "low_to_peak_days": null,
+   "days_to_minus40": 64,
+   "at_150d_pct": -56.6,
+   "low_within_150d_pct": -64.8,
+   "after_further_drop_3y_pct": -16.6,
+   "after_1y_pct": 54.3,
+   "after_3y_pct": 168.8,
+   "after_5y_pct": 268.5,
+   "years_150d_to_peak": 1.3,
+   "peak_regained": "2002-04-02",
+   "symbol": "005930.KS",
+   "name": "삼성전자",
+   "data_first": "2000-01-04",
+   "rmse": {}
+  },
+  {
+   "peak": "2008-05-15",
+   "run_1y_pct": 34.0,
+   "run_6m_pct": 34.0,
+   "run_from_2y_low_pct": 50.7,
+   "low_to_peak_days": 203,
+   "days_to_minus40": 162,
+   "at_150d_pct": -31.8,
+   "low_within_150d_pct": -33.8,
+   "after_further_drop_3y_pct": -22.8,
+   "after_1y_pct": 43.8,
+   "after_3y_pct": 72.4,
+   "after_5y_pct": 177.0,
+   "years_150d_to_peak": 0.9,
+   "peak_regained": "2009-08-24",
+   "symbol": "005930.KS",
+   "name": "삼성전자",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.438,
+     "up": 0.513,
+     "down": 0.125
+    },
+    "삼성전자": {
+     "all": 0.788,
+     "up": 0.929,
+     "down": 0.152
+    },
+    "SK하이닉스": {
+     "all": 1.197,
+     "up": 1.401,
+     "down": 0.344
+    }
+   }
+  },
+  {
+   "peak": "2021-01-11",
+   "run_1y_pct": 52.9,
+   "run_6m_pct": 70.4,
+   "run_from_2y_low_pct": 127.2,
+   "low_to_peak_days": 728,
+   "days_to_minus40": 619,
+   "at_150d_pct": -11.0,
+   "low_within_150d_pct": -13.7,
+   "after_further_drop_3y_pct": -35.1,
+   "after_1y_pct": -21.2,
+   "after_3y_pct": -4.6,
+   "after_5y_pct": 273.5,
+   "years_150d_to_peak": 4.3,
+   "peak_regained": "2025-10-10",
+   "symbol": "005930.KS",
+   "name": "삼성전자",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.311,
+     "up": 0.328,
+     "down": 0.263
+    },
+    "삼성전자": {
+     "all": 0.64,
+     "up": 0.737,
+     "down": 0.28
+    },
+    "SK하이닉스": {
+     "all": 1.051,
+     "up": 1.202,
+     "down": 0.506
+    }
+   }
+  },
+  {
+   "peak": "2024-07-09",
+   "run_1y_pct": 26.3,
+   "run_6m_pct": 17.5,
+   "run_from_2y_low_pct": 66.9,
+   "low_to_peak_days": 649,
+   "days_to_minus40": 127,
+   "at_150d_pct": -38.4,
+   "low_within_150d_pct": -43.2,
+   "after_further_drop_3y_pct": -5.7,
+   "after_1y_pct": 100.4,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": 0.8,
+   "peak_regained": "2025-10-02",
+   "symbol": "005930.KS",
+   "name": "삼성전자",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.495,
+     "up": 0.582,
+     "down": 0.12
+    },
+    "삼성전자": {
+     "all": 0.846,
+     "up": 0.998,
+     "down": 0.147
+    },
+    "SK하이닉스": {
+     "all": 1.256,
+     "up": 1.474,
+     "down": 0.316
+    }
+   }
+  },
+  {
+   "peak": "2000-01-28",
+   "run_1y_pct": null,
+   "run_6m_pct": null,
+   "run_from_2y_low_pct": null,
+   "low_to_peak_days": null,
+   "days_to_minus40": 31,
+   "at_150d_pct": -17.0,
+   "low_within_150d_pct": -50.0,
+   "after_further_drop_3y_pct": -99.4,
+   "after_1y_pct": -87.0,
+   "after_3y_pct": -98.8,
+   "after_5y_pct": -96.4,
+   "years_150d_to_peak": 25.4,
+   "peak_regained": "2025-11-03",
+   "symbol": "000660.KS",
+   "name": "SK하이닉스",
+   "data_first": "2000-01-04",
+   "rmse": {}
+  },
+  {
+   "peak": "2007-07-20",
+   "run_1y_pct": 25.2,
+   "run_6m_pct": 21.9,
+   "run_from_2y_low_pct": 106.3,
+   "low_to_peak_days": 630,
+   "days_to_minus40": 97,
+   "at_150d_pct": -35.6,
+   "low_within_150d_pct": -42.6,
+   "after_further_drop_3y_pct": -76.8,
+   "after_1y_pct": -72.4,
+   "after_3y_pct": -4.2,
+   "after_5y_pct": 3.8,
+   "years_150d_to_peak": 6.1,
+   "peak_regained": "2014-02-07",
+   "symbol": "000660.KS",
+   "name": "SK하이닉스",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.554,
+     "up": 0.651,
+     "down": 0.133
+    },
+    "삼성전자": {
+     "all": 0.904,
+     "up": 1.067,
+     "down": 0.16
+    },
+    "SK하이닉스": {
+     "all": 1.309,
+     "up": 1.538,
+     "down": 0.313
+    }
+   }
+  },
+  {
+   "peak": "2011-04-21",
+   "run_1y_pct": 29.6,
+   "run_6m_pct": 55.8,
+   "run_from_2y_low_pct": 221.7,
+   "low_to_peak_days": 694,
+   "days_to_minus40": 109,
+   "at_150d_pct": -40.8,
+   "low_within_150d_pct": -57.8,
+   "after_further_drop_3y_pct": -8.9,
+   "after_1y_pct": 4.8,
+   "after_3y_pct": 101.4,
+   "after_5y_pct": 72.6,
+   "years_150d_to_peak": 2.2,
+   "peak_regained": "2013-12-16",
+   "symbol": "000660.KS",
+   "name": "SK하이닉스",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.36,
+     "up": 0.416,
+     "down": 0.15
+    },
+    "삼성전자": {
+     "all": 0.704,
+     "up": 0.828,
+     "down": 0.168
+    },
+    "SK하이닉스": {
+     "all": 1.1,
+     "up": 1.297,
+     "down": 0.221
+    }
+   }
+  },
+  {
+   "peak": "2014-07-08",
+   "run_1y_pct": 86.7,
+   "run_6m_pct": 37.3,
+   "run_from_2y_low_pct": 156.3,
+   "low_to_peak_days": 720,
+   "days_to_minus40": 412,
+   "at_150d_pct": -6.8,
+   "low_within_150d_pct": -19.7,
+   "after_further_drop_3y_pct": -46.7,
+   "after_1y_pct": -35.5,
+   "after_3y_pct": 63.6,
+   "after_5y_pct": 63.0,
+   "years_150d_to_peak": 2.1,
+   "peak_regained": "2017-01-26",
+   "symbol": "000660.KS",
+   "name": "SK하이닉스",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.332,
+     "up": 0.357,
+     "down": 0.256
+    },
+    "삼성전자": {
+     "all": 0.668,
+     "up": 0.773,
+     "down": 0.27
+    },
+    "SK하이닉스": {
+     "all": 1.085,
+     "up": 1.246,
+     "down": 0.492
+    }
+   }
+  },
+  {
+   "peak": "2021-02-25",
+   "run_1y_pct": 57.0,
+   "run_6m_pct": 87.7,
+   "run_from_2y_low_pct": 135.3,
+   "low_to_peak_days": 622,
+   "days_to_minus40": 491,
+   "at_150d_pct": -20.2,
+   "low_within_150d_pct": -21.2,
+   "after_further_drop_3y_pct": -36.7,
+   "after_1y_pct": -15.6,
+   "after_3y_pct": 75.9,
+   "after_5y_pct": 1384.4,
+   "years_150d_to_peak": 2.6,
+   "peak_regained": "2024-02-13",
+   "symbol": "000660.KS",
+   "name": "SK하이닉스",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.277,
+     "up": 0.295,
+     "down": 0.222
+    },
+    "삼성전자": {
+     "all": 0.607,
+     "up": 0.703,
+     "down": 0.243
+    },
+    "SK하이닉스": {
+     "all": 1.018,
+     "up": 1.17,
+     "down": 0.463
+    }
+   }
+  },
+  {
+   "peak": "2024-07-11",
+   "run_1y_pct": 108.8,
+   "run_6m_pct": 77.2,
+   "run_from_2y_low_pct": 221.3,
+   "low_to_peak_days": 560,
+   "days_to_minus40": null,
+   "at_150d_pct": -30.7,
+   "low_within_150d_pct": -36.6,
+   "after_further_drop_3y_pct": -1.4,
+   "after_1y_pct": 245.3,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": 0.5,
+   "peak_regained": "2025-06-16",
+   "symbol": "000660.KS",
+   "name": "SK하이닉스",
+   "data_first": "2000-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.21,
+     "up": 0.234,
+     "down": 0.129
+    },
+    "삼성전자": {
+     "all": 0.552,
+     "up": 0.649,
+     "down": 0.138
+    },
+    "SK하이닉스": {
+     "all": 0.965,
+     "up": 1.125,
+     "down": 0.324
+    }
+   }
+  },
+  {
+   "peak": "2000-03-10",
+   "run_1y_pct": 256.6,
+   "run_6m_pct": 136.0,
+   "run_from_2y_low_pct": 601.8,
+   "low_to_peak_days": 519,
+   "days_to_minus40": 210,
+   "at_150d_pct": -28.4,
+   "low_within_150d_pct": -34.7,
+   "after_further_drop_3y_pct": -77.6,
+   "after_1y_pct": -35.5,
+   "after_3y_pct": -60.1,
+   "after_5y_pct": -50.6,
+   "years_150d_to_peak": 17.3,
+   "peak_regained": "2017-11-21",
+   "symbol": "^SOX",
+   "name": "미국 반도체 지수",
+   "data_first": "1994-05-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.206,
+     "up": 0.211,
+     "down": 0.19
+    },
+    "삼성전자": {
+     "all": 0.279,
+     "up": 0.303,
+     "down": 0.202
+    },
+    "SK하이닉스": {
+     "all": 0.664,
+     "up": 0.741,
+     "down": 0.411
+    }
+   }
+  },
+  {
+   "peak": "2021-12-27",
+   "run_1y_pct": 46.9,
+   "run_6m_pct": 21.6,
+   "run_from_2y_low_pct": 213.9,
+   "low_to_peak_days": 649,
+   "days_to_minus40": 270,
+   "at_150d_pct": -25.9,
+   "low_within_150d_pct": -30.4,
+   "after_further_drop_3y_pct": -27.8,
+   "after_1y_pct": 18.4,
+   "after_3y_pct": 57.0,
+   "after_5y_pct": null,
+   "years_150d_to_peak": 1.6,
+   "peak_regained": "2023-12-14",
+   "symbol": "^SOX",
+   "name": "미국 반도체 지수",
+   "data_first": "1994-05-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.462,
+     "up": 0.539,
+     "down": 0.15
+    },
+    "삼성전자": {
+     "all": 0.812,
+     "up": 0.956,
+     "down": 0.175
+    },
+    "SK하이닉스": {
+     "all": 1.227,
+     "up": 1.432,
+     "down": 0.388
+    }
+   }
+  },
+  {
+   "peak": "2024-07-10",
+   "run_1y_pct": 61.6,
+   "run_6m_pct": 45.8,
+   "run_from_2y_low_pct": 173.1,
+   "low_to_peak_days": 635,
+   "days_to_minus40": null,
+   "at_150d_pct": -14.3,
+   "low_within_150d_pct": -25.0,
+   "after_further_drop_3y_pct": -29.6,
+   "after_1y_pct": 44.1,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": 0.8,
+   "peak_regained": "2025-09-10",
+   "symbol": "^SOX",
+   "name": "미국 반도체 지수",
+   "data_first": "1994-05-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.349,
+     "up": 0.39,
+     "down": 0.215
+    },
+    "삼성전자": {
+     "all": 0.692,
+     "up": 0.806,
+     "down": 0.233
+    },
+    "SK하이닉스": {
+     "all": 1.11,
+     "up": 1.283,
+     "down": 0.452
+    }
+   }
+  },
+  {
+   "peak": "2000-03-27",
+   "run_1y_pct": 127.6,
+   "run_6m_pct": 93.9,
+   "run_from_2y_low_pct": 316.8,
+   "low_to_peak_days": 536,
+   "days_to_minus40": 238,
+   "at_150d_pct": -16.1,
+   "low_within_150d_pct": -35.7,
+   "after_further_drop_3y_pct": -79.6,
+   "after_1y_pct": -60.0,
+   "after_3y_pct": -67.0,
+   "after_5y_pct": -60.5,
+   "years_150d_to_peak": 15.2,
+   "peak_regained": "2015-11-03",
+   "symbol": "^NDX",
+   "name": "나스닥100",
+   "data_first": "1985-10-01",
+   "rmse": {
+    "코스피": {
+     "all": 0.181,
+     "up": 0.184,
+     "down": 0.17
+    },
+    "삼성전자": {
+     "all": 0.51,
+     "up": 0.594,
+     "down": 0.178
+    },
+    "SK하이닉스": {
+     "all": 0.928,
+     "up": 1.071,
+     "down": 0.385
+    }
+   }
+  },
+  {
+   "peak": "2021-11-19",
+   "run_1y_pct": 38.3,
+   "run_6m_pct": 23.6,
+   "run_from_2y_low_pct": 137.0,
+   "low_to_peak_days": 609,
+   "days_to_minus40": null,
+   "at_150d_pct": -16.1,
+   "low_within_150d_pct": -21.3,
+   "after_further_drop_3y_pct": -23.2,
+   "after_1y_pct": -5.9,
+   "after_3y_pct": 31.3,
+   "after_5y_pct": null,
+   "years_150d_to_peak": 1.7,
+   "peak_regained": "2023-12-15",
+   "symbol": "^NDX",
+   "name": "나스닥100",
+   "data_first": "1985-10-01",
+   "rmse": {
+    "코스피": {
+     "all": 0.505,
+     "up": 0.575,
+     "down": 0.255
+    },
+    "삼성전자": {
+     "all": 0.85,
+     "up": 0.991,
+     "down": 0.279
+    },
+    "SK하이닉스": {
+     "all": 1.269,
+     "up": 1.469,
+     "down": 0.495
+    }
+   }
+  },
+  {
+   "peak": "1989-12-29",
+   "run_1y_pct": 29.0,
+   "run_6m_pct": 18.1,
+   "run_from_2y_low_pct": 83.4,
+   "low_to_peak_days": 725,
+   "days_to_minus40": 271,
+   "at_150d_pct": -14.7,
+   "low_within_150d_pct": -28.0,
+   "after_further_drop_3y_pct": -56.9,
+   "after_1y_pct": -23.5,
+   "after_3y_pct": -37.2,
+   "after_5y_pct": -52.7,
+   "years_150d_to_peak": 33.7,
+   "peak_regained": "2024-02-22",
+   "symbol": "^N225",
+   "name": "닛케이225",
+   "data_first": "1965-01-05",
+   "rmse": {
+    "코스피": {
+     "all": 0.53,
+     "up": 0.612,
+     "down": 0.215
+    },
+    "삼성전자": {
+     "all": 0.878,
+     "up": 1.029,
+     "down": 0.239
+    },
+    "SK하이닉스": {
+     "all": 1.294,
+     "up": 1.506,
+     "down": 0.447
+    }
+   }
+  },
+  {
+   "peak": "1997-08-26",
+   "run_1y_pct": null,
+   "run_6m_pct": null,
+   "run_from_2y_low_pct": null,
+   "low_to_peak_days": null,
+   "days_to_minus40": 517,
+   "at_150d_pct": -20.1,
+   "low_within_150d_pct": -29.9,
+   "after_further_drop_3y_pct": -42.9,
+   "after_1y_pct": -23.0,
+   "after_3y_pct": -27.7,
+   "after_5y_pct": -37.2,
+   "years_150d_to_peak": 2.1,
+   "peak_regained": "2000-02-11",
+   "symbol": "^TWII",
+   "name": "대만 가권",
+   "data_first": "1997-07-02",
+   "rmse": {}
+  },
+  {
+   "peak": "2000-02-17",
+   "run_1y_pct": 76.0,
+   "run_6m_pct": 28.1,
+   "run_from_2y_low_pct": 86.3,
+   "low_to_peak_days": 377,
+   "days_to_minus40": 228,
+   "at_150d_pct": -16.7,
+   "low_within_150d_pct": -21.1,
+   "after_further_drop_3y_pct": -59.4,
+   "after_1y_pct": -48.6,
+   "after_3y_pct": -36.3,
+   "after_5y_pct": -24.6,
+   "years_150d_to_peak": 16.9,
+   "peak_regained": "2017-06-05",
+   "symbol": "^TWII",
+   "name": "대만 가권",
+   "data_first": "1997-07-02",
+   "rmse": {
+    "코스피": {
+     "all": 0.429,
+     "up": 0.486,
+     "down": 0.231
+    },
+    "삼성전자": {
+     "all": 0.773,
+     "up": 0.902,
+     "down": 0.251
+    },
+    "SK하이닉스": {
+     "all": 1.188,
+     "up": 1.375,
+     "down": 0.473
+    }
+   }
+  },
+  {
+   "peak": "2021-06-23",
+   "run_1y_pct": 201.1,
+   "run_6m_pct": 124.5,
+   "run_from_2y_low_pct": 594.7,
+   "low_to_peak_days": 687,
+   "days_to_minus40": 197,
+   "at_150d_pct": -25.1,
+   "low_within_150d_pct": -34.5,
+   "after_further_drop_3y_pct": -74.2,
+   "after_1y_pct": -54.6,
+   "after_3y_pct": -71.5,
+   "after_5y_pct": null,
+   "years_150d_to_peak": null,
+   "peak_regained": null,
+   "symbol": "035720.KS",
+   "name": "카카오",
+   "data_first": "2010-01-04",
+   "rmse": {
+    "코스피": {
+     "all": 0.142,
+     "up": 0.128,
+     "down": 0.169
+    },
+    "삼성전자": {
+     "all": 0.424,
+     "up": 0.487,
+     "down": 0.191
+    },
+    "SK하이닉스": {
+     "all": 0.832,
+     "up": 0.953,
+     "down": 0.394
+    }
+   }
+  },
+  {
+   "peak": "2023-07-25",
+   "run_1y_pct": 1338.2,
+   "run_6m_pct": 1045.3,
+   "run_from_2y_low_pct": 1942.6,
+   "low_to_peak_days": 543,
+   "days_to_minus40": 87,
+   "at_150d_pct": -48.3,
+   "low_within_150d_pct": -53.8,
+   "after_further_drop_3y_pct": -70.7,
+   "after_1y_pct": -52.3,
+   "after_3y_pct": null,
+   "after_5y_pct": null,
+   "years_150d_to_peak": null,
+   "peak_regained": null,
+   "symbol": "086520.KQ",
+   "name": "에코프로",
+   "data_first": "2015-01-02",
+   "rmse": {
+    "코스피": {
+     "all": 0.972,
+     "up": 1.146,
+     "down": 0.184
+    },
+    "삼성전자": {
+     "all": 0.639,
+     "up": 0.747,
+     "down": 0.198
+    },
+    "SK하이닉스": {
+     "all": 0.373,
+     "up": 0.416,
+     "down": 0.233
+    }
+   }
+  }
+ ],
+ "context_2026": {
+  "미국 반도체 지수": {
+   "peak_2026": "2026-06-22",
+   "now_pct": -34.1,
+   "last": "2026-11-17",
+   "run_1y_pct": 180.8
+  },
+  "나스닥100": {
+   "peak_2026": "2026-10-06",
+   "now_pct": -13.5,
+   "last": "2026-11-17",
+   "run_1y_pct": 25.0
+  },
+  "S&P 500": {
+   "peak_2026": "2026-10-06",
+   "now_pct": -6.1,
+   "last": "2026-11-17",
+   "run_1y_pct": 16.0
+  }
+ },
+ "rank": {
+  "코스피": [
+   [
+    0.142,
+    "카카오",
+    "2021-06-23"
+   ],
+   [
+    0.181,
+    "나스닥100",
+    "2000-03-27"
+   ],
+   [
+    0.206,
+    "미국 반도체 지수",
+    "2000-03-10"
+   ],
+   [
+    0.21,
+    "SK하이닉스",
+    "2024-07-11"
+   ],
+   [
+    0.277,
+    "SK하이닉스",
+    "2021-02-25"
+   ],
+   [
+    0.311,
+    "삼성전자",
+    "2021-01-11"
+   ]
+  ],
+  "삼성전자": [
+   [
+    0.279,
+    "미국 반도체 지수",
+    "2000-03-10"
+   ],
+   [
+    0.424,
+    "카카오",
+    "2021-06-23"
+   ],
+   [
+    0.51,
+    "나스닥100",
+    "2000-03-27"
+   ],
+   [
+    0.552,
+    "SK하이닉스",
+    "2024-07-11"
+   ],
+   [
+    0.607,
+    "SK하이닉스",
+    "2021-02-25"
+   ],
+   [
+    0.639,
+    "에코프로",
+    "2023-07-25"
+   ]
+  ],
+  "SK하이닉스": [
+   [
+    0.373,
+    "에코프로",
+    "2023-07-25"
+   ],
+   [
+    0.664,
+    "미국 반도체 지수",
+    "2000-03-10"
+   ],
+   [
+    0.832,
+    "카카오",
+    "2021-06-23"
+   ],
+   [
+    0.928,
+    "나스닥100",
+    "2000-03-27"
+   ],
+   [
+    0.965,
+    "SK하이닉스",
+    "2024-07-11"
+   ],
+   [
+    1.018,
+    "SK하이닉스",
+    "2021-02-25"
+   ]
+  ]
+ }
+}

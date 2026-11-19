@@ -1,0 +1,231 @@
+{
+ "rule": "직전 고점 대비 −40% 를 처음 찍은 날 · 고점에 100 넣은 사람이 그날 고른 길 → 1년·3년 뒤 금액 (수정 종가 · S&P 500 은 원화 환산 · 세금·수수료 뺌)",
+ "start": "2003-12-01",
+ "events": [
+  {
+   "name": "삼성전자",
+   "hit": "2008-10-24",
+   "value_at_hit": 53,
+   "1y": {
+    "hold": 100,
+    "half_sp": 76,
+    "all_sp": 53
+   },
+   "3y": {
+    "hold": 127,
+    "half_sp": 94,
+    "all_sp": 60
+   },
+   "further_drop_3y_pct": 0.0,
+   "years_to_peak": 0.8
+  },
+  {
+   "name": "삼성전자",
+   "hit": "2022-09-28",
+   "value_at_hit": 60,
+   "1y": {
+    "hold": 79,
+    "half_sp": 72,
+    "all_sp": 65
+   },
+   "3y": {
+    "hold": 102,
+    "half_sp": 104,
+    "all_sp": 106
+   },
+   "further_drop_3y_pct": -1.0,
+   "years_to_peak": 1.5
+  },
+  {
+   "name": "삼성전자",
+   "hit": "2024-11-13",
+   "value_at_hit": 58,
+   "1y": {
+    "hold": 121,
+    "half_sp": 94,
+    "all_sp": 68
+   },
+   "3y": null,
+   "further_drop_3y_pct": -1.4,
+   "years_to_peak": 0.9
+  },
+  {
+   "name": "삼성전자",
+   "hit": "2026-07-29",
+   "value_at_hit": 58,
+   "1y": null,
+   "3y": null,
+   "further_drop_3y_pct": -7.9,
+   "years_to_peak": null
+  },
+  {
+   "name": "SK하이닉스",
+   "hit": "2007-10-25",
+   "value_at_hit": 59,
+   "1y": {
+    "hold": 21,
+    "half_sp": 37,
+    "all_sp": 53
+   },
+   "3y": {
+    "hold": 71,
+    "half_sp": 64,
+    "all_sp": 57
+   },
+   "further_drop_3y_pct": -73.7,
+   "years_to_peak": 3.5
+  },
+  {
+   "name": "SK하이닉스",
+   "hit": "2011-08-08",
+   "value_at_hit": 59,
+   "1y": {
+    "hold": 61,
+    "half_sp": 69,
+    "all_sp": 77
+   },
+   "3y": {
+    "hold": 119,
+    "half_sp": 108,
+    "all_sp": 97
+   },
+   "further_drop_3y_pct": -28.6,
+   "years_to_peak": 2.4
+  },
+  {
+   "name": "SK하이닉스",
+   "hit": "2015-10-30",
+   "value_at_hit": 60,
+   "1y": {
+    "hold": 84,
+    "half_sp": 72,
+    "all_sp": 61
+   },
+   "3y": {
+    "hold": 135,
+    "half_sp": 105,
+    "all_sp": 76
+   },
+   "further_drop_3y_pct": -14.7,
+   "years_to_peak": 1.2
+  },
+  {
+   "name": "SK하이닉스",
+   "hit": "2022-07-01",
+   "value_at_hit": 60,
+   "1y": {
+    "hold": 82,
+    "half_sp": 76,
+    "all_sp": 71
+   },
+   "3y": {
+    "hold": 202,
+    "half_sp": 152,
+    "all_sp": 102
+   },
+   "further_drop_3y_pct": -13.6,
+   "years_to_peak": 1.6
+  },
+  {
+   "name": "SK하이닉스",
+   "hit": "2026-07-28",
+   "value_at_hit": 53,
+   "1y": null,
+   "3y": null,
+   "further_drop_3y_pct": -29.1,
+   "years_to_peak": null
+  },
+  {
+   "name": "코스피",
+   "hit": "2008-10-16",
+   "value_at_hit": 59,
+   "1y": {
+    "hold": 79,
+    "half_sp": 69,
+    "all_sp": 58
+   },
+   "3y": {
+    "hold": 90,
+    "half_sp": 77,
+    "all_sp": 64
+   },
+   "further_drop_3y_pct": -22.7,
+   "years_to_peak": 2.2
+  },
+  {
+   "name": "코스피",
+   "hit": "2020-03-19",
+   "value_at_hit": 56,
+   "1y": {
+    "hold": 117,
+    "half_sp": 99,
+    "all_sp": 82
+   },
+   "3y": {
+    "hold": 92,
+    "half_sp": 94,
+    "all_sp": 96
+   },
+   "further_drop_3y_pct": 0.0,
+   "years_to_peak": 0.7
+  },
+  {
+   "name": "코스피",
+   "hit": "2026-11-05",
+   "value_at_hit": 59,
+   "1y": null,
+   "3y": null,
+   "further_drop_3y_pct": -7.7,
+   "years_to_peak": null
+  }
+ ],
+ "now": {
+  "삼성전자": {
+   "from_peak_pct": -45.4,
+   "peak": "2026-06-18",
+   "last": "2026-11-19"
+  },
+  "SK하이닉스": {
+   "from_peak_pct": -60.0,
+   "peak": "2026-06-22",
+   "last": "2026-11-19"
+  },
+  "코스피": {
+   "from_peak_pct": -44.4,
+   "peak": "2026-06-22",
+   "last": "2026-11-18"
+  }
+ },
+ "counter": {
+  "카카오": {
+   "peak": "2021-06-23",
+   "from_peak_now_pct": -81.0,
+   "years_since_peak": 5.4
+  },
+  "에코프로": {
+   "peak": "2023-07-25",
+   "from_peak_now_pct": -73.0,
+   "years_since_peak": 3.3
+  },
+  "LG에너지솔루션": {
+   "peak": "2022-11-11",
+   "from_peak_now_pct": -51.7,
+   "years_since_peak": 4.0
+  }
+ },
+ "summary": {
+  "events": 12,
+  "with_3y": 8,
+  "hold_3y_at_or_above_100": 5,
+  "hold_beats_all_sp_3y": 6,
+  "years_to_peak_range": [
+   0.7,
+   3.5
+  ],
+  "worst_1y_hold": [
+   21,
+   "SK하이닉스",
+   "2007-10-25"
+  ]
+ }
+}

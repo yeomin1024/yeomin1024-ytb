@@ -1,0 +1,40 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "blog": {
+   "script_exit": {
+    "rounds": [],
+    "path": "stock/topics/loss_alt_2026-11-19/blog.md",
+    "pending": {
+     "n": 1,
+     "sha": "0ca4aa498e2b0e87",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "review/r1_exit.md",
+     "answers": "review/answers_blog_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-19T07:09:10Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "stock/topics/loss_alt_2026-11-19/blog.md",
+    "pending": {
+     "n": 1,
+     "sha": "0ca4aa498e2b0e87",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "review/r1_rebut.md",
+     "answers": "review/answers_blog_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-19T07:09:10Z"
+    }
+   }
+  }
+ }
+}

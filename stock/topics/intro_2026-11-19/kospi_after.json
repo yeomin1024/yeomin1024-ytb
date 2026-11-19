@@ -1,0 +1,92 @@
+{
+ "rule": "고점 = 최근 2년 안 가장 높은 종가 · 삼전·하닉 둘 다 그 고점 대비 −40% 아래인 첫날 (둘 중 하나가 고점 80% 위로 오르면 사건 끝) · 종가 · 코스피 그날부터",
+ "both": [
+  {
+   "day": "2000-09-15",
+   "samsung_dd_pct": -43.9,
+   "hynix_dd_pct": -40.3,
+   "kospi_dd_pct": -40.7,
+   "kospi_1y_pct": -23.2,
+   "kospi_3y_pct": 20.0,
+   "kospi_5y_pct": 86.2,
+   "kospi_further_3y_pct": -25.4,
+   "kospi_low_day": "2001-09-17",
+   "kospi_years_to_peak": 4.8,
+   "episode_end": "2002-01-04"
+  },
+  {
+   "day": "2008-10-24",
+   "samsung_dd_pct": -47.4,
+   "hynix_dd_pct": -77.4,
+   "kospi_dd_pct": -54.5,
+   "kospi_1y_pct": 74.7,
+   "kospi_3y_pct": 102.2,
+   "kospi_5y_pct": 118.0,
+   "kospi_further_3y_pct": 0.0,
+   "kospi_low_day": "2008-10-24",
+   "kospi_years_to_peak": 2.2,
+   "episode_end": "2009-04-23"
+  },
+  {
+   "day": "2022-09-22",
+   "samsung_dd_pct": -40.2,
+   "hynix_dd_pct": -42.1,
+   "kospi_dd_pct": -29.4,
+   "kospi_1y_pct": 7.5,
+   "kospi_3y_pct": 47.7,
+   "kospi_5y_pct": null,
+   "kospi_further_3y_pct": -7.6,
+   "kospi_low_day": "2022-09-30",
+   "kospi_years_to_peak": 3.0,
+   "episode_end": "2023-05-19"
+  },
+  {
+   "day": "2026-07-29",
+   "samsung_dd_pct": -42.5,
+   "hynix_dd_pct": -52.0,
+   "kospi_dd_pct": -37.9,
+   "kospi_1y_pct": null,
+   "kospi_3y_pct": null,
+   "kospi_5y_pct": null,
+   "kospi_further_3y_pct": -12.3,
+   "kospi_low_day": "2026-11-17",
+   "kospi_years_to_peak": null,
+   "episode_end": null
+  }
+ ],
+ "now": {
+  "kospi_peak": "2026-06-22",
+  "kospi_dd_pct": -44.0,
+  "samsung_dd_pct": -46.2,
+  "hynix_dd_pct": -59.8,
+  "last": "2026-11-19"
+ },
+ "summary": {
+  "episodes": 4,
+  "with_3y": 3,
+  "kospi_dd_range": [
+   -54.5,
+   -29.4
+  ],
+  "kospi_further_range": [
+   -25.4,
+   0.0
+  ],
+  "kospi_1y": [
+   -23.2,
+   74.7,
+   7.5
+  ],
+  "kospi_3y": [
+   20.0,
+   102.2,
+   47.7
+  ],
+  "kospi_years_to_peak": [
+   4.8,
+   2.2,
+   3.0,
+   null
+  ]
+ }
+}

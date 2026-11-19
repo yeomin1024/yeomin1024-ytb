@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-19 — 도입 검토 1회차(review/answers_r1) 반영: 사건마다 코스피 '고점 전 2년 바닥 → 고점' 몇 배 (`kospi_runup_x` — 귀로 듣기 쉬운 배수) · 고점 날짜.
+# VERSION: v1.3 — 2026-11-19 — 도입 검토 2회차 반영: 진행 중 사건은 '그 첫날 → 지금' 코스피 변화 (`kospi_since_day_pct` — 과거 '첫날 → 1년 뒤'와 같은 기준으로 견주게).
+# (v1.2 — 2026-11-19 — 도입 검토 1회차(review/answers_r1) 반영: 사건마다 코스피 '고점 전 2년 바닥 → 고점' 몇 배 (`kospi_runup_x` — 귀로 듣기 쉬운 배수) · 고점 날짜.
 # (v1.1 — 2026-11-19 — 고점 = **최근 2년(504거래일) 안 가장 높은 종가** (v1.0 은 자료 첫날부터의 고점이라 하이닉스가 2000년 고점을 2025년까지 못 넘어
 #          2001~2025년 내내 '−40% 아래'로 잡혀 사실상 삼성전자 하나로 사건을 셈 — 2008 하닉 −98.5% 같은 값). 코스피 고점·되찾기도 같은 2년 고점.
 # (v1.0 — 2026-11-19 — 제목 「삼성전자, 하이닉스 폭락 후 코스피 주가 이걸 보면 전망이 보일 겁니다」(사용자 제목) 의 숫자 — 도입 후보에 쓸 것만.
@@ -69,6 +70,9 @@ def main():
             ev["kospi_low_day"] = str(kd[j0 + int(np.argmin(kp[j0:j3 + 1]))])
             back = np.flatnonzero(kp[j0:] >= kpk)
             ev["kospi_years_to_peak"] = round((kd[j0 + back[0]] - day).days / 365.25, 1) if len(back) else None
+            if ev["kospi_1y_pct"] is None:
+                ev["kospi_since_day_pct"] = round((kp[-1] / k0 - 1) * 100, 1)
+                ev["since_days"] = int((kd[-1] - day).days)
             # 사건 끝 = 둘 중 하나가 고점 80% 위
             k = i
             while k < n and sdd[k] <= -0.2 and hdd[k] <= -0.2:

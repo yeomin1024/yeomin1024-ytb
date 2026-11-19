@@ -63,6 +63,8 @@
    "kospi_further_3y_pct": -12.3,
    "kospi_low_day": "2026-11-17",
    "kospi_years_to_peak": null,
+   "kospi_since_day_pct": -9.9,
+   "since_days": 113,
    "episode_end": null
   }
  ],

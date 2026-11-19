@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-19 — 새로 (같은 날 classify 단계 더함 — 묶음 이름을 물려받은 댓글이 독립 확인 23% 만 맞아, 몫은 무작위 표본 2,400개를 직접 분류해 어림): 시청자 '공통 생각' 순위 (사용자 지시 2026-11-19 "페르소나를 만드는 목적은 시청자들이 원하는 공통적인
+# VERSION: v1.1 — 2026-11-19 — **바람·개념 이해 추론** (사용자 지시 "아니 댓글 그대로를 정리하지 말고 댓글을 쓴 사람이 할법한 생각을 유추하라고
+#          예를 들어 '주식 시장 하락을 예측하고 싶다' 이런 생각 말이야 주식에 대한 뭘 원하는지를 파악해야지 … 그리고 주식에 대해 어느정도까지 알고있는지도
+#          파악해야 돼 예를 들어 금리, 포트폴리오 분배, 국면 파악 등등 여러가지 주식에 있어 중요한 개념들을 파악하고 있는지도 탐색해"):
+#          `wants` (같은 무작위 표본 2,400개 → 새 검토자가 댓글마다 '이 사람이 주식에서 원하는 것' 추론 문장 + 바람 갈래 W01~ + 확신 ·
+#          핵심 개념 C01~ 을 이해·언급·오해 · 필요한데 빠진 개념 · 지식 수준) → `report` 가 viewer_wants.md·json.
+# (v1.0 — 2026-11-19 — 새로 (같은 날 classify 단계 더함 — 묶음 이름을 물려받은 댓글이 독립 확인 23% 만 맞아, 몫은 무작위 표본 2,400개를 직접 분류해 어림): 시청자 '공통 생각' 순위 (사용자 지시 2026-11-19 "페르소나를 만드는 목적은 시청자들이 원하는 공통적인
 #          생각들을 정리하기 위해서야 그러니까 일단 누락없이 모든 댓글을 참고해야해 댓글들을 통해 가장 겹치는 생각들을 많은 순으로 정리해봐 나이나
 #          처한 상황(어떤 주식에 물려있다)과 같은 여러가지 부가적인 정보는 정리만해").
 #          · 자료: 승인한 영상 폴더(W_·01_·P01_) 전부의 시청자 댓글 전부 (날짜·언어로 거르지 않음 — 채널 주인 댓글·빈 댓글만 뺌, 답글 포함).
@@ -37,7 +42,7 @@ import comment_clusters as cc          # noqa: E402  cluster_lang (같은 묶기
 import comment_types as ct             # noqa: E402  iter_videos · lang_group · classify · TYPES
 import personas as ps                  # noqa: E402  cues (나이·생애 단계·처지·지식) — 부가 정보만
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("vthought")
 SEED = 20261119
@@ -514,6 +519,235 @@ def classify_read(P, rows_ko):
     return {"n": n, "planned": len(idmap), "n_ko": K["n_ko"], "rows": res, "other_memos": other}
 
 
+WANTS = [  # 바람 갈래 — 댓글을 쓴 사람이 주식에서 원하는 것 (추론)
+    ("W01", "시장 방향(하락·상승·바닥)을 미리 알고 싶다"),
+    ("W02", "언제 사고팔지 타이밍을 알고 싶다"),
+    ("W03", "무엇을 살지(종목·ETF) 골라 주길 바란다"),
+    ("W04", "물린 종목에서 탈출하거나 손실을 되찾고 싶다"),
+    ("W05", "크게 잃지 않고 안전하게 지키고 싶다 (위험 관리)"),
+    ("W06", "배당·분배금처럼 꾸준한 현금흐름을 원한다"),
+    ("W07", "빨리 크게 벌고 싶다 (한방·레버리지·급등주)"),
+    ("W08", "노후·은퇴 자금을 마련하고 지키고 싶다"),
+    ("W09", "세금·계좌로 아끼고 싶다"),
+    ("W10", "내 판단·보유가 맞다는 확신·안심을 얻고 싶다"),
+    ("W11", "손실의 원인·책임자를 찾아 화를 풀고 싶다"),
+    ("W12", "공정한 시장·제도와 정부의 보호를 원한다"),
+    ("W13", "믿을 만한 정보·전문가를 가려내고 싶다"),
+    ("W14", "투자 원칙·지식을 배워 스스로 판단하고 싶다"),
+    ("W15", "내 생각·경험·성과를 알리고 인정받고 싶다"),
+    ("W16", "다른 투자자와 공감·위로를 나누고 싶다"),
+    ("W17", "주식보다 다른 길(부동산·미국·예금·코인)로 옮기고 싶다"),
+    ("W18", "경제적 자유(파이어)·여유로운 삶을 원한다"),
+    ("W19", "주식과 상관없는 재미·잡담·정치 이야기"),
+    ("W00", "추론 불가 (뜻 없음·너무 짧음) 또는 목록에 없음 (메모에 적기)"),
+]
+CONCEPTS = [  # 주식 핵심 개념
+    ("C01", "금리 (기준금리·채권 금리와 주가의 관계)"), ("C02", "환율 (원/달러·환차손익)"), ("C03", "물가·인플레이션"),
+    ("C04", "시장 국면·경기 순환 (상승·하락장 단계, 바닥·고점)"), ("C05", "산업 사이클 (반도체 업황 등)"),
+    ("C06", "밸류에이션 (PER·PBR·고평가·저평가)"), ("C07", "기업 실적·재무 (이익·매출·현금흐름)"),
+    ("C08", "자산배분·포트폴리오 비중 (주식·채권·현금 나누기)"), ("C09", "분산투자 (종목·업종·나라 나누기)"), ("C10", "리밸런싱"),
+    ("C11", "장기투자·복리·시간 분산"), ("C12", "적립식·분할매수 (DCA)"), ("C13", "지수·ETF 구조 (지수 추종·보수·추적)"),
+    ("C14", "레버리지·인버스 구조 (변동성 끌림·감쇠·담보)"), ("C15", "배당·분배금 구조 (배당락·원금 깎임·재투자)"),
+    ("C16", "커버드콜 구조 (상승 제한·분배금 대가)"), ("C17", "세금·절세 계좌 (ISA·연금저축·IRP·건보료·양도세)"),
+    ("C18", "수급 (외국인·기관·국민연금·개인 매매 흐름)"), ("C19", "공매도·선물·파생"), ("C20", "위험 관리 (손절·현금 비중·최대 낙폭·빚 한도)"),
+    ("C21", "투자 심리·행동 편향 (공포·탐욕·손실 회피·포모)"), ("C22", "환헤지"), ("C23", "정책·제도 (주주환원·상법·규제)"),
+]
+WANTS_N = 2400
+WANTS_BATCH = 300
+
+
+def wants_todo(topic):
+    """같은 무작위 표본(classify_keys.json — 한국어 댓글 2,400개) → 바람·개념 추론 할 일 파일 (wants_todo/W01..W08.md)."""
+    P = paths(topic)
+    K = json.loads((P["dir"] / "classify_keys.json").read_text("utf-8"))
+    rows = [json.loads(l) for l in gzip.open(P["work"] / "rows.jsonl.gz", "rt", encoding="utf-8")]
+    ko = [r for r in rows if r["lang"] == "한국어"]
+    d = P["dir"] / "wants_todo"
+    d.mkdir(parents=True, exist_ok=True)
+    (P["dir"] / "wants").mkdir(parents=True, exist_ok=True)
+    for f in d.glob("*.md"):
+        f.unlink()
+    wl = "\n".join(f"- {c}: {t}" for c, t in WANTS)
+    cl = "\n".join(f"- {c}: {t}" for c, t in CONCEPTS)
+    keys = K["keys"][:WANTS_N]
+    out_keys = []
+    for b in range(0, len(keys), WANTS_BATCH):
+        part = keys[b: b + WANTS_BATCH]
+        name = f"B{b // WANTS_BATCH + 1:02d}"
+        out = P["dir"] / "wants" / f"{name}.tsv"
+        L = [f"# 댓글을 쓴 사람이 주식에서 원하는 것 · 얼마나 아는지 추론 — {name} (댓글 {len(part)}개)", "",
+             "너는 처음 이 글을 보는 검토자다. 아래는 주식 유튜브 시청자 댓글이다. **댓글 내용을 요약하지 말고**, 이 댓글을 쓴 사람이 **주식에 대해 무엇을 원하는지**와",
+             "**주식의 핵심 개념을 얼마나 아는지**를 추론한다. 겉말 뒤의 바람을 본다.", "",
+             "예:",
+             "- \"월요일 더 빠질까요?\" → 바람 \"다음 장에 더 떨어질지 미리 알고 싶다\" (W01) · 지식 기초 · 개념 없음",
+             "- \"정부가 국민연금으로 장난쳐서 다 망했다\" → 바람 \"내 손실의 책임을 정부에 묻고, 정부가 시장을 지켜 주길 바란다\" (W11, 둘째 W12) · 개념 C18:언급",
+             "- \"TQQQ 10년 들고 가면 나스닥 3배죠?\" → 바람 \"레버리지로 빨리 크게 불리고 싶다\" (W07) · 개념 C14:오해 · 빠진 개념 C14;C20 · 지식 기초",
+             "- \"금리 인하 전에 채권 비중 늘리고 주식은 리밸런싱합니다\" → 바람 \"금리 변화에 맞춰 손실을 줄이고 싶다\" (W05) · 개념 C01:이해;C08:이해;C10:이해 · 지식 중급",
+             "- \"ㅋㅋㅋㅋ\" → 바람 - (W00) · 지식 판단 불가", "",
+             "## 칸",
+             "- `바람`: 그 사람이 주식에서 원하는 것을 '~하고 싶다·~를 알고 싶다·~이길 바란다' 한 문장으로 (추론 불가면 `-`).",
+             "- `갈래`: 아래 바람 갈래 하나 (둘째가 뚜렷하면 `W11/W12` 처럼). 목록에 없으면 W00 + 메모.",
+             "- `확신`: 그 추론이 얼마나 분명한지 상·중·하.",
+             "- `개념`: 댓글에 드러난 핵심 개념과 수준 — `코드:이해`(정확히 씀) · `코드:언급`(말은 쓰나 이해 깊이를 알기 어려움) · `코드:오해`(틀리게 앎). 여러 개면 `;` 로. 없으면 비움.",
+             "- `빠진개념`: 이 사람의 바람·판단에 꼭 필요한데 모르는 것 같거나 놓친 개념 코드 (`;` 로, 없으면 비움). 근거가 약하면 쓰지 않는다.",
+             "- `지식`: 초보(기본 말도 헷갈리거나 물어봄) · 기초(기본 말은 씀) · 중급(개념 몇 개를 엮어 판단) · 고급(구조·수치를 정확히, 남의 오해를 바로잡음) · 판단불가.",
+             "- `메모`: 근거를 아주 짧게 (선택).",
+             f"- 다른 파일은 읽지 않는다. 답은 TSV 로 `{out.relative_to(ROOT)}` 에 저장 — 머리줄 `댓글\t바람\t갈래\t확신\t개념\t빠진개념\t지식\t메모`, 댓글마다 한 줄, 빠짐없이 (칸 안에 탭·줄바꿈 ✗).", "",
+             "## 바람 갈래", "", wl, "", "## 핵심 개념", "", cl, "", "## 댓글", ""]
+        for j, k in enumerate(part, 1):
+            wid = f"{name}-{j:03d}"
+            out_keys.append({"id": wid, "row": k["row"], "cid": k["cid"]})
+            L.append(f"- {wid}: {one_line(ko[k['row']]['text'], 220)}")
+        (d / f"{name}.md").write_text("\n".join(L), "utf-8")
+    (P["dir"] / "wants_keys.json").write_text(json.dumps({"keys": out_keys, "n_ko": K["n_ko"], "seed": K["seed"], "wants": WANTS, "concepts": CONCEPTS},
+                                                         ensure_ascii=False), "utf-8")
+    log("WANTS_TODO", sample=len(out_keys), files=len(list(d.glob("*.md"))), dir=d)
+
+
+def wants_report(topic):
+    """wants/*.tsv → viewer_wants.md·json — 바람 갈래 몫(95% 범위) · 지식 수준 · 개념마다 이해·언급·오해·빠짐 · 바람별로 빠진 개념."""
+    P = paths(topic)
+    kf = P["dir"] / "wants_keys.json"
+    if not kf.is_file():
+        return None
+    K = json.loads(kf.read_text("utf-8"))
+    rows = [json.loads(l) for l in gzip.open(P["work"] / "rows.jsonl.gz", "rt", encoding="utf-8")]
+    ko = [r for r in rows if r["lang"] == "한국어"]
+    idmap = {x["id"]: x["row"] for x in K["keys"]}
+    wname, cname = dict(K["wants"]), dict(K["concepts"])
+    got = {}
+    for f in sorted((P["dir"] / "wants").glob("*.tsv")):
+        for i, line in enumerate(Path(f).read_text("utf-8").splitlines()):
+            if i == 0 or not line.strip():
+                continue
+            a = (line.split("\t") + [""] * 8)[:8]
+            if a[0].strip() in idmap:
+                got[a[0].strip()] = a
+    n = len(got)
+    if not n:
+        return None
+    norm_level = {"초보": "초보", "기초": "기초", "중급": "중급", "고급": "고급"}
+    W1, W2, CONF, KNOW = Counter(), Counter(), Counter(), Counter()
+    C_lv = defaultdict(Counter)
+    C_gap = Counter()
+    gap_by_want = defaultdict(Counter)
+    know_by_want = defaultdict(Counter)
+    ex_want = defaultdict(list)
+    ex_mis = defaultdict(list)
+    ex_gap = defaultdict(list)
+    know_n_concepts = Counter()
+    for wid, a in got.items():
+        r = ko[idmap[wid]]
+        want_txt, cat, conf, con, gap, know, memo = (x.strip() for x in a[1:8])
+        codes = re.findall(r"W\d\d", cat.upper())
+        w1 = codes[0] if codes else "W00"
+        W1[w1] += 1
+        for c in codes[1:2]:
+            if c != w1:
+                W2[c] += 1
+        CONF[(w1, conf[:1])] += 1
+        lv = next((v for k_, v in norm_level.items() if know.startswith(k_)), "판단불가")
+        KNOW[lv] += 1
+        know_by_want[w1][lv] += 1
+        cs = re.findall(r"(C\d\d)\s*:\s*(이해|언급|오해)", con)
+        know_n_concepts[min(len({c for c, _ in cs}), 3)] += 1
+        for c, l in cs:
+            C_lv[c][l] += 1
+            if l == "오해" and len(ex_mis[c]) < 4:
+                ex_mis[c].append({"text": one_line(r["text"], 130), "memo": memo[:80], "likes": r["likes"]})
+        for c in set(re.findall(r"C\d\d", gap)):
+            C_gap[c] += 1
+            gap_by_want[w1][c] += 1
+            if len(ex_gap[c]) < 3:
+                ex_gap[c].append({"text": one_line(r["text"], 130), "want": want_txt[:80]})
+        if w1 != "W00" and want_txt and want_txt != "-" and conf.startswith(("상", "중")):
+            ex_want[w1].append({"want": want_txt, "text": one_line(r["text"], 120), "likes": r["likes"], "conf": conf[:1]})
+    meaningful = n - W1.get("W00", 0)
+    stock_rel = meaningful - W1.get("W19", 0)          # 주식과 닿는 바람 (W00 추론 불가·W19 주식 무관 뺌)
+    wl = []
+    for c, t in K["wants"]:
+        k = W1.get(c, 0)
+        lo, hi = wilson(k, n)
+        k2 = W2.get(c, 0)
+        exs = sorted(ex_want.get(c, []), key=lambda e: (e["conf"] != "상", -e["likes"]))[:4]
+        wl.append({"code": c, "want": t, "k": k, "share": k / n, "lo": lo, "hi": hi, "share_meaningful": (k / meaningful) if (meaningful and c != "W00") else None,
+                   "share_stock": (k / stock_rel) if (stock_rel and c not in ("W00", "W19")) else None,
+                   "also": k2, "est": round(k / n * K["n_ko"]), "conf_high": CONF.get((c, "상"), 0), "know": dict(know_by_want.get(c, {})),
+                   "gap_top": gap_by_want.get(c, Counter()).most_common(4), "examples": exs})
+    wl.sort(key=lambda x: (x["code"] == "W00", -x["k"]))
+    cl = []
+    for c, t in K["concepts"]:
+        lv = C_lv.get(c, Counter())
+        m = sum(lv.values())
+        cl.append({"code": c, "concept": t, "mentions": m, "share": m / n, "understand": lv.get("이해", 0), "mention_only": lv.get("언급", 0),
+                   "misunderstand": lv.get("오해", 0), "gap": C_gap.get(c, 0), "mis_examples": ex_mis.get(c, []), "gap_examples": ex_gap.get(c, [])})
+    cl.sort(key=lambda x: -(x["mentions"] + x["gap"]))
+    D = {"topic": topic, "tool": f"viewer_thoughts.py {VERSION}", "made": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+         "n": n, "planned": len(idmap), "n_ko": K["n_ko"], "meaningful": meaningful, "stock_related": stock_rel, "wants": wl, "concepts": cl,
+         "know": dict(KNOW), "concepts_per_comment": dict(know_n_concepts)}
+    (P["out"] / "viewer_wants.json").write_text(json.dumps(D, ensure_ascii=False, indent=1), "utf-8")
+    write_wants_md(P["out"] / "viewer_wants.md", D)
+    log("WANTS_REPORT", n=n, meaningful=meaningful, top=[(x["code"], x["k"]) for x in wl[:6]], know=dict(KNOW),
+        concepts_top=[(x["code"], x["mentions"], x["misunderstand"], x["gap"]) for x in cl[:6]])
+    return D
+
+
+def write_wants_md(path, D):
+    n, m = D["n"], D["meaningful"]
+    L = [f"# 주식 시청자가 원하는 것 · 얼마나 아는지 — 댓글을 쓴 사람의 생각을 추론", "",
+         f"만든 때 {D['made']} · `tools/{D['tool']}` · 한국어 영상 댓글 {D['n_ko']:,}개 전체에서 **무작위 {n:,}개** (계획 {D['planned']:,}) — 새 검토자(하위 에이전트 8명)가 댓글마다 추론 (`thoughts/wants/*.tsv`).",
+         "사용자 지시 2026-11-19 \"댓글 그대로를 정리하지 말고 댓글을 쓴 사람이 할법한 생각을 유추하라고 예를 들어 '주식 시장 하락을 예측하고 싶다' 이런 생각 … 주식에 대한 뭘 원하는지 … 그리고 주식에 대해 어느정도까지 알고있는지도 … 금리, 포트폴리오 분배, 국면 파악 등등\".",
+         "※ 연구·교육용 — 댓글에서 어림한 숫자이며 투자 권유가 아님. 몫은 무작위 표본의 몫과 95% 범위(윌슨) · 전체 어림 = 몫 × 한국어 댓글 수.", "",
+         "## 0. 읽는 법",
+         "- **바람** = 겉말을 요약한 게 아니라 '이 사람이 주식에서 원하는 것'을 추론한 것 (예: \"월요일 더 빠질까요?\" → 다음 하락을 미리 알고 싶다). 갈래 W01~W19 는 미리 정한 목록, 첫째 갈래로 셈 (둘째 갈래는 '둘째로도' 칸).",
+         f"- 추론 불가(이모지·ㅋㅋ·너무 짧음)·목록에 없음 = W00. 뜻 있는 댓글 = {m:,}개 ({m / n * 100:.1f}%) — '뜻 있는 댓글 중 몫' 칸이 그 안의 몫.",
+         "- **개념** = 댓글에 드러난 주식 핵심 개념 23개(C01~C23)를 이해(정확히 씀)·언급(깊이를 알기 어려움)·오해(틀리게 앎)로. **빠진 개념** = 그 사람의 바람·판단에 꼭 필요한데 놓친 것 같은 개념 (근거가 약하면 안 씀).",
+         "- 개념은 **댓글에 나온 것만** 판단할 수 있다 — 안 쓴 개념을 모른다는 뜻은 아님. 빠진 개념은 검토자의 추론.", ""]
+    L += ["## 1. 바람 — 주식에서 원하는 것 (많은 순)", "",
+          f"주식과 닿는 바람(W00 추론 불가·W19 주식 무관 뺌) = {D['stock_related']:,}개 ({D['stock_related'] / n * 100:.1f}%) — '주식 바람 중' 칸이 그 안의 몫.", "",
+          "| 순위 | 바람 | 표본 | 몫 (95% 범위) | 주식 바람 중 | 전체 어림 | 둘째로도 | 추론 '상' | 이 바람에 자주 빠진 개념 |", "|---|---|---|---|---|---|---|---|---|"]
+    cn = {c["code"]: c["concept"].split(" (")[0] for c in D["concepts"]}
+    for i, w in enumerate(D["wants"], 1):
+        sm = f"{w['share_stock'] * 100:.1f}%" if w["share_stock"] is not None else "-"
+        gaps = " · ".join(f"{cn.get(c, c)} {k}" for c, k in w["gap_top"]) or "-"
+        L.append(f"| {i} | **{w['want']}** ({w['code']}) | {w['k']} | {w['share'] * 100:.1f}% ({w['lo'] * 100:.1f}~{w['hi'] * 100:.1f}%) | {sm} | 약 {w['est']:,} | {w['also']} | {w['conf_high']} | {gaps} |")
+    L += ["", "### 1-1. 바람마다 — 추론 문장과 원래 댓글 (추론 '상'·'중', 좋아요 순)", ""]
+    for w in D["wants"]:
+        if w["code"] == "W00" or not w["examples"]:
+            continue
+        L.append(f"**{w['code']} {w['want']}** — 표본 {w['k']} · 지식 " + " · ".join(f"{a} {b}" for a, b in sorted(w["know"].items(), key=lambda x: -x[1])))
+        for e in w["examples"]:
+            L.append(f"- 추론: {e['want']}  ← 댓글: \"{e['text']}\" 👍{e['likes']:,}")
+        L.append("")
+    K = D["know"]
+    L += ["## 2. 지식 수준 (댓글에 드러난 만큼)", "", "| 수준 | 표본 | 몫 | 판단 가능한 댓글 중 |", "|---|---|---|---|"]
+    judged = sum(v for k, v in K.items() if k != "판단불가")
+    for lv in ("초보", "기초", "중급", "고급", "판단불가"):
+        v = K.get(lv, 0)
+        L.append(f"| {lv} | {v} | {v / n * 100:.1f}% | {(v / judged * 100) if judged and lv != '판단불가' else 0:.1f}% |" if lv != "판단불가" else f"| {lv} | {v} | {v / n * 100:.1f}% | - |")
+    cpc = D["concepts_per_comment"]
+    L += ["", f"- 핵심 개념을 하나라도 드러낸 댓글: {n - cpc.get('0', cpc.get(0, 0)):,}개 ({(n - cpc.get('0', cpc.get(0, 0))) / n * 100:.1f}%) · 개념 2개 이상을 엮은 댓글: {cpc.get('2', cpc.get(2, 0)) + cpc.get('3', cpc.get(3, 0)):,}개", ""]
+    L += ["## 3. 핵심 개념마다 — 아는지·틀리게 아는지·빠졌는지", "",
+          "| 개념 | 드러난 댓글 | 이해 | 언급만 | 오해 | 필요한데 빠짐 |", "|---|---|---|---|---|---|"]
+    for c in D["concepts"]:
+        L.append(f"| {c['code']} {c['concept']} | {c['mentions']} ({c['share'] * 100:.1f}%) | {c['understand']} | {c['mention_only']} | {c['misunderstand']} | {c['gap']} |")
+    L += ["", "### 3-1. 오해·빠짐 예 (원래 댓글)", ""]
+    for c in D["concepts"]:
+        if not (c["mis_examples"] or c["gap_examples"]):
+            continue
+        L.append(f"**{c['code']} {c['concept']}** — 오해 {c['misunderstand']} · 빠짐 {c['gap']}")
+        for e in c["mis_examples"][:3]:
+            L.append(f"- 오해: \"{e['text']}\"" + (f" — {e['memo']}" if e["memo"] else ""))
+        for e in c["gap_examples"][:2]:
+            L.append(f"- 빠짐: \"{e['text']}\" (바람: {e['want']})")
+        L.append("")
+    L += ["## 4. 한계", "",
+          "- 바람·개념은 AI 검토자의 추론이다 — 겉말이 짧을수록 '확신' 이 낮다 (1번 표 '추론 상' 칸).",
+          "- 개념은 댓글에 드러난 것만 — 대부분의 댓글은 개념을 쓰지 않으므로, '빠짐' 은 그 사람의 바람·판단에 꼭 필요할 때만 셌다.",
+          "- 표본 2,400개 — 몫이 1% 아래인 갈래·개념끼리의 순위 차이는 뜻이 작다. 같은 사람의 여러 댓글은 따로 셈.", ""]
+    Path(path).write_text("\n".join(L), "utf-8")
+
+
 def stage_names(topic):
     cfg, _ = ps.load_cfg(topic)
     if not cfg:
@@ -671,7 +905,7 @@ def main(argv=None):
     logging.basicConfig(level=logging.INFO, format="%(message)s")
     ap = argparse.ArgumentParser(description="시청자 공통 생각 — 모든 댓글")
     ap.add_argument("topic")
-    ap.add_argument("cmd", choices=["build", "report", "verify", "classify"])
+    ap.add_argument("cmd", choices=["build", "report", "verify", "classify", "wants"])
     a = ap.parse_args(argv)
     t0 = time.time()
     if a.cmd == "build":
@@ -680,8 +914,11 @@ def main(argv=None):
         verify_todo(a.topic)
     elif a.cmd == "classify":
         classify_todo(a.topic)
+    elif a.cmd == "wants":
+        wants_todo(a.topic)
     else:
         report(a.topic)
+        wants_report(a.topic)
     log("DONE", cmd=a.cmd, seconds=round(time.time() - t0, 1))
 
 

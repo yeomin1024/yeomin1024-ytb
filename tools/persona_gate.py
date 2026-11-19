@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-13 — 주제별 통과 기준 <주제>/persona_gate.json (예 crisis: 반론 중 ≤ 3 — 사용자 지시 2026-11-13 "반론은 중 3 이하로 해") ·
+# VERSION: v1.2 — 2026-11-19 — 검토자 카드에 페르소나의 **투자에서 가장 원하는 것**·모르거나 틀리게 아는 개념 (personas.json 의 invest_wants·concepts — thought_personas.py, 사용자 지시 "…그 결과로 주제 탐색이랑 페르소나 바꿔"). 없으면 옛 카드 그대로.
+# (v1.1 — 2026-11-13 — 주제별 통과 기준 <주제>/persona_gate.json (예 crisis: 반론 중 ≤ 3 — 사용자 지시 2026-11-13 "반론은 중 3 이하로 해") ·
 #          rejudge 명령(바뀐 기준으로 지난 회차 판정을 다시 셈 — 옛 판정은 pass_before 에 남김). 기준 파일이 없는 주제는 v1.0 과 같음 (중 ≤ 1).
 # (이전) v1.0 — 2026-11-12 — 페르소나 반복 검증을 빠뜨리지 못하게 하는 관문 (사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데
 #          빼먹지 말도록 주제별 지시사항 수정해봐"). 절차 = guides/persona_loop.md.
@@ -32,7 +33,7 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.1"
+VERSION = "v1.2"
 STAGES = {"title": "제목·썸네일 피드 시험", "script_exit": "대본 이탈 검토 (대상 페르소나)", "script_rebuttal": "대본 반론 검토 (반론 페르소나)"}
 RULE = {"min_rounds": 2, "max_rounds": 5, "feed_real": 5, "feed_days": 90, "rebuttal_mid_max": 1}
 RULE_KEYS_TOPIC = ("rebuttal_mid_max", "max_rounds")  # 주제 파일로 바꿀 수 있는 값만 (v1.1)
@@ -112,7 +113,11 @@ def personas(topic: str) -> list[dict]:
         out.append({"id": x.get("id"), "name": x.get("name", ""), "share": x.get("share"), "age": x.get("age"), "know": x.get("know"),
                     "known": top("known_terms"), "unknown": top("unknown_terms"), "wants": top("want_terms") + top("want_words"),
                     "dislikes": [t for t, *_ in (x.get("dislikes_cat") or [])[:4]] if isinstance(x.get("dislikes_cat"), list) else x.get("dislikes_cat"),
-                    "questions": [q if isinstance(q, str) else q.get("text", "") for q in (x.get("top_questions") or [])[:3]]})
+                    "questions": [q if isinstance(q, str) else q.get("text", "") for q in (x.get("top_questions") or [])[:3]],
+                    # v1.2: 투자 욕구·아는 정도 페르소나 (thought_personas.py) 칸 — 있으면 카드에
+                    "invest": [f"{w['want']} {round(100 * w['share'])}%" for w in (x.get("invest_wants") or [])[:4]],
+                    "miss": [c for c, _ in ((x.get("concepts") or {}).get("missing") or [])[:3]] + [c for c, _ in ((x.get("concepts") or {}).get("misunderstand") or [])[:2]],
+                    "note": x.get("channel_note") or ""})
     return out
 
 
@@ -125,8 +130,11 @@ def persona_card(p: dict) -> str:
         if isinstance(v, list):
             return ", ".join(map(str, v)) or "-"
         return json.dumps(v, ensure_ascii=False) if isinstance(v, dict) else str(v or "-")
+    extra = ""
+    if p.get("invest"):
+        extra = (f"\n- **투자에서 가장 원하는 것**: {s(p['invest'])}\n- 모르거나 틀리게 아는 개념: {s(p.get('miss'))}")
     return (f"**{p['id']} {p['name']}** (댓글 몫 {p.get('share')})\n- 나이: {s(p.get('age'))}\n- 지식: {s(p.get('know'))}\n- 이미 아는 말: {s(p['known'])}\n"
-            f"- 잘 모르는 말: {s(p['unknown'])}\n- 원하는 것: {s(p['wants'])}\n- 싫어하는 것·떠나는 까닭: {s(p.get('dislikes'))}\n- 실제로 묻는 말: {s(p.get('questions'))}")
+            f"- 잘 모르는 말: {s(p['unknown'])}\n- 원하는 것: {s(p['wants'])}{extra}\n- 싫어하는 것·떠나는 까닭: {s(p.get('dislikes'))}\n- 실제로 묻는 말: {s(p.get('questions'))}")
 
 
 def rebuttal_card(topic: str) -> str:

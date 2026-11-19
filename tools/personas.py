@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.1 — 2026-11-12 — 최근 흐름 낱말은 **영상 TREND_MIN_VIDEOS(기본 3)곳 이상**에 나온 말만 — 심리 main 자료에서 '요즘 더 나오는 말' 위가 한 영상의
+# VERSION: v1.2 — 2026-11-19 — 설정 [personas] SOURCE = "thoughts" 이면 tools/thought_personas.py 가 만듦 (투자 욕구·아는 정도 페르소나 — 사용자 지시
+#          2026-11-19 "시청자들이 할 법할 생각을 더 추가해보고 그 결과로 주제 탐색이랑 페르소나 바꿔"). SOURCE 가 없거나 "cues" 면 아래 옛 방법 그대로 (다른 주제).
+# (v1.1.1 — 2026-11-12 — 최근 흐름 낱말은 **영상 TREND_MIN_VIDEOS(기본 3)곳 이상**에 나온 말만 — 심리 main 자료에서 '요즘 더 나오는 말' 위가 한 영상의
 #          출연자 이름(호영님·아란부장님·키드밀리)이었던 것. 페르소나 고르기·몫은 그대로.
 # (v1.1 — 2026-11-11 — **최근 흐름 (TREND_DAYS)** (사용자 지시 2026-11-11 "최근 트렌드도 파악해서 페르소나에 반영해야돼" — 심리 주제 첫 페르소나):
 #          설정 TREND_DAYS > 0 이면 댓글 단 날(댓글 published)이 최근 N일 안인 댓글 vs 그 전 댓글을 견줌 → 묶음(페르소나) 몫 변화 · 페르소나마다 늘어난 처지 ·
@@ -56,7 +58,7 @@ try:
 except ModuleNotFoundError:           # Python 3.10
     import tomli as tomllib
 
-VERSION = "v1.1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("persona")
 SEED = 20261028
@@ -560,6 +562,10 @@ def trend(rows, assigned, seg, chosen, by, personas, cfg, now, vids, state_names
 
 
 def build(topic, now=None, root=None, write=True):
+    _cfg, _ = load_cfg(topic, root)
+    if _cfg and str(_cfg.get("SOURCE", "cues")).lower() == "thoughts":       # v1.2: 투자 욕구·아는 정도 페르소나
+        import thought_personas
+        return thought_personas.build(topic, now=now, root=root, write=write)
     t0 = time.monotonic()
     now = now or datetime.now(timezone.utc)
     if now.tzinfo is None:                     # 부르는 쪽이 시간대 없는 시각을 넘겨도 (weekly_analysis·web_ui)

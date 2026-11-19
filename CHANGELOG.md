@@ -1,5 +1,14 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-19 (4) — 투자 욕구 15개 더 · 페르소나 = 투자 욕구·아는 정도 · 주제 탐색 바꿈
+
+- 사용자 지시 "시청자들이 할 법할 생각을 더 추가해보고 그 결과로 주제 탐색이랑 페르소나 바꿔 페르소나 내용은 파일로 보여주고".
+- `tools/viewer_thoughts.py` v1.3 — 투자 욕구 I27~I41 (지금 사도 되나 · 물타기·손절 · 레버리지 장기 · 커버드콜·고배당 · 비중 · 환율 · 목표 금액 · 남과 견주기 · 마음 · 거품 · 빚투 · 목돈 · 자녀 · 단타 · 업종 사이클) · 묶음 F1~F6 다시 나눔 · 같은 표본을 하위 에이전트 8명이 다시 추론 (v1.2 결과 = `thoughts/invest_v1/`).
+- 새 `tools/thought_personas.py` v1.0 — 첫째 투자 욕구 묶음으로 페르소나 (규칙은 personas.py 와 같음) → `stock/result/outliers/personas.md`·`.json` (옛 칸 그대로 + invest_wants·concepts·reasons·says·stocks·stuck·channel_note). 결과 P1 앞으로 오를지·내릴지 미리 알고 싶은 30% · P2 믿을 근거·원칙 26% · P3 잃지 않고 꾸준히 18% · P4 정부·제도 18%.
+- `tools/personas.py` v1.2 — 설정 SOURCE = "thoughts" 면 thought_personas 로 (`stock/personas.toml` v1.1). `tools/persona_gate.py` v1.2 — 검토자 카드에 투자에서 가장 원하는 것·모르거나 틀린 개념.
+- 주제 탐색: `stock/guides/board_1_topic.md` v1.5 (기획안 `want`·`gap` 칸 · P4 주제 ✗) · 후보 `stock/topics/주제탐색_2026-11-19.md` (N1~N6 — N1 삼전·하이닉스 −40% 8번 회복 기간 미리 계산).
+- 확인: persona_gate prompt · persona_review · board_check(topics_2026-11-13 10개 통과) 모두 새 personas.json 으로 돎.
+
 ## 2026-11-19 (3) — 투자 욕구 다시 추론 (`tools/viewer_thoughts.py` v1.2 `invest` · `viewer_wants.md` 1번)
 
 - 사용자 지시 "주식 시장 하락을 예측하고 싶다 / 반등할 때 딱 매수하고 싶다 / 향후 크게 상승할 종목을 알고 싶다 이런거는 왜 없어?".

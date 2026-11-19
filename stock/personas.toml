@@ -5,7 +5,10 @@
 #   감사 2026-10-28 (audit 무작위 — Claude 가 읽음): 나이 11/12 · 처지 '배당 투자' 11/12 · 묶음 '3040 직장인' 8/12 (일반론 '직장인들은…'이 섞임).
 
 [personas]
-VERSION = "v1.0"
+VERSION = "v1.1"
+# v1.1 — 2026-11-19 — SOURCE = "thoughts": 페르소나 = 투자 욕구·아는 정도 (tools/thought_personas.py — 사용자 지시 "시청자들이 할 법할 생각을 더 추가해보고 그 결과로 주제 탐색이랑 페르소나 바꿔").
+#   아래 묶음(stage)·처지(state)·용어(know)·좋아함·불만 사전은 부가 정보·낱말 칸에 그대로 씀. 옛 방법으로 돌리려면 SOURCE = "cues".
+SOURCE = "thoughts"
 RECENT_DAYS = 180
 LANGS = ["한국어"]
 MIN_SHARE = 0.08

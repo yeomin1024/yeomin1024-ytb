@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-19 — 블로그 초안 반론 검토 1회차 반영 (review/answers_blog_script_rebuttal_1/K1-반론.json):
+# VERSION: v1.4 — 2026-11-19 — 블로그 반론 검토 2회차 반영 (review/answers_blog_script_rebuttal_2/K2-반론.json):
+#          · 하이닉스 2000 을 다른 사건과 같은 규칙(자료 첫날 뒤 고점 → 처음 −40% 날)으로 (`hynix_2000.event`) — 1번 표에 같은 줄로
+#          · 현금 + 예금 이자 가정 연 3% (`cash_3pct` — 가정, 실제 금리는 해마다 달랐음) · 버티기 < 현금(3%) 횟수
+#          · −40% 첫날 뒤 25% 넘게 더 빠진 횟수 (`further_over_25`) · 하이닉스 2000 을 더한 13번 (`recovery_13`) · 견딜 수 있는 전체 손실(10·20·30%) → 그 종목 몫 상한 (`stress.max_weight`)
+# (v1.3 — 2026-11-19 — 블로그 초안 반론 검토 1회차 반영 (review/answers_blog_script_rebuttal_1/K1-반론.json):
 #          · 2004년 전 사건도 셈 (회복 기간·버티기만 — 원/달러 일별 자료가 2003-12 부터라 갈아타기는 2004년 뒤만): 삼전 2000~ · 코스피 1996-12~ (자료 시작 뒤 고점 기준)
 #          · 하이닉스 2000-01-04 (자료 첫날) 산 사람 — Yahoo 배당 반영 값이 2003년 전엔 음수로 깨져 있어 종가(감자 반영·배당 뺌)로 따로 (`hynix_2000`)
 #          · 사건마다 '고점 전 1년 오른 폭' (이번 하락처럼 크게 오른 뒤였는지) — 지금·반례도
@@ -104,6 +108,7 @@ def main():
                         continue
                     spr = sp_krw(d[j]) / sp_krw(d[h])
                     ev[f"{yrs}y"] = {"hold": round(v0 * hold * 100), "half_sp": round(v0 * (0.5 * hold + 0.5 * spr) * 100), "all_sp": round(v0 * spr * 100), "cash": round(v0 * 100),
+                                     "cash_3pct": round(v0 * 1.03 ** yrs * 100, 1), "hold_exact": round(float(v0 * hold * 100), 1),
                                      "krw": round(float(at(fx_d, fx, d[j]))), "sp_usd_pct": round(float(at(sp_d, sp, d[j]) / at(sp_d, sp, d[h]) - 1) * 100, 1)}
                 j3 = min(n - 1, int(np.searchsorted(d, date(d[h].year + 3, d[h].month, min(d[h].day, 28)))))
                 ev["further_drop_3y_pct"] = round(float(px[h:j3 + 1].min() / px[h] - 1) * 100, 1)
@@ -128,6 +133,15 @@ def main():
     out["hynix_2000"] = {"basis": "종가 (2003년 감자 반영 · 배당 뺌 — Yahoo 배당 반영 값은 2003년 전 음수로 깨짐)", "start": str(d[0]),
                          "low": str(d[lo]), "low_value": round(float(px[lo] / px[0] * 100), 1),
                          "back_to_start": str(d[back]) if back else None, "years_to_start": round((d[back] - d[0]).days / 365.25, 1) if back else None}
+    run = np.maximum.accumulate(px)
+    h = int(np.flatnonzero(px <= run * 0.6)[0])
+    ip = int(np.flatnonzero(px[:h + 1] >= run[h])[-1])
+    k = h + int(np.flatnonzero(px[h:] >= run[h])[0]) if (px[h:] >= run[h]).any() else None
+    j3 = min(len(px) - 1, int(np.searchsorted(d, date(d[h].year + 3, d[h].month, min(d[h].day, 28)))))
+    out["hynix_2000"]["event"] = {"peak": str(d[ip]), "hit": str(d[h]), "value_at_hit": round(float(px[h] / run[h] * 100)),
+                                  "further_drop_3y_pct": round(float(px[h:j3 + 1].min() / px[h] - 1) * 100, 1),
+                                  "low_vs_peak": round(float(px[h:].min() / run[h] * 100), 1),
+                                  "years_to_peak": round((d[k] - d[h]).days / 365.25, 1) if k is not None else None, "back": str(d[k]) if k is not None else None}
     log("HYNIX2000", **out["hynix_2000"])
     hy_hit = next(e for e in out["events"] if e["name"] == "SK하이닉스" and not e.get("1y"))
     out["now"]["SK하이닉스"]["value_at_hit_now"] = [hy_hit["value_at_hit"], round(out["now"]["SK하이닉스"]["per_1000_manwon_now"] / 10, 1)]
@@ -142,6 +156,9 @@ def main():
     one = [e for e in fxe if e.get("1y")]
     out["summary"]["hold_below_cash_1y"] = sum(1 for e in one if e["1y"]["hold"] < e["1y"]["cash"])
     out["summary"]["hold_below_cash_3y"] = sum(1 for e in done if e["3y"]["hold"] < e["3y"]["cash"])
+    out["summary"]["hold_below_cash3pct_1y"] = [f'{e["name"]} {e["hit"]}' for e in one if e["1y"]["hold_exact"] < e["1y"]["cash_3pct"]]
+    out["summary"]["hold_below_cash3pct_3y"] = [f'{e["name"]} {e["hit"]}' for e in done if e["3y"]["hold_exact"] < e["3y"]["cash_3pct"]]
+    out["summary"]["closest_hold_vs_cash3pct_1y"] = min(((round(e["1y"]["hold_exact"] - e["1y"]["cash_3pct"], 1), e["name"], e["hit"]) for e in one), key=lambda x: abs(x[0]))
     out["summary"]["with_1y"] = len(one)
     out["summary"]["hold_beats_all_sp_1y"] = sum(1 for e in one if e["1y"]["hold"] > e["1y"]["all_sp"])
     out["summary"]["all_sp_3y_at_or_above_100"] = sum(1 for e in done if e["3y"]["all_sp"] >= 100)
@@ -153,7 +170,12 @@ def main():
     out["recovery"] = {"years_sorted": yrs, "over_2y": sum(1 for y in yrs if y > 2), "over_3y": sum(1 for y in yrs if y > 3), "n": len(yrs)}
     ally = sorted((e["years_to_peak"], e["name"], e["hit"]) for e in out["events"] if e["years_to_peak"] is not None)
     out["recovery_all"] = {"from": "삼전 2000 · 코스피 1996-12 자료 시작 뒤 (하이닉스는 2004 뒤 + hynix_2000 따로)", "n": len(ally),
-                           "range": [ally[0][0], ally[-1][0]], "longest": list(ally[-1]), "over_2y": sum(1 for y in ally if y[0] > 2), "over_3y": sum(1 for y in ally if y[0] > 3)}
+                           "range": [ally[0][0], ally[-1][0]], "longest": list(ally[-1]), "over_2y": sum(1 for y in ally if y[0] > 2), "over_3y": sum(1 for y in ally if y[0] > 3),
+                           "further_over_25": [f'{e["name"]} {e["hit"]} {e["further_drop_3y_pct"]}' for e in out["events"] if e["years_to_peak"] is not None and e["further_drop_3y_pct"] <= -25]}
+    hy = out["hynix_2000"]["event"]                                    # 하이닉스 2000 (종가) 을 더한 13번
+    y13 = sorted([y[0] for y in ally] + [hy["years_to_peak"]])
+    f13 = len(out["recovery_all"]["further_over_25"]) + (1 if hy["further_drop_3y_pct"] <= -25 else 0)
+    out["recovery_13"] = {"n": len(y13), "range": [y13[0], y13[-1]], "over_2y": sum(1 for y in y13 if y > 2), "over_3y": sum(1 for y in y13 if y > 3), "further_over_25": f13}
     ru = [e["run_up_1y_pct"] for e in out["events"] if e["years_to_peak"] is not None and e["run_up_1y_pct"] is not None]
     out["run_up"] = {"past_done_n": len(ru), "past_done_range": [min(ru), max(ru)], "now": {k: v["run_up_1y_pct"] for k, v in out["now"].items()},
                      "counter": {k: v["run_up_1y_pct"] for k, v in out["counter"].items()}}
@@ -163,7 +185,8 @@ def main():
                     "rows": [{"months": m, "stock_share_pct": round(hold_now / (hold_now + 50 * m) * 100, 1)} for m in (0, 6, 12, 24, 36)]}
     worst = -min(e["further_drop_3y_pct"] for e in fxe)
     out["stress"] = {"assume": f"그 종목이 한 번 더 {worst}% 빠진다면 (하이닉스 2007 이 −40% 뒤 더 빠진 폭) · 나머지 돈은 그대로",
-                     "drop_pct": worst, "rows": [{"weight_pct": w, "total_loss_pct": round(w * worst / 100, 1)} for w in (100, 50, 30, 10)]}
+                     "drop_pct": worst, "rows": [{"weight_pct": w, "total_loss_pct": round(w * worst / 100, 1)} for w in (100, 50, 30, 10)],
+                     "max_weight": [{"total_loss_limit_pct": L, "max_weight_pct": round(L / worst * 100, 1)} for L in (10, 20, 30)]}
     log("EXTRA", recovery_all=out["recovery_all"], run_up=out["run_up"], recovery=out["recovery"], split=[r["stock_share_pct"] for r in out["split"]["rows"]], stress=[r["total_loss_pct"] for r in out["stress"]["rows"]])
     p = Path(__file__).with_suffix(".json")
     p.write_text(json.dumps(out, ensure_ascii=False, indent=1), "utf-8")

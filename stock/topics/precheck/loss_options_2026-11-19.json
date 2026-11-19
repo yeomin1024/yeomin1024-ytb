@@ -34,6 +34,8 @@
     "half_sp": 77,
     "all_sp": 55,
     "cash": 53,
+    "cash_3pct": 54.2,
+    "hold_exact": 99.8,
     "krw": 1184,
     "sp_usd_pct": 26.0
    },
@@ -42,6 +44,8 @@
     "half_sp": 96,
     "all_sp": 64,
     "cash": 53,
+    "cash_3pct": 57.5,
+    "hold_exact": 127.5,
     "krw": 1133,
     "sp_usd_pct": 53.8
    },
@@ -61,6 +65,8 @@
     "half_sp": 72,
     "all_sp": 66,
     "cash": 60,
+    "cash_3pct": 61.7,
+    "hold_exact": 78.6,
     "krw": 1351,
     "sp_usd_pct": 16.4
    },
@@ -69,6 +75,8 @@
     "half_sp": 106,
     "all_sp": 110,
     "cash": 60,
+    "cash_3pct": 65.4,
+    "hold_exact": 102.4,
     "krw": 1399,
     "sp_usd_pct": 86.6
    },
@@ -88,6 +96,8 @@
     "half_sp": 95,
     "all_sp": 69,
     "cash": 58,
+    "cash_3pct": 59.7,
+    "hold_exact": 120.5,
     "krw": 1468,
     "sp_usd_pct": 13.9
    },
@@ -121,6 +131,8 @@
     "half_sp": 37,
     "all_sp": 53,
     "cash": 59,
+    "cash_3pct": 60.4,
+    "hold_exact": 21.4,
     "krw": 1467,
     "sp_usd_pct": -43.5
    },
@@ -129,6 +141,8 @@
     "half_sp": 66,
     "all_sp": 60,
     "cash": 59,
+    "cash_3pct": 64.1,
+    "hold_exact": 70.9,
     "krw": 1118,
     "sp_usd_pct": -16.5
    },
@@ -148,6 +162,8 @@
     "half_sp": 70,
     "all_sp": 78,
     "cash": 59,
+    "cash_3pct": 60.8,
+    "hold_exact": 61.5,
     "krw": 1129,
     "sp_usd_pct": 27.8
    },
@@ -156,6 +172,8 @@
     "half_sp": 111,
     "all_sp": 103,
     "cash": 59,
+    "cash_3pct": 64.5,
+    "hold_exact": 119.5,
     "krw": 1037,
     "sp_usd_pct": 83.3
    },
@@ -175,6 +193,8 @@
     "half_sp": 73,
     "all_sp": 63,
     "cash": 60,
+    "cash_3pct": 61.3,
+    "hold_exact": 83.7,
     "krw": 1147,
     "sp_usd_pct": 4.4
    },
@@ -183,6 +203,8 @@
     "half_sp": 108,
     "all_sp": 80,
     "cash": 60,
+    "cash_3pct": 65.1,
+    "hold_exact": 135.2,
     "krw": 1140,
     "sp_usd_pct": 34.7
    },
@@ -202,6 +224,8 @@
     "half_sp": 77,
     "all_sp": 72,
     "cash": 60,
+    "cash_3pct": 61.8,
+    "hold_exact": 81.7,
     "krw": 1306,
     "sp_usd_pct": 18.3
    },
@@ -210,6 +234,8 @@
     "half_sp": 154,
     "all_sp": 107,
     "cash": 60,
+    "cash_3pct": 65.5,
+    "hold_exact": 201.9,
     "krw": 1356,
     "sp_usd_pct": 69.0
    },
@@ -280,6 +306,8 @@
     "half_sp": 69,
     "all_sp": 58,
     "cash": 59,
+    "cash_3pct": 60.5,
+    "hold_exact": 79.4,
     "krw": 1153,
     "sp_usd_pct": 14.9
    },
@@ -288,6 +316,8 @@
     "half_sp": 77,
     "all_sp": 64,
     "cash": 59,
+    "cash_3pct": 64.2,
+    "hold_exact": 90.3,
     "krw": 1150,
     "sp_usd_pct": 26.9
    },
@@ -307,6 +337,8 @@
     "half_sp": 99,
     "all_sp": 82,
     "cash": 56,
+    "cash_3pct": 57.8,
+    "hold_exact": 117.0,
     "krw": 1126,
     "sp_usd_pct": 62.4
    },
@@ -315,6 +347,8 @@
     "half_sp": 94,
     "all_sp": 96,
     "cash": 56,
+    "cash_3pct": 61.3,
+    "hold_exact": 91.6,
     "krw": 1308,
     "sp_usd_pct": 64.0
    },
@@ -394,7 +428,16 @@
   "low": "2003-03-26",
   "low_value": 0.5,
   "back_to_start": "2025-10-29",
-  "years_to_start": 25.8
+  "years_to_start": 25.8,
+  "event": {
+   "peak": "2000-01-28",
+   "hit": "2000-02-28",
+   "value_at_hit": 56,
+   "further_drop_3y_pct": -98.7,
+   "low_vs_peak": 0.5,
+   "years_to_peak": 25.7,
+   "back": "2025-11-03"
+  }
  },
  "summary": {
   "events": 12,
@@ -412,6 +455,15 @@
   ],
   "hold_below_cash_1y": 1,
   "hold_below_cash_3y": 0,
+  "hold_below_cash3pct_1y": [
+   "SK하이닉스 2007-10-25"
+  ],
+  "hold_below_cash3pct_3y": [],
+  "closest_hold_vs_cash3pct_1y": [
+   0.7,
+   "SK하이닉스",
+   "2011-08-08"
+  ],
   "with_1y": 9,
   "hold_beats_all_sp_1y": 7,
   "all_sp_3y_at_or_above_100": 3,
@@ -475,7 +527,24 @@
    "2000-09-15"
   ],
   "over_2y": 4,
-  "over_3y": 2
+  "over_3y": 2,
+  "further_over_25": [
+   "삼성전자 2000-09-15 -37.2",
+   "SK하이닉스 2007-10-25 -73.7",
+   "SK하이닉스 2011-08-08 -28.6",
+   "코스피 1997-10-31 -40.5",
+   "코스피 2000-09-15 -25.4"
+  ]
+ },
+ "recovery_13": {
+  "n": 13,
+  "range": [
+   0.7,
+   25.7
+  ],
+  "over_2y": 5,
+  "over_3y": 3,
+  "further_over_25": 6
  },
  "run_up": {
   "past_done_n": 10,
@@ -540,6 +609,20 @@
    {
     "weight_pct": 10,
     "total_loss_pct": 7.4
+   }
+  ],
+  "max_weight": [
+   {
+    "total_loss_limit_pct": 10,
+    "max_weight_pct": 13.6
+   },
+   {
+    "total_loss_limit_pct": 20,
+    "max_weight_pct": 27.1
+   },
+   {
+    "total_loss_limit_pct": 30,
+    "max_weight_pct": 40.7
    }
   ]
  }

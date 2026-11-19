@@ -1,6 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-19 — 지금(2026-06 고점 → 11-19)과 가장 비슷한 과거 시기 찾기 (사용자 지시 "지금 상황이랑 가장 비슷한 시기는 언제고 어떻게 비슷한지 얘기해봐").
+# VERSION: v1.1 — 2026-11-19 — 시나리오 묶음 (사용자 지시 "가장 비슷한 시기와 비교했을 때 같은 점과 다른 점을 고려해서 삼성전자, 하이닉스 전망을 예측해봐"):
+#          · 묶음 A '거품형' = 2년 안 바닥 → 고점 +250% 넘게 오른 뒤의 하락 (오른 폭이 지금과 닮음)
+#          · 묶음 B '메모리 사이클형' = 2004년 뒤 삼성전자·하이닉스 고점 중 150일 뒤 −25% 넘게 빠져 있던 것 (회사 종류가 지금과 같음)
+#          · 묶음마다 '고점 150일 뒤'부터 1·3·5년 뒤 값 · 3년 안 더 빠진 폭 · 고점 되찾기 — 가운데값·범위 (`scenarios`)
+#          · 고점 → 바닥 전체 낙폭(고점부터 '150일 뒤 + 3년'까지 가장 낮은 값 · `total_drawdown_pct`) → 지금 값에 대면 더 빠질 여지 (`implied_from_now` — 이미 더 깊으면 0)
+#          ※ 점 예측이 아님 — 과거 경로를 지금에 대 본 범위. 표본이 작음(묶음마다 5개).
+# (v1.0 — 2026-11-19 — 지금(2026-06 고점 → 11-19)과 가장 비슷한 과거 시기 찾기 (사용자 지시 "지금 상황이랑 가장 비슷한 시기는 언제고 어떻게 비슷한지 얘기해봐").
 #   규칙(계산 전에 정함):
 #   · 후보 = 큰 하락(고점 대비 −40% 안팎) 앞의 고점들 — 코스피·삼성전자·SK하이닉스·필라델피아 반도체(^SOX)·나스닥100(^NDX)·닛케이(^N225)·대만(^TWII)·카카오·에코프로.
 #     고점 = 정한 기간 안의 가장 높은 종가. 지금 = 2026-06 고점 (코스피 6-22 · 삼성전자 6-18 · 하이닉스 6-22).
@@ -113,6 +119,7 @@ def features(d, px, ip):
     # 그 뒤 — 고점 150일 뒤에 있던 사람
     j3 = int(np.searchsorted(d, t150 + timedelta(days=3 * 365)))
     f["after_further_drop_3y_pct"] = round((px[i150:min(j3, len(px) - 1) + 1].min() / v150 - 1) * 100, 1)
+    f["total_drawdown_pct"] = round((px[ip:min(j3, len(px) - 1) + 1].min() / pk - 1) * 100, 1)
     for yrs in (1, 3, 5):
         t = t150 + timedelta(days=int(yrs * 365.25))
         f[f"after_{yrs}y_pct"] = round((at(d, px, t) / v150 - 1) * 100, 1) if t <= d[-1] else None
@@ -180,6 +187,22 @@ def main():
         out["context_2026"][name] = {"peak_2026": str(d[ip]), "now_pct": round((px[-1] / px[ip] - 1) * 100, 1), "last": str(d[-1]),
                                     "run_1y_pct": round((px[ip] / at(d, px, d[ip] - timedelta(days=365)) - 1) * 100, 1)}
     log("CONTEXT", **{k: v for k, v in out["context_2026"].items()})
+    def pack(rows):
+        r = {"n": len(rows), "members": [f'{f["name"]} {f["peak"]}' for f in rows]}
+        for k in ("total_drawdown_pct", "after_further_drop_3y_pct", "after_1y_pct", "after_3y_pct", "after_5y_pct", "years_150d_to_peak", "at_150d_pct", "days_to_minus40"):
+            v = [f[k] for f in rows if f.get(k) is not None]
+            r[k] = {"n": len(v), "median": round(float(np.median(v)), 1) if v else None, "range": [min(v), max(v)] if v else None}
+        r["regained_within_5y_from_150d"] = sum(1 for f in rows if f.get("years_150d_to_peak") is not None and f["years_150d_to_peak"] <= 5)
+        r["not_regained_yet"] = sum(1 for f in rows if f.get("at_150d_pct") is not None and f.get("peak_regained") is None)
+        r["implied_from_now"] = {}
+        for nm, nf in out["now"].items():
+            v = sorted(round(min(0.0, (1 + f["total_drawdown_pct"] / 100) / (1 + nf["now_pct"] / 100) - 1) * 100, 1) for f in rows if f.get("total_drawdown_pct") is not None)
+            r["implied_from_now"][nm] = {"median": round(float(np.median(v)), 1), "range": [min(v), max(v)], "zero_count": sum(1 for x in v if x == 0)}
+        return r
+    A = [f for f in out["cands"] if (f.get("run_from_2y_low_pct") or 0) >= 250 and f.get("at_150d_pct") is not None]
+    B = [f for f in out["cands"] if f["symbol"] in ("005930.KS", "000660.KS") and f["peak"] >= "2004" and (f.get("at_150d_pct") or 0) <= -25]
+    out["scenarios"] = {"A_bubble": pack(A), "B_memory_cycle": pack(B)}
+    log("SCEN", A=out["scenarios"]["A_bubble"], B=out["scenarios"]["B_memory_cycle"])
     out["rank"] = {nm: sorted(([f["rmse"][nm]["all"], f["name"], f["peak"]] for f in out["cands"] if nm in f["rmse"]))[:6] for nm in now_paths}
     for nm, r in out["rank"].items():
         log("RANK", now=nm, top=r[:4])

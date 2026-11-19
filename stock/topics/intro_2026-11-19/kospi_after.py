@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-19 — 고점 = **최근 2년(504거래일) 안 가장 높은 종가** (v1.0 은 자료 첫날부터의 고점이라 하이닉스가 2000년 고점을 2025년까지 못 넘어
+# VERSION: v1.2 — 2026-11-19 — 도입 검토 1회차(review/answers_r1) 반영: 사건마다 코스피 '고점 전 2년 바닥 → 고점' 몇 배 (`kospi_runup_x` — 귀로 듣기 쉬운 배수) · 고점 날짜.
+# (v1.1 — 2026-11-19 — 고점 = **최근 2년(504거래일) 안 가장 높은 종가** (v1.0 은 자료 첫날부터의 고점이라 하이닉스가 2000년 고점을 2025년까지 못 넘어
 #          2001~2025년 내내 '−40% 아래'로 잡혀 사실상 삼성전자 하나로 사건을 셈 — 2008 하닉 −98.5% 같은 값). 코스피 고점·되찾기도 같은 2년 고점.
 # (v1.0 — 2026-11-19 — 제목 「삼성전자, 하이닉스 폭락 후 코스피 주가 이걸 보면 전망이 보일 겁니다」(사용자 제목) 의 숫자 — 도입 후보에 쓸 것만.
 #   규칙(계산 전에 정함):
@@ -56,6 +57,10 @@ def main():
             kpk = at(kd, Kfull_run, day)
             k0 = at(kd, kp, day)
             ev = {"day": str(day), "samsung_dd_pct": round(sdd[i] * 100, 1), "hynix_dd_pct": round(hdd[i] * 100, 1), "kospi_dd_pct": round((k0 / kpk - 1) * 100, 1)}
+            jk = int(np.searchsorted(kd, day, side="right")) - 1
+            jp = max(0, jk - WIN + 1) + int(np.argmax(kp[max(0, jk - WIN + 1):jk + 1]))          # 그날까지 2년 안 코스피 고점
+            jl = max(0, jp - WIN + 1) + int(np.argmin(kp[max(0, jp - WIN + 1):jp + 1]))          # 그 고점 전 2년 안 바닥
+            ev.update({"kospi_peak_day": str(kd[jp]), "kospi_runup_x": round(float(kp[jp] / kp[jl]), 2), "kospi_runup_low_day": str(kd[jl])})
             for y in (1, 3, 5):
                 t = day + timedelta(days=int(365.25 * y))
                 ev[f"kospi_{y}y_pct"] = round((at(kd, kp, t) / k0 - 1) * 100, 1) if t <= kd[-1] else None

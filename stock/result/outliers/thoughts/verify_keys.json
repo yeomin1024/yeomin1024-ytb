@@ -1,0 +1,102 @@
+[
+ {
+  "t": "T01",
+  "key": "G-regime"
+ },
+ {
+  "t": "T02",
+  "key": "C-thanks"
+ },
+ {
+  "t": "T03",
+  "key": "G-blame"
+ },
+ {
+  "t": "T04",
+  "key": "G-pension"
+ },
+ {
+  "t": "T05",
+  "key": "P-risky"
+ },
+ {
+  "t": "T06",
+  "key": "P-rules"
+ },
+ {
+  "t": "T07",
+  "key": "P-debt"
+ },
+ {
+  "t": "T08",
+  "key": "G-rules"
+ },
+ {
+  "t": "T09",
+  "key": "C-fan"
+ },
+ {
+  "t": "T10",
+  "key": "P-long"
+ },
+ {
+  "t": "T11",
+  "key": "C-easy"
+ },
+ {
+  "t": "T12",
+  "key": "P-noforecast"
+ },
+ {
+  "t": "T13",
+  "key": "R-light"
+ },
+ {
+  "t": "T14",
+  "key": "V-credible"
+ },
+ {
+  "t": "T15",
+  "key": "M-down"
+ },
+ {
+  "t": "T16",
+  "key": "G-lev"
+ },
+ {
+  "t": "T17",
+  "key": "E-stuck"
+ },
+ {
+  "t": "T18",
+  "key": "P-own"
+ },
+ {
+  "t": "T19",
+  "key": "M-leave"
+ },
+ {
+  "t": "T20",
+  "key": "G-lawmaker"
+ },
+ {
+  "t": "T21",
+  "key": "F-pain"
+ },
+ {
+  "t": "T22",
+  "key": "M-chip"
+ },
+ {
+  "t": "T23",
+  "key": "M-foreign"
+ },
+ {
+  "t": "T24",
+  "key": "M-timing"
+ },
+ {
+  "t": "T25",
+  "key": "M-level"
+ }
+]

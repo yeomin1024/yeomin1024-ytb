@@ -18,6 +18,10 @@
     "hold": 113,
     "cash": 56
    },
+   "5y": {
+    "hold": 156,
+    "cash": 56
+   },
    "further_drop_3y_pct": -37.2,
    "years_to_peak": 1.5
   },
@@ -48,6 +52,16 @@
     "hold_exact": 127.5,
     "krw": 1133,
     "sp_usd_pct": 53.8
+   },
+   "5y": {
+    "hold": 198,
+    "half_sp": 143,
+    "all_sp": 88,
+    "cash": 53,
+    "cash_3pct": 61.0,
+    "hold_exact": 198.4,
+    "krw": 1062,
+    "sp_usd_pct": 124.1
    },
    "further_drop_3y_pct": 0.0,
    "years_to_peak": 0.8
@@ -80,6 +94,7 @@
     "krw": 1399,
     "sp_usd_pct": 86.6
    },
+   "5y": null,
    "further_drop_3y_pct": -1.0,
    "years_to_peak": 1.5
   },
@@ -102,6 +117,7 @@
     "sp_usd_pct": 13.9
    },
    "3y": null,
+   "5y": null,
    "further_drop_3y_pct": -1.4,
    "years_to_peak": 0.9
   },
@@ -115,7 +131,9 @@
    "krw_at_hit": 1442,
    "1y": null,
    "3y": null,
+   "5y": null,
    "further_drop_3y_pct": -7.9,
+   "now_vs_hit_pct": -4.9,
    "years_to_peak": null
   },
   {
@@ -145,6 +163,16 @@
     "hold_exact": 70.9,
     "krw": 1118,
     "sp_usd_pct": -16.5
+   },
+   "5y": {
+    "hold": 72,
+    "half_sp": 73,
+    "all_sp": 73,
+    "cash": 59,
+    "cash_3pct": 68.0,
+    "hold_exact": 71.8,
+    "krw": 1097,
+    "sp_usd_pct": 3.7
    },
    "further_drop_3y_pct": -73.7,
    "years_to_peak": 3.5
@@ -177,6 +205,16 @@
     "krw": 1037,
     "sp_usd_pct": 83.3
    },
+   "5y": {
+    "hold": 97,
+    "half_sp": 113,
+    "all_sp": 129,
+    "cash": 59,
+    "cash_3pct": 68.5,
+    "hold_exact": 96.6,
+    "krw": 1105,
+    "sp_usd_pct": 115.4
+   },
    "further_drop_3y_pct": -28.6,
    "years_to_peak": 2.4
   },
@@ -207,6 +245,16 @@
     "hold_exact": 135.2,
     "krw": 1140,
     "sp_usd_pct": 34.7
+   },
+   "5y": {
+    "hold": 174,
+    "half_sp": 138,
+    "all_sp": 102,
+    "cash": 60,
+    "cash_3pct": 69.0,
+    "hold_exact": 174.0,
+    "krw": 1128,
+    "sp_usd_pct": 73.3
    },
    "further_drop_3y_pct": -14.7,
    "years_to_peak": 1.2
@@ -239,6 +287,7 @@
     "krw": 1356,
     "sp_usd_pct": 69.0
    },
+   "5y": null,
    "further_drop_3y_pct": -13.6,
    "years_to_peak": 1.6
   },
@@ -252,7 +301,9 @@
    "krw_at_hit": 1453,
    "1y": null,
    "3y": null,
+   "5y": null,
    "further_drop_3y_pct": -29.1,
+   "now_vs_hit_pct": -24.2,
    "years_to_peak": null
   },
   {
@@ -269,6 +320,10 @@
    },
    "3y": {
     "hold": 64,
+    "cash": 59
+   },
+   "5y": {
+    "hold": 86,
     "cash": 59
    },
    "further_drop_3y_pct": -40.5,
@@ -288,6 +343,10 @@
    },
    "3y": {
     "hold": 71,
+    "cash": 59
+   },
+   "5y": {
+    "hold": 110,
     "cash": 59
    },
    "further_drop_3y_pct": -25.4,
@@ -321,6 +380,16 @@
     "krw": 1150,
     "sp_usd_pct": 26.9
    },
+   "5y": {
+    "hold": 99,
+    "half_sp": 92,
+    "all_sp": 85,
+    "cash": 59,
+    "cash_3pct": 68.1,
+    "hold_exact": 98.5,
+    "krw": 1066,
+    "sp_usd_pct": 81.9
+   },
    "further_drop_3y_pct": -22.7,
    "years_to_peak": 2.2
   },
@@ -352,6 +421,16 @@
     "krw": 1308,
     "sp_usd_pct": 64.0
    },
+   "5y": {
+    "hold": 101,
+    "half_sp": 127,
+    "all_sp": 153,
+    "cash": 56,
+    "cash_3pct": 65.0,
+    "hold_exact": 101.2,
+    "krw": 1449,
+    "sp_usd_pct": 135.5
+   },
    "further_drop_3y_pct": 0.0,
    "years_to_peak": 0.7
   },
@@ -365,7 +444,9 @@
    "krw_at_hit": 1340,
    "1y": null,
    "3y": null,
+   "5y": null,
    "further_drop_3y_pct": -7.7,
+   "now_vs_hit_pct": -5.2,
    "years_to_peak": null
   }
  ],
@@ -434,7 +515,9 @@
    "hit": "2000-02-28",
    "value_at_hit": 56,
    "further_drop_3y_pct": -98.7,
+   "low3y_vs_peak": 0.7,
    "low_vs_peak": 0.5,
+   "low_date": "2003-03-26",
    "years_to_peak": 25.7,
    "back": "2025-11-03"
   }
@@ -459,6 +542,10 @@
    "SK하이닉스 2007-10-25"
   ],
   "hold_below_cash3pct_3y": [],
+  "with_5y": 6,
+  "hold_beats_all_sp_5y": 3,
+  "hold_5y_at_or_above_100": 3,
+  "all_sp_5y_at_or_above_100": 3,
   "closest_hold_vs_cash3pct_1y": [
    0.7,
    "SK하이닉스",
@@ -491,7 +578,48 @@
    "3y_all_sp": [
     60,
     110
+   ],
+   "5y_hold": [
+    72,
+    198
+   ],
+   "5y_half_sp": [
+    73,
+    143
+   ],
+   "5y_all_sp": [
+    73,
+    153
    ]
+  }
+ },
+ "by_horizon": {
+  "1y": {
+   "n": 9,
+   "hold_gt_all": 7,
+   "hold_ge100": 3,
+   "half_ge100": 0,
+   "all_ge100": 0,
+   "hold_lt_cash": 1,
+   "hold_lt_cash3": 1
+  },
+  "3y": {
+   "n": 8,
+   "hold_gt_all": 6,
+   "hold_ge100": 5,
+   "half_ge100": 4,
+   "all_ge100": 3,
+   "hold_lt_cash": 0,
+   "hold_lt_cash3": 0
+  },
+  "5y": {
+   "n": 6,
+   "hold_gt_all": 3,
+   "hold_ge100": 3,
+   "half_ge100": 4,
+   "all_ge100": 3,
+   "hold_lt_cash": 0,
+   "hold_lt_cash3": 0
   }
  },
  "fx_now": {
@@ -535,6 +663,29 @@
    "코스피 1997-10-31 -40.5",
    "코스피 2000-09-15 -25.4"
   ]
+ },
+ "recover_within": {
+  "1y": {
+   "of_9": 3,
+   "of_13": 3
+  },
+  "2y": {
+   "of_9": 6,
+   "of_13": 8
+  },
+  "3y": {
+   "of_9": 8,
+   "of_13": 10
+  },
+  "5y": {
+   "of_9": 9,
+   "of_13": 12
+  }
+ },
+ "further_13": {
+  "over_10": 9,
+  "over_25": 6,
+  "over_50": 2
  },
  "recovery_13": {
   "n": 13,
@@ -588,7 +739,11 @@
     "months": 36,
     "stock_share_pct": 23.3
    }
-  ]
+  ],
+  "months_to_cap": {
+   "cap_pct": 27.1,
+   "months": 30
+  }
  },
  "stress": {
   "assume": "그 종목이 한 번 더 73.7% 빠진다면 (하이닉스 2007 이 −40% 뒤 더 빠진 폭) · 나머지 돈은 그대로",

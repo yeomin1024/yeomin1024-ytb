@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-12 — 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됐는지 확인 후
-#          다 된게 있으면 내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘" (PC 쪽은 tools/upload_web.py).
+# VERSION: v1.1 — 2026-11-21 — 쇼츠도: 영상ID '<영상ID>-shorts' 면 자료 폴더 = <주제>/source/<영상ID>/shorts/ (youtube_upload.src_dir 와 같음) ·
+#          쇼츠는 챕터를 요구하지 않음 · 올린 쇼츠(shorts/youtube.json)도 uploads 브랜치에서 뺌. 사용자 지시 2026-11-21 "이 영상 일단 유튜브 업로드
+#          프로그램으로 올릴 수 있도록 music 폴더에 올려봐" (롱폼 짝 없는 쇼츠 — v1.0 은 source/<영상ID>/ 만 봐서 'upload.md 없음').
+# (v1.0 — 2026-11-12 — 사용자 지시 "업로드에 필요한 자료를 대본별로 저장소에 올리고 내 컴퓨터에서 자료가 다 생성됐는지 확인 후
+#          다 된게 있으면 내가 업로드 버튼 누르면 일주일 후 자동 예약으로 올라가게 해줘" (PC 쪽은 tools/upload_web.py).)
 #   클라우드(Claude)가 렌더한 완성 영상을 PC 가 받을 수 있게 저장소에 올린다 — 이 환경은 Drive 에 큰 파일을 올릴 수 없음(연결 도구 10MB 한도).
 #   · 영상: out/<영상ID>/final_1080p.mp4 → 90MB 조각(final_1080p.mp4.part01 …) → 브랜치 `uploads` 의 <주제>/<영상ID>/ (화질 그대로 — PC 가 이어 붙여 sha256 확인)
 #     `uploads` 는 커밋 하나짜리 브랜치로 늘 다시 짬(부모 없음 · 강제 푸시): 아직 안 올린 영상만 남기고, 올린 영상(main 에 youtube.json)은 뺌
@@ -32,7 +35,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import youtube_upload as yu  # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 BRANCH = "uploads"
 PART = 90 * 1024 * 1024                      # GitHub 파일 하나 100MB 한도 아래
 THUMB_RE = re.compile(r"^thumbnail_\d\.(png|jpe?g|webp)$", re.I)
@@ -75,7 +78,7 @@ def title_options(md: str) -> list[dict]:
 
 def check_one(topic: str, vid: str) -> dict:
     """업로드 자료 점검 → {항목: (ok, 메모)} + 요약."""
-    src = ROOT / topic / "source" / vid
+    src = yu.src_dir(topic, vid)                          # v1.1 쇼츠 '<영상ID>-shorts' → source/<영상ID>/shorts/
     res: dict[str, tuple[bool, str]] = {}
     md_p = src / "upload.md"
     if not md_p.is_file():
@@ -92,7 +95,10 @@ def check_one(topic: str, vid: str) -> dict:
         chapters = None
         res["챕터"] = (False, str(e)[:120])
     else:
-        res["챕터"] = (bool(chapters), f"{len(chapters or [])}개" if chapters else "챕터 명령 없음 (3·4번 섹션 --chapters)")
+        if yu.is_shorts(vid) and not meta["chapter_spec"]:   # v1.1 쇼츠는 챕터 없음 (유튜브가 쇼츠에 챕터를 보이지 않음)
+            res["챕터"] = (True, "쇼츠 — 챕터 없음")
+        else:
+            res["챕터"] = (bool(chapters), f"{len(chapters or [])}개" if chapters else "챕터 명령 없음 (3·4번 섹션 --chapters)")
     probs = yu.validate(meta)
     res["설명란·태그"] = (not probs, "; ".join(probs)[:160] if probs else f"설명 {len(meta['description'])}자 · 태그 {len(meta['tags'])}개")
     res["자막"] = ((src / f"{vid}.srt").is_file(), f"{vid}.srt")
@@ -125,14 +131,14 @@ def cmd_check(topic: str, vids: list[str]) -> int:
 
 
 def uploaded_on_main(remote: str) -> set[str]:
-    """main 에서 youtube.json 이 있는 <주제>/source/<영상ID> → {'<주제>/<영상ID>'}."""
+    """main 에서 youtube.json 이 있는 <주제>/source/<영상ID> → {'<주제>/<영상ID>'} (v1.1 source/<영상ID>/shorts/youtube.json → '<주제>/<영상ID>-shorts')."""
     git("fetch", "-q", remote, "main")
     names = git("ls-tree", "-r", "--name-only", f"{remote}/main").splitlines()
     out = set()
     for n in names:
-        m = re.match(r"^([^/]+)/source/([^/]+)/youtube\.json$", n)
+        m = re.match(r"^([^/]+)/source/([^/]+)/(shorts/)?youtube\.json$", n)
         if m:
-            out.add(f"{m.group(1)}/{m.group(2)}")
+            out.add(f"{m.group(1)}/{m.group(2)}" + ("-shorts" if m.group(3) else ""))
     return out
 
 
@@ -154,7 +160,7 @@ def cmd_pack(topic: str, vids: list[str], dry: bool, remote: str) -> int:
             log("PRUNE", video=key, why="main 에 youtube.json — 이미 올림")
     for vid in vids:
         vf = ROOT / topic / "out" / vid / "final_1080p.mp4"
-        src = ROOT / topic / "source" / vid
+        src = yu.src_dir(topic, vid)                      # v1.1 쇼츠 폴더도
         if not vf.is_file():
             raise SystemExit(f"[PACK] ❌ {vid}: 완성 영상 없음 {vf.relative_to(ROOT)} → 먼저 렌더")
         if not src.is_dir():

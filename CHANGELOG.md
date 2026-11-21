@@ -1,5 +1,14 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-21 — music: 'AI 안경 시험장' 쇼츠를 PC 업로드 화면에 · 업로드 도구가 쇼츠 폴더를 읽게
+
+- 사용자 지시 "이 영상 일단 유튜브 업로드 프로그램으로 올릴 수 있도록 music 폴더에 올려봐" (채팅에서 만든 v4 쇼츠 — 1440×2560 · 39.7초, 롱폼 짝 없음).
+- 자료: `music/source/ai-angyeong-siheom-2026-11/shorts/` — `upload.md` v1.0(제목 「세무냥이 사태 이후 180도 달라질 시험 모습」 25자 = 화면 문구 그대로 · 태그 12 · 합성 콘텐츠 예 · 챕터 없음) · 대본·SRT(구운 자막 19줄·시각 그대로) · `thumbnails/thumbnail_1.jpg`(영상 0.6초 장면) · `video.json`(44.2MB · 조각 1 · sha256 a82cfe5d3143…) — 영상은 `uploads` 브랜치 `music/ai-angyeong-siheom-2026-11-shorts/` (커밋 c0bafdaf14fd, 이미 올린 stock/bandoche-dobak 조각은 뺌).
+- `tools/upload_pack.py` v1.0 → v1.1: 영상ID `-shorts` 면 자료 폴더 = `source/<영상ID>/shorts/` (`youtube_upload.src_dir`) · 쇼츠는 챕터를 요구하지 않음 · 올린 쇼츠(`shorts/youtube.json`)도 uploads 에서 뺌. 전: `check music …-shorts` → '업로드 시트 ❌ upload.md 없음' / 뒤: ✅ 준비됨 9항목. 롱폼 점검 결과는 그대로 (`stock/bandeung-maesu-2026-11` 같은 표).
+- `tools/upload_web.py` v1.5 → v1.6: 목록이 `<주제>/source/<영상ID>/shorts/upload.md` 도 읽어 `<영상ID>-shorts` 줄로 · 시트·썸네일·video.json·youtube.json 경로를 그 폴더로 (`src_rel`). 로컬 시험(main·uploads 를 이 저장소 파일로 바꿔 끼움): music 1편 READY · 미리보기 문제 0 · 재테크 탭에 안 올린 쇼츠 2편(geumyung-soduk · gungmin-sigi — 영상 없음)이 '부족'으로 새로 보임, 올린 쇼츠 4편은 '올린 영상'에.
+- `tools/youtube_upload.py` v1.16 → v1.17: 쇼츠 썸네일 배치 검사 ❌ → 0초 장면인데 그 장면이 검정(밝기 평균 < 16, 페이드인)이면 그림 그대로. 전: `--dry-run` 썸네일 = cover_frame_0s_upload.jpg 0.01MB(검정) / 뒤: thumbnail_1_upload.jpg 0.09MB (frame_luma=0.0 경고 로그).
+- `guides/upload_guide.md` v1.16 (13번 '쇼츠도').
+
 ## 2026-11-19 (9) — 도입 30초 분석 + 도입·썸네일 후보 (`stock/topics/intro_2026-11-19/`)
 
 - 사용자 지시 "삼성전자, 하이닉스 폭락 후 코스피 주가 / 이걸 보면 전망이 보일 겁니다 제목 이런식으로 할건데 … 30초 도입 부분 … 분석해서 썸네일, 제목 클릭 후 도입에서 이탈되지 않도록 내용 여러 개 만들어봐".

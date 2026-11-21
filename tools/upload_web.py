@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-12 — 썸네일 내려받기: 미리보기 썸네일마다 [내려받기] + [실험안 N장 내려받기] · '올린 영상' 줄에도 실험안 받기
+# VERSION: v1.6 — 2026-11-21 — 쇼츠도 목록에: GitHub main 의 <주제>/source/<영상ID>/shorts/upload.md → 영상ID '<영상ID>-shorts' 줄
+#          (시트·자막·썸네일·video.json·youtube.json 은 그 shorts/ 폴더 — youtube_upload.src_dir · upload_pack v1.1 과 같음, 쇼츠는 챕터 없이 준비됨).
+#          사용자 지시 2026-11-21 "이 영상 일단 유튜브 업로드 프로그램으로 올릴 수 있도록 music 폴더에 올려봐" (롱폼 짝 없는 쇼츠).
+# (v1.5 — 2026-11-12 — 썸네일 내려받기: 미리보기 썸네일마다 [내려받기] + [실험안 N장 내려받기] · '올린 영상' 줄에도 실험안 받기
 #          (실험안은 API 로 못 올림 → 공개 뒤 스튜디오 '테스트 및 비교'에 직접 넣음 · 이 PC 에 없으면 GitHub main 에서 받아 둠 · 파일 이름 <영상ID>_thumbnail_N.jpg)
-#          · 휴대전화 미리보기의 채널 이름도 뺌. 사용자 지시 2026-11-12 "나머지 2개 썸네일 다운 받는 기능도 추가해줘".
+#          · 휴대전화 미리보기의 채널 이름도 뺌. 사용자 지시 2026-11-12 "나머지 2개 썸네일 다운 받는 기능도 추가해줘".)
 # (v1.4 — 2026-11-12 — ① '올린 적 없음' 칸 = main 기준 (main 에 youtube.json 이 없으면 ✅ — 이 PC 의 옛 youtube.json 때문에 ✗ 로 막히던 것 고침;
 #          옛 기록은 v1.3 대로 업로드 때 youtube_old_<시각>.json 으로 옮김) ② 화면에서 채널 이름을 뺌 (영상 줄·키 칸 — 채널 확인은 ID 로만, 다를 때 묻는 창은 그대로).
 #          사용자 지시 2026-11-12 "채널이름 빼 자꾸 영상 올린적 없음 엑스로 되어 있어서 업로드 안되잖아 수정해".)
@@ -63,7 +66,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -77,6 +80,11 @@ class ChannelMismatch(Exception):
 YT_KEYS = ("YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN")
 KST = dt.timezone(dt.timedelta(hours=9))
 WANT_FILES = ("upload.md", "titles.md", "video.json")      # + <영상ID>.txt · <영상ID>.srt · thumbnails/thumbnail_N.*
+
+
+def src_rel(topic: str, vid: str) -> str:
+    """v1.6 자료 폴더의 GitHub 경로(끝 '/') — 롱폼 <주제>/source/<영상ID>/ · 쇼츠 '<영상ID>-shorts' → <주제>/source/<영상ID>/shorts/."""
+    return yu.src_dir(topic, vid).relative_to(ROOT).as_posix() + "/"
 STATE = {"repo": REPO, "token": secrets.token_urlsafe(24)}
 
 
@@ -218,9 +226,9 @@ def channel_of(topic: str) -> dict:
 
 # ─────────── 영상 목록 · 자료 점검 ───────────
 def fetch_settings(topic: str, vid: str, main_paths: set[str]) -> None:
-    """업로드에 쓰는 파일만 GitHub main → 이 PC 의 <주제>/source/<영상ID>/ (youtube.json 은 받지 않음)."""
-    base = f"{topic}/source/{vid}/"
-    dst = ROOT / topic / "source" / vid
+    """업로드에 쓰는 파일만 GitHub main → 이 PC 의 <주제>/source/<영상ID>/ (쇼츠는 …/shorts/ — v1.6) (youtube.json 은 받지 않음)."""
+    base = src_rel(topic, vid)
+    dst = yu.src_dir(topic, vid)
     names = list(WANT_FILES) + [f"{vid}.txt", f"{vid}.srt"]
     names += [p[len(base):] for p in main_paths if p.startswith(base + "thumbnails/") and up.THUMB_RE.match(p.rsplit("/", 1)[-1])]
     for n in names:
@@ -234,10 +242,11 @@ def fetch_settings(topic: str, vid: str, main_paths: set[str]) -> None:
 def list_videos(topic: str) -> dict:
     main_paths = gh_tree(MAIN)
     upl_paths = gh_tree(UPL)
-    vids = sorted({m.group(1) for p in main_paths for m in [re.match(rf"^{re.escape(topic)}/source/([^/]+)/upload\.md$", p)] if m})
+    vids = sorted({m.group(1) + ("-shorts" if m.group(2) else "") for p in main_paths                 # v1.6 쇼츠 시트도
+                   for m in [re.match(rf"^{re.escape(topic)}/source/([^/]+)/(shorts/)?upload\.md$", p)] if m})
     ready, done = [], []
     for vid in vids:
-        base = f"{topic}/source/{vid}/"
+        base = src_rel(topic, vid)
         if base + "youtube.json" in main_paths:
             try:
                 st = json.loads(gh_raw(MAIN, base + "youtube.json") or b"{}")
@@ -251,9 +260,9 @@ def list_videos(topic: str) -> dict:
         fetch_settings(topic, vid, main_paths)
         r = up.check_one(topic, vid)
         items = {k: list(v) for k, v in r["items"].items()}
-        stale = (ROOT / topic / "source" / vid / "youtube.json").is_file()      # v1.4 기준은 main (위에서 main 에 youtube.json 없음을 확인함)
+        stale = (yu.src_dir(topic, vid) / "youtube.json").is_file()      # v1.4 기준은 main (위에서 main 에 youtube.json 없음을 확인함)
         items["올린 적 없음"] = [True, "main 에 업로드 기록 없음" + (" — 이 PC 의 옛 기록은 업로드 때 youtube_old_… 로 옮김" if stale else "")]
-        vj = ROOT / topic / "source" / vid / "video.json"
+        vj = yu.src_dir(topic, vid) / "video.json"
         if vj.is_file():
             rec = json.loads(vj.read_text("utf-8"))
             missing = [x["name"] for x in rec["parts"] if f"{rec['dir']}/{x['name']}" not in upl_paths]
@@ -261,7 +270,7 @@ def list_videos(topic: str) -> dict:
         else:
             items["영상"] = [False, "video.json 없음 — Claude 가 tools/upload_pack.py pack 으로 올려야 함"]
         local = ROOT / topic / "out" / vid / "final_1080p.mp4"
-        md = (ROOT / topic / "source" / vid / "upload.md").read_text("utf-8")
+        md = (yu.src_dir(topic, vid) / "upload.md").read_text("utf-8")
         ready.append({"vid": vid, "items": items, "ready": all(v[0] for v in items.values()), "titles": r.get("titles", []),
                       "experiments": len(experiments(md)), "downloaded": local.is_file()})
     log("LIST", topic=topic, scripts=len(vids), ready=sum(1 for v in ready if v["ready"]), waiting=len(ready), uploaded=len(done))
@@ -411,7 +420,7 @@ def publish_time(days: int, hhmm: str) -> dt.datetime:
 
 def get_video(topic: str, vid: str) -> Path:
     """uploads 브랜치 조각 → <주제>/out/<영상ID>/final_1080p.mp4 (이미 있고 sha256 이 같으면 그대로). 받은 뒤 sha256 확인."""
-    rec = json.loads((ROOT / topic / "source" / vid / "video.json").read_text("utf-8"))
+    rec = json.loads((yu.src_dir(topic, vid) / "video.json").read_text("utf-8"))
     dest = ROOT / topic / "out" / vid / "final_1080p.mp4"
     if dest.is_file() and dest.stat().st_size == rec["size"] and up.file_hashes(dest)[0] == rec["sha256"]:
         log("VIDEO", video=vid, source="이미 받음", mb=round(rec["size"] / 1e6, 1))
@@ -478,7 +487,7 @@ def media_url(topic: str, vid: str, what: str) -> str:
 
 def preview(topic: str, vid: str) -> dict:
     """(v1.2) 올라갈 그대로 — 이 PC 에 받아 둔 시트·자막·썸네일·영상(GitHub 에서 [새로 고침] 때 받은 것)으로."""
-    src = ROOT / topic / "source" / vid
+    src = yu.src_dir(topic, vid)
     if not (src / "upload.md").is_file():
         raise SystemExit(f"[PREVIEW] ❌ {vid}: 업로드 시트가 이 PC 에 없음 → [새로 고침]")
     md = (src / "upload.md").read_text("utf-8")
@@ -552,7 +561,7 @@ def do_upload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", remem
     title = yu.read_sheet(topic, vid)["title"]
     log("TITLE", video=vid, title=title[:60].replace(" ", "_"), thumbnail=f"thumbnail_{yu.paired_thumbnail(topic, vid)}", note="업로드 시트 1번 본안 (실험안은 스튜디오)")
     path = get_video(topic, vid)
-    stale = ROOT / topic / "source" / vid / "youtube.json"
+    stale = yu.src_dir(topic, vid) / "youtube.json"
     if stale.is_file():                                   # v1.3 main 에는 없음(목록에 있으니) = 이 PC 에만 남은 옛 기록 → 옮기고 새로 올림
         old_rec = json.loads(stale.read_text("utf-8") or "{}")
         moved = stale.with_name(f"youtube_old_{dt.datetime.now(dt.timezone.utc):%Y%m%d%H%M%S}.json")
@@ -560,8 +569,8 @@ def do_upload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", remem
         log("REUPLOAD", video=vid, old_video_id=old_rec.get("videoId", "-"), moved_to=moved.name,
             note="main 에 youtube.json 이 없어 새로 올림 — 옛 영상은 스튜디오에서 지우지 않으면 그대로 남음 (예약 공개면 그 시각에 공개됨)")
     res = yu.run(topic, vid, video=str(path), publish_at=when.strftime("%Y-%m-%dT%H:%M:%SZ"))
-    state = ROOT / topic / "source" / vid / "youtube.json"
-    pushed = gh_put_new(f"{topic}/source/{vid}/youtube.json", state.read_bytes(),
+    state = yu.src_dir(topic, vid) / "youtube.json"
+    pushed = gh_put_new(src_rel(topic, vid) + "youtube.json", state.read_bytes(),
                         f"유튜브 예약 업로드: {vid} (공개 {when.astimezone(KST):%Y-%m-%d %H:%M} KST, PC upload_web.py {VERSION})") if state.is_file() else "failed:youtube.json 없음"
     log("PUSH", video=vid, result=pushed.replace(" ", "_")[:120], note="youtube.json 이 GitHub 에 있어야 다른 PC·Claude 가 올린 줄 앎" if pushed.startswith("failed") else "-")
     url = (res or {}).get("url", "")
@@ -786,14 +795,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._json({"error": "없음"}, 404)
         topic, vid, what = parts[0], parts[1], parts[2]
         if what == "thumb" and len(parts) == 4 and up.THUMB_RE.match(parts[3]) and "/" not in parts[3]:
-            p = ROOT / topic / "source" / vid / "thumbnails" / parts[3]
+            p = yu.src_dir(topic, vid) / "thumbnails" / parts[3]
             ctype = {"jpg": "image/jpeg", "jpeg": "image/jpeg", "png": "image/png", "webp": "image/webp"}.get(p.suffix.lower().lstrip("."), "application/octet-stream")
         elif what == "video" and len(parts) == 3:
             p, ctype = ROOT / topic / "out" / vid / "final_1080p.mp4", "video/mp4"
         else:
             return self._json({"error": "없음"}, 404)
         if not p.is_file() and what == "thumb":                     # v1.5 올린 뒤 이 PC 에 없는 썸네일 — GitHub main 에서 받아 둠
-            body = gh_raw(MAIN, f"{topic}/source/{vid}/thumbnails/{parts[3]}")
+            body = gh_raw(MAIN, src_rel(topic, vid) + f"thumbnails/{parts[3]}")
             if body:
                 p.parent.mkdir(parents=True, exist_ok=True)
                 p.write_bytes(body)

@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.16 — 2026-11-12 — 채널이 달라도 **사용자가 화면에서 확인한 채널 ID** 는 통과 (`ALLOW_CHANNEL` — tools/upload_web.py v1.2 가 확인 뒤 넣음 ·
+# VERSION: v1.17 — 2026-11-21 — 쇼츠 썸네일: 배치 검사 ❌ 로 0초 장면을 뽑았는데 그 장면이 거의 검정(밝기 평균 < 16 — 페이드인으로 시작하는 영상)이면
+#          검정 썸네일 대신 그림 그대로 (로그 THUMBNAIL level=warn). music 쇼츠 ai-angyeong-siheom-2026-11-shorts 시험(--dry-run)에서 0초 장면 = 검정 0.01MB.
+#          사용자 지시 2026-11-21 "이 영상 일단 유튜브 업로드 프로그램으로 올릴 수 있도록 music 폴더에 올려봐".
+# (v1.16 — 2026-11-12 — 채널이 달라도 **사용자가 화면에서 확인한 채널 ID** 는 통과 (`ALLOW_CHANNEL` — tools/upload_web.py v1.2 가 확인 뒤 넣음 ·
 #          명령줄은 그대로 멈춤). 사용자 지시 "주식 채널명이 다르다고 업로드 실패했는데 그건 내가 채널명이 변경해서 그래 그러니까 달라도 업로드 할껀지 물어보고 하도록 하고".
-#          ※ 비교는 이름이 아니라 채널 ID(UC…) — 이름만 바꾼 채널은 ID 가 같아 멈추지 않음.
+#          ※ 비교는 이름이 아니라 채널 ID(UC…) — 이름만 바꾼 채널은 ID 가 같아 멈추지 않음.)
 # (v1.15) — 2026-11-05 — **쇼츠 썸네일은 유튜브 처리가 끝난 뒤에** (사용자 지시 "그리고 왜 쇼츠 썸네일은 적용 안되는거야?"): 올리자마자(처리 전) thumbnails.set 을 하면 성공으로 답해도
 #          쇼츠 세로 썸네일(snippet.thumbnails.shortsAspectRatio 720×1280)이 생기지 않음 — 2편 쇼츠 H0k8gbYeIYo 실측, 처리 뒤 다시 보내니 생김.
 #          → 쇼츠는 processingDetails 가 succeeded 일 때까지 기다린 뒤(15초마다, 최대 10분, 1단위씩) 보내고, shortsAspectRatio 가 생겼는지 확인 (없으면 한 번 더, 그래도 없으면 경고).
@@ -470,6 +473,16 @@ def shorts_cover_frame(img, video_path, out_dir):
                        capture_output=True, text=True)
     if r.returncode != 0 or not frame.exists():
         log("THUMBNAIL", level="warn", note="0초 장면을 못 뽑음 — 그림 그대로: " + (r.stderr or "").strip()[-200:])
+        return img
+    try:                                    # v1.17 페이드인으로 시작하는 영상 — 0초 장면이 검정이면 그림 그대로
+        from PIL import Image, ImageStat
+        with Image.open(frame) as im:
+            luma = ImageStat.Stat(im.convert("L")).mean[0]
+    except Exception:
+        luma = None
+    if luma is not None and luma < 16:
+        log("THUMBNAIL", level="warn", file=img.name, frame_luma=round(luma, 1),
+            action="0초 장면이 검정(페이드인) → 그림 그대로", note="그림 배치는 검사 ❌ 였음 — 미리보기에서 확인")
         return img
     log("THUMBNAIL", file=img.name, action="그림 배치 검사 ❌ → 영상 0초 장면으로", frame=str(frame.relative_to(ROOT)) if frame.is_relative_to(ROOT) else str(frame))
     return frame

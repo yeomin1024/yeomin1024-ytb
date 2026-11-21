@@ -1,18 +1,18 @@
 {
  "tool": "upload_pack.py v1.1",
- "made": "2026-11-21T06:16:38+00:00",
+ "made": "2026-11-21T06:56:49+00:00",
  "file": "final_1080p.mp4",
- "size": 44229881,
- "sha256": "a82cfe5d3143da7dec262cb6037d1638babbcfce08355dc9570e6ebb20d3c141",
- "md5": "6b12a6f7abfbaab4158a10a2bd0f14ab",
+ "size": 47406086,
+ "sha256": "300a10f8ebd8ed2c07baf34822f70ffdd62d4cae9c88a1aa1192e73c3ec5323f",
+ "md5": "6d5368c118515df7d9edd50ed8632273",
  "branch": "uploads",
  "dir": "music/ai-angyeong-siheom-2026-11-shorts",
  "parts": [
   {
    "name": "final_1080p.mp4.part01",
-   "size": 44229881,
-   "sha256": "a82cfe5d3143da7dec262cb6037d1638babbcfce08355dc9570e6ebb20d3c141"
+   "size": 47406086,
+   "sha256": "300a10f8ebd8ed2c07baf34822f70ffdd62d4cae9c88a1aa1192e73c3ec5323f"
   }
  ],
- "duration_s": 39.7
+ "duration_s": 42.2
 }

@@ -24,8 +24,8 @@
 ## ChatGPT에게 — 이 파일을 읽으면 할 일
 0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.
 1. **먼저 1편 기준 그림 2장을 열어 본다 — 새 그림은 모두 이 그림들과 같은 사진 느낌으로** (실사 · 오늘날 한국 · 자연광 · 차분한 색):
-   - https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/music/source/ai-angyeong-siheom-2026-11/shorts/images/REF-CLASSROOM.jpg
-   - https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/music/source/ai-angyeong-siheom-2026-11/shorts/images/S-HALLWAY.jpg
+   - https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/7a466186e42ab62b8385e66dd607af95d0eea1a3/music/source/ai-angyeong-siheom-2026-11/shorts/images/REF-CLASSROOM.jpg
+   - https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/7a466186e42ab62b8385e66dd607af95d0eea1a3/music/source/ai-angyeong-siheom-2026-11/shorts/images/S-HALLWAY.jpg
    그림을 열 수 없으면 아래 '공통 화풍' 설명대로 만든다.
 2. 아래 1~10번 **10장을 번호 순서대로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터.
 3. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓰고, 맨 앞에 아래 **공통 화풍** 문단을 그대로 붙인다.

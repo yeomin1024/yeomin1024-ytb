@@ -1,5 +1,10 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-21 (4) — music: 이슈 쇼츠 2편 'AI 안경, 일상생활에서도 문제' 대본·그림 요청
+
+- 사용자 지시 "이렇게 대본 썼으니 이미지 생성 지시사항 저장소에 올리고 명령도 알려줘" — 대본은 사용자 작성 그대로(내레이션만), 맞춤법 '교모하게'→'교묘하게'만.
+- `music/source/ai-angyeong-ilsang-2026-11/shorts/images_chatgpt.md` v1.0 — 실사 정사각 10장(S01-OPEN ~ S10-GOV), 대본 줄별 대응표, 1편 기준 그림 2장(`REF-CLASSROOM.jpg`·`S-HALLWAY.jpg`, 1편 폴더 `images/`) · 4번째 줄 앞부분은 1편 복도 그림 재사용.
+
 ## 2026-11-21 (3) — `tools/trending_scan.py` v1.0 (지금 한국 유튜브 인기 영상 수집)
 
 - 사용자 지시 "좀 지금 뜨겁게 이슈되고 있는 것좀 찾아봐 다른 세션에서 유튜브 API하면 되잖아 시험 관련 말고" — 채팅 세션은 googleapis.com 이 막히고 키가 없어서, 키가 있는 세션에서 한 줄로 돌리게 도구만 올림.

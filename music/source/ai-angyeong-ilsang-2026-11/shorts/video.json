@@ -1,0 +1,18 @@
+{
+ "tool": "upload_pack.py v1.1",
+ "made": "2026-11-22T04:20:18+00:00",
+ "file": "final_1080p.mp4",
+ "size": 40492828,
+ "sha256": "77e3e6f3dbbc5fb2356d547ffc48bde65ffccf1bbb2368a579f4b33d164804f9",
+ "md5": "89d78df0b7c2549e26b86f6d12912d87",
+ "branch": "uploads",
+ "dir": "music/ai-angyeong-ilsang-2026-11-shorts",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 40492828,
+   "sha256": "77e3e6f3dbbc5fb2356d547ffc48bde65ffccf1bbb2368a579f4b33d164804f9"
+  }
+ ],
+ "duration_s": 38.9
+}

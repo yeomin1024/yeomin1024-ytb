@@ -1,8 +1,9 @@
 # ai-angyeong-ilsang-2026-11-shorts 업로드 시트 (쇼츠 — 롱폼 짝 없음)
 
-버전: v1.0 — 2026-11-22 — 새로 만듦. 사용자 지시 2026-11-22 "이렇게하고 올릴 준비다 해" (앞 지시: 제목·문구·대본은 사용자 작성 · "하단에 채널 로고와 변우상 / 좋아요, 구독! …" · "상단 문구를 문제라고? 이렇게 바꾸자").
+버전: v1.1 — 2026-11-22 — 배경음은 사용자가 업로드 뒤 스튜디오에서 넣음 → 설명란에 저작자 표시 줄을 미리 넣음 (사용자 지시 "브금은 업로드하고 올릴거니까 내말대로 좀 업로드 준비하라고"). 영상·pack 그대로.
+(v1.0 — 2026-11-22 — 새로 만듦.) 사용자 지시 2026-11-22 "이렇게하고 올릴 준비다 해" (앞 지시: 제목·문구·대본은 사용자 작성 · "하단에 채널 로고와 변우상 / 좋아요, 구독! …" · "상단 문구를 문제라고? 이렇게 바꾸자").
 - 영상 (38.9초): 0~2.96초 = 제목 읽기 + 흰 띠(업로드 제목 한 줄) + 테이블 위 AI 안경 → 장면 11개 · 흰 자막 13개 · 위 큰 문구 「AI 안경 시험뿐만이 아닌 / 일상생활에서도 문제라고?」 · 아래 채널 줄 「[로고] 변우상 | 변화하는 우리들의 일상 / 좋아요, 구독!」.
-- 배경음 없음 — 사용자가 'Amazing Plan - Silent Film Dark'(Kevin MacLeod, CC BY 4.0) mp3 를 주면 소리만 다시 넣고 `pack` 다시 · 그때 설명란에 저작자 표시 줄을 꼭 더함 (아래 2번 주석).
+- 배경음 'Amazing Plan - Silent Film Dark'(Kevin MacLeod, CC BY 4.0)는 사용자가 업로드 뒤 스튜디오 편집기에서 넣음 — 영상 파일엔 없음 · 저작자 표시는 설명란에 이미 있음.
 
 기준 파일: 대본 `ai-angyeong-ilsang-2026-11-shorts.txt` (사용자 작성 10줄) · SRT (구운 자막 시각 그대로 + 첫 자막 = 제목 읽기 0.19~2.81초) ·
 올릴 영상 = `music/out/ai-angyeong-ilsang-2026-11-shorts/final_1080p.mp4` (git main 에는 없음 — `uploads` 브랜치 조각 · 확인값 `video.json`) · 만든 코드 = 채팅 작업 공간 `build_ep2.py` v1.6
@@ -24,13 +25,11 @@ AI 안경, 시험장 부정행위만 문제가 아닙니다.
 
 ▶ AI 안경을 의심해 볼 단서: 렌즈 바깥 모서리의 작은 카메라 구멍 · 유난히 두꺼운 안경다리 · 안경다리를 누르거나 쓸어내리는 손동작
 
+Music: Amazing Plan - Silent Film Dark by Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0 · https://creativecommons.org/licenses/by/4.0/
 ※ 영상 속 그림은 AI로 만든 연출 이미지이며 실제 사건의 장소나 인물이 아닙니다.
 #AI안경 #몰카 #스마트안경
 ```
 
-<!-- 배경음을 넣으면 '※' 줄 위에 이 줄을 더함:
-🎵 Music: Amazing Plan - Kevin MacLeod (incompetech.com) · Licensed under Creative Commons: By Attribution 4.0 · https://creativecommons.org/licenses/by/4.0/
--->
 
 ## 3. 태그
 

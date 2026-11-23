@@ -216,21 +216,40 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-23T08:26:34Z",
+      "sha": "000ebedc7006b103",
+      "reviewers": [
+       {
+        "reviewer": "E5-P3",
+        "persona": "P3",
+        "exits": [
+         {
+          "line": 21,
+          "why": "조건이 빠진 수칙 — 원격 잠금은 미리 계정에 로그인해 기능을 켜 둔 휴대폰만 되고, 이름도 기종마다 다름('내 디바이스 찾기'·'나의 찾기'). 끌 정도는 아니고 댓글로 바로잡고 싶은 정도"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "120 — '위치를 확인하고 다음 연락 시각을 정한 다음에 끈다'는 순서까지 짚어서, 그냥 '배터리 아끼세요'로 끝내는 영상과 달리 현장 사람이 하는 말처럼 들림",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [21]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "'내 휴대폰 찾기'에 조건(미리 기능을 켜 둔 휴대폰만) · 기종마다 이름이 달라 '휴대폰 찾기 기능'으로",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt",
-    "pending": {
-     "n": 5,
-     "sha": "000ebedc7006b103",
-     "reviewers": [
-      "E5-P3"
-     ],
-     "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_5.md",
-     "answers": "crisis/source/tteoreojin-pon-2026-11/answers_tteoreojin-pon-2026-11_script_exit_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-23T08:25:05Z"
-    }
+    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [

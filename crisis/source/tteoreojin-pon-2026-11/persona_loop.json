@@ -161,21 +161,40 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-23T08:18:12Z",
+      "sha": "135852ca063e7e05",
+      "reviewers": [
+       {
+        "reviewer": "E3-P3",
+        "persona": "P3",
+        "exits": [
+         {
+          "line": 54,
+          "why": "틀린 근거로 보임 — 매끈한 휴대폰은 등산화가 버티는 완만한 비탈에서도 미끄러지는데, '폰이 미끄러졌으니 발도 미끄러진다'를 첫 원칙의 근거로 못박음(11줄도 같은 말). 결론(등산로 밖으로 안 나감)은 맞으니 근거를 '젖은 흙·낙엽·가파름'으로 바꾸면 됨"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "114 — '휴대폰 끄기는 구조대가 위치를 확인하고 다음 연락 시각을 정한 다음'처럼 순서·조건을 붙여 줘서, 그냥 '배터리 아끼세요'보다 현장에서 맞는 말이라 믿음이 감",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [54]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "첫 원칙 근거 '폰이 미끄러졌으니 발도'(틀린 근거) → '등산로 옆 비탈은 다져지지 않은 땅·젖은 흙·낙엽' · 4줄 '멈췄다'와 11줄 '멈추지 못하고' 어긋남 없앰 · 비 온 뒤 '마른 낙엽 모아 깔기'(옆 단단한 곳만 옮기라는 말과 충돌) → 쪼그려 앉아 땅에 닿는 곳 줄이기",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_3.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt",
-    "pending": {
-     "n": 3,
-     "sha": "135852ca063e7e05",
-     "reviewers": [
-      "E3-P3"
-     ],
-     "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_3.md",
-     "answers": "crisis/source/tteoreojin-pon-2026-11/answers_tteoreojin-pon-2026-11_script_exit_3",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-23T08:16:32Z"
-    }
+    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [

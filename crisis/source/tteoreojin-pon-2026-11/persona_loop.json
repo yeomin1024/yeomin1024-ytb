@@ -49,21 +49,53 @@
        "max_rounds": 10
       },
       "text": "제목: 산에서 떨어진 휴대폰 주우면 위험, 13시간 뒤 발견된 여성\n썸네일 문구: 휴대폰이 떨어졌다 / 당신이라면 줍는다?\n보조 문구: ① 손 뻗기 ② 내려가기 ③ 자리만 기억"
+     },
+     {
+      "n": 2,
+      "at": "2026-11-23T08:12:14Z",
+      "sha": "8e734265bd41d595",
+      "reviewers": [
+       {
+        "reviewer": "T2-P3",
+        "persona": "P3",
+        "feed_picks": [
+         8,
+         4
+        ],
+        "feed_why": "8은 추락·시설 사고라 내 관심이고 '13시간 뒤 발견'이 실제 사고처럼 보여 수칙이 맞는지 확인하러 누름, 4는 2차 사고라 보지만 2014년 방송이라 뒤로",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "주우면 위험 / 13시간 뒤 발견된 여성 / 당신이라면 줍는다?",
+        "fix": "'주우면 위험'을 어떤 비탈·어떤 때(밤·급경사·혼자) 위험한지 조건을 넣고, 13시간이 실제 사고 기록인지(언제·어디) 드러나게",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T2-반론",
+        "persona": "반론",
+        "feed_picks": [
+         8,
+         7
+        ],
+        "feed_why": "8번은 '주우면 위험'이 너무 단정이라 조건 빠진 얘기 아닌지 따지려고, 7번은 공용 계단이 주거침입이라는 게 한국 법 현실에 맞는지 확인하고 싶어서 누름 — 나머지는 영화 리뷰·옛날 방송·괴담이라 반박할 거리가 안 보여 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "'주우면 위험'(어떤 비탈·몇 m·밤인지 없이 단정) / '13시간 뒤 발견된 여성'(어느 나라 일인지, 살았는지 죽었는지 없음) / 보조 문구 '③ 두고 가기'(폰에 카드·신분증·인증 다 들어 있는데 그냥 두고 가라고? 정답이 뻔해 보이고 현실을 모르는 소리 같음)",
+        "fix": "제목에 조건 하나(가파른 비탈·해 질 녘 혼자 등)와 사건 나라를 붙여 '무조건 위험' 단정을 빼고, 썸네일 보기 ③은 '두고 가기' 대신 실제로 할 수 있는 다른 방법(신고·도움 요청 등)으로 바꾸면 '뻔한 정답' 소리 없이 누를 것",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "고치지 않음 (2회차 통과 — 남은 제안: 조건(밤·급경사)·국내 사건임을 제목에, ③ 문구를 다른 방법으로 — 사용자에게 선택지로 알림)",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_title_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "text": "제목: 산비탈로 떨어진 휴대폰 주우면 위험, 13시간 뒤 발견된 여성\n썸네일 문구: 휴대폰이 떨어졌다 / 당신이라면 줍는다?\n보조 문구: ① 손 뻗기 ② 내려가기 ③ 두고 가기"
      }
-    ],
-    "pending": {
-     "n": 2,
-     "sha": "8e734265bd41d595",
-     "reviewers": [
-      "T2-P3",
-      "T2-반론"
-     ],
-     "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_title_2.md",
-     "answers": "crisis/source/tteoreojin-pon-2026-11/answers_tteoreojin-pon-2026-11_title_2",
-     "ours_idx": 8,
-     "text": "제목: 산비탈로 떨어진 휴대폰 주우면 위험, 13시간 뒤 발견된 여성\n썸네일 문구: 휴대폰이 떨어졌다 / 당신이라면 줍는다?\n보조 문구: ① 손 뻗기 ② 내려가기 ③ 두고 가기",
-     "at": "2026-11-23T08:11:04Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -105,21 +137,33 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 2,
+      "at": "2026-11-23T08:12:32Z",
+      "sha": "e5fca0097d470fed",
+      "reviewers": [
+       {
+        "reviewer": "E2-P3",
+        "persona": "P3",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "117 — '전원 꺼라'만 말하지 않고 위치 확인·다음 연락 시각을 먼저 정한 뒤에 끄라는 순서(조건)까지 짚어서, 흔한 틀린 조언을 바로잡음 (101 '계속 미끄러지면 옆 단단한 곳으로만'도 조건이 붙어 믿음이 감)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "2회차 통과 (끄고 싶은 줄 0) — 검토자 메모: 빌릴 사람이 없을 때 · 스틱으로 끌어오기 · 관리사무소 없는 동네 산",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_2.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt",
-    "pending": {
-     "n": 2,
-     "sha": "e5fca0097d470fed",
-     "reviewers": [
-      "E2-P3"
-     ],
-     "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_2.md",
-     "answers": "crisis/source/tteoreojin-pon-2026-11/answers_tteoreojin-pon-2026-11_script_exit_2",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-23T08:11:04Z"
-    }
+    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [

@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.6 — 2026-11-23 — **'어느 순간 가스라이팅이 된' 실제 사례 17건** (사용자 지시 "그러니까 1번 심리가 초래한 실제 사례들을 찾아보라고 사람들이 모르고 있지만 그게 가스라이팅이 어느 순간 된거지 그런거" · "그래 조사 끝나면 사례 정리해서 보여줘"): `source/gaslighting_cases.md` (사례 카드 — 관계·평범했던 시작·바뀐 순간·왜 못 벗어났나·판결·출처·확실성 · 공통 6단계 · 법원 판단 · 판단) · `incident_cases.py` v1.2.0 (가스라이팅 검색어 6개, 1,244단위) · 댓글 `source/gaslight_comments.py` v1.0.1 → `result/incidents/gaslight_comments.md`.
+VERSION: v1.7 — 2026-11-23 — **주제 하나의 성공 사례 찾기 — 우울증 증상** (사용자 지시 "우울증 증상과 관련된 성공 사례 영상 찾아서 알려줘봐"): `source/topic_success.py` v1.0.0 (주제마다 검색어·낱말을 TOPICS 에 더해 씀) → `result/topics/depression.md`·`.csv` — 최근 180일 우울 영상 239개 중 성공 4 · 거의 성공 10 · 제목이 증상·신호 쪽인 성공은 0 (검색 10번 1,009단위) · 채널 목록 `source/psych_channels.py` v1.0.1 → `result/channels/psych_channels.md`.
+(v1.6 — 2026-11-23 — **'어느 순간 가스라이팅이 된' 실제 사례 17건** (사용자 지시 "그러니까 1번 심리가 초래한 실제 사례들을 찾아보라고 사람들이 모르고 있지만 그게 가스라이팅이 어느 순간 된거지 그런거" · "그래 조사 끝나면 사례 정리해서 보여줘"): `source/gaslighting_cases.md` (사례 카드 — 관계·평범했던 시작·바뀐 순간·왜 못 벗어났나·판결·출처·확실성 · 공통 6단계 · 법원 판단 · 판단) · `incident_cases.py` v1.2.0 (가스라이팅 검색어 6개, 1,244단위) · 댓글 `source/gaslight_comments.py` v1.0.1 → `result/incidents/gaslight_comments.md`.)
 (v1.5 — 2026-11-23 — **심리가 초래한 실제 사례 찾기** (사용자 지시 "심리 주제 쪽은 사람들이 가장 관심 있게 본 심리가 반영된 사건, 사고 등 사례를 찾아봐" → "그냥 꼭 큰 사건, 사고가 아닌 심리가 초래한 사례면 되니까 심리에 집중해 계속 진행해"): `source/incident_cases.py` v1.1.0 → `result/incidents/incident_cases.md` (검색어 22개 × 전체·최근 1년 = 44번 4,465단위 + 기존 캐시 · Claude 판정 393개 중 사례 226개 · 심리 개념별·사례별·작은 채널·최근 1년 · 끝에 판단).)
 (v1.4 — 2026-11-12 — **제목·썸네일·대본 페르소나 반복 검증** 절 (`guides/persona_loop.md`) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".)
 (v1.3 — 2026-11-12 — **대본 4편** (사용자 지시 "그래 content_analysis 고쳐 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"): `source/first_video.md` 1·5·6번 주제 4편 — `source/<영상ID>/<영상ID>.txt`·`.srt`·`대본_근거.md`·`persona_review.md` · ChatGPT 검증 파일 `source/chatgpt_persona_review.md` (`tools/chatgpt_persona_review.py` v1.0) · `content_analysis.py` v1.0.3 (앞 5분 대본은 흥미 장치 4구간을 세지 않음) · 성공 사례 대본 50개.)
@@ -51,6 +52,7 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 | `source/gaslighting_cases.md` | **'어느 순간 가스라이팅이 된' 실제 사례 17건 (판단 문서)** — 한눈에 표 · 공통 6단계 · 시청자 댓글 · 법원 판단 · 사례 카드(출처 URL·확실성 ✅🟡⚪) · 채널에 맞는 순서. ⚠️ 출처는 검색 발췌만 — 대본 전 원문 확인 |
 | `source/gaslight_comments.py` | 심리 승인 영상 댓글에서 '가스라이팅' 경험 세기 v1.0.1 (관계·깨달음·수법 낱말) → `result/incidents/gaslight_comments.md` · 시험 `source/test_gaslight_comments.py` |
 | `source/psych_channels.py` | **심리 관련 채널 구독자 순 v1.0.1** — 우리 캐시 + 채널 검색 5개(505단위) → `result/channels/psych_channels.md`·`.csv` (심리 전문 · 종합 · 종교·명상) |
+| `source/topic_success.py` | **주제 하나의 성공 사례 찾기 v1.0.0** — `run <주제>` (지금 `depression`) · 캐시 + 최근 180일 주제 검색 → 심리 성공 기준 그대로 → `result/topics/<주제>.md`·`.csv` (성공 · 거의 성공 · 증상·신호 쪽 표시) |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 28개 (까닭·되살리기) — 종교·범죄 사건·뇌과학/공부법·육아·연애 예능 리뷰 등 |
 | `result/outliers/thumb_codes.tsv` | 성공 사례 썸네일 122장 분류 (Claude 가 그림을 봄) → `content_analysis.md` 2번 |
 | `cloud_cache/` | 탐색 캐시 묶음 |

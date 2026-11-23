@@ -1,0 +1,400 @@
+# 심리가 초래한 사례 판정 — Claude 가 제목·채널을 읽고 씀 (대본은 안 봄) · incident_cases.py v1.1.0 이 읽음
+# keep: 1 = 실제 일(사건·사고·실험·사람·관찰)을 들고 그 안의 심리를 설명 · 0 = 아님 (note 에 까닭)
+# kind: experiment·crime·accident·social·history·everyday (실제) · fiction(영화·드라마) · story(진위 모를 사연)
+# concept: 심리 개념 (여럿이면 | 로) — 사이코패스 · 가스라이팅·지배 · 세뇌·그루밍 · 나르시시즘 · 범행 심리 · 거짓말·진술 · 거짓말·사칭 · 사기·속는 심리 ·
+#          스톡홀름 증후군 · 방관자 효과·도움 행동 · 동조 · 복종·권위 · 군중심리 · 집단 광기 · 투기 심리 · 플라시보·노시보 · 학습된 무기력 · 인지부조화 ·
+#          확증편향 · 집단사고 · 중독 · 트라우마 · 학대 · 집착·스토킹 · 공감 결여 · 분노·충동 · 유전·환경 · 지각·착각 · 자아·의식 · 사회실험 모음 · 전쟁 심리 · 희귀 정신 증후군
+video_id	keep	kind	case	concept	note
+2c2G8s4qVAo	1	fiction	블랙버드(드라마)	사이코패스	실화 바탕 드라마 리뷰
+aRiFY2Nm9Ng	1	experiment	분할뇌 실험(스페리)	자아·의식	
+K37ll1aV9rs	1	everyday	JMS(정명석)	세뇌·그루밍	탈퇴 당사자
+0mJD3gBw0Oo	1	experiment		방관자 효과·도움 행동	실험카메라
+Pb_2KKptDZg	1	crime	강서 고문 살인(국프)	가스라이팅·지배	
+2LxMXgGYBOQ	1	crime	강호순·이춘재	사이코패스	
+jmy7fhmk_7M	1	everyday		학대|트라우마	이혼숙려캠프 상담
+yFR2T9EWjVc	0				만화
+h8rhb8eOFiA	0				일반론
+1Hg8TwJhKSg	0				테스트 예능
+DbJpZXj2lHw	1	crime	유영철	사이코패스	
+W90xXowqw3U	1	crime	장윤기 사건	사이코패스|공감 결여	
+tiUDxyvV0Xc	1	crime	이은해 사건	가스라이팅·지배	
+1Y1UTkjMG00	0				일반론
+X71gvsqMk4k	0				일반론
+3UMMeFyd-EA	0				일반 특징
+hPrduX1uT0I	1	crime	세 딸 모친 폭행 사망('그분')	세뇌·그루밍|가스라이팅·지배	
+NzzS2_7bXhA	1	fiction	크라임퍼즐(드라마)	범행 심리	
+wGMLTVjs7d0	1	fiction	영화 마더	집착·스토킹	
+gQcHTnwjTrg	0				책 일반론
+yaLd6Rl3eUI	0				일반론
+pZ7o-EmoYqU	1	experiment	사기꾼 마피아 게임(진용진)	거짓말·사칭|사기·속는 심리	실제 사기범 관찰
+zOdmsa7-j-w	1	crime	드들강 살인사건	범행 심리	
+9bRCPZFJzdI	1	everyday		세뇌·그루밍	사이비 탈퇴자
+vbNiRHWQSq8	1	crime	유혜영 사망 사건	범행 심리	
+GtyiUsoX3Kw	0				법의학·수사
+qtEYmBQoyCw	0				사고 영상
+3O6YgzC8L8Q	1	experiment		사회실험 모음	
+PKCCvbDDJic	1	social	제임스 팰런(사이코패스 뇌)	사이코패스|유전·환경	
+R7zYDGrgGO4	0				일반론
+HHG9Tr8lKoI	1	crime	엄인숙(엄여인)	사이코패스	
+RaNVnkO1iRk	0				재판 결과
+VfFqp3GfLr0	1	experiment		방관자 효과·도움 행동	실험카메라
+URTlFo1O29s	1	everyday	이은해 사건	트라우마	분석가 대리 외상
+8A9zKZD17kI	1	fiction		범행 심리	
+Th7-H-di3CQ	1	story		사기·속는 심리	
+aDKTVLNIG5k	1	crime	스님 가스라이팅 15년	가스라이팅·지배	
+pESPBCEMTRg	1	crime	유영철	사이코패스|중독	
+HC1U-Z8IshQ	0				논란 보도
+wjHeDKKoBNA	0				일반론
+asAy2FpP5KA	1	crime	김소영 연쇄살인	범행 심리	
+djJAPesS7HU	0				신상 보도
+Vy9AH3Krhik	0				유머
+gsYrBli4PzA	0				보도
+VW39nV8Zu64	1	crime	대구 감금 성매매('여왕벌')	가스라이팅·지배	
+QhXHllPcuII	1	fiction		범행 심리	실화 영화 요약 추정
+X2i-SrcjD-Q	1	social	이민우 가스라이팅	가스라이팅·지배|트라우마	
+SMFb5dREaos	0				시설 다큐
+vEduBkPIs00	1	crime		거짓말·진술	신문 영상 해설
+in6JOvGvnCo	0				개인 썰
+pG0B6PWhKHc	1	crime	이춘재·고유정	사이코패스	
+_7QWfsBA59Y	1	social	이진호 도박	중독	
+lhbf_mPEC54	0				보도
+iJnkEjaVo4k	0				수사
+7EKe8_oUHLA	1	crime	김태현(노원 세 모녀)	집착·스토킹|사이코패스	
+_VTA5hYcIXA	1	crime	삼전동 방화 살인	범행 심리	
+_7LDEUO48YA	0				일반론
+G0WGglONHyw	1	crime		사이코패스|중독	연쇄살인범 여럿
+INcqptGgtMQ	0				일반 특징
+KRoEFSGdO2I	0				방송인 일화
+WAbzzjS7TXo	0				일반론
+JaG6I81dpXA	1	crime		범행 심리	프로파일링 미제
+K4wp4aFA_lM	0				일반 특징
+gIdARWrTesU	1	crime	어금니아빠(이영학)	스톡홀름 증후군|학습된 무기력	
+RC3wP4Mk548	0				재판 소식
+yCaAcufB7cs	1	crime	청주 가요주점 동업자 살인	범행 심리	
+Qw2-0jfINXo	1	crime	유영철	사이코패스	
+fK3EtBwlIIY	0				범인 추리
+T9fp6gV6oB8	0				일반론
+ho4rzYQRxak	1	everyday		희귀 정신 증후군	기록된 증례
+JNSbCyoSNmc	1	everyday		학대	결혼지옥 상담
+ObG5Hf_uTjc	0				일반론
+LyEXkZIHDq0	0				일반 특징
+MciqI03-lOc	1	crime		범행 심리	
+8gjtXoqp1nc	1	fiction		집착·스토킹	
+QA-sNyDuj-o	1	fiction		사이코패스	
+jm5XjtyrUwY	1	fiction		사이코패스	실화 바탕
+B-vH-rTbQ7Y	0				퍼즐
+8SRlnDANwPc	1	experiment	뜨거운 차 몰카	플라시보·노시보	몰래카메라
+a5z0IXULPEY	0				책 일반론
+t5BgBYoW_zg	0				사건 소개(심리 불명)
+6NLF5GnSlVc	0				일반론
+2rG9pvaiw1U	1	crime	인천 모자 살인	거짓말·진술	
+5NgGdlGz4mM	0				수사
+s-buW9e6p3I	1	crime	스톡홀름 은행 인질(1973)	스톡홀름 증후군	만화 해설
+yHv0VwUYvrA	1	crime	강남 의대생 교제살인	범행 심리|집착·스토킹	
+Pg6ggTJYXxk	0				철학
+91Gry81OeJ0	0				사건 보도
+TI4lAcaF9C8	1	history	부두 죽음	플라시보·노시보	
+U9HKpalKtSU	0				법문
+x5DrO_zbVCg	1	crime	강서 고문 살인(국프)	가스라이팅·지배	
+cBslvnhVNvw	0				일반론
+8TsliYkD6yw	1	crime		범행 심리	
+jRth4R0yPW8	0				일반 특징
+Zm-1FS-XcUI	0				법의학
+tOOjNhJQnx0	0				주제 밖
+3WM7QyKpIo4	0				일반 특징
+XAgJT6ELVvE	1	experiment	미네소타 쌍둥이 연구	유전·환경	
+a-y2zBIngwM	1	crime		사이코패스	
+UyuFJ9FMVz0	0				점술
+1EmIJItC_jA	1	experiment		지각·착각	
+NzG2flC4mIA	1	experiment	뜨거운 차 몰카	플라시보·노시보	몰래카메라
+9z9oJEy_QoM	1	crime	폴 버나도·칼라 호몰카	사이코패스|가스라이팅·지배	
+5QZnTjZ772U	1	crime		방관자 효과·도움 행동	
+qzFVcl4hxFk	1	everyday		사이코패스	당사자 출연
+NsjdK2fSSyQ	1	experiment		유전·환경	40년 종단 연구
+_XGFaUczZsk	1	crime	초등생 공기총 살인	세뇌·그루밍	
+cl1Hfkrh-2U	0				괴담
+pvEGtefBOlA	1	experiment		사회실험 모음	실험카메라
+hCyy48xnf2o	1	experiment	스탠퍼드 감옥 실험	복종·권위|동조	
+ruhesi11WIA	1	experiment	뜨거운 차 몰카	플라시보·노시보	몰래카메라
+k0dm81ZiCWI	1	crime		범행 심리	
+lfCh23Sfsws	0				일반 특징
+sw6N7RHFQsM	0				일반론
+EyG7hdHX9lc	0				테스트 예능
+I_2GVLP74fg	1	crime	재력가 150억 사기	사기·속는 심리	
+O-8jW4tz9jw	1	fiction	다크나이트(조커)	사이코패스	
+d7WaWSlT248	1	history	닷컴·AI 버블	투기 심리|군중심리	
+_j9XbnsgO4o	0				일반론
+EhBHIvJLDsw	0				게임
+uuaNTjAjXRs	1	social	앨리스 황(젠슨 황 사건)	거짓말·사칭	
+2g-X4jEj9pc	0				정치 비유
+OuGZIwt8QMo	1	social	로버트 할리 마약	중독	
+JiHroN8cIvM	1	experiment	뜨거운 차 몰카	플라시보·노시보	몰래카메라
+VWmgnddGjdE	1	experiment		사회실험 모음	재현 실패 실험
+nx6kD_z6VnI	1	social	전청조 사기	거짓말·사칭|사기·속는 심리	
+07VjAGREkMw	1	crime	순창 보이스피싱	사기·속는 심리	
+jc4pUIrblkQ	0				사건 소개(심리 불명)
+7ln7koDcUaM	1	history		전쟁 심리|트라우마	
+eSM-YtRWr3g	1	experiment	켈로그 침팬지 양육 실험	유전·환경	
+FqDNQlgerk4	1	social	박위	나르시시즘	유명인 추측
+Wr8BsvJZlHM	1	crime	이천 마작방 주인 살인	범행 심리	
+tyEZ6IWCosU	1	crime	강서구 이웃 여성 살인	범행 심리	
+30lfpIQN9EE	1	experiment		사회실험 모음	비윤리 실험
+IZ1F76NpP1k	1	crime	북한강 장교 살인	범행 심리	
+AQSdaenric4	1	crime	통영 살인	범행 심리	
+UX-s6GQgWJI	1	crime	봉화 면사무소 살인	범행 심리	
+4itR5ME5zNs	1	crime		범행 심리	프로파일링 미제
+IfFO1xs1_gw	1	crime	지존파	범행 심리|동조	
+WrTpANYHLYY	1	crime		거짓말·진술	
+-ZVk1Q2-WvE	1	crime		사이코패스	
+wN1Uh3JpElQ	0				보도
+YKk39mxjqgQ	1	crime		거짓말·진술	절도 신문 영상
+STGOIBd2PQg	1	crime	부산 보험 살인	범행 심리	
+Z5M9W_UIGvQ	1	crime	부산 연인 가해 사건	범행 심리|집착·스토킹	
+wp14ZLLRW7I	0				일반론
+bHzbntRtvn4	1	crime	노래방 도우미 살인	범행 심리	
+VYuTb-EUoOM	1	fiction		스톡홀름 증후군	실화 영화 리뷰
+tOP7K1Rj4y4	1	crime	제주 이웃 살인	범행 심리	
+EhmpKV05IQ8	0				수사
+jUcx5H3_8mI	1	crime	부산 식당 집착 살인	집착·스토킹	
+weQOBzzpZW4	0				일반 특징
+OxswQQIW6eA	1	crime	이춘재	사이코패스	
+ooCmZbr5MKc	1	crime	광현803호 선상 살인	범행 심리	
+88cIIFlRiPs	0				수사 비판
+ix4IfD6h-6k	1	social	이진우 리트 만점 사기	거짓말·사칭	
+sRJKfVpAvC4	1	crime	진주 친구 엄마 살인	범행 심리	
+Nn4AssmaGJY	1	crime		나르시시즘	그알 사건
+P21YrOkFUzA	0				일반론
+u9jM2q_oaEU	1	experiment		사회실험 모음	게임 연구
+HdWUh1Q4kCE	1	history	마녀사냥	집단 광기|군중심리	
+GgPn2yDWugY	0				수사
+izDBtlM5Bjc	1	crime		범행 심리	
+5Tcn0pSBYiA	1	crime		가스라이팅·지배	
+QIO7Y2ZroUQ	1	story		범행 심리	
+nxfp0-xnoy8	1	story		사이코패스	
+13BKbAjwIF4	1	crime	20개월 여아 사건	거짓말·진술	
+Zrm7ZcDWbjQ	0				주제 밖
+dDDCm4xBnNU	0				주제 밖
+5RMzMfK9mqw	1	history		세뇌·그루밍	
+Xve-E5c07Q0	1	crime		가스라이팅·지배	
+TjeNTE4uuhA	1	crime	양주 남성 살인	범행 심리	
+qJaeyUFulmk	0				주제 밖
+3oYFNf6zpV4	0				일반론
+goRONhy7oJE	1	crime	비정한 천륜 살인	범행 심리	
+n02Wh7sV0fI	0				주제 밖
+5AtEBQZLmiM	0				보도
+hBziybnNWMs	1	experiment		사회실험 모음	
+TecIDCXvPtI	1	crime	에미코 사건(일본)	가스라이팅·지배	
+ncQwBSO6OtQ	1	everyday		공감 결여	이혼숙려캠프
+Mv74ZbRiC18	0				일반론
+E_i61ADNSsE	0				보도
+cbQAFmUuHhA	1	crime	유학생 살인 자작극(정창성)	거짓말·진술	
+qzTEXmyLlOk	1	accident	이케자 무기고 폭발(2002)	군중심리	
+ne7Nx3vVW-0	0				일반 특징
+sUfWNp0CsiE	0				법적 쟁점
+ZtvIRbVyMLc	0				공익 광고
+QA-xBCtQL4g	0				일반론
+K9ao7OPyjkc	0				일반론
+bvvhq8dFd_c	1	crime	필리핀 한인 살인	범행 심리	
+GLO1nYhlxeA	1	story		사이코패스	
+TZePgwtQGcY	1	crime		세뇌·그루밍	
+lRCRA6KHwW4	1	crime	정재환 사건	범행 심리	
+drMjjR18Gp4	0				사건 보도
+CJ2PJUFXmCU	0				일반론
+WRuqiJ25O0I	0				일반론
+sm7gB4AcJl4	1	crime	김태현(노원 세 모녀)	집착·스토킹	
+96ttxunbdAs	1	crime		세뇌·그루밍	
+sMV2ryFMCro	1	crime	정인이 사건	학대	
+cJVzZ77ev_A	1	crime	강호순	사이코패스	
+pSyUIFyD0Tg	0				보도
+zZjgIsBALhs	0				연애 예능 리뷰 (심리 분석에서 뺀 갈래)
+rdJziT_hjgY	0				보도
+ww-OPd05cPw	1	crime	강서 고문 살인(국프)	가스라이팅·지배	화곡동 = 강서구
+xGvHMfF_wyA	1	crime	내슈빌 감금폭행(신씨)	가스라이팅·지배	
+aH0ahfOaZ9M	1	experiment	밀그램 복종 실험	복종·권위	구독자 0 — 재업로드 추정
+YXXr4poY8EM	1	experiment	애쉬 동조 실험	동조	
+o2CZdN8R9HU	0				사연 오디오북 (심리 설명 없음)
+fTqQqxGJAeY	1	crime		사기·속는 심리	재연
+rIql8faBMPQ	0				썰 (심리 불명)
+npTfZ2jneWw	1	crime	기계교 사건	가스라이팅·지배|세뇌·그루밍	
+dtSVwIZcp6w	1	experiment		동조	규범이 생기는 실험
+rx_zOyJj_Tg	0				법
+wp3KJts40CA	0				게임
+FZsSN1KwTe8	0				수사
+ehA83QrzmRo	1	everyday		학대	고딩엄빠
+og6rC7mt1pg	0				일반론
+8wEtkwalQPw	1	fiction		스톡홀름 증후군	실화 영화 리뷰
+tbYg9VZhvjU	0				만화 콩트
+bN9bov-snTA	1	crime	기계교 사건	가스라이팅·지배	
+njMwxeL2Iuw	1	experiment	학교폭력 방관 실험(KBS창원)	방관자 효과·도움 행동	
+j6ps1LgLhu8	0				일반 특징
+Oiw0rhVy5qc	1	crime	강서 고문 살인(국프)	나르시시즘|가스라이팅·지배	
+qx12PV7jFhM	0				정치
+8Y7WDihr0f0	0				주제 밖
+FNTonlyq8no	0				일반 특징
+GSgOZkHBjL4	1	crime	이동식 살인(사진작가)	사이코패스	
+XUhLM8XHAR0	0				일반론
+zOe403bK4A8	0				일반론
+O-TyHArJvDM	0				연애 예능 리뷰
+FveYTa2VKEw	1	crime	정재환 사건	범행 심리	
+K-CD5pJcPos	0				사건 소개(심리 불명)
+-yXjHwsJItI	0				보도
+pSW5YXmzIQ4	1	social	K리그 원정 팬 폭행	군중심리|집단 광기	
+w41vvqzQTUA	1	everyday		스톡홀름 증후군	
+tSDU4umTp5M	0				연애 예능 리뷰
+m1aTw5Ppwc8	0				정치
+GI-6TbliqNo	0				일반론
+CRjAU_J8Plo	0				연애 예능 리뷰
+5ysA4FGr99o	0				주제 밖
+3Zybs8xfWbA	0				일반론
+Ozk6Fl2wlWg	0				골프
+me-_HEZfEiU	0				법문
+DLgy0Ewe6EU	0				사건 보도
+cTmpd2cXimU	0				수사
+W_qXnwF3cQM	1	crime	식당 여인 살인	범행 심리	
+LBlxxNW50h4	0				일반론
+anJxsDx9QeI	1	social	서경석 사기 피해	사기·속는 심리	당사자
+wayYedFivgY	1	crime		범행 심리	
+jl8L448jH0c	0				연애 예능
+9rdTsdiDWA4	1	experiment	인간의 두 얼굴(EBS 실험)	동조|방관자 효과·도움 행동	
+1OSNWEHPKSo	0				노래
+hiGtURkJDoA	0				수사
+j8SrhGe8tjM	1	crime	이은해 사건	사이코패스|가스라이팅·지배	
+WzsEVk4FBfQ	0				일반론
+-jaCLthWc-Y	1	everyday		가스라이팅·지배	사연 보도
+v1UAuR6lhuQ	1	crime		가스라이팅·지배|나르시시즘	내가 만난 사이코패스
+WWgX0qK8zMA	1	crime	무속인 가스라이팅 아동학대	가스라이팅·지배|학대	
+vnTyPbDuKM8	1	experiment	밀그램 복종 실험	복종·권위	
+KVO-FjyPcx8	1	crime	유학생 살인 자작극(정창성)	복종·권위	지위 이용
+cZgvLGcc9t8	0				주제 밖
+lmbIZQ8uyIY	1	crime		사이코패스	법정 영상
+Jqjc3hLtS04	1	crime	키티 제노비스(38명의 목격자)	방관자 효과·도움 행동	구독자 0 — 재업로드 추정
+DciWHaLk5PI	1	fiction		가스라이팅·지배	드라마
+zWXgX6B_UW8	1	crime	노예PC방 사건	학습된 무기력|가스라이팅·지배	
+FcKuW0D6-Gw	0				법
+F9oXSjff01w	1	crime	막대 살인	범행 심리	
+ADIXEKAi8xQ	0				일반론
+J6jyCfwA6OQ	0				일반론
+5vWtgz6VbEs	1	experiment		확증편향	
+eVXkmuUWWw4	1	crime	왕쥔(중국)	사이코패스	
+0wVT3WOYDs4	0				영상 분석
+A-w_Rphl2Kc	0				미스터리
+FxXrNy4reoU	1	crime		학습된 무기력	왜 도망 못 쳤나
+koCvE8XZmnE	0				일반론
+EPqXrsVerzw	1	crime		범행 심리	
+Ul5C6ktv5TU	0				일반 특징
+vqEaVSSY69A	1	social		세뇌·그루밍	포교 수법
+M87Xg2sYx6M	1	crime	부산 연제구 빌라 살인	사이코패스	
+p4Ffk6vgZjk	0				일반론
+VnURkYpo9xk	1	crime	정남규	사이코패스|범행 심리	
+IynpJTGZwys	1	crime	박명호 신도 가스라이팅	세뇌·그루밍|가스라이팅·지배	
+KyF2kQs4NIE	0				사연 오디오북
+scSOpqVPH_8	0				일반론
+aO3bpfzVLUo	1	crime		범행 심리	
+JuHu81REKCg	1	experiment	스탠퍼드 감옥 실험	복종·권위|동조	
+Ln6RcYAnHpA	1	crime	이은해 사건	가스라이팅·지배|세뇌·그루밍	
+a3CsLIo9Hvc	0				일반론
+VWGO9tRSyA4	1	crime	크리스 와츠	거짓말·진술	
+vZ2bAF_mmo8	1	experiment		사회실험 모음	금지된 실험
+nUnTxTFZBMs	0				미제 추리
+ZsL5ra7Mne8	1	history	김구 암살	범행 심리	
+rsyNUNSZt6U	1	experiment	애쉬 동조 실험	동조	
+MkTvNMNiqY8	0				정치
+9w_Bk_sXMW0	0				일반론
+IcRJXXm81ck	1	crime		사이코패스	내가 만난 사이코패스
+v8GsFHUEPhs	0				일반 특징
+lMmrq4M95To	1	experiment	스탠퍼드 감옥 실험	복종·권위|동조	
+QCsiI4S3Trc	1	crime	이형호 유괴 살해	범행 심리	
+G9NvtbBfcc4	1	crime		가스라이팅·지배	일본
+tmLu2bWuPsI	0				연애 일반론
+tuSHJQzRWOA	1	crime	와카야마 가스라이팅 강도살인	가스라이팅·지배|거짓말·사칭	
+CFbbpux0vCQ	1	crime		스톡홀름 증후군	
+VBrCr_VGdeI	1	crime		가스라이팅·지배	유래와 사건들
+10i7WhWJDbk	0				일반론
+n4PYSbsyLuM	0				일반 특징
+5YCCwl2mPqw	1	crime	키티 제노비스(38명의 목격자)	방관자 효과·도움 행동	
+Cjm_665kuWc	1	crime		가스라이팅·지배	30년 가스라이팅 끝 살인
+MY0iU7DueiE	1	everyday		가스라이팅·지배	사연 보도
+lztx-rEH1wY	1	crime		사이코패스	
+p2WvchpPJ_s	0				보도
+Rhfr99p0lRI	1	crime	김소영 연쇄살인	사이코패스|학대	
+izGwlv9r2Gw	1	experiment	밀그램 복종 실험	복종·권위	
+56-DfXReBsE	1	crime		가스라이팅·지배	
+GsMS1l4mi1c	1	crime		범행 심리|분노·충동	
+wJ6D0Srir_Y	0				일반론
+sohBHjA45iw	1	experiment		인지부조화	
+pxvm88BGDF4	0				주제 밖
+WF4eXUFqjdo	1	experiment	밀그램 복종 실험	복종·권위	
+LdjWHlR7JNk	0				사건 소개(심리 불명)
+hAim36vz__0	0				작명
+ASFc75Xc-yk	1	crime		분노·충동	
+or8ZFAXr1uA	0				일반 특징
+XhnTa7fdnb4	1	fiction		가스라이팅·지배	실화 바탕 영화
+rP65rHY6tp4	1	crime		가스라이팅·지배	
+tymu65HqmgY	1	crime	노먼 베이커	거짓말·사칭|사이코패스	
+_SRdJokh7iA	1	social	남대문 스카프 아저씨 열풍	군중심리	
+6c44FKbnhRY	1	crime		가스라이팅·지배	
+FDoB6GUUxHU	1	crime		가스라이팅·지배	해외
+mOkUd2iYMsg	1	crime	재력가 150억 사기	사기·속는 심리|세뇌·그루밍	
+ob8u-rrrNUM	0				예능
+LfT8Q9nQ3qQ	0				수사
+Jg_4Kl1AHmA	1	social	원슈타인 학폭 방관 고백	방관자 효과·도움 행동|트라우마	
+bZ0JsV4QOqI	1	crime		사이코패스	내가 만난 사이코패스
+fY7n47hWCtk	1	story		사기·속는 심리	
+-CCaSUYJ4J0	1	history	세일럼 마녀재판	집단 광기	
+Q1cIQKa-lKE	1	crime	김태현(노원 세 모녀)	집착·스토킹	
+6C7ONIQhNP4	1	crime		스톡홀름 증후군	
+p_pTtSmsdDw	1	crime		사이코패스	
+9k5_3IDjPio	1	crime		사이코패스|거짓말·사칭	
+NKZYVXh7DAI	0				일반 특징
+YSzo-BtilJ4	0				정치
+ZrzwG5akSRM	1	crime	파타야 드럼통 살인	범행 심리	
+ZOPHLUwytr8	1	crime		범행 심리	
+sobxJi5ruHI	0				연애 일반론
+9f5FcgXGqvU	0				일반론
+HbRsEUFg00Q	0				정치
+6xBLPeGza28	1	crime	성북 10대 살인	가스라이팅·지배	
+ecSK97vYgW4	0				재판
+j9SsloEXg-Q	0				주제 밖
+aDFob9bRrTA	0				코미디
+XoHuNCJRmIY	1	crime	제주 관덕정 살인	범행 심리	
+JBuWJJpdP3U	0				개념 설명
+jAUYLFMSr4c	1	experiment		사회실험 모음	
+IQFTqas2Owc	0				일반론
+iFHuDj-D8eQ	0				추측
+-GMBw5fzCNA	1	crime		스톡홀름 증후군	
+b4HS1oZUWwY	0				병법 해설
+oPJ0ioKg-gQ	0				일반론
+o_S27V6DsCY	1	crime		세뇌·그루밍	내가 만난 사이코패스
+kDX9ReLa6ao	0				개념 설명
+YinctY1Bu4M	1	experiment	애쉬 동조 실험	동조	
+XLLfg_uWCa0	1	social		확증편향	신념 인터뷰
+le-2ufErNas	1	experiment	쥐 공원 실험	중독	
+m4-T5CEnyLQ	1	crime	김태현(노원 세 모녀)	집착·스토킹	
+6qVz9a8Yq-w	0				관상
+RjzB753eVfY	0				일반론
+w3GifOnvVug	0				설교
+1Fyctfif_eU	0				개념 강의
+Y8-XLcXss4k	0				사건 소개(심리 불명)
+ULF4ZLOjx-8	1	crime	인천 무속 가스라이팅 살인	가스라이팅·지배	
+5GHi8lLprJg	1	experiment		지각·착각	경험과 기억
+SSvL-swbV9A	1	experiment	밀그램 복종 실험	복종·권위	
+yJEn3L_Gics	0				골프
+qjlXn3LKHhE	0				책
+d2J4s5R1-_Q	1	social	신천지	세뇌·그루밍	
+vXXLB6okIQE	1	crime		사이코패스|거짓말·진술	
+2YgCtpNVTMQ	1	social	남대문 스카프 아저씨 열풍	군중심리	
+Z92ySyuL7-U	0				정치
+PrkU-vuYu3c	0				법
+TXpXxQJOD3s	1	crime	정남규	사이코패스	
+qgCuD2BotAI	1	experiment	애쉬 동조 실험	동조	
+mjMaTIvJogo	0				개념 설명
+W8GglgtZjwY	1	experiment	셀리그만 학습된 무기력 실험	학습된 무기력	
+oPvDjIudf9A	0				골프
+mHQtoJ7pHvk	0				연애 일반론
+xg1OLhLEu8E	1	crime	송도 아들 살해 사건	범행 심리	
+QXu7K-Db5rA	1	crime	미야자키 츠토무	유전·환경|사이코패스	
+Ow802dobsO0	0				드라마
+yk68Rqu9H_A	0				연애 예능 리뷰
+wsom7YmniTc	0				일반론
+FahFbIFn120	1	experiment	밀그램 복종 실험	복종·권위	
+xgkYJrdAGMU	0				드라마 해설

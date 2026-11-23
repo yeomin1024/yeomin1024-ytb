@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.4 — 2026-11-12 — **제목·썸네일·대본 페르소나 반복 검증** 절 (`guides/persona_loop.md`) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".
+VERSION: v1.5 — 2026-11-23 — **심리가 초래한 실제 사례 찾기** (사용자 지시 "심리 주제 쪽은 사람들이 가장 관심 있게 본 심리가 반영된 사건, 사고 등 사례를 찾아봐" → "그냥 꼭 큰 사건, 사고가 아닌 심리가 초래한 사례면 되니까 심리에 집중해 계속 진행해"): `source/incident_cases.py` v1.1.0 → `result/incidents/incident_cases.md` (검색어 22개 × 전체·최근 1년 = 44번 4,465단위 + 기존 캐시 · Claude 판정 393개 중 사례 226개 · 심리 개념별·사례별·작은 채널·최근 1년 · 끝에 판단).
+(v1.4 — 2026-11-12 — **제목·썸네일·대본 페르소나 반복 검증** 절 (`guides/persona_loop.md`) — 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐".)
 (v1.3 — 2026-11-12 — **대본 4편** (사용자 지시 "그래 content_analysis 고쳐 지시사항 규칙대로 4가지 대본 만드는 것 까지 해봐 챗지피티한테도 페르소나로 검증해보라고 할거니까 명령 알려주고"): `source/first_video.md` 1·5·6번 주제 4편 — `source/<영상ID>/<영상ID>.txt`·`.srt`·`대본_근거.md`·`persona_review.md` · ChatGPT 검증 파일 `source/chatgpt_persona_review.md` (`tools/chatgpt_persona_review.py` v1.0) · `content_analysis.py` v1.0.3 (앞 5분 대본은 흥미 장치 4구간을 세지 않음) · 성공 사례 대본 50개.)
 (v1.2 — 2026-11-12 — **main 기준 정리** (사용자 지시 "main 쪽을 기준으로 두고, 제 브랜치에서 쓸모 있는 것만 main 데이터 위에 다시 적용하고 심리랑 관련없는 주제는 제외"): 주제 밖 28개 뺌(`excluded_videos.md`) · 페르소나 최근 흐름(`personas.toml` v1.2 TREND_DAYS 28 · `tools/personas.py` v1.1.1) · 썸네일 94장 분류(성공 사례 전부) · 댓글 96개 더 · 대본 47개(PC) · 추천에 다른 안 — 조회수 5만 규칙(v1.1)과 함께 성공 사례 **94**(`source/first_video.md` 6번).)
 (v1.1 — 2026-11-12 — 성공 사례에 조회수 5만 이상 (규칙 v1.1) · 분석 다시 · 대본 받을 목록 다시 (사용자 지시 2026-11-12 "일단 대본 받아야 하니까 명령 좀 알려줘 … 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해").)
@@ -44,6 +45,8 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 | `source/first_video.md` | **첫 영상 제목·썸네일 문구·보조 문구 추천 (판단)** — 1번 추천 + 6번 다른 안(가족 편) |
 | `source/<영상ID>/` (4편) | 대본 v1.0 — `geureut-moa-2026-11`(그릇 모아 두는 사람) · `eomma-gibun-2026-11`(엄마 기분 살피던 사람) · `eomma-hasoyeon-2026-11`(엄마 하소연) · `sangcheo-gonggyeok-2026-11`(상처받은 사람이 공격적) — 대본·SRT(✅)·`대본_근거.md`(출처·확인 필요)·`persona_review.md` |
 | `source/chatgpt_persona_review.md` | ChatGPT 페르소나 검증 파일 (페르소나 6명 + 규칙 9 + 대본 4편 문장 번호 + 답 양식) — 다시 만들기 `python3 tools/chatgpt_persona_review.py psychology` (편 목록 `source/chatgpt_review_list.json`) |
+| `source/incident_cases.py` | **심리가 초래한 실제 사례 찾기 v1.1.0** — 기존 캐시 + 사건·심리 현상 검색어 22개(전체·최근 1년, 4~20분) → 검증 → 제목 규칙 후보 → Claude 판정(`labels.tsv`) → 심리 개념별·갈래별·사례별 · 작은 채널 · 성공 기준 · 최근 1년. `run`(캐시에 없을 때만 API) · `analyze`(할당량 0) · 시험 `source/test_incident_cases.py` |
+| `result/incidents/` | `incident_cases.md`(보고서 — 9번이 판단) · `incident_cases.csv`(사례 226개) · `labels.tsv`(판정 393개 — keep·갈래·사례·심리 개념) · `candidates_todo.tsv`(판정 안 한 후보 — 조회수 1만 아래) · `api_cache.json.gz`(검색 응답 — 다시 돌리면 할당량 0) · `judgment.md`(판단 절 원본) |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 28개 (까닭·되살리기) — 종교·범죄 사건·뇌과학/공부법·육아·연애 예능 리뷰 등 |
 | `result/outliers/thumb_codes.tsv` | 성공 사례 썸네일 122장 분류 (Claude 가 그림을 봄) → `content_analysis.md` 2번 |
 | `cloud_cache/` | 탐색 캐시 묶음 |
@@ -57,6 +60,7 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 | 2026-11-12 13:37 KST (사용자 지시 2026-11-12 "일단 대본 받아야 하니까 명령 좀 알려줘 … 조회수가 구독자수 대비가 높아도 조회수 별로 안나오면 성공사례에서 빼야해") | 규칙 v1.1 (`[success] MIN_VIEWS` 1만 → 5만 — 관련 롱폼 7~182일 조회수 가운데값 55,419) · `analyze` · `pc_transcribe.py list psychology` | 할당량 0 · 성공 사례 135 → **106** (조회수로 30 빠짐·채널 자리 1 들어옴) · 대본 받을 목록 296 (끝까지 271 · 2차 25) |
 
 | 2026-11-12 13:20~13:55 KST (사용자 지시 — main 기준 정리) | 주제 밖 28개 뺌 (사례 폴더 지움 · 푼 추천에 넣음 · OFF_TOPIC v1.1) · `resume` 댓글 96/125 · 분석 다시 (대본 47 — PC · 조회수 5만 규칙과 합침) · 페르소나 TREND_DAYS · 썸네일 94장 · 댓글 묶음·니즈·콘텐츠·확인 엑셀 다시 · 대본 목록 269 | 2,318 (댓글 — 오늘 몫 끝) | 승인 289 · 성공 사례 94 · 비교 집단 734 (24%) · 페르소나 6명 (최근 28일: 부모·가족 상처 12.2% → 16.0% · 직장 13.6% → 16.4%) |
+| 2026-11-23 17:28~17:45 KST (사용자 지시 — 심리가 초래한 사례 찾기) | `incident_cases.py run` — 사건 심리 14 + 심리 현상 8 검색어 × 2기간 · 기존 캐시 3,238 | 4,465 | 영상 3,788 (검증 뒤) · 규칙 후보 792 · 판정 393 → 사례 226 (범죄 속 심리 131 · 실험 41 · 사회·유명인 16 · 일상 12 · 역사 7 · 사고 1 · 영화 13 · 사연 5) · 작은 채널 성공 기준 3편 (모두 화제 범죄를 심리 하나로) |
 
 ## 제목·썸네일·대본 — 페르소나 반복 검증 (빠뜨리지 않음 · 2026-11-12)
 - 사용자 지시 "제목,썸네일, 대본 만들때 자꾸 페르소나 반복 검증 빼먹는데 빼먹지 말도록 주제별 지시사항 수정해봐" → 제목·썸네일 문구·보조 문구·대본(롱폼·쇼츠)을 쓰거나 바꿀 때마다 `guides/persona_loop.md` 세 단계(`title` · `script_exit` · `script_rebuttal`), 각 2회차 이상 · 회차마다 새 하위 에이전트 · 마지막 회차 = 지금 글. 기록 `psychology/source/<영상ID>/persona_loop.json` (`tools/persona_gate.py`) · 페르소나 = `result/outliers/personas.json` · 반론 = `rebuttal_persona.md`.

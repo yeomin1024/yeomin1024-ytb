@@ -1,4 +1,8 @@
-# VERSION: v1.1.0 — 2026-11-23 — 분류 오탐 고침 + '편 소재 낱말' 묶음 추가 (v1.0.0 결과를 Claude 가 읽고 발견):
+# VERSION: v1.2.0 — 2026-11-23 — '겨울' 낱말 묶음 · 채널 크기별 숫자 · 본 영상 전부 목록 (사용자 지시 2026-11-23 "겨울 러닝이 가장 많다고?
+#          니가 본 영상들 구독자 수랑 조회수 모두 알려줘봐"): ① 제목에 겨울 낱말(WINTER_WORDS)·겨울+위험 묶음 — v1.1.0 의 '편 소재' 묶음은
+#          겨울이 아니라 10월 마라톤 사망 뉴스였음을 드러내려고 ② 구독자 5만 이하 영상 조회수 중앙값 · 구독자 100만+ 채널이 가져간 조회수 몫
+#          ③ topic_demand_all.md — 남긴 영상 전부(구독자·조회수·배수) + 뺀 영상과 까닭. 수집·기존 숫자는 그대로 (캐시, 할당량 0)
+# (이전) v1.1.0 — 2026-11-23 — 분류 오탐 고침 + '편 소재 낱말' 묶음 추가 (v1.0.0 결과를 Claude 가 읽고 발견):
 #          ① 주제 밖 낱말 EXCLUDE — '런닝맨'(예능)이 러닝으로 들어옴 ② 위험·안전 낱말에서 '죽'(우후죽순·죽전)·'실화'(실화냐=정말?) 뺌,
 #             '죽음|죽었|죽을|죽는'으로 좁힘 ③ 주제마다 그 편이 다룰 위험만 고르는 focus 묶음 (캠핑 = 일산화탄소·가스 중독만)
 #          — 수집·성공 기준·검색어는 그대로 (캐시로 다시 셈, 할당량 0)
@@ -44,7 +48,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import crisis_lab as cl  # noqa: E402  — YT(캐시 우선 API)·로깅·길이 변환을 그대로 씀 (같은 캐시·같은 로그 꼴)
 
-VERSION = "v1.1.0"
+VERSION = "v1.2.0"
 SEED = 0  # 무작위 요소 없음 — 재현성 기록용
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -98,6 +102,10 @@ TOPICS = {
 # v1.1.0: '죽'(우후죽순·죽전·죽인다=최고) · '실화'(실화냐=정말?) 오탐 → 뺌
 SAFETY = (r"사고|사망|숨져|숨진|죽음|죽었|죽을|죽는|위험|주의|조심|심정지|돌연사|쓰러|중독|조난|추락|실족|저체온|동상|빙판|부상|"
           r"구조|119|응급|절대|하지\s?마|금지|안전|생존|참사|비극|경고|목숨")
+# v1.2.0: 제목에 겨울·추위 낱말 — '겨울' 주제 수요를 따로 보려고
+WINTER_WORDS = r"겨울|추위|추운|한파|영하|쌀쌀|빙판|설산|동계|눈길|첫눈|저체온|동상|패딩"
+SMALL_SUBS = 50_000      # 작은 채널 (성공 기준과 같은 선)
+BIG_SUBS = 1_000_000     # 큰 채널 (방송사 뉴스 등)
 HANGUL = re.compile(r"[가-힣]")
 L = cl.L
 
@@ -205,6 +213,7 @@ def features(df: pd.DataFrame) -> pd.DataFrame:
     df["safety"] = df["title"].str.contains(SAFETY, regex=True)          # 제목에 위험·안전 낱말
     focus = df["topic"].map({k: v["focus"] for k, v in TOPICS.items()})  # v1.1.0: 그 편이 다룰 위험 낱말 (제목)
     df["focus"] = [bool(re.search(f, t)) for f, t in zip(focus, df["title"])]
+    df["winter_title"] = df["title"].str.contains(WINTER_WORDS, regex=True)   # v1.2.0
     df["winter_upload"] = df["published"].dt.month.isin(WINTER_MONTHS)
     df["vpd"] = df["views"] / df["age_days"].clip(lower=1)                # 하루 조회수 = 조회수 ÷ 올린 지 날수
     df["ratio"] = df["views"] / df["subs"].clip(lower=1)                     # 구독자 대비 (숨김이면 NaN, 0명은 1명으로)
@@ -249,6 +258,11 @@ def metrics(d: pd.DataFrame) -> dict:
         "succ_180": int(d["success_180"].sum()), "succ_365": int(d["success_365"].sum()),
         "succ_channels_365": int(d.loc[d["success_365"], "channel_id"].nunique()),
         "recent_n": int((d["age_days"] <= RECENT_DAYS).sum()),
+        # v1.2.0: 채널 크기 — 큰 채널(방송사) 몫이 크면 '많이 봤다'가 작은 채널에도 해당하는지 따로 봐야 함
+        "n_small": int((d["subs"] <= SMALL_SUBS).sum()),
+        "med_views_small": float(cap_channel(d[d["subs"] <= SMALL_SUBS])["views"].median()) if (d["subs"] <= SMALL_SUBS).any() else np.nan,
+        "n_big": int((d["subs"] >= BIG_SUBS).sum()),
+        "big_view_share": float(d.loc[d["subs"] >= BIG_SUBS, "views"].sum() / d["views"].sum()) if d["views"].sum() else np.nan,
         "winter_view_share": float(d.loc[d["winter_upload"], "views"].sum() / d["views"].sum()) if d["views"].sum() else np.nan,
         "winter_upload_share": float(d["winter_upload"].mean()),
         "med_views_long": float(cap_channel(d[d["format"] == "롱폼"])["views"].median()) if (d["format"] == "롱폼").any() else np.nan,
@@ -260,11 +274,17 @@ def summarize(df: pd.DataFrame) -> pd.DataFrame:
     rows = []
     for tk, t in TOPICS.items():
         d = df[df["topic"] == tk]
-        for part, sub in (("전체", d), ("위험·안전 제목", d[d["safety"]]), ("편 소재 낱말", d[d["focus"]])):
+        for part, sub in (("전체", d), ("위험·안전 제목", d[d["safety"]]), ("편 소재 낱말", d[d["focus"]]),
+                          ("제목에 겨울 낱말", d[d["winter_title"]]), ("겨울 + 위험 제목", d[d["winter_title"] & d["safety"]])):
             m = metrics(sub)
             rows.append({"topic": tk, "name": t["name"], "part": part, **m})
             L("METRICS", topic=tk, part=part, **{k: (round(v, 3) if isinstance(v, float) else v) for k, v in m.items()})
-    return pd.DataFrame(rows)
+    out = pd.DataFrame(rows)
+    # v1.2.0: 빈 묶음(n=0) 줄 때문에 개수 칸이 실수(130.0)로 바뀌지 않게 정수형으로
+    for c in ("n", "channels", "n_100k", "n_1m", "succ_180", "succ_365", "succ_channels_365", "recent_n", "n_small", "n_big"):
+        if c in out:
+            out[c] = out[c].astype("Int64")
+    return out
 
 
 def query_table(df: pd.DataFrame, hit_df: pd.DataFrame) -> pd.DataFrame:
@@ -324,6 +344,11 @@ def export(df: pd.DataFrame, summ: pd.DataFrame, qt: pd.DataFrame, yt: cl.YT, t0
         L_.append(f"| {r['name']} | {r['part']} | {r['n']} | {r['channels']} | {n(r['med_views'])} | {n(r['p75_views'])} | "
                   f"{n(r['med_vpd'])} | {r['n_100k']} | {r['n_1m']} | {r['succ_180']} | {r['succ_365']} ({r['succ_channels_365']}) | "
                   f"{pct(r['shorts_share'])} | {r['recent_n']} | {pct(r['winter_view_share'])} |")
+    L_ += ["", f"## 1-1. 채널 크기별 (v1.2.0) — 작은 채널 = 구독자 {SMALL_SUBS:,} 이하 · 큰 채널 = {BIG_SUBS:,} 이상", "",
+           "| 주제 | 묶음 | 영상 | 작은 채널 영상 | 작은 채널 조회수 중앙값 | 큰 채널 영상 | 큰 채널이 가져간 조회수 몫 |", "|---|---|---|---|---|---|---|"]
+    for _, r in summ.iterrows():
+        if r["n"]:
+            L_.append(f"| {r['name']} | {r['part']} | {r['n']} | {r['n_small']} | {n(r['med_views_small'])} | {r['n_big']} | {pct(r['big_view_share'])} |")
     L_ += ["", "## 2. 쇼츠 · 롱폼 조회수 중앙값 (전체 묶음)", "", "| 주제 | 롱폼 | 쇼츠 |", "|---|---|---|"]
     for _, r in summ[summ["part"] == "전체"].iterrows():
         L_.append(f"| {r['name']} | {n(r.get('med_views_long'))} | {n(r.get('med_views_short'))} |")
@@ -359,10 +384,58 @@ def export(df: pd.DataFrame, summ: pd.DataFrame, qt: pd.DataFrame, yt: cl.YT, t0
            "- 주제 낱말: " + " · ".join(f"{t['name']} `{t['words']}`" for t in TOPICS.values()),
            "- 주제 밖 낱말: " + " · ".join(f"{t['name']} `{t['exclude']}`" for t in TOPICS.values() if t["exclude"] != "(?!)"),
            "- 편 소재 낱말 (제목): " + " · ".join(f"{t['name']} `{t['focus']}`" for t in TOPICS.values()),
+           f"- 겨울 낱말 (제목, v1.2.0): `{WINTER_WORDS}`",
+           "- 본 영상 전부(구독자·조회수)와 뺀 영상: `topic_demand_all.md`",
            "- ※ 연구·기획용. 영상 속 안전 수칙은 공식 지침(소방청·행안부·국립공원공단)으로 따로 확인."]
     out = OUT_DIR / "topic_demand.md"
     out.write_text("\n".join(L_) + "\n", encoding="utf-8")
     L("EXPORT", files=[str(p.relative_to(ROOT)) for p in sorted(OUT_DIR.glob("topic_demand*"))], sec=round(time.time() - t0, 2))
+    return out
+
+
+def drop_table(raw: pd.DataFrame, val: pd.DataFrame, kept: pd.DataFrame) -> pd.DataFrame:
+    """v1.2.0: 받았지만 분석에서 뺀 영상과 까닭 (검증 → 주제 필터 순)."""
+    bad = raw.loc[~raw.index.isin(val.index)].copy()
+    age = (AS_OF - pd.to_datetime(bad["published"], utc=True, errors="coerce")).dt.total_seconds() / 86400
+    bad["reason"] = np.select([~bad["title"].fillna("").str.contains(HANGUL), age < MIN_AGE_DAYS],
+                              ["한글 없는 제목 (외국 영상)", f"올린 지 {MIN_AGE_DAYS}일 미만"], "통계 빠짐")
+    off = val.loc[~val.index.isin(kept.index)].copy()
+    off["reason"] = "주제 밖 (주제 낱말 없음 / 주제 밖 낱말)"
+    out = pd.concat([bad, off])
+    for c in ("views", "subs"):
+        out[c] = pd.to_numeric(out[c], errors="coerce")
+    L("EXPORT", dropped_total=len(out), by_reason=out["reason"].value_counts().to_dict())
+    return out
+
+
+def export_all(df: pd.DataFrame, dropped: pd.DataFrame) -> Path:
+    """v1.2.0: 본 영상 전부 — 주제마다 조회수 순, 구독자·조회수·구독자 대비·묶음 표시. 끝에 뺀 영상과 까닭."""
+    L_ = [f"# 주제 후보 — 본 영상 전부 ({VERSION}, 기준일 {AS_OF:%Y-%m-%d})", "",
+          "> `crisis/code/topic_demand.py` 출력. 검색어마다 조회수 높은 순 50개(한국·한국어, 최근 365일)를 받아 검증·주제 필터를 지난 영상 전부.",
+          "> 표시: 위험 = 제목에 위험·안전 낱말 · 소재 = 그 편이 다룰 위험 낱말 · 겨울 = 제목에 겨울 낱말 · 성공 = 작은 채널 성공 사례(365일).",
+          f"> 구독자 대비 = 조회수 ÷ 구독자. 큰 채널(구독자 {BIG_SUBS:,} 이상)은 채널 칸에 ★.", ""]
+    for tk, t in TOPICS.items():
+        d = df[df["topic"] == tk].sort_values("views", ascending=False)
+        L_ += [f"## {t['name']} — {len(d)}편 (작은 채널 {int((d['subs'] <= SMALL_SUBS).sum())} · 큰 채널 {int((d['subs'] >= BIG_SUBS).sum())})", "",
+               "| # | 조회수 | 구독자 | 구독자 대비 | 형식 | 올린 날 | 위험 | 소재 | 겨울 | 성공 | 제목 | 채널 | 검색어 |",
+               "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+        for i, (_, r) in enumerate(d.iterrows(), 1):
+            ratio = "-" if pd.isna(r["ratio"]) else f"×{r['ratio']:.1f}" if r["ratio"] < 100 else f"×{r['ratio']:,.0f}"
+            star = "★ " if r["subs"] >= BIG_SUBS else ""
+            subs = "숨김" if pd.isna(r["subs"]) else f"{int(r['subs']):,}"
+            L_.append(f"| {i} | {int(r['views']):,} | {subs} | {ratio} | "
+                      f"{r['format']} | {r['published']:%Y-%m-%d} | {'○' if r['safety'] else ''} | {'○' if r['focus'] else ''} | "
+                      f"{'○' if r['winter_title'] else ''} | {'○' if r['success_365'] else ''} | {md_escape(r['title'])[:60]} | "
+                      f"{star}{md_escape(r['channel'])[:20]} | {md_escape(r['query'])} |")
+        L_.append("")
+    L_ += [f"## 뺀 영상 — {len(dropped)}편", "", "| 주제 | 까닭 | 조회수 | 구독자 | 제목 | 채널 |", "|---|---|---|---|---|---|"]
+    for _, r in dropped.sort_values(["topic", "reason", "views"], ascending=[True, True, False]).iterrows():
+        subs = "숨김" if pd.isna(r["subs"]) else f"{int(r['subs']):,}"
+        views = "-" if pd.isna(r["views"]) else f"{int(r['views']):,}"
+        L_.append(f"| {TOPICS[r['topic']]['name']} | {r['reason']} | {views} | {subs} | {md_escape(r['title'])[:60]} | {md_escape(r['channel'])[:20]} |")
+    out = OUT_DIR / "topic_demand_all.md"
+    out.write_text("\n".join(L_) + "\n", encoding="utf-8")
+    L("EXPORT", all_list=str(out.relative_to(ROOT)), rows=len(df), dropped=len(dropped))
     return out
 
 
@@ -382,10 +455,14 @@ def main(argv: list[str]) -> int:
     except RuntimeError as e:
         L("LOAD", logging.ERROR, error=str(e), next_step="run 으로 다시 (analyze 는 캐시만 읽음)")
         return 1
-    df = features(on_topic(validate(df)))
+    raw = df
+    val = validate(raw)
+    df = features(on_topic(val))
+    dropped = drop_table(raw, val, df)   # v1.2.0
     summ = summarize(df)
     qt = query_table(df, hit_df)
     out = export(df, summ, qt, yt, t0)
+    export_all(df, dropped)              # v1.2.0
     L("EXPORT", report=str(out.relative_to(ROOT.parent)), units=yt.units, quota_dead=yt.quota_dead)
     return 0
 

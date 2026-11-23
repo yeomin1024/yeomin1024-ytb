@@ -1,0 +1,117 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "tteoreojin-pon-2026-11": {
+   "title": {
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-23T08:06:31Z",
+      "sha": "11c134bb77ffd04b",
+      "reviewers": [
+       {
+        "reviewer": "T1-P3",
+        "persona": "P3",
+        "feed_picks": [
+         9,
+         6
+        ],
+        "feed_why": "9는 산 추락 실제 사례(13시간)라 무슨 일이었는지, 수칙이 맞는지 확인하고 싶어서 · 6은 '승강기 사고 통계'가 붙어 근거가 있어 보여서 — 나머지는 공포라디오·영화·역사라 내 관심(물·추락·시설 사고) 밖",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "13시간 뒤 발견된 여성",
+        "fix": "'주우면 위험'에 조건을 붙여 '비탈·낭떠러지로 떨어진 휴대폰'처럼 어디로 떨어졌는지 밝히고, 실제 사례임을 보이게(언제·어느 산) — 보조 문구 ③ '자리만 기억'은 답이 뻔하니 '119에 위치 알리기'처럼 실제로 할 일로",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T1-반론",
+        "persona": "반론",
+        "feed_picks": [
+         9,
+         6
+        ],
+        "feed_why": "9번은 '주우면 위험'이 조건 없는 단정이라 어디서·얼마나 가파른 데서 떨어졌는지, 13시간 뒤 살아서 찾았는지 확인하고 빈틈을 따지려고 누름 · 6번은 '절대 문 열면 안 되는'이 맞는지 통계로 따져 보려고 — 나머지 공포·역사 실화는 대처 정보가 아니라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "주우면 위험 · 13시간 뒤 발견된 여성 · ③ 자리만 기억",
+        "fix": "'산에서' 대신 '비탈 아래로 굴러간'처럼 조건을 제목에 넣고 실제 사건이면 나라·연도를 밝힐 것 — 그리고 휴대폰을 포기하면 구조 요청은 어떻게 하느냐는 반론을 보조 문구나 도입에서 먼저 막아야 '자리만 기억'이 정답이라는 말이 설득됨",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "제목에 '비탈로'를 넣어 조건을 밝힘 · 보조 문구 ③ '자리만 기억' → '길 위에 두기' 대신 대본 도입에 '휴대폰 없이 연락은?' 반론을 막는 문장 추가",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_title_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "text": "제목: 산에서 떨어진 휴대폰 주우면 위험, 13시간 뒤 발견된 여성\n썸네일 문구: 휴대폰이 떨어졌다 / 당신이라면 줍는다?\n보조 문구: ① 손 뻗기 ② 내려가기 ③ 자리만 기억"
+     }
+    ]
+   },
+   "script_exit": {
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-23T08:07:24Z",
+      "sha": "4eee56e11ecde570",
+      "reviewers": [
+       {
+        "reviewer": "E1-P3",
+        "persona": "P3",
+        "exits": [
+         {
+          "line": 22,
+          "why": "(약함·틀린 정보) 비 오고 바람 부는 밤에 정신 잃고 13시간 누워 있었는데 '영상 8도라 춥지 않았다'(35줄 '영하로 안 떨어져 운이 따랐다'도)는 영상이면 괜찮다는 잘못된 메시지 — 젖은 몸은 영상 기온에서도 저체온증이 옴"
+         },
+         {
+          "line": 43,
+          "why": "(약함·틀린 정보) 원미산은 비·바람, 북한산은 눈길이었는데 '아무 문제가 없던 평범한 산행'이라고 하면 앞에서 말한 날씨와 어긋남 — 젖은 길·눈길 자체가 위험 요인인데 빼 버림"
+         },
+         {
+          "line": 118,
+          "why": "(약함·조건 빠진 수칙) '움직이지 말고'는 조건이 빠짐 — 계속 미끄러지는 자리·낙석·물길이면 바로 옆 평평하고 단단한 곳으로는 옮겨야 하고, 98줄 '그 자리에서 119'도 전화가 안 터질 때 어떻게 할지가 없음"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "101~102줄 — 산악위치표지판·국가지점번호판 번호를 불러 주라는 건 현장에서 바로 쓰는 진짜 정보이고, 105~107줄 배터리 16%·30분마다 켜기도 실제 구조 사례라 믿음이 감",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [22, 43, 118]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "'영상이라 춥지 않았다' → 젖은 몸은 영상에서도 체온이 떨어짐 · '아무 문제가 없던 산행' → 길을 잃거나 다치지 않은 산행 + 젖은 길·눈길도 한몫 · '움직이지 말고'에 조건(계속 미끄러지거나 돌이 굴러오면 바로 옆 단단한 곳) · 전화가 끊길 것 같으면 위치 번호부터 (2026-07 충북 사례)",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_1.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
+     }
+    ],
+    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt"
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt",
+    "pending": {
+     "n": 1,
+     "sha": "4eee56e11ecde570",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_rebuttal_1.md",
+     "answers": "crisis/source/tteoreojin-pon-2026-11/answers_tteoreojin-pon-2026-11_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-23T08:05:09Z"
+    }
+   }
+  }
+ }
+}

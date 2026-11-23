@@ -168,7 +168,7 @@ u9jM2q_oaEU	1	experiment		사회실험 모음	게임 연구
 HdWUh1Q4kCE	1	history	마녀사냥	집단 광기|군중심리	
 GgPn2yDWugY	0				수사
 izDBtlM5Bjc	1	crime		범행 심리	
-5Tcn0pSBYiA	1	crime		가스라이팅·지배	
+5Tcn0pSBYiA	1	crime	상간녀 부부상담 가스라이팅	가스라이팅·지배	
 QIO7Y2ZroUQ	1	story		범행 심리	
 nxfp0-xnoy8	1	story		사이코패스	
 13BKbAjwIF4	1	crime	20개월 여아 사건	거짓말·진술	
@@ -196,7 +196,7 @@ QA-xBCtQL4g	0				일반론
 K9ao7OPyjkc	0				일반론
 bvvhq8dFd_c	1	crime	필리핀 한인 살인	범행 심리	
 GLO1nYhlxeA	1	story		사이코패스	
-TZePgwtQGcY	1	crime		세뇌·그루밍	
+TZePgwtQGcY	1	crime	'하나님의 사람' 여성 10년 지배	세뇌·그루밍	
 lRCRA6KHwW4	1	crime	정재환 사건	범행 심리	
 drMjjR18Gp4	0				사건 보도
 CJ2PJUFXmCU	0				일반론
@@ -313,7 +313,7 @@ VBrCr_VGdeI	1	crime		가스라이팅·지배	유래와 사건들
 n4PYSbsyLuM	0				일반 특징
 5YCCwl2mPqw	1	crime	키티 제노비스(38명의 목격자)	방관자 효과·도움 행동	
 Cjm_665kuWc	1	crime		가스라이팅·지배	30년 가스라이팅 끝 살인
-MY0iU7DueiE	1	everyday		가스라이팅·지배	사연 보도
+MY0iU7DueiE	1	everyday	아내 10년 가스라이팅 재산	가스라이팅·지배	사연 보도
 lztx-rEH1wY	1	crime		사이코패스	
 p2WvchpPJ_s	0				보도
 Rhfr99p0lRI	1	crime	김소영 연쇄살인	사이코패스|학대	
@@ -398,3 +398,48 @@ yk68Rqu9H_A	0				연애 예능 리뷰
 wsom7YmniTc	0				일반론
 FahFbIFn120	1	experiment	밀그램 복종 실험	복종·권위	
 xgkYJrdAGMU	0				드라마 해설
+# v1.2.0 — 2026-11-23 '모르는 사이 가스라이팅' 검색어 6개 결과 (조회수 3,000 이상)
+iyj2LxUf-fc	1	fiction		가스라이팅·지배	사랑과 전쟁 재연극
+gk9SW07ImJk	0				대화 예시
+R7inDObva0A	0				일반 특징
+M5c17VJpTyk	1	crime		가스라이팅·지배	그알 2025-12 가족 사건 — 내용 확인 필요
+G-IPTT4F6SE	1	crime		세뇌·그루밍|가스라이팅·지배	넷플릭스 범죄 다큐 해설
+cgtby-tj7bo	1	crime		가스라이팅·지배	실화탐사대
+D81Bjcnzams	1	crime	정재환 사건	범행 심리	
+s1Qj_yeGsgE	1	crime	정재환 사건	범행 심리	
+NGqnIAPhbgU	1	crime		가스라이팅·지배	가까운 관계 사건들
+QaLYGhpQCIs	0				사건(심리 불명)
+v1Vx0sVRkI4	1	story		가스라이팅·지배	시어머니 카톡 사연툰
+sw6ligTpkB8	1	story		가스라이팅·지배	연인 (일부 실화)
+QSoOok_KSxY	1	everyday		가스라이팅·지배	이호선상담소 데이트 폭력
+-2UkMHU3rx0	1	crime	동거인 7년 노예	가스라이팅·지배	
+g6EVOQm6AZ0	1	fiction		가스라이팅·지배	실화 영화
+PXoiGNl7g1c	1	crime	정재환 사건	범행 심리	
+Z5ZMnKmY1SY	0				스릴러툰
+Z9AxUZzOJ6k	1	crime	시댁 퇴마 의식	가스라이팅·지배|세뇌·그루밍	시댁 식구가 남편을
+bWWXyptsd7g	1	everyday		가스라이팅·지배|학대	부모 — 물어보살
+q-F7CzR-7PY	1	crime	정재환 사건	범행 심리	
+xUUA0JRMabY	1	everyday		가스라이팅·지배	미술학원 선생님
+t3rm17IER2E	0				일반론(사례 예시)
+iOXqIUqBjWE	1	crime		세뇌·그루밍	12살 소년
+z163bzhOPz0	0				일반론
+p5J1PkuYa6U	1	fiction		가스라이팅·지배	일본 실화 영화
+cg8cbPkdnXY	1	crime		가스라이팅·지배	법원이 인정 안 하는 까닭
+2GeWc0KxYA8	1	story		가스라이팅·지배	남편 28년 사연
+WvAMA7XAe5k	1	crime	보이스피싱 셀프감금	사기·속는 심리|가스라이팅·지배	
+1dWFBXSezSQ	1	crime	주지 가스라이팅 아들 폭행 사망	가스라이팅·지배|세뇌·그루밍	
+tV_q0cQ2kyc	0				어원 설명
+ume9SpwdEaA	1	story		가스라이팅·지배	외도썰
+G6i2rtC5jRY	1	crime		세뇌·그루밍|가스라이팅·지배	넷플릭스 범죄 다큐 해설 (재업)
+9SMUC57QANA	0				정치
+FpdPFmpnIOM	1	crime		가스라이팅·지배	구독자 0 — 재업로드 추정
+N49A4-43xJ4	1	crime		세뇌·그루밍	30여년 세뇌
+HKZt2iae9js	1	everyday		가스라이팅·지배	부모가 딸을 — 사건반장
+Tgg3a9nBbxE	1	crime		가스라이팅·지배|집착·스토킹	내가 만난 사이코패스
+ATn1rD1xlLE	1	story		가스라이팅·지배	동거 사연
+8EGXc-pKo1A	1	crime		사기·속는 심리|가스라이팅·지배	탐정 의뢰 — 어머니가 이제야 알게 됨
+kVLy7CAaOaY	1	crime		가스라이팅·지배	아들을 이용해 남편 살해
+vT-2x0DKtFY	0				일반론
+6rkFW66sK-Y	1	crime		가스라이팅·지배|사기·속는 심리	여자친구에게 100억
+J96OoyvTsLs	1	crime		가스라이팅·지배	
+UEtoOm2Z26Y	0				부동산

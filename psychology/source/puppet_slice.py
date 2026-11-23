@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-13 — 심리 편 그림 시트 자르기 (만스피 slice.py v1.2 를 바탕으로 — 사람마다 머리카락 색 대신 '머리 폭' 으로 키를 잼)
+# VERSION: v1.1 — 2026-11-23 — adhd-ab-2026-11 (일상툰): 조연 자세 시트 이름 '<글자>-POSES' 받기 · 자세 비율 · (v1.0 2026-11-13 심리 편 그림 시트 자르기 (만스피 slice.py v1.2 를 바탕으로 — 사람마다 머리카락 색 대신 '머리 폭' 으로 키를 잼)
 #   사용자 지시 2026-11-13 "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어" — 만스피 꼴 영상의 인물 조각.
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-23 | 조연 자세 시트 `W-POSES` 꼴 이름 받기 (사용자 지시 "아침 6시에 음성, 이미지 올라온거 확인하고 다 돼면 영상 만들어봐") · adhd-ab-2026-11 자세 비율 — 일상툰 약 3등신이라 앉은 키 ≈ 선 키 × 0.85 (머리 폭 ÷ 키로 잰 값: 앉은 시트 가운데 0.85 · 책상다리 A02 0.69 · 웅크려 앉은 B05 0.76) | person_of · POSE |
 # | v1.0 | 2026-11-13 | 최초 — 기준·동작 시트(3칸) · 소품(4칸) · 배경 앞 물건(FG) · 키 맞춤(앉은 자세 비율) · 머리 상자 | cut_sheet · props · fg · main |
 """ChatGPT 가 그린 심리 편 시트를 잘라 `psychology/source/<영상ID>/puppet/cut/` 에 조각 + `manifest.json`·`manifest.js` 를 만든다.
 
@@ -41,6 +42,10 @@ POSE = {
     "eomma-gibun-2026-11": {"M01": 0.74},
     "eomma-hasoyeon-2026-11": {"D04": [0.74, 0.74, 0.62]},
     "sangcheo-gonggyeok-2026-11": {},
+    # v1.1 일상툰 — 앉은 시트 0.85 (머리가 커서 만스피 0.74 보다 큼) · 책상다리 0.69 · 웅크림 0.77 · 팀장 첫 칸만 앉음
+    "adhd-ab-2026-11": {**{k: 0.85 for k in ("A01", "A03", "A04", "A05", "A07", "A08", "B01", "B02", "B03", "B06", "B08", "B09",
+                                             "D-POSES", "F-POSES", "K-POSES", "S-POSES")},
+                        "A02": 0.69, "B05": 0.77, "T-POSES": [0.85, 1.0, 1.0]},
 }
 # 배경 앞 물건: 이름 → (배경 파일, [x0, y0, x1, y1] — 배경 1536×864 좌표)
 FG = {
@@ -48,6 +53,7 @@ FG = {
     "eomma-gibun-2026-11": {},
     "eomma-hasoyeon-2026-11": {},
     "sangcheo-gonggyeok-2026-11": {},
+    "adhd-ab-2026-11": {},
 }
 
 
@@ -78,9 +84,9 @@ def bbox(mask: np.ndarray):
 
 
 def person_of(sheet: str) -> str:
-    m = re.match(r"^([A-Z]+)(?:-REF|\d+)$", sheet)
+    m = re.match(r"^([A-Z]+)(?:-REF|-POSES|\d+)$", sheet)     # v1.1 조연 자세 시트 W-POSES
     if not m:
-        raise SystemExit(f"[CUT] 시트 이름 꼴이 아님: {sheet} (예: A-REF · A01 · MO02)")
+        raise SystemExit(f"[CUT] 시트 이름 꼴이 아님: {sheet} (예: A-REF · A01 · MO02 · W-POSES)")
     return m.group(1)
 
 

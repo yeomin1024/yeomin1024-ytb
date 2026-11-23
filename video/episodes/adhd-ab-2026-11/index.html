@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ADHD 알고 치료한 A씨 vs 모르고 산 B씨</title>
+<!-- VERSION: v1.1 — 2026-11-24 — still 58장을 보고 고침: 반쪽 이름표 위 잘림(y 64) · 19번 이름표 뺌(말풍선과 겹침) · 73번 말풍선 줄바꿈 · 노란 이름표 글자색 · 출처 줄 위치(자막 띠·가장자리).
+     (v1.0 — 2026-11-24 — 사용자 지시 "아침 6시에 음성, 이미지 올라온거 확인하고 다 돼면 영상 만들어봐".
+     대본 psychology/source/adhd-ab-2026-11/adhd-ab-2026-11.txt (대본 v1.2 · 81문장) · 오디오 tts_narration v1.18.1 · 그림 = ChatGPT 41장
+     (images_chatgpt.md v1.0 — 일상툰) → psychology/source/puppet_slice.py v1.1 (cut/ 86조각) · 엔진 video/render/psy_anim.js v1.0.
+     꼴: 일상툰 재현(말풍선 = 인물 대사, 소리 없음) + 내레이션 해설 · A씨(왼쪽)·B씨(오른쪽) 반반 화면 · 숫자 판(코드).
+     색 = 뜻: 빨강 손해 · 청록 나아짐 · 노랑 기준/주의. 숫자는 calc_numbers.py v1.0 출력과 근거.md v1.3 출처만.
+     A씨·B씨는 가상 인물. 연구·교육용 영상 — 의학적 진단·처방이 아님. -->
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#stage{background:#0B0F1C}
+.tag{position:absolute;left:0;top:0;padding:10px 26px;border-radius:999px;background:#fff;color:#1B2030;font-weight:900;font-size:42px;border:5px solid #1B2030;white-space:nowrap}
+.tag.a{background:#E6F2FF}.tag.b{background:#FFEFE2}
+.tag.rd{background:#D8392B;color:#fff;border-color:#fff}.tag.tl{background:#0E9C88;color:#fff;border-color:#fff}
+.panel{position:absolute;left:0;top:0;width:1920px;height:1080px;background:radial-gradient(1300px 820px at 50% 38%,#1F2A48 0%,#0B0F1C 72%);color:#F4F6FA;overflow:hidden}
+.panel .t{position:absolute;left:0;width:1920px;text-align:center;font-weight:900;line-height:1.15;word-break:keep-all}
+.mu{color:#A3AEC6}.rd{color:#FF6A5A}.tl{color:#2ED3BB}.yl{color:#FFD400}
+.bar{position:absolute;border-radius:14px;transform-origin:0 50%}
+.blab{position:absolute;font-weight:800;font-size:50px;color:#F4F6FA;white-space:nowrap}
+.bnum{position:absolute;font-weight:900;font-size:58px;white-space:nowrap}
+.src{position:absolute;left:0;width:1920px;text-align:center;font-size:36px;font-weight:700;color:#8F9AB2}
+.sw{position:absolute;width:230px;height:116px;border-radius:60px;border:7px solid #F4F6FA;background:#3A4460}
+.sw i{position:absolute;top:11px;width:80px;height:80px;border-radius:50%;background:#F4F6FA}
+.grp{position:absolute;padding:22px 36px;border-radius:24px;font-weight:900;font-size:52px;text-align:center;white-space:nowrap}
+.note{position:absolute;left:50%;padding:26px 44px;border-radius:26px;border:5px solid #FFD400;background:rgba(255,212,0,.1);font-weight:800;font-size:50px;text-align:center;line-height:1.25;white-space:nowrap}
+.hand{position:absolute;background:#1B2030;border-radius:8px;transform-origin:50% 100%}
+.mid{position:absolute;left:956px;top:0;width:12px;height:1080px;background:#F4F6FA;box-shadow:0 0 18px rgba(0,0,0,.35)}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"adhd-ab-2026-11","topic":"psychology","duration":338.5,"audio":"../../../psychology/source/adhd-ab-2026-11/narration.mp3","thumb":null,"synced":"2026-11-23T21:14:33Z","tts":"2026-11-23T17:09:47","script_sha1":"e5a97218556faac3","sent":[{"n":1,"part":"도입","text":"할 일을 계속 미루고 휴대폰만 보다가, 하루가 다 지나가 버린 경험, 한 번쯤 있으시죠.","start":0.3,"end":5.8},{"n":2,"part":"도입","text":"그리고 밤이 되면 \"나는 왜 이렇게 게으를까\" 하고 자책하게 되고요.","start":6.18,"end":10.04},{"n":3,"part":"도입","text":"그런데 요즘, 이게 게으름이 아니라 ADHD일지도 모른다며 병원을 찾는 어른이 5년 사이 6배 넘게 늘었어요.","start":10.42,"end":17.78},{"n":4,"part":"도입","text":"자가진단만으로는 애매하니까, 답답한 마음에 검사를 받아 보는 거죠.","start":18.16,"end":22.468},{"n":5,"part":"도입","text":"물론 \"나는 아니겠지, 검사는 시간 낭비야\" 하고 넘기는 사람도 있고요.","start":22.848,"end":27.328},{"n":6,"part":"도입","text":"정말 시간 낭비일까요?","start":27.708,"end":29.073},{"n":7,"part":"도입","text":"두 사람을 비교해 보면 답이 보입니다.","start":29.453,"end":31.633},{"n":8,"part":"똑같은 하루","text":"서른두 살 A씨는 6시까지 낼 보고서를, 쉰한 살 B씨는 오늘까지 낼 과태료를 앞에 두고 휴대폰을 집어 듭니다.","start":32.633,"end":40.003},{"n":9,"part":"똑같은 하루","text":"그리고 몇 시간이 순식간에 지나가죠.","start":40.383,"end":42.319},{"n":10,"part":"똑같은 하루","text":"결국 A씨는 급하게 낸 보고서를 다시 쓰게 되고, B씨는 기한을 넘겨 가산금까지 내요.","start":42.699,"end":48.539},{"n":11,"part":"똑같은 하루","text":"그런데 두 사람에게는 이상한 공통점이 하나 더 있어요.","start":48.919,"end":52.059},{"n":12,"part":"똑같은 하루","text":"보고서랑 고지서는 그렇게 미루던 사람들이, 좋아하는 건 새벽 세 시까지 본다는 거예요.","start":52.439,"end":57.554},{"n":13,"part":"똑같은 하루","text":"둘 다 자기가 게을러서 그렇다고 생각했어요.","start":57.934,"end":60.614},{"n":14,"part":"똑같은 하루","text":"하지만 게으름만으로는 이게 설명이 안 돼요.","start":60.994,"end":63.464},{"n":15,"part":"똑같은 하루","text":"ADHD는 집중을 아예 못 하는 게 아니라, 집중을 마음대로 켜고 끄기가 어려운 상태거든요.","start":63.844,"end":69.616},{"n":16,"part":"똑같은 하루","text":"그래서 재미없는 일은 시작이 안 되고, 재미있는 일은 멈추기가 어려운 거죠.","start":69.996,"end":74.456},{"n":17,"part":"똑같은 하루","text":"이렇게 똑같던 두 사람의 삶은, 어느 날 밤 영상 하나로 갈라집니다.","start":74.836,"end":79.046},{"n":18,"part":"갈림길","text":"두 사람은 똑같이 성인 ADHD 증상 영상을 봤어요.","start":80.046,"end":83.256},{"n":19,"part":"갈림길","text":"A씨는 그 자리에서 병원을 예약했고, B씨는 시간 낭비라며 영상을 꺼 버렸죠.","start":83.636,"end":88.666},{"n":20,"part":"갈림길","text":"A씨는 병원에서 어떤 결과를 받았을까요?","start":89.046,"end":91.719},{"n":21,"part":"갈림길","text":"병원에서는 지금 증상만 보지 않아요.","start":92.099,"end":94.185},{"n":22,"part":"갈림길","text":"어릴 때도 그랬는지 생활기록부나 가족 이야기로 확인하고, 설문과 검사도 하죠.","start":94.565,"end":99.645},{"n":23,"part":"갈림길","text":"우울이나 불안, 수면 문제 같은 다른 원인은 아닌지도 함께 살피고요.","start":100.025,"end":104.475},{"n":24,"part":"갈림길","text":"그렇게 A씨는 ADHD 진단을 받았습니다.","start":104.855,"end":107.975},{"n":25,"part":"갈림길","text":"요즘은 A씨처럼 어른이 되어서야 진단받는 사람이 정말 많아요.","start":108.355,"end":112.265},{"n":26,"part":"갈림길","text":"특히 30대 여성은 5년 사이 11.6배나 늘었습니다.","start":112.645,"end":116.315},{"n":27,"part":"갈림길","text":"전문가들은 환자가 갑자기 생긴 게 아니라, 모르고 살던 사람들이 이제야 알게 된 거라고 봐요.","start":116.695,"end":121.937},{"n":28,"part":"갈림길","text":"진단을 받고 나서, A씨의 하루는 어떻게 달라졌을까요?","start":122.317,"end":125.847},{"n":29,"part":"A씨, 알고 난 뒤","text":"약을 먹은 첫날, 늘 마감 직전에야 내던 보고서를 오전에 끝냈어요.","start":126.847,"end":131.187},{"n":30,"part":"A씨, 알고 난 뒤","text":"그런데 A씨는 기쁘기보다 억울해서, 화장실에서 울었습니다.","start":131.567,"end":135.505},{"n":31,"part":"A씨, 알고 난 뒤","text":"늦게 진단받은 어른들은 이렇게 그동안 놓친 시간을 억울해하는 경우가 많아요.","start":135.885,"end":140.385},{"n":32,"part":"A씨, 알고 난 뒤","text":"하지만 약이 모든 걸 해결해 주지는 않았어요.","start":140.765,"end":143.205},{"n":33,"part":"A씨, 알고 난 뒤","text":"약을 깜빡한 날은 예전처럼 돌아가고, 약효가 떨어지는 저녁에도 다시 흐트러졌거든요.","start":143.585,"end":148.952},{"n":34,"part":"A씨, 알고 난 뒤","text":"그래서 A씨는 약에 한 가지를 더했어요.","start":149.332,"end":151.711},{"n":35,"part":"A씨, 알고 난 뒤","text":"바로 습관이에요.","start":152.091,"end":153.269},{"n":36,"part":"A씨, 알고 난 뒤","text":"의사와 상담하면서, 일어나면 약부터 먹고, 일할 땐 휴대폰을 서랍에 넣고, 알람으로 일을 잘게 나눴죠.","start":153.649,"end":160.189},{"n":37,"part":"A씨, 알고 난 뒤","text":"그렇게 1년이 지났습니다.","start":160.569,"end":161.983},{"n":38,"part":"A씨, 알고 난 뒤","text":"실수가 아예 없어진 건 아니에요.","start":162.363,"end":164.373},{"n":39,"part":"A씨, 알고 난 뒤","text":"다만 실수 하나로 하루를 망치지 않게 됐고, 무엇보다 더 이상 스스로를 게으르다고 탓하지 않아요.","start":164.753,"end":170.619},{"n":40,"part":"A씨, 알고 난 뒤","text":"한편, 검사를 시간 낭비라고 했던 B씨는 오늘도 같은 일로 다투고 있었습니다.","start":170.999,"end":175.889},{"n":41,"part":"B씨, 모르고 산 30년","text":"아침에 세 번이나 들은 부탁을, 또 잊어버렸거든요.","start":176.889,"end":180.108},{"n":42,"part":"B씨, 모르고 산 30년","text":"내일 결혼식에 입을 양복인데도요.","start":180.488,"end":182.441},{"n":43,"part":"B씨, 모르고 산 30년","text":"잊어버리고, 화내고, 후회하고.","start":182.821,"end":185.188},{"n":44,"part":"B씨, 모르고 산 30년","text":"이런 일로 두 사람은 30년째 다투고 있어요.","start":185.568,"end":188.393},{"n":45,"part":"B씨, 모르고 산 30년","text":"그런데 아내는 이 일을 전혀 다르게 받아들이고 있었어요.","start":188.773,"end":191.747},{"n":46,"part":"B씨, 모르고 산 30년","text":"아내는 무시당한다고 느꼈고, B씨는 자기가 게을러서라고 믿었죠.","start":192.127,"end":196.377},{"n":47,"part":"B씨, 모르고 산 30년","text":"이유를 모르면, 이렇게 모든 게 성격 탓이 돼요.","start":196.757,"end":199.623},{"n":48,"part":"B씨, 모르고 산 30년","text":"그리고 문제는 집에서 끝나지 않았습니다.","start":200.003,"end":202.363},{"n":49,"part":"B씨, 모르고 산 30년","text":"일 잘한다는 말을 듣던 B씨였지만, 승진 서류를 마감까지 내지 못해서 이번에도 승진에서 빠졌어요.","start":202.743,"end":208.813},{"n":50,"part":"B씨, 모르고 산 30년","text":"처음 있는 일도 아니었죠.","start":209.193,"end":210.553},{"n":51,"part":"B씨, 모르고 산 30년","text":"이렇게 자책이 쌓이면 마음도 지쳐요.","start":210.933,"end":213.223},{"n":52,"part":"B씨, 모르고 산 30년","text":"실제로 ADHD가 있는 어른은 우울이나 불안을 함께 겪는 경우가 많다고 알려져 있습니다.","start":213.603,"end":219.08},{"n":53,"part":"B씨, 모르고 산 30년","text":"모르고 사는 것과 치료하는 것, 숫자로 보면 차이가 꽤 납니다.","start":219.46,"end":223.379},{"n":54,"part":"숫자로 본 차이","text":"2025년 영국 의학 학술지 BMJ에 실린 스웨덴 연구가 있어요.","start":224.379,"end":228.809},{"n":55,"part":"숫자로 본 차이","text":"ADHD를 새로 진단받은 6살부터 64살까지 14만 8천여 명을, 약을 먹기 시작한 사람과 먹지 않은 사람으로 나눠 2년 동안 비교했죠.","start":229.189,"end":238.627},{"n":56,"part":"숫자로 본 차이","text":"그 결과, 약을 먹은 쪽은 자살 시도 같은 행동이 17%, 교통사고가 12%, 범죄가 13% 적었습니다.","start":239.007,"end":246.677},{"n":57,"part":"숫자로 본 차이","text":"다만 실험이 아니라 기록을 비교한 연구라서, 이 차이가 모두 약 덕분이라고 단정할 수는 없어요.","start":247.057,"end":252.577},{"n":58,"part":"숫자로 본 차이","text":"또 이건 진단을 받고도 약을 먹지 않은 사람과 비교한 결과예요.","start":252.957,"end":256.572},{"n":59,"part":"숫자로 본 차이","text":"B씨처럼 병원에 가 보지도 않은 사람은, 이런 통계에 잡히지도 않죠.","start":256.952,"end":261.313},{"n":60,"part":"숫자로 본 차이","text":"요즘엔 아무나 ADHD라고 한다는 말도 있어요.","start":261.693,"end":264.64},{"n":61,"part":"애매한 나는","text":"틀린 말은 아니에요.","start":265.64,"end":266.709},{"n":62,"part":"애매한 나는","text":"누구나 미루고, 누구나 깜빡하니까요.","start":267.089,"end":269.589},{"n":63,"part":"애매한 나는","text":"다만, 스스로 세 가지만 물어보세요.","start":269.969,"end":272.309},{"n":64,"part":"애매한 나는","text":"첫째, 어릴 때부터 그랬나요?","start":272.689,"end":274.623},{"n":65,"part":"애매한 나는","text":"둘째, 집과 직장처럼 두 곳 이상에서 그런가요?","start":275.003,"end":278.008},{"n":66,"part":"애매한 나는","text":"셋째, 그 때문에 돈이나 일, 관계에서 같은 손해를 반복하고 있나요?","start":278.388,"end":282.708},{"n":67,"part":"애매한 나는","text":"셋 다 그렇다면, 한 번쯤 확인해 볼 만해요.","start":283.088,"end":285.761},{"n":68,"part":"애매한 나는","text":"하지만 잠이 부족하거나 우울할 때도 집중은 무너져요.","start":286.141,"end":289.391},{"n":69,"part":"애매한 나는","text":"그래서 판단은 인터넷 체크리스트가 아니라, 전문의 검사로 해야 합니다.","start":289.771,"end":293.881},{"n":70,"part":"애매한 나는","text":"그리고 B씨에게도, 결국 그 순간이 찾아왔습니다.","start":294.261,"end":297.499},{"n":71,"part":"마무리","text":"몇 년 뒤, B씨의 중학생 아들이 ADHD 진단을 받았어요.","start":298.499,"end":302.529},{"n":72,"part":"마무리","text":"그날 의사는 B씨에게 이렇게 물었습니다.","start":302.909,"end":305.299},{"n":73,"part":"마무리","text":"\"아버님은 어릴 때 어떠셨어요?\"","start":305.679,"end":307.344},{"n":74,"part":"마무리","text":"ADHD는 가족 안에서 함께 나타나는 경우가 많거든요.","start":307.724,"end":311.301},{"n":75,"part":"마무리","text":"아들의 진단을 듣고서야, B씨는 처음으로 자기 자신을 돌아보게 됐어요.","start":311.681,"end":316.111},{"n":76,"part":"마무리","text":"결국 B씨가 아낀 건 검사 몇 시간뿐이었어요.","start":316.491,"end":319.256},{"n":77,"part":"마무리","text":"그 대신 30년 동안 자기 자신을 탓하며 살았죠.","start":319.636,"end":322.555},{"n":78,"part":"마무리","text":"A씨와 B씨를 가른 건 의지가 아니었어요.","start":322.935,"end":325.699},{"n":79,"part":"마무리","text":"내가 왜 이런지, 그 이유를 알았느냐였죠.","start":326.079,"end":328.759},{"n":80,"part":"마무리","text":"이유를 알아야, 나를 탓하는 대신 방법을 찾을 수 있으니까요.","start":329.139,"end":332.619},{"n":81,"part":"마무리","text":"유익하셨다면 구독과 좋아요 부탁드려요.","start":332.999,"end":335.598}],"subs":[[0.2,6.18,"할 일을 계속 미루고 휴대폰만 보다가,\n하루가 다 지나가 버린 경험, 한 번쯤 있으시죠."],[6.18,10.42,"그리고 밤이 되면 \"나는 왜 이렇게 게으를까\" 하고 자책하게 되고요."],[10.42,18.16,"그런데 요즘, 이게 게으름이 아니라 ADHD일지도 모른다며\n병원을 찾는 어른이 5년 사이 6배 넘게 늘었어요."],[18.16,22.848,"자가진단만으로는 애매하니까, 답답한 마음에 검사를 받아 보는 거죠."],[22.848,27.708,"물론 \"나는 아니겠지, 검사는 시간 낭비야\" 하고 넘기는 사람도 있고요."],[27.708,29.453,"정말 시간 낭비일까요?"],[29.453,32.633,"두 사람을 비교해 보면 답이 보입니다."],[32.633,40.383,"서른두 살 A씨는 6시까지 낼 보고서를,\n쉰한 살 B씨는 오늘까지 낼 과태료를 앞에 두고 휴대폰을 집어 듭니다."],[40.383,42.699,"그리고 몇 시간이 순식간에 지나가죠."],[42.699,48.919,"결국 A씨는 급하게 낸 보고서를 다시 쓰게 되고,\nB씨는 기한을 넘겨 가산금까지 내요."],[48.919,52.439,"그런데 두 사람에게는 이상한 공통점이 하나 더 있어요."],[52.439,57.934,"보고서랑 고지서는 그렇게 미루던 사람들이,\n좋아하는 건 새벽 세 시까지 본다는 거예요."],[57.934,60.994,"둘 다 자기가 게을러서 그렇다고 생각했어요."],[60.994,63.844,"하지만 게으름만으로는 이게 설명이 안 돼요."],[63.844,69.996,"ADHD는 집중을 아예 못 하는 게 아니라,\n집중을 마음대로 켜고 끄기가 어려운 상태거든요."],[69.996,74.836,"그래서 재미없는 일은 시작이 안 되고,\n재미있는 일은 멈추기가 어려운 거죠."],[74.836,80.046,"이렇게 똑같던 두 사람의 삶은, 어느 날 밤 영상 하나로 갈라집니다."],[80.046,83.636,"두 사람은 똑같이 성인 ADHD 증상 영상을 봤어요."],[83.636,89.046,"A씨는 그 자리에서 병원을 예약했고,\nB씨는 시간 낭비라며 영상을 꺼 버렸죠."],[89.046,92.099,"A씨는 병원에서 어떤 결과를 받았을까요?"],[92.099,94.565,"병원에서는 지금 증상만 보지 않아요."],[94.565,100.025,"어릴 때도 그랬는지 생활기록부나 가족 이야기로 확인하고,\n설문과 검사도 하죠."],[100.025,104.855,"우울이나 불안, 수면 문제 같은 다른 원인은 아닌지도 함께 살피고요."],[104.855,108.355,"그렇게 A씨는 ADHD 진단을 받았습니다."],[108.355,112.645,"요즘은 A씨처럼 어른이 되어서야 진단받는 사람이 정말 많아요."],[112.645,116.695,"특히 30대 여성은 5년 사이 11.6배나 늘었습니다."],[116.695,122.317,"전문가들은 환자가 갑자기 생긴 게 아니라,\n모르고 살던 사람들이 이제야 알게 된 거라고 봐요."],[122.317,126.847,"진단을 받고 나서, A씨의 하루는 어떻게 달라졌을까요?"],[126.847,131.567,"약을 먹은 첫날, 늘 마감 직전에야 내던 보고서를 오전에 끝냈어요."],[131.567,135.885,"그런데 A씨는 기쁘기보다 억울해서, 화장실에서 울었습니다."],[135.885,140.765,"늦게 진단받은 어른들은 이렇게 그동안 놓친 시간을\n억울해하는 경우가 많아요."],[140.765,143.585,"하지만 약이 모든 걸 해결해 주지는 않았어요."],[143.585,149.332,"약을 깜빡한 날은 예전처럼 돌아가고,\n약효가 떨어지는 저녁에도 다시 흐트러졌거든요."],[149.332,152.091,"그래서 A씨는 약에 한 가지를 더했어요."],[152.091,153.649,"바로 습관이에요."],[153.649,160.569,"의사와 상담하면서, 일어나면 약부터 먹고,\n일할 땐 휴대폰을 서랍에 넣고, 알람으로 일을 잘게 나눴죠."],[160.569,162.363,"그렇게 1년이 지났습니다."],[162.363,164.753,"실수가 아예 없어진 건 아니에요."],[164.753,170.999,"다만 실수 하나로 하루를 망치지 않게 됐고,\n무엇보다 더 이상 스스로를 게으르다고 탓하지 않아요."],[170.999,176.889,"한편, 검사를 시간 낭비라고\n했던 B씨는 오늘도 같은 일로 다투고 있었습니다."],[176.889,180.488,"아침에 세 번이나 들은 부탁을, 또 잊어버렸거든요."],[180.488,182.821,"내일 결혼식에 입을 양복인데도요."],[182.821,185.568,"잊어버리고, 화내고, 후회하고."],[185.568,188.773,"이런 일로 두 사람은 30년째 다투고 있어요."],[188.773,192.127,"그런데 아내는 이 일을 전혀 다르게 받아들이고 있었어요."],[192.127,196.757,"아내는 무시당한다고 느꼈고, B씨는 자기가 게을러서라고 믿었죠."],[196.757,200.003,"이유를 모르면, 이렇게 모든 게 성격 탓이 돼요."],[200.003,202.743,"그리고 문제는 집에서 끝나지 않았습니다."],[202.743,209.193,"일 잘한다는 말을 듣던 B씨였지만,\n승진 서류를 마감까지 내지 못해서 이번에도 승진에서 빠졌어요."],[209.193,210.933,"처음 있는 일도 아니었죠."],[210.933,213.603,"이렇게 자책이 쌓이면 마음도 지쳐요."],[213.603,219.46,"실제로 ADHD가 있는 어른은 우울이나 불안을\n함께 겪는 경우가 많다고 알려져 있습니다."],[219.46,224.379,"모르고 사는 것과 치료하는 것, 숫자로 보면 차이가 꽤 납니다."],[224.379,229.189,"2025년 영국 의학 학술지 BMJ에 실린 스웨덴 연구가 있어요."],[229.189,239.007,"ADHD를 새로 진단받은 6살부터 64살까지 14만 8천여 명을,\n약을 먹기 시작한 사람과 먹지 않은 사람으로 나눠 2년 동안 비교했죠."],[239.007,247.057,"그 결과, 약을 먹은 쪽은 자살 시도 같은 행동이 17%,\n교통사고가 12%, 범죄가 13% 적었습니다."],[247.057,252.957,"다만 실험이 아니라 기록을 비교한 연구라서,\n이 차이가 모두 약 덕분이라고 단정할 수는 없어요."],[252.957,256.952,"또 이건 진단을 받고도 약을 먹지 않은 사람과 비교한 결과예요."],[256.952,261.693,"B씨처럼 병원에 가 보지도 않은 사람은, 이런 통계에 잡히지도 않죠."],[261.693,265.64,"요즘엔 아무나 ADHD라고 한다는 말도 있어요."],[265.64,267.089,"틀린 말은 아니에요."],[267.089,269.969,"누구나 미루고, 누구나 깜빡하니까요."],[269.969,272.689,"다만, 스스로 세 가지만 물어보세요."],[272.689,275.003,"첫째, 어릴 때부터 그랬나요?"],[275.003,278.388,"둘째, 집과 직장처럼 두 곳 이상에서 그런가요?"],[278.388,283.088,"셋째, 그 때문에 돈이나 일, 관계에서 같은 손해를 반복하고 있나요?"],[283.088,286.141,"셋 다 그렇다면, 한 번쯤 확인해 볼 만해요."],[286.141,289.771,"하지만 잠이 부족하거나 우울할 때도 집중은 무너져요."],[289.771,294.261,"그래서 판단은 인터넷 체크리스트가 아니라,\n전문의 검사로 해야 합니다."],[294.261,298.499,"그리고 B씨에게도, 결국 그 순간이 찾아왔습니다."],[298.499,302.909,"몇 년 뒤, B씨의 중학생 아들이 ADHD 진단을 받았어요."],[302.909,305.679,"그날 의사는 B씨에게 이렇게 물었습니다."],[305.679,307.724,"\"아버님은 어릴 때 어떠셨어요?\""],[307.724,311.681,"ADHD는 가족 안에서 함께 나타나는 경우가 많거든요."],[311.681,316.491,"아들의 진단을 듣고서야,\nB씨는 처음으로 자기 자신을 돌아보게 됐어요."],[316.491,319.636,"결국 B씨가 아낀 건 검사 몇 시간뿐이었어요."],[319.636,322.935,"그 대신 30년 동안 자기 자신을 탓하며 살았죠."],[322.935,326.079,"A씨와 B씨를 가른 건 의지가 아니었어요."],[326.079,329.139,"내가 왜 이런지, 그 이유를 알았느냐였죠."],[329.139,332.999,"이유를 알아야, 나를 탓하는 대신 방법을 찾을 수 있으니까요."],[332.999,335.998,"유익하셨다면 구독과 좋아요 부탁드려요."]]};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script src="../../../psychology/source/adhd-ab-2026-11/puppet/cut/manifest.js"></script>
+<script src="../../render/psy_anim.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false });
+const { S, E, W } = K;
+const tl = K.tl;
+const PUP = "../../../psychology/source/adhd-ab-2026-11/puppet/";
+const BGS = {};
+for (const k of ["OFFICE", "B-LIVING", "A-BED", "CLINIC", "RESTROOM", "MEETING", "B-ROOM", "VERANDA", "B-OFFICE", "PUB", "PEDS", "RECEPTION"]) BGS[k] = PUP + `BG-${k}.jpg`;
+PSY.setup({ man: window.CUT_MANIFEST, cut: PUP + "cut/", bg: BGS,
+  layout: { MID: [950, 0, 24, 1080] },
+  allow: [["MID", "WORLD"], ["MID", "HEAD"], ["MID", "LOW"], ["MID", "LIST"]] });
+const { shot, world, cam, actor, moves, bubble, label, list, show, hide, pop, squash, breathe, spr } = PSY;
+const RD = PSY.RD, TL = PSY.TL, YL = PSY.YL;
+const B = n => Math.max(0, S(n) - 0.25);
+const NIGHT = "rgba(14,20,60,.45)";
+
+/* 자리 표 [발 x, 발 y, 배율] — 세계 좌표 (배경 1920×1080) */
+const SP = {
+  OFF_A: [860, 905, 0.8],      // A씨 사무실 의자 (배경 의자 자리 x 860)
+  OFF_T: [1360, 1010, 0.72],   // 팀장 (선 자세)
+  LIV_B: [1400, 880, 0.72],    // B씨 거실 소파 오른쪽 끝 (앉은 자세)
+  LIV_W: [560, 1005, 0.74],    // 아내 (선 자세)
+  LIV_BS: [1250, 1005, 0.74],  // B씨 거실 (선 자세)
+  BED_A: [880, 700, 0.7],      // A씨 침대 위 (책상다리)
+  BED_A2: [1120, 1005, 0.74],  // A씨 침실 (선 자세)
+  CL_D: [1700, 965, 0.78], CL_A: [760, 985, 0.78],          // 진료실
+  RR_A: [960, 1010, 0.8],                                    // 화장실 세면대 앞
+  MT_A: [560, 1000, 0.8], MT_T: [1480, 1000, 0.8],          // 회의실
+  RM_B: [1640, 900, 0.78],                                   // B씨 침실 침대 끝
+  VR_W: [1000, 1010, 0.8],                                   // 베란다
+  BO_B: [420, 905, 0.8], BO_B2: [1380, 1010, 0.76],         // B씨 회사 책상 · 게시판 앞
+  PB_F: [620, 965, 0.78], PB_B: [1320, 965, 0.78],          // 술집 의자 두 개
+  PD_S: [700, 1010, 0.7], PD_B: [1080, 1010, 0.76], PD_K: [1660, 990, 0.76],   // 소아청소년 진료실
+  RC_B: [1100, 1010, 0.78],                                  // 접수대 앞
+};
+const at = (W_, keys, p, opt) => actor(W_, keys, p[0], p[1], p[2], opt);
+
+/* ─────── 반반 화면: 왼쪽 A씨 · 오른쪽 B씨 — 배경의 [ox, ox+960] 만 보임 ─────── */
+function half(a, b, bg, side, ox, opt) {
+  const W_ = world(a, b, bg, opt);
+  gsap.set(W_.sc, { x: (side === "L" ? 0 : 960) - ox });
+  W_.sc.style.clipPath = `inset(0 ${1920 - ox - 960}px 0 ${ox}px)`;
+  W_.ox = ox; W_.side = side;
+  return W_;
+}
+function over(a, b) {                     // 반반 화면 위 글자 층 (자르지 않는 장면) + 가운데 흰 선
+  const sc = K.scene(a, b + 0.4);
+  K.el(`<div class="mid" data-slot="MID"></div>`, sc);
+  return { sc };
+}
+function tagIn(W_, html, t, out, cls, y) {   // 반쪽 위 이름표 (세계 안 — 그 반쪽 가운데)
+  const n = K.el(`<div class="tag ${cls || (W_.side === "L" ? "a" : "b")}">${html}</div>`, W_.L.fly);
+  gsap.set(n, { x: W_.ox + 480, y: y == null ? 30 : y, xPercent: -50, opacity: 0 });
+  tl.fromTo(n, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+  if (out) hide(n, out, 0.25);
+  return n;
+}
+function clock(W_, x, y, size, t0, t1, turns, layer) {   // 바늘 없는 벽시계 그림 + 코드 바늘
+  const L = layer || W_.L.fly;
+  const c = spr(L, "PROPS-A-4", x, y, size);
+  const hh = K.el(`<div class="hand" style="left:${x - 6}px;top:${y - size * 0.26}px;width:12px;height:${size * 0.26}px"></div>`, L);
+  const mh = K.el(`<div class="hand" style="left:${x - 4}px;top:${y - size * 0.36}px;width:8px;height:${size * 0.36}px"></div>`, L);
+  gsap.set([hh, mh], { opacity: 0 });
+  for (const n of [c, hh, mh]) show(n, t0, 0.3);
+  tl.fromTo(mh, { rotation: 0 }, { rotation: 360 * turns, duration: Math.max(0.3, t1 - t0), ease: "power1.in", immediateRender: false }, t0);
+  tl.fromTo(hh, { rotation: 0 }, { rotation: 30 * turns, duration: Math.max(0.3, t1 - t0), ease: "power1.in", immediateRender: false }, t0);
+  return [c, hh, mh];
+}
+
+/* ─────── 숫자 판 (코드 화면) ─────── */
+function panel(a, b) {
+  const sc = K.scene(a, b + 0.4);
+  const p = K.el(`<div class="panel" data-slot="WORLD"></div>`, sc);
+  return { sc, p };
+}
+function pt(p, y, html, size, t, out, cls) {
+  const n = K.el(`<div class="t ${cls || ""}" style="top:${y}px;font-size:${size}px">${html}</div>`, p);
+  gsap.set(n, { opacity: 0 });
+  tl.fromTo(n, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out", immediateRender: false }, t);
+  if (out) hide(n, out, 0.3);
+  return n;
+}
+function bar(p, x, y, w, h, color, t, dur) {
+  const n = K.el(`<div class="bar" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;background:${color}"></div>`, p);
+  gsap.set(n, { scaleX: 0 });
+  tl.fromTo(n, { scaleX: 0 }, { scaleX: 1, duration: dur || 0.9, ease: "power2.out", immediateRender: false }, t);
+  return n;
+}
+function abs(p, html, x, y, cls, t, out) {
+  const n = K.el(`<div class="${cls}" style="left:${x}px;top:${y}px">${html}</div>`, p);
+  gsap.set(n, { opacity: 0 });
+  show(n, t, 0.3);
+  if (out) hide(n, out, 0.3);
+  return n;
+}
+
+/* ═════════════ 도입 (1~7) ═════════════ */
+shot(0, (a, b) => {                       // 1~2 — 휴대폰만 보다 하루가 감 → 밤의 자책 (인물 재현 없이 — 1장과 겹치지 않게)
+  const P_ = panel(a, b);
+  const p = P_.p;
+  gsap.set(p, { background: "radial-gradient(1300px 820px at 50% 38%,#FFE9C7 0%,#E8B98A 75%)" });
+  tl.to(p, { background: "radial-gradient(1300px 820px at 50% 38%,#26305A 0%,#0B0F1C 75%)", duration: 2.2, ease: "sine.inOut" }, E(1) - 1.6);
+  const ph = spr(p, "PROPS-B-3", 700, 470, 520);
+  show(ph, a + 0.1, 0.4);
+  tl.fromTo(ph, { rotation: -6 }, { rotation: 4, duration: 2.4, yoyo: true, repeat: 2, ease: "sine.inOut", immediateRender: false }, a + 0.1);
+  clock({ L: { fly: p } }, 1240, 440, 330, W(1, "하루가") - 0.6, E(1), 3, p);
+  const th = K.el(`<div class="pbub think" style="width:880px;font-size:58px">"나는 왜 이렇게<br>게으를까…"</div>`, p);
+  K.el(`<div class="tail" style="left:-30px;bottom:-26px"></div>`, th);
+  gsap.set(th, { x: 520, y: 120, opacity: 0 });
+  pop(th, W(2, "나는") - 0.2, 0.4);
+  hide(ph, S(2) + 0.2, 0.4);
+  K.cut(E(1) - 0.3, "1 하루가 지나감"); K.cut(E(2) - 0.3, "2 자책");
+});
+shot(B(3), (a, b) => {                    // 3 — 성인 ADHD 진료 인원 5년 사이 6배 넘게
+  const P_ = panel(a, b);
+  const p = P_.p;
+  pt(p, 110, "ADHD로 병원을 찾은 어른 <span class='mu' style='font-size:44px'>(20세 이상)</span>", 62, a + 0.2);
+  const X0 = 520, WMAX = 1080;              // 막대 길이 = 인원 비례 (calc_numbers.py)
+  abs(p, "2020년", 270, 318, "blab", W(3, "병원을"));
+  bar(p, X0, 312, Math.round(WMAX * 25297 / 152675), 84, "#7C8AA8", W(3, "병원을"));
+  abs(p, "25,297명", X0 + Math.round(WMAX * 25297 / 152675) + 26, 318, "bnum", W(3, "병원을") + 0.5);
+  abs(p, "2025년", 270, 478, "blab", W(3, "5년"));
+  bar(p, X0, 472, WMAX, 84, YL, W(3, "5년"), 1.3);
+  const n = abs(p, "152,675명", X0 + WMAX - 330, 568, "bnum yl", W(3, "6배") - 0.2);
+  void n;
+  pt(p, 690, "<span class='yl'>5년 사이 6배 넘게</span>", 96, W(3, "6배"));
+  K.el(`<div class="src" style="top:830px">국민건강보험공단 진료 인원 · 국회의원실 공개 (2025·2026년 9월)</div>`, p);
+  K.cut(E(3) - 0.3, "3 6배");
+});
+shot(B(4), (a, b) => {                    // 4~7 — 두 사람 소개 (반반) · 검사 받아 볼까 vs 시간 낭비
+  const L = half(a, b, "OFFICE", "L", 380);
+  const R = half(a, b, "B-LIVING", "R", 760);
+  const O = over(a, b);
+  const A = at(L, ["A-REF-1"], [860, 1010, 0.74]);
+  const Bm = at(R, ["B-REF-1"], [1240, 1010, 0.74]);
+  moves(A, [[a, "A-REF-1", 1, "hold"]], b + 0.4); moves(Bm, [[a, "B-REF-1", 1, "hold"]], b + 0.4);
+  breathe(A, a, b); breathe(Bm, a, b);
+  bubble(L, A, "A-REF-1", "검사<br>받아 볼까?", S(4) + 0.3, S(6), { side: 1, w: 330, size: 50, kind: "think" });
+  bubble(R, Bm, "B-REF-1", "나는 아니겠지.<br>검사는 시간 낭비야.", W(5, "나는"), S(6), { side: -1, w: 420, size: 46, kind: "think" });
+  label(O, "정말 시간 낭비일까?", S(6), S(7), { size: 60 });
+  tagIn(L, "A씨 · 32세 — 검사 받음", S(7), null, "a", 64);
+  tagIn(R, "B씨 · 51세 — 검사 안 받음", S(7) + 0.3, null, "b", 64);
+  K.cut(E(5) - 0.3, "5 시간 낭비"); K.cut(E(7) - 0.3, "7 두 사람");
+});
+
+/* ═════════════ 1장 똑같은 하루 (8~17) ═════════════ */
+shot(B(8), (a, b) => {                    // 8~10 — 마감 앞에서 휴대폰 → 몇 시간 → 결과
+  const L = half(a, b, "OFFICE", "L", 380);
+  const R = half(a, b, "B-LIVING", "R", 880);
+  const O = over(a, b);
+  const A = at(L, ["A01-1", "A01-2", "A01-3"], SP.OFF_A);
+  const Bm = at(R, ["B01-1", "B01-2", "B01-3"], SP.LIV_B);
+  moves(A, [[a, "A01-1", 1, "hold"], [W(8, "휴대폰을"), "A01-2", 1, "hold"], [E(9) - 0.5, "A01-3", 1, "hold"]], b + 0.4);
+  moves(Bm, [[a, "B01-1", 1, "hold"], [W(8, "휴대폰을") + 0.15, "B01-2", 1, "hold"], [E(9) - 0.4, "B01-3", 1, "hold"]], b + 0.4);
+  squash(A, E(9) - 0.5); squash(Bm, E(9) - 0.4);
+  bubble(L, A, "A01-1", "6시 마감인데…<br>잠깐만.", W(8, "6시까지"), W(8, "휴대폰을") + 0.6, { side: 1, w: 330, size: 46 });
+  bubble(R, Bm, "B01-1", "과태료 오늘까지인데…<br>잠깐만.", W(8, "과태료를"), S(9), { side: -1, w: 420, size: 44 });
+  clock(L, 1180, 250, 200, S(9), E(9), 4);
+  clock(R, 1060, 250, 200, S(9), E(9), 6);
+  bubble(L, A, "A01-3", "벌써 5시 반?", E(9) - 0.4, S(10) + 1.6, { side: 1, w: 300, size: 50 });
+  bubble(R, Bm, "B01-3", "벌써 자정이야?", E(9) - 0.3, S(10) + 1.6, { side: -1, w: 330, size: 50 });
+  tagIn(L, "급하게 내고 → 다시 씀", W(10, "다시"), null, "rd", 64);
+  tagIn(R, "기한 넘김 → 가산금 +3%", W(10, "가산금"), null, "rd", 64);
+  K.cut(E(8) - 0.3, "8 잠깐만"); K.cut(E(9) - 0.2, "9 벌써"); K.cut(E(10) - 0.3, "10 결과");
+});
+shot(B(11), (a, b) => {                   // 11~14 — 새벽 3시: 좋아하는 건 멈추지 못함 → 게을러서?
+  const L = half(a, b, "A-BED", "L", 400);
+  const R = half(a, b, "B-LIVING", "R", 880, { tint: NIGHT });
+  const O = over(a, b);
+  const A = at(L, ["A02-1", "A02-2", "A02-3"], SP.BED_A);
+  const Bm = at(R, ["B02-1", "B02-2", "B02-3"], SP.LIV_B);
+  moves(A, [[a, "A02-1", 1, "hold"], [S(12) + 1.2, "A02-2", 1, "hold"], [S(13), "A02-3", 1, "hold"]], b + 0.4);
+  moves(Bm, [[a, "B02-1", 1, "hold"], [S(12) + 1.5, "B02-2", 1, "hold"], [S(13) + 0.2, "B02-3", 1, "hold"]], b + 0.4);
+  label(O, "새벽 3시", S(11) + 0.3, S(13), { size: 56 });
+  bubble(L, A, "A02-1", "딱 한 편만 더.", W(12, "좋아하는"), S(13), { side: 1, w: 320, size: 48 });
+  bubble(R, Bm, "B02-1", "이것만 보고<br>자야지.", W(12, "새벽"), S(13), { side: -1, w: 330, size: 48 });
+  label(O, "둘 다 '내가 게을러서'?", S(13), S(14), { size: 56 });
+  label(O, "게으름만으로는 설명이 안 됨", S(14), null, { size: 56, bg: "rgba(216,57,43,.92)" });
+  K.cut(E(12) - 0.3, "12 한 편만 더"); K.cut(E(14) - 0.3, "14 게으름?");
+});
+shot(B(15), (a, b) => {                   // 15~16 — 집중 스위치: 켜기 어려움 · 끄기 어려움
+  const P_ = panel(a, b);
+  const p = P_.p;
+  pt(p, 100, "ADHD = 집중을 <span class='yl'>마음대로 켜고 끄기</span> 어려움", 66, S(15) + 0.2);
+  pt(p, 200, "집중을 못 하는 게 아님", 48, W(15, "아예"), null, "mu");
+  const row = (y, txt, on, t, res, cls) => {
+    abs(p, txt, 300, y + 26, "blab", t);
+    const sw = abs(p, "<i></i>", 900, y, "sw", t);
+    const knob = sw.firstChild;
+    gsap.set(knob, { left: on ? 130 : 12 });
+    gsap.set(sw, { background: on ? "#0E9C88" : "#3A4460" });
+    tl.to(knob, { keyframes: [{ left: on ? 90 : 52, duration: 0.25 }, { left: on ? 130 : 12, duration: 0.3, ease: "back.out(3)" },
+      { left: on ? 95 : 48, duration: 0.25 }, { left: on ? 130 : 12, duration: 0.3, ease: "back.out(3)" }] }, t + 0.5);
+    abs(p, res, 1200, y + 22, `bnum ${cls}`, t + 1.2);
+  };
+  row(380, "재미없는 일", false, W(16, "재미없는"), "시작이 안 됨", "rd");
+  row(600, "재미있는 일", true, W(16, "재미있는"), "멈추기 어려움", "rd");
+  K.cut(E(16) - 0.3, "16 스위치");
+});
+shot(B(17), (a, b) => {                   // 17~20 — 어느 날 밤 영상 하나 → 갈림길
+  const L = half(a, b, "A-BED", "L", 400);
+  const R = half(a, b, "B-LIVING", "R", 880, { tint: NIGHT });
+  const O = over(a, b);
+  const A = at(L, ["A03-1", "A03-2", "A03-3"], [880, 735, 0.66]);
+  const Bm = at(R, ["B03-1", "B03-2", "B03-3"], SP.LIV_B);
+  moves(A, [[a, "A03-1", 1, "hold"], [S(19) - 0.1, "A03-2", 1, "hold"], [W(19, "예약했고") - 0.2, "A03-3", 1, "hold"]], b + 0.4);
+  moves(Bm, [[a, "B03-1", 1, "hold"], [W(19, "B씨는") - 0.3, "B03-2", 1, "hold"], [W(19, "꺼") - 0.4, "B03-3", 1, "hold"]], b + 0.4);
+  squash(A, W(19, "예약했고") - 0.2); squash(Bm, W(19, "꺼") - 0.4);
+  label(O, "어느 날 밤, 영상 하나", S(17) + 0.3, S(18), { size: 56 });
+  label(O, "성인 ADHD 증상", S(18), S(19), { size: 56 });
+  bubble(L, A, "A03-2", "완전 내 얘기네.<br>병원 예약해야겠다.", S(19) - 0.1, S(20) + 0.3, { side: 1, w: 380, size: 44 });
+  bubble(R, Bm, "B03-2", "나는 아니겠지.<br>검사는 시간 낭비야.", W(19, "B씨는") - 0.3, S(20) + 0.3, { side: -1, w: 400, size: 44 });
+  PSY.dark(R, S(20), 0.75, "rgba(5,8,20,.75)", 0.6);
+  label(O, "A씨 — 병원에서 받은 결과는?", S(20), null, { size: 54, bg: "rgba(14,156,136,.92)" });
+  K.cut(E(17) - 0.3, "17 영상 하나"); K.cut(E(19) - 0.3, "19 갈림길"); K.cut(E(20) - 0.3, "20 결과는");
+});
+
+/* ═════════════ 2장 갈림길 — 진료실 (21~28) ═════════════ */
+shot(B(21), (a, b) => {                   // 21~24 — 진단 과정
+  const W_ = world(a, b, "CLINIC");
+  const D = at(W_, ["D-POSES-1", "D-POSES-2", "D-POSES-3"], SP.CL_D);
+  const A = at(W_, ["A04-1", "A04-2", "A04-3"], SP.CL_A);
+  moves(D, [[a, "D-POSES-1", 1, "hold"], [S(23), "D-POSES-2", 1, "hold"], [S(24), "D-POSES-3", 1, "hold"]], b + 0.4);
+  moves(A, [[a, "A04-1", 1, "hold"], [W(22, "생활기록부"), "A04-2", 1, "hold"], [S(24) + 0.3, "A04-3", 1, "hold"]], b + 0.4);
+  breathe(D, a, b);
+  bubble(W_, D, "D-POSES-1", "어릴 때도<br>이랬나요?", S(21) + 0.4, W(22, "생활기록부"), { side: -1, w: 330, size: 50 });
+  bubble(W_, A, "A04-2", "네, 생활기록부에도<br>'산만하다'고 적혀 있었어요.", W(22, "생활기록부"), S(23) + 0.4, { side: 1, w: 560, size: 42 });
+  label(W_, "어릴 때도? · 설문 · 검사", W(22, "어릴"), S(23), { size: 54 });
+  label(W_, "다른 원인? 우울 · 불안 · 수면", S(23), S(24), { size: 54 });
+  label(W_, "A씨 — ADHD 진단", S(24) + 0.2, null, { size: 58, bg: "rgba(14,156,136,.92)" });
+  cam(W_, a, S(23), [1.0, 960, 560], [1.05, 1100, 540]);
+  cam(W_, S(23), b, [1.05, 1100, 540], [1.1, 900, 520], "power2.inOut");
+  K.cut(E(21) - 0.3, "21 어릴 때도"); K.cut(E(22) - 0.3, "22 생활기록부"); K.cut(E(24) - 0.3, "24 진단");
+});
+shot(B(25), (a, b) => {                   // 25~27 — 30대 여성 5년 사이 11.6배 · 이제야 알게 된 것
+  const P_ = panel(a, b);
+  const p = P_.p;
+  pt(p, 100, "어른이 되어서야 진단받는 사람", 62, a + 0.2);
+  const X0 = 520, WMAX = 1080;
+  abs(p, "30대 여성", 140, 300, "blab", S(26));
+  abs(p, "2020년", 300, 390, "blab", S(26));
+  bar(p, X0, 384, Math.round(WMAX * 2325 / 27076), 80, "#7C8AA8", S(26));
+  abs(p, "2,325명", X0 + Math.round(WMAX * 2325 / 27076) + 26, 390, "bnum", S(26) + 0.4);
+  abs(p, "2025년", 300, 520, "blab", W(26, "5년"));
+  bar(p, X0, 514, WMAX, 80, YL, W(26, "5년"), 1.2);
+  abs(p, "27,076명", X0 + WMAX - 260, 610, "bnum yl", W(26, "11.6배") - 0.2);
+  pt(p, 610, "<span class='yl'>11.6배</span>", 96, W(26, "11.6배"), S(27));
+  pt(p, 690, "환자가 갑자기 생긴 게 아니라<br><span class='tl'>모르고 살던 사람이 이제야 알게 된 것</span>", 60, S(27) + 0.2);
+  K.el(`<div class="src" style="top:36px">국민건강보험공단 진료 인원 (2026년 9월 공개) · 전문가 의견 (세계일보 2026-09)</div>`, p);
+  K.cut(E(26) - 0.3, "26 11.6배"); K.cut(E(27) - 0.3, "27 알게 된 것");
+});
+
+/* ═════════════ 3장 A씨 — 알고 난 뒤 (28~40) ═════════════ */
+shot(B(28), (a, b) => {                   // 28~29 — 약을 먹은 첫날, 오전에 끝냄
+  const W_ = world(a, b, "OFFICE");
+  const A = at(W_, ["A05-1", "A05-2", "A05-3"], SP.OFF_A);
+  moves(A, [[a, "A05-1", 1, "hold"], [W(29, "오전에") - 0.2, "A05-2", 1, "hold"], [W(29, "끝냈어요") + 0.2, "A05-3", 1, "hold"]], b + 0.4);
+  breathe(A, a, b);
+  label(W_, "A씨의 하루는?", S(28) + 0.2, S(29), { size: 56 });
+  const pill = spr(W_.L.fly, "PROPS-A-3", 1320, 330, 280);
+  show(pill, S(29), 0.3); hide(pill, W(29, "오전에"), 0.3);
+  label(W_, "약을 먹은 첫날", S(29), W(29, "오전에"), { size: 54 });
+  label(W_, "오전 11시 · 보고서 제출 ✓", W(29, "오전에"), null, { size: 54, bg: "rgba(14,156,136,.92)" });
+  bubble(W_, A, "A05-3", "오전에 보고서를<br>다 끝냈어.", W(29, "끝냈어요") + 0.2, null, { side: 1, w: 400, size: 48 });
+  cam(W_, a, b, [1.0, 960, 560], [1.08, 860, 520]);
+  K.cut(E(28) - 0.3, "28 하루는"); K.cut(E(29) - 0.3, "29 오전 제출");
+});
+shot(B(30), (a, b) => {                   // 30~31 — 화장실에서 울음 · 놓친 시간이 억울함
+  const W_ = world(a, b, "RESTROOM");
+  const A = at(W_, ["A06-1", "A06-2", "A06-3"], SP.RR_A);
+  moves(A, [[a, "A06-1", 1, "hold"], [W(30, "울었습니다") - 0.3, "A06-2", 1, "hold"], [S(31) + 1.5, "A06-3", 1, "hold"]], b + 0.4);
+  breathe(A, a, b);
+  bubble(W_, A, "A06-1", "남들은 원래<br>이렇게 살았던 거야?", W(30, "억울해서"), S(31) + 1.4, { side: 1, w: 420, size: 46, kind: "think" });
+  label(W_, "늦게 진단받은 어른 — 놓친 시간이 억울함", S(31) + 0.2, null, { size: 52 });
+  cam(W_, a, b, [1.0, 960, 560], [1.1, 960, 480]);
+  K.cut(E(30) - 0.3, "30 억울"); K.cut(E(31) - 0.3, "31 놓친 시간");
+});
+shot(B(32), (a, b) => {                   // 32~33 — 약을 깜빡한 날
+  const W_ = world(a, b, "MEETING");
+  const A = at(W_, ["A07-1", "A07-2", "A07-3"], SP.MT_A);
+  const T = at(W_, ["T-POSES-1"], SP.MT_T);
+  moves(A, [[a, "A07-1", 1, "hold"], [S(32) + 1.4, "A07-2", 1, "hold"], [S(33) + 0.2, "A07-3", 1, "hold"]], b + 0.4);
+  moves(T, [[a, "T-POSES-1", 1, "hold"]], b + 0.4);
+  squash(A, S(32) + 1.4);
+  label(W_, "하지만 약이 모든 걸 해결하진 않음", S(32), S(33), { size: 52 });
+  bubble(W_, T, "T-POSES-1", "A씨,<br>듣고 있어요?", S(32) + 0.5, S(33) + 0.4, { side: -1, w: 330, size: 50 });
+  bubble(W_, A, "A07-3", "아, 오늘 아침<br>약을 안 먹었네.", S(33) + 0.3, null, { side: 1, w: 400, size: 46 });
+  label(W_, "약을 깜빡한 날 · 약효가 떨어지는 저녁", W(33, "깜빡한"), null, { size: 52, bg: "rgba(216,57,43,.92)" });
+  K.cut(E(32) - 0.3, "32 듣고 있어요"); K.cut(E(33) - 0.3, "33 깜빡");
+});
+shot(B(34), (a, b) => {                   // 34~39 — 약 + 습관 · 1년 뒤
+  const W_ = world(a, b, "OFFICE");
+  const A = at(W_, ["A08-1", "A08-2", "A08-3"], SP.OFF_A);
+  const T = at(W_, ["T-POSES-3"], SP.OFF_T, { at: S(37) + 0.2 });
+  moves(A, [[a, "A08-2", 1, "hold"], [W(36, "서랍에") - 0.3, "A08-1", 1, "hold"], [W(36, "알람으로"), "A08-2", 1, "hold"], [S(38), "A08-3", 1, "hold"]], b + 0.4);
+  moves(T, [[a, "T-POSES-3", 1, "hold"]], b + 0.4);
+  breathe(A, a, b);
+  label(W_, "약 + ?", S(34) + 0.2, S(35), { size: 60 });
+  label(W_, "약 + 습관", S(35), S(36), { size: 60, bg: "rgba(14,156,136,.92)" });
+  list(W_, [80, 170, 640], [["1", YL, "일어나면 약부터", W(36, "일어나면")], ["2", YL, "휴대폰은 서랍에", W(36, "일할")], ["3", YL, "알람으로 일을 잘게", W(36, "알람으로")]], S(37) + 0.2);
+  label(W_, "1년 뒤", S(37), S(38), { size: 58 });
+  bubble(W_, T, "T-POSES-3", "요즘 마감<br>잘 지키네.", S(37) + 0.5, S(38) + 1.4, { side: 1, w: 300, size: 48 });
+  label(W_, "실수가 0이 된 건 아님", S(38), S(39), { size: 54 });
+  label(W_, "실수 하나로 하루를 망치지 않음 · 나를 탓하지 않음", S(39), null, { size: 50, bg: "rgba(14,156,136,.92)" });
+  cam(W_, a, b, [1.0, 960, 560], [1.05, 900, 540]);
+  K.cut(E(35) - 0.2, "35 습관"); K.cut(E(36) - 0.3, "36 습관 셋"); K.cut(E(37) - 0.2, "37 1년 뒤"); K.cut(E(39) - 0.3, "39 탓하지 않음");
+});
+
+/* ═════════════ 4장 B씨 — 모르고 산 30년 (40~53) ═════════════ */
+shot(B(40), (a, b) => {                   // 40~44 — 거실 다툼
+  const W_ = world(a, b, "B-LIVING", { tint: "rgba(40,20,10,.12)" });
+  const Wf = at(W_, ["W-POSES-1", "W-POSES-2"], SP.LIV_W);
+  const Bm = at(W_, ["B04-1", "B04-2", "B04-3"], SP.LIV_BS);
+  moves(Wf, [[a, "W-POSES-1", 1, "hold"], [S(41) - 0.1, "W-POSES-2", 1, "hold"], [S(43), "W-POSES-1", 1, "hold"]], b + 0.4);
+  moves(Bm, [[a, "B04-1", 1, "hold"], [S(43) - 0.1, "B04-2", 1, "hold"], [W(43, "후회하고") - 0.2, "B04-3", 1, "hold"]], b + 0.4);
+  tl.to(Bm.box, { x: 240, opacity: 0, duration: 1.4, ease: "power1.in" }, W(43, "후회하고") + 0.2);
+  squash(Bm, S(43) - 0.1); squash(Wf, S(41) - 0.1);
+  label(W_, "한편, B씨는", S(40) + 0.2, S(41), { size: 56 });
+  bubble(W_, Wf, "W-POSES-2", "내일 결혼식 양복,<br>또 안 찾아왔어?", S(41), S(43) - 0.2, { side: 1, w: 430, size: 46 });
+  const suit = spr(W_.L.fly, "PROPS-B-1", 960, 330, 300);
+  show(suit, S(42), 0.3); hide(suit, S(43) - 0.2, 0.3);
+  label(W_, "아침에 세 번 들은 부탁 → 또 잊음", S(41) + 0.3, S(43), { size: 52 });
+  bubble(W_, Bm, "B04-2", "그래,<br>나 원래 이래!", S(43) - 0.1, W(43, "후회하고") + 0.4, { side: -1, w: 340, size: 52, color: "#D8392B" });
+  PSY.shake(W_, S(43), 10, 0.3);
+  label(W_, "잊어버림 → 화냄 → 후회", S(43) + 0.2, S(44), { size: 56, bg: "rgba(216,57,43,.92)" });
+  label(W_, "이런 다툼이 30년째", S(44), null, { size: 58 });
+  K.cut(E(41) - 0.3, "41 양복"); K.cut(E(43) - 0.5, "43 반복"); K.cut(E(44) - 0.3, "44 30년");
+});
+shot(B(45), (a, b) => {                   // 45 — 아내는 다르게 받아들임 (베란다 통화)
+  const W_ = world(a, b, "VERANDA");
+  const Wf = at(W_, ["W-POSES-3"], SP.VR_W);
+  moves(Wf, [[a, "W-POSES-3", 1, "hold"]], b + 0.4);
+  breathe(Wf, a, b);
+  bubble(W_, Wf, "W-POSES-3", "다섯 번을 말해도 잊어버려.<br>나를 무시하나 싶더라.", S(45) + 0.6, null, { side: 1, w: 560, size: 42 });
+  cam(W_, a, b, [1.0, 960, 560], [1.08, 1050, 500]);
+  K.cut(E(45) - 0.3, "45 무시");
+});
+shot(B(46), (a, b) => {                   // 46~47 — 같은 일 · 다른 해석 (반반)
+  const L = half(a, b, "VERANDA", "L", 520);
+  const R = half(a, b, "B-ROOM", "R", 900);
+  const O = over(a, b);
+  const Wf = at(L, ["W-POSES-3"], SP.VR_W);
+  const Bm = at(R, ["B05-2"], SP.RM_B);
+  moves(Wf, [[a, "W-POSES-3", 1, "hold"]], b + 0.4); moves(Bm, [[a, "B05-2", 1, "hold"]], b + 0.4);
+  tagIn(L, "아내: 나를 무시하나?", W(46, "무시당한다고") - 0.2, null, "a", 64);
+  tagIn(R, "B씨: 내가 게을러서", W(46, "B씨는"), null, "b", 64);
+  label(O, "이유를 모르면 → 모두 성격 탓", S(47), null, { size: 56, top: 700, bg: "rgba(216,57,43,.92)" });
+  K.cut(E(46) - 0.3, "46 다른 해석"); K.cut(E(47) - 0.3, "47 성격 탓");
+});
+shot(B(48), (a, b) => {                   // 48~49 앞 — 회사: 승진 서류 마감
+  const W_ = world(a, b, "B-OFFICE");
+  const Bm = at(W_, ["B06-1", "B06-2", "B06-3"], SP.BO_B);
+  moves(Bm, [[a, "B06-1", 1, "hold"], [W(49, "승진") - 0.2, "B06-2", 1, "hold"], [W(49, "내지") , "B06-3", 1, "hold"]], b + 0.4);
+  squash(Bm, W(49, "승진") - 0.2);
+  label(W_, "문제는 집에서 끝나지 않음", S(48) + 0.2, S(49), { size: 54 });
+  bubble(W_, Bm, "B06-2", "승진 서류 마감이<br>어제였다고?", W(49, "승진") - 0.1, null, { side: 1, w: 420, size: 46 });
+  const cal = spr(W_.L.fly, "PROPS-B-4", 1180, 330, 300);
+  pop(cal, W(49, "마감까지"), 0.4);
+  cam(W_, a, b, [1.0, 960, 560], [1.08, 700, 520]);
+  K.cut(W(49, "이번에도") - 0.7, "49 마감");
+});
+shot(W(49, "이번에도") - 0.15, (a, b) => {   // 49 뒤~50 — 승진자 게시판
+  const W_ = world(a, b, "B-OFFICE");
+  const Bm = at(W_, ["B07-1", "B07-2", "B07-3"], SP.BO_B2);
+  moves(Bm, [[a, "B07-1", 1, "hold"], [W(49, "빠졌어요") - 0.2, "B07-2", 1, "hold"], [S(50), "B07-3", 1, "hold"]], b + 0.4);
+  bubble(W_, Bm, "B07-2", "이번에도<br>빠졌네.", W(49, "빠졌어요"), null, { side: -1, w: 300, size: 50, kind: "think" });
+  label(W_, "처음 있는 일도 아님", S(50), null, { size: 56, bg: "rgba(216,57,43,.92)" });
+  cam(W_, a, b, [1.05, 1500, 500], [1.12, 1450, 480]);
+  K.cut(E(50) - 0.2, "50 처음 아님");
+});
+shot(B(51), (a, b) => {                   // 51~53 — 자책이 쌓임 · 우울·불안
+  const W_ = world(a, b, "B-ROOM");
+  const Bm = at(W_, ["B05-1", "B05-2", "B05-3"], SP.RM_B);
+  moves(Bm, [[a, "B05-1", 1, "hold"], [S(52), "B05-2", 1, "hold"], [S(53), "B05-3", 1, "hold"]], b + 0.4);
+  breathe(Bm, a, b);
+  PSY.dark(W_, S(51), 0.55, "rgba(6,10,30,.55)", 1.2);
+  label(W_, "자책이 쌓이면 마음도 지침", S(51) + 0.2, S(52), { size: 54 });
+  label(W_, "어른 ADHD — 우울·불안을 함께 겪는 경우가 많음", S(52), S(53), { size: 50 });
+  label(W_, "모르고 사는 것 vs 치료하는 것", S(53), null, { size: 54, bg: "rgba(14,156,136,.92)" });
+  cam(W_, a, b, [1.0, 1200, 560], [1.12, 1500, 520]);
+  K.cut(E(51) - 0.3, "51 자책"); K.cut(E(52) - 0.3, "52 우울 불안"); K.cut(E(53) - 0.3, "53 숫자로");
+});
+
+/* ═════════════ 5장 숫자로 본 차이 (54~59) ═════════════ */
+shot(B(54), (a, b) => {
+  const P_ = panel(a, b);
+  const p = P_.p;
+  pt(p, 100, "BMJ 2025 · 스웨덴 국가 기록 연구", 60, S(54) + 0.2);
+  const g1 = pt(p, 210, "ADHD 새로 진단 · 6~64세 · <span class='yl'>148,581명</span>", 58, S(55), S(56) - 0.1);
+  void g1;
+  const A1 = abs(p, "약 시작", 470, 330, "grp", W(55, "약을"), S(56) - 0.1);
+  A1.style.background = "rgba(14,156,136,.25)"; A1.style.border = "5px solid #2ED3BB";
+  const A2 = abs(p, "약 안 먹음", 1110, 330, "grp", W(55, "먹지"), S(56) - 0.1);
+  A2.style.background = "rgba(124,138,168,.25)"; A2.style.border = "5px solid #9AA6BF";
+  pt(p, 480, "2년 동안 비교", 56, W(55, "2년"), S(56) - 0.1, "mu");
+  // 56 — 약을 먹은 쪽이 적었던 것 (첫 사건 · calc_numbers.py)
+  pt(p, 210, "약을 먹은 쪽이 <span class='tl'>더 적었던 것</span>", 60, S(56) + 0.1, S(57));
+  const rows = [["자살 시도 같은 행동", 17, W(56, "자살")], ["교통사고", 12, W(56, "교통사고가")], ["범죄", 13, W(56, "범죄가")]];
+  rows.forEach(([txt, v, t], i) => {
+    const y = 320 + i * 130;
+    abs(p, txt, 260, y + 12, "blab", t, S(57));
+    const n = bar(p, 860, y, v * 34, 80, TL, t, 0.7);
+    hide(n, S(57), 0.3);
+    abs(p, `${v}% 적음`, 880 + v * 34, y + 8, "bnum tl", t + 0.4, S(57));
+  });
+  // 57~58 — 주의
+  const nt = abs(p, "실험이 아니라 기록 비교<br>→ 모두 약 덕분이라고 단정 못 함", 960, 300, "note", S(57) + 0.1);
+  gsap.set(nt, { xPercent: -50 });
+  pt(p, 560, "비교 대상 = <span class='yl'>진단받고 약을 안 먹은 사람</span>", 54, S(58));
+  pt(p, 680, "B씨처럼 검사 안 받은 사람 → <span class='rd'>통계에 없음</span>", 54, S(59));
+  K.el(`<div class="src" style="top:36px">Zhang 외, BMJ 2025 · 진단 3개월 안 약 시작 vs 안 함 · 첫 사건 기준</div>`, p);
+  K.cut(E(55) - 0.3, "55 대상"); K.cut(E(56) - 0.3, "56 적음"); K.cut(E(57) - 0.3, "57 단정 못 함"); K.cut(E(59) - 0.3, "59 통계 밖");
+});
+
+/* ═════════════ 6장 애매한 나는 (60~70) ═════════════ */
+shot(B(60), (a, b) => {
+  const W_ = world(a, b, "PUB");
+  const F = at(W_, ["F-POSES-1", "F-POSES-2", "F-POSES-3"], SP.PB_F);
+  const Bm = at(W_, ["B08-1", "B08-2", "B08-3"], SP.PB_B);
+  moves(F, [[a, "F-POSES-1", 1, "hold"], [S(61), "F-POSES-2", 1, "hold"], [S(70), "F-POSES-3", 1, "hold"]], b + 0.4);
+  moves(Bm, [[a, "B08-1", 1, "hold"], [S(61) + 0.3, "B08-2", 1, "hold"], [S(70), "B08-3", 1, "hold"]], b + 0.4);
+  breathe(F, a, b); breathe(Bm, a, b);
+  bubble(W_, F, "F-POSES-1", "요즘은 다 ADHD래.<br>깜빡 안 하는 사람이 어딨어?", S(60) + 0.4, S(62) + 0.3, { side: 1, w: 520, size: 42 });
+  bubble(W_, Bm, "B08-2", "그러니까.<br>다들 그러고 살잖아.", S(61) + 0.4, S(63), { side: -1, w: 400, size: 44 });
+  label(W_, "누구나 미루고, 누구나 깜빡함", S(62), S(63), { size: 54 });
+  const dk = PSY.dark(W_, S(63) - 0.1, 0.78, "rgba(5,8,22,.82)", 0.5);
+  tl.to(dk, { opacity: 0, duration: 0.5 }, S(70) - 0.2);
+  label(W_, "스스로 세 가지만", S(63), null, { size: 58 });
+  list(W_, [300, 220, 1320], [["1", YL, "어릴 때부터 그랬나?", S(64)], ["2", YL, "집·직장처럼 두 곳 이상에서?", S(65)], ["3", YL, "돈·일·관계에서 같은 손해가 반복?", S(66)]], S(68));
+  label(W_, "셋 다 그렇다면 → 한 번쯤 확인", S(67), S(68), { size: 54, top: 720, bg: "rgba(14,156,136,.92)" });
+  label(W_, "잠이 부족하거나 우울해도 집중은 무너짐", S(68), S(69), { size: 52, top: 640 });
+  label(W_, "판단 = 체크리스트 ✗ → 전문의 검사", S(69), S(70) - 0.2, { size: 56, top: 640, bg: "rgba(14,156,136,.92)" });
+  label(W_, "그리고 B씨에게도, 그 순간이", S(70), null, { size: 54 });
+  K.cut(E(61) - 0.3, "61 다들"); K.cut(E(66) - 0.3, "66 세 가지"); K.cut(E(67) - 0.3, "67 확인"); K.cut(E(69) - 0.3, "69 전문의"); K.cut(E(70) - 0.3, "70 그 순간");
+});
+
+/* ═════════════ 마무리 (71~81) ═════════════ */
+shot(B(71), (a, b) => {                   // 71~75 — 아들 진단 · "아버님은 어릴 때 어떠셨어요?"
+  const W_ = world(a, b, "PEDS");
+  const Sn = at(W_, ["S-POSES-1", "S-POSES-2", "S-POSES-3"], SP.PD_S);
+  const Bm = at(W_, ["B09-1", "B09-2", "B09-3"], SP.PD_B);
+  const Kd = at(W_, ["K-POSES-1", "K-POSES-2", "K-POSES-3"], SP.PD_K);
+  moves(Sn, [[a, "S-POSES-1", 1, "hold"], [S(73), "S-POSES-2", 1, "hold"], [S(75), "S-POSES-3", 1, "hold"]], b + 0.4);
+  moves(Bm, [[a, "B09-1", 1, "hold"], [E(73) - 0.2, "B09-2", 1, "hold"], [S(75), "B09-3", 1, "hold"]], b + 0.4);
+  moves(Kd, [[a, "K-POSES-1", 1, "hold"], [S(72), "K-POSES-2", 1, "hold"], [S(74) + 0.4, "K-POSES-3", 1, "hold"]], b + 0.4);
+  breathe(Kd, a, b);
+  label(W_, "몇 년 뒤 — 중학생 아들, ADHD 진단", S(71) + 0.2, S(72), { size: 52 });
+  bubble(W_, Kd, "K-POSES-2", "아버님은<br>어릴 때 어떠셨어요?", S(73) - 0.1, S(74) + 0.6, { side: -1, w: 470, size: 46 });
+  bubble(W_, Bm, "B09-2", "…저요?", E(73) - 0.2, S(75), { side: 1, w: 230, size: 54 });
+  squash(Bm, E(73) - 0.2);
+  label(W_, "ADHD — 가족 안에서 함께 나타나는 경우가 많음", S(74), S(75), { size: 50 });
+  cam(W_, a, S(73), [1.0, 960, 560], [1.05, 1300, 520]);
+  cam(W_, S(73), b, [1.05, 1300, 520], [1.12, 1080, 480], "power2.inOut");
+  K.cut(E(71) - 0.3, "71 아들"); K.cut(E(73) - 0.2, "73 질문"); K.cut(E(74) - 0.3, "74 가족"); K.cut(E(75) - 0.3, "75 돌아봄");
+});
+shot(B(76), (a, b) => {                   // 76~77 — 접수대: 아낀 것 vs 잃은 것
+  const W_ = world(a, b, "RECEPTION");
+  const Bm = at(W_, ["B10-1", "B10-2", "B10-3"], SP.RC_B);
+  moves(Bm, [[a, "B10-1", 1, "hold"], [S(76) + 1.0, "B10-2", 1, "hold"], [E(77) - 0.6, "B10-3", 1, "hold"]], b + 0.4);
+  breathe(Bm, a, b);
+  bubble(W_, Bm, "B10-2", "저… 어른도<br>검사받을 수 있나요?", S(76) + 1.0, E(77) - 0.4, { side: 1, w: 420, size: 46 });
+  label(W_, "아낀 것 = 검사 몇 시간", S(76) + 0.2, S(77), { size: 56 });
+  label(W_, "대신 30년 동안 나를 탓함", S(77), null, { size: 56, bg: "rgba(216,57,43,.92)" });
+  cam(W_, a, b, [1.0, 960, 560], [1.08, 1150, 520]);
+  K.cut(E(76) - 0.3, "76 검사 몇 시간"); K.cut(E(77) - 0.3, "77 30년");
+});
+shot(B(78), (a, b) => {                   // 78~81 — 가른 것 = 이유를 알았느냐
+  const L = half(a, b, "OFFICE", "L", 380);
+  const R = half(a, b, "RECEPTION", "R", 620);
+  const O = over(a, b);
+  const A = at(L, ["A08-3"], SP.OFF_A);
+  const Bm = at(R, ["B10-3"], SP.RC_B);
+  moves(A, [[a, "A08-3", 1, "hold"]], b + 0.4); moves(Bm, [[a, "B10-3", 1, "hold"]], b + 0.4);
+  breathe(A, a, b); breathe(Bm, a, b);
+  tagIn(L, "A씨", S(78) + 0.2, null, "a", 190);
+  tagIn(R, "B씨", S(78) + 0.4, null, "b", 190);
+  label(O, "가른 것 = 의지 ✗", S(78) + 0.3, S(79), { size: 58 });
+  label(O, "<span style='color:#1B2030'>내가 왜 이런지, 이유를 알았느냐</span>", S(79), S(80), { size: 56, bg: "rgba(255,212,0,.95)" });
+  label(O, "이유를 알면 → 탓하는 대신 방법을 찾음", S(80), S(81), { size: 54, bg: "rgba(14,156,136,.92)" });
+  label(O, "구독 · 좋아요", S(81), null, { size: 56 });
+  K.cut(E(79) - 0.3, "79 이유"); K.cut(E(80) - 0.3, "80 방법"); K.cut(E(81), "81 끝");
+});
+
+K.chapters([
+  { part: "똑같은 하루", tag: "1", title: "똑같은 하루", card: true },
+  { part: "갈림길", tag: "2", title: "갈림길", card: true },
+  { part: "A씨, 알고 난 뒤", tag: "3", title: "A씨 — 알고 난 뒤", card: true },
+  { part: "B씨, 모르고 산 30년", tag: "4", title: "B씨 — 모르고 산 30년", card: true },
+  { part: "숫자로 본 차이", tag: "5", title: "숫자로 본 차이", card: true },
+  { part: "애매한 나는", tag: "6", title: "애매한 나는?", card: true },
+  { part: "마무리", tag: "끝", title: "B씨에게 온 순간", card: true },
+]);
+PSY.build();
+K.done();
+})();
+</script>
+</body>
+</html>

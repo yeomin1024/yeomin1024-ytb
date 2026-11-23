@@ -52,7 +52,7 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 | `source/gaslighting_cases.md` | **'어느 순간 가스라이팅이 된' 실제 사례 17건 (판단 문서)** — 한눈에 표 · 공통 6단계 · 시청자 댓글 · 법원 판단 · 사례 카드(출처 URL·확실성 ✅🟡⚪) · 채널에 맞는 순서. ⚠️ 출처는 검색 발췌만 — 대본 전 원문 확인 |
 | `source/gaslight_comments.py` | 심리 승인 영상 댓글에서 '가스라이팅' 경험 세기 v1.0.1 (관계·깨달음·수법 낱말) → `result/incidents/gaslight_comments.md` · 시험 `source/test_gaslight_comments.py` |
 | `source/psych_channels.py` | **심리 관련 채널 구독자 순 v1.0.1** — 우리 캐시 + 채널 검색 5개(505단위) → `result/channels/psych_channels.md`·`.csv` (심리 전문 · 종합 · 종교·명상) |
-| `source/topic_success.py` | **주제 하나의 성공 사례 찾기 v1.0.0** — `run <주제>` (지금 `depression`) · 캐시 + 최근 180일 주제 검색 → 심리 성공 기준 그대로 → `result/topics/<주제>.md`·`.csv` (성공 · 거의 성공 · 증상·신호 쪽 표시) |
+| `source/topic_success.py` | **주제 하나의 성공 사례 찾기 v1.1.0** — `run <주제>` (지금 `depression` · `adhd`) · 캐시 + 최근 180일 주제 검색 → 심리 성공 기준 그대로 → `result/topics/<주제>.md`·`.csv` (성공 · 거의 성공 · 증상·신호 쪽 표시) |
 | `source/channel_words.py` | **큰 심리 채널 공통 주제·낱말 순위 v1.0.1** — 심리 전문 구독자 상위 30곳(이름만 심리인 5곳 뺌) 최근 업로드 100편씩 → 롱폼 1,292편 → 주제(TAG_THEMES)·낱말(content_analysis words)·제목 꼴 · 쓴 채널 수 + 채널 평소 대비 → `result/channels/channel_words.md` |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 28개 (까닭·되살리기) — 종교·범죄 사건·뇌과학/공부법·육아·연애 예능 리뷰 등 |
 | `result/outliers/thumb_codes.tsv` | 성공 사례 썸네일 122장 분류 (Claude 가 그림을 봄) → `content_analysis.md` 2번 |

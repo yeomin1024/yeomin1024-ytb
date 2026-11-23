@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.0 — 2026-11-23 — 신규: 주제 하나(예: 우울증 증상)의 성공 사례 영상 찾기
+# VERSION: v1.1.0 — 2026-11-23 — 주제 'adhd' 더함 (사용자 지시 2026-11-23 "ADHD 관련 성공 사례 찾아봐") · 주제마다 세부 칸 이름
+#          (focus_name)·아이(육아) 표시(child)·지시 문장(ask)을 TOPICS 에 둠 — 우울증 결과는 그대로
+# (이전) v1.0.0 — 2026-11-23 — 신규: 주제 하나(예: 우울증 증상)의 성공 사례 영상 찾기
 #          (사용자 지시 2026-11-23 "우울증 증상과 관련된 성공 사례 영상 찾아서 알려줘봐")
 """
 topic_success.py — 심리 주제 하나를 골라 그 주제 영상 중 '성공 사례'(심리 analysis_rules.toml [success] 그대로)를 찾음
@@ -38,7 +40,7 @@ from pathlib import Path
 
 import requests
 
-VERSION = "v1.0.0"
+VERSION = "v1.1.0"
 HERE = Path(__file__).resolve().parent
 PSY = HERE.parent
 OUT_DIR = PSY / "result" / "topics"
@@ -60,6 +62,21 @@ TOPICS = {
         "words": r"우울",
         "exclude": r"노래|플레이리스트|playlist|ASMR|asmr|bgm|BGM|음악|가사|피아노|lofi|로파이|노동요",
         "focus": r"증상|신호|특징|자가 ?진단|체크|테스트|징후|티 ?나|티가|말투|행동|습관|모습|변화|나타나|알아차|의심|진단|단계|유형|종류",
+        "focus_name": "증상·신호 쪽",
+        "ask": "우울증 증상과 관련된 성공 사례 영상 찾아서 알려줘봐",
+    },
+    # v1.1.0
+    "adhd": {
+        "name": "ADHD",
+        "queries": ["성인 ADHD", "ADHD 증상", "ADHD 특징", "ADHD 자가진단", "성인 ADHD 증상", "조용한 ADHD",
+                    "ADHD 약", "여성 ADHD"],
+        "long_queries": ["성인 ADHD", "ADHD 특징"],
+        "words": r"ADHD|adhd|Adhd|에이디에이치디|주의력 ?결핍|과잉 ?행동",
+        "exclude": r"노래|플레이리스트|playlist|ASMR|asmr|bgm|BGM|음악|가사|피아노|lofi|로파이|노동요|공부 ?자극|스터디 ?윗미|study with me",
+        "focus": r"증상|신호|특징|자가 ?진단|체크|테스트|징후|티 ?나|티가|말투|행동|습관|모습|유형|종류|진단",
+        "focus_name": "증상·특징 쪽",
+        "child": r"아이|아동|어린이|자녀|우리 ?애|유아|초등|소아|엄마표|육아|키즈|학부모",
+        "ask": "ADHD 관련 성공 사례 찾아봐",
     },
 }
 
@@ -249,6 +266,7 @@ def classify(vids: dict, subs: dict, topic: dict, R: dict) -> list[dict]:
         r = dict(v, subs=subs.get(v["channel_id"]))
         r.update(evaluate(r, R))
         r["focus"] = bool(FO.search(t))
+        r["child"] = bool(re.search(topic["child"], t)) if topic.get("child") else False   # v1.1.0: 아이(육아) 쪽
         rows.append(r)
     L("VALIDATE", **{f"drop_{k}": n for k, n in drop.items()}, topic_rows=len(rows),
       success=sum(not r["fails"] for r in rows), near=sum(len(r["fails"]) == 1 for r in rows),
@@ -264,7 +282,7 @@ def n(x) -> str:
 def export(key: str, topic: dict, rows: list[dict], R: dict, yt: YT, t0: float) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     cols = ["video_id", "title", "channel", "subs", "views", "likes", "comments", "published", "age_days", "minutes",
-            "vpd", "ratio", "vpd_subs", "focus", "fails", "source"]
+            "vpd", "ratio", "vpd_subs", "focus", "child", "fails", "source"]
     with open(OUT_DIR / f"{key}.csv", "w", encoding="utf-8-sig", newline="") as f:
         w = csv.DictWriter(f, fieldnames=cols, extrasaction="ignore")
         w.writeheader()
@@ -274,22 +292,26 @@ def export(key: str, topic: dict, rows: list[dict], R: dict, yt: YT, t0: float) 
     near = sorted([r for r in rows if len(r["fails"]) == 1], key=lambda r: -r["vpd"])
 
     def table(rs, extra=False):
-        o = ["| # | 영상 | 채널 | 구독자 | 조회수 | 구독자 배수 | 구독자당 하루 | 올린 날 | 길이 | 증상·신호 쪽 |" + (" 못 넘은 기준 |" if extra else ""),
-             "|---|---|---|---|---|---|---|---|---|---|" + ("---|" if extra else "")]
+        fn = topic.get("focus_name", "세부 쪽")
+        ch = " 아이(육아) |" if topic.get("child") else ""
+        o = [f"| # | 영상 | 채널 | 구독자 | 조회수 | 구독자 배수 | 구독자당 하루 | 올린 날 | 길이 | {fn} |{ch}" + (" 못 넘은 기준 |" if extra else ""),
+             "|---|---|---|---|---|---|---|---|---|---|" + ("---|" if ch else "") + ("---|" if extra else "")]
         for i, r in enumerate(rs, 1):
             o.append(f"| {i} | [{r['title'].replace('|', '／')[:70]}](https://youtu.be/{r['video_id']}) | {r['channel'][:16]} | "
                      f"{n(r['subs']) if r['subs'] not in (None, '') else '숨김'} | {n(r['views'])} | {r['ratio']:.1f} | {r['vpd_subs']:.2f} | "
                      f"{str(r['published'])[:10]} | {r['minutes']:.1f}분 | {'예' if r['focus'] else ''} |" +
+                     ((" 예 |" if r.get("child") else "  |") if ch else "") +
                      (f" {' / '.join(r['fails'])} |" if extra else ""))
         return o
 
     out = [f"# 심리 — '{topic['name']}' 성공 사례 영상", "",
-           f"VERSION: {VERSION} — 도구 `psychology/source/topic_success.py {key}` · 기준일 {AS_OF:%Y-%m-%d} · 사용자 지시 2026-11-23 \"우울증 증상과 관련된 성공 사례 영상 찾아서 알려줘봐\"", "",
+           f"VERSION: {VERSION} — 도구 `psychology/source/topic_success.py {key}` · 기준일 {AS_OF:%Y-%m-%d} · 사용자 지시 2026-11-23 \"{topic.get('ask', '')}\"", "",
            "## 0. 읽는 법·한계",
            f"- 성공 기준 = 심리 `analysis_rules.toml [success]` 그대로: 올린 지 {R['MIN_AGE_DAYS']}~{R['MAX_AGE_DAYS']}일 · 구독자 ≤ {R['MAX_SUBS']:,} · "
            f"구독자당 하루 조회수 ≥ {R['MIN_VPD_SUBS']} · 조회수 ≥ {R['MIN_VIEWS']:,} · {R['MIN_MINUTES']:.0f}분 이상 (채널당 제한 없음).",
            f"- 자료: 심리 분석·사례 검색 캐시 + 이 주제 검색 {len(topic['queries'])}개(4~20분) + {len(topic.get('long_queries', []))}개(20분 넘음), 최근 {WINDOW_DAYS}일 · 조회수 순 50개씩 = 위쪽 꼬리만.",
-           f"- 주제 = 제목에 '{topic['words']}' · 빼는 낱말 = 노래·플레이리스트·ASMR·음악 등 · **증상·신호 쪽** = 제목에 증상·신호·특징·자가진단·말투·행동 등.",
+           f"- 주제 = 제목에 '{topic['words']}' · 빼는 낱말 = 노래·플레이리스트·ASMR·음악 등 · **{topic.get('focus_name', '세부 쪽')}** = 제목에 증상·신호·특징·자가진단 등"
+           + (" · **아이(육아)** = 제목에 아이·자녀·초등·소아 등 (심리 분석 때 육아는 주제 밖으로 뺀 갈래)." if topic.get("child") else "."),
            "- 판정은 제목 낱말로만 — 대본을 본 것이 아님. 정신건강 정보는 대본 전에 연구·공공기관 자료로 확인. 연구·교육용 (의료 상담 아님).", "",
            f"## 1. 성공 사례 ({len(succ)}개 — 구독자당 하루 조회수 순)", ""] + table(succ) + ["",
            f"## 2. 거의 성공 — 기준 하나만 못 넘음 (하루 조회수 순 상위 25 / {len(near)}개)", ""] + table(near[:25], True) + ["",

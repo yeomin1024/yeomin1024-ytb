@@ -247,21 +247,33 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 6,
+      "at": "2026-11-23T08:31:10Z",
+      "sha": "9b7b571d1ce7ee79",
+      "reviewers": [
+       {
+        "reviewer": "E6-P3",
+        "persona": "P3",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "121 — '끄는 건 구조대가 위치를 확인하고 다음 연락 시각을 정한 다음'까지 조건을 붙여, 배터리 아끼려다 연락이 끊기는 흔한 잘못을 막아 줌 (66~67 '손 잡아 주는 사람까지 끌려 내려감'도 현장에서 맞는 말)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "6회차 통과 (끄고 싶은 줄 0) — 메모: 실족·추락 1위가 맞는지(보도상 실족·추락 9,806건 32.1% > 조난·수색 8,954건 29.3% — 확인표에 적음)",
+      "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_6.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
-    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt",
-    "pending": {
-     "n": 6,
-     "sha": "9b7b571d1ce7ee79",
-     "reviewers": [
-      "E6-P3"
-     ],
-     "prompt": "crisis/source/tteoreojin-pon-2026-11/persona_tteoreojin-pon-2026-11_script_exit_6.md",
-     "answers": "crisis/source/tteoreojin-pon-2026-11/answers_tteoreojin-pon-2026-11_script_exit_6",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-23T08:29:13Z"
-    }
+    "path": "crisis/source/tteoreojin-pon-2026-11/tteoreojin-pon-2026-11.txt"
    },
    "script_rebuttal": {
     "rounds": [

@@ -21,12 +21,15 @@ crisis/
 ├── CHANGELOG.md       ← 코드 버전별 변경·결과 비교
 ├── code/
 │   ├── crisis_lab.py        분석 코드 (수집 → 성공 사례 → 댓글 → 페르소나 → 추세)
-│   └── test_crisis_lab.py   단위 테스트
+│   ├── test_crisis_lab.py   단위 테스트
+│   ├── topic_demand.py      주제 후보 유튜브 수요 비교 v1.1.0 (2026-11-23 — 겨울 러닝·캠핑 일산화탄소·초겨울 산행 vs 엘리베이터) → result/demand/
+│   └── test_topic_demand.py 단위 테스트
 ├── result/            ← 코드가 만드는 결과 (다시 돌리면 덮어씀)
 │   ├── analysis.md          성공 사례, 위험 유형·장르·쇼츠/롱폼·제목 형식별 성과, 최근 28일 추세
 │   ├── personas.md          최종 페르소나 4명 + 세부 묶음 9개 (대표 댓글, 작성자 이름 없음)
 │   ├── personas.json · videos.csv · title_lift.csv
-│   └── run_log.txt          마지막 실행 로그
+│   ├── run_log.txt          마지막 실행 로그
+│   └── demand/              topic_demand.md · topic_demand_videos.csv · topic_demand_queries.csv
 └── cache/             ← YouTube API 응답 저장 (git 제외)
 ```
 
@@ -36,6 +39,8 @@ python crisis/code/crisis_lab.py run       # YouTube API로 수집 + 분석 (cac
 python crisis/code/crisis_lab.py analyze   # 캐시만으로 분석 (할당량 0)
 LOG_LEVEL=DEBUG python crisis/code/crisis_lab.py analyze
 python -m unittest crisis/code/test_crisis_lab.py
+python3 crisis/code/topic_demand.py run      # 주제 후보 수요 비교 (첫 실행 약 2,030단위, 이후 analyze 는 0)
+python3 -m unittest crisis/code/test_topic_demand.py
 ```
 - `YOUTUBE_API_KEY` 환경 변수 필요. 첫 실행 약 2,500 단위(검색 1회 = 100).
 - `cache/`는 git에 올리지 않음 → 새 환경에서는 `run`이 다시 받음.

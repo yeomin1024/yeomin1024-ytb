@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-24 — adhd-ab-2026-11 (일상툰 · 그림 아래 어두운 띠 y 74% 부터): 편마다 글 상자(l1·l2)·꼬리 방향·설명 줄을 따로 — 사용자 지시 "1번으로 하고 썸네일 만들어봐"
+# VERSION: v1.4 — 2026-11-24 — 편마다 3안을 따로 (variants: 안마다 문구 2줄·말풍선 여러 개) — 사용자 지시 "둘다 말풍선 넣고 두번재 줄 괄호 제거해 그리고 나머지 2개는 실험형으로 너가 문구를 만드는 거야"
+# 이전 v1.3 — 2026-11-24 — adhd-ab-2026-11 (일상툰 · 그림 아래 어두운 띠 y 74% 부터): 편마다 글 상자(l1·l2)·꼬리 방향·설명 줄을 따로 — 사용자 지시 "1번으로 하고 썸네일 만들어봐"
 # 이전 v1.2 — 2026-11-13 — 말풍선 꼬리가 말하는 사람(말풍선 왼쪽 아래) 쪽으로 기울게 (tail right · 18%)
 # 이전 v1.1 — 2026-11-13 — 말풍선을 머리 옆 빈 곳 끝까지 넓히고 줄을 나눠 글자를 키움 (40~46px → 크게 · 낱말 그대로)
 # 이전 v1.0 — 2026-11-13 — 심리 네 편 롱폼 썸네일 3안 설정 (만스피처럼 그림 = ChatGPT TH-CHAR · 문구 = 코드 thumb.mjs)
@@ -8,6 +9,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-11-24 | variants (안마다 문구·말풍선 여러 개) — package.json thumb_tests 와 글자 대조 | build |
 # | v1.3 | 2026-11-24 | 편마다 l1·l2 글 상자 · tail·tailPos · note (adhd-ab-2026-11) | EP · bubble · build |
 # | v1.2 | 2026-11-13 | 꼬리 방향 = 말하는 사람 쪽 | bubble |
 # | v1.1 | 2026-11-13 | 말풍선 자리 넓힘 · 줄 나눔 (글자 그대로) · fill 0.9/0.74 | EP · bubble |
@@ -64,11 +66,15 @@ EP = {
     },
     # v1.3 — 그림 아래 26% 가 어두운 띠(y 640/864 부터) → 두 줄을 띠 안에 · 말풍선 = B 머리 왼쪽 빈 벽, 꼬리는 오른쪽(B 쪽)으로
     "adhd-ab-2026-11": {
-        "main": [[["나도 ", "W"], ["ADHD", "Y"], ["인가? 고민했던 두 사람", "W"]], [["(한 명은 ", "W"], ["30년을 자책했다", "R"], [")", "W"]]],
-        "alt": [[["나도 ADHD인가? ", "W"], ["고민했던 두 사람", "Y"]], [["(한 명은 ", "W"], ["30년", "Y"], ["을 자책했다)", "W"]]],
-        "bubble": [786, 22, 300, 196], "btext": "내가 게을러서\n그래…", "tail": "left", "tailPos": 0.78,
         "l1": [36, 524, 1208, 94], "l2": [36, 616, 1000, 100],
-        "note": "문구 = 사용자가 고른 윗줄·아랫줄(1번) + 보조 문구(대본 46번 B씨 생각) — 제목이 정해지면 persona_loop title 단계",
+        # v1.4 두 사람 모두 말풍선 — A 머리 오른쪽 사무실 벽(모니터 위) · B 머리 왼쪽 어두운 벽 (사람·스탠드·낙서 구름을 가리지 않음)
+        "bubbles": [[[410, 20, 300, 180], "이유를 아니까\n편해", "right", 0.18], [[786, 22, 300, 196], "내가 게을러서\n그래…", "left", 0.78]],
+        "variants": [
+            ("본안 — 사용자 문구", [[["나도 ", "W"], ["ADHD", "Y"], ["인가? 고민했던 두 사람", "W"]], [["한 명은 ", "W"], ["30년을 자책했다", "R"]]]),
+            ("실험 1 — 영상의 질문 + 안 받은 쪽 결과", [[["ADHD 검사, ", "W"], ["시간 낭비", "Y"], ["일까?", "W"]], [["안 받은 사람의 ", "W"], ["30년", "R"]]]),
+            ("실험 2 — 게으름이 아닌 이유", [[["게으른 줄", "Y"], [" 알았던 두 사람", "W"]], [["한 명만 ", "W"], ["진짜 이유", "Y"], ["를 알았다", "W"]]]),
+        ],
+        "note": "본안 = 사용자 문구 · 실험 1·2 = Claude 문구 · 말풍선 = A(대본 80번 생각과 같은 뜻)·B(대본 46번) — 제목이 정해지면 persona_loop title 단계",
         "_": "B 머리(x 70~82% · y 18~42%) 왼쪽 어두운 벽 (스탠드 x 63~69% · y 27% 아래는 비움) · A 쪽은 비워 둠",
     },
 }
@@ -88,7 +94,35 @@ def bubble(rect, text, bg, tail="right", tail_pos=0.18):
             "fill": [0.9, 0.74], "_": "보조 문구 — 머리 옆 빈 곳 (사람을 가리지 않음 · 꼬리는 평평한 아래쪽 18% · tail right = 왼쪽(말하는 사람 쪽)으로 기욺)"}
 
 
+def build_variants(ep: str, spec: dict, pkg: dict) -> list[Path]:
+    """v1.4 편마다 3안 (안마다 문구 2줄 · 말풍선 여러 개) — package.json thumb_main(본안)·thumb_tests(실험)·thumb_subs 와 글자 대조."""
+    want = [pkg["thumb_main"]] + [t["main"] for t in pkg.get("thumb_tests", [])]
+    got = [["".join(t for t, _ in ln) for ln in v[1]] for v in spec["variants"]]
+    if got != want:
+        raise SystemExit(f"[THUMB] {ep} 문구가 package.json 과 다름: {got} ≠ {want} — 문구를 바꾸면 persona_loop title 단계부터")
+    if [b[1].replace("\n", " ") for b in spec["bubbles"]] != pkg.get("thumb_subs", []):
+        raise SystemExit(f"[THUMB] {ep} 말풍선이 package.json thumb_subs 와 다름")
+    out_dir = ROOT / "psychology" / "source" / ep / "thumbnails"
+    out_dir.mkdir(exist_ok=True)
+    base = {"size": [1280, 720], "shade": [0.56, 0.9], "images": [{"src": "../images/TH-CHAR.jpg", "box": [0, 0, 1280, 720]}]}
+    l1, l2 = spec.get("l1", L1), spec.get("l2", L2)
+    paths = []
+    for i, (name, main) in enumerate(spec["variants"], 1):
+        d = dict(base)
+        d["_설명"] = (f"{name} (2026-11-24 — 사용자 지시 \"둘다 말풍선 넣고 두번재 줄 괄호 제거해 그리고 나머지 2개는 실험형으로 너가 문구를 만드는 거야\") — "
+                     f"짝 제목 「{pkg['title']}」 · {spec.get('note', '')} · 그림 = images/TH-CHAR.jpg · 말풍선 자리: {spec['_']}")
+        d["out"] = f"thumbnail_{i}.jpg"
+        d["blocks"] = [lines(l1, main[0]), lines(l2, main[1])] + [bubble(r, t, "W", tl, tp) for r, t, tl, tp in spec["bubbles"]]
+        p = out_dir / f"thumbnail_{i}.json"
+        p.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+        paths.append(p)
+    log("JSON", ep=ep, files=len(paths), variants=len(spec["variants"]))
+    return paths
+
+
 def build(ep: str, spec: dict, pkg: dict) -> list[Path]:
+    if "variants" in spec:                                  # v1.4
+        return build_variants(ep, spec, pkg)
     # 문구가 package.json 과 같은지 (글자는 바꾸지 않음 — 페르소나 관문 통과 문구)
     joined = ["".join(t for t, _ in ln) for ln in spec["main"]]
     if joined != pkg["thumb_main"]:

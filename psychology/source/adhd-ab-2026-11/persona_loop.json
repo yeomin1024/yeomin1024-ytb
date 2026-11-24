@@ -98,7 +98,20 @@
       },
       "text": "제목: 나도 성인 ADHD인가? 검사 vs 그냥 넘김, 30년을 자책한 이유\n썸네일 문구: 나도 ADHD인가? 고민했던 두 사람 / 한 명은 30년을 자책했다\n보조 문구: 진작 할걸 / 내가 게을러서 그래…"
      }
-    ]
+    ],
+    "pending": {
+     "n": 3,
+     "sha": "c2ed210efa81adab",
+     "reviewers": [
+      "T3-P3",
+      "T3-반론"
+     ],
+     "prompt": "psychology/source/adhd-ab-2026-11/persona_adhd-ab-2026-11_title_3.md",
+     "answers": "psychology/source/adhd-ab-2026-11/answers_adhd-ab-2026-11_title_3",
+     "ours_idx": 1,
+     "text": "제목: 나도 성인 ADHD인가? 고민했던 두 사람이 30년 삶의 질이 정반대가 된 이유\n썸네일 문구: 나도 ADHD인가? 고민했던 두 사람 / 30년 삶의 질이 정반대가 된 이유\n보조 문구: 진작 할걸~ / 내가 게을러서 그래…",
+     "at": "2026-11-24T07:34:27Z"
+    }
    }
   }
  }

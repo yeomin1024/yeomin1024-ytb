@@ -1,0 +1,18 @@
+{
+ "tool": "upload_pack.py v1.1",
+ "made": "2026-11-24T07:41:46+00:00",
+ "file": "final_1080p.mp4",
+ "size": 60266228,
+ "sha256": "b98211280848ef2cdab0913fccc0136e387584945a63750dfd3efe4f58676f5b",
+ "md5": "ad4357a88d4430407e52984c384666c3",
+ "branch": "uploads",
+ "dir": "psychology/adhd-ab-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 60266228,
+   "sha256": "b98211280848ef2cdab0913fccc0136e387584945a63750dfd3efe4f58676f5b"
+  }
+ ],
+ "duration_s": 338.5
+}

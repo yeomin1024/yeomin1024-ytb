@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-14 — 심리 네 편 업로드 시트 upload.md (사용자 지시 "업로드 시트 만들고 uploads 브랜치에 올려")
+# VERSION: v1.1 — 2026-11-24 — adhd-ab-2026-11 (사용자 지시 "그냥 하고 업로드 준비해"): 편마다 공개 순서 메모·실험 제목(thumb_tests)·title_fit·관문 메모 · --only · 보조 문구 여러 개
+# 이전 v1.0 — 2026-11-14 — 심리 네 편 업로드 시트 upload.md (사용자 지시 "업로드 시트 만들고 uploads 브랜치에 올려")
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-24 | adhd-ab-2026-11 · order_note · thumb_tests 실험 제목 · title_fit_note · gate_note · sources_file · --only | EP · build · main |
 # | v1.0 | 2026-11-14 | 최초 — 제목(package.json) · 설명란(소개 2줄 · 챕터 · 출처 · 알려 드립니다 · 해시태그 2) · 챕터 명령 · 태그 · 고정 댓글 · 설정 · 점검 | build · main |
 """psychology/source/<영상ID>/upload.md 를 쓴다 — tools/youtube_upload.py(read_sheet) · tools/upload_pack.py(check) · PC 업로드 화면이 읽는 꼴.
 
@@ -22,8 +24,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "v1.0"
-DATE = "2026-11-14"
+VERSION = "v1.1"
+DATE = "2026-11-24"
 CRISIS = "24시간 정신건강 상담 전화 1577-0199 · 자살예방 상담 전화 109 · 당장 위험하면 119"
 NOTICE = ("이 영상은 연구와 상담 글을 바탕으로 한 교육용 콘텐츠이며, 심리 진단이나 치료가 아닙니다.\n"
           "영상 속 인물과 장면은 이해를 돕기 위해 만든 것이고, 특정 사람의 이야기가 아닙니다. 연구는 대부분 한 번 조사한 결과라 원인을 밝힌 것이 아니며, 나에게 꼭 맞지 않을 수 있습니다.\n"
@@ -100,6 +102,34 @@ EP = {
         "tags": ["엄마 하소연", "감정 쓰레기통", "엄마와 딸", "정서적 부모화", "부모화", "가족 갈등", "부모 이혼", "사이에 끼인 느낌", "경계 세우기", "가족 상처", "부모와 관계"],
         "pin": "엄마 전화가 오면 숨부터 고르게 되시나요? 네 가지 말 가운데 오늘 먼저 꺼내 볼 말은 무엇인지 남겨 주세요.\n연구를 바탕으로 한 교육용 영상이며, 심리 진단이 아닙니다.\n폭력·폭언이라면 여성긴급전화 1366, '죽고 싶다'는 말을 들었다면 그날 자살예방 상담 전화 109 에 함께 걸어 보세요.",
     },
+    "adhd-ab-2026-11": {
+        "order": 5,
+        "instr": "그냥 하고 업로드 준비해",
+        "order_note": "이미 올린 심리 4편 다음 — 공개 시각은 PC 업로드 화면 기본(7일 뒤 17:00) 또는 사용자가 정함",
+        "intro": "할 일을 미루고 휴대폰만 보다 하루가 가 버린 적, '혹시 나도 성인 ADHD일까' 고민해 본 적 있나요? 같은 고민 앞에서 바로 검사를 받은 A씨와 그냥 넘긴 B씨의 삶을 비교했습니다.\n"
+                 "병원에서는 무엇을 확인하는지, 치료를 시작하면 무엇이 달라지고 무엇은 그대로인지, 스스로 물어볼 세 가지까지 정리했습니다.",
+        "chapters": "1=두 사람의 고민;8=똑같은 하루;18=갈림길;29=A씨, 알고 난 뒤;41=B씨, 모르고 산 30년;54=숫자로 본 차이;61=애매한 나는?;71=B씨에게 온 순간",
+        "sources": [
+            "국민건강보험공단 ADHD 진료 인원 (20세 이상) — 남인순 의원실 공개(2020~2024) · 권칠승 의원실 공개(2026-09-28, 2020~2025) · 보도: 헤럴드경제 2025-10 · 메디칼타임즈",
+            "Zhang L 외 (2025). ADHD drug treatment and risk of suicidal behaviours, substance misuse, accidental injuries, transport accidents, and criminality: emulation of target trials. BMJ, 390, e083658 (스웨덴 등록 자료 · 6~64세 148,581명 · 관찰 연구).",
+            "미국정신의학회 DSM-5 ADHD 진단 기준 (미국 질병통제예방센터 CDC 요약).",
+            "여의도성모병원 연구팀 (2023). Prevalence and Comorbidities of Adult ADHD in a Community Sample from Korea. Clinical Psychopharmacology and Neuroscience, 21(4), 798–807.",
+            "Choi 외 (2022). The prevalence of psychiatric comorbidities in adult ADHD compared with non-ADHD populations: A systematic literature review. PLoS One, 17(11), e0277175.",
+            "Faraone, Larsson (2019). Genetics of attention deficit hyperactivity disorder. Molecular Psychiatry (쌍둥이 연구 37편 · 유전율 평균 74%).",
+            "전문가 의견: 세계일보 2026-09-05 ('인식 변화·진단 접근성 개선으로 발견이 늘어난 영향')",
+            "A씨·B씨 상황: ADHD 관련 유튜브 영상 댓글의 공통된 경험 (2026년 11월 기준 · 작성자 정보는 싣지 않음)",
+        ],
+        "sources_file": "근거.md",
+        "notice_extra": ("A씨와 B씨는 실제 댓글을 바탕으로 만든 가상 인물이며, 두 사람의 이야기가 모든 사람에게 같지는 않습니다. 검사를 받아도 ADHD가 아닐 수 있고, "
+                         "잠 부족·우울·불안 때문에도 집중은 흐트러집니다. 약은 전문의와 상의해서 정하세요. BMJ 연구는 기록을 비교한 관찰 연구라 차이가 모두 약 덕분이라고 단정할 수 없습니다."),
+        "crisis": "자살예방 상담 전화 109 · 24시간 정신건강 상담 전화 1577-0199 · 당장 위험하면 119",
+        "hashtags": "#성인ADHD #ADHD",
+        "tags": ["성인ADHD", "성인 ADHD", "ADHD", "ADHD 증상", "성인 ADHD 증상", "ADHD 검사", "ADHD 진단", "ADHD 치료", "ADHD 자가진단", "ADHD 테스트",
+                 "나도 ADHD", "집중력", "미루기", "게으름", "자책", "정신건강의학과", "정신과", "우울증", "번아웃", "도파민", "부부 갈등"],
+        "pin": "'혹시 나도?' 했던 적이 있다면, 세 가지 질문(어릴 때부터 · 두 곳 이상 · 같은 손해 반복) 가운데 몇 개에 해당했는지 남겨 주세요.\n교육용 영상이며 진단이 아닙니다. 판단은 전문의 검사로 해 주세요.",
+        "title_fit_note": "`title_fit`: 모바일 홈·검색 2줄 ✅ · PC '다음 동영상' 칸 3줄 ❌ (사용자 제목 — 그대로)",
+        "gate_note": "사용자 지시 '일단 지시사항 대로 하지말고'(대본) · '그냥 하고 업로드 준비해' — 대본 이탈·반론 단계는 돌리지 않음",
+    },
 }
 
 
@@ -132,24 +162,29 @@ def build(ep: str, sp: dict) -> str:
         if t not in tags:
             tags.append(t)
     th = pkg["thumb_main"]
+    sub = " · ".join(pkg["thumb_sub"]) if isinstance(pkg.get("thumb_sub"), list) else str(pkg.get("thumb_sub", "")).strip('"')
+    if pkg.get("thumb_tests") and pkg["thumb_tests"][0].get("title"):          # v1.1 글이 다른 실험 제목 (사용자 제목)
+        tests = [f"| 실험 {i} | {t['title']} | `thumbnail_{i + 1}.jpg` — 「{' / '.join(t['main'])}」 |" for i, t in enumerate(pkg["thumb_tests"], 1)]
+        tests.append("- 실험 제목·문구 = 사용자 문구 (페르소나 관문은 본안만).")
+    else:
+        tests = ["| 실험 1 | (본안과 같음) | `thumbnail_2.jpg` — 보조 문구(말풍선) 없음 |",
+                 "| 실험 2 | (본안과 같음) | `thumbnail_3.jpg` — 같은 낱말 · 강조 색 바꿈 + 노란 말풍선 |",
+                 "- 글이 다른 실험 제목은 만들지 않음 (새 문구는 persona_loop title 단계부터)."]
     gate = json.loads((src / "persona_loop.json").read_text("utf-8"))["items"][ep]
     gl = []
     for st in ("title", "script_exit", "script_rebuttal"):
         rs = gate.get(st, {}).get("rounds", [])
         gl.append(f"{st} {'✅' if rs and rs[-1]['pass'] else '❌'} {len(rs)}회차")
     L = [f"# {ep} 업로드 시트 (롱폼 · 심리)", "",
-         f"버전: {VERSION} — {DATE} — 최초 (사용자 지시 \"업로드 시트 만들고 uploads 브랜치에 올려\") · 생성 `psychology/source/upload_sheets.py` {VERSION}.",
+         f"버전: {VERSION} — {DATE} — 최초 (사용자 지시 \"{sp.get('instr', '업로드 시트 만들고 uploads 브랜치에 올려')}\") · 생성 `psychology/source/upload_sheets.py` {VERSION}.",
          f"기준 파일: 대본 `{ep}.txt` ({n}문장) · 오디오 `narration.mp3` · 자막 `{ep}.srt`(align-audio — 실제 오디오) · 영상 `psychology/out/{ep}/final_1080p.mp4`(만스피 꼴 · `video/episodes/{ep}/`) · 썸네일 `thumbnails/thumbnail_1~3.jpg`.",
          "", "> 업로드 채널 = 심리 채널. 연구·교육용 콘텐츠 — 심리 진단·치료가 아님.",
          "> ⚠ `psychology/youtube_channel.json` 이 아직 없음 → 올리는 도구가 키의 채널을 확인하지 못함. PC 업로드 화면 psychology 탭에는 **심리 채널 키**만 넣는다 (처음 올린 뒤 화면의 '기억'으로 채널 ID 를 남김).",
          "", "## 1. 제목 (본안)", "", "```", title, "```",
-         f"- 짝 썸네일 `thumbnail_1.jpg` (「{th[0]} / {th[1]}」 + 말풍선 「{pkg['thumb_sub'].strip(chr(34))}」 — 그림 `images/TH-CHAR.jpg` ChatGPT + 문구 코드 `thumb.mjs`).",
-         "- 제목·썸네일 문구는 package.json 그대로 — 페르소나 관문 title 단계 통과 (`persona_loop.json`). `title_fit`: 모바일·PC 모든 화면 2줄 안 ✅.",
+         f"- 짝 썸네일 `thumbnail_1.jpg` (「{th[0]} / {th[1]}」 + 말풍선 「{sub}」 — 그림 `images/TH-CHAR.jpg` ChatGPT + 문구 코드 `thumb.mjs`).",
+         "- 제목·썸네일 문구는 package.json 그대로 — 페르소나 관문 title 단계 통과 (`persona_loop.json`). " + sp.get("title_fit_note", "`title_fit`: 모바일·PC 모든 화면 2줄 안 ✅."),
          "", "## 1-1. 실험안 — 스튜디오 '테스트 및 비교'용 (API 로 올리지 않음 · 공개 뒤 사용자가 넣음)", "",
-         "| 안 | 제목 | 썸네일 |", "|---|---|---|",
-         f"| 실험 1 | (본안과 같음) | `thumbnail_2.jpg` — 보조 문구(말풍선) 없음 |",
-         f"| 실험 2 | (본안과 같음) | `thumbnail_3.jpg` — 같은 낱말 · 강조 색 바꿈 + 노란 말풍선 |",
-         "- 글이 다른 실험 제목은 만들지 않음 (새 문구는 persona_loop title 단계부터).",
+         "| 안 | 제목 | 썸네일 |", "|---|---|---|"] + tests + [
          "", "## 2. 설명란 (그대로 복사)", "", "```", desc, "```",
          "", "## 3. 챕터 다시 계산하기 (문장 번호 기준 — 실제 내레이션 SRT)", "", "```",
          f"python tools/srt_tool.py upload psychology/source/{ep}/{ep}.txt psychology/source/{ep}/{ep}.srt --chapters \"{sp['chapters']}\"", "```",
@@ -157,7 +192,7 @@ def build(ep: str, sp: dict) -> str:
          "", "## 5. 고정 댓글", "", "```", sp["pin"], "```",
          "", "## 7. 업로드 설정", "", "| 항목 | 값 |", "|---|---|",
          "| 공개 상태 | 비공개로 올린 뒤 예약 공개 |",
-         f"| 추천 공개 순서 | {sp['order']}번째 — 그릇 → 엄마 기분 → 상처 → 하소연, 하루에 한 편 (첫 영상 추천 = 그릇 · '엄마' 두 편은 떨어뜨림 — 반복 콘텐츠 정책) |",
+         f"| 추천 공개 순서 | {sp['order']}번째 — " + sp.get("order_note", "그릇 → 엄마 기분 → 상처 → 하소연, 하루에 한 편 (첫 영상 추천 = 그릇 · '엄마' 두 편은 떨어뜨림 — 반복 콘텐츠 정책)") + " |",
          "| 썸네일 | `thumbnails/thumbnail_1.jpg` (본안 · 1280×720) |",
          f"| 자막 | `{ep}.srt` (실제 오디오에 맞춤) |",
          "| 자막 올리기 | 예 |",
@@ -166,7 +201,7 @@ def build(ep: str, sp: dict) -> str:
          "| 변경되거나 합성된 콘텐츠 | **예** (내레이션이 AI 음성 · 그림이 AI 생성) |",
          "", "## 8. 점검 (설명란에 넣지 않음)", "",
          f"- 페르소나 관문 (`persona_loop.json`): {' · '.join(gl)} — 이탈·반론 단계는 상한(5회차, 일부 7회차)까지 돌린 뒤 사용자가 영상·썸네일·업로드로 진행 (2026-11-13). 통과로 적지 않음.",
-         "- 숫자·연구는 `대본_근거.md` 1번 표 · 지금 대본에서 뺀 연구는 출처에 넣지 않음.",
+         f"- 숫자·연구는 `{sp.get('sources_file', '대본_근거.md')}` 1번 표 · 지금 대본에서 뺀 연구는 출처에 넣지 않음." + (f" · {sp['gate_note']}" if sp.get("gate_note") else ""),
          "- 잡음 검사 `audio_check.md`: 보고 수준 후보만 (고칠 것 없음).",
          "- 영상: render check 0 · layout-check 0 · 완성 mp4 장면을 Claude 가 봄 · 음량 -14 LUFS 안팎 · 트루 피크 -1.5 dBTP 이하.",
          "- 다른 사람의 영상 파일은 받지도 넣지도 않음 · 댓글은 뜻만 (작성자 정보 없음).",
@@ -175,7 +210,10 @@ def build(ep: str, sp: dict) -> str:
 
 
 def main() -> int:
+    only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None      # v1.1 한 편만 (올린 편 시트는 그대로)
     for ep, sp in sorted(EP.items(), key=lambda kv: kv[1]["order"]):
+        if only and ep != only:
+            continue
         md = build(ep, sp)
         p = ROOT / "psychology/source" / ep / "upload.md"
         p.write_text(md, encoding="utf-8")

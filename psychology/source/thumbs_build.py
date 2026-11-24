@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-13 — 말풍선 꼬리가 말하는 사람(말풍선 왼쪽 아래) 쪽으로 기울게 (tail right · 18%)
+# VERSION: v1.3 — 2026-11-24 — adhd-ab-2026-11 (일상툰 · 그림 아래 어두운 띠 y 74% 부터): 편마다 글 상자(l1·l2)·꼬리 방향·설명 줄을 따로 — 사용자 지시 "1번으로 하고 썸네일 만들어봐"
+# 이전 v1.2 — 2026-11-13 — 말풍선 꼬리가 말하는 사람(말풍선 왼쪽 아래) 쪽으로 기울게 (tail right · 18%)
 # 이전 v1.1 — 2026-11-13 — 말풍선을 머리 옆 빈 곳 끝까지 넓히고 줄을 나눠 글자를 키움 (40~46px → 크게 · 낱말 그대로)
 # 이전 v1.0 — 2026-11-13 — 심리 네 편 롱폼 썸네일 3안 설정 (만스피처럼 그림 = ChatGPT TH-CHAR · 문구 = 코드 thumb.mjs)
 #   사용자 지시 2026-11-13 "썸네일 만스피처럼 문구 코드로 얹어서 만들어".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-24 | 편마다 l1·l2 글 상자 · tail·tailPos · note (adhd-ab-2026-11) | EP · bubble · build |
 # | v1.2 | 2026-11-13 | 꼬리 방향 = 말하는 사람 쪽 | bubble |
 # | v1.1 | 2026-11-13 | 말풍선 자리 넓힘 · 줄 나눔 (글자 그대로) · fill 0.9/0.74 | EP · bubble |
 # | v1.0 | 2026-11-13 | 최초 — 편마다 thumbnail_1~3.json (본안 · 실험 1 보조 문구 없음 · 실험 2 강조 색·노란 말풍선) | build · main |
@@ -60,6 +62,15 @@ EP = {
         "bubble": [1106, 26, 399, 300], "btext": "왜,\n안 어울려?",
         "_": "R 머리(x 50~71% · y 4~39%) 오른쪽 선반·냉장고",
     },
+    # v1.3 — 그림 아래 26% 가 어두운 띠(y 640/864 부터) → 두 줄을 띠 안에 · 말풍선 = B 머리 왼쪽 빈 벽, 꼬리는 오른쪽(B 쪽)으로
+    "adhd-ab-2026-11": {
+        "main": [[["나도 ", "W"], ["ADHD", "Y"], ["인가? 고민했던 두 사람", "W"]], [["(한 명은 ", "W"], ["30년을 자책했다", "R"], [")", "W"]]],
+        "alt": [[["나도 ADHD인가? ", "W"], ["고민했던 두 사람", "Y"]], [["(한 명은 ", "W"], ["30년", "Y"], ["을 자책했다)", "W"]]],
+        "bubble": [786, 22, 300, 196], "btext": "내가 게을러서\n그래…", "tail": "left", "tailPos": 0.78,
+        "l1": [36, 524, 1208, 94], "l2": [36, 616, 1000, 100],
+        "note": "문구 = 사용자가 고른 윗줄·아랫줄(1번) + 보조 문구(대본 46번 B씨 생각) — 제목이 정해지면 persona_loop title 단계",
+        "_": "B 머리(x 70~82% · y 18~42%) 왼쪽 어두운 벽 (스탠드 x 63~69% · y 27% 아래는 비움) · A 쪽은 비워 둠",
+    },
 }
 
 
@@ -71,9 +82,9 @@ def lines(box, frags):
     return {"kind": "lines", "box": box, "align": "left", "valign": "bottom", "lineHeight": 1.05, "stroke": 16, "lines": [frags]}
 
 
-def bubble(rect, text, bg):
+def bubble(rect, text, bg, tail="right", tail_pos=0.18):
     x, y, w, h = (round(v * K) for v in rect)
-    return {"kind": "bubble", "x": x, "y": y, "w": w, "h": h, "bg": bg, "color": "K", "text": text, "tail": "right", "tailPos": 0.18, "tailLen": 54,
+    return {"kind": "bubble", "x": x, "y": y, "w": w, "h": h, "bg": bg, "color": "K", "text": text, "tail": tail, "tailPos": tail_pos, "tailLen": 54,
             "fill": [0.9, 0.74], "_": "보조 문구 — 머리 옆 빈 곳 (사람을 가리지 않음 · 꼬리는 평평한 아래쪽 18% · tail right = 왼쪽(말하는 사람 쪽)으로 기욺)"}
 
 
@@ -89,16 +100,19 @@ def build(ep: str, spec: dict, pkg: dict) -> list[Path]:
     out_dir = ROOT / "psychology" / "source" / ep / "thumbnails"
     out_dir.mkdir(exist_ok=True)
     base = {"size": [1280, 720], "shade": [0.56, 0.9], "images": [{"src": "../images/TH-CHAR.jpg", "box": [0, 0, 1280, 720]}]}
+    l1, l2 = spec.get("l1", L1), spec.get("l2", L2)                       # v1.3 편마다 글 상자
+    tl = (spec.get("tail", "right"), spec.get("tailPos", 0.18))
     variants = [
-        ("본안", [lines(L1, spec["main"][0]), lines(L2, spec["main"][1]), bubble(spec["bubble"], spec["btext"], "W")]),
-        ("실험 1 — 보조 문구 없음", [lines(L1, spec["main"][0]), lines(L2, spec["main"][1])]),
-        ("실험 2 — 강조 색 바꿈 · 노란 말풍선", [lines(L1, spec["alt"][0]), lines(L2, spec["alt"][1]), bubble(spec["bubble"], spec["btext"], "Y")]),
+        ("본안", [lines(l1, spec["main"][0]), lines(l2, spec["main"][1]), bubble(spec["bubble"], spec["btext"], "W", *tl)]),
+        ("실험 1 — 보조 문구 없음", [lines(l1, spec["main"][0]), lines(l2, spec["main"][1])]),
+        ("실험 2 — 강조 색 바꿈 · 노란 말풍선", [lines(l1, spec["alt"][0]), lines(l2, spec["alt"][1]), bubble(spec["bubble"], spec["btext"], "Y", *tl)]),
     ]
     paths = []
     for i, (name, blocks) in enumerate(variants, 1):
         d = dict(base)
+        note = spec.get("note", "문구 = package.json (페르소나 관문 title 통과 — 글자 그대로)")
         d["_설명"] = (f"{name} (2026-11-13 — 사용자 지시 \"썸네일 만스피처럼 문구 코드로 얹어서 만들어\") — 짝 제목 「{pkg['title']}」 · "
-                     f"문구 = package.json (페르소나 관문 title 통과 — 글자 그대로) · 그림 = images/TH-CHAR.jpg (ChatGPT, 글자 없음) · 말풍선 자리: {spec['_']}")
+                     f"{note} · 그림 = images/TH-CHAR.jpg (ChatGPT, 글자 없음) · 말풍선 자리: {spec['_']}")
         d["out"] = f"thumbnail_{i}.jpg"
         d["blocks"] = blocks
         p = out_dir / f"thumbnail_{i}.json"

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-23 — 신규: 일상툰 꼴 영상의 ChatGPT 그림 요청 파일 만들기 (사용자 지시 2026-11-23 "그럼 모든 이미지 생성
+# VERSION: v1.1 — 2026-11-24 — 추가 요청 파일(images_chatgpt_add.md): 이미 받은 1번 A-REF 를 그림체 기준으로 몇 장만 더 — 사용자 지시
+#          "나는 왜 이렇게 게으를까 부분에 배경이 없는데 내용에 맞는 이미지를 넣고 … 이미지 추가 생성 필요하면 명령 알려주고" (ADD · build_add)
+# (v1.0) — 2026-11-23 — 신규: 일상툰 꼴 영상의 ChatGPT 그림 요청 파일 만들기 (사용자 지시 2026-11-23 "그럼 모든 이미지 생성
 #          명령 알려줘 지시사항은 저장소에서 읽으라하고 업로드하라고해" · "썸네일 이미지도 만들어 A, B 사람 반반 나눠서 대비되도록")
 """일상툰 꼴 ChatGPT 그림 요청 파일 `psychology/source/<영상ID>/images_chatgpt.md` 를 만든다.
 
@@ -24,8 +26,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from images_build import CHECK_CODE, CUTOUT, MOTION, SAVE_CODE, THUMB  # noqa: E402 — ChatGPT 에서 검증된 문장 그대로
 
-VERSION = "v1.0"
-DATE = "2026-11-23"
+VERSION = "v1.1"
+DATE = "2026-11-24"
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 REPO = "yeomin1024/yeomin1024-ytb"
 log = logging.getLogger("images_build_toon")
@@ -284,6 +286,37 @@ EPISODES = {
 }
 
 
+# v1.1 추가 요청 — 이미 받은 그림(1번 A-REF)을 그림체 기준으로, 몇 장만 더 (images_chatgpt_add.md)
+ADD = {
+    "adhd-ab-2026-11": {
+        "why": "도입부 「할 일을 미루고 휴대폰만 보다가 하루가 지나감 → 밤에 '나는 왜 이렇게 게으를까' 자책」 장면 — 지금은 배경 없는 화면 "
+               "(사용자 지시 2026-11-24 \"나는 왜 이렇게 게으를까 부분에 배경이 없는데 내용에 맞는 이미지를 넣고\")",
+        "style_ref": "psychology/source/adhd-ab-2026-11/puppet/motion/A-REF.png",
+        "people": (
+            "V — the 'viewer' of the opening: a 29-year-old Korean man living alone, short messy black hair, an oversized "
+            "light gray sweatshirt, navy sweatpants, white socks. Ordinary and relatable, a little tired. He must look clearly "
+            "different from A (32-year-old woman), B (51-year-old man) and S (14-year-old boy in a navy hoodie)."
+        ),
+        "items": [
+            ("bg", "BG-INTRO-ROOM", "도입 무대: 혼자 사는 원룸 (늦은 오후 — 밤은 코드로 어둡게)", "도입 1~2",
+             "A small one-room studio apartment of a young office worker who lives alone, seen straight from the front. "
+             "LEFT third: a desk against the wall with a closed laptop, a messy stack of blank papers, a few blank yellow "
+             "sticky notes on the wall above the desk (no writing at all), a desk lamp. CENTER and RIGHT: a single bed with a "
+             "rumpled light-blue blanket and two pillows, its long side facing us, the mattress top at about 55% of the "
+             "picture height; a small side table with a phone charger cable. A window on the back wall above the bed shows a "
+             "warm late-afternoon sky (orange and pink) over city buildings. A plain wall area at the upper right (about "
+             "15% wide) is empty — a wall clock will be added there by code. Leave the floor in front of the bed and the bed "
+             "itself empty of people. No text anywhere."),
+            ("motion", "V01", "V: (침대 끝에 앉아) 휴대폰 보며 웃음 → 화면에 빠져 멍함 → 휴대폰을 내려놓고 이마를 짚으며 자책", "도입 1~2",
+             "V, sitting on the edge of an invisible bed, facing the viewer, feet on the floor, both shoes off (socks). "
+             "Frame 1: holding a phone with both hands, smiling at the screen, relaxed. Frame 2: completely absorbed in the "
+             "phone, empty eyes, face lit by the screen's glow, slouching. Frame 3: the phone dropped face-down on his lap, "
+             "one hand on his forehead, eyes closed, a guilty sigh — blaming himself."),
+        ],
+    },
+}
+
+
 def rel_path(ep: str, kind: str, name: str) -> str:
     """저장 경로 — 만스피 꼴과 같은 폴더 (배경 puppet/ · 기준·자세·원화·소품 puppet/motion/ · 썸네일 그림 images/)."""
     if kind in ("bg", "bgs"):
@@ -371,6 +404,60 @@ def build(ep: str, spec: dict) -> str:
     return "\n".join(L)
 
 
+def build_add(ep: str, spec: dict, ref_url: str) -> str:
+    """v1.1 추가 요청 파일 — 이미 받은 A-REF 를 그림체 기준으로 몇 장만 (할 일·검사·저장 규칙은 본 요청 파일과 같음)."""
+    items = spec["items"]
+    n = len(items)
+    L = []
+    w = L.append
+    w(f"# {ep} — 일상툰 추가 그림 {n}장 (ChatGPT용 · 1번부터 차례로 모두)")
+    w("")
+    w(f"작성: {VERSION} — {DATE} — 추가 요청. 까닭: {spec['why']}.")
+    w("")
+    w(f"- **그림체 기준 = 이미 저장소에 올린 A-REF 그림** — {ref_url}")
+    w("  이 그림(약 3등신 어른 · 둥근 선 · 부드러운 파스텔 · 갈색 선)과 **같은 사람이 그린 것처럼** 그린다. 이 대화에서 앞서 이 편 그림을 만들었다면 그 그림체 그대로. "
+      "주소를 열 수 없으면 사용자에게 A-REF 그림을 붙여 달라고 한 번만 말한다.")
+    w("- 그림에는 글자·숫자·로고가 하나도 없다 (말풍선·자막·시계 바늘은 코드). 누구도 나쁜 사람으로 그리지 않는다. 가상 인물. ※ 연구·교육용 영상 — 의학적 진단·처방이 아니다.")
+    w("")
+    w(f"| 번호 | 저장 경로 (모두 `psychology/source/{ep}/` 아래) | 무엇 | 대본 |")
+    w("|---|---|---|---|")
+    for i, (kind, name, what, where, _p) in enumerate(items, 1):
+        w(f"| {i} | `{rel_path(ep, kind, name).split(f'{ep}/', 1)[1]}` | {what} | {where} |")
+    w("")
+    w("## ChatGPT에게 — 이 파일을 읽으면 할 일")
+    w("0. 이 주소를 지금 새로 열어 그 내용만 쓴다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.")
+    w(f"1. 아래 1~{n}번 **{n}장을 번호 순서대로 모두** 만든다. 질문하지 말고 멈추지 않는다.")
+    w("2. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓰고, 앞에 아래 블록을 이 순서로 붙인다.")
+    for k, label in (("bg", "배경"), ("motion", "동작 그림")):
+        nums = [str(i) for i, it in enumerate(items, 1) if it[0] == k]
+        if nums:
+            w(f"   - **{label}({', '.join(nums)}번)**: {ORDER[k]}.")
+    w("3. **동작 그림은 한 장에 같은 사람을 3번** — 왼쪽 → 가운데 → 오른쪽이 한 동작을 이어 그린 3장. 같은 크기·같은 자리·같은 방향·같은 옷, 앉은 자리(엉덩이·발바닥)가 같은 높이, 움직이는 부분만 바뀐다. 서로 겹치거나 칸(가로 3등분)을 넘지 않는다. 다른 사람·배경·바닥 그림자 없음.")
+    w("4. **검사 (동작 그림, 올리기 전에):** 아래 코드로 `check(경로, cols=3, feet=True)` 가 `OK` 여야 올린다. 투명이 아니면 배경을 순자홍 #FF00FF 한 색 평면으로 다시 만든다.")
+    w(CHECK_CODE)
+    w("5. 화면·휴대폰·종이·포스트잇·시계에도 글자·숫자가 없다. 만든 뒤 확대해 글자가 보이면 다시 만든다.")
+    w(f"6. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`1. {rel_path(ep, items[0][0], items[0][1])}`).")
+    w(f"7. **저장소 `{REPO}` main 에 저장 경로 그대로 올린다** — 700KB 이하 (배경 JPEG: 1536×864 · 품질 90부터 5씩 낮춤 · 동작 PNG: 아래 코드).")
+    w(SAVE_CODE)
+    w(f"   - GitHub 앱으로 장마다 커밋: `[psychology] {ep} <파일 이름> 이미지`. 다 올리면 파일 경로와 커밋 링크를 목록으로 적는다.")
+    w("   - 올리기가 실패한 장만: \"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다.\"")
+    w("")
+    blocks = [("공통 화풍 (모든 프롬프트 맨 앞에 그대로 붙임)", STYLE),
+              ("배경판 (배경 — 공통 화풍 다음에 그대로 붙임)", PLATE),
+              ("인물 (동작 그림 — 공통 화풍 다음에 그대로 붙임)", "CHARACTERS — the same face, hair, clothes, colors and proportions in every frame:\n" + spec["people"]),
+              ("CUTOUT (동작 그림 — 그다음에 그대로 붙임 · 배경에는 붙이지 않음)", CUTOUT),
+              ("MOTION STRIP (동작 그림 — CUTOUT 다음에 그대로 붙임)", MOTION)]
+    for title, text in blocks:
+        L += [f"## {title}", "", "```", text, "```", ""]
+    for i, (kind, name, what, where, prompt) in enumerate(items, 1):
+        L += [f"## {i}. {name} — {what}", "", f"**저장 경로: `{rel_path(ep, kind, name)}`** — {KIND_INFO[kind][1]}", "",
+              "```", prompt, "```", ""]
+    w("## 받은 뒤 (Claude)")
+    w(f"- 확대 검수(그림체·글자 없음·발 높이) → `psychology/source/puppet_slice.py {ep}` → 장면 파일 도입 장면에 넣고 다시 렌더.")
+    w("")
+    return "\n".join(L)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true", help="쓰지 않고 장 수·경로만")
@@ -392,6 +479,17 @@ def main() -> int:
         out = ROOT / "psychology" / "source" / ep / "images_chatgpt.md"
         log.info("version=%s ep=%s items=%d kinds=%s chars=%d out=%s", VERSION, ep, len(spec["items"]), counts, len(text),
                  out.relative_to(ROOT))
+        if not a.check:
+            out.write_text(text, encoding="utf-8")
+    for ep, spec in ADD.items():                       # v1.1 추가 요청 파일
+        ref = ROOT / spec["style_ref"]
+        if not ref.exists():
+            log.error("그림체 기준 그림 없음 ep=%s path=%s — 본 요청 그림이 main 에 왔는지 확인", ep, spec["style_ref"])
+            return 1
+        ref_url = f"https://raw.githubusercontent.com/{REPO}/main/{spec['style_ref']}"
+        text = build_add(ep, spec, ref_url)
+        out = ROOT / "psychology" / "source" / ep / "images_chatgpt_add.md"
+        log.info("version=%s ep=%s add_items=%d chars=%d out=%s", VERSION, ep, len(spec["items"]), len(text), out.relative_to(ROOT))
         if not a.check:
             out.write_text(text, encoding="utf-8")
     return 0

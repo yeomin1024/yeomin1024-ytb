@@ -1,0 +1,24 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "adhd-ab-2026-11": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "00f00c0469d45e31",
+     "reviewers": [
+      "T1-P3",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/adhd-ab-2026-11/persona_adhd-ab-2026-11_title_1.md",
+     "answers": "psychology/source/adhd-ab-2026-11/answers_adhd-ab-2026-11_title_1",
+     "ours_idx": 6,
+     "text": "제목: 나도 성인 ADHD인가? 검사 vs 그냥 넘김, 30년을 자책한 이유\n썸네일 문구: 나도 ADHD인가? 고민했던 두 사람 / 한 명은 30년을 자책했다\n보조 문구: 진작 할걸 / 내가 게을러서 그래…",
+     "at": "2026-11-24T07:09:59Z"
+    }
+   }
+  }
+ }
+}

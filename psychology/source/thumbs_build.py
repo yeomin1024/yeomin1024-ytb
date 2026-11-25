@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-11-24 — adhd-ab-2026-11 그림을 화면 끝까지 (아래 어두운 띠 뺌 — 두 칸을 따로 잘라 좌우로) · 문구는 그림 위 · 말풍선은 썸네일 좌표 — 사용자 지시 "썸네일 문구부분은 왜 이미지 영역이 아니야 이미지 꽉채워서 문구넣어야지"
+# VERSION: v1.9 — 2026-11-25 — jakku-juneun-2026-11-25 (같은 낱말 3안 — 본안 말풍선 둘 · 실험 1 말풍선 없음 · 실험 2 강조 색 바꿈 + 노란 말풍선) — 사용자 지시 "이미지, 음성 확인해서 영상 만들어"
+# 이전 v1.8 — 2026-11-24 — adhd-ab-2026-11 그림을 화면 끝까지 (아래 어두운 띠 뺌 — 두 칸을 따로 잘라 좌우로) · 문구는 그림 위 · 말풍선은 썸네일 좌표 — 사용자 지시 "썸네일 문구부분은 왜 이미지 영역이 아니야 이미지 꽉채워서 문구넣어야지"
 # (v1.7) — 2026-11-24 — adhd-ab-2026-11 사용자 제목·문구 3안 + A 말풍선 「진작 할걸~」 한 줄(작게) — 사용자 지시 "제목1 … 제목3 … 이렇게 가고 썸네일 각각 만들어 그리고 글씨 크기 좀 줄여서 한줄에 진작 할걸~ 로 고쳐"
 # 이전 v1.6 — 2026-11-24 — adhd-ab-2026-11 A 말풍선 「진작 할걸」 (사용자 지시 "진작 할걸 이렇게 바꾸고")
 # 이전 v1.5 — 2026-11-24 — adhd-ab-2026-11 실험 문구·A 말풍선을 성공 사례 썸네일 분석(thumb_text_patterns.md)으로 — 사용자 지시 "실험형 썸네일 문구 성공 사례 분석해서 한거야? 분석해서 만들고 이유를 아니까를 진작에 할걸(예시) 이런식으로 고쳐봐"
@@ -13,6 +14,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.9 | 2026-11-25 | variants 셋째 칸 opts {bubbles: W·Y·none} · same_words(실험안도 본안 낱말 그대로 — package.json thumb_tests 없을 때) · 편마다 why(설명 줄의 사용자 지시) — jakku-juneun-2026-11-25 | EP · build_variants |
 # | v1.8 | 2026-11-24 | 편마다 images(crop·box)·bg 덮어쓰기 · bubbles_px(썸네일 좌표 그대로) — adhd-ab-2026-11 TH-CHAR 아래 26% 어두운 띠를 빼고 왼쪽 칸(A)·오른쪽 칸(B)을 따로 잘라 1280×720 을 채움 | EP · bubble · build_variants |
 # | v1.7 | 2026-11-24 | adhd-ab-2026-11 3안 = 사용자 제목·문구 1~3 · A 말풍선 한 줄 (낮은 상자 → 글씨 작게) | EP |
 # | v1.6 | 2026-11-24 | adhd-ab-2026-11 A 말풍선 「진작 할걸」 (사용자 문구) | EP |
@@ -93,6 +95,22 @@ EP = {
         "note": "1~3안 = 사용자 제목·문구 (2026-11-24) · 말풍선 = 인물 속마음 A 「진작 할걸~」(사용자 문구, 한 줄)·B 「내가 게을러서 그래…」(대본 46번) — persona_loop title 단계는 1안 · v1.8 그림을 화면 끝까지 (문구는 그림 위)",
         "_": "A 머리 오른쪽 사무실 벽(모니터 위) · B 머리 오른쪽 창문 — 썸네일 좌표, 사람·스탠드·낙서 구름을 가리지 않음",
     },
+    "jakku-juneun-2026-11-25": {
+        # TH-CHAR = 화면 끝까지 그린 복도 (빈 띠 없음) — 자르지 않음. 문구는 그림 위 아래쪽 (L1·L2 기본 상자)
+        # 말풍선 = 썸네일 좌표: G(주는 사람) 머리 x 308~488 · y 117~288, 반짝 표시 x 496~546 → 그 오른쪽 창문(하늘)
+        #   R(받는 사람) 머리 x 850~1012 · y 79~250 → 그 오른쪽 열린 문틀 · 두 말풍선 모두 꼬리는 왼쪽(말하는 사람) 쪽으로
+        "bubbles_px": True,
+        "bubbles": [[[566, 30, 262, 146], "너 주려고\n챙겼지~", "right", 0.18], [[1030, 26, 234, 146], "마음은\n고마운데…", "right", 0.16]],
+        "same_words": True,
+        "variants": [
+            ("본안 — 말풍선 둘", [[["필요 없다는데 ", "W"], ["자꾸 주는", "Y"], [" 사람", "W"]], [["심리학적 이유 ", "W"], ["3가지", "Y"]]], {"bubbles": "W"}),
+            ("실험 1 — 보조 문구 없음", [[["필요 없다는데 ", "W"], ["자꾸 주는", "Y"], [" 사람", "W"]], [["심리학적 이유 ", "W"], ["3가지", "Y"]]], {"bubbles": "none"}),
+            ("실험 2 — 강조 색 바꿈 · 노란 말풍선", [[["필요 없다는데", "R"], [" 자꾸 주는 사람", "W"]], [["심리학적 이유 3가지", "Y"]]], {"bubbles": "Y"}),
+        ],
+        "why": "2026-11-25 — 사용자 지시 \"이미지, 음성 확인해서 영상 만들어\"",
+        "note": "문구 = package.json thumb_main·thumb_subs (persona_loop title 3회차 ✅ — 글자 그대로) · 실험안은 같은 낱말(thumb_tests_note) · 빨강 = 나쁜 상황('필요 없다는데')",
+        "_": "G 머리·반짝 표시 오른쪽 창문(하늘) · R 머리 오른쪽 열린 문틀 — 썸네일 좌표, 두 사람 얼굴·손·봉지를 가리지 않음",
+    },
 }
 
 
@@ -113,6 +131,8 @@ def bubble(rect, text, bg, tail="right", tail_pos=0.18, px=False):
 def build_variants(ep: str, spec: dict, pkg: dict) -> list[Path]:
     """v1.4 편마다 3안 (안마다 문구 2줄 · 말풍선 여러 개) — package.json thumb_main(본안)·thumb_tests(실험)·thumb_subs 와 글자 대조."""
     want = [pkg["thumb_main"]] + [t["main"] for t in pkg.get("thumb_tests", [])]
+    if spec.get("same_words") and not pkg.get("thumb_tests"):           # v1.9 실험안도 본안 낱말 그대로 (색·말풍선만 다름)
+        want = [pkg["thumb_main"]] * len(spec["variants"])
     got = [["".join(t for t, _ in ln) for ln in v[1]] for v in spec["variants"]]
     if got != want:
         raise SystemExit(f"[THUMB] {ep} 문구가 package.json 과 다름: {got} ≠ {want} — 문구를 바꾸면 persona_loop title 단계부터")
@@ -126,13 +146,17 @@ def build_variants(ep: str, spec: dict, pkg: dict) -> list[Path]:
     l1, l2 = spec.get("l1", L1), spec.get("l2", L2)
     px = spec.get("bubbles_px", False)
     paths = []
-    for i, (name, main) in enumerate(spec["variants"], 1):
+    for i, v in enumerate(spec["variants"], 1):
+        name, main = v[0], v[1]
+        vo = v[2] if len(v) > 2 else {"bubbles": "W"}                      # v1.9 안마다 말풍선 색 · none = 말풍선 없음
         d = dict(base)
-        d["_설명"] = (f"{name} (2026-11-24 — 사용자 지시 \"둘다 말풍선 넣고 두번재 줄 괄호 제거해 그리고 나머지 2개는 실험형으로 너가 문구를 만드는 거야\") — "
+        why = spec.get("why", "2026-11-24 — 사용자 지시 \"둘다 말풍선 넣고 두번재 줄 괄호 제거해 그리고 나머지 2개는 실험형으로 너가 문구를 만드는 거야\"")
+        d["_설명"] = (f"{name} ({why}) — "
                      f"짝 제목 「{pkg['title']}」 · {spec.get('note', '')} · 그림 = images/TH-CHAR.jpg"
                      f"{' (자르기 ' + ' + '.join(str(im['crop']) for im in spec['images']) + ')' if 'images' in spec else ''} · 말풍선 자리: {spec['_']}")
         d["out"] = f"thumbnail_{i}.jpg"
-        d["blocks"] = [lines(l1, main[0]), lines(l2, main[1])] + [bubble(r, t, "W", tl, tp, px) for r, t, tl, tp in spec["bubbles"]]
+        bubs = [] if vo["bubbles"] == "none" else [bubble(r, t, vo["bubbles"], tl, tp, px) for r, t, tl, tp in spec["bubbles"]]
+        d["blocks"] = [lines(l1, main[0]), lines(l2, main[1])] + bubs
         p = out_dir / f"thumbnail_{i}.json"
         p.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
         paths.append(p)

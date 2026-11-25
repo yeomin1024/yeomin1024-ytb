@@ -1,11 +1,15 @@
-// VERSION: v1.0 — 2026-11-24 — 말풍선·이름표·도장·카드·소품 점검: 잘림 · 화면/자막 띠 밖 · 서로 겹침
+// VERSION: v1.1 — 2026-11-25 — ⑤ 사람 가림 더함 (말풍선·도장·쪽지·소품·카드가 어둡게 하지 않은 장면에서 다른 인물 머리를 가림) · 쪽지(.quote)도 봄
+//   이전 v1.0 — 2026-11-24 — 말풍선·이름표·도장·카드·소품 점검: 잘림 · 화면/자막 띠 밖 · 서로 겹침
 //   사용자 지시 2026-11-24 "말풍선이 중간선에 잘리는데 안잘리도록 해 … 말풍선 좀 겹치게, 잘리게 하지말고 좀 보이게 하라고".
 //   layout-check.mjs 는 장면(.sc) 바로 아래 칸만 보고 세계(world) 안의 말풍선은 보지 않음 → 이 도구가 따로 본다.
 //   --every 초마다(기본 0.2) 무대를 그 시각으로 돌려 놓고, 보이는(누적 불투명도 ≥ --min-op, 기본 0.6) 물건마다:
 //     ① 잘림 — 반반 화면(장면 .sc 의 data-vis="x0,x1")에서 보이는 반쪽 밖으로 나감
 //     ② 화면 밖 — 화면 가장자리 6px 안쪽을 벗어남
 //     ③ 자막 띠 — 자막(#cc)이 보일 때 그 상자와 겹침
-//     ④ 겹침 — 말풍선·이름표·도장·카드·소품끼리 겹침 (부모·자식 사이는 뺌)
+//     ④ 겹침 — 말풍선·이름표·도장·카드·소품·쪽지끼리 겹침 (부모·자식 사이는 뺌)
+//     ⑤ 사람 가림 (v1.1) — 위 물건이 보이는 인물의 머리 상자(PSY.heads, psy_anim.js v1.1)를 12% 넘게 가림.
+//        그 인물의 세계가 어둡게 깔려 있으면(빛 층 알파×불투명도 ≥ 0.5 — dim()) 배경 취급이라 뺌. 0.4초 넘게 이어질 때만 보고.
+//        jakku-juneun-2026-11-25 stills 에서 말풍선이 옆 사람 얼굴을 가린 것을 v1.0 이 못 잡아서 더함.
 //   같은 문제가 이어지는 시각은 한 줄로 묶어 보고. 문제가 있으면 끝 코드 1. 연구·교육용 영상 도구.
 //   사용법: node video/scripts/bubble-check.mjs <영상ID> [--every 0.2] [--min-op 0.6] [--from 0 --to 9999] [--shots <폴더>]
 import fs from "node:fs";
@@ -36,9 +40,9 @@ const COLLECT = (MIN_OP) => {
   const st = document.getElementById("stage"), S0 = st.getBoundingClientRect();
   const op = el => { let o = 1; for (let e = el; e && e !== st; e = e.parentElement) { const cs = getComputedStyle(e); o *= +cs.opacity; if (cs.display === "none" || cs.visibility === "hidden") return 0; } return o; };
   const R = el => { const b = el.getBoundingClientRect(); return [b.left - S0.left, b.top - S0.top, b.right - S0.left, b.bottom - S0.top].map(v => Math.round(v)); };
-  const name = el => `${el.classList.contains("pbub") ? "말풍선" : el.classList.contains("tag") ? "이름표" : el.classList.contains("stamp") ? "도장" : el.classList.contains("ccard") ? "카드" : "소품"}:${(el.textContent || el.getAttribute("src") || "").trim().replace(/\s+/g, " ").replace(/^.*\//, "").slice(0, 16)}`;
+  const name = el => `${el.classList.contains("pbub") ? "말풍선" : el.classList.contains("tag") ? "이름표" : el.classList.contains("stamp") ? "도장" : el.classList.contains("ccard") ? "카드" : el.classList.contains("quote") ? "쪽지" : "소품"}:${(el.textContent || el.getAttribute("src") || "").trim().replace(/\s+/g, " ").replace(/^.*\//, "").slice(0, 16)}`;
   const items = [];
-  st.querySelectorAll(".pbub,.tag,.stamp,.ccard,img.spr").forEach(el => {
+  st.querySelectorAll(".pbub,.tag,.stamp,.ccard,.quote,img.spr").forEach(el => {
     if (op(el) < MIN_OP) return;
     const r = R(el); if (r[2] - r[0] < 4 || r[3] - r[1] < 4) return;
     const sc = el.closest("[data-vis]");
@@ -59,6 +63,24 @@ const COLLECT = (MIN_OP) => {
     if (a.el.contains(b.el) || b.el.contains(a.el)) continue;
     const area = ov(a.r, b.r);
     if (area > 300) probs.push({ kind: "겹침", what: `${a.what} × ${b.what}`, rect: [Math.max(a.r[0], b.r[0]), Math.max(a.r[1], b.r[1]), Math.min(a.r[2], b.r[2]), Math.min(a.r[3], b.r[3])] });
+  }
+  // ⑤ 사람 가림 — 어둡게 깔리지 않은 장면의 인물 머리를 가리는 물건
+  const alphaOf = c => { const m = /rgba?\(([^)]+)\)/.exec(c || ""); if (!m) return 0; const p = m[1].split(",").map(Number); return p.length > 3 ? p[3] : 1; };
+  const heads = (window.PSY && window.PSY.heads) ? window.PSY.heads() : [];
+  for (const h of heads) {
+    if (op(h.el) < MIN_OP) continue;
+    const wd = h.el.closest(".world");
+    let dark = 0;
+    if (wd) wd.querySelectorAll('[data-l="light"] > .light').forEach(l => { dark = Math.max(dark, alphaOf(getComputedStyle(l).backgroundColor) * op(l)); });
+    if (dark >= 0.5) continue;
+    const hr = [h.r[0] - S0.left, h.r[1] - S0.top, h.r[2] - S0.left, h.r[3] - S0.top].map(v => Math.round(v));
+    const ha = (hr[2] - hr[0]) * (hr[3] - hr[1]);
+    if (ha < 100) continue;
+    for (const it of items) {
+      if (it.el.contains(h.el) || h.el.contains(it.el)) continue;
+      const area = ov(it.r, hr);
+      if (area > ha * 0.12) probs.push({ kind: "사람 가림", what: `${it.what} → 머리:${h.key}`, rect: hr, minDur: 0.4 });
+    }
   }
   return { probs, n: items.length };
 };
@@ -81,7 +103,7 @@ const ok = await page.waitForFunction(() => window.SB && window.SB.ready, null, 
 if (!ok) { log("FAIL", { stage: "load", errors: JSON.stringify(errs.slice(0, 3)), next: "render.mjs check 로 장면 파일 오류 먼저" }); await browser.close(); process.exit(2); }
 await page.evaluate(async () => { await document.fonts.ready; });
 const D = await page.evaluate(() => window.SB.D);
-log("START", { tool: "bubble-check.mjs v1.0", video: ID, every: EVERY, min_op: MIN_OP, from: FROM, to: Math.min(TO, D), note: "연구·교육용 영상 도구" });
+log("START", { tool: "bubble-check.mjs v1.1", video: ID, every: EVERY, min_op: MIN_OP, from: FROM, to: Math.min(TO, D), note: "연구·교육용 영상 도구" });
 const runs = new Map();          // 같은 문제(종류+대상)가 이어지는 구간을 묶음
 const all = [];
 if (SHOTS) fs.mkdirSync(SHOTS, { recursive: true });
@@ -101,6 +123,7 @@ for (let t = Math.max(0, FROM); t <= Math.min(TO, D); t += EVERY) {
   }
 }
 await browser.close();
+for (let i = all.length - 1; i >= 0; i--) if (all[i].minDur && all[i].to - all[i].from < all[i].minDur) all.splice(i, 1);
 for (const p of all) log("BUBBLE", { from: p.from, to: p.to, kind: p.kind, what: p.what, rect: (p.rect || []).join(",") });
 const byKind = {};
 for (const p of all) byKind[p.kind] = (byKind[p.kind] || 0) + 1;

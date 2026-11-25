@@ -1,4 +1,4 @@
-/* VERSION: v1.0 — 2026-11-13 — 심리 편 공통 애니메이션 엔진 (주식 만스피 장면 v3.1 엔진을 바탕으로 — 원화 바꿔 끼우기 · 세계 층 카메라 · 앞 물건)
+/* VERSION: v1.1 — 2026-11-25 — P.heads() 더함 (점검 도구가 '사람 가림'을 봄) · 이전 v1.0 — 2026-11-13 — 심리 편 공통 애니메이션 엔진 (주식 만스피 장면 v3.1 엔진을 바탕으로 — 원화 바꿔 끼우기 · 세계 층 카메라 · 앞 물건)
    사용자 지시 2026-11-13 "만스피 영상처럼 영상 만들거니까 …" → "1시간 마다 오디오 확인하고 생긴것 부터 영상 만들어".
    쓰는 곳: video/episodes/<심리 영상ID>/index.html — kit.js(K) 다음에 불러 PSY.setup(...) 후 shot()·world()·actor()… 로 장면을 짓고 PSY.build().
    · 세계(world) = 배경 → 뒤 소품 → 인물 → 앞 물건 → 떠 있는 것 → 빛 층이 한 카메라(cam)로 같이 움직임.
@@ -10,6 +10,7 @@
    | 버전 | 날짜 | 바뀐 것 |
    |---|---|---|
    | v1.0 | 2026-11-13 | 최초 — world·cam·shake·actor·moves·talk·bubble·boardCard·title·listCard·weather·waves·heart |
+   | v1.1 | 2026-11-25 | P.heads() — 지금 보이는 인물마다 머리 상자(화면 좌표). 그림·움직임은 그대로 (점검 전용, bubble-check.mjs v1.1 '사람 가림') |
 */
 (function () {
 "use strict";
@@ -178,6 +179,14 @@ P.headOf = (A, f) => {                                // 원화 f 의 머리 상
   const cx = A.x + hx * A.s, cy = A.y + (h[1] - m.ay) * A.s, w = h[2] * A.s, hh = h[3] * A.s;
   return [cx - w / 2, cy - hh / 2, cx + w / 2, cy + hh / 2];
 };
+// 점검용: 지금 원화가 보이는 인물마다 머리 상자 (페이지 좌표 — 카메라·반쪽 화면·몸 이동이 다 들어감). 그림에는 영향 없음.
+P.heads = () => ACTORS.filter(A => A.cur).map(A => {
+  const m = MAN[A.cur], h = m && m.pt && m.pt.head;
+  if (!h) return null;
+  const r = A.imgs[A.cur].getBoundingClientRect(), sx = r.width / m.w, sy = r.height / m.h;
+  const cx = r.left + (A.fl > 0 ? h[0] : m.w - h[0]) * sx, cy = r.top + h[1] * sy;
+  return { el: A.box, key: A.cur, r: [cx - h[2] * sx / 2, cy - h[3] * sy / 2, cx + h[2] * sx / 2, cy + h[3] * sy / 2] };
+}).filter(Boolean);
 // 말하기 설명 (A07 같은 시트: 1 = 가리킴 · 2 = 입 엶 · 3 = 입 다묾) — points = 가리키는 시각들
 P.explain = (A, sheet, a, b, points) => {
   const k1 = `${sheet}-1`, k2 = `${sheet}-2`, k3 = `${sheet}-3`;

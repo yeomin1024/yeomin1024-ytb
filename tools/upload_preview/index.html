@@ -1,0 +1,353 @@
+<title>유튜브 업로드 미리보기</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v1.0 — 2026-11-25 — 최초: PC 업로드 화면(tools/upload_web.py v1.6)의 [미리보기] · 썸네일 내려받기를 아티팩트로
+     (사용자 지시 2026-11-25 "아티팩트 만들어서 저번에 만들었던 미리보기, 썸네일 다운로드 기능을 거기에 넣어봐").
+     자료 = 같은 폴더에 함께 올리는 data.json (tools/upload_preview.py 가 만듦) · 썸네일 = thumbs/<주제>/<영상ID>/thumbnail_N.jpg.
+     저장 = downloads 기능 (아티팩트 안에서는 <a download> 가 막힘). 업로드 버튼은 없음 — 업로드는 PC 화면에서. 연구·교육용 도구. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* 배치: 위 요약 줄 → 거르기(상태·주제) → 영상 카드 격자 → 카드를 누르면 미리보기 판(넓으면 두 칸, 휴대전화면 한 칸·화면 가득) */
+:root {
+  --bg: #F2F3F6; --surface: #FFFFFF; --sunk: #E8EAEF; --ink: #161B24; --muted: #5C6574; --line: #D8DCE4;
+  --accent: #B93A10; --accent-ink: #FFFFFF; --accent-soft: #FBE7DE;
+  --ok: #11704F; --ok-bg: #DFF2E9; --warn: #8A5200; --warn-bg: #FBEFD8; --bad: #B42318; --bad-bg: #FCE6E3;
+  --scrim: rgba(12, 16, 24, .55); --shadow: 0 12px 32px rgba(16, 24, 40, .14); --thumb-bg: #1C2230;
+  --f-text: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --r: 14px; --r-s: 9px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0E1117; --surface: #161B23; --sunk: #1F2630; --ink: #E7EBF1; --muted: #9AA4B3; --line: #2B3341;
+  --accent: #FF8048; --accent-ink: #1B0D05; --accent-soft: #3A1E12;
+  --ok: #46CF9C; --ok-bg: #10291F; --warn: #F2B451; --warn-bg: #2B2110; --bad: #FF8F80; --bad-bg: #321715;
+  --scrim: rgba(0, 0, 0, .62); --shadow: 0 12px 32px rgba(0, 0, 0, .5); --thumb-bg: #0A0D12; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #0E1117; --surface: #161B23; --sunk: #1F2630; --ink: #E7EBF1; --muted: #9AA4B3; --line: #2B3341;
+  --accent: #FF8048; --accent-ink: #1B0D05; --accent-soft: #3A1E12;
+  --ok: #46CF9C; --ok-bg: #10291F; --warn: #F2B451; --warn-bg: #2B2110; --bad: #FF8F80; --bad-bg: #321715;
+  --scrim: rgba(0, 0, 0, .62); --shadow: 0 12px 32px rgba(0, 0, 0, .5); --thumb-bg: #0A0D12; color-scheme: dark }
+
+body { background: var(--bg); color: var(--ink); font-family: var(--f-text); font-size: 15px; line-height: 1.55; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-block: 28px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, h4 { text-wrap: balance; margin: 0; }
+h1 { font-size: 1.7rem; font-weight: 700; letter-spacing: -.01em; }
+.lede { color: var(--muted); margin: 6px 0 0; max-width: 68ch; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.top { display: flex; flex-direction: column; gap: 18px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: .9rem; }
+.stats b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+.note { font-size: .88rem; color: var(--muted); border-left: 3px solid var(--line); padding: 2px 0 2px 12px; }
+.note.bad { border-color: var(--bad); color: var(--bad); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; margin-top: 22px; }
+.seg { display: inline-flex; background: var(--sunk); border-radius: 999px; padding: 3px; gap: 2px; }
+.seg button { border: 0; background: transparent; color: var(--muted); font: inherit; font-weight: 500; font-size: .9rem; padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: .85rem; padding: 4px 11px; border-radius: 999px; cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.chip.tag { cursor: default; background: var(--sunk); border-color: transparent; font-size: .82rem; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 18px; margin-top: 18px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.tbtn { border: 0; padding: 0; background: none; cursor: pointer; display: block; width: 100%; }
+.tbox { position: relative; aspect-ratio: 16 / 9; background: var(--thumb-bg); overflow: hidden; max-width: 100%; }
+.tbox img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tbox.v img { object-fit: contain; }
+.tbox .none { position: absolute; inset: 0; display: grid; place-items: center; color: #C9D0DB; font-size: .85rem; }
+.dur { position: absolute; right: 6px; bottom: 6px; background: rgba(0, 0, 0, .78); color: #fff; font-family: var(--f-mono); font-size: .75rem; padding: 1px 6px; border-radius: 5px; }
+.cbody { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 7px; flex: 1; min-width: 0; }
+.pills { display: flex; flex-wrap: wrap; gap: 5px; }
+.pill { font-size: .74rem; font-weight: 500; padding: 1px 8px; border-radius: 999px; background: var(--sunk); color: var(--muted); }
+.pill.ok { background: var(--ok-bg); color: var(--ok); }
+.pill.warn { background: var(--warn-bg); color: var(--warn); }
+.pill.up { background: var(--accent-soft); color: var(--accent); }
+.ctitle { font-size: 1rem; font-weight: 700; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.cid { font-family: var(--f-mono); font-size: .75rem; color: var(--muted); margin: 0; overflow-wrap: anywhere; }
+.cmeta { font-size: .84rem; color: var(--muted); margin: 0; }
+.cmeta.warn { color: var(--warn); }
+.cact { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 4px; }
+.btn { border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font: inherit; font-weight: 500; font-size: .87rem; padding: 6px 13px; border-radius: var(--r-s); cursor: pointer; }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.sm { font-size: .8rem; padding: 3px 10px; }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn:focus-visible, .chip:focus-visible, .seg button:focus-visible, .tbtn:focus-visible, .x:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+body.nodl [data-dl], body.nodl [data-dlall] { display: none; }
+a { color: var(--accent); }
+.empty { padding: 40px 0; color: var(--muted); }
+
+/* 미리보기 판 */
+.ov { position: fixed; inset: 0; background: var(--scrim); z-index: 20; display: flex; justify-content: center; align-items: flex-start; overflow-y: auto;
+  padding: calc(env(safe-area-inset-top, 0px) + 24px) max(16px, env(safe-area-inset-right, 0px)) calc(env(safe-area-inset-bottom, 0px) + 24px) max(16px, env(safe-area-inset-left, 0px)); }
+.pv { background: var(--surface); color: var(--ink); width: min(1120px, 100%); border-radius: var(--r); box-shadow: var(--shadow); padding: 22px 24px 26px; min-width: 0; }
+.pvhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.eyebrow { margin: 0 0 4px; font-size: .8rem; color: var(--muted); letter-spacing: .02em; }
+.pvhead h2 { font-size: 1.3rem; }
+.x { border: 1px solid var(--line); background: var(--surface); color: var(--ink); width: 38px; height: 38px; border-radius: 50%; font-size: 1.2rem; line-height: 1; cursor: pointer; flex: none; }
+.probs { margin-top: 14px; background: var(--bad-bg); color: var(--bad); border-radius: var(--r-s); padding: 10px 14px; font-size: .9rem; }
+.check { margin-top: 14px; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px 14px; font-size: .86rem; }
+.check div { display: flex; gap: 8px; min-width: 0; }
+.check b { flex: none; width: 1.2em; }
+.check .y b { color: var(--ok); } .check .n b { color: var(--bad); }
+.check span { min-width: 0; overflow-wrap: anywhere; }
+.pvgrid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 28px; margin-top: 18px; }
+.pvgrid > * { min-width: 0; display: flex; flex-direction: column; gap: 10px; }
+.pvgrid h4 { font-size: .92rem; font-weight: 700; margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.pvgrid h4 .muted { font-weight: 400; font-size: .84rem; }
+.player { position: relative; border-radius: var(--r-s); overflow: hidden; background: var(--thumb-bg); }
+.player .tbox { border-radius: 0; }
+.pnote { background: var(--sunk); color: var(--muted); font-size: .82rem; padding: 8px 12px; }
+.wtitle { font-size: 1.15rem; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+.desc { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--sunk); border-radius: var(--r-s); padding: 12px 14px; font-size: .88rem; line-height: 1.6; margin: 0; max-height: 420px; overflow-y: auto; font-family: var(--f-text); }
+.phone { width: min(330px, 100%); background: var(--bg); border: 1px solid var(--line); border-radius: 22px; padding: 10px 10px 14px; }
+.phone .tbox { border-radius: 12px; }
+.pmeta { display: flex; gap: 10px; margin-top: 10px; }
+.av { width: 34px; height: 34px; border-radius: 50%; background: var(--sunk); flex: none; }
+.pt { font-size: .92rem; font-weight: 500; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ps { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+.phone.short { width: min(210px, 100%); padding: 8px; }
+.sbox { position: relative; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: var(--thumb-bg); max-width: 100%; }
+.sbox img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sbox .st { position: absolute; left: 0; right: 0; bottom: 0; padding: 26px 10px 10px; color: #fff; font-size: .82rem; font-weight: 500; line-height: 1.35;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .78)); }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.thumbs figure { margin: 0; border: 2px solid transparent; border-radius: var(--r-s); overflow: hidden; background: var(--sunk); display: flex; flex-direction: column; min-width: 0; }
+.thumbs figure.main { border-color: var(--accent); }
+.thumbs .tbox { border-radius: 0; }
+.thumbs figcaption { padding: 7px 9px 9px; font-size: .78rem; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+.thumbs figcaption b { color: var(--ink); font-weight: 700; font-family: var(--f-mono); font-size: .76rem; }
+.kv { width: 100%; border-collapse: collapse; font-size: .86rem; }
+.kv td { border-top: 1px solid var(--line); padding: 6px 8px 6px 0; vertical-align: top; }
+.kv td:first-child { color: var(--muted); width: 42%; }
+.cue { font-size: .86rem; display: flex; gap: 10px; min-width: 0; }
+.cue b { font-family: var(--f-mono); font-weight: 500; color: var(--muted); flex: none; font-size: .78rem; padding-top: 2px; }
+.cue span { min-width: 0; overflow-wrap: anywhere; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(env(safe-area-inset-bottom, 0px) + 18px); z-index: 40; background: var(--ink); color: var(--bg);
+  padding: 9px 16px; border-radius: 999px; font-size: .88rem; box-shadow: var(--shadow); max-width: calc(100% - 32px); text-align: center; }
+.toast.bad { background: var(--bad); color: #fff; }
+@media (max-width: 860px) { .pvgrid { grid-template-columns: minmax(0, 1fr); } .pv { padding: 18px 16px 22px; } }
+@media (max-width: 520px) { .ov { padding: 0; } .pv { border-radius: 0; min-height: 100%; padding-top: calc(env(safe-area-inset-top, 0px) + 16px); } h1 { font-size: 1.4rem; } }
+@media (prefers-reduced-motion: no-preference) { .card { transition: box-shadow .15s ease; } .card:hover { box-shadow: var(--shadow); } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>유튜브 업로드 미리보기</h1>
+      <p class="lede">올라갈 제목·설명란·태그·썸네일을 미리 보고, 썸네일을 받는 곳입니다. 업로드 버튼은 PC 업로드 화면(<span class="mono">유튜브_업로드.bat</span>)에 있습니다.</p>
+    </div>
+    <div class="stats" id="stats">자료를 불러오는 중…</div>
+    <p class="note" id="dlnote" hidden></p>
+  </header>
+  <div class="filters">
+    <div class="seg" role="group" aria-label="상태" id="seg"></div>
+    <div class="chips" role="group" aria-label="주제" id="topics"></div>
+  </div>
+  <main class="grid" id="grid"></main>
+</div>
+<div class="ov" id="ov" hidden><div class="pv" id="pv" role="dialog" aria-modal="true" aria-labelledby="pvtitle"></div></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+(() => {
+"use strict";
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const TOPIC_ORDER = ["psychology", "stock", "economic", "music", "history", "test"];
+let D = null, BY = {}, VIEW = { status: "waiting", topic: "all" }, DL, DL_DONE = false, LAST_FOCUS = null;
+try { const v = JSON.parse(localStorage.getItem("upv:view") || "null"); if (v && v.status) VIEW = v; } catch (e) { /* 저장소 없음 — 기본값 */ }
+const keepView = () => { try { localStorage.setItem("upv:view", JSON.stringify(VIEW)); } catch (e) { /* 무시 */ } };
+
+/* 내려받기 — 아티팩트 안에서는 downloads 기능으로만 저장됨 */
+const dlPromise = (window.claude && typeof window.claude.use === "function") ? window.claude.use("downloads").catch(() => null) : Promise.resolve(null);
+dlPromise.then(x => { DL = x; DL_DONE = true; if (!x) { document.body.classList.add("nodl"); const n = $("#dlnote"); n.hidden = false; n.classList.add("bad");
+  n.textContent = "이 보기에서는 썸네일 저장을 쓸 수 없습니다. claude.ai 에서 이 페이지를 브라우저로 열면 받을 수 있습니다."; } });
+
+const KST_FMT = new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", month: "long", day: "numeric", weekday: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23" });
+const KST_DAY = new Intl.DateTimeFormat("ko-KR", { timeZone: "Asia/Seoul", month: "long", day: "numeric", weekday: "short" });
+const kst = iso => { if (!iso) return ""; const d = new Date(iso); return isNaN(d) ? String(iso) : KST_FMT.format(d); };
+function defaultPublish() {               // PC 업로드 화면 기본값: 오늘 누르면 7일 뒤 17:00 (한국 시간)
+  const days = (D && D.meta.default_days) || 7, hm = (D && D.meta.default_hhmm) || "17:00";
+  return `${KST_DAY.format(new Date(Date.now() + days * 864e5))} ${hm}`;
+}
+const fmtDur = s => { s = Math.round(s); const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60, p = n => String(n).padStart(2, "0"); return h ? `${h}:${p(m)}:${p(x)}` : `${m}:${p(x)}`; };
+function durOf(v) {
+  if (v.video && v.video.duration_s) return fmtDur(v.video.duration_s);
+  const e = v.srt && v.srt.end; if (!e) return "";
+  const p = e.split(":").map(Number); return p.length === 3 ? fmtDur(p[0] * 3600 + p[1] * 60 + p[2]) : "";
+}
+const mainThumb = v => v.thumbs.find(t => t.main) || v.thumbs[0] || null;
+const extras = v => v.thumbs.filter(t => !t.main);
+function dlLabel(v) { const ex = extras(v); return ex.length ? `실험안 ${ex.length}장 받기` : (v.thumbs.length ? "썸네일 받기" : ""); }
+function tbox(t, v, cls) {
+  if (!t) return `<div class="tbox ${cls || ""}"><span class="none">썸네일 없음</span></div>`;
+  const vert = t.h > t.w;
+  return `<div class="tbox ${vert ? "v" : ""} ${cls || ""}"><img src="${esc(t.path)}" alt="${esc(t.name)}" loading="lazy">${v && durOf(v) ? `<span class="dur">${esc(durOf(v))}</span>` : ""}</div>`;
+}
+
+/* ─────────── 목록 ─────────── */
+function render() {
+  const vids = D.videos;
+  const cnt = s => vids.filter(v => s === "all" || v.status === s).length;
+  const segs = [["waiting", "업로드 대기"], ["uploaded", "올린 영상"], ["all", "전체"]];
+  $("#seg").innerHTML = segs.map(([k, l]) => `<button type="button" id="seg-${k}" data-seg="${k}" aria-pressed="${VIEW.status === k}">${l} <span class="mono">${cnt(k)}</span></button>`).join("");
+  const inStatus = vids.filter(v => VIEW.status === "all" || v.status === VIEW.status);
+  const tops = [...new Set(inStatus.map(v => v.topic))].sort((a, b) => (TOPIC_ORDER.indexOf(a) + 99) % 99 - (TOPIC_ORDER.indexOf(b) + 99) % 99 || a.localeCompare(b));
+  if (VIEW.topic !== "all" && !tops.includes(VIEW.topic)) VIEW.topic = "all";
+  const name = t => (vids.find(v => v.topic === t) || {}).topic_ko || t;
+  $("#topics").innerHTML = [`<button type="button" class="chip" id="tp-all" data-topic="all" aria-pressed="${VIEW.topic === "all"}">모든 주제</button>`]
+    .concat(tops.map(t => `<button type="button" class="chip" id="tp-${esc(t)}" data-topic="${esc(t)}" aria-pressed="${VIEW.topic === t}">${esc(name(t))} <span class="mono">${inStatus.filter(v => v.topic === t).length}</span></button>`)).join("");
+  const list = inStatus.filter(v => VIEW.topic === "all" || v.topic === VIEW.topic);
+  $("#grid").innerHTML = list.length ? list.map(card).join("") : `<p class="empty">이 조건에 맞는 영상이 없습니다.</p>`;
+}
+function card(v) {
+  const t = mainThumb(v);
+  let state = "", meta = "";
+  if (v.status === "waiting") {
+    const miss = (v.items || []).filter(i => !i[1]).map(i => i[0]);
+    state = v.ready ? `<span class="pill ok">준비됨</span>` : `<span class="pill warn">자료 부족</span>`;
+    meta = v.ready ? `<p class="cmeta">업로드를 누르면 ${esc(defaultPublish())} 공개 예약</p>`
+                   : `<p class="cmeta warn">부족: ${esc(miss.concat(v.problems.length ? ["시트 문제"] : []).join(" · ") || "점검 필요")}</p>`;
+  } else {
+    state = `<span class="pill up">올림</span>`;
+    const y = v.youtube || {};
+    meta = `<p class="cmeta">${y.publishAt ? `공개 ${esc(kst(y.publishAt))}` : "공개 시각 기록 없음"}${y.url ? ` · <a href="${esc(y.url)}" target="_blank" rel="noopener">유튜브에서 열기</a>` : ""}</p>`;
+  }
+  const dl = dlLabel(v);
+  return `<article class="card">
+    <button type="button" class="tbtn" data-open="${esc(v.key)}" aria-label="미리보기 열기: ${esc(v.title)}">${tbox(t, v)}</button>
+    <div class="cbody">
+      <div class="pills"><span class="pill">${esc(v.topic_ko)}</span><span class="pill">${v.shorts ? "쇼츠" : "롱폼"}</span>${state}</div>
+      <h3 class="ctitle">${esc(v.title || "(제목 없음)")}</h3>
+      <p class="cid">${esc(v.vid)}</p>
+      ${meta}
+      <div class="cact"><button type="button" class="btn" data-open="${esc(v.key)}">미리보기</button>${dl ? `<button type="button" class="btn ghost" data-dlall="${esc(v.key)}">${esc(dl)}</button>` : ""}</div>
+    </div></article>`;
+}
+
+/* ─────────── 미리보기 ─────────── */
+function openPv(key, fromHash) {
+  const v = BY[key]; if (!v) return;
+  LAST_FOCUS = document.activeElement;
+  const t = mainThumb(v), ex = extras(v), dur = durOf(v);
+  const checks = v.status === "waiting" && v.items ? `<div class="check">${v.items.map(i => `<div class="${i[1] ? "y" : "n"}"><b>${i[1] ? "✓" : "✕"}</b><span><b style="width:auto;color:var(--ink)">${esc(i[0])}</b> · ${esc(i[2])}</span></div>`).join("")}</div>` : "";
+  const probs = v.problems.length ? `<div class="probs"><b>올리기 전에 고칠 것</b><br>${v.problems.map(esc).join("<br>")}</div>` : "";
+  const vid = v.video ? `${v.video.mb}MB · 조각 ${v.video.parts}개${v.video.on_branch ? " · uploads 브랜치에 있음" : " · uploads 브랜치에 없음"}` : "완성 영상 기록(video.json) 없음";
+  const when = v.status === "waiting" ? `${defaultPublish()} 공개 (오늘 [업로드]를 누를 때 — PC 화면에서 바꿀 수 있음)` : (v.youtube && v.youtube.publishAt ? kst(v.youtube.publishAt) : "기록 없음");
+  const phone = v.shorts
+    ? `<div class="phone short"><div class="sbox">${t ? `<img src="${esc(t.path)}" alt="">` : ""}<div class="st">${esc(v.title)}</div></div></div>`
+    : `<div class="phone">${tbox(t, v)}<div class="pmeta"><div class="av"></div><div><div class="pt">${esc(v.title)}</div><div class="ps">조회수 0회 · ${v.status === "waiting" ? "예약 " + esc(defaultPublish()) : esc(kst((v.youtube || {}).publishAt))}</div></div></div></div>`;
+  const thumbs = v.thumbs.length ? `<div class="thumbs">${v.thumbs.map(x => `<figure class="${x.main ? "main" : ""}">${tbox(x)}<figcaption><b>${esc(x.name)}</b><span>${esc(x.role)} · ${x.w}×${x.h} · ${x.kb}KB</span><button type="button" class="btn ghost sm" data-dl="${esc(v.key)}|${x.n}">받기</button></figcaption></figure>`).join("")}</div>
+      ${ex.length ? `<p><button type="button" class="btn" data-dlall="${esc(v.key)}">실험안 ${ex.length}장 모두 받기</button></p><p class="muted" style="margin:0;font-size:.82rem">실험안은 API 로 올리지 않습니다. 공개 뒤 스튜디오 '테스트 및 비교'에 직접 넣으세요. 파일마다 저장 확인 창이 뜹니다.</p>` : ""}`
+    : `<p class="muted">썸네일 파일이 없습니다.</p>`;
+  const exps = v.experiments.length ? `<h4>실험안 <span class="muted">스튜디오 '테스트 및 비교'용</span></h4>${v.experiments.map(e => `<div class="cue"><b>${esc(e.name)}</b><span>${esc(e.title)} · thumbnail_${e.thumb}</span></div>`).join("")}` : "";
+  const rows = Object.entries(v.settings).map(([k, x]) => `<tr><td>${esc(k)}</td><td>${esc(x)}</td></tr>`).join("")
+    + `<tr><td>공개 시각</td><td>${esc(when)}</td></tr><tr><td>챕터</td><td>${v.chapters.length ? `${v.chapters.length}개 (자막에서 다시 계산)` : (v.shorts ? "쇼츠 — 없음" : "없음")}</td></tr>`;
+  const y = v.youtube || {};
+  $("#pv").innerHTML = `<div class="pvhead"><div><p class="eyebrow">${esc(v.topic_ko)} · ${v.shorts ? "쇼츠" : "롱폼"} · <span class="mono">${esc(v.vid)}</span></p>
+      <h2 id="pvtitle">${v.status === "waiting" ? "업로드 미리보기" : "올린 영상"}</h2></div><button type="button" class="x" data-close aria-label="닫기">×</button></div>
+    ${v.status === "uploaded" ? `<p class="muted" style="margin:8px 0 0;font-size:.86rem">업로드 시트 기준입니다. 올린 뒤 스튜디오에서 바꾼 것은 반영되지 않습니다.${y.url ? ` <a href="${esc(y.url)}" target="_blank" rel="noopener">유튜브에서 열기</a>` : ""}</p>` : ""}
+    ${probs}${checks}
+    <div class="pvgrid"><section>
+      <div class="player">${tbox(t, v)}<div class="pnote">영상 재생은 PC 업로드 화면에서 · ${esc(vid)}</div></div>
+      <h3 class="wtitle">${esc(v.title || "(제목 없음)")}</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span class="muted mono" style="font-size:.82rem">제목 ${v.title_chars}자 / 100</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|title">제목 복사</button></div>
+      <h4>설명란 <span class="muted mono">${v.description.length}자 / 5000</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|description">설명란 복사</button></h4>
+      <pre class="desc" id="pv-desc">${esc(v.description || "(설명란 없음)")}</pre>
+      <h4>태그 <span class="muted mono">${v.tags.length}개 · ${v.tags_chars}자 / 500</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|tags">태그 복사</button></h4>
+      <div class="chips">${v.tags.map(x => `<span class="chip tag">${esc(x)}</span>`).join("") || `<span class="muted">태그 없음</span>`}</div>
+      ${v.pinned ? `<h4>고정 댓글 <span class="muted">스튜디오에서 직접 — API 로 안 올림</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|pinned">복사</button></h4><pre class="desc">${esc(v.pinned)}</pre>` : ""}
+    </section><aside>
+      <h4 style="margin-top:0">휴대전화 홈 화면 <span class="muted">대략 — 줄 바꿈은 기기마다 조금 다름</span></h4>${phone}
+      <h4>썸네일 <span class="muted">테두리 = 본안</span></h4>${thumbs}
+      ${exps}
+      <h4>설정</h4><table class="kv">${rows}</table>
+      <h4>자막 <span class="muted mono">처음 ${v.srt.first.length}개 / 모두 ${v.srt.count}개${v.srt.end ? " · 끝 " + esc(v.srt.end) : ""}</span></h4>
+      ${v.srt.first.map(c => `<div class="cue"><b>${esc(c.t)}</b><span>${esc(c.text)}</span></div>`).join("") || `<p class="muted">자막 파일이 없습니다.</p>`}
+    </aside></div>`;
+  $("#ov").hidden = false;
+  document.body.style.overflow = "hidden";
+  $("#pv .x").focus();
+  if (!fromHash && location.hash !== "#" + key) location.hash = key;
+}
+function closePv() {
+  if ($("#ov").hidden) return;
+  $("#ov").hidden = true; document.body.style.overflow = "";
+  if (location.hash) location.hash = "";
+  if (LAST_FOCUS && LAST_FOCUS.focus) LAST_FOCUS.focus();
+}
+
+/* ─────────── 저장 · 복사 ─────────── */
+let toastTimer = 0;
+function toast(msg, kind) { const t = $("#toast"); t.textContent = msg; t.className = "toast" + (kind ? " " + kind : ""); t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3600); }
+async function getDL() { if (!DL_DONE) toast("저장 기능을 준비하는 중…"); return dlPromise; }
+async function saveOne(v, t) {          // → true 저장 · false 실패(다음 것 계속) · "stop" 그만
+  const dl = await getDL();
+  if (!dl) { toast("이 보기에서는 파일을 저장할 수 없습니다.", "bad"); return "stop"; }
+  let blob;
+  try { const r = await fetch(t.path); if (!r.ok) throw new Error("HTTP " + r.status); blob = await r.blob(); }
+  catch (e) { toast(`${t.name} 그림을 읽지 못했습니다 (${e.message}). 페이지를 새로 고친 뒤 다시 눌러 주세요.`, "bad"); return false; }
+  const filename = `${v.vid}_${t.name}`;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try { await dl.save({ filename, data: blob }); toast(`${filename} 저장함`); return true; }
+    catch (e) {
+      const c = e && e.code;
+      if (c === "rate_limited" && attempt === 0) { await sleep(1600); continue; }
+      if (c === "declined") { toast("저장을 취소했습니다."); return "stop"; }
+      if (c === "host_unavailable") { toast("이 앱에서는 파일을 저장할 수 없습니다. 브라우저나 컴퓨터에서 열어 주세요.", "bad"); return "stop"; }
+      if (c === "rate_limited") { toast("저장 확인 창이 이미 열려 있습니다. 잠시 뒤 다시 눌러 주세요.", "bad"); return "stop"; }
+      toast(`저장하지 못했습니다 (${c || (e && e.message) || "알 수 없음"}).`, "bad"); return "stop";
+    }
+  }
+  return false;
+}
+async function saveMany(v, list, btn) {
+  if (btn) btn.disabled = true;
+  let n = 0;
+  try { for (const t of list) { const r = await saveOne(v, t); if (r === "stop") break; if (r === true) n++; } }
+  finally { if (btn) btn.disabled = false; }
+  if (list.length > 1 && n) toast(`${list.length}장 중 ${n}장 저장함`);
+}
+function copyText(text, btn) {
+  const ok = () => toast("복사했습니다");
+  const fallback = () => {               // 클립보드가 막힌 보기: 글을 골라 두고 직접 복사하게
+    const pre = $("#pv-desc"); if (pre) { pre.textContent = text; const rg = document.createRange(); rg.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(rg); }
+    toast("복사가 막혀 있습니다. 설명란 칸에 골라 둔 글을 직접 복사하세요.", "bad");
+  };
+  try { navigator.clipboard.writeText(text).then(ok, fallback); } catch (e) { fallback(); }
+}
+
+/* ─────────── 이벤트 ─────────── */
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-seg],[data-topic],[data-open],[data-close],[data-dl],[data-dlall],[data-copy]");
+  if (!b) { if (e.target === $("#ov")) closePv(); return; }
+  if (b.dataset.seg) { VIEW.status = b.dataset.seg; keepView(); render(); return; }
+  if (b.dataset.topic) { VIEW.topic = b.dataset.topic; keepView(); render(); return; }
+  if (b.dataset.open) { openPv(b.dataset.open); return; }
+  if (b.hasAttribute("data-close")) { closePv(); return; }
+  if (b.dataset.dl) { const [k, n] = b.dataset.dl.split("|"); const v = BY[k]; const t = v && v.thumbs.find(x => String(x.n) === n); if (t) saveMany(v, [t], b); return; }
+  if (b.dataset.dlall) { const v = BY[b.dataset.dlall]; if (!v) return; const ex = extras(v); saveMany(v, ex.length ? ex : v.thumbs, b); return; }
+  if (b.dataset.copy) { const [k, f] = b.dataset.copy.split("|"); const v = BY[k]; if (!v) return; copyText(f === "tags" ? v.tags.join(", ") : String(v[f] || ""), b); }
+});
+document.addEventListener("keydown", e => { if (e.key === "Escape") closePv(); });
+window.addEventListener("hashchange", () => { const k = decodeURIComponent(location.hash.slice(1)); if (k && BY[k]) openPv(k, true); else closePv(); });
+
+fetch("data.json").then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }).then(d => {
+  D = d; BY = Object.fromEntries(d.videos.map(v => [v.key, v]));
+  const w = d.videos.filter(v => v.status === "waiting"), up = d.videos.filter(v => v.status === "uploaded");
+  $("#stats").innerHTML = `<span>업로드 대기 <b>${w.length}</b>편 · 준비됨 <b>${w.filter(v => v.ready).length}</b>편</span><span>올린 영상 <b>${up.length}</b>편</span>`
+    + `<span>자료 기준 <span class="mono">${esc(d.meta.built)}</span> · main <span class="mono">${esc(d.meta.commit)}</span></span>`;
+  if (!w.length && VIEW.status === "waiting") VIEW.status = "uploaded";
+  render();
+  const k = decodeURIComponent(location.hash.slice(1)); if (k && BY[k]) openPv(k, true);
+}).catch(e => {
+  $("#stats").textContent = "";
+  $("#grid").innerHTML = `<p class="empty">자료(data.json)를 읽지 못했습니다: ${esc(e.message)}. Claude 에게 'tools/upload_preview.py 로 다시 올려'라고 하면 됩니다.</p>`;
+});
+})();
+</script>

@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-25 (2) — pc_trends.py v1.1: PC 오류 'No module named requests' 고침
+
+- 사용자 보고 "ModuleNotFoundError: No module named 'requests'" — 원인: 키(GITHUB_TOKEN)를 읽으려고 분석기 전체(numpy·pandas·matplotlib …)를 import 했는데, 분석기의 패키지 자동 설치는 직접 실행할 때만 돎 → 새 .venv 에서 requests 부터 없음.
+- 고침: `ensure_requests()` — requests 만 없으면 설치 · `github_token()` — 분석기 key_sources 와 같은 순서(<주제>/.env → GITHUB_TOKEN_<주제> → 맨 위 .env → 환경 변수)로 직접 읽음 (값 출력 안 함) · 분석기 import 뺌 · `--skip-install`.
+- 확인: selftest ✅ 10개 (키 읽기 순서 · 설치 안 함 더함) · 새 가상환경(requests 없음)에서 `run history --no-push --limit 1` → requests 설치 → 키·목록 → 첫 요청 (여기선 구글 429 → 1분 대기, PC 는 집 인터넷).
+- `guides/pc_analysis.md` '구글 트렌드 받기' v1.1 줄.
+
 ## 2026-11-25 — 역사 다음 영상 주제 탐색 (심리와 같은 네 단계) · 구글 트렌드 PC 받기
 
 ### 왜 (사용자 지시)

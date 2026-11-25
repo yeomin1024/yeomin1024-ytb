@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-25 — 새로: 구글 트렌드(유튜브 검색·한국·최근 12개월) 묶음 CSV 를 PC(집 인터넷)에서 받아 GitHub 에
-#   사용자 지시 2026-11-25 "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" →
+# VERSION: v1.1 — 2026-11-25 — PC 오류 "ModuleNotFoundError: No module named 'requests'" 고침 (사용자 보고): 분석기(numpy·pandas·matplotlib …)를 키 읽기용으로 불러오지 않고 .env 를 직접 읽음 · requests 만 없으면 설치.
+# (v1.0 — 2026-11-25 — 새로: 구글 트렌드(유튜브 검색·한국·최근 12개월) 묶음 CSV 를 PC(집 인터넷)에서 받아 GitHub 에
+#   사용자 지시 2026-11-25 "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" →)
 #   클라우드는 허용 목록에 넣어도 구글이 첫 요청부터 HTTP 429 (데이터센터 주소) — 2026-11-25 시험. 집 인터넷 주소는 사람이 쓰는 주소라 대개 받힘.
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-25 | ensure_requests (requests 만 설치) · github_token (분석기와 같은 순서로 .env 직접 읽기 — 분석기 import 뺌) · selftest 2개 더 | ensure_requests · github_token · cmd_run · selftest |
 # | v1.0 | 2026-11-25 | 최초 — run(묶음 목록 trends_batches.json → 묶음마다 explore → 시간 흐름 위젯 CSV → GitHub) · selftest(가짜 구글·가짜 GitHub) | Trends · run_topic · selftest |
 """구글 트렌드 묶음 받기 — 목록은 클라우드(tools/next_topic.py <주제> report|batches)가 정하고, 받기·올리기는 PC 에서.
 
@@ -25,10 +27,13 @@
 ※ 연구·교육용 — 구글 트렌드 값은 0~100 상대값 (검색 수가 아님).
 """
 import argparse
+import importlib.util
 import json
 import logging
+import os
 import random
 import re
+import subprocess
 import sys
 import time
 from pathlib import Path
@@ -37,7 +42,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import pc_transcribe as pt  # noqa: E402  GitHub 올리기·로그·주제 이름 검사를 그대로
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("pc_trends")
 TRENDS = "https://trends.google.com"
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -112,6 +117,48 @@ class Trends:
         return text
 
 
+def ensure_requests(install=True, run=subprocess.run):
+    """PC 가상환경에 requests 가 없으면 그것만 설치 (분석기 전체 패키지는 필요 없음 — v1.1)."""
+    if importlib.util.find_spec("requests") is not None:
+        return True
+    if not install:
+        raise SystemExit("[SETUP] ❌ requests 패키지가 없음 → python -m pip install -U requests")
+    log("SETUP", note="requests 설치 (처음 한 번, 몇 초)")
+    if run([sys.executable, "-m", "pip", "install", "-U", "requests"]).returncode != 0:
+        raise SystemExit("[SETUP] ❌ requests 설치 실패 → 위 오류 확인 (가상환경 .venv — run_analyzer.ps1 이 만듦)")
+    importlib.invalidate_caches()
+    return True
+
+
+def _env_file(path):
+    """KEY=VALUE .env 읽기 (메모장 BOM·따옴표 허용) — 분석기 load_env_file 과 같은 꼴. 값은 출력하지 않음."""
+    vals = {}
+    try:
+        text = Path(path).read_text("utf-8-sig")
+    except OSError:
+        return vals
+    for line in text.splitlines():
+        line = line.strip()
+        if line and not line.startswith("#") and "=" in line:
+            k, v = line.split("=", 1)
+            vals[k.strip()] = v.strip().strip('"').strip("'")
+    return vals
+
+
+def github_token(topic, root=ROOT, environ=None):
+    """GITHUB_TOKEN — 분석기 key_sources 와 같은 순서: <주제>/.env → 환경 변수 GITHUB_TOKEN_<주제> → 맨 위 .env → 환경 변수. → (값, 어디서)."""
+    environ = os.environ if environ is None else environ
+    tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", topic).strip("_").upper()
+    for name, get in ((f"{topic}/.env", lambda: _env_file(Path(root) / topic / ".env").get("GITHUB_TOKEN", "")),
+                      (f"env:GITHUB_TOKEN_{tag}", lambda: environ.get(f"GITHUB_TOKEN_{tag}", "")),
+                      (".env", lambda: _env_file(Path(root) / ".env").get("GITHUB_TOKEN", "")),
+                      ("env", lambda: environ.get("GITHUB_TOKEN", ""))):
+        v = (get() or "").strip()
+        if v:
+            return v, name
+    return "", "-"
+
+
 def exists_on_github(gh, path):
     r = gh.req("GET", f"/contents/{path}", params={"ref": gh.branch}, ok=(200, 404))
     return r.status_code == 200
@@ -171,13 +218,10 @@ def cmd_run(opts):
     for topic in opts.topics:
         pt.check_topic(topic)
         pt.setup_logging(opts.log_level, work_root / f"trends_log_{topic}.txt")
+        ensure_requests(install=not opts.skip_install)
         import requests
-        sys.path.insert(0, str(ROOT))
-        import youtube_topic_analyzer as y
-        keys = y.load_keys(require_youtube=False, topic_dir=ROOT / topic)     # 값은 가려서 보여 줌
-        token = keys.get("GITHUB_TOKEN") or ""
-        if token:
-            y.register_secret(token)
+        token, src = github_token(topic)                                     # 값은 출력하지 않음
+        log("KEYS", GITHUB_TOKEN="있음" if token else "(없음)", source=src)
         if not token and not (opts.no_push or opts.dry_run):
             raise SystemExit("[SETUP] ❌ GITHUB_TOKEN 이 없음 → .env 에 넣고 다시 (또는 --no-push 로 PC 에만 받기)")
         gh = None
@@ -287,6 +331,17 @@ def selftest():
     gh3 = FakeGH()
     out3 = run_topic("demo", batches, Trends(FakeGoogle(block=99), sleep=slept3.append), gh3, base / "w3", opts, sleep=slept3.append)
     check("계속 429 → 1·2·4분 쉰 뒤 멈춤, 올릴 것 없음", out3["blocked"] and not out3["got"] and slept3 == list(BACKOFF) and not gh3.commits, slept=slept3)
+    kd = base / "keys"                                                      # v1.1: 키 읽기 순서 (가짜 값)
+    (kd / "demo").mkdir(parents=True)
+    (kd / ".env").write_text("\ufeffGITHUB_TOKEN='root-fake'\n", "utf-8")
+    t1 = github_token("demo", root=kd, environ={"GITHUB_TOKEN": "env-fake"})
+    (kd / "demo" / ".env").write_text("# 주석\nGITHUB_TOKEN=topic-fake\n", "utf-8")
+    t2 = github_token("demo", root=kd, environ={"GITHUB_TOKEN_DEMO": "tag-fake"})
+    t3 = github_token("none", root=base / "empty", environ={})
+    check("키 읽기 순서 (주제 .env → GITHUB_TOKEN_<주제> → 맨 위 .env → 환경 변수 · BOM·따옴표)",
+          t1 == ("root-fake", ".env") and t2 == ("topic-fake", "demo/.env") and t3 == ("", "-"), got=[t1[1], t2[1], t3[1]])
+    calls = []
+    check("requests 있으면 설치 안 함", ensure_requests(run=lambda *a, **k: calls.append(a)) and not calls)
     log("SELFTEST", result="✅ 모두 통과" if ok else "❌ 실패 있음")
     return 0 if ok else 1
 
@@ -305,6 +360,7 @@ def main(argv=None):
     pr.add_argument("--list-file", default="", help="GitHub 대신 이 묶음 목록 파일 (trends_batches.json)")
     pr.add_argument("--repo", default="yeomin1024/yeomin1024-ytb")
     pr.add_argument("--branch", default="main")
+    pr.add_argument("--skip-install", action="store_true", help="requests 가 없어도 설치하지 않음")
     pr.add_argument("--log-level", default="INFO")
     sub.add_parser("selftest", help="가짜 구글·가짜 GitHub 로 시험")
     a = ap.parse_args(argv)

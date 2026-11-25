@@ -148,7 +148,7 @@ bash run_analyzer.sh
 - **옵션**: `--limit 5`(시험 삼아) · `--korean-only` · `--groups success,shorts_success` · `--no-whisper`(자막만) · `--first-only`(음성인식 앞 5분까지만 — v1.1) · `--model medium`(NVIDIA GPU) · `--no-push`·`--dry-run` · 시험 `python tools/pc_transcribe.py selftest` (가짜 GitHub).
 - **시간**: 자막을 받으면 영상 하나 몇 초. 사용자 PC 는 2026-10-14 에 자막 26/35 가 막혔고 음성인식이 영상 하나 10분 안팎 → 최대(자막 모두 막힘) 한국어 1차 약 35시간 · 전체 약 155시간 (`transcript_todo.md`). 봇 확인이 반복되면 음성인식을 멈추고 알려 줌 → YouTube 에 로그인한 브라우저에서 `cookies.txt` 를 내보내 실행 폴더에 두면 분석기가 저절로 씀 (`YTDLP_COOKIES_FILE` 이 비면 이 폴더의 `cookies*.txt` — 비밀값이라 GitHub 에 올리지 않음).
 
-## 구글 트렌드 받기 — PC (`run_analyzer.ps1 -Trends` · `tools/pc_trends.py` v1.0 — 2026-11-25)
+## 구글 트렌드 받기 — PC (`run_analyzer.ps1 -Trends` · `tools/pc_trends.py` v1.1 — 2026-11-25)
 
 사용자 지시 2026-11-25 "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가".
 
@@ -164,7 +164,7 @@ bash run_analyzer.sh
 - **처음 한 번**: 실행기 자체는 스스로 새로 받지 않으므로 `run_analyzer.ps1` 을 한 번 새로 받는다 (공개 저장소: `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`). 그 뒤엔 `tools/pc_trends.py` 도 실행할 때마다 최신으로 받음.
 - **옵션**: `--limit 1`(시험 삼아 한 묶음) · `--pause 60`(더 천천히) · `--no-push`(PC `.yt_work/trends/<주제>/` 에만) · `--force`(이미 올린 묶음도 다시) · 시험 `python tools/pc_trends.py selftest` (가짜 구글·가짜 GitHub).
 - **그래도 막히면**: `trends_batches.md` 의 주소를 브라우저로 열어 ⤓(CSV) — 파일 이름 `batch_NN.csv` 로 같은 폴더에 (심리 2026-11-25 방식).
-- 키: `.env` 의 `GITHUB_TOKEN` (대본 받기와 같음) — 구글 쪽 키는 없음.
+- 키: `.env` 의 `GITHUB_TOKEN` (대본 받기와 같음 · 분석기와 같은 순서로 직접 읽음) — 구글 쪽 키는 없음. 패키지는 `requests` 하나뿐이고 없으면 스스로 설치 (v1.1 — PC 오류 'No module named requests' 고침).
 
 ## 웹 화면 (실행하면 뜸 — 실행기 v3.0)
 

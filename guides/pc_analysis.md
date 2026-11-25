@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.27 — 2026-11-19 — 시청자 공통 생각 9단계 = 페르소나 (`tools/thought_personas.py` · SOURCE=thoughts).
+버전: v3.28 — 2026-11-25 — **구글 트렌드 받기 — PC** `run_analyzer.ps1 -Trends -Folder <주제>` (`tools/pc_trends.py` v1.0 · 실행기 v3.7) — 클라우드는 허용 목록에 넣어도 구글이 HTTP 429 (사용자 지시 "심리 주제에서 했던 것처럼 주제탐색에 필요한 4가지 그대로 수행해서 영상 만들 주제 알려줘 그리고 트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" · "트렌드 허용했으니 이제 접속될거야 계속해").
+이전 v3.27 — 2026-11-19 — 시청자 공통 생각 9단계 = 페르소나 (`tools/thought_personas.py` · SOURCE=thoughts).
 이전 v3.26 — 2026-11-19 — 시청자 공통 생각 8단계 `invest`(투자 욕구 — 댓글을 쓴 이유와 나눔).
 이전 v3.25 — 2026-11-19 — 시청자 공통 생각 7단계 `wants`(원하는 것·핵심 개념 이해 추론 — 사용자 지시 "댓글을 쓴 사람이 할법한 생각을 유추하라고 … 어느정도까지 알고있는지도").
 이전 v3.24 — 2026-11-19 — **시청자 공통 생각** (`tools/viewer_thoughts.py` v1.0 — 사용자 지시 "페르소나를 만드는 목적은 시청자들이 원하는 공통적인 생각들을 정리하기 위해서야 … 누락없이 모든 댓글 … 가장 겹치는 생각들을 많은 순으로 … 나이나 처한 상황(어떤 주식에 물려있다)과 같은 여러가지 부가적인 정보는 정리만해") — '시청자 페르소나' 절 끝.
@@ -146,6 +147,24 @@ bash run_analyzer.sh
 - **몇 개면 충분한가** (2026-11-12 사용자 "근데 솔직히 대본 몇개 받으면 충분해"): 성공 사례 **50개를 앞 5분만** — 분석이 대본으로 세는 것(첫 20초 문장 유형·첫 1분·말 속도·초반 흐름)은 앞 5분 안이고, 50개면 비율이 ±14%p 안 (30개 ±18%p · 100개 ±10%p, 95%) → `-Transcribe -Folder <주제> --groups success --limit 50 --first-only` (`pc_transcribe.py` v1.1). 끝까지(2차)는 흥미 장치 4구간이 필요할 때만. 비교용 '그 밖 승인'은 하루 조회수 높은 순이라 덜 된 영상 대조군이 아님.
 - **옵션**: `--limit 5`(시험 삼아) · `--korean-only` · `--groups success,shorts_success` · `--no-whisper`(자막만) · `--first-only`(음성인식 앞 5분까지만 — v1.1) · `--model medium`(NVIDIA GPU) · `--no-push`·`--dry-run` · 시험 `python tools/pc_transcribe.py selftest` (가짜 GitHub).
 - **시간**: 자막을 받으면 영상 하나 몇 초. 사용자 PC 는 2026-10-14 에 자막 26/35 가 막혔고 음성인식이 영상 하나 10분 안팎 → 최대(자막 모두 막힘) 한국어 1차 약 35시간 · 전체 약 155시간 (`transcript_todo.md`). 봇 확인이 반복되면 음성인식을 멈추고 알려 줌 → YouTube 에 로그인한 브라우저에서 `cookies.txt` 를 내보내 실행 폴더에 두면 분석기가 저절로 씀 (`YTDLP_COOKIES_FILE` 이 비면 이 폴더의 `cookies*.txt` — 비밀값이라 GitHub 에 올리지 않음).
+
+## 구글 트렌드 받기 — PC (`run_analyzer.ps1 -Trends` · `tools/pc_trends.py` v1.0 — 2026-11-25)
+
+사용자 지시 2026-11-25 "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가".
+
+- **왜 클라우드에서 안 되나** (2026-11-25 시험): ① 환경 허용 목록에 trends.google.com 이 없으면 프록시가 403 · ② 넣은 뒤에도 구글이 **첫 요청부터 HTTP 429** (화면 주소도) — 구글 트렌드는 공식 공개 API 가 없고, 클라우드의 나가는 주소는 여럿이 함께 쓰는 데이터센터 주소라 자동 요청으로 보고 막음. 허용 목록·쿠키·쉬는 시간으로는 안 풀림.
+- **PC(집 인터넷)** 는 사람이 쓰는 주소라 천천히 부르면 대개 받힘:
+
+| 누가 | 명령 | 하는 일 |
+|---|---|---|
+| Claude (클라우드) | `python3 tools/next_topic.py <주제> report` (또는 `batches`) | 받을 묶음 `<주제>/result/next_topic/trends_batches.json`·`.md` (기준 낱말 + 4개씩 — `<주제>/next_topic.toml [trends] WORDS`) → main |
+| 사용자 (PC) | `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder history` | 묶음마다 ① 트렌드 첫 화면(쿠키) → ② explore → ③ 화면의 ⤓(CSV) 단추와 같은 주소 → `batch_NN.csv` 를 GitHub API 로 `<주제>/result/next_topic/trends/` 에만 (다른 경로는 코드가 거부) · 묶음 사이 30~60초 · 429 면 1·2·4분 쉬고 다시, 그래도 막히면 받은 것까지 올리고 멈춤 · 다시 실행하면 남은 묶음만 |
+| Claude (클라우드) | `python3 tools/next_topic.py <주제> trends` | 기준 낱말로 묶음끼리 이어 붙인 관심도 순위 `trends.md` → 주제 후보 '관심도' 칸 |
+
+- **처음 한 번**: 실행기 자체는 스스로 새로 받지 않으므로 `run_analyzer.ps1` 을 한 번 새로 받는다 (공개 저장소: `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`). 그 뒤엔 `tools/pc_trends.py` 도 실행할 때마다 최신으로 받음.
+- **옵션**: `--limit 1`(시험 삼아 한 묶음) · `--pause 60`(더 천천히) · `--no-push`(PC `.yt_work/trends/<주제>/` 에만) · `--force`(이미 올린 묶음도 다시) · 시험 `python tools/pc_trends.py selftest` (가짜 구글·가짜 GitHub).
+- **그래도 막히면**: `trends_batches.md` 의 주소를 브라우저로 열어 ⤓(CSV) — 파일 이름 `batch_NN.csv` 로 같은 폴더에 (심리 2026-11-25 방식).
+- 키: `.env` 의 `GITHUB_TOKEN` (대본 받기와 같음) — 구글 쪽 키는 없음.
 
 ## 웹 화면 (실행하면 뜸 — 실행기 v3.0)
 

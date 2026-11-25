@@ -1,5 +1,28 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-25 — 역사 다음 영상 주제 탐색 (심리와 같은 네 단계) · 구글 트렌드 PC 받기
+
+### 왜 (사용자 지시)
+- "심리 주제에서 했던 것처럼 주제탐색에 필요한 4가지 그대로 수행해서 영상 만들 주제 알려줘 그리고 트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" → "트렌드 허용했으니 이제 접속될거야 계속해".
+
+### 바꾼 것
+| 파일 (버전) | 내용 |
+|---|---|
+| `tools/next_topic.py` (v1.0, 새로) | 심리 `psychology/source/next_topic.py` v1.1 의 계산 그대로 (recent·big·report·overlap·trends) — 주제마다 다른 값은 `<주제>/next_topic.toml` 로 · 캐시 두 조각 읽기 · `suggest`(유튜브 자동완성 실시간, 할당량 0) · `trends_batches.json` (PC 도구용) · recent 는 지금 목록만 저장 |
+| `history/next_topic.toml` (v1.0, 새로) | 주제 묶음 32개 (다른 뜻으로 잡히는 낱말 고침 — 지옥·병사·기술·과거로·한복판) · 거르기 (상위 300개 제목을 읽고 영화·아이돌·게임·시사·성인 썰 채널) · 겹침 후보 13개 · 트렌드 낱말 24개 |
+| `history/result/next_topic/` | `recent.json.gz`·`big.json.gz`·`overlap*.json.gz`·`suggest*` · `next_topic_data.md` (2·3·4번 표) · `overlap.md` · `suggest.md` · `trends_batches.md`·`.json` · **`next_topic.md` (판단 — 1 겨울 이불 · 2 장빙+반빙 · 3 겨울옷)** |
+| `tools/pc_trends.py` (v1.0, 새로) | PC: 묶음마다 트렌드 첫 화면 → explore → ⤓(CSV) 같은 주소 → `batch_NN.csv` 만 GitHub API 로 · 묶음 사이 30~60초 · 429 면 1·2·4분 뒤 다시, 그래도면 멈춤 · 자체 시험 8개 |
+| `run_analyzer.ps1` (v3.7) | `-Trends` · 코드 목록에 `tools/pc_trends.py` |
+| `guides/pc_analysis.md` (v3.28) · `history/README.md` (v2.0) · `guides/status.md` (v4.68) · `CLAUDE.md` 분석 한 줄 | '구글 트렌드 받기' 절 · 파일 표·회차 · 인수인계 |
+
+### 확인 (로그)
+- 트렌드: 허용 전 프록시 403 · 허용 뒤 `curl … trends.google.com/trends/explore` → **429** (첫 요청부터) — 클라우드로는 안 됨.
+- `[RECENT] status=done units=337 videos=300 with_recent7=193 recent7_total=1164` · `[BIG] status=done units=714 channels=60 videos=17095` → `[BIG_TABLE] channels_kept=24 videos=1964` · `[OVERLAP] queries=26` (검색 26번).
+- `pc_trends.py selftest` ✅ 모두 통과 (건너뛰기 · 쉼 · 쿠키→explore→csv · 경로 거부 · 429 한 번 → 1분 뒤 받음 · 계속 429 → 멈춤) · `next_topic.py trends` 가 그 CSV 꼴(주,낱말: (대한민국) · '<1')을 읽음 (가짜 CSV 2묶음).
+
+### 한계
+- 구글 트렌드(1번 단계)는 사용자 PC 실행 뒤 — 지금 표는 자동완성만. 대리 지표는 추정 (클릭률·지속률 비공개). 사실 확인 전.
+
 ## 2026-11-23 — 제목에 삼성전자·SK하이닉스·코스피가 든 성공 사례 (`stock/topics/title_research_2026-11-23/`)
 
 - 사용자 지시 "삼성전자, SK하이닉스, 코스피를 제목에 포함한 성공 사례 영상 조사해봐". 자료 = 11-18 받은 주식 분석 (그 뒤 영상 없음).

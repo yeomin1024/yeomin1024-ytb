@@ -13,7 +13,7 @@
 | `history/result/next_topic/` | `recent.json.gz`·`big.json.gz`·`overlap*.json.gz`·`suggest*` · `next_topic_data.md` (2·3·4번 표) · `overlap.md` · `suggest.md` · `trends_batches.md`·`.json` · **`next_topic.md` (판단 — 1 겨울 이불 · 2 장빙+반빙 · 3 겨울옷)** |
 | `tools/pc_trends.py` (v1.0, 새로) | PC: 묶음마다 트렌드 첫 화면 → explore → ⤓(CSV) 같은 주소 → `batch_NN.csv` 만 GitHub API 로 · 묶음 사이 30~60초 · 429 면 1·2·4분 뒤 다시, 그래도면 멈춤 · 자체 시험 8개 |
 | `run_analyzer.ps1` (v3.7) | `-Trends` · 코드 목록에 `tools/pc_trends.py` |
-| `guides/pc_analysis.md` (v3.28) · `history/README.md` (v2.0) · `guides/status.md` (v4.68) · `CLAUDE.md` 분석 한 줄 | '구글 트렌드 받기' 절 · 파일 표·회차 · 인수인계 |
+| `guides/pc_analysis.md` (v3.28) · `history/README.md` (v2.0) · `guides/status.md` (v4.70) · `CLAUDE.md` 분석 한 줄 | '구글 트렌드 받기' 절 · 파일 표·회차 · 인수인계 |
 
 ### 확인 (로그)
 - 트렌드: 허용 전 프록시 403 · 허용 뒤 `curl … trends.google.com/trends/explore` → **429** (첫 요청부터) — 클라우드로는 안 됨.

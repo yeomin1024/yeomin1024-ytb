@@ -1,6 +1,7 @@
 # 새 주제 탐색 폴더 (`new/`) — 어떤 채널을 새로 만들까
 
-VERSION: v1.3 — 2026-10-18 — '28. 수학 퀴즈' 더함 (사용자 지시 "수학문제 띄워놓고 시청자가 맞춰보는 영상이 조회수 잘 나오고 구독자 많이 모을 수 있는지 탐색해볼래?") — 같은 잣대로 28개 중 26위(성공 3%), 쇼츠·세계 시장은 [`math/`](../math/README.md) · `niche_scan.py` v1.1
+VERSION: v1.4 — 2026-11-25 — **갭 탐색** — 조회수는 잘 나오는데 영상은 적은 낱말을 지금 주제 밖까지 (`tools/gap_scan.py` · `gap.toml` · 결과 `result/gap/`) — 사용자 지시 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은 주제 모두 찾아서 해야 돼" · "롱폼, 쇼츠 둘다하고 못만드는 분야는 알아서 해"
+(v1.3 — 2026-10-18 — '28. 수학 퀴즈' 더함 (사용자 지시 "수학문제 띄워놓고 시청자가 맞춰보는 영상이 조회수 잘 나오고 구독자 많이 모을 수 있는지 탐색해볼래?") — 같은 잣대로 28개 중 26위(성공 3%), 쇼츠·세계 시장은 [`math/`](../math/README.md) · `niche_scan.py` v1.1
 (v1.2 — 2026-10-16 — 다음 할 일 1: 음악을 `music/` 로 — 이 폴더의 '15. 수면·힐링 듣기' 검색 캐시를 옮겨 이어 씀 (사용자 지시 "이 환경은 이제 저장소에 있는 음악 주제 (music 경로 없으면 폴더 만들것)를 유튜브 분석 코드 실행해서 분석하는 환경이야 기존 분석 결과에 이어서 한번 해보고 …")
 (v1.1 — 2026-10-16 — 다음 할 일 1: 역사를 골라 `history/` 를 만듦 (사용자 지시 "이 환경은 이제 저장소에 있는 역사 주제 (history 경로 없으면 폴더 만들것)를 …"))
 (v1.0 — 2026-10-16 — 새로 만듦 (사용자 지시 2026-10-16: "이외에도 내가 어떤 채널을 만들어야 조회수 높은 영상 만들고 구독자 많이 모을 수 있을지 전체적으로 탐색해봐 저장소에 디렉토리 new로 만들어서 새로운 주제 탐색하기 위한 세팅해서 탐색해봐"))
@@ -9,6 +10,24 @@ VERSION: v1.3 — 2026-10-18 — '28. 수학 퀴즈' 더함 (사용자 지시 "�
 - 결과 숫자: [`result/niche/niche_scan.md`](result/niche/niche_scan.md) (숫자·원문만). **추천(판단)**: [`channel_ideas.md`](channel_ideas.md).
 - 좋은 분야를 고르면 **그 분야만의 폴더**(예: `history/`)를 따로 만들어 태그로 검색어를 다시 고르고, 성공 사례 댓글까지 받아 분석한다 (`guides/pipeline.md` 1단계). 이 폴더의 결과로 대본·제목 규칙을 만들지 않는다 (분야마다 검색어 1~2개라 그 분야를 다 대표하지 못함).
 - ※ 연구·교육용. 투자·의료·법률 권유가 아니다.
+
+## 갭 탐색 (2026-11-25 — 구글 트렌드 + 유튜브 API · 롱폼·쇼츠)
+
+10월 분야 비교(아래)는 Claude 가 고른 검색어 44개로 '분야끼리' 견줌. 갭 탐색은 **후보 낱말을 구글 트렌드·자동완성이 내놓게** 하고, 낱말마다 수요(관심도 · 하루 조회수) ÷ 공급(검색 상위의 최근 영상 수 · 큰 채널 몫 · 작은 채널 성공 비율)을 롱폼·쇼츠 따로 잰다. 한국만 — 해외 겸용은 분야마다 '전 세계 관심도 · 영어 자동완성' 칸 (사용자 지시 "해외, 한국 둘다 할수 있는 주제면 더 좋아").
+
+| 차례 | 누가 | 명령 | 결과 |
+|---|---|---|---|
+| 1 | Claude | `python3 tools/gap_scan.py new discover-list` | `result/gap/discover.json`·`.md` (분류 25 · 씨앗 159 관련 검색어 · 자동완성) |
+| 2 | 사용자 PC | `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder new --list discover` (약 80분) | `result/gap/discover/batch_NNN.json` |
+| 3 | Claude | `python3 tools/gap_scan.py new merge` → `gap.toml` [interest]·[global]·[[niche]] 채움 | `result/gap/candidates.csv`·`.md` |
+| 4 | Claude | `python3 tools/gap_scan.py new interest-list` | `result/gap/interest.json`·`.md` |
+| 5 | 사용자 PC | `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder new --list interest` | `result/gap/interest/batch_NNN.csv` |
+| 6 | Claude | `python3 tools/gap_scan.py new trends` | `result/gap/demand.md` |
+| 7 | Claude ('새 주제 탐색' 환경 세션 — 그 키) | `python3 tools/gap_scan.py new supply` (낱말 100 × 203단위 ≈ 2만 — 이틀, 이어서 됨) | `result/gap/supply.json.gz` |
+| 8 | Claude | `python3 tools/gap_scan.py new report` → 판단 `gap_ideas.md` | `result/gap/gap_scan.md`·`.csv` |
+
+- 못 만드는 것(`gap.toml` [[filter]] 11갈래 — Claude 판단)은 지우지 않고 '뺌: 까닭' 칸으로 남김. 시험 `python3 tools/gap_scan.py selftest`.
+- 업로드 키가 있는 환경(STOCK LAB 등)에서는 `supply` 가 멈춤 — 업로드 할당량을 쓰지 않게.
 
 ## 실행 (클라우드)
 

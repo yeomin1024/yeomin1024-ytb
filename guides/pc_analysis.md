@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.28 — 2026-11-25 — **구글 트렌드 받기 — PC** `run_analyzer.ps1 -Trends -Folder <주제>` (`tools/pc_trends.py` v1.0 · 실행기 v3.7) — 클라우드는 허용 목록에 넣어도 구글이 HTTP 429 (사용자 지시 "심리 주제에서 했던 것처럼 주제탐색에 필요한 4가지 그대로 수행해서 영상 만들 주제 알려줘 그리고 트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" · "트렌드 허용했으니 이제 접속될거야 계속해").
+버전: v3.29 — 2026-11-25 — **구글 트렌드 받기 v1.2 — 새 분야 갭 탐색** (`tools/pc_trends.py` v1.2: 관련 검색어·분류·자동완성 묶음 · 목록의 나라·기간 · 목록마다 폴더 · `--list`) — 사용자 지시 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은 주제 모두 찾아서 해야 돼".
+이전 v3.28 — 2026-11-25 — **구글 트렌드 받기 — PC** `run_analyzer.ps1 -Trends -Folder <주제>` (`tools/pc_trends.py` v1.0 · 실행기 v3.7) — 클라우드는 허용 목록에 넣어도 구글이 HTTP 429 (사용자 지시 "심리 주제에서 했던 것처럼 주제탐색에 필요한 4가지 그대로 수행해서 영상 만들 주제 알려줘 그리고 트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" · "트렌드 허용했으니 이제 접속될거야 계속해").
 이전 v3.27 — 2026-11-19 — 시청자 공통 생각 9단계 = 페르소나 (`tools/thought_personas.py` · SOURCE=thoughts).
 이전 v3.26 — 2026-11-19 — 시청자 공통 생각 8단계 `invest`(투자 욕구 — 댓글을 쓴 이유와 나눔).
 이전 v3.25 — 2026-11-19 — 시청자 공통 생각 7단계 `wants`(원하는 것·핵심 개념 이해 추론 — 사용자 지시 "댓글을 쓴 사람이 할법한 생각을 유추하라고 … 어느정도까지 알고있는지도").
@@ -148,7 +149,7 @@ bash run_analyzer.sh
 - **옵션**: `--limit 5`(시험 삼아) · `--korean-only` · `--groups success,shorts_success` · `--no-whisper`(자막만) · `--first-only`(음성인식 앞 5분까지만 — v1.1) · `--model medium`(NVIDIA GPU) · `--no-push`·`--dry-run` · 시험 `python tools/pc_transcribe.py selftest` (가짜 GitHub).
 - **시간**: 자막을 받으면 영상 하나 몇 초. 사용자 PC 는 2026-10-14 에 자막 26/35 가 막혔고 음성인식이 영상 하나 10분 안팎 → 최대(자막 모두 막힘) 한국어 1차 약 35시간 · 전체 약 155시간 (`transcript_todo.md`). 봇 확인이 반복되면 음성인식을 멈추고 알려 줌 → YouTube 에 로그인한 브라우저에서 `cookies.txt` 를 내보내 실행 폴더에 두면 분석기가 저절로 씀 (`YTDLP_COOKIES_FILE` 이 비면 이 폴더의 `cookies*.txt` — 비밀값이라 GitHub 에 올리지 않음).
 
-## 구글 트렌드 받기 — PC (`run_analyzer.ps1 -Trends` · `tools/pc_trends.py` v1.1 — 2026-11-25)
+## 구글 트렌드 받기 — PC (`run_analyzer.ps1 -Trends` · `tools/pc_trends.py` v1.2 — 2026-11-25)
 
 사용자 지시 2026-11-25 "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가".
 
@@ -161,6 +162,10 @@ bash run_analyzer.sh
 | 사용자 (PC) | `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder history` | 묶음마다 ① 트렌드 첫 화면(쿠키) → ② explore → ③ 화면의 ⤓(CSV) 단추와 같은 주소 → `batch_NN.csv` 를 GitHub API 로 `<주제>/result/next_topic/trends/` 에만 (다른 경로는 코드가 거부) · 묶음 사이 30~60초 · 429 면 1·2·4분 쉬고 다시, 그래도 막히면 받은 것까지 올리고 멈춤 · 다시 실행하면 남은 묶음만 |
 | Claude (클라우드) | `python3 tools/next_topic.py <주제> trends` | 기준 낱말로 묶음끼리 이어 붙인 관심도 순위 `trends.md` → 주제 후보 '관심도' 칸 |
 
+- **v1.2 — 새 분야 갭 탐색** (`tools/gap_scan.py` · `new/gap.toml`, 2026-11-25): 목록 파일 `new/result/gap/<이름>.json` 에 묶음 종류가 섞임 — `timeseries`(관심도 CSV) · `related`(관련 검색어 인기·급상승, 키워드 없이 분류만도) · `categories`(분류 번호표) · `suggest`(유튜브 자동완성 — 이 클라우드 환경은 프록시 403 이라 PC 에서). 받은 것은 목록의 `out_dir`(`new/result/gap/discover/`·`interest/`)에 `batch_NNN.csv|json`.
+  - 1회차 `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder new --list discover` (약 80분) → Claude `gap_scan.py new merge`
+  - 2회차 `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder new --list interest` → Claude `gap_scan.py new trends` → `supply`(유튜브 API — '새 주제 탐색' 환경 세션, 업로드 키 환경이면 도구가 멈춤) → `report`
+  - 트렌드가 429 로 계속 막히면 그 주소 묶음만 그만 두고 자동완성 묶음은 이어서 받음 · 다시 실행하면 남은 묶음만.
 - **처음 한 번**: 실행기 자체는 스스로 새로 받지 않으므로 `run_analyzer.ps1` 을 한 번 새로 받는다 (공개 저장소: `curl.exe -L -o run_analyzer.ps1 https://raw.githubusercontent.com/yeomin1024/yeomin1024-ytb/main/run_analyzer.ps1`). 그 뒤엔 `tools/pc_trends.py` 도 실행할 때마다 최신으로 받음.
 - **옵션**: `--limit 1`(시험 삼아 한 묶음) · `--pause 60`(더 천천히) · `--no-push`(PC `.yt_work/trends/<주제>/` 에만) · `--force`(이미 올린 묶음도 다시) · 시험 `python tools/pc_trends.py selftest` (가짜 구글·가짜 GitHub).
 - **그래도 막히면**: `trends_batches.md` 의 주소를 브라우저로 열어 ⤓(CSV) — 파일 이름 `batch_NN.csv` 로 같은 폴더에 (심리 2026-11-25 방식).

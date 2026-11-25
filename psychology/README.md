@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.14 — 2026-11-25 — 새 편 폴더 이름에 만든 날짜까지: `source/jakku-juneun-2026-11-25/` (사용자 지시 "음성 폴더 만들 때 날짜도 붙여 헷갈리잖아")
+VERSION: v1.15 — 2026-11-25 — **새 편 jakku-juneun-2026-11-25 영상 완성** (사용자 지시 "이미지, 음성 확인해서 영상 만들어"): 음성 확인(`audio_check.md` · `tools/edge_clean.py` 문장 끝 다듬기) · ChatGPT 그림 21장 검수 → `source/puppet_slice.py` v1.3 44조각 · 장면 `video/episodes/jakku-juneun-2026-11-25/index.html` v1.1 (stills 검토로 얼굴 가린 말풍선·쪽지 고침 — `video/scripts/bubble-check.mjs` v1.1 '사람 가림' 0) · 썸네일 3안 `source/thumbs_build.py` v1.9 · 완성 `out/jakku-juneun-2026-11-25/final_1080p.mp4`(git 밖) — 렌더 중 (음량·완성 장면 확인은 다음 줄)
+(v1.14) — 2026-11-25 — 새 편 폴더 이름에 만든 날짜까지: `source/jakku-juneun-2026-11-25/` (사용자 지시 "음성 폴더 만들 때 날짜도 붙여 헷갈리잖아")
 (v1.13) — 2026-11-25 — **새 편 jakku-juneun-2026-11** (필요 없다는데 자꾸 주는 사람 · 렌더 전 요소: 대본·근거·package·페르소나 검증·그림 요청 21장 `source/images_build_toon.py` v1.2·업로드 시트 `source/upload_sheets.py` v1.4)
 (v1.12) — 2026-11-25 — 주제 후보에 구글 트렌드 12묶음 반영 (`source/next_topic.py` v1.1 `trends` → `result/next_topic/trends.md`)
 (v1.11) — 2026-11-25 — **다음 영상 주제 탐색**: `source/next_topic.py` v1.0 (많이 본 영상 + 최근 7일 댓글 무게 · 심리 큰 채널 31곳 · 대리 지표 · 겹침 검색 · 구글 트렌드 묶음) → `result/next_topic/next_topic.md` (후보 7개 · 트렌드 칸은 사용자 CSV 대기)

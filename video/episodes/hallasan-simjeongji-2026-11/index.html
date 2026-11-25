@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>먼저 내려가겠다는 사소한 결정 — 한라산 둘레길 심정지</title>
+<!-- VERSION: v1.0 — 2026-11-25 — 첫 판 (사용자 지시 "그냥 지금 이미지, 음성 확인해서 영상 만들고 아티팩트에 올려").
+     대본 crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt (106문장 · 대본_초안 v2.3) · 오디오 tts_narration v1.18.1 (492초)
+     · 사진 images/ 24장 (images_chatgpt.md v1.0 — 재연 실사, 사람은 실루엣) · 출처 근거.md.
+     꼴 = 뉴스·다큐 설명: 사진 한 장 = 한 장면, 천천히 다가가거나 흐르는 카메라(켄 번스) · 장 표시는 왼쪽 위 이름표 · 날짜·시각 도장 ·
+     아래 정보 띠(로어서드) · 숫자·연구·점검은 어두운 카드 · 재연 사진 오른쪽 위 '재연 화면' · 의학 그림 '그래픽'.
+     색 = 뜻: 빨강 위험·사망 · 청록 살리는 행동 · 노랑 기준·주의. 숨진 분의 몸·얼굴은 화면에 없음. 연구·교육용 — 의학적 진단이 아님. -->
+<meta name="end-hold" content="2.5">
+<link rel="stylesheet" href="../../render/kit.css">
+<style>
+#stage{background:#05080F}
+.bgbox{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden}
+.bgbox img{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;transform-origin:50% 50%}
+.shade{position:absolute;left:0;top:0;width:1920px;height:1080px;background:linear-gradient(180deg,rgba(3,6,14,.55),rgba(3,6,14,.78));opacity:0}
+.vig{position:absolute;left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
+.mark{position:absolute;display:flex;align-items:center;justify-content:center;gap:12px;border-radius:10px;background:rgba(5,8,15,.72);color:#E9EDF5;font-weight:700;font-size:36px;letter-spacing:.04em}
+.mark i{width:16px;height:16px;border-radius:50%;background:#FF4D4D}
+.mark.g i{background:#6FB7FF}
+.tagx{position:absolute;display:flex;align-items:center;gap:22px}
+.tagx .no{flex:none;height:100%;aspect-ratio:1/1;border-radius:14px;background:#FFD400;color:#10131C;font-weight:900;font-size:50px;display:grid;place-items:center}
+.tagx .tx{height:100%;display:flex;align-items:center;padding:0 32px;border-radius:14px;background:rgba(5,8,15,.82);color:#fff;font-weight:900;font-size:52px;white-space:nowrap;border-left:8px solid #FFD400}
+.stampx{position:absolute;display:flex;align-items:center;gap:18px;padding:0 30px;border-radius:14px;background:rgba(5,8,15,.82);color:#fff;font-weight:900;font-size:50px;white-space:nowrap;border-left:8px solid #FF4D4D;box-sizing:border-box}
+.stampx .st{font-family:"Noto Sans KR",sans-serif;color:#FFD400;font-variant-numeric:tabular-nums}
+.lower{position:absolute;box-sizing:border-box;padding:20px 36px;border-radius:16px;background:rgba(5,8,15,.86);border-left:10px solid #FF4D4D;color:#fff}
+.lower .la{font-weight:900;font-size:54px;line-height:1.15;white-space:nowrap}
+.lower .lb{font-weight:700;font-size:40px;line-height:1.2;color:#C9D1E0;margin-top:8px;white-space:nowrap}
+.quotex{position:absolute;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:22px;background:rgba(250,250,252,.95);color:#12151F;text-align:center}
+.quotex .q{font-weight:900;font-size:62px;line-height:1.2;word-break:keep-all}
+.quotex .qs{font-weight:700;font-size:38px;color:#5A6378;margin-top:12px}
+.cardx{position:absolute;box-sizing:border-box;border-radius:28px;background:rgba(7,11,22,.9);border:3px solid rgba(255,255,255,.14);box-shadow:0 18px 48px rgba(0,0,0,.5);color:#F2F5FA;overflow:hidden}
+.cardx .hd{position:absolute;left:48px;top:36px;font-weight:700;font-size:38px;color:#AEB8CC;white-space:nowrap}
+.cardx .tt{position:absolute;left:48px;font-weight:900;font-size:56px;line-height:1.2;white-space:nowrap}
+.rd{color:#FF5A4E}.tl{color:#2ED3BB}.yl{color:#FFD400}.mu{color:#AEB8CC}
+.row{position:absolute;left:48px;right:48px;display:flex;align-items:center;gap:22px;font-weight:800;font-size:46px;line-height:1.15;white-space:nowrap}
+.row .rk{flex:none;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:40px;color:#10131C;background:#FFD400}
+.row.on .rk{background:#FF5A4E;color:#fff}
+.row.ok .rk{background:#2ED3BB}
+.bar{position:absolute;height:74px;border-radius:12px;transform-origin:0 50%}
+.blab{position:absolute;font-weight:800;font-size:46px;white-space:nowrap}
+.bnum{position:absolute;font-weight:900;font-size:56px;white-space:nowrap}
+.chips{position:absolute;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:20px 22px}
+.chip{padding:16px 34px;border-radius:999px;background:rgba(7,11,22,.88);border:4px solid #FF5A4E;color:#fff;font-weight:900;font-size:48px;white-space:nowrap}
+.chip.yl{border-color:#FFD400}.chip.tl{border-color:#2ED3BB}
+.dot{position:absolute;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(255,77,77,.9);box-shadow:0 0 0 10px rgba(255,77,77,.28),0 0 34px rgba(255,77,77,.9)}
+.dot.back{background:rgba(255,77,77,.35);border:5px dashed #FF6A5A;box-sizing:border-box}
+.dot b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;font-weight:900;font-size:36px}
+.lst{position:absolute;box-sizing:border-box}
+.lst .it{position:absolute;left:0;display:flex;align-items:center;gap:18px;font-weight:900;font-size:44px;color:#fff;white-space:nowrap;text-shadow:0 3px 10px rgba(0,0,0,.6)}
+.lst .it b{flex:none;width:58px;height:58px;border-radius:50%;background:#FF4D4D;display:grid;place-items:center;font-size:36px}
+.clock{position:absolute}
+.bigx{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:60px}
+.bigx .cell{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:620px;height:100%;border-radius:28px;background:rgba(7,11,22,.88);border:3px solid rgba(255,255,255,.14)}
+.bigx .bn{font-weight:900;font-size:150px;line-height:1}
+.bigx .l{font-weight:800;font-size:46px;color:#C9D1E0;margin-top:20px;white-space:nowrap}
+.words{position:absolute;display:flex;align-items:center;justify-content:center;gap:34px}
+.words .w{padding:26px 46px;border-radius:24px;background:rgba(7,11,22,.88);border:4px solid #2ED3BB;color:#fff;font-weight:900;font-size:70px;white-space:nowrap}
+.tline{position:absolute;box-sizing:border-box}
+.tline .ax{position:absolute;left:60px;right:60px;top:150px;height:10px;border-radius:6px;background:rgba(255,255,255,.35)}
+.tline .pt{position:absolute;top:118px;width:74px;height:74px;margin-left:-37px;border-radius:50%;border:8px solid #fff;box-sizing:border-box;background:#FFD400}
+.tline .pt.rd{background:#FF5A4E}
+.tline .tm{position:absolute;top:10px;transform:translateX(-50%);font-weight:900;font-size:64px;color:#FFD400;white-space:nowrap}
+.tline .ds{position:absolute;top:220px;transform:translateX(-50%);font-weight:800;font-size:44px;color:#fff;white-space:nowrap;text-align:center;line-height:1.2}
+.tline .gap{position:absolute;top:330px;left:50%;transform:translateX(-50%);padding:14px 40px;border-radius:999px;background:#FF5A4E;color:#fff;font-weight:900;font-size:48px;white-space:nowrap}
+.casex{position:absolute;box-sizing:border-box;padding:34px 44px;border-radius:26px;background:rgba(7,11,22,.88);border-left:12px solid #FF5A4E;color:#fff}
+.casex .d{font-weight:900;font-size:54px;color:#FFD400;white-space:nowrap}
+.casex .p{font-weight:900;font-size:58px;margin-top:10px;white-space:nowrap}
+.casex .x{font-weight:700;font-size:42px;color:#D3DAE8;margin-top:14px;line-height:1.3;white-space:nowrap}
+.casex .r{display:inline-block;margin-top:20px;padding:10px 28px;border-radius:12px;background:#FF5A4E;font-weight:900;font-size:44px}
+.casex .r.mu{background:#4A5368}
+.rew{position:absolute;left:0;top:0;width:1920px;height:1080px;display:flex;align-items:center;justify-content:center;gap:30px;color:#fff;font-weight:900;font-size:96px;letter-spacing:.02em;text-shadow:0 6px 24px rgba(0,0,0,.7)}
+.rew .ic{font-size:110px;color:#FFD400}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage"></div></div>
+<div id="ctrl"></div>
+<div id="now"></div>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"hallasan-simjeongji-2026-11","topic":"crisis","duration":494.13,"audio":"../../../crisis/source/hallasan-simjeongji-2026-11/narration.mp3","thumb":null,"synced":"2026-11-25T08:13:11Z","tts":"2026-11-25T07:17:23","script_sha1":"85691fe4732ffd7e","sent":[{"n":1,"part":"도입","text":"산을 걷다가 갑자기 숨이 차고, 가슴이 답답하거나 속이 메스꺼웠던 경험, 한 번쯤 있으실 겁니다.","start":0.3,"end":6.64},{"n":2,"part":"도입","text":"그럴 때 많은 사람이 일행에게 이렇게 말합니다.","start":7.02,"end":9.841},{"n":3,"part":"도입","text":"\"먼저 내려가서 쉬고 있을게.\"","start":10.222,"end":11.82},{"n":4,"part":"도입","text":"그런데 그 사소한 결정이, 당신의 목숨을 앗아갈 수 있습니다.","start":12.2,"end":15.976},{"n":5,"part":"도입","text":"어떻게 그럴 수 있을까요?","start":16.356,"end":17.8},{"n":6,"part":"도입","text":"2023년 3월, 한라산에서 있었던 사건으로 알아보겠습니다.","start":18.18,"end":22.119},{"n":7,"part":"산에 오르기 전","text":"2023년 3월 26일, 일요일.","start":23.119,"end":26.079},{"n":8,"part":"산에 오르기 전","text":"제주에 사는 54세 A씨가 일행과 함께 한라산 둘레길을 걸었습니다.","start":26.459,"end":30.641},{"n":9,"part":"산에 오르기 전","text":"A씨는 관광객이 아니라, 한라산을 늘 가까이 두고 사는 도민이었습니다.","start":31.021,"end":35.655},{"n":10,"part":"산에 오르기 전","text":"그리고 한라산 둘레길은 정상으로 오르는 길이 아닙니다.","start":36.035,"end":39.385},{"n":11,"part":"산에 오르기 전","text":"해발 600에서 800미터 사이 산 중턱 숲을 따라 걷는 길이라, 많은 사람이 가벼운 산책쯤으로 여깁니다.","start":39.765,"end":46.356},{"n":12,"part":"산에 오르기 전","text":"그렇다면 이 평범한 숲길에서, A씨에게 무슨 일이 일어났을까요?","start":46.736,"end":50.922},{"n":13,"part":"걷는 동안","text":"둘레길을 걷던 중, A씨는 몸 상태가 좋지 않다고 느꼈습니다.","start":51.922,"end":55.932},{"n":14,"part":"걷는 동안","text":"그래서 A씨는 일행에게 \"몸이 좋지 않아 먼저 내려가겠다\"고 말하고, 혼자 왔던 길을 돌아갔습니다.","start":56.312,"end":62.132},{"n":15,"part":"걷는 동안","text":"그렇다면 혼자 내려간 A씨는, 무사히 산 아래에 닿았을까요?","start":62.512,"end":66.181},{"n":16,"part":"보이지 않는 A씨","text":"하지만 먼저 내려갔다던 A씨의 모습은, 어디에서도 보이지 않았습니다.","start":67.181,"end":71.374},{"n":17,"part":"보이지 않는 A씨","text":"결국 일행은 오후 1시 48분쯤, 119에 A씨의 실종 신고를 했습니다.","start":71.754,"end":76.771},{"n":18,"part":"보이지 않는 A씨","text":"신고를 받은 119 구급대는 둘레길 주변을 수색했고, 약 1시간 만에 쓰러져 있는 A씨를 발견했습니다.","start":77.151,"end":83.695},{"n":19,"part":"보이지 않는 A씨","text":"그렇다면 발견됐을 때, A씨는 어떤 상태였을까요?","start":84.075,"end":87.446},{"n":20,"part":"1시간 뒤","text":"발견됐을 때, A씨의 심장은 이미 멈춰 있었습니다.","start":88.446,"end":91.956},{"n":21,"part":"1시간 뒤","text":"구급대는 A씨를 급히 가까운 병원으로 옮겼지만, A씨는 오후 3시 28분쯤 끝내 숨졌습니다.","start":92.335,"end":98.663},{"n":22,"part":"1시간 뒤","text":"신고하고 1시간 40분 뒤였습니다.","start":99.043,"end":101.293},{"n":23,"part":"1시간 뒤","text":"A씨가 언제 쓰러졌는지는 아무도 모릅니다.","start":101.673,"end":104.302},{"n":24,"part":"1시간 뒤","text":"쓰러지는 순간, A씨 옆에는 아무도 없었기 때문입니다.","start":104.682,"end":108.272},{"n":25,"part":"1시간 뒤","text":"가벼운 산책길에서, 몸이 좋지 않아 먼저 내려가겠다고 한 A씨는 왜 이렇게 됐을까요?","start":108.652,"end":113.928},{"n":26,"part":"1시간 뒤","text":"이제 그날로 다시 돌아가, 하나씩 짚어 보겠습니다.","start":114.308,"end":117.568},{"n":27,"part":"다시 그날로","text":"먼저 A씨가 걸은 둘레길은 정상으로 오르는 가파른 길이 아니었습니다.","start":118.568,"end":123.128},{"n":28,"part":"다시 그날로","text":"하지만 나이가 들수록, 심장에 피를 보내는 혈관은 아무 증상 없이 조용히 좁아질 수 있습니다.","start":123.508,"end":129.098},{"n":29,"part":"다시 그날로","text":"겉으로는 건강해 보이는 사람도 마찬가지입니다.","start":129.478,"end":132.048},{"n":30,"part":"다시 그날로","text":"혈관을 좁게 만드는 건 대부분 오래된 습관과 지병입니다.","start":132.428,"end":135.998},{"n":31,"part":"다시 그날로","text":"고혈압, 당뇨, 높은 콜레스테롤, 담배, 그리고 가족 중에 심장병을 앓은 사람이 있는 경우입니다.","start":136.378,"end":142.958},{"n":32,"part":"다시 그날로","text":"이렇게 좁아진 혈관을 가진 심장에는, 평탄한 숲길을 오래 걷는 것도 부담이 될 수 있습니다.","start":143.338,"end":148.746},{"n":33,"part":"다시 그날로","text":"산 중턱의 찬 공기와, 땀으로 빠져나간 물은 심장을 더 힘들게 합니다.","start":149.126,"end":153.472},{"n":34,"part":"다시 그날로","text":"그렇다면 A씨가 느낀 '몸이 좋지 않다'는 느낌은, 무엇이었을 수 있을까요?","start":153.852,"end":158.52},{"n":35,"part":"다시 그날로","text":"심장이 보내는 경고는, 이런 모습으로 오기도 합니다.","start":158.9,"end":162.258},{"n":36,"part":"다시 그날로","text":"가슴이 조이거나 답답하고, 명치가 체한 것처럼 꽉 막히고, 식은땀이 나거나, 숨이 평소보다 심하게 찹니다.","start":162.638,"end":169.648},{"n":37,"part":"다시 그날로","text":"팔이나 턱, 등까지 아프기도 합니다.","start":170.028,"end":172.289},{"n":38,"part":"다시 그날로","text":"문제는 이 신호가 \"조금 쉬면 괜찮겠지\" 하고 넘기기 쉽다는 겁니다.","start":172.669,"end":177.009},{"n":39,"part":"다시 그날로","text":"실제로 2016년 국제 학술지에 실린, 미국 오리건주 자료를 분석한 연구가 있습니다.","start":177.389,"end":183.238},{"n":40,"part":"다시 그날로","text":"갑자기 심장이 멈춘 35세에서 65세 환자의 절반 정도는, 그 전 4주 안에 가슴 통증이나 숨참 같은 신호가 있었습니다.","start":183.618,"end":191.528},{"n":41,"part":"다시 그날로","text":"하지만 그 신호를 느끼고 119에 먼저 연락한 사람은, 다섯 명 중 한 명도 되지 않았습니다.","start":191.908,"end":197.758},{"n":42,"part":"다시 그날로","text":"그렇다면 A씨의 '먼저 내려가겠다'는 결정에는, 어떤 위험이 숨어 있었을까요?","start":198.138,"end":203.254},{"n":43,"part":"다시 그날로","text":"누구나 할 법한 결정입니다.","start":203.634,"end":205.254},{"n":44,"part":"다시 그날로","text":"일행의 산행을 망치고 싶지 않고, 내려가서 쉬면 나아질 거라고 생각하니까요.","start":205.634,"end":210.146},{"n":45,"part":"다시 그날로","text":"하지만 이 결정에는 위험이 두 가지 숨어 있습니다.","start":210.526,"end":213.316},{"n":46,"part":"다시 그날로","text":"첫째, A씨는 몸이 보낸 신호를 안고 계속 걸었습니다.","start":213.696,"end":217.366},{"n":47,"part":"다시 그날로","text":"걷는 동안 심장은 쉬지 못합니다.","start":217.746,"end":219.606},{"n":48,"part":"다시 그날로","text":"둘째, A씨는 혼자가 됐습니다.","start":219.986,"end":222.363},{"n":49,"part":"다시 그날로","text":"심장이 멈추면, 쓰러진 사람은 스스로 119를 부를 수 없습니다.","start":222.743,"end":226.623},{"n":50,"part":"다시 그날로","text":"그렇다면 쓰러진 A씨에게, 발견되기까지의 1시간은 어떤 시간이었을까요?","start":227.003,"end":231.943},{"n":51,"part":"다시 그날로","text":"심장이 멈추면 피가 뇌로 가지 못합니다.","start":232.323,"end":234.653},{"n":52,"part":"다시 그날로","text":"사람은 곧바로 의식을 잃고, 숨이 멎거나 헐떡이는 숨만 남습니다.","start":235.033,"end":239.373},{"n":53,"part":"다시 그날로","text":"그리고 4분이 지나면, 뇌가 손상되기 시작한다고 알려져 있습니다.","start":239.753,"end":243.583},{"n":54,"part":"다시 그날로","text":"그래서 심정지는, 옆 사람이 얼마나 빨리 가슴을 눌러 주느냐가 생사를 가릅니다.","start":243.963,"end":248.932},{"n":55,"part":"다시 그날로","text":"질병관리청 조사에서, 병원에 오기 전 옆 사람이 심폐소생술을 했을 때 생존율은 14.4%였습니다.","start":249.312,"end":256.349},{"n":56,"part":"다시 그날로","text":"하지 않았을 때는 6.1%였습니다.","start":256.729,"end":259.275},{"n":57,"part":"다시 그날로","text":"하지만 A씨는, 신고 뒤 발견되기까지만 약 1시간이 걸렸습니다.","start":259.655,"end":263.905},{"n":58,"part":"다시 그날로","text":"A씨가 혼자 내려간 그 숲길에는, 가슴을 눌러 줄 사람이 없었습니다.","start":264.285,"end":268.593},{"n":59,"part":"다시 그날로","text":"그런데 이런 일은, A씨에게만 일어난 걸까요?","start":268.973,"end":271.853},{"n":60,"part":"이뿐만이 아닙니다","text":"2025년 3월 17일 아침 8시 12분쯤, 한라산 성판악 코스를 오르던 60대 관광객이 갑자기 쓰러졌습니다.","start":272.853,"end":280.531},{"n":61,"part":"이뿐만이 아닙니다","text":"탐방로 입구에서 약 5킬로미터, 해발 1,100미터쯤 되는 곳이었습니다.","start":280.911,"end":285.41},{"n":62,"part":"이뿐만이 아닙니다","text":"심정지였습니다.","start":285.79,"end":286.87},{"n":63,"part":"이뿐만이 아닙니다","text":"국립공원 직원과 구조대가 심폐소생술을 하고 산 아래로 옮겼지만, 낮 12시 4분쯤 사망 판정을 받았습니다.","start":287.25,"end":294.092},{"n":64,"part":"이뿐만이 아닙니다","text":"두 달 뒤인 2025년 5월에도, 같은 성판악 탐방로에서 50대 등산객이 심정지로 쓰러졌습니다.","start":294.472,"end":301.212},{"n":65,"part":"이뿐만이 아닙니다","text":"2026년 8월, 폭염경보가 내려진 경북 봉화 청량산에서는 아침 8시쯤 50대 등산객이 쓰러졌습니다.","start":301.592,"end":308.925},{"n":66,"part":"이뿐만이 아닙니다","text":"함께 간 지인이 발견했을 때, 이미 숨과 맥박이 없었습니다.","start":309.305,"end":313.121},{"n":67,"part":"이뿐만이 아닙니다","text":"같은 해 10월 11일, 경기도 가평 운악산에서는 70대 등산객이 등산하던 중 갑자기 쓰러졌습니다.","start":313.501,"end":320.031},{"n":68,"part":"이뿐만이 아닙니다","text":"병원으로 옮겨졌지만 숨졌습니다.","start":320.411,"end":322.431},{"n":69,"part":"이뿐만이 아닙니다","text":"그리고 보름 뒤인 10월 26일, 다시 한라산 성판악.","start":322.811,"end":326.319},{"n":70,"part":"이뿐만이 아닙니다","text":"이번에는 산을 내려오던 50대 관광객이 오전 11시 40분쯤 쓰러졌고, 병원으로 옮겨졌지만 숨졌습니다.","start":326.699,"end":333.692},{"n":71,"part":"이뿐만이 아닙니다","text":"평탄한 둘레길에서도, 오르막에서도, 내리막에서도 일어났습니다.","start":334.072,"end":338.332},{"n":72,"part":"이뿐만이 아닙니다","text":"성판악 한 곳에서만 1년 7개월 사이 세 번입니다.","start":338.712,"end":341.956},{"n":73,"part":"이뿐만이 아닙니다","text":"그렇다면 산에서 숨지는 사람은, 얼마나 많이 심정지 때문일까요?","start":342.336,"end":346.583},{"n":74,"part":"숫자로 본 등산 중 심정지","text":"국립공원공단이 지리산과 설악산, 북한산처럼 공단이 관리하는 국립공원의 사망 사고를 살펴봤습니다.","start":347.583,"end":354.433},{"n":75,"part":"숫자로 본 등산 중 심정지","text":"2014년부터 10년 동안 숨진 사람은 167명이었습니다.","start":354.813,"end":358.855},{"n":76,"part":"숫자로 본 등산 중 심정지","text":"그 가운데 84명, 절반이 심정지였습니다.","start":359.235,"end":362.241},{"n":77,"part":"숫자로 본 등산 중 심정지","text":"낙사한 54명보다 30명이 더 많습니다.","start":362.621,"end":365.361},{"n":78,"part":"숫자로 본 등산 중 심정지","text":"산에서 가장 무서운 건 절벽이 아니라, 내 심장이었던 겁니다.","start":365.741,"end":369.641},{"n":79,"part":"숫자로 본 등산 중 심정지","text":"한라산은 제주도가 따로 관리해, 오늘 본 한라산 사고들은 이 숫자에 들어 있지도 않습니다.","start":370.021,"end":375.501},{"n":80,"part":"숫자로 본 등산 중 심정지","text":"심정지는 산에서만 일어나는 일도 아닙니다.","start":375.881,"end":378.445},{"n":81,"part":"숫자로 본 등산 중 심정지","text":"질병관리청 조사로, 2024년 한 해 동안 119가 병원으로 옮긴 심정지 환자는 3만 3천여 명이었습니다.","start":378.825,"end":386.187},{"n":82,"part":"숫자로 본 등산 중 심정지","text":"열 명 중 일곱 명은 심장 자체의 문제 때문이었고, 남성이 여성보다 두 배 가까이 많았습니다.","start":386.567,"end":392.367},{"n":83,"part":"숫자로 본 등산 중 심정지","text":"그렇다면 산에 가기 전, 무엇을 점검해야 할까요?","start":392.747,"end":395.917},{"n":84,"part":"산에 가기 전, 이것만은 점검하세요","text":"첫째, 내 심장을 점검하세요.","start":396.917,"end":398.917},{"n":85,"part":"산에 가기 전, 이것만은 점검하세요","text":"혈압이나 혈당, 콜레스테롤 경고를 받고도 그냥 두고 있나요?","start":399.297,"end":403.226},{"n":86,"part":"산에 가기 전, 이것만은 점검하세요","text":"담배를 피우거나, 가족 중에 심장병을 앓은 사람이 있나요?","start":403.606,"end":407.312},{"n":87,"part":"산에 가기 전, 이것만은 점검하세요","text":"오르막에서 예전보다 가슴이 답답하거나 숨이 쉽게 차나요?","start":407.692,"end":411.457},{"n":88,"part":"산에 가기 전, 이것만은 점검하세요","text":"하나라도 그렇다면, 산에 가기 전에 진료부터 받아 보세요.","start":411.837,"end":415.326},{"n":89,"part":"산에 가기 전, 이것만은 점검하세요","text":"둘째, 오늘 컨디션을 점검하세요.","start":415.706,"end":418.046},{"n":90,"part":"산에 가기 전, 이것만은 점검하세요","text":"전날 술을 마셨거나, 잠을 제대로 못 잤거나, 몸이 무겁다면 그날은 무리하지 않습니다.","start":418.426,"end":424.106},{"n":91,"part":"산에 가기 전, 이것만은 점검하세요","text":"셋째, 코스와 날씨를 점검하세요.","start":424.486,"end":426.793},{"n":92,"part":"산에 가기 전, 이것만은 점검하세요","text":"내 체력에 맞는 길을 고르고, 몹시 춥거나 덥거나 바람이 거센 날은 다음으로 미뤄도 됩니다.","start":427.173,"end":433.098},{"n":93,"part":"산에 가기 전, 이것만은 점검하세요","text":"둘레길처럼 평탄한 길이라도, 방심하지 않습니다.","start":433.478,"end":436.668},{"n":94,"part":"산에 가기 전, 이것만은 점검하세요","text":"넷째, 함께 갈 사람을 점검하세요.","start":437.048,"end":439.222},{"n":95,"part":"산에 가기 전, 이것만은 점검하세요","text":"혼자 가지 말고, 함께 가는 사람에게 내 지병과 먹는 약을 미리 알려 두세요.","start":439.602,"end":444.435},{"n":96,"part":"산에 가기 전, 이것만은 점검하세요","text":"그리고 산에서 몸이 좋지 않다면, 그 자리에 멈춰 앉고, 일행에게 알리세요.","start":444.815,"end":449.655},{"n":97,"part":"산에 가기 전, 이것만은 점검하세요","text":"가슴이 조이거나 식은땀이 난다면, 체한 거라고 넘기지 말고 119에 신고합니다.","start":450.035,"end":455.226},{"n":98,"part":"산에 가기 전, 이것만은 점검하세요","text":"무엇보다, 혼자 먼저 내려가지 않습니다.","start":455.606,"end":458.286},{"n":99,"part":"산에 가기 전, 이것만은 점검하세요","text":"일행이 먼저 내려가겠다고 하면, 같이 멈추거나 같이 내려가 주세요.","start":458.666,"end":462.859},{"n":100,"part":"산에 가기 전, 이것만은 점검하세요","text":"만약 옆 사람이 쓰러졌다면, 119에 신고하고 안내에 따라 가슴 한가운데를 세게, 빠르게 눌러 주세요.","start":463.239,"end":469.806},{"n":101,"part":"산에 가기 전, 이것만은 점검하세요","text":"그렇다면 그날 둘레길이, 우리에게 남긴 건 무엇일까요?","start":470.186,"end":473.797},{"n":102,"part":"마무리","text":"\"몸이 좋지 않아, 먼저 내려가겠다.\"","start":474.797,"end":477.215},{"n":103,"part":"마무리","text":"누구나 한 번쯤 해 본 말입니다.","start":477.595,"end":479.315},{"n":104,"part":"마무리","text":"하지만 심장이 보내는 신호 앞에서는, 그 사소한 결정이 생사를 가를 수 있습니다.","start":479.695,"end":484.505},{"n":105,"part":"마무리","text":"산에서 몸이 이상하면, 멈추고, 알리고, 혼자가 되지 마세요.","start":484.885,"end":489.323},{"n":106,"part":"마무리","text":"시청해주셔서 감사합니다.","start":489.703,"end":491.233}],"subs":[[0.2,7.02,"산을 걷다가 갑자기 숨이 차고,\n가슴이 답답하거나 속이 메스꺼웠던 경험, 한 번쯤 있으실 겁니다."],[7.02,10.222,"그럴 때 많은 사람이 일행에게 이렇게 말합니다."],[10.222,12.2,"\"먼저 내려가서 쉬고 있을게.\""],[12.2,16.356,"그런데 그 사소한 결정이, 당신의 목숨을 앗아갈 수 있습니다."],[16.356,18.18,"어떻게 그럴 수 있을까요?"],[18.18,23.119,"2023년 3월, 한라산에서 있었던 사건으로 알아보겠습니다."],[23.119,26.459,"2023년 3월 26일, 일요일."],[26.459,31.021,"제주에 사는 54세 A씨가 일행과 함께 한라산 둘레길을 걸었습니다."],[31.021,36.035,"A씨는 관광객이 아니라,\n한라산을 늘 가까이 두고 사는 도민이었습니다."],[36.035,39.765,"그리고 한라산 둘레길은 정상으로 오르는 길이 아닙니다."],[39.765,46.736,"해발 600에서 800미터 사이 산 중턱 숲을 따라 걷는 길이라,\n많은 사람이 가벼운 산책쯤으로 여깁니다."],[46.736,51.922,"그렇다면 이 평범한 숲길에서, A씨에게 무슨 일이 일어났을까요?"],[51.922,56.312,"둘레길을 걷던 중, A씨는 몸 상태가 좋지 않다고 느꼈습니다."],[56.312,62.512,"그래서 A씨는 일행에게 \"몸이 좋지 않아 먼저 내려가겠다\"고 말하고,\n혼자 왔던 길을 돌아갔습니다."],[62.512,67.181,"그렇다면 혼자 내려간 A씨는, 무사히 산 아래에 닿았을까요?"],[67.181,71.754,"하지만 먼저 내려갔다던 A씨의 모습은, 어디에서도 보이지 않았습니다."],[71.754,77.151,"결국 일행은 오후 1시 48분쯤, 119에 A씨의 실종 신고를 했습니다."],[77.151,84.075,"신고를 받은 119 구급대는 둘레길 주변을 수색했고,\n약 1시간 만에 쓰러져 있는 A씨를 발견했습니다."],[84.075,88.446,"그렇다면 발견됐을 때, A씨는 어떤 상태였을까요?"],[88.446,92.335,"발견됐을 때, A씨의 심장은 이미 멈춰 있었습니다."],[92.335,99.043,"구급대는 A씨를 급히 가까운 병원으로 옮겼지만,\nA씨는 오후 3시 28분쯤 끝내 숨졌습니다."],[99.043,101.673,"신고하고 1시간 40분 뒤였습니다."],[101.673,104.682,"A씨가 언제 쓰러졌는지는 아무도 모릅니다."],[104.682,108.652,"쓰러지는 순간, A씨 옆에는 아무도 없었기 때문입니다."],[108.652,114.308,"가벼운 산책길에서,\n몸이 좋지 않아 먼저 내려가겠다고 한 A씨는 왜 이렇게 됐을까요?"],[114.308,118.568,"이제 그날로 다시 돌아가, 하나씩 짚어 보겠습니다."],[118.568,123.508,"먼저 A씨가 걸은 둘레길은 정상으로 오르는 가파른 길이 아니었습니다."],[123.508,129.478,"하지만 나이가 들수록,\n심장에 피를 보내는 혈관은 아무 증상 없이 조용히 좁아질 수 있습니다."],[129.478,132.428,"겉으로는 건강해 보이는 사람도 마찬가지입니다."],[132.428,136.378,"혈관을 좁게 만드는 건 대부분 오래된 습관과 지병입니다."],[136.378,143.338,"고혈압, 당뇨, 높은 콜레스테롤, 담배,\n그리고 가족 중에 심장병을 앓은 사람이 있는 경우입니다."],[143.338,149.126,"이렇게 좁아진 혈관을 가진 심장에는,\n평탄한 숲길을 오래 걷는 것도 부담이 될 수 있습니다."],[149.126,153.852,"산 중턱의 찬 공기와, 땀으로 빠져나간 물은 심장을 더 힘들게 합니다."],[153.852,158.9,"그렇다면 A씨가 느낀 '몸이 좋지 않다'는 느낌은,\n무엇이었을 수 있을까요?"],[158.9,162.638,"심장이 보내는 경고는, 이런 모습으로 오기도 합니다."],[162.638,170.028,"가슴이 조이거나 답답하고, 명치가 체한 것처럼 꽉 막히고,\n식은땀이 나거나, 숨이 평소보다 심하게 찹니다."],[170.028,172.669,"팔이나 턱, 등까지 아프기도 합니다."],[172.669,177.389,"문제는 이 신호가 \"조금 쉬면 괜찮겠지\" 하고 넘기기 쉽다는 겁니다."],[177.389,183.618,"실제로 2016년 국제 학술지에 실린,\n미국 오리건주 자료를 분석한 연구가 있습니다."],[183.618,191.908,"갑자기 심장이 멈춘 35세에서 65세 환자의 절반 정도는,\n그 전 4주 안에 가슴 통증이나 숨참 같은 신호가 있었습니다."],[191.908,198.138,"하지만 그 신호를 느끼고 119에 먼저 연락한 사람은,\n다섯 명 중 한 명도 되지 않았습니다."],[198.138,203.634,"그렇다면 A씨의 '먼저 내려가겠다'는 결정에는,\n어떤 위험이 숨어 있었을까요?"],[203.634,205.634,"누구나 할 법한 결정입니다."],[205.634,210.526,"일행의 산행을 망치고 싶지 않고,\n내려가서 쉬면 나아질 거라고 생각하니까요."],[210.526,213.696,"하지만 이 결정에는 위험이 두 가지 숨어 있습니다."],[213.696,217.746,"첫째, A씨는 몸이 보낸 신호를 안고 계속 걸었습니다."],[217.746,219.986,"걷는 동안 심장은 쉬지 못합니다."],[219.986,222.743,"둘째, A씨는 혼자가 됐습니다."],[222.743,227.003,"심장이 멈추면, 쓰러진 사람은 스스로 119를 부를 수 없습니다."],[227.003,232.323,"그렇다면 쓰러진 A씨에게,\n발견되기까지의 1시간은 어떤 시간이었을까요?"],[232.323,235.033,"심장이 멈추면 피가 뇌로 가지 못합니다."],[235.033,239.753,"사람은 곧바로 의식을 잃고, 숨이 멎거나 헐떡이는 숨만 남습니다."],[239.753,243.963,"그리고 4분이 지나면, 뇌가 손상되기 시작한다고 알려져 있습니다."],[243.963,249.312,"그래서 심정지는,\n옆 사람이 얼마나 빨리 가슴을 눌러 주느냐가 생사를 가릅니다."],[249.312,256.729,"질병관리청 조사에서, 병원에 오기 전 옆 사람이\n심폐소생술을 했을 때 생존율은 14.4%였습니다."],[256.729,259.655,"하지 않았을 때는 6.1%였습니다."],[259.655,264.285,"하지만 A씨는, 신고 뒤 발견되기까지만 약 1시간이 걸렸습니다."],[264.285,268.973,"A씨가 혼자 내려간 그 숲길에는, 가슴을 눌러 줄 사람이 없었습니다."],[268.973,272.853,"그런데 이런 일은, A씨에게만 일어난 걸까요?"],[272.853,280.911,"2025년 3월 17일 아침 8시 12분쯤,\n한라산 성판악 코스를 오르던 60대 관광객이 갑자기 쓰러졌습니다."],[280.911,285.79,"탐방로 입구에서 약 5킬로미터, 해발 1,100미터쯤 되는 곳이었습니다."],[285.79,287.25,"심정지였습니다."],[287.25,294.472,"국립공원 직원과 구조대가 심폐소생술을 하고 산 아래로 옮겼지만,\n낮 12시 4분쯤 사망 판정을 받았습니다."],[294.472,301.592,"두 달 뒤인 2025년 5월에도,\n같은 성판악 탐방로에서 50대 등산객이 심정지로 쓰러졌습니다."],[301.592,309.305,"2026년 8월, 폭염경보가 내려진 경북 봉화 청량산에서는\n아침 8시쯤 50대 등산객이 쓰러졌습니다."],[309.305,313.501,"함께 간 지인이 발견했을 때, 이미 숨과 맥박이 없었습니다."],[313.501,320.411,"같은 해 10월 11일, 경기도 가평 운악산에서는\n70대 등산객이 등산하던 중 갑자기 쓰러졌습니다."],[320.411,322.811,"병원으로 옮겨졌지만 숨졌습니다."],[322.811,326.699,"그리고 보름 뒤인 10월 26일, 다시 한라산 성판악."],[326.699,334.072,"이번에는 산을 내려오던 50대 관광객이 오전 11시 40분쯤 쓰러졌고,\n병원으로 옮겨졌지만 숨졌습니다."],[334.072,338.712,"평탄한 둘레길에서도, 오르막에서도, 내리막에서도 일어났습니다."],[338.712,342.336,"성판악 한 곳에서만 1년 7개월 사이 세 번입니다."],[342.336,347.583,"그렇다면 산에서 숨지는 사람은, 얼마나 많이 심정지 때문일까요?"],[347.583,354.813,"국립공원공단이 지리산과 설악산,\n북한산처럼 공단이 관리하는 국립공원의 사망 사고를 살펴봤습니다."],[354.813,359.235,"2014년부터 10년 동안 숨진 사람은 167명이었습니다."],[359.235,362.621,"그 가운데 84명, 절반이 심정지였습니다."],[362.621,365.741,"낙사한 54명보다 30명이 더 많습니다."],[365.741,370.021,"산에서 가장 무서운 건 절벽이 아니라, 내 심장이었던 겁니다."],[370.021,375.881,"한라산은 제주도가 따로 관리해,\n오늘 본 한라산 사고들은 이 숫자에 들어 있지도 않습니다."],[375.881,378.825,"심정지는 산에서만 일어나는 일도 아닙니다."],[378.825,386.567,"질병관리청 조사로, 2024년 한 해 동안 119가\n병원으로 옮긴 심정지 환자는 3만 3천여 명이었습니다."],[386.567,392.747,"열 명 중 일곱 명은 심장 자체의 문제 때문이었고,\n남성이 여성보다 두 배 가까이 많았습니다."],[392.747,396.917,"그렇다면 산에 가기 전, 무엇을 점검해야 할까요?"],[396.917,399.297,"첫째, 내 심장을 점검하세요."],[399.297,403.606,"혈압이나 혈당, 콜레스테롤 경고를 받고도 그냥 두고 있나요?"],[403.606,407.692,"담배를 피우거나, 가족 중에 심장병을 앓은 사람이 있나요?"],[407.692,411.837,"오르막에서 예전보다 가슴이 답답하거나 숨이 쉽게 차나요?"],[411.837,415.706,"하나라도 그렇다면, 산에 가기 전에 진료부터 받아 보세요."],[415.706,418.426,"둘째, 오늘 컨디션을 점검하세요."],[418.426,424.486,"전날 술을 마셨거나, 잠을 제대로 못 잤거나,\n몸이 무겁다면 그날은 무리하지 않습니다."],[424.486,427.173,"셋째, 코스와 날씨를 점검하세요."],[427.173,433.478,"내 체력에 맞는 길을 고르고,\n몹시 춥거나 덥거나 바람이 거센 날은 다음으로 미뤄도 됩니다."],[433.478,437.048,"둘레길처럼 평탄한 길이라도, 방심하지 않습니다."],[437.048,439.602,"넷째, 함께 갈 사람을 점검하세요."],[439.602,444.815,"혼자 가지 말고,\n함께 가는 사람에게 내 지병과 먹는 약을 미리 알려 두세요."],[444.815,450.035,"그리고 산에서 몸이 좋지 않다면,\n그 자리에 멈춰 앉고, 일행에게 알리세요."],[450.035,455.606,"가슴이 조이거나 식은땀이 난다면,\n체한 거라고 넘기지 말고 119에 신고합니다."],[455.606,458.666,"무엇보다, 혼자 먼저 내려가지 않습니다."],[458.666,463.239,"일행이 먼저 내려가겠다고 하면, 같이 멈추거나 같이 내려가 주세요."],[463.239,470.186,"만약 옆 사람이 쓰러졌다면, 119에 신고하고\n안내에 따라 가슴 한가운데를 세게, 빠르게 눌러 주세요."],[470.186,474.797,"그렇다면 그날 둘레길이, 우리에게 남긴 건 무엇일까요?"],[474.797,477.595,"\"몸이 좋지 않아, 먼저 내려가겠다.\""],[477.595,479.695,"누구나 한 번쯤 해 본 말입니다."],[479.695,484.885,"하지만 심장이 보내는 신호 앞에서는,\n그 사소한 결정이 생사를 가를 수 있습니다."],[484.885,489.703,"산에서 몸이 이상하면, 멈추고, 알리고, 혼자가 되지 마세요."],[489.703,491.633,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="../../render/kit.js"></script>
+<script>
+(function () {
+"use strict";
+K.init(window.EP, { chip: false });
+const { S, E, W } = K;
+const tl = K.tl;
+const IMG = "../../../crisis/source/hallasan-simjeongji-2026-11/images/";
+const B = n => Math.max(0, S(n) - 0.3);          // 문장 n 바로 앞 (장면 바뀜)
+const END = K.D;
+
+/* ───── 배치 표 [x, y, 가로, 세로] — 자막 띠(y 870 아래)는 비움 ───── */
+const LAY = window.LAYOUT = {
+  BG: [0, 0, 1920, 1080], SHADE: [0, 0, 1920, 1080], VIG: [0, 0, 1920, 1080],
+  MARK: [1580, 36, 300, 72],
+  CH: [70, 36, 1180, 104],
+  TIME: [70, 166, 980, 100],
+  LOWER: [70, 676, 1240, 170],
+  QUOTE: [260, 590, 1400, 230],
+  CARD: [290, 170, 1340, 660],
+  CASE: [70, 166, 1060, 520],
+  TLINE: [120, 240, 1680, 440],
+  CLOCK: [130, 190, 560, 560],
+  BIG: [110, 260, 1700, 400],
+  CHIPS: [110, 650, 1700, 200],
+  DOTS: [580, 40, 640, 840],
+  LLIST: [50, 170, 520, 620],
+  REW: [0, 0, 1920, 1080],
+  WORDS: [110, 330, 1700, 220],
+};
+const FULL = ["BG", "SHADE", "VIG", "REW"];
+window.LAYOUT_ALLOW = [];
+for (const f of FULL) for (const k of Object.keys(LAY)) if (k !== f) window.LAYOUT_ALLOW.push([f, k]);
+
+const box = (slot, cls, html, extra) => {
+  const [x, y, w, h] = LAY[slot];
+  return `<div class="${cls}" data-slot="${slot}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${extra || ""}">${html || ""}</div>`;
+};
+const show = (n, at, dur) => tl.fromTo(n, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: dur || 0.45, ease: "power2.out" }, at);
+const hide = (n, at) => tl.to(n, { opacity: 0, duration: 0.35, ease: "none" }, at);
+const on = (sc, slot, cls, html, a, b, extra) => {
+  const n = K.el(box(slot, cls, html, extra), sc);
+  gsap.set(n, { opacity: 0 });
+  show(n, a);
+  if (b != null) hide(n, b - 0.35);
+  return n;
+};
+
+/* ───── 사진 장면: 켄 번스 (천천히 다가가거나 흐름) ───── */
+const KB = {
+  in: [1.0, 1.09, 0, 0, 0, 0], out: [1.1, 1.0, 0, 0, 0, 0],
+  left: [1.08, 1.08, 2.2, -2.2, 0, 0], right: [1.08, 1.08, -2.2, 2.2, 0, 0],
+  up: [1.08, 1.1, 0, 0, 1.6, -1.6], still: [1.02, 1.04, 0, 0, 0, 0], none: [1, 1, 0, 0, 0, 0],
+};
+function photo(a, b, file, kb, o) {
+  o = o || {};
+  const sc = K.scene(a, b, o.keep ? { keep: true } : undefined);
+  const bx = K.el(box("BG", "bgbox", `<img src="${IMG}${file}" alt="">`), sc);
+  const img = bx.querySelector("img");
+  const k = KB[kb || "in"];
+  tl.fromTo(img, { scale: k[0], xPercent: k[2], yPercent: k[4] }, { scale: k[1], xPercent: k[3], yPercent: k[5], duration: Math.max(0.5, b - a), ease: "none" }, a);
+  if (o.gray) gsap.set(img, { filter: "grayscale(.85) contrast(1.05) brightness(.8)" });
+  K.el(box("VIG", "vig"), sc);
+  const sh = K.el(box("SHADE", "shade"), sc);
+  if (o.shade != null) tl.to(sh, { opacity: o.shade, duration: 0.6 }, o.shadeAt != null ? o.shadeAt : a);
+  const mk = o.mark === false ? null : on(sc, "MARK", "mark" + (o.mark === "g" ? " g" : ""), `<i></i>${o.mark === "g" ? "그래픽" : "재연 화면"}`, a + 0.2);
+  return { sc, bx, img, sh, mk };
+}
+const tag = (sc, no, text, a, b) => on(sc, "CH", "tagx", `<div class="no">${no}</div><div class="tx">${text}</div>`, a, b);
+const stamp = (sc, html, a, b) => on(sc, "TIME", "stampx", html, a, b);
+const lower = (sc, a1, b1, a, b) => on(sc, "LOWER", "lower", `<div class="la">${a1}</div>${b1 ? `<div class="lb">${b1}</div>` : ""}`, a, b);
+const quote = (sc, q, s, a, b) => on(sc, "QUOTE", "quotex", `<div class="q">${q}</div>${s ? `<div class="qs">${s}</div>` : ""}`, a, b);
+
+/* ═══════════ 도입 (1~6) ═══════════ */
+{ const P = photo(0, B(3), "DOC-01-INTRO.jpg", "in", { mark: "재연" });
+  K.cut(S(1) + 2, "도입 숨이 찬 등산객"); }
+{ const P = photo(B(3), B(6), "DOC-05-TURN.jpg", "right", { shade: 0.25, shadeAt: S(3) });
+  quote(P.sc, "“먼저 내려가서 쉬고 있을게.”", null, S(3) - 0.1, E(4));
+  K.cut(S(3) + 0.8, "도입 먼저 내려갈게"); }
+{ const P = photo(B(6), B(7), "DOC-03-FOREST.jpg", "in", { shade: 0.45, shadeAt: B(6) });
+  on(P.sc, "BIG", "bigx", `<div class="cell" style="min-width:1300px"><div class="bn" style="font-size:96px">실제 사건 재구성</div><div class="l">2023년 3월 · 한라산 둘레길</div></div>`, S(6), null);
+  K.cut(S(6) + 1.5, "도입 제목"); }
+
+/* ═══════════ 1장 산에 오르기 전 (7~12) ═══════════ */
+{ const P = photo(B(7), B(10), "DOC-02-ENTRANCE.jpg", "in");
+  tag(P.sc, "1", "산에 오르기 전", B(7) + 0.2, null);
+  stamp(P.sc, `<span class="st">2023. 3. 26</span><span>일요일</span>`, S(7), null);
+  lower(P.sc, "A씨 · 54세 · 제주 도민", "일행과 함께 한라산 둘레길을 걸었다", S(8), null);
+  K.cut(S(9) + 1, "1장 둘레길 입구"); }
+{ const P = photo(B(10), B(13), "DOC-03-FOREST.jpg", "left");
+  lower(P.sc, "한라산 둘레길", "해발 600~800m 산 중턱 숲길 · 정상으로 오르는 길이 아님", S(11), null);
+  K.cut(S(11) + 2, "1장 숲길"); }
+
+/* ═══════════ 2장 걷는 동안 (13~15) ═══════════ */
+{ const P = photo(B(13), B(14), "DOC-04-STOP.jpg", "in");
+  tag(P.sc, "2", "걷는 동안", B(13) + 0.2, null);
+  K.cut(S(13) + 2, "2장 멈춤"); }
+{ const P = photo(B(14), B(16), "DOC-05-TURN.jpg", "out", { shade: 0.2, shadeAt: S(14) });
+  quote(P.sc, "“몸이 좋지 않아, 먼저 내려가겠다.”", "A씨가 일행에게 남긴 말 (보도)", S(14) + 0.3, null);
+  K.cut(S(14) + 3, "2장 먼저 내려가겠다"); }
+
+/* ═══════════ 3장 보이지 않는 A씨 (16~19) ═══════════ */
+{ const P = photo(B(16), B(17), "DOC-06-EMPTY.jpg", "in");
+  tag(P.sc, "3", "보이지 않는 A씨", B(16) + 0.2, null);
+  K.cut(S(16) + 2, "3장 빈 숲길"); }
+{ const P = photo(B(17), B(18), "DOC-07-CALL.jpg", "left");
+  stamp(P.sc, `<span class="st">13:48</span><span>일행이 119에 실종 신고</span>`, W(17, "1시") - 0.2, null);
+  K.cut(S(17) + 3, "3장 신고"); }
+{ const P = photo(B(18), W(18, "약"), "DOC-08-SEARCH.jpg", "right");
+  stamp(P.sc, `<span class="st">13:48 ~</span><span>119 구급대 주변 수색</span>`, B(18) + 0.3, null);
+  K.cut(S(18) + 1.5, "3장 수색"); }
+{ const P = photo(W(18, "약"), B(20), "DOC-09-FOUND.jpg", "in");
+  stamp(P.sc, `<span class="st">약 1시간 뒤</span><span>쓰러진 A씨 발견</span>`, W(18, "약"), null);
+  K.cut(S(19) + 1, "3장 발견"); }
+
+/* ═══════════ 4장 1시간 뒤 (20~26) ═══════════ */
+{ const P = photo(B(20), B(21), "DOC-10-STRETCHER.jpg", "out");
+  tag(P.sc, "4", "1시간 뒤", B(20) + 0.2, null);
+  lower(P.sc, "발견 당시 심정지 상태", "심장이 이미 멈춰 있었다", W(20, "심장") , null);
+  K.cut(S(20) + 2.5, "4장 들것"); }
+{ const P = photo(B(21), B(23), "DOC-11-AMBULANCE.jpg", "in", { shade: 0.72, shadeAt: S(22) - 0.6 });
+  const T = on(P.sc, "TLINE", "tline", `<div class="ax"></div>
+    <div class="pt" style="left:140px"></div><div class="tm" style="left:140px">13:48</div><div class="ds" style="left:140px">실종 신고</div>
+    <div class="pt" style="left:840px"></div><div class="tm" style="left:840px">약 1시간 뒤</div><div class="ds" style="left:840px">심정지 상태로 발견</div>
+    <div class="pt rd" style="left:1540px"></div><div class="tm rd" style="left:1540px">15:28</div><div class="ds" style="left:1540px">병원에서 숨짐</div>
+    <div class="gap">신고하고 1시간 40분</div>`, W(21, "오후") - 0.3, null);
+  const pts = T.querySelectorAll(".pt,.tm,.ds"), gp = T.querySelector(".gap");
+  gsap.set([...pts, gp], { opacity: 0 });
+  tl.to([pts[0], pts[1], pts[2]], { opacity: 1, duration: 0.35 }, W(21, "오후") - 0.2);
+  tl.to([pts[3], pts[4], pts[5]], { opacity: 1, duration: 0.35 }, W(21, "오후") + 0.2);
+  tl.to([pts[6], pts[7], pts[8]], { opacity: 1, duration: 0.35 }, W(21, "3시") - 0.2);
+  tl.to(gp, { opacity: 1, duration: 0.35 }, S(22));
+  K.cut(S(22) + 1.5, "4장 시간선"); }
+{ const P = photo(B(23), B(25), "DOC-06-EMPTY.jpg", "still", { shade: 0.15, shadeAt: S(24) });
+  lower(P.sc, "쓰러지는 순간, 옆에 아무도 없었다", "A씨가 언제 쓰러졌는지는 아무도 모른다", S(24), null);
+  K.cut(S(24) + 2, "4장 아무도 없었다"); }
+{ const P = photo(B(25), B(27), "DOC-02-ENTRANCE.jpg", "out", { gray: true, shade: 0.35, shadeAt: S(26) - 0.3 });
+  on(P.sc, "REW", "rew", `<span class="ic">◀◀</span><span>5 · 다시 그날로</span>`, S(26), null);
+  K.cut(S(26) + 1.5, "4장 다시 그날로"); }
+
+/* ═══════════ 5장 다시 그날로 (27~59) ═══════════ */
+// ① 가벼운 산책길
+{ const P = photo(B(27), B(28), "DOC-03-FOREST.jpg", "in", { gray: true });
+  tag(P.sc, "①", "가벼운 산책길이었는데", B(27) + 0.2, null);
+  K.cut(S(27) + 2, "5장 ① 숲길"); }
+{ const P = photo(B(28), B(30), "MED-12-HEART.jpg", "in", { mark: "g" });
+  lower(P.sc, "심장에 피를 보내는 혈관", "나이가 들수록 아무 증상 없이 좁아질 수 있다", W(28, "심장") , null);
+  K.cut(S(28) + 3, "5장 ① 심장"); }
+{ const P = photo(B(30), B(32), "MED-13-ARTERY.jpg", "right", { mark: "g" });
+  const C = on(P.sc, "CHIPS", "chips", ["고혈압", "당뇨", "높은 콜레스테롤", "담배", "가족 중 심장병"].map(w => `<div class="chip">${w}</div>`).join(""), S(31) - 0.2, null);
+  const cs = C.querySelectorAll(".chip"); gsap.set(cs, { opacity: 0 });
+  ["고혈압", "당뇨", "높은", "담배", "가족"].forEach((w, i) => tl.to(cs[i], { opacity: 1, duration: 0.3 }, W(31, w) - 0.1));
+  K.cut(S(31) + 5, "5장 ① 위험 요인"); }
+{ const P = photo(B(32), B(34), "DOC-03-FOREST.jpg", "left", { shade: 0.3, shadeAt: S(32) });
+  const C = on(P.sc, "CHIPS", "chips", `<div class="chip yl">오래 걷기</div><div class="chip yl">산 중턱의 찬 공기</div><div class="chip yl">땀으로 빠져나간 물</div>`, S(32) + 0.5, null);
+  const cs = C.querySelectorAll(".chip"); gsap.set(cs, { opacity: 0 });
+  tl.to(cs[0], { opacity: 1, duration: 0.3 }, W(32, "오래") - 0.1);
+  tl.to(cs[1], { opacity: 1, duration: 0.3 }, W(33, "찬") - 0.1);
+  tl.to(cs[2], { opacity: 1, duration: 0.3 }, W(33, "땀") - 0.1);
+  K.cut(S(33) + 3, "5장 ① 산의 부담"); }
+// ② 몸이 보낸 신호
+{ const P = photo(B(34), B(35), "DOC-04-STOP.jpg", "in", { gray: true });
+  tag(P.sc, "②", "몸이 보낸 신호", B(34) + 0.2, null);
+  K.cut(S(34) + 2, "5장 ② 멈춘 순간"); }
+{ const P = photo(B(35), B(39), "MED-14-BODY.jpg", "none", { mark: "g" });
+  const dots = [ // [x, y (무대 px), 번호, 낱말 문장, 낱말, 뒤쪽?]
+    [960, 540, "1", 36, "가슴"], [960, 760, "2", 36, "명치"], [960, 95, "3", 36, "식은땀"],
+    [1090, 480, "4", 36, "숨이"], [625, 700, "5", 37, "팔"], [960, 252, "6", 37, "턱"], [1170, 452, "7", 37, "등", true]];
+  const D = on(P.sc, "DOTS", "lst", "", S(35), null, "");
+  const [dx, dy] = LAY.DOTS;
+  for (const d of dots) {
+    const el = K.el(`<div class="dot${d[5] ? " back" : ""}" style="left:${d[0] - dx}px;top:${d[1] - dy}px"><b>${d[2]}</b></div>`, D);
+    gsap.set(el, { opacity: 0 });
+    tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, W(d[3], d[4]) - 0.1);
+  }
+  const names = ["가슴이 조임·답답", "명치가 꽉 막힘", "식은땀", "심한 숨참", "팔 통증", "턱 통증", "등 통증"];
+  const L = on(P.sc, "LLIST", "lst", names.map((t, i) => `<div class="it" style="top:${i * 84}px"><b>${i + 1}</b>${t}</div>`).join(""), S(36) - 0.2, null);
+  const its = L.querySelectorAll(".it"); gsap.set(its, { opacity: 0 });
+  dots.forEach((d, i) => tl.to(its[i], { opacity: 1, duration: 0.3 }, W(d[3], d[4]) - 0.1));
+  K.cut(S(37) + 1.5, "5장 ② 신호 점"); }
+{ const P = photo(B(39), B(42), "DOC-01-INTRO.jpg", "still", { shade: 0.8, shadeAt: B(39) });
+  const C = on(P.sc, "CARD", "cardx", `<div class="hd">2016 · 국제 학술지 · 미국 오리건주 자료</div>
+    <div class="tt" style="top:110px">갑자기 심장이 멈춘 35~65세 환자</div>
+    <div class="tt yl" style="top:230px;font-size:64px">절반 정도는 4주 안에 신호가 있었다</div>
+    <div class="row" style="top:360px"><span class="rk">!</span>가슴 통증 · 숨참</div>
+    <div class="tt rd" style="top:470px;font-size:58px">신호를 느끼고 119에 먼저 연락: 19%</div>
+    <div class="row" style="top:568px"><span class="mu" style="font-size:40px">다섯 명 중 한 명도 되지 않음</span></div>`, S(39), null);
+  const parts = C.querySelectorAll(".tt,.row"); gsap.set(parts, { opacity: 0 });
+  tl.to(parts[0], { opacity: 1, duration: 0.35 }, S(40));
+  tl.to([parts[1], parts[2]], { opacity: 1, duration: 0.35 }, W(40, "절반"));
+  tl.to([parts[3], parts[4]], { opacity: 1, duration: 0.35 }, S(41) + 0.3);
+  K.cut(S(41) + 4, "5장 ② 연구 카드"); }
+// ③ "먼저 내려가겠다"
+{ const P = photo(B(42), B(45), "DOC-05-TURN.jpg", "in", { gray: true });
+  tag(P.sc, "③", "“먼저 내려가겠다”", B(42) + 0.2, null);
+  lower(P.sc, "누구나 할 법한 결정", "일행의 산행을 망치고 싶지 않아서", S(43), null);
+  K.cut(S(44) + 2, "5장 ③ 결정"); }
+{ const P = photo(B(45), B(50), "DOC-05-TURN.jpg", "still", { gray: true, shade: 0.78, shadeAt: B(45) });
+  const C = on(P.sc, "CARD", "cardx", `<div class="hd">이 결정에 숨은 위험</div>
+    <div class="tt rd" style="top:120px">위험 1 · 신호를 안고 계속 걸었다</div>
+    <div class="tt mu" style="top:210px;font-size:46px">걷는 동안 심장은 쉬지 못한다</div>
+    <div class="tt rd" style="top:350px">위험 2 · 혼자가 됐다</div>
+    <div class="tt mu" style="top:440px;font-size:46px">심장이 멈추면 스스로 119를 부를 수 없다</div>`, S(45), null);
+  const ps = C.querySelectorAll(".tt"); gsap.set(ps, { opacity: 0 });
+  tl.to([ps[0]], { opacity: 1, duration: 0.35 }, S(46));
+  tl.to([ps[1]], { opacity: 1, duration: 0.35 }, S(47));
+  tl.to([ps[2]], { opacity: 1, duration: 0.35 }, S(48));
+  tl.to([ps[3]], { opacity: 1, duration: 0.35 }, S(49));
+  K.cut(S(49) + 2, "5장 ③ 두 위험"); }
+// ④ 4분과 1시간
+{ const P = photo(B(50), B(51), "DOC-06-EMPTY.jpg", "in", { gray: true });
+  tag(P.sc, "④", "4분과 1시간", B(50) + 0.2, null);
+  K.cut(S(50) + 2, "5장 ④ 빈 숲길"); }
+{ const P = photo(B(51), B(54), "MED-15-BRAIN.jpg", "none", { mark: "g" });
+  const dim = K.el(`<div style="position:absolute;left:0;top:0;width:1920px;height:1080px;background:radial-gradient(circle at 56% 30%,rgba(5,8,20,.0) 0%,rgba(5,8,20,.82) 42%)"></div>`, P.bx);
+  gsap.set(dim, { opacity: 0 });
+  tl.to(dim, { opacity: 1, duration: 4, ease: "none" }, S(51));
+  const C = on(P.sc, "CLOCK", "clock", `<svg viewBox="0 0 560 560" width="560" height="560" aria-hidden="true">
+      <circle cx="280" cy="250" r="200" fill="rgba(7,11,22,.85)" stroke="rgba(255,255,255,.25)" stroke-width="10"/>
+      <path class="arc" d="M280 50 A200 200 0 1 1 279.9 50" fill="none" stroke="#FF5A4E" stroke-width="22" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
+      <text class="num" x="280" y="282" text-anchor="middle" font-size="120" font-weight="900" fill="#fff">0분</text>
+      <text x="280" y="520" text-anchor="middle" font-size="44" font-weight="800" fill="#C9D1E0">뇌 손상이 시작되기까지</text></svg>`, S(52), null);
+  const arc = C.querySelector(".arc"), num = C.querySelector(".num");
+  const st = { v: 0 };
+  tl.to(st, { v: 4, duration: Math.max(1, E(53) - W(53, "4분")), ease: "none",
+    onUpdate: () => { arc.setAttribute("stroke-dasharray", `${st.v * 25} 100`); num.textContent = `${Math.min(4, Math.floor(st.v + 0.001))}분`; } }, W(53, "4분") - 0.6);
+  K.cut(E(53) - 0.2, "5장 ④ 4분 시계"); }
+{ const P = photo(B(54), B(57), "DOC-23-SIT.jpg", "still", { shade: 0.8, shadeAt: B(54), mark: "재연" });
+  const C = on(P.sc, "CARD", "cardx", `<div class="hd">질병관리청 2024 · 병원 오기 전 일반인 심폐소생술</div>
+    <div class="blab" style="left:48px;top:170px">했을 때</div><div class="bar" style="left:330px;top:166px;width:${14.4 * 46}px;background:#2ED3BB"></div><div class="bnum tl" style="left:${330 + 14.4 * 46 + 24}px;top:164px">14.4%</div>
+    <div class="blab" style="left:48px;top:310px">안 했을 때</div><div class="bar" style="left:330px;top:306px;width:${6.1 * 46}px;background:#FF5A4E"></div><div class="bnum rd" style="left:${330 + 6.1 * 46 + 24}px;top:304px">6.1%</div>
+    <div class="tt yl" style="top:470px;font-size:60px">옆 사람이 누르면 생존율 2.4배</div>`, S(54), null);
+  const b1 = C.querySelectorAll(".bar"), n1 = C.querySelectorAll(".bnum,.blab"), t1 = C.querySelector(".tt");
+  gsap.set([...b1, ...n1, t1], { opacity: 0 });
+  tl.to([n1[0], b1[0], n1[1]], { opacity: 1, duration: 0.3 }, W(55, "했을") - 0.2);
+  tl.fromTo(b1[0], { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, W(55, "했을") - 0.2);
+  tl.to([n1[2], b1[1], n1[3]], { opacity: 1, duration: 0.3 }, S(56) - 0.1);
+  tl.fromTo(b1[1], { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, S(56) - 0.1);
+  tl.to(t1, { opacity: 1, duration: 0.35 }, E(56) - 0.4);
+  K.cut(E(56), "5장 ④ 심폐소생술 막대"); }
+{ const P = photo(B(57), B(60), "DOC-06-EMPTY.jpg", "out", { shade: 0.55, shadeAt: B(57) });
+  const C = on(P.sc, "BIG", "bigx", `<div class="cell"><div class="bn yl">4분</div><div class="l">뇌가 버티는 시간</div></div><div class="cell"><div class="bn rd">약 1시간</div><div class="l">신고 뒤 발견까지</div></div>`, S(57), null);
+  const cells = C.querySelectorAll(".cell"); gsap.set(cells[1], { opacity: 0 });
+  tl.to(cells[1], { opacity: 1, duration: 0.4 }, W(57, "약"));
+  K.cut(S(58) + 2, "5장 ④ 4분 대 1시간"); }
+
+/* ═══════════ 6장 이뿐만이 아닙니다 (60~73) ═══════════ */
+const casec = (sc, d, p, x, r, rmu, a, b) => on(sc, "CASE", "casex", `<div class="d">${d}</div><div class="p">${p}</div><div class="x">${x}</div><span class="r${rmu ? " mu" : ""}">${r}</span>`, a, b);
+{ const P = photo(B(60), B(64), "DOC-16-SEONGPANAK.jpg", "up", { mark: false });
+  tag(P.sc, "6", "이뿐만이 아닙니다", B(60) + 0.2, null);
+  casec(P.sc, "2025. 3. 17 · 08:12", "한라산 성판악 코스", "60대 관광객 · 오르다 갑자기 쓰러짐<br>입구에서 약 5km · 해발 약 1,100m", "심정지 → 12:04 사망 판정", false, S(60) + 0.4, null);
+  K.cut(S(63) + 2, "6장 성판악 2025-03"); }
+{ const P = photo(B(64), B(65), "DOC-16-SEONGPANAK.jpg", "left", { mark: false });
+  casec(P.sc, "2025. 5", "한라산 성판악 탐방로", "두 달 뒤 · 같은 길", "50대 등산객 심정지", true, S(64) + 0.3, null);
+  K.cut(S(64) + 3, "6장 성판악 2025-05"); }
+{ const P = photo(B(65), B(67), "DOC-17-SUMMER.jpg", "in", { mark: false });
+  casec(P.sc, "2026. 8 · 아침 8시쯤", "경북 봉화 청량산", "폭염경보 · 50대 등산객이 쓰러짐<br>지인이 발견했을 때 숨·맥박 없음", "심정지", false, S(65) + 0.3, null);
+  K.cut(S(66) + 2, "6장 청량산"); }
+{ const P = photo(B(67), B(69), "DOC-18-AUTUMN.jpg", "right", { mark: false });
+  casec(P.sc, "2026. 10. 11", "경기 가평 운악산", "70대 등산객 · 등산하던 중 갑자기 쓰러짐", "병원으로 옮겼지만 숨짐", false, S(67) + 0.3, null);
+  K.cut(S(68) + 1, "6장 운악산"); }
+{ const P = photo(B(69), B(71), "DOC-19-HALLA-AUTUMN.jpg", "in", { mark: false });
+  casec(P.sc, "2026. 10. 26 · 11:40쯤", "다시 한라산 성판악", "50대 관광객 · 산을 내려오다 쓰러짐", "병원으로 옮겼지만 숨짐", false, S(69) + 0.3, null);
+  K.cut(S(70) + 3, "6장 성판악 2026-10"); }
+{ const P = photo(B(71), B(74), "DOC-19-HALLA-AUTUMN.jpg", "still", { mark: false, shade: 0.7, shadeAt: B(71) });
+  const C1 = on(P.sc, "WORDS", "words", `<div class="w" style="border-color:#FFD400">평탄한 둘레길</div><div class="w" style="border-color:#FFD400">오르막</div><div class="w" style="border-color:#FFD400">내리막</div>`, S(71), S(72));
+  const ws = C1.querySelectorAll(".w"); gsap.set(ws, { opacity: 0 });
+  ["둘레길", "오르막", "내리막"].forEach((w, i) => tl.to(ws[i], { opacity: 1, duration: 0.3 }, W(71, w) - 0.1));
+  on(P.sc, "BIG", "bigx", `<div class="cell" style="min-width:1400px"><div class="bn rd" style="font-size:120px">1년 7개월 사이 3번</div><div class="l">한라산 성판악 한 곳에서만 · 2025. 3 · 2025. 5 · 2026. 10</div></div>`, S(72) + 0.1, null);
+  K.cut(S(72) + 2, "6장 3번"); }
+
+/* ═══════════ 7장 숫자로 본 등산 중 심정지 (74~83) ═══════════ */
+{ const P = photo(B(74), B(80), "DOC-20-RIDGE.jpg", "in", { mark: false, shade: 0.55, shadeAt: S(75) - 0.5 });
+  tag(P.sc, "7", "숫자로 본 등산 중 심정지", B(74) + 0.2, null);
+  const C = on(P.sc, "CARD", "cardx", `<div class="hd">국립공원공단 · 2014~2023 · 공단 관리 국립공원 사망 167명</div>
+    <div class="blab" style="left:48px;top:150px">심정지</div><div class="bar" style="left:330px;top:146px;width:${84 * 8.4}px;background:#FF5A4E"></div><div class="bnum rd" style="left:${330 + 84 * 8.4 + 22}px;top:144px">84명</div>
+    <div class="blab" style="left:48px;top:270px">낙사</div><div class="bar" style="left:330px;top:266px;width:${54 * 8.4}px;background:#8A93A8"></div><div class="bnum mu" style="left:${330 + 54 * 8.4 + 22}px;top:264px">54명</div>
+    <div class="blab" style="left:48px;top:390px">익사</div><div class="bar" style="left:330px;top:386px;width:${15 * 8.4}px;background:#5B7FA8"></div><div class="bnum mu" style="left:${330 + 15 * 8.4 + 22}px;top:384px">15명</div>
+    <div class="tt yl" style="top:490px;font-size:60px">심정지가 낙사보다 30명 더 많다</div>
+    <div class="tt mu nt" style="top:580px;font-size:42px;font-weight:800">※ 한라산은 제주도가 따로 관리 — 이 숫자에 없음</div>`, S(75) - 0.3, null);
+  const bs = C.querySelectorAll(".bar"), ls = C.querySelectorAll(".blab,.bnum"), tt = C.querySelector(".tt"), nt = C.querySelector(".nt");
+  gsap.set([...bs, ...ls, tt, nt], { opacity: 0 });
+  tl.to(nt, { opacity: 1, duration: 0.35 }, S(79));
+  tl.to([ls[0], bs[0], ls[1]], { opacity: 1, duration: 0.3 }, S(76));
+  tl.fromTo(bs[0], { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, S(76));
+  tl.to([ls[2], bs[1], ls[3], ls[4], bs[2], ls[5]], { opacity: 1, duration: 0.3 }, S(77));
+  tl.fromTo([bs[1], bs[2]], { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, S(77));
+  tl.to(tt, { opacity: 1, duration: 0.35 }, W(77, "30명") - 0.1);
+  K.cut(S(79) + 3, "7장 국립공원 막대"); }
+{ const P = photo(B(80), B(84), "DOC-21-CITY.jpg", "in", { mark: false, shade: 0.6, shadeAt: S(81) - 0.5 });
+  const C = on(P.sc, "CARD", "cardx", `<div class="hd">질병관리청 · 2024 급성심장정지조사</div>
+    <div class="tt" style="top:120px;font-size:110px">3만 3,034건</div>
+    <div class="row" style="top:300px"><span class="rk">7</span>10명 중 7명 · 심장 자체의 문제 (71.7%)</div>
+    <div class="row" style="top:410px"><span class="rk">남</span>남성 64.3% · 여성의 두 배 가까이</div>`, S(81) - 0.3, null);
+  const rs = C.querySelectorAll(".row"); gsap.set(rs, { opacity: 0 });
+  tl.to(rs[0], { opacity: 1, duration: 0.35 }, S(82));
+  tl.to(rs[1], { opacity: 1, duration: 0.35 }, W(82, "남성") - 0.1);
+  K.cut(S(82) + 4, "7장 급성심장정지"); }
+
+/* ═══════════ 8장 산에 가기 전, 이것만은 점검하세요 (84~101) ═══════════ */
+{ const P = photo(B(84), B(96), "DOC-22-NIGHT-PREP.jpg", "in", { mark: false, shade: 0.62, shadeAt: S(84) + 0.4 });
+  tag(P.sc, "8", "산에 가기 전, 이것만은 점검", B(84) + 0.2, null);
+  const items = [["내 심장", "검진 경고 · 담배·가족력 · 오르막 숨참 → 진료부터", 84], ["오늘 컨디션", "전날 술 · 잠 부족 · 몸이 무거우면 무리하지 않기", 89],
+                 ["코스와 날씨", "체력에 맞는 길 · 몹시 춥거나 덥거나 바람 센 날은 미루기", 91], ["함께 갈 사람", "혼자 가지 않기 · 지병과 먹는 약 알려 두기", 94]];
+  const C = on(P.sc, "CARD", "cardx", items.map((it, i) => `<div class="row" style="top:${40 + i * 155}px"><span class="rk">${i + 1}</span>${it[0]}</div>
+      <div class="tt mu" style="top:${112 + i * 155}px;left:134px;font-size:38px;font-weight:700">${it[1]}</div>`).join(""), S(84) - 0.2, null);
+  const rows = C.querySelectorAll(".row"), subs = C.querySelectorAll(".tt");
+  gsap.set([...rows, ...subs], { opacity: 0 });
+  items.forEach((it, i) => {
+    tl.to([rows[i], subs[i]], { opacity: 1, duration: 0.35 }, S(it[2]));
+    tl.to(rows[i], { color: "#FFD400", duration: 0.2 }, S(it[2]));
+    if (i > 0) tl.to(rows[i - 1], { color: "#F2F5FA", duration: 0.2 }, S(it[2]));
+  });
+  K.cut(S(87) + 1, "8장 점검 1"); K.cut(S(95) + 2, "8장 점검 4"); }
+{ const P = photo(B(96), B(101), "DOC-23-SIT.jpg", "in", { mark: "재연", shade: 0.55, shadeAt: S(96) + 0.6 });
+  const acts = [["멈춰 앉고, 일행에게 알리기", 96, "ok"], ["가슴 조임·식은땀 → 119 신고", 97, "ok"], ["혼자 먼저 내려가지 않기", 98, "on"],
+                ["“먼저 내려가겠다”면 같이 멈추기", 99, "ok"], ["쓰러지면 119 + 가슴 한가운데를 세게, 빠르게", 100, "ok"]];
+  const C = on(P.sc, "CARD", "cardx", `<div class="hd">산에서 몸이 좋지 않다면</div>` + acts.map((a, i) => `<div class="row ${a[2]}" style="top:${110 + i * 104}px"><span class="rk">${a[2] === "on" ? "!" : "✓"}</span>${a[0]}</div>`).join(""), S(96) + 0.4, null);
+  const rows = C.querySelectorAll(".row"); gsap.set(rows, { opacity: 0 });
+  acts.forEach((a, i) => tl.to(rows[i], { opacity: 1, duration: 0.35 }, S(a[1]) + (i === 0 ? 0.4 : 0)));
+  K.cut(S(100) + 3, "8장 산에서 할 일"); }
+{ const P = photo(B(101), B(102), "DOC-24-END.jpg", "still", { mark: "재연" });
+  K.cut(S(101) + 1.5, "8장 끝 질문"); }
+
+/* ═══════════ 마무리 (102~106) ═══════════ */
+{ const P = photo(B(102), END, "DOC-24-END.jpg", "out", { mark: "재연", shade: 0.3, shadeAt: S(104), keep: true });
+  quote(P.sc, "“몸이 좋지 않아, 먼저 내려가겠다.”", "누구나 한 번쯤 해 본 말", S(102), B(104) + 0.35);
+  const C = on(P.sc, "WORDS", "words", `<div class="w">멈추고</div><div class="w">알리고</div><div class="w">혼자가 되지 마세요</div>`, S(105) - 0.2, null);
+  const ws = C.querySelectorAll(".w"); gsap.set(ws, { opacity: 0 });
+  ["멈추고", "알리고", "혼자가"].forEach((w, i) => tl.to(ws[i], { opacity: 1, duration: 0.3 }, W(105, w) - 0.1));
+  K.cut(S(105) + 3.5, "마무리 세 낱말"); K.cut(END - 1, "끝 화면"); }
+
+K.done();
+})();
+</script>
+</body>
+</html>

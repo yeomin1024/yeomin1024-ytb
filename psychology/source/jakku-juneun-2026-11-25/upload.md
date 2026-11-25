@@ -43,7 +43,6 @@
 - Gino, Flynn (2011). Give them what they want: The benefits of explicitness in gift exchange. Journal of Experimental Social Psychology, 47(5), 915–922.
 - Aknin, Dunn, Proulx, Lok, Norton (2020). Does spending money on others promote happiness?: A registered replication report. Journal of Personality and Social Psychology, 119(2), e15–e26.
 - 식품의약품안전처 소비기한 표시제 (2023년 도입 · 2024년 본격 시행 · 우유는 2031년부터).
-- 댓글: 비슷한 주제 유튜브 영상의 실제 댓글 (2026년 11월 기준 · 작성자 정보는 싣지 않음)
 
 ■ 알려 드립니다
 교육용 영상이며 심리 진단이나 상담을 대신하지 않습니다.
@@ -93,7 +92,7 @@ python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11-25/jakku-
 ## 8. 점검 (설명란에 넣지 않음)
 
 - 페르소나 관문 (`persona_loop.json`): title ✅ 3회차 · script_exit ❌ 7회차 · script_rebuttal ❌ 7회차 — 이탈·반론 단계는 상한(5회차, 일부 7회차)까지 돌린 뒤 사용자가 영상·썸네일·업로드로 진행 (2026-11-13). 통과로 적지 않음.
-- 숫자·연구는 `근거.md` 1번 표 · 지금 대본에서 뺀 연구는 출처에 넣지 않음. · 페르소나 관문: title 3회차 ✅ · 대본 이탈·반론은 상한(5회차)을 넘어 7회차까지 — 마지막 회차 이탈 27·77번 · 반론 중 2 (46·50번) → 사용자 지시 2026-11-25 "확정하고 이미지 생성 명령 알려줘" 로 지금 대본 그대로 확정
+- 숫자·연구는 `근거.md` 1번 표 · 지금 대본에서 뺀 연구는 출처에 넣지 않음. · 페르소나 관문: title 3회차 ✅ · 대본 이탈·반론은 상한(5회차)을 넘어 7회차까지 → 사용자 지시 2026-11-25 "확정하고 이미지 생성 명령 알려줘" 로 확정 · 댓글 문장 7개를 바꾼 뒤(사용자 지시 "댓글 내용 언급하지 말라고 좀") 8회차 — 결과는 persona_loop.json
 - 잡음 검사 `audio_check.md`: 보고 수준 후보만 (고칠 것 없음).
 - 영상: render check 0 · layout-check 0 · 완성 mp4 장면을 Claude 가 봄 · 음량 -14 LUFS 안팎 · 트루 피크 -1.5 dBTP 이하.
 - 다른 사람의 영상 파일은 받지도 넣지도 않음 · 댓글은 뜻만 (작성자 정보 없음).

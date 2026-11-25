@@ -161,7 +161,7 @@ EP = {
         "chapter_parts": [("도입", "필요 없다는데 자꾸 주는 사람"), ("첫 번째, 버리기 아까워서", "이유 1. 버리기 아까워서"),
                           ("두 번째, 건네는 순간만 보여서", "이유 2. 건네는 순간만 보여서"), ("세 번째, 주고 나면 내 마음이 좋아져서", "이유 3. 주고 나면 기분이 좋아서"),
                           ("받는 쪽이 불편한 까닭", "받는 쪽이 부담스러운 까닭 (소비기한)"), ("서운하지 않게 거절하는 말", "서운하지 않게 거절하는 말"),
-                          ("내가 주는 쪽이라면", "내가 주는 쪽이라면 확인할 3가지"), ("정리", "정리")],
+                          ("내가 주는 쪽이라면", "내가 주는 쪽이라면 확인할 3가지")],   # 마무리 2문장(약 7초)은 챕터 10초 규칙에 못 미쳐 앞 챕터에 붙임 (사용자 지시 "정리는 빼고 마무리만 간단하게 하자")
         "sources": [
             "van Herpen, de Hooge (2019). When product attitudes go to waste: Wasting products with remaining utility decreases consumers' product attitudes. Journal of Cleaner Production, 210, 410–418.",
             "Galak, Givi, Williams (2016). Why certain gifts are great to give but not to get: A framework for understanding errors in gift giving. Current Directions in Psychological Science, 25(6), 380–385.",

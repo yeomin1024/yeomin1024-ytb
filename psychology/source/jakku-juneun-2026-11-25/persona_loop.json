@@ -2,7 +2,7 @@
  "tool": "persona_gate.py v1.2",
  "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
  "items": {
-  "jakku-juneun-2026-11": {
+  "jakku-juneun-2026-11-25": {
    "title": {
     "rounds": [
      {
@@ -43,7 +43,7 @@
       ],
       "pass": true,
       "fixed_after": "썸네일 2줄 '진짜 이유 3가지'→'심리학적 이유 3가지'(단정 빼고 제목과 같게) · 보조 문구 '버리긴 아깝잖아~'(주는 쪽을 비꼬는 듯)→ 주는 사람 '너 주려고 챙겼지~' + 받는 사람 '또… 주시네' 두 말풍선",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_title_1.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_title_1.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -88,7 +88,7 @@
       ],
       "pass": true,
       "fixed_after": "보조 문구 받는 사람 '또… 주시네'(주는 쪽 흉보는 듯 — 두 검토자)→'마음은 고마운데…'",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_title_2.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_title_2.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -133,7 +133,7 @@
       ],
       "pass": true,
       "fixed_after": "고친 것 없음 (마지막 회차 = 지금 제목·썸네일 문구)",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_title_3.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_title_3.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -173,7 +173,7 @@
       ],
       "pass": false,
       "fixed_after": "712명 실험 줄을 '세 번 중 두 번' 한 줄로 · 24번 긴 문장을 짧게",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_1.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_1.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -208,7 +208,7 @@
       ],
       "pass": false,
       "fixed_after": "도입 단서 줄을 9번과 합침('닮은 마음을 찾아보면') · 세 번째 연구 줄 정리 · 27번 줄 뺌",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_2.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_2.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -247,7 +247,7 @@
       ],
       "pass": false,
       "fixed_after": "32 '준 사람이 미워진다' 인용 → 버리면서 마음이 편치 않다는 댓글 · 52 단서 문장 뺌 · 97 '서운해하지 말고' → '내 마음을 거절한 게 아니라 물건 하나를 사양한 것'",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_3.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_3.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -285,7 +285,7 @@
       ],
       "pass": false,
       "fixed_after": "'닮은 마음'→'비슷한 마음을 다룬' · 세 번째 연구 줄을 '대체로' 한 줄 + 반찬 한 통 장면으로 · 소비기한 연도 뺌 · 우유 줄 뺌",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_4.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_4.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -320,7 +320,7 @@
       ],
       "pass": false,
       "fixed_after": "상한 5회차 — 고치지 않고 사용자에게 (끄고 싶은 줄 44·77)",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_5.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_5.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -355,7 +355,7 @@
       ],
       "pass": false,
       "fixed_after": "고친 것 없음 — 사용자에게 (약한 이탈 27·42)",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_6.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_6.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -390,14 +390,14 @@
       ],
       "pass": false,
       "fixed_after": "고친 것 없음 — 사용자에게 (27·77)",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_exit_7.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_7.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11/jakku-juneun-2026-11.txt"
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -498,7 +498,7 @@
       ],
       "pass": false,
       "fixed_after": "도입 '때문입니다'→'때문일 수 있습니다' + 닮은 마음을 본 연구라고 밝힘 · 네덜란드 연구 = 버릴 때 불편함까지만, 주는 것은 추론으로 나눔 · 점검 '상대가 요즘 쓰는 물건인가' · '짐을 떠넘기는 일은 줄어듦' · 소비기한 말 · 기한 지난 음식은 나누지 않음 · 2011 결과 앞에서 소개 · '대부분' 뺌 · 반갑게 받는 분도 인정 · '또 준다' 단정 뺌",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_1.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_1.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -585,7 +585,7 @@
       ],
       "pass": true,
       "fixed_after": "'괜찮아요'가 사양하는 인사로 들릴 수 있음(왜 또 주나) · '먼저' 뺌 · 2011 '무엇을 반가워할지 더 정확히 알아맞힘' · 소비기한으로 맞춤 · 실제 내 사정 예 둘 · 말 붙일 계기 · '곤란해할 일'",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_2.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_2.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -682,7 +682,7 @@
       ],
       "pass": false,
       "fixed_after": "세 번째 이유 '할 수 있다' · 7,861명 세 번 실험 · 한 번은 뚜렷한 차이 없음 · 정리도 '좋아질 수 있다' · 둘째 거절 '받고 싶은 것이 하나라도 있다면' + 필요 없으면 첫째만으로 · 넘어가기 쉽다 · 피하는 길이 될 수 있다 · 다시 권하는 경우가 있다 · 날짜 모르는 냉동 음식 말 · 2011 '얼마나 반가워할지 더 정확히 예상' · 좋아요 700개 넘게",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_3.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_3.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -762,7 +762,7 @@
       ],
       "pass": true,
       "fixed_after": "45 '필요 없다고 말한 사람의 마음과는 어긋날 수 있는' · 47 '보기 쉽습니다' · 64 '클 수 있습니다' · 37 '떠올립니다' · 받은 뒤 쓸 만한 물건은 나눔 장터 · 귤 말은 '계속 주고받는 사이라' 조건",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_4.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_4.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -835,7 +835,7 @@
       ],
       "pass": true,
       "fixed_after": "고친 것 없음 (마지막 회차 = 지금 대본)",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_5.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_5.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -915,7 +915,7 @@
       ],
       "pass": true,
       "fixed_after": "고친 것 없음 (마지막 회차 = 지금 대본)",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_6.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_6.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
@@ -997,14 +997,14 @@
       ],
       "pass": false,
       "fixed_after": "고친 것 없음 — 사용자에게",
-      "prompt": "psychology/source/jakku-juneun-2026-11/persona_jakku-juneun-2026-11_script_rebuttal_7.md",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_7.md",
       "rule": {
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11/jakku-juneun-2026-11.txt"
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    }
   }
  }

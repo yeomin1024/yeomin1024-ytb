@@ -1,6 +1,6 @@
-# jakku-juneun-2026-11 — 일상툰 그림 21장 (ChatGPT용 · 1번부터 차례로 모두)
+# jakku-juneun-2026-11-25 — 일상툰 그림 21장 (ChatGPT용 · 1번부터 차례로 모두)
 
-작성: v1.2 — 2026-11-25 — 사용자 지시 2026-11-25 "그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐". 기준 대본 = `psychology/source/jakku-juneun-2026-11/jakku-juneun-2026-11.txt` (TTS 대본) · 영상 「필요 없다는데 자꾸 주는 사람, 심리학적 이유 3가지」.
+작성: v1.2 — 2026-11-25 — 사용자 지시 2026-11-25 "그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐". 기준 대본 = `psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt` (TTS 대본) · 영상 「필요 없다는데 자꾸 주는 사람, 심리학적 이유 3가지」.
 
 **어떻게 쓰는가 — 일상툰 꼴 코드 애니메이션**
 - Claude 가 코드로 만든다: 배경 그림 위에 인물·소품 조각을 올리고, 동작마다 이어지는 원화 3장(키 → 중간 → 키)을 바꿔 끼워 움직이게 한다. 화면 반반(주는 순간 G · 그 뒤의 R)·말풍선·자막·과자 봉지의 날짜·카드는 코드가 얹는다 → **그림에는 글자가 하나도 없어야 한다.**
@@ -8,7 +8,7 @@
 - 썸네일 그림(마지막 장)은 **G 가 봉지를 건네고 R 이 어색하게 웃으며 받는 장면 하나 — 그림이 화면 끝까지**(아래 빈 띠·테두리 없음) — 문구 (코드로 얹음 — 「필요 없다는데 자꾸 주는 사람 / 심리학적 이유 3가지」 + 말풍선 「너 주려고 챙겼지~」·「마음은 고마운데…」).
 - G·R·H 는 가상 인물. ※ 연구·교육용 영상 — 심리 진단·상담이 아니다. 누구도 나쁜 사람으로 그리지 않는다.
 
-| 번호 | 저장 경로 (모두 `psychology/source/jakku-juneun-2026-11/` 아래) | 무엇 | 대본 |
+| 번호 | 저장 경로 (모두 `psychology/source/jakku-juneun-2026-11-25/` 아래) | 무엇 | 대본 |
 |---|---|---|---|
 | 1 | `puppet/motion/R-REF.png` | R 기준 그림 (앞 · 4분의 3 · 옆) — 이 편 그림체 기준 | 전체 |
 | 2 | `puppet/motion/G-REF.png` | G 기준 그림 (앞 · 4분의 3 · 옆) | 전체 |
@@ -81,9 +81,9 @@
    ```
 5. **글자·숫자·로고·워터마크를 하나도 넣지 않는다** — 화면·휴대폰·서류·책·게시판·시계·달력·간판에도 없음 (빈 판이나 단순한 줄·도형만). 실제 회사·앱·병원의 이름·로고를 닮게 그리지 않는다. 만든 뒤 확대해 글자가 보이면 다시 만든다.
    **사람을 나쁘게 그리지 않는다** — G 는 정 많고 다정한 이웃이다(욕심쟁이·잔소리꾼 얼굴 ✗). R 이 거절하거나 곤란해하는 얼굴도 공손하고 미안한 얼굴이지 짜증·혐오가 아니다. 상한 음식은 곰팡이·벌레 없이 '오래돼 보이는' 정도로만 (서리 · 빛바랜 색).
-6. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`1. psychology/source/jakku-juneun-2026-11/puppet/motion/R-REF.png`). 그림 안에는 쓰지 않는다.
+6. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`1. psychology/source/jakku-juneun-2026-11-25/puppet/motion/R-REF.png`). 그림 안에는 쓰지 않는다.
 7. **다 만들면 저장소에 넣는다 — 저장 경로 그대로.**
-   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치, 경로는 표의 파일 이름 그대로 (대소문자·하이픈까지 같게 — 배경은 `psychology/source/jakku-juneun-2026-11/puppet/`, 기준·자세·동작·소품은 `psychology/source/jakku-juneun-2026-11/puppet/motion/`, 썸네일 그림은 `psychology/source/jakku-juneun-2026-11/images/`).
+   - 저장소 `yeomin1024/yeomin1024-ytb` main 브랜치, 경로는 표의 파일 이름 그대로 (대소문자·하이픈까지 같게 — 배경은 `psychology/source/jakku-juneun-2026-11-25/puppet/`, 기준·자세·동작·소품은 `psychology/source/jakku-juneun-2026-11-25/puppet/motion/`, 썸네일 그림은 `psychology/source/jakku-juneun-2026-11-25/images/`).
    - **올리기 전에 700KB 이하로 만든다** — GitHub 앱은 약 768KB 를 넘는 파일을 잘라 올려 그림이 깨진다. 올린 뒤 GitHub 의 파일 크기(바이트)가 내 파일과 같은지 확인하고, 다르면 다시 올린다.
      - 배경·썸네일(JPEG): RGB · 크기 1536×864 그대로 · 품질 90부터 5씩 낮춰 700KB 아래가 될 때까지 저장.
      - 기준·자세·동작·소품(PNG, 투명 유지): 아래 코드 그대로.
@@ -105,7 +105,7 @@
                s *= 0.9
            print(dst, os.path.getsize(dst), cur.size)
        ```
-   - **GitHub 앱으로 장마다 커밋한다.** 커밋 메시지: `[psychology] jakku-juneun-2026-11 <파일 이름> 이미지` (예: `[psychology] jakku-juneun-2026-11 R-REF.png 이미지`). 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
+   - **GitHub 앱으로 장마다 커밋한다.** 커밋 메시지: `[psychology] jakku-juneun-2026-11-25 <파일 이름> 이미지` (예: `[psychology] jakku-juneun-2026-11-25 R-REF.png 이미지`). 다 올리면 올린 파일 경로와 커밋 링크를 목록으로 적는다.
    - **올리기가 실패한 장만** (권한·연결 오류) 그림을 번호 순서대로 한 번 더 보여 준 뒤 이 문장을 그대로 쓴다: **"올리지 못한 그림을 이 순서대로 Claude 대화창에 붙여 넣어 주세요. Claude가 검수한 뒤 각 저장 경로에 올립니다."**
 
 ## 공통 화풍 (모든 프롬프트 맨 앞에 그대로 붙임)
@@ -167,7 +167,7 @@ THUMBNAIL PICTURE for a video cover: full-bleed landscape 1536x864, ONE complete
 
 ## 1. R-REF — R 기준 그림 (앞 · 4분의 3 · 옆) — 이 편 그림체 기준
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/R-REF.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 기준 3면
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/R-REF.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 기준 3면
 
 ```
 Draw R only. This is R, the main person of this video. Picture 1 also defines the drawing style of every later picture.
@@ -175,7 +175,7 @@ Draw R only. This is R, the main person of this video. Picture 1 also defines th
 
 ## 2. G-REF — G 기준 그림 (앞 · 4분의 3 · 옆)
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/G-REF.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 기준 3면
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/G-REF.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 기준 3면
 
 ```
 Draw G only, in exactly the same style as picture 1. This is G, the giving neighbor.
@@ -183,7 +183,7 @@ Draw G only, in exactly the same style as picture 1. This is G, the giving neigh
 
 ## 3. H-POSES — 회사 선배 H 자세 3: 사은품 상자 내밀기 · 상자 여러 개 안고 웃음 · 엄지 척
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/H-POSES.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 자세 3개
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/H-POSES.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 자세 3개
 
 ```
 Draw H only, standing, three-quarter view facing RIGHT. Column 1: holding out one small plain gift box toward the right with a proud, friendly grin. Column 2: arms full of several small plain boxes, laughing. Column 3: a cheerful thumbs-up.
@@ -191,7 +191,7 @@ Draw H only, standing, three-quarter view facing RIGHT. Column 1: holding out on
 
 ## 4. BG-HALLWAY — 아파트 복도 — 마주 보는 두 현관문 (도입 · 거절 · 정리)
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/BG-HALLWAY.jpg`** — JPEG 700KB 이하 · 가로 1536×864 · 가운데 절반으로 잘라 반반 화면에도 씀
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/BG-HALLWAY.jpg`** — JPEG 700KB 이하 · 가로 1536×864 · 가운데 절반으로 잘라 반반 화면에도 씀
 
 ```
 A bright Korean apartment corridor seen from the side: on the LEFT a front door (G's home) with a small potted plant beside it, on the RIGHT another front door (R's home) with a plain doormat; light gray walls, a long window with daylight at the back, clean tiled floor. Both doors are plain with no numbers or nameplates.
@@ -199,7 +199,7 @@ A bright Korean apartment corridor seen from the side: on the LEFT a front door 
 
 ## 5. BG-R-KITCHEN — R 의 1인 가구 부엌 — 냉장고 · 조리대 · 뚜껑 있는 쓰레기통
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/BG-R-KITCHEN.jpg`** — JPEG 700KB 이하 · 가로 1536×864 · 가운데 절반으로 잘라 반반 화면에도 씀
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/BG-R-KITCHEN.jpg`** — JPEG 700KB 이하 · 가로 1536×864 · 가운데 절반으로 잘라 반반 화면에도 씀
 
 ```
 A small, tidy one-person kitchen: a white two-door fridge on the left, a short light-wood counter in the center with almost nothing on it, a pedal trash bin with a lid on the right, a small window, soft daylight. Minimal and neat.
@@ -207,7 +207,7 @@ A small, tidy one-person kitchen: a white two-door fridge on the left, a short l
 
 ## 6. BG-G-KITCHEN — G 의 부엌 — 명절 앞 냉동실 정리 (식탁 위에 꺼낸 냉동식품)
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/BG-G-KITCHEN.jpg`** — JPEG 700KB 이하 · 가로 1536×864
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/BG-G-KITCHEN.jpg`** — JPEG 700KB 이하 · 가로 1536×864
 
 ```
 A warm, lived-in Korean home kitchen: a tall freezer and a kimchi fridge at the back, a kitchen table in front covered with frozen food packs taken out of the freezer — frosty plastic bags of rice cakes, wrapped fish, plain containers with blank lids, a few white plastic bags. Busy but cozy, warm afternoon light.
@@ -215,7 +215,7 @@ A warm, lived-in Korean home kitchen: a tall freezer and a kimchi fridge at the 
 
 ## 7. BG-OFFICE — 회사 자리 — 책상 위 사은품 상자 (도입)
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/BG-OFFICE.jpg`** — JPEG 700KB 이하 · 가로 1536×864
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/BG-OFFICE.jpg`** — JPEG 700KB 이하 · 가로 1536×864
 
 ```
 A small office corner: a desk on the right with a blank monitor, a few plain small boxes piled on the desk, an office chair, a window with daylight. Neutral colors.
@@ -223,7 +223,7 @@ A small office corner: a desk on the right with a blank monitor, a few plain sma
 
 ## 8. BG-R-LIVING — R 의 거실 (밤) — 소파 · 낮은 탁자 위 봉지들
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/BG-R-LIVING.jpg`** — JPEG 700KB 이하 · 가로 1536×864
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/BG-R-LIVING.jpg`** — JPEG 700KB 이하 · 가로 1536×864
 
 ```
 A small studio living room at night: a gray two-seat sofa in the center, a low table in front of it with two white plastic bags and a small plain box on it, a floor lamp giving warm light, dark blue window.
@@ -231,7 +231,7 @@ A small studio living room at night: a gray two-seat sofa in the center, a low t
 
 ## 9. BG-LOBBY — 아파트 1층 — 나눔 선반과 의류 기부함
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/BG-LOBBY.jpg`** — JPEG 700KB 이하 · 가로 1536×864
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/BG-LOBBY.jpg`** — JPEG 700KB 이하 · 가로 1536×864
 
 ```
 An apartment building ground-floor lobby: on the right a simple wooden sharing shelf with a few neat items (a folded towel set, a plain mug box, a potted plant) and a green clothes donation box with a plain front (no words or symbols); mailboxes on the back wall (blank), glass entrance door on the left, daylight.
@@ -239,7 +239,7 @@ An apartment building ground-floor lobby: on the right a simple wooden sharing s
 
 ## 10. R01 — R (복도, 왼쪽을 보고): 두 손으로 봉지를 받으며 어색한 미소 → 봉지 안을 들여다봄 (땀방울) → 공손하게 고개 숙여 인사
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/R01.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/R01.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 R, standing, three-quarter view facing LEFT. Frame 1: receiving a bulging white plastic bag with both hands, an awkward polite smile. Frame 2: peeking into the bag, eyebrows slightly raised, one sweat drop. Frame 3: a small polite bow with a forced but kind smile, still holding the bag.
@@ -247,7 +247,7 @@ R, standing, three-quarter view facing LEFT. Frame 1: receiving a bulging white 
 
 ## 11. R02 — R (부엌, 왼쪽을 보고): 과자 봉지를 눈앞에 대고 날짜 칸을 봄 → 한숨, 어깨가 처짐 → 쓰레기통 위에 들고 미안한 얼굴
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/R02.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/R02.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 R, standing, three-quarter view facing LEFT. Frame 1: holding a snack bag close to his eyes, squinting at a small blank white label area on it. Frame 2: a sigh, shoulders dropping, the bag lowered. Frame 3: holding the bag over an invisible trash bin at his left with a sorry, guilty face — not disgusted.
@@ -255,7 +255,7 @@ R, standing, three-quarter view facing LEFT. Frame 1: holding a snack bag close 
 
 ## 12. R03 — R (소파에 앉아): 휴대폰을 보며 고민 → 손가락으로 셈 → 고개를 젖히고 한숨 ('뭘 돌려드리지')
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/R03.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/R03.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 R, sitting on an invisible sofa, facing the viewer. Frame 1: looking at a phone with a blank screen, frowning, thinking. Frame 2: counting on the fingers of one hand, worried. Frame 3: head tilted back against the sofa, a tired sigh, the phone resting on his lap.
@@ -263,7 +263,7 @@ R, sitting on an invisible sofa, facing the viewer. Frame 1: looking at a phone 
 
 ## 13. R04 — R (복도, 왼쪽을 보고): 두 손바닥을 살짝 내밀며 정중히 사양 → 가슴에 손을 얹고 내 사정을 말함 → 따뜻한 미소로 살짝 인사
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/R04.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/R04.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 R, standing, three-quarter view facing LEFT. Frame 1: gently raising both open palms forward, politely declining with a kind, slightly sorry smile. Frame 2: one hand on his chest, explaining calmly. Frame 3: a small bow with a warm, relieved smile.
@@ -271,7 +271,7 @@ R, standing, three-quarter view facing LEFT. Frame 1: gently raising both open p
 
 ## 14. G01 — G (자기 부엌, 오른쪽을 보고): 서리 낀 냉동 통을 들고 봄 → 볼에 손을 대고 '아까워' 망설임 → 반짝 생각나 환하게 봉지에 담음
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/G01.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/G01.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 G, standing, three-quarter view facing RIGHT. Frame 1: holding a frosty plastic container with a blank lid, looking at it. Frame 2: one hand on her cheek, hesitating — it feels too wasteful to throw away. Frame 3: a bright idea face with small sparkle lines, cheerfully putting the container into a white plastic bag.
@@ -279,7 +279,7 @@ G, standing, three-quarter view facing RIGHT. Frame 1: holding a frosty plastic 
 
 ## 15. G02 — G (복도, 오른쪽을 보고): 불룩한 봉지를 환하게 내밂 → 손에 쥐여 주듯 밀어 줌 ('그래도 가져가') → 뒤돌아 신나게 돌아감 (반짝)
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/G02.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/G02.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 G, standing, three-quarter view facing RIGHT. Frame 1: holding out a bulging white plastic bag with both hands and a big warm smile. Frame 2: leaning forward, pressing the bag toward someone on the right, cheerful and insistent. Frame 3: turning to walk away toward the left, empty-handed, happy, with small sparkle lines.
@@ -287,7 +287,7 @@ G, standing, three-quarter view facing RIGHT. Frame 1: holding out a bulging whi
 
 ## 16. G03 — G (복도, 오른쪽을 보고): 거절을 듣고 잠깐 멈칫 → 이해한다는 끄덕임 → 다정하게 웃으며 손 흔듦
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/G03.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/G03.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 G, standing, three-quarter view facing RIGHT, holding a small white plastic bag at her side. Frame 1: a brief surprised pause, eyebrows up. Frame 2: an understanding nod. Frame 3: a warm smile, waving lightly with her free hand.
@@ -295,7 +295,7 @@ G, standing, three-quarter view facing RIGHT, holding a small white plastic bag 
 
 ## 17. G04 — G (복도, 오른쪽을 보고): 물건을 들어 보이며 '이거 쓸래요?' 묻기 → 귀 기울여 들음 → '그래요' 웃으며 끄덕임
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/G04.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/G04.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 G, standing, three-quarter view facing RIGHT. Frame 1: holding up a small plain box at chest height, asking with raised eyebrows and a friendly face. Frame 2: listening attentively, head slightly tilted. Frame 3: a relaxed smile and a nod, lowering the box.
@@ -303,7 +303,7 @@ G, standing, three-quarter view facing RIGHT. Frame 1: holding up a small plain 
 
 ## 18. G05 — G (1층, 오른쪽을 보고): 깔끔한 봉지를 들고 섬 → 나눔 선반에 올려놓음 → 뿌듯한 미소
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/G05.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/G05.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 동작 3장
 
 ```
 G, standing, three-quarter view facing RIGHT. Frame 1: holding a neat folded shopping bag with clean items, standing calmly. Frame 2: reaching forward to place it on an invisible shelf at chest height. Frame 3: hands together at her chest, a proud, satisfied smile.
@@ -311,7 +311,7 @@ G, standing, three-quarter view facing RIGHT. Frame 1: holding a neat folded sho
 
 ## 19. PROPS-A — 소품 4: 불룩한 비닐봉지 · 서리 낀 냉동 통 · 날짜 칸이 빈 과자 봉지 · 리본 없는 사은품 상자
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/PROPS-A.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 소품 4
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/PROPS-A.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 소품 4
 
 ```
 Prop sheet, landscape 1536x1024, four equal invisible columns, one prop centered in each column, similar visual size, each fully inside its column: (1) a bulging white plastic bag full of snack packs and containers, no logos; (2) a frosty plastic freezer container with a blank lid, a little ice on it; (3) a snack bag with a plain colored wrapper and one empty white rectangle where a date label would be (completely blank); (4) a small plain cardboard gift box, no logo, no writing.
@@ -319,7 +319,7 @@ Prop sheet, landscape 1536x1024, four equal invisible columns, one prop centered
 
 ## 20. PROPS-B — 소품 4: 그물망 귤 · 뚜껑 열린 쓰레기통 · 쌓인 반찬통 · 빈 화면 휴대폰
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/puppet/motion/PROPS-B.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 소품 4
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/puppet/motion/PROPS-B.png`** — PNG 700KB 이하 · 투명 · 가로 1536×1024 · 소품 4
 
 ```
 Prop sheet, landscape 1536x1024, four equal invisible columns, one prop centered in each column, similar visual size: (1) a small mesh bag of bright fresh tangerines; (2) a pedal trash bin with its lid open, empty; (3) a stack of three plain plastic food containers with blank lids; (4) a smartphone, front view, the screen plain light blue with nothing on it.
@@ -327,14 +327,14 @@ Prop sheet, landscape 1536x1024, four equal invisible columns, one prop centered
 
 ## 21. TH-CHAR — 썸네일 그림: 복도 — 왼쪽 G 가 봉지를 환하게 내밂 · 오른쪽 R 이 이미 봉지 두 개를 안고 어색한 미소 (화면 끝까지)
 
-**저장 경로: `psychology/source/jakku-juneun-2026-11/images/TH-CHAR.jpg`** — JPEG 700KB 이하 · 가로 1536×864 · 글자 없음
+**저장 경로: `psychology/source/jakku-juneun-2026-11-25/images/TH-CHAR.jpg`** — JPEG 700KB 이하 · 가로 1536×864 · 글자 없음
 
 ```
 One scene in the apartment corridor in daylight. LEFT side (from about 8% to 45% of the width): G, three-quarter view facing right, holding out a bulging white plastic bag with a big warm, kind smile. RIGHT side (from about 55% to 92% of the width): R at his open front door, three-quarter view facing left, already hugging two full plastic bags against his chest, an awkward polite smile with one sweat drop — kind, not annoyed. Both faces are clearly visible in the upper part of the picture, with empty wall space above and beside each head for speech bubbles. The floor, the doormat and a few more bags at their feet continue to the bottom edge.
 ```
 
 ## 받은 뒤 (Claude)
-- main 의 `psychology/source/jakku-juneun-2026-11/puppet/`·`images/` 를 가져와 21장을 확대해 검수: 1번 그림체와 같은지 · 같은 사람인지 · 그림 속 글자 없음 · 세 장의 발 높이·크기·옷 · 반반 화면 배경의 가운데 절반 · 사람을 나쁘게 그리지 않았는지.
-- `psychology/source/puppet_slice.py jakku-juneun-2026-11` 로 자르기 → `puppet/cut/` + `manifest.js` · 장면 `video/episodes/jakku-juneun-2026-11/index.html` (공통 엔진 `video/render/psy_anim.js` — 반반 화면·말풍선·시계 바늘은 코드).
+- main 의 `psychology/source/jakku-juneun-2026-11-25/puppet/`·`images/` 를 가져와 21장을 확대해 검수: 1번 그림체와 같은지 · 같은 사람인지 · 그림 속 글자 없음 · 세 장의 발 높이·크기·옷 · 반반 화면 배경의 가운데 절반 · 사람을 나쁘게 그리지 않았는지.
+- `psychology/source/puppet_slice.py jakku-juneun-2026-11-25` 로 자르기 → `puppet/cut/` + `manifest.js` · 장면 `video/episodes/jakku-juneun-2026-11-25/index.html` (공통 엔진 `video/render/psy_anim.js` — 반반 화면·말풍선·시계 바늘은 코드).
 - 오디오(`narration.mp3`, 내레이션만 — 말풍선은 소리 없음)가 생기면 align → sync → check·layout-check 문제 0 → 렌더 → 완성 mp4 를 직접 봄.
 - 썸네일 = `images/TH-CHAR.jpg` + 문구는 코드(`video/render/thumb.mjs`) — 제목·문구는 `guides/persona_loop.md` 검증 뒤.

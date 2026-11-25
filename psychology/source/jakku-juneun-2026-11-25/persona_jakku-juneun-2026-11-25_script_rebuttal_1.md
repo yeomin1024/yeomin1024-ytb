@@ -1,8 +1,8 @@
-# 페르소나 검토 — 대본 반론 검토 (반론 페르소나) · jakku-juneun-2026-11 · 1회차 (persona_gate.py v1.2)
+# 페르소나 검토 — 대본 반론 검토 (반론 페르소나) · jakku-juneun-2026-11-25 · 1회차 (persona_gate.py v1.2)
 
 너는 처음 이 글을 보는 검토자다. 이 대화 밖의 다른 회차 결과는 모른다. 아래 페르소나가 **되어** 솔직하게 답한다 — 칭찬하려 애쓰지 않고, 억지로 흠을 만들지도 않는다.
 검토자 이름: K1-반론 (이름마다 따로 답 — 한 사람이면 하나)
-답은 아래 JSON 꼴 그대로, 검토자마다 파일 하나로 `psychology/source/jakku-juneun-2026-11/answers_jakku-juneun-2026-11_script_rebuttal_1/<검토자 이름>.json` 에 저장하고, 마지막 답에도 그대로 붙인다.
+답은 아래 JSON 꼴 그대로, 검토자마다 파일 하나로 `psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_rebuttal_1/<검토자 이름>.json` 에 저장하고, 마지막 답에도 그대로 붙인다.
 투자 권유가 아닌 연구·교육용 영상의 검토다.
 
 ## 1. 너는 누구인가

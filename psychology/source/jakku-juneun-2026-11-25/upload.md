@@ -1,7 +1,7 @@
-# jakku-juneun-2026-11 업로드 시트 (롱폼 · 심리)
+# jakku-juneun-2026-11-25 업로드 시트 (롱폼 · 심리)
 
 버전: v1.4 — 2026-11-25 — 최초 (사용자 지시 "그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐") · 생성 `psychology/source/upload_sheets.py` v1.4.
-기준 파일: 대본 `jakku-juneun-2026-11.txt` (96문장) · 오디오 `narration.mp3` · 자막 `jakku-juneun-2026-11.srt`(align-audio — 실제 오디오) · 영상 `psychology/out/jakku-juneun-2026-11/final_1080p.mp4`(만스피 꼴 · `video/episodes/jakku-juneun-2026-11/`) · 썸네일 `thumbnails/thumbnail_1~3.jpg`.
+기준 파일: 대본 `jakku-juneun-2026-11-25.txt` (96문장) · 오디오 `narration.mp3` · 자막 `jakku-juneun-2026-11-25.srt`(align-audio — 실제 오디오) · 영상 `psychology/out/jakku-juneun-2026-11-25/final_1080p.mp4`(만스피 꼴 · `video/episodes/jakku-juneun-2026-11-25/`) · 썸네일 `thumbnails/thumbnail_1~3.jpg`.
 
 > 업로드 채널 = 심리 채널. 연구·교육용 콘텐츠 — 심리 진단·치료가 아님.
 > ⚠ `psychology/youtube_channel.json` 이 아직 없음 → 올리는 도구가 키의 채널을 확인하지 못함. PC 업로드 화면 psychology 탭에는 **심리 채널 키**만 넣는다 (처음 올린 뒤 화면의 '기억'으로 채널 ID 를 남김).
@@ -58,7 +58,7 @@
 ## 3. 챕터 다시 계산하기 (문장 번호 기준 — 실제 내레이션 SRT)
 
 ```
-python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11/jakku-juneun-2026-11.txt psychology/source/jakku-juneun-2026-11/jakku-juneun-2026-11.srt --chapters "1=필요 없다는데 자꾸 주는 사람;16=이유 1. 버리기 아까워서;32=이유 2. 건네는 순간만 보여서;45=이유 3. 주고 나면 기분이 좋아서;54=받는 쪽이 부담스러운 까닭 (소비기한);65=서운하지 않게 거절하는 말;83=내가 주는 쪽이라면 확인할 3가지"
+python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.srt --chapters "1=필요 없다는데 자꾸 주는 사람;16=이유 1. 버리기 아까워서;32=이유 2. 건네는 순간만 보여서;45=이유 3. 주고 나면 기분이 좋아서;54=받는 쪽이 부담스러운 까닭 (소비기한);65=서운하지 않게 거절하는 말;83=내가 주는 쪽이라면 확인할 3가지"
 ```
 
 ## 4. 태그
@@ -81,7 +81,7 @@ python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11/jakku-jun
 | 공개 상태 | 비공개로 올린 뒤 예약 공개 |
 | 추천 공개 순서 | 6번째 — ADHD 다음 — 공개 시각은 PC 업로드 화면 기본(7일 뒤 17:00) 또는 사용자가 정함 · 렌더 전 시트 (챕터 시각은 SRT 가 생긴 뒤 저절로) |
 | 썸네일 | `thumbnails/thumbnail_1.jpg` (본안 · 1280×720) |
-| 자막 | `jakku-juneun-2026-11.srt` (실제 오디오에 맞춤) |
+| 자막 | `jakku-juneun-2026-11-25.srt` (실제 오디오에 맞춤) |
 | 자막 올리기 | 예 |
 | 카테고리 | 교육 |
 | 동영상 언어 · 기본 언어 | 한국어 · ko |

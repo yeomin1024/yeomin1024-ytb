@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.13 — 2026-11-25 — **새 편 jakku-juneun-2026-11** (필요 없다는데 자꾸 주는 사람 · 렌더 전 요소: 대본·근거·package·페르소나 검증·그림 요청 21장 `source/images_build_toon.py` v1.2·업로드 시트 `source/upload_sheets.py` v1.4)
+VERSION: v1.14 — 2026-11-25 — 새 편 폴더 이름에 만든 날짜까지: `source/jakku-juneun-2026-11-25/` (사용자 지시 "음성 폴더 만들 때 날짜도 붙여 헷갈리잖아")
+(v1.13) — 2026-11-25 — **새 편 jakku-juneun-2026-11** (필요 없다는데 자꾸 주는 사람 · 렌더 전 요소: 대본·근거·package·페르소나 검증·그림 요청 21장 `source/images_build_toon.py` v1.2·업로드 시트 `source/upload_sheets.py` v1.4)
 (v1.12) — 2026-11-25 — 주제 후보에 구글 트렌드 12묶음 반영 (`source/next_topic.py` v1.1 `trends` → `result/next_topic/trends.md`)
 (v1.11) — 2026-11-25 — **다음 영상 주제 탐색**: `source/next_topic.py` v1.0 (많이 본 영상 + 최근 7일 댓글 무게 · 심리 큰 채널 31곳 · 대리 지표 · 겹침 검색 · 구글 트렌드 묶음) → `result/next_topic/next_topic.md` (후보 7개 · 트렌드 칸은 사용자 CSV 대기)
 (v1.10) — 2026-11-24 — **ADHD 영상 다시 올리기 준비**: 썸네일 그림을 화면 끝까지(`source/thumbs_build.py` v1.8) · 설명란 소개·챕터를 ADHD 검색 낱말로 · 알려 드립니다 짧게(`source/upload_sheets.py` v1.2) · 첫 업로드 기록 `youtube_old_20261124.json` (옛 영상 Va58wN8mnt0 은 사용자가 스튜디오에서 지움)

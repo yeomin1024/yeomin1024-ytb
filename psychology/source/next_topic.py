@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-25 — 신규: 다음 심리 영상 주제 탐색 (많이 본 영상 + 최근 7일 댓글 · 큰 채널 주제 · 성공 대리 지표 · 겹침 · 트렌드 묶음)
+# VERSION: v1.1 — 2026-11-25 — trends: 사용자 CSV 12묶음 합치기 — "<1" = 0.5 · 최근 4주 · 기준 낱말이 작은 묶음 정밀도 표시 · 묶음 파일 확인 (사용자 지시 "압축풀어서 확인해")
+# (v1.0) — 2026-11-25 — 신규: 다음 심리 영상 주제 탐색 (많이 본 영상 + 최근 7일 댓글 · 큰 채널 주제 · 성공 대리 지표 · 겹침 · 트렌드 묶음)
 #   사용자 지시 2026-11-25 "1. 관심 높은 키워드 … 2. 시청자 많이 본 영상 탐색 … 3. 구독자 많은 채널이 많이 다루는 주제 … 4. 어떤 주제가 시청자들에게
 #   성공적으로 추천됐는지 …" → "2번에서 최근 7일 동안으로 변경하고 최근 댓글 수로 무게를 주도록 해 그리고 시청자들이 이미 알고 있는 내용, 즉 비슷한
 #   주제로 많이 시청한 영상과 겹치면 안돼니까 확인해야해 트렌드 사이트 허용했으니 탐색해서 주제 여러 개 알려줘봐".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-25 | trends — "<1" 을 0.5 로 (전엔 1) · 최근 4주 평균 · 기준 낱말 평균 20 미만 묶음 ⚠ 정밀도 · 주 수 확인 | cmd_trends |
 # | v1.0 | 2026-11-25 | (같은 날 고침) 주제 묶음·심리 비중은 제목만 (태그가 묶음을 흐림) · 2-1-1 올린 지 90일+ 영상만 · 뉴스·음악·콩트 거름 | report · big_tables · related |
 # | v1.0 | 2026-11-25 | 최초 — recent(조회수 상위 + 최근 7일 댓글 수 무게) · big(구독자 10만+ 심리 채널 최근 1년 주제·채널 안 상대 조회수) · proxies(좋아요÷조회수 등 대리 지표) · overlap(이미 많이 본 영상) · trends(구글 트렌드 묶음·CSV 합치기) · report | 전부 |
 """다음 심리 영상 주제 탐색 — 숫자와 원문만 만든다 (주제 판단은 이 결과를 읽는 Claude 가 `next_topic.md` 에).
@@ -54,7 +56,7 @@ OUT = PSY / "result" / "next_topic"
 CACHE_TGZ = PSY / "cloud_cache" / "cache.tgz"
 COMPARE = PSY / "result" / "outliers" / "compare.csv"
 API = "https://www.googleapis.com/youtube/v3/"
-VERSION = "v1.0"
+VERSION = "v1.1"
 
 RECENT_DAYS = 7          # 사용자 지시 2026-11-25 "2번에서 최근 7일 동안으로 변경"
 MAX_COMMENT_PAGES = 5    # 최신 댓글 100개씩 최대 5쪽 (7일 안 댓글이 500개 넘으면 '500+')
@@ -599,32 +601,55 @@ def write_trend_batches() -> None:
     (OUT / "trends_batches.md").write_text("\n".join(L) + "\n", encoding="utf-8")
 
 
+def trend_val(x: str) -> float:
+    """구글 트렌드 칸 값 — '<1' = 0.5 (1 보다 작음), 빈칸 = 0."""
+    x = x.strip()
+    if x.startswith("<"):
+        return 0.5
+    try:
+        return float(x)
+    except ValueError:
+        return 0.0
+
+
 def cmd_trends(a) -> int:
-    files = sorted((OUT / "trends").glob("*.csv"))
+    files = sorted((OUT / "trends").glob("batch_*.csv"))
     if not files:
-        stamp("TRENDS", level="warn", msg="CSV 없음", next="trends_batches.md 의 주소에서 받아 psychology/result/next_topic/trends/ 에")
+        stamp("TRENDS", level="warn", msg="CSV 없음", next="trends_batches.md 의 주소에서 받아 psychology/result/next_topic/trends/batch_NN.csv 로")
         return 1
     score = {}
     for f in files:
         rows = [r for r in csv.reader(io.StringIO(f.read_text("utf-8-sig"))) if r]
-        hdr_i = next(i for i, r in enumerate(rows) if len(r) > 1 and re.match(r"(주|Week|월|Month|날짜|Day)", r[0]))
+        try:
+            hdr_i = next(i for i, r in enumerate(rows) if len(r) > 1 and re.match(r"(주|Week|월|Month|날짜|Day)", r[0]))
+        except StopIteration:
+            stamp("TRENDS", level="warn", file=f.name, msg="머리 줄(주,…) 없음 — 뺌")
+            continue
         hdr = [re.sub(r":.*$", "", h).strip() for h in rows[hdr_i]]
         data = rows[hdr_i + 1:]
-        cols = {h: [float(re.sub(r"[^\d.]", "", r[j]) or 0) for r in data] for j, h in enumerate(hdr) if j}
+        cols = {h: [trend_val(r[j]) for r in data] for j, h in enumerate(hdr) if j}
         if TREND_ANCHOR not in cols:
             stamp("TRENDS", level="warn", file=f.name, msg=f"기준 낱말 {TREND_ANCHOR} 칸 없음 — 뺌")
             continue
         base = st.mean(cols[TREND_ANCHOR]) or 1
+        stamp("TRENDS", file=f.name, weeks=len(data), first=data[0][0], last=data[-1][0], anchor_mean=round(base, 1),
+              words="·".join(h for h in cols if h != TREND_ANCHOR))
         for h, xs in cols.items():
             if h == TREND_ANCHOR:
                 continue
             last = st.mean(xs[-13:]) if len(xs) >= 13 else st.mean(xs)
             prev = st.mean(xs[-26:-13]) if len(xs) >= 26 else last
-            score[h] = {"rel": st.mean(xs) / base, "recent_rel": last / base, "trend": (last / prev) if prev else 0, "file": f.name}
-    L = ["# 구글 트렌드 — 유튜브 검색 관심도 (기준 「심리」 = 1.00)", "", "| 낱말 | 12개월 평균 (심리 대비) | 최근 3개월 (심리 대비) | 최근 3개월 ÷ 그 전 3개월 | 파일 |", "|---|---|---|---|---|"]
-    for h, s in sorted(score.items(), key=lambda kv: -kv[1]["rel"]):
-        L.append(f"| {h} | {s['rel']:.2f} | {s['recent_rel']:.2f} | {s['trend']:.2f} | {s['file']} |")
+            score[h] = {"rel": st.mean(xs) / base, "recent_rel": last / base, "trend": (last / prev) if prev else 0,
+                        "last4": st.mean(xs[-4:]) / base, "peak": max(xs), "file": f.name, "low_anchor": base < 20}
+    L = ["# 구글 트렌드 — 유튜브 검색 관심도 (한국 · 최근 12개월 · 기준 「심리」 = 1.00)", "",
+         f"> `next_topic.py` {VERSION} · {time.strftime('%Y-%m-%d %H:%M')} · 사용자가 받은 CSV {len(files)}개 (`trends/batch_NN.csv`). 묶음마다 '심리'를 같이 넣어 '심리' 평균으로 나눔 → 묶음끼리 비교 가능.",
+         "> 값 = 그 낱말 평균 ÷ 같은 묶음 '심리' 평균 (1 보다 크면 '심리'보다 많이 검색). 구글 트렌드는 0~100 상대값·정수라, '심리' 평균이 20 미만인 묶음(⚠)은 작은 낱말 값이 거칠다. '<1' = 0.5 로 셈.",
+         "> **한계**: 정확히 그 낱말을 친 검색만 셈 — '선물 심리'처럼 긴 말은 검색이 적어도 주제 관심이 없다는 뜻은 아님 (홈 피드로 퍼지는 꼴은 검색에 기대지 않음).", "",
+         "| 순위 | 낱말 | 12개월 평균 (심리 대비) | 최근 3개월 | 최근 4주 | 최근 3개월 ÷ 그 전 3개월 | 최고값 (묶음 안 0~100) | 묶음 |", "|---|---|---|---|---|---|---|---|"]
+    for i, (h, s_) in enumerate(sorted(score.items(), key=lambda kv: -kv[1]["rel"]), 1):
+        L.append(f"| {i} | {h} | {s_['rel']:.2f} | {s_['recent_rel']:.2f} | {s_['last4']:.2f} | {s_['trend']:.2f} | {s_['peak']:.0f} | {s_['file']}{' ⚠' if s_['low_anchor'] else ''} |")
     (OUT / "trends.md").write_text("\n".join(L) + "\n", encoding="utf-8")
+    save_gz("trends.json.gz", score)
     stamp("TRENDS", status="done", words=len(score), files=len(files))
     return 0
 

@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.11 — 2026-11-25 — **다음 영상 주제 탐색**: `source/next_topic.py` v1.0 (많이 본 영상 + 최근 7일 댓글 무게 · 심리 큰 채널 31곳 · 대리 지표 · 겹침 검색 · 구글 트렌드 묶음) → `result/next_topic/next_topic.md` (후보 7개 · 트렌드 칸은 사용자 CSV 대기)
+VERSION: v1.12 — 2026-11-25 — 주제 후보에 구글 트렌드 12묶음 반영 (`source/next_topic.py` v1.1 `trends` → `result/next_topic/trends.md`)
+(v1.11) — 2026-11-25 — **다음 영상 주제 탐색**: `source/next_topic.py` v1.0 (많이 본 영상 + 최근 7일 댓글 무게 · 심리 큰 채널 31곳 · 대리 지표 · 겹침 검색 · 구글 트렌드 묶음) → `result/next_topic/next_topic.md` (후보 7개 · 트렌드 칸은 사용자 CSV 대기)
 (v1.10) — 2026-11-24 — **ADHD 영상 다시 올리기 준비**: 썸네일 그림을 화면 끝까지(`source/thumbs_build.py` v1.8) · 설명란 소개·챕터를 ADHD 검색 낱말로 · 알려 드립니다 짧게(`source/upload_sheets.py` v1.2) · 첫 업로드 기록 `youtube_old_20261124.json` (옛 영상 Va58wN8mnt0 은 사용자가 스튜디오에서 지움)
 (v1.9) — 2026-11-24 — **ADHD 영상 v2.0 — 사용자 피드백 반영**: 화면 위 안내 문구·장 제목 화면 없음(인물 설명 이름표만) · 장이 바뀌면 화면을 쓸고 지나가는 전환 · 배경 없는 판 대신 장면 그림을 어둡게 한 위 설명 카드 · 말풍선은 보이는 반쪽 안 (`video/scripts/bubble-check.mjs` 0) · 내레이션 문장 가장자리 정리 `tools/edge_clean.py` · 도입 추가 그림 요청 `source/adhd-ab-2026-11/images_chatgpt_add.md` (`source/images_build_toon.py` v1.1)
 (v1.8 — 2026-11-24 — **ADHD A씨 vs B씨 영상 (일상툰)** (사용자 지시 "아침 6시에 음성, 이미지 올라온거 확인하고 다 돼면 영상 만들어봐"): 음성(`tts_narration` v1.18.1, 81문장 5분 36초 — 귀로 확인할 문장 8개 `source/adhd-ab-2026-11/audio_check.md`) · ChatGPT 그림 41장 검수(그림체·인물 같음, 글자 없음) → `source/puppet_slice.py` v1.1 (조연 시트 `W-POSES` 꼴 · 일상툰 앉은 키 비율 0.85) 86조각 → 장면 `video/episodes/adhd-ab-2026-11/index.html` v1.1 (A·B 반반 화면 · 숫자 판 · 배치 검사 0 · 렌더 검사 0) → `psychology/out/adhd-ab-2026-11/final_1080p.mp4` (git 밖))

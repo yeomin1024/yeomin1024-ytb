@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-24 — adhd-ab-2026-11 알려 드립니다에서 「A씨·B씨는 실제 댓글을 바탕으로 만든 가상 인물입니다.」 뺌 — 사용자 지시 "A씨·B씨는 실제 댓글을 바탕으로 만든 가상 인물입니다. 이것 좀 빼"
+# VERSION: v1.4 — 2026-11-25 — jakku-juneun-2026-11 업로드 시트 · 챕터를 대본 파트 이름으로 (chapter_parts — 문장을 고쳐도 번호가 저절로 맞음) — 사용자 지시 "그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐"
+# (v1.3) — 2026-11-24 — adhd-ab-2026-11 알려 드립니다에서 「A씨·B씨는 실제 댓글을 바탕으로 만든 가상 인물입니다.」 뺌 — 사용자 지시 "A씨·B씨는 실제 댓글을 바탕으로 만든 가상 인물입니다. 이것 좀 빼"
 # (v1.2) — 2026-11-24 — adhd-ab-2026-11 다시 올리기: 소개 2줄·챕터 이름을 ADHD 검색 낱말로 (`adhd_words.md`) · 알려 드립니다 짧게(편마다 notice) · 태그 500자 점검 — 사용자 지시 "설명을 알려드립니다는 좀 간단하게 써 맨앞 설명과 구간 설명은 알고리즘이 보니까 … ADHD 관련 영상 시청자들에게 추천할 수 있도록 단어 고려해서 써 수정하고 다시 업로드 할 수 있게해"
 # (v1.1) — 2026-11-24 — adhd-ab-2026-11 (사용자 지시 "그냥 하고 업로드 준비해"): 편마다 공개 순서 메모·실험 제목(thumb_tests)·title_fit·관문 메모 · --only · 보조 문구 여러 개
 # 이전 v1.0 — 2026-11-14 — 심리 네 편 업로드 시트 upload.md (사용자 지시 "업로드 시트 만들고 uploads 브랜치에 올려")
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-11-25 | chapter_parts(파트 이름 → 챕터 이름, 문장 번호는 대본에서 셈) · jakku-juneun-2026-11 | part_starts · build · EP |
 # | v1.3 | 2026-11-24 | adhd-ab-2026-11 notice 첫 줄에서 가상 인물 문장 뺌 (사용자 지시) | EP |
 # | v1.2 | 2026-11-24 | 편마다 notice(공통 NOTICE + notice_extra 대신 짧은 글) · reupload 메모 · 태그 길이 점검(YouTube 500자 — 띄어쓰기 있는 태그는 따옴표 2자) · adhd-ab-2026-11 소개·챕터·태그 다시 | EP · build |
 # | v1.1 | 2026-11-24 | adhd-ab-2026-11 · order_note · thumb_tests 실험 제목 · title_fit_note · gate_note · sources_file · --only | EP · build · main |
@@ -28,8 +30,8 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-VERSION = "v1.3"
-DATE = "2026-11-24"
+VERSION = "v1.4"
+DATE = "2026-11-25"
 CRISIS = "24시간 정신건강 상담 전화 1577-0199 · 자살예방 상담 전화 109 · 당장 위험하면 119"
 NOTICE = ("이 영상은 연구와 상담 글을 바탕으로 한 교육용 콘텐츠이며, 심리 진단이나 치료가 아닙니다.\n"
           "영상 속 인물과 장면은 이해를 돕기 위해 만든 것이고, 특정 사람의 이야기가 아닙니다. 연구는 대부분 한 번 조사한 결과라 원인을 밝힌 것이 아니며, 나에게 꼭 맞지 않을 수 있습니다.\n"
@@ -148,6 +150,39 @@ EP = {
         "title_fit_note": "`title_fit`: 모바일 홈·검색 2줄 ✅ · PC '다음 동영상' 칸 3줄 ❌ (사용자 제목 — 그대로)",
         "gate_note": "사용자 지시 '일단 지시사항 대로 하지말고'(대본) · '그냥 하고 업로드 준비해' — 대본 이탈·반론 단계는 돌리지 않음",
     },
+    # v1.4 — 다음 주제 탐색 추천 1번 (psychology/result/next_topic/next_topic.md v1.1)
+    "jakku-juneun-2026-11": {
+        "order": 6,
+        "instr": "그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐",
+        "order_note": "ADHD 다음 — 공개 시각은 PC 업로드 화면 기본(7일 뒤 17:00) 또는 사용자가 정함 · 렌더 전 시트 (챕터 시각은 SRT 가 생긴 뒤 저절로)",
+        # 소개 2줄 = 검색·추천에 보이는 앞부분 — 영상에 나오는 말만 (trends.md: 인간관계 0.27 · 선물 심리 0.00 → '인간관계'·'선물'·'거절' 같이)
+        "intro": "필요 없다고 해도 '그래도 가져가' 하며 자꾸 주는 사람, 기한 지난 간식이나 안 쓰는 물건을 건네는 사람의 심리를 연구로 짚었습니다.\n"
+                 "버리기 아까운 마음, 건네는 순간만 보이는 마음, 주는 기쁨 — 그리고 받는 쪽이 부담스러운 까닭과 소비기한, 인간관계를 지키며 서운하지 않게 거절하는 말까지 정리했습니다.",
+        "chapter_parts": [("도입", "필요 없다는데 자꾸 주는 사람"), ("첫 번째, 버리기 아까워서", "이유 1. 버리기 아까워서"),
+                          ("두 번째, 건네는 순간만 보여서", "이유 2. 건네는 순간만 보여서"), ("세 번째, 주고 나면 내 마음이 좋아져서", "이유 3. 주고 나면 기분이 좋아서"),
+                          ("받는 쪽이 불편한 까닭", "받는 쪽이 부담스러운 까닭 (소비기한)"), ("서운하지 않게 거절하는 말", "서운하지 않게 거절하는 말"),
+                          ("내가 주는 쪽이라면", "내가 주는 쪽이라면 확인할 3가지"), ("정리", "정리")],
+        "sources": [
+            "van Herpen, de Hooge (2019). When product attitudes go to waste: Wasting products with remaining utility decreases consumers' product attitudes. Journal of Cleaner Production, 210, 410–418.",
+            "Galak, Givi, Williams (2016). Why certain gifts are great to give but not to get: A framework for understanding errors in gift giving. Current Directions in Psychological Science, 25(6), 380–385.",
+            "Gino, Flynn (2011). Give them what they want: The benefits of explicitness in gift exchange. Journal of Experimental Social Psychology, 47(5), 915–922.",
+            "Aknin, Dunn, Proulx, Lok, Norton (2020). Does spending money on others promote happiness?: A registered replication report. Journal of Personality and Social Psychology, 119(2), e15–e26.",
+            "식품의약품안전처 소비기한 표시제 (2023년 도입 · 2024년 본격 시행 · 우유는 2031년부터).",
+            "댓글: 비슷한 주제 유튜브 영상의 실제 댓글 (2026년 11월 기준 · 작성자 정보는 싣지 않음)",
+        ],
+        "sources_file": "근거.md",
+        "notice": ("교육용 영상이며 심리 진단이나 상담을 대신하지 않습니다.\n"
+                   "소개한 연구는 이 행동을 직접 잰 것이 아니라 비슷한 마음을 다룬 연구입니다. 사람마다 까닭은 다를 수 있습니다."),
+        "notice_extra": "",
+        "crisis": "24시간 정신건강 상담 전화 1577-0199",
+        "hashtags": "#인간관계 #심리학",
+        # 태그 = 영상에 나오는 말만
+        "tags": ["인간관계", "심리학", "심리", "선물 심리", "자꾸 주는 사람", "필요 없는 선물", "거절하는 법", "거절", "서운하지 않게 거절",
+                 "부담스러운 선물", "이웃", "나눔", "정", "배려", "소비기한", "유통기한", "말투", "인간관계 심리", "관계 심리"],
+        "pin": "받는 쪽이었나요, 주는 쪽이었나요? 서운하지 않게 거절했던 말이 있다면 남겨 주세요.\n교육용 영상이며 심리 진단·상담이 아닙니다.",
+        "title_fit_note": "`title_fit`: 모바일·PC 모든 화면 2줄 안 ✅",
+        "gate_note": "페르소나 관문: title 3회차 ✅ · 대본 이탈은 5회차(상한)에도 끄고 싶은 줄 2개 — 사용자 판단 (status.md v4.65)",
+    },
 }
 
 
@@ -163,11 +198,28 @@ def sentence_count(ep: str) -> int:
     return n
 
 
+def part_starts(ep: str) -> dict:
+    """v1.4 대본 파트 이름('-…' 줄) → 그 파트 첫 문장 번호."""
+    out, n = {}, 0
+    for ln in (ROOT / "psychology/source" / ep / f"{ep}.txt").read_text("utf-8").splitlines():
+        if ln.startswith("-"):
+            out[ln[1:].strip()] = n + 1
+        elif ln.strip() and not ln.startswith("#"):
+            n += 1
+    return out
+
+
 def build(ep: str, sp: dict) -> str:
     src = ROOT / "psychology/source" / ep
     pkg = json.loads((src / "package.json").read_text("utf-8"))
     title = pkg["title"]
     n = sentence_count(ep)
+    if sp.get("chapter_parts"):                          # v1.4 파트 이름으로 — 문장을 고쳐도 번호가 맞음
+        starts = part_starts(ep)
+        miss = [pt for pt, _ in sp["chapter_parts"] if pt not in starts]
+        if miss:
+            raise SystemExit(f"[SHEET] {ep} 대본에 없는 파트 {miss} — 있는 파트 {list(starts)}")
+        sp = dict(sp, chapters=";".join(f"{starts[pt]}={name}" for pt, name in sp["chapter_parts"]))
     for part in sp["chapters"].split(";"):
         k = int(part.split("=")[0])
         if not 1 <= k <= n:

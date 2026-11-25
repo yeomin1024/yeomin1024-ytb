@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-24 — 추가 요청 파일(images_chatgpt_add.md): 이미 받은 1번 A-REF 를 그림체 기준으로 몇 장만 더 — 사용자 지시
+# VERSION: v1.2 — 2026-11-25 — jakku-juneun-2026-11 (필요 없다는데 자꾸 주는 사람) 요청 파일 · 편마다 대본 경로·안내 줄·썸네일 블록(THUMB_FULL — 그림이 화면 끝까지, 아래 빈 띠 없음)을 바꿀 수 있게 — 사용자 지시 "그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐" · ADHD 썸네일에서 아래 26% 가 빈 어두운 띠로 나와 문구가 그림 밖에 놓였던 일 (사용자 지적 2026-11-24 "이미지 꽉채워서 문구넣어야지")
+# (v1.1) — 2026-11-24 — 추가 요청 파일(images_chatgpt_add.md): 이미 받은 1번 A-REF 를 그림체 기준으로 몇 장만 더 — 사용자 지시
 #          "나는 왜 이렇게 게으를까 부분에 배경이 없는데 내용에 맞는 이미지를 넣고 … 이미지 추가 생성 필요하면 명령 알려주고" (ADD · build_add)
 # (v1.0) — 2026-11-23 — 신규: 일상툰 꼴 영상의 ChatGPT 그림 요청 파일 만들기 (사용자 지시 2026-11-23 "그럼 모든 이미지 생성
 #          명령 알려줘 지시사항은 저장소에서 읽으라하고 업로드하라고해" · "썸네일 이미지도 만들어 A, B 사람 반반 나눠서 대비되도록")
@@ -26,8 +27,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from images_build import CHECK_CODE, CUTOUT, MOTION, SAVE_CODE, THUMB  # noqa: E402 — ChatGPT 에서 검증된 문장 그대로
 
-VERSION = "v1.1"
-DATE = "2026-11-24"
+VERSION = "v1.2"
+DATE = "2026-11-25"
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 REPO = "yeomin1024/yeomin1024-ytb"
 log = logging.getLogger("images_build_toon")
@@ -69,6 +70,17 @@ TURN = (
     "relaxed with a calm, kind face: column 1 front view, column 2 three-quarter view facing left, column 3 pure side view "
     "facing left. Same scale, feet on the same invisible baseline at about 92% of the canvas height, standing adult about "
     "70% of the canvas height. This sheet defines this person for every later picture."
+)
+
+# v1.2 — 썸네일 그림이 화면 끝까지 (공통 THUMB 의 'bottom 35% calm darker surface' 를 ChatGPT 가 빈 띠로 그렸음 — adhd-ab-2026-11 TH-CHAR)
+THUMB_FULL = (
+    "THUMBNAIL PICTURE for a video cover: full-bleed landscape 1536x864, ONE complete scene that fills the whole frame "
+    "edge to edge — no flat color band, no border, no empty strip at the top or bottom. The people and their faces sit in "
+    "the upper 60% of the picture. The lower 35% simply continues the same scene (floor, doormat, shoes, bags) with simple "
+    "shapes and slightly darker, calm tones so that large white title text added later by code stays readable over it — "
+    "keep faces and hands out of that lower part. Leave empty space beside each person's head (not over any face, hand or "
+    "body) where speech bubbles will be added later. Strong, readable emotion for a small phone screen. Absolutely no "
+    "text, no letters, no numbers, no symbols, no speech bubbles drawn."
 )
 
 KIND_INFO = {   # kind → (폴더, 형식 설명)
@@ -283,6 +295,119 @@ EPISODES = {
              "on the right) where large title text will be added later — nothing important there."),
         ],
     },
+    # v1.2 — 필요 없다는데 자꾸 주는 사람 (주는 이웃 G · 받는 사람 R · 회사 선배 H) — 누구도 나쁜 사람이 아님
+    "jakku-juneun-2026-11": {
+        "script": "`psychology/source/jakku-juneun-2026-11/jakku-juneun-2026-11.txt` (TTS 대본)",
+        "script_file": "jakku-juneun-2026-11.txt",
+        "title": "필요 없다는데 자꾸 주는 사람, 심리학적 이유 3가지",
+        "instr": "사용자 지시 2026-11-25 \"그럼 너가 추천하는 주제로 영상 렌더 전까지 영상 요소 모두 만들어봐\"",
+        "thumb_text": "(코드로 얹음 — 「필요 없다는데 자꾸 주는 사람 / 심리학적 이유 3가지」 + 말풍선 「너 주려고 챙겼지~」·「마음은 고마운데…」)",
+        "thumb_kind": "**G 가 봉지를 건네고 R 이 어색하게 웃으며 받는 장면 하나 — 그림이 화면 끝까지**(아래 빈 띠·테두리 없음)",
+        "people_line": "G·R·H 는 가상 인물",
+        "code_parts": "화면 반반(주는 순간 G · 그 뒤의 R)·말풍선·자막·과자 봉지의 날짜·카드",
+        "not_line": "심리 진단·상담이 아니다",
+        "safety_line": ("   **사람을 나쁘게 그리지 않는다** — G 는 정 많고 다정한 이웃이다(욕심쟁이·잔소리꾼 얼굴 ✗). R 이 거절하거나 곤란해하는 얼굴도 "
+                        "공손하고 미안한 얼굴이지 짜증·혐오가 아니다. 상한 음식은 곰팡이·벌레 없이 '오래돼 보이는' 정도로만 (서리 · 빛바랜 색)."),
+        "thumb_block": THUMB_FULL,
+        "people": (
+            "R — the receiver, main person: a 34-year-old Korean man who lives alone, office worker. Neat short black hair with a "
+            "soft side part, thin black rectangular glasses, a slim face. At home: a mustard-yellow knit cardigan over a white "
+            "T-shirt, beige cotton pants, gray house slippers. Polite, a little awkward, kind; he never looks disgusted.\n"
+            "G — the giver, next-door neighbor: a 63-year-old Korean woman. Short curly permed hair, dark brown with some gray, a "
+            "round warm face with smile lines, a coral-pink quilted vest over a white-and-navy striped long-sleeve shirt, dark "
+            "green pants, white sneakers. Energetic, generous and warm — a kind neighbor, never a villain or a nag.\n"
+            "H — R's team leader at work: a 52-year-old Korean man, short black hair, thick eyebrows, a cheerful round face, a "
+            "navy knit vest over a light-blue shirt, gray slacks. Cheerful and generous."
+        ),
+        "items": [
+            # (kind, 이름, 무엇, 대본 장면, 프롬프트)
+            ("ref", "R-REF", "R 기준 그림 (앞 · 4분의 3 · 옆) — 이 편 그림체 기준", "전체",
+             "Draw R only. This is R, the main person of this video. Picture 1 also defines the drawing style of every later "
+             "picture."),
+            ("ref", "G-REF", "G 기준 그림 (앞 · 4분의 3 · 옆)", "전체",
+             "Draw G only, in exactly the same style as picture 1. This is G, the giving neighbor."),
+            ("poses", "H-POSES", "회사 선배 H 자세 3: 사은품 상자 내밀기 · 상자 여러 개 안고 웃음 · 엄지 척", "도입",
+             "Draw H only, standing, three-quarter view facing RIGHT. Column 1: holding out one small plain gift box toward "
+             "the right with a proud, friendly grin. Column 2: arms full of several small plain boxes, laughing. Column 3: a "
+             "cheerful thumbs-up."),
+            ("bgs", "BG-HALLWAY", "아파트 복도 — 마주 보는 두 현관문 (도입 · 거절 · 정리)", "도입 · 2장 · 거절 · 정리",
+             "A bright Korean apartment corridor seen from the side: on the LEFT a front door (G's home) with a small potted "
+             "plant beside it, on the RIGHT another front door (R's home) with a plain doormat; light gray walls, a long window "
+             "with daylight at the back, clean tiled floor. Both doors are plain with no numbers or nameplates."),
+            ("bgs", "BG-R-KITCHEN", "R 의 1인 가구 부엌 — 냉장고 · 조리대 · 뚜껑 있는 쓰레기통", "도입 · 1장 · 2장",
+             "A small, tidy one-person kitchen: a white two-door fridge on the left, a short light-wood counter in the center "
+             "with almost nothing on it, a pedal trash bin with a lid on the right, a small window, soft daylight. Minimal and "
+             "neat."),
+            ("bg", "BG-G-KITCHEN", "G 의 부엌 — 명절 앞 냉동실 정리 (식탁 위에 꺼낸 냉동식품)", "1장",
+             "A warm, lived-in Korean home kitchen: a tall freezer and a kimchi fridge at the back, a kitchen table in front "
+             "covered with frozen food packs taken out of the freezer — frosty plastic bags of rice cakes, wrapped fish, plain "
+             "containers with blank lids, a few white plastic bags. Busy but cozy, warm afternoon light."),
+            ("bg", "BG-OFFICE", "회사 자리 — 책상 위 사은품 상자 (도입)", "도입",
+             "A small office corner: a desk on the right with a blank monitor, a few plain small boxes piled on the desk, an "
+             "office chair, a window with daylight. Neutral colors."),
+            ("bg", "BG-R-LIVING", "R 의 거실 (밤) — 소파 · 낮은 탁자 위 봉지들", "받는 쪽",
+             "A small studio living room at night: a gray two-seat sofa in the center, a low table in front of it with two "
+             "white plastic bags and a small plain box on it, a floor lamp giving warm light, dark blue window."),
+            ("bg", "BG-LOBBY", "아파트 1층 — 나눔 선반과 의류 기부함", "주는 쪽",
+             "An apartment building ground-floor lobby: on the right a simple wooden sharing shelf with a few neat items (a "
+             "folded towel set, a plain mug box, a potted plant) and a green clothes donation box with a plain front (no "
+             "words or symbols); mailboxes on the back wall (blank), glass entrance door on the left, daylight."),
+            ("motion", "R01", "R (복도, 왼쪽을 보고): 두 손으로 봉지를 받으며 어색한 미소 → 봉지 안을 들여다봄 (땀방울) → 공손하게 고개 숙여 인사", "도입",
+             "R, standing, three-quarter view facing LEFT. Frame 1: receiving a bulging white plastic bag with both hands, an "
+             "awkward polite smile. Frame 2: peeking into the bag, eyebrows slightly raised, one sweat drop. Frame 3: a small "
+             "polite bow with a forced but kind smile, still holding the bag."),
+            ("motion", "R02", "R (부엌, 왼쪽을 보고): 과자 봉지를 눈앞에 대고 날짜 칸을 봄 → 한숨, 어깨가 처짐 → 쓰레기통 위에 들고 미안한 얼굴", "도입 · 1장",
+             "R, standing, three-quarter view facing LEFT. Frame 1: holding a snack bag close to his eyes, squinting at a "
+             "small blank white label area on it. Frame 2: a sigh, shoulders dropping, the bag lowered. Frame 3: holding the bag "
+             "over an invisible trash bin at his left with a sorry, guilty face — not disgusted."),
+            ("motion", "R03", "R (소파에 앉아): 휴대폰을 보며 고민 → 손가락으로 셈 → 고개를 젖히고 한숨 ('뭘 돌려드리지')", "받는 쪽",
+             "R, sitting on an invisible sofa, facing the viewer. Frame 1: looking at a phone with a blank screen, frowning, "
+             "thinking. Frame 2: counting on the fingers of one hand, worried. Frame 3: head tilted back against the sofa, a "
+             "tired sigh, the phone resting on his lap."),
+            ("motion", "R04", "R (복도, 왼쪽을 보고): 두 손바닥을 살짝 내밀며 정중히 사양 → 가슴에 손을 얹고 내 사정을 말함 → 따뜻한 미소로 살짝 인사", "거절 · 정리",
+             "R, standing, three-quarter view facing LEFT. Frame 1: gently raising both open palms forward, politely declining "
+             "with a kind, slightly sorry smile. Frame 2: one hand on his chest, explaining calmly. Frame 3: a small bow with a "
+             "warm, relieved smile."),
+            ("motion", "G01", "G (자기 부엌, 오른쪽을 보고): 서리 낀 냉동 통을 들고 봄 → 볼에 손을 대고 '아까워' 망설임 → 반짝 생각나 환하게 봉지에 담음", "1장",
+             "G, standing, three-quarter view facing RIGHT. Frame 1: holding a frosty plastic container with a blank lid, "
+             "looking at it. Frame 2: one hand on her cheek, hesitating — it feels too wasteful to throw away. Frame 3: a bright "
+             "idea face with small sparkle lines, cheerfully putting the container into a white plastic bag."),
+            ("motion", "G02", "G (복도, 오른쪽을 보고): 불룩한 봉지를 환하게 내밂 → 손에 쥐여 주듯 밀어 줌 ('그래도 가져가') → 뒤돌아 신나게 돌아감 (반짝)", "도입 · 2장 · 3장",
+             "G, standing, three-quarter view facing RIGHT. Frame 1: holding out a bulging white plastic bag with both hands "
+             "and a big warm smile. Frame 2: leaning forward, pressing the bag toward someone on the right, cheerful and "
+             "insistent. Frame 3: turning to walk away toward the left, empty-handed, happy, with small sparkle lines."),
+            ("motion", "G03", "G (복도, 오른쪽을 보고): 거절을 듣고 잠깐 멈칫 → 이해한다는 끄덕임 → 다정하게 웃으며 손 흔듦", "거절",
+             "G, standing, three-quarter view facing RIGHT, holding a small white plastic bag at her side. Frame 1: a brief "
+             "surprised pause, eyebrows up. Frame 2: an understanding nod. Frame 3: a warm smile, waving lightly with her free "
+             "hand."),
+            ("motion", "G04", "G (복도, 오른쪽을 보고): 물건을 들어 보이며 '이거 쓸래요?' 묻기 → 귀 기울여 들음 → '그래요' 웃으며 끄덕임", "주는 쪽 · 정리",
+             "G, standing, three-quarter view facing RIGHT. Frame 1: holding up a small plain box at chest height, asking with "
+             "raised eyebrows and a friendly face. Frame 2: listening attentively, head slightly tilted. Frame 3: a relaxed "
+             "smile and a nod, lowering the box."),
+            ("motion", "G05", "G (1층, 오른쪽을 보고): 깔끔한 봉지를 들고 섬 → 나눔 선반에 올려놓음 → 뿌듯한 미소", "주는 쪽",
+             "G, standing, three-quarter view facing RIGHT. Frame 1: holding a neat folded shopping bag with clean items, "
+             "standing calmly. Frame 2: reaching forward to place it on an invisible shelf at chest height. Frame 3: hands "
+             "together at her chest, a proud, satisfied smile."),
+            ("props", "PROPS-A", "소품 4: 불룩한 비닐봉지 · 서리 낀 냉동 통 · 날짜 칸이 빈 과자 봉지 · 리본 없는 사은품 상자", "도입 · 1장 · 2장",
+             "Prop sheet, landscape 1536x1024, four equal invisible columns, one prop centered in each column, similar visual "
+             "size, each fully inside its column: (1) a bulging white plastic bag full of snack packs and containers, no logos; "
+             "(2) a frosty plastic freezer container with a blank lid, a little ice on it; (3) a snack bag with a plain "
+             "colored wrapper and one empty white rectangle where a date label would be (completely blank); (4) a small plain "
+             "cardboard gift box, no logo, no writing."),
+            ("props", "PROPS-B", "소품 4: 그물망 귤 · 뚜껑 열린 쓰레기통 · 쌓인 반찬통 · 빈 화면 휴대폰", "2장 · 거절",
+             "Prop sheet, landscape 1536x1024, four equal invisible columns, one prop centered in each column, similar visual "
+             "size: (1) a small mesh bag of bright fresh tangerines; (2) a pedal trash bin with its lid open, empty; (3) a "
+             "stack of three plain plastic food containers with blank lids; (4) a smartphone, front view, the screen plain "
+             "light blue with nothing on it."),
+            ("thumb", "TH-CHAR", "썸네일 그림: 복도 — 왼쪽 G 가 봉지를 환하게 내밂 · 오른쪽 R 이 이미 봉지 두 개를 안고 어색한 미소 (화면 끝까지)", "썸네일",
+             "One scene in the apartment corridor in daylight. LEFT side (from about 8% to 45% of the width): G, three-quarter "
+             "view facing right, holding out a bulging white plastic bag with a big warm, kind smile. RIGHT side (from about "
+             "55% to 92% of the width): R at his open front door, three-quarter view facing left, already hugging two full "
+             "plastic bags against his chest, an awkward polite smile with one sweat drop — kind, not annoyed. Both faces are "
+             "clearly visible in the upper part of the picture, with empty wall space above and beside each head for speech "
+             "bubbles. The floor, the doormat and a few more bags at their feet continue to the bottom edge."),
+        ],
+    },
 }
 
 
@@ -336,15 +461,17 @@ def build(ep: str, spec: dict) -> str:
     w = L.append
     w(f"# {ep} — 일상툰 그림 {n}장 (ChatGPT용 · 1번부터 차례로 모두)")
     w("")
-    w(f"작성: {VERSION} — {DATE} — 사용자 지시 \"그럼 모든 이미지 생성 명령 알려줘 지시사항은 저장소에서 읽으라하고 업로드하라고해\" · "
-      f"\"썸네일 이미지도 만들어 A, B 사람 반반 나눠서 대비되도록\". 기준 대본 = {spec['script']} · 영상 「{spec['title']}」.")
+    instr = spec.get("instr", "사용자 지시 \"그럼 모든 이미지 생성 명령 알려줘 지시사항은 저장소에서 읽으라하고 업로드하라고해\" · "
+                     "\"썸네일 이미지도 만들어 A, B 사람 반반 나눠서 대비되도록\"")          # v1.2 편마다
+    w(f"작성: {VERSION} — {DATE} — {instr}. 기준 대본 = {spec['script']} · 영상 「{spec['title']}」.")
     w("")
     w("**어떻게 쓰는가 — 일상툰 꼴 코드 애니메이션**")
     w("- Claude 가 코드로 만든다: 배경 그림 위에 인물·소품 조각을 올리고, 동작마다 이어지는 원화 3장(키 → 중간 → 키)을 바꿔 끼워 움직이게 한다. "
-      "화면 반반(왼쪽 A · 오른쪽 B)·말풍선·자막·시계 바늘·그래프는 코드가 얹는다 → **그림에는 글자가 하나도 없어야 한다.**")
-    w(f"- **그림체 기준 = 1번 A-REF** — 이 편은 바깥 기준 그림이 없다. 1번이 정한 그림체를 2번부터 모두 똑같이 따른다. 사람 기준 = {ref_nums}.")
-    w(f"- 썸네일 그림(마지막 장)은 **A·B 반반 대비** 그림만 — 문구 {spec['thumb_text']}.")
-    w("- A·B 는 가상 인물. ※ 연구·교육용 영상 — 의학적 진단·처방이 아니다. 누구도 나쁜 사람으로 그리지 않는다.")
+      f"{spec.get('code_parts', '화면 반반(왼쪽 A · 오른쪽 B)·말풍선·자막·시계 바늘·그래프')}는 코드가 얹는다 → **그림에는 글자가 하나도 없어야 한다.**")
+    first = items[0][1]
+    w(f"- **그림체 기준 = 1번 {first}** — 이 편은 바깥 기준 그림이 없다. 1번이 정한 그림체를 2번부터 모두 똑같이 따른다. 사람 기준 = {ref_nums}.")
+    w(f"- 썸네일 그림(마지막 장)은 {spec.get('thumb_kind', '**A·B 반반 대비** 그림만')} — 문구 {spec['thumb_text']}.")
+    w(f"- {spec.get('people_line', 'A·B 는 가상 인물')}. ※ 연구·교육용 영상 — {spec.get('not_line', '의학적 진단·처방이 아니다')}. 누구도 나쁜 사람으로 그리지 않는다.")
     w("")
     w(f"| 번호 | 저장 경로 (모두 `psychology/source/{ep}/` 아래) | 무엇 | 대본 |")
     w("|---|---|---|---|")
@@ -353,7 +480,7 @@ def build(ep: str, spec: dict) -> str:
     w("")
     w("## ChatGPT에게 — 이 파일을 읽으면 할 일")
     w("0. **이 주소를 지금 새로 열어 그 내용만 쓴다** — 이 대화에서 예전에 읽은 파일·프롬프트가 있어도 쓰지 않는다. 답의 첫 줄에 이 파일 맨 위 '작성' 줄을 그대로 적는다.")
-    w(f"   **★ 1번 A-REF 가 이 편 그림체의 기준이다 — 2번부터 모든 그림은 1번과 같은 사람이 그린 것처럼 (선 굵기·색·얼굴 꼴·약 3등신 비율).** 사람은 {ref_nums} 이 기준 — 그 뒤 같은 사람은 얼굴·머리·옷·색·비율이 똑같아야 한다. 다르게 나오면 다시 만든다.")
+    w(f"   **★ 1번 {first} 가 이 편 그림체의 기준이다 — 2번부터 모든 그림은 1번과 같은 사람이 그린 것처럼 (선 굵기·색·얼굴 꼴·약 3등신 비율).** 사람은 {ref_nums} 이 기준 — 그 뒤 같은 사람은 얼굴·머리·옷·색·비율이 똑같아야 한다. 다르게 나오면 다시 만든다.")
     w(f"1. 아래 1~{n}번 **{n}장을 번호 순서대로 모두** 만든다. 질문하지 말고, 한 장을 만든 뒤 멈추지 말고 다음 장으로 넘어간다. 이미지 한도 때문에 멈추면 사용자가 `계속`이라고 보낸다 → 아직 안 만든 번호부터.")
     w("2. 프롬프트(``` 안)를 **한 글자도 바꾸지 않고 그대로** 쓰고, 앞에 아래 블록을 이 순서로 붙인다.")
     for k, label in (("ref", "기준 그림"), ("poses", "조연 자세 그림"), ("bg", "배경"), ("bgs", "반반 화면 배경"),
@@ -367,7 +494,7 @@ def build(ep: str, spec: dict) -> str:
     w(CHECK_CODE.replace("# 기준 그림·동작 그림: check(경로, cols=3, feet=True)",
                          "# 기준·자세·동작 그림: check(경로, cols=3, feet=True)"))
     w("5. **글자·숫자·로고·워터마크를 하나도 넣지 않는다** — 화면·휴대폰·서류·책·게시판·시계·달력·간판에도 없음 (빈 판이나 단순한 줄·도형만). 실제 회사·앱·병원의 이름·로고를 닮게 그리지 않는다. 만든 뒤 확대해 글자가 보이면 다시 만든다.")
-    w("   **사람을 나쁘게 그리지 않는다** — B 가 소리치는 장면도 답답함이지 폭력이 아니다(주먹·물건 던지기 없음). 아내·팀장·의사는 지치거나 놀란 얼굴은 되지만 무서운 사람처럼 그리지 않는다. 약을 먹는 장면·주사·피는 그리지 않는다.")
+    w(spec.get("safety_line", "   **사람을 나쁘게 그리지 않는다** — B 가 소리치는 장면도 답답함이지 폭력이 아니다(주먹·물건 던지기 없음). 아내·팀장·의사는 지치거나 놀란 얼굴은 되지만 무서운 사람처럼 그리지 않는다. 약을 먹는 장면·주사·피는 그리지 않는다."))
     w(f"6. 그림 바로 위에 번호와 저장 경로를 한 줄 적는다 (`1. {rel_path(ep, items[0][0], items[0][1])}`). 그림 안에는 쓰지 않는다.")
     w("7. **다 만들면 저장소에 넣는다 — 저장 경로 그대로.**")
     w(f"   - 저장소 `{REPO}` main 브랜치, 경로는 표의 파일 이름 그대로 (대소문자·하이픈까지 같게 — 배경은 `psychology/source/{ep}/puppet/`, 기준·자세·동작·소품은 `psychology/source/{ep}/puppet/motion/`, 썸네일 그림은 `psychology/source/{ep}/images/`).")
@@ -389,7 +516,12 @@ def build(ep: str, spec: dict) -> str:
               ("기준 시트 (기준 그림 — CUTOUT 다음에 그대로 붙임)", TURN),
               ("자세 시트 (조연 자세 그림 — CUTOUT 다음에 그대로 붙임)", POSES),
               ("MOTION STRIP (동작 그림 — CUTOUT 다음에 그대로 붙임)", MOTION),
-              ("썸네일 (썸네일 그림 — 인물 다음에 그대로 붙임)", THUMB)]
+              ("썸네일 (썸네일 그림 — 인물 다음에 그대로 붙임)", spec.get("thumb_block", THUMB))]   # v1.2 편마다 (THUMB_FULL)
+    kinds = {it[0] for it in items}
+    if "bgs" not in kinds:                                   # v1.2 반반 화면 배경이 없는 편은 그 블록을 싣지 않음
+        blocks = [b for b in blocks if not b[0].startswith("반반 화면")]
+    if "poses" not in kinds:
+        blocks = [b for b in blocks if not b[0].startswith("자세 시트")]
     for title, text in blocks:
         L += [f"## {title}", "", "```", text, "```", ""]
     for i, (kind, name, what, where, prompt) in enumerate(items, 1):
@@ -461,10 +593,13 @@ def build_add(ep: str, spec: dict, ref_url: str) -> str:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--check", action="store_true", help="쓰지 않고 장 수·경로만")
+    ap.add_argument("--only", help="이 영상ID 만 (v1.2 — 이미 그림을 받은 편의 요청 파일은 다시 쓰지 않게)")
     a = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="[%(name)s] %(message)s")
     for ep, spec in EPISODES.items():
-        script = ROOT / "psychology" / "source" / ep / "대본_초안.txt"
+        if a.only and ep != a.only:
+            continue
+        script = ROOT / "psychology" / "source" / ep / spec.get("script_file", "대본_초안.txt")     # v1.2 편마다
         if not script.exists():
             log.error("대본 없음 ep=%s path=%s — 영상ID 를 확인하세요", ep, script)
             return 1
@@ -482,6 +617,8 @@ def main() -> int:
         if not a.check:
             out.write_text(text, encoding="utf-8")
     for ep, spec in ADD.items():                       # v1.1 추가 요청 파일
+        if a.only and ep != a.only:
+            continue
         ref = ROOT / spec["style_ref"]
         if not ref.exists():
             log.error("그림체 기준 그림 없음 ep=%s path=%s — 본 요청 그림이 main 에 왔는지 확인", ep, spec["style_ref"])

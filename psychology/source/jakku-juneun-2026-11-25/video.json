@@ -1,0 +1,18 @@
+{
+ "tool": "upload_pack.py v1.1",
+ "made": "2026-11-25T07:05:25+00:00",
+ "file": "final_1080p.mp4",
+ "size": 69282379,
+ "sha256": "310a72ea3a162d906e9998f1b847c3aca3140a178f7e34439fb5431b28a5501f",
+ "md5": "f68aafa0ffefb5f1947e4bd0551f3396",
+ "branch": "uploads",
+ "dir": "psychology/jakku-juneun-2026-11-25",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 69282379,
+   "sha256": "310a72ea3a162d906e9998f1b847c3aca3140a178f7e34439fb5431b28a5501f"
+  }
+ ],
+ "duration_s": 441.1
+}

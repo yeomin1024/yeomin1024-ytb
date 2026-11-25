@@ -1,6 +1,8 @@
 <title>유튜브 업로드 미리보기</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.0 — 2026-11-25 — 최초: PC 업로드 화면(tools/upload_web.py v1.6)의 [미리보기] · 썸네일 내려받기를 아티팩트로
+<!-- VERSION: v1.1 — 2026-11-25 — 영상: 업로드 대기 편은 낮은 화질 미리보기 영상 재생(설명란 챕터 시각을 누르면 그 자리로) + 원본 1080p GitHub 링크 ·
+     올린 편은 '유튜브에서 보기' 링크 (사용자 지시 "영상 재생 안되면 링크 첨부라도 해봐") — 자료 tools/upload_preview.py v1.1.
+     이전 v1.0 — 2026-11-25 — 최초: PC 업로드 화면(tools/upload_web.py v1.6)의 [미리보기] · 썸네일 내려받기를 아티팩트로
      (사용자 지시 2026-11-25 "아티팩트 만들어서 저번에 만들었던 미리보기, 썸네일 다운로드 기능을 거기에 넣어봐").
      자료 = 같은 폴더에 함께 올리는 data.json (tools/upload_preview.py 가 만듦) · 썸네일 = thumbs/<주제>/<영상ID>/thumbnail_N.jpg.
      저장 = downloads 기능 (아티팩트 안에서는 <a download> 가 막힘). 업로드 버튼은 없음 — 업로드는 PC 화면에서. 연구·교육용 도구. -->
@@ -101,6 +103,15 @@ a { color: var(--accent); }
 .player { position: relative; border-radius: var(--r-s); overflow: hidden; background: var(--thumb-bg); }
 .player .tbox { border-radius: 0; }
 .pnote { background: var(--sunk); color: var(--muted); font-size: .82rem; padding: 8px 12px; }
+.pnote a { font-weight: 500; }
+.player video { display: block; width: 100%; aspect-ratio: 16 / 9; background: var(--thumb-bg); max-width: 100%; }
+.player video.v { aspect-ratio: 9 / 16; width: auto; height: min(70vh, 640px); margin: 0 auto; }
+.play { position: absolute; inset: 0; display: grid; place-items: center; text-decoration: none; }
+.play span { background: rgba(0, 0, 0, .74); color: #fff; font-weight: 700; font-size: .95rem; padding: 10px 18px; border-radius: 999px; }
+.play:hover span, .play:focus-visible span { background: var(--accent); color: var(--accent-ink); }
+.play:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+.ts { border: 0; background: none; padding: 0; font: inherit; color: var(--accent); cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.ts:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 .wtitle { font-size: 1.15rem; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
 .desc { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--sunk); border-radius: var(--r-s); padding: 12px 14px; font-size: .88rem; line-height: 1.6; margin: 0; max-height: 420px; overflow-y: auto; font-family: var(--f-text); }
 .phone { width: min(330px, 100%); background: var(--bg); border: 1px solid var(--line); border-radius: 22px; padding: 10px 10px 14px; }
@@ -184,10 +195,32 @@ function durOf(v) {
 const mainThumb = v => v.thumbs.find(t => t.main) || v.thumbs[0] || null;
 const extras = v => v.thumbs.filter(t => !t.main);
 function dlLabel(v) { const ex = extras(v); return ex.length ? `실험안 ${ex.length}장 받기` : (v.thumbs.length ? "썸네일 받기" : ""); }
-function tbox(t, v, cls) {
-  if (!t) return `<div class="tbox ${cls || ""}"><span class="none">썸네일 없음</span></div>`;
+function tbox(t, v, cls, inner) {
+  if (!t) return `<div class="tbox ${cls || ""}"><span class="none">썸네일 없음</span>${inner || ""}</div>`;
   const vert = t.h > t.w;
-  return `<div class="tbox ${vert ? "v" : ""} ${cls || ""}"><img src="${esc(t.path)}" alt="${esc(t.name)}" loading="lazy">${v && durOf(v) ? `<span class="dur">${esc(durOf(v))}</span>` : ""}</div>`;
+  return `<div class="tbox ${vert ? "v" : ""} ${cls || ""}"><img src="${esc(t.path)}" alt="${esc(t.name)}" loading="lazy">${v && durOf(v) ? `<span class="dur">${esc(durOf(v))}</span>` : ""}${inner || ""}</div>`;
+}
+/* v1.1 영상 칸: 대기 편 = 낮은 화질 미리보기 재생 + 원본 링크 · 올린 편 = 유튜브 링크 */
+function origLink(o) {
+  if (!o) return "";
+  return o.raw ? `원본 1080p ${o.mb}MB: <a href="${esc(o.raw)}" target="_blank" rel="noopener">GitHub 에서 받기</a> (받은 파일 이름 끝 <span class="mono">.part01</span> 을 지우면 mp4)`
+               : `원본 조각 ${o.parts}개 (${o.mb}MB): <a href="${esc(o.folder)}" target="_blank" rel="noopener">GitHub uploads 폴더</a> — PC 업로드 화면 [영상 받기]가 이어 붙임`;
+}
+function playerHtml(v, t) {
+  const o = v.video, y = v.youtube || {};
+  if (v.preview) return `<video id="pv-video" class="${t && t.h > t.w ? "v" : ""}" controls playsinline preload="metadata" poster="${esc(t ? t.path : "")}" src="${esc(v.preview.path)}"></video>
+    <div class="pnote">미리보기용 ${esc(v.preview.res)} · ${v.preview.mb}MB (화질을 낮춘 사본) · ${origLink(o)}</div>`;
+  if (v.status === "uploaded" && y.url) return `${tbox(t, v, "", `<a class="play" href="${esc(y.url)}" target="_blank" rel="noopener"><span>▶ 유튜브에서 보기</span></a>`)}<div class="pnote">올린 영상은 유튜브에서 재생합니다.</div>`;
+  if (o && o.on_branch) return `${tbox(t, v)}<div class="pnote">미리보기 영상이 아직 없습니다 · ${origLink(o)}</div>`;
+  return `${tbox(t, v)}<div class="pnote">${o ? `영상 조각이 uploads 브랜치에 없습니다 (${o.mb}MB) — Claude 가 다시 올려야 함` : "완성 영상이 아직 없습니다 — 렌더 뒤 Claude 가 올립니다"}</div>`;
+}
+function tsLinks(text, live) {          // 설명란 챕터 시각 → 누르면 미리보기 영상이 그 자리로
+  return text.split("\n").map(l => {
+    const m = l.match(/^(\d+:)?\d+:\d\d(?= )/);
+    if (!m || !live) return esc(l);
+    const p = m[0].split(":").map(Number), sec = p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1];
+    return `<button type="button" class="ts" data-seek="${sec}">${esc(m[0])}</button>${esc(l.slice(m[0].length))}`;
+  }).join("\n");
 }
 
 /* ─────────── 목록 ─────────── */
@@ -222,7 +255,7 @@ function card(v) {
   return `<article class="card">
     <button type="button" class="tbtn" data-open="${esc(v.key)}" aria-label="미리보기 열기: ${esc(v.title)}">${tbox(t, v)}</button>
     <div class="cbody">
-      <div class="pills"><span class="pill">${esc(v.topic_ko)}</span><span class="pill">${v.shorts ? "쇼츠" : "롱폼"}</span>${state}</div>
+      <div class="pills"><span class="pill">${esc(v.topic_ko)}</span><span class="pill">${v.shorts ? "쇼츠" : "롱폼"}</span>${state}${v.preview ? `<span class="pill">▶ 영상 재생</span>` : ""}</div>
       <h3 class="ctitle">${esc(v.title || "(제목 없음)")}</h3>
       <p class="cid">${esc(v.vid)}</p>
       ${meta}
@@ -237,7 +270,6 @@ function openPv(key, fromHash) {
   const t = mainThumb(v), ex = extras(v), dur = durOf(v);
   const checks = v.status === "waiting" && v.items ? `<div class="check">${v.items.map(i => `<div class="${i[1] ? "y" : "n"}"><b>${i[1] ? "✓" : "✕"}</b><span><b style="width:auto;color:var(--ink)">${esc(i[0])}</b> · ${esc(i[2])}</span></div>`).join("")}</div>` : "";
   const probs = v.problems.length ? `<div class="probs"><b>올리기 전에 고칠 것</b><br>${v.problems.map(esc).join("<br>")}</div>` : "";
-  const vid = v.video ? `${v.video.mb}MB · 조각 ${v.video.parts}개${v.video.on_branch ? " · uploads 브랜치에 있음" : " · uploads 브랜치에 없음"}` : "완성 영상 기록(video.json) 없음";
   const when = v.status === "waiting" ? `${defaultPublish()} 공개 (오늘 [업로드]를 누를 때 — PC 화면에서 바꿀 수 있음)` : (v.youtube && v.youtube.publishAt ? kst(v.youtube.publishAt) : "기록 없음");
   const phone = v.shorts
     ? `<div class="phone short"><div class="sbox">${t ? `<img src="${esc(t.path)}" alt="">` : ""}<div class="st">${esc(v.title)}</div></div></div>`
@@ -254,11 +286,11 @@ function openPv(key, fromHash) {
     ${v.status === "uploaded" ? `<p class="muted" style="margin:8px 0 0;font-size:.86rem">업로드 시트 기준입니다. 올린 뒤 스튜디오에서 바꾼 것은 반영되지 않습니다.${y.url ? ` <a href="${esc(y.url)}" target="_blank" rel="noopener">유튜브에서 열기</a>` : ""}</p>` : ""}
     ${probs}${checks}
     <div class="pvgrid"><section>
-      <div class="player">${tbox(t, v)}<div class="pnote">영상 재생은 PC 업로드 화면에서 · ${esc(vid)}</div></div>
+      <div class="player">${playerHtml(v, t)}</div>
       <h3 class="wtitle">${esc(v.title || "(제목 없음)")}</h3>
       <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span class="muted mono" style="font-size:.82rem">제목 ${v.title_chars}자 / 100</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|title">제목 복사</button></div>
       <h4>설명란 <span class="muted mono">${v.description.length}자 / 5000</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|description">설명란 복사</button></h4>
-      <pre class="desc" id="pv-desc">${esc(v.description || "(설명란 없음)")}</pre>
+      <pre class="desc" id="pv-desc">${v.description ? tsLinks(v.description, !!v.preview) : "(설명란 없음)"}</pre>
       <h4>태그 <span class="muted mono">${v.tags.length}개 · ${v.tags_chars}자 / 500</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|tags">태그 복사</button></h4>
       <div class="chips">${v.tags.map(x => `<span class="chip tag">${esc(x)}</span>`).join("") || `<span class="muted">태그 없음</span>`}</div>
       ${v.pinned ? `<h4>고정 댓글 <span class="muted">스튜디오에서 직접 — API 로 안 올림</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|pinned">복사</button></h4><pre class="desc">${esc(v.pinned)}</pre>` : ""}
@@ -324,8 +356,9 @@ function copyText(text, btn) {
 
 /* ─────────── 이벤트 ─────────── */
 document.addEventListener("click", e => {
-  const b = e.target.closest("[data-seg],[data-topic],[data-open],[data-close],[data-dl],[data-dlall],[data-copy]");
+  const b = e.target.closest("[data-seg],[data-topic],[data-open],[data-close],[data-dl],[data-dlall],[data-copy],[data-seek]");
   if (!b) { if (e.target === $("#ov")) closePv(); return; }
+  if (b.dataset.seek) { const el = $("#pv-video"); if (el) { el.currentTime = +b.dataset.seek; const pr = el.play(); if (pr && pr.catch) pr.catch(() => {}); el.scrollIntoView({ block: "nearest" }); } return; }
   if (b.dataset.seg) { VIEW.status = b.dataset.seg; keepView(); render(); return; }
   if (b.dataset.topic) { VIEW.topic = b.dataset.topic; keepView(); render(); return; }
   if (b.dataset.open) { openPv(b.dataset.open); return; }

@@ -1,5 +1,11 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-25 (3) — 역사 주제 후보에 구글 트렌드 반영 (next_topic.md v1.1)
+
+- 사용자 지시 "트렌드 다 올렸어 확인해봐" — PC `tools/pc_trends.py` v1.1 이 올린 `history/result/next_topic/trends/batch_01~06.csv` (6묶음 24낱말 · 유튜브 검색 · 한국 · 2025-11-23~2026-11-22 53주 · 기준 「조선」 묶음마다 평균 73.4 로 같음).
+- `python3 tools/next_topic.py history trends` → `trends.md`·`trends.json.gz`: 역사 낱말 검색 0 (장빙·솜옷·소빙기·쇄미록·녹봉) = 피드형 · 김장 6.24배 (11-15 주 78 꼭짓점 → 72) · 겨울옷 4.90배 · 겨울나기 1.92배 · 온돌 1.52배 · 이불 1.17배 · 단종 0.76배 · 엄흥도 0.71배 · 송시열 0.50배 (이불·목욕·김장·단종은 역사 밖 검색 섞임).
+- `next_topic.md` v1.1: 1-1 트렌드 절 · 후보 표 '관심도' 칸 · 순서 1 겨울 이불 · **2 겨울옷 (3 → 2)** · 3 장빙+반빙 · 김장은 롱폼 늦음 (쇼츠만) · 지난겨울 근거 (귀도리 쇼츠 169.2만 · '영하 20도 생존' 67.9만).
+
 ## 2026-11-25 (2) — pc_trends.py v1.1: PC 오류 'No module named requests' 고침
 
 - 사용자 보고 "ModuleNotFoundError: No module named 'requests'" — 원인: 키(GITHUB_TOKEN)를 읽으려고 분석기 전체(numpy·pandas·matplotlib …)를 import 했는데, 분석기의 패키지 자동 설치는 직접 실행할 때만 돎 → 새 .venv 에서 requests 부터 없음.

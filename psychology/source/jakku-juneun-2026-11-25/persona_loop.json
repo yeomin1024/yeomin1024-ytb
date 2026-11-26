@@ -848,21 +848,44 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 18,
+      "at": "2026-11-26T10:52:41Z",
+      "sha": "9116bdc520ba1782",
+      "reviewers": [
+       {
+        "reviewer": "E18-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 15,
+          "why": "작년 떡·언제 넣었는지 모를 생선 — 우리 나이 주는 사람을 흉보는 것 같아 살짝 서운해짐 (10~12줄 덕에 끄진 않음)"
+         },
+         {
+          "line": 22,
+          "why": "'연구가 직접 본 것은 아니지만' — 그럼 연구는 왜 꺼냈나 싶어 맥이 빠지고 지루함"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "100 — '내 마음을 거절한 게 아니라 물건 하나를 사양한 것뿐' — 자식·며느리가 안 받을 때 서운했던 마음이 풀림",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [15, 22]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_18.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
-    "pending": {
-     "n": 18,
-     "sha": "9116bdc520ba1782",
-     "reviewers": [
-      "E18-P1"
-     ],
-     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_18.md",
-     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_exit_18",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T10:48:16Z"
-    }
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -2113,21 +2136,82 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 18,
+      "at": "2026-11-26T10:52:41Z",
+      "sha": "9116bdc520ba1782",
+      "reviewers": [
+       {
+        "reviewer": "K18-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 9,
+          "text": "첫 이유를 '버리기 아까워서입니다'라고 딱 잘라 놓고, 27줄에서는 '이유일 수 있습니다'로 물러서네요. 새로 사서 주는 사람도 많은데 처음부터 단정하는 건 좀 그렇습니다.",
+          "fix": "9줄을 13·27·44줄처럼 조건을 넣거나 말끝을 누그러뜨림(예: '첫 번째 이유는, 버리기 아까운 마음일 수 있습니다'). 30줄 '안 보이기 쉬워서입니다'도 같은 말끝으로 맞춤."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 25,
+          "text": "24줄은 '옮겨 갈 뿐일 수 있습니다'라고 해 놓고, 바로 다음 줄은 '같은 불편함을 겪게 됩니다'라고 단정하네요. 받아서 아무렇지 않게 버리는 사람도 있습니다.",
+          "fix": "'그러면 받은 사람이 같은 불편함을 떠안을 수 있습니다'로 24줄과 말끝을 맞춤."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 45,
+          "text": "'남을 위해 돈을 쓴 사람이 조금 더 행복했다'는데, 누구보다 더 행복했다는 건가요? 비교한 쪽이 빠져 있습니다.",
+          "fix": "비교 대상을 넣음: '자기를 위해 돈을 쓴 사람보다, 남을 위해 쓴 사람이 대체로 조금 더 행복하다고 답했습니다.' 누구를 몇 명 조사했는지는 설명란 출처에."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 20,
+          "text": "19줄 네덜란드 실험에서 '사람들은 불편함을 느꼈다'는데, 누구를 몇 명 조사한 건지 한마디도 없네요. 모든 사람이 그렇다는 말로 들립니다.",
+          "fix": "'사람들은'을 '참가자들은'으로 바꾸고, 출처에 있으면 누구를(대학생·성인 등) 조사했는지 짧게 붙임. 숫자는 출처에서만, 자세한 건 설명란에."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 52,
+          "text": "'받는 쪽은 왜 이렇게까지 불편할까요?' — 저는 반찬 받으면 그냥 좋던데요. 받는 사람이 다 불편하다고 정해 놓은 것 같습니다.",
+          "fix": "52줄이나 54줄에 조건을 넣음(예: '필요 없는 걸 자꾸 받을 때, 받는 쪽이 불편한 이유는'). 반가운 사람도 있다는 걸 반 문장으로 먼저 인정."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 54,
+          "text": "받는 쪽이 불편한 이유가 부담·죄책감·눈치라는 건 다 아는 얘기고, 이 챕터에서 새로 나온 건 소비기한 뜻풀이뿐인데 그건 '불편한 이유'도 아니네요.",
+          "fix": "60~62줄 소비기한 뜻풀이는 79줄 거절 셋째 바로 앞으로 옮기고, 이 챕터는 세 가지마다 짧은 장면(답례로 나간 돈·버리면서 드는 마음·거절 못 한 순간) 하나씩으로 채움."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 69,
+          "text": "'식단 조절 중이라서요' 하면 '이건 살 안 쪄', '둘 자리가 없어서요' 하면 '조금만 가져가'가 돌아옵니다. 이유를 대라더니 83줄에선 이유를 대면 피해서 다시 권한다고 하네요.",
+          "fix": "82줄을 '그래도 계속 주시면, 처음 말한 그 사정을 같은 말로 짧게 되풀이합니다'로 바꿔 65줄과 83줄이 한 이야기로 이어지게 함."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "주는 마음 인정·연구 한계·안전 기준을 먼저 짚어 상·중 반박거리는 없고, 첫머리 단정 두 곳(9·25줄)·비교 대상 빠진 연구 문장(45줄)·받는 쪽 챕터의 조건 빠짐과 뻔함·이유 대기와 되풀이 사이 연결 정도의 하만 남음.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_18.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
-    "pending": {
-     "n": 18,
-     "sha": "9116bdc520ba1782",
-     "reviewers": [
-      "K18-반론"
-     ],
-     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_18.md",
-     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_rebuttal_18",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T10:48:16Z"
-    }
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    }
   }
  },

@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>필요 없다는데 자꾸 주는 사람</title>
-<!-- VERSION: v1.3 — 2026-11-25 — 화면 글을 핵심만 쉽게 (사용자 지시 "영상에 나오는 설명 좀 알기 쉽게, 핵심만 딱 알아듣기 쉽게 만들어봐"):
+<!-- VERSION: v2.0 — 2026-11-26 — 대본 v3.4(98문장 — 영상 제작 공통 규칙 guides/production_rules.md · script_rules.md: 도입 30초 · 결론 먼저 ✗ · 챕터 이름 = 타임라인)에 맞춰 장면을 새 문장 번호로 다시 짬
+     (사용자 지시 "30분 후에 음성, 이미지 확인해서 영상 만들어서 다 되면 아티팩트에 반영해"): 첫 장면 = 썸네일 그림 TH-CHAR2 + 썸네일과 같은 자리 말풍선(tbub) ·
+     도입 카드 = 결론 세 가지 대신 '하나씩 짚어 볼 것'(답 숨김) · 장마다 이름 도장(이유 1·2·3) · 새 문장(가족 걱정 · 분명하게 · 사양할게요 · 두세 개 · 안부 · 남는 음식 · 그대로 거두기) 장면 ·
+     소비기한 카드에서 유통기한 줄 뺌(대본에서 뺌) · 회사 사은품·결론 카드 장면 뺌. 옛 v1.3 은 git 이력.
+     이전 v1.3 — 2026-11-25 — 화면 글을 핵심만 쉽게 (사용자 지시 "영상에 나오는 설명 좀 알기 쉽게, 핵심만 딱 알아듣기 쉽게 만들어봐"):
      카드 제목 = 그 카드의 결론 · 풀이 줄은 빼고(내레이션이 말함) 낱말 몇 개로 · 2011 막대(실제 수치 없음)는 △/✓ 비교로 · 도장 글 짧게. 새 음성(7문장 다시) 시각으로.
      이전 v1.2 — 2026-11-25 — 댓글 쪽지·출처 줄을 화면에서 뺌 (사용자 지시 "댓글 내용 언급하지 말라고 좀 그리고 출처까지는 영상에 쓰지마" · "~ 댓글이 있었다 이런식이 아니라 다른 표현으로"):
      대본 27·30·48·51·54·56·90번을 일반 문장으로 바꿈 → 쪽지 대신 인물 속마음 말풍선·도장 · 연구 카드의 저자·학술지 줄과 식약처 줄 뺌(출처는 설명란에만) ·
@@ -43,6 +47,8 @@
 .dlabel{position:absolute;padding:4px 12px;border-radius:8px;background:#fff;color:#D8392B;font-weight:900;font-size:40px;white-space:nowrap;border:3px solid #D8392B}
 .mid{position:absolute;left:956px;top:0;width:12px;height:1080px;background:#F4F6FA;box-shadow:0 0 18px rgba(0,0,0,.35)}
 .swipe{position:absolute;left:0;top:0;width:2300px;height:1080px;background:linear-gradient(90deg,rgba(14,20,40,0) 0%,#3A2A2A 9%,#5A3A34 50%,#3A2A2A 91%,rgba(14,20,40,0) 100%)}
+.tbub{position:absolute;padding:26px 30px;border-radius:40px;background:#fff;color:#1B2030;font-weight:900;font-size:56px;line-height:1.18;text-align:center;border:6px solid #1B2030;box-shadow:0 10px 0 rgba(0,0,0,.22);word-break:keep-all}
+.tbub::after{content:"";position:absolute;left:26%;bottom:-34px;border:18px solid transparent;border-top:22px solid #1B2030;border-right-width:10px}
 .swipe i{position:absolute;top:0;width:26px;height:1080px;background:#FF8F7A;opacity:.9}
 </style>
 </head>
@@ -65,6 +71,7 @@ const PUP = "../../../psychology/source/jakku-juneun-2026-11-25/puppet/";
 const MAN = window.CUT_MANIFEST;
 const BGS = {};
 for (const k of ["HALLWAY", "R-KITCHEN", "G-KITCHEN", "OFFICE", "R-LIVING", "LOBBY"]) BGS[k] = PUP + `BG-${k}.jpg`;
+BGS.TH2 = "../../../psychology/source/jakku-juneun-2026-11-25/images/TH-CHAR2.jpg";   // v2.0 썸네일 그림 = 첫 장면 (도입 ① 썸네일 연결)
 PSY.setup({ man: MAN, cut: PUP + "cut/", bg: BGS,
   layout: { MID: [950, 0, 24, 1080], SWIPE: [-2400, 0, 6800, 1080] },
   allow: [["MID", "WORLD"], ["MID", "HEAD"], ["MID", "LOW"], ["MID", "LIST"],
@@ -129,6 +136,18 @@ function say(W_, A, f, html, t, out, o) {    // 말풍선: 머리 옆 — 보이
   if (w < 220) throw new Error(`말풍선 자리 없음: ${html}`);
   return PSY.bubble(W_, A, f, html, t, out, { side, w, size: o.size, kind: o.kind, y: o.y, gap, color: o.color });
 }
+function tbub(W_, html, x, y, w, t, out) {   // v2.0 썸네일과 같은 자리의 말풍선 (썸네일 좌표 × 1.5 — thumbs_build.py jakku bubbles)
+  const n = K.el(`<div class="tbub" style="left:${x}px;top:${y}px;width:${w}px">${html}</div>`, W_.L.fly);
+  gsap.set(n, { opacity: 0, transformOrigin: "20% 100%" });
+  tl.fromTo(n, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)", immediateRender: false }, t);
+  if (out) hide(n, out, 0.25);
+  return n;
+}
+function xmark(W_, t, out) {                 // 말풍선 옆 ✕ (틀린 말 — 흐린 생각 말풍선과 같이)
+  const x = K.el(`<div class="stamp rd" style="font-size:40px;padding:6px 18px">✕</div>`, W_.L.fly);
+  gsap.set(x, { x: 1700, y: 270, opacity: 0, xPercent: -50, yPercent: -50 }); show(x, t, 0.2); hide(x, out, 0.2);
+  return x;
+}
 function dim(W_, t, op, out) {
   const n = PSY.dark(W_, t, op == null ? 0.62 : op, "rgba(6,10,24,.85)", 0.45);
   if (out) tl.to(n, { opacity: 0, duration: 0.45 }, out);
@@ -191,114 +210,100 @@ function swipe(t) {                          // 장이 바뀔 때: 화면을 쓸
   tl.fromTo(p, { x: -2350 }, { x: 2050, duration: 1.1, ease: "power2.inOut", immediateRender: false }, t - 0.55);
 }
 
-/* ═════════════ 도입 (1~15) ═════════════ */
-shot(0, (a, b) => {                          // 1 — 세 컷: 기한 지난 과자(R 부엌) · 냉동 반찬(G 부엌) · 사은품(회사)
-  const t1 = W(1, "언제") - 0.2, t2 = W(1, "사은품") - 0.9;   // "한"은 "기한이"에 먼저 걸림
-  const W1 = world(a, t1, "R-KITCHEN");
-  prop(W1.L.fly, "PROPS-A-3", 960, 520, 420, a + 0.1, null, true);
-  const dl = K.el(`<div class="dlabel">기한 지남</div>`, W1.L.fly);
-  gsap.set(dl, { x: 960, y: 590, xPercent: -50, yPercent: -50, rotation: -6, opacity: 0 });
-  tl.fromTo(dl, { opacity: 0, scale: 1.8 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, a + 0.7);
-  PSY.cam(W1, a, t1, [1.0, 960, 540], [1.06, 960, 520]);
-  const W2 = world(t1, t2, "G-KITCHEN");
-  prop(W2.L.fly, "PROPS-A-2", 980, 560, 440, t1 + 0.05, null, true);
-  PSY.cam(W2, t1, t2, [1.0, 980, 560], [1.06, 980, 560]);
-  const W3 = world(t2, b, "OFFICE");
-  const H = at(W3, ["H-POSES-1"], SP.OF_H);
-  moves(H, [[t2, "H-POSES-1", 1, "hold"]], b + 0.4);
-  breathe(H, t2, b);
-  say(W3, H, "H-POSES-1", "사은품인데<br>가져가!", t2 + 0.2, null, { side: 1, size: 50 });
-  K.cut(t1 - 0.2, "1 과자"); K.cut(t2 - 0.2, "1 냉동 반찬"); K.cut(E(1) - 0.2, "1 사은품");
+/* ═════════════ 도입 (1~6) — v2.0 대본 v3.4 (도입 30초 · 결론 먼저 ✗) ═════════════ */
+shot(0, (a, b) => {                          // 1~2 앞 — 썸네일 그림(TH-CHAR2) 그대로: "너 주려고 챙겼지~" · "마음은 고마운데…"
+  const t2 = W(2, "집에") - 0.3;
+  const W1 = world(a, t2, "TH2");
+  PSY.cam(W1, a, t2, [1.0, 1900, 400], [1.03, 1900, 400]);   // 오른쪽 끝 말풍선이 잘리지 않게 오른쪽 기준으로 살짝
+  tbub(W1, "너 주려고<br>챙겼지~", 849, 45, 393, W(1, "주려고") - 0.4, null);
+  tbub(W1, "마음은<br>고마운데…", 1540, 39, 370, S(2) - 0.1, null);
+  const W2 = world(t2, b, "R-KITCHEN");                   // 2 뒤 — 집에 와서 어디에 둘지
+  const R = at(W2, ["R02-2"], SP.RK_R, { flip: true });
+  moves(R, [[t2, "R02-2", 1, "hold"]], b + 0.4);
+  breathe(R, t2, b);
+  say(W2, R, "R02-2", "이걸 어디에<br>두지…", t2 + 0.2, null, { kind: "think", side: -1, size: 48 });
+  K.cut(E(1) - 0.3, "1 썸네일 장면"); K.cut(E(2) - 0.3, "2 어디에 두지");
 });
-shot(B(2), (a, b) => {                       // 2~3 — 복도: 자꾸 건넴 · "그래도 가져가"
-  const W_ = world(a, b, "HALLWAY");
-  const G = at(W_, ["G02-1", "G02-2"], SP.HW_G);
-  const R = at(W_, ["R01-1", "R01-2"], SP.HW_R);
-  moves(G, [[a, "G02-1", 1, "hold"], [W(3, "그래도") - 0.2, "G02-2", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R01-1", 1, "hold"], [W(3, "손에") - 0.2, "R01-2", 1, "hold"]], b + 0.4);
-  breathe(G, a, b); breathe(R, a, b); squash(G, W(3, "그래도") - 0.2);
-  say(W_, R, "R01-1", "아이고,<br>괜찮은데요…", S(3) + 0.1, W(3, "그래도") - 0.1, { side: 1, size: 48 });
-  say(W_, G, "G02-2", "그래도 가져가!", W(3, "그래도") - 0.1, null, { side: -1, size: 52 });
-  PSY.cam(W_, a, b, [1.0, 960, 600], [1.04, 960, 600]);
-  K.cut(E(2) - 0.3, "2 건넴"); K.cut(E(3) - 0.3, "3 그래도 가져가");
-});
-shot(B(4), (a, b) => {                       // 4~5 — 반갑게 받는 분도 · 집에 와서 버릴 곳부터 (R 부엌)
-  const W_ = world(a, b, "R-KITCHEN");
-  const R = at(W_, ["R02-1", "R02-2", "R02-3"], SP.RK_R, { flip: true });
-  moves(R, [[a, "R02-1", 1, "hold"], [W(5, "고맙다고") + 0.3, "R02-2", 1, "hold"], [W(5, "버릴") - 0.2, "R02-3", 1, "hold"]], b + 0.4);
-  squash(R, W(5, "버릴") - 0.2);
-  say(W_, R, "R02-1", "이건 언제<br>날짜지…?", W(5, "필요"), W(5, "고맙다고") + 0.3, { side: -1, size: 48 });
-  say(W_, R, "R02-3", "죄송해요…", W(5, "버릴"), null, { kind: "think", side: -1, size: 50 });
-  K.cut(E(4) - 0.3, "4 반갑게"); K.cut(E(5) - 0.3, "5 버릴 곳");
-});
-shot(B(6), (a, b) => {                       // 6~15 — 왜 그렇게까지? → 결론 세 가지 (복도 위 카드) → 나쁜 마음 아님
+shot(B(3), (a, b) => {                       // 3~6 — 거절해도 왜 자꾸? → 짚어 볼 것 (답은 숨김 — 카드엔 주제만)
   const W_ = world(a, b, "HALLWAY");
   const O = over(a, b);
-  const G = at(W_, ["G02-1", "G04-3", "G03-3"], SP.HW_G);
-  const R = at(W_, ["R01-1", "R04-1"], SP.HW_R);
-  moves(G, [[a, "G02-1", 1, "hold"], [S(12), "G04-3", 1, "hold"], [W(13, "이웃과"), "G03-3", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R01-1", 1, "hold"], [S(14), "R04-1", 1, "hold"]], b + 0.4);
-  breathe(G, a, b); breathe(R, a, b);
-  say(W_, R, "R01-1", "왜 이렇게까지<br>주실까…?", S(6), S(7), { kind: "think", side: 1, size: 48 });
-  const dk = dim(W_, S(7) + 0.2, 0.72);
-  tl.to(dk, { opacity: 0, duration: 0.5 }, S(12) - 0.1);
-  const c = card(O, [300, 150, 1320, 700], S(8) - 0.2, S(12) - 0.2);
-  row(c, 46, "자꾸 주는 이유 3가지", 62, S(8));
-  item(c, 110, 190, "1", "버리긴 <span class='yl'>아까워서</span>", S(9));
-  item(c, 110, 320, "2", "<span class='yl'>건네는 순간</span>만 보여서", S(10));
-  item(c, 110, 450, "3", "주면 <span class='yl'>내 기분이 좋아서</span>", S(11));
-  row(c, 590, "사람마다 다를 수 있음", 38, S(11) + 1.2, null, "mu");
-  say(W_, G, "G03-3", "이웃끼리<br>나눠 먹어야지~", W(13, "이웃과"), S(14), { side: 1, size: 48 });
-  stamp(W_, "나쁜 마음은 아님", 970, 800, S(12) + 0.2, S(13) + 0.5, "tl");
-  say(W_, R, "R04-1", "마음만<br>받을게요.", S(14) + 0.4, null, { side: 1, size: 50 });
-  K.cut(E(6) - 0.3, "6 왜"); K.cut(E(11) - 0.3, "11 세 가지"); K.cut(E(13) - 0.3, "13 정"); K.cut(E(14) - 0.3, "14 거절하는 말");
+  const G = at(W_, ["G02-1", "G02-2"], SP.HW_G);
+  const R = at(W_, ["R01-1", "R01-2"], SP.HW_R);
+  moves(G, [[a, "G02-1", 1, "hold"], [S(3) + 0.3, "G02-2", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R01-1", 1, "hold"], [S(3) + 0.3, "R01-2", 1, "hold"]], b + 0.4);
+  breathe(G, a, b); breathe(R, a, b); squash(G, S(3) + 0.3);
+  say(W_, R, "R01-2", "괜찮다고<br>했는데…", a + 0.3, W(3, "왜") - 0.1, { kind: "think", side: 1, size: 48 });
+  say(W_, R, "R01-2", "왜 자꾸<br>주실까…?", W(3, "왜"), S(4) + 0.4, { kind: "think", side: 1, size: 48 });
+  stamp(W_, "?", 900, 300, S(4) + 0.2, S(5) - 0.3, "yl");
+  dim(W_, S(5) - 0.2, 0.74);
+  const c = card(O, [300, 200, 1320, 600], S(5) - 0.1);
+  row(c, 40, "하나씩 짚어 볼 것", 56, S(5));
+  item(c, 110, 170, "1", "자꾸 주는 사람의 <span class='yl'>심리 3가지</span>", W(5, "자꾸"));
+  item(c, 110, 290, "2", "받는 쪽이 <span class='yl'>불편한 이유</span>", W(5, "받는"));
+  item(c, 110, 410, "3", "서운하지 않게 <span class='yl'>거절하는 말</span>", W(6, "거절하려면") - 0.3);
+  K.cut(E(3) - 0.3, "3 왜 자꾸"); K.cut(E(4) - 0.3, "4 ?"); K.cut(E(5) - 0.3, "5 짚어 볼 것"); K.cut(E(6) - 0.3, "6 거절하는 말");
 });
 
-/* ═════════════ 첫 번째, 버리기 아까워서 (16~31) ═════════════ */
-shot(B(16), (a, b) => {                      // 16~21 — 명절 앞 냉동실 정리 → 아까워 → 옆집 주면 되겠다
+/* ═════════════ 이유 1. 버리기 아까워서 (7~26) ═════════════ */
+shot(B(7), (a, b) => {                       // 7~11 — 이유 1 · 나쁜 마음은 아님 · 정·안부·가족 걱정 · 집에 있던 것이라면
   swipe(a + 0.2);
+  const W_ = world(a, b, "HALLWAY");
+  const G = at(W_, ["G02-1", "G04-3", "G03-3"], SP.HW_G);
+  const R = at(W_, ["R01-1", "R04-1"], SP.HW_R);
+  moves(G, [[a, "G02-1", 1, "hold"], [S(8), "G04-3", 1, "hold"], [W(9, "이웃과"), "G03-3", 1, "hold"], [S(11), "G02-1", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R01-1", 1, "hold"], [S(9), "R04-1", 1, "hold"]], b + 0.4);
+  breathe(G, a, b); breathe(R, a, b);
+  stamp(W_, "이유 1 · 버리기 아까워서", 970, 800, a + 0.6, S(8) - 0.1, "yl");
+  stamp(W_, "나쁜 마음은 아님", 970, 800, S(8) + 0.2, S(11) - 0.1, "tl");
+  say(W_, G, "G03-3", "이웃끼리<br>나눠 먹어야지~", W(9, "이웃과"), S(10) - 0.1, { side: 1, size: 48 });
+  say(W_, G, "G03-3", "잘 챙겨<br>먹나 몰라~", S(10), S(11) - 0.1, { kind: "think", side: 1, size: 46 });
+  stamp(W_, "집에 있던 음식·물건이라면?", 970, 800, S(11) + 0.2, null, "yl");
+  K.cut(E(7) - 0.3, "7 이유 1"); K.cut(E(9) - 0.3, "9 정"); K.cut(E(10) - 0.3, "10 가족 걱정"); K.cut(E(11) - 0.3, "11 집에 있던 것");
+});
+shot(B(12), (a, b) => {                      // 12~16 — 명절 앞 냉동실 정리 → 아까워 → 옆집 주면 되겠다
   const W_ = world(a, b, "G-KITCHEN");
   const G = at(W_, ["G01-1", "G01-2", "G01-3"], SP.GK_G);
-  moves(G, [[a, "G01-1", 1, "hold"], [S(19), "G01-2", 1, "hold"], [S(20) + 0.2, "G01-3", 1, "hold"]], b + 0.4);
-  breathe(G, a, b); squash(G, S(20) + 0.2);
-  say(W_, G, "G01-1", "이건 언제<br>넣었더라…", S(18), S(19), { side: 1, size: 48 });
-  say(W_, G, "G01-2", "먹진 않을 것 같은데…<br>버리긴 아깝고.", S(19), S(20), { kind: "think", side: 1, size: 46 });
-  say(W_, G, "G01-3", "옆집 주면 되겠다!", S(20) + 0.2, null, { side: 1, size: 52 });
-  stamp(W_, "버리면 낭비 → 주면 나눔", 1450, 640, S(21), null, "yl");
+  moves(G, [[a, "G01-1", 1, "hold"], [S(14), "G01-2", 1, "hold"], [S(15) + 0.2, "G01-3", 1, "hold"]], b + 0.4);
+  breathe(G, a, b); squash(G, S(15) + 0.2);
+  say(W_, G, "G01-1", "이건 언제<br>넣었더라…", S(13), S(14), { side: 1, size: 48 });
+  say(W_, G, "G01-2", "먹진 않을 것 같은데…<br>버리긴 아깝고.", S(14), S(15), { kind: "think", side: 1, size: 46 });
+  say(W_, G, "G01-3", "옆집 주면 되겠다!", S(15) + 0.2, null, { side: 1, size: 52 });
+  stamp(W_, "버리면 낭비 → 주면 나눔", 1450, 640, S(16), null, "yl");
   PSY.cam(W_, a, b, [1.0, 960, 600], [1.05, 960, 580]);
-  K.cut(E(17) - 0.3, "17 냉동실"); K.cut(E(19) - 0.3, "19 아깝다"); K.cut(E(21) - 0.3, "21 나눔");
+  K.cut(E(12) - 0.3, "12 냉동실"); K.cut(E(14) - 0.3, "14 아깝다"); K.cut(E(16) - 0.3, "16 나눔");
 });
-shot(B(22), (a, b) => {                      // 22~27 — 2019 네덜란드 연구 (같은 부엌 위 카드) · 차라리 나눔
+shot(B(17), (a, b) => {                      // 17~21 — 2019 네덜란드 연구 (같은 부엌 위 카드) · 차라리 나눔
   const W_ = world(a, b, "G-KITCHEN");
   const O = over(a, b);
   const G = at(W_, ["G01-3"], SP.GK_G);
   moves(G, [[a, "G01-3", 1, "hold"]], b + 0.4);
-  dim(W_, a + 0.1, 0.74, S(27) - 0.25);          // 27번(일반 문장)은 밝은 부엌에서 (v1.2)
-  const c = card(O, [260, 150, 1400, 630], a + 0.2, S(27) - 0.2);   // v1.3 줄을 줄여 카드도 낮춤
+  dim(W_, a + 0.1, 0.74, S(21) - 0.25);
+  const c = card(O, [260, 150, 1400, 630], a + 0.2, S(21) - 0.2);
   row(c, 36, "멀쩡한 물건을 버릴 때", 56, a + 0.3);
   row(c, 112, "2019년 네덜란드 연구", 38, a + 0.6, null, "mu");
-  abs(c, "<b>'아깝다'</b><br><span style='font-size:36px'>마음</span>", 170, 210, "box g", W(24, "아깝다"), null, "width:360px");
-  abs(c, "⚡", 640, 250, "bnum yl", W(24, "부딪혀서"), null, "font-size:96px");
-  abs(c, "<b>'버린다'</b><br><span style='font-size:36px'>행동</span>", 850, 210, "box r", W(24, "버린다"), null, "width:360px");
-  row(c, 400, "<span class='rd'>→ 마음이 불편</span>", 66, S(23));
-  row(c, 520, "남에게 주면 → <span class='tl'>안 버려도 됨</span>", 54, S(26));
-  stamp(W_, "버리긴 미안해서 → 남에게", 1450, 640, S(27) + 0.15, null, "yl");   // 출처 줄·댓글 쪽지 뺌 (v1.2)
-  K.cut(E(23) - 0.3, "23 불편함"); K.cut(E(24) - 0.3, "24 부딪힘"); K.cut(E(26) - 0.3, "26 피하는 길"); K.cut(E(27) - 0.3, "27 차라리 나눔");
+  abs(c, "<b>'아깝다'</b><br><span style='font-size:36px'>마음</span>", 170, 210, "box g", W(19, "아깝다"), null, "width:360px");
+  abs(c, "⚡", 640, 250, "bnum yl", W(19, "부딪혀서"), null, "font-size:96px");
+  abs(c, "<b>'버린다'</b><br><span style='font-size:36px'>행동</span>", 850, 210, "box r", W(19, "버린다"), null, "width:360px");
+  row(c, 400, "<span class='rd'>→ 마음이 불편</span>", 66, S(18));
+  row(c, 520, "짐작: 남에게 주면 → <span class='tl'>안 버려도 됨</span>", 50, W(20, "남에게"));
+  stamp(W_, "버리긴 미안해서 → 남에게", 1450, 640, S(21) + 0.15, null, "yl");
+  K.cut(E(18) - 0.3, "18 불편함"); K.cut(E(19) - 0.3, "19 부딪힘"); K.cut(E(20) - 0.3, "20 짐작"); K.cut(E(21) - 0.3, "21 차라리 나눔");
 });
-shot(B(28), (a, b) => {                      // 28~31 — 아까움이 받은 사람에게 넘어감 (R 부엌)
+shot(B(22), (a, b) => {                      // 22~26 — 버리는 일이 받는 집으로 · 사양해도 또 권함 · 왜 모를까? (R 부엌)
   const W_ = world(a, b, "R-KITCHEN");
-  const O = over(a, b);
   const R = at(W_, ["R02-2", "R02-3"], SP.RK_R, { flip: true });
-  moves(R, [[a, "R02-2", 1, "hold"], [S(29), "R02-3", 1, "hold"]], b + 0.4);
-  squash(R, S(29));
-  stamp(W_, "아까움 → 받는 사람에게", 620, 640, S(28) + 0.3, S(30) - 0.2, "rd");
-  say(W_, R, "R02-3", "아깝긴 한데…<br>못 먹겠어.", S(29) + 0.3, S(30) - 0.1, { kind: "think", side: -1, size: 46 });
-  stamp(W_, "버리는 일은 받는 사람 몫", 620, 640, S(30) + 0.1, null, "rd");   // 댓글 쪽지 대신 (v1.2)
-  K.cut(E(29) - 0.3, "29 받은 사람도"); K.cut(E(30) - 0.3, "30 받는 쪽에 남음"); K.cut(E(31) - 0.3, "31 한마디로");
+  moves(R, [[a, "R02-2", 1, "hold"], [S(23), "R02-3", 1, "hold"]], b + 0.4);
+  squash(R, S(23));
+  stamp(W_, "버리는 일 → 받는 집으로", 620, 640, S(22) + 0.3, S(23) - 0.1, "rd");
+  say(W_, R, "R02-3", "아깝긴 한데…<br>못 먹겠어.", S(23) + 0.1, S(24) - 0.1, { kind: "think", side: -1, size: 46 });
+  stamp(W_, "사양해도 → 다른 날 또", 620, 640, S(24) + 0.1, S(25) - 0.1, "rd");
+  stamp(W_, "이유 1 · 버리기 아까워서", 620, 640, S(25) + 0.1, S(26) - 0.1, "yl");
+  say(W_, R, "R02-3", "이렇게 불편한 걸<br>왜 모르실까…?", S(26), null, { kind: "think", side: -1, size: 46 });
+  K.cut(E(22) - 0.3, "22 받는 집으로"); K.cut(E(24) - 0.3, "24 또 권함"); K.cut(E(26) - 0.3, "26 왜 모를까");
 });
 
-/* ═════════════ 두 번째, 건네는 순간만 보여서 (32~44) ═════════════ */
-shot(B(32), (a, b) => {                      // 32~38 — 반반: 건네는 순간(복도) | 그 뒤(R 부엌)
+/* ═════════════ 이유 2. 받은 뒤의 일은 안 보여서 (27~39) ═════════════ */
+shot(B(27), (a, b) => {                      // 27~32 — 반반: 건네는 순간(복도) | 받은 뒤(R 부엌)
   swipe(a + 0.2);
   const L = half(a, b, "HALLWAY", "L", 280);
   const R_ = half(a, b, "R-KITCHEN", "R", 720);
@@ -306,18 +311,19 @@ shot(B(32), (a, b) => {                      // 32~38 — 반반: 건네는 순�
   const G = at(L, ["G02-1", "G02-3"], SP.HW_GL);
   const R1 = at(L, ["R01-1"], SP.HW_RL);
   const R2 = at(R_, ["R02-2", "R02-3"], [1360, 1010, 0.76], { flip: true });
-  moves(G, [[a, "G02-1", 1, "hold"], [S(38), "G02-3", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G02-1", 1, "hold"], [S(31) + 0.6, "G02-3", 1, "hold"]], b + 0.4);
   moves(R1, [[a, "R01-1", 1, "hold"]], b + 0.4);
-  moves(R2, [[a, "R02-2", 1, "hold"], [W(37, "버리는"), "R02-3", 1, "hold"]], b + 0.4);
+  moves(R2, [[a, "R02-2", 1, "hold"], [W(32, "버리는"), "R02-3", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R1, a, b);
-  stamp(L, "건네는 순간", 820, 800, S(34) - 0.2, S(36) - 0.1, "yl");
-  stamp(R_, "그 뒤", 960, 640, S(35) - 0.2, S(37) - 0.1, "tl");
-  say(L, R1, "R01-1", "고마워요~", S(36), null, { side: -1, size: 50 });
-  say(R_, R2, "R02-2", "어디에 두지…", S(37), W(37, "버리는") - 0.1, { kind: "think", side: -1, size: 46 });
-  stamp(L, "잘 줬다 ✓", 820, 800, S(38) + 0.3, null, "tl");
-  K.cut(E(34) - 0.3, "34 순간"); K.cut(E(36) - 0.3, "36 고마워요"); K.cut(E(37) - 0.3, "37 그 뒤"); K.cut(E(38) - 0.3, "38 잘 줬다");
+  stamp(R_, "받은 뒤의 일", 960, 640, a + 0.7, S(29) - 0.2, "rd");
+  stamp(L, "건네는 순간", 820, 800, S(29) - 0.2, S(31) - 0.1, "yl");
+  stamp(R_, "그 뒤", 960, 640, S(30) - 0.2, S(32) - 0.1, "tl");
+  say(L, R1, "R01-1", "고마워요~", S(31), null, { side: -1, size: 50 });
+  say(R_, R2, "R02-2", "어디에 두지…", S(32), W(32, "버리는") - 0.1, { kind: "think", side: -1, size: 46 });
+  stamp(R_, "냉장고 자리 · 버리는 일", 960, 640, W(32, "버리는") + 0.1, null, "rd");
+  K.cut(E(27) - 0.3, "27 이유 2"); K.cut(E(29) - 0.3, "29 순간"); K.cut(E(31) - 0.3, "31 고마워요"); K.cut(E(32) - 0.3, "32 그 뒤");
 });
-shot(B(39), (a, b) => {                      // 39~42 — 2011 실험 (복도 위 카드)
+shot(B(33), (a, b) => {                      // 33~36 — 2011 실험 (복도 위 카드)
   const W_ = world(a, b, "HALLWAY");
   const O = over(a, b);
   const G = at(W_, ["G02-1"], SP.HW_G);
@@ -327,83 +333,86 @@ shot(B(39), (a, b) => {                      // 39~42 — 2011 실험 (복도 �
   const c = card(O, [260, 150, 1400, 720], a + 0.2);
   row(c, 36, "선물, 서로 바라는 게 다름", 56, a + 0.3);
   row(c, 112, "2011년 미국 실험", 38, a + 0.6, null, "mu");
-  abs(c, "<span style='font-size:38px;color:#2ED3BB'>받는 사람</span><br><b>부탁한 선물</b>이<br>더 좋음", 90, 190, "box r", S(40), null, "width:560px");
-  abs(c, "<span style='font-size:38px;color:#FF8F7A'>주는 사람</span><br><b>알아서 챙겨 줘야</b><br>감동", 750, 190, "box g", S(41), null, "width:560px");
-  row(c, 450, "<span class='rd'>→ 서로 엇갈림</span>", 62, S(42));
-  row(c, 550, "'필요 없어요' 한 뒤라면 더욱", 44, W(42, "필요"), null, "mu");
-  K.cut(E(40) - 0.3, "40 부탁한"); K.cut(E(41) - 0.3, "41 말 안 해도"); K.cut(E(42) - 0.3, "42 어긋남");
+  abs(c, "<span style='font-size:38px;color:#2ED3BB'>받는 사람</span><br><b>부탁한 선물</b>이<br>더 좋음", 90, 190, "box r", S(33) + 0.4, null, "width:560px");
+  abs(c, "<span style='font-size:38px;color:#FF8F7A'>주는 사람</span><br><b>알아서 챙겨 줘야</b><br>감동", 750, 190, "box g", S(34), null, "width:560px");
+  row(c, 450, "<span class='rd'>→ 서로 엇갈림</span>", 62, S(35));
+  row(c, 550, "'필요 없어요' 해도 → 또 챙김", 44, W(36, "필요"), null, "mu");
+  K.cut(E(33) - 0.3, "33 부탁한"); K.cut(E(34) - 0.3, "34 말 안 해도"); K.cut(E(36) - 0.3, "36 또 챙김");
 });
-shot(B(43), (a, b) => {                      // 43~44 — '괜찮아요' → 예의 사양으로 들림 (복도)
+shot(B(37), (a, b) => {                      // 37~39 — '괜찮아요' → 예의 사양으로 들림 · 정리 · 왜 또? (복도)
   const W_ = world(a, b, "HALLWAY");
   const G = at(W_, ["G02-1", "G02-2"], SP.HW_G);
   const R = at(W_, ["R04-1"], SP.HW_R);
-  moves(G, [[a, "G02-1", 1, "hold"], [W(43, "예의로") - 0.1, "G02-2", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G02-1", 1, "hold"], [W(37, "예의로") - 0.1, "G02-2", 1, "hold"]], b + 0.4);
   moves(R, [[a, "R04-1", 1, "hold"]], b + 0.4);
-  breathe(G, a, b); breathe(R, a, b); squash(G, W(43, "예의로") - 0.1);
-  say(W_, R, "R04-1", "괜찮아요~", W(43, "괜찮아요") - 0.2, null, { side: 1, size: 54 });
-  say(W_, G, "G02-2", "사양하는구나~<br>그래도 가져가!", W(43, "예의로"), null, { kind: "think", side: -1, size: 46 });
-  K.cut(E(43) - 0.3, "43 예의 사양"); K.cut(E(44) - 0.3, "44 한마디로");
+  breathe(G, a, b); breathe(R, a, b); squash(G, W(37, "예의로") - 0.1);
+  say(W_, R, "R04-1", "괜찮아요~", W(37, "괜찮아요") - 0.2, S(38) - 0.1, { side: 1, size: 54 });
+  say(W_, G, "G02-2", "사양하는구나~<br>그래도 가져가!", W(37, "예의로"), S(38) - 0.1, { kind: "think", side: -1, size: 46 });
+  stamp(W_, "이유 2 · 받은 뒤는 안 보임", 970, 800, S(38) + 0.2, S(39) - 0.1, "yl");
+  say(W_, G, "G02-2", "또 주고<br>싶은데~", S(39) + 0.2, null, { kind: "think", side: -1, size: 48 });
+  K.cut(E(37) - 0.3, "37 예의 사양"); K.cut(E(38) - 0.3, "38 정리"); K.cut(E(39) - 0.3, "39 왜 또");
 });
 
-/* ═════════════ 세 번째, 주고 나면 내 마음이 좋아져서 (45~53) ═════════════ */
-shot(B(45), (a, b) => {                      // 45~48 — 돌아서는 길이 뿌듯 · 2020 연구 · 그냥 주고 싶어서
+/* ═════════════ 이유 3. 주고 나면 기분이 좋아서 (40~48) ═════════════ */
+shot(B(40), (a, b) => {                      // 40~43 — 돌아서는 길이 뿌듯 · 2020 실험 · 그냥 주고 싶어서
   swipe(a + 0.2);
   const W_ = world(a, b, "HALLWAY");
   const O = over(a, b);
   const G = at(W_, ["G02-3"], SP.HW_G, { flip: true });
   moves(G, [[a, "G02-3", 1, "hold"]], b + 0.4);
   breathe(G, a, b);
-  const walk = Math.max(1, S(46) - a - 0.3);
+  const walk = Math.max(1, S(41) - a - 0.3);
   tl.fromTo(G.box, { x: 0 }, { x: -260, duration: walk, ease: "sine.inOut" }, a + 0.2);
-  const b1 = say(W_, G, "G02-3", "오늘도<br>좋은 일 했네~", a + 0.6, S(46) - 0.1, { kind: "think", side: 1, size: 48 });
-  const b1x = gsap.getProperty(b1, "x");                // 말풍선도 G 와 같이 걸어감 (v1.2 — v1.1 은 제자리에 남음)
+  const b1 = say(W_, G, "G02-3", "오늘도<br>좋은 일 했네~", a + 0.6, S(41) - 0.1, { kind: "think", side: 1, size: 48 });
+  const b1x = gsap.getProperty(b1, "x");
   tl.fromTo(b1, { x: b1x }, { x: b1x - 260, duration: walk, ease: "sine.inOut", immediateRender: false }, a + 0.2);
-  const dk = dim(W_, S(46) - 0.1, 0.72);
-  tl.to(dk, { opacity: 0, duration: 0.5 }, S(47) - 0.1);
-  const c = card(O, [360, 220, 1200, 440], S(46), S(47) - 0.2);
-  row(c, 44, "남을 위해 돈을 쓴 쪽이", 54, S(46) + 0.1);
-  row(c, 150, "<span class='tl'>대체로 더 행복</span>", 76, W(46, "대체로"));
-  row(c, 300, "자기를 위해 쓴 쪽과 비교 · 2020년 연구", 38, S(46) + 0.4, null, "mu");
-  stamp(W_, "뿌듯 ✓", 900, 640, S(47) + 0.2, S(48) - 0.1, "tl");
-  const b2 = say(W_, G, "G02-3", "그냥 주고<br>싶어서 주는 거지~", S(48), S(49) + 0.3, { kind: "think", side: 1, size: 48 });   // 댓글 쪽지 대신 속마음 (v1.2)
-  gsap.set(b2, { x: gsap.getProperty(b2, "x") - 260 });  // 걸어간 뒤 자리 (x −260)
-  K.cut(E(46) - 0.3, "46 2020"); K.cut(E(47) - 0.3, "47 뿌듯"); K.cut(E(48) - 0.3, "48 그냥 주고 싶어서");
+  const dk = dim(W_, S(41) - 0.1, 0.72);
+  tl.to(dk, { opacity: 0, duration: 0.5 }, S(42) - 0.1);
+  const c = card(O, [360, 220, 1200, 440], S(41), S(42) - 0.2);
+  row(c, 44, "남을 위해 돈을 쓴 쪽이", 54, S(41) + 0.1);
+  row(c, 150, "<span class='tl'>대체로 조금 더 행복</span>", 72, W(41, "대체로"));
+  row(c, 300, "2020년 캐나다와 미국 실험", 38, S(41) + 0.4, null, "mu");
+  stamp(W_, "뿌듯 ✓", 900, 640, S(42) + 0.2, S(43) - 0.1, "tl");
+  const b2 = say(W_, G, "G02-3", "그냥 주고<br>싶어서 주는 거지~", S(43), S(44) + 0.3, { kind: "think", side: 1, size: 48 });
+  gsap.set(b2, { x: gsap.getProperty(b2, "x") - 260 });
+  K.cut(E(41) - 0.3, "41 2020"); K.cut(E(42) - 0.3, "42 뿌듯"); K.cut(E(43) - 0.3, "43 그냥 주고 싶어서");
 });
-shot(B(49), (a, b) => {                      // 49~53 — 나쁜 건 아님 · 묻는 일을 건너뛰기 쉬움 · 두 사람 속마음
+shot(B(44), (a, b) => {                      // 44~48 — 나쁜 건 아님 · 사양해도 또 주고 싶음 · 두 사람 속마음 · 왜 불편?
   const W_ = world(a, b, "HALLWAY");
-  const O = over(a, b);
   const G = at(W_, ["G02-1", "G02-2"], SP.HW_G);
   const R = at(W_, ["R01-1", "R01-2"], SP.HW_R);
-  moves(G, [[a, "G02-1", 1, "hold"], [W(50, "묻는") - 0.2, "G02-2", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R01-1", 1, "hold"], [W(50, "묻는"), "R01-2", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G02-1", 1, "hold"], [W(45, "사양해도") - 0.2, "G02-2", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R01-1", 1, "hold"], [W(45, "사양해도"), "R01-2", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  stamp(W_, "필요한지 안 물어봄", 970, 800, W(50, "건너뛰기") - 0.3, S(51) - 0.2, "rd");
-  say(W_, G, "G02-2", "뿌듯하다~", S(51) + 0.1, S(52) + 0.3, { kind: "think", side: -1, size: 48 });          // 댓글 쪽지 대신 두 사람 속마음 (v1.2)
-  say(W_, R, "R01-2", "갑자기 받으니<br>좀 곤란한데…", W(51, "갑자기") - 0.1, S(52) + 0.3, { kind: "think", side: 1, size: 46 });
-  say(W_, R, "R01-2", "또 받았네…", S(53), null, { kind: "think", side: 1, size: 48 });
-  K.cut(E(50) - 0.3, "50 건너뜀"); K.cut(E(51) - 0.3, "51 뿌듯 · 곤란"); K.cut(E(53) - 0.3, "53 왜 불편");
+  stamp(W_, "나쁜 마음은 아님", 970, 800, S(44) + 0.1, S(45) - 0.1, "tl");
+  stamp(W_, "사양해도 → 또 주고 싶음", 970, 800, W(45, "사양해도") - 0.1, S(46) - 0.2, "rd");
+  say(W_, G, "G02-2", "뿌듯하다~", S(46) + 0.1, S(47) + 0.3, { kind: "think", side: -1, size: 48 });
+  say(W_, R, "R01-2", "갑자기 받으니<br>좀 곤란한데…", W(46, "갑자기") - 0.1, S(47) + 0.3, { kind: "think", side: 1, size: 46 });
+  stamp(W_, "이유 3 · 주면 기분이 좋아서", 970, 800, S(47) + 0.3, S(48) - 0.1, "yl");
+  say(W_, R, "R01-2", "또 받았네…", S(48), null, { kind: "think", side: 1, size: 48 });
+  K.cut(E(45) - 0.3, "45 또 주고 싶음"); K.cut(E(46) - 0.3, "46 뿌듯 · 곤란"); K.cut(E(47) - 0.3, "47 이유 3"); K.cut(E(48) - 0.3, "48 왜 불편");
 });
 
-/* ═════════════ 받는 쪽이 불편한 까닭 (54~64) ═════════════ */
-shot(B(54), (a, b) => {                      // 54~59 — 밤 거실: 돌려줘야 할 부담 · 죄책감 · 눈치 (카드)
+/* ═════════════ 받는 쪽이 불편한 이유 (49~58) ═════════════ */
+shot(B(49), (a, b) => {                      // 49~54 — 밤 거실: 돌려줘야 할 부담 · 죄책감 · 눈치 (카드)
   swipe(a + 0.2);
   const W_ = world(a, b, "R-LIVING", { tint: NIGHT });
   const O = over(a, b);
   const R = at(W_, ["R03-1", "R03-2", "R03-3"], SP.LV_R);
-  moves(R, [[a, "R03-1", 1, "hold"], [S(56), "R03-2", 1, "hold"], [S(57), "R03-3", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R03-1", 1, "hold"], [S(51), "R03-2", 1, "hold"], [S(52), "R03-3", 1, "hold"]], b + 0.4);
   breathe(R, a, b);
-  say(W_, R, "R03-1", "뭘로<br>돌려드리지…", S(55), S(56), { kind: "think", side: -1, size: 48 });
-  const dk = dim(W_, S(57) - 0.1, 0.72);
-  const c = card(O, [300, 150, 1320, 710], S(57) - 0.1);
-  row(c, 40, "받는 쪽이 불편한 이유 3가지", 58, S(57));
-  item(c, 110, 170, "1", "갚아야 할 것 같은 <span class='yl'>부담</span>", S(57));
-  item(c, 110, 290, "2", "버릴 때 드는 <span class='yl'>죄책감</span>", S(57) + 0.6);
-  item(c, 110, 410, "3", "거절할 때 보는 <span class='yl'>눈치</span>", S(58));
-  row(c, 560, "식단 조절·물건 줄이는 중이면 → <span class='yl'>더 부담</span>", 44, S(59));
+  say(W_, R, "R03-1", "뭘로<br>돌려드리지…", S(50), S(51), { kind: "think", side: -1, size: 48 });
+  const dk = dim(W_, S(52) - 0.1, 0.72);
+  const c = card(O, [300, 150, 1320, 710], S(52) - 0.1);
+  row(c, 40, "받는 쪽이 불편한 이유 3가지", 58, S(52));
+  item(c, 110, 170, "1", "갚아야 할 것 같은 <span class='yl'>부담</span>", S(52));
+  item(c, 110, 290, "2", "버릴 때 드는 <span class='yl'>죄책감</span>", S(52) + 0.6);
+  item(c, 110, 410, "3", "거절할 때 보는 <span class='yl'>눈치</span>", S(53));
+  row(c, 560, "식단 조절·물건 줄이는 중이면 → <span class='yl'>더 부담</span>", 44, S(54));
   void dk;
-  K.cut(E(56) - 0.3, "56 돌려줘야"); K.cut(E(58) - 0.3, "58 세 가지"); K.cut(E(59) - 0.3, "59 식단");
+  K.cut(E(51) - 0.3, "51 돌려줘야"); K.cut(E(53) - 0.3, "53 세 가지"); K.cut(E(54) - 0.3, "54 식단");
 });
-shot(B(60), (a, b) => {                      // 60~64 — 소비기한 (R 부엌 · 과자 봉지)
+shot(B(55), (a, b) => {                      // 55~58 — 소비기한 (R 부엌 · 과자 봉지) · 어떻게 거절?
   const W_ = world(a, b, "R-KITCHEN");
   const O = over(a, b);
   const R = at(W_, ["R02-1"], SP.RK_R, { flip: true });
@@ -411,147 +420,148 @@ shot(B(60), (a, b) => {                      // 60~64 — 소비기한 (R 부엌
   dim(W_, a + 0.1, 0.7);
   const c = card(O, [260, 150, 1400, 720], a + 0.2);
   row(c, 36, "날짜 지난 음식 = <span class='rd'>안전 문제</span>", 58, a + 0.3);
-  const snack = spr(c, "PROPS-A-3", 250, 340, 270); show(snack, S(61), 0.3);
+  const snack = spr(c, "PROPS-A-3", 250, 340, 270); show(snack, S(56), 0.3);
   const lab = K.el(`<div class="dlabel" style="font-size:36px">소비기한 2025.08.31</div>`, c);
-  gsap.set(lab, { x: 250, y: 515, xPercent: -50, yPercent: -50, opacity: 0 }); show(lab, S(61) + 0.2, 0.3);
-  row(c, 150, "요즘 포장엔 대부분 <span class='yl'>소비기한</span>", 46, S(61));
-  abs(c, "<b>유통기한</b> = 팔 수 있는 날", 480, 240, "box r", W(62, "유통기한은"), null, "width:820px");
-  abs(c, "<b class='yl'>소비기한</b> = 먹어도 되는 날<br><span style='font-size:36px'>보관 방법을 지켰을 때</span>", 480, 380, "box g", W(62, "소비기한은"), null, "width:820px");
-  row(c, 570, "소비기한 지나면 → <span class='rd'>먹지 않기</span>", 56, S(63));
-  K.cut(E(61) - 0.3, "61 소비기한"); K.cut(E(62) - 0.3, "62 차이"); K.cut(E(63) - 0.3, "63 먹지 않기"); K.cut(E(64) - 0.3, "64 어떻게");
+  gsap.set(lab, { x: 250, y: 515, xPercent: -50, yPercent: -50, opacity: 0 }); show(lab, S(56) + 0.2, 0.3);
+  abs(c, "<b class='yl'>소비기한</b> = 먹어도 되는 날<br><span style='font-size:36px'>보관 방법을 지켰을 때</span>", 480, 260, "box g", S(56) + 0.1, null, "width:820px");
+  row(c, 570, "소비기한 지나면 → <span class='rd'>먹지 않기</span>", 56, S(57));
+  K.cut(E(56) - 0.3, "56 소비기한"); K.cut(E(57) - 0.3, "57 먹지 않기"); K.cut(E(58) - 0.3, "58 어떻게");
 });
 
-/* ═════════════ 서운하지 않게 거절하는 말 (65~82) ═════════════ */
-shot(B(65), (a, b) => {                      // 65~68 — ① 내 사정을 이유로
+/* ═════════════ 서운하지 않게 거절하는 말 (59~82) ═════════════ */
+shot(B(59), (a, b) => {                      // 59~64 — ① 내 사정을 이유로 · '괜찮아요'보다 분명하게
   swipe(a + 0.2);
   const W_ = world(a, b, "HALLWAY");
   const G = at(W_, ["G02-1", "G03-1", "G03-2", "G03-3"], SP.HW_G);
   const R = at(W_, ["R04-1", "R04-2"], SP.HW_R);
-  moves(G, [[a, "G02-1", 1, "hold"], [S(67) + 0.3, "G03-1", 1, "hold"], [S(68), "G03-2", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R04-1", 1, "hold"], [S(66), "R04-2", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G02-1", 1, "hold"], [S(63) + 0.3, "G03-1", 1, "hold"], [S(64), "G03-2", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R04-1", 1, "hold"], [S(60), "R04-2", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  stamp(W_, "① 내 사정을 이유로", 970, 800, S(65) + 0.2, null, "yl");
-  say(W_, R, "R04-1", "이게<br>별로예요…", W(66, "이게") - 0.1, W(66, "실제") - 0.2, { kind: "think", side: 1, size: 46, color: "#9AA3B5" });
-  const x = K.el(`<div class="stamp rd" style="font-size:40px;padding:6px 18px">✕</div>`, W_.L.fly);
-  gsap.set(x, { x: 1700, y: 270, opacity: 0, xPercent: -50, yPercent: -50 }); show(x, W(66, "아니라"), 0.2); hide(x, W(66, "실제") - 0.2, 0.2);
-  say(W_, R, "R04-2", "요즘 식단을<br>조절하고<br>있어서요.", W(67, "요즘") - 0.1, W(67, "집에") - 0.15, { side: 1, size: 46 });
-  say(W_, R, "R04-2", "집에 둘 자리가<br>없어서요.", W(67, "집에"), S(68) + 1.2, { side: 1, size: 46 });
-  K.cut(E(66) - 0.3, "66 실제 사정"); K.cut(E(67) - 0.3, "67 예"); K.cut(E(68) - 0.3, "68 탓하지 않고");
+  stamp(W_, "① 내 사정을 이유로", 970, 800, S(59) + 0.2, null, "yl");
+  say(W_, R, "R04-1", "이게<br>별로예요…", W(60, "이게") - 0.1, W(60, "실제") - 0.2, { kind: "think", side: 1, size: 46, color: "#9AA3B5" });
+  xmark(W_, W(60, "아니라"), W(60, "실제") - 0.2);
+  say(W_, R, "R04-1", "괜찮아요…", W(61, "괜찮아요") - 0.1, S(62) - 0.15, { kind: "think", side: 1, size: 48, color: "#9AA3B5" });
+  xmark(W_, W(61, "분명하게") - 0.2, S(62) - 0.15);
+  say(W_, R, "R04-2", "마음은 정말<br>고마워요.<br>그런데 이건<br>사양할게요.", S(62), S(63) - 0.1, { side: 1, size: 42 });
+  say(W_, R, "R04-2", "요즘 식단을<br>조절하고<br>있어서요.", W(63, "요즘") - 0.1, W(63, "집에") - 0.15, { side: 1, size: 46 });
+  say(W_, R, "R04-2", "집에 둘 자리가<br>없어서요.", W(63, "집에"), S(64) + 1.2, { side: 1, size: 46 });
+  K.cut(E(60) - 0.3, "60 실제 사정"); K.cut(E(61) - 0.3, "61 분명하게"); K.cut(E(62) - 0.3, "62 사양할게요"); K.cut(E(63) - 0.3, "63 예"); K.cut(E(64) - 0.3, "64 탓하지 않고");
 });
-shot(B(69), (a, b) => {                      // 69~74 — ② 반가운 것 하나만 (2011 결과 카드) · 귤
+shot(B(65), (a, b) => {                      // 65~72 — ② 반가운 것 하나만 (2011 결과 카드) · 귤 두세 개 · 안부는 반갑게
   const W_ = world(a, b, "HALLWAY");
   const O = over(a, b);
   const G = at(W_, ["G03-2", "G03-3"], SP.HW_G);
   const R = at(W_, ["R04-2", "R04-3"], SP.HW_R);
-  moves(G, [[a, "G03-2", 1, "hold"], [S(73) + 0.6, "G03-3", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R04-2", 1, "hold"], [S(74), "R04-3", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G03-2", 1, "hold"], [S(69) + 0.6, "G03-3", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R04-2", 1, "hold"], [S(71), "R04-3", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  stamp(W_, "② 원하는 것 하나만", 970, 800, S(69) + 0.2, S(70) - 0.2, "yl");
-  const dk = dim(W_, S(70) - 0.1, 0.72);
-  tl.to(dk, { opacity: 0, duration: 0.45 }, S(73) - 0.2);
-  const c = card(O, [300, 170, 1320, 560], S(70), S(73) - 0.25);    // v1.3 막대(수치 없음) 대신 △/✓ 비교
-  row(c, 36, "원하는 걸 말할 때", 56, S(70) + 0.1);
-  row(c, 112, "2011년 미국 실험", 38, S(70) + 0.4, null, "mu");
-  abs(c, "여러 개 늘어놓기", 150, 200, "blab", S(71));
-  abs(c, "→ 덜 맞힘", 820, 200, "blab mu", S(72));
-  abs(c, "하나만 콕 집기", 150, 310, "blab", W(71, "하나만"));
-  abs(c, "→ <span class='tl'>더 잘 맞힘 ✓</span>", 820, 310, "blab", S(72) + 0.3);
-  row(c, 440, "맞힘 = 주는 사람이 상대가 반길지 알아맞힘", 40, S(72) + 0.6, null, "mu");
-  say(W_, R, "R04-2", "저는 귤 몇 개가<br>제일 반가워요.", S(73), S(74) - 0.1, { side: 1, size: 44 });
-  prop(W_.L.fly, "PROPS-B-1", 970, 640, 200, W(73, "귤"), S(74), true);
-  stamp(W_, "필요 없으면 ①만", 970, 800, S(74) + 0.1, null, "tl");
-  K.cut(E(71) - 0.3, "71 하나만"); K.cut(E(72) - 0.3, "72 더 잘 맞힘"); K.cut(E(73) - 0.3, "73 귤"); K.cut(E(74) - 0.3, "74 첫째로 충분");
+  stamp(W_, "② 원하는 것 하나만", 970, 800, S(65) + 0.2, S(66) - 0.2, "yl");
+  const dk = dim(W_, S(66) - 0.1, 0.72);
+  tl.to(dk, { opacity: 0, duration: 0.45 }, S(69) - 0.2);
+  const c = card(O, [300, 170, 1320, 560], S(66), S(69) - 0.25);
+  row(c, 36, "원하는 걸 말할 때", 56, S(66) + 0.1);
+  row(c, 112, "2011년 미국 실험", 38, S(66) + 0.4, null, "mu");
+  abs(c, "하나만 콕 집기", 150, 200, "blab", W(67, "하나만"));
+  abs(c, "→ <span class='tl'>더 잘 맞힘 ✓</span>", 820, 200, "blab", W(67, "주는"));
+  abs(c, "여러 개 늘어놓기", 150, 310, "blab", S(68));
+  abs(c, "→ 덜 맞힘", 820, 310, "blab mu", S(68) + 0.4);
+  row(c, 440, "맞힘 = 주는 사람이 상대가 반길지 알아맞힘", 40, S(68) + 0.8, null, "mu");
+  say(W_, R, "R04-2", "저는 귤<br>두세 개가<br>제일 반가워요.", S(69), S(70) - 0.1, { side: 1, size: 44 });
+  prop(W_.L.fly, "PROPS-B-1", 970, 640, 200, W(69, "귤"), S(71), true);
+  stamp(W_, "양까지 말하면 → 사양도 편함", 970, 800, S(70) + 0.1, S(71) - 0.1, "tl");
+  stamp(W_, "필요 없으면 ①만", 970, 800, S(71) + 0.1, S(72) - 0.1, "tl");
+  say(W_, R, "R04-3", "요즘 어떻게<br>지내세요?", W(72, "안부와") - 0.2, null, { side: 1, size: 46 });
+  K.cut(E(67) - 0.3, "67 하나만"); K.cut(E(69) - 0.3, "69 귤"); K.cut(E(70) - 0.3, "70 두세 개"); K.cut(E(72) - 0.3, "72 안부");
 });
-shot(B(75), (a, b) => {                      // 75~79 — ③ 짧고 분명하게 · ④ 같은 말 되풀이
+shot(B(73), (a, b) => {                      // 73~77 — ③ 짧고 분명하게 · ④ 같은 말 되풀이
   const W_ = world(a, b, "HALLWAY");
   const G = at(W_, ["G02-1", "G02-2", "G03-2"], SP.HW_G);
   const R = at(W_, ["R04-1", "R04-2"], SP.HW_R);
-  moves(G, [[a, "G02-1", 1, "hold"], [S(78) + 0.2, "G02-2", 1, "hold"], [S(79) + 1.0, "G02-1", 1, "hold"], [E(79) - 0.6, "G03-2", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R04-1", 1, "hold"], [S(77), "R04-2", 1, "hold"], [S(78) + 0.6, "R04-1", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G02-1", 1, "hold"], [S(76) + 0.2, "G02-2", 1, "hold"], [S(77) + 1.0, "G02-1", 1, "hold"], [E(77) - 0.6, "G03-2", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R04-1", 1, "hold"], [S(75), "R04-2", 1, "hold"], [S(76) + 0.6, "R04-1", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  stamp(W_, "③ 짧고 분명하게", 970, 800, S(75) + 0.2, S(77) - 0.1, "yl");
-  say(W_, R, "R04-1", "소비기한이 지나서<br>저는 못 먹어요.<br>마음만 받을게요.", S(76) - 0.1, S(77) - 0.1, { side: 1, size: 40 });
-  const box = prop(W_.L.fly, "PROPS-A-2", 970, 650, 210, S(77), S(78) - 0.1, true);
-  void box;
-  say(W_, R, "R04-2", "언제 얼린 건지<br>몰라서 저는<br>못 먹겠어요.", W(77, "언제"), S(78) - 0.1, { side: 1, size: 44 });
-  stamp(W_, "④ 같은 말 반복", 970, 800, S(78) + 0.1, null, "yl");
-  say(W_, R, "R04-1", "마음만<br>받을게요.", S(78) + 0.8, S(79) + 0.4, { side: 1, size: 50 });
-  say(W_, R, "R04-1", "마음만<br>받을게요.", S(79) + 0.7, null, { side: 1, size: 50 });
-  K.cut(E(76) - 0.3, "76 못 먹어요"); K.cut(E(77) - 0.3, "77 언제 얼린"); K.cut(E(78) - 0.3, "78 되풀이"); K.cut(E(79) - 0.3, "79 이유");
+  stamp(W_, "③ 짧고 분명하게", 970, 800, S(73) + 0.2, S(75) - 0.1, "yl");
+  say(W_, R, "R04-1", "소비기한이 지나서<br>저는 못 먹어요.<br>마음만 받을게요.", S(74) - 0.1, S(75) - 0.1, { side: 1, size: 40 });
+  prop(W_.L.fly, "PROPS-A-2", 970, 650, 210, S(75), S(76) - 0.1, true);
+  say(W_, R, "R04-2", "언제 얼린 건지<br>몰라서 저는<br>못 먹겠어요.", W(75, "언제"), S(76) - 0.1, { side: 1, size: 44 });
+  stamp(W_, "④ 같은 말 반복", 970, 800, S(76) + 0.1, null, "yl");
+  say(W_, R, "R04-1", "마음만<br>받을게요.", S(76) + 0.8, S(77) + 0.4, { side: 1, size: 50 });
+  say(W_, R, "R04-1", "마음만<br>받을게요.", S(77) + 0.7, null, { side: 1, size: 50 });
+  K.cut(E(74) - 0.3, "74 못 먹어요"); K.cut(E(75) - 0.3, "75 언제 얼린"); K.cut(E(76) - 0.3, "76 되풀이"); K.cut(E(77) - 0.3, "77 이유");
 });
-shot(B(80), (a, b) => {                      // 80~82 — 이미 받았다면: 쌓아 둘 필요 없음 · 나눔 장터 (1층)
+shot(B(78), (a, b) => {                      // 78~81 — 이미 받았다면: 쌓아 둘 필요 없음 · 나눔 장터 · 남는 음식 (1층)
   const W_ = world(a, b, "LOBBY");
   const R = at(W_, ["R-REF-2", "R04-3"], SP.LB_R);
-  moves(R, [[a, "R-REF-2", 1, "hold"], [S(82) + 0.4, "R04-3", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R-REF-2", 1, "hold"], [S(81) + 0.4, "R04-3", 1, "hold"]], b + 0.4);
   breathe(R, a, b);
   const bx = prop(W_.L.fly, "PROPS-A-4", 1180, 640, 170, a + 0.2);
-  tl.to(bx, { x: 1630, y: 470, duration: 0.9, ease: "power2.inOut" }, S(81) + 0.2);
-  stamp(W_, "억지로 먹을 필요 ✕", 470, 640, S(80) + 0.3, S(81) - 0.1, "rd");
-  stamp(W_, "쓸 만하면 → 나눔 장터", 470, 640, S(81) + 0.1, S(82) - 0.1, "tl");
-  say(W_, R, "R04-3", "마음은 잘<br>받았습니다.", S(82) + 0.4, null, { kind: "think", side: -1, size: 48 });
-  K.cut(E(80) - 0.3, "80 쌓아 둘"); K.cut(E(81) - 0.3, "81 나눔 장터"); K.cut(E(82) - 0.3, "82 의무 없음");
+  tl.to(bx, { x: 1630, y: 470, duration: 0.9, ease: "power2.inOut" }, S(79) + 0.2);
+  stamp(W_, "억지로 먹을 필요 ✕", 470, 640, S(78) + 0.3, S(79) - 0.1, "rd");
+  stamp(W_, "쓸 만하면 → 나눔 장터", 470, 640, S(79) + 0.1, S(80) - 0.1, "tl");
+  stamp(W_, "남는 음식 → 버려도 괜찮음", 470, 640, S(80) + 0.1, S(81) - 0.1, "tl");
+  say(W_, R, "R04-3", "마음은 잘<br>받았습니다.", S(81) + 0.4, null, { kind: "think", side: -1, size: 48 });
+  K.cut(E(78) - 0.3, "78 쌓아 둘"); K.cut(E(79) - 0.3, "79 나눔 장터"); K.cut(E(80) - 0.3, "80 남는 음식"); K.cut(E(81) - 0.3, "81 의무 없음");
 });
 
-/* ═════════════ 내가 주는 쪽이라면 (83~94) ═════════════ */
-shot(B(83), (a, b) => {                      // 83~91 — 건네기 전 세 가지 (복도 위 카드)
-  swipe(a + 0.2);
+/* ═════════════ 내가 주는 쪽이라면 (82 질문 · 83~95) ═════════════ */
+shot(B(82), (a, b) => {                      // 82~92 — '내 얘긴가?' → 건네기 전 세 가지 (복도 위 카드)
   const W_ = world(a, b, "HALLWAY");
   const O = over(a, b);
   const G = at(W_, ["G04-1", "G04-2", "G04-3"], SP.HW_G);
   const R = at(W_, ["R01-1"], SP.HW_R);
-  moves(G, [[a, "G04-3", 1, "hold"], [S(86), "G04-1", 1, "hold"], [E(87) - 0.4, "G04-2", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G04-3", 1, "hold"], [S(85), "G04-1", 1, "hold"], [E(88) - 0.4, "G04-2", 1, "hold"]], b + 0.4);
   moves(R, [[a, "R01-1", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  say(W_, G, "G04-3", "혹시 내 얘긴가…?", S(83) + 0.2, S(84) + 0.5, { kind: "think", side: 1, size: 48 });
-  // "이거 쓰실래요?" 는 카드 1번 줄에 (말풍선은 카드와 겹쳐서 뺌)
-  const dk = dim(W_, S(85) - 0.15, 0.72);       // 카드와 같이 (v1.0 은 S(88) 까지 밝은 장면 위 카드)
-  const c = card(O, [300, 150, 1320, 720], S(85));
-  row(c, 40, "주기 전에 3가지만", 58, S(85) + 0.1);
-  item(c, 110, 170, "1", "먼저 <span class='yl'>물어봤나?</span> <span class='mu' style='font-size:40px'>'이거 쓰실래요?'</span>", S(86));
-  item(c, 110, 290, "2", "요즘 <span class='yl'>쓰는 물건</span>인가?", S(88));
-  item(c, 110, 410, "3", "내가 받아도 <span class='yl'>반가운가?</span>", S(89));
-  row(c, 560, "셋 다 ✓ → <span class='tl'>곤란할 일이 줄어듦</span>", 52, S(91));
+  say(W_, G, "G04-3", "어, 이거<br>내 얘긴가…?", S(82) + 0.2, S(84) - 0.3, { kind: "think", side: 1, size: 48 });
+  swipe(S(83) + 0.1);
+  const dk = dim(W_, S(84) - 0.15, 0.72);
+  const c = card(O, [300, 150, 1320, 720], S(84));
+  row(c, 40, "주기 전에 3가지만", 58, S(84) + 0.1);
+  item(c, 110, 160, "1", "먼저 <span class='yl'>물어봤나?</span> <span class='mu' style='font-size:40px'>'이거 쓰실래요?'</span>", S(85));
+  row(c, 238, "'괜찮아요' 하면 → <span class='tl'>그대로 거두기</span>", 38, W(87, "거절로"), null, "mu");
+  item(c, 110, 300, "2", "요즘 <span class='yl'>쓰는 물건</span>인가?", S(89));
+  item(c, 110, 420, "3", "내가 받아도 <span class='yl'>반가운가?</span>", S(90));
+  row(c, 570, "셋 다 ✓ → <span class='tl'>곤란할 일이 줄어듦</span>", 52, S(92));
   void dk;
-  K.cut(E(87) - 0.3, "87 물어보기"); K.cut(E(89) - 0.3, "89 세 가지"); K.cut(E(90) - 0.3, "90 어른들 말씀"); K.cut(E(91) - 0.3, "91 곤란");
+  K.cut(E(82) - 0.3, "82 내 얘긴가"); K.cut(E(86) - 0.3, "86 물어보기"); K.cut(E(88) - 0.3, "88 거두기"); K.cut(E(90) - 0.3, "90 세 가지"); K.cut(E(92) - 0.3, "92 곤란");
 });
-shot(B(92), (a, b) => {                      // 92 — 거절 = 물건 하나를 사양한 것 (복도)
+shot(B(93), (a, b) => {                      // 93 — 거절 = 물건 하나를 사양한 것 (복도)
   const W_ = world(a, b, "HALLWAY");
   const G = at(W_, ["G03-1", "G03-2", "G03-3"], SP.HW_G);
   const R = at(W_, ["R04-1", "R04-3"], SP.HW_R);
-  moves(G, [[a, "G03-1", 1, "hold"], [W(92, "내") - 0.2, "G03-2", 1, "hold"], [W(92, "사양한") - 0.1, "G03-3", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R04-1", 1, "hold"], [W(92, "사양한"), "R04-3", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G03-1", 1, "hold"], [W(93, "내") - 0.2, "G03-2", 1, "hold"], [W(93, "사양한") - 0.1, "G03-3", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R04-1", 1, "hold"], [W(93, "사양한"), "R04-3", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  say(W_, R, "R04-1", "괜찮아요,<br>마음만<br>받을게요.", a + 0.3, W(92, "내") - 0.2, { side: 1, size: 46 });
-  say(W_, G, "G03-2", "내 마음이 아니라<br>물건 하나를 사양한 거지~", W(92, "내"), null, { kind: "think", side: 1, size: 44, y: 140 });   // R 머리 위로 올림 (v1.1)
-  K.cut(E(92) - 0.3, "92 사양");
+  say(W_, R, "R04-1", "괜찮아요,<br>마음만<br>받을게요.", a + 0.3, W(93, "내") - 0.2, { side: 1, size: 46 });
+  say(W_, G, "G03-2", "내 마음이 아니라<br>물건 하나를 사양한 거지~", W(93, "내"), null, { kind: "think", side: 1, size: 44, y: 140 });
+  K.cut(E(93) - 0.3, "93 사양");
 });
-shot(B(93), (a, b) => {                      // 93~94 — 나눔 선반 · 소비기한 지난 음식은 나누지 않음 (1층)
+shot(B(94), (a, b) => {                      // 94~95 — 나눔 장터·기부하는 곳 · 소비기한 지난 음식은 나누지 않음 (1층)
   const W_ = world(a, b, "LOBBY");
   const G = at(W_, ["G05-1", "G05-2", "G05-3"], SP.LB_G);
-  moves(G, [[a, "G05-1", 1, "hold"], [W(93, "나눔") - 0.2, "G05-2", 1, "hold"], [W(93, "방법입니다") - 0.2, "G05-3", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G05-1", 1, "hold"], [W(94, "나눔") - 0.2, "G05-2", 1, "hold"], [W(94, "방법입니다") - 0.2, "G05-3", 1, "hold"]], b + 0.4);
   breathe(G, a, b);
-  stamp(W_, "쓸 만한 물건 → 나눔 장터·기부처", 430, 560, S(93) + 0.3, S(94) - 0.1, "tl");
-  const sn = prop(W_.L.fly, "PROPS-A-3", 400, 700, 200, S(94), null, true);
-  void sn;
+  stamp(W_, "쓸 만한 물건 → 나눔 장터·기부", 430, 560, S(94) + 0.3, S(95) - 0.1, "tl");
+  prop(W_.L.fly, "PROPS-A-3", 400, 700, 200, S(95), null, true);
   const no = K.el(`<div class="stamp rd" style="font-size:44px">소비기한 지난 음식 → 버리기</div>`, W_.L.fly);
   gsap.set(no, { x: 470, y: 520, xPercent: -50, yPercent: -50, rotation: -4, opacity: 0 });
-  tl.fromTo(no, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, S(94) + 0.2);
-  K.cut(E(93) - 0.3, "93 나눔 장터"); K.cut(E(94) - 0.3, "94 소비기한");
+  tl.fromTo(no, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.3, ease: "power3.out", immediateRender: false }, S(95) + 0.2);
+  K.cut(E(94) - 0.3, "94 나눔 장터"); K.cut(E(95) - 0.3, "95 소비기한");
 });
 
-/* ═════════════ 마무리 (95~96) ═════════════ */
-shot(B(95), (a, b) => {
+/* ═════════════ 마무리 (96~98) ═════════════ */
+shot(B(96), (a, b) => {
   swipe(a + 0.2);
   const W_ = world(a, b, "HALLWAY");
   const G = at(W_, ["G04-1", "G04-3"], SP.HW_G);
   const R = at(W_, ["R04-2", "R04-3"], SP.HW_R);
-  moves(G, [[a, "G04-1", 1, "hold"], [W(95, "받는") - 0.2, "G04-3", 1, "hold"]], b + 0.4);
-  moves(R, [[a, "R04-2", 1, "hold"], [S(96), "R04-3", 1, "hold"]], b + 0.4);
+  moves(G, [[a, "G04-1", 1, "hold"], [S(97) - 0.2, "G04-3", 1, "hold"]], b + 0.4);
+  moves(R, [[a, "R04-2", 1, "hold"], [S(98), "R04-3", 1, "hold"]], b + 0.4);
   breathe(G, a, b); breathe(R, a, b);
-  say(W_, G, "G04-1", "이거<br>쓰실래요?", a + 0.5, W(95, "받는") - 0.2, { side: 1, size: 52 });
-  say(W_, R, "R04-2", "마음만<br>받을게요~", W(95, "받는"), null, { side: 1, size: 50 });
+  say(W_, G, "G04-1", "이거<br>쓰실래요?", a + 0.5, S(97) - 0.2, { side: 1, size: 52 });
+  say(W_, R, "R04-2", "마음만<br>받을게요~", S(97), null, { side: 1, size: 50 });
   PSY.cam(W_, a, b, [1.0, 960, 600], [1.04, 960, 600]);
-  K.cut(E(95) - 0.3, "95 마무리"); K.cut(E(96), "96 끝");
+  K.cut(E(96) - 0.3, "96 주는 쪽"); K.cut(E(97) - 0.3, "97 받는 쪽"); K.cut(E(98), "98 끝");
 });
 
 PSY.build();

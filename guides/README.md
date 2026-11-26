@@ -37,7 +37,7 @@
 |---|---|---|---|
 | 1 | 분석 결과가 없으면 분석 — **집 PC**(자막·썸네일까지, 남으면 다음 날 자동으로 이어서) 또는 클라우드(웹 화면 작업을 명령으로 — 음성인식만 빼고) | `pc_analysis.md` (`run_analyzer.ps1`), 클라우드 `python3 tools/cloud_run.py <주제폴더> explore …` (`pc_analysis.md` '클라우드에서 돌리기') | `result/`, `result/outliers/` |
 | 2 | 분석 결과로 `data_insights.md` 만들기·고치기(`content_research.py all`) → 주제 탐색 | `topic_guide.md` | `guides/`, `source/topic_candidates.md` |
-| 3 ① | 대본 TXT·SRT·README·확인표·계산 코드 — 7~8분, 결론 먼저, 오늘 시행 중인 법령으로 사실 확인, 숫자는 계산 코드(사연 파트를 넣으면 20~30초). SRT 검사 ✅. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` v3.0 | `source/<영상ID>/` |
+| 3 ① | 대본 TXT·SRT·README·확인표·계산 코드 — 7~8분, 도입 30초·결론 먼저 ✗·챕터 끝 질문(`guides/script_rules.md`), 오늘 시행 중인 법령으로 사실 확인, 숫자는 계산 코드(사연 파트를 넣으면 20~30초). SRT 검사 ✅. 사례·연구는 되도록 최신(2020년대 먼저) | `script_guide.md` v3.0 | `source/<영상ID>/` |
 | 3 ② | 제목 3개 (R1 추천, 근거 표, 짝 썸네일) | `title_guide.md` v3.0 | `source/<영상ID>/titles.md` |
 | 3 ③ | 썸네일 **프롬프트** 3개 — 본안 1 + 실험안 2, 모두 아래쪽 2줄 (이미지는 사용자가 이미지 AI로) | `thumbnail_guide.md` v3.2 | `source/<영상ID>/thumbnails/thumbnail_1~3.md`·`README.md`·`chatgpt.md`·이미지 |
 | 3 ④ | 업로드 시트 (제목·설명란·챕터 명령·태그·고정 댓글) | `upload_guide.md` | `source/<영상ID>/upload.md` |

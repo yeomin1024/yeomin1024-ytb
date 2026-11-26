@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-26 — 실루엣 시트(흰 바탕 · 검은 실루엣 · 칸마다 한 동작) → 투명 실루엣 프레임 띠 + 장면 파일이 읽는 목록(have.js).
+# VERSION: v1.1 — 2026-11-26 — 칸 맞춤 기준 ANCHOR: 칸마다 사람·가구가 달라지는 시트(SIL-10 가슴 압박 · SIL-11 산행 전 점검)는 몸통 가운데 대신 그림 왼쪽 끝을 맞춤 (칸을 바꿀 때 사람이 튀지 않게)
+# 이전 v1.0 — 2026-11-26 — 실루엣 시트(흰 바탕 · 검은 실루엣 · 칸마다 한 동작) → 투명 실루엣 프레임 띠 + 장면 파일이 읽는 목록(have.js).
 #   사용자 지시 2026-11-26 "지금 영상이 고정 이미지만 나오잖아 검은색 실루엣이 움직이는 효과 내도록 따로 여러 상태 이미지 생성해야지 …"
 #   요청 파일 crisis/source/hallasan-simjeongji-2026-11/images_chatgpt_states.md (SIL-01~11 · MED-S-STATES · PLT-01~08).
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-26 | ANCHOR (left) | cut_cells · build_strip |
 # | v1.0 | 2026-11-26 | 최초 — 흰 바탕 → 투명 · 칸 자르기 · 몸통 가운데·발바닥 맞춤 · MED 칸 자르기 · have.js | load_alpha · cut_cells · build_strip · main |
 """실루엣 시트를 영상 부품으로 바꾼다 (원본 그림은 고치지 않음).
 
@@ -27,7 +29,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 ROOT = Path(__file__).resolve().parent.parent
 # 시트 이름 → (칸 가로 수, 칸 세로 수) — 요청 파일의 GRID 와 같게
 SHEETS = {
@@ -37,6 +39,8 @@ SHEETS = {
     "SIL-10-CPR": (2, 2), "SIL-11-PREP": (3, 2),
 }
 MED = {"MED-S-STATES": (3, 2)}
+# 칸 맞춤 기준 — 기본 = 몸통 가운데(위 45% 무게 중심) · "left" = 그림 왼쪽 끝 (칸마다 다른 사람·물건이 붙는 시트)
+ANCHOR = {"SIL-10-CPR": "left", "SIL-11-PREP": "left"}
 PLATES = ["PLT-01-TRAIL-SIDE", "PLT-02-ENTRANCE-SIDE", "PLT-03-SEARCH-SIDE", "PLT-04-SLOPE-UP",
           "PLT-05-SLOPE-DOWN", "PLT-06-CLEARING", "PLT-07-CLINIC", "PLT-08-LIVING"]
 WHITE, BLACK = 232, 40          # 이 밝기 위는 투명, 아래는 불투명 (사이는 부드러운 가장자리)
@@ -55,7 +59,7 @@ def load_alpha(path: Path) -> np.ndarray:
     return np.clip((WHITE - g) / (WHITE - BLACK), 0.0, 1.0)
 
 
-def cut_cells(a: np.ndarray, cols: int, rows: int, name: str) -> list[dict]:
+def cut_cells(a: np.ndarray, cols: int, rows: int, name: str, anchor: str = "torso") -> list[dict]:
     """칸마다 그림의 테두리 상자 · 몸통 가운데(위 45% 의 무게 중심) · 발바닥 줄을 찾는다."""
     H, W = a.shape
     cw, ch = W / cols, H / rows
@@ -78,6 +82,8 @@ def cut_cells(a: np.ndarray, cols: int, rows: int, name: str) -> list[dict]:
             top = m[by0:by0 + max(1, int((by1 - by0) * 0.45))]
             tys, txs = np.nonzero(top)
             cx = float(txs.mean()) if len(txs) else (bx0 + bx1) / 2
+            if anchor == "left":
+                cx = float(bx0)
             cells.append({"k": k, "img": sub[by0:by1, bx0:bx1], "cx": cx - bx0, "w": int(bx1 - bx0), "h": int(by1 - by0)})
     hs = [c["h"] for c in cells if c]
     if hs:
@@ -88,18 +94,18 @@ def cut_cells(a: np.ndarray, cols: int, rows: int, name: str) -> list[dict]:
     return cells
 
 
-def build_strip(cells: list[dict]) -> tuple[Image.Image, dict]:
-    """프레임을 같은 크기로 맞춰 가로로 잇는다 — 몸통 가운데를 프레임 가운데에, 발바닥을 프레임 아래(PAD 위)에."""
+def build_strip(cells: list[dict], anchor: str = "torso") -> tuple[Image.Image, dict]:
+    """프레임을 같은 크기로 맞춰 가로로 잇는다 — 몸통 가운데(또는 왼쪽 끝)를 맞추고, 발바닥을 프레임 아래(PAD 위)에."""
     ok = [c for c in cells if c]
     left = max(c["cx"] for c in ok)
     right = max(c["w"] - c["cx"] for c in ok)
-    fw = int(np.ceil(2 * max(left, right))) + 2 * PAD
+    fw = (max(c["w"] for c in ok) + 2 * PAD) if anchor == "left" else int(np.ceil(2 * max(left, right))) + 2 * PAD
     fh = max(c["h"] for c in ok) + 2 * PAD
     strip = np.zeros((fh, fw * len(cells)), dtype=np.float32)
     for i, c in enumerate(cells):
         if not c:
             continue
-        ox = i * fw + int(round(fw / 2 - c["cx"]))
+        ox = i * fw + (PAD if anchor == "left" else int(round(fw / 2 - c["cx"])))
         oy = fh - PAD - c["h"]
         strip[oy:oy + c["h"], ox:ox + c["w"]] = np.maximum(strip[oy:oy + c["h"], ox:ox + c["w"]], c["img"])
     rgba = np.zeros((fh, strip.shape[1], 4), dtype=np.uint8)
@@ -126,10 +132,12 @@ def main(argv: list[str]) -> int:
             log("SKIP", sheet=name, why="그림 없음 — 장면 파일은 옛 사진으로 대신")
             continue
         alpha = load_alpha(p)
-        cells = cut_cells(alpha, cols, rows, name)
+        anchor = ANCHOR.get(name, "torso")
+        cells = cut_cells(alpha, cols, rows, name, anchor)
         if not any(cells):
             continue
-        img, meta = build_strip(cells)
+        img, meta = build_strip(cells, anchor)
+        meta["anchor"] = anchor
         meta["file"] = f"sprites/{name}.png"
         have["sheets"][name] = meta
         if not a.check:

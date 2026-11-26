@@ -428,7 +428,19 @@
       }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
+    "pending": {
+     "n": 9,
+     "sha": "6d76e7f87dd97ff9",
+     "reviewers": [
+      "E9-P1"
+     ],
+     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_9.md",
+     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_exit_9",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T05:28:15Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -1108,7 +1120,19 @@
       }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
+    "pending": {
+     "n": 9,
+     "sha": "6d76e7f87dd97ff9",
+     "reviewers": [
+      "K9-반론"
+     ],
+     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_9.md",
+     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_rebuttal_9",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T05:28:15Z"
+    }
    }
   }
  }

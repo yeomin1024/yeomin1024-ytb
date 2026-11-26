@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-26 — 최초: 대본 공통 규칙(guides/script_rules.md v1.0) 점검 — 도입 30초 · 결론 먼저 ✗ · 썸네일 연결 · 챕터 끝 질문 · 직관적이지 않은 표현
+# VERSION: v1.1 — 2026-11-26 — 알고리즘 구조(제목 낱말 → 도입 첫 두 문장 · 챕터 이름 낱말 → 챕터 첫 두 문장) · 익숙한 말(가운뎃점·괄호·슬래시·영어 글자·따옴표 겹침) 점검 — guides/script_rules.md v1.1 5·6번
+# 이전 v1.0 — 2026-11-26 — 최초: 대본 공통 규칙(guides/script_rules.md v1.0) 점검 — 도입 30초 · 결론 먼저 ✗ · 썸네일 연결 · 챕터 끝 질문 · 직관적이지 않은 표현
 #   사용자 지시 2026-11-26 "대본 도입부 30초 넘기지 말고 썸네일과 연결되고 … 결론부터 말하지 말고 하나씩 챕터를 정해서 알려주고 챕터 넘어갈 때마다 다음 챕터에 대한
 #   호기심을 유발하면서 … '보는 때가 다르다' 처럼 직관적이지 못한 표현은 사용하지마 이걸 모든 영상 대본에 적용되는 공통 규칙으로 해서 파일로 기록하고".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-26 | title_words · chapter_words · tts_checks | main |
 # | v1.0 | 2026-11-26 | 최초 | parse · intro_checks · chapter_checks · phrase_checks · main |
 """대본 공통 규칙 점검 (읽기만 — 파일을 고치지 않음).
 
@@ -22,7 +24,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 INTRO_MAX_S = 30.0
 # 직관적이지 않은 표현 (guides/script_rules.md 3번 표 — 새로 찾으면 여기와 그 표에 같이 더함)
 VAGUE = [
@@ -96,7 +98,7 @@ def main(argv=None) -> int:
         log("CHECK", level=level, what=what, **kv)
 
     log("START", tool=f"script_rules_check.py {VERSION}", script=str(path), parts=len(parts),
-        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.0")
+        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.1")
     if len(parts) < 3:
         report("❌", "챕터", why="'-챕터 이름' 줄이 3개 미만 — 도입 · 챕터 · 마무리로 나눔")
         return 1
@@ -123,6 +125,31 @@ def main(argv=None) -> int:
         hit_intro = sorted(w for w in words if w in text)
         report("✅" if hit_first else ("⚠" if hit_intro else "❌"), "썸네일 연결", first_sentence_words=",".join(hit_first) or "-",
                intro_words=",".join(hit_intro) or "-", thumb=thumb[:60])
+    STOP = {"사람", "이유", "가지", "심리", "그리고", "하는", "있는", "없는", "합니다", "입니다"}
+    def words(t: str) -> set[str]:
+        return {w for w in re.findall(r"[가-힣]{2,}", t) if w not in STOP}
+    def stem_in(w: str, text: str) -> bool:                 # 낱말 앞 2~3글자가 들어 있으면 같은 낱말로 봄 (조사·어미 차이)
+        return w in text or (len(w) >= 3 and w[:3] in text) or (len(w) == 2 and w in text)
+    # 5. 알고리즘 구조 — 제목 핵심 낱말이 도입 첫 두 문장 안에
+    if a.package and Path(a.package).is_file():
+        title = json.loads(Path(a.package).read_text("utf-8")).get("title", "")
+        first2 = " ".join(s for _, s in intro["sents"][:2])
+        tw = sorted(words(title))
+        miss = [w for w in tw if not stem_in(w, first2)]
+        report("✅" if len(miss) <= max(1, len(tw) // 3) else "⚠", "제목 낱말 → 도입 첫 두 문장", title=title[:40],
+               missing=",".join(miss) or "-")
+    for p in parts[1:-1]:
+        cw = sorted(w for w in words(re.sub(r"^(첫|두|세|네|다섯)\s*번째,?\s*", "", p["name"])))
+        first2 = " ".join(s for _, s in p["sents"][:3])
+        miss = [w for w in cw if not stem_in(w, first2)]
+        if cw and len(miss) > len(cw) // 2:
+            report("⚠", "챕터 이름 낱말 → 챕터 첫 문장들", part=p["name"], missing=",".join(miss))
+    # 6. 익숙한 말 — TTS 가 어색해지는 기호·꼴
+    for k, s in ((k, s) for p in parts for k, s in p["sents"]):
+        for pat, why in ((r"·", "가운뎃점 → '와·과'로"), (r"[()（）]", "괄호 → 말로 풀기"), (r"/", "슬래시 → 말로"),
+                         (r"[A-Za-z]", "영어 글자 → 한국어로"), (r"'[^']*\"[^\"]*\"[^']*'|\"[^\"]*'[^']*'[^\"]*\"", "따옴표 안 따옴표")):
+            if re.search(pat, s):
+                report("⚠", "익숙한 말", sentence=k, text=s[:50], fix=why)
     # 챕터 끝 = 다음 챕터로 가는 질문 (마지막 두 챕터 = 마지막 본문·마무리는 뺌 — 마지막 본문은 마무리로 이어지므로 질문 아니어도 됨)
     for i, p in enumerate(parts[1:-2], start=1):
         last = p["sents"][-1][1] if p["sents"] else ""

@@ -139,6 +139,51 @@
        "max_rounds": 5
       },
       "text": "제목: 필요 없다는데 자꾸 주는 사람, 심리학적 이유 3가지\n썸네일 문구: 필요 없다는데 자꾸 주는 사람 / 심리학적 이유 3가지\n보조 문구: 너 주려고 챙겼지~ / 마음은 고마운데…"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-26T05:54:28Z",
+      "sha": "d11144d7162077ea",
+      "reviewers": [
+       {
+        "reviewer": "T4-P1",
+        "persona": "P1",
+        "feed_picks": [
+         5,
+         3
+        ],
+        "feed_why": "5번은 며느리·자식한테 반찬 챙겨 주고 서운했던 내 일 같아서 바로 누르고, 3번은 인복·잘해 주지 마라가 우리 나이 얘기라 그다음으로 — 다만 '미친듯이·무조건'은 좀 과해 보임",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "필요 없다는데 자꾸 주는 사람 · 너 주려고 챙겼지~ / 마음은 고마운데… (딱 우리 집 얘기) — '본인만 모르는'은 나를 흉보는 영상인가 싶어 살짝 걸림",
+        "fix": "주는 사람을 탓하는 쪽이 아니라는 느낌을 한마디 — 예 보조 문구를 '주는 마음도 받는 마음도' 쪽으로 해 주면 주는 쪽(부모)도 마음 편히 누를 것",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T4-반론",
+        "persona": "반론",
+        "feed_picks": [
+         9,
+         5
+        ],
+        "feed_why": "9는 교수가 나와 근거를 기대할 수 있어 먼저 누르고, 5는 생활 장면이 분명해서 '정말 다 그런가' 확인하려고 누른다 — 1·3·7은 '8가지 기술'·'무조건'·'압도당하는'처럼 내용보다 센 말이라 넘긴다",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "본인만 모르는 진짜 심리 — 주는 사람 속을 남이 단정하는 말이고, '진짜'가 하나뿐인 것처럼 들림 (그냥 정이 많은 사람도 있는데)",
+        "fix": "'진짜 심리' 하나로 못 박지 말고 '자꾸 주는 이유'처럼 여러 까닭을 다룬다는 꼴로 — 보조 문구 '마음은 고마운데…'처럼 받는 쪽 입장도 같이 있는 건 좋으니 그대로",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "4회차 전: 영상 제작 공통 규칙으로 새 제목·썸네일 문구 (관련 영상 낱말·형식)",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_title_4.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      },
+      "text": "제목: 필요 없다는데 자꾸 선물 주는 사람, 본인만 모르는 진짜 심리\n썸네일 문구: 필요 없다는데 자꾸 주는 사람 / 본인만 모르는 진짜 심리\n보조 문구: 너 주려고 챙겼지~ / 마음은 고마운데…"
      }
     ]
    },
@@ -587,7 +632,19 @@
       }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
+    "pending": {
+     "n": 14,
+     "sha": "c3c02806f2969354",
+     "reviewers": [
+      "E14-P1"
+     ],
+     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_14.md",
+     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_exit_14",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T05:53:23Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -1611,7 +1668,19 @@
       }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
+    "pending": {
+     "n": 14,
+     "sha": "c3c02806f2969354",
+     "reviewers": [
+      "K14-반론"
+     ],
+     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_14.md",
+     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_rebuttal_14",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T05:53:23Z"
+    }
    }
   }
  }

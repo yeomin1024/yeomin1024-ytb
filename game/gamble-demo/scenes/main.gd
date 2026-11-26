@@ -1,8 +1,9 @@
-# VERSION: v0.3.0 — 2026-11-26 — 안내 문구: 노예(암살자) 측 판 = 속임수 판, 왕 측 판 = 감시 판
-# 이전 VERSION: v0.2.0 — 2026-11-26 — 실시간 화면: 마우스 = 시선 · 시야 제한(보는 곳만 밝게) · 속임수/감시 턴 안내 · 스페이스 = 잡았다
-# 이전 VERSION: v0.1.1 — 2026-11-26 — 속임수 버튼 줄의 타입 추론 오류 고침(INFERENCE_ON_VARIANT) · Side→Team
+# VERSION: v0.4.0 — 2026-11-26 — 키 행동: [1] 라이터 놓기 · [2] 협력자 부르기 · [C] 카드 덮개 · [B] 블러핑 · 안내·기록
+# 이전 VERSION: v0.3.0 — 2026-11-26 — 안내 문구: 노예(암살자) 측 판 = 속임수 판, 왕 측 판 = 감시 판
+# 이전 VERSION: v0.2.0 — 2026-11-26 — 실시간 화면: 마우스 = 시선 · 시야 제한(보는 곳만 밝게) · 스페이스 = 잡았다
 #
-# 조작: 마우스가 가리키는 곳 = 내 시선 · 카드 클릭 = 내기 · 스페이스 = 잡았다!(감시 턴) · Enter = 다음
+# 조작: 마우스가 가리키는 곳 = 내 시선 · 카드 클릭 = 내기 · 행동은 키보드 (마우스를 움직이면 시선이 바뀌므로)
+#   [1] 라이터 놓기(반사경 준비) · [2] 협력자 부르기 · [C] 카드 덮개 · [B] 블러핑(여유 부리기) · [스페이스] 잡았다 · [Enter] 다음
 # 규칙은 core/match.gd 에, 그림은 scenes/table_view.gd 에. 여기선 연결·안내·기록만.
 # 연구·교육용 데모 — 실제 돈과 관계없음.
 extends Control
@@ -38,6 +39,7 @@ var spot_mat: ShaderMaterial
 var banner: Label
 var timer_bar: ProgressBar
 var status_label: Label
+var keys_label: Label
 var log_view: RichTextLabel
 var opp_option: OptionButton
 var spot_check: CheckBox
@@ -77,7 +79,7 @@ func _build() -> void:
 	ui.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(ui)
 
-	banner = _label(Vector2(250, 6), Vector2(780, 52), 18)
+	banner = _label(Vector2(250, 6), Vector2(780, 52), 17)
 	banner.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	banner.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	ui.add_child(banner)
@@ -96,8 +98,7 @@ func _build() -> void:
 	opp_option.position = Vector2(14, 110)
 	opp_option.focus_mode = Control.FOCUS_NONE
 	ui.add_child(opp_option)
-	var new_btn := _button("새 매치", Vector2(230, 110), _on_new_match)
-	ui.add_child(new_btn)
+	ui.add_child(_button("새 매치", Vector2(230, 110), _on_new_match))
 	spot_check = CheckBox.new()
 	spot_check.text = "시야 제한 (보는 곳만 밝게)"
 	spot_check.button_pressed = true
@@ -109,6 +110,8 @@ func _build() -> void:
 	helper_check.position = Vector2(14, 178)
 	helper_check.focus_mode = Control.FOCUS_NONE
 	ui.add_child(helper_check)
+	keys_label = _label(Vector2(14, 214), Vector2(250, 150), 14)
+	ui.add_child(keys_label)
 
 	var log_bg := ColorRect.new()
 	log_bg.color = Color(0, 0, 0, 0.55)
@@ -167,8 +170,9 @@ func _new_match() -> void:
 	table.game = game
 	log_view.clear()
 	_log("[b]새 매치[/b] — 상대: %s · 시드 %d" % [OPP_NAMES[opponent_kind], s])
-	_log("노예(암살자) 측 판 = [color=orange]속임수 판[/color]: 상대가 먼저 냄 → 잔을 %.1f초 보면 상대 카드가 비침" % CheatRules.PEEK_SECONDS)
-	_log("왕 측 판 = [color=skyblue]감시 판[/color]: 내가 먼저 냄 → 상대(노예)가 잔을 보면 스페이스")
+	_log("노예(암살자) 측 판 = [color=orange]속임수 판[/color]: 키 1 라이터를 놓고 뚜껑 안 반사경을 %.1f초, 또는 키 2 협력자를 불러 손 신호를 %.1f초 보면 상대 카드" % [CheatRules.PEEK_SECONDS, CheatRules.SIGNAL_SECONDS])
+	_log("왕 측 판 = [color=skyblue]감시 판[/color]: 상대 눈이 오른쪽 라이터로 가면 스페이스 · 키 C 카드 덮개로 막기")
+	_log("키 B 블러핑: 내 시간 +, 상대 시간 − (매치 %d번)" % CheatRules.BLUFFS_PER_MATCH)
 	_log("들키면 그 판 몰수 + 벌금 %d점 · 경고 %d개면 패배 · 헛고발은 토큰 −1 + 벌금 %d점" % [
 		CheatRules.CAUGHT_FINE, CheatRules.STRIKES_TO_LOSE, CheatRules.FALSE_ACCUSE_FINE])
 	_log("[color=gray]연구·교육용 데모입니다. 실제 돈과 관계없습니다.[/color]")
@@ -209,22 +213,46 @@ func _gui_input(event: InputEvent) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	var k := event as InputEventKey
-	if k == null or not k.pressed or k.echo:
+	if k == null or not k.pressed or k.echo or game == null:
 		return
+	var r := {}
 	if k.keycode == KEY_SPACE:
-		_on_accuse()
+		if int(game.phase) != GambleMatch.Phase.AI_THINK:
+			_log("[color=gray]고발은 감시 판에서 상대가 고민할 때만[/color]")
+			return
+		r = game.accuse()
+	elif k.keycode == KEY_1:
+		r = game.place_lighter()
+	elif k.keycode == KEY_2:
+		r = game.call_accomplice()
+	elif k.keycode == KEY_C:
+		r = game.cover_card()
+	elif k.keycode == KEY_B:
+		r = game.bluff()
 	elif k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER or k.keycode == KEY_N:
 		_on_next()
-
-
-func _on_accuse() -> void:
-	if game == null:
 		return
-	if int(game.phase) != GambleMatch.Phase.AI_THINK:
-		_log("[color=gray]고발은 감시 턴에 상대가 고민할 때만[/color]")
+	else:
 		return
-	game.accuse()
+	if r.has("ok") and not bool(r["ok"]):
+		_log("[color=gray]지금은 못 함 (%s)[/color]" % _why(str(r.get("why", ""))))
 	_drain()
+
+
+func _why(code: String) -> String:
+	if code == "not_cheat_choose":
+		return "속임수 판에서 고르는 중에만"
+	if code == "not_detect":
+		return "감시 판에서만"
+	if code == "already":
+		return "이미 했음"
+	if code == "no_uses" or code == "no_calls":
+		return "남은 횟수 없음"
+	if code == "no_token":
+		return "고발 토큰 없음"
+	if code.begins_with("state="):
+		return "협력자가 이미 있거나 쫓겨남"
+	return code
 
 
 func _on_next() -> void:
@@ -247,31 +275,37 @@ func _render(ev: Dictionary) -> void:
 		_log("\n[b]── %s ──[/b] 당신: %s" % [_round_name(int(ev["round"])), RankCards.SIDE_NAMES[mine]])
 		if mine == RankCards.Team.KING_SIDE:
 			_log("왕 측: 왕이 시민을 만나면 +1 · 상대 암살자에게 왕을 내면 짐")
-			_log("[color=skyblue]감시 판[/color] — 매 턴 당신이 먼저 내고, 상대가 잔을 엿보는지 지켜보세요")
+			_log("[color=skyblue]감시 판[/color] — 매 턴 당신이 먼저 내고, 상대가 라이터 반사경을 보는지 지켜보세요")
 		else:
 			_log("암살자(노예) 측: 암살자가 왕을 잡으면 +4 · 시민에게 암살자를 내면 짐")
-			_log("[color=orange]속임수 판[/color] — 매 턴 상대가 먼저 내고, 당신은 잔을 엿볼 수 있어요")
+			_log("[color=orange]속임수 판[/color] — 매 턴 상대가 먼저 냄 · 키 1 라이터 / 키 2 협력자")
 	elif kind == "turn_start":
-		if int(ev["turn_type"]) == GambleMatch.TurnType.CHEAT:
-			_log("%d턴째 · [color=orange]속임수 턴[/color] — 상대가 카드를 엎어 놓았다" % int(ev["turn_in_round"]))
+		_log("%d턴째 · 제한 %.0f초" % [int(ev["turn_in_round"]), float(ev["limit"])])
+	elif kind == "setup":
+		_render_setup(ev)
+	elif kind == "acc_arrived":
+		_log("[color=cyan]협력자가 상대 뒤에 섰다 — 오른쪽 뒤 사람의 손을 보세요[/color]")
+	elif kind == "stranger_seen":
+		_log("[color=orange]상대가 뒤를 돌아보다 협력자를 봤다… 의심이 커짐[/color]")
+	elif kind == "cover":
+		if int(ev["seat"]) == 1:
+			_log("[color=orange]상대가 자기 카드 위에 칩을 올렸다 — 반사경에 안 비침 (협력자는 됨)[/color]")
 		else:
-			_log("%d턴째 · [color=skyblue]감시 턴[/color] — 당신이 먼저 내세요" % int(ev["turn_in_round"]))
+			_log("[color=skyblue]내 카드 위에 칩을 올렸다 — 이번 턴 상대 반사경이 안 비침[/color]")
+	elif kind == "bluff":
+		if int(ev["seat"]) == 0:
+			_log("[color=violet]블러핑: 여유를 부린다 — 내 시간 +, 상대 시간 −[/color]")
+		else:
+			_log("[color=orange]상대가 여유를 부린다 — 상대 고민 +%.0f초 · 당신 다음 턴 −%.0f초[/color]" % [CheatRules.THINK_BLUFF_SECONDS, CheatRules.CHOOSE_BLUFF_SECONDS])
 	elif kind == "peek_info":
-		_log("[color=cyan]잔에 비친 상대 카드: %s[/color]" % RankCards.CARD_NAMES[ev["card"]])
+		var how := "라이터 반사경" if str(ev["source"]) == "shiner" else "협력자 손 신호"
+		_log("[color=cyan]%s: 상대 카드 = %s[/color]" % [how, RankCards.CARD_NAMES[ev["card"]]])
 	elif kind == "ai_think_start":
 		_log("상대가 고민한다 (약 %.0f초) — 눈을 지켜보세요" % float(ev["seconds"]))
 	elif kind == "timeout":
 		_log("[color=yellow]시간 초과 — %s 를 냈다[/color]" % RankCards.CARD_NAMES[ev["card"]])
 	elif kind == "accuse":
-		var who := int(ev["accuser"])
-		if not bool(ev["hit"]):
-			_log("[color=yellow]헛고발 — 상대는 잔을 보고 있지 않았다 · 토큰 −1 · 벌금 %d점[/color]" % CheatRules.FALSE_ACCUSE_FINE)
-		elif who == 1:
-			_log("[color=red][b]상대: \"잔은 왜 봐?\" — 들켰다![/b] 경고 %d/%d · 벌금 %d점[/color]" % [
-				int(ev["strikes"][0]), CheatRules.STRIKES_TO_LOSE, CheatRules.CAUGHT_FINE])
-		else:
-			_log("[color=lime][b]잡았다! 상대가 잔을 보고 있었다[/b] 상대 경고 %d/%d · 벌금 %d점[/color]" % [
-				int(ev["strikes"][1]), CheatRules.STRIKES_TO_LOSE, CheatRules.CAUGHT_FINE])
+		_render_accuse(ev)
 	elif kind == "turn_summary":
 		_render_summary(ev)
 	elif kind == "reveal":
@@ -285,8 +319,8 @@ func _render(ev: Dictionary) -> void:
 		_log("공개: 당신 %s vs 상대 %s → %s" % [RankCards.CARD_NAMES[c[0]], RankCards.CARD_NAMES[c[1]], verdict])
 	elif kind == "round_end":
 		var w := int(ev["winner"])
-		var how := "몰수" if str(ev["by"]) == "forfeit" else "카드"
-		_log("판 결과: %s +%d점 (%s) · 점수 %d : %d" % ["당신" if w == 0 else "상대", int(ev["points"]), how,
+		var how2 := "몰수" if str(ev["by"]) == "forfeit" else "카드"
+		_log("판 결과: %s +%d점 (%s) · 점수 %d : %d" % ["당신" if w == 0 else "상대", int(ev["points"]), how2,
 			int(ev["scores"][0]), int(ev["scores"][1])])
 	elif kind == "match_end":
 		var mw := int(ev["winner"])
@@ -299,19 +333,48 @@ func _render(ev: Dictionary) -> void:
 		_log("\n[b]매치 끝 — %s (%s) · %d : %d[/b]" % [res_text, reason, int(ev["scores"][0]), int(ev["scores"][1])])
 
 
+func _render_setup(ev: Dictionary) -> void:
+	var seen := bool(ev["seen"])
+	if int(ev["seat"]) == 1:
+		_log("[color=orange]상대가 라이터를 꺼내 테이블 오른쪽에 놓았다…[/color]")
+		return
+	if str(ev["kind"]) == "lighter":
+		_log("[color=violet]라이터를 테이블에 놓았다 (뚜껑 안에 작은 반사경)[/color]")
+	else:
+		_log("[color=violet]헛기침으로 협력자를 불렀다 — %.1f초 뒤 상대 뒤에 섬[/color]" % CheatRules.ACC_WALK_SECONDS)
+	if seen:
+		_log("[color=orange]…상대가 그걸 봤다. 의심이 커짐[/color]")
+
+
+func _render_accuse(ev: Dictionary) -> void:
+	var who := int(ev["accuser"])
+	var by := str(ev["by"])
+	if not bool(ev["hit"]):
+		_log("[color=yellow]헛고발 — 상대는 반사경을 보고 있지 않았다 · 토큰 −1 · 벌금 %d점[/color]" % CheatRules.FALSE_ACCUSE_FINE)
+	elif who == 1 and by == "accomplice":
+		_log("[color=red][b]상대가 뒤를 돌아봤다 — 협력자 들킴! 쫓겨남[/b] 경고 %d/%d · 벌금 %d점[/color]" % [
+			int(ev["strikes"][0]), CheatRules.STRIKES_TO_LOSE, CheatRules.CAUGHT_FINE])
+	elif who == 1:
+		_log("[color=red][b]상대: \"라이터는 왜 봐?\" — 들켰다! 라이터 몰수[/b] 경고 %d/%d · 벌금 %d점[/color]" % [
+			int(ev["strikes"][0]), CheatRules.STRIKES_TO_LOSE, CheatRules.CAUGHT_FINE])
+	else:
+		_log("[color=lime][b]잡았다! 상대가 반사경을 보고 있었다 — 라이터 몰수[/b] 상대 경고 %d/%d · 벌금 %d점[/color]" % [
+			int(ev["strikes"][1]), CheatRules.STRIKES_TO_LOSE, CheatRules.CAUGHT_FINE])
+
+
 ## 턴 끝 리플레이 — 그 턴에 실제로 무슨 일이 있었는지
 func _render_summary(ev: Dictionary) -> void:
-	var g: Array = ev["glass"]
+	var look: Array = ev["look"]
 	if int(ev["turn_type"]) == GambleMatch.TurnType.CHEAT:
-		if float(g[0]) > 0.0:
-			_log("[color=gray]  └ 당신이 잔을 본 시간 %.1f초 · 그동안 상대가 당신 얼굴을 본 시간 %.1f초[/color]" % [float(g[0]), float(ev["watched"])])
+		if float(look[0]) > 0.0:
+			_log("[color=gray]  └ 당신이 반사경·신호를 본 시간 %.1f초 · 그동안 상대가 당신 얼굴을 본 시간 %.1f초[/color]" % [float(look[0]), float(ev["watched"])])
 		return
 	var done: Array = ev["peek_done"]
 	if int(ev["glances"]) == 0:
-		_log("[color=gray]  └ 리플레이: 상대는 이번 턴 잔을 보지 않았다[/color]")
+		_log("[color=gray]  └ 리플레이: 상대는 이번 턴 반사경을 보지 않았다[/color]")
 	else:
-		_log("[color=gray]  └ 리플레이: 상대가 잔을 %d번 · %.1f초 봄 (당신이 그 순간 얼굴을 본 시간 %.1f초) · 엿보기 %s[/color]" % [
-			int(ev["glances"]), float(g[1]), float(ev["watched"]), "성공" if bool(done[1]) else "실패"])
+		_log("[color=gray]  └ 리플레이: 상대가 반사경을 %d번 · %.1f초 봄 (당신이 그 순간 얼굴을 본 시간 %.1f초) · 엿보기 %s[/color]" % [
+			int(ev["glances"]), float(look[1]), float(ev["watched"]), "성공" if bool(done[1]) else "실패"])
 
 
 func _log(text: String) -> void:
@@ -325,11 +388,11 @@ func _refresh() -> void:
 	var cheat_turn: bool = int(game.turn_type) == GambleMatch.TurnType.CHEAT
 	var text := ""
 	if ph == GambleMatch.Phase.PLAYER_CHOOSE and cheat_turn:
-		text = "속임수 턴 — 상대가 먼저 냈다. 왼쪽 잔을 %.1f초 보면 카드가 비친다. 상대 눈이 당신을 보면 들킨다" % CheatRules.PEEK_SECONDS
+		text = "속임수 판 — [1] 라이터를 놓고 반사경을 %.1f초 · 또는 [2] 협력자 손 신호를 %.1f초. 상대가 당신 얼굴(반사경)·뒤(협력자)를 보면 들킴" % [CheatRules.PEEK_SECONDS, CheatRules.SIGNAL_SECONDS]
 	elif ph == GambleMatch.Phase.PLAYER_CHOOSE:
-		text = "감시 턴 — 당신이 먼저 낸다. 카드를 고르세요"
+		text = "감시 판 — 카드를 고르세요 · [C] 카드 덮개로 상대 반사경을 막을 수 있음"
 	elif ph == GambleMatch.Phase.AI_THINK:
-		text = "감시 턴 — 상대가 고민 중. 상대 눈이 왼쪽 잔으로 가면 [스페이스] 잡았다!"
+		text = "감시 판 — 상대가 고민 중. 상대 눈이 오른쪽 라이터로 가면 [스페이스] · [B] 블러핑으로 상대 시간 줄이기"
 	elif ph == GambleMatch.Phase.REVEALED:
 		text = "[Enter] 다음"
 	elif ph == GambleMatch.Phase.MATCH_OVER:
@@ -337,7 +400,7 @@ func _refresh() -> void:
 	banner.text = text
 	var left := 0.0
 	if ph == GambleMatch.Phase.PLAYER_CHOOSE:
-		left = 1.0 - float(game.t) / CheatRules.TURN_SECONDS
+		left = 1.0 - float(game.t) / maxf(float(game.turn_limit), 0.01)
 	elif ph == GambleMatch.Phase.AI_THINK:
 		left = float(game.think_left) / maxf(float(game.think_total), 0.01)
 	timer_bar.value = clampf(left, 0.0, 1.0) * 100.0
@@ -345,6 +408,11 @@ func _refresh() -> void:
 		_round_name(int(game.round_index)), RankCards.SIDE_NAMES[game.sides[0]],
 		int(game.scores[0]), int(game.scores[1]), _dots(int(game.strikes[0])), _dots(int(game.strikes[1])),
 		int(game.tokens[0])]
+	var acc_text := "협력자 %d번" % int(game.acc_calls_left)
+	if str(game.acc_state) == "out":
+		acc_text = "협력자 쫓겨남"
+	keys_label.text = "[1] 라이터 놓기 (판마다)\n[2] 협력자 부르기 (%s)\n[C] 카드 덮개 (%d번)\n[B] 블러핑 (%d번)\n[스페이스] 잡았다 · [Enter] 다음" % [
+		acc_text, int(game.cover_left[0]), int(game.bluff_left[0])]
 	next_btn.disabled = ph != GambleMatch.Phase.REVEALED
 
 

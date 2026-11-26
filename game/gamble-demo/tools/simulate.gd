@@ -1,4 +1,5 @@
-# VERSION: v0.2.0 — 2026-11-26 — AI 대 AI 밸런스 (실시간 규칙): 승률 · 엿보기 성공률 · 시도당 들킴 · 고발 정확도
+# VERSION: v0.4.0 — 2026-11-26 — 출력에 협력자·덮개·블러핑·준비 동작 칸 추가
+# 이전 VERSION: v0.2.0 — 2026-11-26 — AI 대 AI 밸런스 (실시간 규칙): 승률 · 엿보기 성공률 · 시도당 들킴 · 고발 정확도
 # 이전 VERSION: v0.1.1 — 2026-11-26 — 인자 읽는 줄의 타입 추론 오류 고침
 #
 # 실행 (저장소 맨 위에서):
@@ -36,7 +37,7 @@ func _run(k0: String, k1: String, n: int, base_seed: int) -> void:
 	var t0 := Time.get_ticks_usec()
 	var wins := [0, 0, 0]
 	var out2 := [0, 0]
-	var keys := ["peek_tries", "peek_done", "caught", "accusations", "hits", "timeouts"]
+	var keys := ["peek_tries", "peek_done", "signal_done", "caught", "acc_caught", "accusations", "hits", "timeouts", "setups", "setups_seen", "covers", "bluffs"]
 	var sums := {}
 	for k in keys:
 		sums[k] = [0, 0]
@@ -62,10 +63,13 @@ func _run(k0: String, k1: String, n: int, base_seed: int) -> void:
 	parts.append("[SIM] seat0=%s seat1=%s n=%d" % [k0, k1, n])
 	parts.append("win0_pct=%.1f win1_pct=%.1f draw_pct=%.1f" % [_pct(wins[0], n), _pct(wins[1], n), _pct(wins[2], n)])
 	for s in 2:
-		parts.append("tries%d_avg=%.2f peek_ok%d=%.3f caught_per_try%d=%.3f out2_%d_pct=%.1f acc%d_avg=%.2f acc_hit%d=%.3f score%d_avg=%.2f" % [
+		parts.append("tries%d_avg=%.2f peek_ok%d=%.3f via_acc%d=%.3f caught_per_try%d=%.3f acc_out%d_avg=%.2f out2_%d_pct=%.1f acc%d_avg=%.2f acc_hit%d=%.3f setups%d_avg=%.2f seen%d_avg=%.2f covers%d_avg=%.2f bluffs%d_avg=%.2f score%d_avg=%.2f" % [
 			s, float(sums["peek_tries"][s]) / n, s, _ratio(sums["peek_done"][s], sums["peek_tries"][s]),
-			s, _ratio(sums["caught"][s], sums["peek_tries"][s]), s, _pct(out2[s], n),
-			s, float(sums["accusations"][s]) / n, s, _ratio(sums["hits"][s], sums["accusations"][s]), s, float(score_sum[s]) / n])
+			s, _ratio(sums["signal_done"][s], sums["peek_done"][s]),
+			s, _ratio(sums["caught"][s], sums["peek_tries"][s]), s, float(sums["acc_caught"][s]) / n, s, _pct(out2[s], n),
+			s, float(sums["accusations"][s]) / n, s, _ratio(sums["hits"][s], sums["accusations"][s]),
+			s, float(sums["setups"][s]) / n, s, float(sums["setups_seen"][s]) / n, s, float(sums["covers"][s]) / n,
+			s, float(sums["bluffs"][s]) / n, s, float(score_sum[s]) / n])
 	parts.append("ms=%.0f" % ms)
 	print(" ".join(parts))
 

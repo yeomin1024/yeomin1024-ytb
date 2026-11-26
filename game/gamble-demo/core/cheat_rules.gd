@@ -1,20 +1,34 @@
-# VERSION: v0.2.0 — 2026-11-26 — 속임수 = 잔 엿보기 하나 (잔을 본 시간이 쌓여야 카드가 비침) · 상대 시선별 들킬 위험률 · 벌칙 값
-# 이전 VERSION: v0.1.0 — 2026-11-26 — 속임수 정의표 · 단서 공식 · 알아챌 확률 · 이항 확률 (뒷면 표시·가짜 동작은 v0.2.0 에서 뺌)
+# VERSION: v0.4.0 — 2026-11-26 — 반사경(라이터 샤이너) 엿보기 + 협력자 신호 · 준비 동작 의심 · 카드 덮개 · 블러핑(시간) 값
+# 이전 VERSION: v0.2.0 — 2026-11-26 — 속임수 = 잔 엿보기 하나 · 상대 시선별 들킬 위험률 · 벌칙 값
 #
-# 엿보기 모델
-#   진행도 p (0~1): 잔을 보는 동안 dt / 필요 시간 만큼 오르고, 눈을 떼면 초당 PEEK_DECAY 만큼 내려감. p = 1 이면 카드가 비침.
-#   들킴: 잔을 보는 동안 매 순간 '위험률 λ = HAZARD[상대 시선] × 상대 눈치' 로 알아챔 → dt 동안 알아챌 확률 = 1 − exp(−λ·dt)
-#         상대가 고개를 돌리는 중(TURN_TIME)에는 λ = 0.
-#   감시 턴 고발: 상대가 지금 잔을 보고 있거나, 잔에서 눈을 뗀 지 GRACE_SECONDS 안이면 적중.
+# 속임수 두 가지 (노예 측만, 준비 동작이 먼저):
+#   반사경(샤이너): [준비] 라이터를 테이블에 놓음 → 라이터 뚜껑 안 작은 거울을 PEEK_SECONDS 보면 상대 카드가 비침.
+#                   들킴 = 상대가 내 얼굴(눈)을 볼 때 크게 (HAZARD_SHINER).  상대가 카드에 덮개를 올리면 안 비침.
+#   협력자 신호  : [준비] 협력자를 부름 → ACC_WALK_SECONDS 뒤 상대 뒤에 섬 → 손 신호를 SIGNAL_SECONDS 보면 상대 카드.
+#                   들킴 = 상대가 뒤를 돌아볼 때 크게 (HAZARD_SIGNAL). 덮개로 못 막음. 들키면 그 매치에서 쫓겨남.
+# 진행도 p (0~1): 보는 동안 dt / 필요 시간 만큼 오르고, 눈을 떼면 초당 PEEK_DECAY 만큼 내려감.
+# 알아챌 확률 = 1 − exp(−위험률 × 상대 눈치 × dt), 상대가 시선을 옮기는 중(TURN_TIME)엔 0.
 extends RefCounted
 
-const PEEK_SECONDS := 1.8          # 사람이 잔을 이만큼 보면 상대 카드가 비침
-const PEEK_DECAY := 0.15           # 잔에서 눈을 떼면 진행도가 초당 이만큼 줄어듦
-const TURN_SECONDS := 15.0         # 먼저 내는 사람이 고르는 시간 — 넘으면 남은 카드 중 아무거나
-const GRACE_SECONDS := 0.6         # 상대가 잔에서 눈을 뗀 뒤에도 이만큼은 고발 적중
-const TURN_TIME := 0.4             # 시선을 옮기는 시간 (이동 중엔 알아채지 못함) — 튜닝 0.3 → 0.4
-## 내가 잔을 볼 때 상대가 어디를 보느냐에 따른 위험률 (초당)
-const HAZARD := {"face": 2.0, "hands": 0.5, "own_card": 0.08, "away": 0.05}   # 튜닝: 얼굴 2.4 → 2.0 · 손 0.6 → 0.5
+const PEEK_SECONDS := 1.8          # 반사경에 비친 카드를 읽는 시간
+const SIGNAL_SECONDS := 1.2        # 협력자 손 신호를 읽는 시간
+const PEEK_DECAY := 0.15           # 눈을 떼면 진행도가 초당 이만큼 줄어듦
+const TURN_SECONDS := 15.0         # 먼저 내는 사람이 고르는 기본 시간
+const MIN_TIME_LEFT := 1.5         # 블러핑으로 줄여도 남는 최소 시간
+const GRACE_SECONDS := 0.6         # 상대가 반사경에서 눈을 뗀 뒤에도 이만큼은 고발 적중
+const TURN_TIME := 0.4             # 시선을 옮기는 시간 (이동 중엔 알아채지 못함)
+const ACC_WALK_SECONDS := 2.5      # 협력자가 상대 뒤로 걸어오는 시간
+## 반사경을 볼 때 상대 시선별 위험률 (초당)
+const HAZARD_SHINER := {"face": 2.0, "hands": 0.5, "own_card": 0.08, "away": 0.05, "behind": 0.05}
+## 협력자 신호를 볼 때 — 상대 쪽을 보니 얼굴엔 덜 티 나지만, 뒤를 돌아보면 바로 들킴
+const HAZARD_SIGNAL := {"face": 0.7, "hands": 0.25, "own_card": 0.05, "away": 0.05, "behind": 3.5}
+## 준비 동작을 상대가 봤을 때 오르는 의심 (로그 오즈 · 경고는 아님)
+const SETUP_SUSPICION := {"lighter": 0.8, "accomplice": 0.4, "stranger": 0.6}
+const CHOOSE_BLUFF_SECONDS := 5.0  # 블러핑: 고르는 시간 ±5초
+const THINK_BLUFF_SECONDS := 2.0   # 블러핑: 고민 시간 ±2초
+const BLUFFS_PER_MATCH := 3
+const COVERS_PER_MATCH := 2        # 카드 덮개 (칩 올려 두기)
+const ACC_CALLS_PER_MATCH := 2     # 협력자 부르기
 const TOKENS_PER_MATCH := 3        # 고발 토큰
 const FALSE_ACCUSE_FINE := 1       # 헛고발 벌금 (점수, 상대에게)
 const CAUGHT_FINE := 1             # 들킨 벌금 (판 몰수와 별도)
@@ -27,10 +41,10 @@ static func peek_step(progress: float, looking: bool, dt: float, need_seconds: f
 	return maxf(progress - PEEK_DECAY * dt, 0.0)
 
 
-static func hazard_rate(watch_target: String, turning: bool, perception: float) -> float:
+static func hazard_rate(table: Dictionary, watch_target: String, turning: bool, perception: float) -> float:
 	if turning:
 		return 0.0
-	return float(HAZARD.get(watch_target, 0.0)) * maxf(perception, 0.0)
+	return float(table.get(watch_target, 0.0)) * maxf(perception, 0.0)
 
 
 static func notice_chance(rate: float, dt: float) -> float:

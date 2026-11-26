@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-11-26 — jakku 둘째 줄 '심리학적 이유 3가지' → '거절해도 또 주는 이유' (영상 제작 공통 규칙 3번 — 제목과 이어지는 시청자 장면 · 답 숨김 · package.json thumb_main 과 맞춤 · '숨겨진' 은 페르소나 title 4·5회차가 탓하는 말로 읽음)
+# VERSION: v1.11 — 2026-11-26 — 편마다 그림 파일 칸 img (기본 TH-CHAR.jpg) · jakku = TH-CHAR2.jpg (ChatGPT 새 그림 — 가장 자극적인 장면, 영상 제작 공통 규칙 2번 · 말풍선 자리 다시 잼)
+# 이전 VERSION: v1.10 — 2026-11-26 — jakku 둘째 줄 '심리학적 이유 3가지' → '거절해도 또 주는 이유' (영상 제작 공통 규칙 3번 — 제목과 이어지는 시청자 장면 · 답 숨김 · package.json thumb_main 과 맞춤 · '숨겨진' 은 페르소나 title 4·5회차가 탓하는 말로 읽음)
 # 이전 VERSION: v1.9 — 2026-11-25 — jakku-juneun-2026-11-25 (같은 낱말 3안 — 본안 말풍선 둘 · 실험 1 말풍선 없음 · 실험 2 강조 색 바꿈 + 노란 말풍선) — 사용자 지시 "이미지, 음성 확인해서 영상 만들어"
 # 이전 v1.8 — 2026-11-24 — adhd-ab-2026-11 그림을 화면 끝까지 (아래 어두운 띠 뺌 — 두 칸을 따로 잘라 좌우로) · 문구는 그림 위 · 말풍선은 썸네일 좌표 — 사용자 지시 "썸네일 문구부분은 왜 이미지 영역이 아니야 이미지 꽉채워서 문구넣어야지"
 # (v1.7) — 2026-11-24 — adhd-ab-2026-11 사용자 제목·문구 3안 + A 말풍선 「진작 할걸~」 한 줄(작게) — 사용자 지시 "제목1 … 제목3 … 이렇게 가고 썸네일 각각 만들어 그리고 글씨 크기 좀 줄여서 한줄에 진작 할걸~ 로 고쳐"
@@ -15,6 +16,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.11 | 2026-11-26 | img 칸 · jakku TH-CHAR2 | EP · build_variants |
 # | v1.10 | 2026-11-26 | jakku 둘째 줄 문구 (제목 축약) | EP |
 # | v1.9 | 2026-11-25 | variants 셋째 칸 opts {bubbles: W·Y·none} · same_words(실험안도 본안 낱말 그대로 — package.json thumb_tests 없을 때) · 편마다 why(설명 줄의 사용자 지시) — jakku-juneun-2026-11-25 | EP · build_variants |
 # | v1.8 | 2026-11-24 | 편마다 images(crop·box)·bg 덮어쓰기 · bubbles_px(썸네일 좌표 그대로) — adhd-ab-2026-11 TH-CHAR 아래 26% 어두운 띠를 빼고 왼쪽 칸(A)·오른쪽 칸(B)을 따로 잘라 1280×720 을 채움 | EP · bubble · build_variants |
@@ -98,9 +100,11 @@ EP = {
         "_": "A 머리 오른쪽 사무실 벽(모니터 위) · B 머리 오른쪽 창문 — 썸네일 좌표, 사람·스탠드·낙서 구름을 가리지 않음",
     },
     "jakku-juneun-2026-11-25": {
-        # TH-CHAR = 화면 끝까지 그린 복도 (빈 띠 없음) — 자르지 않음. 문구는 그림 위 아래쪽 (L1·L2 기본 상자)
-        # 말풍선 = 썸네일 좌표: G(주는 사람) 머리 x 308~488 · y 117~288, 반짝 표시 x 496~546 → 그 오른쪽 창문(하늘)
-        #   R(받는 사람) 머리 x 850~1012 · y 79~250 → 그 오른쪽 열린 문틀 · 두 말풍선 모두 꼬리는 왼쪽(말하는 사람) 쪽으로
+        # v1.11 TH-CHAR2 (2026-11-26 ChatGPT — 영상 제작 공통 규칙 2번 '가장 자극적인 장면': 반찬통 탑을 턱까지 안은 R 에게 G 가 하나 더 · R 문 안쪽 쓰레기통)
+        #   화면 끝까지 그린 복도 — 자르지 않음. 문구는 그림 위 아래쪽 (L1·L2 기본 상자 — 다리·바닥 봉지 위, 얼굴·손은 위 60% 안)
+        # 말풍선 = 썸네일 좌표: G 머리 x 312~483 · y 117~275, 반짝 표시 x 492~542 → 그 오른쪽 창문·천장(사람 없음)
+        #   R 머리 x 850~1017 · y 79~242 · 통 탑 위 y 229~ → 머리 오른쪽 열린 문 위쪽 · 두 말풍선 모두 꼬리는 왼쪽(말하는 사람) 쪽으로
+        "img": "TH-CHAR2.jpg",
         "bubbles_px": True,
         "bubbles": [[[566, 30, 262, 146], "너 주려고\n챙겼지~", "right", 0.18], [[1030, 26, 234, 146], "마음은\n고마운데…", "right", 0.16]],
         "same_words": True,
@@ -142,7 +146,8 @@ def build_variants(ep: str, spec: dict, pkg: dict) -> list[Path]:
         raise SystemExit(f"[THUMB] {ep} 말풍선이 package.json thumb_subs 와 다름")
     out_dir = ROOT / "psychology" / "source" / ep / "thumbnails"
     out_dir.mkdir(exist_ok=True)
-    base = {"size": [1280, 720], "shade": [0.56, 0.9], "images": [{"src": "../images/TH-CHAR.jpg", "box": [0, 0, 1280, 720]}]}
+    img = spec.get("img", "TH-CHAR.jpg")                   # v1.11 편마다 그림 파일 (기본 TH-CHAR.jpg)
+    base = {"size": [1280, 720], "shade": [0.56, 0.9], "images": [{"src": f"../images/{img}", "box": [0, 0, 1280, 720]}]}
     if "images" in spec:                                    # v1.8 편마다 그림 자르기 (어두운 빈 띠 빼고 화면 끝까지)
         base.update(images=spec["images"], bg=spec.get("bg", "#000"))
     l1, l2 = spec.get("l1", L1), spec.get("l2", L2)
@@ -154,7 +159,7 @@ def build_variants(ep: str, spec: dict, pkg: dict) -> list[Path]:
         d = dict(base)
         why = spec.get("why", "2026-11-24 — 사용자 지시 \"둘다 말풍선 넣고 두번재 줄 괄호 제거해 그리고 나머지 2개는 실험형으로 너가 문구를 만드는 거야\"")
         d["_설명"] = (f"{name} ({why}) — "
-                     f"짝 제목 「{pkg['title']}」 · {spec.get('note', '')} · 그림 = images/TH-CHAR.jpg"
+                     f"짝 제목 「{pkg['title']}」 · {spec.get('note', '')} · 그림 = images/{img}"
                      f"{' (자르기 ' + ' + '.join(str(im['crop']) for im in spec['images']) + ')' if 'images' in spec else ''} · 말풍선 자리: {spec['_']}")
         d["out"] = f"thumbnail_{i}.jpg"
         bubs = [] if vo["bubbles"] == "none" else [bubble(r, t, vo["bubbles"], tl, tp, px) for r, t, tl, tp in spec["bubbles"]]

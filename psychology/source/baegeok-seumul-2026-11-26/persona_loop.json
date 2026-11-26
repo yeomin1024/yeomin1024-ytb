@@ -101,21 +101,53 @@
        "max_rounds": 5
       },
       "text": "제목: 100억 받고 하루아침에 20살 늙으면 생기는 일\n썸네일 문구: 100억 받는 대신 / 20살 늙는다면?\n보조 문구: 엄마, 왜 이렇게 늙었어? / 통장엔 100억인데…"
+     },
+     {
+      "n": 3,
+      "at": "2026-11-26T07:39:54Z",
+      "sha": "2f75210b45a79068",
+      "reviewers": [
+       {
+        "reviewer": "T3-P1",
+        "persona": "P1",
+        "feed_picks": [
+         8,
+         6
+        ],
+        "feed_why": "8은 딱 내 나이에 겪는 친구·인간관계 이야기라 먼저 누르고, 6은 내 나이에 20살이면 70~80대라 '남은 세월을 돈과 바꾸나' 싶어 남들은 뭐라 답하는지 궁금해서 누름",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "20살 늙는다면 · 갑자기 왜 이렇게 늙었어?",
+        "fix": "질문만 있어 젊은 사람 밸런스 게임처럼 보일 수 있으니, 살아 본 사람이 고르는 답이나 가족이 늙은 나를 보는 장면처럼 '무엇을 알게 되는지'를 썸네일 보조 문구에 살짝 비추면 더 망설임 없이 누를 것",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T3-반론",
+        "persona": "반론",
+        "feed_picks": [
+         4,
+         6
+        ],
+        "feed_why": "4번은 전문의와 구체적인 증상이 있어 믿고 누름. 6번은 '지금 몇 살이냐에 따라 다르지 않나'를 영상이 짚는지 확인하려고 누름. 5번 '모든 고민이 다 사라집니다'는 과장이라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "20살 늙는다면 (몇 살 기준인지, 몸만 늙는지 수명도 20년 줄어드는지 조건이 없음) · 보조 문구 '그래도 100억인데…'는 답을 이미 정해 둔 것처럼 읽힘",
+        "fix": "조건을 한 낱말 더해 '사람마다 다르다' 한마디로 끝나지 않게 (예: 몸만 20살 · 수명은 그대로). 밸런스 게임 잡담이 아니라 심리 연구로 답한다는 낌새를 한 낱말 넣기",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(제목 3회차 — 바꾸지 않음)",
+      "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_title_3.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      },
+      "text": "제목: 100억 받는 대신 20살 늙는다면, 받으시겠습니까?\n썸네일 문구: 100억 받는 대신 / 20살 늙는다면?\n보조 문구: 갑자기 왜 이렇게 늙었어? / 그래도 100억인데…"
      }
-    ],
-    "pending": {
-     "n": 3,
-     "sha": "2f75210b45a79068",
-     "reviewers": [
-      "T3-P1",
-      "T3-반론"
-     ],
-     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_title_3.md",
-     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_title_3",
-     "ours_idx": 6,
-     "text": "제목: 100억 받는 대신 20살 늙는다면, 받으시겠습니까?\n썸네일 문구: 100억 받는 대신 / 20살 늙는다면?\n보조 문구: 갑자기 왜 이렇게 늙었어? / 그래도 100억인데…",
-     "at": "2026-11-26T07:35:46Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -195,20 +227,55 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-26T07:39:54Z",
+      "sha": "9eec59b2514fc4d6",
+      "reviewers": [
+       {
+        "reviewer": "E3-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 61,
+          "why": "어려운 풀이 — '예순까지 살아온 사람들이 평균보다 오래 사는 쪽'이라는 말이 한 번 들어서는 머리에 안 들어오고, 58~66줄에 숫자가 열 개 넘게 연달아 나와 잠깐 멍해짐 (끌 정도는 아니고 흘려들음)"
+         },
+         {
+          "line": 108,
+          "why": "관련 없음 — 반전 장이 '주말에도 일·잠 줄여 일·회의나 야근' 같은 직장인 얘기로 흘러, 일을 그만둔 60·70대에겐 남 얘기처럼 들려 손이 리모컨으로 감 (106줄 병원 미루기·107줄 가족 저녁은 내 얘기라 붙잡힘)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "44 — '자식 곁에 있을 수 있는 시간은 100억으로 늘릴 수 없다'는 말이 자식·손주 얘기와 이어져 가장 마음에 걸림 (64~65줄 예순이 여든 되는 숫자도 내 나이 얘기라 끝까지 보게 됨)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [61, 108]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v5(대본만): 자식 곁 시간 = 사표 내면 곁에 있을 수는 있지만 늙은 몸·줄어든 해 · 남은 시간 = 햇수 대신 비율(마흔 5분의 2 남짓 · 예순 3분의 2 가까이), 18년 풀이·5억 계산 뺌 · 반전 예 은퇴한 분 먼저 · 이미 지키는 분 예외 · 답 이유 = 연구·생명표 · 나이 → 결론 잇기 · 진료와 검진 나눔 · 복권 점수 말 · 114줄 단순하게",
+      "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_3.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
     "pending": {
-     "n": 3,
-     "sha": "9eec59b2514fc4d6",
+     "n": 4,
+     "sha": "02c80a2bd10358f9",
      "reviewers": [
-      "E3-P1"
+      "E4-P1"
      ],
-     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_3.md",
-     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_exit_3",
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_4.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_exit_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T07:35:46Z"
+     "at": "2026-11-26T07:40:29Z"
     }
    },
    "script_rebuttal": {
@@ -427,20 +494,102 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-26T07:39:54Z",
+      "sha": "9eec59b2514fc4d6",
+      "reviewers": [
+       {
+        "reviewer": "K3-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "상",
+          "k": "K7",
+          "line": 44,
+          "text": "10번·53번 줄에서 100억이면 사표 내도 된다면서, 자식 곁에 있을 시간은 100억으로 못 늘린다고? 회사 그만두면 매일 애들 곁에 있으니 오히려 늘어나죠. 107번 줄에서 일 때문에 가족 저녁을 미룬다고 한 것도 이 영상입니다.",
+          "fix": "44번 줄을 '자식과 함께 나이 들어 갈 20년은, 100억으로 되돌릴 수 없습니다'처럼 햇수(해) 이야기로 바꾸고, 가족 챕터나 82~85번 줄에 '100억이 있으면 회사를 그만두고 가족 곁에 매일 있을 수는 있습니다. 하지만 그 시간도 예순의 몸으로, 남은 해가 18년 줄어든 채로 보내는 시간입니다' 한 줄을 넣어 반박을 먼저 받는다."
+         },
+         {
+          "level": "중",
+          "k": "K8",
+          "line": 63,
+          "text": "예순은 23.7년에서 8.5년, 15년쯤 줄어서 마흔(18년)보다 덜 줄어드는데 '줄어드는 몫이 더 크다'고요? 숫자랑 말이 반대로 들립니다.",
+          "fix": "'줄어드는 햇수는 15년쯤으로 더 적지만, 남은 시간에서 차지하는 비율은 훨씬 큽니다'처럼 햇수와 비율을 나눠 말한다 (마흔은 남은 시간의 5분의 2 남짓, 예순은 3분의 2 가까이)."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 96,
+          "text": "90~94번 줄에서 나이에 따라 잃는 게 다르다고 해 놓고, 정하는 질문에는 나이가 안 들어갑니다. 스무 살이든 예순이든 답이 같으면 나이 이야기는 왜 했나요?",
+          "fix": "질문 앞에 '어느 나이든 잃는 것의 크기만 다를 뿐, 잃는 쪽은 같습니다' 같은 한 줄로 나이 이야기를 결론에 이어 준다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 99,
+          "text": "9번 줄에서 직장인이 200년 넘게 모아야 하는 돈이라면서, 100억도 평생 다시 못 얻는 건 똑같지 않나요? '벌기 어렵다 vs 다시 못 산다'는 차이가 약합니다.",
+          "fix": "까닭을 앞의 근거로 바꾼다 — 예 '큰돈이 바꾼 건 삶의 만족 점수였지만, 20년은 남은 해 자체를 줄이기 때문입니다' (75~80번 줄 연구 + 생명표)."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 104,
+          "text": "'우리는 이미 시간을 돈과 바꾼다' — 저는 주말·저녁은 칼같이 지키고, 은퇴한 분들은 야근도 없는데요.",
+          "fix": "108·111번 줄 근처에 '이미 저녁과 잠을 먼저 지키는 분이라면, 지금처럼 이어 가시면 됩니다' 한 줄로 예외를 먼저 인정한다."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 126,
+          "text": "아픈 데가 있으면 검진 날짜 잡을 게 아니라 진료를 받아야죠. 아픈 데와 건강검진이 한 문장에 섞였습니다.",
+          "fix": "'아픈 데가 있다면 진료부터, 미뤄 둔 건강검진이 있다면 이번 달 안에 날짜부터 잡으세요'로 나눈다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 77,
+          "text": "'점수가 10년 넘게 더 높았다'는 게 점수가 10만큼 높았다는 건지 10년 동안 높았다는 건지 귀로 들으면 헷갈리고, 얼마나 높았는지도 없습니다.",
+          "fix": "'당첨 뒤 10년이 넘도록 더 높게 이어졌습니다'로 바꾸고, 차이 크기를 쉬운 말로 한마디(예 '눈에 띄게', '조금') 덧붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 114,
+          "text": "'매일은, 그 20년이 가져갈 잠과 몸과 가족의 시간을' — 무슨 뜻인지 한 번에 안 들어옵니다.",
+          "fix": "'그런데 매일은, 잠과 몸과 가족의 시간을 몇 푼에 조금씩 내주고 있는 셈입니다'처럼 주어·뜻을 단순하게."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "생명표·복권 연구·결론 질문은 앞뒤가 맞고 정답(빚·치료비가 아니면 받지 않음)도 분명하지만, 44번 줄 '자식 곁의 시간은 100억으로 못 늘린다'가 사표(10·53번)·가족 저녁(107번)과 부딪혀 '회사 그만두면 오히려 더 같이 있는다'는 반박이 가장 크게 붙을 자리이고, 63번 줄 '줄어드는 몫'은 햇수와 비율을 나눠 말해야 한다.",
+        "pass": false,
+        "why": [
+         "상 1 (줄 [44])"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v5(대본만): 자식 곁 시간 = 사표 내면 곁에 있을 수는 있지만 늙은 몸·줄어든 해 · 남은 시간 = 햇수 대신 비율(마흔 5분의 2 남짓 · 예순 3분의 2 가까이), 18년 풀이·5억 계산 뺌 · 반전 예 은퇴한 분 먼저 · 이미 지키는 분 예외 · 답 이유 = 연구·생명표 · 나이 → 결론 잇기 · 진료와 검진 나눔 · 복권 점수 말 · 114줄 단순하게",
+      "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_3.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
     "pending": {
-     "n": 3,
-     "sha": "9eec59b2514fc4d6",
+     "n": 4,
+     "sha": "02c80a2bd10358f9",
      "reviewers": [
-      "K3-반론"
+      "K4-반론"
      ],
-     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_3.md",
-     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_rebuttal_3",
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_4.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_rebuttal_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T07:35:46Z"
+     "at": "2026-11-26T07:40:30Z"
     }
    }
   }

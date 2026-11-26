@@ -1,13 +1,16 @@
-# VERSION: v0.5.0 — 2026-11-26 — 왕 턴 → 노예 턴 · 물건(사전·게임 중) · 시선 고정 엿보기·협력자 · 가능성 불 · 시선 끌기·제스처 · 가리기·무작위·바꿔치기·밝혀내기
+# VERSION: v0.6.0 — 2026-11-26 — 판단 시간(노예가 낸 뒤 왕이 밝혀내기) · why_not() 하나로 행동 가능 여부 (화면 버튼이 같은 규칙을 씀)
+# 이전 VERSION: v0.5.0 — 2026-11-26 — 왕 턴 → 노예 턴 · 물건(사전·게임 중) · 시선 고정 엿보기·협력자 · 가능성 불 · 시선 끌기·제스처 · 가리기·무작위·바꿔치기·밝혀내기
 # 이전 VERSION: v0.4.0 — 2026-11-26 — 준비 동작(라이터 놓기·협력자 부르기) · 반사경 엿보기 · 협력자 신호 · 카드 덮개 · 블러핑(시간)
 #
 # 자리(seat): 0 = 사람(시뮬레이션에선 AI), 1 = AI. 판마다 진영이 바뀜 (1·3·5판 자리 0 = 왕 측).
-# 한 턴 = 왕 턴 → 노예 턴 (각 TURN_SECONDS, 깎이거나 늘 수 있음)
+# 한 턴 = 왕 턴 → 노예 턴 → 판단 시간 → 공개 (차례마다 TURN_SECONDS, 깎이거나 늘 수 있음)
 #   왕 턴  : 왕이 카드를 엎어 놓음. 방어 — cover(가리기) · play_random(무작위로 바로 냄) · fake(바꿔치기).
 #            노예는 이때 gesture(제스처: 왕 턴이 10초 이상 남았으면 −5초) · call_accomplice · place_object 가능.
 #   노예 턴: 노예가 엿보고 카드를 냄. 공격 — 자기 물건(objN)에 시선 1.5초 고정(반사경이면 카드) ·
 #            협력자("accomplice")에 1.8초 고정 · attention(시선 끌기, 매치 1번: 3초 동안 왕이 못 봄).
 #            왕은 expose(밝혀내기: "peek"/"acc") — 이번 턴에 진짜를 쓴 적이 있으면 적중.
+#   판단 시간: 노예가 내면 바로 공개하지 않고 왕에게 JUDGE_SECONDS(사람)/AI_JUDGE_SECONDS(AI) — 그동안 밝혀내기 가능
+#            (적중 근거는 '이번 턴에 진짜로 씀'만, 노예 시간 깎임은 노예의 다음 차례로). 사람 왕은 judge_done() 으로 일찍 공개.
 # 가능성 불(lights): 진짜든 미끼든 노예 시선이 1.5초(물건)/1.8초(협력자 자리) 고정되면 왕에게 켜짐 (시선 끌기 중엔 안 켜짐).
 # 밝혀내기: 적중 → 노예 경고 +1 · 그 속임수 봉인(매치) · 노예 지금 턴 −5초 / 헛짚음 → 왕의 다음 턴 −5초. 경고 2개 = 즉시 패배.
 # 연구·교육용 데모 — 실제 돈과 관계없음.
@@ -22,7 +25,7 @@ const EXTRA_ROUNDS := 2
 const SIM_DT := 0.05
 const AUTO_GUARD := 400000
 
-enum Phase { IDLE, KING_TURN, SLAVE_TURN, REVEALED, MATCH_OVER }
+enum Phase { IDLE, KING_TURN, SLAVE_TURN, JUDGE, REVEALED, MATCH_OVER }
 
 var rng := RandomNumberGenerator.new()
 var seed_value := 0
@@ -60,6 +63,8 @@ var acc_state: Array = ["none", "none"]   # 자리마다 자기 협력자 (상�
 var acc_walk_left: Array = [0.0, 0.0]
 var acc_calls_left: Array = [CheatRules.ACC_CALLS_PER_MATCH, CheatRules.ACC_CALLS_PER_MATCH]
 var blind_until := -1.0               # 이 시각까지 왕이 노예 시선을 못 봄 (시선 끌기)
+var judge_left := 0.0                 # 판단 시간 남은 초
+var judge_limit := 0.0
 var gesture_used := false
 var king_rushed := false
 var pending_time: Array = [0.0, 0.0]  # 자리마다 다음 자기 차례에 더하거나 뺄 초
@@ -127,6 +132,9 @@ func time_left() -> float:
 
 ## 한 걸음. seat0_gaze = 사람이 지금 보는 곳 (자리 0 이 AI 면 무시)
 func tick(dt: float, seat0_gaze: String = "") -> void:
+	if phase == Phase.JUDGE:
+		_tick_judge(dt, seat0_gaze)
+		return
 	if not _active():
 		return
 	t += dt
@@ -172,36 +180,100 @@ func gesture() -> Dictionary:
 
 
 func cover() -> Dictionary:
-	if king != 0:
-		return _refuse("cover", 0, "not_king")
-	if not _active() or covered or int(cover_left[0]) <= 0:
-		return _refuse("cover", 0, "unavailable")
+	var why := why_not(0, "cover")
+	if why != "":
+		return _refuse("cover", 0, why)
 	_cover(0)
 	return {"ok": true}
 
 
 func play_random() -> Dictionary:
-	if king != 0 or phase != Phase.KING_TURN:
-		return _refuse("random", 0, "not_king_turn")
-	if int(random_left[0]) <= 0:
-		return _refuse("random", 0, "no_uses")
+	var why := why_not(0, "random")
+	if why != "":
+		return _refuse("random", 0, why)
 	_randomize(0)
 	return {"ok": true}
 
 
 func fake() -> Dictionary:
-	if king != 0:
-		return _refuse("fake", 0, "not_king")
-	if not _active() or faked or info_done or int(fake_left[0]) <= 0:
-		return _refuse("fake", 0, "unavailable")
+	var why := why_not(0, "fake")
+	if why != "":
+		return _refuse("fake", 0, why)
 	_fake(0)
 	return {"ok": true}
 
 
 func expose(kind: String) -> Dictionary:
-	if king != 0:
-		return _refuse("expose", 0, "not_king")
 	return _expose(0, kind, "manual")
+
+
+## 판단 시간을 일찍 끝내고 공개 (사람 왕)
+func judge_done() -> Dictionary:
+	var why := why_not(0, "judge_done")
+	if why != "":
+		return _refuse("judge_done", 0, why)
+	GameLog.info("JUDGE", {"event": "done_early", "left": judge_left})
+	_reveal()
+	return {"ok": true}
+
+
+## 행동을 지금 할 수 있는지 — "" 이면 가능, 아니면 까닭 코드. 행동 함수와 화면 버튼이 같은 규칙을 씀 (상태를 바꾸지 않음)
+func why_not(seat: int, action: String, arg: String = "") -> String:
+	match action:
+		"object":
+			if not _active():
+				return "not_active"
+			if not CheatRules.OBJECTS.has(arg):
+				return "unknown=" + arg
+			if objects[seat].size() >= CheatRules.OBJECT_SLOTS:
+				return "full"
+		"accomplice":
+			if seat != slave or not _active():
+				return "not_slave"
+			if acc_state[seat] != "none" or int(acc_calls_left[seat]) <= 0 or bool(sealed[seat]["acc"]):
+				return "unavailable"
+		"attention":
+			if seat != slave or phase != Phase.SLAVE_TURN:
+				return "not_slave_turn"
+			if int(attention_left[seat]) <= 0:
+				return "no_uses"
+		"gesture":
+			if seat != slave or phase != Phase.KING_TURN:
+				return "not_king_turn"
+			if gesture_used:
+				return "used"
+			if limit - t < CheatRules.GESTURE_MIN_LEFT:
+				return "under_10s"
+		"cover":
+			if seat != king:
+				return "not_king"
+			if not _active() or covered or int(cover_left[seat]) <= 0:
+				return "unavailable"
+		"random":
+			if seat != king or phase != Phase.KING_TURN:
+				return "not_king_turn"
+			if int(random_left[seat]) <= 0:
+				return "no_uses"
+		"fake":
+			if seat != king:
+				return "not_king"
+			if not _active() or faked or info_done or int(fake_left[seat]) <= 0:
+				return "unavailable"
+		"expose":
+			if seat != king or (phase != Phase.SLAVE_TURN and phase != Phase.JUDGE):
+				return "not_king_slave_turn"
+			if arg != "peek" and arg != "acc":
+				return "kind=" + arg
+			if bool(exposed_turn[arg]):
+				return "already_this_turn"
+			if bool(sealed[slave][arg]):
+				return "sealed"
+		"judge_done":
+			if seat != king or phase != Phase.JUDGE:
+				return "not_judge"
+		_:
+			return "unknown_action=" + action
+	return ""
 
 
 func next() -> void:
@@ -241,17 +313,14 @@ func commit_by(seat: int, card: int) -> Dictionary:
 	if phase == Phase.KING_TURN:
 		_start_phase(Phase.SLAVE_TURN)
 	else:
-		_reveal()
+		_start_judge()
 	return {"ok": true}
 
 
 func place_object_by(seat: int, kind: String) -> Dictionary:
-	if not _active():
-		return _refuse("object", seat, "not_active")
-	if not CheatRules.OBJECTS.has(kind):
-		return _refuse("object", seat, "unknown=" + kind)
-	if objects[seat].size() >= CheatRules.OBJECT_SLOTS:
-		return _refuse("object", seat, "full")
+	var why := why_not(seat, "object", kind)
+	if why != "":
+		return _refuse("object", seat, why)
 	objects[seat].append(kind)
 	stats["objects_placed"][seat] += 1
 	var other := 1 - seat
@@ -264,10 +333,9 @@ func place_object_by(seat: int, kind: String) -> Dictionary:
 
 
 func call_accomplice_by(seat: int) -> Dictionary:
-	if seat != slave or not _active():
-		return _refuse("accomplice", seat, "not_slave")
-	if acc_state[seat] != "none" or int(acc_calls_left[seat]) <= 0 or bool(sealed[seat]["acc"]):
-		return _refuse("accomplice", seat, "unavailable")
+	var why := why_not(seat, "accomplice")
+	if why != "":
+		return _refuse("accomplice", seat, why)
 	acc_calls_left[seat] -= 1
 	acc_state[seat] = "walking"
 	acc_walk_left[seat] = CheatRules.ACC_WALK_SECONDS
@@ -279,10 +347,9 @@ func call_accomplice_by(seat: int) -> Dictionary:
 
 ## 시선 끌기 — 노예 턴, 매치 1번: ATTENTION_SECONDS 동안 왕이 노예 시선을 못 봄 (AI 왕은 딴 곳을 봄)
 func attention_by(seat: int) -> Dictionary:
-	if seat != slave or phase != Phase.SLAVE_TURN:
-		return _refuse("attention", seat, "not_slave_turn")
-	if int(attention_left[seat]) <= 0:
-		return _refuse("attention", seat, "no_uses")
+	var why := why_not(seat, "attention")
+	if why != "":
+		return _refuse("attention", seat, why)
 	attention_left[seat] -= 1
 	blind_until = t + CheatRules.ATTENTION_SECONDS
 	stats["attentions"][seat] += 1
@@ -296,12 +363,9 @@ func attention_by(seat: int) -> Dictionary:
 
 ## 제스처 — 왕 턴에 노예가: 왕 턴이 10초 이상 남았으면 −5초 (왕 턴마다 1번)
 func gesture_by(seat: int) -> Dictionary:
-	if seat != slave or phase != Phase.KING_TURN:
-		return _refuse("gesture", seat, "not_king_turn")
-	if gesture_used:
-		return _refuse("gesture", seat, "used")
-	if limit - t < CheatRules.GESTURE_MIN_LEFT:
-		return _refuse("gesture", seat, "under_10s")
+	var why := why_not(seat, "gesture")
+	if why != "":
+		return _refuse("gesture", seat, why)
 	gesture_used = true
 	limit -= CheatRules.GESTURE_CUT
 	king_rushed = true
@@ -520,6 +584,29 @@ func _timeout() -> void:
 	commit_by(who, card)
 
 
+## 노예가 냄 → 왕의 판단 시간 (사람 왕 5초 · AI 왕 1.2초). 그동안 시선 고정·불·정보는 멈춤
+func _start_judge() -> void:
+	phase = Phase.JUDGE
+	judge_limit = CheatRules.JUDGE_SECONDS if brains[king] == null else CheatRules.AI_JUDGE_SECONDS
+	judge_left = judge_limit
+	if brains[slave] != null:
+		_set_gaze(slave, "own_card")   # 낸 뒤엔 자기 카드를 봄 (얼어붙은 시선이 단서가 되지 않게)
+	if brains[king] != null:
+		_set_gaze(king, "face")
+	GameLog.info("JUDGE", {"event": "start", "king": king, "seconds": judge_limit, "light_peek": lights["peek"],
+		"light_acc": lights["acc"], "tried_peek": tried["peek"], "tried_acc": tried["acc"]})
+	_emit({"type": "judge_start", "king": king, "limit": judge_limit})
+
+
+func _tick_judge(dt: float, seat0_gaze: String) -> void:
+	if brains[0] == null:
+		_set_gaze(0, seat0_gaze if seat0_gaze != "" else "table")
+	judge_left -= dt
+	if judge_left <= 0.0:
+		GameLog.info("JUDGE", {"event": "time_up"})
+		_reveal()
+
+
 # ───────────────────────── 내부: 방어 ─────────────────────────
 
 func _cover(s: int) -> void:
@@ -557,16 +644,15 @@ func _fake_of(card: int) -> int:
 
 ## 밝혀내기: 이번 노예 턴에 그 속임수를 진짜로 썼으면 적중
 func _expose(by: int, kind: String, how: String) -> Dictionary:
-	if phase != Phase.SLAVE_TURN or by != king:
-		return _refuse("expose", by, "not_king_slave_turn")
-	if kind != "peek" and kind != "acc":
-		return _refuse("expose", by, "kind=" + kind)
-	if bool(exposed_turn[kind]):
-		return _refuse("expose", by, "already_this_turn")
+	var why := why_not(by, "expose", kind)
+	if why != "":
+		return _refuse("expose", by, why)
+	var judging: bool = phase == Phase.JUDGE
 	exposed_turn[kind] = true
 	var s := slave
 	stats["expose"][by] += 1
-	var hit: bool = bool(tried[kind]) or _live_real(kind)
+	# 판단 시간엔 '이번 턴에 진짜로 씀'만 근거 (낸 뒤의 시선은 속임수가 아님)
+	var hit: bool = bool(tried[kind]) or (not judging and _live_real(kind))
 	if hit:
 		stats["expose_hit"][by] += 1
 		stats["caught"][s] += 1
@@ -574,14 +660,17 @@ func _expose(by: int, kind: String, how: String) -> Dictionary:
 		sealed[s][kind] = true
 		if kind == "acc":
 			acc_state[s] = "out"
-		limit = maxf(limit - CheatRules.EXPOSE_CUT, t + CheatRules.MIN_TIME_LEFT)
+		if judging:
+			pending_time[s] -= CheatRules.EXPOSE_CUT   # 노예 차례는 끝났으니 다음 차례에서 깎음
+		else:
+			limit = maxf(limit - CheatRules.EXPOSE_CUT, t + CheatRules.MIN_TIME_LEFT)
 	else:
 		pending_time[by] -= CheatRules.EXPOSE_FAIL_CUT
 	if brains[by] != null:
 		brains[by].on_expose_result(hit)
-	GameLog.info("EXPOSE", {"by": by, "kind": kind, "how": how, "hit": hit, "t": t, "strikes": strikes[s],
-		"slave_limit": limit, "king_pending": pending_time[by]})
-	_emit({"type": "expose", "by": by, "kind": kind, "hit": hit, "how": how, "strikes": strikes.duplicate()})
+	GameLog.info("EXPOSE", {"by": by, "kind": kind, "how": how, "hit": hit, "judge": judging, "t": t, "strikes": strikes[s],
+		"slave_limit": limit, "slave_pending": pending_time[s], "king_pending": pending_time[by]})
+	_emit({"type": "expose", "by": by, "kind": kind, "hit": hit, "how": how, "judge": judging, "strikes": strikes.duplicate()})
 	if hit and int(strikes[s]) >= CheatRules.STRIKES_TO_LOSE:
 		_end_match(by, "CAUGHT_TWICE")
 	return {"ok": true, "hit": hit}

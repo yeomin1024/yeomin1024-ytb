@@ -1,12 +1,15 @@
-# VERSION: v0.5.0 — 2026-11-26 — 사전 설정(책상 위 물건 3자리) · 왕 턴/노예 턴 · 진영별 키 · 가능성 불 두 개 · 새 이벤트 기록
+# VERSION: v0.6.0 — 2026-11-26 — 기능마다 버튼(노예 열·왕 열, 못 쓰면 흐리게·남은 횟수·단축키) · 판단 시간 안내·타이머·'판단 끝·공개'
+# 이전 VERSION: v0.5.0 — 2026-11-26 — 사전 설정(책상 위 물건 3자리) · 왕 턴/노예 턴 · 진영별 키 · 가능성 불 두 개 · 새 이벤트 기록
 # 이전 VERSION: v0.4.0 — 2026-11-26 — 키 행동: 라이터 놓기 · 협력자 부르기 · 카드 덮개 · 블러핑 · 안내·기록
 # 이전 VERSION: v0.3.0 — 2026-11-26 — 안내 문구: 노예(암살자) 측 판 = 속임수 판, 왕 측 판 = 감시 판
 # 이전 VERSION: v0.2.0 — 2026-11-26 — 실시간 화면: 마우스 = 시선 · 시야 제한(보는 곳만 밝게) · 스페이스 = 잡았다
 #
-# 조작: 마우스가 가리키는 곳 = 내 시선 · 카드 클릭 = 내기 · 행동은 키보드 (마우스를 움직이면 시선이 바뀌므로)
+# 조작: 마우스가 가리키는 곳 = 내 시선 · 카드 클릭 = 내기 · 행동은 왼쪽 버튼 또는 단축키
+#   (버튼을 누르러 마우스를 옮기면 시선도 옮겨짐 — 엿보는 중엔 단축키)
 #   노예(공격): 1 반사경 라이터 놓기 · 3 빈 라이터 놓기 · 2 협력자 부르기 · F 시선 끌기 · G 제스처
-#   왕(방어)  : C 가리기 · R 무작위로 내기 · X 바꿔치기 · Q 엿보기 밝혀내기 · W 협력자 밝혀내기
+#   왕(방어)  : C 가리기 · R 무작위로 내기 · X 바꿔치기 · Q 엿보기 밝혀내기 · W 협력자 밝혀내기 · Enter 판단 끝·공개
 #   Enter 다음
+# 버튼을 쓸 수 있는지는 core/match.gd why_not() 하나로 판정 (규칙과 화면이 어긋나지 않게)
 # 규칙은 core/match.gd 에, 그림은 scenes/table_view.gd 에. 여기선 연결·안내·기록만.
 # 연구·교육용 데모 — 실제 돈과 관계없음.
 extends Control
@@ -23,6 +26,21 @@ const OPP_NAMES := {"cheater": "손버릇 나쁜 딜러", "watcher": "눈이 매
 const SETUP_KINDS := ["", "lighter", "lighter_plain", "cigcase", "cigcase_plain", "glass", "phone"]
 const SETUP_NAMES := ["없음", "라이터 (반사경)", "라이터 (빈 것)", "담뱃갑 (반사경)", "담뱃갑 (빈 것)", "술잔", "휴대폰"]
 const SETUP_DEFAULT := [1, 4, 0]
+## 기능 버튼: [id, 열(0 노예·1 왕), 이름, 단축키, 설명]
+const ACTIONS := [
+	["lighter", 0, "반사경 라이터 놓기", "1", "빈 물건 자리에 반사경이 든 라이터를 놓음. 노예 턴에 1.5초 계속 보면 상대 카드가 비침"],
+	["lighter_plain", 0, "빈 라이터 놓기", "3", "반사경 없는 라이터(미끼) — 겉모양이 같아 오래 보면 상대에게 불만 켜짐"],
+	["accomplice", 0, "협력자 부르기", "2", "2.5초 뒤 상대 뒤에 섬. 노예 턴에 그 사람 손을 1.8초 계속 보면 상대 카드 (매치 2번)"],
+	["attention", 0, "시선 끌기", "F", "노예 턴, 매치 1번: 3초 동안 상대가 내 시선을 못 봄 (불·밝혀내기 없음)"],
+	["gesture", 0, "제스처", "G", "상대 왕 턴이 10초 이상 남았을 때 상대 시간 −5초 (왕 턴마다 1번)"],
+	["cover", 1, "가리기", "C", "내 카드 위에 칩 — 이번 턴 반사경 엿보기가 안 통함 (협력자는 통함)"],
+	["random", 1, "무작위로 내기", "R", "카드를 보지 않고 바로 냄 — 엿보기·협력자 둘 다 안 통함"],
+	["fake", 1, "바꿔치기", "X", "엿보는 상대에게 가짜 카드를 보여 줌"],
+	["expose_peek", 1, "엿보기 밝혀내기", "Q", "노예 턴·판단 시간: 이번 턴에 진짜 반사경을 봤으면 적중 (경고·봉인·상대 −5초) / 헛짚으면 내 다음 턴 −5초"],
+	["expose_acc", 1, "협력자 밝혀내기", "W", "노예 턴·판단 시간: 이번 턴에 진짜 협력자를 봤으면 적중 (협력자 쫓겨남) / 헛짚으면 내 다음 턴 −5초"],
+	["judge_done", 1, "판단 끝·공개", "Enter", "판단 시간을 끝내고 카드를 공개"],
+]
+const BTN_SIZE := Vector2(162, 30)
 const MAX_DT := 0.1   # 프레임이 끊겨도 한 번에 0.1초 넘게 흐르지 않게 (들킴 확률이 튀지 않게)
 const LAMP_OFF := Color(0.18, 0.18, 0.2, 0.85)
 const LAMP_ON := Color(1.0, 0.72, 0.15, 0.95)
@@ -49,7 +67,8 @@ var banner: Label
 var timer_bar: ProgressBar
 var timer_label: Label
 var status_label: Label
-var keys_label: Label
+var action_buttons: Dictionary = {}
+var col_headers: Array = []
 var log_view: RichTextLabel
 var opp_option: OptionButton
 var spot_check: CheckBox
@@ -127,8 +146,7 @@ func _build() -> void:
 	helper_check.position = Vector2(14, 178)
 	helper_check.focus_mode = Control.FOCUS_NONE
 	ui.add_child(helper_check)
-	keys_label = _label(Vector2(14, 214), Vector2(330, 170), 14)
-	ui.add_child(keys_label)
+	_build_actions(ui)
 
 	var log_bg := ColorRect.new()
 	log_bg.color = Color(0, 0, 0, 0.55)
@@ -171,6 +189,35 @@ func _build() -> void:
 	_build_setup(ui)
 
 
+## 기능 버튼 두 열 (노예 = 공격 · 왕 = 방어) — 못 쓰는 때는 흐리게
+func _build_actions(ui: Control) -> void:
+	col_headers.clear()
+	for col in 2:
+		var h := _label(Vector2(14 + col * 168, 214), Vector2(BTN_SIZE.x, 22), 14)
+		ui.add_child(h)
+		col_headers.append(h)
+	var rows := [0, 0]
+	action_buttons.clear()
+	for a in ACTIONS:
+		var id := str(a[0])
+		var col := int(a[1])
+		var b := Button.new()
+		b.position = Vector2(14 + col * 168, 240 + int(rows[col]) * 34)
+		b.size = BTN_SIZE
+		b.clip_text = true
+		b.focus_mode = Control.FOCUS_NONE
+		b.add_theme_font_size_override("font_size", 12)
+		b.tooltip_text = "%s (%s)\n%s" % [str(a[2]), str(a[3]), str(a[4])]
+		b.pressed.connect(_act.bind(id))
+		ui.add_child(b)
+		action_buttons[id] = b
+		rows[col] = int(rows[col]) + 1
+	var hint := _label(Vector2(14, 446), Vector2(330, 40), 12)
+	hint.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	hint.text = "버튼을 누르러 마우스를 옮기면 시선도 옮겨져요 — 엿보는 중엔 [ ] 안 단축키를 쓰세요"
+	ui.add_child(hint)
+
+
 ## 사전 설정 창: 책상 위 물건 3자리 (반사경이 든 것 / 빈 것은 겉모양이 같음)
 func _build_setup(ui: Control) -> void:
 	setup_panel = Control.new()
@@ -204,7 +251,7 @@ func _build_setup(ui: Control) -> void:
 	var start_btn := _button("시작", Vector2(380, 236), _on_setup_start)
 	setup_panel.add_child(start_btn)
 	var note := _label(Vector2(20, 240), Vector2(340, 30), 12)
-	note.text = "게임 중에도 키 1·3 으로 더 놓을 수 있음"
+	note.text = "게임 중에도 왼쪽 버튼(키 1·3)으로 더 놓을 수 있음"
 	setup_panel.add_child(note)
 
 
@@ -248,6 +295,7 @@ func _new_match() -> void:
 	_log("한 턴 = [color=skyblue]왕 턴[/color](왕이 먼저 엎어 냄) → [color=orange]노예 턴[/color](노예가 엿보고 냄) · 각 %.0f초" % CheatRules.TURN_SECONDS)
 	_log("노예: 반사경 물건 %.1f초 · 협력자 %.1f초 계속 보면 상대 카드. 눈을 떼면 처음부터" % [CheatRules.PEEK_FIX, CheatRules.ACC_FIX])
 	_log("왕: 노예 시선이 그만큼 고정되면 가능성 불이 켜짐 (진짜든 미끼든) → 밝혀내기")
+	_log("노예가 카드를 내면 왕에게 [color=yellow]판단 시간 %.0f초[/color] — 그동안에도 밝혀내기 가능 ('판단 끝·공개'로 일찍 끝냄)" % CheatRules.JUDGE_SECONDS)
 	_log("밝혀내기 적중 = 상대 경고 +1 · 그 속임수 봉인 · 상대 턴 −%.0f초 / 헛짚음 = 내 다음 턴 −%.0f초 · 경고 %d개면 패배" % [
 		CheatRules.EXPOSE_CUT, CheatRules.EXPOSE_FAIL_CUT, CheatRules.STRIKES_TO_LOSE])
 	_log("[color=gray]연구·교육용 데모입니다. 실제 돈과 관계없습니다.[/color]")
@@ -324,35 +372,83 @@ func _unhandled_input(event: InputEvent) -> void:
 	if k == null or not k.pressed or k.echo or game == null:
 		return
 	if k.keycode == KEY_ENTER or k.keycode == KEY_KP_ENTER or k.keycode == KEY_N:
-		_on_next()
+		if int(game.phase) == GambleMatch.Phase.JUDGE:
+			_act("judge_done")
+		else:
+			_on_next()
 		return
-	var r := {}
+	var id := ""
 	match k.keycode:
 		KEY_1:
-			r = game.place_object("lighter")
+			id = "lighter"
 		KEY_3:
-			r = game.place_object("lighter_plain")
+			id = "lighter_plain"
 		KEY_2:
-			r = game.call_accomplice()
+			id = "accomplice"
 		KEY_F:
-			r = game.attention()
+			id = "attention"
 		KEY_G:
-			r = game.gesture()
+			id = "gesture"
 		KEY_C:
-			r = game.cover()
+			id = "cover"
 		KEY_R:
-			r = game.play_random()
+			id = "random"
 		KEY_X:
-			r = game.fake()
+			id = "fake"
 		KEY_Q:
-			r = game.expose("peek")
+			id = "expose_peek"
 		KEY_W:
+			id = "expose_acc"
+		_:
+			return
+	_act(id)
+
+
+## 버튼·단축키 공통 — 규칙은 core/match.gd
+func _act(id: String) -> void:
+	if game == null:
+		return
+	var r := {}
+	match id:
+		"lighter":
+			r = game.place_object("lighter")
+		"lighter_plain":
+			r = game.place_object("lighter_plain")
+		"accomplice":
+			r = game.call_accomplice()
+		"attention":
+			r = game.attention()
+		"gesture":
+			r = game.gesture()
+		"cover":
+			r = game.cover()
+		"random":
+			r = game.play_random()
+		"fake":
+			r = game.fake()
+		"expose_peek":
+			r = game.expose("peek")
+		"expose_acc":
 			r = game.expose("acc")
+		"judge_done":
+			r = game.judge_done()
 		_:
 			return
 	if r.has("ok") and not bool(r["ok"]):
 		_log("[color=gray]지금은 못 함 (%s)[/color]" % _why(str(r.get("why", ""))))
 	_drain()
+
+
+## 버튼 id → match.gd why_not(action, arg)
+func _rule_of(id: String) -> Array:
+	match id:
+		"lighter", "lighter_plain":
+			return ["object", id]
+		"expose_peek":
+			return ["expose", "peek"]
+		"expose_acc":
+			return ["expose", "acc"]
+	return [id, ""]
 
 
 func _why(code: String) -> String:
@@ -361,7 +457,8 @@ func _why(code: String) -> String:
 		"not_slave": "노예 측일 때만", "unavailable": "지금은 쓸 수 없음 (이미 씀·남은 횟수 없음·봉인)",
 		"not_slave_turn": "노예 턴에만", "no_uses": "남은 횟수 없음", "not_king_turn": "내 왕 턴에만",
 		"used": "이번 왕 턴에 이미 씀", "under_10s": "상대 왕 턴이 %.0f초 이상 남았을 때만" % CheatRules.GESTURE_MIN_LEFT,
-		"not_king": "왕 측일 때만", "not_king_slave_turn": "왕 측일 때, 노예 턴에만",
+		"not_king": "왕 측일 때만", "not_king_slave_turn": "왕 측일 때, 노예 턴·판단 시간에만",
+		"sealed": "이미 봉인된 속임수 — 상대가 더는 못 씀", "not_judge": "내가 왕일 때 판단 시간에만",
 		"already_this_turn": "이 속임수는 이번 턴에 이미 밝혀내기 함", "not_your_turn": "내 차례가 아님",
 	}
 	if table_why.has(code):
@@ -453,6 +550,11 @@ func _render(ev: Dictionary) -> void:
 				_log("[color=yellow][b]%s 가능성 불![/b] 상대 시선이 고정됐다 — 진짜일까 미끼일까[/color]" % lk)
 			else:
 				_log("[color=yellow]내 시선이 오래 머물러 상대 쪽 '%s 가능성' 불이 켜졌다[/color]" % lk)
+		"judge_start":
+			if int(ev["king"]) == 0:
+				_log("[color=yellow][b]상대가 냈다 — 판단 시간 %.0f초[/b] 속임수를 썼다고 보면 엿보기/협력자 밝혀내기, 아니면 '판단 끝·공개'[/color]" % float(ev["limit"]))
+			else:
+				_log("[color=gray]상대가 판단 중…[/color]")
 		"timeout":
 			_log("[color=yellow]%s 시간 초과 — 무작위 카드를 냈다[/color]" % ("내" if int(ev["seat"]) == 0 else "상대"))
 		"expose":
@@ -495,8 +597,9 @@ func _render_expose(ev: Dictionary) -> void:
 	if by == 0:
 		if hit:
 			var extra := " · 협력자 쫓겨남" if kind == "acc" else ""
-			_log("[color=lime][b]밝혀냈다! 상대 %s 적중[/b] — 상대 경고 %d/%d · %s 봉인%s · 상대 턴 −%.0f초[/color]" % [
-				what, int(ev["strikes"][1]), CheatRules.STRIKES_TO_LOSE, what, extra, CheatRules.EXPOSE_CUT])
+			var cut_where := "상대 다음 턴" if bool(ev.get("judge", false)) else "상대 턴"
+			_log("[color=lime][b]밝혀냈다! 상대 %s 적중[/b] — 상대 경고 %d/%d · %s 봉인%s · %s −%.0f초[/color]" % [
+				what, int(ev["strikes"][1]), CheatRules.STRIKES_TO_LOSE, what, extra, cut_where, CheatRules.EXPOSE_CUT])
 		else:
 			_log("[color=yellow]헛짚음 — 상대는 진짜 %s를 쓰지 않았다 · 내 다음 턴 −%.0f초[/color]" % [what, CheatRules.EXPOSE_FAIL_CUT])
 		return
@@ -573,22 +676,34 @@ func _refresh() -> void:
 	if ph == GambleMatch.Phase.IDLE:
 		text = "사전 설정 — 책상 위 물건을 고르고 '시작'"
 	elif ph == GambleMatch.Phase.KING_TURN and me_king:
-		text = "내 왕 턴 — 카드를 클릭해 엎어 내기 · C 가리기 · R 무작위로 내기 · X 바꿔치기"
+		text = "내 왕 턴 — 카드를 클릭해 엎어 내기 · 가리기 · 무작위로 내기 · 바꿔치기"
 	elif ph == GambleMatch.Phase.KING_TURN:
-		text = "상대(왕)가 카드를 고르는 중 — G 제스처(상대 시간 −%.0f초, %.0f초 이상 남았을 때) · 2 협력자 부르기 · 1/3 물건 놓기" % [CheatRules.GESTURE_CUT, CheatRules.GESTURE_MIN_LEFT]
+		text = "상대(왕)가 카드를 고르는 중 — 제스처(상대 시간 −%.0f초, %.0f초 이상 남았을 때) · 협력자 부르기 · 물건 놓기" % [CheatRules.GESTURE_CUT, CheatRules.GESTURE_MIN_LEFT]
 	elif ph == GambleMatch.Phase.SLAVE_TURN and me_king:
-		text = "노예 턴 — 상대 눈을 지켜보세요. 불이 켜지면 Q 엿보기 / W 협력자 밝혀내기 (헛짚으면 내 다음 턴 −%.0f초)" % CheatRules.EXPOSE_FAIL_CUT
+		text = "노예 턴 — 상대 눈을 지켜보세요. 불이 켜지면 엿보기/협력자 밝혀내기 (상대가 낸 뒤 판단 시간 %.0f초도 있음)" % CheatRules.JUDGE_SECONDS
 	elif ph == GambleMatch.Phase.SLAVE_TURN:
-		text = "내 노예 턴 — 반사경 물건을 %.1f초, 협력자를 %.1f초 '계속' 보면 상대 카드 · F 시선 끌기 · 카드 클릭으로 내기" % [CheatRules.PEEK_FIX, CheatRules.ACC_FIX]
+		text = "내 노예 턴 — 반사경 물건을 %.1f초, 협력자를 %.1f초 '계속' 보면 상대 카드 · 시선 끌기 · 카드 클릭으로 내기" % [CheatRules.PEEK_FIX, CheatRules.ACC_FIX]
+	elif ph == GambleMatch.Phase.JUDGE and me_king:
+		text = "판단 시간 — 상대가 냈다. 속임수를 썼다고 보면 엿보기(Q)/협력자(W) 밝혀내기, 아니면 '판단 끝·공개'(Enter)"
+	elif ph == GambleMatch.Phase.JUDGE:
+		text = "상대가 판단 중…"
 	elif ph == GambleMatch.Phase.REVEALED:
 		text = "Enter 다음"
 	elif ph == GambleMatch.Phase.MATCH_OVER:
 		text = "매치 끝 — '새 매치'"
 	banner.text = text
 	var active: bool = ph == GambleMatch.Phase.KING_TURN or ph == GambleMatch.Phase.SLAVE_TURN
-	var left: float = float(game.time_left()) if active else 0.0
-	timer_bar.value = clampf(left / maxf(float(game.limit), 0.01), 0.0, 1.0) * 100.0 if active else 0.0
-	timer_label.text = "%.1f초" % left if active else ""
+	var judging: bool = ph == GambleMatch.Phase.JUDGE
+	var left := 0.0
+	var total := 1.0
+	if active:
+		left = float(game.time_left())
+		total = float(game.limit)
+	elif judging:
+		left = maxf(float(game.judge_left), 0.0)
+		total = float(game.judge_limit)
+	timer_bar.value = clampf(left / maxf(total, 0.01), 0.0, 1.0) * 100.0 if (active or judging) else 0.0
+	timer_label.text = ("판단 %.1f초" % left) if judging else ("%.1f초" % left if active else "")
 	var role := "왕 측(방어)" if me_king else "노예 측(공격)"
 	if ph == GambleMatch.Phase.IDLE:
 		role = "-"
@@ -598,9 +713,9 @@ func _refresh() -> void:
 	status_label.text = "%s · %s\n점수 %d : %d\n내 경고 %s · 상대 경고 %s%s" % [
 		_round_name(int(game.round_index)), role, int(game.scores[0]), int(game.scores[1]),
 		_dots(int(game.strikes[0])), _dots(int(game.strikes[1])), pend]
-	keys_label.text = _keys_text(me_king)
+	_refresh_actions(ph, me_king)
 	# 가능성 불
-	var show_lamps: bool = ph == GambleMatch.Phase.SLAVE_TURN or ph == GambleMatch.Phase.REVEALED
+	var show_lamps: bool = ph == GambleMatch.Phase.SLAVE_TURN or judging or ph == GambleMatch.Phase.REVEALED
 	lamp_caption.text = "상대 노예의 속임수 가능성" if me_king else "내 시선이 상대에게 켠 불"
 	for kind in ["peek", "acc"]:
 		var on: bool = show_lamps and bool(game.lights[kind])
@@ -614,18 +729,48 @@ func _refresh() -> void:
 	next_btn.disabled = ph != GambleMatch.Phase.REVEALED
 
 
-func _keys_text(me_king: bool) -> String:
-	if me_king:
-		return "왕일 때 (방어)\n클릭: 카드 엎어 내기\nC 가리기 %d번 — 반사경 막음\nR 무작위로 내기 %d번 — 둘 다 막음\nX 바꿔치기 %d번 — 가짜를 보여 줌\nQ 엿보기 / W 협력자 밝혀내기\nEnter 다음" % [
-			int(game.cover_left[0]), int(game.random_left[0]), int(game.fake_left[0])]
-	var acc := "%d번" % int(game.acc_calls_left[0])
-	if str(game.acc_state[0]) == "out" or bool(game.sealed[0]["acc"]):
-		acc = "봉인"
-	elif str(game.acc_state[0]) != "none":
-		acc = "와 있음"
-	var peek := " (봉인)" if bool(game.sealed[0]["peek"]) else ""
-	return "노예일 때 (공격)\n1 반사경 라이터 · 3 빈 라이터 놓기%s\n2 협력자 부르기 (%s)\nF 시선 끌기 %d번 (노예 턴)\nG 제스처 (상대 왕 턴)\n클릭: 카드 내기 · Enter 다음" % [
-		peek, acc, int(game.attention_left[0])]
+## 버튼: 못 쓰면 흐리게 (match.gd why_not 과 같은 규칙) · 남은 횟수 · 지금 내 역할 열 강조
+func _refresh_actions(ph: int, me_king: bool) -> void:
+	var names := ["노예 (공격)", "왕 (방어)"]
+	for col in 2:
+		var mine: bool = (col == 1) == me_king and ph != GambleMatch.Phase.IDLE
+		var h: Label = col_headers[col]
+		h.text = str(names[col]) + (" ◀ 지금" if mine else "")
+		var c := Color(1.0, 0.7, 0.35) if col == 0 else Color(0.55, 0.8, 1.0)
+		h.add_theme_color_override("font_color", c if mine else Color(0.55, 0.55, 0.55))
+	for a in ACTIONS:
+		var id := str(a[0])
+		var b: Button = action_buttons[id]
+		var rule := _rule_of(id)
+		b.disabled = ph == GambleMatch.Phase.IDLE or str(game.why_not(0, str(rule[0]), str(rule[1]))) != ""
+		var txt := "%s [%s]%s" % [str(a[2]), str(a[3]), _count_suffix(id)]
+		if b.text != txt:
+			b.text = txt
+
+
+func _count_suffix(id: String) -> String:
+	match id:
+		"accomplice":
+			if str(game.acc_state[0]) == "out" or bool(game.sealed[0]["acc"]):
+				return " 봉인"
+			if str(game.acc_state[0]) != "none":
+				return " 있음"
+			return " %d" % int(game.acc_calls_left[0])
+		"lighter", "lighter_plain":
+			return " 봉인" if bool(game.sealed[0]["peek"]) else ""
+		"attention":
+			return " %d" % int(game.attention_left[0])
+		"cover":
+			return " %d" % int(game.cover_left[0])
+		"random":
+			return " %d" % int(game.random_left[0])
+		"fake":
+			return " %d" % int(game.fake_left[0])
+		"expose_peek":
+			return " 봉인" if bool(game.sealed[int(game.slave)]["peek"]) and int(game.king) == 0 else ""
+		"expose_acc":
+			return " 봉인" if bool(game.sealed[int(game.slave)]["acc"]) and int(game.king) == 0 else ""
+	return ""
 
 
 func _round_name(idx: int) -> String:

@@ -1,4 +1,5 @@
-# VERSION: v0.5.0 — 2026-11-26 — 왕 턴/노예 턴 · 시선 고정 엿보기·협력자 · 가능성 불(진짜·미끼) · 가리기·무작위·바꿔치기 · 밝혀내기 · 시선 끌기 · 제스처 시험
+# VERSION: v0.6.0 — 2026-11-26 — 판단 시간(노예가 낸 뒤 밝혀내기·일찍 공개·AI 왕 1.2초) · 버튼 활성 조건 = 실제 규칙 시험
+# 이전 VERSION: v0.5.0 — 2026-11-26 — 왕 턴/노예 턴 · 시선 고정 엿보기·협력자 · 가능성 불(진짜·미끼) · 가리기·무작위·바꿔치기 · 밝혀내기 · 시선 끌기 · 제스처 시험
 # 이전 VERSION: v0.4.0 — 2026-11-26 — 준비 동작 · 반사경(라이터) · 협력자 신호 · 카드 덮개 · 블러핑 시험
 # 이전 VERSION: v0.3.0 — 2026-11-26 — 속임수는 노예 측만: 진영별 턴 종류 시험 · 왕 측은 엿볼 수 없음
 #
@@ -24,6 +25,8 @@ func _initialize() -> void:
 	var tests: Array = [
 		["rules_table", _t_rules_table],
 		["phases", _t_phases],
+		["judge", _t_judge],
+		["buttons_match_rules", _t_buttons_match_rules],
 		["objects", _t_objects],
 		["peek_continuous", _t_peek_continuous],
 		["lights_regardless", _t_lights_regardless],
@@ -125,13 +128,114 @@ func _t_phases() -> void:
 	m.commit(int(m.hands[0][0]))
 	_check(int(m.phase) == GambleMatch.Phase.SLAVE_TURN and m.actor() == 1, "그다음 AI 노예 턴")
 	_run(m, 8.0, "table")
-	_check(int(m.phase) == GambleMatch.Phase.REVEALED, "AI 노예가 냄 → 공개")
+	_check(int(m.phase) == GambleMatch.Phase.JUDGE, "AI 노예가 냄 → 판단 시간")
+	_run(m, 5.1, "table")
+	_check(int(m.phase) == GambleMatch.Phase.REVEALED, "판단 시간이 끝나면 공개")
 	var m2 = _hm(2, _brain("inert"))
 	m2.round_index = 0
 	m2.start()
 	_check(int(m2.king) == 1 and int(m2.phase) == GambleMatch.Phase.KING_TURN and m2.actor() == 1, "2판: AI 왕 턴")
 	_run(m2, 6.0, "table")
 	_check(int(m2.phase) == GambleMatch.Phase.SLAVE_TURN and m2.actor() == 0 and int(m2.committed[1]) != -1, "그다음 사람 노예 턴")
+
+
+func _t_judge() -> void:
+	var b = _brain("inert")
+	b.cheat_rate = 10.0
+	b.objects = ["lighter"]
+	var m = _hm(30, b)
+	m.start()
+	m.commit(int(m.hands[0][0]))
+	var ok := _run_until(m, func(): return int(m.phase) == GambleMatch.Phase.JUDGE, "table", 12.0)
+	_check(ok and bool(m.tried["peek"]) and float(m.judge_limit) == CheatRules.JUDGE_SECONDS, "AI 노예가 엿보고 냄 → 사람 왕 판단 시간 5초")
+	_run(m, 2.0, "face")
+	_check(int(m.phase) == GambleMatch.Phase.JUDGE, "5초 전엔 저절로 공개되지 않음")
+	var r: Dictionary = m.expose("peek")
+	_check(bool(r["ok"]) and bool(r["hit"]) and int(m.strikes[1]) == 1 and float(m.pending_time[1]) == -CheatRules.EXPOSE_CUT,
+		"판단 시간 밝혀내기 적중 → 경고 + 노예의 다음 차례 −5초")
+	var r2: Dictionary = m.expose("acc")
+	_check(bool(r2["ok"]) and not bool(r2["hit"]) and float(m.pending_time[0]) == -CheatRules.EXPOSE_FAIL_CUT, "안 쓴 협력자를 밝혀내면 헛짚음 → 내 다음 턴 −5초")
+	_check(bool(m.judge_done()["ok"]) and int(m.phase) == GambleMatch.Phase.REVEALED and not bool(m.judge_done()["ok"]), "판단 끝 → 바로 공개")
+	var m2 = _hm(31, _brain("inert"))
+	m2.start()
+	m2.commit(int(m2.hands[0][0]))
+	_run_until(m2, func(): return int(m2.phase) == GambleMatch.Phase.JUDGE, "table", 12.0)
+	m2.sealed[1]["acc"] = true
+	_check(not bool(m2.expose("acc")["ok"]), "봉인된 속임수는 밝혀내기 불가 (버튼 흐림)")
+	var m3 = _hm(32, _brain("inert"))
+	m3.round_index = 0
+	m3.start()
+	_run_until(m3, func(): return int(m3.phase) == GambleMatch.Phase.SLAVE_TURN, "table")
+	m3.commit(int(m3.hands[0][0]))
+	_check(int(m3.phase) == GambleMatch.Phase.JUDGE and float(m3.judge_limit) == CheatRules.AI_JUDGE_SECONDS
+		and not bool(m3.expose("peek")["ok"]) and not bool(m3.judge_done()["ok"]), "내가 노예로 내면 AI 왕 판단 1.2초 · 나는 판단 못 함")
+	_run(m3, 1.3, "table")
+	_check(int(m3.phase) == GambleMatch.Phase.REVEALED, "AI 판단 끝 → 공개")
+
+
+## 화면 버튼이 켜지는 조건(why_not == "")과 실제 행동 결과가 같은지 — 상태 5가지 × 행동 11가지
+func _t_buttons_match_rules() -> void:
+	var ids := ["lighter", "lighter_plain", "accomplice", "attention", "gesture", "cover", "random", "fake", "expose_peek", "expose_acc", "judge_done"]
+	for st in ["king_turn", "king_slave_turn", "king_judge", "slave_king_turn", "slave_slave_turn"]:
+		var bad := PackedStringArray()
+		for id in ids:
+			var m = _state(str(st))
+			var rule := _rule_of(str(id))
+			var predicted: bool = str(m.why_not(0, str(rule[0]), str(rule[1]))) == ""
+			var actual := _call_action(m, str(id))
+			if predicted != actual:
+				bad.append("%s(버튼 %s, 실제 %s)" % [id, predicted, actual])
+		_check(bad.is_empty(), "상태 %s: 버튼과 규칙이 다름 %s" % [st, ", ".join(bad)])
+
+
+func _state(kind: String):
+	var m = _hm(40, _brain("inert"), ["lighter"])
+	if kind.begins_with("slave"):
+		m.round_index = 0
+	m.start()
+	if kind == "king_slave_turn":
+		m.commit(int(m.hands[0][0]))
+	elif kind == "king_judge":
+		m.commit(int(m.hands[0][0]))
+		_run_until(m, func(): return int(m.phase) == GambleMatch.Phase.JUDGE, "table", 12.0)
+	elif kind == "slave_slave_turn":
+		_run_until(m, func(): return int(m.phase) == GambleMatch.Phase.SLAVE_TURN, "table")
+	return m
+
+
+func _rule_of(id: String) -> Array:
+	if id == "lighter" or id == "lighter_plain":
+		return ["object", id]
+	if id == "expose_peek":
+		return ["expose", "peek"]
+	if id == "expose_acc":
+		return ["expose", "acc"]
+	return [id, ""]
+
+
+func _call_action(m, id: String) -> bool:
+	var r: Dictionary = {}
+	if id == "lighter" or id == "lighter_plain":
+		r = m.place_object(id)
+	elif id == "accomplice":
+		r = m.call_accomplice()
+	elif id == "attention":
+		r = m.attention()
+	elif id == "gesture":
+		r = m.gesture()
+	elif id == "cover":
+		r = m.cover()
+	elif id == "random":
+		r = m.play_random()
+	elif id == "fake":
+		r = m.fake()
+	elif id == "expose_peek":
+		r = m.expose("peek")
+	elif id == "expose_acc":
+		r = m.expose("acc")
+	elif id == "judge_done":
+		r = m.judge_done()
+	return bool(r.get("ok", false))
 
 
 func _t_objects() -> void:
@@ -314,7 +418,7 @@ func _ai_card(p_seed: int, my_card: int) -> int:
 	var m = _hm(p_seed, _brain("honest"))
 	m.start()
 	m.commit(my_card)
-	_run(m, 8.0, "table")
+	_run_until(m, func(): return int(m.phase) == GambleMatch.Phase.REVEALED, "table")
 	var ev := _first(m, "reveal")
 	return int(ev["cards"][1]) if not ev.is_empty() else -1
 

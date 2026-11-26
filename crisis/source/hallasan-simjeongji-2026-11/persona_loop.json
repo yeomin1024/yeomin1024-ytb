@@ -338,6 +338,30 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 6,
+      "at": "2026-11-26T07:15:41Z",
+      "sha": "1ba899da3208a5c6",
+      "reviewers": [
+       {
+        "reviewer": "E6-P3",
+        "persona": "P3",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "85 — '떨어져서 숨진 54명보다 30명이 더 많다'는 출처(국립공원공단·10년·167명)가 붙은 숫자라 추락 사고만 떠올리던 내 생각을 바로 뒤집음 (104~108의 신호별 조건이 붙은 119 신고 기준도 수칙에 조건이 빠지지 않아 믿고 봄)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/exit_r6.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt"
@@ -682,20 +706,93 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-26T07:13:30Z",
+      "sha": "e0849632a4d55de9",
+      "reviewers": [
+       {
+        "reviewer": "K5-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 106,
+          "text": "등산하면 원래 숨차고 땀나는데, 그때마다 멈추고 119 부르라고요? 오르막마다 신고하겠네요.",
+          "fix": "106줄에 46줄처럼 기준을 붙임 — 숨참은 '앉아 쉬어도 가라앉지 않을 만큼 평소보다 심하게', 땀은 '운동해서 나는 땀이 아닌 식은땀'. 가슴·명치·팔·턱 통증은 지금처럼 바로 신고로 둠"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 106,
+          "text": "45줄에선 '가슴이 조이거나 답답'하다더니 106줄엔 '아프거나'만 있네요. 조이기만 하면 괜찮다는 건가요? 47줄의 등 통증은 왜 빠졌어요?",
+          "fix": "106줄을 45~47줄과 같게 — '가슴이 조이거나 답답하고', '팔이나 턱, 등이 아프거나'"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 57,
+          "text": "일행이랑 같이 내려와도 걷는 건 똑같은데, 그게 '혼자' 내려가서 위험한 이유예요?",
+          "fix": "57~58줄을 '신호가 있으면 멈춰야 하는데, 내려가려고 계속 걷게 된다'로 바꿔 위험이 '걷기'에 있다는 걸 105줄(더 걷지 말고 신고)과 이어 줌"
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 77,
+          "text": "청량산은 지인이 '발견했을 때' 이미 맥박이 없었다면서요. 그건 옆에 있었던 게 아니라 떨어져 있었던 것 아닌가요? '옆에 사람이 있어도'는 어느 사례 얘기예요?",
+          "fix": "74줄에서 지인이 곁에 있었는지 따로 걷다 찾았는지 분명히 하거나, 77줄을 '함께 간 사람이 있어도, 심폐소생술을 받아도'로 바꿈"
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 111,
+          "text": "가슴 눌렀다가 갈비뼈라도 부러지면 고소당할 텐데 누가 해 주겠어요?",
+          "fix": "111줄 뒤에 '선의로 한 응급처치는 법이 책임을 덜어 준다'는 한 문장 — 응급의료법의 선의의 응급의료 면책 조항을 law_text.py 로 원문 확인한 뒤, 조항 이름은 설명란에만"
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 66,
+          "text": "넓은 숲에서 구조대가 1시간 만에 찾은 것도 빠른 건데, '1시간이나 걸렸다'처럼 들려요.",
+          "fix": "66줄을 '넓은 숲이라, 구조대가 찾아내는 데만 1시간쯤 걸렸습니다'처럼 시간이 걸린 까닭을 숲으로 돌려 구조대 탓으로 들리지 않게"
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 49,
+          "text": "10년 전 미국 오리건 자료로 한국 등산객 얘기를 하네요.",
+          "fix": "'미국 연구지만' 한마디를 넣거나, 같은 물음을 다룬 2020년대·한국 연구가 있으면 그쪽으로 바꿈"
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자(1시간 40분·84−54=30·84/167≈절반·14.4/6.1=2배 넘게)는 앞뒤가 맞고 116줄로 김 씨·일행 탓도 피했다. 가장 큰 빈틈은 106줄 '숨이 심하게 차거나 식은땀'이 등산 때 흔한 숨참·땀과 갈리지 않아 119 기준이 흐려지는 점이고, 나머지는 말 다듬기 수준.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(5회차 뒤 — 통과였지만 4·5회차에 거듭 나온 중을 고침) 119 신호 = 앞의 목록 그대로 + '앉아 쉬어도 숨이 가라앉지 않거나 식은땀' · 첫째 이유 = 신호가 와도 멈추지 않고 걷게 됨 · '넓은 숲이라' 찾는 데 1시간 · '함께 간 사람이 있어도'",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt",
     "pending": {
-     "n": 5,
-     "sha": "e0849632a4d55de9",
+     "n": 6,
+     "sha": "1ba899da3208a5c6",
      "reviewers": [
-      "K5-반론"
+      "K6-반론"
      ],
-     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r5.md",
-     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/answers_hallasan-simjeongji-2026-11_script_rebuttal_5",
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r6.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/answers_hallasan-simjeongji-2026-11_script_rebuttal_6",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T07:10:07Z"
+     "at": "2026-11-26T07:13:30Z"
     }
    }
   }

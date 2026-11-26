@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-26 — 진행 멘트 점검: '오늘의 ~' ❌ (guides/script_rules.md v1.3 8번 — 사용자 지시 "오늘의 ~ 이런 멘트 넣지마 이건 공통 규칙에 넣고")
+# VERSION: v1.4 — 2026-11-26 — 도입 예고 말끝 '~봅니다' ⚠ ('~보겠습니다'로 — guides/script_rules.md 1번, 사용자 지시 "따라가 봅니다, 짚어봅니다 이렇게 하기말고 ~보겠습니다")
+# 이전 v1.3 — 2026-11-26 — 진행 멘트 점검: '오늘의 ~' ❌ (guides/script_rules.md v1.3 8번 — 사용자 지시 "오늘의 ~ 이런 멘트 넣지마 이건 공통 규칙에 넣고")
 # 이전 v1.2 — 2026-11-26 — 맥락을 끊는 멘트 점검(guides/script_rules.md 7번 — 호칭 선언·'끝까지 보시면'·'얻어 가실'·'이 영상에서는' ❌ · 본문의 짧은 '…보겠습니다.' 넘김 ⚠) · 시청자 이득 = 자연스러운 꼴로만 셈 (사용자 지시 "…쓸모없이 맥락만 망치는 멘트는 쓰지 말라고 공통 규칙에 기록하고 대본 수정해")
 # 이전 v1.1 — 2026-11-26 — 알고리즘 구조(제목 낱말 → 도입 첫 두 문장 · 챕터 이름 낱말 → 챕터 첫 두 문장) · 익숙한 말(가운뎃점·괄호·슬래시·영어 글자·따옴표 겹침) 점검 — guides/script_rules.md v1.1 5·6번
 # 이전 v1.0 — 2026-11-26 — 최초: 대본 공통 규칙(guides/script_rules.md v1.0) 점검 — 도입 30초 · 결론 먼저 ✗ · 썸네일 연결 · 챕터 끝 질문 · 직관적이지 않은 표현
@@ -9,6 +10,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-11-26 | 도입 '~봅니다' 말끝 ⚠ | main |
 # | v1.3 | 2026-11-26 | HOST_FILLER ('오늘의 ~' 진행 멘트 ❌ — 문장 맨 앞 또는 '오늘의 주제·이야기·게임·영상…' · '오늘의 습관'처럼 내용 낱말은 안 걸림) | main |
 # | v1.2 | 2026-11-26 | META(맥락 끊는 멘트) · HANDOFF · BENEFIT 자연스러운 꼴 | main |
 # | v1.1 | 2026-11-26 | title_words · chapter_words · tts_checks | main |
@@ -28,7 +30,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 INTRO_MAX_S = 30.0
 # 직관적이지 않은 표현 (guides/script_rules.md 3번 표 — 새로 찾으면 여기와 그 표에 같이 더함)
 VAGUE = [
@@ -116,7 +118,7 @@ def main(argv=None) -> int:
         log("CHECK", level=level, what=what, **kv)
 
     log("START", tool=f"script_rules_check.py {VERSION}", script=str(path), parts=len(parts),
-        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.2")
+        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.4")
     if len(parts) < 3:
         report("❌", "챕터", why="'-챕터 이름' 줄이 3개 미만 — 도입 · 챕터 · 마무리로 나눔")
         return 1
@@ -132,6 +134,9 @@ def main(argv=None) -> int:
         report("❌", "결론 먼저", why="도입에 '결론부터' 류 — 답은 그 챕터에서 처음")
     report("✅" if "?" in text else "❌", "도입 호기심 질문", found="?" in text)
     report("✅" if re.search(BENEFIT, text) else "⚠", "도입 시청자 이득 문장", found=bool(re.search(BENEFIT, text)))
+    for k, s in intro["sents"]:
+        if re.search(r"(따라가|짚어|살펴|알아|들여다)\s*봅니다\.$", s):
+            report("⚠", "도입 예고 말끝", sentence=k, text=s[:60], fix="'~봅니다' → '~보겠습니다' (script_rules.md 1번)")
     if a.package and Path(a.package).is_file():
         pkg = json.loads(Path(a.package).read_text("utf-8"))
         subs = pkg.get("thumb_subs") or pkg.get("thumb_sub") or []

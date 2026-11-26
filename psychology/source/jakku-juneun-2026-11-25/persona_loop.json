@@ -813,21 +813,44 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 17,
+      "at": "2026-11-26T06:05:51Z",
+      "sha": "85abd64e80b28a70",
+      "reviewers": [
+       {
+        "reviewer": "E17-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 22,
+          "why": "지루함 — 네덜란드 연구를 세 줄이나 듣고 나니 '연구가 직접 본 건 아니지만'이라고 해서, 그럼 왜 꺼냈나 싶어 김이 빠짐"
+         },
+         {
+          "line": 46,
+          "why": "뻔함 — 또 외국 실험 얘기에 '똑같지는 않지만'이 붙어서 강의 듣는 느낌, 반찬 건네는 얘기만 해도 알아듣겠음"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "100 — 나도 반찬 싸 주는 쪽이라 찔렸는데, '내 마음을 거절한 게 아니라 물건 하나를 사양한 것뿐'이라니 서운함이 풀리고 끝까지 볼 마음이 생김",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [22, 46]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_17.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
-    "pending": {
-     "n": 17,
-     "sha": "85abd64e80b28a70",
-     "reviewers": [
-      "E17-P1"
-     ],
-     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_17.md",
-     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_exit_17",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T06:03:32Z"
-    }
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -2019,21 +2042,68 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 17,
+      "at": "2026-11-26T06:05:51Z",
+      "sha": "85abd64e80b28a70",
+      "reviewers": [
+       {
+        "reviewer": "K17-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 45,
+          "text": "'조금 더 행복하다'는데 누구보다 더라는 건가요? 자기한테 쓴 사람보다인지, 아무것도 안 한 사람보다인지 빠져 있네요.",
+          "fix": "비교한 쪽을 한 마디로 넣기 — 예 '자기를 위해 쓰게 한 사람보다' (연구 원문으로 확인된 비교만)."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 19,
+          "text": "세 번 실험했다는데 누구를 몇 명이나, 어떻게 했는지는 안 나와서 그냥 '연구가 그렇대'로만 들립니다.",
+          "fix": "참가자가 누구였고 어떤 상황(예: 물건을 버리게 하는 과제)이었는지 한 구절만 덧붙이기 — 확인된 것만."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 49,
+          "text": "주고 나서 뿌듯한 거랑, 거절당했는데도 또 주는 건 별개 아닌가요? 2020년 실험은 돈 쓴 뒤 기분만 봤지 사양 뒤에 다시 권하는지는 안 봤잖아요.",
+          "fix": "49줄을 '연구가 본 것은 아니지만' 처럼 추측이라고 분명히 하거나, 사양 뒤 다시 권하는 까닭은 2장 '괜찮아요' 설명과 이어 말하기."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 100,
+          "text": "거절이 언제나 '물건 하나 사양한 것뿐'은 아니죠. 사이가 불편해서 거절하는 경우도 있는데 너무 단정합니다.",
+          "fix": "'대개는 ~인 경우가 많습니다' 처럼 한 발 물러서는 말로 바꾸기."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 54,
+          "text": "답례 부담·버리는 죄책감·눈치, 이 세 가지는 다들 아는 얘기라 이 챕터는 새로 알게 되는 게 적습니다.",
+          "fix": "세 가지를 한 문장씩 더 줄이거나, 56줄 같은 구체 장면을 죄책감·눈치에도 하나씩 붙이기."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "결론을 뒤집거나 좋아요 많이 받을 반박은 없음 — '~일 수 있습니다'·'연구가 직접 본 것은 아니지만'·예외 인정(10~12·47줄)·'괜찮아요' 앞뒤 일관(40·67·94줄)이 잘 막혀 있고, 남은 것은 연구 비교 대상·참가자 한 구절, 49줄 연결 추측 표시, 100줄 단정 완화 같은 말 다듬기뿐.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_17.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
-    "pending": {
-     "n": 17,
-     "sha": "85abd64e80b28a70",
-     "reviewers": [
-      "K17-반론"
-     ],
-     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_17.md",
-     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_rebuttal_17",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T06:03:32Z"
-    }
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    }
   }
  }

@@ -1,73 +1,103 @@
-# VERSION: v0.4.0 — 2026-11-26 — 뒤돌아보기 시선 · 라이터 놓기·카드 덮개·블러핑 결정 · 준비 동작을 보면 의심
-# 이전 VERSION: v0.3.0 — 2026-11-26 — 엿보기는 노예(암살자) 측일 때만
+# VERSION: v0.5.0 — 2026-11-26 — 역할별 AI: 노예(물건 고정 엿보기·협력자·미끼·시선 끌기·제스처) / 왕(지켜보기·가리기·무작위·바꿔치기·밝혀내기)
+# 이전 VERSION: v0.4.0 — 2026-11-26 — 뒤돌아보기 시선 · 라이터 놓기·카드 덮개·블러핑 결정 · 준비 동작을 보면 의심
 #
-# 공정성 규칙: 상대 카드는 엿보기(반사경)를 끝냈을 때만 info["opp_card"] 로 들어온다 (match.gd 가 넣음).
-#   AI 가 보는 것 = 공개 정보뿐 (사람의 시선 = 마우스 위치, 테이블 위 물건, 판 결과).
-# p0_* 함수는 시뮬레이션에서 사람 자리(0)를 대신하는 정책 — 사람 플레이에는 쓰지 않음.
+# 공정성 규칙: 상대 카드는 엿보기·협력자로 '보인 카드'(바꿔치기면 가짜)를 info["opp_card"] 로만 받는다.
+#   AI 가 아는 것 = 공개 정보뿐 (상대 시선 = 마우스 위치, 책상 위 물건, 가능성 불, 판 결과). 물건 속 반사경 여부는 모름.
+# 시뮬레이션에선 자리 0 도 같은 AI 로 돌림 (사람 대신).
 extends RefCounted
 
 const RankCards = preload("res://core/rank_cards.gd")
 const CheatRules = preload("res://core/cheat_rules.gd")
 
-const PRIOR_LOGODDS := -1.7      # 처음 의심 ≈ 15%
+const PRIOR_LOGODDS := -1.7
 const SUSPICION_MIN := -4.0
 const SUSPICION_MAX := 6.0
 const CHEATER_MIX := 0.5
-const WATCH_FACE_BASE := 0.35    # 지켜볼 때 당신 얼굴을 볼 기본 확률
+const WATCH_FACE_BASE := 0.35
 
 var display_name := "AI"
-var cheat_rate := 0.3            # 노예 판에 라이터를 놓을 확률 · 감시 턴에 엿볼 확률
-var skill := 0.6                 # 엿보는 속도: 필요 시간 = PEEK_SECONDS × (1.15 − 0.5 × skill)
-var perception := 1.0            # 눈치: 들킬 위험률 배수 · 반응 속도
-var paranoia := 1.0              # 의심 성향
-var boldness := 0.1              # 쳐다보는 걸 알면서도 반사경을 보는 정도
-var bluff_rate := 0.3            # 엿볼 때 블러핑(여유 부리기)을 쓸 확률
-var cover_rate := 0.3            # 왕 측일 때 자기 카드에 덮개를 올릴 정도
+# 노예일 때
+var cheat_rate := 0.3        # 이번 턴 진짜 속임수(엿보기·협력자)를 쓸 확률
+var acc_rate := 0.2          # 노예 판 시작에 협력자를 부를 확률
+var bluff_rate := 0.2        # 미끼 물건을 1.5초 넘게 봐서 상대 불을 켤 확률 (헛밝혀내기 유도)
+var attention_rate := 0.3    # 쳐다볼 때 시선 끌기를 쓸 확률
+var gesture_rate := 0.3      # 상대 왕 턴에 제스처를 쓸 확률
+var boldness := 0.1          # 쳐다보는데도 계속 볼 정도
+# 왕일 때
+var cover_rate := 0.3
+var random_rate := 0.1
+var fake_rate := 0.2
+var expose_rate := 0.5       # 가능성 불이 켜지면 밝혀낼 확률
+# 공통
+var perception := 1.0        # 눈치: 현장 밝혀내기 위험률 배수 · 반응 속도
+var paranoia := 1.0
+var objects: Array = []      # 사전 설정 물건
 var suspicion := PRIOR_LOGODDS
-var force_watch := ""            # 시험용: 지켜보는 곳을 고정 ("" = 보통)
+var force_watch := ""        # 시험용: 지켜보는 곳 고정
 
 
-## 성격 묶음. 모르는 이름이면 정직형 + 경고.
 func configure(kind: String) -> void:
 	display_name = kind
 	match kind:
 		"honest":
-			_apply(0.0, 0.6, 1.0, 1.0, 0.0, 0.3, 0.3)
+			_apply([0.0, 0.0, 0.0, 0.0, 0.3, 0.0], [0.3, 0.1, 0.2, 0.5], 1.0, 1.0, ["glass"])
 		"cheater":
-			_apply(0.6, 0.75, 0.8, 0.8, 0.35, 0.5, 0.2)
+			_apply([0.7, 0.4, 0.3, 0.6, 0.5, 0.3], [0.2, 0.05, 0.2, 0.5], 0.8, 0.8, ["lighter", "lighter_plain"])
 		"watcher":
-			_apply(0.25, 0.5, 1.4, 1.3, 0.05, 0.2, 0.5)
+			_apply([0.25, 0.1, 0.1, 0.3, 0.2, 0.05], [0.5, 0.2, 0.3, 0.7], 1.4, 1.3, ["cigcase_plain", "cigcase"])
 		"gambler":
-			_apply(0.45, 0.6, 1.0, 1.0, 0.6, 0.7, 0.3)
+			_apply([0.5, 0.3, 0.6, 0.5, 0.7, 0.6], [0.3, 0.1, 0.4, 0.4], 1.0, 1.0, ["cigcase_plain", "cigcase", "glass"])
 		"inert":
-			_apply(0.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0)   # 시험용: 아무것도 안 함
+			_apply([0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [0.0, 0.0, 0.0, 0.0], 0.0, 0.0, [])
 		_:
 			push_warning("[AI] unknown preset=%s → honest" % kind)
-			_apply(0.0, 0.6, 1.0, 1.0, 0.0, 0.3, 0.3)
+			_apply([0.0, 0.0, 0.0, 0.0, 0.3, 0.0], [0.3, 0.1, 0.2, 0.5], 1.0, 1.0, ["glass"])
 
 
-func _apply(p_cheat: float, p_skill: float, p_perception: float, p_paranoia: float, p_bold: float, p_bluff: float, p_cover: float) -> void:
-	cheat_rate = p_cheat
-	skill = p_skill
+## slave = [cheat, acc, bluff, attention, gesture, boldness] · king = [cover, random, fake, expose]
+func _apply(slave: Array, king: Array, p_perception: float, p_paranoia: float, p_objects: Array) -> void:
+	cheat_rate = float(slave[0])
+	acc_rate = float(slave[1])
+	bluff_rate = float(slave[2])
+	attention_rate = float(slave[3])
+	gesture_rate = float(slave[4])
+	boldness = float(slave[5])
+	cover_rate = float(king[0])
+	random_rate = float(king[1])
+	fake_rate = float(king[2])
+	expose_rate = float(king[3])
 	perception = p_perception
 	paranoia = p_paranoia
-	boldness = p_bold
-	bluff_rate = p_bluff
-	cover_rate = p_cover
+	objects = p_objects.duplicate()
 
 
-# ───────── 지켜보기 (속임수 턴: 사람이 반사경·협력자를 볼 수 있음) ─────────
+func reaction() -> float:
+	return 0.35 / clampf(perception, 0.3, 2.0)
 
-## 다음 시선 묶음 {target, dur}. 의심이 클수록·상대가 낙인이면 얼굴을, 뒤에 누가 오는 기척이 있으면 뒤를 더 봄.
+
+func _extra() -> float:
+	return maxf(suspicion - PRIOR_LOGODDS, 0.0)
+
+
+# ───────── 시선 ─────────
+
+func idle_segment(rng: RandomNumberGenerator) -> Dictionary:
+	var r := rng.randf()
+	var target := "face"
+	if r >= 0.4:
+		target = "own_card" if r < 0.75 else "away"
+	return {"target": target, "dur": rng.randf_range(0.6, 1.8)}
+
+
+## 왕이 노예를 지켜볼 때: 의심이 클수록 얼굴, 뒤에 기척이 있으면 뒤를 봄
 func watch_segment(rng: RandomNumberGenerator, opp_strikes: int, someone_behind: bool) -> Dictionary:
 	if force_watch != "":
 		return {"target": force_watch, "dur": 99.0}
-	var extra := maxf(suspicion - PRIOR_LOGODDS, 0.0)
 	var bonus := 0.2 if opp_strikes >= 1 else 0.0
-	var p_face := clampf(WATCH_FACE_BASE + 0.12 * extra * paranoia + bonus, 0.1, 0.85)
+	var p_face := clampf(WATCH_FACE_BASE + 0.12 * _extra() * paranoia + bonus, 0.1, 0.85)
 	var p_behind := 0.05
 	if someone_behind:
-		p_behind = clampf(0.2 + 0.05 * extra, 0.0, 0.45)
+		p_behind = clampf(0.2 + 0.05 * _extra(), 0.0, 0.45)
 	var w_behind := (1.0 - p_face) * p_behind
 	var r := rng.randf()
 	var target := "away"
@@ -92,84 +122,86 @@ func watch_segment(rng: RandomNumberGenerator, opp_strikes: int, someone_behind:
 	return {"target": target, "dur": dur}
 
 
-## 할 일 없을 때 (사람이 카드를 고르는 중 · 엿보기를 안 하거나 끝냈을 때)
-func idle_segment(rng: RandomNumberGenerator) -> Dictionary:
-	var r := rng.randf()
-	var target := "face"
-	if r >= 0.4:
-		target = "own_card" if r < 0.75 else "away"
-	return {"target": target, "dur": rng.randf_range(0.6, 1.8)}
+# ───────── 왕 ─────────
+
+func king_think(rng: RandomNumberGenerator) -> float:
+	return rng.randf_range(2.0, 5.0)
 
 
-## 준비 동작(라이터·협력자 부르기·뒤의 낯선 사람)을 봤을 때 의심이 오름. 돌려주는 값 = 더한 양.
-func on_setup_seen(kind: String) -> float:
-	var delta := float(CheatRules.SETUP_SUSPICION.get(kind, 0.0)) * maxf(paranoia, 0.3)
+## 왕 턴 끝에 쓸 방어 — 늘 난수 세 개를 씀 (재현성)
+func king_defense(rng: RandomNumberGenerator, ctx: Dictionary) -> Dictionary:
+	var mult := 0.5 if bool(ctx["rushed"]) else 1.0
+	var threat: bool = int(ctx["opp_objects"]) > 0 or bool(ctx["opp_acc"])
+	var ex := 0.1 * _extra() * paranoia
+	var r1 := rng.randf()
+	var r2 := rng.randf()
+	var r3 := rng.randf()
+	var use_random: bool = threat and int(ctx["random_left"]) > 0 and r1 < (random_rate + ex * 0.5) * mult
+	var use_cover: bool = not use_random and int(ctx["opp_objects"]) > 0 and int(ctx["cover_left"]) > 0 and r2 < (cover_rate + ex) * mult
+	var use_fake: bool = not use_random and threat and int(ctx["fake_left"]) > 0 and r3 < (fake_rate + ex * 0.5) * mult
+	return {"random": use_random, "cover": use_cover, "fake": use_fake}
+
+
+func decide_expose_on_light(rng: RandomNumberGenerator) -> bool:
+	var p := clampf(expose_rate + 0.08 * _extra() * paranoia, 0.0, 0.95)
+	return rng.randf() < p
+
+
+func on_seen(kind: String) -> float:
+	var delta := float(CheatRules.SUSPICION_ADD.get(kind, 0.0)) * maxf(paranoia, 0.3)
 	suspicion = clampf(suspicion + delta, SUSPICION_MIN, SUSPICION_MAX)
 	return delta
 
 
-## 왕 측일 때 자기 카드에 덮개를 올릴지 (상대 라이터가 보이면 크게)
-func decide_cover(rng: RandomNumberGenerator, opp_lighter: bool, uses_left: int) -> bool:
-	if uses_left <= 0:
-		return false
-	var p := cover_rate * 0.3
-	if opp_lighter:
-		p += cover_rate
-	p += 0.1 * maxf(suspicion - PRIOR_LOGODDS, 0.0) * paranoia
-	return rng.randf() < clampf(p, 0.0, 0.9)
+func on_expose_result(hit: bool) -> void:
+	if hit:
+		suspicion = PRIOR_LOGODDS
+	else:
+		suspicion = clampf(suspicion - 1.0, SUSPICION_MIN, SUSPICION_MAX)
 
 
-# ───────── 엿보기 (감시 턴: AI 가 노예 측일 때 반사경을 몰래 봄) ─────────
+# ───────── 노예 ─────────
 
-## 노예 판을 시작할 때 라이터를 놓을지 (준비 동작 — 사람에게 보임)
-func decide_lighter(rng: RandomNumberGenerator, my_strikes: int) -> bool:
-	var rate := cheat_rate
-	if my_strikes >= 1:
-		rate *= 0.3
-	return rng.randf() < rate
+func decide_call(rng: RandomNumberGenerator) -> bool:
+	return rng.randf() < acc_rate
 
 
-func decide_peek(rng: RandomNumberGenerator, my_side: int, my_strikes: int) -> bool:
-	var rate := cheat_rate
-	if my_strikes >= 1:
-		rate *= 0.3    # 한 번 더 걸리면 매치 패배
-	if my_side != RankCards.Team.ASSASSIN_SIDE:
-		return false   # 속임수는 노예 측만
-	return rng.randf() < rate
+func decide_gesture(rng: RandomNumberGenerator) -> bool:
+	return rng.randf() < gesture_rate
 
 
-func decide_bluff(rng: RandomNumberGenerator) -> bool:
-	return rng.randf() < bluff_rate
-
-
-func peek_need_seconds() -> float:
-	return CheatRules.PEEK_SECONDS * clampf(1.15 - 0.5 * skill, 0.6, 1.4)
-
-
-func think_seconds(rng: RandomNumberGenerator) -> float:
-	return rng.randf_range(5.0, 7.0)
-
-
-## 반사경을 보다가 사람이 자기 얼굴을 보면 이만큼 뒤에 눈을 돌림
-func reaction_seconds() -> float:
-	return 0.35 / clampf(perception, 0.3, 2.0)
-
-
-## 감시 턴 시선 묶음: 반사경을 짧게 보고 → 사람 얼굴 확인 → 다시 반사경 …
-func cheat_segment(rng: RandomNumberGenerator, opp_watching_face: bool, peek_done: bool, will_peek: bool, current: String) -> Dictionary:
-	if not will_peek or peek_done:
-		return idle_segment(rng)
-	if current == "shiner":
-		return {"target": "face", "dur": rng.randf_range(0.35, 0.7)}
-	if not opp_watching_face or rng.randf() < boldness:
-		return {"target": "shiner", "dur": rng.randf_range(0.6, 1.1) * (1.2 - 0.4 * skill)}
-	var target := "face" if rng.randf() < 0.6 else "own_card"
-	return {"target": target, "dur": rng.randf_range(0.3, 0.6)}
+## 노예 턴 계획 — 늘 난수 네 개를 씀 (재현성)
+func slave_plan(rng: RandomNumberGenerator, ctx: Dictionary) -> Dictionary:
+	var objs: Array = ctx["objects"]
+	var mirror_idx := -1
+	var decoy_idx := -1
+	for i in objs.size():
+		var m := CheatRules.is_mirror(str(objs[i]))
+		if m and mirror_idx < 0:
+			mirror_idx = i
+		if not m and decoy_idx < 0:
+			decoy_idx = i
+	var rate := cheat_rate * (0.3 if int(ctx["strikes"]) >= 1 else 1.0)
+	var can_peek: bool = mirror_idx >= 0 and not bool(ctx["sealed_peek"]) and not bool(ctx["covered"]) and not bool(ctx["randomized"])
+	var can_acc: bool = bool(ctx["acc_present"]) and not bool(ctx["sealed_acc"]) and not bool(ctx["randomized"])
+	var plan := {"peek_obj": -1, "acc": false, "bait_obj": -1, "attention": false, "commit_at": 0.0}
+	var roll := rng.randf()
+	if can_peek and roll < rate:
+		plan["peek_obj"] = mirror_idx
+	elif can_acc and roll < rate:
+		plan["acc"] = true
+	if decoy_idx >= 0 and rng.randf() < bluff_rate:
+		plan["bait_obj"] = decoy_idx
+	else:
+		rng.randf()   # 난수 수를 맞춤
+	plan["attention"] = rng.randf() < attention_rate and int(ctx["attention_left"]) > 0
+	plan["commit_at"] = rng.randf_range(4.0, 7.0)
+	return plan
 
 
 # ───────── 카드 ─────────
 
-## info: {} (정보 없음) 또는 {"opp_card": 카드} (엿보기를 끝냈을 때)
+## info: {} 또는 {"opp_card": 보인 카드}
 func choose_card(rng: RandomNumberGenerator, hand: Array, side: int, info: Dictionary) -> int:
 	if info.has("opp_card"):
 		return best_response(hand, side, int(info["opp_card"]))
@@ -194,7 +226,7 @@ static func best_response(hand: Array, side: int, opp_card: int) -> int:
 	return special if hand.has(special) else citizen
 
 
-## 판 결과(공개 정보)로 의심을 고침 — 상대가 노예 측이었던 판에서만 부름 (match.gd)
+## 판 결과(공개 정보)로 의심 — 상대가 노예 측이었던 판에서만 (match.gd)
 func on_round_result(opp_won: bool, opp_side: int, decided_turn: int) -> float:
 	var lr := 1.0 - CHEATER_MIX
 	if opp_won:
@@ -207,20 +239,3 @@ func on_round_result(opp_won: bool, opp_side: int, decided_turn: int) -> float:
 	var delta := paranoia * log(lr)
 	suspicion = clampf(suspicion + delta, SUSPICION_MIN, SUSPICION_MAX)
 	return delta
-
-
-# ───────── 시뮬레이션용 사람 자리(0) 정책 ─────────
-
-func p0_reaction(watching_face: bool) -> float:
-	var base := 0.25 if watching_face else 0.4
-	return base / clampf(perception, 0.3, 2.0)
-
-
-func p0_watch_segment(rng: RandomNumberGenerator) -> Dictionary:
-	var p_face := clampf(0.45 + 0.3 * perception, 0.3, 0.95)
-	var target := "face" if rng.randf() < p_face else "own_card"
-	return {"target": target, "dur": rng.randf_range(0.5, 1.5)}
-
-
-func p0_commit_delay(rng: RandomNumberGenerator) -> float:
-	return rng.randf_range(0.8, 2.0)

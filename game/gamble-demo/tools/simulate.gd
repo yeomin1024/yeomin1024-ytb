@@ -1,10 +1,11 @@
-# VERSION: v0.4.0 — 2026-11-26 — 출력에 협력자·덮개·블러핑·준비 동작 칸 추가
+# VERSION: v0.5.0 — 2026-11-26 — 새 통계 칸: 정보(엿보기·협력자·가짜) · 들킴 · 가능성 불·미끼 · 밝혀내기 적중률 · 가리기·무작위·바꿔치기 · 시선 끌기·제스처
+# 이전 VERSION: v0.4.0 — 2026-11-26 — 출력에 협력자·덮개·블러핑·준비 동작 칸 추가
 # 이전 VERSION: v0.2.0 — 2026-11-26 — AI 대 AI 밸런스 (실시간 규칙): 승률 · 엿보기 성공률 · 시도당 들킴 · 고발 정확도
 # 이전 VERSION: v0.1.1 — 2026-11-26 — 인자 읽는 줄의 타입 추론 오류 고침
 #
 # 실행 (저장소 맨 위에서):
 #   godot --headless --path game/gamble-demo --script res://tools/simulate.gd -- --matches=1000 --seed=42
-# 자리 0 = 사람 대신 정책(ai_brain.gd p0_*), 자리 1 = AI. 출력: [SIM] key=value … (조합마다 한 줄)
+# 자리 0 = 사람 대신 AI, 자리 1 = AI. 출력: [SIM] key=value … (조합마다 한 줄, 자리마다 매치당 평균)
 extends SceneTree
 
 const AiBrain = preload("res://core/ai_brain.gd")
@@ -14,12 +15,14 @@ const GameLog = preload("res://core/game_log.gd")
 const SCENARIOS := [
 	["honest", "honest"],
 	["cheater", "honest"],
-	["cheater", "watcher"],
 	["honest", "cheater"],
+	["cheater", "watcher"],
 	["watcher", "cheater"],
-	["watcher", "gambler"],
+	["gambler", "watcher"],
 	["cheater", "cheater"],
 ]
+const KEYS := ["info_peek", "info_acc", "info_fake", "caught", "lights", "baits", "expose", "expose_hit",
+	"covers", "randoms", "fakes", "attentions", "gestures", "acc_calls", "objects_placed", "timeouts"]
 
 
 func _initialize() -> void:
@@ -37,11 +40,9 @@ func _run(k0: String, k1: String, n: int, base_seed: int) -> void:
 	var t0 := Time.get_ticks_usec()
 	var wins := [0, 0, 0]
 	var out2 := [0, 0]
-	var keys := ["peek_tries", "peek_done", "signal_done", "caught", "acc_caught", "accusations", "hits", "timeouts", "setups", "setups_seen", "covers", "bluffs"]
 	var sums := {}
-	for k in keys:
+	for k in KEYS:
 		sums[k] = [0, 0]
-	var score_sum := [0, 0]
 	for i in n:
 		var b0 = AiBrain.new()
 		b0.configure(k0)
@@ -53,25 +54,28 @@ func _run(k0: String, k1: String, n: int, base_seed: int) -> void:
 		wins[int(m.winner)] += 1
 		if str(m.end_reason) == "CAUGHT_TWICE":
 			out2[1 - int(m.winner)] += 1
-		for k in keys:
+		for k in KEYS:
 			for s in 2:
 				sums[k][s] += int(m.stats[k][s])
-		for s in 2:
-			score_sum[s] += int(m.scores[s])
 	var ms := (Time.get_ticks_usec() - t0) / 1000.0
 	var parts := PackedStringArray()
 	parts.append("[SIM] seat0=%s seat1=%s n=%d" % [k0, k1, n])
 	parts.append("win0_pct=%.1f win1_pct=%.1f draw_pct=%.1f" % [_pct(wins[0], n), _pct(wins[1], n), _pct(wins[2], n)])
 	for s in 2:
-		parts.append("tries%d_avg=%.2f peek_ok%d=%.3f via_acc%d=%.3f caught_per_try%d=%.3f acc_out%d_avg=%.2f out2_%d_pct=%.1f acc%d_avg=%.2f acc_hit%d=%.3f setups%d_avg=%.2f seen%d_avg=%.2f covers%d_avg=%.2f bluffs%d_avg=%.2f score%d_avg=%.2f" % [
-			s, float(sums["peek_tries"][s]) / n, s, _ratio(sums["peek_done"][s], sums["peek_tries"][s]),
-			s, _ratio(sums["signal_done"][s], sums["peek_done"][s]),
-			s, _ratio(sums["caught"][s], sums["peek_tries"][s]), s, float(sums["acc_caught"][s]) / n, s, _pct(out2[s], n),
-			s, float(sums["accusations"][s]) / n, s, _ratio(sums["hits"][s], sums["accusations"][s]),
-			s, float(sums["setups"][s]) / n, s, float(sums["setups_seen"][s]) / n, s, float(sums["covers"][s]) / n,
-			s, float(sums["bluffs"][s]) / n, s, float(score_sum[s]) / n])
+		var info := _avg(sums, "info_peek", s, n) + _avg(sums, "info_acc", s, n)
+		parts.append("s%d: info=%.2f acc=%.2f fake=%.2f caught=%.2f out2_pct=%.1f lights=%.2f baits=%.2f expose=%.2f hit=%.2f cov=%.2f rnd=%.2f fakes=%.2f att=%.2f ges=%.2f calls=%.2f placed=%.2f to=%.2f" % [
+			s, info, _avg(sums, "info_acc", s, n), _avg(sums, "info_fake", s, n), _avg(sums, "caught", s, n), _pct(out2[s], n),
+			_avg(sums, "lights", s, n), _avg(sums, "baits", s, n), _avg(sums, "expose", s, n),
+			_ratio(int(sums["expose_hit"][s]), int(sums["expose"][s])),
+			_avg(sums, "covers", s, n), _avg(sums, "randoms", s, n), _avg(sums, "fakes", s, n),
+			_avg(sums, "attentions", s, n), _avg(sums, "gestures", s, n), _avg(sums, "acc_calls", s, n),
+			_avg(sums, "objects_placed", s, n), _avg(sums, "timeouts", s, n)])
 	parts.append("ms=%.0f" % ms)
 	print(" ".join(parts))
+
+
+func _avg(sums: Dictionary, key: String, s: int, n: int) -> float:
+	return float(sums[key][s]) / maxi(n, 1)
 
 
 func _pct(a: int, n: int) -> float:

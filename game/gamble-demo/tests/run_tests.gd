@@ -1,4 +1,5 @@
-# VERSION: v0.4.0 — 2026-11-26 — 준비 동작 · 반사경(라이터) · 협력자 신호 · 카드 덮개 · 블러핑 시험
+# VERSION: v0.5.0 — 2026-11-26 — 왕 턴/노예 턴 · 시선 고정 엿보기·협력자 · 가능성 불(진짜·미끼) · 가리기·무작위·바꿔치기 · 밝혀내기 · 시선 끌기 · 제스처 시험
+# 이전 VERSION: v0.4.0 — 2026-11-26 — 준비 동작 · 반사경(라이터) · 협력자 신호 · 카드 덮개 · 블러핑 시험
 # 이전 VERSION: v0.3.0 — 2026-11-26 — 속임수는 노예 측만: 진영별 턴 종류 시험 · 왕 측은 엿볼 수 없음
 #
 # 실행 (저장소 맨 위에서):
@@ -22,18 +23,19 @@ func _initialize() -> void:
 	GameLog.level = GameLog.Level.ERROR   # 시험 중 거절(REFUSE) 경고는 일부러 내는 것이라 숨김
 	var tests: Array = [
 		["rules_table", _t_rules_table],
-		["peek_math", _t_peek_math],
-		["turn_roles", _t_turn_roles],
-		["lighter_needed_then_reveals", _t_lighter_needed_then_reveals],
-		["caught_when_watched", _t_caught_when_watched],
-		["setup_seen", _t_setup_seen],
+		["phases", _t_phases],
+		["objects", _t_objects],
+		["peek_continuous", _t_peek_continuous],
+		["lights_regardless", _t_lights_regardless],
 		["accomplice", _t_accomplice],
-		["cover_blocks_shiner", _t_cover_blocks_shiner],
-		["bluff_time", _t_bluff_time],
-		["detect_accuse", _t_detect_accuse],
-		["ai_peek_best_response", _t_ai_peek_best_response],
-		["ai_ignores_hidden_card", _t_ai_ignores_hidden_card],
+		["human_expose", _t_human_expose],
+		["ai_expose", _t_ai_expose],
+		["sealed", _t_sealed],
+		["defenses", _t_defenses],
+		["attention", _t_attention],
+		["gesture", _t_gesture],
 		["two_strikes", _t_two_strikes],
+		["ai_ignores_hidden_card", _t_ai_ignores_hidden_card],
 		["timeout", _t_timeout],
 		["tiebreak", _t_tiebreak],
 		["determinism", _t_determinism],
@@ -59,41 +61,47 @@ func _check(cond: bool, msg: String) -> void:
 		printerr("  FAIL: " + msg)
 
 
-func _near(a: float, b: float, tol: float, msg: String) -> void:
-	_check(absf(a - b) <= tol, "%s (got %.6f, want %.6f ±%.6f)" % [msg, a, b, tol])
-
-
 func _brain(kind: String):
 	var b = AiBrain.new()
 	b.configure(kind)
 	return b
 
 
-func _human_match(p_seed: int, ai):
+func _hm(p_seed: int, ai, objs = null):
 	var m = GambleMatch.new()
 	m.setup(p_seed, null, ai)
+	if objs != null:
+		m.set_objects(0, objs)
 	return m
 
 
-## 사람이 노예(암살자) 측인 판(2판)에서 시작 → 속임수 턴
-func _start_cheat(m) -> void:
-	m.round_index = 0
-	m.start()
-
-
-## seconds 동안 사람 시선을 gaze 로 두고 진행. 단계가 바뀌면 멈춤.
+## seconds 만큼 (DT 단위) 흘림 — 단계가 바뀌면 멈춤
 func _run(m, seconds: float, gaze: String) -> void:
-	var steps := int(ceil(seconds / DT))
-	var ph: int = m.phase
-	for i in steps:
+	var ph: int = int(m.phase)
+	for i in ceili(seconds / DT):
 		m.tick(DT, gaze)
 		if int(m.phase) != ph:
 			return
 
 
-func _first_event(m, type_name: String) -> Dictionary:
+func _run_until(m, cond: Callable, gaze: String, seconds: float = 20.0) -> bool:
+	for i in int(seconds / DT):
+		if bool(cond.call()):
+			return true
+		m.tick(DT, gaze)
+	return bool(cond.call())
+
+
+## 2판(사람 = 노예 측)을 시작해 노예 턴까지
+func _start_slave(m) -> void:
+	m.round_index = 0
+	m.start()
+	_run_until(m, func(): return int(m.phase) == GambleMatch.Phase.SLAVE_TURN, "table")
+
+
+func _first(m, type_name: String) -> Dictionary:
 	for ev in m.events:
-		if ev["type"] == type_name:
+		if str(ev["type"]) == type_name:
 			return ev
 	return {}
 
@@ -106,263 +114,216 @@ func _t_rules_table() -> void:
 	var asn: int = RankCards.Card.ASSASSIN
 	_check(RankCards.resolve(king, cit) == 1 and RankCards.resolve(cit, asn) == 1 and RankCards.resolve(asn, king) == 1, "왕 > 시민 > 암살자 > 왕")
 	_check(RankCards.resolve(cit, cit) == 0, "시민 = 시민")
+	_check(CheatRules.is_mirror("lighter") and not CheatRules.is_mirror("lighter_plain") and not CheatRules.is_mirror("glass"), "반사경 여부")
+	_check(str(CheatRules.OBJECTS["lighter"]["look"]) == str(CheatRules.OBJECTS["lighter_plain"]["look"]), "반사경 라이터와 빈 라이터는 겉모양이 같음")
 
 
-func _t_peek_math() -> void:
-	_near(CheatRules.peek_step(0.0, true, 0.9, 1.8), 0.5, 1e-9, "0.9초 보면 절반")
-	_near(CheatRules.peek_step(0.5, false, 1.0, 1.8), 0.5 - CheatRules.PEEK_DECAY, 1e-9, "눈 떼면 줄어듦")
-	_near(CheatRules.hazard_rate(CheatRules.HAZARD_SHINER, "face", false, 1.0), float(CheatRules.HAZARD_SHINER["face"]), 1e-9, "반사경 · 얼굴 위험률")
-	_near(CheatRules.hazard_rate(CheatRules.HAZARD_SIGNAL, "behind", false, 1.0), float(CheatRules.HAZARD_SIGNAL["behind"]), 1e-9, "신호 · 뒤돌아봄 위험률")
-	_near(CheatRules.hazard_rate(CheatRules.HAZARD_SHINER, "face", true, 1.0), 0.0, 1e-9, "고개 돌리는 중엔 0")
+func _t_phases() -> void:
+	var m = _hm(1, _brain("inert"))
+	m.start()
+	_check(int(m.king) == 0 and int(m.phase) == GambleMatch.Phase.KING_TURN and m.actor() == 0, "1판: 사람 왕 턴")
+	m.commit(int(m.hands[0][0]))
+	_check(int(m.phase) == GambleMatch.Phase.SLAVE_TURN and m.actor() == 1, "그다음 AI 노예 턴")
+	_run(m, 8.0, "table")
+	_check(int(m.phase) == GambleMatch.Phase.REVEALED, "AI 노예가 냄 → 공개")
+	var m2 = _hm(2, _brain("inert"))
+	m2.round_index = 0
+	m2.start()
+	_check(int(m2.king) == 1 and int(m2.phase) == GambleMatch.Phase.KING_TURN and m2.actor() == 1, "2판: AI 왕 턴")
+	_run(m2, 6.0, "table")
+	_check(int(m2.phase) == GambleMatch.Phase.SLAVE_TURN and m2.actor() == 0 and int(m2.committed[1]) != -1, "그다음 사람 노예 턴")
 
 
-func _t_turn_roles() -> void:
-	var m = _human_match(1, _brain("inert"))
-	m.start()   # 1판: 사람 = 왕 측
-	_check(int(m.turn_type) == GambleMatch.TurnType.DETECT and int(m.committed[1]) == -1, "왕 측 판 = 감시 턴, 내가 먼저 냄")
-	_check(not bool(m.place_lighter()["ok"]), "왕 측은 라이터를 못 놓음")
-	_run(m, 3.0, "shiner")
-	_check(float(m.peek_progress[0]) == 0.0 and int(m.strikes[0]) == 0, "왕 측은 엿보기 없음")
-	var all_detect := true
-	var guard := 0
-	while int(m.round_index) == 0 and guard < 60:
-		guard += 1
-		if int(m.turn_type) != GambleMatch.TurnType.DETECT:
-			all_detect = false
-		if int(m.phase) == GambleMatch.Phase.PLAYER_CHOOSE:
-			m.commit(int(m.hands[0][0]))
-		elif int(m.phase) == GambleMatch.Phase.AI_THINK:
-			_run(m, 8.0, "table")
-		elif int(m.phase) == GambleMatch.Phase.REVEALED:
-			m.next()
-	_check(all_detect, "1판 모든 턴 = 감시 턴")
-	_check(int(m.turn_type) == GambleMatch.TurnType.CHEAT and int(m.committed[1]) != -1, "2판(노예 측) = 속임수 턴, 상대가 먼저 냄")
+func _t_objects() -> void:
+	var m = _hm(20, _brain("inert"), ["lighter", "glass", "phone", "cigcase"])
+	_check(m.objects[0].size() == CheatRules.OBJECT_SLOTS, "사전 설정은 %d개까지" % CheatRules.OBJECT_SLOTS)
+	var m2 = _hm(21, _brain("inert"), ["lighter"])
+	m2.start()
+	_check(not bool(m2.set_objects(0, ["glass"])["ok"]), "시작 뒤엔 사전 설정 불가")
+	_check(bool(m2.place_object("lighter_plain")["ok"]) and bool(m2.place_object("cigcase")["ok"]), "게임 중 놓기")
+	_check(not bool(m2.place_object("phone")["ok"]) and m2.objects[0].size() == 3, "자리가 다 차면 못 놓음")
+	_check(int(m2.stats["objects_placed"][0]) == 2, "게임 중 놓은 수 기록")
 
 
-func _t_lighter_needed_then_reveals() -> void:
-	var m = _human_match(2, _brain("inert"))   # 눈치 0 → 들키지 않음
-	_start_cheat(m)
-	_run(m, 2.5, "shiner")
-	_check(float(m.peek_progress[0]) == 0.0 and _first_event(m, "peek_info").is_empty(), "라이터를 놓기 전엔 엿볼 수 없음")
-	_check(bool(m.place_lighter()["ok"]), "라이터 놓기")
-	_check(not bool(m.place_lighter()["ok"]), "판마다 한 번")
-	_run(m, 1.0, "shiner")
-	_check(_first_event(m, "peek_info").is_empty(), "1초로는 안 보임")
-	_run(m, 1.0, "shiner")
-	var ev := _first_event(m, "peek_info")
-	_check(not ev.is_empty() and int(ev["card"]) == int(m.committed[1]) and str(ev["source"]) == "shiner", "1.8초 넘게 보면 반사경에 상대 카드")
+func _t_peek_continuous() -> void:
+	var m = _hm(3, _brain("inert"), ["lighter", "glass"])
+	_start_slave(m)
+	_run(m, 1.0, "obj0")
+	_check(_first(m, "info").is_empty(), "1초로는 안 보임")
+	_run(m, 0.1, "table")
+	_run(m, 1.0, "obj0")
+	_check(_first(m, "info").is_empty(), "눈을 떼면 처음부터 (게이지 아님)")
+	_run(m, 0.6, "obj0")
+	var ev := _first(m, "info")
+	_check(not ev.is_empty() and int(ev["card"]) == int(m.committed[m.king]) and str(ev["source"]) == "peek" and bool(m.lights["peek"]),
+		"1.5초 계속 보면 카드 + 불")
 
 
-func _t_caught_when_watched() -> void:
-	var caught_face := 0
-	var caught_away := 0
-	var n := 200
-	for s in n:
-		var w = _brain("inert")
-		w.perception = 1.0
-		w.force_watch = "face"
-		var m = _human_match(1000 + s, w)
-		_start_cheat(m)
-		m.place_lighter()
-		_run(m, CheatRules.PEEK_SECONDS, "shiner")
-		if int(m.strikes[0]) == 1:
-			caught_face += 1
-		var w2 = _brain("inert")
-		w2.perception = 1.0
-		w2.force_watch = "away"
-		var m2 = _human_match(2000 + s, w2)
-		_start_cheat(m2)
-		m2.place_lighter()
-		_run(m2, CheatRules.PEEK_SECONDS, "shiner")
-		if int(m2.strikes[0]) == 1:
-			caught_away += 1
-	# 얼굴: 1 − exp(−2.0 × 1.35) ≈ 93% · 딴 곳: 1 − exp(−0.05 × 1.35) ≈ 7% (처음 0.45초는 고개 돌리는 중)
-	_check(float(caught_face) / n > 0.85, "상대가 얼굴을 보면 거의 들킴 (%d/%d)" % [caught_face, n])
-	_check(float(caught_away) / n < 0.15, "상대가 딴 곳을 보면 잘 안 들킴 (%d/%d)" % [caught_away, n])
-	var w3 = _brain("inert")
-	w3.perception = 1.0
-	w3.force_watch = "face"
-	var m3 = _human_match(7, w3)
-	_start_cheat(m3)
-	m3.place_lighter()
-	_run(m3, 3.0, "shiner")
-	_check(int(m3.strikes[0]) == 1 and int(m3.phase) == GambleMatch.Phase.REVEALED and not bool(m3.lighter[0]), "들키면 경고 + 판 몰수 + 라이터 몰수")
-
-
-func _t_setup_seen() -> void:
-	var w = _brain("honest")
-	w.force_watch = "hands"
-	var m = _human_match(11, w)
-	_start_cheat(m)
-	_run(m, 0.6, "table")   # 상대 시선이 손에 자리 잡을 때까지
-	var before: float = w.suspicion
-	var r: Dictionary = m.place_lighter()
-	_check(bool(r["seen"]), "손을 보는 상대는 라이터 놓는 걸 봄")
-	_near(float(w.suspicion) - before, float(CheatRules.SETUP_SUSPICION["lighter"]) * 1.0, 1e-9, "의심이 오름 (경고는 아님)")
-	_check(int(m.strikes[0]) == 0, "준비 동작만으로는 경고 없음")
+func _t_lights_regardless() -> void:
+	var m = _hm(4, _brain("inert"), ["lighter", "glass"])
+	_start_slave(m)
+	_run(m, 1.6, "obj1")
+	_check(bool(m.lights["peek"]) and _first(m, "info").is_empty() and int(m.stats["baits"][0]) == 1, "미끼 물건도 1.5초면 불 (카드는 안 보임)")
+	_run(m, 1.9, "accomplice")
+	_check(bool(m.lights["acc"]) and _first(m, "info").is_empty(), "빈 협력자 자리도 1.8초면 불")
 
 
 func _t_accomplice() -> void:
-	var m = _human_match(12, _brain("inert"))
-	_start_cheat(m)
-	_check(bool(m.call_accomplice()["ok"]) and str(m.acc_state) == "walking", "협력자 부르기 → 걸어옴")
-	_check(not bool(m.call_accomplice()["ok"]), "이미 부름")
-	_run(m, CheatRules.ACC_WALK_SECONDS + 0.1, "table")
-	_check(str(m.acc_state) == "present" and not _first_event(m, "acc_arrived").is_empty(), "상대 뒤에 섬")
-	_run(m, CheatRules.SIGNAL_SECONDS + 0.1, "accomplice")
-	var ev := _first_event(m, "peek_info")
-	_check(not ev.is_empty() and str(ev["source"]) == "accomplice" and int(ev["card"]) == int(m.committed[1]), "손 신호로 상대 카드")
-	# 상대가 뒤를 돌아보면 협력자가 들킴 → 쫓겨남
-	var w = _brain("inert")
-	w.perception = 1.0
-	w.force_watch = "behind"
-	var m2 = _human_match(13, w)
-	_start_cheat(m2)
-	m2.call_accomplice()
-	_run(m2, CheatRules.ACC_WALK_SECONDS + 0.1, "table")
-	_run(m2, 3.0, "accomplice")
-	_check(int(m2.strikes[0]) == 1 and str(m2.acc_state) == "out", "뒤돌아본 상대에게 들킴 → 협력자 쫓겨남")
-	m2.next()
-	for i in 40:
-		if int(m2.turn_type) == GambleMatch.TurnType.CHEAT and int(m2.phase) == GambleMatch.Phase.PLAYER_CHOOSE:
-			break
-		if int(m2.phase) == GambleMatch.Phase.PLAYER_CHOOSE:
-			m2.commit(int(m2.hands[0][0]))
-		elif int(m2.phase) == GambleMatch.Phase.AI_THINK:
-			_run(m2, 8.0, "table")
-		elif int(m2.phase) == GambleMatch.Phase.REVEALED:
-			m2.next()
-	_check(not bool(m2.call_accomplice()["ok"]), "쫓겨난 협력자는 다시 못 부름")
+	var m = _hm(5, _brain("inert"), [])
+	_start_slave(m)
+	_check(bool(m.call_accomplice()["ok"]) and not bool(m.call_accomplice()["ok"]), "협력자는 한 번 부름")
+	_run(m, 2.6, "table")
+	_check(str(m.acc_state[0]) == "present", "걸어와서 섬")
+	_run(m, 1.9, "accomplice")
+	var ev := _first(m, "info")
+	_check(not ev.is_empty() and str(ev["source"]) == "acc" and int(ev["card"]) == int(m.committed[m.king]), "1.8초 계속 보면 카드")
 
 
-func _t_cover_blocks_shiner() -> void:
-	# 상대 덮개 → 반사경 안 비침, 협력자는 됨
-	var m = _human_match(14, _brain("inert"))
-	_start_cheat(m)
-	m._cover(1)
-	m.place_lighter()
-	_run(m, 3.0, "shiner")
-	_check(_first_event(m, "peek_info").is_empty() and float(m.peek_progress[0]) == 0.0, "덮개가 있으면 반사경에 안 비침")
-	m.call_accomplice()
-	_run(m, CheatRules.ACC_WALK_SECONDS + 0.1, "table")
-	_run(m, CheatRules.SIGNAL_SECONDS + 0.1, "accomplice")
-	_check(str(_first_event(m, "peek_info").get("source", "")) == "accomplice", "덮개가 있어도 협력자 신호는 됨")
-	# 내 덮개 → 상대가 엿보지 못함
+func _t_human_expose() -> void:
 	var b = _brain("inert")
 	b.cheat_rate = 10.0
-	b.boldness = 1.0
-	var m2 = _human_match(15, b)
-	m2.start()   # 1판: 사람 = 왕 측 · 상대(노예)가 라이터를 놓음
-	_check(bool(m2.lighter[1]), "노예 측 상대가 라이터를 놓음 (보이는 준비 동작)")
-	_check(bool(m2.cover_card()["ok"]), "내 카드에 덮개")
-	m2.commit(int(m2.hands[0][0]))
-	_run(m2, 8.0, "table")
-	_check(not bool(m2.peek_done[1]) and int(m2.turn_glances) == 0, "덮개가 있으면 상대가 엿보지 않음")
-	_check(int(m2.cover_left[0]) == CheatRules.COVERS_PER_MATCH - 1, "덮개 횟수 −1")
-
-
-func _t_bluff_time() -> void:
-	var m = _human_match(16, _brain("inert"))
-	m.start()   # 1판: 감시 턴 (내가 먼저 고름)
-	_near(float(m.turn_limit), CheatRules.TURN_SECONDS, 1e-9, "기본 고르는 시간")
-	m.bluff()
-	_near(float(m.turn_limit), CheatRules.TURN_SECONDS + CheatRules.CHOOSE_BLUFF_SECONDS, 1e-9, "블러핑 → 내 시간 +5초")
-	_near(float(m.pending_time[1]), -CheatRules.THINK_BLUFF_SECONDS, 1e-9, "상대 다음 고민 −2초 대기")
-	m.commit(int(m.hands[0][0]))
-	_check(float(m.think_total) <= 7.0 - CheatRules.THINK_BLUFF_SECONDS + 1e-6 and float(m.pending_time[1]) == 0.0, "상대 고민 시간이 줄어 시작")
-	var before: float = m.think_left
-	m.bluff()
-	_near(float(m.think_left), maxf(before - CheatRules.THINK_BLUFF_SECONDS, CheatRules.MIN_TIME_LEFT), 1e-9, "고민 중 블러핑 → 바로 −2초")
-	_near(float(m.pending_time[0]), CheatRules.CHOOSE_BLUFF_SECONDS, 1e-9, "내 다음 고르는 시간 +5초 대기")
-	m.bluff()
-	_check(int(m.bluff_left[0]) == 0 and not bool(m.bluff()["ok"]), "매치 3번까지")
-
-
-func _t_detect_accuse() -> void:
-	var b = _brain("inert")
-	b.cheat_rate = 10.0
-	b.boldness = 1.0
-	var m = _human_match(4, b)
+	b.objects = ["lighter"]
+	var m = _hm(6, b)
 	m.start()
-	_check(int(m.turn_type) == GambleMatch.TurnType.DETECT and bool(m.lighter[1]), "1판(왕 측) = 감시 턴 · 상대 라이터")
 	m.commit(int(m.hands[0][0]))
-	var seen := false
-	for i in 120:
-		m.tick(DT, "face")
-		if str(m.gaze[1]) == "shiner":
-			seen = true
-			break
-	_check(seen, "상대가 반사경을 봄")
-	var r: Dictionary = m.accuse()
-	_check(bool(r["hit"]) and int(m.strikes[1]) == 1 and not bool(m.lighter[1]), "보는 순간 고발 = 적중 · 라이터 몰수")
-	_check(int(m.phase) == GambleMatch.Phase.REVEALED and int(m.tokens[0]) == CheatRules.TOKENS_PER_MATCH, "적중이면 판 몰수 · 토큰 그대로")
-	var m2 = _human_match(5, _brain("honest"))
+	var ok := _run_until(m, func(): return str(m.gaze[1]) == "obj0" and float(m.t) - float(m.gaze_since[1]) >= 0.5, "table", 8.0)
+	var r: Dictionary = m.expose("peek")
+	_check(ok and bool(r["hit"]) and int(m.strikes[1]) == 1 and bool(m.sealed[1]["peek"]), "진짜 엿보기를 밝혀냄 → 경고·봉인")
+	_check(float(m.limit) <= CheatRules.TURN_SECONDS - CheatRules.EXPOSE_CUT + 1e-6, "노예 턴 −5초")
+	var m2 = _hm(7, _brain("honest"))
 	m2.start()
 	m2.commit(int(m2.hands[0][0]))
 	_run(m2, 1.0, "face")
-	var r2: Dictionary = m2.accuse()
-	_check(not bool(r2["hit"]) and int(m2.tokens[0]) == CheatRules.TOKENS_PER_MATCH - 1, "헛고발 → 토큰 −1")
-	_check(int(m2.scores[0]) == -CheatRules.FALSE_ACCUSE_FINE and int(m2.phase) == GambleMatch.Phase.AI_THINK, "헛고발 벌금 · 턴은 계속")
+	var r2: Dictionary = m2.expose("peek")
+	_check(not bool(r2["hit"]) and float(m2.pending_time[0]) == -CheatRules.EXPOSE_FAIL_CUT and not bool(m2.expose("peek")["ok"]),
+		"헛짚음 → 내 다음 턴 −5초 · 턴마다 한 번")
 
 
-func _t_ai_peek_best_response() -> void:
-	var m = _human_match(6, _brain("inert"))
-	m.start()   # 1판: 사람 = 왕 측, AI = 암살자 측
-	m.commit(RankCards.Card.KING)
-	m.peek_done[1] = true
-	_run(m, 8.0, "table")
-	var ev := _first_event(m, "reveal")
-	_check(not ev.is_empty() and int(ev["cards"][1]) == RankCards.Card.ASSASSIN, "엿본 AI 는 왕에 암살자로 답함")
+func _t_ai_expose() -> void:
+	var w = _brain("inert")
+	w.perception = 1.0
+	w.force_watch = "face"
+	var m = _hm(8, w, ["lighter", "glass"])
+	_start_slave(m)
+	_run(m, 3.0, "obj0")
+	_check(int(m.strikes[0]) == 1 and bool(m.sealed[0]["peek"]), "AI 왕이 진짜 엿보기를 밝혀냄")
+	var w2 = _brain("inert")
+	w2.perception = 1.0
+	w2.force_watch = "face"
+	var m2 = _hm(9, w2, ["glass"])
+	_start_slave(m2)
+	_run(m2, 3.0, "obj0")
+	_check(int(m2.strikes[0]) == 0 and float(m2.pending_time[1]) == -CheatRules.EXPOSE_FAIL_CUT, "미끼를 밝혀내면 헛짚음 → AI 다음 턴 −5초")
 
 
-func _t_ai_ignores_hidden_card() -> void:
-	var same := true
-	for s in range(100, 140):
-		if _ai_detect_card(s, RankCards.Card.KING) != _ai_detect_card(s, RankCards.Card.CITIZEN):
-			same = false
-	_check(same, "엿보지 않으면 AI 카드 = 내 카드와 무관 (40개 시드)")
+func _t_sealed() -> void:
+	var m = _hm(22, _brain("inert"), ["lighter"])
+	_start_slave(m)
+	m.sealed[0]["peek"] = true
+	_run(m, 1.6, "obj0")
+	_check(_first(m, "info").is_empty(), "봉인된 속임수는 안 통함")
 
 
-func _ai_detect_card(p_seed: int, my_card: int) -> int:
-	var m = _human_match(p_seed, _brain("honest"))
+func _t_defenses() -> void:
+	var m = _hm(10, _brain("inert"), ["lighter"])
+	_start_slave(m)
+	m._cover(m.king)
+	_run(m, 1.6, "obj0")
+	_check(_first(m, "info").is_empty() and str(_first(m, "info_blocked").get("why", "")) == "cover", "가리기 → 엿보기 막힘")
+	m.call_accomplice()
+	_run(m, 2.6, "table")
+	_run(m, 1.9, "accomplice")
+	_check(str(_first(m, "info").get("source", "")) == "acc", "가리기는 협력자를 못 막음")
+	var m2 = _hm(11, _brain("inert"), ["lighter"])
+	m2.round_index = 0
+	m2.start()
+	m2.call_accomplice()
+	m2._randomize(m2.king)
+	_check(int(m2.phase) == GambleMatch.Phase.SLAVE_TURN and bool(m2.randomized), "무작위 → 바로 냄")
+	_run(m2, 2.6, "table")
+	_run(m2, 1.6, "obj0")
+	_run(m2, 1.9, "accomplice")
+	_check(_first(m2, "info").is_empty(), "무작위 → 엿보기·협력자 둘 다 막힘")
+	var m3 = _hm(12, _brain("inert"), ["lighter"])
+	_start_slave(m3)
+	m3._fake(m3.king)
+	_run(m3, 1.6, "obj0")
+	var ev := _first(m3, "info")
+	var real_card: int = int(m3.committed[m3.king])
+	_check(not ev.is_empty() and int(ev["card"]) != real_card and int(ev["card"]) == m3._fake_of(real_card), "바꿔치기 → 가짜 카드가 보임")
+
+
+func _t_attention() -> void:
+	var w = _brain("inert")
+	w.perception = 1.0
+	w.force_watch = "face"
+	var m = _hm(13, w, ["lighter"])
+	_start_slave(m)
+	_check(bool(m.attention()["ok"]) and str(m.gaze[1]) == "away", "시선 끌기 → 왕이 딴 곳을 봄")
+	_run(m, 1.6, "obj0")
+	_check(not _first(m, "info").is_empty() and not bool(m.lights["peek"]) and int(m.strikes[0]) == 0, "그동안 엿보기: 불도 밝혀내기도 없음")
+	_check(not bool(m.attention()["ok"]), "매치 한 번")
+
+
+func _t_gesture() -> void:
+	var m = _hm(14, _brain("inert"))
+	m.round_index = 0
 	m.start()
-	m.commit(my_card)
-	_run(m, 8.0, "table")
-	var ev := _first_event(m, "reveal")
-	return int(ev["cards"][1]) if not ev.is_empty() else -1
+	_check(int(m.phase) == GambleMatch.Phase.KING_TURN and bool(m.gesture()["ok"]) and absf(float(m.limit) - 10.0) < 1e-9 and bool(m.king_rushed),
+		"제스처 → AI 왕 턴 −5초")
+	_check(not bool(m.gesture()["ok"]), "왕 턴마다 한 번")
+	var b2 = _brain("inert")
+	b2.gesture_rate = 10.0
+	var m2 = _hm(15, b2)
+	m2.start()
+	_run(m2, 4.5, "table")
+	_check(int(m2.phase) == GambleMatch.Phase.KING_TURN and absf(float(m2.limit) - 10.0) < 1e-9, "AI 제스처 → 내 왕 턴 −5초")
+	var m3 = _hm(16, _brain("inert"))
+	m3.round_index = 0
+	m3.start()
+	m3.t = 5.5
+	_check(not bool(m3.gesture()["ok"]), "왕 턴이 10초 미만 남으면 못 씀")
 
 
 func _t_two_strikes() -> void:
 	var w = _brain("inert")
-	w.perception = 1.0
+	w.perception = 1.5
 	w.force_watch = "face"
-	var m = _human_match(8, w)
-	_start_cheat(m)
-	m.place_lighter()
-	_run(m, 3.0, "shiner")
-	_check(int(m.strikes[0]) == 1 and not m.is_over(), "한 번 들키면 계속")
-	for i in 60:
-		if m.is_over():
-			break
-		if int(m.phase) == GambleMatch.Phase.REVEALED:
-			m.next()
-			continue
-		if int(m.turn_type) == GambleMatch.TurnType.CHEAT:
-			if not bool(m.lighter[0]):
-				m.place_lighter()
-			_run(m, 3.0, "shiner")
-		elif int(m.phase) == GambleMatch.Phase.PLAYER_CHOOSE:
-			m.commit(int(m.hands[0][0]))
-		else:
-			_run(m, 8.0, "table")
-	_check(m.is_over() and int(m.winner) == 1 and str(m.end_reason) == "CAUGHT_TWICE", "두 번 들키면 즉시 패배")
+	var m = _hm(16, w, ["lighter"])
+	m.round_index = 0
+	m.start()
+	m.call_accomplice()
+	_run_until(m, func(): return int(m.phase) == GambleMatch.Phase.SLAVE_TURN, "table")
+	_run(m, 3.0, "obj0")
+	_check(int(m.strikes[0]) == 1 and not m.is_over(), "경고 1")
+	_run_until(m, func(): return str(m.acc_state[0]) == "present", "table", 3.0)
+	_run(m, 6.0, "accomplice")
+	_check(m.is_over() and int(m.winner) == 1 and str(m.end_reason) == "CAUGHT_TWICE", "경고 2 → 즉시 패배")
+
+
+## AI 는 사람이 낸 (안 보이는) 카드를 몰래 읽지 않음: 같은 시드면 사람 카드가 달라도 AI 카드가 같음
+func _t_ai_ignores_hidden_card() -> void:
+	var same := true
+	for s in range(100, 140):
+		if _ai_card(s, RankCards.Card.KING) != _ai_card(s, RankCards.Card.CITIZEN):
+			same = false
+	_check(same, "AI 는 숨긴 카드를 모름")
+
+
+func _ai_card(p_seed: int, my_card: int) -> int:
+	var m = _hm(p_seed, _brain("honest"))
+	m.start()
+	m.commit(my_card)
+	_run(m, 8.0, "table")
+	var ev := _first(m, "reveal")
+	return int(ev["cards"][1]) if not ev.is_empty() else -1
 
 
 func _t_timeout() -> void:
-	var m = _human_match(9, _brain("inert"))
-	_start_cheat(m)
-	_run(m, CheatRules.TURN_SECONDS + 0.5, "table")
-	_check(not _first_event(m, "timeout").is_empty() and int(m.phase) == GambleMatch.Phase.REVEALED, "시간이 지나면 아무 카드나 냄")
+	var m = _hm(17, _brain("inert"))
+	m.start()
+	_run(m, 15.5, "table")
+	_check(not _first(m, "timeout").is_empty() and int(m.phase) == GambleMatch.Phase.SLAVE_TURN, "왕 턴 시간 초과 → 무작위 카드")
 
 
 func _t_tiebreak() -> void:
@@ -382,44 +343,32 @@ func _t_tiebreak() -> void:
 
 
 func _t_determinism() -> void:
-	var e1 := _auto_events(777, "cheater", "watcher")
-	var e2 := _auto_events(777, "cheater", "watcher")
-	var e3 := _auto_events(778, "cheater", "watcher")
-	_check(e1 == e2, "같은 시드 → 같은 매치")
-	_check(e1 != e3, "다른 시드 → 다른 매치")
+	_check(_auto_events(777) == _auto_events(777) and _auto_events(777) != _auto_events(778), "같은 시드 = 같은 매치")
 
 
-func _auto_events(p_seed: int, k0: String, k1: String) -> String:
+func _auto_events(p_seed: int) -> String:
 	var m = GambleMatch.new()
-	m.setup(p_seed, _brain(k0), _brain(k1))
+	m.setup(p_seed, _brain("cheater"), _brain("watcher"))
 	m.run_auto()
-	return JSON.stringify(m.events)
+	return str(m.events)
 
 
 func _t_auto_match_sane() -> void:
-	var all_over := true
-	var strikes_ok := true
-	var turns_ok := true
-	var caught_twice := 0
+	var ok := true
+	var caught2 := 0
 	for s in range(1, 101):
 		var m = GambleMatch.new()
-		m.setup(s, _brain("cheater"), _brain("cheater"))
+		m.setup(s, _brain("cheater"), _brain("gambler"))
 		m.run_auto()
-		if not m.is_over() or not [0, 1, 2].has(int(m.winner)):
-			all_over = false
-		if int(m.strikes[0]) > 2 or int(m.strikes[1]) > 2:
-			strikes_ok = false
+		ok = ok and m.is_over() and maxi(int(m.strikes[0]), int(m.strikes[1])) <= CheatRules.STRIKES_TO_LOSE
 		if str(m.end_reason) == "CAUGHT_TWICE":
-			caught_twice += 1
-		var side0 := -1
-		for ev in m.events:
-			if ev["type"] == "round_start":
-				side0 = int(ev["sides"][0])
-			elif ev["type"] == "turn_start":
-				var want: int = GambleMatch.TurnType.CHEAT if side0 == RankCards.Team.ASSASSIN_SIDE else GambleMatch.TurnType.DETECT
-				if int(ev["turn_type"]) != want:
-					turns_ok = false
-	_check(all_over, "100 매치 모두 끝남")
-	_check(strikes_ok, "경고는 2개를 넘지 않음")
-	_check(turns_ok, "턴 종류 = 그 판 진영 (노예 측만 속임수)")
-	print("[TEST] auto_matches=100 caught_twice=%d" % caught_twice)
+			caught2 += 1
+		var last := -1
+		for e in m.events:
+			if str(e["type"]) == "phase_start":
+				ok = ok and int(e["phase"]) != last
+				last = int(e["phase"])
+			elif str(e["type"]) == "turn_start":
+				last = -1
+	_check(ok, "AI 대 AI 100판: 끝까지 가고, 경고 ≤ 2, 단계 순서 정상")
+	print("[TEST] auto_matches=100 caught_twice=%d" % caught2)

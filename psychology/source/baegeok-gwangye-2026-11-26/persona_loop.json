@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "baegeok-gwangye-2026-11-26": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "9c95fc3b8a260196",
+     "reviewers": [
+      "T1-P1",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_title_1.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_title_1",
+     "ours_idx": 5,
+     "text": "제목: 잘해 준 건 다 잊히는 대신 100억? 인간관계 밸런스 게임\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 다 잊힌다\n보조 문구: 네가 해 준 게 뭔데? / 내가 다 해 줬는데…",
+     "at": "2026-11-26T06:28:34Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "psychology/source/baegeok-gwangye-2026-11-26/baegeok-gwangye-2026-11-26.txt",
+    "pending": {
+     "n": 1,
+     "sha": "7f9fe7a56c8f93da",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_1.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T06:28:34Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "psychology/source/baegeok-gwangye-2026-11-26/baegeok-gwangye-2026-11-26.txt",
+    "pending": {
+     "n": 1,
+     "sha": "7f9fe7a56c8f93da",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_1.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T06:28:34Z"
+    }
+   }
+  }
+ }
+}

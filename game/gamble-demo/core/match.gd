@@ -1,4 +1,5 @@
-# VERSION: v0.1.0 — 2026-11-26 — 매치 흐름(판·턴·공개·연장) + 속임수·고발 판정 + 이벤트 기록
+# VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# 이전 VERSION: v0.1.0 — 2026-11-26 — 매치 흐름(판·턴·공개·연장) + 속임수·고발 판정 + 이벤트 기록
 #
 # 자리(seat): 0 = 먼저 카드를 내는 쪽 (사람, 또는 시뮬레이션에선 AI)
 #             1 = AI. 정보 없이 카드를 미리 정해 두고, 엿보기를 했을 때만 자리 0 카드를 보고 다시 정함
@@ -30,7 +31,7 @@ var seed_value := 0
 var brains: Array = [null, null]
 var gaze: Array = ["face", "face"]
 var hands: Array = [[], []]
-var sides: Array = [RankCards.Side.KING_SIDE, RankCards.Side.ASSASSIN_SIDE]
+var sides: Array = [RankCards.Team.KING_SIDE, RankCards.Team.ASSASSIN_SIDE]
 var scores: Array = [0, 0]
 var strikes: Array = [0, 0]
 var tokens: Array = [CheatRules.TOKENS_PER_MATCH, CheatRules.TOKENS_PER_MATCH]
@@ -223,9 +224,9 @@ func _begin_round() -> void:
 			_finish_by_score()
 			return
 	# 판마다 진영을 바꿈 — 자리 0 은 1·3·5판에 왕 측. 연장 판은 동전 던지기 (왕 측 승률 80% 라 한쪽에 몰리지 않게)
-	var s0: int = RankCards.Side.KING_SIDE if round_index % 2 == 0 else RankCards.Side.ASSASSIN_SIDE
+	var s0: int = RankCards.Team.KING_SIDE if round_index % 2 == 0 else RankCards.Team.ASSASSIN_SIDE
 	if round_index >= ROUNDS:
-		s0 = RankCards.Side.KING_SIDE if rng.randf() < 0.5 else RankCards.Side.ASSASSIN_SIDE
+		s0 = RankCards.Team.KING_SIDE if rng.randf() < 0.5 else RankCards.Team.ASSASSIN_SIDE
 		GameLog.info("DEAL", {"extra_round": round_index - ROUNDS + 1, "reason": "tie", "score": scores[0],
 			"coin_seat0_side": RankCards.SIDE_NAMES[s0]})
 	sides = [s0, RankCards.other_side(s0)]

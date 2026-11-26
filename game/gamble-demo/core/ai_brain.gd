@@ -1,4 +1,5 @@
-# VERSION: v0.1.0 — 2026-11-26 — AI 성격값 · 시선 · 카드 선택 · 속임수 결정 · 의심(로그 오즈) 갱신 · 고발 결정
+# VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# 이전 VERSION: v0.1.0 — 2026-11-26 — AI 성격값 · 시선 · 카드 선택 · 속임수 결정 · 의심(로그 오즈) 갱신 · 고발 결정
 #
 # 공정성 규칙: 이 파일의 어떤 함수도 상대의 숨은 카드를 받지 않는다.
 #   상대 카드는 엿보기·뒷면 표시를 했을 때만 info["opp_card"] 로 들어온다 (match.gd 가 넣음).
@@ -80,7 +81,7 @@ static func best_response(hand: Array, side: int, opp_card: int) -> int:
 	var citizen: int = RankCards.Card.CITIZEN
 	var special := RankCards.special_of(side)
 	var want: int
-	if side == RankCards.Side.KING_SIDE:
+	if side == RankCards.Team.KING_SIDE:
 		# 상대가 암살자면 시민으로 잡고, 시민이면 왕으로 이김
 		want = citizen if opp_card == RankCards.Card.ASSASSIN else special
 	else:
@@ -100,7 +101,7 @@ func decide_cheat(rng: RandomNumberGenerator, allowed: Array, left: Dictionary, 
 		rate *= 0.4
 	if my_strikes >= 1:
 		rate *= 0.25   # 한 번 더 걸리면 매치 패배
-	if my_side == RankCards.Side.ASSASSIN_SIDE:
+	if my_side == RankCards.Team.ASSASSIN_SIDE:
 		rate *= 1.3    # 걸린 점수(4)가 큼
 	var roll := rng.randf()
 	if not already_marked:

@@ -1,4 +1,5 @@
-# VERSION: v0.1.0 — 2026-11-26 — AI 대 AI 밸런스 시뮬레이션 (성격 조합별 승률·적발률·고발 정확도)
+# VERSION: v0.1.1 — 2026-11-26 — 인자 읽는 줄의 타입 추론 오류 고침
+# 이전 VERSION: v0.1.0 — 2026-11-26 — AI 대 AI 밸런스 시뮬레이션 (성격 조합별 승률·적발률·고발 정확도)
 #
 # 실행 (저장소 맨 위에서):
 #   godot --headless --path game/gamble-demo --script res://tools/simulate.gd -- --matches=2000 --seed=42
@@ -82,7 +83,8 @@ func _ratio(a: int, b: int) -> float:
 func _parse_args(raw: PackedStringArray) -> Dictionary:
 	var out := {}
 	for a in raw:
-		if a.begins_with("--") and a.contains("="):
-			var kv := a.substr(2).split("=", true, 1)
+		var arg: String = a
+		if arg.begins_with("--") and arg.contains("="):
+			var kv: PackedStringArray = arg.substr(2).split("=", true, 1)
 			out[kv[0]] = kv[1]
 	return out

@@ -1,4 +1,5 @@
-# VERSION: v0.1.0 — 2026-11-26 — 데모 화면: 카드 · 속임수(손기술 QTE) · 고발 · 시선 · 기록 · 판 끝 리플레이 · 연장 표시
+# VERSION: v0.1.1 — 2026-11-26 — 속임수 버튼 줄의 타입 추론 오류 고침(INFERENCE_ON_VARIANT) · Side→Team
+# 이전 VERSION: v0.1.0 — 2026-11-26 — 데모 화면: 카드 · 속임수(손기술 QTE) · 고발 · 시선 · 기록 · 판 끝 리플레이 · 연장 표시
 #
 # 화면은 코드로 만듦 (씬 파일은 루트 하나) — 규칙은 모두 core/match.gd 에 있고 여기선 보여 주기만.
 # 연구·교육용 데모 — 실제 돈과 관계없음.
@@ -263,7 +264,7 @@ func _render_event(ev: Dictionary) -> void:
 			var mine: int = ev["sides"][0]
 			_log("\n[b]── %s 시작 ──[/b] 당신: %s · 상대: %s" % [_round_name(int(ev["round"])),
 				RankCards.SIDE_NAMES[mine], RankCards.SIDE_NAMES[ev["sides"][1]]])
-			if mine == RankCards.Side.KING_SIDE:
+			if mine == RankCards.Team.KING_SIDE:
 				_log("왕 측: 왕이 시민을 만나면 +1점. 상대 암살자에게 왕을 내면 짐.")
 			else:
 				_log("암살자 측: 암살자가 왕을 잡으면 +4점. 시민에게 암살자를 내면 짐.")
@@ -384,8 +385,10 @@ func _refresh() -> void:
 	_clear(cheat_box)
 	var left: Dictionary = game.uses_left(0)
 	for id in CheatRules.CHEATS:
-		var b := _button("%s (남은 %d)" % [CheatRules.CHEATS[id]["name"], int(left[id])], _on_cheat.bind(str(id)))
-		var blocked := int(left[id]) <= 0 or (id == "mark" and bool(game.marked[0])) or (id == "peek" and bool(game.peeked_now[0]))
+		var cid: String = str(id)
+		var n_left: int = int(left[cid])
+		var b := _button("%s (남은 %d)" % [CheatRules.CHEATS[cid]["name"], n_left], _on_cheat.bind(cid))
+		var blocked: bool = n_left <= 0 or (cid == "mark" and bool(game.marked[0])) or (cid == "peek" and bool(game.peeked_now[0]))
 		b.disabled = not choosing or blocked
 		cheat_box.add_child(b)
 

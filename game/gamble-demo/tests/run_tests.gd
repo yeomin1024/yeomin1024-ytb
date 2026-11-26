@@ -1,4 +1,5 @@
-# VERSION: v0.1.0 — 2026-11-26 — 핵심 규칙 시험 (화면 없이)
+# VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# 이전 VERSION: v0.1.0 — 2026-11-26 — 핵심 규칙 시험 (화면 없이)
 #
 # 실행 (저장소 맨 위에서):
 #   godot --headless --path game/gamble-demo --script res://tests/run_tests.gd
@@ -98,8 +99,8 @@ func _t_rules_table() -> void:
 	_check(RankCards.resolve(asn, king) == 1, "암살자 > 왕")
 	_check(RankCards.resolve(king, asn) == -1, "왕 < 암살자")
 	_check(RankCards.resolve(cit, cit) == 0, "시민 = 시민")
-	var hk := RankCards.new_hand(RankCards.Side.KING_SIDE)
-	var ha := RankCards.new_hand(RankCards.Side.ASSASSIN_SIDE)
+	var hk := RankCards.new_hand(RankCards.Team.KING_SIDE)
+	var ha := RankCards.new_hand(RankCards.Team.ASSASSIN_SIDE)
 	_check(hk.size() == 5 and hk.count(cit) == 4 and hk.has(king), "왕 측 패 = 시민 4 + 왕")
 	_check(ha.size() == 5 and ha.count(cit) == 4 and ha.has(asn), "암살자 측 패 = 시민 4 + 암살자")
 
@@ -108,13 +109,13 @@ func _t_fair_odds_analytic() -> void:
 	var total := 0.0
 	var assassin := 0.0
 	for t in range(1, RankCards.HAND_SIZE + 1):
-		var pa := RankCards.p_fair_win_at(RankCards.Side.ASSASSIN_SIDE, t)
+		var pa := RankCards.p_fair_win_at(RankCards.Team.ASSASSIN_SIDE, t)
 		assassin += pa
-		total += pa + RankCards.p_fair_win_at(RankCards.Side.KING_SIDE, t)
+		total += pa + RankCards.p_fair_win_at(RankCards.Team.KING_SIDE, t)
 	_near(total, 1.0, 1e-9, "공정 결과 확률 합 = 1")
 	_near(assassin, 0.2, 1e-9, "암살자 측 승률 = 1/5")
-	var ev_king: float = (1.0 - assassin) * int(RankCards.WIN_POINTS[RankCards.Side.KING_SIDE])
-	var ev_assassin: float = assassin * int(RankCards.WIN_POINTS[RankCards.Side.ASSASSIN_SIDE])
+	var ev_king: float = (1.0 - assassin) * int(RankCards.WIN_POINTS[RankCards.Team.KING_SIDE])
+	var ev_assassin: float = assassin * int(RankCards.WIN_POINTS[RankCards.Team.ASSASSIN_SIDE])
 	_near(ev_king, ev_assassin, 1e-9, "두 진영 기대 점수가 같음 (0.8)")
 
 
@@ -126,11 +127,11 @@ func _t_fair_odds_montecarlo() -> void:
 	var n := 20000
 	var assassin_wins := 0
 	for i in n:
-		var hk := RankCards.new_hand(RankCards.Side.KING_SIDE)
-		var ha := RankCards.new_hand(RankCards.Side.ASSASSIN_SIDE)
+		var hk := RankCards.new_hand(RankCards.Team.KING_SIDE)
+		var ha := RankCards.new_hand(RankCards.Team.ASSASSIN_SIDE)
 		for t in RankCards.HAND_SIZE:
-			var ck: int = b.choose_card(rng, hk, RankCards.Side.KING_SIDE, {})
-			var ca: int = b.choose_card(rng, ha, RankCards.Side.ASSASSIN_SIDE, {})
+			var ck: int = b.choose_card(rng, hk, RankCards.Team.KING_SIDE, {})
+			var ca: int = b.choose_card(rng, ha, RankCards.Team.ASSASSIN_SIDE, {})
 			hk.erase(ck)
 			ha.erase(ca)
 			var r := RankCards.resolve(ck, ca)
@@ -141,9 +142,9 @@ func _t_fair_odds_montecarlo() -> void:
 	_near(float(assassin_wins) / n, 0.2, 0.015, "무작위 대 무작위 암살자 측 승률")
 	var king_turn := [0, 0, 0, 0, 0]
 	for i in n:
-		var h := RankCards.new_hand(RankCards.Side.KING_SIDE)
+		var h := RankCards.new_hand(RankCards.Team.KING_SIDE)
 		for t in RankCards.HAND_SIZE:
-			var c: int = b.choose_card(rng, h, RankCards.Side.KING_SIDE, {})
+			var c: int = b.choose_card(rng, h, RankCards.Team.KING_SIDE, {})
 			h.erase(c)
 			if c == RankCards.Card.KING:
 				king_turn[t] += 1
@@ -194,7 +195,7 @@ func _t_accuse_hit() -> void:
 	_check(m.evidence.is_empty(), "증거 몰수")
 	_check(m.tokens[1] == CheatRules.TOKENS_PER_MATCH, "적중이면 토큰 그대로")
 	# 1판: 자리 0 = 왕 측, 자리 1 = 암살자 측 → 몰수 점수 4 + 들킨 벌금
-	var want1 := int(RankCards.WIN_POINTS[RankCards.Side.ASSASSIN_SIDE]) + CheatRules.CAUGHT_FINE
+	var want1 := int(RankCards.WIN_POINTS[RankCards.Team.ASSASSIN_SIDE]) + CheatRules.CAUGHT_FINE
 	_check(m.scores[1] == want1 and m.scores[0] == -CheatRules.CAUGHT_FINE, "판 몰수 + 벌금")
 	_check(m.phase == GambleMatch.Phase.REVEALED and m.round_over, "판 끝")
 	_check(not m.cheat(0, "fake", 0.5)["ok"], "판이 끝나면 속임수 거절")
@@ -301,7 +302,7 @@ func _t_ai_late_peek() -> void:
 	m.commit(RankCards.Card.KING)
 	var ev := _first_event(m, "reveal")
 	_check(int(ev["cards"][1]) == RankCards.Card.ASSASSIN, "엿본 AI 는 왕에 암살자로 답함")
-	_check(m.scores[1] == int(RankCards.WIN_POINTS[RankCards.Side.ASSASSIN_SIDE]), "암살자 측 +4")
+	_check(m.scores[1] == int(RankCards.WIN_POINTS[RankCards.Team.ASSASSIN_SIDE]), "암살자 측 +4")
 	# 사람이 바로 고발하면 적중 · AI 엿보기 취소 · 판 몰수
 	var b2 = _brain("inert")
 	b2.cheat_rate = 10.0
@@ -310,15 +311,15 @@ func _t_ai_late_peek() -> void:
 	m2.start()
 	var a: Dictionary = m2.accuse(0)
 	_check(bool(a["hit"]) and m2.strikes[1] == 1 and not m2.ai_late_peek, "AI 엿보기 적발")
-	_check(m2.scores[0] == int(RankCards.WIN_POINTS[RankCards.Side.KING_SIDE]) + CheatRules.CAUGHT_FINE, "몰수 + 벌금 → 사람 +2")
+	_check(m2.scores[0] == int(RankCards.WIN_POINTS[RankCards.Team.KING_SIDE]) + CheatRules.CAUGHT_FINE, "몰수 + 벌금 → 사람 +2")
 
 
 func _t_ai_bayes() -> void:
 	var b = _brain("honest")   # 의심 성향 1.0
-	_near(b.on_round_result(true, RankCards.Side.ASSASSIN_SIDE, 3), log(3.0), 1e-9, "상대가 암살자 측으로 이기면 +ln 3")
-	_near(b.on_round_result(true, RankCards.Side.KING_SIDE, 1), log(2.0625), 1e-9, "상대가 왕 측으로 첫 턴에 이기면 +ln 2.0625")
-	_near(b.on_round_result(true, RankCards.Side.KING_SIDE, 3), log(0.5), 1e-9, "왕 측이 늦게 이기면 ln 0.5")
-	_near(b.on_round_result(false, RankCards.Side.KING_SIDE, 2), log(0.5), 1e-9, "상대가 지면 ln 0.5")
+	_near(b.on_round_result(true, RankCards.Team.ASSASSIN_SIDE, 3), log(3.0), 1e-9, "상대가 암살자 측으로 이기면 +ln 3")
+	_near(b.on_round_result(true, RankCards.Team.KING_SIDE, 1), log(2.0625), 1e-9, "상대가 왕 측으로 첫 턴에 이기면 +ln 2.0625")
+	_near(b.on_round_result(true, RankCards.Team.KING_SIDE, 3), log(0.5), 1e-9, "왕 측이 늦게 이기면 ln 0.5")
+	_near(b.on_round_result(false, RankCards.Team.KING_SIDE, 2), log(0.5), 1e-9, "상대가 지면 ln 0.5")
 	var b2 = _brain("honest")
 	_check(not b2.should_accuse(3), "처음엔 고발 안 함")
 	b2.suspicion = 0.7   # 문턱: 토큰 3 → 0.0 · 토큰 1 → 1.0

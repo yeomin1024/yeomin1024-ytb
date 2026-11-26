@@ -1,4 +1,5 @@
-# VERSION: v0.1.0 — 2026-11-26 — 계급 카드 규칙(왕·시민·암살자) + 공정 플레이 기준 확률
+# VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# 이전 VERSION: v0.1.0 — 2026-11-26 — 계급 카드 규칙(왕·시민·암살자) + 공정 플레이 기준 확률
 #
 # 규칙: 왕 > 시민, 시민 > 암살자, 암살자 > 왕, 시민 = 시민(비김 → 다음 턴)
 # 패: 왕 측 = 시민 4 + 왕, 암살자 측 = 시민 4 + 암살자. 늦어도 5턴에 승부가 남.
@@ -6,22 +7,22 @@
 extends RefCounted
 
 enum Card { CITIZEN, KING, ASSASSIN }
-enum Side { KING_SIDE, ASSASSIN_SIDE }
+enum Team { KING_SIDE, ASSASSIN_SIDE }
 
 const HAND_SIZE := 5
 const CITIZENS_PER_HAND := 4
 const CARD_NAMES := {Card.CITIZEN: "시민", Card.KING: "왕", Card.ASSASSIN: "암살자"}
-const SIDE_NAMES := {Side.KING_SIDE: "왕 측", Side.ASSASSIN_SIDE: "암살자 측"}
+const SIDE_NAMES := {Team.KING_SIDE: "왕 측", Team.ASSASSIN_SIDE: "암살자 측"}
 ## 판 승리 점수 — 둘 다 무작위로 둬도 기대 점수가 같게: 왕 측 0.8 × 1 = 암살자 측 0.2 × 4
-const WIN_POINTS := {Side.KING_SIDE: 1, Side.ASSASSIN_SIDE: 4}
+const WIN_POINTS := {Team.KING_SIDE: 1, Team.ASSASSIN_SIDE: 4}
 
 
 static func special_of(side: int) -> int:
-	return Card.KING if side == Side.KING_SIDE else Card.ASSASSIN
+	return Card.KING if side == Team.KING_SIDE else Card.ASSASSIN
 
 
 static func other_side(side: int) -> int:
-	return Side.ASSASSIN_SIDE if side == Side.KING_SIDE else Side.KING_SIDE
+	return Team.ASSASSIN_SIDE if side == Team.KING_SIDE else Team.KING_SIDE
 
 
 static func new_hand(side: int) -> Array:
@@ -58,7 +59,7 @@ static func p_fair_win_at(winner_side: int, turn: int) -> float:
 	if turn < 1 or turn > HAND_SIZE:
 		return 0.0
 	var n := float(HAND_SIZE)
-	if winner_side == Side.ASSASSIN_SIDE:
+	if winner_side == Team.ASSASSIN_SIDE:
 		return 1.0 / (n * n)
 	return 2.0 * (n - turn) / (n * n)
 
@@ -69,6 +70,6 @@ static func p_fair_win_at(winner_side: int, turn: int) -> float:
 static func p_perfect_win_at(winner_side: int, turn: int) -> float:
 	if turn < 1 or turn > HAND_SIZE:
 		return 0.0
-	if winner_side == Side.KING_SIDE:
+	if winner_side == Team.KING_SIDE:
 		return 1.0 if turn == 1 else 0.0
 	return 1.0 / HAND_SIZE

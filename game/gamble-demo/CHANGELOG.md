@@ -1,5 +1,16 @@
 # CHANGELOG — Gamble Mind Demo
 
+## v0.1.1 — 2026-11-26 — F5 실행 오류 고침 (v0.1.0 → v0.1.1)
+
+사용자 보고: `Failed to load script "res://scenes/main.gd" with error "Parse error"`.
+
+- **원인** `scenes/main.gd` `_refresh()` 속임수 버튼 줄: `var blocked := … (id == "mark" and …)` — `id` 가 타입 없는 값(Dictionary 키)이라 식 전체가 Variant 로 추론됨 → Godot 4 기본 설정에서 `INFERENCE_ON_VARIANT` 는 경고가 아니라 **오류**라 스크립트를 못 읽음.
+- **고침** `cid: String`·`n_left: int`·`blocked: bool` 로 타입을 적음 (`scenes/main.gd` 386~390줄).
+- 같은 꼴: `tools/simulate.gd` `_parse_args()` 의 `var kv := a.substr(2)…` → `arg: String`·`kv: PackedStringArray`.
+- `rank_cards.gd` `enum Side` → `enum Team` (Godot 전역 enum `Side` 와 이름이 겹쳐 경고) — `RankCards.Side.*` 를 쓰던 `ai_brain.gd`·`match.gd`·`main.gd`·`run_tests.gd` 함께 바꿈 (39곳).
+- 규칙·숫자는 그대로 (밸런스 결과 변화 없음).
+- 확인: `gdparse` 8개 통과 · `:=` 로 비교·and·or 를 받는 줄 다시 찾음 → 남은 1곳(`ai_brain.gd` 113줄)은 타입이 정해진 값이라 문제없음. Godot 실행 확인은 여전히 PC 에서.
+
 ## v0.1.0 — 2026-11-26 — 첫 데모 (v0.0.0 → v0.1.0)
 
 새로 만듦 (사용자 지시 "고닷으로 간단하게 테스트 데모 만들어봐"):

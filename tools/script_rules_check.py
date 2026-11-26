@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-26 — 알고리즘 구조(제목 낱말 → 도입 첫 두 문장 · 챕터 이름 낱말 → 챕터 첫 두 문장) · 익숙한 말(가운뎃점·괄호·슬래시·영어 글자·따옴표 겹침) 점검 — guides/script_rules.md v1.1 5·6번
+# VERSION: v1.2 — 2026-11-26 — 맥락을 끊는 멘트 점검(guides/script_rules.md 7번 — 호칭 선언·'끝까지 보시면'·'얻어 가실'·'이 영상에서는' ❌ · 본문의 짧은 '…보겠습니다.' 넘김 ⚠) · 시청자 이득 = 자연스러운 꼴로만 셈 (사용자 지시 "…쓸모없이 맥락만 망치는 멘트는 쓰지 말라고 공통 규칙에 기록하고 대본 수정해")
+# 이전 v1.1 — 2026-11-26 — 알고리즘 구조(제목 낱말 → 도입 첫 두 문장 · 챕터 이름 낱말 → 챕터 첫 두 문장) · 익숙한 말(가운뎃점·괄호·슬래시·영어 글자·따옴표 겹침) 점검 — guides/script_rules.md v1.1 5·6번
 # 이전 v1.0 — 2026-11-26 — 최초: 대본 공통 규칙(guides/script_rules.md v1.0) 점검 — 도입 30초 · 결론 먼저 ✗ · 썸네일 연결 · 챕터 끝 질문 · 직관적이지 않은 표현
 #   사용자 지시 2026-11-26 "대본 도입부 30초 넘기지 말고 썸네일과 연결되고 … 결론부터 말하지 말고 하나씩 챕터를 정해서 알려주고 챕터 넘어갈 때마다 다음 챕터에 대한
 #   호기심을 유발하면서 … '보는 때가 다르다' 처럼 직관적이지 못한 표현은 사용하지마 이걸 모든 영상 대본에 적용되는 공통 규칙으로 해서 파일로 기록하고".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-26 | META(맥락 끊는 멘트) · HANDOFF · BENEFIT 자연스러운 꼴 | main |
 # | v1.1 | 2026-11-26 | title_words · chapter_words · tts_checks | main |
 # | v1.0 | 2026-11-26 | 최초 | parse · intro_checks · chapter_checks · phrase_checks · main |
 """대본 공통 규칙 점검 (읽기만 — 파일을 고치지 않음).
@@ -24,7 +26,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 INTRO_MAX_S = 30.0
 # 직관적이지 않은 표현 (guides/script_rules.md 3번 표 — 새로 찾으면 여기와 그 표에 같이 더함)
 VAGUE = [
@@ -34,7 +36,17 @@ VAGUE = [
     (r"(아까움|미안함|부담)[이은]\s*.{0,12}넘어(가|오)", "'아까움이 넘어간다' — 무엇을 누가 하게 되는지 장면으로"),
 ]
 CONCLUSION_FIRST = r"결론부터|결론을\s*먼저|결론은\s*이렇|답부터\s*말씀"
-BENEFIT = r"(끝까지\s*보시면|알면|아시면|얻어\s*가|할\s*수\s*있습니다|도움이\s*됩니다|챙기실\s*수|피하실\s*수)"
+# 시청자 이득 (1-⑤) — 대놓고 약속하는 꼴('끝까지 보시면'·'얻어 가실')은 셈하지 않고 META 로 ❌
+BENEFIT = r"(지키려면|지키는|막으려면|피하려면|확인해야|해야\s*하는지|할\s*수\s*있|알\s*수\s*있|도움이\s*됩니다|챙기|쓸\s*수\s*있)"
+# 맥락을 끊는 멘트 (guides/script_rules.md 7번) — 대본 어디서나 ❌
+META = [
+    (r"끝까지\s*(보시면|봐\s*주시면|시청)", "'끝까지 보시면' — 이득은 다룰 내용 안에 자연스럽게 (1-⑤)"),
+    (r"얻어\s*가(실|세요|시)", "'얻어 가실 수 있습니다' — 대놓고 약속 ✗ (1-⑤)"),
+    (r"(라고|이라고)\s*부르겠습니다", "호칭 선언 — 처음부터 그 이름으로 · 가명이면 설명란에"),
+    (r"(이|오늘|이번)\s*영상에서는", "'이 영상에서는' — 영상 밖 말 · 내용으로 바로"),
+]
+# 내용 없는 넘김 — 본문에서 '…보겠습니다.'로 끝나는 짧은 문장 (⚠ — 다음 문장에 붙여 말함)
+HANDOFF = r"^.{0,24}(보겠습니다|가 보겠습니다|살펴보겠습니다|알아보겠습니다)\.$"
 
 
 def log(stage: str, **kv) -> None:
@@ -98,7 +110,7 @@ def main(argv=None) -> int:
         log("CHECK", level=level, what=what, **kv)
 
     log("START", tool=f"script_rules_check.py {VERSION}", script=str(path), parts=len(parts),
-        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.1")
+        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.2")
     if len(parts) < 3:
         report("❌", "챕터", why="'-챕터 이름' 줄이 3개 미만 — 도입 · 챕터 · 마무리로 나눔")
         return 1
@@ -158,6 +170,13 @@ def main(argv=None) -> int:
     mid = parts[-2]
     if mid["sents"] and not mid["sents"][-1][1].rstrip().endswith("?"):
         log("CHECK", level="ℹ", what="챕터 끝 질문", part=mid["name"], note="마지막 본문 챕터 — 마무리로 이어지므로 질문 아니어도 됨")
+    for k, s in ((k, s) for p in parts for k, s in p["sents"]):
+        for pat, why in META:
+            if re.search(pat, s):
+                report("❌", "맥락을 끊는 멘트", sentence=k, text=s[:60], fix=why)
+    for k, s in ((k, s) for p in parts[1:] for k, s in p["sents"]):
+        if re.search(HANDOFF, s):
+            report("⚠", "내용 없는 넘김", sentence=k, text=s[:60], fix="다음 문장에 붙여 말함 (script_rules.md 7번)")
     for k, s in ((k, s) for p in parts for k, s in p["sents"]):
         for pat, why in VAGUE:
             if re.search(pat, s):

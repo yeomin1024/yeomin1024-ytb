@@ -314,6 +314,30 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-26T07:12:43Z",
+      "sha": "e0849632a4d55de9",
+      "reviewers": [
+       {
+        "reviewer": "E5-P3",
+        "persona": "P3",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "105 — '신호가 하나라도 있으면 119, 신호 없이 힘들기만 하면 일행과 천천히 하산'(105~107)처럼 조건을 나눠 수칙을 말해서 믿음이 감 (29~31·53·87 에서 모르는 것·숫자 범위를 솔직히 밝힌 것도 좋았음)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/exit_r5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt"
@@ -660,7 +684,19 @@
       }
      }
     ],
-    "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt"
+    "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt",
+    "pending": {
+     "n": 5,
+     "sha": "e0849632a4d55de9",
+     "reviewers": [
+      "K5-반론"
+     ],
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r5.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/answers_hallasan-simjeongji-2026-11_script_rebuttal_5",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T07:10:07Z"
+    }
    }
   }
  }

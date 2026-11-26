@@ -2106,5 +2106,16 @@
     "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    }
   }
- }
+ },
+ "user_decisions": [
+  {
+   "date": "2026-11-26",
+   "item": "jakku-juneun-2026-11-25",
+   "stage": "script_exit",
+   "round": 17,
+   "decision": "A — 그대로 둠 (22·46줄 '연구가 직접 본 것은 아니지만'·'돈을 쓴 실험이라 똑같지는 않지만' 유지)",
+   "user_words": "A로 해 음성 다시 만들게",
+   "why": "5회차를 넘김(guides/persona_loop.md 4번) · 이탈 약한 줄(keep_watching=true)과 반론 지적이 반대 방향 · 반론 17회차는 이 두 마디를 반박을 막는 말로 꼽음"
+  }
+ ]
 }

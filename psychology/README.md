@@ -1,7 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
 VERSION: v1.20 — 2026-11-26 — 밸런스 게임 대본 `source/baegeok-gwangye-2026-11-26/` v5 (잘해 준 건 잊히는 대신 100억 · 이탈 검토 5회차 ❌ 사용자 판단 대기)
-(v1.19 — 2026-11-26 — jakku 영상 제작 공통 규칙(`guides/production_rules.md`) 적용: 제목 「필요 없다는데 자꾸 선물 주는 사람의 심리 3가지」 · 썸네일 문구 「…/ 거절해도 또 주는 이유」 · 설명 첫 2줄·타임라인 · 대본 v3.3 98문장 · 관련 영상 `result/related/jakku-juneun-2026-11-25.md` · 새 썸네일 그림 요청 TH-CHAR2 · 페르소나 17회차(이탈 22·46 사용자 결정))
+(v1.19 — 2026-11-26 — jakku 영상 제작 공통 규칙(`guides/production_rules.md`) 적용: 제목 「필요 없다는데 자꾸 선물 주는 사람의 심리 3가지」 · 썸네일 문구 「…/ 거절해도 또 주는 이유」 · 설명 첫 2줄·타임라인 · 대본 v3.3 98문장 · 관련 영상 `result/related/jakku-juneun-2026-11-25.md` · 새 썸네일 그림 요청 TH-CHAR2 · 페르소나 17회차(이탈 22·46 — 사용자 결정 A 그대로 · 대본 확정))
 (v1.18) — 2026-11-26 — jakku 대본 v2.1 (공통 규칙 `guides/script_rules.md` — 도입 30초·챕터 끝 질문·직관적인 말) · 옛 영상 업로드 막음 · 음성 다시 대기
 (v1.17) — 2026-11-26 — 채널 설명·채널 키워드 `guides/channel.md` v1.0 (사용자 지시 "…알고리즘이 영상 잘 시청자들에게 매칭해줄수 있도록 채널 설명 키워드 좀 알려줘")
 (v1.16) — 2026-11-25 — **jakku-juneun-2026-11-25 다시 만듦**: 대본에서 댓글 언급 7문장을 일반 문장으로(사용자 지시 "댓글 내용 언급하지 말라고 좀 그리고 출처까지는 영상에 쓰지마") → 새 음성 7문장 · 장면 v1.3 화면 글 핵심만("영상에 나오는 설명 좀 알기 쉽게, 핵심만 딱") · 화면 출처 줄 뺌 · 새 영상 7:13 · -13.98 LUFS → 업로드 대기
@@ -99,7 +99,7 @@ python3 tools/tag_keywords.py psychology --write-keywords          # 검색어�
 - 결과 (2026-11-13, 이 컨테이너 `psychology/out/<영상ID>/final_1080p.mp4` — git 에는 넣지 않음): 엄마 기분 7:44 · 하소연 7:56 · 그릇 7:28 · 상처 7:44 — 모두 -14 LUFS 안팎 · 트루 피크 -1.5 dBTP 이하.
 
 ## 다음 할 일
-- **jakku-juneun-2026-11-25**: 사용자 결정(대본 22·46줄 '직접 본 건 아니지만'·'똑같지는 않지만' 그대로 둘지) → Kaggle 음성 전부 다시(98문장 — `tts_narration.py all --dry-run --topics psychology --ids jakku-juneun-2026-11-25` = full) → edge_clean·audio_check·align → 장면 `video/episodes/jakku-juneun-2026-11-25/index.html` 을 새 문장 번호로 → 렌더 → pack → 미리보기 판 · ChatGPT `source/jakku-juneun-2026-11-25/images_chatgpt_thumb2.md` → TH-CHAR2 오면 `thumbs_build.py` img 바꿔 다시.
+- **jakku-juneun-2026-11-25**: 대본 확정(22·46줄 그대로 — 사용자 결정 A 2026-11-26) → Kaggle 음성 전부 다시(98문장 — `tts_narration.py all --dry-run --topics psychology --ids jakku-juneun-2026-11-25` = full) → edge_clean·audio_check·align → 장면 `video/episodes/jakku-juneun-2026-11-25/index.html` 을 새 문장 번호로 → 렌더 → pack → 미리보기 판 · ChatGPT `source/jakku-juneun-2026-11-25/images_chatgpt_thumb2.md` → TH-CHAR2 오면 `thumbs_build.py` img 바꿔 다시.
 0. 영상 네 편 — 썸네일·업로드 시트·uploads 브랜치 끝 → 사용자 PC `유튜브_업로드.bat` → psychology 탭에서 [업로드] (하루 한 편 · 예약 날짜 칸) (대본 페르소나 관문: 이탈 단계 네 편 ❌ · 하소연 반론 ❌ 결정 기다림).
 1. 할당량이 초기화되면 (한국 17시) `resume` — 댓글 덜 받은 29개 · 같은 채널 기준선 107곳 → `analyze`.
 2. 쇼츠 탐색 `explore --shorts --weeks 26` (28번 ≈ 2,800단위) → 추천 훑기 → 승인.

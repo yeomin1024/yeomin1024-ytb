@@ -362,6 +362,30 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 7,
+      "at": "2026-11-26T07:18:51Z",
+      "sha": "3cc9188e1554e85e",
+      "reviewers": [
+       {
+        "reviewer": "E7-P3",
+        "persona": "P3",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "105~108 — 신호가 있으면 더 걷지 말고 119, 신호 없이 힘들기만 하면 일행과 천천히 하산으로 조건이 붙은 수칙이라 믿고 끝까지 봄 (109 위치 표지판 번호도 실제로 쓸모 있는 정보)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/exit_r7.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt"
@@ -779,20 +803,107 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 6,
+      "at": "2026-11-26T07:16:20Z",
+      "sha": "1ba899da3208a5c6",
+      "reviewers": [
+       {
+        "reviewer": "K6-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 77,
+          "text": "청량산 분은 지인이 나중에 '발견'한 거라 쓰러질 땐 혼자였잖아요. '함께 간 사람이 있어도 못 살았다'는 예가 아닌데? 같이 있다가 쓰러진 사례는 대본에 하나도 없음. 게다가 세 분 다 돌아가셨는데 '모두 살지는 못했다'는 또 무슨 말",
+          "fix": "'함께 갔어도 잠깐 떨어진 사이 쓰러지면 늦게 발견되고, 심폐소생술을 받아도 살지 못한 분이 있었습니다'처럼 74줄 사실에 맞추고, 부분 부정 '모두 살지는 못했습니다'는 빼거나 바꾼다"
+         },
+         {
+          "level": "중",
+          "k": "K4",
+          "line": 81,
+          "text": "10년에 167명 중 84명은 '죽은 사람 중 비율'이지 산이 위험하다는 숫자가 아님. 국립공원 오는 사람 수에 비하면 드문 일인데 '위험이 분명해진다'는 겁주기",
+          "fix": "'산에서 숨지는 원인 가운데 심정지가 얼마나 큰지 분명해집니다'처럼 비율을 말하는 문장으로 바꾼다 (79줄 질문과도 맞음)"
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 111,
+          "text": "산악회 버스로 30명이 가는데 한 명 아프다고 다 같이 멈추는 건 현실에선 안 됨. 실제로 필요한 건 '한 명은 꼭 붙여 보내기'",
+          "fix": "'아픈 사람 곁에 적어도 한 명은 남아 함께 내려오기로 미리 약속해 두세요'로 바꿔 108·110줄과 같은 행동으로 맞춘다"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 118,
+          "text": "53줄에선 김 씨가 느낀 게 신호였는지 모른다더니, 마무리에선 '심정지의 신호 앞에서는'이라 김 씨가 신호를 무시한 것처럼 읽힘",
+          "fix": "'몸이 이상하다는 느낌 앞에서는'처럼 53줄과 어긋나지 않는 말로"
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 105,
+          "text": "체한 거면 괜히 헬기 부른 민폐에 비용 나올까 봐 못 부르는 사람이 대부분임. 52줄에서 다섯 명 중 한 명도 안 불렀다면서 왜 망설이는지는 안 짚음",
+          "fix": "'심장이 아니면 다행이니, 망설이지 말고 신고합니다' 한 줄 — 비용을 말하려면 법 원문으로 확인한 경우에만"
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 24,
+          "text": "'결국 신고했다' — 일행이 늑장 신고한 것처럼 들림. 117줄에서 일행 잘못 아니라면서",
+          "fix": "'연락이 닿지 않자, 일행은 오후 1시 48분쯤 119에 신고했습니다'처럼 '결국'을 뺀다"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 97,
+          "text": "전날 잠 설쳤다고 회비 내고 예약한 산행을 다 미루라는 건 비현실적",
+          "fix": "'미루거나, 짧고 쉬운 코스로 줄입니다'로 고른 길을 하나 더 준다"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 112,
+          "text": "산속은 전화 안 터지는 데 많은데 '119 안내에 따라'만 있으면 그땐 어쩌라고",
+          "fix": "'전화가 안 되면 큰 소리로 주변 사람을 부르고, 계속 가슴을 누릅니다' 한 줄"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 86,
+          "text": "84줄은 '심장 돌연사'라더니 86줄은 '등산 중 심정지'로 말을 바꿈. 산장에서 쉬다 생긴 것도 다 등산 중이냐",
+          "fix": "86줄도 '심장 돌연사'로 맞추고 '낙사가 아닌' 대신 '떨어져서가 아니라'처럼 쉬운 말로"
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자 앞뒤(1:48→3:28=1시간 40분, 84−54=30, 14.4÷6.1>2)는 맞고 '신호 있으면 119 · 없으면 함께 하산 · 혼자 먼저 내려가지 않기' 규칙도 분명해 상은 없음. 빈틈은 77줄 '함께 가도 못 살았다'의 예가 실제론 떨어져 있던 사례인 점, 81줄 비율을 '위험'으로 키운 점, 111줄 '다 같이 멈추기'가 큰 산악회에선 비현실적인 점 셋(중).",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(6회차 통과 뒤 사실 맞춤) '함께 간 사람이 있어도…모두 살지는 못했다'(사례와 안 맞음) → '심폐소생술을 받고 산 아래로 옮겨져도, 끝내 숨졌습니다' · '결국 일행은' → '일행은'(늦은 신고로 들림) · '심정지의 신호 앞에서는' → '몸이 보내는 신호 앞에서는' · 통계 장 첫 문장 = 숨진 원인 가운데 얼마나 큰지",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r6.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt",
     "pending": {
-     "n": 6,
-     "sha": "1ba899da3208a5c6",
+     "n": 7,
+     "sha": "3cc9188e1554e85e",
      "reviewers": [
-      "K6-반론"
+      "K7-반론"
      ],
-     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r6.md",
-     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/answers_hallasan-simjeongji-2026-11_script_rebuttal_6",
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r7.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/answers_hallasan-simjeongji-2026-11_script_rebuttal_7",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T07:13:30Z"
+     "at": "2026-11-26T07:16:29Z"
     }
    }
   }

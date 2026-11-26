@@ -1,9 +1,9 @@
-# VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
-# 이전 VERSION: v0.1.0 — 2026-11-26 — AI 성격값 · 시선 · 카드 선택 · 속임수 결정 · 의심(로그 오즈) 갱신 · 고발 결정
+# VERSION: v0.2.0 — 2026-11-26 — 시선 AI: 속임수 턴엔 당신을 지켜보고(얼굴·손·자기 카드·딴 곳), 감시 턴엔 잔을 몰래 봄
+# 이전 VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
 #
-# 공정성 규칙: 이 파일의 어떤 함수도 상대의 숨은 카드를 받지 않는다.
-#   상대 카드는 엿보기·뒷면 표시를 했을 때만 info["opp_card"] 로 들어온다 (match.gd 가 넣음).
-#   의심은 공개 정보만으로 고친다 — 알아챈 단서, 판 결과, 상대 시선.
+# 공정성 규칙: 상대 카드는 잔 엿보기를 끝냈을 때만 info["opp_card"] 로 들어온다 (match.gd 가 넣음).
+#   AI 가 보는 것 = 공개 정보뿐 (사람의 시선 = 마우스가 가리키는 곳, 판 결과).
+# p0_* 함수는 시뮬레이션에서 사람 자리(0)를 대신하는 정책 — 사람 플레이에는 쓰지 않음.
 extends RefCounted
 
 const RankCards = preload("res://core/rank_cards.gd")
@@ -13,18 +13,16 @@ const PRIOR_LOGODDS := -1.7      # 처음 의심 ≈ 15%
 const SUSPICION_MIN := -4.0
 const SUSPICION_MAX := 6.0
 const CHEATER_MIX := 0.5         # '속이는 사람'도 절반은 정직하게 둔다고 보고 가능도 비를 셈
-const GAZE_HANDS_BASE := 0.45    # 손을 볼 기본 확률 (v0.1.0 튜닝: 0.35 → 0.45)
-const ACCUSE_THRESHOLD_BASE := 0.0  # 고발 문턱 기본값 = 의심 50% (v0.1.0 튜닝: 1.0 → 0.0)
+const WATCH_FACE_BASE := 0.35    # 지켜볼 때 당신 얼굴을 볼 기본 확률
 
 var display_name := "AI"
-var cheat_rate := 0.3            # 속임수 빈도 (기본 시도 확률)
-var skill := 0.6                 # 손기술 평균 (QTE 품질)
-var perception := 1.0            # 주의력 (단서를 알아채는 정도)
-var paranoia := 1.0              # 의심 성향 (결과 가중·고발 문턱)
-var bluff_rate := 0.15           # 가짜 동작 빈도
-
+var cheat_rate := 0.3            # 감시 턴에 잔을 엿볼 확률
+var skill := 0.6                 # 엿보는 속도: 필요 시간 = PEEK_SECONDS × (1.15 − 0.5 × skill)
+var perception := 1.0            # 눈치: 들킬 위험률 배수 · 반응 속도
+var paranoia := 1.0              # 의심 성향: 판 결과가 수상하면 얼굴을 더 자주 봄
+var boldness := 0.1              # 쳐다보는 걸 알면서도 잔을 보는 정도
 var suspicion := PRIOR_LOGODDS   # '상대가 속이고 있다'의 로그 오즈
-var tell_weight := 1.0           # 헛고발 뒤엔 단서를 덜 믿음
+var force_watch := ""            # 시험용: 지켜보는 곳을 고정 ("" = 보통)
 
 
 ## 성격 묶음. 모르는 이름이면 정직형 + 경고.
@@ -34,36 +32,97 @@ func configure(kind: String) -> void:
 		"honest":
 			_apply(0.0, 0.6, 1.0, 1.0, 0.0)
 		"cheater":
-			_apply(0.45, 0.75, 0.9, 0.8, 0.1)
+			_apply(0.6, 0.75, 0.8, 0.8, 0.35)
 		"watcher":
-			_apply(0.1, 0.5, 1.5, 1.3, 0.05)
-		"bluffer":
-			_apply(0.2, 0.6, 1.0, 1.0, 0.5)
+			_apply(0.25, 0.5, 1.4, 1.3, 0.05)
+		"gambler":
+			_apply(0.45, 0.6, 1.0, 1.0, 0.6)
 		"inert":
-			_apply(0.0, 0.5, 0.0, 0.0, 0.0)   # 시험용: 속이지도, 알아채지도, 고발하지도 않음
+			_apply(0.0, 0.5, 0.0, 0.0, 0.0)   # 시험용: 엿보지도, 알아채지도 않음
 		_:
 			push_warning("[AI] unknown preset=%s → honest" % kind)
 			_apply(0.0, 0.6, 1.0, 1.0, 0.0)
 
 
-func _apply(p_cheat: float, p_skill: float, p_perception: float, p_paranoia: float, p_bluff: float) -> void:
+func _apply(p_cheat: float, p_skill: float, p_perception: float, p_paranoia: float, p_bold: float) -> void:
 	cheat_rate = p_cheat
 	skill = p_skill
 	perception = p_perception
 	paranoia = p_paranoia
-	bluff_rate = p_bluff
+	boldness = p_bold
 
 
-## 이번 턴에 볼 곳: "hands"(상대 손) 또는 "face"(상대 얼굴). 의심이 클수록, 상대가 낙인이면 손을 봄.
-func pick_gaze(rng: RandomNumberGenerator, opp_strikes: int) -> String:
-	var p := GAZE_HANDS_BASE + 0.15 * maxf(suspicion - PRIOR_LOGODDS, 0.0) * paranoia
-	if opp_strikes >= 1:
-		p += 0.25
-	p = clampf(p, 0.1, 0.9)
-	return "hands" if rng.randf() < p else "face"
+# ───────── 지켜보기 (속임수 턴: 사람이 잔을 볼 수 있음) ─────────
+
+## 다음 시선 묶음 {target, dur}. 의심이 클수록·상대가 낙인(경고 1)이면 얼굴을 더 봄. 눈치가 빠르면 자주 바꿈.
+func watch_segment(rng: RandomNumberGenerator, opp_strikes: int) -> Dictionary:
+	if force_watch != "":
+		return {"target": force_watch, "dur": 99.0}
+	var bonus := 0.2 if opp_strikes >= 1 else 0.0
+	var p_face := clampf(WATCH_FACE_BASE + 0.12 * maxf(suspicion - PRIOR_LOGODDS, 0.0) * paranoia + bonus, 0.1, 0.85)
+	var r := rng.randf()
+	var target := "away"
+	if r < p_face:
+		target = "face"
+	else:
+		var rest := (r - p_face) / maxf(1.0 - p_face, 0.001)
+		if rest < 0.4:
+			target = "hands"
+		elif rest < 0.65:
+			target = "own_card"
+	var dur := rng.randf_range(0.6, 1.6) if target == "face" else rng.randf_range(0.7, 2.2)
+	dur /= clampf(0.6 + 0.4 * perception, 0.5, 1.5)
+	return {"target": target, "dur": dur}
 
 
-## info: {} (정보 없음) 또는 {"opp_card": 카드} (엿보기·뒷면 표시로 안 것)
+## 할 일 없을 때 (사람이 카드를 고르는 중 · 엿보기를 안 하거나 끝냈을 때)
+func idle_segment(rng: RandomNumberGenerator) -> Dictionary:
+	var r := rng.randf()
+	var target := "face"
+	if r >= 0.4:
+		target = "own_card" if r < 0.75 else "away"
+	return {"target": target, "dur": rng.randf_range(0.6, 1.8)}
+
+
+# ───────── 엿보기 (감시 턴: AI 가 잔을 몰래 봄) ─────────
+
+func decide_peek(rng: RandomNumberGenerator, my_side: int, my_strikes: int) -> bool:
+	var rate := cheat_rate
+	if my_strikes >= 1:
+		rate *= 0.3    # 한 번 더 걸리면 매치 패배
+	if my_side == RankCards.Team.ASSASSIN_SIDE:
+		rate *= 1.3    # 걸린 점수(4)가 큼
+	return rng.randf() < rate
+
+
+func peek_need_seconds() -> float:
+	return CheatRules.PEEK_SECONDS * clampf(1.15 - 0.5 * skill, 0.6, 1.4)
+
+
+func think_seconds(rng: RandomNumberGenerator) -> float:
+	return rng.randf_range(5.0, 7.0)
+
+
+## 잔을 보다가 사람이 자기 얼굴을 보면 이만큼 뒤에 눈을 돌림
+func reaction_seconds() -> float:
+	return 0.35 / clampf(perception, 0.3, 2.0)
+
+
+## 감시 턴 시선 묶음: 잔을 짧게 보고 → 사람 얼굴을 확인 → 다시 잔 … (사람이 얼굴을 보면 대담한 만큼만 잔으로)
+func cheat_segment(rng: RandomNumberGenerator, opp_watching_face: bool, peek_done: bool, will_peek: bool, current: String) -> Dictionary:
+	if not will_peek or peek_done:
+		return idle_segment(rng)
+	if current == "glass":
+		return {"target": "face", "dur": rng.randf_range(0.35, 0.7)}
+	if not opp_watching_face or rng.randf() < boldness:
+		return {"target": "glass", "dur": rng.randf_range(0.6, 1.1) * (1.2 - 0.4 * skill)}
+	var target := "face" if rng.randf() < 0.6 else "own_card"
+	return {"target": target, "dur": rng.randf_range(0.3, 0.6)}
+
+
+# ───────── 카드 ─────────
+
+## info: {} (정보 없음) 또는 {"opp_card": 카드} (엿보기를 끝냈을 때)
 func choose_card(rng: RandomNumberGenerator, hand: Array, side: int, info: Dictionary) -> int:
 	if info.has("opp_card"):
 		return best_response(hand, side, int(info["opp_card"]))
@@ -76,64 +135,23 @@ func choose_card(rng: RandomNumberGenerator, hand: Array, side: int, info: Dicti
 	return special if rng.randf() < 1.0 / hand.size() else RankCards.Card.CITIZEN
 
 
-## 상대 카드를 알 때 가장 좋은 답
 static func best_response(hand: Array, side: int, opp_card: int) -> int:
 	var citizen: int = RankCards.Card.CITIZEN
 	var special := RankCards.special_of(side)
 	var want: int
 	if side == RankCards.Team.KING_SIDE:
-		# 상대가 암살자면 시민으로 잡고, 시민이면 왕으로 이김
 		want = citizen if opp_card == RankCards.Card.ASSASSIN else special
 	else:
-		# 상대가 왕이면 암살자, 시민이면 시민으로 비김 (암살자를 내면 짐)
 		want = special if opp_card == RankCards.Card.KING else citizen
 	if hand.has(want):
 		return want
 	return special if hand.has(special) else citizen
 
 
-## 속임수를 쓸지. allowed = 이 자리에서 쓸 수 있는 id, left = 남은 횟수.
-## 돌려주는 값: "" (안 씀) 또는 속임수 id
-## 데모용 휴리스틱: 성격 빈도 × (상대가 내 손을 보면 0.4) × (내가 낙인이면 0.25) × (암살자 측이면 1.3)
-func decide_cheat(rng: RandomNumberGenerator, allowed: Array, left: Dictionary, my_side: int, my_strikes: int, opp_watching_hands: bool, already_marked: bool) -> String:
-	var rate := cheat_rate
-	if opp_watching_hands:
-		rate *= 0.4
-	if my_strikes >= 1:
-		rate *= 0.25   # 한 번 더 걸리면 매치 패배
-	if my_side == RankCards.Team.ASSASSIN_SIDE:
-		rate *= 1.3    # 걸린 점수(4)가 큼
-	var roll := rng.randf()
-	if not already_marked:
-		if allowed.has("mark") and int(left.get("mark", 0)) > 0 and roll < rate * 0.5:
-			return "mark"
-		if allowed.has("peek") and int(left.get("peek", 0)) > 0 and roll < rate:
-			return "peek"
-	var roll2 := rng.randf()
-	var bluff := bluff_rate * (1.0 if my_strikes == 0 else 0.5)
-	if allowed.has("fake") and int(left.get("fake", 0)) > 0 and roll2 < bluff:
-		return "fake"
-	return ""
-
-
-func qte_quality(rng: RandomNumberGenerator) -> float:
-	return clampf(rng.randfn(skill, 0.15), 0.0, 1.0)
-
-
-## 상대 단서가 나왔을 때. 알아챘으면 true 이고 의심이 오름 (강한 단서일수록 크게).
-func on_tell(rng: RandomNumberGenerator, tell: float) -> bool:
-	var p := CheatRules.notice_probability(tell, perception)
-	var noticed := rng.randf() < p
-	if noticed:
-		suspicion = clampf(suspicion + tell_weight * log(1.0 + 4.0 * tell), SUSPICION_MIN, SUSPICION_MAX)
-	return noticed
-
-
-## 판이 끝났을 때 결과(공개 정보)만 보고 의심을 고침. 돌려주는 값 = 이번에 더한 양.
-## 가능도 비 = P(결과 | 가끔 다 아는 사람) / P(결과 | 공정하게 둔 사람)
-##           = CHEATER_MIX × P_다_앎 / P_공정 + (1 − CHEATER_MIX)
+## 판이 끝났을 때 결과(공개 정보)로 의심을 고침 — 의심이 크면 다음 속임수 턴에 얼굴을 더 봄.
+## 가능도 비 = CHEATER_MIX × P(결과 | 다 앎) / P(결과 | 공정) + (1 − CHEATER_MIX)  (v0.2.0: 근사 — 엿보기는 속임수 턴에만 가능)
 func on_round_result(opp_won: bool, opp_side: int, decided_turn: int) -> float:
-	var lr := 1.0 - CHEATER_MIX   # 다 아는 사람은 지지 않음 → 상대가 지면 의심이 줄어듦
+	var lr := 1.0 - CHEATER_MIX
 	if opp_won:
 		var p_fair := RankCards.p_fair_win_at(opp_side, decided_turn)
 		var p_perfect := RankCards.p_perfect_win_at(opp_side, decided_turn)
@@ -146,18 +164,19 @@ func on_round_result(opp_won: bool, opp_side: int, decided_turn: int) -> float:
 	return delta
 
 
-## 고발 문턱(로그 오즈). 의심 성향이 크면 낮고, 토큰이 적으면 높음(신중).
-func accuse_threshold(tokens_left: int) -> float:
-	return ACCUSE_THRESHOLD_BASE - 0.6 * (paranoia - 1.0) + 0.5 * (CheatRules.TOKENS_PER_MATCH - tokens_left)
+# ───────── 시뮬레이션용 사람 자리(0) 정책 ─────────
+
+## 상대 시선이 바뀐 걸 알아채는 데 걸리는 시간 (얼굴을 보고 있으면 빠르고, 잔을 보면 곁눈이라 느림)
+func p0_reaction(watching_face: bool) -> float:
+	var base := 0.25 if watching_face else 0.4
+	return base / clampf(perception, 0.3, 2.0)
 
 
-func should_accuse(tokens_left: int) -> bool:
-	return tokens_left > 0 and suspicion > accuse_threshold(tokens_left)
+func p0_watch_segment(rng: RandomNumberGenerator) -> Dictionary:
+	var p_face := clampf(0.45 + 0.3 * perception, 0.3, 0.95)
+	var target := "face" if rng.randf() < p_face else "own_card"
+	return {"target": target, "dur": rng.randf_range(0.5, 1.5)}
 
 
-func on_accuse_result(hit: bool) -> void:
-	if hit:
-		suspicion = PRIOR_LOGODDS
-	else:
-		suspicion = clampf(suspicion - 1.5, SUSPICION_MIN, SUSPICION_MAX)
-		tell_weight *= 0.8   # 본 단서가 가짜였던 셈 — 상대 버릇을 배움
+func p0_commit_delay(rng: RandomNumberGenerator) -> float:
+	return rng.randf_range(0.8, 2.0)

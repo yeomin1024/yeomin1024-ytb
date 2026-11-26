@@ -1,4 +1,5 @@
-# VERSION: v0.5.0 — 2026-11-26 — 물건 3자리(라이터·담뱃갑·술잔·휴대폰) · 내 협력자(상대 뒤)·상대 협력자 그림자 · 시선 끌기 가림 · 덮개·무작위 표시
+# VERSION: v0.7.0 — 2026-11-26 — 직관 표시: 엿본 카드를 테이블에 그림 · 노예 턴 할 일 안내(물건·협력자 옆) · 보는 물건 노란 고리 · 상대 상태 글을 턱 아래로(위쪽 안내 막대와 안 겹치게)
+# 이전 VERSION: v0.5.0 — 2026-11-26 — 물건 3자리(라이터·담뱃갑·술잔·휴대폰) · 내 협력자(상대 뒤)·상대 협력자 그림자 · 시선 끌기 가림 · 덮개·무작위 표시
 # 이전 VERSION: v0.4.0 — 2026-11-26 — 라이터(뚜껑 안 반사경) · 상대 뒤 협력자(손 신호) · 카드 덮개 칩 · 뒤돌아보는 상대
 #
 # 화면 1280×800 기준 좌표. 규칙은 없고 game(core/match.gd) 상태를 그리기만 함.
@@ -45,6 +46,8 @@ var game = null
 var hover_index := -1
 var my_gaze := "table"
 var show_helper := false
+var seen_card := -1          # 이번 턴 내가 엿본 카드 (main.gd 가 info 이벤트로 넣음, 턴마다 비움)
+var seen_source := ""        # "peek" / "acc"
 
 
 func gaze_target(p: Vector2) -> String:
@@ -98,7 +101,9 @@ func _draw() -> void:
 		_draw_object(AI_SLOTS[i], str(game.objects[1][i]), false, false)
 	_draw_ai_accomplice_shadow()
 	_draw_slots()
+	_draw_seen()
 	_draw_hand()
+	_draw_hints()
 	if show_helper:
 		_draw_helper()
 
@@ -132,7 +137,7 @@ func _draw_opponent_body() -> void:
 	if game != null and _ai_blind():
 		# 시선 끌기: 쓰러진 술잔을 닦느라 고개를 숙임 — 눈이 안 보임
 		draw_rect(Rect2(h.x - 52, h.y - 26, 104, 30), C_HAIR)
-		_text(h + Vector2(0, -78), "(술잔을 닦는 중 — 눈이 안 보임)", 14, Color(1, 0.7, 0.5))
+		_text(h + Vector2(0, 92), "술잔을 닦는 중 — 눈이 안 보임", 16, Color(1, 0.7, 0.5))
 	if my_gaze == "face":
 		draw_arc(HEAD, FACE_ZONE_R, 0.0, TAU, 48, Color(1, 1, 1, 0.12), 2.0)
 
@@ -176,7 +181,7 @@ func _draw_object(c: Vector2, kind: String, mine: bool, looking: bool) -> void:
 		var mark := "반사경" if CheatRules.is_mirror(kind) else "빈 것"
 		_text(c + Vector2(0, 54), mark, 12, Color(1, 1, 1, 0.45))
 	if looking:
-		draw_arc(c + Vector2(0, -5), 58.0, 0.0, TAU, 40, Color(1, 1, 1, 0.15), 2.0)
+		draw_arc(c + Vector2(0, -5), 58.0, 0.0, TAU, 40, Color(1, 0.9, 0.3, 0.55), 3.0)
 
 
 func _draw_my_accomplice() -> void:
@@ -225,6 +230,44 @@ func _draw_slots() -> void:
 			_text(Vector2(MY_SLOT.x + 110, MY_SLOT.y + 5), "← 내 카드 (상대에겐 뒷면)", 13, Color(1, 1, 1, 0.6))
 
 
+## 엿본 카드 — 상대가 엎은 카드 옆에 반투명하게 (바꿔치기면 가짜일 수 있음)
+func _draw_seen() -> void:
+	if seen_card < 0 or bool(game.revealed):
+		return
+	var r := Rect2(Vector2(692, 466), Vector2(48, 68))
+	draw_rect(r.grow(4.0), Color(0.3, 0.9, 1.0, 0.35))
+	_draw_card(r, seen_card, true, false)
+	_text(Vector2(r.get_center().x, r.position.y - 8), "엿본 카드" if seen_source == "peek" else "협력자 신호", 14, Color(0.5, 0.95, 1.0))
+
+
+## 노예 턴 할 일 안내 — 물건 줄 위·협력자 옆 (내가 노예이고 아직 안 냈을 때)
+func _draw_hints() -> void:
+	if int(game.slave) != 0 or int(game.phase) != GambleMatch.Phase.SLAVE_TURN or int(game.committed[0]) != -1:
+		return
+	var msg := ""
+	var col := Color(1.0, 0.9, 0.45)
+	var has_mirror := false
+	for k in game.objects[0]:
+		if CheatRules.is_mirror(str(k)):
+			has_mirror = true
+	if bool(game.sealed[0]["peek"]):
+		msg = "엿보기 봉인됨 — 반사경을 봐도 소용없음"
+		col = Color(1.0, 0.45, 0.4)
+	elif bool(game.randomized):
+		msg = "상대가 카드를 안 보고 냄 — 엿볼 수 없음"
+		col = Color(1.0, 0.45, 0.4)
+	elif bool(game.covered):
+		msg = "상대가 칩으로 가림 — 반사경 안 통함"
+		col = Color(1.0, 0.45, 0.4)
+	elif has_mirror:
+		msg = "반사경 물건을 1.5초 계속 보면 상대 카드"
+	else:
+		msg = "반사경 물건이 없음 — 왼쪽 버튼으로 놓기"
+	_text(Vector2(330, 546), msg, 15, col)
+	if str(game.acc_state[0]) == "present" and not bool(game.sealed[0]["acc"]) and not bool(game.randomized):
+		_text(Vector2(880, 470), "협력자 손을 1.8초 계속 보기", 15, Color(1.0, 0.9, 0.45))
+
+
 func _draw_king_marks(r: Rect2) -> void:
 	if bool(game.covered):
 		var c := r.get_center()
@@ -250,13 +293,13 @@ func _draw_helper() -> void:
 		return
 	var target := str(game.gaze[1])
 	if target == "face":
-		_text(HEAD + Vector2(0, -78), "▼ 당신을 보는 중", 15, Color(1, 0.4, 0.3))
+		_text(HEAD + Vector2(0, 92), "▼ 당신을 보는 중", 15, Color(1, 0.4, 0.3))
 		return
 	var to := _look_point(target)
 	if target == "behind":
-		_text(HEAD + Vector2(0, -78), "▶ 뒤를 돌아보는 중", 15, Color(1, 0.4, 0.3))
+		_text(HEAD + Vector2(0, 92), "▶ 뒤를 돌아보는 중", 15, Color(1, 0.4, 0.3))
 	elif target == "accomplice":
-		_text(HEAD + Vector2(0, -78), "▲ 당신 뒤를 보는 중", 15, Color(1, 0.4, 0.3))
+		_text(HEAD + Vector2(0, 92), "▲ 당신 뒤를 보는 중", 15, Color(1, 0.4, 0.3))
 	draw_dashed_line(HEAD + _head_shift(), to, Color(1, 0.4, 0.3, 0.7), 2.0, 8.0)
 
 

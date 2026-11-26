@@ -297,21 +297,48 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-26T07:50:11Z",
+      "sha": "08357ac51e185463",
+      "reviewers": [
+       {
+        "reviewer": "E5-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 64,
+          "why": "지루함·관련 없음 — 61~64줄은 마흔 살 얘기라 내 얘기가 아닌데, 남녀 숫자(41.9·23.7·47.4·28.4)가 연달아 나와 귀에 안 남고 예순 쪽(65줄)까지 기다리기 지침"
+         },
+         {
+          "line": 90,
+          "why": "어려움 — '깨어 있는 내 시간이 3분의 1쯤 짧다'가 무엇과 무엇을 견준 건지 말로만은 바로 안 잡힘, 예순인 나는 일도 안 하는데 8시간을 왜 빼는지 헷갈림"
+         },
+         {
+          "line": 122,
+          "why": "뻔함 — 하루 20분 걷기·건강검진은 건강 프로그램마다 듣는 말이라, 답(96줄)을 들은 뒤라 여기서 끄고 싶어짐"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "40 — '함께 늙어 가자던 약속은 나 혼자 먼저 늙는 일이 됩니다'는 부부로 살아 본 나이라 가슴에 와닿아 100억보다 배우자 얼굴이 먼저 떠오름",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [64, 90, 122]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "(5회차 = 최대 — 사용자 판단: 64 마흔 숫자 · 90 시간 비교 · 122 뻔한 할 일)",
+      "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_5.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
-    "pending": {
-     "n": 5,
-     "sha": "08357ac51e185463",
-     "reviewers": [
-      "E5-P1"
-     ],
-     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_5.md",
-     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_exit_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T07:46:35Z"
-    }
+    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -715,21 +742,75 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-26T07:50:11Z",
+      "sha": "08357ac51e185463",
+      "reviewers": [
+       {
+        "reviewer": "K5-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 93,
+          "text": "마흔이 넘었다면만 답을 주네. 92줄에서 젊을수록 차이가 작아진다더니, 그럼 20~30대는 받으라는 거야 말라는 거야?",
+          "fix": "마흔 아래도 한 문장으로 답한다. 계산에서 서른도 내 시간이 짧아지면 '서른이라도 내 시간은 줄어든다'고 말하고 '마흔이 넘었다면'을 뺀다. 뒤집히는 나이가 있으면 그 나이를 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 90,
+          "text": "하루 8시간을 매일 일하고 16시간 깨어 있다고 치면 41.9년과 23.7년으로는 4분의 1쯤 짧은데, 3분의 1은 어떻게 나온 거야?",
+          "fix": "89줄에 계산 가정을 한 마디 넣는다. 예: '주 5일, 하루 8시간 일하는 시간과 잠 8시간을 빼고'. 가정이 다르면 그 가정에서 나온 숫자로 바꾼다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 94,
+          "text": "108줄에선 생활비가 빠듯하면 돈부터 챙길 수밖에 없다더니, 받을지 정하는 질문에는 빚과 치료비만 있고 생활비는 빠졌네?",
+          "fix": "94줄을 '빚이나 가족의 치료비, 당장의 생활비를 감당할 길이 막히나요?'처럼 바꿔 앞뒤를 맞춘다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 96,
+          "text": "자식한테 집 마련해 주고 평생 걱정 없게 해 주는 것도 값진 건데, 내 시간만 세고 '잃는 것이 적다'고 하는 건 한쪽만 본 거 아닌가?",
+          "fix": "'내 시간과 몸으로 따지면, 받지 않는 쪽이 잃는 것이 적습니다'처럼 무엇을 기준으로 잰 것인지 앞에 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 100,
+          "text": "나는 받겠다고 골랐는데, '100억을 거절한 우리는'이라고 하면 나는 빼놓고 말하는 거잖아.",
+          "fix": "100줄·110줄을 '100억 앞에서 20년을 지키겠다고 고른 분이라면'이나 '많은 분이 100억 앞에서는 20년을 지키겠다고 합니다'로 바꾼다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 78,
+          "text": "만족 점수가 더 높았다는데, 얼마나 높았는지는 왜 안 말해? 조금 높은 거면 이야기가 달라지잖아.",
+          "fix": "연구 원문에 나온 차이의 크기를 한 마디로 넣는다. 숫자로 쉽게 말하기 어렵다면 '크지는 않지만 분명한 차이'처럼 크기를 짐작할 수 있게 한다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자(생명표 비율·WHO 하루 20분)는 대본 안에서 앞뒤가 맞고, 예외(건강한 일흔·가족 없는 분·생활비가 빠듯한 경우)도 먼저 짚어서 큰 반박거리는 없다. 다만 받을지 정하는 기준이 '마흔이 넘었다면'으로 묶여 있어 20~30대에게는 답이 비어 있고(중), 내 시간 계산의 가정(주 5일·잠)이 빠져 숫자를 다시 셈해 보는 사람에게 빈틈이 생긴다.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(5회차 통과 — 남은 중 1: 마흔 아래 답 · 하 5)",
+      "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_5.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
-    "pending": {
-     "n": 5,
-     "sha": "08357ac51e185463",
-     "reviewers": [
-      "K5-반론"
-     ],
-     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_5.md",
-     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_rebuttal_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T07:46:35Z"
-    }
+    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt"
    }
   }
  }

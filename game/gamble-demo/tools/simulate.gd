@@ -1,4 +1,5 @@
-# VERSION: v0.5.0 — 2026-11-26 — 새 통계 칸: 정보(엿보기·협력자·가짜) · 들킴 · 가능성 불·미끼 · 밝혀내기 적중률 · 가리기·무작위·바꿔치기 · 시선 끌기·제스처
+# VERSION: v0.8.0 — 2026-11-26 — 통계 칸: 정보(반사경·이어폰·가짜) · '!' 표시·미끼 · 협력자 부르기·연결 · 물건 확인·몸 수색 적중률 · 무효 턴
+# 이전 VERSION: v0.5.0 — 2026-11-26 — 새 통계 칸: 정보(엿보기·협력자·가짜) · 들킴 · 가능성 불·미끼 · 밝혀내기 적중률 · 가리기·무작위·바꿔치기 · 시선 끌기·제스처
 # 이전 VERSION: v0.4.0 — 2026-11-26 — 출력에 협력자·덮개·블러핑·준비 동작 칸 추가
 # 이전 VERSION: v0.2.0 — 2026-11-26 — AI 대 AI 밸런스 (실시간 규칙): 승률 · 엿보기 성공률 · 시도당 들킴 · 고발 정확도
 # 이전 VERSION: v0.1.1 — 2026-11-26 — 인자 읽는 줄의 타입 추론 오류 고침
@@ -21,8 +22,8 @@ const SCENARIOS := [
 	["gambler", "watcher"],
 	["cheater", "cheater"],
 ]
-const KEYS := ["info_peek", "info_acc", "info_fake", "caught", "lights", "baits", "expose", "expose_hit",
-	"covers", "randoms", "fakes", "attentions", "gestures", "acc_calls", "objects_placed", "timeouts"]
+const KEYS := ["info_peek", "info_acc", "info_fake", "caught", "marks", "baits", "inspect", "inspect_hit", "search", "search_hit",
+	"voids", "covers", "randoms", "fakes", "attentions", "acc_calls", "acc_connects", "objects_placed", "timeouts"]
 
 
 func _initialize() -> void:
@@ -63,13 +64,13 @@ func _run(k0: String, k1: String, n: int, base_seed: int) -> void:
 	parts.append("win0_pct=%.1f win1_pct=%.1f draw_pct=%.1f" % [_pct(wins[0], n), _pct(wins[1], n), _pct(wins[2], n)])
 	for s in 2:
 		var info := _avg(sums, "info_peek", s, n) + _avg(sums, "info_acc", s, n)
-		parts.append("s%d: info=%.2f acc=%.2f fake=%.2f caught=%.2f out2_pct=%.1f lights=%.2f baits=%.2f expose=%.2f hit=%.2f cov=%.2f rnd=%.2f fakes=%.2f att=%.2f ges=%.2f calls=%.2f placed=%.2f to=%.2f" % [
+		parts.append("s%d: info=%.2f acc=%.2f fake=%.2f caught=%.2f out2_pct=%.1f marks=%.2f baits=%.2f calls=%.2f connects=%.2f inspect=%.2f inspect_hit=%.2f search=%.2f search_hit=%.2f voids=%.2f cov=%.2f rnd=%.2f fakes=%.2f att=%.2f placed=%.2f to=%.2f" % [
 			s, info, _avg(sums, "info_acc", s, n), _avg(sums, "info_fake", s, n), _avg(sums, "caught", s, n), _pct(out2[s], n),
-			_avg(sums, "lights", s, n), _avg(sums, "baits", s, n), _avg(sums, "expose", s, n),
-			_ratio(int(sums["expose_hit"][s]), int(sums["expose"][s])),
+			_avg(sums, "marks", s, n), _avg(sums, "baits", s, n), _avg(sums, "acc_calls", s, n), _avg(sums, "acc_connects", s, n),
+			_avg(sums, "inspect", s, n), _ratio(int(sums["inspect_hit"][s]), int(sums["inspect"][s])),
+			_avg(sums, "search", s, n), _ratio(int(sums["search_hit"][s]), int(sums["search"][s])), _avg(sums, "voids", s, n),
 			_avg(sums, "covers", s, n), _avg(sums, "randoms", s, n), _avg(sums, "fakes", s, n),
-			_avg(sums, "attentions", s, n), _avg(sums, "gestures", s, n), _avg(sums, "acc_calls", s, n),
-			_avg(sums, "objects_placed", s, n), _avg(sums, "timeouts", s, n)])
+			_avg(sums, "attentions", s, n), _avg(sums, "objects_placed", s, n), _avg(sums, "timeouts", s, n)])
 	parts.append("ms=%.0f" % ms)
 	print(" ".join(parts))
 

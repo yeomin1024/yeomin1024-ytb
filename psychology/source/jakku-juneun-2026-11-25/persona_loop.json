@@ -554,21 +554,40 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 13,
+      "at": "2026-11-26T05:46:15Z",
+      "sha": "f85c4d98c03bb417",
+      "reviewers": [
+       {
+        "reviewer": "E13-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 35,
+          "why": "바로 앞에서 미국 연구를 들었는데 '또 다른 연구도 있습니다'로 연구 얘기가 또 이어져, 강의 듣는 것 같아 잠깐 지루해짐 (36~37줄 내용은 알아들을 만해서 끄지는 않음)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "101 — 나도 주는 쪽인데, 거절당하면 내 마음을 거절한 게 아니라 물건 하나를 사양한 것뿐이라는 말에 서운함이 풀리고 끝까지 듣고 싶어짐",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [35]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "13회차 전: 12회차 지적 반영 (2020 연구 한 문장 · 괜찮아요 = 한 번에 거절로 · 소비기한 예외 · 고마움 먼저)",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_13.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
-    "pending": {
-     "n": 13,
-     "sha": "f85c4d98c03bb417",
-     "reviewers": [
-      "E13-P1"
-     ],
-     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_exit_13.md",
-     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_exit_13",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T05:42:40Z"
-    }
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -1517,21 +1536,82 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 13,
+      "at": "2026-11-26T05:46:15Z",
+      "sha": "f85c4d98c03bb417",
+      "reviewers": [
+       {
+        "reviewer": "K13-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 24,
+          "text": "버릴 데가 필요한 거면 싫다는 나 말고 다른 사람한테 주면 되지, 왜 거절한 사람한테 또 와? '처리할 곳이 필요하다'만으로는 같은 사람에게 다시 오는 까닭이 안 됨.",
+          "fix": "같은 사람에게 다시 가는 까닭을 반 문장 붙이기 — 예 '가까이 살고 자주 보는 사람이 가장 손쉬운 곳이다 보니, 한 번 사양해도 다른 날 또 권하게 될 수 있습니다.'"
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 41,
+          "text": "거절했는데 또 주는 진짜 까닭은 40줄 '괜찮아요가 거절로 안 들린다'인 것 같은데, 두 번째 이유 속 한 줄로 지나가고 41줄 정리에서는 빠짐 — 도입 질문(4줄)에 가장 바로 답하는 말이 묻힘.",
+          "fix": "41줄 정리에 한 구절 더하기 — 예 '…모르기 쉽고, 예의로 한 괜찮아요는 거절로 들리지도 않습니다.'"
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 45,
+          "text": "'실험에서도'의 '도'가 가리키는 앞 연구가 없고, 누구를 몇 명이나, 얼마를 쓰게 했는지도 없음 — '조금 더 행복'이 얼마나인지 감이 안 옴.",
+          "fix": "'도'를 빼고 대상·규모를 한 마디(원문에서 확인한 참가자 수나 대상) 넣기 — 출처 줄은 설명란에만."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 59,
+          "text": "'이 부담'이 답례 부담·버리는 죄책감·눈치 셋 중 무엇인지 모호함.",
+          "fix": "'이 세 가지 불편함이 더 클 수 있습니다'처럼 가리키는 말을 분명히."
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 61,
+          "text": "예전 어른들이 '날짜 조금 지난 건 괜찮다'고 한 건 유통기한을 두고 한 말이라 그때는 맞는 말이었는데, 틀린 말처럼 들림.",
+          "fix": "61줄에 반 구절 — 예 '예전 날짜는 유통기한이라, 조금 지난 건 괜찮다는 말을 많이 했습니다.' — 그 시절 말이 틀린 게 아니라 날짜의 뜻이 바뀐 것으로."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 70,
+          "text": "식단 조절 중이라고 했더니 '이건 살 안 쪄' 하고 또 주던데 — 85줄 말대로 이유를 피해서 다시 권하는 일이 첫 사정부터 생김.",
+          "fix": "예시 사정을 피해 갈 수 없는 것(자리·보관·'집에서 안 먹어요')을 먼저 두거나, 84줄에 '처음 말한 그 말을 그대로' 되풀이하라고 이어 주기."
+         },
+         {
+          "level": "하",
+          "k": "K6",
+          "line": 96,
+          "text": "40줄에서 괜찮아요는 예의로도 한다고 해 놓고, 주는 쪽엔 무조건 거절로 들으라니 — 우리 어머니는 괜찮다 하고 진짜 안 드리면 서운해하심.",
+          "fix": "까닭 한 구절 — 예 '정말 필요하면 상대가 다시 말할 수 있으니, 한 번에 거절로 들어 주세요.'"
+         }
+        ],
+        "answer_clear": true,
+        "summary": "진단·탓·단정 없이 '~일 수 있습니다'로 조심스럽게 쓰고 예외(좋은 마음으로 주는 사람·안부를 나누고 싶은 사람)도 먼저 인정해 상·중 반박은 없음 — 남은 것은 같은 사람에게 다시 오는 까닭, '괜찮아요' 처리, 연구 규모, 사정 예시가 우회될 수 있는 점 같은 다듬기뿐.",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "13회차 전: 12회차 지적 반영",
+      "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_13.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt",
-    "pending": {
-     "n": 13,
-     "sha": "f85c4d98c03bb417",
-     "reviewers": [
-      "K13-반론"
-     ],
-     "prompt": "psychology/source/jakku-juneun-2026-11-25/persona_jakku-juneun-2026-11-25_script_rebuttal_13.md",
-     "answers": "psychology/source/jakku-juneun-2026-11-25/answers_jakku-juneun-2026-11-25_script_rebuttal_13",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-26T05:42:40Z"
-    }
+    "path": "psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt"
    }
   }
  }

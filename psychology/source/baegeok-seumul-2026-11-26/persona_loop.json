@@ -338,7 +338,19 @@
       }
      }
     ],
-    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt"
+    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
+    "pending": {
+     "n": 6,
+     "sha": "4f82b1589615cc7e",
+     "reviewers": [
+      "E6-P1"
+     ],
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_6.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T07:59:07Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -810,7 +822,19 @@
       }
      }
     ],
-    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt"
+    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
+    "pending": {
+     "n": 6,
+     "sha": "4f82b1589615cc7e",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_6.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T07:59:07Z"
+    }
    }
   }
  }

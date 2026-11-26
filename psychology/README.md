@@ -1,6 +1,7 @@
 # 심리 주제 폴더 (`psychology/`) — 클라우드에서 분석
 
-VERSION: v1.16 — 2026-11-25 — **jakku-juneun-2026-11-25 다시 만듦**: 대본에서 댓글 언급 7문장을 일반 문장으로(사용자 지시 "댓글 내용 언급하지 말라고 좀 그리고 출처까지는 영상에 쓰지마") → 새 음성 7문장 · 장면 v1.3 화면 글 핵심만("영상에 나오는 설명 좀 알기 쉽게, 핵심만 딱") · 화면 출처 줄 뺌 · 새 영상 7:13 · -13.98 LUFS → 업로드 대기
+VERSION: v1.17 — 2026-11-26 — 채널 설명·채널 키워드 `guides/channel.md` v1.0 (사용자 지시 "…알고리즘이 영상 잘 시청자들에게 매칭해줄수 있도록 채널 설명 키워드 좀 알려줘")
+(v1.16) — 2026-11-25 — **jakku-juneun-2026-11-25 다시 만듦**: 대본에서 댓글 언급 7문장을 일반 문장으로(사용자 지시 "댓글 내용 언급하지 말라고 좀 그리고 출처까지는 영상에 쓰지마") → 새 음성 7문장 · 장면 v1.3 화면 글 핵심만("영상에 나오는 설명 좀 알기 쉽게, 핵심만 딱") · 화면 출처 줄 뺌 · 새 영상 7:13 · -13.98 LUFS → 업로드 대기
 (v1.15) — 2026-11-25 — **새 편 jakku-juneun-2026-11-25 영상 완성** (사용자 지시 "이미지, 음성 확인해서 영상 만들어"): 음성 확인(`audio_check.md` · `tools/edge_clean.py` 문장 끝 다듬기) · ChatGPT 그림 21장 검수 → `source/puppet_slice.py` v1.3 44조각 · 장면 `video/episodes/jakku-juneun-2026-11-25/index.html` v1.1 (stills 검토로 얼굴 가린 말풍선·쪽지 고침 — `video/scripts/bubble-check.mjs` v1.1 '사람 가림' 0) · 썸네일 3안 `source/thumbs_build.py` v1.9 · 완성 `out/jakku-juneun-2026-11-25/final_1080p.mp4`(git 밖) — 7분 21초 · 음량 -14.28 LUFS · 트루 피크 -1.73 dBTP · 완성 mp4 장면 24곳 Claude 확인 · `tools/upload_pack.py` → `uploads` 브랜치 + `source/jakku-juneun-2026-11-25/video.json` (PC 업로드 화면에 보임 · 썸네일 본안 thumbnail_1)
 (v1.14) — 2026-11-25 — 새 편 폴더 이름에 만든 날짜까지: `source/jakku-juneun-2026-11-25/` (사용자 지시 "음성 폴더 만들 때 날짜도 붙여 헷갈리잖아")
 (v1.13) — 2026-11-25 — **새 편 jakku-juneun-2026-11** (필요 없다는데 자꾸 주는 사람 · 렌더 전 요소: 대본·근거·package·페르소나 검증·그림 요청 21장 `source/images_build_toon.py` v1.2·업로드 시트 `source/upload_sheets.py` v1.4)

@@ -1,6 +1,7 @@
 <title>유튜브 업로드 미리보기</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.1 — 2026-11-25 — 영상: 업로드 대기 편은 낮은 화질 미리보기 영상 재생(설명란 챕터 시각을 누르면 그 자리로) + 원본 1080p GitHub 링크 ·
+<!-- VERSION: v1.2 — 2026-11-26 — 대본 전체(챕터별 · 접고 펴기 · 복사) + 음성·영상이 아직 옛 대본이면 빨간 알림 — 자료 tools/upload_preview.py v1.2.
+     이전 v1.1 — 2026-11-25 — 영상: 업로드 대기 편은 낮은 화질 미리보기 영상 재생(설명란 챕터 시각을 누르면 그 자리로) + 원본 1080p GitHub 링크 ·
      올린 편은 '유튜브에서 보기' 링크 (사용자 지시 "영상 재생 안되면 링크 첨부라도 해봐") — 자료 tools/upload_preview.py v1.1.
      이전 v1.0 — 2026-11-25 — 최초: PC 업로드 화면(tools/upload_web.py v1.6)의 [미리보기] · 썸네일 내려받기를 아티팩트로
      (사용자 지시 2026-11-25 "아티팩트 만들어서 저번에 만들었던 미리보기, 썸네일 다운로드 기능을 거기에 넣어봐").
@@ -134,6 +135,9 @@ a { color: var(--accent); }
 .kv { width: 100%; border-collapse: collapse; font-size: .86rem; }
 .kv td { border-top: 1px solid var(--line); padding: 6px 8px 6px 0; vertical-align: top; }
 .kv td:first-child { color: var(--muted); width: 42%; }
+.script { background: var(--sunk); border-radius: var(--r-s); padding: 4px 14px 10px; max-height: 520px; overflow-y: auto; font-size: .88rem; line-height: 1.65; }
+.script h5 { margin: 12px 0 4px; font-size: .84rem; color: var(--muted); font-weight: 700; }
+.script p { margin: 0 0 2px; overflow-wrap: anywhere; }
 .cue { font-size: .86rem; display: flex; gap: 10px; min-width: 0; }
 .cue b { font-family: var(--f-mono); font-weight: 500; color: var(--muted); flex: none; font-size: .78rem; padding-top: 2px; }
 .cue span { min-width: 0; overflow-wrap: anywhere; }
@@ -293,6 +297,9 @@ function openPv(key, fromHash) {
       <pre class="desc" id="pv-desc">${v.description ? tsLinks(v.description, !!v.preview) : "(설명란 없음)"}</pre>
       <h4>태그 <span class="muted mono">${v.tags.length}개 · ${v.tags_chars}자 / 500</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|tags">태그 복사</button></h4>
       <div class="chips">${v.tags.map(x => `<span class="chip tag">${esc(x)}</span>`).join("") || `<span class="muted">태그 없음</span>`}</div>
+      ${v.script ? `<h4>대본 <span class="muted mono">${v.script.sentences}문장 · 챕터 ${v.script.parts.filter(p => p.name).length}개 · 예상 ${esc(v.script.est)}</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|script_text">대본 복사</button></h4>
+      ${v.script.stale ? `<div class="probs" style="margin-top:0"><b>음성·영상이 아직 이 대본이 아닙니다</b><br>대본 문장 ${v.script.stale}개가 지금 음성의 자막에 없습니다. Kaggle 에서 음성을 다시 만든 뒤 영상을 다시 렌더합니다. (위 영상은 옛 대본)${v.script.stale_first.length ? "<br>예: " + v.script.stale_first.map(esc).join(" / ") : ""}</div>` : ""}
+      <details class="script-wrap"${v.script.stale ? " open" : ""}><summary class="muted" style="cursor:pointer;font-size:.86rem;margin-bottom:6px">대본 펼치기·접기</summary><div class="script">${v.script.parts.map(p => (p.name ? `<h5>${esc(p.name)}</h5>` : "") + p.lines.map(x => `<p>${esc(x)}</p>`).join("")).join("")}</div></details>` : ""}
       ${v.pinned ? `<h4>고정 댓글 <span class="muted">스튜디오에서 직접 — API 로 안 올림</span><button type="button" class="btn ghost sm" data-copy="${esc(v.key)}|pinned">복사</button></h4><pre class="desc">${esc(v.pinned)}</pre>` : ""}
     </section><aside>
       <h4 style="margin-top:0">휴대전화 홈 화면 <span class="muted">대략 — 줄 바꿈은 기기마다 조금 다름</span></h4>${phone}

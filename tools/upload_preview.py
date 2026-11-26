@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-25 — 영상: 업로드 대기 편은 미리보기용 낮은 화질 영상(14MB 아래 — 아티팩트 파일 하나 15MB 한도)을 같이 올려 재생 + 원본 GitHub 링크 ·
+# VERSION: v1.2 — 2026-11-26 — 대본 전체(챕터별) + 음성·자막이 이 대본으로 만들어졌는지(대본 문장이 지금 SRT 에 있는지) — 사용자 지시 "자꾸 주는 사람 영상 전반적으로 규칙 만족하도록 수정해서 아티팩트에 올려"
+# 이전 v1.1 — 2026-11-25 — 영상: 업로드 대기 편은 미리보기용 낮은 화질 영상(14MB 아래 — 아티팩트 파일 하나 15MB 한도)을 같이 올려 재생 + 원본 GitHub 링크 ·
 #          올린 편은 유튜브 링크 — 사용자 지시 "영상 재생 안되면 링크 첨부라도 해봐"
 # 이전 v1.0 — 2026-11-25 — 업로드 미리보기 아티팩트 자료 만들기 (PC 업로드 화면 tools/upload_web.py v1.6 의 [미리보기] · 썸네일 내려받기를 claude.ai 아티팩트로)
 #   사용자 지시 2026-11-25 "아티팩트 만들어서 저번에 만들었던 미리보기, 썸네일 다운로드 기능을 거기에 넣어봐".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-26 | script_of(대본 txt → 챕터·문장·예상 길이 · SRT 와 비교해 음성이 옛 대본인지 stale) · record 에 script·script_text | script_of · record |
 # | v1.1 | 2026-11-25 | preview_video(원본 = out/ mp4 또는 uploads 브랜치 조각 → sha256 확인 → ffmpeg 360p 안팎 · 크기 맞춰 비트레이트 · 원본 sha 로 캐시) · links(원본 GitHub 받기 · uploads 폴더) · --no-video | preview_video · source_mp4 · record · build |
 # | v1.0 | 2026-11-25 | 최초 — 업로드 시트(upload.md)가 있는 롱폼·쇼츠마다 미리보기 자료(제목·설명란(챕터 다시 계산)·태그·설정·자막 앞부분·고정 댓글·실험안·썸네일·자료 점검) → data.json + 아티팩트에 같이 올릴 파일 목록 files.json | build · record · main |
 """업로드 미리보기 아티팩트의 자료를 만든다 (읽기만 — 저장소·유튜브에 아무것도 올리지 않음).
@@ -41,7 +43,7 @@ import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 import upload_web as uw  # noqa: E402   (experiments · srt_cues · cell — 함수만 씀, 서버는 켜지 않음)
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 KST = dt.timezone(dt.timedelta(hours=9))
 TOPIC_KO = {"economic": "재테크", "stock": "주식", "psychology": "심리", "music": "음악", "history": "역사", "test": "시험 채널",
             "crisis": "위기", "math": "수학", "new": "새 분야"}
@@ -196,6 +198,50 @@ def settings_of(md: str, meta: dict) -> dict:
             "언어별 제목·설명": ", ".join(meta["localizations"]) or "없음"}
 
 
+def _norm(t: str) -> str:
+    return re.sub(r"[\W_]+", "", t)
+
+
+def script_of(src: Path, vid: str) -> dict | None:
+    """(v1.2) 대본 <영상ID>.txt → 챕터별 문장 · 예상 길이(H17 6.3음절/초 + 쉼 0.35초) · 음성 비교.
+    stale = 대본 문장 가운데 지금 SRT(= 지금 음성의 자막) 글에 없는 문장 수 — 0 이 아니면 음성·영상이 아직 옛 대본."""
+    p = src / f"{vid}.txt"
+    if not p.is_file():
+        return None
+    parts, cur = [], None
+    for ln in p.read_text("utf-8").splitlines():
+        ln = ln.strip()
+        if not ln:
+            continue
+        if ln.startswith("-"):
+            cur = {"name": ln[1:].strip(), "lines": []}
+            parts.append(cur)
+        else:
+            if cur is None:
+                cur = {"name": "", "lines": []}
+                parts.append(cur)
+            cur["lines"].append(ln)
+    sents = [x for pt in parts for x in pt["lines"]]
+    syl = sum(len(re.findall(r"[가-힣0-9]", x)) for x in sents)
+    est = syl / 6.3 + 0.35 * len(sents)
+    srt = src / f"{vid}.srt"
+    stale, first = None, []
+    if srt.is_file():
+        body = []
+        for b in re.split(r"\r?\n\r?\n", srt.read_text("utf-8-sig").strip()):
+            ln = b.strip().splitlines()
+            if len(ln) >= 3 and "-->" in ln[1]:
+                body.append(" ".join(ln[2:]))
+        allt = _norm(" ".join(body))
+        miss = [x for x in sents if _norm(x) not in allt]
+        stale, first = len(miss), miss[:3]
+    rec = {"file": str(p.relative_to(ROOT)), "parts": parts, "sentences": len(sents), "est": f"{int(est // 60)}분 {int(est % 60):02d}초",
+           "stale": stale, "stale_first": first}
+    text = "\n\n".join((f"[{pt['name']}]\n" if pt["name"] else "") + "\n".join(pt["lines"]) for pt in parts)
+    log("SCRIPT", vid=vid, sentences=len(sents), est=rec["est"], stale=stale)
+    return {"script": rec, "script_text": text}
+
+
 def record(topic: str, vid: str, upl_paths: set[str], out: Path | None = None, make_video: bool = True) -> tuple[dict, dict]:
     """영상 하나 → (미리보기 자료, 아티팩트 파일 {published: 저장소 경로})."""
     src = yu.src_dir(topic, vid)
@@ -227,6 +273,7 @@ def record(topic: str, vid: str, upl_paths: set[str], out: Path | None = None, m
                tags=meta["tags"], tags_chars=yu.tags_length(meta["tags"]), settings=settings_of(md, meta),
                srt=uw.srt_cues(src / f"{vid}.srt"), pinned=(yu._section_code(md, "고정 댓글") or "").strip(),
                experiments=uw.experiments(md))
+    rec.update(script_of(src, vid) or {"script": None, "script_text": ""})           # v1.2 대본 전체 · 음성 비교
     if status == "waiting":
         rec["problems"] += yu.validate(dict(meta, description=desc))
     # 썸네일 (본안 = titles.md 채택 짝 · 없으면 1)

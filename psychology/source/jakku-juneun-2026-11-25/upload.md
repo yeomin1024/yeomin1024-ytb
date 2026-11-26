@@ -1,7 +1,7 @@
 # jakku-juneun-2026-11-25 업로드 시트 (롱폼 · 심리)
 
 버전: v1.4 — 2026-11-25 — 최초 (사용자 지시 "아래는 이제부터 적용할 영상 제작 공통 규칙이야 … 자꾸 주는 사람 영상 전반적으로 규칙 만족하도록 수정해서 아티팩트에 올려") · 생성 `psychology/source/upload_sheets.py` v1.4.
-기준 파일: 대본 `jakku-juneun-2026-11-25.txt` (100문장) · 오디오 `narration.mp3` · 자막 `jakku-juneun-2026-11-25.srt`(align-audio — 실제 오디오) · 영상 `psychology/out/jakku-juneun-2026-11-25/final_1080p.mp4`(만스피 꼴 · `video/episodes/jakku-juneun-2026-11-25/`) · 썸네일 `thumbnails/thumbnail_1~3.jpg`.
+기준 파일: 대본 `jakku-juneun-2026-11-25.txt` (98문장) · 오디오 `narration.mp3` · 자막 `jakku-juneun-2026-11-25.srt`(align-audio — 실제 오디오) · 영상 `psychology/out/jakku-juneun-2026-11-25/final_1080p.mp4`(만스피 꼴 · `video/episodes/jakku-juneun-2026-11-25/`) · 썸네일 `thumbnails/thumbnail_1~3.jpg`.
 
 > 업로드 채널 = 심리 채널. 연구·교육용 콘텐츠 — 심리 진단·치료가 아님.
 > ⚠ `psychology/youtube_channel.json` 이 아직 없음 → 올리는 도구가 키의 채널을 확인하지 못함. PC 업로드 화면 psychology 탭에는 **심리 채널 키**만 넣는다 (처음 올린 뒤 화면의 '기억'으로 채널 ID 를 남김).
@@ -9,9 +9,9 @@
 ## 1. 제목 (본안)
 
 ```
-필요 없다는데 자꾸 선물 주는 사람, 본인만 모르는 진짜 심리
+필요 없다는데 자꾸 선물 주는 사람의 심리 3가지
 ```
-- 짝 썸네일 `thumbnail_1.jpg` (「필요 없다는데 자꾸 주는 사람 / 본인만 모르는 진짜 심리」 + 말풍선 「너 주려고 챙겼지~ · 마음은 고마운데…」 — 그림 `images/TH-CHAR.jpg` ChatGPT + 문구 코드 `thumb.mjs`).
+- 짝 썸네일 `thumbnail_1.jpg` (「필요 없다는데 자꾸 주는 사람 / 거절해도 또 주는 이유」 + 말풍선 「너 주려고 챙겼지~ · 마음은 고마운데…」 — 그림 `images/TH-CHAR.jpg` ChatGPT + 문구 코드 `thumb.mjs`).
 - 제목·썸네일 문구는 package.json 그대로 — 페르소나 관문 title 단계 통과 (`persona_loop.json`). `title_fit`: 모바일·PC 모든 화면 2줄 안 ✅
 
 ## 1-1. 실험안 — 스튜디오 '테스트 및 비교'용 (API 로 올리지 않음 · 공개 뒤 사용자가 넣음)
@@ -26,7 +26,7 @@
 
 ```
 필요 없다는데 자꾸 선물을 주는 사람, 거절해도 또 챙겨 주는 사람의 심리를 심리학 연구로 짚었습니다.
-자꾸 주는 사람 본인도 잘 모르는 이유 세 가지와 받는 쪽이 불편한 이유, 소비기한, 그리고 인간관계를 지키며 서운하지 않게 거절하는 말까지 정리했습니다.
+자꾸 주는 사람의 심리 세 가지와 받는 쪽이 불편한 이유, 소비기한, 그리고 인간관계를 지키며 서운하지 않게 거절하는 말까지 정리했습니다.
 
 ■ 챕터
 0:00 필요 없다는데 자꾸 선물 주는 사람
@@ -57,7 +57,7 @@
 ## 3. 챕터 다시 계산하기 (문장 번호 기준 — 실제 내레이션 SRT)
 
 ```
-python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.srt --chapters "1=필요 없다는데 자꾸 선물 주는 사람;7=이유 1. 버리기 아까워서;26=이유 2. 받은 뒤의 일은 안 보여서;40=이유 3. 주고 나면 기분이 좋아서;49=받는 쪽이 불편한 이유 (소비기한);61=서운하지 않게 거절하는 말;86=내가 주는 쪽이라면 확인할 3가지"
+python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.txt psychology/source/jakku-juneun-2026-11-25/jakku-juneun-2026-11-25.srt --chapters "1=필요 없다는데 자꾸 선물 주는 사람;7=이유 1. 버리기 아까워서;26=이유 2. 받은 뒤의 일은 안 보여서;39=이유 3. 주고 나면 기분이 좋아서;48=받는 쪽이 불편한 이유 (소비기한);59=서운하지 않게 거절하는 말;83=내가 주는 쪽이라면 확인할 3가지"
 ```
 
 ## 4. 태그
@@ -91,7 +91,7 @@ python tools/srt_tool.py upload psychology/source/jakku-juneun-2026-11-25/jakku-
 
 ## 8. 점검 (설명란에 넣지 않음)
 
-- 페르소나 관문 (`persona_loop.json`): title ✅ 3회차 · script_exit ❌ 13회차 · script_rebuttal ✅ 13회차 — 이탈·반론 단계는 상한(5회차, 일부 7회차)까지 돌린 뒤 사용자가 영상·썸네일·업로드로 진행 (2026-11-13). 통과로 적지 않음.
+- 페르소나 관문 (`persona_loop.json`): title ✅ 5회차 · script_exit ❌ 15회차 · script_rebuttal ✅ 15회차 — 이탈·반론 단계는 상한(5회차, 일부 7회차)까지 돌린 뒤 사용자가 영상·썸네일·업로드로 진행 (2026-11-13). 통과로 적지 않음.
 - 숫자·연구는 `근거.md` 1번 표 · 지금 대본에서 뺀 연구는 출처에 넣지 않음. · 페르소나 관문: title 3회차 ✅ · 대본 이탈·반론은 상한(5회차)을 넘어 7회차까지 → 사용자 지시 2026-11-25 "확정하고 이미지 생성 명령 알려줘" 로 확정 · 댓글 문장 7개를 바꾼 뒤(사용자 지시 "댓글 내용 언급하지 말라고 좀") 8회차 — 결과는 persona_loop.json
 - 잡음 검사 `audio_check.md`: 보고 수준 후보만 (고칠 것 없음).
 - 영상: render check 0 · layout-check 0 · 완성 mp4 장면을 Claude 가 봄 · 음량 -14 LUFS 안팎 · 트루 피크 -1.5 dBTP 이하.

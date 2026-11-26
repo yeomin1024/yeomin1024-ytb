@@ -4,51 +4,207 @@
  "items": {
   "baegeok-gwangye-2026-11-26": {
    "title": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-26T06:32:10Z",
+      "sha": "9c95fc3b8a260196",
+      "reviewers": [
+       {
+        "reviewer": "T1-P1",
+        "persona": "P1",
+        "feed_picks": [
+         1,
+         5
+        ],
+        "feed_why": "1번은 주는 사람 속마음이라 바로 내 얘기 같아 누름 · 5번은 '잘해 준 건 다 잊히는'이 자식·며느리한테 해 준 게 떠올라 눌렀지만 '100억 밸런스 게임'은 젊은 사람 놀이 같아서 두 번째",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "잘해 준 건 다 잊히는 · 네가 해 준 게 뭔데? / 내가 다 해 줬는데…",
+        "fix": "'100억·밸런스 게임'은 무슨 영상인지 바로 안 잡히고 장난처럼 보임 — 누구 사이 얘기인지(자식·가까운 사람)와 '왜 잊히는지' 풀어 준다는 게 보이게 하면 망설임 없이 누름",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T1-반론",
+        "persona": "반론",
+        "feed_picks": [
+         5,
+         3
+        ],
+        "feed_why": "5번은 '나라면 100억'이라고 반박할 거리가 있는 양자택일이라 눌러 보고, 3번은 유명 매체가 쟁점을 묶어 정리한 것이라 믿을 만함. 1·9번은 '놀라운 속마음'·'특징 3가지'처럼 사람을 한 꼴로 일반화하는 말이라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "'잘해 준 건 다 잊힌다'의 '다'(모두 그렇다는 단정, K1) · '100억'과 '잊힌다'가 어떻게 맞바꾸는 관계인지 바로 안 읽힘 · 보조 문구 '내가 다 해 줬는데…'가 준 사람 편만 드는 걸로 보임(원하지 않은 호의를 받은 쪽은 '고마워하지 않는 사람' 취급당하는 것 아닌가 — K3·K6)",
+        "fix": "'다'를 빼고 '왜 잊히는지'(연구로 밝힌 까닭)를 약속하는 꼴로 — 예: 썸네일 '잘해 준 건 왜 잊힐까' · 보조 문구 한쪽은 받는 사람 말('해 달라고 한 적 없는데')로 바꿔 양쪽을 보여 주고, 대본이 밸런스 게임의 답(고른 쪽의 결과)을 꼭 주게",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "(1회차 답 받은 뒤 고칠 것: 제목·썸네일 '다' 빼기 · 보조 문구 · 반전 챕터를 연구 방향대로 · 돈 챕터 결론 · 단정 낮춤 · 밸런스 게임 답 챕터)",
+      "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_title_1.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      },
+      "text": "제목: 잘해 준 건 다 잊히는 대신 100억? 인간관계 밸런스 게임\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 다 잊힌다\n보조 문구: 네가 해 준 게 뭔데? / 내가 다 해 줬는데…"
+     }
+    ],
     "pending": {
-     "n": 1,
-     "sha": "9c95fc3b8a260196",
+     "n": 2,
+     "sha": "1644a8daa7aeb83c",
      "reviewers": [
-      "T1-P1",
-      "T1-반론"
+      "T2-P1",
+      "T2-반론"
      ],
-     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_title_1.md",
-     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_title_1",
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_title_2.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_title_2",
      "ours_idx": 5,
-     "text": "제목: 잘해 준 건 다 잊히는 대신 100억? 인간관계 밸런스 게임\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 다 잊힌다\n보조 문구: 네가 해 준 게 뭔데? / 내가 다 해 줬는데…",
-     "at": "2026-11-26T06:28:34Z"
+     "text": "제목: 잘해 준 건 다 잊히는 대신 100억? 인간관계 밸런스 게임\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 다 잊힌다\n보조 문구: 네가 해 준 게 뭔데? / 그때 도와줬잖아…",
+     "at": "2026-11-26T06:33:41Z"
     }
    },
    "script_exit": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-26T06:32:10Z",
+      "sha": "7f9fe7a56c8f93da",
+      "reviewers": [
+       {
+        "reviewer": "E1-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 58,
+          "why": "어려운 말·지루함 — 연구가 줄줄이 이어지는데 '가장 불행한 15에서 20퍼센트', '10만 달러'가 원화로 얼마인지도 안 나와 머리에 안 들어옴, 여기서 손이 리모컨으로 감"
+         },
+         {
+          "line": 85,
+          "why": "관련 없음 — 코코아 실험 끝나자마자 지갑 돌려받은 비율이 또 나오니 이야기가 옆으로 새는 느낌, '잘해 준 걸 잊는다'는 본론과 바로 안 이어짐"
+         }
+        ],
+        "hard_words": [
+         "밸런스 게임"
+        ],
+        "keep_watching": true,
+        "best": "32 — '네가 나한테 해 준 게 뭔데?' 하루를 다 써 줬는데 저 말 듣는 서운함은 자식·친구한테 다 겪어 봐서 가슴이 철렁함, 뒤가 궁금해짐",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [58, 85]",
+         "모르는 말 ['밸런스 게임']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "(1회차 답 받은 뒤 고칠 것: 제목·썸네일 '다' 빼기 · 보조 문구 · 반전 챕터를 연구 방향대로 · 돈 챕터 결론 · 단정 낮춤 · 밸런스 게임 답 챕터)",
+      "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_1.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
+     }
+    ],
     "path": "psychology/source/baegeok-gwangye-2026-11-26/baegeok-gwangye-2026-11-26.txt",
     "pending": {
-     "n": 1,
-     "sha": "7f9fe7a56c8f93da",
+     "n": 2,
+     "sha": "da0b87d845855c59",
      "reviewers": [
-      "E1-P1"
+      "E2-P1"
      ],
-     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_1.md",
-     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_exit_1",
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_2.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_exit_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T06:28:34Z"
+     "at": "2026-11-26T06:33:42Z"
     }
    },
    "script_rebuttal": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-26T06:32:10Z",
+      "sha": "7f9fe7a56c8f93da",
+      "reviewers": [
+       {
+        "reviewer": "K1-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "상",
+          "k": "K2",
+          "line": 89,
+          "text": "코코아 연구는 받은 사람이 내 짐작보다 '더' 기뻐했다는 거잖아. 그럼 현실은 상대가 잘해 준 걸 잊는 조건이랑 정반대인데, '조건의 절반쯤은 이미 겪고 있다'는 억지 아님? 절반이라는 숫자는 어디서 나왔고?",
+          "fix": "반전을 '조건 속 상대는 잊지만, 현실의 상대는 내 짐작보다 크게 느낀다 — 걸림돌은 상대의 기억이 아니라 별것 아니겠지 하는 내 짐작'으로 다시 쓰고 '절반쯤' 숫자는 뺀다. 88줄의 '내가 받은 친절을 작게 본다'도 지갑 연구(남이 잘해 줄 마음을 작게 짐작)와 맞게 '남의 친절을 작게 짐작한다'로."
+         },
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 64,
+          "text": "네가 든 숫자대로면 당첨자 만족도는 10년 넘게 높고, 대부분은 소득이 늘수록 기분이 좋아지고, 600만 원 넘는 집은 외로움이 100만 원 안 되는 집의 거의 절반인데? 오히려 100억 받으라는 근거 아님? 이 연구들 중 관계가 끊긴 사람에게 돈이 빈자리를 채우는지 본 건 하나도 없잖아.",
+          "fix": "6줄의 '연구로 확인해 보겠습니다'를 '연구로 돈이 할 수 있는 것과 못 하는 것을 보겠습니다'처럼 낮추고, 64줄 결론을 '돈은 외로움을 줄여 주지만 없애지는 못했다'로 숫자와 같은 방향에 맞춘다."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 48,
+          "text": "잘해 준 일만 잊는 거지 같이 웃고 떠든 시간, 내 성격, 상대가 나한테 잘해 준 일은 다 남잖아. 관계가 신세 갚기로만 만들어지나? '하나도 만들 수 없다'는 과장.",
+          "fix": "'하나도'·'실수만 하는 사람'(46줄)·'부를 친구가 하나도 남지 않습니다'(35줄) 같은 단정을 '도움을 주고받으며 쌓이는 믿음은 만들기 어렵다'처럼 조건이 지우는 것만 말하고, 같이 보낸 시간은 남는다는 예외를 먼저 한 문장으로 인정한다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 72,
+          "text": "잘해 준 걸 잊는다고 바로 외로움으로 걸어 들어간다고? 세계보건기구 사망 숫자를 이 조건에 그대로 붙인 건 겁주기 같다.",
+          "fix": "'걸어 들어가게 됩니다'를 '외로워지기 쉬운 쪽에 서게 됩니다' 정도로 낮추고, 87만 명은 외로움 전체에 대한 추정이라는 걸 남긴 채 조건과 바로 잇지 않는다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 100,
+          "text": "감사 편지·코코아 연구는 받은 사람 기분을 잰 거지 기억에 남는지는 안 쟀고, 내가 고맙다고 말한다고 '내가 한 친절'이 상대 기억에 남는 것도 아니잖아.",
+          "fix": "'서로의 기억에 남기 쉬워집니다' 대신 연구가 보여 준 만큼만 — '받는 사람의 기분은 내 짐작보다 훨씬 좋아집니다' — 으로 끝낸다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 54,
+          "text": "'비슷한 조건의 다른 사람'이 누구야? 복권 안 산 사람이랑 비교한 거면 복권 사는 사람 자체가 다르잖아.",
+          "fix": "비교 대상을 그 문장에서 밝힌다 — 예 '작은 금액에 당첨된 사람보다'."
+         }
+        ],
+        "answer_clear": false,
+        "summary": "숫자는 대본 안에서 앞뒤가 맞고(84명 중 75명, 87만 명 ≈ 한 시간 100명) 진단·부모 탓 말도 없지만, 반전(89줄)이 연구와 거꾸로 이어지고, 돈 챕터의 숫자는 '받아도 된다' 쪽인데 48·72줄은 '하나도'·'걸어 들어간다'로 '안 받기'를 밀고 마무리는 '어느 쪽을 고르셨든'이라 — 100억을 받을지의 옳은 선택이 사람마다 갈리고 대본도 분명히 하지 않는다(열린 답이 의도라면 그렇다고 말하고 단정 낱말을 빼야 함).",
+        "pass": false,
+        "why": [
+         "상 1 (줄 [89])",
+         "중 2 > 1",
+         "옳은 선택이 분명하지 않음"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "(1회차 답 받은 뒤 고칠 것: 제목·썸네일 '다' 빼기 · 보조 문구 · 반전 챕터를 연구 방향대로 · 돈 챕터 결론 · 단정 낮춤 · 밸런스 게임 답 챕터)",
+      "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_1.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
+     }
+    ],
     "path": "psychology/source/baegeok-gwangye-2026-11-26/baegeok-gwangye-2026-11-26.txt",
     "pending": {
-     "n": 1,
-     "sha": "7f9fe7a56c8f93da",
+     "n": 2,
+     "sha": "da0b87d845855c59",
      "reviewers": [
-      "K1-반론"
+      "K2-반론"
      ],
-     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_1.md",
-     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_rebuttal_1",
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_2.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_rebuttal_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T06:28:34Z"
+     "at": "2026-11-26T06:33:42Z"
     }
    }
   }

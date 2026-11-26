@@ -142,21 +142,53 @@
        "max_rounds": 5
       },
       "text": "제목: \"네가 해 준 게 뭔데?\" 잘해 준 건 다 잊히는 대신 100억\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 다 잊힌다\n보조 문구: 네가 해 준 게 뭔데? / 그때 도와줬잖아…"
+     },
+     {
+      "n": 4,
+      "at": "2026-11-26T06:47:47Z",
+      "sha": "5323cc5c5949d07a",
+      "reviewers": [
+       {
+        "reviewer": "T4-P1",
+        "persona": "P1",
+        "feed_picks": [
+         4,
+         5
+        ],
+        "feed_why": "4번 따옴표 '네가 해 준 게 뭔데?'는 자식·며느리한테 실제로 들어 본 말이라 가슴이 철렁해서 먼저 누르고, 5번은 요즘 내 처지 그대로라 다음으로 누름 — 9번 치매도 끌렸지만 둘까지라 뺌",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "멈추게 한 말 = '네가 해 준 게 뭔데?' · '그때 도와줬잖아…' / 고개 갸웃하게 한 말 = '100억, 받을까?' — 잘해 준 게 잊히는 거랑 100억이 무슨 상관인지 1초에 안 와서 예능 밸런스 게임 같음",
+        "fix": "100억 대신 누가 한 말인지(자식·며느리)와 내 손해를 앞에 — 예 '자식이 \"네가 해 준 게 뭔데?\" 할 때 잘해 준 게 잊히는 이유'처럼 답은 숨기고 상황만 또렷하게",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T4-반론",
+        "persona": "반론",
+        "feed_picks": [
+         4,
+         5
+        ],
+        "feed_why": "4는 '네가 해 준 게 뭔데?'가 겪어 본 장면이라 멈췄고, 100억이 관계 이야기와 어떻게 이어지는지 빈틈을 확인하려고 누름 · 5는 '나이가 들수록'이 정말 모두에게 맞는 말인지 따져 보려고 · 8·10은 '본모습이 드러난다'·'결국 모든 관계'처럼 단정이라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "100억 — 내용보다 센 숫자, 돈과 '잊힌 호의'가 왜 묶이는지 안 보이고 답이 뻔해 보임('100억이면 당연히 받지') · '잊히는 대신' — 누가 잊는지(상대가? 내가?) 제목만으론 모호",
+        "fix": "누가 잊는지 밝히고('상대가 다 잊어도') 100억은 대본이 실제로 그 선택을 따져 볼 때만 남기기 — 아니면 '그래도 또 잘해 줄까?'처럼 대본이 답하는 질문으로 바꾸기",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "v5: 답 = 생계·생명이 걸리지 않았다면 + 판단 기준 앞에 · 도움의 결과는 남음 인정, 잃는 것 = 기댈 사이 · 혼자가 편한 사람(혼자와 외로움 구분) · '아예 끊기면' → '기댈 사람이 없으면' · 조건 문장 뒤 뜻 풀이 · 당첨자도 곁의 사람 그대로 · 지갑 실험 해·설문 · '하루' → '삶을 몇 장면' · 삶의 만족 풀이 · 104 되풀이 뺌",
+      "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_title_4.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      },
+      "text": "제목: \"네가 해 준 게 뭔데?\" 잘해 준 건 잊히는 대신 100억, 받을까?\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 잊힌다면?\n보조 문구: 네가 해 준 게 뭔데? / 그때 도와줬잖아…"
      }
-    ],
-    "pending": {
-     "n": 4,
-     "sha": "5323cc5c5949d07a",
-     "reviewers": [
-      "T4-P1",
-      "T4-반론"
-     ],
-     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_title_4.md",
-     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_title_4",
-     "ours_idx": 4,
-     "text": "제목: \"네가 해 준 게 뭔데?\" 잘해 준 건 잊히는 대신 100억, 받을까?\n썸네일 문구: 100억 받는 대신 / 잘해 준 건 잊힌다면?\n보조 문구: 네가 해 준 게 뭔데? / 그때 도와줬잖아…",
-     "at": "2026-11-26T06:44:27Z"
-    }
+    ]
    },
    "script_exit": {
     "rounds": [
@@ -263,20 +295,51 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 4,
+      "at": "2026-11-26T06:47:47Z",
+      "sha": "e6a6ecbbbd446e6b",
+      "reviewers": [
+       {
+        "reviewer": "E4-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 60,
+          "why": "지루함 — 스웨덴 복권 연구에서 '삶의 만족 점수'와 '하루하루 즐거움'의 차이가 말로만 나와 추상적이고, 바로 앞 어머니·자식 이야기에서 갑자기 멀어져 잠깐 손이 감 (끄지는 않음)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "46 — '몇 년을 반찬을 해 보내도 자식 기억에는 잔소리한 날만 남습니다'는 내 이야기 같아서 확 붙잡힘 (44 어머니가 서운해하는 장면만 있었으면 부모만 나쁘게 그린다고 느꼈을 텐데, 46이 부모 쪽 서운함도 짚어 줌)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [60]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v5: 답 = 생계·생명이 걸리지 않았다면 + 판단 기준 앞에 · 도움의 결과는 남음 인정, 잃는 것 = 기댈 사이 · 혼자가 편한 사람(혼자와 외로움 구분) · '아예 끊기면' → '기댈 사람이 없으면' · 조건 문장 뒤 뜻 풀이 · 당첨자도 곁의 사람 그대로 · 지갑 실험 해·설문 · '하루' → '삶을 몇 장면' · 삶의 만족 풀이 · 104 되풀이 뺌",
+      "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_4.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "psychology/source/baegeok-gwangye-2026-11-26/baegeok-gwangye-2026-11-26.txt",
     "pending": {
-     "n": 4,
-     "sha": "e6a6ecbbbd446e6b",
+     "n": 5,
+     "sha": "a3df1e9cc8d55ca1",
      "reviewers": [
-      "E4-P1"
+      "E5-P1"
      ],
-     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_4.md",
-     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_exit_4",
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_exit_5.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_exit_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T06:44:27Z"
+     "at": "2026-11-26T06:48:47Z"
     }
    },
    "script_rebuttal": {
@@ -523,20 +586,104 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 4,
+      "at": "2026-11-26T06:47:47Z",
+      "sha": "e6a6ecbbbd446e6b",
+      "reviewers": [
+       {
+        "reviewer": "K4-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "상",
+          "k": "K1",
+          "line": 81,
+          "text": "가족이 기억 못 해도 빚이랑 병원비는 갚아진 거잖아요. 고맙다는 말 들으려고 가족 돕나요? 기억이 지워진다고 도움까지 없어지는 건 아니죠.",
+          "fix": "도움의 결과(갚은 빚·치료)는 그대로 남는다고 먼저 인정하고, 잃는 것을 '그 뒤로 서로 기댈 사이가 쌓이지 않는다'로 좁혀 말한다. 생계·생명이 걸린 상황은 판단이 다를 수 있다고 한 줄로 짚고, 답은 '그런 상황이 아니라면'처럼 조건을 붙여 낸다."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 79,
+          "text": "밸런스 게임에 정답이 어디 있어요? 둘 중 하나 고르라 해 놓고 답을 정해 주면 이건 밸런스 게임이 아니죠.",
+          "fix": "'답은 ~입니다' 대신 '오늘 본 연구로 따지면 잃는 것이 더 큰 쪽은 ~입니다'처럼 판단 기준을 앞에 세운다. 받겠다는 사람의 생각도 틀린 게 아니라고 한 줄 인정한다."
+         },
+         {
+          "level": "중",
+          "k": "K6",
+          "line": 83,
+          "text": "저는 원래 혼자가 편한 사람이라 100억 받습니다. 사람 없어도 잘 사는 사람도 많아요.",
+          "fix": "혼자가 편한 사람을 먼저 짚는다. 혼자 지내는 것과 외로운 것은 다르다고 구분한 뒤, 이 조건이 막는 것은 아플 때·급할 때 기댈 사람이라는 점으로 이어 간다."
+         },
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 69,
+          "text": "36줄에서 같이 웃은 시간은 기억에 남는다고 했잖아요. 그런데 왜 '사람 사이가 아예 끊긴다'고 해요? 기억이 일부 지워지는 걸 고립이랑 같게 놓고 WHO 사망 숫자를 붙이는 건 과장이에요.",
+          "fix": "'아예 끊기면'을 '서로 기댈 사람이 곁에 없으면' 정도로 바꾸고, 76줄도 조건이 만드는 것은 완전한 고립이 아니라 기댈 사람이 줄어드는 것이라는 말로 맞춘다."
+         },
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 18,
+          "text": "같이 웃고 떠든 기억은 남는다면서 왜 평생 좋은 관계를 '만들 수 없다'고 단정해요? 잘해 주는 건 줄이고 같이 놀기만 하면 친해질 수 있잖아요.",
+          "fix": "18줄을 '좋은 관계를 쌓기가 아주 어렵습니다'로 누그러뜨리거나, '믿고 기댈 사이로는 이어지지 않는다'를 조건에 분명히 넣는다. 36~38줄에서 함께 논 기억만으로는 서로 기댈 사이가 안 되는 까닭을 한 문장 더 보탠다."
+         },
+         {
+          "level": "중",
+          "k": "K2",
+          "line": 85,
+          "text": "복권 연구에서는 큰돈이 삶의 만족을 10년 넘게 올렸다면서요. 그런데 '잃는 게 더 크다'는 건 어느 연구에서 나온 거예요? 영상이 보여 준 숫자로는 오히려 받는 쪽이 이득 같은데요.",
+          "fix": "61줄 뒤에 '이 당첨자들도 곁의 사람은 그대로였습니다'를 넣어 67줄과 맞춘다. 85줄은 연구 결과가 아니라 두 연구를 함께 본 판단이라는 점이 드러나게 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 100,
+          "text": "지갑 실험은 언제 한 거예요? '사람들의 짐작'은 누구한테 물어본 건데요?",
+          "fix": "지갑 실험이 나온 해와, 짐작을 물은 대상(여러 나라 사람들에게 물은 설문)을 짧게 밝힌다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 6,
+          "text": "'하루를 따라가 본다'더니 몇 달 뒤 이사, 다음 주 통화, 몇 년 반찬까지 나오네요.",
+          "fix": "'이 조건으로 사는 하루' 대신 '이 조건으로 사는 삶'이나 '몇 가지 장면'으로 바꾼다."
+         }
+        ],
+        "answer_clear": false,
+        "summary": "장면과 연구 소개는 앞뒤가 대체로 맞고 진단·부모 탓 말도 없다. 다만 '답은 100억을 받지 않는 쪽'이라는 결론이 빚·병원비·혼자가 편한 사람 같은 상황에 따라 갈린다. 81줄의 '도움마저 지워진다'는 도움의 결과는 남는다는 반박에 약하고, '아예 끊긴다'는 36줄과 부딪혀서 답이 분명하지 않다.",
+        "pass": false,
+        "why": [
+         "상 1 (줄 [81])",
+         "중 5 > 1",
+         "옳은 선택이 분명하지 않음"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v5: 답 = 생계·생명이 걸리지 않았다면 + 판단 기준 앞에 · 도움의 결과는 남음 인정, 잃는 것 = 기댈 사이 · 혼자가 편한 사람(혼자와 외로움 구분) · '아예 끊기면' → '기댈 사람이 없으면' · 조건 문장 뒤 뜻 풀이 · 당첨자도 곁의 사람 그대로 · 지갑 실험 해·설문 · '하루' → '삶을 몇 장면' · 삶의 만족 풀이 · 104 되풀이 뺌",
+      "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_4.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "psychology/source/baegeok-gwangye-2026-11-26/baegeok-gwangye-2026-11-26.txt",
     "pending": {
-     "n": 4,
-     "sha": "e6a6ecbbbd446e6b",
+     "n": 5,
+     "sha": "a3df1e9cc8d55ca1",
      "reviewers": [
-      "K4-반론"
+      "K5-반론"
      ],
-     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_4.md",
-     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_rebuttal_4",
+     "prompt": "psychology/source/baegeok-gwangye-2026-11-26/persona_baegeok-gwangye-2026-11-26_script_rebuttal_5.md",
+     "answers": "psychology/source/baegeok-gwangye-2026-11-26/answers_baegeok-gwangye-2026-11-26_script_rebuttal_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-26T06:44:27Z"
+     "at": "2026-11-26T06:48:47Z"
     }
    }
   }

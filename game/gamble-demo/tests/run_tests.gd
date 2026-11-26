@@ -1,5 +1,5 @@
-# VERSION: v0.2.0 — 2026-11-26 — 실시간 규칙 시험: 턴 번갈아 · 잔 엿보기 시간 · 들킴 위험률 · 감시 턴 고발 · 숨은 정보
-# 이전 VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# VERSION: v0.3.0 — 2026-11-26 — 속임수는 노예 측만: 진영별 턴 종류 시험 · 왕 측은 엿볼 수 없음
+# 이전 VERSION: v0.2.0 — 2026-11-26 — 실시간 규칙 시험: 턴 번갈아 · 잔 엿보기 시간 · 들킴 위험률 · 감시 턴 고발 · 숨은 정보
 #
 # 실행 (저장소 맨 위에서):
 #   godot --headless --path game/gamble-demo --script res://tests/run_tests.gd
@@ -24,7 +24,7 @@ func _initialize() -> void:
 		["rules_table", _t_rules_table],
 		["fair_odds", _t_fair_odds],
 		["peek_math", _t_peek_math],
-		["turn_alternation", _t_turn_alternation],
+		["turn_roles", _t_turn_roles],
 		["peek_reveals_card", _t_peek_reveals_card],
 		["caught_when_watched", _t_caught_when_watched],
 		["detect_accuse", _t_detect_accuse],
@@ -70,6 +70,12 @@ func _human_match(p_seed: int, ai):
 	var m = GambleMatch.new()
 	m.setup(p_seed, null, ai)
 	return m
+
+
+## 사람이 노예(암살자) 측인 판(2판)에서 시작 → 속임수 턴
+func _start_cheat(m) -> void:
+	m.round_index = 0
+	m.start()
 
 
 ## seconds 동안 사람 시선을 gaze 로 두고 진행. 단계가 바뀌면 멈춤.
@@ -145,24 +151,34 @@ func _t_peek_math() -> void:
 	_near(CheatRules.p_at_least(2, 5, 0.3), 0.47178, 1e-5, "5번 속이면 2번 이상 들킬 확률")
 
 
-func _t_turn_alternation() -> void:
+func _t_turn_roles() -> void:
 	var m = _human_match(1, _brain("inert"))
-	m.start()
-	_check(int(m.turn_type) == GambleMatch.TurnType.CHEAT and int(m.committed[1]) != -1, "1턴 = 속임수 턴, 상대가 먼저 냄")
-	_check(int(m.phase) == GambleMatch.Phase.PLAYER_CHOOSE, "1턴 내가 고름")
+	m.start()   # 1판: 사람 = 왕 측
+	_check(int(m.turn_type) == GambleMatch.TurnType.DETECT and int(m.committed[1]) == -1, "왕 측 판 = 감시 턴, 내가 먼저 냄")
+	_run(m, 3.0, "glass")
+	_check(float(m.peek_progress[0]) == 0.0 and int(m.strikes[0]) == 0, "왕 측은 잔을 봐도 엿보기 없음")
+	var all_detect := true
+	var guard := 0
+	while int(m.round_index) == 0 and guard < 60:
+		guard += 1
+		if int(m.turn_type) != GambleMatch.TurnType.DETECT:
+			all_detect = false
+		if int(m.phase) == GambleMatch.Phase.PLAYER_CHOOSE:
+			m.commit(int(m.hands[0][0]))
+		elif int(m.phase) == GambleMatch.Phase.AI_THINK:
+			_run(m, 8.0, "table")
+		elif int(m.phase) == GambleMatch.Phase.REVEALED:
+			m.next()
+	_check(all_detect, "1판 모든 턴 = 감시 턴")
+	_check(int(m.round_index) == 1 and int(m.sides[0]) == RankCards.Team.ASSASSIN_SIDE, "2판은 노예(암살자) 측")
+	_check(int(m.turn_type) == GambleMatch.TurnType.CHEAT and int(m.committed[1]) != -1, "노예 측 판 = 속임수 턴, 상대가 먼저 냄")
 	m.commit(RankCards.Card.CITIZEN)
 	_check(int(m.phase) == GambleMatch.Phase.REVEALED, "속임수 턴은 내가 내면 바로 공개")
-	m.next()
-	_check(int(m.turn_type) == GambleMatch.TurnType.DETECT and int(m.committed[1]) == -1, "2턴 = 감시 턴, 상대는 아직 안 냄")
-	m.commit(int(m.hands[0][0]))
-	_check(int(m.phase) == GambleMatch.Phase.AI_THINK, "감시 턴은 내가 낸 뒤 상대가 고민")
-	_run(m, 8.0, "table")
-	_check(int(m.phase) == GambleMatch.Phase.REVEALED and int(m.committed[1]) != -1, "고민이 끝나면 상대가 내고 공개")
 
 
 func _t_peek_reveals_card() -> void:
 	var m = _human_match(2, _brain("inert"))   # 눈치 0 → 들키지 않음
-	m.start()
+	_start_cheat(m)
 	_run(m, 1.0, "glass")
 	_check(_first_event(m, "peek_info").is_empty(), "1초로는 안 보임")
 	_run(m, 1.0, "glass")
@@ -170,7 +186,7 @@ func _t_peek_reveals_card() -> void:
 	_check(not ev.is_empty() and int(ev["card"]) == int(m.committed[1]), "1.8초 넘게 보면 상대 카드가 비침")
 	# 나눠 보기: 1초 보고 1초 쉬고 → 진행도가 줄어든 만큼 더 봐야 함
 	var m2 = _human_match(3, _brain("inert"))
-	m2.start()
+	_start_cheat(m2)
 	_run(m2, 1.0, "glass")
 	_run(m2, 1.0, "table")
 	var want := 1.0 / CheatRules.PEEK_SECONDS - CheatRules.PEEK_DECAY
@@ -185,14 +201,14 @@ func _t_caught_when_watched() -> void:
 		var w = _brain("honest")
 		w.force_watch = "face"
 		var m = _human_match(1000 + s, w)
-		m.start()
+		_start_cheat(m)
 		_run(m, CheatRules.PEEK_SECONDS, "glass")
 		if int(m.strikes[0]) == 1:
 			caught_face += 1
 		var w2 = _brain("honest")
 		w2.force_watch = "away"
 		var m2 = _human_match(2000 + s, w2)
-		m2.start()
+		_start_cheat(m2)
 		_run(m2, CheatRules.PEEK_SECONDS, "glass")
 		if int(m2.strikes[0]) == 1:
 			caught_away += 1
@@ -202,7 +218,7 @@ func _t_caught_when_watched() -> void:
 	var w3 = _brain("honest")
 	w3.force_watch = "face"
 	var m3 = _human_match(7, w3)
-	m3.start()
+	_start_cheat(m3)
 	_run(m3, 3.0, "glass")
 	_check(int(m3.strikes[0]) == 1 and int(m3.phase) == GambleMatch.Phase.REVEALED and bool(m3.round_over), "들키면 경고 + 판 몰수")
 	var a := _first_event(m3, "accuse")
@@ -215,9 +231,8 @@ func _t_detect_accuse() -> void:
 	b.cheat_rate = 10.0
 	b.boldness = 1.0
 	var m = _human_match(4, b)
-	m.global_turn = 1   # 첫 턴을 감시 턴(2)으로
 	m.start()
-	_check(int(m.turn_type) == GambleMatch.TurnType.DETECT, "감시 턴에서 시작")
+	_check(int(m.turn_type) == GambleMatch.TurnType.DETECT, "1판(왕 측) = 감시 턴")
 	m.commit(int(m.hands[0][0]))
 	var seen := false
 	for i in 120:
@@ -231,7 +246,6 @@ func _t_detect_accuse() -> void:
 	_check(int(m.phase) == GambleMatch.Phase.REVEALED and int(m.tokens[0]) == CheatRules.TOKENS_PER_MATCH, "적중이면 판 몰수 · 토큰 그대로")
 	# 정직한 상대에게 고발 → 헛고발
 	var m2 = _human_match(5, _brain("honest"))
-	m2.global_turn = 1
 	m2.start()
 	m2.commit(int(m2.hands[0][0]))
 	_run(m2, 1.0, "face")
@@ -243,7 +257,6 @@ func _t_detect_accuse() -> void:
 
 func _t_ai_peek_best_response() -> void:
 	var m = _human_match(6, _brain("inert"))
-	m.global_turn = 1
 	m.start()   # 1판: 사람 = 왕 측, AI = 암살자 측
 	m.commit(RankCards.Card.KING)
 	m.peek_done[1] = true   # 엿보기를 끝냈다고 가정
@@ -264,7 +277,6 @@ func _t_ai_ignores_hidden_card() -> void:
 
 func _ai_detect_card(p_seed: int, my_card: int) -> int:
 	var m = _human_match(p_seed, _brain("honest"))
-	m.global_turn = 1
 	m.start()
 	m.commit(my_card)
 	_run(m, 8.0, "table")
@@ -276,7 +288,7 @@ func _t_two_strikes() -> void:
 	var w = _brain("honest")
 	w.force_watch = "face"
 	var m = _human_match(8, w)
-	m.start()
+	_start_cheat(m)
 	_run(m, 3.0, "glass")
 	_check(int(m.strikes[0]) == 1 and not m.is_over(), "한 번 들키면 계속")
 	for i in 40:
@@ -297,7 +309,7 @@ func _t_two_strikes() -> void:
 
 func _t_timeout() -> void:
 	var m = _human_match(9, _brain("inert"))
-	m.start()
+	_start_cheat(m)
 	_run(m, CheatRules.TURN_SECONDS + 0.5, "table")
 	_check(not _first_event(m, "timeout").is_empty() and int(m.phase) == GambleMatch.Phase.REVEALED, "시간이 지나면 아무 카드나 냄")
 	_check(int(m.stats["timeouts"][0]) == 1, "시간 초과 기록")
@@ -349,12 +361,15 @@ func _t_auto_match_sane() -> void:
 			strikes_ok = false
 		if str(m.end_reason) == "CAUGHT_TWICE":
 			caught_twice += 1
+		var side0 := -1
 		for ev in m.events:
-			if ev["type"] == "turn_start":
-				var want: int = GambleMatch.TurnType.CHEAT if int(ev["turn"]) % 2 == 1 else GambleMatch.TurnType.DETECT
+			if ev["type"] == "round_start":
+				side0 = int(ev["sides"][0])
+			elif ev["type"] == "turn_start":
+				var want: int = GambleMatch.TurnType.CHEAT if side0 == RankCards.Team.ASSASSIN_SIDE else GambleMatch.TurnType.DETECT
 				if int(ev["turn_type"]) != want:
 					turns_ok = false
 	_check(all_over, "100 매치 모두 끝남")
 	_check(strikes_ok, "경고는 2개를 넘지 않음")
-	_check(turns_ok, "턴 종류가 번갈아 감")
+	_check(turns_ok, "턴 종류 = 그 판 진영 (노예 측만 속임수)")
 	print("[TEST] auto_matches=100 caught_twice=%d" % caught_twice)

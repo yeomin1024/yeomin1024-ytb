@@ -1,4 +1,5 @@
-# VERSION: v0.2.0 — 2026-11-26 — 실시간 화면: 마우스 = 시선 · 시야 제한(보는 곳만 밝게) · 속임수/감시 턴 안내 · 스페이스 = 잡았다
+# VERSION: v0.3.0 — 2026-11-26 — 안내 문구: 노예(암살자) 측 판 = 속임수 판, 왕 측 판 = 감시 판
+# 이전 VERSION: v0.2.0 — 2026-11-26 — 실시간 화면: 마우스 = 시선 · 시야 제한(보는 곳만 밝게) · 속임수/감시 턴 안내 · 스페이스 = 잡았다
 # 이전 VERSION: v0.1.1 — 2026-11-26 — 속임수 버튼 줄의 타입 추론 오류 고침(INFERENCE_ON_VARIANT) · Side→Team
 #
 # 조작: 마우스가 가리키는 곳 = 내 시선 · 카드 클릭 = 내기 · 스페이스 = 잡았다!(감시 턴) · Enter = 다음
@@ -166,8 +167,8 @@ func _new_match() -> void:
 	table.game = game
 	log_view.clear()
 	_log("[b]새 매치[/b] — 상대: %s · 시드 %d" % [OPP_NAMES[opponent_kind], s])
-	_log("홀수 턴 = 속임수 턴 (상대가 먼저 냄 → 잔을 %.1f초 보면 상대 카드가 비침)" % CheatRules.PEEK_SECONDS)
-	_log("짝수 턴 = 감시 턴 (내가 먼저 냄 → 상대가 잔을 보면 스페이스)")
+	_log("노예(암살자) 측 판 = [color=orange]속임수 판[/color]: 상대가 먼저 냄 → 잔을 %.1f초 보면 상대 카드가 비침" % CheatRules.PEEK_SECONDS)
+	_log("왕 측 판 = [color=skyblue]감시 판[/color]: 내가 먼저 냄 → 상대(노예)가 잔을 보면 스페이스")
 	_log("들키면 그 판 몰수 + 벌금 %d점 · 경고 %d개면 패배 · 헛고발은 토큰 −1 + 벌금 %d점" % [
 		CheatRules.CAUGHT_FINE, CheatRules.STRIKES_TO_LOSE, CheatRules.FALSE_ACCUSE_FINE])
 	_log("[color=gray]연구·교육용 데모입니다. 실제 돈과 관계없습니다.[/color]")
@@ -246,8 +247,10 @@ func _render(ev: Dictionary) -> void:
 		_log("\n[b]── %s ──[/b] 당신: %s" % [_round_name(int(ev["round"])), RankCards.SIDE_NAMES[mine]])
 		if mine == RankCards.Team.KING_SIDE:
 			_log("왕 측: 왕이 시민을 만나면 +1 · 상대 암살자에게 왕을 내면 짐")
+			_log("[color=skyblue]감시 판[/color] — 매 턴 당신이 먼저 내고, 상대가 잔을 엿보는지 지켜보세요")
 		else:
-			_log("암살자 측: 암살자가 왕을 잡으면 +4 · 시민에게 암살자를 내면 짐")
+			_log("암살자(노예) 측: 암살자가 왕을 잡으면 +4 · 시민에게 암살자를 내면 짐")
+			_log("[color=orange]속임수 판[/color] — 매 턴 상대가 먼저 내고, 당신은 잔을 엿볼 수 있어요")
 	elif kind == "turn_start":
 		if int(ev["turn_type"]) == GambleMatch.TurnType.CHEAT:
 			_log("%d턴째 · [color=orange]속임수 턴[/color] — 상대가 카드를 엎어 놓았다" % int(ev["turn_in_round"]))

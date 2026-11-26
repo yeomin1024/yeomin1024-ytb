@@ -1,5 +1,5 @@
-# VERSION: v0.2.0 — 2026-11-26 — 시선 AI: 속임수 턴엔 당신을 지켜보고(얼굴·손·자기 카드·딴 곳), 감시 턴엔 잔을 몰래 봄
-# 이전 VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# VERSION: v0.3.0 — 2026-11-26 — 엿보기는 노예(암살자) 측일 때만 (decide_peek 의 진영 배수 뺌 — 늘 노예 측이라)
+# 이전 VERSION: v0.2.0 — 2026-11-26 — 시선 AI: 속임수 턴엔 당신을 지켜보고(얼굴·손·자기 카드·딴 곳), 감시 턴엔 잔을 몰래 봄
 #
 # 공정성 규칙: 상대 카드는 잔 엿보기를 끝냈을 때만 info["opp_card"] 로 들어온다 (match.gd 가 넣음).
 #   AI 가 보는 것 = 공개 정보뿐 (사람의 시선 = 마우스가 가리키는 곳, 판 결과).
@@ -90,8 +90,8 @@ func decide_peek(rng: RandomNumberGenerator, my_side: int, my_strikes: int) -> b
 	var rate := cheat_rate
 	if my_strikes >= 1:
 		rate *= 0.3    # 한 번 더 걸리면 매치 패배
-	if my_side == RankCards.Team.ASSASSIN_SIDE:
-		rate *= 1.3    # 걸린 점수(4)가 큼
+	if my_side != RankCards.Team.ASSASSIN_SIDE:
+		return false   # v0.3.0: 속임수는 노예 측만
 	return rng.randf() < rate
 
 

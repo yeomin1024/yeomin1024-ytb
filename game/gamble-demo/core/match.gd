@@ -1,11 +1,12 @@
-# VERSION: v0.2.0 — 2026-11-26 — 실시간 매치: 속임수 턴·감시 턴 번갈아 · 잔 엿보기(시선 시간) · 들킴(위험률) · 고발(현장)
-# 이전 VERSION: v0.1.1 — 2026-11-26 — 전역 enum Side 와 겹치던 enum 이름을 Team 으로
+# VERSION: v0.3.0 — 2026-11-26 — 속임수는 노예(암살자) 측만: 노예 측 판 = 매 턴 속임수 턴, 왕 측 판 = 매 턴 감시 턴 (판마다 진영이 바뀌어 번갈아)
+# 이전 VERSION: v0.2.0 — 2026-11-26 — 실시간 매치: 속임수 턴·감시 턴 번갈아(전체 턴 번호) · 잔 엿보기 · 들킴 · 고발
 #
 # 자리(seat): 0 = 사람(시뮬레이션에선 AI 정책), 1 = AI
-# 턴 (전체 턴 번호로 번갈아):
-#   홀수 = 속임수 턴 (CHEAT)  : 자리 1 이 먼저 카드를 냄(뒷면) → 자리 0 이 고르는 동안 잔을 보면 엿볼 수 있음.
-#                              자리 1 은 자리 0 을 지켜보다가, 자리 0 이 잔을 보는 걸 알아채면 바로 고발(적중).
-#   짝수 = 감시 턴 (DETECT)  : 자리 0 이 먼저 냄 → 자리 1 이 고민하는 동안 잔을 몰래 볼 수 있음.
+# 턴 종류 = 그 판 진영으로 (v0.3.0 — 사용자 지시 "노예쪽이 너무 불리한데 속임수를 노예턴에서 사용할 수 있도록"):
+#   속임수 턴 (CHEAT)  = 자리 0 이 노예(암살자) 측인 판: 자리 1(왕 측)이 먼저 냄(뒷면) → 자리 0 이 고르는 동안 잔을 보면 엿볼 수 있음.
+#                        자리 1 은 자리 0 을 지켜보다가, 자리 0 이 잔을 보는 걸 알아채면 바로 고발(적중).
+#   감시 턴 (DETECT)  = 자리 0 이 왕 측인 판: 자리 0 이 먼저 냄 → 자리 1(노예 측)이 고민하는 동안 잔을 몰래 볼 수 있음.
+#   까닭: 엿보기는 왕 측에 더 유리했음 (왕 측은 한 번 보면 그 턴에 이김, 노예 측은 왕이 나오는 턴을 맞혀야 함) → 속임수는 노예 측만.
 #                              자리 0 은 자리 1 얼굴을 보다가 accuse() — 지금 잔을 보거나 막 뗐으면 적중.
 # 흐름: start() → [PLAYER_CHOOSE: tick() · commit()] → (감시 턴만) [AI_THINK: tick() · accuse()] → [REVEALED: next()] → …
 # 시간: tick(dt, 사람 시선) 를 매 프레임 부름. 시험·시뮬레이션은 같은 tick 을 고정 dt 로.
@@ -229,7 +230,7 @@ func _begin_turn() -> void:
 		return
 	global_turn += 1
 	turn_in_round += 1
-	turn_type = TurnType.CHEAT if global_turn % 2 == 1 else TurnType.DETECT
+	turn_type = TurnType.CHEAT if int(sides[0]) == RankCards.Team.ASSASSIN_SIDE else TurnType.DETECT   # 노예 측이 속임수
 	phase = Phase.PLAYER_CHOOSE
 	t = 0.0
 	committed = [-1, -1]
@@ -373,8 +374,8 @@ func _reveal() -> void:
 	_emit({"type": "round_end", "winner": w, "points": pts, "by": "cards", "scores": scores.duplicate()})
 	for seat in [1, 0]:
 		var brain = brains[seat]
-		if brain == null:
-			continue
+		if brain == null or int(sides[1 - seat]) != RankCards.Team.ASSASSIN_SIDE:
+			continue   # 상대가 속일 수 있는 진영(노예 측)이었을 때만 결과로 의심
 		var delta: float = brain.on_round_result(w != seat, sides[1 - seat], turn_in_round)
 		GameLog.debug("SUSPECT", {"seat": seat, "delta": delta, "suspicion": brain.suspicion})
 

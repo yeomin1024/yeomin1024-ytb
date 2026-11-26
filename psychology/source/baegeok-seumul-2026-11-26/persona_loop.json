@@ -1,0 +1,56 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "baegeok-seumul-2026-11-26": {
+   "title": {
+    "rounds": [],
+    "pending": {
+     "n": 1,
+     "sha": "9486838412359d15",
+     "reviewers": [
+      "T1-P1",
+      "T1-반론"
+     ],
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_title_1.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_title_1",
+     "ours_idx": 8,
+     "text": "제목: 100억 받고 하루아침에 20살 늙으면 생기는 일\n썸네일 문구: 100억 받는 대신 / 20살 늙는다면?\n보조 문구: 통장엔 100억… / 이게… 나야?",
+     "at": "2026-11-26T07:25:27Z"
+    }
+   },
+   "script_exit": {
+    "rounds": [],
+    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
+    "pending": {
+     "n": 1,
+     "sha": "070b5ff3c7054f48",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_exit_1.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T07:25:27Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "psychology/source/baegeok-seumul-2026-11-26/baegeok-seumul-2026-11-26.txt",
+    "pending": {
+     "n": 1,
+     "sha": "070b5ff3c7054f48",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "psychology/source/baegeok-seumul-2026-11-26/persona_baegeok-seumul-2026-11-26_script_rebuttal_1.md",
+     "answers": "psychology/source/baegeok-seumul-2026-11-26/answers_baegeok-seumul-2026-11-26_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-26T07:25:27Z"
+    }
+   }
+  }
+ }
+}

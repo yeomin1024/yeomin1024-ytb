@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+<<<<<<< Updated upstream
 # VERSION: v1.2 — 2026-11-26 — 맥락을 끊는 멘트 점검(guides/script_rules.md 7번 — 호칭 선언·'끝까지 보시면'·'얻어 가실'·'이 영상에서는' ❌ · 본문의 짧은 '…보겠습니다.' 넘김 ⚠) · 시청자 이득 = 자연스러운 꼴로만 셈 (사용자 지시 "…쓸모없이 맥락만 망치는 멘트는 쓰지 말라고 공통 규칙에 기록하고 대본 수정해")
+=======
+# VERSION: v1.2 — 2026-11-26 — 진행 멘트 점검: '오늘의 ~' ❌ (guides/script_rules.md v1.2 7번 — 사용자 지시 "오늘의 ~ 이런 멘트 넣지마 이건 공통 규칙에 넣고")
+>>>>>>> Stashed changes
 # 이전 v1.1 — 2026-11-26 — 알고리즘 구조(제목 낱말 → 도입 첫 두 문장 · 챕터 이름 낱말 → 챕터 첫 두 문장) · 익숙한 말(가운뎃점·괄호·슬래시·영어 글자·따옴표 겹침) 점검 — guides/script_rules.md v1.1 5·6번
 # 이전 v1.0 — 2026-11-26 — 최초: 대본 공통 규칙(guides/script_rules.md v1.0) 점검 — 도입 30초 · 결론 먼저 ✗ · 썸네일 연결 · 챕터 끝 질문 · 직관적이지 않은 표현
 #   사용자 지시 2026-11-26 "대본 도입부 30초 넘기지 말고 썸네일과 연결되고 … 결론부터 말하지 말고 하나씩 챕터를 정해서 알려주고 챕터 넘어갈 때마다 다음 챕터에 대한
@@ -8,7 +12,11 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+<<<<<<< Updated upstream
 # | v1.2 | 2026-11-26 | META(맥락 끊는 멘트) · HANDOFF · BENEFIT 자연스러운 꼴 | main |
+=======
+# | v1.2 | 2026-11-26 | HOST_FILLER ('오늘의 ~' 진행 멘트 ❌ — 문장 맨 앞 또는 '오늘의 주제·이야기·게임·영상…' · '오늘의 습관'처럼 내용 낱말은 안 걸림) | main |
+>>>>>>> Stashed changes
 # | v1.1 | 2026-11-26 | title_words · chapter_words · tts_checks | main |
 # | v1.0 | 2026-11-26 | 최초 | parse · intro_checks · chapter_checks · phrase_checks · main |
 """대본 공통 규칙 점검 (읽기만 — 파일을 고치지 않음).
@@ -34,6 +42,10 @@ VAGUE = [
     (r"(건네는|주는)\s*순간을\s*[,，]?\s*받는\s*(사람|쪽)은\s*그\s*뒤를", "'건네는 순간을, 받는 쪽은 그 뒤를' — 장면으로"),
     (r"손에는\s*.{0,20}마음이\s*들어\s*있", "'…손에는 …마음이 들어 있다' — 비유 대신 '이것이 첫 번째 이유입니다'"),
     (r"(아까움|미안함|부담)[이은]\s*.{0,12}넘어(가|오)", "'아까움이 넘어간다' — 무엇을 누가 하게 되는지 장면으로"),
+]
+# 진행 멘트 (guides/script_rules.md 7번 — 새로 찾으면 여기와 그 절에 같이 더함)
+HOST_FILLER = [
+    (r"^\s*오늘의\s|오늘의\s*(주제|이야기|게임|영상|시간|질문|순서|키워드|밸런스)", "'오늘의 ~' 진행 멘트 — 빼고 바로 내용으로 ('오늘은 ~를 보겠습니다'처럼 다룰 내용을 말하는 문장은 됨)"),
 ]
 CONCLUSION_FIRST = r"결론부터|결론을\s*먼저|결론은\s*이렇|답부터\s*말씀"
 # 시청자 이득 (1-⑤) — 대놓고 약속하는 꼴('끝까지 보시면'·'얻어 가실')은 셈하지 않고 META 로 ❌
@@ -181,6 +193,9 @@ def main(argv=None) -> int:
         for pat, why in VAGUE:
             if re.search(pat, s):
                 report("❌", "직관적이지 않은 표현", sentence=k, text=s[:60], fix=why)
+        for pat, why in HOST_FILLER:
+            if re.search(pat, s):
+                report("❌", "진행 멘트", sentence=k, text=s[:60], fix=why)
         if len(s) > 50:
             report("⚠", "긴 문장", sentence=k, chars=len(s), note="50자 넘음 — 자막 2줄 안인지 srt_tool 로")
     last = parts[-1]["sents"][-1][1] if parts[-1]["sents"] else ""

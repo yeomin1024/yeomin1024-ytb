@@ -192,20 +192,65 @@
        "max_rounds": 10
       },
       "text": "제목: \"먼저 내려갈게\" 신고 1시간 뒤 발견… 한라산 둘레길 심정지\n썸네일 문구: 먼저 내려갈게 / 1시간 뒤 발견\n보조 문구: 2023년 실제 사건"
+     },
+     {
+      "n": 5,
+      "at": "2026-11-27T07:07:34Z",
+      "sha": "3eaeaf9fdcbfd150",
+      "reviewers": [
+       {
+        "reviewer": "T5-P3",
+        "persona": "P3",
+        "feed_picks": [
+         8,
+         7
+        ],
+        "feed_why": "8은 '수영 잘하면 되는 거 아님'이라 바로잡을 말이 있을 것 같아 먼저 누르고, 7은 '한라산 심정지'라는 실제 사고 이름이 있어 그 안에서 무엇을 하라고 하는지 확인하려고 누름 — 나머지는 생존이 비유이거나 사고 이야기가 아님",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "먼저 내려가면? / 몸 상태가 안 좋아진다면",
+        "fix": "'몸 상태'를 가슴 답답함·숨참처럼 증상으로 좁혀 조건이 보이게 (예: 가슴이 답답할 때 혼자 먼저 내려가면?) — 그래야 다리 쥐 같은 경우와 섞인 수칙이 아니라고 믿고 누름",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T5-반론",
+        "persona": "반론",
+        "feed_picks": [
+         7,
+         8
+        ],
+        "feed_why": "7은 '한라산 심정지'라는 실제 사고라서 수칙에 빈틈이 있는지 따져 보려고, 8은 '수영 잘하면 되는 거 아님? 응 아님'이 바다는 다르다고 반박할 거리라서 누름. 나머지 생존 제목들은 안전 수칙이 아니라 교양·드라마라 넘김",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "먼저 내려가면? — 누가 먼저 내려간다는 건지(아픈 사람 혼자? 일행이 두고?) 흐려서, 돌아가신 분이나 일행 탓하는 영상처럼 들림. 제목의 '몸 상태가 안 좋아진다면'과 '심정지'도 무게가 달라서 '증상 따라 다르지(K1)'부터 떠오름",
+        "fix": "썸네일 문구에 누가 먼저 내려가는지를 넣고('아픈 사람 혼자 먼저 내려보내면?'), 누구 잘못이 아니라 그때 무엇을 할지(대피소·119 등 한라산 조건)를 다룬다는 게 보이게",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "썸네일 1줄 '등산 중 몸이 안 좋을 때' → '등산 중 가슴이 답답할 때'(증상을 좁힘 — P3·반론) · 2줄 '먼저 내려가면?' → '혼자 먼저 내려가면?'(누가 내려가는지 — 반론) · 제목은 도입 첫 두 문장 낱말이라 그대로",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r5.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "text": "제목: 일행과 등산 중 몸 상태가 안 좋아진다면? | 한라산 심정지\n썸네일 문구: 등산 중 몸이 안 좋을 때 / 먼저 내려가면?\n보조 문구: 한라산 실제 사고"
      }
     ],
     "pending": {
-     "n": 5,
-     "sha": "3eaeaf9fdcbfd150",
+     "n": 6,
+     "sha": "946296a77a83d101",
      "reviewers": [
-      "T5-P3",
-      "T5-반론"
+      "T6-P3",
+      "T6-반론"
      ],
-     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r5.md",
-     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/answers_hallasan-simjeongji-2026-11_title_5",
-     "ours_idx": 7,
-     "text": "제목: 일행과 등산 중 몸 상태가 안 좋아진다면? | 한라산 심정지\n썸네일 문구: 등산 중 몸이 안 좋을 때 / 먼저 내려가면?\n보조 문구: 한라산 실제 사고",
-     "at": "2026-11-27T07:06:30Z"
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r6.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/answers_hallasan-simjeongji-2026-11_title_6",
+     "ours_idx": 5,
+     "text": "제목: 일행과 등산 중 몸 상태가 안 좋아진다면? | 한라산 심정지\n썸네일 문구: 등산 중 가슴이 답답할 때 / 혼자 먼저 내려가면?\n보조 문구: 한라산 실제 사고",
+     "at": "2026-11-27T07:07:34Z"
     }
    },
    "script_exit": {

@@ -1,0 +1,97 @@
+{
+ "id": "wpS0REy9Ybw",
+ "title": "코스트코 주방코너 미친 신상 17가지🔥 근데 20% 할인까지 한다고!? 당장 달려가세요!!",
+ "channel": "엄마새 mommybird",
+ "channel_id": "UChohCCCKwaZAXrfmdurxdyA",
+ "subs": 14800,
+ "views": 163097,
+ "ratio": 11.02,
+ "age_days": 83,
+ "views_per_day": 1948.7,
+ "minutes": 11.1,
+ "likes": 557,
+ "comments": 20,
+ "published": "2026-09-04",
+ "queries": "검색:주방용품추천 | 검색:주방용품 | 검색:주방템",
+ "url": "https://www.youtube.com/watch?v=wpS0REy9Ybw",
+ "flag": "",
+ "published_at": "2026-09-04T13:30:32Z",
+ "rank": "W135",
+ "set": "web",
+ "folder": "W_wpS0REy9Ybw",
+ "sources": [
+  "검색:주방용품추천",
+  "검색:주방용품",
+  "검색:주방템"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "코스트코 일 잘한다..!"
+  },
+  {
+   "start": 17,
+   "title": "덴비 파산위기"
+  },
+  {
+   "start": 49,
+   "title": "가성비 갑 본차이나 세트"
+  },
+  {
+   "start": 89,
+   "title": "휘슬러 최신상 냄비세트"
+  },
+  {
+   "start": 203,
+   "title": "신상 amt 냄비세트 할인중"
+  },
+  {
+   "start": 268,
+   "title": "코코 주물팬은 처음이야"
+  },
+  {
+   "start": 324,
+   "title": "괴물스펙 코팅팬"
+  },
+  {
+   "start": 365,
+   "title": "테팔"
+  },
+  {
+   "start": 453,
+   "title": "에버홈 찜기 할인"
+  },
+  {
+   "start": 514,
+   "title": "발뮤다 저렴이 신상 스팀 오븐 토스터"
+  },
+  {
+   "start": 549,
+   "title": "슈퍼 대왕 키친타올 걸이"
+  },
+  {
+   "start": 608,
+   "title": "우드트레이"
+  },
+  {
+   "start": 638,
+   "title": "네오플램 머그세트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 20,
+ "comments_top_level": 10,
+ "comments_replies": 10,
+ "comments_by_creator": 10,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 20,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:24:18",
+ "approved": "2026-11-27T15:24+09:00"
+}

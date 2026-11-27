@@ -1,0 +1,96 @@
+{
+ "id": "3_RiQiBTYjM",
+ "title": "이사 후 이케아로 새집 정리🏡 조명·트롤리·주방수납 추천템 26가지｜2026 신상 구경&집꾸미기",
+ "channel": "쭈 인 보스턴_JJU in Boston",
+ "channel_id": "UC-NQifO1SL3kRxER1olWyCA",
+ "subs": 6750,
+ "views": 108351,
+ "ratio": 16.05,
+ "age_days": 152,
+ "views_per_day": 711.6,
+ "minutes": 10.8,
+ "likes": 755,
+ "comments": 62,
+ "published": "2026-06-28",
+ "queries": "검색:주방템 | 검색:주방정리",
+ "url": "https://www.youtube.com/watch?v=3_RiQiBTYjM",
+ "flag": "",
+ "published_at": "2026-06-28T00:00:14Z",
+ "rank": "W113",
+ "set": "web",
+ "folder": "W_3_RiQiBTYjM",
+ "sources": [
+  "검색:주방템",
+  "검색:주방정리"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 10,
+   "title": "이케아 2026 신상 구경"
+  },
+  {
+   "start": 247,
+   "title": "이케아 레스토랑"
+  },
+  {
+   "start": 278,
+   "title": "판교 맛집"
+  },
+  {
+   "start": 305,
+   "title": "홈카페"
+  },
+  {
+   "start": 330,
+   "title": "트롤리"
+  },
+  {
+   "start": 357,
+   "title": "이케아 조명"
+  },
+  {
+   "start": 384,
+   "title": "거실 꾸미기"
+  },
+  {
+   "start": 450,
+   "title": "주방 정리"
+  },
+  {
+   "start": 524,
+   "title": "수납박스"
+  },
+  {
+   "start": 550,
+   "title": "아이방 꾸미기"
+  },
+  {
+   "start": 565,
+   "title": "욕실 정리"
+  },
+  {
+   "start": 611,
+   "title": "간식시간"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 62,
+ "comments_top_level": 29,
+ "comments_replies": 33,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 62,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:22:52",
+ "approved": "2026-11-27T15:22+09:00"
+}

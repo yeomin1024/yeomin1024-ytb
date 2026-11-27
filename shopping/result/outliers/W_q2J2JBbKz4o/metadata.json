@@ -1,0 +1,83 @@
+{
+ "id": "q2J2JBbKz4o",
+ "title": "\"백화점엔 20만원, 다이소는 5천원..이거 알려주니 환자가 안옵니다😂\" 피부 좋아지는 다이소 꿀템 5개!",
+ "channel": "박경열의 피부상담소",
+ "channel_id": "UCT6W2AUy8If3fN1OoKIFUsg",
+ "subs": 374000,
+ "views": 2510904,
+ "ratio": 6.71,
+ "age_days": 286,
+ "views_per_day": 8751.0,
+ "minutes": 19.0,
+ "likes": 45153,
+ "comments": 1244,
+ "published": "2026-02-13",
+ "queries": "검색(전체 기간):다이소추천템",
+ "url": "https://www.youtube.com/watch?v=q2J2JBbKz4o",
+ "flag": "",
+ "published_at": "2026-02-13T08:01:08Z",
+ "rank": "W165",
+ "set": "web",
+ "folder": "W_q2J2JBbKz4o",
+ "sources": [
+  "검색(전체 기간):다이소추천템"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영상시작"
+  },
+  {
+   "start": 25,
+   "title": "원장님이 다이소 제품 쓰는 이유?"
+  },
+  {
+   "start": 127,
+   "title": "첫번째 추천템 : 팩"
+  },
+  {
+   "start": 351,
+   "title": "두번째 추천템 : 수분크림"
+  },
+  {
+   "start": 580,
+   "title": "세번째 추천템 : 레티놀"
+  },
+  {
+   "start": 847,
+   "title": "네번째 추천템 : 재생크림"
+  },
+  {
+   "start": 910,
+   "title": "다섯번째 추천템 : 여드름연고"
+  },
+  {
+   "start": 1004,
+   "title": "구독자분들께 감사 인사"
+  },
+  {
+   "start": 1047,
+   "title": "마무리"
+  },
+  {
+   "start": 1095,
+   "title": "쿠키영상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1244,
+ "comments_top_level": 982,
+ "comments_replies": 262,
+ "comments_by_creator": 32,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1244,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:26:31",
+ "approved": "2026-11-27T15:26+09:00"
+}

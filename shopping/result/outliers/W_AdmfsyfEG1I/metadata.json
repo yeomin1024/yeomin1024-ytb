@@ -1,0 +1,71 @@
+{
+ "id": "AdmfsyfEG1I",
+ "title": "🚨중년패션 이것만 버리면 10년은 젊어집니다.#중년패션",
+ "channel": "티아59 l 10년 젊어지는 패션 안티에이징",
+ "channel_id": "UC5W9h7OD9LhAXjNdfF3y2Lw",
+ "subs": 21600,
+ "views": 214811,
+ "ratio": 9.94,
+ "age_days": 91,
+ "views_per_day": 2346.2,
+ "minutes": 10.7,
+ "likes": 1135,
+ "comments": 39,
+ "published": "2026-08-27",
+ "queries": "검색:중년패션",
+ "url": "https://www.youtube.com/watch?v=AdmfsyfEG1I",
+ "flag": "",
+ "published_at": "2026-08-27T16:52:59Z",
+ "rank": "W141",
+ "set": "web",
+ "folder": "W_AdmfsyfEG1I",
+ "sources": [
+  "검색:중년패션"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 왜 같은 나이인데 나만 나이 들어 보일까?"
+  },
+  {
+   "start": 63,
+   "title": "버려야 할 것 ① 얼굴 톤을 죽이는 칙칙한 무채색 (밝은 상의 추천)"
+  },
+  {
+   "start": 155,
+   "title": "버려야 할 것 ② 일상복처럼 굳어진 등산복 (가디건 & 셔츠 코디)"
+  },
+  {
+   "start": 268,
+   "title": "버려야 할 것 ③ 커다란 나염·프린팅 티셔츠 (스카프 & 진주 코디 꿀팁)"
+  },
+  {
+   "start": 467,
+   "title": "버려야 할 것 ④ 투박한 기능성 워킹화 (세련된 로퍼 & 블로퍼 매치)"
+  },
+  {
+   "start": 525,
+   "title": "버려야 할 것 ⑤ 부담스러운 빅 로고 가방 (심플한 가방 & 스카프 활용)"
+  },
+  {
+   "start": 605,
+   "title": "마무리: 10년 젊어지는 패션 습관 & 유투브 라이브 안내"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 39,
+ "comments_top_level": 18,
+ "comments_replies": 21,
+ "comments_by_creator": 20,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 39,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:24:28",
+ "approved": "2026-11-27T15:24+09:00"
+}

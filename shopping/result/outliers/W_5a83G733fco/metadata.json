@@ -1,0 +1,158 @@
+{
+ "id": "5a83G733fco",
+ "title": "미니 PC, 노트북 싹 다 가짜였습니다. 쿠팡에 침투한 중국 사기단의 정체",
+ "channel": "뻘짓연구소",
+ "channel_id": "UCMYJw-gH6-_LNQzhqfYgDbg",
+ "subs": 510000,
+ "views": 1694935,
+ "ratio": 3.32,
+ "age_days": 296,
+ "views_per_day": 5712.5,
+ "minutes": 17.8,
+ "likes": 25075,
+ "comments": 4563,
+ "published": "2026-02-03",
+ "queries": "검색(전체 기간):쿠팡",
+ "url": "https://www.youtube.com/watch?v=5a83G733fco",
+ "flag": "",
+ "published_at": "2026-02-03T13:20:50Z",
+ "rank": "W202",
+ "set": "web",
+ "folder": "W_5a83G733fco",
+ "sources": [
+  "검색(전체 기간):쿠팡"
+ ],
+ "source": "web",
+ "tags": [
+  "IT",
+  "테크",
+  "리뷰",
+  "언박싱",
+  "컴퓨터",
+  "비교",
+  "미니 PC",
+  "노트북",
+  "사기",
+  "가짜",
+  "중국",
+  "쿠팡",
+  "1240P",
+  "i5-1240P"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "이때다 싶어 하는건 아님"
+  },
+  {
+   "start": 35,
+   "title": "엄청난 사실을 알아냈습니다"
+  },
+  {
+   "start": 88,
+   "title": "이상한거 찾으셨나요?"
+  },
+  {
+   "start": 125,
+   "title": "미니 PC의 정체"
+  },
+  {
+   "start": 187,
+   "title": "미니 PC 분해 해봤습니다"
+  },
+  {
+   "start": 231,
+   "title": "여기에까지 사기를 치니"
+  },
+  {
+   "start": 297,
+   "title": "CPU도 직접 확인 사살"
+  },
+  {
+   "start": 323,
+   "title": "상세 페이지가 어땠길래"
+  },
+  {
+   "start": 343,
+   "title": "또 다른 수상한 제품들"
+  },
+  {
+   "start": 388,
+   "title": "익숙한 향기가 난다"
+  },
+  {
+   "start": 413,
+   "title": "1240P 노트북도 준비했어요"
+  },
+  {
+   "start": 457,
+   "title": "정직한 사용 설명서"
+  },
+  {
+   "start": 486,
+   "title": "생각보다 멀쩡한 외관"
+  },
+  {
+   "start": 536,
+   "title": "뭔가 불안한데"
+  },
+  {
+   "start": 567,
+   "title": "진실의 작업 관리자"
+  },
+  {
+   "start": 611,
+   "title": "이게 너무한 이유"
+  },
+  {
+   "start": 666,
+   "title": "노트북도 뜯어봤습니다"
+  },
+  {
+   "start": 698,
+   "title": "분명 구매 리뷰는 좋았는데?"
+  },
+  {
+   "start": 785,
+   "title": "은근슬쩍 수정해버리네"
+  },
+  {
+   "start": 806,
+   "title": "판매자 이름이 다 다릅니다"
+  },
+  {
+   "start": 897,
+   "title": "한국 사업자의 비밀"
+  },
+  {
+   "start": 933,
+   "title": "멀쩡히 KC인증까지 받은 본진"
+  },
+  {
+   "start": 955,
+   "title": "왜 플랫폼인 쿠팡에 책임이 있는가"
+  },
+  {
+   "start": 1004,
+   "title": "다시 스멀스멀 올라온 2TB USB 사기"
+  },
+  {
+   "start": 1044,
+   "title": "너가 '로켓'이라고 이름 붙였잖아"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 4563,
+ "comments_top_level": 3551,
+ "comments_replies": 1012,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 4563,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:28:48",
+ "approved": "2026-11-27T15:29+09:00"
+}

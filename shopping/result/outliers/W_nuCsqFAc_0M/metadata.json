@@ -1,0 +1,99 @@
+{
+ "id": "nuCsqFAc_0M",
+ "title": "다이소 추천템 주방용품 - 다이소 주방용품 꿀템 추천해요.  (SUB)",
+ "channel": "꿀주부 Honeyjubu",
+ "channel_id": "UCg_xrQ9KMN7wL4moBwuxZWw",
+ "subs": 2820000,
+ "views": 1248448,
+ "ratio": 0.44,
+ "age_days": 2213,
+ "views_per_day": 563.9,
+ "minutes": 9.2,
+ "likes": 0,
+ "comments": 349,
+ "published": "2020-11-04",
+ "queries": "검색(전체 기간):주방용품추천",
+ "url": "https://www.youtube.com/watch?v=nuCsqFAc_0M",
+ "flag": "",
+ "published_at": "2020-11-04T11:32:18Z",
+ "rank": "W308",
+ "set": "web",
+ "folder": "W_nuCsqFAc_0M",
+ "sources": [
+  "검색(전체 기간):주방용품추천"
+ ],
+ "source": "web",
+ "tags": [
+  "주방용품추천",
+  "주방용품",
+  "주방용품소개",
+  "주방용품리뷰",
+  "yt:cc=on",
+  "다이소",
+  "다이소주방용품",
+  "다이소주방정리",
+  "다이소주방용품추천",
+  "다이소 꿀템",
+  "다이소 추천템",
+  "다이소 주방용품",
+  "다이소추천제품",
+  "다이소 살림템",
+  "다이소 추천",
+  "주방용품 하울",
+  "다이소추천템",
+  "다이소추천",
+  "살림"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 20,
+   "title": "실리콘 깔대기 1000원"
+  },
+  {
+   "start": 80,
+   "title": "매직스펀지 1000~2000원"
+  },
+  {
+   "start": 95,
+   "title": "단미니 고무장갑 3000원"
+  },
+  {
+   "start": 171,
+   "title": "스테인리스 빨대 2000원 / 옥수수 전분 빨대 1000원"
+  },
+  {
+   "start": 191,
+   "title": "조리용 핀셋 3000원"
+  },
+  {
+   "start": 302,
+   "title": "스테인리스 반찬통 2000원"
+  },
+  {
+   "start": 372,
+   "title": "3가지 기능 감자칼 2000원"
+  },
+  {
+   "start": 475,
+   "title": "에그타이머 1000원 / 계란 밀폐 용기 2000원"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 349,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:31",
+ "approved": "2026-11-27T15:33+09:00"
+}

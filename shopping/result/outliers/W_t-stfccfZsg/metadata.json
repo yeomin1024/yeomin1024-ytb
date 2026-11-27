@@ -1,0 +1,100 @@
+{
+ "id": "t-stfccfZsg",
+ "title": "다이소 살림템 추천 / 살림이 즐거워지는 다이소 추천템 소개 / DAISO (SUB)",
+ "channel": "꿀주부 Honeyjubu",
+ "channel_id": "UCg_xrQ9KMN7wL4moBwuxZWw",
+ "subs": 2820000,
+ "views": 1837003,
+ "ratio": 0.65,
+ "age_days": 2115,
+ "views_per_day": 868.2,
+ "minutes": 10.4,
+ "likes": 0,
+ "comments": 497,
+ "published": "2021-02-10",
+ "queries": "검색(전체 기간):살림템",
+ "url": "https://www.youtube.com/watch?v=t-stfccfZsg",
+ "flag": "",
+ "published_at": "2021-02-10T09:00:32Z",
+ "rank": "W298",
+ "set": "web",
+ "folder": "W_t-stfccfZsg",
+ "sources": [
+  "검색(전체 기간):살림템"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소",
+  "다이소주방용품",
+  "다이소주방정리",
+  "다이소주방용품추천",
+  "다이소 꿀템",
+  "다이소 추천템",
+  "다이소 주방용품",
+  "다이소 살림템",
+  "다이소 추천",
+  "다이소추천템",
+  "다이소 꿀템 주방",
+  "다이소 하울",
+  "살림템",
+  "다이소 생활용품",
+  "다이소 주방",
+  "yt:cc=on",
+  "daiso",
+  "살림템추천",
+  "살림템 추천",
+  "추천템 소개"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 22,
+   "title": "타공보드 설치"
+  },
+  {
+   "start": 88,
+   "title": "네트망 설치"
+  },
+  {
+   "start": 177,
+   "title": "양파망 활용"
+  },
+  {
+   "start": 234,
+   "title": "부착식 서랍장 활용"
+  },
+  {
+   "start": 290,
+   "title": "은박, 종이 스탠딩 이중 지퍼백 소개"
+  },
+  {
+   "start": 346,
+   "title": "전자레인지 용기 계란찜"
+  },
+  {
+   "start": 460,
+   "title": "3M테이프 클리너"
+  },
+  {
+   "start": 503,
+   "title": "멸치망, 스텐 집게 수세미"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 497,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:30",
+ "approved": "2026-11-27T15:33+09:00"
+}

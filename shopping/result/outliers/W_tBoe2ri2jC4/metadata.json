@@ -1,0 +1,92 @@
+{
+ "id": "tBoe2ri2jC4",
+ "title": "다이소 살림템 추천 / 주방을 빛내 줄 다이소 추천템 소개 (SUB)",
+ "channel": "꿀주부 Honeyjubu",
+ "channel_id": "UCg_xrQ9KMN7wL4moBwuxZWw",
+ "subs": 2820000,
+ "views": 2267830,
+ "ratio": 0.8,
+ "age_days": 2134,
+ "views_per_day": 1062.3,
+ "minutes": 9.2,
+ "likes": 0,
+ "comments": 792,
+ "published": "2021-01-22",
+ "queries": "검색(전체 기간):살림템",
+ "url": "https://www.youtube.com/watch?v=tBoe2ri2jC4",
+ "flag": "",
+ "published_at": "2021-01-22T08:11:06Z",
+ "rank": "W284",
+ "set": "web",
+ "folder": "W_tBoe2ri2jC4",
+ "sources": [
+  "검색(전체 기간):살림템"
+ ],
+ "source": "web",
+ "tags": [
+  "yt:cc=on",
+  "다이소",
+  "다이소주방용품",
+  "다이소주방정리",
+  "다이소주방용품추천",
+  "다이소 꿀템",
+  "다이소 추천템",
+  "다이소 주방용품",
+  "다이소 살림템",
+  "다이소 추천",
+  "다이소추천템",
+  "다이소 꿀템 주방",
+  "다이소 하울",
+  "살림템",
+  "다이소 생활용품",
+  "다이소 주방"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 17,
+   "title": "스텐크리너"
+  },
+  {
+   "start": 123,
+   "title": "스텐크리너 싱크볼 청소"
+  },
+  {
+   "start": 171,
+   "title": "스탠딩 지퍼백"
+  },
+  {
+   "start": 220,
+   "title": "일회용 수세미"
+  },
+  {
+   "start": 318,
+   "title": "실리콘 수세미"
+  },
+  {
+   "start": 342,
+   "title": "채반 보관 용기"
+  },
+  {
+   "start": 471,
+   "title": "행주 걸이"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 792,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:28",
+ "approved": "2026-11-27T15:33+09:00"
+}

@@ -1,0 +1,66 @@
+{
+ "id": "XpA5qUItJ24",
+ "title": "라면아저씨가 주방용품을 리뷰하면 생기는 일.｜마진NO선 EP.2",
+ "channel": "제이제이",
+ "channel_id": "UCxp9XKFw-lMTlIa_2yrfdqQ",
+ "subs": 876000,
+ "views": 365418,
+ "ratio": 0.42,
+ "age_days": 10,
+ "views_per_day": 33732.6,
+ "minutes": 50.8,
+ "likes": 2002,
+ "comments": 488,
+ "published": "2026-11-16",
+ "queries": "검색:주방용품",
+ "url": "https://www.youtube.com/watch?v=XpA5qUItJ24",
+ "flag": "",
+ "published_at": "2026-11-16T10:15:32Z",
+ "rank": "W309",
+ "set": "web",
+ "folder": "W_XpA5qUItJ24",
+ "sources": [
+  "검색:주방용품"
+ ],
+ "source": "web",
+ "tags": [
+  "제이제이",
+  "리뷰"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 66,
+   "title": "자일렉 라면조리기"
+  },
+  {
+   "start": 658,
+   "title": "자일렉 글라스 에어프라이어"
+  },
+  {
+   "start": 1118,
+   "title": "자일렉 24L 대용량 오븐형 에어프라이어"
+  },
+  {
+   "start": 1480,
+   "title": "마진 뿌수기 협상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 488,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:31",
+ "approved": "2026-11-27T15:33+09:00"
+}

@@ -1,0 +1,119 @@
+{
+ "id": "NgheS4kRT6o",
+ "title": "60대 이후, 올가을 먼저 사두면 후회 없는 간절기 옷 4가지",
+ "channel": "시니어패션tv",
+ "channel_id": "UCq519bGSR2FP4KRAj-AsA7Q",
+ "subs": 9900,
+ "views": 130588,
+ "ratio": 13.19,
+ "age_days": 83,
+ "views_per_day": 1556.0,
+ "minutes": 14.7,
+ "likes": 787,
+ "comments": 29,
+ "published": "2026-09-04",
+ "queries": "검색:중년여성패션 | 검색:50대패션 | 검색:중년코디",
+ "url": "https://www.youtube.com/watch?v=NgheS4kRT6o",
+ "flag": "",
+ "published_at": "2026-09-04T08:00:15Z",
+ "rank": "W123",
+ "set": "web",
+ "folder": "W_NgheS4kRT6o",
+ "sources": [
+  "검색:중년여성패션",
+  "검색:50대패션",
+  "검색:중년코디"
+ ],
+ "source": "web",
+ "tags": [
+  "60대 패션",
+  "60대 가을옷",
+  "시니어 패션",
+  "중년 여성 패션",
+  "간절기 옷",
+  "가을 코디",
+  "60대 코디",
+  "50대 60대 패션",
+  "하프 바바리",
+  "숏 트렌치",
+  "세미일자 슬랙스",
+  "카라 니트",
+  "자켓형 가디건",
+  "중년 가을 코디",
+  "60대 옷 추천",
+  "시니어 옷 추천",
+  "엄마 옷 추천",
+  "가을 필수템",
+  "나이들어 보이지 않는 옷",
+  "단정한 중년 패션",
+  "60대 스타일링",
+  "간절기 코디",
+  "환절기 옷",
+  "60대 여성 옷",
+  "어른 패션"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "예쁜 옷부터 사면 후회하는 이유"
+  },
+  {
+   "start": 15,
+   "title": "간절기, 왜 이렇게 입을 옷이 없을까"
+  },
+  {
+   "start": 35,
+   "title": "먼저 살 옷을 고르는 3가지 기준"
+  },
+  {
+   "start": 50,
+   "title": "① 하프 바바리 (숏 트렌치)"
+  },
+  {
+   "start": 150,
+   "title": "② 세미일자 슬랙스"
+  },
+  {
+   "start": 250,
+   "title": "③ 카라 니트"
+  },
+  {
+   "start": 350,
+   "title": "④ 자켓형 가디건"
+  },
+  {
+   "start": 450,
+   "title": "그래서 뭘 제일 먼저 사야 할까 (1순위 공개)"
+  },
+  {
+   "start": 510,
+   "title": "상황별 코디 (병원·모임·여행)"
+  },
+  {
+   "start": 580,
+   "title": "새로 사기 전, 있는 옷부터 점검하는 법"
+  },
+  {
+   "start": 610,
+   "title": "살 때 꼭 확인할 체크리스트"
+  },
+  {
+   "start": 660,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 29,
+ "comments_top_level": 14,
+ "comments_replies": 15,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:23:21",
+ "approved": "2026-11-27T15:23+09:00"
+}

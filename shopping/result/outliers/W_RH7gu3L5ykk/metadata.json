@@ -1,0 +1,85 @@
+{
+ "id": "RH7gu3L5ykk",
+ "title": "나이들수록 블랙 대신 입어야할 색. 블랙은 칙칙할 수 있어요. 이 색 만능입니다~!",
+ "channel": "미드스타일_당신의 스타일 멘토",
+ "channel_id": "UCt13DPmDZtlHhXca9aa8_ZQ",
+ "subs": 119000,
+ "views": 1116271,
+ "ratio": 9.38,
+ "age_days": 21,
+ "views_per_day": 50812.1,
+ "minutes": 10.0,
+ "likes": 3560,
+ "comments": 104,
+ "published": "2026-11-05",
+ "queries": "검색:중년패션",
+ "url": "https://www.youtube.com/watch?v=RH7gu3L5ykk",
+ "flag": "",
+ "published_at": "2026-11-05T07:00:00Z",
+ "rank": "W142",
+ "set": "web",
+ "folder": "W_RH7gu3L5ykk",
+ "sources": [
+  "검색:중년패션"
+ ],
+ "source": "web",
+ "tags": [
+  "패션팁",
+  "스타일팁",
+  "패션꿀팁",
+  "스타일꿀팁",
+  "중년패션",
+  "중년스타일",
+  "옷잘입는방법",
+  "스타일링팁",
+  "중녀스타일링",
+  "패션",
+  "트렌드",
+  "레이어드룩",
+  "간절기룩",
+  "이미지분석",
+  "체형분석",
+  "퍼스널컬러",
+  "미드스타일"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "블랙을 대신할 색"
+  },
+  {
+   "start": 105,
+   "title": "그레이+핑크"
+  },
+  {
+   "start": 191,
+   "title": "그레이+버건디"
+  },
+  {
+   "start": 281,
+   "title": "그레이+그레이"
+  },
+  {
+   "start": 382,
+   "title": "그레이+베이지"
+  },
+  {
+   "start": 506,
+   "title": "핵심정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 104,
+ "comments_top_level": 54,
+ "comments_replies": 50,
+ "comments_by_creator": 39,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 104,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:24:29",
+ "approved": "2026-11-27T15:24+09:00"
+}

@@ -1,0 +1,107 @@
+{
+ "id": "2VkQsjUgCXw",
+ "title": "다이소 주방용품 추천템 - 다이소 주방용품 꿀템 소개해요. DAISO (SUB)",
+ "channel": "꿀주부 Honeyjubu",
+ "channel_id": "UCg_xrQ9KMN7wL4moBwuxZWw",
+ "subs": 2820000,
+ "views": 2001407,
+ "ratio": 0.71,
+ "age_days": 2185,
+ "views_per_day": 915.7,
+ "minutes": 8.7,
+ "likes": 0,
+ "comments": 518,
+ "published": "2020-12-02",
+ "queries": "검색(전체 기간):주방용품추천",
+ "url": "https://www.youtube.com/watch?v=2VkQsjUgCXw",
+ "flag": "",
+ "published_at": "2020-12-02T12:26:36Z",
+ "rank": "W293",
+ "set": "web",
+ "folder": "W_2VkQsjUgCXw",
+ "sources": [
+  "검색(전체 기간):주방용품추천"
+ ],
+ "source": "web",
+ "tags": [
+  "주방용품",
+  "주방용품소개",
+  "조리도구리뷰",
+  "yt:cc=on",
+  "다이소",
+  "다이소주방용품",
+  "다이소주방정리",
+  "다이소주방용품추천",
+  "다이소 꿀템",
+  "다이소 추천템",
+  "다이소 주방용품",
+  "다이소추천제품",
+  "다이소 살림템",
+  "다이소 추천",
+  "다이소추천템",
+  "주방용품추천",
+  "다이소 꿀템 주방",
+  "다이소 하울",
+  "주방용품 하울"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 24,
+   "title": "마그넷 소품케이스 1000원"
+  },
+  {
+   "start": 45,
+   "title": "타올걸이 1000, 다용도걸이 2000원"
+  },
+  {
+   "start": 92,
+   "title": "실리콘 다용도 덮개 2000원"
+  },
+  {
+   "start": 148,
+   "title": "야채 탈수기 5000원"
+  },
+  {
+   "start": 205,
+   "title": "푸드 압축팩 세트 3000원,  압축팩 리필 2000원"
+  },
+  {
+   "start": 312,
+   "title": "쌀세척봉 1000원"
+  },
+  {
+   "start": 357,
+   "title": "전자레인지 받침대 1000원"
+  },
+  {
+   "start": 403,
+   "title": "스텐걸이 집게 1000원"
+  },
+  {
+   "start": 423,
+   "title": "친환경 비닐백 1000원~2000, 호일 2000원"
+  },
+  {
+   "start": 470,
+   "title": "접시스탠드 1000원"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 518,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:29",
+ "approved": "2026-11-27T15:33+09:00"
+}

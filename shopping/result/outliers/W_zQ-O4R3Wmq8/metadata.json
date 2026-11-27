@@ -1,0 +1,79 @@
+{
+ "id": "zQ-O4R3Wmq8",
+ "title": "\"10배 저렴한데, 효과는 더 좋습니다!\" 피부과 의사가 매일 쓰고 효과 본 재생크림 6가지 추천",
+ "channel": "박경열의 피부상담소",
+ "channel_id": "UCT6W2AUy8If3fN1OoKIFUsg",
+ "subs": 374000,
+ "views": 4597178,
+ "ratio": 12.29,
+ "age_days": 230,
+ "views_per_day": 19907.6,
+ "minutes": 17.2,
+ "likes": 43309,
+ "comments": 1134,
+ "published": "2026-04-10",
+ "queries": "검색(전체 기간):추천템",
+ "url": "https://www.youtube.com/watch?v=zQ-O4R3Wmq8",
+ "flag": "",
+ "published_at": "2026-04-10T08:01:07Z",
+ "rank": "W130",
+ "set": "web",
+ "folder": "W_zQ-O4R3Wmq8",
+ "sources": [
+  "검색(전체 기간):추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "피부과전문의",
+  "박경열 피부과 상담소",
+  "박경열"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 22,
+   "title": "영상 시작"
+  },
+  {
+   "start": 207,
+   "title": "비판텐 대신 다른 걸 써도 되나요?"
+  },
+  {
+   "start": 365,
+   "title": "뭘 발라도 건조함이 개선되지 않을 땐, 어떡하나요?"
+  },
+  {
+   "start": 514,
+   "title": "원장님의 재생크림 원픽은?"
+  },
+  {
+   "start": 681,
+   "title": "피부 타입별로 알맞는 제품은?"
+  },
+  {
+   "start": 928,
+   "title": "총정리"
+  },
+  {
+   "start": 981,
+   "title": "쿠키영상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=zQ-O4R3Wmq8! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1134,
+ "comments_top_level": 785,
+ "comments_replies": 349,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1134,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:23:51",
+ "approved": "2026-11-27T15:23+09:00"
+}

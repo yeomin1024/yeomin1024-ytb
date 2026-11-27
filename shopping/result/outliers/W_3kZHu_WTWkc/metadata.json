@@ -1,0 +1,101 @@
+{
+ "id": "3kZHu_WTWkc",
+ "title": "근데 1만원이라고? 이게 말이 되나요? 채칼 그냥 이거 사세요",
+ "channel": "소담키친",
+ "channel_id": "UCyMLa64o7q3ZgylZHy2JEOw",
+ "subs": 53400,
+ "views": 484078,
+ "ratio": 9.07,
+ "age_days": 20,
+ "views_per_day": 23178.1,
+ "minutes": 6.5,
+ "likes": 1039,
+ "comments": 94,
+ "published": "2026-11-06",
+ "queries": "검색:주방용품",
+ "url": "https://www.youtube.com/watch?v=3kZHu_WTWkc",
+ "flag": "",
+ "published_at": "2026-11-06T09:00:08Z",
+ "rank": "W143",
+ "set": "web",
+ "folder": "W_3kZHu_WTWkc",
+ "sources": [
+  "검색:주방용품"
+ ],
+ "source": "web",
+ "tags": [
+  "채칼",
+  "채칼추천",
+  "채칼리뷰",
+  "주방꿀템",
+  "주방꿀팁",
+  "주방도구",
+  "주방용품",
+  "리뷰",
+  "전동채칼",
+  "시모무라",
+  "베르너",
+  "만능채칼",
+  "살림템",
+  "주방템추천",
+  "요리장비",
+  "살림노하우",
+  "무생채채칼"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 16,
+   "title": "20년차 셰프가 알려주는 채칼 리뷰"
+  },
+  {
+   "start": 40,
+   "title": "어반홈 채칼"
+  },
+  {
+   "start": 77,
+   "title": "무디타 채칼"
+  },
+  {
+   "start": 130,
+   "title": "벅칼 채칼"
+  },
+  {
+   "start": 158,
+   "title": "시모무라 양배추 슬라이서 (Pick)"
+  },
+  {
+   "start": 205,
+   "title": "베르너 채칼"
+  },
+  {
+   "start": 254,
+   "title": "시모무라 야채공방 채칼 (Pick)"
+  },
+  {
+   "start": 288,
+   "title": "Ocet전동 채칼"
+  },
+  {
+   "start": 336,
+   "title": "소담키친이 선택한 채칼들"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 94,
+ "comments_top_level": 48,
+ "comments_replies": 46,
+ "comments_by_creator": 46,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 94,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:24:30",
+ "approved": "2026-11-27T15:24+09:00"
+}

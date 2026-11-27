@@ -1,0 +1,94 @@
+{
+ "id": "pdXYWDAYFqA",
+ "title": "\"인생은 한 번뿐, 내 삶에 투자하세요\" 자녀 모두 독립시킨 60대 주부가 노후에 찾은 가장 효율적인 살림법",
+ "channel": "빠삭한살림",
+ "channel_id": "UCkuUT1nzPHOS9QVYliKVLEA",
+ "subs": 18100,
+ "views": 107122,
+ "ratio": 5.92,
+ "age_days": 9,
+ "views_per_day": 11673.2,
+ "minutes": 15.2,
+ "likes": 402,
+ "comments": 20,
+ "published": "2026-11-18",
+ "queries": "검색:주부",
+ "url": "https://www.youtube.com/watch?v=pdXYWDAYFqA",
+ "flag": "",
+ "published_at": "2026-11-18T02:00:17Z",
+ "rank": "W169",
+ "set": "web",
+ "folder": "W_pdXYWDAYFqA",
+ "sources": [
+  "검색:주부"
+ ],
+ "source": "web",
+ "tags": [
+  "살림",
+  "주부",
+  "살림브이로그",
+  "주부브이로그",
+  "살림방법",
+  "살림꿀팁",
+  "주부정리",
+  "정리정돈",
+  "집안살림",
+  "살림유튜브",
+  "정리정돈팁",
+  "정리",
+  "정리방법",
+  "정리수납",
+  "미니멀라이프",
+  "미니멀리스트",
+  "비움",
+  "미니멀",
+  "정리마켓",
+  "집터뷰",
+  "유부남",
+  "자취남"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 49,
+   "title": "주방"
+  },
+  {
+   "start": 355,
+   "title": "안방"
+  },
+  {
+   "start": 511,
+   "title": "거실"
+  },
+  {
+   "start": 644,
+   "title": "옷방"
+  },
+  {
+   "start": 697,
+   "title": "서재"
+  },
+  {
+   "start": 720,
+   "title": "현관"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 20,
+ "comments_top_level": 19,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 20,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:26:53",
+ "approved": "2026-11-27T15:26+09:00"
+}

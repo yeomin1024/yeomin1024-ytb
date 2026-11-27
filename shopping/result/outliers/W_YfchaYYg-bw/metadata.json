@@ -1,0 +1,145 @@
+{
+ "id": "YfchaYYg-bw",
+ "title": "내 손으로 검증한 쿠팡 살림 추천템 21가지",
+ "channel": "살림설렘",
+ "channel_id": "UCqf-sIfY4zJgzoqS9G1St4g",
+ "subs": 343000,
+ "views": 1230682,
+ "ratio": 3.59,
+ "age_days": 1054,
+ "views_per_day": 1166.7,
+ "minutes": 25.9,
+ "likes": 16351,
+ "comments": 213,
+ "published": "2024-01-07",
+ "queries": "검색(전체 기간):살림꿀템 | 검색(전체 기간):쿠팡추천템",
+ "url": "https://www.youtube.com/watch?v=YfchaYYg-bw",
+ "flag": "",
+ "published_at": "2024-01-07T10:00:24Z",
+ "rank": "W193",
+ "set": "web",
+ "folder": "W_YfchaYYg-bw",
+ "sources": [
+  "검색(전체 기간):살림꿀템",
+  "검색(전체 기간):쿠팡추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "살림설렘",
+  "살림팁",
+  "주방살림",
+  "주방꿀팁",
+  "쿠팡추천템",
+  "쿠팡꿀템",
+  "자취꿀템",
+  "살림꿀템",
+  "생활꿀템",
+  "꿀템",
+  "쿠팡몰아보기",
+  "쿠팡추천꿀템"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 6,
+   "title": "화재방지스티커"
+  },
+  {
+   "start": 81,
+   "title": "코멧 이동식선반"
+  },
+  {
+   "start": 133,
+   "title": "따끔따끔 끝! 정전기 방지 키링"
+  },
+  {
+   "start": 175,
+   "title": "슬라이드 다회용 리유저블 빨대"
+  },
+  {
+   "start": 240,
+   "title": "아이밀리 친환경 수세미"
+  },
+  {
+   "start": 297,
+   "title": "매직캔 히포 휴지통 21L"
+  },
+  {
+   "start": 387,
+   "title": "각도조절 워터탭"
+  },
+  {
+   "start": 453,
+   "title": "여행용 보틀 4in1"
+  },
+  {
+   "start": 494,
+   "title": "드럼통 안전채칼"
+  },
+  {
+   "start": 596,
+   "title": "에어라파 분무기"
+  },
+  {
+   "start": 691,
+   "title": "자동 계란트레이"
+  },
+  {
+   "start": 777,
+   "title": "코멧 접시정리대"
+  },
+  {
+   "start": 860,
+   "title": "남은 한 방울까지! 거꾸로캡"
+  },
+  {
+   "start": 936,
+   "title": "님봇 D110 라벨프린터"
+  },
+  {
+   "start": 1011,
+   "title": "아이워크 PD 고속충전기"
+  },
+  {
+   "start": 1080,
+   "title": "샤오미 스마트가습기"
+  },
+  {
+   "start": 1188,
+   "title": "벨라쿠진 면냄비+타공채망세트"
+  },
+  {
+   "start": 1254,
+   "title": "롱 스탠드 청소솔"
+  },
+  {
+   "start": 1339,
+   "title": "리템 우산꽂이"
+  },
+  {
+   "start": 1408,
+   "title": "샤워 터치케이스"
+  },
+  {
+   "start": 1500,
+   "title": "무선 충전식 센서등"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 213,
+ "comments_top_level": 107,
+ "comments_replies": 106,
+ "comments_by_creator": 89,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 213,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:28:16",
+ "approved": "2026-11-27T15:28+09:00"
+}

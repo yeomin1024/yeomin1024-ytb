@@ -1,0 +1,59 @@
+{
+ "id": "PfzKQITJKHw",
+ "title": "코스트코 컴퓨터가 가성비가 미쳤다고 해서 게이밍 조립 PC와 비교해봤습니다",
+ "channel": "컴군",
+ "channel_id": "UC38H09MkXX4PgBURGHVnRQA",
+ "subs": 63700,
+ "views": 1155955,
+ "ratio": 18.15,
+ "age_days": 6,
+ "views_per_day": 185271.6,
+ "minutes": 9.5,
+ "likes": 3083,
+ "comments": 361,
+ "published": "2026-11-21",
+ "queries": "검색:코스트코",
+ "url": "https://www.youtube.com/watch?v=PfzKQITJKHw",
+ "flag": "",
+ "published_at": "2026-11-21T00:30:15Z",
+ "rank": "W107",
+ "set": "web",
+ "folder": "W_PfzKQITJKHw",
+ "sources": [
+  "검색:코스트코"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "코스트코 회원가입"
+  },
+  {
+   "start": 152,
+   "title": "코스트코 컴퓨터 발견"
+  },
+  {
+   "start": 209,
+   "title": "코스트코 견적비교"
+  },
+  {
+   "start": 379,
+   "title": "컴군 코스트코 견적"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 361,
+ "comments_top_level": 231,
+ "comments_replies": 130,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 361,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:22:31",
+ "approved": "2026-11-27T15:22+09:00"
+}

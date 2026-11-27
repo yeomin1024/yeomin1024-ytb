@@ -1,0 +1,109 @@
+{
+ "id": "Uy8fS4Byfdg",
+ "title": "살림템 추천 / 살림이 편해지는 주방용품 무쇠팬, 법랑냄비, 코팅팬 추천 (SUB)",
+ "channel": "꿀주부 Honeyjubu",
+ "channel_id": "UCg_xrQ9KMN7wL4moBwuxZWw",
+ "subs": 2820000,
+ "views": 1261894,
+ "ratio": 0.45,
+ "age_days": 1981,
+ "views_per_day": 636.7,
+ "minutes": 16.6,
+ "likes": 0,
+ "comments": 758,
+ "published": "2021-06-24",
+ "queries": "검색(전체 기간):주방용품추천 | 검색(전체 기간):살림템",
+ "url": "https://www.youtube.com/watch?v=Uy8fS4Byfdg",
+ "flag": "",
+ "published_at": "2021-06-24T09:09:00Z",
+ "rank": "W307",
+ "set": "web",
+ "folder": "W_Uy8fS4Byfdg",
+ "sources": [
+  "검색(전체 기간):주방용품추천",
+  "검색(전체 기간):살림템"
+ ],
+ "source": "web",
+ "tags": [
+  "yt:cc=on",
+  "무쇠팬",
+  "무쇠팬 세척",
+  "무쇠팬 시즈닝",
+  "법랑냄비 세척",
+  "살림",
+  "살림템 추천",
+  "스타우브 시즈닝",
+  "주방용품",
+  "주방용품 소개",
+  "주방용품 정리",
+  "주방용품 추천",
+  "주방용품 하울",
+  "주부",
+  "코팅팬 길들이기",
+  "코팅팬 세척",
+  "탄냄비 닦는법",
+  "탄냄비 베이킹소다",
+  "탄냄비세척법",
+  "살림템"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 17,
+   "title": "가마솥 시즈닝, 밥짓기"
+  },
+  {
+   "start": 121,
+   "title": "법랑 냄비로 연어장 만들기"
+  },
+  {
+   "start": 232,
+   "title": "법랑 냄비 관리방법"
+  },
+  {
+   "start": 302,
+   "title": "무쇠 냄비로 자몽잼 만들기"
+  },
+  {
+   "start": 488,
+   "title": "돌솥, 뚝배기로 점심준비"
+  },
+  {
+   "start": 626,
+   "title": "돌솥, 뚝배기 관리방법"
+  },
+  {
+   "start": 677,
+   "title": "탄냄비 세척방법"
+  },
+  {
+   "start": 731,
+   "title": "코팅 무쇠팬 관리방법"
+  },
+  {
+   "start": 857,
+   "title": "새 코팅팬 관리방법"
+  },
+  {
+   "start": 925,
+   "title": "스타우브 무쇠 냄비 시즈닝"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 758,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:31",
+ "approved": "2026-11-27T15:33+09:00"
+}

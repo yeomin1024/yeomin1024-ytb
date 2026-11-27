@@ -1,0 +1,87 @@
+{
+ "id": "ETART5B_oP8",
+ "title": "내돈내산 즉석 고등어 구이 7종 비교, 충격적인 결과가 나와버렸다..",
+ "channel": "입질의추억TV jiminTV",
+ "channel_id": "UCY2uWQDCzn_ZE-JpTfDRR2A",
+ "subs": 1330000,
+ "views": 1057380,
+ "ratio": 0.8,
+ "age_days": 58,
+ "views_per_day": 17988.5,
+ "minutes": 20.3,
+ "likes": 4029,
+ "comments": 870,
+ "published": "2026-09-29",
+ "queries": "검색:내돈내산 | 검색(전체 기간):내돈내산",
+ "url": "https://www.youtube.com/watch?v=ETART5B_oP8",
+ "flag": "",
+ "published_at": "2026-09-29T11:30:15Z",
+ "rank": "W285",
+ "set": "web",
+ "folder": "W_ETART5B_oP8",
+ "sources": [
+  "검색:내돈내산",
+  "검색(전체 기간):내돈내산"
+ ],
+ "source": "web",
+ "tags": [
+  "입질의추억",
+  "수산물",
+  "생선회",
+  "노르웨이산고등어",
+  "국산고등어",
+  "냉장고등어",
+  "생물고등어",
+  "고등어제철",
+  "냉동고등어",
+  "전자렌지고등어구이"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 15,
+   "title": "즉석 고등어 구이에 대해"
+  },
+  {
+   "start": 92,
+   "title": "평가 기준"
+  },
+  {
+   "start": 246,
+   "title": "7개 제품 맛 보고 평가하기"
+  },
+  {
+   "start": 723,
+   "title": "평가 결과"
+  },
+  {
+   "start": 982,
+   "title": "베스트 1, 2, 3위 공개"
+  },
+  {
+   "start": 1102,
+   "title": "1등 제품에 놀란 이유"
+  },
+  {
+   "start": 1194,
+   "title": "쿠키영상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 0,
+ "comments_top_level": 0,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": false,
+ "comments_disabled": false,
+ "comments_reported": 870,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:33:28",
+ "approved": "2026-11-27T15:33+09:00"
+}

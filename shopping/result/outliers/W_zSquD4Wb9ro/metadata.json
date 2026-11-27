@@ -1,0 +1,89 @@
+{
+ "id": "zSquD4Wb9ro",
+ "title": "일본어 공부 시작📚 JLPT 독학? 학원? 인강? #내돈내산 #일본어인강추천 #공부계획",
+ "channel": "방기덕",
+ "channel_id": "UC_CKc1DRrnDpu7I7FSi-BOg",
+ "subs": 20800,
+ "views": 303087,
+ "ratio": 14.57,
+ "age_days": 126,
+ "views_per_day": 2390.2,
+ "minutes": 17.5,
+ "likes": 208,
+ "comments": 58,
+ "published": "2026-07-23",
+ "queries": "검색:내돈내산",
+ "url": "https://www.youtube.com/watch?v=zSquD4Wb9ro",
+ "flag": "",
+ "published_at": "2026-07-23T11:00:31Z",
+ "rank": "W120",
+ "set": "web",
+ "folder": "W_zSquD4Wb9ro",
+ "sources": [
+  "검색:내돈내산"
+ ],
+ "source": "web",
+ "tags": [
+  "일본어공부",
+  "JLPT",
+  "일본어독학",
+  "일본어취미",
+  "일본어학원",
+  "일본어인강추천",
+  "일본어인강",
+  "다락원인강후기",
+  "일본어인강후기",
+  "일본어공부방법",
+  "취미일본어",
+  "일본어",
+  "다락원",
+  "해커스",
+  "시원스쿨",
+  "언어공부",
+  "직장인취미"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "시작"
+  },
+  {
+   "start": 64,
+   "title": "인강 듣는 이유!"
+  },
+  {
+   "start": 178,
+   "title": "내돈내산 인강 추천"
+  },
+  {
+   "start": 228,
+   "title": "100% 환급 가능 인강"
+  },
+  {
+   "start": 415,
+   "title": "다락원 인강 소개"
+  },
+  {
+   "start": 598,
+   "title": "인강으로 일본어 공부 계획 짜기!"
+  },
+  {
+   "start": 929,
+   "title": "마무리!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 58,
+ "comments_top_level": 21,
+ "comments_replies": 37,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 58,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:23:11",
+ "approved": "2026-11-27T15:23+09:00"
+}

@@ -1,0 +1,90 @@
+{
+ "id": "QW1JCs0MXKM",
+ "title": "다이소 가면 꼭 보세요 2년째 쓰고 있는 다이소 가성비 차량용품 추천! 내돈내산 TOP11",
+ "channel": "차개미",
+ "channel_id": "UCeLA5gkpAt1-skOAdliqbNQ",
+ "subs": 324000,
+ "views": 1736955,
+ "ratio": 5.36,
+ "age_days": 244,
+ "views_per_day": 7092.2,
+ "minutes": 15.7,
+ "likes": 26003,
+ "comments": 530,
+ "published": "2026-03-27",
+ "queries": "검색(전체 기간):다이소추천템",
+ "url": "https://www.youtube.com/watch?v=QW1JCs0MXKM",
+ "flag": "",
+ "published_at": "2026-03-27T08:21:32Z",
+ "rank": "W174",
+ "set": "web",
+ "folder": "W_QW1JCs0MXKM",
+ "sources": [
+  "검색(전체 기간):다이소추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소",
+  "다이소차량용품",
+  "차량용품",
+  "차량용품추천",
+  "다이소추천템",
+  "다이소세차용품"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 45,
+   "title": "초고성능 물왁스"
+  },
+  {
+   "start": 268,
+   "title": "장당 100원짜리 가성비 타올"
+  },
+  {
+   "start": 311,
+   "title": "컴파운드와 광택복원제"
+  },
+  {
+   "start": 449,
+   "title": "벌레자국 제거제"
+  },
+  {
+   "start": 531,
+   "title": "안전벨트 클립 커버"
+  },
+  {
+   "start": 597,
+   "title": "차량용 휴지통"
+  },
+  {
+   "start": 643,
+   "title": "차량용 흡착필름"
+  },
+  {
+   "start": 707,
+   "title": "선바이저용 선글라스 클립"
+  },
+  {
+   "start": 763,
+   "title": "차량용 탈출공구"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 530,
+ "comments_top_level": 398,
+ "comments_replies": 132,
+ "comments_by_creator": 93,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 530,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:27:12",
+ "approved": "2026-11-27T15:27+09:00"
+}

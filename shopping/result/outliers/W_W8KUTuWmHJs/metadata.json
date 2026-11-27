@@ -1,0 +1,106 @@
+{
+ "id": "W8KUTuWmHJs",
+ "title": "셰프가 10년 동안 모은 애착 주방템 대공개 | 치트키 ep.6",
+ "channel": "풍류천재 조서형",
+ "channel_id": "UCKP0-szadnD0yyRueqTMaTw",
+ "subs": 108000,
+ "views": 229635,
+ "ratio": 2.13,
+ "age_days": 9,
+ "views_per_day": 23279.5,
+ "minutes": 27.6,
+ "likes": 1385,
+ "comments": 98,
+ "published": "2026-11-17",
+ "queries": "검색:주방용품 | 검색:주방템",
+ "url": "https://www.youtube.com/watch?v=W8KUTuWmHJs",
+ "flag": "",
+ "published_at": "2026-11-17T09:30:12Z",
+ "rank": "W227",
+ "set": "web",
+ "folder": "W_W8KUTuWmHJs",
+ "sources": [
+  "검색:주방용품",
+  "검색:주방템"
+ ],
+ "source": "web",
+ "tags": [
+  "주방템",
+  "주방템 추천",
+  "주방용품 추천",
+  "살림템",
+  "살림템 추천",
+  "주방 꿀템",
+  "주방 필수템",
+  "셰프 추천템",
+  "도마 추천",
+  "칼 추천",
+  "냄비 추천",
+  "접시 추천",
+  "조서형"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주방 소개"
+  },
+  {
+   "start": 282,
+   "title": "방향제&탈취제"
+  },
+  {
+   "start": 416,
+   "title": "도마&트레이"
+  },
+  {
+   "start": 648,
+   "title": "버너"
+  },
+  {
+   "start": 723,
+   "title": "접시류"
+  },
+  {
+   "start": 958,
+   "title": "냄비류"
+  },
+  {
+   "start": 1108,
+   "title": "스푼&깨절구"
+  },
+  {
+   "start": 1190,
+   "title": "칼"
+  },
+  {
+   "start": 1282,
+   "title": "주방 소도구"
+  },
+  {
+   "start": 1368,
+   "title": "뒷주방"
+  },
+  {
+   "start": 1527,
+   "title": "가래떡 구이 꿀팁"
+  },
+  {
+   "start": 1620,
+   "title": "끝인사"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-27 12:23까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 98,
+ "comments_top_level": 76,
+ "comments_replies": 22,
+ "comments_by_creator": 12,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 98,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:32:11",
+ "approved": "2026-11-27T15:32+09:00"
+}

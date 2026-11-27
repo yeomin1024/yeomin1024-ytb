@@ -127,21 +127,43 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-27T08:19:02Z",
+      "sha": "0aad43d84a777591",
+      "reviewers": [
+       {
+        "reviewer": "E5-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 6,
+          "why": "지루함·어려움 — '몰아 쓴다고 보고 12만 원의 절반으로 잡은 값'은 계산 가정 풀이라 귀로 듣기에 헷갈리고, 5~7줄 가스비 빼기가 이어져 숫자에 지쳐 넘기고 싶어짐"
+         }
+        ],
+        "hard_words": [
+         "누진 단계"
+        ],
+        "keep_watching": true,
+        "best": "8 — '150와트 탄소매트는 8시간 켜도 약 8,500원'은 겨울에 바로 바꿔 볼 수 있는 꿀팁이라 붙잡힘 (2줄 '한 달 7만 원 넘게 더'도 처음에 귀가 솔깃함)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [6]",
+         "모르는 말 ['누진 단계']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차에서 멈춤 — 사용자 판단 기다림 (persona_loop.md 4번)",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r5_exit_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
-    "pending": {
-     "n": 5,
-     "sha": "0aad43d84a777591",
-     "reviewers": [
-      "E5-P1"
-     ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r5_exit_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-27T08:16:08Z"
-    }
+    "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt"
    },
    "script_rebuttal": {
     "rounds": [
@@ -403,21 +425,91 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-27T08:19:02Z",
+      "sha": "0aad43d84a777591",
+      "reviewers": [
+       {
+        "reviewer": "K5-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 9,
+          "text": "히터는 가스비 6만 원 빼면 순손해 1만 7,200원이고 매트는 8,500원인데, 그럼 차이는 2배쯤이지 9분의 1이 아니잖아요. 보일러 끈 히터랑 보일러 켠 매트의 전기요금만 맞대 놓고 9분의 1이라 하는 건 불공정한 비교 아닌가요?",
+          "fix": "같은 조건끼리 비교 — '한 달에 더 내는 돈은 히터 1만 7,200원, 매트 8,500원'처럼 순으로 더 내는 돈끼리 말하거나, 9분의 1을 남기려면 '전기요금만 놓고 보면'을 문장 앞에 밝힌다."
+         },
+         {
+          "level": "중",
+          "k": "K4",
+          "line": 8,
+          "text": "매트도 보일러 그대로 두면 8,500원을 그냥 더 내는 거죠? 숫자대로면 히터도 매트도 다 돈이 더 나가고 보일러만 쓰는 게 제일 싼데, 난방비는 어디서 아낀다는 건가요?",
+          "fix": "매트의 쓸모를 숫자로 한 줄 — 매트를 켜고 보일러를 얼마나 줄이면 본전·이득인지 말하거나, 아니면 '매트는 아끼는 물건이 아니라 덜 더 내는 물건'임을 분명히 하고 아끼는 방법은 롱폼으로 넘긴다."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 10,
+          "text": "'전기를 아주 적게 쓰는 집'이 얼마나 적어야 뒤집히는 거죠? 난방비는 15만 원이라고 숫자를 줬는데 전기 쪽은 숫자가 없어서 우리 집이 해당되는지 알 수가 없네요.",
+          "fix": "난방비처럼 숫자로 — '한 달 전기요금이 약 ○만 원 아래인 집은'으로 바꾼다 (계산 코드 출력 숫자로)."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 2,
+          "text": "4시간이 하루 4시간씩 한 달이라는 거죠? '4시간 내내 켜면 한 달 7만 원'만 들으면 4시간 켜고 7만 원이라는 말로 들려요.",
+          "fix": "2번 줄에 '하루 4시간씩'을 넣는다 (11번 줄의 '하루 1시간씩 한 달'과 같은 꼴)."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 5,
+          "text": "3번 줄은 '난방비 12만 원'이라 하고 5번 줄은 '가스비'라 하는데 같은 돈인가요? 가스비엔 온수·요리도 들어 있잖아요.",
+          "fix": "낱말 하나로 맞춘다 — '가스 난방비 12만 원' 또는 '가스비 12만 원'. (온수·요리분을 빼면 아끼는 돈이 더 줄어 결론은 그대로라 한 마디만 덧붙여도 됨)"
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 6,
+          "text": "'그 시간에 난방을 몰아 쓴다고 보고'가 무슨 뜻인지 바로 안 들어와요. 4시간이 하루 난방의 절반이라는 근거는요?",
+          "fix": "'보일러가 하루 쓰는 가스의 절반이 그 4시간에 든다고 넉넉히 잡은 값이죠'처럼, 히터에 유리하게 잡았다는 뜻이 그 문장에서 보이게."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 3,
+          "text": "전기요금 누진 구간은 여름이랑 다르고 요금도 자주 바뀌는데, 7만 7,200원은 언제 요금 기준인가요?",
+          "fix": "설명란이나 화면 숫자 옆에 '○○년 겨울 주택용 요금 기준' 한 줄."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 12,
+          "text": "어림값대로면 2,000와트 하루 4시간은 5만 6,000원인데 대본은 7만 7,200원이라 했죠. '훨씬 더'가 얼마나 더인지 말해 주면 좋겠어요.",
+          "fix": "'이보다 훨씬 더' 대신 '히터처럼 많이 쓰면 이 어림값보다 약 4할 더 나옵니다'처럼 숫자로 (계산 코드 출력으로)."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자는 대본 안에서 앞뒤가 맞고 '히터로 보일러를 대신하면 손해'는 분명하지만, 9분의 1은 보일러 끈 히터와 보일러 켠 매트를 맞댄 비교라 공정하지 않고, 매트로 얼마를 아끼는지와 '전기를 아주 적게 쓰는 집'의 기준 숫자가 빠졌다.",
+        "pass": false,
+        "why": [
+         "중 3 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "5회차에서 멈춤 — 사용자 판단 기다림 (persona_loop.md 4번)",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r5_rebuttal_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
-    "pending": {
-     "n": 5,
-     "sha": "0aad43d84a777591",
-     "reviewers": [
-      "K5-반론"
-     ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r5_rebuttal_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-27T08:16:08Z"
-    }
+    "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt"
    }
   }
  }

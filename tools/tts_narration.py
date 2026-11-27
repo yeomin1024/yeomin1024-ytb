@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.19 — 2026-11-27 — all = 제작 판에서 체크한 대본만 (studio/state/tts_queue.json — 사용자 지시 2026-11-27 "음성 생성 체크 가능 ·
+# VERSION: v1.19.1 — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)의 대본은 읽지도 만들지도 않음 — 사용자 지시 2026-11-27 "주제 비활성화도 할 수 있도록 해 비활성화하면 아티팩트에서 보이지 않고 에이전트가 보지도 않도록". 함수 script_entries.
+# (v1.19) — 2026-11-27 — all = 제작 판에서 체크한 대본만 (studio/state/tts_queue.json — 사용자 지시 2026-11-27 "음성 생성 체크 가능 ·
 #          음성 생성 코드는 실행하면 체크된것만 생성되도록 수정 · 줄별로 재생성 필요한것 체크 가능하도록"): 줄 파일이 있으면 그 안의 대본만 만들고
 #          (줄에 없는 대본은 건너뜀 — 예전처럼 기다리는 것 전부는 --all-pending), 줄마다 redo = 그 문장만 새 시드로 저장소 오디오에 끼움 ·
 #          full = 있어도 처음부터 · 만든 뒤 메타에 queue_stamp (판이 '체크대로 만들어짐'을 앎 · 같은 체크로 두 번 만들지 않음). 함수 load_queue · discover · cmd_all.
@@ -170,7 +171,7 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.19"
+VERSION = "v1.19.1"
 QUEUE_DEFAULT = "studio/state/tts_queue.json"   # v1.19 제작 판 음성 줄
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
@@ -1370,6 +1371,14 @@ def src_dir(topic, vid):
     return ROOT / topic / "source" / vid
 
 
+def _disabled_topics():
+    """꺼 둔 주제 (제작 판 → studio/state/topics.json — tools/topic_state.py 와 같은 파일). 파일이 없으면 빈 집합."""
+    try:
+        return set(json.loads((ROOT / "studio" / "state" / "topics.json").read_text("utf-8")).get("disabled") or [])
+    except (OSError, ValueError):
+        return set()
+
+
 def script_entries():
     """저장소의 모든 대본 TXT → [(주제, 영상ID, TXT)] — 롱폼 <영상ID>/<영상ID>.txt 와 쇼츠 <영상ID>/shorts/<영상ID>-shorts.txt (v1.9)."""
     out = []
@@ -1379,6 +1388,12 @@ def script_entries():
     for txt in sorted(ROOT.glob("*/source/*/shorts/*.txt")):
         if txt.stem == txt.parents[1].name + SHORTS_SUFFIX:
             out.append((txt.parents[3].name, txt.stem, txt))
+    off = _disabled_topics()                                  # v1.19.1 꺼 둔 주제 — 읽지 않음
+    if off:
+        n = sum(1 for t, _, _ in out if t in off)
+        if n:
+            log("TOPIC", disabled=",".join(sorted(off)), skipped_scripts=n, note="제작 판에서 꺼 둔 주제 — 대본을 읽지도 만들지도 않음")
+        out = [x for x in out if x[0] not in off]
     return out
 
 

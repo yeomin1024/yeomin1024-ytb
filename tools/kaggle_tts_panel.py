@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-27 — 기본 = 제작 판에서 체크한 대본만 (tts_narration v1.19 가 studio/state/tts_queue.json 을 읽음) — 사용자 지시 2026-11-27
+# VERSION: v1.3 — 2026-11-27 — 꺼 둔 주제는 범위 단추에서 뺌 — 사용자 지시 2026-11-27 "주제 비활성화도 할 수 있도록 해 비활성화하면 아티팩트에서 보이지 않고 에이전트가 보지도 않도록".
+# (v1.2) — 2026-11-27 — 기본 = 제작 판에서 체크한 대본만 (tts_narration v1.19 가 studio/state/tts_queue.json 을 읽음) — 사용자 지시 2026-11-27
 #          "음성 생성 코드는 실행하면 체크된것만 생성되도록 수정". 패널 맨 위에 판 체크 목록(대본 · 재생성 줄) · '예전 방식(기다리는 대본 전부)' 체크 = --all-pending.
 # (v1.1) — 2026-10-24 — 사용자 지시 "오디오 코드 경로 선택하면 대본도 선택할 수 있게 수정해": 주제를 고르면 그 주제의
 #          대본(롱폼·쇼츠) 체크 상자가 나오고, 고른 대본만 all --ids 로 만든다 (하나도 안 고르면 그 주제 전체 — 예전과 같음).
@@ -49,6 +50,14 @@ STATUS = {"todo": ("오디오 없음", "만듦"), "stale": ("옛 대본으로 �
           "has_audio": ("오디오 있음", "건너뜀"), "uploaded": ("업로드함", "건너뜀"), "no_tts": ("NO_TTS", "건너뜀")}
 
 
+def _disabled_topics():
+    """꺼 둔 주제 (제작 판 → studio/state/topics.json — tools/topic_state.py 와 같은 파일). 파일이 없으면 빈 집합."""
+    try:
+        return set(json.loads((ROOT / "studio" / "state" / "topics.json").read_text("utf-8")).get("disabled") or [])
+    except (OSError, ValueError):
+        return set()
+
+
 def script_files(topic_dir):
     """주제 폴더 하나의 대본 → [(영상ID, 롱폼|쇼츠, TXT)] — tts_narration.script_entries 와 같은 규칙, 롱폼 바로 뒤에 짝 쇼츠."""
     src = Path(topic_dir) / "source"
@@ -60,7 +69,8 @@ def script_files(topic_dir):
 def topics(root=ROOT):
     """대본이 있는 주제 폴더 → [(이름, 대본 수)]. 대본 수 = 롱폼 + 쇼츠 (all 이 둘 다 만듦, v1.1)."""
     out = []
-    for d in sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith(".")):
+    off = _disabled_topics() if Path(root).resolve() == ROOT else set()   # v1.3 꺼 둔 주제 뺌
+    for d in sorted(p for p in root.iterdir() if p.is_dir() and not p.name.startswith(".") and p.name not in off):
         if (d / "source").is_dir():
             n = len(script_files(d))
             if n:

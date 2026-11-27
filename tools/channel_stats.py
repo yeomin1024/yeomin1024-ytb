@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-27 — 최초: 내 채널 공개 지표 → 제작 판 '채널 분석' (사용자 지시 2026-11-27 "채널 분석 - 유튜브와 연동하여 내 채널 분석 자료 확인 가능").
+# VERSION: v1.1 — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)만의 채널은 받지 않음 — 사용자 지시 "비활성화하면 … 에이전트가 보지도 않도록". 함수 our_channels.
+# (v1.0) — 2026-11-27 — 최초: 내 채널 공개 지표 → 제작 판 '채널 분석' (사용자 지시 2026-11-27 "채널 분석 - 유튜브와 연동하여 내 채널 분석 자료 확인 가능").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-27 | 꺼 둔 주제만의 채널 뺌 | our_channels |
 # | v1.0 | 2026-11-27 | 최초 — 채널 찾기(youtube.json · youtube_channel.json) · channels.list · 올린 영상 목록 최근 50 · videos.list 지표 · 시청 분석(youtube_feedback 결과가 있으면 붙임) | 모두 |
 """내 채널(우리가 올린 채널) 공개 지표를 받아 studio/channels/channels.json 에 쓴다 — 제작 판이 읽음.
 
@@ -32,7 +34,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "studio" / "channels" / "channels.json"
 API = "https://www.googleapis.com/youtube/v3"
-VERSION = "v1.0"
+VERSION = "v1.1"
 KST = dt.timezone(dt.timedelta(hours=9))
 LOG = logging.getLogger("channel_stats")
 
@@ -75,7 +77,13 @@ def our_channels() -> dict:
         if re.fullmatch(r"UC[A-Za-z0-9_-]{22}", cid):
             o = out.setdefault(cid, {"name": j.get("name", ""), "topics": set()})
             o["topics"].add(Path(f).parent.name)
-    return out
+    sys.path.insert(0, str(ROOT / "tools"))
+    import topic_state                                        # v1.1
+    off = topic_state.disabled()
+    skip = [c for c, o in out.items() if o["topics"] and o["topics"] <= off]
+    if skip:
+        log("TOPIC", skipped_channels=",".join(skip), disabled=",".join(sorted(off)), note="꺼 둔 주제만의 채널 — 받지 않음")
+    return {c: o for c, o in out.items() if c not in skip}
 
 
 def iso_dur(s: str) -> tuple[str, int]:

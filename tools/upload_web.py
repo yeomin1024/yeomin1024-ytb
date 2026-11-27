@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-11-27 — 다시 올리기: '올린 영상' 줄마다 [다시 올리기] (확인 창 뒤) — 옛 youtube.json 은 youtube_history.json 에 쌓고 새로 올림 (업로드 기록) ·
+# VERSION: v1.10 — 2026-11-27 — 꺼 둔 주제(main studio/state/topics.json)는 탭에서 뺌 — 사용자 지시 2026-11-27 "주제 비활성화도 할 수 있도록 해 비활성화하면 아티팩트에서 보이지 않고 에이전트가 보지도 않도록". 함수 topics.
+# (v1.9) — 2026-11-27 — 다시 올리기: '올린 영상' 줄마다 [다시 올리기] (확인 창 뒤) — 옛 youtube.json 은 youtube_history.json 에 쌓고 새로 올림 (업로드 기록) ·
 #          제작 판에서 '다시 올리기 허용'을 체크한 편(main studio/state/reupload.json)은 줄에 표시. 사용자 지시 2026-11-27 "업로드 기록 남기기 · 업로드 해도
 #          재업로드 가능하도록". 함수 list_videos · do_reupload · /api/reupload · 화면 reupload().
 # (v1.8) — 2026-11-27 — 처음 여는 탭 = 올릴 영상(video.json 있고 youtube.json 없음)이 있는 주제 · 탭 이름 옆에 올릴 수 있는 편수 · 콘솔에 [READY]·[LIST] 다음 할 일 —
@@ -73,7 +74,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.9"
+VERSION = "v1.10"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -229,7 +230,13 @@ def topics() -> list[str]:
     for p in sorted(ROOT.glob("*/youtube_channel.json")):
         if p.parent.name not in names:
             names.append(p.parent.name)
-    return names
+    try:                                                    # v1.10 꺼 둔 주제 (제작 판 — main 기준)
+        off = set(json.loads((gh_raw(MAIN, "studio/state/topics.json") or b"{}").decode("utf-8")).get("disabled") or [])
+    except (RuntimeError, ValueError, AttributeError):
+        off = set()
+    if off:
+        log("TOPIC", disabled=",".join(sorted(off)), note="제작 판에서 꺼 둔 주제 — 탭에서 뺌")
+    return [n for n in names if n not in off]
 
 
 def overview(names: list[str]) -> dict:

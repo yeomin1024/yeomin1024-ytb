@@ -1,7 +1,11 @@
 # 제작 판 설정 — tools/studio_board.py 가 읽음 (사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 …")
-# VERSION: v1.0 — 2026-11-27 — 최초. 주제를 더하려면 TOPICS 에 폴더 이름 한 줄 + 아래 [topic.<이름>] 칸.
+# VERSION: v1.1 — 2026-11-27 — 주제 모두 (사용자 지시 "주식 이런 주제는 왜 없어? 누락된거 추가하고 주제 비활성화도 할 수 있도록 해"):
+#          재테크·주식·역사·쇼핑·음악·시험 채널·새 분야·수학 더함 · 켜고 끄기는 판 '공통 › 주제 켜기·끄기' → studio/state/topics.json (여기서 빼지 않음).
+#          [topic.<이름>] 칸에 없는 값은 build 가 저장소에서 찾음 (analysis.json · thumb_codes.tsv · result/related).
+# (v1.0) — 2026-11-27 — 최초 (심리·위기).
+# game/ 은 유튜브 제작 흐름 밖(스팀 게임 데모)이라 넣지 않음.
 ARTIFACT = "https://claude.ai/artifact/Q5u1feF9sGL2jFBa8D1FPN"   # 제작 판 주소 (2026-11-27 첫 발행) — 다시 올릴 땐 이 주소로
-TOPICS = ["psychology", "crisis"]
+TOPICS = ["psychology", "crisis", "economic", "stock", "history", "shopping", "music", "test", "new", "math"]
 
 [trends]
 # 판에서 검색어를 고치기 전 기본값 — 판에서 고치면 studio/state/trends.json 이 이 값을 덮음
@@ -19,9 +23,6 @@ TIME = "now 7-d"
 NAME = "심리"
 WORDS = ["심리", "인간관계", "엄마", "말투", "눈치"]
 EXPLORE = ["psychology/result/next_topic/next_topic.md", "psychology/result/next_topic/overlap.md", "psychology/result/next_topic/trends.md", "psychology/source/first_video.md"]
-RELATED_DIR = "psychology/result/related"
-SUCCESS = "analysis_json"          # psychology/result/outliers/analysis.json success_cases
-THUMB_CODES = "psychology/result/outliers/thumb_codes.tsv"
 LEGACY = "studio/legacy/psychology_analysis_board.json"
 NOTE = "연구·교육용이며 의료·심리 상담이 아닙니다."
 
@@ -29,8 +30,49 @@ NOTE = "연구·교육용이며 의료·심리 상담이 아닙니다."
 NAME = "위기"
 WORDS = ["등산 사고", "심정지", "보이스피싱", "화재 대피", "엘리베이터 사고"]
 EXPLORE = ["crisis/result/demand/topic_demand.md", "crisis/titles.md", "crisis/result/analysis.md", "crisis/result/personas.md"]
-RELATED_DIR = "crisis/result/related"
-SUCCESS = "videos_csv"             # crisis/result/videos.csv group = 성공 사례
-THUMB_CODES = ""
+SUCCESS = "videos_csv"             # crisis/result/videos.csv group = 성공 사례 (독립 1차 분석)
 LEGACY = "studio/legacy/crisis_analysis_board.json"
 NOTE = "안전 수칙은 공식 지침(소방청·경찰청·국민재난안전포털)으로 확인합니다."
+
+[topic.economic]
+NAME = "재테크"
+WORDS = ["연금저축", "국민연금", "건강보험료", "기초연금", "ISA"]
+EXPLORE = ["economic/topics/주제탐색.md", "economic/source/topic_candidates.md", "economic/result/outliers/personas.md", "economic/guides/channel.md"]
+NOTE = "연구·교육용이며 투자·세무 조언이 아닙니다."
+
+[topic.stock]
+NAME = "주식"
+WORDS = ["주식", "미국주식", "ETF", "배당주", "S&P500"]
+EXPLORE = ["stock/topics/주제탐색.md", "stock/topics/정답확인.md", "stock/result/outliers/personas.md", "stock/guides/channel.md"]
+NOTE = "연구·교육용이며 투자 권유가 아닙니다."
+
+[topic.history]
+NAME = "역사"
+WORDS = ["이불", "겨울옷", "장빙", "겨울나기", "김장"]
+EXPLORE = ["history/result/next_topic/next_topic.md", "history/topics/주제탐색.md", "history/result/next_topic/trends.md", "history/result/outliers/personas.md"]
+
+[topic.shopping]
+NAME = "쇼핑"
+WORDS = ["살림", "난방비 절약", "외풍 차단", "뽁뽁이", "가습기"]
+EXPLORE = ["shopping/result/next_topic/winter_topics.md", "shopping/result/next_topic/overlap.md", "shopping/result/outliers/personas.md", "shopping/guides/channel.md"]
+NOTE = "쿠팡 파트너스 활동 — 광고 표시를 지킵니다."
+
+[topic.music]
+NAME = "음악"
+WORDS = ["플레이리스트", "잔잔한 음악", "공부할때 듣는 음악", "카페 음악", "피아노"]
+EXPLORE = ["music/source/topic_candidates.md"]
+
+[topic.test]
+NAME = "시험 채널"
+WORDS = []
+EXPLORE = ["test/channel.md"]
+
+[topic.new]
+NAME = "새 분야"
+WORDS = []                         # new 폴더 = 전체 탐색 결과 자리 — 주제 검색어는 두지 않음
+EXPLORE = ["new/channel_ideas.md", "new/gap_ideas.md", "new/result/gap/gap_scan.md"]
+
+[topic.math]
+NAME = "수학"
+WORDS = []
+EXPLORE = ["math/channel_ideas.md"]

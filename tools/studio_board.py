@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-27 — 최초: 제작 판 (심리·위기 분석 판 두 개를 하나로 — 사용자 지시 2026-11-27
+# VERSION: v1.1 — 2026-11-27 — 주제 모두(studio.toml TOPICS 10개 — 사용자 지시 "주식 이런 주제는 왜 없어? 누락된거 추가하고") · 주제 켜기·끄기
+#          (판 db topics → studio/state/topics.json · 꺼 둔 주제는 판 자료를 만들지 않음 · 동기화 결과에서 뺌 — "비활성화하면 아티팩트에서 보이지 않고 에이전트가
+#          보지도 않도록") · 그림은 파일 대신 자료 안 data URI (아티팩트 한 번에 255개 파일 한도) · 주제 칸 자동 찾기(analysis.json·thumb_codes·related) ·
+#          common.json 에 주제별 편 요약(단계 계산용 — 주제 자료는 고를 때 받음).
+# (v1.0) — 2026-11-27 — 최초: 제작 판 (심리·위기 분석 판 두 개를 하나로 — 사용자 지시 2026-11-27
 #          "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 아래 내용을 모두 만족하도록 수정해").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-27 | 주제 10개 · 주제 켜기·끄기(topics.json) · data URI 그림 · 칸 자동 찾기 · 편 요약 | small_jpeg · refs_analysis · topic_cfg · build · sync · effective_gates · selftest |
 # | v1.0 | 2026-11-27 | 최초 — build(저장소 → 판 자료·작은 썸네일·페이지) · sync(판 db 내려받은 것 → studio/state/*.json·rules.json) · selftest | 모두 |
 """제작 판 자료 만들기 · 판 입력을 저장소에 반영하기.
 
@@ -24,6 +29,7 @@
   skills    (자동 id)                 {name, url, memo, createdAt, at}
   uploads   <주제>__<영상ID>          {checks:{항목: bool}, reupload, note, at}
   channels  (자동 id)                 {topic, input, memo, status, reply, createdAt}   — 옛 분석 판의 고정 채널 넣기
+  topics    <주제>                    {enabled, at}                            — v1.1 주제 켜기·끄기 (sync → studio/state/topics.json)
 연구·교육용 도구 — 투자·의료 조언이 아니다.
 """
 import argparse
@@ -45,7 +51,8 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.0"
+VERSION = "v1.1"
+import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
 STATE = STUDIO / "state"
@@ -58,7 +65,7 @@ STAGE_KO = {"topic": "주제", "title": "제목", "thumb": "썸네일", "script"
 VID_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*-\d{4}-\d{2}(?:-\d{2})?")
 DOC_ID_RE = re.compile(r"[A-Za-z0-9_\-.~:@+]{1,200}")
 MAX_DOC_KB = 160          # 탐색 결과 문서 하나를 판에 넣는 한도 (넘으면 앞부분만 + 원문 경로)
-THUMB_W, REF_W = 360, 220  # 판에 넣는 작은 썸네일 폭 (px)
+THUMB_W, REF_W = 320, 180  # 판에 넣는 작은 썸네일 폭 (px) — v1.1 자료 안 data URI
 
 LOG = logging.getLogger("studio_board")
 
@@ -192,19 +199,21 @@ def doc_entry(path: str) -> dict | None:
 
 
 # ─────────────────────────────── 작은 썸네일 (판 안에서 보이게 — 다른 주소 그림은 판이 못 불러옴)
-def small_jpeg(src: Path, dst: Path, width: int) -> str | None:
+def small_jpeg(src: Path, width: int) -> str | None:
+    """작은 JPEG → data URI (v1.1 — 파일 수 한도 없이 자료 안에)."""
     try:
         from PIL import Image
     except ImportError:
         return None
     try:
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        if not dst.is_file() or dst.stat().st_mtime < src.stat().st_mtime:
-            with Image.open(src) as im:
-                im = im.convert("RGB")
-                h = max(1, round(im.height * width / im.width))
-                im.resize((width, h), Image.LANCZOS).save(dst, "JPEG", quality=72, optimize=True)
-        return dst.name
+        import base64
+        import io
+        with Image.open(src) as im:
+            im = im.convert("RGB")
+            h = max(1, round(im.height * width / im.width))
+            buf = io.BytesIO()
+            im.resize((width, h), Image.LANCZOS).save(buf, "JPEG", quality=62, optimize=True)
+        return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
     except Exception as e:                                  # 그림 하나가 깨져도 판은 만든다
         log("IMG", logging.WARNING, src=rel(src), error=f"{type(e).__name__}: {str(e)[:120]}")
         return None
@@ -228,7 +237,8 @@ def words_of(titles: list[str], top: int = 40) -> list[dict]:
     return [{"word": w, "n": c} for w, c in sorted(cnt.items(), key=lambda x: (-x[1], x[0])) if c >= 2][:top]
 
 
-def refs_psychology(topic: str, tc: dict, img_dir: Path) -> dict:
+def refs_analysis(topic: str, tc: dict, img_dir) -> dict:
+    """표준 분석기 결과 analysis.json 성공 사례 → 제목·썸네일 문구 참고 자료 (v1.1 — 모든 주제)."""
     a = read_json(ROOT / topic / "result/outliers/analysis.json", {}) or {}
     titles = []
     for c in a.get("success_cases", []):
@@ -243,12 +253,9 @@ def refs_psychology(topic: str, tc: dict, img_dir: Path) -> dict:
             vid = row.get("id", "")
             if vid not in succ_ids:
                 continue                                     # 지금 성공 사례만 (예전 성공 사례 줄은 뺌)
-            img = None
-            src = ROOT / topic / "result/outliers" / f"W_{vid}" / "thumbnail.jpg"
-            if src.is_file():
-                nm = small_jpeg(src, img_dir / f"ref_{vid}.jpg", REF_W)
-                img = f"img/{topic}/{nm}" if nm else None
             c = succ_ids[vid]
+            src = ROOT / topic / "result/outliers" / (c.get("thumbnail") or f"W_{vid}/thumbnail.jpg")
+            img = small_jpeg(src, REF_W) if src.is_file() else None
             thumbs.append({"id": f"{topic}.thumb.{vid}", "vid": vid, "text": row.get("main_text", ""), "sub": row.get("sub_text", ""),
                            "image": row.get("image", ""), "face": row.get("face", ""), "img": img, "title": c["title"],
                            "views": c.get("views"), "ratio": c.get("ratio")})
@@ -260,7 +267,7 @@ def refs_psychology(topic: str, tc: dict, img_dir: Path) -> dict:
             "thumb_source": rel(codes) if codes and codes.is_file() else ""}
 
 
-def refs_videos_csv(topic: str, tc: dict, img_dir: Path) -> dict:
+def refs_videos_csv(topic: str, tc: dict, img_dir) -> dict:
     p = ROOT / topic / "result/videos.csv"
     titles = []
     if p.is_file():
@@ -389,6 +396,10 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
         tm, ts_ = pkg.get("thumb_main") or [], pkg.get("thumb_sub") or ""
     ep["thumb_main"] = tm if isinstance(tm, list) else [tm]
     ep["thumb_sub"] = ts_ if isinstance(ts_, list) else ([ts_] if ts_ else [])
+    if not ep["title"] and not shorts_of and (base / "요약본.txt").is_file():          # v1.1 요약본만 있는 편 — 첫 줄을 이름으로
+        first = next((ln.lstrip("-* ").strip() for ln in (base / "요약본.txt").read_text("utf-8").splitlines()
+                      if ln.strip() and not ln.lstrip().startswith(("#", "["))), "")             # [방향] 아래 첫 줄
+        ep["summary_title"] = first[:80]
     ep["title_why"] = (pkg.get("title_why") or "")[:900]
     ep["experiments"] = pkg.get("experiments") or []
     alts = []
@@ -411,9 +422,9 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
         for p in sorted(tdir.glob("thumbnail_*")):
             if p.suffix.lower() not in (".jpg", ".jpeg", ".png") or "_upload" in p.stem:
                 continue
-            nm = small_jpeg(p, img_dir / f"{vid}_{p.stem}.jpg", THUMB_W) if img_dir else None
-            if nm or img_dir is None:
-                thumbs.append({"name": p.name, "img": f"img/{topic}/{nm}" if nm else None})
+            uri = small_jpeg(p, THUMB_W) if img_dir else None
+            if uri or img_dir is None:
+                thumbs.append({"name": p.name, "img": uri})
     ep["thumbs"] = thumbs
     # 대본 줄 · 음성 상태
     lines, audio = [], {"status": "none", "note": "대본 없음"}
@@ -456,6 +467,12 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
         except Exception as e:
             ep["upload"] = {"status": "error", "problems": [f"업로드 자료를 못 읽음: {type(e).__name__}: {str(e)[:160]}"]}
             log("UPLOAD", logging.WARNING, topic=topic, video=vid, error=f"{type(e).__name__}: {str(e)[:120]}")
+    # v1.1 제목이 package.json 에 없던 옛 편 (재테크·주식·시험 채널) — 업로드 시트 → 올린 기록 → titles.md 첫 안
+    if not ep["title"]:
+        cur = next((h for h in ep["history"] if h.get("current")), None)
+        ep["title"] = ((ep["upload"] or {}).get("title") or (cur or {}).get("title") or (ep["title_alts"][0]["title"] if ep["title_alts"] else "")) or ""
+        if ep["title"]:
+            ep["title_from"] = "업로드 시트" if (ep["upload"] or {}).get("title") else ("올린 기록" if cur else "titles.md")
     # 저장소 기준 단계 (판에서 체크하기 전 기본값 — 판의 체크가 늘 이김)
     pr = ep["persona"]
     has_audio = audio["status"] in ("has_audio", "uploaded")
@@ -469,6 +486,10 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
         "video": bool(vj),
         "upload": any(h["current"] for h in ep["history"]),
     }
+    later = False                                              # v1.1 음성·장면·영상·업로드가 이미 있으면 앞 단계도 지난 것 (옛 편은 순서가 달랐음)
+    for s_ in reversed(STAGES):                                #      대본 검증 기록만으로는 앞(썸네일)을 채우지 않음 — 썸네일이 실제로 빠진 편이 있음
+        later = later or (ep["repo_gates"][s_] and s_ in ("voice", "codetest", "video", "upload"))
+        ep["repo_gates"][s_] = ep["repo_gates"][s_] or later
     return ep
 
 
@@ -479,14 +500,17 @@ def episodes(topic: str, T, img_dir: Path | None, upl_paths: set) -> list[dict]:
         if not VID_RE.fullmatch(d.name):
             continue
         files = {p.name for p in d.iterdir()}
-        if not ({f"{d.name}.txt", "package.json", "upload.md"} & files):
-            continue
-        try:
-            out.append(episode(topic, d, d.name, T, img_dir, upl_paths))
-        except Exception as e:
-            log("EPISODE", logging.WARNING, topic=topic, video=d.name, error=f"{type(e).__name__}: {str(e)[:160]}", next="그 편 폴더 확인")
-            continue
         sh = d / "shorts"
+        has_long = bool({f"{d.name}.txt", "package.json", "upload.md", "요약본.txt", "titles.md"} & files)     # v1.1 요약본 단계 편도 (역사)
+        has_short = (sh / f"{d.name}-shorts.txt").is_file() or (sh / "upload.md").is_file()
+        if not (has_long or has_short):
+            continue
+        if has_long:
+            try:
+                out.append(episode(topic, d, d.name, T, img_dir, upl_paths))
+            except Exception as e:
+                log("EPISODE", logging.WARNING, topic=topic, video=d.name, error=f"{type(e).__name__}: {str(e)[:160]}", next="그 편 폴더 확인")
+                continue
         if (sh / f"{d.name}-shorts.txt").is_file() or (sh / "upload.md").is_file():
             try:
                 out.append(episode(topic, sh, d.name + "-shorts", T, img_dir, upl_paths, shorts_of=d.name))
@@ -507,13 +531,32 @@ def legacy(path: str) -> dict:
     return {k: j.get(k) for k in ("personas", "log", "videos", "news", "market", "transcript", "made", "note", "stale_days", "today")} | {"from": (j.get("_from") or {}).get("artifact", "")}
 
 
+def topic_cfg(cfg: dict, topic: str) -> dict:
+    """[topic.<이름>] + 빈 칸은 저장소에서 찾음 (v1.1)."""
+    tc = dict((cfg.get("topic") or {}).get(topic) or {})
+    tc.setdefault("NAME", topic)
+    if not tc.get("SUCCESS"):
+        tc["SUCCESS"] = "analysis_json" if (ROOT / topic / "result/outliers/analysis.json").is_file() else ""
+    if not tc.get("THUMB_CODES") and (ROOT / topic / "result/outliers/thumb_codes.tsv").is_file():
+        tc["THUMB_CODES"] = f"{topic}/result/outliers/thumb_codes.tsv"
+    if not tc.get("RELATED_DIR") and (ROOT / topic / "result/related").is_dir():
+        tc["RELATED_DIR"] = f"{topic}/result/related"
+    return tc
+
+
+def empty_refs(topic: str) -> dict:
+    return {"titles": [], "thumbs": [], "words_up": [], "words_down": [], "features": [], "freq": [], "source": "",
+            "thumb_source": "", "thumb_note": f"{topic} 은(는) 성공 사례 분석 결과가 없음 — 판에서 직접 더할 수 있음"}
+
+
 def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
-    tc = cfg["topic"][topic]
-    img_dir = out / "img" / topic
+    tc = topic_cfg(cfg, topic)
+    img_dir = out                                              # v1.1 그림은 data URI (img_dir 는 '가볍게 아님' 표시로만)
     explore = [x for x in (doc_entry(p) for p in tc.get("EXPLORE", [])) if x]
     rdir = ROOT / tc.get("RELATED_DIR", "")
     related = [x for x in (doc_entry(rel(p)) for p in sorted(rdir.glob("*.md"))) if x] if tc.get("RELATED_DIR") and rdir.is_dir() else []
-    refs = refs_psychology(topic, tc, img_dir) if tc.get("SUCCESS") == "analysis_json" else refs_videos_csv(topic, tc, img_dir)
+    refs = (refs_analysis(topic, tc, img_dir) if tc.get("SUCCESS") == "analysis_json" else
+            refs_videos_csv(topic, tc, img_dir) if tc.get("SUCCESS") == "videos_csv" else empty_refs(topic))
     eps = episodes(topic, T, img_dir, upl_paths)
     d = {"topic": topic, "name": tc.get("NAME", topic), "note": tc.get("NOTE", ""), "explore": explore, "related": related,
          "refs": refs, "episodes": eps, "legacy": legacy(tc.get("LEGACY", "")), "trends": trends_results(topic),
@@ -532,7 +575,11 @@ def channels_data() -> dict:
 def build(out: Path, topics: list[str] | None = None) -> int:
     t0 = time.time()
     cfg = load_cfg()
-    topics = topics or cfg["TOPICS"]
+    every = cfg["TOPICS"]
+    off = topic_state.disabled()
+    topics = [t for t in (topics or every) if t not in off]           # v1.1 꺼 둔 주제는 판 자료를 만들지 않음
+    if off:
+        log("TOPIC", disabled=",".join(sorted(off)), note="꺼 둔 주제 — 판 자료를 만들지 않음 (판 '주제 켜기·끄기'에서 켜면 다음 build 에)")
     commit = git("rev-parse", "--short=9", "HEAD")
     fetched = subprocess.run(["git", "-C", str(ROOT), "fetch", "-q", "origin", "uploads"], capture_output=True).returncode == 0
     upl = set(git("ls-tree", "-r", "--name-only", "origin/uploads").splitlines()) if fetched else set()
@@ -541,9 +588,15 @@ def build(out: Path, topics: list[str] | None = None) -> int:
     T = tts_mod()
     out.mkdir(parents=True, exist_ok=True)
     (out / "data").mkdir(exist_ok=True)
+    for old in (out / "data").glob("*.json"):                        # v1.1 꺼 둔 주제의 옛 자료가 남지 않게
+        old.unlink()
     files = {}
+    summary, topic_trends = {}, {}
     for t in topics:
         d = topic_data(t, cfg, out, T, upl)
+        topic_trends[t] = d["trends"]
+        summary[t] = [{"id": e["id"], "title": e.get("title") or e.get("summary_title", ""), "kind": e["kind"], "parent": e.get("parent"), "repo_gates": e["repo_gates"],
+                       "history": [{"videoId": h.get("videoId"), "current": h.get("current")} for h in e.get("history", [])]} for e in d["episodes"]]
         body = json.dumps(d, ensure_ascii=False, separators=(",", ":"))
         (out / "data" / f"{t}.json").write_text(body, "utf-8")
         files[f"data/{t}.json"] = str(out / "data" / f"{t}.json")
@@ -552,16 +605,16 @@ def build(out: Path, topics: list[str] | None = None) -> int:
               "trends_defaults": {"every_hours": cfg["trends"].get("EVERY_HOURS", 24), "geo": cfg["trends"].get("GEO", "KR"),
                                   "gprop": cfg["trends"].get("GPROP", "youtube"), "time": cfg["trends"].get("TIME", "today 3-m"),
                                   "overall": {"topic": ov.get("TOPIC", "new"), "cats": ov.get("CATS", [0]), "time": ov.get("TIME", "now 7-d")},
-                                  "words": {t: cfg["topic"][t].get("WORDS", []) for t in topics}},
-              "state": {k: read_json(STATE / f"{k}.json", None) for k in ("trends", "tts_queue", "gates", "reupload", "skills")},
+                                  "words": {t: topic_cfg(cfg, t).get("WORDS", []) for t in topics}},
+              "state": {k: read_json(STATE / f"{k}.json", None) for k in ("trends", "tts_queue", "gates", "reupload", "skills", "topics")},
+              "summary": summary, "topic_trends": topic_trends,
               "synced_at": (read_json(STATE / "board_db.json", {}) or {}).get("synced_at")}
     body = json.dumps(common, ensure_ascii=False, separators=(",", ":"))
     (out / "data" / "common.json").write_text(body, "utf-8")
     files["data/common.json"] = str(out / "data" / "common.json")
-    for p in sorted((out / "img").rglob("*.jpg")):
-        files[p.relative_to(out).as_posix()] = str(p)
     meta = {"tool": f"studio_board.py {VERSION}", "made": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"), "commit": commit,
-            "topics": [{"key": t, "name": cfg["topic"][t].get("NAME", t)} for t in topics], "stages": STAGES, "stage_ko": STAGE_KO,
+            "topics": [{"key": t, "name": topic_cfg(cfg, t).get("NAME", t), "built": t in topics, "repo_off": t in off} for t in every],
+            "stages": STAGES, "stage_ko": STAGE_KO,
             "artifact": cfg.get("ARTIFACT", ""), "synced_at": common["synced_at"]}
     page = TEMPLATE.read_text("utf-8")
     if "/*BOARD:BEGIN*/null/*BOARD:END*/" not in page:
@@ -597,7 +650,7 @@ def effective_gates(cfg: dict, cols: dict) -> dict:
     T = tts_mod()
     db = {(g.get("topic"), g.get("ep"), g.get("stage")): g for g in cols.get("gates", [])}
     out = {}
-    for topic in cfg["TOPICS"]:
+    for topic in [t for t in cfg["TOPICS"] if t not in board_disabled(cfg, cols)]:     # v1.1 꺼 둔 주제는 뺌
         eps = episodes(topic, T, None, set())
         cands = [{"id": "cand-" + c["id"], "repo_gates": {}} for c in cols.get("episodes", []) if c.get("topic") == topic and not c.get("deleted")]
         for e in eps + cands:
@@ -644,6 +697,11 @@ def apply_rules(cols: dict, now: str) -> list[str]:
     return msgs
 
 
+def board_disabled(cfg: dict, cols: dict) -> set[str]:
+    """판 db topics (doc id = 주제, enabled) → 꺼 둔 주제. 문서가 없는 주제는 켜짐."""
+    return {d["id"] for d in cols.get("topics", []) if d.get("id") in cfg["TOPICS"] and d.get("enabled") is False}
+
+
 def sync(dump: Path) -> int:
     t0 = time.time()
     cfg = load_cfg()
@@ -651,6 +709,13 @@ def sync(dump: Path) -> int:
     now = dt.datetime.now(KST).isoformat(timespec="seconds")
     log("SYNC", dump=rel(dump), collections=",".join(f"{k}:{len(v)}" for k, v in sorted(cols.items())) or "-")
     STATE.mkdir(parents=True, exist_ok=True)
+    off = board_disabled(cfg, cols)                                   # v1.1 주제 켜기·끄기 → 모든 도구·세션이 읽는 파일
+    was = topic_state.disabled()
+    (STATE / "topics.json").write_text(json.dumps({"updated": now, "about": "제작 판 '주제 켜기·끄기' — disabled 주제는 판에 안 보이고 Claude·도구가 읽지도 작업하지도 않음 (tools/topic_state.py)",
+                                                   "disabled": sorted(off), "enabled": [t for t in cfg["TOPICS"] if t not in off]},
+                                                  ensure_ascii=False, indent=1) + "\n", "utf-8")
+    if off != was:
+        log("TOPICS", disabled=",".join(sorted(off)) or "-", turned_off=",".join(sorted(off - was)) or "-", turned_on=",".join(sorted(was - off)) or "-")
     (STATE / "board_db.json").write_text(json.dumps({"synced_at": now, "tool": f"studio_board.py {VERSION}", "collections": cols},
                                                     ensure_ascii=False, indent=1) + "\n", "utf-8")
     # 단계 통과
@@ -664,9 +729,9 @@ def sync(dump: Path) -> int:
               "topics": {}, "overall": {"topic": ov.get("TOPIC", "new"), "cats": (tr.get("overall") or {}).get("cats") or ov.get("CATS", [0]),
                                         "time": ov.get("TIME", "now 7-d"),
                                         "every_hours": int((tr.get("overall") or {}).get("every_hours") or tcfg.get("EVERY_HOURS", 24))}}
-    for t in cfg["TOPICS"]:
+    for t in [x for x in cfg["TOPICS"] if x not in off]:
         d = tr.get(t) or {}
-        words = [w.strip() for w in (d.get("words") or cfg["topic"][t].get("WORDS", [])) if isinstance(w, str) and w.strip()][:25]
+        words = [w.strip() for w in (d.get("words") or topic_cfg(cfg, t).get("WORDS", [])) if isinstance(w, str) and w.strip()][:25]
         trends["topics"][t] = {"words": words, "every_hours": int(d.get("every_hours") or tcfg.get("EVERY_HOURS", 24)),
                                "from": "board" if d else "studio.toml"}
     (STATE / "trends.json").write_text(json.dumps(trends, ensure_ascii=False, indent=1) + "\n", "utf-8")
@@ -674,6 +739,8 @@ def sync(dump: Path) -> int:
     q = []
     for d in cols.get("tts", []):
         key = f"{d.get('topic')}/{d.get('ep')}"
+        if d.get("topic") in off:
+            continue
         redo = sorted({int(x) for x in (d.get("redo") or []) if str(x).isdigit()})
         if not (d.get("make") or redo):
             continue
@@ -684,10 +751,10 @@ def sync(dump: Path) -> int:
         q.append({"topic": d.get("topic"), "id": d.get("ep"), "stamp": str(d.get("at") or d.get("version") or now), "full": bool(d.get("full")),
                   "redo": redo})
     (STATE / "tts_queue.json").write_text(json.dumps({"updated": now, "about": "제작 판에서 '음성 생성'·줄 '재생성'을 체크한 것 — tools/tts_narration.py all 이 판 주제(topics)는 이것만 만듦 · 판 밖 주제는 예전처럼 (--all-pending 이면 모두 예전처럼)",
-                                                       "topics": cfg["TOPICS"], "items": q}, ensure_ascii=False, indent=1) + "\n", "utf-8")
+                                                       "topics": [t for t in cfg["TOPICS"] if t not in off], "items": q}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     # 다시 올리기 · 스킬
     re_up = [{"topic": d["id"].split("__")[0], "id": d["id"].split("__", 1)[1], "at": d.get("at", ""), "note": d.get("note", "")}
-             for d in cols.get("uploads", []) if d.get("reupload") and "__" in d.get("id", "")]
+             for d in cols.get("uploads", []) if d.get("reupload") and "__" in d.get("id", "") and d["id"].split("__")[0] not in off]
     (STATE / "reupload.json").write_text(json.dumps({"updated": now, "items": re_up}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     skills = [{"name": d.get("name", ""), "url": d.get("url", ""), "memo": d.get("memo", "")} for d in cols.get("skills", []) if d.get("url")]
     (STATE / "skills.json").write_text(json.dumps({"updated": now, "skills": skills}, ensure_ascii=False, indent=1) + "\n", "utf-8")
@@ -734,6 +801,11 @@ def selftest() -> int:
         c = load_dump(d)
         check("db 내려받기 두 꼴", c["gates"][0]["pass"] is True and c["gates"][0]["version"] == 3 and c["tts"][0]["id"] == "a")
     check("단계 순서", STAGES.index("codetest") == STAGES.index("voice") + 1 and STAGES[-1] == "upload")
+    cfg = {"TOPICS": ["psychology", "stock"], "topic": {}}
+    check("v1.1 꺼 둔 주제 = enabled false 문서만", board_disabled(cfg, {"topics": [{"id": "stock", "enabled": False}, {"id": "psychology", "enabled": True}, {"id": "zzz", "enabled": False}]}) == {"stock"})
+    check("v1.1 topic_state 글 읽기", topic_state.disabled(text='{"disabled": ["stock"]}') == {"stock"} and topic_state.disabled(text="깨진") == set())
+    check("v1.1 칸 자동 찾기 (심리 = analysis.json · thumb_codes)", topic_cfg(load_cfg(), "psychology")["SUCCESS"] == "analysis_json"
+          and topic_cfg(load_cfg(), "psychology").get("THUMB_CODES", "").endswith("thumb_codes.tsv") and topic_cfg(load_cfg(), "crisis")["SUCCESS"] == "videos_csv")
     check("doc id 꼴", bool(DOC_ID_RE.fullmatch("psychology__jakku-juneun-2026-11-25__title")))
     print("selftest:", "OK" if ok else "FAIL")
     return 0 if ok else 1

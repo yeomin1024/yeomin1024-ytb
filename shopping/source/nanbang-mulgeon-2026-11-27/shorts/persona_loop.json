@@ -65,20 +65,51 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-27T08:12:17Z",
+      "sha": "f8b7e9c36ab729e7",
+      "reviewers": [
+       {
+        "reviewer": "E3-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 6,
+          "why": "5만·12만·7만 7,200원 다음에 '그 4시간에 난방비의 절반을 쓴다고 넉넉히 쳐도'가 빠르게 나와 무슨 계산인지 헷갈려 넘길 뻔함 — 7줄에서 '한 달 1만 7,200원 더'로 정리돼 다시 붙음"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "2줄 — 난방비 아끼려고 산 히터가 오히려 한 달 7만 원 넘게 더 나온다니 딱 우리 집 얘기 같아 바로 붙잡힘",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [6]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.4 (쇼츠만): '난방비 12만 원의 절반으로 넉넉히 쳐도 6만 원' — 셈을 바로 보이게 · 끝을 '아래 영상' 대신 쇼츠 안 어림(100와트 1시간 = 약 700원)",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r3_exit_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
     "pending": {
-     "n": 3,
-     "sha": "f8b7e9c36ab729e7",
+     "n": 4,
+     "sha": "27490634df08f557",
      "reviewers": [
-      "E3-P1"
+      "E4-P1"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r3_exit_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_3",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r4_exit_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:09:13Z"
+     "at": "2026-11-27T08:12:49Z"
     }
    },
    "script_rebuttal": {
@@ -225,20 +256,81 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-27T08:12:17Z",
+      "sha": "f8b7e9c36ab729e7",
+      "reviewers": [
+       {
+        "reviewer": "K3-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 9,
+          "text": "히터는 가스비 빼면 한 달 1만 7,200원 더라면서, 매트랑 비교할 땐 왜 가스비 안 뺀 7만 7,200원이랑 비교해서 9분의 1이라고 함? 순으로 따지면 2배 차이 아님?",
+          "fix": "비교 기준을 하나로 맞춘다. 9분의 1은 '전기요금만 보면'으로 못 박거나, 순 금액끼리(1만 7,200원 대 8,500원) 비교한다."
+         },
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 11,
+          "text": "150와트가 2,000와트보다 싼 건 어느 집이든 당연한데 '우리 집에선 히터와 매트 중 어느 쪽이 싼지'를 왜 계산함? 집마다 갈리는 건 바로 앞 줄에서 말한 히터 대 보일러잖아.",
+          "fix": "10번 줄과 이어지게 '우리 집에서는 히터를 켜는 게 보일러보다 싼지 비싼지, 어떻게 알 수 있을까요?'로 바꾼다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 10,
+          "text": "'난방비가 큰 집은 달라질 수 있다'는데 얼마부터 달라지는지는 안 알려 줌. 우리 집이 큰 집인지 어떻게 앎?",
+          "fix": "이 집 조건 그대로 갈림 금액을 calc 출력으로 한 번 말한다 (대본 숫자대로면 히터 전기요금 7만 7,200원 = 난방비 절반이 되는 난방비 약 15만 원)."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 2,
+          "text": "'7만 원 넘게 더 나온다'더니 아낀 가스비 빼면 1만 7,200원이네. 첫 문장만 보면 7만 원 손해인 줄.",
+          "fix": "'전기요금만 7만 원 넘게 더'처럼 전기요금 기준임을 분명히 하거나, 첫 문장에 순 손해 금액을 함께 둔다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 2,
+          "text": "우리 히터는 1,000와트에 강약 조절도 되는데? 와트 말 없이 '산 전기히터'면 다 7만 원 나오는 줄 알겠다.",
+          "fix": "첫 문장에 '2,000와트 히터'를 넣어 조건을 먼저 못 박는다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자는 대본 안에서 맞지만(12만×½=6만, 7만 7,200−6만=1만 7,200, 7만 7,200÷8,500≈9.1), 9분의 1은 가스비를 안 뺀 금액과 비교해 7번 줄 순 금액과 기준이 엇갈리고, 11번 질문이 10번(히터 대 보일러)과 어긋나 매트가 싼 게 당연한 질문이 됨 — 이 집 조건에서의 옳은 선택 자체는 분명함.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.4 (calc v1.10): '전기요금만 보면' 9분의 1 · 갈림 = 난방비 약 15만 원 넘는 집 · 첫 문장 2,000와트 · 끝 질문 → '우리 집 히터가 보일러보다 싼지는 라벨 와트로 어림'",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r3_rebuttal_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
     "pending": {
-     "n": 3,
-     "sha": "f8b7e9c36ab729e7",
+     "n": 4,
+     "sha": "27490634df08f557",
      "reviewers": [
-      "K3-반론"
+      "K4-반론"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r3_rebuttal_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_3",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r4_rebuttal_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:09:13Z"
+     "at": "2026-11-27T08:12:49Z"
     }
    }
   }

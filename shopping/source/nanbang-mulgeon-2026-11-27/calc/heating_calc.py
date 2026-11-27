@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9 — 2026-11-27 — 쇼츠 반론 2회차: net_generous = 히터 전기요금 − 넉넉히 친 가스비 (1만 7,200원 — 아낀 가스비를 빼도 더 내는 돈). 다른 값 그대로.
+# VERSION: v1.10 — 2026-11-27 — 쇼츠 반론 3회차: generous_breakeven_heating = 넉넉히 친 가정(4시간에 난방비 절반)에서 히터 전기요금과 아낀 가스비가 같아지는 난방비 (7만 7,200 × 2 = 15만 4,400 → '약 15만 원'). 다른 값 그대로.
+# (v1.9 — 2026-11-27 — 쇼츠 반론 2회차: net_generous = 히터 전기요금 − 넉넉히 친 가스비 (1만 7,200원 — 아낀 가스비를 빼도 더 내는 돈). 다른 값 그대로.
 # (v1.8 — 2026-11-27 — 쇼츠 반론 1회차: generous_4h = 히터 켜는 4시간에 한 달 난방비의 절반을 쓴다고 넉넉히 칠 때 보일러를 꺼서 아끼는 최대 (6만 원 — 고르게 쓴다는 가정 없이도 히터 손해가 남는지) · say_base_man (평소 전기요금 약 5만 원). 다른 값 그대로.
 # (v1.7 — 2026-11-27 — 쇼츠 대본용 ratios.heater_vs_carbon_elec (히터 ÷ 탄소매트 한 달 전기요금 = 9.1 — '아홉 배 넘게'). 다른 값 그대로.
 # (v1.6 — 2026-11-27 — 반론 4회차(K4): 반만 켠 히터 전기요금을 '4시간 보일러를 꺼서' 메우려면 난방비가 한 달 얼마인 집이어야 하나 (heater_half_breakeven_heating_gas) · 어림 200와트 × 5시간 = 700원 열 번 (rule_x10). 다른 값 그대로.
@@ -22,7 +23,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.9"
+VERSION = "v1.10"
 LOG = logging.getLogger("heating_calc")
 
 SOURCES = {
@@ -144,6 +145,8 @@ def compute(a=None):
     out["say_base_man"] = say_man(base_bill)
     out["net_generous"] = r["heater"]["elec_extra"] - out["generous_4h"]
     out["say_net_generous"] = say(out["net_generous"])
+    out["generous_breakeven_heating"] = r["heater"]["elec_extra"] * 2
+    out["say_generous_breakeven_heating"] = say_man(out["generous_breakeven_heating"])
     out["base_jump_3"] = round((t[2][1] - t[1][1]) * vat)
     out["say_base_jump_3"] = say((t[2][1] - t[1][1]) * vat)
     out["ratios"] = {"heater_vs_carbon_watt": round(r["heater"]["watt"] / r["carbon"]["watt"], 1),
@@ -179,6 +182,7 @@ def selftest():
     assert o["ratios"]["heater_vs_carbon_elec"] == 9.1
     assert o["generous_4h"] == 60000 and o["generous_4h"] < r["heater"]["elec_extra"], "넉넉히 쳐도 히터 전기요금이 더 큼"
     assert o["say_base_man"] == "약 5만 원"
+    assert o["generous_breakeven_heating"] == 154400 and o["say_generous_breakeven_heating"] == "약 15만 원"
     assert o["net_generous"] == 17200 and o["say_net_generous"] == "1만 7,200원"
     assert o["rule_x10"]["times"] == 10 and o["rule_x10"]["say"] == "약 7,000원"
     assert o["carbon_example"]["payback_winters"] == 4.6 and o["rule_x12"]["say"] == "약 8,400원", (o["carbon_example"], o["rule_x12"])

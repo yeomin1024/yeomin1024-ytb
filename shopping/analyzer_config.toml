@@ -1,0 +1,39 @@
+# =====================================================================================================
+# YouTube 주제 분석기 설정 파일 — 주제: 쿠팡 추천템 · 4050 여성 (폴더 shopping)
+# VERSION: v1.0 — 2026-11-27 — 새로 만듦 (사용자 지시 2026-11-27 "쿠팡파트너스 상품 홍보 목적 유튜브 채널 만들건데 어떻게 해야 될까?" →
+#          "소비가 많은 여성 나이대 타겟으로 할거야 계속 진행해"). 값은 psychology/analyzer_config.toml v1.0 (= history v1.1 = stock v3.2) 과 같고
+#          다른 것: 주제 이름·폴더만. 외국 영상 꺼짐 (쿠팡 = 한국 시장).
+#          타깃 근거(40~50대 여성)는 shopping/guides/channel.md 1번.
+#
+# ▶ 클라우드: python3 tools/cloud_run.py shopping <status|explore|list|approve|baseline|analyze|resume> (shopping/README.md)
+# ▶ PC (웹 화면): ⚠️ 켜지 않음 — 클라우드가 분석 중 (PC 가 켜면 자기 결과로 GitHub 의 shopping/result/outliers/ 를 바꿈)
+# ※ 연구·교육용 분석 — 구매 권유가 아니다.
+# =====================================================================================================
+
+[topic]
+TOPIC = "쿠팡 추천템 (4050 여성)"
+PROJECT_FOLDER = "shopping"          # 결과 상위 폴더 → PC: output/shopping/result/, GitHub: shopping/result/
+RESULT_FOLDER = "result"
+
+[github]
+GITHUB_REPO = "yeomin1024/yeomin1024-ytb"
+GITHUB_BRANCH = "main"
+
+[search]
+REGION_CODE = "KR"
+LANGUAGE = "ko"
+INCLUDE_FOREIGN = false              # 한국어 영상만 (쿠팡 링크는 한국 시청자만 씀)
+
+[keywords]
+KEYWORD_MODE = "curated"
+KEYWORDS_FILE = "keywords.toml"      # 관련어·제외어 목록 파일. 검색어는 keywords.txt (tools/tag_keywords.py 가 실제 영상 태그로 고름)
+
+[ads]
+AD_SUSPECT_FILTER = true
+AD_SUSPECT_MIN_VIEWS = 50000
+AD_SUSPECT_MAX_LIKE_RATE = 0.0025
+AD_SUSPECT_MAX_COMMENT_RATE = 0.00005
+
+[advanced]
+QUOTA_BUDGET = 6000                  # ⚠️ 비용 관련 (분석기 youtube_topic_analyzer.py 몫 — 클라우드 탐색은 cloud_run 이 남은 만큼)
+DOWNLOAD_VIDEOS = false              # ⚠️ 성공사례 영상 파일은 받지 않음 — 자막·썸네일·댓글·메타데이터만

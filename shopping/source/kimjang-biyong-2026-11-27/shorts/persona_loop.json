@@ -52,20 +52,54 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-27T08:55:03Z",
+      "sha": "11d59266c1f4c480",
+      "reviewers": [
+       {
+        "reviewer": "E3-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 11,
+          "why": "8줄에서 답(4만 5천 원 더)을 들은 뒤라 맺음처럼 들리는데, 38만 5천 원 바로 뒤에 38만 8천 원이 또 나와 숫자가 헷갈림 — '재료값으로만 봐도'가 직접 절인 34만 원 얘기인지 절임배추 38만 5천 원 얘기인지 모르겠어서 넘기고 싶어짐"
+         }
+        ],
+        "hard_words": [
+         "총각김치까지 친 (셈에 넣었다는 뜻인지 귀로 듣기엔 어색함)"
+        ],
+        "keep_watching": true,
+        "best": "7줄 — 배추 절이기가 제일 힘든 건 우리 나이에 딱 내 얘기라 '절임배추 쓰면 얼마나 더 드나'가 바로 궁금해짐",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [11]",
+         "모르는 말 ['총각김치까지 친 (셈에 넣었다는 뜻인지 귀로 듣기엔 어색함)']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.3: 38만 8천 원 줄 → '절임배추로 담가도 시판 김치보다 38만 원 넘게' · '친' 낱말 뺌",
+      "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r3_exit_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/kimjang-biyong-2026-11-27/shorts/kimjang-biyong-2026-11-27-shorts.txt",
     "pending": {
-     "n": 3,
-     "sha": "11d59266c1f4c480",
+     "n": 4,
+     "sha": "f4482859db026056",
      "reviewers": [
-      "E3-P1"
+      "E4-P1"
      ],
-     "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r3_exit_prompt.md",
-     "answers": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/answers_kimjang-biyong-2026-11-27-shorts_script_exit_3",
+     "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r4_exit_prompt.md",
+     "answers": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/answers_kimjang-biyong-2026-11-27-shorts_script_exit_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:52:41Z"
+     "at": "2026-11-27T08:55:18Z"
     }
    },
    "script_rebuttal": {
@@ -219,20 +253,102 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 3,
+      "at": "2026-11-27T08:55:03Z",
+      "sha": "11d59266c1f4c480",
+      "reviewers": [
+       {
+        "reviewer": "K3-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 11,
+          "text": "77만 원에서 38만 5천 원을 빼면 38만 5천 원인데 38만 8천 원은 어디서 나온 숫자죠? 직접 절인 34만 원과 비교하면 43만 원이고요. 어느 쪽과 비교했는지도 모르겠어요.",
+          "fix": "앞에서 말한 반올림 숫자로 계산이 맞게 '약 39만 원'이라고 하고, 무엇과 비교했는지 밝힌다. 예: '절임배추를 써도, 시판 김치보다 약 39만 원 덜 듭니다.' '재료값으로만 봐도'는 빼거나 '재료값만 따지면'으로 바꾼다(노동을 빼면 직접 담그는 쪽이 유리하므로 '봐도'는 논리가 거꾸로임)."
+         },
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 5,
+          "text": "재료는 전통시장 값이고 시판 김치는 마트·온라인몰 평균이면, 두 배 차이는 당연히 나죠. 같은 곳 값끼리 비교해야죠. 게다가 하루 종일 일하는 품은 0원으로 쳤고요.",
+          "fix": "같은 조사에 대형마트 재료값이 있으면 그 값도 한 마디 넣거나, '재료는 전통시장 기준, 시판은 마트·온라인 평균이라 단순 비교'라고 밝힌다. '두 배가 넘죠' 뒤에 '손품은 빼고 계산한 값'이라는 조건을 붙인다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 8,
+          "text": "'얼마나 더 들까요?'라고 묻고 38만 5천 원부터 말하니, 절임배추 값만 38만 5천 원인 줄 알았어요.",
+          "fix": "차액을 먼저: '직접 절일 때보다 약 4만 5천 원 더 듭니다. 모두 약 38만 5천 원이죠.' 절임배추 값도 전통시장(같은 조사) 기준인지 한 마디."
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 8,
+          "text": "직접 절일 때 드는 굵은소금 값이랑 물값은 34만 원에 들어 있는 건가요? 빠졌다면 차이는 4만 5천 원보다 작겠네요.",
+          "fix": "34만 원에 소금 값이 들어 있으면 '소금 값까지 넣어도'라고 짧게 밝힌다."
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 2,
+          "text": "우리 집은 둘이 살아서 16포기는 안 담가요. 4인 가족 기준이면 우리 집은 다르죠.",
+          "fix": "line 9의 한 포기 차이(약 2,800원)를 결론 쪽에서 한 번 더 써서, 우리 집 포기 수에 곱해 보라고 하면 조건이 달라도 쓸 수 있다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 6,
+          "text": "제일 힘든 건 절이기보다 뒷정리랑 양념 버무리기인데요?",
+          "fix": "'가장 힘든 일로 많이 꼽는 게'처럼 단정을 누그러뜨린다."
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 13,
+          "text": "결국 절임배추 사라는 광고네요.",
+          "fix": "광고 표시(제목·화면 자막·설명란 첫 줄) 규칙을 지키고, 마지막 문장은 '절이기만 힘들다면 포기당 약 2,800원으로 그 일을 덜 수 있습니다'처럼 숫자로 판단을 맡긴다."
+         },
+         {
+          "level": "하",
+          "k": "K2",
+          "line": 3,
+          "text": "'이번 달'이 언제예요? 김장철엔 배춧값이 주마다 바뀌는데요.",
+          "fix": "'올해 11월 한국물가협회 조사'처럼 달을 박아 둔다."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "결론(양념은 하는데 절이기만 힘들면 포기당 약 2,800원 더 내고 절임배추)은 분명하고 4만 5천 원·2,800원 계산은 맞지만, 11줄 '38만 8천 원'이 앞 숫자로 계산이 안 되고 비교 대상이 모호하며, 5줄 시판 대비 두 배는 전통시장 재료값과 마트·온라인 시판 값을 견준 불공정 비교라는 반박이 나올 만하다.",
+        "pass": false,
+        "why": [
+         "중 2 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.3 (calc v1.2): 38만 원 넘게 · '두 배' 줄 뺌 → 손품 뺀 재료값 비교라고 밝힘 · 차액 먼저 · 11월 · '많이 꼽는' · 끝 = 한 포기 약 2,800원",
+      "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r3_rebuttal_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/kimjang-biyong-2026-11-27/shorts/kimjang-biyong-2026-11-27-shorts.txt",
     "pending": {
-     "n": 3,
-     "sha": "11d59266c1f4c480",
+     "n": 4,
+     "sha": "f4482859db026056",
      "reviewers": [
-      "K3-반론"
+      "K4-반론"
      ],
-     "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r3_rebuttal_prompt.md",
-     "answers": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/answers_kimjang-biyong-2026-11-27-shorts_script_rebuttal_3",
+     "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r4_rebuttal_prompt.md",
+     "answers": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/answers_kimjang-biyong-2026-11-27-shorts_script_rebuttal_4",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:52:41Z"
+     "at": "2026-11-27T08:55:18Z"
     }
    }
   }

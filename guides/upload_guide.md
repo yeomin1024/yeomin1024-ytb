@@ -1,6 +1,7 @@
 # 사연형 설명 영상 — 업로드 지시사항 (공통)
 
-버전: v1.23 — 2026-11-27 — 클라우드 업로드 키를 주제 접두사로 여러 채널 한 환경에: `<주제>_YOUTUBE_CLIENT_ID` · `<주제>_YOUTUBE_CLIENT_SECRET` · `<주제>_YOUTUBE_REFRESH_TOKEN` (`youtube_upload.py` v1.18 이 시작할 때 그 주제 것을 씀 — 없으면 공통 이름 · 채널 확인은 그대로) — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해 내가 넣어야될 변수명 다 알려줘". 목록 `python3 tools/topic_keys.py`.
+버전: v1.24 — 2026-11-27 — 13 · 13-2: **PC 업로드 화면 v1.11** — 클라이언트 ID·SECRET 공통(맨 위 `.env`, 화면 '공통 키') · 주제 탭엔 리프레시 토큰만 (새 인증도 토큰만 주제 `.env` 에) · **'올릴 대본' = 제작 판 '업로드 준비 완료' 체크 + 동기화한 편만** (`studio/state/gates.json` — 나머지 숨김·업로드 거부) · **재업로드 = 판 [재업로드] → 동기화 → 올릴 대본의 [재업로드] 줄** (요청 시각이 지금 업로드보다 나중일 때만 — 다시 올리면 저절로 빠짐 · '올린 영상' 줄의 단추는 뺌) — 사용자 지시 2026-11-27 "유튜브 업로드 프로그램을 YOUTUBE_CLIENT_ID, secret 공통으로 만들어 그리고 아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해".
+이전 v1.23 — 2026-11-27 — 클라우드 업로드 키를 주제 접두사로 여러 채널 한 환경에: `<주제>_YOUTUBE_CLIENT_ID` · `<주제>_YOUTUBE_CLIENT_SECRET` · `<주제>_YOUTUBE_REFRESH_TOKEN` (`youtube_upload.py` v1.18 이 시작할 때 그 주제 것을 씀 — 없으면 공통 이름 · 채널 확인은 그대로) — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해 내가 넣어야될 변수명 다 알려줘". 목록 `python3 tools/topic_keys.py`.
 이전 v1.22 — 2026-11-27 — 13-2: **다시 올리기** (PC 업로드 화면 v1.9 — '올린 영상'마다 [다시 올리기] · 옛 기록은 `youtube_history.json` 에 쌓음 · 제작 판 '다시 올리기 허용' 표시) · 판 6 업로드 = 최종 종합 확인 7칸 + 업로드 승인 (사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 아래 내용을 모두 만족하도록 수정해" · '업로드 기록 남기기 · 업로드 해도 재업로드 가능하도록') — `guides/studio_board.md`.
 이전 v1.21 — 2026-11-27 — 13: **처음 여는 탭 = 올릴 영상이 있는 주제**(video.json 있고 youtube.json 없음) · 탭 이름 옆 '(편수)' · 콘솔 `[READY] upload_now=… open_tab=…` · `[LIST] … next=` (사용자 지시 "…[LIST] topic=stock scripts=10 ready=0 waiting=3 uploaded=7 여기서 멈추는데 해결해봐" — 멈춘 게 아니라 늘 stock 탭부터 열려 '부족' 만 보였음 · `upload_web.py` v1.8).
 이전 v1.20 — 2026-11-27 — 13: 주제 탭에 `upload_topics.txt`(업로드만 하는 주제 — 예 crisis, 분석기 탭 `topics.txt` 에는 넣지 않음) · 사용자 지시 "꼭 수정 다하면 업로드 준비해".
@@ -246,7 +247,8 @@ powershell -ExecutionPolicy Bypass -File run_uploader.ps1 -UnregisterTask       
 
 ### 13-2. 다시 올리기 · 업로드 기록 (v1.22 — 2026-11-27)
 
-- PC 업로드 화면 '올린 영상' 줄의 **[다시 올리기]** → 확인 창 → `do_reupload`: main 의 `youtube.json` 을 `youtube_history.json` 맨 앞에 쌓고(`replacedAt`), 새로 올린 기록으로 `youtube.json` 을 바꿈 (둘 다 main 에). 옛 영상은 유튜브에 그대로 남음 — 스튜디오에서 지우거나 비공개로.
+- **v1.24 (2026-11-27)**: 재업로드는 제작 판 6 업로드의 **[재업로드]** 단추로 요청 → Claude 동기화(`studio/state/reupload.json` — 요청 시각 `reupload_at`) → PC 업로드 화면 '올릴 대본'에 **[재업로드]** 줄 → 누르면 아래 `do_reupload` (판 요청이 없으면 거부). '올린 영상' 줄의 단추는 뺐다.
+- PC 업로드 화면 **[재업로드]** → 확인 창 → `do_reupload`: main 의 `youtube.json` 을 `youtube_history.json` 맨 앞에 쌓고(`replacedAt`), 새로 올린 기록으로 `youtube.json` 을 바꿈 (둘 다 main 에). 옛 영상은 유튜브에 그대로 남음 — 스튜디오에서 지우거나 비공개로.
 - 제작 판 6 업로드에서 '다시 올리기 허용'을 체크하고 Claude 가 동기화하면(`studio/state/reupload.json`) 그 줄에 '제작 판에서 다시 올리기 허용' 표시. 올리기 전 판의 최종 확인 7칸 + 업로드 승인 (`guides/studio_board.md` 2번).
 - 업로드 기록 = `youtube.json`(지금) · `youtube_history.json`(다시 올리기 전) · `youtube_old_*.json`(옛 PC 기록) — 제작 판이 편마다 표로 보여 줌.
 

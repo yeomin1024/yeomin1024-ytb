@@ -1,6 +1,8 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.1 — 2026-11-27 — 단계마다 그 단계에서 기다리는 편만 (통과한 편은 접힌 '통과한 편' — 되돌릴 때만) · 주제 모두(studio.toml TOPICS) · 주제 켜기·끄기
+<!-- VERSION: v1.2 — 2026-11-27 — 업로드: 단계 이름 '업로드 준비 완료'(체크 + 동기화한 편만 PC 업로드 화면 '올릴 대본'에) · 올린 편 [재업로드] 단추
+     (db uploads reupload·reupload_at — 동기화 뒤 PC 올릴 목록에 [재업로드] 줄, 다시 올리면 저절로 끝남) — 사용자 지시 2026-11-27 "아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해".
+     (v1.1) — 2026-11-27 — 단계마다 그 단계에서 기다리는 편만 (통과한 편은 접힌 '통과한 편' — 되돌릴 때만) · 주제 모두(studio.toml TOPICS) · 주제 켜기·끄기
      (db topics — 끈 주제는 판에 안 보이고 동기화 뒤 studio/state/topics.json 으로 Claude·도구가 읽지 않음) · 주제 자료는 고를 때 받음 (common.json 편 요약으로 단계 수).
      사용자 지시 2026-11-27 "아니 각 단계에 맞는 것만 나오게 해야지 지금은 다 나오잖아 수정하고 주식 이런 주제는 왜 없어? 누락된거 추가하고 주제 비활성화도 할 수 있도록 해".
      (v1.0 — 2026-11-27 — 최초: 심리·위기 분석 판을 하나로 (tools/studio_board.py v1.0 이 BOARD 칸과 data/*.json 을 채움 — 손으로 고치지 않음).
@@ -549,7 +551,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
             <label class="gate ${d.full ? "on" : ""} ${scriptOk ? "" : "dis"}"><input type="checkbox" data-act="tts-full" data-ep="${e(ep.id)}" ${d.full ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>전부 다시</label>
             <span class="small">재생성 체크 ${redo.size}줄${redo.size ? ": " + [...redo].sort((a, b) => a - b).join(", ") : ""}</span>
             ${redo.size ? `<button class="btn ghost sm" data-act="redo-clear" data-ep="${e(ep.id)}" ${wr()}>재생성 체크 모두 풀기</button>` : ""}</div>
-          ${upl ? `<p class="small">이미 올린 편이라 음성을 다시 만들지 않습니다 (음성 도구 규칙). 고칠 일이 있으면 업로드 단계에서 '다시 올리기 허용' 뒤 Claude 에게 말해 주세요.</p>` : scriptOk ? "" : `<p class="small">대본 통과를 체크해야 음성을 체크할 수 있습니다.</p>`}
+          ${upl ? `<p class="small">이미 올린 편이라 음성을 다시 만들지 않습니다 (음성 도구 규칙). 고칠 일이 있으면 업로드 단계에서 [재업로드] 뒤 Claude 에게 말해 주세요.</p>` : scriptOk ? "" : `<p class="small">대본 통과를 체크해야 음성을 체크할 수 있습니다.</p>`}
           <p class="small">'음성 생성' = 음성이 없거나 옛 대본이면 만듦 · '전부 다시' = 있어도 처음부터 · 줄 '재생성' = 그 문장만 새로 만들어 저장소 음성에 끼움. 음성을 듣고 괜찮으면 → </p>
           <div class="row">${gateHtml(ep, "voice", "음성 통과")}</div></section>
         <div class="lines">${lines || `<div class="empty" style="padding:10px">대본 줄 없음${ep.kind === "cand" ? " — 판 후보는 Claude 가 대본 폴더를 만든 뒤 보임" : ""}</div>`}</div>
@@ -587,6 +589,16 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   }
 
   // ───────── 6 업로드
+  // v1.2 재업로드 — 요청 시각(reupload_at)이 지금 업로드보다 나중이면 '요청됨' (다시 올리면 저절로 끝남)
+  function reuploadHtml(ep, d) {
+    const cur = (ep.history || []).find(h => h.current) || {};
+    const asked = d.reupload && d.reupload_at && (!cur.uploadedAt || new Date(d.reupload_at) > new Date(cur.uploadedAt));
+    const inQueue = asked && ((((S.common || {}).state || {}).reupload || {}).items || []).some(x => x.topic === ep.topic && x.id === ep.id && x.at === d.reupload_at);
+    return `<div class="row">${asked
+      ? `<span class="chip ${inQueue ? "acc" : "warn"}">${inQueue ? "재업로드 요청됨 — PC '올릴 대본'에 있음" : "재업로드 요청됨 — Claude 동기화 전"}</span><button class="btn ghost sm" data-act="reup-off" data-ep="${e(ep.id)}" ${wr()}>재업로드 취소</button>`
+      : `<button class="btn sm" data-act="reup-on" data-ep="${e(ep.id)}" ${wr()}>재업로드</button>`}</div>
+      <p class="small">[재업로드] → Claude 에게 '제작 판 동기화해' → PC 업로드 화면 '올릴 대본'에 [재업로드] 줄 → 다시 올리면 저절로 끝남. 옛 기록은 youtube_history.json 에 남고, 옛 영상은 스튜디오에서 직접 지우지 않으면 그대로 있습니다.</p>`;
+  }
   function upDoc(ep) { return S.col.uploads.get(`${ep.topic}__${ep.id}`) || {}; }
   function viewUpload() {
     const v = VIEWS.find(x => x.key === "upload");
@@ -613,12 +625,11 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         ${U.script_stale ? `<p class="small item-bad">대본 문장 ${U.script_stale}개가 지금 자막에 없음 — 음성·영상이 옛 대본</p>` : ""}</div>
         <section class="box"><header><h2>최종 확인</h2><span class="chip ${allMan && (autoOk || done) ? "ok" : "warn"}">${allMan ? "모두 봄" : UPLOAD_CHECKS.filter(c => checks[c]).length + "/" + UPLOAD_CHECKS.length}</span></header>
           <div class="checks">${UPLOAD_CHECKS.map(c => `<label><input type="checkbox" data-act="up-check" data-ep="${e(ep.id)}" data-c="${e(c)}" ${checks[c] ? "checked" : ""} ${wr()}>${e(c)}</label>`).join("")}</div>
-          <div class="row">${gateHtml(ep, "upload", "업로드 승인")}${allMan ? "" : `<span class="small">최종 확인을 모두 체크한 뒤 승인하세요</span>`}</div>
-          <p class="small">승인 뒤 PC '유튜브_업로드.bat' → [미리보기] → [업로드] (7일 뒤 17:00 KST 예약).</p></section>
+          <div class="row">${gateHtml(ep, "upload", "업로드 준비 완료")}${allMan ? "" : `<span class="small">최종 확인을 모두 체크한 뒤 체크하세요</span>`}</div>
+          <p class="small">체크 → Claude 에게 '제작 판 동기화해' → PC '유튜브_업로드.bat' 의 '올릴 대본'에 이 편이 나타남 (체크 안 한 편은 숨김) → [미리보기] → [업로드] (7일 뒤 17:00 KST 예약).</p></section>
         <section class="box"><header><h2>업로드 기록</h2><span class="small">${(ep.history || []).length}건</span></header>
           ${(ep.history || []).length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>공개 예약</th><th>영상</th><th>제목</th><th>상태</th></tr></thead><tbody>${ep.history.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 16).replace("T", " "))}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td>${e(h.title)}</td><td>${h.current ? `<span class="chip ok">지금</span>` : `<span class="chip mute">옛 업로드 (${e(h.file)})</span>`}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">아직 안 올림</p>`}
-          ${done ? `<label class="gate ${d.reupload ? "on" : ""}"><input type="checkbox" data-act="reupload" data-ep="${e(ep.id)}" ${d.reupload ? "checked" : ""} ${wr()}>다시 올리기 허용</label>
-            <p class="small">체크 → Claude 동기화 → PC 업로드 화면의 '올린 영상'에 [다시 올리기]가 켜짐. 옛 기록은 youtube_history.json 에 남고, 옛 영상은 스튜디오에서 직접 지우지 않으면 그대로 있습니다.</p>${d.reupload ? pendChip(d) : ""}` : ""}</section>`;
+          ${done ? reuploadHtml(ep, d) : ""}</section>`;
     }
     const log = eps(S.topic).flatMap(x => (x.history || []).map(h => ({ ...h, ep: x.id }))).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
     return `<div class="cols"><div class="side"><section class="box"><header><h2>업로드</h2><span class="small">올릴 편 ${waiting.length} · 올린 편 ${done.length} (기록·다시 올리기)</span></header>${pk}</section>${body}
@@ -728,6 +739,11 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       else if (a === "sk-add") { const url = val("nsk-u"); if (!/^https:\/\//.test(url)) toast("https:// 로 시작하는 GitHub 주소를 넣어 주세요"); else { try { await S.db.collection("skills").add({ name: val("nsk-n"), url, memo: val("nsk-m"), createdAt: t, at: t }); ["nsk-n", "nsk-u", "nsk-m"].forEach(i => { document.getElementById(i).value = ""; }); toast("스킬을 등록했습니다"); } catch (_) { toast("저장하지 못했습니다"); } } }
       else if (a === "sk-save") { const url = val("sk-u-" + D.id); if (!/^https:\/\//.test(url)) toast("https:// 로 시작하는 주소를 넣어 주세요"); else if (await put("skills", D.id, { name: val("sk-n-" + D.id), url, memo: val("sk-m-" + D.id), at: t }, true)) { S.edit = null; toast("고쳤습니다"); } }
       else if (a === "sk-del") { if (await del("skills", D.id)) { S.confirm = null; toast("지웠습니다"); } }
+      else if (a === "reup-on" || a === "reup-off") {                       // v1.2 재업로드 단추
+        const ep = eps(S.topic).find(x => x.id === D.ep), d = upDoc(ep);
+        if (await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { reupload: a === "reup-on", reupload_at: a === "reup-on" ? t : (d.reupload_at || ""), at: t })))
+          toast(a === "reup-on" ? "재업로드를 요청했습니다 — Claude 동기화 뒤 PC '올릴 대본'에" : "재업로드 요청을 취소했습니다");
+      }
       else if (a === "redo-clear") { const ep = eps(S.topic).find(x => x.id === D.ep); const d = ttsDoc(ep) || {}; if (await put("tts", `${S.topic}__${D.ep}`, Object.assign(clean(d), { topic: S.topic, ep: D.ep, redo: [], at: t }))) toast("재생성 체크를 풀었습니다"); }
     } finally { S.busy = false; render(); }
   });
@@ -765,7 +781,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       return;
     }
     if (D.act === "up-check") { const d = upDoc(ep); const checks = Object.assign({}, d.checks || {}, { [D.c]: x.checked }); await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { checks, at: t })); render(); return; }
-    if (D.act === "reupload") { const d = upDoc(ep); if (await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { reupload: x.checked, at: t }))) toast(x.checked ? "다시 올리기를 허용했습니다 — Claude 동기화 뒤 PC 에서" : "다시 올리기 허용을 풀었습니다"); render(); return; }
+
   });
   document.addEventListener("input", ev => { if (ev.target.id === "refq") { S.refq = ev.target.value; clearTimeout(rq); rq = setTimeout(render, 250); } });
   document.addEventListener("toggle", ev => { const d = ev.target; if (d.tagName === "DETAILS" && d.dataset && d.dataset.k) { d.open ? S.open.add(d.dataset.k) : S.open.delete(d.dataset.k); } }, true);

@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-11-27 — 꺼 둔 주제(main studio/state/topics.json)는 탭에서 뺌 — 사용자 지시 2026-11-27 "주제 비활성화도 할 수 있도록 해 비활성화하면 아티팩트에서 보이지 않고 에이전트가 보지도 않도록". 함수 topics.
+# VERSION: v1.11 — 2026-11-27 — ① YOUTUBE_CLIENT_ID·SECRET = 모든 주제 공통 (맨 위 .env — 키 칸도 '공통'), 주제마다는 YOUTUBE_REFRESH_TOKEN 만 (<주제>/.env ·
+#          맨 위 .env 의 <주제>_YOUTUBE_REFRESH_TOKEN 도 읽음) ② '올릴 대본' = 제작 판에서 '업로드 준비 완료'를 체크하고 동기화한 편만 (main studio/state/gates.json —
+#          나머지는 숨김, 업로드도 거부) ③ 재업로드 = 제작 판 [재업로드] → 동기화 → 올릴 목록에 [재업로드] 줄 (요청 시각이 지금 업로드보다 나중일 때만 —
+#          다시 올린 뒤엔 저절로 빠짐 · 판 없이 아무 편이나 다시 올리던 '올린 영상' 줄 단추는 뺌) — 사용자 지시 2026-11-27 "유튜브 업로드 프로그램을 YOUTUBE_CLIENT_ID, secret 공통으로 만들어 그리고 아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해".
+#          함수 apply_env · board_state · overview · list_videos · do_upload · do_reupload · ensure_auth · /api/env · /api/auth · 화면 키 칸·목록.
+# (v1.10) — 2026-11-27 — 꺼 둔 주제(main studio/state/topics.json)는 탭에서 뺌 — 사용자 지시 2026-11-27 "주제 비활성화도 할 수 있도록 해 비활성화하면 아티팩트에서 보이지 않고 에이전트가 보지도 않도록". 함수 topics.
 # (v1.9) — 2026-11-27 — 다시 올리기: '올린 영상' 줄마다 [다시 올리기] (확인 창 뒤) — 옛 youtube.json 은 youtube_history.json 에 쌓고 새로 올림 (업로드 기록) ·
 #          제작 판에서 '다시 올리기 허용'을 체크한 편(main studio/state/reupload.json)은 줄에 표시. 사용자 지시 2026-11-27 "업로드 기록 남기기 · 업로드 해도
 #          재업로드 가능하도록". 함수 list_videos · do_reupload · /api/reupload · 화면 reupload().
@@ -74,7 +79,8 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.10"
+VERSION = "v1.11"
+COMMON_KEYS = ("YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET")    # v1.11 모든 주제 공통 (맨 위 .env)
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -119,15 +125,74 @@ def topic_env_path(topic: str) -> Path:
     return ROOT / topic / ".env"
 
 
+def topic_tag(topic: str) -> str:
+    return re.sub(r"[^0-9A-Za-z가-힣]+", "_", topic).strip("_").upper()
+
+
+def key_value(topic: str, k: str, te: dict | None = None, re_: dict | None = None) -> tuple[str, str]:
+    """(v1.11) → (값, 'root'|'topic'|'root-prefix'|''). 클라이언트 ID·SECRET = 맨 위 .env 먼저 (옛 주제 .env 는 공통이 없을 때만) ·
+    리프레시 토큰 = 주제 .env → 맨 위 .env 의 <주제>_YOUTUBE_REFRESH_TOKEN → 맨 위 .env YOUTUBE_REFRESH_TOKEN."""
+    te = read_env(topic_env_path(topic)) if te is None else te
+    re_ = read_env(ROOT / ".env") if re_ is None else re_
+    if k in COMMON_KEYS:
+        return (re_[k], "root") if re_.get(k) else ((te[k], "topic") if te.get(k) else ("", ""))
+    if te.get(k):
+        return te[k], "topic"
+    pk = f"{topic_tag(topic)}_{k}"
+    if re_.get(pk):
+        return re_[pk], "root-prefix"
+    return (re_[k], "root") if re_.get(k) else ("", "")
+
+
 def apply_env(topic: str) -> dict:
-    """주제의 키를 os.environ 에 (주제 .env 먼저, 없으면 공통 .env). → 어디서 온 값인지 {키: 'topic'|'root'|''}."""
+    """주제의 키를 os.environ 에 (v1.11 클라이언트 ID·SECRET 공통 · 리프레시 토큰은 주제). → 어디서 온 값인지 {키: 출처}."""
     te, re_ = read_env(topic_env_path(topic)), read_env(ROOT / ".env")
     src = {}
     for k in YT_KEYS:
-        v = te.get(k) or re_.get(k) or ""
+        v, where = key_value(topic, k, te, re_)
         os.environ[k] = v
-        src[k] = "topic" if te.get(k) else ("root" if re_.get(k) else "")
+        src[k] = where
+    if src.get("YOUTUBE_CLIENT_ID") == "topic":
+        log("KEYS", topic=topic, note="클라이언트 ID·SECRET 이 이 주제 .env 에만 있음 (옛 자리) — 화면 '공통 키'에 넣으면 모든 주제가 그 값을 씀")
     return src
+
+
+# (v1.11) 제작 판 동기화 결과 (main) — 업로드 준비 완료 · 재업로드 요청
+_BOARD = {"at": 0.0, "gates": None, "re": None}
+
+
+def board_state() -> tuple[dict, dict, bool]:
+    """→ (gates.json items, reupload.json items 목록, 읽음 여부). 45초 캐시."""
+    if _BOARD["gates"] is not None and time.time() - _BOARD["at"] < TREE_TTL:
+        return _BOARD["gates"], _BOARD["re"], True
+    try:
+        g = json.loads(gh_raw(MAIN, "studio/state/gates.json") or b"{}").get("items") or {}
+        r = json.loads(gh_raw(MAIN, "studio/state/reupload.json") or b"{}").get("items") or []
+    except (RuntimeError, ValueError, AttributeError) as e:
+        log("BOARD", level="warn", error=f"{type(e).__name__}: {str(e)[:120]}", note="제작 판 상태를 못 읽음 — 올릴 대본을 보이지 않음 (탭을 다시 눌러 다시 읽기)")
+        return {}, [], False
+    _BOARD.update(at=time.time(), gates=g, re=r)
+    return g, r, True
+
+
+def board_ready(topic: str, vid: str, gates: dict) -> bool:
+    return bool(((gates.get(f"{topic}/{vid}") or {}).get("upload") or {}).get("pass"))
+
+
+def _ts(s: str):
+    try:
+        return dt.datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def reupload_asked(topic: str, vid: str, uploaded_at: str, req: list) -> str:
+    """판 재업로드 요청이 지금 업로드보다 나중이면 요청 시각 (아니면 '')."""
+    x = next((x for x in req if x.get("topic") == topic and x.get("id") == vid), None)
+    if not x:
+        return ""
+    a, b = _ts(x.get("at", "")), _ts(uploaded_at)
+    return x.get("at", "") if a and (b is None or a > b) else ""
 
 
 # ─────────── GitHub (읽기는 토큰 없이도 — 공개 저장소) ───────────
@@ -247,7 +312,8 @@ def overview(names: list[str]) -> dict:
         vids = {m.group(1) + ("-shorts" if m.group(2) else "") for p in main_paths
                 for m in [re.match(rf"^{re.escape(t)}/source/([^/]+)/(shorts/)?upload\.md$", p)] if m}
         wait = [v for v in vids if src_rel(t, v) + "youtube.json" not in main_paths]
-        packed = sorted(v for v in wait if src_rel(t, v) + "video.json" in main_paths)
+        gates, _, _ = board_state()                                          # v1.11 판에서 준비 완료 체크한 편만 셈
+        packed = sorted(v for v in wait if src_rel(t, v) + "video.json" in main_paths and board_ready(t, v, gates))
         out[t] = {"waiting": len(wait), "packed": len(packed), "vids": packed}
     return out
 
@@ -293,10 +359,8 @@ def list_videos(topic: str) -> dict:
     vids = sorted({m.group(1) + ("-shorts" if m.group(2) else "") for p in main_paths                 # v1.6 쇼츠 시트도
                    for m in [re.match(rf"^{re.escape(topic)}/source/([^/]+)/(shorts/)?upload\.md$", p)] if m})
     ready, done = [], []
-    try:                                                                   # v1.9 제작 판 '다시 올리기 허용'
-        board_re = {x.get("id") for x in json.loads(gh_raw(MAIN, "studio/state/reupload.json") or b"{}").get("items", []) if x.get("topic") == topic}
-    except (RuntimeError, json.JSONDecodeError, AttributeError):
-        board_re = set()
+    gates, req, board_ok = board_state()                                   # v1.11 제작 판 — 준비 완료 · 재업로드 요청
+    hidden = 0
     for vid in vids:
         base = src_rel(topic, vid)
         if base + "youtube.json" in main_paths:
@@ -307,8 +371,29 @@ def list_videos(topic: str) -> dict:
             names = sorted(p.rsplit("/", 1)[-1] for p in main_paths if p.startswith(base + "thumbnails/") and up.THUMB_RE.match(p.rsplit("/", 1)[-1]))
             main_name = f"thumbnail_{yu.paired_thumbnail(topic, vid)}"                # v1.5 titles.md 가 이 PC 에 없으면 1
             thumbs = [{"name": n, "main": n.startswith(main_name + "."), "url": media_url(topic, vid, f"thumb/{n}") + "&dl=1"} for n in names]
+            asked = reupload_asked(topic, vid, st.get("uploadedAt", ""), req)
+            if asked:                                                     # v1.11 판 [재업로드] → 올릴 목록에 재업로드 줄
+                fetch_settings(topic, vid, main_paths)
+                r = up.check_one(topic, vid)
+                items = {k: list(v) for k, v in r["items"].items()}
+                items["재업로드 요청"] = [True, f"제작 판 [재업로드] {asked[:16].replace('T', ' ')} — 옛 영상 {st.get('videoId', '?')} 는 스튜디오에서 지우거나 비공개로"]
+                vj = yu.src_dir(topic, vid) / "video.json"
+                if vj.is_file():
+                    rec = json.loads(vj.read_text("utf-8"))
+                    missing = [x["name"] for x in rec["parts"] if f"{rec['dir']}/{x['name']}" not in upl_paths]
+                    items["영상"] = [not missing, f"{rec['size'] / 1e6:.0f}MB · 조각 {len(rec['parts'])}개" + (f" — uploads 브랜치에 없음: {', '.join(missing)}" if missing else " ✓ uploads 브랜치")]
+                else:
+                    items["영상"] = [False, "video.json 없음 — Claude 가 tools/upload_pack.py pack 으로 올려야 함"]
+                md = (yu.src_dir(topic, vid) / "upload.md").read_text("utf-8")
+                ready.append({"vid": vid, "items": items, "ready": all(v[0] for v in items.values()), "titles": r.get("titles", []),
+                              "experiments": len(experiments(md)), "downloaded": (ROOT / topic / "out" / vid / "final_1080p.mp4").is_file(),
+                              "reupload": True, "old_video": st.get("videoId", "")})
+                continue
             done.append({"vid": vid, "url": st.get("url", ""), "publishAt": st.get("publishAt", ""), "title": st.get("title", ""), "thumbs": thumbs,
-                         "board_reupload": vid in board_re, "history": (base + "youtube_history.json") in main_paths})
+                         "history": (base + "youtube_history.json") in main_paths})
+            continue
+        if not board_ready(topic, vid, gates):                            # v1.11 판에서 '업로드 준비 완료' 체크 전 — 숨김
+            hidden += 1
             continue
         fetch_settings(topic, vid, main_paths)
         r = up.check_one(topic, vid)
@@ -327,9 +412,9 @@ def list_videos(topic: str) -> dict:
         ready.append({"vid": vid, "items": items, "ready": all(v[0] for v in items.values()), "titles": r.get("titles", []),
                       "experiments": len(experiments(md)), "downloaded": local.is_file()})
     n_ready = sum(1 for v in ready if v["ready"])
-    log("LIST", topic=topic, scripts=len(vids), ready=n_ready, waiting=len(ready), uploaded=len(done),
+    log("LIST", topic=topic, scripts=len(vids), ready=n_ready, waiting=len(ready), uploaded=len(done), hidden_not_checked=hidden, board=board_ok,
         next=("화면에서 [미리보기] → [업로드]" if n_ready else "이 탭엔 지금 올릴 영상 없음 — 화면 위 탭 이름 옆 (숫자) 가 있는 탭을 누르세요"))
-    return {"videos": ready, "uploaded": done}
+    return {"videos": ready, "uploaded": done, "hidden": hidden, "board": board_ok}
 
 
 # ─────────── 작업 (한 번에 하나) ───────────
@@ -456,12 +541,21 @@ def ensure_auth(topic: str, allow: str = "") -> tuple[str, str]:
                 refresh, missing = ya.issue(os.environ["YOUTUBE_CLIENT_ID"], os.environ["YOUTUBE_CLIENT_SECRET"], say=print)
             except ya.AuthError as ae:
                 raise SystemExit(f"[AUTH] ❌ {ae}") from None
-            ya.save_env(topic_env_path(topic), {"YOUTUBE_CLIENT_ID": os.environ["YOUTUBE_CLIENT_ID"],
-                                                "YOUTUBE_CLIENT_SECRET": os.environ["YOUTUBE_CLIENT_SECRET"], "YOUTUBE_REFRESH_TOKEN": refresh})
+            save_issued(topic, refresh)                                   # v1.11 토큰은 주제 · 클라이언트는 공통
             os.environ["YOUTUBE_REFRESH_TOKEN"] = refresh
             log("AUTH", status="saved", file=f"{topic}/.env", missing_scopes=",".join(missing) or "-",
                 note="새 토큰 저장 — OAuth 동의 화면이 '테스트'면 7일 뒤 또 만료되니 '프로덕션'으로")
     raise SystemExit("[AUTH] ❌ 인증 실패")
+
+
+def save_issued(topic: str, refresh: str) -> None:
+    """(v1.11) 새 리프레시 토큰은 이 주제 .env 에만 · 클라이언트 ID·SECRET 은 맨 위 .env 에 (없을 때만 — 공통 값을 덮지 않음)."""
+    (ROOT / topic).mkdir(exist_ok=True)
+    ya.save_env(topic_env_path(topic), {"YOUTUBE_REFRESH_TOKEN": refresh})
+    root = read_env(ROOT / ".env")
+    add = {k: os.environ[k] for k in COMMON_KEYS if os.environ.get(k) and not root.get(k)}
+    if add:
+        ya.save_env(ROOT / ".env", add)
 
 
 def publish_time(days: int, hhmm: str) -> dt.datetime:
@@ -609,7 +703,9 @@ def do_upload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", remem
     lst = list_videos(topic)
     v = next((x for x in lst["videos"] if x["vid"] == vid), None)
     if not v:
-        raise SystemExit(f"[UPLOAD] ❌ {vid}: 올릴 목록에 없음 (이미 올렸거나 upload.md 없음)")
+        raise SystemExit(f"[UPLOAD] ❌ {vid}: 올릴 목록에 없음 (이미 올렸거나 · 제작 판 '업로드 준비 완료' 체크·동기화 전이거나 · upload.md 없음)")
+    if v.get("reupload"):
+        raise SystemExit(f"[UPLOAD] ❌ {vid}: 이미 올린 편 — [재업로드] 단추로")
     bad = [f"{k}: {note}" for k, (ok, note) in v["items"].items() if not ok]
     if bad:
         raise SystemExit("[UPLOAD] ❌ 자료가 덜 됨 — " + " · ".join(bad))
@@ -648,6 +744,9 @@ def do_reupload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", rem
     if base + "youtube.json" not in main_paths:
         raise SystemExit(f"[REUPLOAD] ❌ {vid}: main 에 올린 기록(youtube.json)이 없음 — 보통 [업로드]로")
     old = json.loads(gh_raw(MAIN, base + "youtube.json") or b"{}")
+    _, req, _ = board_state()                                              # v1.11 판 [재업로드] 요청이 있어야 함
+    if not reupload_asked(topic, vid, old.get("uploadedAt", ""), req):
+        raise SystemExit(f"[REUPLOAD] ❌ {vid}: 제작 판에서 [재업로드]를 누르고 Claude 가 동기화한 뒤 다시 (지금 업로드보다 나중 요청이 없음)")
     fetch_settings(topic, vid, main_paths)
     r = up.check_one(topic, vid)
     bad = [f"{k}: {note}" for k, (ok, note) in r["items"].items() if not ok and k != "올린 적 없음"]
@@ -737,9 +836,13 @@ label.ck{display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0
 <header><h1>유튜브 업로드 (이 PC 에서만 열림)</h1><p>자료가 다 된 대본만 [미리보기] → [업로드] — 비공개로 올리고 정한 날 자동 공개 · 키는 이 PC 의 .env 에만 저장 · 연구·교육용 영상 (투자 권유 아님)</p></header>
 <nav class="tabs" id="tabs"></nav>
 <main>
-<section class="card"><h2>키 설정 — <span id="tname"></span> <span class="muted" id="chan"></span></h2>
-<div id="keys"></div>
+<section class="card"><h2>키 설정</h2>
+<h3 style="margin:6px 0">공통 키 — 모든 주제</h3>
+<div class="row"><span>YOUTUBE_CLIENT_ID <span class="muted">(모든 주제 공통)</span></span><input id="k_YOUTUBE_CLIENT_ID" type="password" placeholder="" autocomplete="off"><span class="muted" id="s_YOUTUBE_CLIENT_ID"></span></div>
+<div class="row"><span>YOUTUBE_CLIENT_SECRET <span class="muted">(모든 주제 공통)</span></span><input id="k_YOUTUBE_CLIENT_SECRET" type="password" placeholder="" autocomplete="off"><span class="muted" id="s_YOUTUBE_CLIENT_SECRET"></span></div>
 <div class="row"><span>GITHUB_TOKEN <span class="muted">(모든 주제 공통 · youtube.json 기록)</span></span><input id="k_GITHUB_TOKEN" type="password" placeholder="" autocomplete="off"><span class="muted" id="s_GITHUB_TOKEN"></span></div>
+<h3 style="margin:10px 0 6px">이 주제 — <span id="tname"></span> <span class="muted" id="chan"></span></h3>
+<div id="keys"></div>
 <p style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn" onclick="saveKeys()">저장</button><button class="btn sec" onclick="checkAuth()">키 확인</button><button class="btn sec" onclick="reauth()">다시 인증 (계정·채널 다시 고르기)</button></p>
 <p class="muted">토큰이 만료되면 [업로드]·[키 확인] 때 브라우저 인증 창이 저절로 열립니다 — 이 주제 채널의 구글 계정(채널)을 고르고 체크 칸을 모두 허용하면 새 토큰이 이 주제 .env 에 저장되고 그대로 이어 갑니다. 키의 채널이 기록과 다르면 올리기 전에 물어봅니다. 7일마다 만료되면 Google Cloud 콘솔 → OAuth 동의 화면 → 게시 상태를 '프로덕션'으로.</p>
 </section>
@@ -751,15 +854,15 @@ label.ck{display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0
 <div class="ov" id="pvov" onclick="if(event.target===this)closePv()"><div class="dlg" id="pv"></div></div>
 <div class="ov" id="chov"><div class="dlg sm" id="ch"></div></div>
 <script>
-const TOKEN="__TOKEN__";let TOPIC="",PENDING=null,HANDLED=0,PVVID="",VIDS={};const KEYS=["YOUTUBE_CLIENT_ID","YOUTUBE_CLIENT_SECRET","YOUTUBE_REFRESH_TOKEN"];
+const TOKEN="__TOKEN__";let TOPIC="",PENDING=null,HANDLED=0,PVVID="",VIDS={};const KEYS=["YOUTUBE_REFRESH_TOKEN"],COMMON=["YOUTUBE_CLIENT_ID","YOUTUBE_CLIENT_SECRET","GITHUB_TOKEN"];
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 async function api(p,body){const r=await fetch(p,body?{method:"POST",headers:{"Content-Type":"application/json","X-Upload-Token":TOKEN},body:JSON.stringify(body)}:{headers:{"X-Upload-Token":TOKEN}});return r.json()}
 async function boot(){const s=await api("/api/topics");const t=document.getElementById("tabs");t.innerHTML="";const C=s.counts||{};s.topics.forEach(n=>{const b=document.createElement("button");const k=(C[n]||{}).packed||0;b.textContent=k?`${n} (${k})`:n;if(k)b.title=`올릴 수 있는 영상 ${k}편`;b.onclick=()=>pick(n);b.id="tab_"+n;t.appendChild(b)});pick(s.first||(s.topics.includes("stock")?"stock":s.topics[0]));setInterval(pollJob,1500);upd()}
 async function pick(n){TOPIC=n;document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.id==="tab_"+n));document.getElementById("tname").textContent=n;await loadKeys();loadVideos()}
 async function loadKeys(){const s=await api("/api/env?topic="+encodeURIComponent(TOPIC));document.getElementById("chan").textContent=s.channel&&s.channel.channel_id?`(채널 기록 ID: ${s.channel.channel_id})`:"(youtube_channel.json 없음 — 채널 확인 안 함)";
  document.getElementById("keys").innerHTML=KEYS.map(k=>`<div class="row"><span>${k}</span><input id="k_${k}" type="password" autocomplete="off" placeholder="${k==="YOUTUBE_REFRESH_TOKEN"?"비워 두면 [다시 인증]으로 저절로":""}"><span class="muted">${esc(s.status[k]||"없음")}</span></div>`).join("");
- document.getElementById("s_GITHUB_TOKEN").textContent=s.status.GITHUB_TOKEN||"없음"}
-async function saveKeys(){const v={};KEYS.concat(["GITHUB_TOKEN"]).forEach(k=>{const x=document.getElementById("k_"+k).value.trim();if(x)v[k]=x});const r=await api("/api/env",{topic:TOPIC,values:v});alert(r.ok?"저장했습니다 ("+r.saved.join(", ")+")":"실패: "+r.error);loadKeys()}
+ COMMON.forEach(k=>{document.getElementById("s_"+k).textContent=s.status[k]||"없음"})}
+async function saveKeys(){const v={};KEYS.concat(COMMON).forEach(k=>{const x=document.getElementById("k_"+k).value.trim();if(x)v[k]=x});const r=await api("/api/env",{topic:TOPIC,values:v});alert(r.ok?"저장했습니다 ("+r.saved.join(", ")+")":"실패: "+r.error);loadKeys()}
 async function checkAuth(){PENDING=null;const r=await api("/api/auth",{topic:TOPIC,mode:"check"});if(!r.ok)alert(r.error)}
 async function reauth(){const r=await api("/api/auth",{topic:TOPIC,mode:"new"});if(!r.ok)alert(r.error)}
 function sched(){const d=+document.getElementById("days").value||7,h=document.getElementById("hhmm").value||"17:00";const t=new Date(Date.now()+d*864e5);const p=n=>String(n).padStart(2,"0");
@@ -769,14 +872,16 @@ document.addEventListener("input",e=>{if(e.target.id==="days"||e.target.id==="hh
 async function loadVideos(){const box=document.getElementById("videos");box.innerHTML="GitHub 에서 자료를 받는 중…";const s=await api("/api/videos?topic="+encodeURIComponent(TOPIC));
  if(s.error){box.innerHTML=`<span class="bad">${esc(s.error)}</span>`;return}
  VIDS={};let h=`<table><tr><th>대본</th><th>올라갈 제목 (본안)</th><th>자료</th><th></th></tr>`;
- if(!s.videos.length)h+=`<tr><td colspan="4" class="muted">올릴 대본이 없습니다 (upload.md 가 있고 youtube.json 이 없는 대본)</td></tr>`;
+ if(!s.videos.length)h+=`<tr><td colspan="4" class="muted">올릴 대본이 없습니다 — 제작 판에서 '업로드 준비 완료'(또는 [재업로드])를 체크하고 Claude 에게 '제작 판 동기화해' 한 대본만 여기에 나옵니다</td></tr>`;
  s.videos.forEach(v=>{VIDS[v.vid]=v;const t=v.titles[0]?esc(v.titles[0].title):'<span class="bad">(제목 없음)</span>';
   const ex=v.experiments?`<br><span class="muted">실험안 ${v.experiments}개 — 공개 뒤 스튜디오 '테스트 및 비교'</span>`:"";
   const c=Object.entries(v.items).map(([k,[ok,n]])=>`<span class="chip ${ok?"":"x"}" title="${esc(n)}">${ok?"✓":"✗"} ${esc(k)}</span>`).join("");
-  h+=`<tr><td><b>${esc(v.vid)}</b><br><span class="${v.ready?"ok":"bad"}">${v.ready?"준비됨":"부족"}</span>${v.downloaded?'<br><span class="muted">영상 받아 둠</span>':""}</td><td>${t}${ex}</td><td><div class="chips">${c}</div></td>
-  <td style="white-space:nowrap"><button class="btn sec" onclick="openPv('${esc(v.vid)}')">미리보기</button> <button class="btn sec" onclick="test('${esc(v.vid)}')">시험</button> <button class="btn go" ${v.ready?"":"disabled"} onclick="upload('${esc(v.vid)}')">업로드</button></td></tr>`});
+  h+=`<tr><td><b>${esc(v.vid)}</b><br><span class="${v.ready?"ok":"bad"}">${v.ready?"준비됨":"부족"}</span>${v.reupload?'<br><b>재업로드</b>':""}${v.downloaded?'<br><span class="muted">영상 받아 둠</span>':""}</td><td>${t}${ex}</td><td><div class="chips">${c}</div></td>
+  <td style="white-space:nowrap"><button class="btn sec" onclick="openPv('${esc(v.vid)}')">미리보기</button> <button class="btn sec" onclick="test('${esc(v.vid)}')">시험</button> ${v.reupload?`<button class="btn go" ${v.ready?"":"disabled"} onclick="reupload('${esc(v.vid)}')">재업로드</button>`:`<button class="btn go" ${v.ready?"":"disabled"} onclick="upload('${esc(v.vid)}')">업로드</button>`}</td></tr>`});
  h+=`</table>`;const kst=iso=>{if(!iso)return"";const d=new Date(iso);if(isNaN(d))return iso;const k=new Date(d.getTime()+(d.getTimezoneOffset()+540)*6e4),p=n=>String(n).padStart(2,"0");return `${k.getFullYear()}-${p(k.getMonth()+1)}-${p(k.getDate())} ${p(k.getHours())}:${p(k.getMinutes())} 공개`};
- if(s.uploaded.length)h+=`<h3>올린 영상</h3>`+s.uploaded.map(u=>{const ex=(u.thumbs||[]).filter(t=>!t.main);return `<p class="muted upl">${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}${ex.length?` · 실험안 썸네일 ${ex.map(t=>`<a class="dlx" href="${esc(t.url)}" download>${esc(t.name)}</a>`).join(" ")} <button class="btn sec" onclick="dlAll(this.closest('p'))">${ex.length}장 모두 받기</button>`:""} ${u.board_reupload?`<b>제작 판에서 다시 올리기 허용</b>`:""} <button class="btn sec" onclick="reupload('${esc(u.vid)}')">다시 올리기</button>${u.history?" · 기록 있음":""}</p>`}).join("");box.innerHTML=h}
+ if(s.uploaded.length)h+=`<h3>올린 영상</h3>`+s.uploaded.map(u=>{const ex=(u.thumbs||[]).filter(t=>!t.main);return `<p class="muted upl">${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}${ex.length?` · 실험안 썸네일 ${ex.map(t=>`<a class="dlx" href="${esc(t.url)}" download>${esc(t.name)}</a>`).join(" ")} <button class="btn sec" onclick="dlAll(this.closest('p'))">${ex.length}장 모두 받기</button>`:""} ${u.history?" · 다시 올린 기록 있음":""} <span class="muted">(재업로드 = 제작 판 [재업로드] → 동기화 뒤 위 목록에)</span></p>`}).join("");
+ if(s.hidden)h=`<p class="muted">제작 판에서 '업로드 준비 완료'를 체크하지 않은 대본 ${s.hidden}편은 숨김 — 판에서 체크 → Claude 에게 '제작 판 동기화해'</p>`+h;
+ if(s.board===false)h=`<p class="bad">제작 판 상태(GitHub studio/state)를 못 읽어 올릴 대본을 보이지 않습니다 — 탭을 다시 눌러 보세요</p>`+h;box.innerHTML=h}
 async function reupload(vid,allow,remember){const s=sched();
  if(!allow&&!confirm(`${vid} 은(는) 이미 올린 영상입니다.\n다시 올리면 옛 기록은 youtube_history.json 에 남기고, 새 영상을 ${s.label} (한국 시간) 공개로 예약합니다.\n옛 영상은 유튜브에 그대로 남으니 스튜디오에서 직접 지우거나 비공개로 바꾸세요.\n다시 올릴까요?`))return;
  PENDING={vid,d:s.d,h:s.h,re:true};const r=await api("/api/reupload",{topic:TOPIC,vid,days:s.d,hhmm:s.h,allow_channel:allow||"",remember:!!remember});if(!r.ok)alert(r.error)}
@@ -957,7 +1062,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
             elif u.path == "/api/env":
                 t = q["topic"]
                 te, re_ = read_env(topic_env_path(t)), read_env(ROOT / ".env")
-                st = {k: (mask(te[k]) + " (이 주제)") if te.get(k) else ((mask(re_[k]) + " (공통 .env)") if re_.get(k) else "없음") for k in YT_KEYS}
+                where = {"root": " (공통 .env)", "topic": " (이 주제 .env)", "root-prefix": f" (공통 .env {topic_tag(t)}_…)"}
+                st = {}
+                for k in YT_KEYS:                                            # v1.11 클라이언트 = 공통 · 토큰 = 주제
+                    v, w = key_value(t, k, te, re_)
+                    st[k] = (mask(v) + where.get(w, "") + (" — 옛 자리, 공통 칸에 넣으면 그 값" if k in COMMON_KEYS and w == "topic" else "")) if v else "없음"
                 st["GITHUB_TOKEN"] = mask(te.get("GITHUB_TOKEN") or re_.get("GITHUB_TOKEN") or "") or "없음"
                 self._json({"status": st, "channel": channel_of(t)})
             elif u.path == "/api/videos":
@@ -1000,7 +1109,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             vals = {k: str(v).strip() for k, v in (d.get("values") or {}).items() if k in YT_KEYS + ("GITHUB_TOKEN",) and str(v).strip()}
             if any(re.search(r"\s", v) for v in vals.values()):
                 return self._json({"ok": False, "error": "값에 빈칸이 있음"})
-            gh = {k: vals.pop(k) for k in list(vals) if k == "GITHUB_TOKEN"}
+            gh = {k: vals.pop(k) for k in list(vals) if k in ("GITHUB_TOKEN",) + COMMON_KEYS}   # v1.11 클라이언트 ID·SECRET 도 공통 .env
             if vals:
                 (ROOT / t).mkdir(exist_ok=True)
                 ya.save_env(topic_env_path(t), vals)
@@ -1016,7 +1125,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
                         raise SystemExit("[AUTH] ❌ YOUTUBE_CLIENT_ID · SECRET 을 먼저 넣고 저장")
                     log("AUTH", status="new", topic=topic, action="브라우저 인증 — 계정 고르기 창에서 이 주제 채널(브랜드 계정)을 고름")
                     refresh, missing = ya.issue(os.environ["YOUTUBE_CLIENT_ID"], os.environ["YOUTUBE_CLIENT_SECRET"], say=print)
-                    ya.save_env(topic_env_path(topic), {"YOUTUBE_CLIENT_ID": os.environ["YOUTUBE_CLIENT_ID"], "YOUTUBE_CLIENT_SECRET": os.environ["YOUTUBE_CLIENT_SECRET"], "YOUTUBE_REFRESH_TOKEN": refresh})
+                    save_issued(topic, refresh)                           # v1.11 토큰은 주제 · 클라이언트는 공통
                     os.environ["YOUTUBE_REFRESH_TOKEN"] = refresh
                     log("AUTH", status="saved", file=f"{topic}/.env", missing_scopes=",".join(missing) or "-")
                     return {"ok": True, "channel": ensure_auth(topic)[1]}

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-27 — 주제 모두(studio.toml TOPICS 10개 — 사용자 지시 "주식 이런 주제는 왜 없어? 누락된거 추가하고") · 주제 켜기·끄기
+# VERSION: v1.2 — 2026-11-27 — 재업로드 요청 시각 = db uploads reupload_at ([재업로드] 누른 때 — 다른 체크를 바꿔도 다시 요청되지 않게) · 사용자 지시 2026-11-27 "아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해". 함수 sync.
+# (v1.1) — 2026-11-27 — 주제 모두(studio.toml TOPICS 10개 — 사용자 지시 "주식 이런 주제는 왜 없어? 누락된거 추가하고") · 주제 켜기·끄기
 #          (판 db topics → studio/state/topics.json · 꺼 둔 주제는 판 자료를 만들지 않음 · 동기화 결과에서 뺌 — "비활성화하면 아티팩트에서 보이지 않고 에이전트가
 #          보지도 않도록") · 그림은 파일 대신 자료 안 data URI (아티팩트 한 번에 255개 파일 한도) · 주제 칸 자동 찾기(analysis.json·thumb_codes·related) ·
 #          common.json 에 주제별 편 요약(단계 계산용 — 주제 자료는 고를 때 받음).
@@ -9,6 +10,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-27 | 재업로드 요청 시각 reupload_at | sync |
 # | v1.1 | 2026-11-27 | 주제 10개 · 주제 켜기·끄기(topics.json) · data URI 그림 · 칸 자동 찾기 · 편 요약 | small_jpeg · refs_analysis · topic_cfg · build · sync · effective_gates · selftest |
 # | v1.0 | 2026-11-27 | 최초 — build(저장소 → 판 자료·작은 썸네일·페이지) · sync(판 db 내려받은 것 → studio/state/*.json·rules.json) · selftest | 모두 |
 """제작 판 자료 만들기 · 판 입력을 저장소에 반영하기.
@@ -51,7 +53,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -753,7 +755,7 @@ def sync(dump: Path) -> int:
     (STATE / "tts_queue.json").write_text(json.dumps({"updated": now, "about": "제작 판에서 '음성 생성'·줄 '재생성'을 체크한 것 — tools/tts_narration.py all 이 판 주제(topics)는 이것만 만듦 · 판 밖 주제는 예전처럼 (--all-pending 이면 모두 예전처럼)",
                                                        "topics": [t for t in cfg["TOPICS"] if t not in off], "items": q}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     # 다시 올리기 · 스킬
-    re_up = [{"topic": d["id"].split("__")[0], "id": d["id"].split("__", 1)[1], "at": d.get("at", ""), "note": d.get("note", "")}
+    re_up = [{"topic": d["id"].split("__")[0], "id": d["id"].split("__", 1)[1], "at": d.get("reupload_at") or d.get("at", ""), "note": d.get("note", "")}   # v1.2 [재업로드] 누른 때
              for d in cols.get("uploads", []) if d.get("reupload") and "__" in d.get("id", "") and d["id"].split("__")[0] not in off]
     (STATE / "reupload.json").write_text(json.dumps({"updated": now, "items": re_up}, ensure_ascii=False, indent=1) + "\n", "utf-8")
     skills = [{"name": d.get("name", ""), "url": d.get("url", ""), "memo": d.get("memo", "")} for d in cols.get("skills", []) if d.get("url")]

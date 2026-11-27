@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-27 — 반론 2회차(K2) 반영: ① max_if_off = 그 시간 동안 보일러를 아예 꺼도 아끼는 난방 가스비 (55·26도 같은 뜻 없는 숫자 대신 — 히터 4시간 2만 원) · ② 탄소매트 4도 낮춤일 때 한 달·한 겨울(넉 달) 남는 돈 · ③ 400 넘을 때 기본요금 오름 (부가세 넣음) · ④ winter_months = 4. 다른 값 그대로.
+# VERSION: v1.5 — 2026-11-27 — 반론 3회차(K3): 매트 값 예(5만 원) ÷ 한 겨울 남는 돈 = 본전까지 겨울 수 · 어림 700원 × 12 (약 8,400원). 다른 값 그대로.
+# (v1.4 — 2026-11-27 — 반론 2회차(K2) 반영: ① max_if_off = 그 시간 동안 보일러를 아예 꺼도 아끼는 난방 가스비 (55·26도 같은 뜻 없는 숫자 대신 — 히터 4시간 2만 원) · ② 탄소매트 4도 낮춤일 때 한 달·한 겨울(넉 달) 남는 돈 · ③ 400 넘을 때 기본요금 오름 (부가세 넣음) · ④ winter_months = 4. 다른 값 그대로.
 # (v1.3 — 2026-11-27 — 반론 1회차(K1) 반영 — 계산 틀을 바꿈:
 #   ① 매트·히터는 '하루 종일 2도 낮춤'(가정) 대신 **쓰는 시간 동안 보일러를 몇 도 낮춰야 본전인가**(본전 도수) — 쓰는 시간과 아끼는 시간을 맞춤 (상 K3 줄 41)
 #   ② 7% 는 가스비 전체가 아니라 **난방에 쓴 가스비**에만 (온수·요리·기본요금 뺌 — 중 K4 줄 88) → 예시 집 = '난방에 한 달 12만 원'
@@ -17,7 +18,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 LOG = logging.getLogger("heating_calc")
 
 SOURCES = {
@@ -48,6 +49,7 @@ ASSUME = {
     "rule_watt": 100,               # 어림: 100와트를 하루 1시간, 한 달
     "mat_example_deg": 4,           # v1.4: 탄소매트로 잠잘 때 4도를 낮춘다면 (예)
     "winter_months": 4,             # v1.4: 한 겨울 = 넉 달 (12~3월 — 예)
+    "mat_price_example": 50000,     # v1.5: 탄소매트 값 예 (실제 값은 링크에서 — 대본 '5만 원짜리라면')
 }
 
 
@@ -122,6 +124,9 @@ def compute(a=None):
     mat_net = r["carbon"]["per_degree_hours"] * a["mat_example_deg"] - r["carbon"]["elec_extra"]
     out["carbon_example"] = {"deg": a["mat_example_deg"], "net_month": mat_net, "say_net_month": say(mat_net),
                              "net_winter": mat_net * a["winter_months"], "say_net_winter": say(mat_net * a["winter_months"])}
+    out["carbon_example"]["price"] = a["mat_price_example"]
+    out["carbon_example"]["payback_winters"] = round(a["mat_price_example"] / (mat_net * a["winter_months"]), 1)
+    out["rule_x12"] = {"won": 700 * 12, "say": say(700 * 12, approx=True)}   # 대본 어림 '약 700원'이 열두 번 (150와트 × 8시간)
     out["base_jump_3"] = round((t[2][1] - t[1][1]) * vat)
     out["say_base_jump_3"] = say((t[2][1] - t[1][1]) * vat)
     out["ratios"] = {"heater_vs_carbon_watt": round(r["heater"]["watt"] / r["carbon"]["watt"], 1),
@@ -152,6 +157,7 @@ def selftest():
     assert r["heater"]["elec_extra"] > r["heater_half"]["elec_extra"] > r["heater"]["max_if_off"], "히터는 반만 켜져도 보일러를 끈 것보다 비쌈"
     assert o["carbon_example"]["net_month"] == 2702 and o["carbon_example"]["say_net_month"] == "약 2,700원"
     assert o["base_jump_3"] == 6270
+    assert o["carbon_example"]["payback_winters"] == 4.6 and o["rule_x12"]["say"] == "약 8,400원", (o["carbon_example"], o["rule_x12"])
     # 검산: 히터 전기요금 = 2단계 100kWh + 3단계 140kWh + 기본요금 오름 (모두 부가세)
     assert round(100 * 214.6 * 1.1 + 140 * 307.3 * 1.1 + 6270) == 77200
     print("[SELFTEST] ok — 본전 도수 탄소매트", r["carbon"]["breakeven_deg"], "· 온수매트", r["water"]["breakeven_deg"], "· 히터", r["heater"]["breakeven_deg"],

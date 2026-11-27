@@ -120,7 +120,13 @@
   "net_month": 2702,
   "say_net_month": "약 2,700원",
   "net_winter": 10808,
-  "say_net_winter": "약 1만 800원"
+  "say_net_winter": "약 1만 800원",
+  "price": 50000,
+  "payback_winters": 4.6
+ },
+ "rule_x12": {
+  "won": 8400,
+  "say": "약 8,400원"
  },
  "base_jump_3": 6270,
  "say_base_jump_3": "약 6,300원",
@@ -129,7 +135,7 @@
   "water_vs_carbon_breakeven": 2.0,
   "heat_vs_us_humid_elec": 10.0
  },
- "version": "v1.4",
+ "version": "v1.5",
  "sources": {
   "elec_tiers": {
    "value": "[(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)]",
@@ -156,6 +162,7 @@
   "draft_price_example": 10000,
   "rule_watt": 100,
   "mat_example_deg": 4,
-  "winter_months": 4
+  "winter_months": 4,
+  "mat_price_example": 50000
  }
 }

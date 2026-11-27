@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-27 — 최초: 주제 접두사 환경 변수 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해 내가 넣어야될 변수명 다 알려줘").
+# VERSION: v1.1 — 2026-11-27 — 새 주제 두 개의 키 이름: 최신 트렌드 = trend (TREND_…) · 자기계발 = selfdev (SELFDEV_…) — 사용자 지시 2026-11-27
+#          "최신 트렌드, 자기계발 주제도 만들거니까 변수명 만들어봐" (폴더는 주제를 만들 때 이 이름으로). 함수 TOPICS·UPLOADS.
+# (v1.0) — 2026-11-27 — 최초: 주제 접두사 환경 변수 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해 내가 넣어야될 변수명 다 알려줘").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.1 | 2026-11-27 | 새 주제 trend · selfdev | TOPICS · UPLOADS |
 # | v1.0 | 2026-11-27 | 최초 — tag · get · apply · names · 표 출력 | 모두 |
 """주제별 키 — 환경 변수 이름 앞에 주제 접두사 (예: PSYCHOLOGY_YOUTUBE_API_KEY).
 
@@ -21,8 +24,8 @@ import re
 import sys
 
 NAMES = ("YOUTUBE_API_KEY", "YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN", "GITHUB_TOKEN")
-TOPICS = ("psychology", "crisis", "economic", "stock", "history", "shopping", "music", "test", "new", "math")
-UPLOADS = {"psychology", "crisis", "economic", "stock", "shopping", "music", "test"}   # 채널에 올리는 주제 (업로드 키 3개)
+TOPICS = ("psychology", "crisis", "economic", "stock", "history", "shopping", "music", "test", "new", "math", "trend", "selfdev")
+UPLOADS = {"psychology", "crisis", "economic", "stock", "shopping", "music", "test", "trend", "selfdev"}   # 채널에 올리는 주제 (업로드 키 3개)
 
 
 def tag(topic: str) -> str:

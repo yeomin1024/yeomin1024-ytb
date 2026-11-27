@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-11-27 — 반론 4회차(K4): 반만 켠 히터 전기요금을 '4시간 보일러를 꺼서' 메우려면 난방비가 한 달 얼마인 집이어야 하나 (heater_half_breakeven_heating_gas) · 어림 200와트 × 5시간 = 700원 열 번 (rule_x10). 다른 값 그대로.
+# VERSION: v1.7 — 2026-11-27 — 쇼츠 대본용 ratios.heater_vs_carbon_elec (히터 ÷ 탄소매트 한 달 전기요금 = 9.1 — '아홉 배 넘게'). 다른 값 그대로.
+# (v1.6 — 2026-11-27 — 반론 4회차(K4): 반만 켠 히터 전기요금을 '4시간 보일러를 꺼서' 메우려면 난방비가 한 달 얼마인 집이어야 하나 (heater_half_breakeven_heating_gas) · 어림 200와트 × 5시간 = 700원 열 번 (rule_x10). 다른 값 그대로.
 # (v1.5 — 2026-11-27 — 반론 3회차(K3): 매트 값 예(5만 원) ÷ 한 겨울 남는 돈 = 본전까지 겨울 수 · 어림 700원 × 12 (약 8,400원). 다른 값 그대로.
 # (v1.4 — 2026-11-27 — 반론 2회차(K2) 반영: ① max_if_off = 그 시간 동안 보일러를 아예 꺼도 아끼는 난방 가스비 (55·26도 같은 뜻 없는 숫자 대신 — 히터 4시간 2만 원) · ② 탄소매트 4도 낮춤일 때 한 달·한 겨울(넉 달) 남는 돈 · ③ 400 넘을 때 기본요금 오름 (부가세 넣음) · ④ winter_months = 4. 다른 값 그대로.
 # (v1.3 — 2026-11-27 — 반론 1회차(K1) 반영 — 계산 틀을 바꿈:
@@ -19,7 +20,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 LOG = logging.getLogger("heating_calc")
 
 SOURCES = {
@@ -140,7 +141,8 @@ def compute(a=None):
     out["say_base_jump_3"] = say((t[2][1] - t[1][1]) * vat)
     out["ratios"] = {"heater_vs_carbon_watt": round(r["heater"]["watt"] / r["carbon"]["watt"], 1),
                      "water_vs_carbon_breakeven": round(r["water"]["breakeven_deg"] / r["carbon"]["breakeven_deg"], 1),
-                     "heat_vs_us_humid_elec": round(r["humid_heat"]["elec_extra"] / r["humid_us"]["elec_extra"], 1)}
+                     "heat_vs_us_humid_elec": round(r["humid_heat"]["elec_extra"] / r["humid_us"]["elec_extra"], 1),
+                     "heater_vs_carbon_elec": round(r["heater"]["elec_extra"] / r["carbon"]["elec_extra"], 1)}
     return out
 
 
@@ -167,6 +169,7 @@ def selftest():
     assert o["carbon_example"]["net_month"] == 2702 and o["carbon_example"]["say_net_month"] == "약 2,700원"
     assert o["base_jump_3"] == 6270
     assert o["heater_half_breakeven_heating_gas"] == 219822 and o["say_heater_half_breakeven_heating_gas"] == "약 22만 원", o["say_heater_half_breakeven_heating_gas"]
+    assert o["ratios"]["heater_vs_carbon_elec"] == 9.1
     assert o["rule_x10"]["times"] == 10 and o["rule_x10"]["say"] == "약 7,000원"
     assert o["carbon_example"]["payback_winters"] == 4.6 and o["rule_x12"]["say"] == "약 8,400원", (o["carbon_example"], o["rule_x12"])
     # 검산: 히터 전기요금 = 2단계 100kWh + 3단계 140kWh + 기본요금 오름 (모두 부가세)

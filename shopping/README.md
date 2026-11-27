@@ -44,6 +44,7 @@ python3 tools/tag_keywords.py shopping --write-keywords          # 검색어를 
 | `result/outliers/` | 승인한 영상 자료(`W_<영상ID>/`) · `analysis.md` · `personas.md` … |
 | `guides/item_select.md` | **쿠팡 물건 고르기 v0.1** — 순서 7단계 · 자동화 되는 것/안 되는 것 · 첫 후보 |
 | `source/item_scan.py` | **물건 후보 찾기 v0.1.1** (할당량 0) — 물건 사전 83개 × 최근 하루 조회수·살 마음 댓글 영상 수·성공 사례 → `result/items/item_scan.md`·`.csv` · 시험 `--selftest` |
+| `source/winter_tips.py` | **겨울 꿀팁 쇼츠 시장 v1.0.0** — 갈래 20개 × 쇼츠 검색 1번(최근 365일) → `result/next_topic/winter_tips.md` (숫자) · 판단 `result/next_topic/winter_topics.md` (후보 8개) · 시험 `--selftest` |
 | `next_topic.toml` | 다음 주제 탐색 네 단계 설정 (`guides/topic_guide.md` 1-0) — 생활 문제 18묶음 · 겹침 후보 3 → `result/next_topic/` |
 | `source/nanbang-mulgeon-2026-11-27/` | **첫 편 '난방비 아끼려고 산 물건, 한 달에 얼마 남나'** — 대본 v1.4 · `calc/heating_calc.py` v1.6 · `대본_근거.md` · 페르소나 기록 `persona_loop.json` (5회차 — 사용자 판단 대기) |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 3개 (연예 소식·골프 여행·반찬 레시피) |

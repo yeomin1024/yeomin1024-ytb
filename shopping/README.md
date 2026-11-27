@@ -41,6 +41,8 @@ python3 tools/tag_keywords.py shopping --write-keywords          # 검색어를 
 | `personas.toml` | 시청자 페르소나 설정 v1.0 → `result/outliers/personas.md` (분석 끝에 저절로) — 주부·워킹맘·5060·4050 외모 고민·1인 가구(타깃 밖 확인) |
 | `result/web/explore.json` | 탐색 목록 (2,060개) |
 | `result/outliers/` | 승인한 영상 자료(`W_<영상ID>/`) · `analysis.md` · `personas.md` … |
+| `guides/item_select.md` | **쿠팡 물건 고르기 v0.1** — 순서 7단계 · 자동화 되는 것/안 되는 것 · 첫 후보 |
+| `source/item_scan.py` | **물건 후보 찾기 v0.1.1** (할당량 0) — 물건 사전 83개 × 최근 하루 조회수·살 마음 댓글 영상 수·성공 사례 → `result/items/item_scan.md`·`.csv` · 시험 `--selftest` |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 3개 (연예 소식·골프 여행·반찬 레시피) |
 | `result/outliers/transcript_todo.md` | PC '대본만 받기' 목록 (316편) |
 | `cloud_cache/` | 탐색 캐시 묶음 |

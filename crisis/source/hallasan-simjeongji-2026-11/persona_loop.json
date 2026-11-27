@@ -375,20 +375,65 @@
        "max_rounds": 10
       },
       "text": "제목: 일행과 등산 중 몸 상태가 안 좋아진다면? | 한라산 심정지\n썸네일 문구: 등산 중 가슴이 답답할 때 / 나 혼자 먼저 내려가면?\n보조 문구: 2023년 한라산 실제 사고"
+     },
+     {
+      "n": 9,
+      "at": "2026-11-27T07:50:05Z",
+      "sha": "9e9809af3558bab0",
+      "reviewers": [
+       {
+        "reviewer": "T9-P3",
+        "persona": "P3",
+        "feed_picks": [
+         9,
+         4
+        ],
+        "feed_why": "9는 '절대 문 열면 안 된다'가 현장 수칙과 맞는지 확인하고 싶고 통계까지 붙어 눌렀음. 4는 일행과 떨어져 혼자 내려가는 게 현장에서 흔한 사고 패턴이라 실제로 무슨 일이었는지 보고 싶었음. 6은 '음~파 아님'은 이미 아는 내용이라 넘김",
+        "candidate_click": true,
+        "trust": "믿음",
+        "stop": "'먼저 내려갔는데' + '2023년 한라산 실제 사고'(연도·장소가 있어 지어낸 얘기로 안 보임) / 걸린 곳: '고작 1시간 만에'가 내려간 지 1시간인지 발견까지 1시간인지 헷갈림, 썸네일 문구가 제목과 글자 하나 안 다르게 똑같음",
+        "fix": "'혼자 내려간 지 1시간 만에'처럼 1시간의 기준을 밝히고, 썸네일 문구는 제목을 그대로 옮기지 말고 짧게 줄여 '혼자 하산 1시간 뒤 심정지'처럼 두 줄로",
+        "pass": true,
+        "why": []
+       },
+       {
+        "reviewer": "T9-반론",
+        "persona": "반론",
+        "feed_picks": [
+         6,
+         4
+        ],
+        "feed_why": "6은 '음~파 아닙니다'가 '바다·파도에선 다르다'고 따지고 싶게 만들어 먼저 누르고, 4는 '먼저 내려가서 죽었다는 거냐, 원래 심장이 안 좋았던 거냐, 일행은 뭐 했냐'를 확인하려고 누름",
+        "candidate_click": true,
+        "trust": "의심",
+        "stop": "고작 1시간 만에 / 먼저 내려갔는데... — 혼자 내려간 선택이 죽은 까닭인 것처럼 읽혀서 '피해자 탓하냐, 지병 아니냐'가 먼저 떠오름. '고작'과 '...'은 썰 채널 연출 같고, '2023년 한라산 실제 사고'는 믿을 만하지만 정말 실제면 어느 사고인지 따져 보고 싶어짐",
+        "fix": "'고작'을 빼고 '혼자 하산'처럼 조건을 사실대로 쓰기(본인이나 일행 선택 탓으로 읽히지 않게) — 지병인지, 혼자였는지, 언제 발견됐는지는 대본 앞부분에서 바로 답해 줘야 끝까지 봄",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "고친 것 없음 — 사용자 문구(guides/persona_loop.md 4번: 사용자 문구는 그대로 · 지적은 알림)",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r9.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      },
+      "text": "제목: 등산 힘들어서 먼저 내려갔는데... 고작 1시간 만에 심정지로 발견됐다\n썸네일 문구: 등산 힘들어서 먼저 내려갔는데... / 고작 1시간 만에 심정지로 발견됐다\n보조 문구: 2023년 한라산 실제 사고"
      }
     ],
     "pending": {
-     "n": 9,
+     "n": 10,
      "sha": "9e9809af3558bab0",
      "reviewers": [
-      "T9-P3",
-      "T9-반론"
+      "T10-P3",
+      "T10-반론"
      ],
-     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r9.md",
-     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/answers_hallasan-simjeongji-2026-11_title_9",
-     "ours_idx": 4,
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r10.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/answers_hallasan-simjeongji-2026-11_title_10",
+     "ours_idx": 6,
      "text": "제목: 등산 힘들어서 먼저 내려갔는데... 고작 1시간 만에 심정지로 발견됐다\n썸네일 문구: 등산 힘들어서 먼저 내려갔는데... / 고작 1시간 만에 심정지로 발견됐다\n보조 문구: 2023년 한라산 실제 사고",
-     "at": "2026-11-27T07:49:03Z"
+     "at": "2026-11-27T07:50:06Z"
     }
    },
    "script_exit": {

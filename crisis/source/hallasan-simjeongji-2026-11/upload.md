@@ -98,7 +98,7 @@ python tools/srt_tool.py upload crisis/source/hallasan-simjeongji-2026-11/hallas
 
 ## 8. 점검 (설명란에 넣지 않음)
 
-- 페르소나 관문 (`persona_loop.json`): title 9회차~ (사용자 문구 — 검증만 · 결과는 9번) · script_exit ✅ 14회차 · script_rebuttal ✅ 14회차 (상 0·중 0) — 대본 v4.1.
+- 페르소나 관문 (`persona_loop.json`): title ✅ 10회차 (사용자 문구 — 9·10회차 둘 다 피드에서 고르고 누름 · 고친 것 없음 · 남은 지적: '고작'·'...'이 과장처럼 보임(반론 9·10) · '1시간'의 기준(헤어진 뒤인지 신고 뒤인지)이 흐림(P3 9·10) · 썸네일 문구가 제목과 같아 정보를 더하지 않음(P3 9·10) · '먼저 내려갔는데'가 피해자·일행 탓으로 읽힐 수 있음(반론 9·10)) · script_exit ✅ 14회차 · script_rebuttal ✅ 14회차 (상 0·중 0) — 대본 v4.1.
 - 규칙 점검 (`script_rules_check.py` v1.5): 썸네일 연결 ✅ · 제목 낱말 → 도입 첫 두 문장 ⚠ (사용자 문구라 그대로).
 - 숫자는 `calc_numbers.py` v1.1 · `근거.md` 표에 있는 것만. 화면에는 출처 줄 없음 (출처는 위 설명란에만).
 - 잡음 검사 `audio_check.md`: ONSET·CLICK 0 (손질 뒤) · 남은 6 = RATE 1(문장 2 '그럴 때 당신은 어떻게 하시나요?' 짧은 문장이라 빠름 — 귀로 확인 권함) · REPORT 5(목소리 높이·문장 중간 바뀜 — 보고 수준).

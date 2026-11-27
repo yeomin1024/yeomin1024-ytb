@@ -1,0 +1,95 @@
+{
+ "id": "5AQGbSGy7BQ",
+ "title": "\"다이소 가면 무조건 사세요!\" 치과의사도 쓰는 \"내돈내산\" 다이소 꿀템 추천! | (치과의사도 몰래 삼 ㄷㄷ)",
+ "channel": "똑똑한 치과형",
+ "channel_id": "UC9IkainNlT19uorrkuygzrA",
+ "subs": 35700,
+ "views": 1851600,
+ "ratio": 51.87,
+ "age_days": 197,
+ "views_per_day": 9361.9,
+ "minutes": 15.5,
+ "likes": 29016,
+ "comments": 757,
+ "published": "2026-05-13",
+ "queries": "검색(전체 기간):다이소추천템 | 검색(전체 기간):내돈내산 | 검색(전체 기간):추천템",
+ "url": "https://www.youtube.com/watch?v=5AQGbSGy7BQ",
+ "flag": "",
+ "published_at": "2026-05-13T11:30:16Z",
+ "rank": "W70",
+ "set": "web",
+ "folder": "W_5AQGbSGy7BQ",
+ "sources": [
+  "검색(전체 기간):다이소추천템",
+  "검색(전체 기간):내돈내산",
+  "검색(전체 기간):추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소",
+  "다이소추천템",
+  "다이소 추천템",
+  "구강관리",
+  "구강 관리",
+  "치아관리",
+  "치아 관리",
+  "다이소템",
+  "다이소 템",
+  "치과",
+  "치과의사",
+  "치과 의사",
+  "치과추천",
+  "치과 추천",
+  "치과의사추천",
+  "가성비 치과",
+  "치과 꿀템",
+  "치과꿀템",
+  "치과 꿀팁",
+  "치과꿀팁",
+  "올리브영추천템"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "내돈내산 다이소 구강 관리 꿀템"
+  },
+  {
+   "start": 42,
+   "title": "1) 내돈내산 다이소 치약 3가지"
+  },
+  {
+   "start": 289,
+   "title": "2) 내돈내산 다이소 칫솔 3가지"
+  },
+  {
+   "start": 546,
+   "title": "3) 내돈내산 다이소 치간칫솔"
+  },
+  {
+   "start": 643,
+   "title": "4) 내돈내산 다이소 치실 2가지"
+  },
+  {
+   "start": 738,
+   "title": "5) 내돈내산 다이소 혀클리너"
+  },
+  {
+   "start": 802,
+   "title": "6) 치과형이 추천하는 다이소 꿀템"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 757,
+ "comments_top_level": 334,
+ "comments_replies": 423,
+ "comments_by_creator": 337,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 757,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:20:24",
+ "approved": "2026-11-27T15:20+09:00"
+}

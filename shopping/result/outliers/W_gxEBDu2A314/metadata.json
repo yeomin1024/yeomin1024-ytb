@@ -1,0 +1,78 @@
+{
+ "id": "gxEBDu2A314",
+ "title": "입을 때 마다 어디서 샀냐는 말 들어요 I 나만 알기 아까운 인터넷 쇼핑몰 7곳 추천",
+ "channel": "조용한 럭셔리ㅣquiet luxury",
+ "channel_id": "UCaIpmRyhVryWc4mufx8oXBQ",
+ "subs": 1760,
+ "views": 135803,
+ "ratio": 77.16,
+ "age_days": 171,
+ "views_per_day": 791.2,
+ "minutes": 6.0,
+ "likes": 1420,
+ "comments": 20,
+ "published": "2026-06-08",
+ "queries": "검색:중년패션 | 검색:중년여성패션 | 검색:50대패션 | 검색:40대패션",
+ "url": "https://www.youtube.com/watch?v=gxEBDu2A314",
+ "flag": "",
+ "published_at": "2026-06-08T15:01:06Z",
+ "rank": "W52",
+ "set": "web",
+ "folder": "W_gxEBDu2A314",
+ "sources": [
+  "검색:중년패션",
+  "검색:중년여성패션",
+  "검색:50대패션",
+  "검색:40대패션"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "요즘 옷 어디서 사세요?"
+  },
+  {
+   "start": 23,
+   "title": "안나앤모드 - 과하지도 모자라지도 않은 단정하고 실패 없는 기본템이 있는 곳"
+  },
+  {
+   "start": 47,
+   "title": "캔마트 - 편하고 가볍고 시원한 실용적인 아이템이 있는 곳"
+  },
+  {
+   "start": 79,
+   "title": "더애수 - 중년에게 잘 맞춘 우아한 꾸안꾸 디테일이 있는 곳"
+  },
+  {
+   "start": 131,
+   "title": "뮤즈12 - 백화점 브랜드 출신 팀이 만든 우아하고 세련된 곳"
+  },
+  {
+   "start": 167,
+   "title": "사색 - 지적인 세미 오피스룩과 슬랙스 맛집"
+  },
+  {
+   "start": 213,
+   "title": "라룸 - 뉴트럴 컬러와 자연스러운 실루엣이 돋보이는 감도 높은 미니멀 룩이 있는 곳"
+  },
+  {
+   "start": 286,
+   "title": "이프유어 (ifyuor) - 세틴 스커트와 감각적인 디자인의 합리적인 자체 제작 상품 추천"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 20,
+ "comments_top_level": 12,
+ "comments_replies": 8,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 20,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:19:19",
+ "approved": "2026-11-27T15:19+09:00"
+}

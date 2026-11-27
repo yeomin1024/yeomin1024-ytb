@@ -1,0 +1,119 @@
+{
+ "id": "epG_Uz90pAw",
+ "title": "매일매일 조금씩 미니멀리스트의 청소 루틴",
+ "channel": "미니멀라이프_심플살림",
+ "channel_id": "UC9CBK_hBpd420TDoqGOClAA",
+ "subs": 4840,
+ "views": 506739,
+ "ratio": 104.7,
+ "age_days": 133,
+ "views_per_day": 3801.6,
+ "minutes": 17.7,
+ "likes": 3949,
+ "comments": 200,
+ "published": "2026-07-16",
+ "queries": "검색:살림 | 검색:살림브이로그 | 검색:주방정리",
+ "url": "https://www.youtube.com/watch?v=epG_Uz90pAw",
+ "flag": "",
+ "published_at": "2026-07-16T23:09:19Z",
+ "rank": "W40",
+ "set": "web",
+ "folder": "W_epG_Uz90pAw",
+ "sources": [
+  "검색:살림",
+  "검색:살림브이로그",
+  "검색:주방정리"
+ ],
+ "source": "web",
+ "tags": [
+  "미니멀라이프",
+  "미니멀리스트",
+  "청소루틴",
+  "청소습관",
+  "집청소",
+  "집안일",
+  "집안일줄이기",
+  "정리수납",
+  "정리정돈",
+  "주방정리",
+  "욕실청소",
+  "욕실관리",
+  "살림브이로그",
+  "살림루틴",
+  "살림꿀팁",
+  "청소꿀팁",
+  "미니멀살림",
+  "가정보육",
+  "육아살림",
+  "워킹맘",
+  "전업주부",
+  "주부일상",
+  "구축아파트",
+  "심플라이프",
+  "정리하는삶"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 114,
+   "title": "1. 대청소를 기다리지 않는 것"
+  },
+  {
+   "start": 215,
+   "title": "2. 설거지를 하면서 주방까지 함께 정리"
+  },
+  {
+   "start": 302,
+   "title": "3. 5분안에 끝나는 일은 바로 하는 것"
+  },
+  {
+   "start": 387,
+   "title": "4. 빈손으로 움직이지 않는 것"
+  },
+  {
+   "start": 478,
+   "title": "5. 물건은 사용한 자리로 바로 돌려 놓는 것"
+  },
+  {
+   "start": 529,
+   "title": "6. 바닥에 물건을 두지 않는 것"
+  },
+  {
+   "start": 621,
+   "title": "7. 샤워하면서 욕실까지 함께 청소하기"
+  },
+  {
+   "start": 734,
+   "title": "8. 하루를 마무리하기 전에 5분만 집을 리셋하기"
+  },
+  {
+   "start": 815,
+   "title": "9. 수납하기 전에 먼저 비우기"
+  },
+  {
+   "start": 880,
+   "title": "10. 완벽한 청소보다 꾸준한 청소"
+  },
+  {
+   "start": 949,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 200,
+ "comments_top_level": 94,
+ "comments_replies": 106,
+ "comments_by_creator": 79,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 200,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:18:45",
+ "approved": "2026-11-27T15:18+09:00"
+}

@@ -1,0 +1,18 @@
+{
+ "tool": "cloud_run.py v1.6",
+ "topic": "shopping",
+ "saved": "2026-11-27T15:16:46+09:00",
+ "why": "uncheck",
+ "files": 2814,
+ "bytes_raw": 8794231,
+ "bytes_tgz": 3304451,
+ "sha256": "b78a84f532f171f885a641f1ccce0024a27d250fa779f8766266515fc2184ec9",
+ "parts": [],
+ "kinds": {
+  "autocomplete.json": 1,
+  "channels.json": 1,
+  "search": 86,
+  "video": 2724,
+  "web": 2
+ }
+}

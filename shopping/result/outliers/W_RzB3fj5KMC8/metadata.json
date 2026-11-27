@@ -1,0 +1,130 @@
+{
+ "id": "RzB3fj5KMC8",
+ "title": "쿠팡에서 3만 원 주고 샀는데 다이소에 단돈 2천 원에 풀려버림. 최신 다이소 신제품 21종 리뷰",
+ "channel": "살림카페",
+ "channel_id": "UC6Aw3vH4HzRpzUdR81RPXYw",
+ "subs": 8430,
+ "views": 209563,
+ "ratio": 24.86,
+ "age_days": 30,
+ "views_per_day": 6767.0,
+ "minutes": 12.4,
+ "likes": 536,
+ "comments": 15,
+ "published": "2026-10-27",
+ "queries": "검색:쿠팡추천템 | 검색:살림템",
+ "url": "https://www.youtube.com/watch?v=RzB3fj5KMC8",
+ "flag": "",
+ "published_at": "2026-10-27T07:00:32Z",
+ "rank": "W96",
+ "set": "web",
+ "folder": "W_RzB3fj5KMC8",
+ "sources": [
+  "검색:쿠팡추천템",
+  "검색:살림템"
+ ],
+ "source": "web",
+ "tags": [
+  "살림",
+  "쿠팡",
+  "다이소",
+  "이케아",
+  "주방살림"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "안녕하세요살림카페입니다"
+  },
+  {
+   "start": 12,
+   "title": "다용도 흡착패드 품번 52680"
+  },
+  {
+   "start": 41,
+   "title": "에어홀 스텐 찬통 1.5리터 품번 1075510"
+  },
+  {
+   "start": 69,
+   "title": "에어홀 스텐 찬통 손잡이형 1.2리터 1075506"
+  },
+  {
+   "start": 98,
+   "title": "힘좋은 탈부착 빨래집게 품번 048032207"
+  },
+  {
+   "start": 122,
+   "title": "바나나의 색다른 사용법 1021906"
+  },
+  {
+   "start": 155,
+   "title": "김빠삭보관용기 품번 1079058"
+  },
+  {
+   "start": 207,
+   "title": "플라스틱용기 4종"
+  },
+  {
+   "start": 283,
+   "title": "D형도마 품번 048061952"
+  },
+  {
+   "start": 324,
+   "title": "일회용품들"
+  },
+  {
+   "start": 404,
+   "title": "죽통껍질 벗기기 품번 10336691"
+  },
+  {
+   "start": 439,
+   "title": "캐릭터튜브용기 품번 1074374"
+  },
+  {
+   "start": 455,
+   "title": "이쁜 집모양 디지털 시계 품번 1075684"
+  },
+  {
+   "start": 501,
+   "title": "국내산 클리어보틀 품번 10389972"
+  },
+  {
+   "start": 532,
+   "title": "한손으로 열리는 진공용기 850ml 1075641"
+  },
+  {
+   "start": 575,
+   "title": "알루미늄 버터나이프 품번 327310302"
+  },
+  {
+   "start": 617,
+   "title": "국내산 미싱볼 품번 1026341"
+  },
+  {
+   "start": 657,
+   "title": "캐릭터보풀제거기 품번 1017006"
+  },
+  {
+   "start": 680,
+   "title": "휴대용미니가위 품번 1080373"
+  },
+  {
+   "start": 697,
+   "title": "휴대하면 편리한 세가지"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 15,
+ "comments_top_level": 8,
+ "comments_replies": 7,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 15,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:21:48",
+ "approved": "2026-11-27T15:21+09:00"
+}

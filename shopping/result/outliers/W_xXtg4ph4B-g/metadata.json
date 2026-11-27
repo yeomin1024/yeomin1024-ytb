@@ -1,0 +1,142 @@
+{
+ "id": "xXtg4ph4B-g",
+ "title": "다이소 매번 갈 때마다 놀라운 - 이번 주에도 놀랄만한 꿀템이 한가득 - 하지만 늦으면 또 없는 다이소추천템 10가지!!!",
+ "channel": "소비일상 ",
+ "channel_id": "UCU3Sj3qF4E2dseN--gWXw3g",
+ "subs": 20100,
+ "views": 394450,
+ "ratio": 19.62,
+ "age_days": 55,
+ "views_per_day": 7063.5,
+ "minutes": 8.8,
+ "likes": 1030,
+ "comments": 32,
+ "published": "2026-10-02",
+ "queries": "검색:다이소추천템 | 검색:주방용품추천 | 검색:꿀템 | 검색:주방용품 | 검색:다이소 | 검색:다이소꿀템 | 검색:다이소신상",
+ "url": "https://www.youtube.com/watch?v=xXtg4ph4B-g",
+ "flag": "",
+ "published_at": "2026-10-02T10:00:12Z",
+ "rank": "W104",
+ "set": "web",
+ "folder": "W_xXtg4ph4B-g",
+ "sources": [
+  "검색:다이소추천템",
+  "검색:주방용품추천",
+  "검색:꿀템",
+  "검색:주방용품",
+  "검색:다이소",
+  "검색:다이소꿀템",
+  "검색:다이소신상"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소",
+  "다이소 추천템",
+  "다이소 꿀템",
+  "다이소 살림템",
+  "다이소 살림용품",
+  "다이소 주방용품",
+  "다이소 살림",
+  "다이소 생활용품",
+  "다이소 주방",
+  "daiso",
+  "살림",
+  "주방살림",
+  "살림아이템",
+  "살림용품",
+  "주방템",
+  "다이소 주방템",
+  "살림템",
+  "다이소 살림 꿀템",
+  "다이소 살림꿀템",
+  "다이소 살림제품",
+  "다이소 제품",
+  "다이소 아이템",
+  "쿠팡",
+  "쿠팡추천템",
+  "쿠팡꿀템",
+  "쿠팡 살림용품",
+  "쿠팡 생활용품",
+  "쿠팡 살림",
+  "쿠팡 아이템",
+  "쿠팡템",
+  "COUPANG",
+  "coupang",
+  "쿠팡 주방용품",
+  "쿠팡 주방",
+  "쿠팡 꿀템",
+  "쿠팡 추천템",
+  "쿠팡 몰아보기",
+  "몰아보기",
+  "살림꿀템 몰아보기",
+  "살림템 몰아보기",
+  "인기꿀템 몰아보기",
+  "품절템 몰아보기",
+  "공동구매",
+  "텀블러"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 30,
+   "title": "접이식 비닐봉투 걸이"
+  },
+  {
+   "start": 78,
+   "title": "회전형 다용도 미용 정리함"
+  },
+  {
+   "start": 123,
+   "title": "스탠딩 세탁바구니"
+  },
+  {
+   "start": 164,
+   "title": "조립식 청소거치대"
+  },
+  {
+   "start": 215,
+   "title": "대형 분무 가습기 1.5L"
+  },
+  {
+   "start": 250,
+   "title": "화이트 접시건조대"
+  },
+  {
+   "start": 289,
+   "title": "확장형 6단 정리대"
+  },
+  {
+   "start": 338,
+   "title": "스테인리스 304 스프링 유청 분리기 440ml"
+  },
+  {
+   "start": 390,
+   "title": "C to C 충전 케이블 릴 타입 1 m"
+  },
+  {
+   "start": 437,
+   "title": "맥세이프 호환용 원형 패브릭 무선 스피커 블랙"
+  },
+  {
+   "start": 481,
+   "title": "캡처타임 / 엔딩"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 32,
+ "comments_top_level": 17,
+ "comments_replies": 15,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 32,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:22:20",
+ "approved": "2026-11-27T15:22+09:00"
+}

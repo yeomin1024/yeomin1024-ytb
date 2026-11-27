@@ -1,0 +1,71 @@
+{
+ "id": "mpFISnWaDVk",
+ "title": "코스트코 살치살 스테이크 이렇게 드세요. 돈 오히려 법니다. | 20인분 트레이더스",
+ "channel": "고기형",
+ "channel_id": "UCqXAUNt8THwIvAr9rL3-mQw",
+ "subs": 19500,
+ "views": 889646,
+ "ratio": 45.62,
+ "age_days": 55,
+ "views_per_day": 15957.7,
+ "minutes": 9.9,
+ "likes": 1377,
+ "comments": 100,
+ "published": "2026-10-02",
+ "queries": "검색:코스트코",
+ "url": "https://www.youtube.com/watch?v=mpFISnWaDVk",
+ "flag": "",
+ "published_at": "2026-10-02T12:14:27Z",
+ "rank": "W78",
+ "set": "web",
+ "folder": "W_mpFISnWaDVk",
+ "sources": [
+  "검색:코스트코"
+ ],
+ "source": "web",
+ "tags": [
+  "한우",
+  "마장동",
+  "소고기"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "코스트코 살치살 소개와 고르는 법"
+  },
+  {
+   "start": 68,
+   "title": "살치살·꽃갈비살 차이와 선택법"
+  },
+  {
+   "start": 214,
+   "title": "살치살 손질하기"
+  },
+  {
+   "start": 346,
+   "title": "스테이크 준비와 소금 간"
+  },
+  {
+   "start": 432,
+   "title": "스테이크 굽고 맛보기"
+  },
+  {
+   "start": 548,
+   "title": "살치살 풍미와 보관 방법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 100,
+ "comments_top_level": 50,
+ "comments_replies": 50,
+ "comments_by_creator": 37,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 100,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:20:54",
+ "approved": "2026-11-27T15:20+09:00"
+}

@@ -1,0 +1,59 @@
+{
+ "id": "0O696yvspvM",
+ "title": "등산복 코디 총정리 | 색상 조합 추천 | 등산 패션",
+ "channel": "액티브중년",
+ "channel_id": "UCMNqOYPxcz6AzW8YSDyWl6Q",
+ "subs": 703,
+ "views": 356544,
+ "ratio": 507.17,
+ "age_days": 38,
+ "views_per_day": 9241.0,
+ "minutes": 7.4,
+ "likes": 527,
+ "comments": 35,
+ "published": "2026-10-19",
+ "queries": "검색:중년코디",
+ "url": "https://www.youtube.com/watch?v=0O696yvspvM",
+ "flag": "",
+ "published_at": "2026-10-19T16:15:38Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_0O696yvspvM",
+ "sources": [
+  "검색:중년코디"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입부"
+  },
+  {
+   "start": 55,
+   "title": "요즘 등산복 트렌드"
+  },
+  {
+   "start": 125,
+   "title": "나의 등산복코디"
+  },
+  {
+   "start": 255,
+   "title": "등산복 색상 코디"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 35,
+ "comments_top_level": 20,
+ "comments_replies": 15,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 35,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:10",
+ "approved": "2026-11-27T15:17+09:00"
+}

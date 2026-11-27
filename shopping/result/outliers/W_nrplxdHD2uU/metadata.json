@@ -1,0 +1,81 @@
+{
+ "id": "nrplxdHD2uU",
+ "title": "가을 스카프 잘 고르는 사람은 ‘이 색’을 먼저 봅니다｜중년 여성 스카프 컬러매칭 8가지 코디",
+ "channel": "미술박사의 패션노트",
+ "channel_id": "UCgZQwlaE2Qq2F6AWu7_3NOg",
+ "subs": 1810,
+ "views": 128633,
+ "ratio": 71.07,
+ "age_days": 53,
+ "views_per_day": 2418.0,
+ "minutes": 7.7,
+ "likes": 765,
+ "comments": 16,
+ "published": "2026-10-05",
+ "queries": "검색:중년패션 | 검색:중년여성패션 | 검색:중년코디",
+ "url": "https://www.youtube.com/watch?v=nrplxdHD2uU",
+ "flag": "",
+ "published_at": "2026-10-05T01:30:09Z",
+ "rank": "W57",
+ "set": "web",
+ "folder": "W_nrplxdHD2uU",
+ "sources": [
+  "검색:중년패션",
+  "검색:중년여성패션",
+  "검색:중년코디"
+ ],
+ "source": "web",
+ "tags": [
+  "스카프",
+  "스카프코디",
+  "중년여성코디",
+  "옷잘입는법",
+  "4050패션",
+  "가을니트",
+  "가을코트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 30,
+   "title": "스카프 매는법 보다 중요한 것"
+  },
+  {
+   "start": 64,
+   "title": "셔츠 + 스카프 코디 (2가지 look)"
+  },
+  {
+   "start": 146,
+   "title": "가디건 + 스카프 코디 (2가지 look)"
+  },
+  {
+   "start": 220,
+   "title": "재킷 + 스카프 코디 (2가지 look)"
+  },
+  {
+   "start": 317,
+   "title": "코트 + 스카프 코디 (2가지 look)"
+  },
+  {
+   "start": 400,
+   "title": "마치며 (8가지 룩 정리)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 16,
+ "comments_top_level": 10,
+ "comments_replies": 6,
+ "comments_by_creator": 7,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 16,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:19:33",
+ "approved": "2026-11-27T15:19+09:00"
+}

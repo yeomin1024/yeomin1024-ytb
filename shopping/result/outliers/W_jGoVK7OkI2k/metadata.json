@@ -1,0 +1,123 @@
+{
+ "id": "jGoVK7OkI2k",
+ "title": "10시간 장거리 비행이 10배 편해지는 기내 꿀템 7가지",
+ "channel": "출국체크 : 알고 가면 편해지는 여행정보",
+ "channel_id": "UCESC1bHbDsK4NZTbu-71IiA",
+ "subs": 827,
+ "views": 241411,
+ "ratio": 291.91,
+ "age_days": 98,
+ "views_per_day": 2440.3,
+ "minutes": 8.7,
+ "likes": 909,
+ "comments": 33,
+ "published": "2026-08-20",
+ "queries": "검색:꿀템",
+ "url": "https://www.youtube.com/watch?v=jGoVK7OkI2k",
+ "flag": "",
+ "published_at": "2026-08-20T07:58:56Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_jGoVK7OkI2k",
+ "sources": [
+  "검색:꿀템"
+ ],
+ "source": "web",
+ "tags": [
+  "장거리비행",
+  "장거리 비행",
+  "장거리비행꿀팁",
+  "장거리 비행 꿀팁",
+  "장거리비행준비물",
+  "장거리 비행 준비물",
+  "장거리비행필수품",
+  "기내필수품",
+  "기내 필수품",
+  "기내필수템",
+  "기내 필수템",
+  "기내꿀템",
+  "기내 꿀템",
+  "비행기필수품",
+  "비행기 필수품",
+  "비행기준비물",
+  "비행기 준비물",
+  "비행기꿀팁",
+  "비행기 꿀팁",
+  "해외여행준비",
+  "해외여행준비물",
+  "해외여행필수품",
+  "여행준비물",
+  "이코노미장거리비행",
+  "이코노미 꿀팁",
+  "10시간비행",
+  "10시간 비행",
+  "비행기숙면",
+  "기내숙면",
+  "비행기목베개",
+  "여행용목베개",
+  "목베개후드집업",
+  "수면안대",
+  "귀마개",
+  "노이즈캔슬링",
+  "압박양말",
+  "압박스타킹",
+  "기내용슬리퍼",
+  "휴대폰거치대",
+  "기내파우치",
+  "출국체크",
+  "기내필스템",
+  "장거리비행필수템"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "10시간 비행, 왜 이렇게 힘들까?"
+  },
+  {
+   "start": 50,
+   "title": "첫 번째｜목이 가장 힘들었던 이유"
+  },
+  {
+   "start": 138,
+   "title": "두 번째｜빛과 소음을 줄이는 방법"
+  },
+  {
+   "start": 216,
+   "title": "세 번째｜도착 후 다리가 덜 힘들게"
+  },
+  {
+   "start": 268,
+   "title": "네 번째｜깨어 있는 시간도 편하게"
+  },
+  {
+   "start": 300,
+   "title": "다섯 번째｜신발이 답답해질 때"
+  },
+  {
+   "start": 333,
+   "title": "여섯 번째｜의외로 자주 찾게 되는 것"
+  },
+  {
+   "start": 391,
+   "title": "일곱 번째｜없으면 가장 아쉬운 준비물"
+  },
+  {
+   "start": 441,
+   "title": "기내에서 바로 꺼내 쓰는 짐 정리법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 33,
+ "comments_top_level": 16,
+ "comments_replies": 17,
+ "comments_by_creator": 17,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 33,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:17",
+ "approved": "2026-11-27T15:17+09:00"
+}

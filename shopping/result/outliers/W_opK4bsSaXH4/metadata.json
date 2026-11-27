@@ -1,0 +1,77 @@
+{
+ "id": "opK4bsSaXH4",
+ "title": "새 가디건 사지 마세요! 지금 있는 가디건 날씬하게 입는 법 실패없는 가디건 코디법 4050가디건 예쁜것보다 중요한 이것 중년패션고급스러운 가디건 코디 꼭있어야할 기본템",
+ "channel": "우아한 C",
+ "channel_id": "UCjnlfM9zS2-196s1DOVHDiA",
+ "subs": 1150,
+ "views": 304815,
+ "ratio": 265.06,
+ "age_days": 52,
+ "views_per_day": 5816.6,
+ "minutes": 9.0,
+ "likes": 1476,
+ "comments": 6,
+ "published": "2026-10-05",
+ "queries": "검색:중년패션 | 검색:중년여성패션 | 검색:50대패션 | 검색:40대패션 | 검색:옷잘입는법 | 검색:중년코디 | 검색:4050패션",
+ "url": "https://www.youtube.com/watch?v=opK4bsSaXH4",
+ "flag": "",
+ "published_at": "2026-10-05T20:30:25Z",
+ "rank": "W14",
+ "set": "web",
+ "folder": "W_opK4bsSaXH4",
+ "sources": [
+  "검색:중년패션",
+  "검색:중년여성패션",
+  "검색:50대패션",
+  "검색:40대패션",
+  "검색:옷잘입는법",
+  "검색:중년코디",
+  "검색:4050패션"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 및 가디건 코디 고민"
+  },
+  {
+   "start": 68,
+   "title": "1. 이너의 목선과 세로선 연출법"
+  },
+  {
+   "start": 165,
+   "title": "2. 단추 여백으로 슬림하게 입기"
+  },
+  {
+   "start": 227,
+   "title": "3. 체형에 맞는 네크라인 고르기"
+  },
+  {
+   "start": 338,
+   "title": "4. 체형별 기장 선택과 비율 조절법"
+  },
+  {
+   "start": 393,
+   "title": "누구나 바로 따라 하는 실전 가디건 코디 3가지"
+  },
+  {
+   "start": 464,
+   "title": "핵심 요약 및 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 6,
+ "comments_top_level": 6,
+ "comments_replies": 0,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 6,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:23",
+ "approved": "2026-11-27T15:17+09:00"
+}

@@ -1,0 +1,103 @@
+{
+ "id": "F1npP23Kq1I",
+ "title": "\"거의 바르는 보톡스 입니다\"  주름 지우고 우아하게 늙고싶다면 올리브영에서 이거 5개만 사면 됩니다!  화장품 만든 17년차 피부과 전문의가 얼굴노화 화장품 싹 알려드리겠습니다.",
+ "channel": "피부과 김진용",
+ "channel_id": "UCu6EbAFPhCXhFEJhGdmxvrw",
+ "subs": 27000,
+ "views": 4299059,
+ "ratio": 159.22,
+ "age_days": 39,
+ "views_per_day": 107678.6,
+ "minutes": 16.2,
+ "likes": 22596,
+ "comments": 433,
+ "published": "2026-10-18",
+ "queries": "검색:추천템 | 검색:올리브영 | 검색(전체 기간):추천템",
+ "url": "https://www.youtube.com/watch?v=F1npP23Kq1I",
+ "flag": "",
+ "published_at": "2026-10-18T08:00:19Z",
+ "rank": "W28",
+ "set": "web",
+ "folder": "W_F1npP23Kq1I",
+ "sources": [
+  "검색:추천템",
+  "검색:올리브영",
+  "검색(전체 기간):추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "얼굴노화",
+  "항노화",
+  "얼굴주름",
+  "동안얼굴",
+  "보톡스"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 하이라이트"
+  },
+  {
+   "start": 43,
+   "title": "영상시작"
+  },
+  {
+   "start": 131,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 1"
+  },
+  {
+   "start": 264,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 2"
+  },
+  {
+   "start": 361,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 3"
+  },
+  {
+   "start": 422,
+   "title": "색소 크림 사용시 주의사항"
+  },
+  {
+   "start": 472,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 4"
+  },
+  {
+   "start": 584,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 5"
+  },
+  {
+   "start": 659,
+   "title": "굳이 올리브영에서 살 필요없는 제품?"
+  },
+  {
+   "start": 702,
+   "title": "올리브영 더마라인 제품 고르는 꿀팁"
+  },
+  {
+   "start": 753,
+   "title": "얼굴노화 늦추는 4060 올리브영 추천템 바르는 순서?"
+  },
+  {
+   "start": 863,
+   "title": "영상 핵심 정리"
+  },
+  {
+   "start": 921,
+   "title": "김진용 원장이 강력 추천하는 추천템?!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 433,
+ "comments_top_level": 210,
+ "comments_replies": 223,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 433,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:18:05",
+ "approved": "2026-11-27T15:18+09:00"
+}

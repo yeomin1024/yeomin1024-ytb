@@ -1,0 +1,195 @@
+{
+ "id": "8K5Dk4Gi0kM",
+ "title": "주부 5명이 후쿠오카에 가면 생기는 일! 가방 가득 채 워 온 주부들의 후쿠오카 찐 현실 쇼핑 여행",
+ "channel": "안목주부 제이",
+ "channel_id": "UCwju3Vz0wxcX2bFwF016abQ",
+ "subs": 1740,
+ "views": 309607,
+ "ratio": 177.94,
+ "age_days": 52,
+ "views_per_day": 5858.9,
+ "minutes": 27.0,
+ "likes": 795,
+ "comments": 47,
+ "published": "2026-10-05",
+ "queries": "검색:주부",
+ "url": "https://www.youtube.com/watch?v=8K5Dk4Gi0kM",
+ "flag": "",
+ "published_at": "2026-10-05T10:00:04Z",
+ "rank": "W24",
+ "set": "web",
+ "folder": "W_8K5Dk4Gi0kM",
+ "sources": [
+  "검색:주부"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 35,
+   "title": "인천공항 ✈️"
+  },
+  {
+   "start": 68,
+   "title": "면세품소개"
+  },
+  {
+   "start": 131,
+   "title": "후쿠오카 도착 🇯🇵"
+  },
+  {
+   "start": 175,
+   "title": "로손 공항점 구경하기"
+  },
+  {
+   "start": 272,
+   "title": "공항에서 예약없이 택시 타는 법 🚕"
+  },
+  {
+   "start": 303,
+   "title": "대기가 엄청난 맛집 키와미야 함바그 ‼️"
+  },
+  {
+   "start": 322,
+   "title": "스탠다드 프로덕트 하카타점"
+  },
+  {
+   "start": 361,
+   "title": "딘앤델루카 하카타점"
+  },
+  {
+   "start": 450,
+   "title": "그릴 오미야 JR하카타시키점"
+  },
+  {
+   "start": 526,
+   "title": "산리오 한큐 하카타점"
+  },
+  {
+   "start": 576,
+   "title": "단톤 후쿠오카(후쿠오카 유일 단독매장)"
+  },
+  {
+   "start": 588,
+   "title": "칼디커피팜 하카타마루이점"
+  },
+  {
+   "start": 650,
+   "title": "타리즈커피 하카타마루이점"
+  },
+  {
+   "start": 677,
+   "title": "캐널시티 (많은 매장이 모여있어 쇼핑하기 좋음)"
+  },
+  {
+   "start": 703,
+   "title": "ZONE 8"
+  },
+  {
+   "start": 712,
+   "title": "3COINS+"
+  },
+  {
+   "start": 724,
+   "title": "무인양품"
+  },
+  {
+   "start": 790,
+   "title": "산리오"
+  },
+  {
+   "start": 802,
+   "title": "숙소도착 더 원파이브 테라스 후쿠오카 🏨"
+  },
+  {
+   "start": 864,
+   "title": "(정정) 무사시자 긴메다루🍴"
+  },
+  {
+   "start": 931,
+   "title": "블랑제 🍴"
+  },
+  {
+   "start": 943,
+   "title": "일본의 노을지는 텐진거리 🌇"
+  },
+  {
+   "start": 975,
+   "title": "GU미나텐진"
+  },
+  {
+   "start": 1027,
+   "title": "돈키호테 나카스점"
+  },
+  {
+   "start": 1138,
+   "title": "다음날 아침, 굳모닝! 🌞"
+  },
+  {
+   "start": 1151,
+   "title": "빵 스톡 텐진점 🍴"
+  },
+  {
+   "start": 1266,
+   "title": "스탠다드 프로덕트 텐진점"
+  },
+  {
+   "start": 1317,
+   "title": "Quatre Saisons"
+  },
+  {
+   "start": 1353,
+   "title": "스시 사카바 사시스 원후쿠오카빌딩점 🍴"
+  },
+  {
+   "start": 1382,
+   "title": "휴먼메이드, 꼼데가르숑 쇼핑"
+  },
+  {
+   "start": 1405,
+   "title": "이모야킨지로 🍴"
+  },
+  {
+   "start": 1428,
+   "title": "렉커피 텐진미나미점 🍴"
+  },
+  {
+   "start": 1473,
+   "title": "여행의 결론 🛍️"
+  },
+  {
+   "start": 1501,
+   "title": "출국수속후 편의점행"
+  },
+  {
+   "start": 1524,
+   "title": "남은 동전 해결하는 방법 👛"
+  },
+  {
+   "start": 1534,
+   "title": "여행마무리 👋"
+  },
+  {
+   "start": 1575,
+   "title": "쿠키영상 🍪"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 47,
+ "comments_top_level": 23,
+ "comments_replies": 24,
+ "comments_by_creator": 23,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 47,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:52",
+ "approved": "2026-11-27T15:17+09:00"
+}

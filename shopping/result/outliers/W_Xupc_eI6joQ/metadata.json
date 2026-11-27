@@ -1,0 +1,74 @@
+{
+ "id": "Xupc_eI6joQ",
+ "title": "셔츠 하나로 옷 잘 입는 사람 되는 5가지 코디법ㅣ화이트셔츠200%활용법 ㅣ인생셔츠코디공식ㅣ같은옷도 달라보인 진짜핵심ㅣ40대 50대 셔츠 이렇게 입어보세요ㅣ분위기 확바뀌는 한끗차이",
+ "channel": "우아한 C",
+ "channel_id": "UCjnlfM9zS2-196s1DOVHDiA",
+ "subs": 1150,
+ "views": 113342,
+ "ratio": 98.56,
+ "age_days": 92,
+ "views_per_day": 1222.0,
+ "minutes": 8.4,
+ "likes": 633,
+ "comments": 10,
+ "published": "2026-08-26",
+ "queries": "검색:50대패션 | 검색:40대패션 | 검색:옷잘입는법 | 검색:중년코디",
+ "url": "https://www.youtube.com/watch?v=Xupc_eI6joQ",
+ "flag": "",
+ "published_at": "2026-08-26T12:16:48Z",
+ "rank": "W42",
+ "set": "web",
+ "folder": "W_Xupc_eI6joQ",
+ "sources": [
+  "검색:50대패션",
+  "검색:40대패션",
+  "검색:옷잘입는법",
+  "검색:중년코디"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 셔츠 코디가 고민인 이유와 영상 소개"
+  },
+  {
+   "start": 44,
+   "title": "1. 셔츠를 아우터처럼 활용하기 (슬림해 보이는 세로선 연출법)"
+  },
+  {
+   "start": 166,
+   "title": "2. 앞부분만 살짝 넣어 입기 (자연스러운 볼륨과 다리 길어 보이는 팁)"
+  },
+  {
+   "start": 208,
+   "title": "3. 니트나 조끼 레이어링하기 (심심한 코디에 분위기 더하기)"
+  },
+  {
+   "start": 307,
+   "title": "4. 단추와 소매 디테일 살리기 (한끗 차이로 세련되게 변신)"
+  },
+  {
+   "start": 408,
+   "title": "5. 셔츠 길이와 하이 비율 맞추기 (체형 보완 균형 잡기)"
+  },
+  {
+   "start": 457,
+   "title": "마무리 및 요약 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 10,
+ "comments_top_level": 5,
+ "comments_replies": 5,
+ "comments_by_creator": 4,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 10,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:18:50",
+ "approved": "2026-11-27T15:18+09:00"
+}

@@ -1,0 +1,83 @@
+{
+ "id": "PmrXKcM2YMI",
+ "title": "모공 피지 색소침착 다되는 나이아신아마이드 팩폭리뷰",
+ "channel": "피부장벽지킴이 민조이",
+ "channel_id": "UCN820P3PLVl7v0nPdnXTtLQ",
+ "subs": 22700,
+ "views": 1434411,
+ "ratio": 63.19,
+ "age_days": 91,
+ "views_per_day": 15671.0,
+ "minutes": 14.2,
+ "likes": 9185,
+ "comments": 457,
+ "published": "2026-08-27",
+ "queries": "검색:추천템",
+ "url": "https://www.youtube.com/watch?v=PmrXKcM2YMI",
+ "flag": "",
+ "published_at": "2026-08-27T17:27:39Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_PmrXKcM2YMI",
+ "sources": [
+  "검색:추천템"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "나이아신아마이드 팩폭 리뷰 시작"
+  },
+  {
+   "start": 24,
+   "title": "레이어랩 나이아신아마이드 4% -제공받음"
+  },
+  {
+   "start": 82,
+   "title": "넘버즈인 5번 글루타치온 C 흔적 앰플 -내돈내산"
+  },
+  {
+   "start": 161,
+   "title": "코스알엑스 더 알파 알부틴 2 세럼-내돈내산-5%"
+  },
+  {
+   "start": 275,
+   "title": "레이어랩 나이아신아마이드 7% -제공받음"
+  },
+  {
+   "start": 316,
+   "title": "디오디너리 나이아신아마이드 10% + 징크 1% -내돈내산"
+  },
+  {
+   "start": 478,
+   "title": "주미소 나이아신아마이드 20% -내돈내산"
+  },
+  {
+   "start": 559,
+   "title": "더마팩토리 나이아신아마이드 20%-내돈내산"
+  },
+  {
+   "start": 695,
+   "title": "폴라초이스 20% 나이아신아마이드 바쿠치올 탄력 포뮬라-제공받음"
+  },
+  {
+   "start": 784,
+   "title": "나이아신아마이드 올바른 선택법 및 총평"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 457,
+ "comments_top_level": 254,
+ "comments_replies": 203,
+ "comments_by_creator": 51,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 457,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:19:42",
+ "approved": "2026-11-27T15:19+09:00"
+}

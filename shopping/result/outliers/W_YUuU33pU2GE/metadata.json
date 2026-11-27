@@ -1,0 +1,110 @@
+{
+ "id": "YUuU33pU2GE",
+ "title": "다이소가 작정하고 만든 역대급 신상템 & 직원도 놀란 가성비꿀템 33가지 | 다양한 활용법",
+ "channel": "멜랑홈",
+ "channel_id": "UCHguOJUbgc4yEGW9N3442QQ",
+ "subs": 6290,
+ "views": 138209,
+ "ratio": 21.97,
+ "age_days": 151,
+ "views_per_day": 910.4,
+ "minutes": 11.7,
+ "likes": 1557,
+ "comments": 31,
+ "published": "2026-06-28",
+ "queries": "검색:다이소추천템 | 검색:꿀템 | 검색:살림템 | 검색:주방템 | 검색:다이소꿀템 | 검색:다이소신상",
+ "url": "https://www.youtube.com/watch?v=YUuU33pU2GE",
+ "flag": "",
+ "published_at": "2026-06-28T10:45:22Z",
+ "rank": "W101",
+ "set": "web",
+ "folder": "W_YUuU33pU2GE",
+ "sources": [
+  "검색:다이소추천템",
+  "검색:꿀템",
+  "검색:살림템",
+  "검색:주방템",
+  "검색:다이소꿀템",
+  "검색:다이소신상"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소",
+  "다이소꿀템",
+  "다이소신상",
+  "살림꿀팁",
+  "살림템"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 22,
+   "title": "다이소 대용량 유청분리기 (106954 / 5,000원)"
+  },
+  {
+   "start": 90,
+   "title": "친환경 랩 대체 꿀템"
+  },
+  {
+   "start": 133,
+   "title": "22/24/26 다이소 강화유리 실리콘 뚜껑 (1051807 / 5,000원)"
+  },
+  {
+   "start": 193,
+   "title": "품절대란 다이소 키친마카"
+  },
+  {
+   "start": 237,
+   "title": "나만의 맞춤 슬라이딩 서랍 만들기"
+  },
+  {
+   "start": 288,
+   "title": "홈카페 필수품 스틱형 얼음트레이"
+  },
+  {
+   "start": 345,
+   "title": "여름 나들이 필수품"
+  },
+  {
+   "start": 427,
+   "title": "두 손이 자유로운 외출 꼼수템"
+  },
+  {
+   "start": 469,
+   "title": "실리콘 와인 캐리어"
+  },
+  {
+   "start": 493,
+   "title": "깔끔한 옷장 정리"
+  },
+  {
+   "start": 535,
+   "title": "욕실 수납 꿀템 비교 (타월걸이 거치선반 비교)"
+  },
+  {
+   "start": 588,
+   "title": "접이식 런드리 바구니"
+  },
+  {
+   "start": 622,
+   "title": "손세탁 꿀팁"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 31,
+ "comments_top_level": 16,
+ "comments_replies": 15,
+ "comments_by_creator": 16,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 31,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:22:11",
+ "approved": "2026-11-27T15:22+09:00"
+}

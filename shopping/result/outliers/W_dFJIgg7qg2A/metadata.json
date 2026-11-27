@@ -1,0 +1,59 @@
+{
+ "id": "dFJIgg7qg2A",
+ "title": "좁은 세탁실 2배 넓게 쓰는 가성비 수납, 정리 아이디어, 틈새 수납 살림꿀팁, 세탁실 꾸미기",
+ "channel": "살림하는 디자이너",
+ "channel_id": "UC0TECKdc3zutI8eLB9gKhzQ",
+ "subs": 316,
+ "views": 328157,
+ "ratio": 1038.47,
+ "age_days": 28,
+ "views_per_day": 11540.2,
+ "minutes": 7.0,
+ "likes": 424,
+ "comments": 33,
+ "published": "2026-10-29",
+ "queries": "검색:살림꿀팁",
+ "url": "https://www.youtube.com/watch?v=dFJIgg7qg2A",
+ "flag": "",
+ "published_at": "2026-10-29T19:47:06Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_dFJIgg7qg2A",
+ "sources": [
+  "검색:살림꿀팁"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "1.좁은 세탁실 정리, 1평 공간의 한계와 수납 대책"
+  },
+  {
+   "start": 75,
+   "title": "2.좁은 공간 가성비 정리함, 압축 선반과 틈새 수납 활용법"
+  },
+  {
+   "start": 140,
+   "title": "3.좁은 다용도실 활용, 감자·고구마 신선 보관 꿀팁"
+  },
+  {
+   "start": 251,
+   "title": "4.인테리어 완성도 높이기, 패브릭 가림막과 논슬립 매트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 33,
+ "comments_top_level": 13,
+ "comments_replies": 20,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 33,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:16:58",
+ "approved": "2026-11-27T15:16+09:00"
+}

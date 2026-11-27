@@ -1,0 +1,71 @@
+{
+ "id": "7hWxm9uR9oY",
+ "title": "중년 진주목걸이, 이렇게 하면 10년 늙어 보여요! 촌스럽지 않게 착용하는 3가지 방법",
+ "channel": "조용한 럭셔리ㅣquiet luxury",
+ "channel_id": "UCaIpmRyhVryWc4mufx8oXBQ",
+ "subs": 1760,
+ "views": 244973,
+ "ratio": 139.19,
+ "age_days": 43,
+ "views_per_day": 5595.4,
+ "minutes": 7.8,
+ "likes": 534,
+ "comments": 20,
+ "published": "2026-10-14",
+ "queries": "검색:중년코디",
+ "url": "https://www.youtube.com/watch?v=7hWxm9uR9oY",
+ "flag": "",
+ "published_at": "2026-10-14T11:30:18Z",
+ "rank": "W31",
+ "set": "web",
+ "folder": "W_7hWxm9uR9oY",
+ "sources": [
+  "검색:중년코디"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝 및 진주목걸이에 대한 편견 깨기"
+  },
+  {
+   "start": 19,
+   "title": "피해야 할 촌스러운 진주 스타일링 3가지"
+  },
+  {
+   "start": 76,
+   "title": "첫 번째: 세련되고 어려 보이는 3mm·5mm 진주 코디"
+  },
+  {
+   "start": 197,
+   "title": "두 번째: 꾸안꾸 스타일의 완성, 8mm 진주 목걸이 활용법"
+  },
+  {
+   "start": 305,
+   "title": "세 번째: 날씬해 보이는 롱 진주 목걸이 연출법"
+  },
+  {
+   "start": 395,
+   "title": "롱 진주목걸이 예쁘게 묶는 꿀팁"
+  },
+  {
+   "start": 425,
+   "title": "마무리 및 다음 영상 예고"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 20,
+ "comments_top_level": 7,
+ "comments_replies": 13,
+ "comments_by_creator": 11,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 20,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:18:16",
+ "approved": "2026-11-27T15:18+09:00"
+}

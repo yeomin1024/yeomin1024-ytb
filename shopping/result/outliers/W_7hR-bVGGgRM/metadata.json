@@ -1,0 +1,83 @@
+{
+ "id": "7hR-bVGGgRM",
+ "title": "“2000원으로 이명 치료 효과를?” 이명 겪었던 한의사가 직접 효과 본 다이소 숨은 꿀템 3가지와 올바른 사용법 전부 알려드립니다",
+ "channel": "건강 찾아주는 한의사 강준혁 김시진",
+ "channel_id": "UCSiu3fOgWA-nAS19scb5XdA",
+ "subs": 60600,
+ "views": 2426631,
+ "ratio": 40.04,
+ "age_days": 16,
+ "views_per_day": 143009.0,
+ "minutes": 20.1,
+ "likes": 8735,
+ "comments": 155,
+ "published": "2026-11-10",
+ "queries": "검색:다이소추천템 | 검색:다이소 | 검색:다이소꿀템 | 검색:다이소신상 | 검색(전체 기간):다이소추천템",
+ "url": "https://www.youtube.com/watch?v=7hR-bVGGgRM",
+ "flag": "",
+ "published_at": "2026-11-10T07:00:12Z",
+ "rank": "W84",
+ "set": "web",
+ "folder": "W_7hR-bVGGgRM",
+ "sources": [
+  "검색:다이소추천템",
+  "검색:다이소",
+  "검색:다이소꿀템",
+  "검색:다이소신상",
+  "검색(전체 기간):다이소추천템"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영상 시작"
+  },
+  {
+   "start": 18,
+   "title": "다이소 아이템으로 이명 관리하기"
+  },
+  {
+   "start": 76,
+   "title": "다이소 이명 관리 꿀템1 - 압박 스타킹"
+  },
+  {
+   "start": 407,
+   "title": "다이소 이명 관리 꿀템2 - 괄사"
+  },
+  {
+   "start": 690,
+   "title": "다이소 이명 관리 꿀템3 - 온찜질팩"
+  },
+  {
+   "start": 936,
+   "title": "원장님이 알려주는 이명 치료법"
+  },
+  {
+   "start": 1047,
+   "title": "원장님의 이명 치료율"
+  },
+  {
+   "start": 1100,
+   "title": "마무리"
+  },
+  {
+   "start": 1147,
+   "title": "쿠키영상"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 155,
+ "comments_top_level": 99,
+ "comments_replies": 56,
+ "comments_by_creator": 19,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 155,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:21:11",
+ "approved": "2026-11-27T15:21+09:00"
+}

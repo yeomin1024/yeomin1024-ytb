@@ -1,0 +1,67 @@
+{
+ "id": "vSGrvxAWxJc",
+ "title": "SNS에서 유명한 청소템은 다 좋을까?｜추천템부터 비추천템까지 솔직 후기",
+ "channel": "지지홈데이 zizi homeday",
+ "channel_id": "UCOPiOofSiT5-Uzk3hu66rJw",
+ "subs": 665,
+ "views": 170366,
+ "ratio": 256.19,
+ "age_days": 88,
+ "views_per_day": 1925.1,
+ "minutes": 8.5,
+ "likes": 645,
+ "comments": 100,
+ "published": "2026-08-30",
+ "queries": "검색:쿠팡추천템",
+ "url": "https://www.youtube.com/watch?v=vSGrvxAWxJc",
+ "flag": "",
+ "published_at": "2026-08-30T18:21:34Z",
+ "rank": "W17",
+ "set": "web",
+ "folder": "W_vSGrvxAWxJc",
+ "sources": [
+  "검색:쿠팡추천템"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 30,
+   "title": "청소기 안쓰게 되는 점착식 청소포"
+  },
+  {
+   "start": 156,
+   "title": "온 집안 살균해주는 스팀청소기"
+  },
+  {
+   "start": 366,
+   "title": "거울부터 가구까지 다 닦는 다목적 세정티슈"
+  },
+  {
+   "start": 417,
+   "title": "지문 자국 안 남는 유리막 코팅제"
+  },
+  {
+   "start": 449,
+   "title": "일반 청소포보다 물 함유량 8배 청소포"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 100,
+ "comments_top_level": 40,
+ "comments_replies": 60,
+ "comments_by_creator": 45,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 100,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:34",
+ "approved": "2026-11-27T15:17+09:00"
+}

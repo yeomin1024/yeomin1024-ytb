@@ -1,0 +1,88 @@
+{
+ "id": "f1Ophmy60RQ",
+ "title": "3,000원짜리 다이소 신상 필사노트?! 일본산 내지라는데.. 만년필로 써봤습니다.",
+ "channel": "펜조이 PenJoy | 아날로그 전도사",
+ "channel_id": "UC2fChf3CkDUq11N-esjukqg",
+ "subs": 21100,
+ "views": 428784,
+ "ratio": 20.32,
+ "age_days": 53,
+ "views_per_day": 7945.3,
+ "minutes": 7.6,
+ "likes": 1126,
+ "comments": 55,
+ "published": "2026-10-04",
+ "queries": "검색:다이소 | 검색:다이소신상",
+ "url": "https://www.youtube.com/watch?v=f1Ophmy60RQ",
+ "flag": "",
+ "published_at": "2026-10-04T07:02:08Z",
+ "rank": "W102",
+ "set": "web",
+ "folder": "W_f1Ophmy60RQ",
+ "sources": [
+  "검색:다이소",
+  "검색:다이소신상"
+ ],
+ "source": "web",
+ "tags": [
+  "만녀필",
+  "만년피",
+  "만년필"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 22,
+   "title": "스펙 확인"
+  },
+  {
+   "start": 80,
+   "title": "필기 테스트"
+  },
+  {
+   "start": 124,
+   "title": "일본제 B6 노트패드"
+  },
+  {
+   "start": 173,
+   "title": "데님 필사노트"
+  },
+  {
+   "start": 221,
+   "title": "말랑 노트"
+  },
+  {
+   "start": 268,
+   "title": "한솔제지 B5 노트"
+  },
+  {
+   "start": 321,
+   "title": "잉크 발색 테스트 (토모에리버, 로디아)"
+  },
+  {
+   "start": 353,
+   "title": "잉크 뒷비침 & 번짐"
+  },
+  {
+   "start": 400,
+   "title": "아웃트로"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 55,
+ "comments_top_level": 26,
+ "comments_replies": 29,
+ "comments_by_creator": 9,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 55,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:22:14",
+ "approved": "2026-11-27T15:22+09:00"
+}

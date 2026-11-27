@@ -1,0 +1,94 @@
+{
+ "id": "vS3O_PweBPE",
+ "title": "주부들의 환호성! 집안 살림 피로도 절반으로 줄여주는 다이소 역대급 꿀템모음 | 품절대란 | 다이소추천템 | 내돈내산",
+ "channel": "이참에 살림",
+ "channel_id": "UCbcY9Ht7J9GlnUKuWWTBRaA",
+ "subs": 8020,
+ "views": 425637,
+ "ratio": 53.07,
+ "age_days": 91,
+ "views_per_day": 4636.6,
+ "minutes": 8.2,
+ "likes": 1044,
+ "comments": 29,
+ "published": "2026-08-27",
+ "queries": "검색:다이소추천템 | 검색:살림꿀템 | 검색:살림템 | 검색:살림 | 검색:주부 | 검색:다이소꿀템 | 검색:다이소신상",
+ "url": "https://www.youtube.com/watch?v=vS3O_PweBPE",
+ "flag": "",
+ "published_at": "2026-08-27T11:00:26Z",
+ "rank": "W69",
+ "set": "web",
+ "folder": "W_vS3O_PweBPE",
+ "sources": [
+  "검색:다이소추천템",
+  "검색:살림꿀템",
+  "검색:살림템",
+  "검색:살림",
+  "검색:주부",
+  "검색:다이소꿀템",
+  "검색:다이소신상"
+ ],
+ "source": "web",
+ "tags": [
+  "쿠팡추찬템",
+  "생활ㄹ용품",
+  "인텡리어",
+  "살림탬",
+  "큐팡추천탱",
+  "주방용ㅇ품",
+  "다이소 추천템",
+  "품절대란"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "이참에 살림입니다."
+  },
+  {
+   "start": 8,
+   "title": "[열탕 소독] 슬라이드 실리콘 지퍼백 1.5 L NEW | 품번: 1072430 / 2,000원"
+  },
+  {
+   "start": 82,
+   "title": "실리콘 손잡이 스텐 304 서빙 국자 | 품번: 1062947 / 2,000"
+  },
+  {
+   "start": 155,
+   "title": "전기 계란 찜기 7구 NEW | 품번: 1069307 / 5,000원"
+  },
+  {
+   "start": 229,
+   "title": "조립식 2단 선반 | 품번: 1078610 / 5,000원"
+  },
+  {
+   "start": 286,
+   "title": "헬로베어 알카라인 건전지 LR6 AA 4개입 | 품번: 101073 / 1,000원"
+  },
+  {
+   "start": 341,
+   "title": "슈프림골드 커피믹스 | 품번: 103700304 / 5,000원"
+  },
+  {
+   "start": 398,
+   "title": "로봇 청소기용 세제 | 품번: 1051459 / 3,000원"
+  },
+  {
+   "start": 461,
+   "title": "시청해 주셔서 감사합니다!"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 29,
+ "comments_top_level": 14,
+ "comments_replies": 15,
+ "comments_by_creator": 13,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:20:21",
+ "approved": "2026-11-27T15:20+09:00"
+}

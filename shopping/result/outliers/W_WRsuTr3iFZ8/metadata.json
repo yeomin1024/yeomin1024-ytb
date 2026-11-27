@@ -1,0 +1,117 @@
+{
+ "id": "WRsuTr3iFZ8",
+ "title": "집안일 하기 싫으시면 다 비우세요| 미니멀리스트의 살림 방법",
+ "channel": "미니멀라이프_심플살림",
+ "channel_id": "UC9CBK_hBpd420TDoqGOClAA",
+ "subs": 4840,
+ "views": 211335,
+ "ratio": 43.66,
+ "age_days": 137,
+ "views_per_day": 1532.6,
+ "minutes": 13.0,
+ "likes": 2008,
+ "comments": 132,
+ "published": "2026-07-12",
+ "queries": "검색:살림",
+ "url": "https://www.youtube.com/watch?v=WRsuTr3iFZ8",
+ "flag": "",
+ "published_at": "2026-07-12T08:51:42Z",
+ "rank": "W79",
+ "set": "web",
+ "folder": "W_WRsuTr3iFZ8",
+ "sources": [
+  "검색:살림"
+ ],
+ "source": "web",
+ "tags": [
+  "미니멀라이프",
+  "미니멀리스트",
+  "비우기",
+  "물건버리기",
+  "버리기",
+  "집안일",
+  "집안일줄이기",
+  "정리수납",
+  "정리정돈",
+  "살림",
+  "살림브이로그",
+  "살림꿀팁",
+  "미니멀살림",
+  "주방정리",
+  "주방수납",
+  "집정리",
+  "집청소",
+  "정리습관",
+  "심플라이프",
+  "심플살림",
+  "불필요한물건",
+  "물건줄이기",
+  "공간정리",
+  "구축아파트",
+  "육아살림"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 129,
+   "title": "1.큰러그"
+  },
+  {
+   "start": 176,
+   "title": "2.사용하지 않는 주방도구"
+  },
+  {
+   "start": 220,
+   "title": "3. 여분의 그릇"
+  },
+  {
+   "start": 261,
+   "title": "4. 여러개의 쓰레기통"
+  },
+  {
+   "start": 355,
+   "title": "5.여분의 쿠션"
+  },
+  {
+   "start": 409,
+   "title": "6. 오래된 수납합"
+  },
+  {
+   "start": 465,
+   "title": "7. 오래 보관한 쇼핑백"
+  },
+  {
+   "start": 508,
+   "title": "8. 사용하지 않는 가전제품"
+  },
+  {
+   "start": 569,
+   "title": "9. 여분의 가방과 에코백"
+  },
+  {
+   "start": 638,
+   "title": "10. 언젠가 사용할지도 모르는 물건"
+  },
+  {
+   "start": 687,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 132,
+ "comments_top_level": 62,
+ "comments_replies": 70,
+ "comments_by_creator": 48,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 132,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:20:56",
+ "approved": "2026-11-27T15:20+09:00"
+}

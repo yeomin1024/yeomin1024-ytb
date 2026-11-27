@@ -1,0 +1,105 @@
+{
+ "id": "l-yghTKpINw",
+ "title": "다이소 없어서 못판다는 다이소 추천템 10가지ㅣ다이소 가기 전에 꼭 봐야될 영상!ㅣ이편한살림",
+ "channel": "이편한살림 EasySalrim",
+ "channel_id": "UCtM4eViSv7gwe6W228dv2tQ",
+ "subs": 68500,
+ "views": 2865261,
+ "ratio": 41.83,
+ "age_days": 1517,
+ "views_per_day": 1888.5,
+ "minutes": 9.9,
+ "likes": 36640,
+ "comments": 266,
+ "published": "2022-10-02",
+ "queries": "검색(전체 기간):다이소추천템",
+ "url": "https://www.youtube.com/watch?v=l-yghTKpINw",
+ "flag": "",
+ "published_at": "2022-10-02T01:49:44Z",
+ "rank": "W82",
+ "set": "web",
+ "folder": "W_l-yghTKpINw",
+ "sources": [
+  "검색(전체 기간):다이소추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소 살림템",
+  "다이소 추천템",
+  "다이소 꿀템",
+  "다이소 추천",
+  "다이소 주방용품",
+  "다이소 주방정리",
+  "daiso",
+  "daiso shopping",
+  "korea daiso"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 & 한 눈에 보기"
+  },
+  {
+   "start": 39,
+   "title": "폼타입 매직크리너"
+  },
+  {
+   "start": 125,
+   "title": "라운딩 북스탠드"
+  },
+  {
+   "start": 161,
+   "title": "다용도주걱(스탠딩주걱)"
+  },
+  {
+   "start": 225,
+   "title": "스텐크리너(스텐세정제)"
+  },
+  {
+   "start": 300,
+   "title": "에그타이머(계란타이머)"
+  },
+  {
+   "start": 352,
+   "title": "봉지캡"
+  },
+  {
+   "start": 400,
+   "title": "자우버 알콜스왑"
+  },
+  {
+   "start": 457,
+   "title": "회전채반"
+  },
+  {
+   "start": 483,
+   "title": "계란보관밀폐용기"
+  },
+  {
+   "start": 517,
+   "title": "워터블럭"
+  },
+  {
+   "start": 275,
+   "title": "스텐 연마제 제거방법(현실라이프 RealLife 님의 영상)"
+  },
+  {
+   "start": 586,
+   "title": "생각지도 못한 다이소 추천템(살림남 The Life 님의 영상)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 266,
+ "comments_top_level": 179,
+ "comments_replies": 87,
+ "comments_by_creator": 70,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 266,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:21:05",
+ "approved": "2026-11-27T15:21+09:00"
+}

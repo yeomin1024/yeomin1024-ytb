@@ -1,0 +1,109 @@
+{
+ "id": "3uJTRqhq80k",
+ "title": "다이소 맥세이프 케이스, 같은 제조사인데 쿠팡보다 3배 저렴한 이유",
+ "channel": "꿀템리뷰_허니쵸이",
+ "channel_id": "UCj_Ay8kD0SVzo1wskji5GTw",
+ "subs": 5110,
+ "views": 381633,
+ "ratio": 74.68,
+ "age_days": 146,
+ "views_per_day": 2607.0,
+ "minutes": 10.1,
+ "likes": 1860,
+ "comments": 297,
+ "published": "2026-07-03",
+ "queries": "검색:다이소꿀템",
+ "url": "https://www.youtube.com/watch?v=3uJTRqhq80k",
+ "flag": "",
+ "published_at": "2026-07-03T21:00:12Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_3uJTRqhq80k",
+ "sources": [
+  "검색:다이소꿀템"
+ ],
+ "source": "web",
+ "tags": [
+  "갤럭시S26울트라",
+  "갤럭시S26울트라케이스",
+  "맥세이프케이스",
+  "다이소",
+  "다이소케이스",
+  "다이소맥세이프케이스",
+  "모란카노",
+  "모란카노케이스",
+  "퓨어쉴드",
+  "쿠팡",
+  "쿠팡케이스",
+  "맥세이프",
+  "MagSafe",
+  "Qi2",
+  "Qi2케이스",
+  "초고속무선충전",
+  "무선충전",
+  "차량용무선충전기",
+  "차량용맥세이프충전기",
+  "맥세이프충전기",
+  "케이스비교",
+  "케이스추천",
+  "가성비케이스",
+  "갤럭시케이스",
+  "투명케이스"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "다이소 맥세이프 케이스 vs 쿠팡 케이스"
+  },
+  {
+   "start": 45,
+   "title": "갤럭시 S26 울트라 케이스 비교"
+  },
+  {
+   "start": 143,
+   "title": "두께·무게 측정"
+  },
+  {
+   "start": 179,
+   "title": "버튼감 비교"
+  },
+  {
+   "start": 194,
+   "title": "맥세이프 자석 비교"
+  },
+  {
+   "start": 231,
+   "title": "자력 테스트"
+  },
+  {
+   "start": 328,
+   "title": "Qi2 초고속 무선충전 테스트"
+  },
+  {
+   "start": 399,
+   "title": "차량용 맥세이프 충전기 비교"
+  },
+  {
+   "start": 430,
+   "title": "초고속 무선충전이 안 되는 이유?"
+  },
+  {
+   "start": 497,
+   "title": "총평 및 추천"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 297,
+ "comments_top_level": 147,
+ "comments_replies": 150,
+ "comments_by_creator": 106,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 297,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:19:21",
+ "approved": "2026-11-27T15:19+09:00"
+}

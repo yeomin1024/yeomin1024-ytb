@@ -1,0 +1,81 @@
+{
+ "id": "6b79W99u5w0",
+ "title": "직원들만 몰래 산다는 다이소 꿀템 5가지ㅣ다이소,다이소 추천템,다이소 꿀템,다이소 신상,주방용품ㅣ이편한살림",
+ "channel": "이편한살림 EasySalrim",
+ "channel_id": "UCtM4eViSv7gwe6W228dv2tQ",
+ "subs": 68500,
+ "views": 4300275,
+ "ratio": 62.78,
+ "age_days": 1396,
+ "views_per_day": 3078.7,
+ "minutes": 9.7,
+ "likes": 66000,
+ "comments": 576,
+ "published": "2023-01-30",
+ "queries": "검색(전체 기간):다이소추천템",
+ "url": "https://www.youtube.com/watch?v=6b79W99u5w0",
+ "flag": "",
+ "published_at": "2023-01-30T11:00:04Z",
+ "rank": "W61",
+ "set": "web",
+ "folder": "W_6b79W99u5w0",
+ "sources": [
+  "검색(전체 기간):다이소추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "생활꿀팁",
+  "꿀팁",
+  "생활꿀템",
+  "꿀템",
+  "주방",
+  "주방용품",
+  "다이소",
+  "다이소꿀템",
+  "다이소추천템"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "도입 & 한 눈에 보기"
+  },
+  {
+   "start": 39,
+   "title": "발포락스"
+  },
+  {
+   "start": 141,
+   "title": "직사각샐러드도시락통"
+  },
+  {
+   "start": 238,
+   "title": "사각리무버후크(재점착식후크)"
+  },
+  {
+   "start": 352,
+   "title": "접착식쓰레기봉투"
+  },
+  {
+   "start": 449,
+   "title": "슬라이드커팅 랩/종이호일"
+  },
+  {
+   "start": 507,
+   "title": "소품정리함"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 576,
+ "comments_top_level": 399,
+ "comments_replies": 177,
+ "comments_by_creator": 120,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 576,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:19:46",
+ "approved": "2026-11-27T15:19+09:00"
+}

@@ -1,0 +1,89 @@
+{
+ "id": "LghRoc0B4oI",
+ "title": "코스트코 미친가성비 척아이롤 15만원이면 충분합니다 최고 좋은 원육 고르는법 [인생꿀팁]",
+ "channel": "고기형",
+ "channel_id": "UCqXAUNt8THwIvAr9rL3-mQw",
+ "subs": 19500,
+ "views": 940417,
+ "ratio": 48.23,
+ "age_days": 28,
+ "views_per_day": 33554.1,
+ "minutes": 17.9,
+ "likes": 1377,
+ "comments": 113,
+ "published": "2026-10-30",
+ "queries": "검색:코스트코",
+ "url": "https://www.youtube.com/watch?v=LghRoc0B4oI",
+ "flag": "",
+ "published_at": "2026-10-30T05:36:04Z",
+ "rank": "W75",
+ "set": "web",
+ "folder": "W_LghRoc0B4oI",
+ "sources": [
+  "검색:코스트코"
+ ],
+ "source": "web",
+ "tags": [
+  "한우",
+  "소고기",
+  "살치살",
+  "스테이크",
+  "코스트코"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "한 달치 척아이롤 손질 시작"
+  },
+  {
+   "start": 59,
+   "title": "좋은 척아이롤 고르는 기준 3가지"
+  },
+  {
+   "start": 123,
+   "title": "포장 제거와 기본 손질"
+  },
+  {
+   "start": 220,
+   "title": "살치살 위치 확인과 목심 분리"
+  },
+  {
+   "start": 353,
+   "title": "찹스테이크용 부위 나누기"
+  },
+  {
+   "start": 438,
+   "title": "구우면 질겨지는 얇은 막 제거"
+  },
+  {
+   "start": 551,
+   "title": "스테이크 두께 맞춰 썰기"
+  },
+  {
+   "start": 695,
+   "title": "살치살 쉽게 분리하기"
+  },
+  {
+   "start": 786,
+   "title": "구이용 고기 손질하고 썰기"
+  },
+  {
+   "start": 901,
+   "title": "비닐팩으로 공기 빼서 소분·보관하기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 113,
+ "comments_top_level": 53,
+ "comments_replies": 60,
+ "comments_by_creator": 40,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 113,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:20:44",
+ "approved": "2026-11-27T15:20+09:00"
+}

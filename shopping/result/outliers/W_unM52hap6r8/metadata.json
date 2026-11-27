@@ -1,0 +1,96 @@
+{
+ "id": "unM52hap6r8",
+ "title": "쓸수록 감탄나오는 다이소 강력 추천 화장실 세제",
+ "channel": "살림클라스",
+ "channel_id": "UCBh_O6mWQxbMiR14bb97zhA",
+ "subs": 1360,
+ "views": 1158538,
+ "ratio": 851.87,
+ "age_days": 89,
+ "views_per_day": 12925.7,
+ "minutes": 6.8,
+ "likes": 2772,
+ "comments": 87,
+ "published": "2026-08-29",
+ "queries": "검색:다이소추천템 | 검색:추천템 | 검색:다이소 | 검색:다이소꿀템",
+ "url": "https://www.youtube.com/watch?v=unM52hap6r8",
+ "flag": "",
+ "published_at": "2026-08-29T15:06:18Z",
+ "rank": "W4",
+ "set": "web",
+ "folder": "W_unM52hap6r8",
+ "sources": [
+  "검색:다이소추천템",
+  "검색:추천템",
+  "검색:다이소",
+  "검색:다이소꿀템"
+ ],
+ "source": "web",
+ "tags": [
+  "다이소청소",
+  "다이소꿀템",
+  "화장실청소",
+  "화장실청소법",
+  "화장실세제",
+  "다이소세제",
+  "청소세제추천",
+  "가성비청소",
+  "다이소템",
+  "화장실물때제거",
+  "물때제거",
+  "석회제거",
+  "요석제거제",
+  "곰팡이제거",
+  "화장실곰팡이",
+  "락스사용법",
+  "다이소청소템",
+  "청소꿀팁",
+  "자취생청소",
+  "화장실청소꿀팁",
+  "살림꿀팁",
+  "살림템",
+  "청소용품추천",
+  "다이소신상",
+  "저렴한청소세제",
+  "화장실물때",
+  "타일줄눈청소",
+  "수전물때제거",
+  "샤워부스청소"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 20,
+   "title": "1단계 - 요석 제거제"
+  },
+  {
+   "start": 183,
+   "title": "2단계 - 오렌지 다목적세제"
+  },
+  {
+   "start": 287,
+   "title": "3단계 - 락스 (곰팡이 있으신 분만)"
+  },
+  {
+   "start": 371,
+   "title": "총정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 87,
+ "comments_top_level": 49,
+ "comments_replies": 38,
+ "comments_by_creator": 29,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 87,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:00",
+ "approved": "2026-11-27T15:17+09:00"
+}

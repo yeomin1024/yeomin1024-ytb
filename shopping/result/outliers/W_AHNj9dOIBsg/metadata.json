@@ -1,0 +1,103 @@
+{
+ "id": "AHNj9dOIBsg",
+ "title": "마켓컬리로 식비 절약 성공했어요ㅣ배달 외식 끊게 만드는 컬리 추천템ㅣ초간단 밀키트, 디저트 레시피",
+ "channel": "유부주부",
+ "channel_id": "UC0x6YCRI1o6Fr4TR5l-yPGg",
+ "subs": 5070,
+ "views": 1130114,
+ "ratio": 222.9,
+ "age_days": 13,
+ "views_per_day": 80783.8,
+ "minutes": 13.5,
+ "likes": 3524,
+ "comments": 135,
+ "published": "2026-11-13",
+ "queries": "검색:추천템",
+ "url": "https://www.youtube.com/watch?v=AHNj9dOIBsg",
+ "flag": "",
+ "published_at": "2026-11-13T06:30:01Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_AHNj9dOIBsg",
+ "sources": [
+  "검색:추천템"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "컬리추천템 시작"
+  },
+  {
+   "start": 27,
+   "title": "떡갈비"
+  },
+  {
+   "start": 84,
+   "title": "알탕"
+  },
+  {
+   "start": 131,
+   "title": "완자만두"
+  },
+  {
+   "start": 181,
+   "title": "김치우동 전골"
+  },
+  {
+   "start": 247,
+   "title": "닭갈비"
+  },
+  {
+   "start": 303,
+   "title": "토마토홀"
+  },
+  {
+   "start": 354,
+   "title": "냉동 크레페"
+  },
+  {
+   "start": 414,
+   "title": "쌀 모닝빵"
+  },
+  {
+   "start": 458,
+   "title": "바게트"
+  },
+  {
+   "start": 509,
+   "title": "두유 그릭요거트"
+  },
+  {
+   "start": 572,
+   "title": "크림치즈 (전남친 토스트)"
+  },
+  {
+   "start": 639,
+   "title": "대패 닭가슴살"
+  },
+  {
+   "start": 693,
+   "title": "연근칩"
+  },
+  {
+   "start": 741,
+   "title": "쭈꾸미 볶음"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 135,
+ "comments_top_level": 77,
+ "comments_replies": 58,
+ "comments_by_creator": 31,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 135,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:38",
+ "approved": "2026-11-27T15:17+09:00"
+}

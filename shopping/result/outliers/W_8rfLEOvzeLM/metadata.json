@@ -1,0 +1,89 @@
+{
+ "id": "8rfLEOvzeLM",
+ "title": "우리집 주방에서 없앤 물건 6가지｜편하려고 샀는데 더 불편했습니다",
+ "channel": "현실미니멀연구소",
+ "channel_id": "UCvN7lBXewxnwoOVWneG9qAQ",
+ "subs": 4560,
+ "views": 192396,
+ "ratio": 42.19,
+ "age_days": 15,
+ "views_per_day": 12647.3,
+ "minutes": 9.2,
+ "likes": 699,
+ "comments": 124,
+ "published": "2026-11-12",
+ "queries": "검색:주방정리",
+ "url": "https://www.youtube.com/watch?v=8rfLEOvzeLM",
+ "flag": "",
+ "published_at": "2026-11-12T01:09:00Z",
+ "rank": "W81",
+ "set": "web",
+ "folder": "W_8rfLEOvzeLM",
+ "sources": [
+  "검색:주방정리"
+ ],
+ "source": "web",
+ "tags": [
+  "미니멀라이프",
+  "미니멀",
+  "현실미니멀라이프",
+  "살림",
+  "정리정돈",
+  "버리기",
+  "단순한삶",
+  "미니멀리스트",
+  "미니멀리즘",
+  "주방정리",
+  "행주걸이",
+  "행주관리",
+  "주방수납"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주방에 필요한 건 ?"
+  },
+  {
+   "start": 43,
+   "title": "결국 비운 물건 1. 기본 세팅 용품"
+  },
+  {
+   "start": 116,
+   "title": "결국 비운 물건 2. 소분 용기"
+  },
+  {
+   "start": 210,
+   "title": "결국 비운 물건 3. 나무 도마"
+  },
+  {
+   "start": 253,
+   "title": "결국 비운 물건 4. 전기밥솥"
+  },
+  {
+   "start": 302,
+   "title": "결국 비운 물건 5. 플라스틱 수납함"
+  },
+  {
+   "start": 407,
+   "title": "결국 비운 물건 6. 발매트"
+  },
+  {
+   "start": 485,
+   "title": "좁은 주방을 쾌적하고 편하게"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 124,
+ "comments_top_level": 48,
+ "comments_replies": 76,
+ "comments_by_creator": 70,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 124,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:21:02",
+ "approved": "2026-11-27T15:21+09:00"
+}

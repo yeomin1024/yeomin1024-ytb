@@ -1,0 +1,97 @@
+{
+ "id": "NCdTO010qcI",
+ "title": "버렸더니 집안일이 편해진 물건 20가지｜미니멀 살림",
+ "channel": "두잇맘플리",
+ "channel_id": "UCmQczz46ssOJoWAru0ERCHQ",
+ "subs": 2600,
+ "views": 674161,
+ "ratio": 259.29,
+ "age_days": 97,
+ "views_per_day": 6890.9,
+ "minutes": 8.1,
+ "likes": 1999,
+ "comments": 215,
+ "published": "2026-08-21",
+ "queries": "검색:살림 | 검색:주부 | 검색:살림브이로그 | 검색:주방정리",
+ "url": "https://www.youtube.com/watch?v=NCdTO010qcI",
+ "flag": "",
+ "published_at": "2026-08-21T10:15:25Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_NCdTO010qcI",
+ "sources": [
+  "검색:살림",
+  "검색:주부",
+  "검색:살림브이로그",
+  "검색:주방정리"
+ ],
+ "source": "web",
+ "tags": [
+  "미니멀라이프",
+  "미니멀리스트",
+  "미니멀살림",
+  "미니멀브이로그",
+  "살림브이로그",
+  "집안일",
+  "집안일줄이기",
+  "비우기",
+  "미니멀정리",
+  "정리정돈",
+  "살림꿀팁",
+  "살림템",
+  "미니멀홈",
+  "미니멀인테리어",
+  "심플라이프",
+  "정리수납",
+  "집정리",
+  "주부브이로그",
+  "육아맘살림",
+  "미니멀육아",
+  "비움생활",
+  "살림노하우",
+  "물건비우기",
+  "미니멀리즘",
+  "청소꿀팁",
+  "청소루틴",
+  "살림루틴",
+  "심플하우스",
+  "정리브이로그",
+  "살림스킬"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 19,
+   "title": "거실 (1~6번째)"
+  },
+  {
+   "start": 167,
+   "title": "주방 (7~12번째)"
+  },
+  {
+   "start": 306,
+   "title": "침실·옷장 (13~17번째)"
+  },
+  {
+   "start": 403,
+   "title": "화장실·기타 (18~20번째)"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 215,
+ "comments_top_level": 131,
+ "comments_replies": 84,
+ "comments_by_creator": 44,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 215,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:31",
+ "approved": "2026-11-27T15:17+09:00"
+}

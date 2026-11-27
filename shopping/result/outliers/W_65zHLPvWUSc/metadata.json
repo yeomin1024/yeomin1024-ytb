@@ -1,0 +1,83 @@
+{
+ "id": "65zHLPvWUSc",
+ "title": "다이어트 미친 내가 돈 다 써보고 살아남은 인생템 1개 - 전자레인지 찜기, 10년차 직장인 진작 이걸로 쓸 껄",
+ "channel": "다이어트 식탁 │ 초간단 렌지레시피",
+ "channel_id": "UCAKm5hbLePvGPmu67JaIFDQ",
+ "subs": 3830,
+ "views": 420692,
+ "ratio": 109.84,
+ "age_days": 138,
+ "views_per_day": 3031.3,
+ "minutes": 10.9,
+ "likes": 3475,
+ "comments": 166,
+ "published": "2026-07-11",
+ "queries": "검색:주방용품",
+ "url": "https://www.youtube.com/watch?v=65zHLPvWUSc",
+ "flag": "",
+ "published_at": "2026-07-11T11:26:32Z",
+ "rank": "W38",
+ "set": "web",
+ "folder": "W_65zHLPvWUSc",
+ "sources": [
+  "검색:주방용품"
+ ],
+ "source": "web",
+ "tags": [
+  "#전자레인지용기",
+  "#전자레인지찜기",
+  "#락앤락",
+  "#락앤락바로한끼",
+  "#내열유리",
+  "#유리용기",
+  "#다이어트식단",
+  "#다이어트요리",
+  "#전자레인지요리",
+  "#자취요리",
+  "#간단요리",
+  "#야채찜",
+  "#밀프렙",
+  "#식단관리",
+  "#다이어트"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "왜 이 용기로 정착했는지"
+  },
+  {
+   "start": 91,
+   "title": "① 유리라서 좋은 이유"
+  },
+  {
+   "start": 182,
+   "title": "② 야채찜이 쉬워지는 스팀 기능"
+  },
+  {
+   "start": 308,
+   "title": "③ 사이즈별 추천 (500ml / 1.5L / 1.6L)"
+  },
+  {
+   "start": 463,
+   "title": "④ 냉장·냉동·에어프라이 활용"
+  },
+  {
+   "start": 498,
+   "title": "⑤ 가격 대비 오래 쓰는 이유"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 166,
+ "comments_top_level": 73,
+ "comments_replies": 93,
+ "comments_by_creator": 70,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 166,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:18:38",
+ "approved": "2026-11-27T15:18+09:00"
+}

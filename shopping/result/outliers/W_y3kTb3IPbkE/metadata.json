@@ -1,0 +1,116 @@
+{
+ "id": "y3kTb3IPbkE",
+ "title": "작지만 크고, 저렴하지만 비싸보이는 다이소 추천템 베스트 17  | 살림팁 | 쿠팡 | 다이소 | 추천템 | 살림카페",
+ "channel": "살림카페",
+ "channel_id": "UC6Aw3vH4HzRpzUdR81RPXYw",
+ "subs": 8430,
+ "views": 194552,
+ "ratio": 23.08,
+ "age_days": 87,
+ "views_per_day": 2236.0,
+ "minutes": 11.6,
+ "likes": 1144,
+ "comments": 295,
+ "published": "2026-09-01",
+ "queries": "검색:살림꿀템 | 검색:쿠팡추천템 | 검색:살림템 | 검색:다이소신상",
+ "url": "https://www.youtube.com/watch?v=y3kTb3IPbkE",
+ "flag": "",
+ "published_at": "2026-09-01T06:00:12Z",
+ "rank": "W98",
+ "set": "web",
+ "folder": "W_y3kTb3IPbkE",
+ "sources": [
+  "검색:살림꿀템",
+  "검색:쿠팡추천템",
+  "검색:살림템",
+  "검색:다이소신상"
+ ],
+ "source": "web",
+ "tags": [
+  "살림",
+  "쿠팡",
+  "다이소",
+  "이케아",
+  "주방살림"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "안녕하세요살림카페입니다"
+  },
+  {
+   "start": 16,
+   "title": "전기 계란찜기"
+  },
+  {
+   "start": 59,
+   "title": "실리콘 지퍼백"
+  },
+  {
+   "start": 176,
+   "title": "수박보관용기"
+  },
+  {
+   "start": 242,
+   "title": "스텐도시락"
+  },
+  {
+   "start": 279,
+   "title": "산리오포크픽"
+  },
+  {
+   "start": 305,
+   "title": "뚜껑형계량용기"
+  },
+  {
+   "start": 349,
+   "title": "사각내열유리티포트"
+  },
+  {
+   "start": 389,
+   "title": "트라이탄밀폐용기"
+  },
+  {
+   "start": 431,
+   "title": "3칸스텐 밀폐용기"
+  },
+  {
+   "start": 456,
+   "title": "깔끔한 소스병(300ml)"
+  },
+  {
+   "start": 492,
+   "title": "소고기 볶음 고추장"
+  },
+  {
+   "start": 536,
+   "title": "원터치 더블컵 보온병"
+  },
+  {
+   "start": 573,
+   "title": "아령물병"
+  },
+  {
+   "start": 589,
+   "title": "여권케이스"
+  },
+  {
+   "start": 630,
+   "title": "실리콘밴드"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 295,
+ "comments_top_level": 143,
+ "comments_replies": 152,
+ "comments_by_creator": 146,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 295,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:22:03",
+ "approved": "2026-11-27T15:22+09:00"
+}

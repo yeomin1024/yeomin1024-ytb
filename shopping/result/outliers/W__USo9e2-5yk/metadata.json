@@ -1,0 +1,84 @@
+{
+ "id": "_USo9e2-5yk",
+ "title": "모시고살지 마세요! 물건비우기, 이 법칙을 적용하지않으면 쉽지 않습니다",
+ "channel": "느슨한 살림 연구소, 느림주부",
+ "channel_id": "UCtjxnBRs3_55gq_7Jbhr6Kw",
+ "subs": 738,
+ "views": 154812,
+ "ratio": 209.77,
+ "age_days": 4,
+ "views_per_day": 31359.7,
+ "minutes": 11.0,
+ "likes": 1104,
+ "comments": 45,
+ "published": "2026-11-22",
+ "queries": "검색:주부 | 검색:살림꿀팁",
+ "url": "https://www.youtube.com/watch?v=_USo9e2-5yk",
+ "flag": "",
+ "published_at": "2026-11-22T07:45:58Z",
+ "rank": "W22",
+ "set": "web",
+ "folder": "W__USo9e2-5yk",
+ "sources": [
+  "검색:주부",
+  "검색:살림꿀팁"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "정리해도 90%가 제자리로 돌아오는 이유"
+  },
+  {
+   "start": 39,
+   "title": "장소를 정하지 마세요, 물건을 정하세요"
+  },
+  {
+   "start": 88,
+   "title": "1. 쓰임이 끝난 물건"
+  },
+  {
+   "start": 154,
+   "title": "안 쓰는 물건이 쌓인 자리에서 생기는 일"
+  },
+  {
+   "start": 203,
+   "title": "2. 똑같은 주방 도구"
+  },
+  {
+   "start": 276,
+   "title": "3. 고장 난 물건"
+  },
+  {
+   "start": 363,
+   "title": "4. 의욕 넘칠 때 산 물건"
+  },
+  {
+   "start": 482,
+   "title": "5. 정체 모를 잡동사니"
+  },
+  {
+   "start": 550,
+   "title": "6. 비어버린 수납함"
+  },
+  {
+   "start": 618,
+   "title": "오늘의 6가지 & 기준표"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 45,
+ "comments_top_level": 24,
+ "comments_replies": 21,
+ "comments_by_creator": 18,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 45,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:46",
+ "approved": "2026-11-27T15:17+09:00"
+}

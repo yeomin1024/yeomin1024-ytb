@@ -1,0 +1,71 @@
+{
+ "id": "V0TZZQx_bBM",
+ "title": "첫 에어프라이어 구매 필독! 오븐형 vs 바스켓형 직접 다 써본 13년 차 주부의 최종 선택 | 직접 구매해서 써보고 알려드립니다..| 스팀에어프라이어 | 풀무원스팀에어프라이어",
+ "channel": "똑똑살림_마트·살림템 검증",
+ "channel_id": "UChSEzOC9pbAVNNSsvJlc0Ag",
+ "subs": 1170,
+ "views": 269762,
+ "ratio": 230.57,
+ "age_days": 133,
+ "views_per_day": 2018.0,
+ "minutes": 10.0,
+ "likes": 810,
+ "comments": 53,
+ "published": "2026-07-16",
+ "queries": "검색:주방용품",
+ "url": "https://www.youtube.com/watch?v=V0TZZQx_bBM",
+ "flag": "",
+ "published_at": "2026-07-16T14:00:30Z",
+ "rank": "W18",
+ "set": "web",
+ "folder": "W_V0TZZQx_bBM",
+ "sources": [
+  "검색:주방용품"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "에어프라이어추천"
+  },
+  {
+   "start": 44,
+   "title": "에어프라이어추천. 바스켓vs듀얼바스켓vs오븐에어프라이어"
+  },
+  {
+   "start": 178,
+   "title": "에어프라이어추천 기준1. 스팀세척의 범위(보이지않는 히터관 관리)"
+  },
+  {
+   "start": 249,
+   "title": "에어프라이어추천 기준2. 오프라인 A/S센터 및 부품보증기간"
+  },
+  {
+   "start": 303,
+   "title": "에어프라이어추천 기준3. 스팀프라이 기술(열풍+스팀 동시조리)"
+  },
+  {
+   "start": 373,
+   "title": "에어프라이어추천 기준4. 자동조리메뉴(첫에프구매 필독)"
+  },
+  {
+   "start": 445,
+   "title": "에어프라이어추천. 풀무원스팀에어프라이어"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 53,
+ "comments_top_level": 27,
+ "comments_replies": 26,
+ "comments_by_creator": 15,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 53,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:17:35",
+ "approved": "2026-11-27T15:17+09:00"
+}

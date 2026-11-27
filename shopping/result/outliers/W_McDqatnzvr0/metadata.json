@@ -1,0 +1,94 @@
+{
+ "id": "McDqatnzvr0",
+ "title": "삶의 질이 10배 상승하는 7가지 추천템ㅣ홈오피스ㅣ룸투어 말고 데스크투어ㅣ오피스용품 추천",
+ "channel": "리뷰톡",
+ "channel_id": "UCyakjD2K4AR5oh4YqXGTJkw",
+ "subs": 54500,
+ "views": 1808099,
+ "ratio": 33.18,
+ "age_days": 1251,
+ "views_per_day": 1445.0,
+ "minutes": 13.5,
+ "likes": 28114,
+ "comments": 783,
+ "published": "2023-06-24",
+ "queries": "검색(전체 기간):추천템",
+ "url": "https://www.youtube.com/watch?v=McDqatnzvr0",
+ "flag": "",
+ "published_at": "2023-06-24T22:45:24Z",
+ "rank": "W88",
+ "set": "web",
+ "folder": "W_McDqatnzvr0",
+ "sources": [
+  "검색(전체 기간):추천템"
+ ],
+ "source": "web",
+ "tags": [
+  "홈오피스",
+  "랜선투어",
+  "룸투어",
+  "이케아",
+  "재택근무",
+  "사무용품",
+  "데스크셋업",
+  "데스크테리어",
+  "데스크투어",
+  "제품추천",
+  "모션데스크",
+  "작업실",
+  "5평꾸미기",
+  "오늘의집"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "Intro."
+  },
+  {
+   "start": 35,
+   "title": "깔끔한 선정리 멀티탭박스"
+  },
+  {
+   "start": 120,
+   "title": "내맘대로 높이조절 모션데스크"
+  },
+  {
+   "start": 273,
+   "title": "개인 신체 맞춤 기능 이케아 의자"
+  },
+  {
+   "start": 409,
+   "title": "내가 원하는 무드 변경 가능 스탠드 조명"
+  },
+  {
+   "start": 536,
+   "title": "거북목 예방템 노트북 거치대"
+  },
+  {
+   "start": 604,
+   "title": "인체공학 설계 무선 마우스"
+  },
+  {
+   "start": 675,
+   "title": "문의 많았던 제품"
+  },
+  {
+   "start": 791,
+   "title": "Outro."
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 783,
+ "comments_top_level": 332,
+ "comments_replies": 451,
+ "comments_by_creator": 369,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 783,
+ "tool": "outlier_research.py v2.7",
+ "collected": "2026-11-27T06:21:23",
+ "approved": "2026-11-27T15:21+09:00"
+}

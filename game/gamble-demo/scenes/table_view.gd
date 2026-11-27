@@ -1,4 +1,5 @@
-# VERSION: v0.8.0 — 2026-11-26 — 두 화면: 내가 고를 땐 내 테이블만 / 상대가 고를 땐 상대 테이블만 · 상대 시선 = 불빛 · 물건에 머물면 게이지 → 다 차면 '!' · 협력자 = 귀 만지기(수상한 행동) · 클릭 대상(물건 확인·몸 수색) 표시
+# VERSION: v0.8.1 — 2026-11-27 — 글 겹침 고침 (웹판에서 찍어 보고 찾음): 내 테이블 상대 시선 글을 오른쪽(860,225)으로 · '클릭: 몸 수색' 을 위 안내판 밖으로 · 공개·매치 끝엔 상대 시선 불빛 안 그림
+# 이전 VERSION: v0.8.0 — 2026-11-26 — 두 화면: 내가 고를 땐 내 테이블만 / 상대가 고를 땐 상대 테이블만 · 상대 시선 = 불빛 · 물건에 머물면 게이지 → 다 차면 '!' · 협력자 = 귀 만지기(수상한 행동) · 클릭 대상(물건 확인·몸 수색) 표시
 # 이전 VERSION: v0.7.0 — 2026-11-26 — 직관 표시: 엿본 카드를 테이블에 그림 · 노예 턴 할 일 안내 · 보는 물건 노란 고리 · 상대 상태 글을 턱 아래로
 # 이전 VERSION: v0.5.0 — 2026-11-26 — 물건 3자리(라이터·담뱃갑·술잔·휴대폰) · 내 협력자(상대 뒤)·상대 협력자 그림자 · 시선 끌기 가림 · 덮개·무작위 표시
 #
@@ -159,13 +160,13 @@ func _draw_theirs() -> void:
 	if int(game.committed[0]) != -1:
 		_draw_my_card(T_MY_CARD, Vector2(64, 92))
 	# 상대 시선 불빛
-	if not blind:
+	if not blind and int(game.phase) != GambleMatch.Phase.REVEALED and int(game.phase) != GambleMatch.Phase.MATCH_OVER:
 		_draw_light_theirs()
 	# 클릭 대상 표시
 	if hover_pick == "body":
 		draw_arc(HEAD, FACE_ZONE_R, 0.0, TAU, 48, Color(1, 0.5, 0.3, 0.8), 3.0)
 		draw_rect(BODY_ZONE, Color(1, 0.5, 0.3, 0.8), false, 3.0)
-		_text(HEAD + Vector2(0, -80), "클릭: 몸 수색 (이어폰 찾기)", 18, Color(1, 0.7, 0.5))
+		_text(Vector2(830, 215), "클릭: 몸 수색 (이어폰 찾기)", 18, Color(1, 0.7, 0.5))
 	elif hover_pick.begins_with("obj"):
 		var idx := int(hover_pick.substr(3))
 		if idx >= 0 and idx < 3:
@@ -224,7 +225,7 @@ func _draw_light_theirs() -> void:
 	_light = _light.lerp(target, 0.22)
 	if g == "face" or g == "hands":
 		_glow(Vector2(640, 800), 260.0, Color(1.0, 0.45, 0.35, 0.5))
-		_text(Vector2(640, 662), "상대가 당신을 보는 중", 18, Color(1, 0.55, 0.45))
+		_text(Vector2(640, 645), "상대가 당신을 보는 중", 18, Color(1, 0.55, 0.45))
 		return
 	if g == "away":
 		_text(Vector2(1120, 300), "딴 곳을 봄", 15, Color(1, 1, 1, 0.5))
@@ -275,23 +276,23 @@ func _draw_mine() -> void:
 ## 상대(지켜보는 쪽) 시선 — 내 테이블 위 불빛 / 나를 보면 위쪽이 붉게
 func _draw_light_mine() -> void:
 	if int(game.slave) == 0 and int(game.phase) == GambleMatch.Phase.SLAVE_TURN and not _slave_visible():
-		_text(Vector2(640, 172), "시선 끌기 중 — 상대가 당신을 못 봄", 17, Color(0.5, 1.0, 0.6))
+		_text(Vector2(860, 225), "시선 끌기 중 — 상대가 당신을 못 봄", 17, Color(0.5, 1.0, 0.6))
 		return
 	var g := str(game.gaze[1])
 	if g == "face":
 		_glow(Vector2(640, 150), 240.0, Color(1.0, 0.4, 0.3, 0.55))
-		_text(Vector2(640, 168), "상대가 당신을 보는 중", 19, Color(1, 0.6, 0.5))
+		_text(Vector2(860, 225), "상대가 당신을 보는 중", 19, Color(1, 0.6, 0.5))
 	elif g == "hands":
 		_light = _light.lerp(Vector2(640, 715), 0.22)
 		_glow(_light, 170.0, Color(1.0, 0.45, 0.35, 0.45))
-		_text(Vector2(640, 168), "상대가 당신 손을 보는 중", 17, Color(1, 0.6, 0.5))
+		_text(Vector2(860, 225), "상대가 당신 손을 보는 중", 17, Color(1, 0.6, 0.5))
 	elif g == "own_card":
-		_text(Vector2(640, 168), "상대: 자기 카드를 봄", 15, Color(1, 1, 1, 0.55))
+		_text(Vector2(860, 225), "상대: 자기 카드를 봄", 15, Color(1, 1, 1, 0.55))
 	else:
-		_text(Vector2(640, 168), "상대: 딴 곳을 봄", 15, Color(1, 1, 1, 0.55))
+		_text(Vector2(860, 225), "상대: 딴 곳을 봄", 15, Color(1, 1, 1, 0.55))
 	# 위쪽을 보고 있으면 상대의 수상한 행동이 보임
 	if my_gaze == "face" and bool(game.calling[1]):
-		_text(Vector2(640, 246), "상대가 귀를 만지작거린다!", 18, Color(1, 0.7, 0.3))
+		_text(Vector2(860, 258), "상대가 귀를 만지작거린다!", 18, Color(1, 0.7, 0.3))
 
 
 ## 내 노예 턴 할 일 안내 (물건 줄 아래)

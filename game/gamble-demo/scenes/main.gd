@@ -1,4 +1,5 @@
-# VERSION: v0.8.0 — 2026-11-26 — 내가 고를 땐 내 테이블 / 상대가 고를 땐 상대 테이블 · 상대 시선 불빛·게이지·'!' · 협력자 부르기 = 버튼·키 2 누르고 있기 · 밝혀내기 = 물건 클릭(확인)·상대 클릭(몸 수색) · 의심 표시 칸 · 제스처 없앰
+# VERSION: v0.8.1 — 2026-11-27 — 매치가 끝나면 행동 버튼을 숨김 (웹판에서 찍어 보고 찾음)
+# 이전 VERSION: v0.8.0 — 2026-11-26 — 내가 고를 땐 내 테이블 / 상대가 고를 땐 상대 테이블 · 상대 시선 불빛·게이지·'!' · 협력자 부르기 = 버튼·키 2 누르고 있기 · 밝혀내기 = 물건 클릭(확인)·상대 클릭(몸 수색) · 의심 표시 칸 · 제스처 없앰
 # 이전 VERSION: v0.7.0 — 2026-11-26 — 기록 창(채팅식) 없앰 → 가운데 알림·턴 결과 창·테이블 표시 · 점수판·지금 할 일·큰 시간 막대 · 큰 행동 버튼 · 버튼 위에선 시선 유지 · 규칙 창
 # 이전 VERSION: v0.6.0 — 2026-11-26 — 기능마다 버튼(노예 열·왕 열, 못 쓰면 흐리게·남은 횟수·단축키) · 판단 시간 안내·타이머·'판단 끝·공개'
 # 이전 VERSION: v0.5.0 — 2026-11-26 — 사전 설정(책상 위 물건 3자리) · 왕 턴/노예 턴 · 진영별 키 · 가능성 불 두 개 · 새 이벤트 기록
@@ -1113,7 +1114,7 @@ func _refresh_actions(ph: int, me_king: bool) -> void:
 		var id := str(a[0])
 		var e: Dictionary = action_buttons[id]
 		var b: Button = e["button"]
-		var visible_now: bool = str(e["role"]) == role and ph != GambleMatch.Phase.IDLE
+		var visible_now: bool = str(e["role"]) == role and ph != GambleMatch.Phase.IDLE and ph != GambleMatch.Phase.MATCH_OVER
 		b.visible = visible_now
 		if not visible_now:
 			continue

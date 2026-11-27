@@ -1,0 +1,180 @@
+<title>Gamble Mind</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v0.8.0-web.1 — 2026-11-27 — Godot 데모 v0.8.0 을 웹으로 (규칙 core.js · 화면 game.js) — 연구·교육용, 실제 돈과 무관 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+  /* 한 가지 모습(어두운 카지노 테이블)으로 고정 — 1280×800 무대를 화면에 맞춰 줄임 */
+  :root {
+    color-scheme: dark;
+    --ink: #0e0c10;
+    --felt: #1c5438;
+    --brass: #d9a23a;
+    --lamp: #ffc83d;
+    --danger: #e0453a;
+    --good: #2f9e5b;
+    --king: #8cc8ff;
+    --slave: #ffb35a;
+    --panel: rgba(9, 8, 12, 0.74);
+    --panel-solid: #0b0a0f;
+    --line: rgba(255, 255, 255, 0.14);
+    --text: #f1ece2;
+    --muted: #a9a3b3;
+    --font-body: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", "WenQuanYi Zen Hei", sans-serif;
+    --font-display: "Black Han Sans", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0; background: var(--ink); color: var(--text); font-family: var(--font-body);
+    display: grid; place-items: center; overflow: hidden;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 12px;
+  }
+  #frame { position: relative; }
+  #stage { position: absolute; left: 0; top: 0; width: 1280px; height: 800px; transform-origin: 0 0; user-select: none; -webkit-user-select: none; touch-action: none; }
+  #table { position: absolute; inset: 0; width: 1280px; height: 800px; border-radius: 14px; }
+  #spot { position: absolute; inset: 0; pointer-events: none; border-radius: 14px; }
+  .panel { position: absolute; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; box-sizing: border-box; }
+  #score { left: 8px; top: 6px; width: 316px; height: 128px; padding: 8px 14px; font-size: 15px; line-height: 1.45; }
+  #score .opp { color: var(--muted); font-size: 13px; }
+  #score .big { font-family: var(--font-display); font-size: 30px; letter-spacing: 0.02em; line-height: 1.15; font-variant-numeric: tabular-nums; }
+  #score .role-king { color: var(--king); font-weight: 700; }
+  #score .role-slave { color: var(--slave); font-weight: 700; }
+  #score .strike { color: var(--danger); }
+  #score .pend { color: #ff7b6b; font-weight: 700; }
+  #banner { left: 336px; top: 6px; width: 624px; height: 116px; padding: 8px 18px; text-align: center; }
+  #title { font-family: var(--font-display); font-size: 27px; line-height: 1.25; text-wrap: balance; }
+  #title.mine { color: #ffe07a; }
+  #sub { font-size: 14px; color: var(--muted); margin-top: 2px; min-height: 20px; }
+  #timer { position: absolute; left: 20px; bottom: 14px; width: 500px; height: 20px; border-radius: 6px; background: #26252c; overflow: hidden; }
+  #timer-fill { height: 100%; width: 0; background: #6c7fa0; border-radius: 6px; }
+  #timer-fill.mine { background: #ffd040; }
+  #timer-fill.hurry { background: var(--danger); }
+  #timer-text { position: absolute; right: 16px; bottom: 10px; width: 96px; text-align: right; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  #settings { left: 970px; top: 6px; width: 304px; height: 116px; padding: 8px; display: grid; grid-template-columns: 1fr 100px; gap: 6px 8px; align-content: start; }
+  #settings select, #settings button { font: 500 14px var(--font-body); color: var(--text); background: #1d1b24; border: 1px solid var(--line); border-radius: 8px; height: 32px; }
+  #settings button { cursor: pointer; }
+  #settings button:hover { background: #2a2733; }
+  #settings label { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  #suspect { left: 970px; top: 130px; width: 304px; height: 200px; padding: 10px 14px; }
+  #sus-title { font-family: var(--font-display); font-size: 19px; }
+  #sus-bar-label { font-size: 14px; margin-top: 6px; color: var(--text); }
+  .bar { height: 16px; border-radius: 5px; background: #26252c; overflow: hidden; margin-top: 4px; }
+  .bar > div { height: 100%; width: 0; border-radius: 5px; }
+  #sus-fill { background: linear-gradient(90deg, #ff9a52, var(--danger)); }
+  #call-fill { background: #5fd3ff; }
+  #sus-lines { font-size: 14px; line-height: 1.5; margin-top: 8px; white-space: pre-line; }
+  #actions { left: 8px; top: 140px; width: 304px; height: 384px; padding: 6px 8px; }
+  #act-head { font-family: var(--font-display); font-size: 20px; padding: 2px 4px; }
+  #actions .hint { font-size: 12px; color: var(--muted); padding: 0 4px 6px; }
+  #act-list { display: flex; flex-direction: column; gap: 6px; }
+  .act {
+    position: relative; width: 288px; height: 48px; text-align: left; padding: 3px 58px 3px 12px; border-radius: 10px; cursor: pointer;
+    font-family: var(--font-body); color: var(--text); border: 2px solid; touch-action: none;
+  }
+  .act.slave { background: #4a321a; border-color: #d18a3e; }
+  .act.king { background: #1c3550; border-color: #5f9fd6; }
+  .act:hover:not(:disabled) { filter: brightness(1.25); border-color: #fff; }
+  .act:active:not(:disabled) { filter: brightness(0.85); }
+  .act:disabled { background: #1c1b20; border-color: #34333a; color: #8d8996; cursor: default; }
+  .act:focus-visible { outline: 3px solid var(--lamp); outline-offset: 2px; }
+  .act .name { display: block; font-size: 17px; font-weight: 700; line-height: 1.3; white-space: nowrap; }
+  .act .sub { display: block; font-size: 12px; opacity: 0.85; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .act .key { position: absolute; right: 8px; top: 7px; width: 44px; height: 30px; border-radius: 7px; background: rgba(255, 255, 255, 0.13); display: grid; place-items: center; font-size: 14px; font-weight: 700; }
+  .act.pulse { animation: pulse 0.9s ease-in-out infinite alternate; }
+  @keyframes pulse { from { box-shadow: 0 0 0 0 rgba(255, 200, 61, 0); } to { box-shadow: 0 0 0 5px rgba(255, 200, 61, 0.6); filter: brightness(1.3); } }
+  #toasts { position: absolute; left: 8px; top: 532px; width: 304px; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+  .toast { min-height: 50px; border-radius: 10px; padding: 6px 10px; font-size: 15px; font-weight: 500; display: grid; place-items: center; text-align: center; transition: opacity 0.4s; }
+  .toast.good { background: rgba(20, 108, 52, 0.94); }
+  .toast.bad { background: rgba(150, 22, 22, 0.94); }
+  .toast.warn { background: rgba(154, 104, 10, 0.94); }
+  .toast.info { background: rgba(26, 52, 104, 0.94); }
+  .overlay { position: absolute; background: rgba(8, 8, 12, 0.97); border: 2px solid rgba(255, 255, 255, 0.22); border-radius: 16px; box-sizing: border-box; }
+  #result { left: 340px; top: 128px; width: 600px; height: 310px; padding: 14px 28px; text-align: center; }
+  #result h2 { font-family: var(--font-display); font-size: 38px; margin: 0; font-weight: 400; }
+  #result .cards { font-size: 22px; margin-top: 6px; }
+  #result .line { font-size: 16px; color: #d6d1c8; margin-top: 4px; }
+  #result .bad { color: #ff7b6b; }
+  #result .good { color: #7dff8a; }
+  #result-lines { height: 150px; overflow: hidden; }
+  .big-btn { font: 700 21px var(--font-body); color: #1a1205; background: var(--brass); border: 0; border-radius: 12px; height: 54px; padding: 0 30px; cursor: pointer; }
+  .big-btn:hover { background: #f0b94c; }
+  .big-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+  #setup, #help { left: 200px; top: 110px; width: 880px; padding: 16px 26px; }
+  #setup { height: 580px; }
+  #help { height: 440px; }
+  #setup h2, #help h2 { font-family: var(--font-display); font-size: 30px; margin: 0 0 8px; font-weight: 400; }
+  .rules { font-size: 15px; line-height: 1.65; }
+  .rules b { color: #fff; }
+  .rules .k { color: var(--king); font-weight: 700; }
+  .rules .s { color: var(--slave); font-weight: 700; }
+  .rules .lamp { color: var(--lamp); font-weight: 700; }
+  .rules .red { color: #ff6b5e; font-weight: 700; }
+  .rules .muted { color: var(--muted); }
+  .rules h3 { font-size: 17px; margin: 0 0 2px; }
+  #setup .objs-title { color: #ffe080; font-size: 16px; font-weight: 700; margin-top: 10px; }
+  #setup .objs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 6px; }
+  #setup .objs label { font-size: 13px; color: var(--muted); display: grid; gap: 4px; }
+  #setup select { font: 500 16px var(--font-body); color: var(--text); background: #1d1b24; border: 1px solid var(--line); border-radius: 8px; height: 40px; padding: 0 8px; }
+  #setup .note { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  #setup .row { display: flex; justify-content: center; margin-top: 12px; }
+  @media (prefers-reduced-motion: reduce) { .act.pulse { animation: none; box-shadow: 0 0 0 4px rgba(255, 200, 61, 0.6); } .toast { transition: none; } }
+</style>
+
+<div id="frame">
+  <div id="stage">
+    <canvas id="table" width="1280" height="800" aria-label="카드 테이블"></canvas>
+    <div id="spot" hidden></div>
+    <div class="panel" id="score" aria-live="polite"></div>
+    <div class="panel" id="banner"><div id="title"></div><div id="sub"></div><div id="timer"><div id="timer-fill"></div></div><div id="timer-text"></div></div>
+    <div class="panel ui" id="settings">
+      <select id="opp" aria-label="상대 고르기">
+        <option value="cheater">손버릇 나쁜 딜러</option>
+        <option value="watcher">눈이 매서운 노인</option>
+        <option value="gambler">대담한 도박꾼</option>
+      </select>
+      <button id="btn-new" type="button">새 매치</button>
+      <label><input id="chk-spot" type="checkbox"> 시야 제한</label>
+      <button id="btn-help" type="button">규칙 (H)</button>
+    </div>
+    <div class="panel ui" id="suspect">
+      <div id="sus-title">의심 표시</div>
+      <div id="sus-bar-label"></div>
+      <div class="bar"><div id="sus-fill"></div></div>
+      <div id="sus-lines"></div>
+      <div class="bar" id="call-bar" hidden><div id="call-fill"></div></div>
+    </div>
+    <div class="panel ui" id="actions">
+      <div id="act-head">내 행동</div>
+      <div class="hint">버튼 위에선 시선이 그대로 — 엿보다 눌러도 돼요</div>
+      <div id="act-list"></div>
+    </div>
+    <div id="toasts" aria-live="polite"></div>
+    <div class="overlay ui" id="result" hidden>
+      <h2 id="result-title"></h2>
+      <div id="result-lines"></div>
+      <button class="big-btn" id="btn-result" type="button">다음 ▶</button>
+    </div>
+    <div class="overlay ui" id="setup">
+      <h2>게임 준비</h2>
+      <div class="rules" id="rules-setup"></div>
+      <div class="objs-title">책상 위에 둘 물건 — 반사경이 든 것과 빈 것은 상대 눈엔 똑같아 보여요 (확인당하면 반사경은 들킴)</div>
+      <div class="objs">
+        <label>자리 1<select id="obj0"></select></label>
+        <label>자리 2<select id="obj1"></select></label>
+        <label>자리 3<select id="obj2"></select></label>
+      </div>
+      <div class="note" id="setup-note"></div>
+      <div class="row"><button class="big-btn" id="btn-start" type="button">시작 ▶</button></div>
+    </div>
+    <div class="overlay ui" id="help" hidden>
+      <h2>규칙 한눈에 <span style="font: 500 15px var(--font-body); color: var(--muted)">(보는 동안 시간 멈춤)</span></h2>
+      <div class="rules" id="rules-help"></div>
+      <div class="row" style="display:flex;justify-content:center;margin-top:10px"><button class="big-btn" id="btn-help-close" type="button">닫기</button></div>
+    </div>
+  </div>
+</div>
+
+<script src="core.js"></script>
+<script src="game.js"></script>

@@ -1,0 +1,28 @@
+{
+ "tool": "upload_pack.py v1.1",
+ "made": "2026-11-27T07:17:30+00:00",
+ "file": "final_1080p.mp4",
+ "size": 265482188,
+ "sha256": "2fede1e8b28c581389f5987b8dd0db7614598559285e5aa257882d4dc4b3b735",
+ "md5": "9f5ba371be7d3ec3a8a905dc4fbc3f63",
+ "branch": "uploads",
+ "dir": "crisis/hallasan-simjeongji-2026-11",
+ "parts": [
+  {
+   "name": "final_1080p.mp4.part01",
+   "size": 94371840,
+   "sha256": "846321408c601e776a070c756b194ac2696eaf13cc8122e10e7a363a746160ec"
+  },
+  {
+   "name": "final_1080p.mp4.part02",
+   "size": 94371840,
+   "sha256": "9eac4d63a011205dec0ce5c5368d9fc1313afc31462336270f102228e34edb39"
+  },
+  {
+   "name": "final_1080p.mp4.part03",
+   "size": 76738508,
+   "sha256": "8c6c6dcad0f9734721c1ab164b702664b658642c8579717a8f07bafe8ec85fb3"
+  }
+ ],
+ "duration_s": 438.67
+}

@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-27 — ratios: 대본의 '몇 배' (히터÷매트 W · 3단계÷1단계 단가 · 탄소매트÷온수매트 순이득 · 가열식÷초음파 전기요금) — 계산 값 그대로.
-# (v1.1 — 2026-11-27 — say(): 대본에 읽을 말 (100원 단위로 반올림 + "약" · 만 단위 한국어 — "1만 2,500원") · 결과에 say_* 칸. 계산 값은 그대로.
-# (v1.0 — 2026-11-27 — 새로 (사용자 지시 2026-11-27 "… 생활 관련 주제 영상들 분석해서 그 영상들과 관련된 물건들을 고르고 그 물건들로 어떤 이득을
-#   얻을 수 있는지에 대해 영상을 만드는게 좋을것 같아 한번해봐" · "요즘 생활 관련해서 유행하고 있는것도 찾아봐도 좋아").
-#   겨울 난방 물건마다 '한 달 이득' = 보일러를 낮춰 아끼는 가스비 − 그 물건이 더 쓰는 전기요금. 대본의 숫자는 이 출력만 쓴다 (CLAUDE.md '숫자는 계산 코드 출력만').
-#   출처(SOURCES)와 가정(ASSUME)을 나눈다 — 가정은 영상에서 '예를 들어'로만 말하고, 시청자가 자기 집 숫자로 바꿔 쓰게 공식을 같이 보여 준다.
-#   ※ 연구·교육용 — 구매 권유가 아니다. 요금은 바뀔 수 있다 (한 번만 말함 — topic_guide 0번 5).
+# VERSION: v1.3 — 2026-11-27 — 반론 1회차(K1) 반영 — 계산 틀을 바꿈:
+#   ① 매트·히터는 '하루 종일 2도 낮춤'(가정) 대신 **쓰는 시간 동안 보일러를 몇 도 낮춰야 본전인가**(본전 도수) — 쓰는 시간과 아끼는 시간을 맞춤 (상 K3 줄 41)
+#   ② 7% 는 가스비 전체가 아니라 **난방에 쓴 가스비**에만 (온수·요리·기본요금 뺌 — 중 K4 줄 88) → 예시 집 = '난방에 한 달 12만 원'
+#   ③ 물건 값은 계산에 없음을 밝히고 본전 달 수 공식 (상 K4 줄 44) · ④ 히터도 '반만 켜질 때' 한 줄 (중 K7 줄 60)
+#   ⑤ 부가세 넣은 1킬로와트시당 값 132 · 236 · 338원 + 어림 '100와트를 하루 1시간, 한 달 = 약 700원' (중 K5 줄 89 · 이탈 E1 줄 82)
+#   ⑥ 3단계 단가는 2단계와 견줌 (하 — 줄 57) · 외풍 막기도 같은 틀(하루 종일 1도면 얼마)로.
+# (v1.2 — ratios) (v1.1 — say()) (v1.0 — 2026-11-27 — 새로 (사용자 지시 "… 그 물건들로 어떤 이득을 얻을 수 있는지에 대해 영상을 만드는게 좋을것 같아 한번해봐"))
+#   대본의 숫자는 이 출력만 쓴다 (CLAUDE.md '숫자는 계산 코드 출력만'). 출처(SOURCES)와 가정(ASSUME)을 나눔 — 가정은 대본에서 '예를 들어'로만.
+#   ※ 연구·교육용 — 구매 권유가 아니다. 요금은 바뀔 수 있다.
 """python3 calc/heating_calc.py [--json] [--selftest]"""
 import argparse
 import json
@@ -14,53 +16,47 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 LOG = logging.getLogger("heating_calc")
 
-# ── 출처가 있는 값 ─────────────────────────────────────────────────────────────
 SOURCES = {
     "elec_tiers": {
-        "value": [(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)],   # (상한 kWh, 기본요금 원, 전력량요금 원/kWh) — 주택용 저압 · 기타계절(1~6월·9~12월)
-        "src": "한전 주택용(저압) 전기요금표 2023-05-16 시행 — 2026년 기타계절 단가로 여러 계산 페이지가 같은 값 (glasswallet 2026 요금표 등). 기후환경요금·연료비조정요금·전력산업기반기금은 2026 값 확인 못 해 뺌 → 실제 고지서는 조금 더 나옴",
+        "value": [(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)],   # (상한 kWh, 기본요금, 원/kWh) — 주택용 저압 · 기타계절(1~6월·9~12월)
+        "src": "한전 주택용(저압) 요금표 2023-05-16 시행 — 2026 기타계절 값으로 여러 계산 페이지가 같음. 기후환경요금·연료비조정요금·전력산업기반기금은 2026 값 확인 못 해 뺌 → 고지서는 조금 더 나옴",
         "checked": "2026-11-27 검색 발췌 — ⚠️ 한전ON 원문 확인 필요",
     },
     "vat": {"value": 0.10, "src": "부가가치세 10%", "checked": "법정"},
-    "per_degree_saving": {
-        "value": 0.07,
-        "src": "한국에너지공단 — 난방 온도를 1도 낮추면 에너지 소비량 약 7% 절감 (정책브리핑 korea.kr 보도)",
-        "checked": "2026-11-27 검색 발췌 — ⚠️ 공단 원문 확인 필요",
-    },
-    "recommended_indoor": {"value": 20, "src": "겨울철 적정 실내 온도 20도 (기후에너지환경부·에너지공단 안내)", "checked": "검색 발췌"},
+    "per_degree_saving": {"value": 0.07, "src": "한국에너지공단 — 난방 온도 1도 낮추면 에너지 소비 약 7% 절감 (정책브리핑 보도)", "checked": "검색 발췌 — ⚠️ 원문"},
 }
 
-# ── 가정 (영상에서 '예를 들어' — 집마다 다름) ─────────────────────────────────
 ASSUME = {
-    "base_kwh": 300,          # 평소 한 달 전기 사용량 (난방 물건 없이) — 예시 집. 200 넘으면 2단계 단가가 붙음
-    "gas_bill": 150000,       # 겨울 한 달 가스비 (난방·온수 합) — 예시 집
+    "base_kwh": 300,          # 평소 한 달 전기 (예시 집 — 2단계에 있음)
+    "heating_gas": 120000,    # v1.3: 난방에 쓴 가스비 한 달 (온수·요리·기본요금 뺌 — 예시 집)
     "days": 30,
-    # 물건 = (이름, 라벨 소비전력 W, 하루 사용 시간, 한 번 사는 값 아님 — 전기만). W 는 같은 종류 흔한 라벨 값 (제품마다 다름 — 라벨 확인)
+    "hours_day": 24,
     "items": [
-        {"key": "draft", "name": "문풍지·뽁뽁이·방한커튼", "watt": 0, "hours": 0, "note": "전기를 안 씀 — 외풍을 막아 보일러를 낮출 수 있게 도움"},
-        {"key": "carbon", "name": "탄소매트·전기요 (1인용 150W)", "watt": 150, "hours": 8, "note": "몸이 닿는 곳만 데움 · 라벨 최대치로 계산 (실제는 온도 맞으면 쉬어 더 적음)"},
-        {"key": "water", "name": "온수매트 (300W)", "watt": 300, "hours": 8, "note": "물을 데워 돌림 — 같은 크기 전기요보다 W 가 큰 편"},
-        {"key": "heater", "name": "전기히터·온풍기 (2,000W)", "watt": 2000, "hours": 4, "note": "공기를 데움 — 하루 4시간만 써도 전기를 가장 많이 씀"},
-        {"key": "humid_us", "name": "초음파 가습기 (30W)", "watt": 30, "hours": 10, "note": "물을 떨어 날림 — 전기는 적게 · 매일 물 세척"},
-        {"key": "humid_heat", "name": "가열식 가습기 (300W)", "watt": 300, "hours": 10, "note": "물을 끓여 날림 — 전기는 초음파의 10배쯤"},
+        {"key": "carbon", "name": "탄소매트·전기요 (1인용 150W)", "watt": 150, "hours": 8},
+        {"key": "water", "name": "온수매트 (300W)", "watt": 300, "hours": 8},
+        {"key": "heater", "name": "전기히터·온풍기 (2,000W)", "watt": 2000, "hours": 4},
+        {"key": "heater_half", "name": "전기히터 반만 켜질 때 (평균 1,000W)", "watt": 1000, "hours": 4},
+        {"key": "humid_us", "name": "초음파식 가습기 (30W)", "watt": 30, "hours": 10},
+        {"key": "humid_heat", "name": "가열식 가습기 (300W)", "watt": 300, "hours": 10},
     ],
-    # 보일러를 몇 도 낮추나 — 물건마다 (⚖️ 가정: 몸을 데우는 매트·히터 = 2도, 외풍 막기 = 1도, 가습기 = 0도 — 가습기의 '따뜻하게 느끼는' 효과는 숫자 근거를 못 찾아 0)
-    "lower_deg": {"draft": 1, "carbon": 2, "water": 2, "heater": 2, "humid_us": 0, "humid_heat": 0},
+    "draft_deg": 1,                 # 외풍 막기 — 하루 종일 1도 낮출 수 있다면 (조건)
+    "draft_price_example": 10000,   # 본전 달 수 예 — '1만 원어치 문풍지' (예시 값 — 실제 값은 링크에서)
+    "rule_watt": 100,               # 어림: 100와트를 하루 1시간, 한 달
 }
 
 
 def elec_bill(kwh, tiers=None, vat=None):
-    """주택용 누진 전기요금 (기본요금 + 전력량요금 + 부가세 10%). 기본요금은 마지막 구간 값 하나."""
+    """주택용 누진 전기요금 (기본요금 + 전력량요금 + 부가세 10%)."""
     tiers = tiers or SOURCES["elec_tiers"]["value"]
     vat = SOURCES["vat"]["value"] if vat is None else vat
     left, prev_cap, energy, base = kwh, 0, 0.0, tiers[0][1]
     for cap, b, rate in tiers:
         span = (cap - prev_cap) if cap is not None else left
         use = min(left, span)
-        if use > 0 or kwh == 0:
+        if use > 0:
             base = b
         energy += max(use, 0) * rate
         left -= use
@@ -71,46 +67,58 @@ def elec_bill(kwh, tiers=None, vat=None):
 
 
 def say(won, approx=None):
-    """대본용 말 — 100원 단위 반올림 (바뀌면 '약'), 만 단위: 12502 → '약 1만 2,500원' · 10500 → '1만 500원' · 77200 → '7만 7,200원'."""
+    """대본용 말 — 100원 단위 반올림 (바뀌면 '약'), 만 단위."""
     sign = "-" if won < 0 else ""
-    w = abs(int(won))
+    w = abs(int(round(won)))
     r = int(round(w / 100.0)) * 100
     pre = "약 " if (approx if approx is not None else r != w) else ""
     man, rest = divmod(r, 10000)
-    if man and rest:
-        txt = f"{man}만 {rest:,}원"
-    elif man:
-        txt = f"{man}만 원"
-    else:
-        txt = f"{rest:,}원"
+    txt = f"{man}만 {rest:,}원" if man and rest else (f"{man}만 원" if man else f"{rest:,}원")
     return sign + pre + txt
 
 
-def item_rows(assume=None):
-    a = assume or ASSUME
+def tier_of(kwh):
+    return 1 if kwh <= 200 else 2 if kwh <= 400 else 3
+
+
+def per_degree_for_hours(hours, a=None):
+    """보일러를 '그 시간 동안만' 1도 낮출 때 한 달 아끼는 난방 가스비 (⚖️ 가정: 아끼는 양이 낮춘 시간에 비례)."""
+    a = a or ASSUME
+    return a["heating_gas"] * SOURCES["per_degree_saving"]["value"] * hours / a["hours_day"]
+
+
+def compute(a=None):
+    a = a or ASSUME
     base_bill = elec_bill(a["base_kwh"])
     rows = []
     for it in a["items"]:
         kwh = it["watt"] * it["hours"] * a["days"] / 1000
         extra = elec_bill(a["base_kwh"] + kwh) - base_bill
-        deg = a["lower_deg"].get(it["key"], 0)
-        gas_save = round(a["gas_bill"] * SOURCES["per_degree_saving"]["value"] * deg)
-        rows.append({**it, "kwh": round(kwh, 1), "elec_extra": extra, "lower_deg": deg, "gas_save": gas_save, "net": gas_save - extra,
-                     "total_kwh": a["base_kwh"] + kwh, "say_extra": say(extra), "say_gas": say(gas_save), "say_net": say(gas_save - extra)})
-    return base_bill, rows
-
-
-def ratios(rows):
-    r = {x["key"]: x for x in rows}
+        pdeg = per_degree_for_hours(it["hours"], a)
+        be = extra / pdeg if pdeg else None
+        rows.append({**it, "kwh": round(kwh, 1), "total_kwh": a["base_kwh"] + kwh, "tier_after": tier_of(a["base_kwh"] + kwh),
+                     "elec_extra": extra, "say_extra": say(extra), "per_degree_hours": round(pdeg), "say_per_degree_hours": say(pdeg),
+                     "breakeven_deg": round(be, 1) if be else None})
+    vat = 1 + SOURCES["vat"]["value"]
     t = SOURCES["elec_tiers"]["value"]
-    return {"heater_vs_carbon_watt": round(r["heater"]["watt"] / r["carbon"]["watt"], 1),
-            "tier3_vs_tier1_rate": round(t[2][2] / t[0][2], 2),
-            "carbon_vs_water_net": round(r["carbon"]["net"] / r["water"]["net"], 1),
-            "heat_vs_us_humid_elec": round(r["humid_heat"]["elec_extra"] / r["humid_us"]["elec_extra"], 1)}
-
-
-def tier_of(kwh):
-    return 1 if kwh <= 200 else 2 if kwh <= 400 else 3
+    one_deg_all_day = per_degree_for_hours(24, a)
+    draft_save = one_deg_all_day * a["draft_deg"]
+    rule_kwh = a["rule_watt"] * 1 * a["days"] / 1000
+    out = {
+        "base_bill": base_bill, "say_base_bill": say(base_bill),
+        "one_degree_all_day": round(one_deg_all_day), "say_one_degree_all_day": say(one_deg_all_day),
+        "draft_save": round(draft_save), "say_draft_save": say(draft_save),
+        "draft_payback_months": round(a["draft_price_example"] / draft_save, 1),
+        "rate_vat": {"tier1": round(t[0][2] * vat), "tier2": round(t[1][2] * vat), "tier3": round(t[2][2] * vat)},
+        "tier3_vs_tier2_rate": round(t[2][2] / t[1][2], 2),
+        "rule_of_thumb": {"kwh": rule_kwh, "won_tier2": round(rule_kwh * t[1][2] * vat), "say": say(rule_kwh * t[1][2] * vat)},
+        "rows": rows,
+    }
+    r = {x["key"]: x for x in rows}
+    out["ratios"] = {"heater_vs_carbon_watt": round(r["heater"]["watt"] / r["carbon"]["watt"], 1),
+                     "water_vs_carbon_breakeven": round(r["water"]["breakeven_deg"] / r["carbon"]["breakeven_deg"], 1),
+                     "heat_vs_us_humid_elec": round(r["humid_heat"]["elec_extra"] / r["humid_us"]["elec_extra"], 1)}
+    return out
 
 
 def log(stage, **kv):
@@ -119,20 +127,20 @@ def log(stage, **kv):
 
 
 def selftest():
-    # 손 계산: 300kWh = 기본 1,600 + 200×120 + 100×214.6 = 1,600 + 24,000 + 21,460 = 47,060 × 1.1 = 51,766
-    assert elec_bill(300) == 51766, elec_bill(300)
-    # 540kWh = 7,300 + 24,000 + 200×214.6(42,920) + 140×307.3(43,022) = 117,242 × 1.1 = 128,966
-    assert elec_bill(540) == 128966, elec_bill(540)
-    assert elec_bill(0) == round(910 * 1.1)
-    base, rows = item_rows()
-    r = {x["key"]: x for x in rows}
-    assert r["draft"]["elec_extra"] == 0 and r["draft"]["gas_save"] == 10500
-    assert r["heater"]["kwh"] == 240 and tier_of(r["heater"]["total_kwh"]) == 3, "히터 4시간이면 3단계로 넘어감"
-    assert r["heater"]["net"] < 0 < r["carbon"]["net"], (r["heater"]["net"], r["carbon"]["net"])
-    assert say(12502) == "약 1만 2,500원" and say(10500) == "1만 500원" and say(77200) == "7만 7,200원" and say(-56200) == "-5만 6,200원" and say(8498) == "약 8,500원", (say(12502), say(8498))
-    rt = ratios(rows)
-    assert rt["heater_vs_carbon_watt"] == 13.3 and rt["tier3_vs_tier1_rate"] == 2.56 and rt["carbon_vs_water_net"] == 3.1 and rt["heat_vs_us_humid_elec"] == 10.0, rt
-    print("[SELFTEST] ok — 300kWh 51,766원 · 540kWh 128,966원 · 히터 순이득", r["heater"]["net"], "· 탄소매트", r["carbon"]["net"])
+    assert elec_bill(300) == 51766 and elec_bill(540) == 128966, (elec_bill(300), elec_bill(540))
+    o = compute()
+    r = {x["key"]: x for x in o["rows"]}
+    # 손 계산: 탄소매트 8시간 1도 = 120,000 × 0.07 × 8/24 = 2,800원 → 본전 = 8,498 / 2,800 = 3.0도
+    assert r["carbon"]["per_degree_hours"] == 2800 and r["carbon"]["breakeven_deg"] == 3.0, r["carbon"]
+    assert r["water"]["breakeven_deg"] == 6.1, r["water"]["breakeven_deg"]
+    # 히터 4시간 1도 = 1,400원 → 77,200 / 1,400 = 55.1도 (불가능)
+    assert r["heater"]["breakeven_deg"] == 55.1 and r["heater"]["tier_after"] == 3
+    assert r["heater_half"]["kwh"] == 120 and r["heater_half"]["tier_after"] == 3, "반만 켜져도 420킬로와트시 — 400 넘음"
+    assert o["one_degree_all_day"] == 8400 and o["draft_payback_months"] == 1.2
+    assert o["rate_vat"] == {"tier1": 132, "tier2": 236, "tier3": 338}, o["rate_vat"]
+    assert o["rule_of_thumb"]["won_tier2"] == 708 and o["rule_of_thumb"]["say"] == "약 700원"
+    print("[SELFTEST] ok — 본전 도수 탄소매트", r["carbon"]["breakeven_deg"], "· 온수매트", r["water"]["breakeven_deg"], "· 히터", r["heater"]["breakeven_deg"],
+          "· 반만", r["heater_half"]["breakeven_deg"], "· 1도 하루 종일", o["say_one_degree_all_day"])
 
 
 def main(argv=None):
@@ -144,20 +152,17 @@ def main(argv=None):
     if a.selftest:
         selftest()
         return 0
-    log("INPUT", tool=f"heating_calc.py {VERSION}", base_kwh=ASSUME["base_kwh"], gas_bill=ASSUME["gas_bill"], per_degree=SOURCES["per_degree_saving"]["value"],
-        tiers="120.0/214.6/307.3 (200·400kWh)")
-    base, rows = item_rows()
-    log("BASE", base_bill=base, tier=tier_of(ASSUME["base_kwh"]))
-    for x in rows:
-        log("ITEM", key=x["key"], say_extra=x["say_extra"], say_net=x["say_net"], kwh=x["kwh"], elec_extra=x["elec_extra"], lower_deg=x["lower_deg"], gas_save=x["gas_save"], net=x["net"], tier_after=tier_of(x["total_kwh"]))
-    out = {"version": VERSION, "sources": {k: {kk: (vv if kk != "value" else str(vv)) for kk, vv in v.items()} for k, v in SOURCES.items()},
-           "assume": {k: v for k, v in ASSUME.items() if k != "items"}, "base_bill": base, "rows": rows,
-           "one_degree": round(ASSUME["gas_bill"] * SOURCES["per_degree_saving"]["value"]),
-           "say_one_degree": say(round(ASSUME["gas_bill"] * SOURCES["per_degree_saving"]["value"])), "say_base_bill": say(base),
-           "say_heater_bill_after": say(elec_bill(ASSUME["base_kwh"] + 240)),
-           "ratios": ratios(rows)}
+    log("INPUT", tool=f"heating_calc.py {VERSION}", base_kwh=ASSUME["base_kwh"], heating_gas=ASSUME["heating_gas"], per_degree=SOURCES["per_degree_saving"]["value"])
+    o = compute()
+    log("BASE", base_bill=o["base_bill"], one_degree_all_day=o["one_degree_all_day"], draft_payback_months=o["draft_payback_months"], rate_vat=o["rate_vat"],
+        rule="100W×1h×30일=" + o["rule_of_thumb"]["say"])
+    for x in o["rows"]:
+        log("ITEM", key=x["key"], kwh=x["kwh"], tier_after=x["tier_after"], elec_extra=x["elec_extra"], per_degree_hours=x["per_degree_hours"], breakeven_deg=x["breakeven_deg"])
+    o["version"] = VERSION
+    o["sources"] = {k: {kk: (vv if kk != "value" else str(vv)) for kk, vv in v.items()} for k, v in SOURCES.items()}
+    o["assume"] = {k: v for k, v in ASSUME.items() if k != "items"}
     if a.json:
-        print(json.dumps(out, ensure_ascii=False, indent=1))
+        print(json.dumps(o, ensure_ascii=False, indent=1))
     return 0
 
 

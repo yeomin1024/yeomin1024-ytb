@@ -4,35 +4,181 @@
  "items": {
   "nanbang-mulgeon-2026-11-27": {
    "script_exit": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-27T07:31:38Z",
+      "sha": "25a82d4f8d001c7b",
+      "reviewers": [
+       {
+        "reviewer": "E1-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 37,
+          "why": "어려운 말 — '킬로와트시'가 풀이 없이 처음 나와서 숫자가 무슨 뜻인지 몰라 따라가기 버거워짐"
+         },
+         {
+          "line": 57,
+          "why": "어려운 말·지루함 — 307.3원, 200킬로와트시, 120원, 두 배 반이 한 줄에 몰려 나와 머리가 복잡해짐, 결론만 듣고 싶음"
+         },
+         {
+          "line": 82,
+          "why": "지루함 — 곱하고 30일 곱하고 1,000으로 나누는 계산식은 귀로만 들어서는 못 따라 함, 내가 직접 계산할 것 같지 않음"
+         }
+        ],
+        "hard_words": [
+         "킬로와트시",
+         "누진제",
+         "정격소비전력",
+         "단가",
+         "탄소매트"
+        ],
+        "keep_watching": true,
+        "best": "60~62 — 난방비 아끼려고 산 전기히터가 오히려 한 달 5만 6,200원 손해라는 말이 내 얘기 같아서 정신이 번쩍 듦",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [37, 57, 82]",
+         "모르는 말 ['킬로와트시', '누진제', '정격소비전력', '단가', '탄소매트']"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.1: 킬로와트시·누진제 풀이 · 단가 숫자 줄임 · 계산식을 '100와트 한 시간 = 한 달 약 700원' 어림으로",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r1_exit_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
+     }
+    ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/nanbang-mulgeon-2026-11-27.txt",
     "pending": {
-     "n": 1,
-     "sha": "25a82d4f8d001c7b",
+     "n": 2,
+     "sha": "d4fed8cd94ca3dc1",
      "reviewers": [
-      "E1-P1"
+      "E2-P1"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r1_exit_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/persona/answers_nanbang-mulgeon-2026-11-27_script_exit_1",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r2_exit_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/persona/answers_nanbang-mulgeon-2026-11-27_script_exit_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T07:28:20Z"
+     "at": "2026-11-27T07:34:18Z"
     }
    },
    "script_rebuttal": {
-    "rounds": [],
+    "rounds": [
+     {
+      "n": 1,
+      "at": "2026-11-27T07:31:38Z",
+      "sha": "25a82d4f8d001c7b",
+      "reviewers": [
+       {
+        "reviewer": "K1-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "상",
+          "k": "K3",
+          "line": 41,
+          "text": "매트는 하루 8시간 켜는데 보일러 2도는 하루 종일 낮춘 걸로 쳤네요. 매트 안 쓰는 16시간 동안 아낀 가스비까지 매트 몫으로 넣은 거 아닌가요? 8시간만 치면 가스비가 7천 원쯤이라 탄소매트도 손해입니다.",
+          "fix": "보일러를 낮추는 시간과 매트를 켜는 시간을 맞추거나(예: 잘 때 8시간만 2도), 나머지 16시간에 왜 낮춰도 되는지(외출·외풍 막기와 같이) 조건을 못 박고 남는 돈을 다시 계산"
+         },
+         {
+          "level": "상",
+          "k": "K4",
+          "line": 44,
+          "text": "온수매트가 한 달 4천 원 남는다는데 물건값은요? 10만 원이 넘는 매트면 겨울 몇 번을 써야 본전인데, 물건값을 빼고 '남는다'고 하면 안 되죠.",
+          "fix": "물건값은 뺀 계산이라고 밝히고, 대표 가격대로 본전까지 몇 겨울인지 한 줄(문풍지·커튼·매트 모두)"
+         },
+         {
+          "level": "중",
+          "k": "K4",
+          "line": 88,
+          "text": "가스비 고지서에는 온수·요리·기본요금도 들어 있는데, 고지서 전체의 7%를 남는다고 보면 아끼는 돈이 부풀려집니다.",
+          "fix": "'난방에 쓴 가스비의 7%'로 바꾸고, 온수·요리 몫은 빼고 보라고 한 줄 (11~12줄 예시도 같은 기준으로)"
+         },
+         {
+          "level": "중",
+          "k": "K3",
+          "line": 24,
+          "text": "문풍지는 1도, 매트·히터는 2도로 계산했네요. 낮추는 온도가 물건마다 다르면 어느 쪽이 더 남는지 비교가 안 되는데, 정리에서는 이 순서로 권합니다.",
+          "fix": "같은 조건(모두 1도 또는 모두 2도)으로 남는 돈을 나란히 보여 주거나, 왜 다르게 잡았는지 한 문장"
+         },
+         {
+          "level": "중",
+          "k": "K7",
+          "line": 60,
+          "text": "매트는 '온도가 맞으면 쉬어서 실제로 덜 나온다'고 해 놓고, 히터는 온도 조절로 꺼지는 경우를 빼고 2,000와트를 꽉 채워 계산했네요. 히터에만 불리한 거 아닌가요?",
+          "fix": "히터에도 같은 단서를 붙이고, 반만 켜져도(한 달 120킬로와트시) 400을 넘어 여전히 손해라는 계산 한 줄로 결론이 그대로임을 보여 주기"
+         },
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 89,
+          "text": "직접 계산하는 법을 알려 준다더니 킬로와트시에서 끝나요. 원으로 바꾸는 단가가 없는데 '더 나온 전기요금'을 어떻게 구하나요? 대본 계산에 쓴 200~400 구간 단가도 한 번도 안 나옵니다.",
+          "fix": "부가세까지 넣은 단가 한 줄 — 300 쓰는 집이면 1킬로와트시에 약 236원, 400을 넘은 만큼은 약 338원 + 기본요금 차이 — 을 계산법에 넣기"
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 57,
+          "text": "300 쓰는 집은 이미 두 번째 구간 단가를 내는데, 처음 구간 120원과 비교해서 '두 배 반'이라고 하면 과장입니다.",
+          "fix": "바로 앞 구간 단가(214.6원)와 비교하거나 두 구간을 함께 말하기"
+         },
+         {
+          "level": "하",
+          "k": "K4",
+          "line": 60,
+          "text": "7만 7,200원에 부가세 말고 기후환경요금 같은 고지서의 다른 항목도 들어간 건가요? 무엇을 넣은 계산인지 모르겠습니다.",
+          "fix": "'전력량요금·기본요금·부가세만 넣은 계산' 한 줄 (93줄 '고지서로 확인'과 묶어서)"
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 26,
+          "text": "검색이 230%, 475% 늘었다는 게 아끼는 돈이랑 무슨 상관인가요? 어느 앱인지도 모르는 숫자라 근거처럼 들리기만 합니다.",
+          "fix": "빼거나 '많이들 찾는다'는 연결 문장으로 짧게 (68줄도 같음)"
+         },
+         {
+          "level": "하",
+          "k": "K1",
+          "line": 77,
+          "text": "가열식 가습기는 열도 나오고, 습도가 오르면 덜 춥게 느껴진다는 말도 많은데 가스비를 0으로 본 이유가 부족합니다.",
+          "fix": "보일러를 낮출 만큼의 효과는 아니라는 까닭을 한 문장으로"
+         }
+        ],
+        "answer_clear": false,
+        "summary": "숫자는 대본 안에서 앞뒤가 맞고 '전기히터는 길게 쓰면 손해'는 분명하지만, 매트의 '남는 돈'은 하루 종일 2도 낮춘 가정과 물건값을 뺀 계산에 기대고 있어 조건을 바꾸면 손해로 뒤집힐 수 있고, 계산법은 원으로 바꾸는 단가가 없어 끝까지 따라 할 수 없다.",
+        "pass": false,
+        "why": [
+         "상 2 (줄 [41, 44])",
+         "중 4 > 1",
+         "옳은 선택이 분명하지 않음"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.1 (calc v1.3): 매트·히터 = 쓰는 시간만큼 낮춘 본전 도수 · 난방 가스비만 7% · 물건 값 뺐음+본전 달 수 · 히터 절반 가동 · 부가세 넣은 킬로와트시당 값 · 3단계 vs 2단계 비교 · 검색 증가 줄 뺌 · 가열식 가스비 0 까닭",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r1_rebuttal_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
+     }
+    ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/nanbang-mulgeon-2026-11-27.txt",
     "pending": {
-     "n": 1,
-     "sha": "25a82d4f8d001c7b",
+     "n": 2,
+     "sha": "d4fed8cd94ca3dc1",
      "reviewers": [
-      "K1-반론"
+      "K2-반론"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r1_rebuttal_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/persona/answers_nanbang-mulgeon-2026-11-27_script_rebuttal_1",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r2_rebuttal_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/persona/answers_nanbang-mulgeon-2026-11-27_script_rebuttal_2",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T07:28:20Z"
+     "at": "2026-11-27T07:34:18Z"
     }
    }
   }

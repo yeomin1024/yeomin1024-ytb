@@ -4,12 +4,12 @@
   720
  ],
  "shade": [
-  0.5,
+  0.52,
   0.95
  ],
  "images": [
   {
-   "src": "../images/TH-FRAME-STOP.jpg",
+   "src": "../images/TH-CONTRAST-FX.jpg",
    "box": [
     0,
     0,
@@ -18,7 +18,7 @@
    ]
   }
  ],
- "_설명": "본안 — 가슴에 빨간 빛을 안고 멈춘 검은 실루엣 · 빨간 가장자리 빛 (영상 문장 1 장면 — TH-SIL-ACCIDENT 가 오면 바꿈) · 문구 = package.json v1.7 (사용자 문구) · 그림 = 완성 영상 장면을 자막 없이 다시 찍은 프레임(검은 실루엣 + 효과 — 있는 픽셀만 옮김) · ChatGPT 실루엣 그림(images_chatgpt_thumb.md v2.0)이 오면 바꿈",
+ "_설명": "본안 — 상황 대비: 왼쪽 혼자 먼저 내려가는 사람(제 빛깔) | 오른쪽 같은 숲길의 사고(가슴 압박 · 빨갛게) · 꼬리표는 가운데 위(사람을 가리지 않음) — 사용자 지시 \"상황 대비되는 이미지로\" · 문구 = package.json v1.7 (사용자 문구) · 그림 = ChatGPT TH-CONTRAST / TH-ACCIDENT (images_chatgpt_thumb.md v1.1 로 만들어진 실사 재연) · 사고 쪽은 빨갛게 물들이고 가장자리 빨간 빛(영상의 빨간 맥 꼴 — 있는 픽셀의 색만 바꿈, TH-*-FX.jpg)",
  "out": "thumbnail_1.jpg",
  "blocks": [
   {
@@ -69,10 +69,10 @@
   },
   {
    "kind": "tag",
-   "x": 800,
-   "y": 24,
+   "x": 415,
+   "y": 22,
    "w": 450,
-   "h": 74,
+   "h": 72,
    "bg": "Y",
    "color": "K",
    "text": "2023년 한라산 실제 사고",

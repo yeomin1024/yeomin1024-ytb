@@ -4,59 +4,23 @@
   720
  ],
  "shade": [
-  0.5,
+  0.52,
   0.95
  ],
  "images": [
   {
-   "src": "../images/TH-FRAME-STOP.jpg",
-   "crop": [
-    580,
-    0,
-    768,
-    1080
-   ],
+   "src": "../images/TH-ACCIDENT-FX.jpg",
    "box": [
     0,
     0,
-    636,
-    720
-   ]
-  },
-  {
-   "src": "../images/TH-FRAME-CPR.jpg",
-   "crop": [
-    709,
-    555,
-    442,
-    500
-   ],
-   "box": [
-    644,
-    0,
-    636,
+    1280,
     720
    ]
   }
  ],
- "_설명": "실험 1 — 대비: 왼쪽 멈춘 실루엣(빨간 가슴 빛) | 오른쪽 가슴 압박 실루엣(빨갛게 물들임) · 가운데 흰 줄 (TH-SIL-CONTRAST 가 오면 바꿈) · 문구 = package.json v1.7 (사용자 문구) · 그림 = 완성 영상 장면을 자막 없이 다시 찍은 프레임(검은 실루엣 + 효과 — 있는 픽셀만 옮김) · ChatGPT 실루엣 그림(images_chatgpt_thumb.md v2.0)이 오면 바꿈",
+ "_설명": "실험 1 — 사고 장면만(가슴 압박 · 빨갛게) · 꼬리표 오른쪽 위 아님(헬멧) → 왼쪽 위 · 문구 = package.json v1.7 (사용자 문구) · 그림 = ChatGPT TH-CONTRAST / TH-ACCIDENT (images_chatgpt_thumb.md v1.1 로 만들어진 실사 재연) · 사고 쪽은 빨갛게 물들이고 가장자리 빨간 빛(영상의 빨간 맥 꼴 — 있는 픽셀의 색만 바꿈, TH-*-FX.jpg)",
  "out": "thumbnail_2.jpg",
  "blocks": [
-  {
-   "kind": "tag",
-   "x": 636,
-   "y": 0,
-   "w": 8,
-   "h": 440,
-   "bg": "W",
-   "color": "W",
-   "text": " ",
-   "radius": 0,
-   "fill": [
-    0.5,
-    0.5
-   ]
-  },
   {
    "kind": "lines",
    "box": [
@@ -105,10 +69,10 @@
   },
   {
    "kind": "tag",
-   "x": 800,
-   "y": 24,
+   "x": 24,
+   "y": 22,
    "w": 450,
-   "h": 74,
+   "h": 72,
    "bg": "Y",
    "color": "K",
    "text": "2023년 한라산 실제 사고",

@@ -4,18 +4,12 @@
   720
  ],
  "shade": [
-  0.5,
+  0.52,
   0.95
  ],
  "images": [
   {
-   "src": "../images/TH-FRAME-CPR.jpg",
-   "crop": [
-    430,
-    518,
-    1000,
-    562
-   ],
+   "src": "../images/TH-CONTRAST.jpg",
    "box": [
     0,
     0,
@@ -24,7 +18,7 @@
    ]
   }
  ],
- "_설명": "실험 2 — 다른 그림: 쓰러진 사람 가슴을 누르는 실루엣 · 빨갛게 물들임 · 꼬리표 없음 · 문구 = package.json v1.7 (사용자 문구) · 그림 = 완성 영상 장면을 자막 없이 다시 찍은 프레임(검은 실루엣 + 효과 — 있는 픽셀만 옮김) · ChatGPT 실루엣 그림(images_chatgpt_thumb.md v2.0)이 오면 바꿈",
+ "_설명": "실험 2 — 상황 대비 그대로의 빛깔(효과 없음) · 꼬리표 없음 · 강조 색 바꿈(노랑/흰) · 문구 = package.json v1.7 (사용자 문구) · 그림 = ChatGPT TH-CONTRAST / TH-ACCIDENT (images_chatgpt_thumb.md v1.1 로 만들어진 실사 재연) · 사고 쪽은 빨갛게 물들이고 가장자리 빨간 빛(영상의 빨간 맥 꼴 — 있는 픽셀의 색만 바꿈, TH-*-FX.jpg)",
  "out": "thumbnail_3.jpg",
  "blocks": [
   {

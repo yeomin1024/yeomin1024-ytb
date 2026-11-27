@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-27 — 반론 1회차(K1) 반영 — 계산 틀을 바꿈:
+# VERSION: v1.4 — 2026-11-27 — 반론 2회차(K2) 반영: ① max_if_off = 그 시간 동안 보일러를 아예 꺼도 아끼는 난방 가스비 (55·26도 같은 뜻 없는 숫자 대신 — 히터 4시간 2만 원) · ② 탄소매트 4도 낮춤일 때 한 달·한 겨울(넉 달) 남는 돈 · ③ 400 넘을 때 기본요금 오름 (부가세 넣음) · ④ winter_months = 4. 다른 값 그대로.
+# (v1.3 — 2026-11-27 — 반론 1회차(K1) 반영 — 계산 틀을 바꿈:
 #   ① 매트·히터는 '하루 종일 2도 낮춤'(가정) 대신 **쓰는 시간 동안 보일러를 몇 도 낮춰야 본전인가**(본전 도수) — 쓰는 시간과 아끼는 시간을 맞춤 (상 K3 줄 41)
 #   ② 7% 는 가스비 전체가 아니라 **난방에 쓴 가스비**에만 (온수·요리·기본요금 뺌 — 중 K4 줄 88) → 예시 집 = '난방에 한 달 12만 원'
 #   ③ 물건 값은 계산에 없음을 밝히고 본전 달 수 공식 (상 K4 줄 44) · ④ 히터도 '반만 켜질 때' 한 줄 (중 K7 줄 60)
@@ -16,7 +17,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 LOG = logging.getLogger("heating_calc")
 
 SOURCES = {
@@ -45,6 +46,8 @@ ASSUME = {
     "draft_deg": 1,                 # 외풍 막기 — 하루 종일 1도 낮출 수 있다면 (조건)
     "draft_price_example": 10000,   # 본전 달 수 예 — '1만 원어치 문풍지' (예시 값 — 실제 값은 링크에서)
     "rule_watt": 100,               # 어림: 100와트를 하루 1시간, 한 달
+    "mat_example_deg": 4,           # v1.4: 탄소매트로 잠잘 때 4도를 낮춘다면 (예)
+    "winter_months": 4,             # v1.4: 한 겨울 = 넉 달 (12~3월 — 예)
 }
 
 
@@ -98,7 +101,8 @@ def compute(a=None):
         be = extra / pdeg if pdeg else None
         rows.append({**it, "kwh": round(kwh, 1), "total_kwh": a["base_kwh"] + kwh, "tier_after": tier_of(a["base_kwh"] + kwh),
                      "elec_extra": extra, "say_extra": say(extra), "per_degree_hours": round(pdeg), "say_per_degree_hours": say(pdeg),
-                     "breakeven_deg": round(be, 1) if be else None})
+                     "breakeven_deg": round(be, 1) if be else None,
+                     "max_if_off": round(a["heating_gas"] * it["hours"] / a["hours_day"]), "say_max_if_off": say(a["heating_gas"] * it["hours"] / a["hours_day"])})
     vat = 1 + SOURCES["vat"]["value"]
     t = SOURCES["elec_tiers"]["value"]
     one_deg_all_day = per_degree_for_hours(24, a)
@@ -115,6 +119,11 @@ def compute(a=None):
         "rows": rows,
     }
     r = {x["key"]: x for x in rows}
+    mat_net = r["carbon"]["per_degree_hours"] * a["mat_example_deg"] - r["carbon"]["elec_extra"]
+    out["carbon_example"] = {"deg": a["mat_example_deg"], "net_month": mat_net, "say_net_month": say(mat_net),
+                             "net_winter": mat_net * a["winter_months"], "say_net_winter": say(mat_net * a["winter_months"])}
+    out["base_jump_3"] = round((t[2][1] - t[1][1]) * vat)
+    out["say_base_jump_3"] = say((t[2][1] - t[1][1]) * vat)
     out["ratios"] = {"heater_vs_carbon_watt": round(r["heater"]["watt"] / r["carbon"]["watt"], 1),
                      "water_vs_carbon_breakeven": round(r["water"]["breakeven_deg"] / r["carbon"]["breakeven_deg"], 1),
                      "heat_vs_us_humid_elec": round(r["humid_heat"]["elec_extra"] / r["humid_us"]["elec_extra"], 1)}
@@ -139,6 +148,12 @@ def selftest():
     assert o["one_degree_all_day"] == 8400 and o["draft_payback_months"] == 1.2
     assert o["rate_vat"] == {"tier1": 132, "tier2": 236, "tier3": 338}, o["rate_vat"]
     assert o["rule_of_thumb"]["won_tier2"] == 708 and o["rule_of_thumb"]["say"] == "약 700원"
+    assert r["heater"]["max_if_off"] == 20000 and r["carbon"]["max_if_off"] == 40000
+    assert r["heater"]["elec_extra"] > r["heater_half"]["elec_extra"] > r["heater"]["max_if_off"], "히터는 반만 켜져도 보일러를 끈 것보다 비쌈"
+    assert o["carbon_example"]["net_month"] == 2702 and o["carbon_example"]["say_net_month"] == "약 2,700원"
+    assert o["base_jump_3"] == 6270
+    # 검산: 히터 전기요금 = 2단계 100kWh + 3단계 140kWh + 기본요금 오름 (모두 부가세)
+    assert round(100 * 214.6 * 1.1 + 140 * 307.3 * 1.1 + 6270) == 77200
     print("[SELFTEST] ok — 본전 도수 탄소매트", r["carbon"]["breakeven_deg"], "· 온수매트", r["water"]["breakeven_deg"], "· 히터", r["heater"]["breakeven_deg"],
           "· 반만", r["heater_half"]["breakeven_deg"], "· 1도 하루 종일", o["say_one_degree_all_day"])
 

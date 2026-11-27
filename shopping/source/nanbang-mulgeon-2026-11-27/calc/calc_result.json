@@ -30,7 +30,9 @@
    "say_extra": "약 8,500원",
    "per_degree_hours": 2800,
    "say_per_degree_hours": "2,800원",
-   "breakeven_deg": 3.0
+   "breakeven_deg": 3.0,
+   "max_if_off": 40000,
+   "say_max_if_off": "4만 원"
   },
   {
    "key": "water",
@@ -44,7 +46,9 @@
    "say_extra": "약 1만 7,000원",
    "per_degree_hours": 2800,
    "say_per_degree_hours": "2,800원",
-   "breakeven_deg": 6.1
+   "breakeven_deg": 6.1,
+   "max_if_off": 40000,
+   "say_max_if_off": "4만 원"
   },
   {
    "key": "heater",
@@ -58,7 +62,9 @@
    "say_extra": "7만 7,200원",
    "per_degree_hours": 1400,
    "say_per_degree_hours": "1,400원",
-   "breakeven_deg": 55.1
+   "breakeven_deg": 55.1,
+   "max_if_off": 20000,
+   "say_max_if_off": "2만 원"
   },
   {
    "key": "heater_half",
@@ -72,7 +78,9 @@
    "say_extra": "약 3만 6,600원",
    "per_degree_hours": 1400,
    "say_per_degree_hours": "1,400원",
-   "breakeven_deg": 26.2
+   "breakeven_deg": 26.2,
+   "max_if_off": 20000,
+   "say_max_if_off": "2만 원"
   },
   {
    "key": "humid_us",
@@ -86,7 +94,9 @@
    "say_extra": "약 2,100원",
    "per_degree_hours": 3500,
    "say_per_degree_hours": "3,500원",
-   "breakeven_deg": 0.6
+   "breakeven_deg": 0.6,
+   "max_if_off": 50000,
+   "say_max_if_off": "5만 원"
   },
   {
    "key": "humid_heat",
@@ -100,15 +110,26 @@
    "say_extra": "약 2만 1,200원",
    "per_degree_hours": 3500,
    "say_per_degree_hours": "3,500원",
-   "breakeven_deg": 6.1
+   "breakeven_deg": 6.1,
+   "max_if_off": 50000,
+   "say_max_if_off": "5만 원"
   }
  ],
+ "carbon_example": {
+  "deg": 4,
+  "net_month": 2702,
+  "say_net_month": "약 2,700원",
+  "net_winter": 10808,
+  "say_net_winter": "약 1만 800원"
+ },
+ "base_jump_3": 6270,
+ "say_base_jump_3": "약 6,300원",
  "ratios": {
   "heater_vs_carbon_watt": 13.3,
   "water_vs_carbon_breakeven": 2.0,
   "heat_vs_us_humid_elec": 10.0
  },
- "version": "v1.3",
+ "version": "v1.4",
  "sources": {
   "elec_tiers": {
    "value": "[(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)]",
@@ -133,6 +154,8 @@
   "hours_day": 24,
   "draft_deg": 1,
   "draft_price_example": 10000,
-  "rule_watt": 100
+  "rule_watt": 100,
+  "mat_example_deg": 4,
+  "winter_months": 4
  }
 }

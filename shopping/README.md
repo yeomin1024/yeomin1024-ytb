@@ -1,6 +1,7 @@
 # 쇼핑 주제 폴더 (`shopping/`) — 쿠팡 파트너스 · 4050 여성 살림·생활 추천 — 클라우드에서 분석
 
-VERSION: v1.0 — 2026-11-27 — 새로 만듦 (사용자 지시 2026-11-27 "쿠팡파트너스 상품 홍보 목적 유튜브 채널 만들건데 어떻게 해야 될까?" → "소비가 많은 여성 나이대 타겟으로 할거야 계속 진행해")
+VERSION: v1.1 — 2026-11-27 — 첫 편 대본 `source/nanbang-mulgeon-2026-11-27/` v1.4 (난방 물건 순이득 · 계산 v1.6 · 페르소나 5회차에서 멈춤) · 다음 주제 탐색 `next_topic.toml`
+(v1.0 — 2026-11-27 — 새로 만듦 (사용자 지시 2026-11-27 "쿠팡파트너스 상품 홍보 목적 유튜브 채널 만들건데 어떻게 해야 될까?" → "소비가 많은 여성 나이대 타겟으로 할거야 계속 진행해")
 
 - **채널 방향·법·정책 = `guides/channel.md`** (⚠️ v0.1 임시 — 타깃 40~50대 여성 근거 · 돈이 들어오는 길 3가지 · 광고 표시·AI 가상인물·기만 광고·스팸 정책 · 사용자 결정 2개)
 - 결과 숫자: `result/outliers/analysis.md` (숫자·원문만). 판단은 `guides/channel.md`.
@@ -43,6 +44,8 @@ python3 tools/tag_keywords.py shopping --write-keywords          # 검색어를 
 | `result/outliers/` | 승인한 영상 자료(`W_<영상ID>/`) · `analysis.md` · `personas.md` … |
 | `guides/item_select.md` | **쿠팡 물건 고르기 v0.1** — 순서 7단계 · 자동화 되는 것/안 되는 것 · 첫 후보 |
 | `source/item_scan.py` | **물건 후보 찾기 v0.1.1** (할당량 0) — 물건 사전 83개 × 최근 하루 조회수·살 마음 댓글 영상 수·성공 사례 → `result/items/item_scan.md`·`.csv` · 시험 `--selftest` |
+| `next_topic.toml` | 다음 주제 탐색 네 단계 설정 (`guides/topic_guide.md` 1-0) — 생활 문제 18묶음 · 겹침 후보 3 → `result/next_topic/` |
+| `source/nanbang-mulgeon-2026-11-27/` | **첫 편 '난방비 아끼려고 산 물건, 한 달에 얼마 남나'** — 대본 v1.4 · `calc/heating_calc.py` v1.6 · `대본_근거.md` · 페르소나 기록 `persona_loop.json` (5회차 — 사용자 판단 대기) |
 | `excluded_videos.md` | 주제 밖이라 뺀 승인 영상 3개 (연예 소식·골프 여행·반찬 레시피) |
 | `result/outliers/transcript_todo.md` | PC '대본만 받기' 목록 (316편) |
 | `cloud_cache/` | 탐색 캐시 묶음 |

@@ -1,5 +1,12 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-27 — 제작 판에 자기계발(selfdev) 주제 (`studio/studio.toml` v1.2)
+
+- 사용자 지시 "아무것도 없는 30대인 나 자신이 목표를 이뤄나가는 브이로그 형식의 자기계발 유튜브 채널 운영할 건데 타깃은 나와 비슷하고 성장해나가고 싶은 사람이야 아티팩트에 주제 추가하고 구글 트렌드 명령 알려줘".
+- 설정·문서만 (코드 변경 없음): `studio/studio.toml` TOPICS 에 `selfdev` · `[topic.selfdev]`(이름 자기계발 · 트렌드 검색어 13개, 기준 '자기계발' — 묶음 3개) · `studio/state/trends.json`·`topics.json` 에 selfdev · 새 문서 `selfdev/guides/channel.md`(채널 설명 v1.0) · `selfdev/topics/주제탐색.md`(첫 후보 13개 — 분석 전 가설).
+- 확인: `pc_trends.py selftest` ✅ · `studio_board.py selftest` OK · `board_specs` → selfdev 시간 흐름 3 + 관련 검색어 3 묶음, 결과 폴더 `selfdev/result/next_topic/board_<날짜>` (허용 경로) · build 12개 자료(주제 11 + common) → 제작 판 같은 주소(Version 5).
+- 아직: 분석기 설정(`selfdev/analyzer_config.toml`·`keywords.toml`·`keywords.txt`)·`topics.txt` 는 안 만듦 — 트렌드 결과를 보고 검색어를 정한 뒤.
+
 ## 2026-11-26 — 심리 밸런스 게임 대본 baegeok-gwangye-2026-11-26 v1 → v5
 
 - 사용자 지시 "100억, 사람들과 좋은 관계를 만들 수 없다(자신이 좋은 일을 해도 헤어지면 좋은 일만 까먹음) 이렇게 하는게 나을 거 같은데 한번 대본 써봐 공통 규칙 지키면서".

@@ -95,6 +95,25 @@
    "words": [],
    "every_hours": 24,
    "from": "studio.toml"
+  },
+  "selfdev": {
+   "words": [
+    "자기계발",
+    "갓생",
+    "동기부여",
+    "미라클모닝",
+    "루틴",
+    "자기관리",
+    "습관",
+    "독서",
+    "브이로그",
+    "30대",
+    "퇴사",
+    "부업",
+    "자격증"
+   ],
+   "every_hours": 24,
+   "from": "studio.toml"
   }
  },
  "overall": {

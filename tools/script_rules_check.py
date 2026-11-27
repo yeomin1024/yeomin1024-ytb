@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-26 — 도입 예고 말끝 '~봅니다' ⚠ ('~보겠습니다'로 — guides/script_rules.md 1번, 사용자 지시 "따라가 봅니다, 짚어봅니다 이렇게 하기말고 ~보겠습니다")
+# VERSION: v1.5 — 2026-11-27 — 말투·음성 점검(guides/script_rules.md 9번): '~죠' 비율 · '당신'으로 시작 · '…'·'!' · 인용 밖 해라체 (사용자 지시 "~니다, ~하죠 섞어서 쓰고, 음성이 잘 만들어 질 수 있도록 어색한 표현 쓰지 않도록")
+# 이전 v1.4 — 2026-11-26 — 도입 예고 말끝 '~봅니다' ⚠ ('~보겠습니다'로 — guides/script_rules.md 1번, 사용자 지시 "따라가 봅니다, 짚어봅니다 이렇게 하기말고 ~보겠습니다")
 # 이전 v1.3 — 2026-11-26 — 진행 멘트 점검: '오늘의 ~' ❌ (guides/script_rules.md v1.3 8번 — 사용자 지시 "오늘의 ~ 이런 멘트 넣지마 이건 공통 규칙에 넣고")
 # 이전 v1.2 — 2026-11-26 — 맥락을 끊는 멘트 점검(guides/script_rules.md 7번 — 호칭 선언·'끝까지 보시면'·'얻어 가실'·'이 영상에서는' ❌ · 본문의 짧은 '…보겠습니다.' 넘김 ⚠) · 시청자 이득 = 자연스러운 꼴로만 셈 (사용자 지시 "…쓸모없이 맥락만 망치는 멘트는 쓰지 말라고 공통 규칙에 기록하고 대본 수정해")
 # 이전 v1.1 — 2026-11-26 — 알고리즘 구조(제목 낱말 → 도입 첫 두 문장 · 챕터 이름 낱말 → 챕터 첫 두 문장) · 익숙한 말(가운뎃점·괄호·슬래시·영어 글자·따옴표 겹침) 점검 — guides/script_rules.md v1.1 5·6번
@@ -10,6 +11,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.5 | 2026-11-27 | 말투('~죠' 비율)·음성 꼴 점검 | main |
 # | v1.4 | 2026-11-26 | 도입 '~봅니다' 말끝 ⚠ | main |
 # | v1.3 | 2026-11-26 | HOST_FILLER ('오늘의 ~' 진행 멘트 ❌ — 문장 맨 앞 또는 '오늘의 주제·이야기·게임·영상…' · '오늘의 습관'처럼 내용 낱말은 안 걸림) | main |
 # | v1.2 | 2026-11-26 | META(맥락 끊는 멘트) · HANDOFF · BENEFIT 자연스러운 꼴 | main |
@@ -30,7 +32,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 INTRO_MAX_S = 30.0
 # 직관적이지 않은 표현 (guides/script_rules.md 3번 표 — 새로 찾으면 여기와 그 표에 같이 더함)
 VAGUE = [
@@ -45,7 +47,7 @@ HOST_FILLER = [
 ]
 CONCLUSION_FIRST = r"결론부터|결론을\s*먼저|결론은\s*이렇|답부터\s*말씀"
 # 시청자 이득 (1-⑤) — 대놓고 약속하는 꼴('끝까지 보시면'·'얻어 가실')은 셈하지 않고 META 로 ❌
-BENEFIT = r"(지키려면|지키는|막으려면|피하려면|확인해야|해야\s*하는지|할\s*수\s*있|알\s*수\s*있|도움이\s*됩니다|챙기|쓸\s*수\s*있)"
+BENEFIT = r"(조심해야\s*할|점검해야|지키려면|지키는|막으려면|피하려면|확인해야|해야\s*하는지|할\s*수\s*있|알\s*수\s*있|도움이\s*됩니다|챙기|쓸\s*수\s*있)"
 # 맥락을 끊는 멘트 (guides/script_rules.md 7번) — 대본 어디서나 ❌
 META = [
     (r"끝까지\s*(보시면|봐\s*주시면|시청)", "'끝까지 보시면' — 이득은 다룰 내용 안에 자연스럽게 (1-⑤)"),
@@ -118,7 +120,7 @@ def main(argv=None) -> int:
         log("CHECK", level=level, what=what, **kv)
 
     log("START", tool=f"script_rules_check.py {VERSION}", script=str(path), parts=len(parts),
-        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.4")
+        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.5")
     if len(parts) < 3:
         report("❌", "챕터", why="'-챕터 이름' 줄이 3개 미만 — 도입 · 챕터 · 마무리로 나눔")
         return 1
@@ -197,6 +199,18 @@ def main(argv=None) -> int:
                 report("❌", "진행 멘트", sentence=k, text=s[:60], fix=why)
         if len(s) > 50:
             report("⚠", "긴 문장", sentence=k, chars=len(s), note="50자 넘음 — 자막 2줄 안인지 srt_tool 로")
+    # 9. 말투와 음성 (script_rules.md 9번)
+    body = [(k, s) for p in parts for k, s in p["sents"] if not s.startswith(("\"", "'", "“"))]
+    joe = sum(1 for _, s in body if re.search(r"죠[.?]$", s))
+    ratio = joe / max(1, len(body))
+    report("✅" if 0.08 <= ratio <= 0.4 else "⚠", "말투 '~죠' 섞기", joe=joe, sentences=len(body), ratio=round(ratio, 2), want="0.08~0.40")
+    for k, s in body:
+        if s.startswith("당신"):
+            report("⚠", "음성 — '당신'으로 시작", sentence=k, text=s[:40], fix="첫 낱말 앞 잡음이 몰리는 자리 — '여러분' 등으로")
+        if "…" in s or "!" in s:
+            report("⚠", "음성 — 말줄임표·느낌표", sentence=k, text=s[:40])
+        if re.search(r"(?<!니)다\.$", s) and not re.search(r"(습니다|입니다|됩니다|합니다)\.$", s):
+            report("⚠", "말투 — 해라체 끝맺음", sentence=k, text=s[:40], fix="합니다체나 '~죠'로")
     last = parts[-1]["sents"][-1][1] if parts[-1]["sents"] else ""
     report("✅" if last == "시청해주셔서 감사합니다." else "❌", "마지막 문장", last=last)
     log("DONE", bad=bad, warn=warn, next="❌ 고친 뒤 다시 · 그다음 guides/persona_loop.md" if bad else "규칙 점검 통과 → 페르소나 반복 검증")

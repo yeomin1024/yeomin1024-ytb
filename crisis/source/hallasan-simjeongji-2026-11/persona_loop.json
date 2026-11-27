@@ -458,6 +458,30 @@
        "rebuttal_mid_max": 3,
        "max_rounds": 10
       }
+     },
+     {
+      "n": 11,
+      "at": "2026-11-27T05:20:14Z",
+      "sha": "453da8fc3c84fbdc",
+      "reviewers": [
+       {
+        "reviewer": "E11-P3",
+        "persona": "P3",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "94 — '신호가 있으면 더 걷지 말고 119, 없이 힘들기만 하면 같이 천천히'처럼 수칙에 조건이 붙어 있어서, 바로잡을 데 없이 그대로 남에게 알려 줄 만함",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "",
+      "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/exit_r11.md",
+      "rule": {
+       "rebuttal_mid_max": 3,
+       "max_rounds": 10
+      }
      }
     ],
     "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt"
@@ -1228,7 +1252,19 @@
       }
      }
     ],
-    "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt"
+    "path": "crisis/source/hallasan-simjeongji-2026-11/hallasan-simjeongji-2026-11.txt",
+    "pending": {
+     "n": 11,
+     "sha": "453da8fc3c84fbdc",
+     "reviewers": [
+      "K11-반론"
+     ],
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/reb_r11.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/gate/answers_hallasan-simjeongji-2026-11_script_rebuttal_11",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-27T05:17:58Z"
+    }
    }
   }
  }

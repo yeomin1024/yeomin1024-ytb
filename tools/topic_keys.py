@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-27 — 새 주제 두 개의 키 이름: 최신 트렌드 = trend (TREND_…) · 자기계발 = selfdev (SELFDEV_…) — 사용자 지시 2026-11-27
+# VERSION: v1.2 — 2026-11-27 — 인스타그램 이름 자리: 주제마다 <주제>_INSTAGRAM_ACCESS_TOKEN · <주제>_INSTAGRAM_USER_ID, 공통 INSTAGRAM_APP_ID · INSTAGRAM_APP_SECRET
+#          (사용자 지시 2026-11-27 "인스타도 같이 포함해서 다시 알려줘") — 아직 이 이름을 읽는 업로드 도구는 없음(이름만 정함). 함수 NAMES·main.
+# (v1.1) — 2026-11-27 — 새 주제 두 개의 키 이름: 최신 트렌드 = trend (TREND_…) · 자기계발 = selfdev (SELFDEV_…) — 사용자 지시 2026-11-27
 #          "최신 트렌드, 자기계발 주제도 만들거니까 변수명 만들어봐" (폴더는 주제를 만들 때 이 이름으로). 함수 TOPICS·UPLOADS.
 # (v1.0) — 2026-11-27 — 최초: 주제 접두사 환경 변수 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해 내가 넣어야될 변수명 다 알려줘").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-27 | 인스타그램 이름 (주제별 토큰·계정 ID · 공통 앱 ID·비밀번호) | NAMES · main |
 # | v1.1 | 2026-11-27 | 새 주제 trend · selfdev | TOPICS · UPLOADS |
 # | v1.0 | 2026-11-27 | 최초 — tag · get · apply · names · 표 출력 | 모두 |
 """주제별 키 — 환경 변수 이름 앞에 주제 접두사 (예: PSYCHOLOGY_YOUTUBE_API_KEY).
@@ -23,7 +26,8 @@ import os
 import re
 import sys
 
-NAMES = ("YOUTUBE_API_KEY", "YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN", "GITHUB_TOKEN")
+NAMES = ("YOUTUBE_API_KEY", "YOUTUBE_CLIENT_ID", "YOUTUBE_CLIENT_SECRET", "YOUTUBE_REFRESH_TOKEN", "GITHUB_TOKEN",
+         "INSTAGRAM_ACCESS_TOKEN", "INSTAGRAM_USER_ID", "INSTAGRAM_APP_ID", "INSTAGRAM_APP_SECRET")   # v1.2 인스타그램 (읽는 도구는 아직 없음)
 TOPICS = ("psychology", "crisis", "economic", "stock", "history", "shopping", "music", "test", "new", "math", "trend", "selfdev")
 UPLOADS = {"psychology", "crisis", "economic", "stock", "shopping", "music", "test", "trend", "selfdev"}   # 채널에 올리는 주제 (업로드 키 3개)
 
@@ -73,11 +77,13 @@ def main(argv=None) -> int:
             if n.startswith("YOUTUBE_CLIENT") or n == "YOUTUBE_REFRESH_TOKEN":
                 if t not in UPLOADS:
                     continue
-            if n == "GITHUB_TOKEN":
+            if n in ("GITHUB_TOKEN", "INSTAGRAM_APP_ID", "INSTAGRAM_APP_SECRET"):
+                continue                                   # 공통 하나 (앱 ID·비밀번호는 모든 주제가 같이 씀)
+            if n.startswith("INSTAGRAM_") and t not in UPLOADS:
                 continue                                   # GitHub 토큰은 모든 주제 공통 하나 (GITHUB_TOKEN)
             _, src = get(n, t)
             print(f"| {t} | `{tag(t)}_{n}` | {'있음 (' + src + ')' if src != '-' else '없음'} |")
-    print("\n공통: `GITHUB_TOKEN` 하나 (주제별로 나누려면 `<주제>_GITHUB_TOKEN`). 값은 출력하지 않음.")
+    print("\n공통: `GITHUB_TOKEN` · `INSTAGRAM_APP_ID` · `INSTAGRAM_APP_SECRET` (주제별로 나누려면 접두사). 값은 출력하지 않음.")
     return 0
 
 

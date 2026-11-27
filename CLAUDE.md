@@ -4,7 +4,7 @@
 
 ## Git·저장소
 - **main 에 바로 커밋·푸시** (작업 브랜치를 만들지 않음). 올리기 전 `git pull --rebase`.
-- 비밀값(.env·API 키·OAuth 토큰·쿠키)은 커밋하지 않고 출력하지도 않는다. 키는 환경 변수로만.
+- 비밀값(.env·API 키·OAuth 토큰·쿠키)은 커밋하지 않고 출력하지도 않는다. 키는 환경 변수로만. **주제별 키 = 접두사 `<주제>_YOUTUBE_API_KEY` · `<주제>_YOUTUBE_CLIENT_ID`·`_CLIENT_SECRET`·`_REFRESH_TOKEN`** (없으면 옛 `YOUTUBE_API_KEY_<주제>` → 공통 `YOUTUBE_API_KEY`) — 도구가 시작할 때 한 번 정하고 오류가 나도 다른 키로 바꾸지 않음 · 목록 `python3 tools/topic_keys.py` (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해 내가 넣어야될 변수명 다 알려줘").
 - 다른 사람의 설명·자막·댓글·썸네일(사례 폴더 `01_`·`P01_`·`W_`·`S_`)은 공개 저장소에도 올린다 (분석기 `UPLOAD_CASES_TO_PUBLIC_REPO = true`). 댓글 파일에 작성자 이름·채널 ID 는 넣지 않는다. 다른 사람의 영상 파일은 받지도 올리지도 않는다.
 - 영상 파일(완성 영상 포함)은 git 에 넣지 않는다 — 원본은 Google Drive `내 드라이브/youtube/<주제>/<영상ID>.mp4` (`tools/drive_videos.py`). **예외: 사용자가 '깃허브에 올려'라고 한 영상만** `<주제>/videos/<영상ID>.mp4` (100MB 아래 — 사용자 지시 2026-11-05 "그냥 깃허브에 올려 1편 영상들": 주식 1편 롱폼·쇼츠, 새 세션이 다시 렌더 없이 `youtube_upload.py … --video <그 경로>` 로 올림).
 - 푸시할 수 있는 도구를 시험할 때는 GITHUB_TOKEN 류 환경 변수를 지우고 저장소 이름을 가짜로 (시험이 진짜 GitHub 에 올리지 않게).

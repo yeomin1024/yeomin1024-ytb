@@ -1,4 +1,5 @@
-# VERSION: v1.2.0 — 2026-11-23 — '겨울' 낱말 묶음 · 채널 크기별 숫자 · 본 영상 전부 목록 (사용자 지시 2026-11-23 "겨울 러닝이 가장 많다고?
+# VERSION: v1.2.1 — 2026-11-27 — 키: CRISIS_YOUTUBE_API_KEY → YOUTUBE_API_KEY_CRISIS → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.2.0 — 2026-11-23 — '겨울' 낱말 묶음 · 채널 크기별 숫자 · 본 영상 전부 목록 (사용자 지시 2026-11-23 "겨울 러닝이 가장 많다고?
 #          니가 본 영상들 구독자 수랑 조회수 모두 알려줘봐"): ① 제목에 겨울 낱말(WINTER_WORDS)·겨울+위험 묶음 — v1.1.0 의 '편 소재' 묶음은
 #          겨울이 아니라 10월 마라톤 사망 뉴스였음을 드러내려고 ② 구독자 5만 이하 영상 조회수 중앙값 · 구독자 100만+ 채널이 가져간 조회수 몫
 #          ③ topic_demand_all.md — 남긴 영상 전부(구독자·조회수·배수) + 뺀 영상과 까닭. 수집·기존 숫자는 그대로 (캐시, 할당량 0)
@@ -48,7 +49,7 @@ import pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import crisis_lab as cl  # noqa: E402  — YT(캐시 우선 API)·로깅·길이 변환을 그대로 씀 (같은 캐시·같은 로그 꼴)
 
-VERSION = "v1.2.0"
+VERSION = "v1.2.1"
 SEED = 0  # 무작위 요소 없음 — 재현성 기록용
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -447,7 +448,7 @@ def main(argv: list[str]) -> int:
         return 2
     t0 = time.time()
     import os
-    yt = cl.YT(key=os.environ.get("YOUTUBE_API_KEY"), offline=(mode == "analyze"))
+    yt = cl.YT(key=next((os.environ[k].strip() for k in ("CRISIS_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_CRISIS", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), ""), offline=(mode == "analyze"))
     L("LOAD", version=VERSION, mode=mode, as_of=f"{AS_OF:%Y-%m-%d}", window_days=WINDOW_DAYS, seed=SEED,
       key_present=bool(yt.key), cache_dir=str(cl.CACHE_DIR.relative_to(ROOT.parent)))
     try:

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.17 — 2026-11-21 — 쇼츠 썸네일: 배치 검사 ❌ 로 0초 장면을 뽑았는데 그 장면이 거의 검정(밝기 평균 < 16 — 페이드인으로 시작하는 영상)이면
+# VERSION: v1.18 — 2026-11-27 — 주제 접두사 키: 시작할 때 tools/topic_keys.apply(주제) — <주제>_YOUTUBE_API_KEY 등이 있으면 그 주제 키를 씀 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 오류가 나도 다른 키로 바꾸지 않음.
+# (이전) VERSION: v1.17 — 2026-11-21 — 쇼츠 썸네일: 배치 검사 ❌ 로 0초 장면을 뽑았는데 그 장면이 거의 검정(밝기 평균 < 16 — 페이드인으로 시작하는 영상)이면
 #          검정 썸네일 대신 그림 그대로 (로그 THUMBNAIL level=warn). music 쇼츠 ai-angyeong-siheom-2026-11-shorts 시험(--dry-run)에서 0초 장면 = 검정 0.01MB.
 #          사용자 지시 2026-11-21 "이 영상 일단 유튜브 업로드 프로그램으로 올릴 수 있도록 music 폴더에 올려봐".
 # (v1.16 — 2026-11-12 — 채널이 달라도 **사용자가 화면에서 확인한 채널 ID** 는 통과 (`ALLOW_CHANNEL` — tools/upload_web.py v1.2 가 확인 뒤 넣음 ·
@@ -836,6 +837,8 @@ def main(argv=None):
     ap.add_argument("--thumbnail-only", action="store_true", help="(v1.14) 이미 올린 영상의 썸네일만 다시 올림 (50단위)")
     ap.add_argument("--publish-at", help="예약 공개 시각: '+1h'·'+90m' 또는 ISO 8601 (예: 2026-10-11T18:00:00+09:00). 비공개로 올리고 그 시각에 공개")
     a = ap.parse_args(argv)
+    import topic_keys                                        # v1.18 주제 접두사 키 (<주제>_YOUTUBE_API_KEY …) — 시작할 때 한 번
+    topic_keys.apply(a.topic, say=print)
     if a.check_auth:
         return check_auth()
     if not a.topic or not a.video_id:

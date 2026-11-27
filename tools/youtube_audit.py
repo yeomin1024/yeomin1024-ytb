@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.1 — 2026-10-18 — 태그는 순서 없이 비교(유튜브가 가나다순으로 돌려줌) · 설명란이 다르면 시트에만 있는 줄을 보여 줌.
+# VERSION: v1.0.2 — 2026-11-27 — 주제 접두사 키: 시작할 때 tools/topic_keys.apply(주제) — <주제>_YOUTUBE_API_KEY 등이 있으면 그 주제 키를 씀 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 오류가 나도 다른 키로 바꾸지 않음.
+# (이전) VERSION: v1.0.1 — 2026-10-18 — 태그는 순서 없이 비교(유튜브가 가나다순으로 돌려줌) · 설명란이 다르면 시트에만 있는 줄을 보여 줌.
 # v1.0 — 2026-10-18 — 최초 작성. 사용자 지시 2026-10-18 "각 영상들 최적화돼서 올라갔는지 확인해봐":
 #          올라간 영상(youtube.json)의 지금 유튜브 정보를 읽어 업로드 시트(upload.md)·지시사항 규칙과 하나씩 맞춰 본다. 고치지는 않음(읽기만).
 r"""
@@ -30,7 +31,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import youtube_upload as yu  # noqa: E402
 
-VERSION = "v1.0.1"
+VERSION = "v1.0.2"
 API = "https://www.googleapis.com/youtube/v3"
 LOG = logging.getLogger("youtube_audit")
 CHAPTER_LINE = re.compile(r"^\d+:\d\d(?::\d\d)? ")
@@ -120,6 +121,8 @@ def main(argv=None):
     ap.add_argument("--captions", action="store_true", help="자막 목록도 (영상마다 50단위)")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
+    import topic_keys                                        # v1.0.2 주제 접두사 키 (<주제>_YOUTUBE_API_KEY …) — 시작할 때 한 번
+    topic_keys.apply(a.topic, say=print)
     logging.basicConfig(level=getattr(logging, a.log_level), format="%(message)s", stream=sys.stderr)
     recs = records(a.topic)
     log("START", version=VERSION, topic=a.topic, videos=len(recs), captions=a.captions)

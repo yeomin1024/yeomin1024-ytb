@@ -1943,9 +1943,10 @@ def load_api_key(topic=None):
         if k:
             return k, f"{topic}/.env"
         tag = re.sub(r"[^0-9A-Za-z가-힣]+", "_", str(topic)).strip("_").upper()
-        k = os.environ.get(f"YOUTUBE_API_KEY_{tag}", "").strip()
-        if k:
-            return k, f"env:YOUTUBE_API_KEY_{tag}"
+        for name in (f"{tag}_YOUTUBE_API_KEY", f"YOUTUBE_API_KEY_{tag}"):     # 2026-11-27 주제 접두사 먼저 (tools/topic_keys.py)
+            k = os.environ.get(name, "").strip()
+            if k:
+                return k, f"env:{name}"
     k = os.environ.get("YOUTUBE_API_KEY", "").strip()
     if k:
         return k, "env:YOUTUBE_API_KEY"

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-24 — 신규: ADHD 관련 영상 제목·태그에서 많이 쓰인 낱말
+# VERSION: v1.1 — 2026-11-27 — 키: PSYCHOLOGY_YOUTUBE_API_KEY → YOUTUBE_API_KEY_PSYCHOLOGY → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.0 — 2026-11-24 — 신규: ADHD 관련 영상 제목·태그에서 많이 쓰인 낱말
 #   사용자 지시 2026-11-24 "진작 할걸 이렇게 바꾸고 ADHD 관련 영상에서 많이 쓰인 단어 알려줘봐".
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
@@ -49,7 +50,7 @@ def fetch(ids, offline):
     if need and offline:
         log("FETCH", level="warn", missing=len(need), note="--offline 이라 태그 없이")
     elif need:
-        key = os.environ.get("YOUTUBE_API_KEY")
+        key = next((os.environ[k].strip() for k in ("PSYCHOLOGY_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_PSYCHOLOGY", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), "")
         if not key:
             sys.exit("[FETCH] YOUTUBE_API_KEY 없음 — 환경 변수로 넣거나 --offline")
         for k in range(0, len(need), 50):

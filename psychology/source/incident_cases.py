@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2.0 — 2026-11-23 — '모르는 사이 가스라이팅이 된' 사례 검색어 6개 더함 (QUERIES_GAS) (사용자 지시 2026-11-23
+# VERSION: v1.2.1 — 2026-11-27 — 키: PSYCHOLOGY_YOUTUBE_API_KEY → YOUTUBE_API_KEY_PSYCHOLOGY → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.2.0 — 2026-11-23 — '모르는 사이 가스라이팅이 된' 사례 검색어 6개 더함 (QUERIES_GAS) (사용자 지시 2026-11-23
 #          "그러니까 1번 심리가 초래한 실제 사례들을 찾아보라고 사람들이 모르고 있지만 그게 가스라이팅이 어느 순간 된거지 그런거")
 #          — 분류·지표는 그대로 · 6개 × 기간 2 = 12번 ≈ 1,200단위
 # (이전) v1.1.0 — 2026-11-23 — 범위를 '심리가 초래한 사례'로 넓힘 (사용자 지시 2026-11-23 "그냥 꼭 큰 사건, 사고가 아닌
@@ -60,7 +61,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-VERSION = "v1.2.0"
+VERSION = "v1.2.1"
 SEED = 0  # 무작위 요소 없음 — 재현성 기록용
 
 HERE = Path(__file__).resolve().parent
@@ -607,7 +608,7 @@ def main(argv: list[str]) -> int:
         print(__doc__)
         return 2
     t0 = time.time()
-    key = os.environ.get("YOUTUBE_API_KEY")
+    key = next((os.environ[k].strip() for k in ("PSYCHOLOGY_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_PSYCHOLOGY", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), "")
     L("START", tool=f"incident_cases.py {VERSION}", cmd=cmd, as_of=f"{AS_OF:%Y-%m-%d}", seed=SEED,
       key="env:YOUTUBE_API_KEY" if key else "없음", offline=cmd == "analyze")
     yt = YT(key, offline=(cmd == "analyze"))

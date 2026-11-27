@@ -427,7 +427,7 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -UnregisterTask   # �
 | `<주제>/analyzer_config.toml` | 주제 이름·저장 폴더·할당량 `QUOTA_BUDGET`·**외국 영상 `INCLUDE_FOREIGN`(기본 false — v3.1)** 등 | 〃 |
 | `<주제>/.env` | 이 주제 키 (`YOUTUBE_API_KEY`·`GITHUB_TOKEN`) — **v3.0: 주제마다 따로** (처음 켤 때 맨 위 `.env` 를 복사해 만듦, 웹 화면 탭의 키 저장은 이 파일만) · **v3.1: 주제마다 다른 키를 넣어도 됨 — 다르면 할당량도 따로** | **PC에만** (git 에 올라가지 않음) |
 
-키를 찾는 순서: `<주제>/.env` → 환경 변수 `YOUTUBE_API_KEY_<주제>`(예: `YOUTUBE_API_KEY_ECONOMIC`) → 맨 위 `.env` → 환경 변수 `YOUTUBE_API_KEY`.
+키를 찾는 순서: `<주제>/.env` → 환경 변수 **`<주제>_YOUTUBE_API_KEY`**(예: `ECONOMIC_YOUTUBE_API_KEY` — 2026-11-27 주제 접두사, `tools/topic_keys.py`) → 옛 꼴 `YOUTUBE_API_KEY_<주제>` → 맨 위 `.env` → 환경 변수 `YOUTUBE_API_KEY`. 키는 시작할 때 한 번 정하고 오류가 나도 다른 키로 바꾸지 않는다.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder economic,health                 # 두 주제를 동시에

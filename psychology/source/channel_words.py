@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.1 — 2026-11-23 — 고침: 이름만 심리인 채널 5곳을 뺌(EXCLUDE_CH — 업로드 제목을 Claude 가 봄: 연예인 명언·노래·
+# VERSION: v1.0.2 — 2026-11-27 — 키: PSYCHOLOGY_YOUTUBE_API_KEY → YOUTUBE_API_KEY_PSYCHOLOGY → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.0.1 — 2026-11-23 — 고침: 이름만 심리인 채널 5곳을 뺌(EXCLUDE_CH — 업로드 제목을 Claude 가 봄: 연예인 명언·노래·
 #          자기계발·육아·연애 예능 리뷰) 하고 다음 순위로 30곳을 채움 · 뜻 없는 말토막(하는·않는·있는…)을 낱말 순위에서 뺌(FUNC_STOP)
 # (이전) v1.0.0 — 2026-11-23 — 신규: 구독자 많은 심리 전문 채널들이 공통으로 쓰는 주제·제목 낱말 순위
 #          (사용자 지시 2026-11-23 "그럼 구독자 많은 채널에서 공통적으로 등장하는 주제, 단어들이 뭐야 순위매겨서 알려줘봐")
@@ -43,7 +44,7 @@ from pathlib import Path
 
 import requests
 
-VERSION = "v1.0.1"
+VERSION = "v1.0.2"
 HERE = Path(__file__).resolve().parent
 PSY = HERE.parent
 ROOT = PSY.parent
@@ -322,7 +323,7 @@ def main(argv) -> int:
     L("START", tool=f"channel_words.py {VERSION}", cmd=cmd, top_n=TOP_N, pages=PAGES)
     with open(TAG_RULES, "rb") as f:
         themes = tomllib.load(f)["TAG_THEMES"]
-    yt = YT(os.environ.get("YOUTUBE_API_KEY"), offline=(cmd != "run"))
+    yt = YT(next((os.environ[k].strip() for k in ("PSYCHOLOGY_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_PSYCHOLOGY", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), ""), offline=(cmd != "run"))
     chans = pick_channels()
     rows = load_uploads(yt, chans)
     yt.save()

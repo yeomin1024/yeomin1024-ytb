@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-26 — --must (주제 밖 영상 빼기 — 드라마·라이브 섞임) · 하루 캐시 · '주는 사람의 심리' 형식 정규식 고침
+# VERSION: v1.2 — 2026-11-27 — 주제 접두사 키: 시작할 때 tools/topic_keys.apply(주제) — <주제>_YOUTUBE_API_KEY 등이 있으면 그 주제 키를 씀 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 오류가 나도 다른 키로 바꾸지 않음.
+# (이전) VERSION: v1.1 — 2026-11-26 — --must (주제 밖 영상 빼기 — 드라마·라이브 섞임) · 하루 캐시 · '주는 사람의 심리' 형식 정규식 고침
 # 이전 v1.0 — 2026-11-26 — 최초: 관련 주제 영상의 자주 쓰는 낱말·제목 형식 (조회수 무게) — guides/production_rules.md 0번
 #   사용자 지시 2026-11-26 "제목 - 관련 주제 영상에서 자주 사용한 주제 관련 단어 사용 … 관련 주제 영상에서 자주 사용하는 형식 참고 / 썸네일 문구 - … 관련 주제 영상에서 자주 사용하는 형식 참고".
 # CHANGELOG
@@ -28,7 +29,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://www.googleapis.com/youtube/v3/"
 STOP = set("그리고 그런데 하지만 그래서 영상 오늘 우리 이것 이거 그것 정말 진짜로 하는 있는 없는 같은 위한 대한 되는 했던 하면 하고 해서 해야 합니다 입니다 있습니다 거예요 이런 저런 그런 모든 가지 이유 사람 사람들".split())
@@ -126,6 +127,8 @@ def main(argv=None) -> int:
     ap.add_argument("--out")
     ap.add_argument("--must", help="제목에 이 정규식이 있어야 셈 (주제 밖 영상 빼기 — 예 '주는|선물|챙겨')")
     a = ap.parse_args(argv)
+    import topic_keys                                        # v1.2 주제 접두사 키 (<주제>_YOUTUBE_API_KEY …) — 시작할 때 한 번
+    topic_keys.apply(a.topic, say=print)
     log("START", tool=f"related_titles.py {VERSION}", topic=a.topic, queries=len(a.queries), months=a.months, units_est=100 * len(a.queries) + 5)
     vids = fetch(a.queries, a.months, a.min_sec)
     if a.must:

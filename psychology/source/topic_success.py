@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1.0 — 2026-11-23 — 주제 'adhd' 더함 (사용자 지시 2026-11-23 "ADHD 관련 성공 사례 찾아봐") · 주제마다 세부 칸 이름
+# VERSION: v1.1.1 — 2026-11-27 — 키: PSYCHOLOGY_YOUTUBE_API_KEY → YOUTUBE_API_KEY_PSYCHOLOGY → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.1.0 — 2026-11-23 — 주제 'adhd' 더함 (사용자 지시 2026-11-23 "ADHD 관련 성공 사례 찾아봐") · 주제마다 세부 칸 이름
 #          (focus_name)·아이(육아) 표시(child)·지시 문장(ask)을 TOPICS 에 둠 — 우울증 결과는 그대로
 # (이전) v1.0.0 — 2026-11-23 — 신규: 주제 하나(예: 우울증 증상)의 성공 사례 영상 찾기
 #          (사용자 지시 2026-11-23 "우울증 증상과 관련된 성공 사례 영상 찾아서 알려줘봐")
@@ -40,7 +41,7 @@ from pathlib import Path
 
 import requests
 
-VERSION = "v1.1.0"
+VERSION = "v1.1.1"
 HERE = Path(__file__).resolve().parent
 PSY = HERE.parent
 OUT_DIR = PSY / "result" / "topics"
@@ -333,7 +334,7 @@ def main(argv) -> int:
     t0 = time.time()
     R = rules()
     L("START", tool=f"topic_success.py {VERSION}", cmd=cmd, topic=key, as_of=f"{AS_OF:%Y-%m-%d}", success_rules=R)
-    yt = YT(os.environ.get("YOUTUBE_API_KEY"), offline=(cmd != "run"))
+    yt = YT(next((os.environ[k].strip() for k in ("PSYCHOLOGY_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_PSYCHOLOGY", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), ""), offline=(cmd != "run"))
     vids, subs = load_cached()
     load_search(yt, TOPICS[key], vids, subs)
     yt.save()

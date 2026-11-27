@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0.1 — 2026-11-23 — 고침: 방송사(JTBC News·디글·EBS 등)가 '심리 전문'으로 들어가던 것 — 우리 자료는 그 채널의
+# VERSION: v1.0.2 — 2026-11-27 — 키: PSYCHOLOGY_YOUTUBE_API_KEY → YOUTUBE_API_KEY_PSYCHOLOGY → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.0.1 — 2026-11-23 — 고침: 방송사(JTBC News·디글·EBS 등)가 '심리 전문'으로 들어가던 것 — 우리 자료는 그 채널의
 #          심리 영상만 골라 모아 '심리 영상 60%' 규칙이 부풀었음. 심리 전문 = 채널 이름에 심리 낱말, 또는 설명에 심리 낱말 +
 #          우리 자료 영상도 심리 쪽 · 방송사·뉴스 이름(BROADCAST)은 늘 종합 · 불교·신부·영성·명상(RELIGION)은 따로 묶음
 # (이전) v1.0.0 — 2026-11-23 — 신규: 심리 관련 채널을 구독자 많은 순으로 (사용자 지시 2026-11-23 "심리 관련 구독자 많은순으로 채널 알려줘")
@@ -41,7 +42,7 @@ from pathlib import Path
 
 import requests
 
-VERSION = "v1.0.1"
+VERSION = "v1.0.2"
 HERE = Path(__file__).resolve().parent
 PSY = HERE.parent
 OUT_DIR = PSY / "result" / "channels"
@@ -276,7 +277,7 @@ def main(argv) -> int:
     cmd = argv[1] if len(argv) > 1 else "analyze"
     t0 = time.time()
     L("START", tool=f"psych_channels.py {VERSION}", cmd=cmd)
-    yt = YT(os.environ.get("YOUTUBE_API_KEY"), offline=(cmd != "run"))
+    yt = YT(next((os.environ[k].strip() for k in ("PSYCHOLOGY_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_PSYCHOLOGY", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), ""), offline=(cmd != "run"))
     chans, agg = load_known()
     found = load_search(yt, chans)
     yt.save()

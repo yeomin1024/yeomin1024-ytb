@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)는 시작하지 않음 — 사용자 지시 2026-11-27 "비활성화하면 … 에이전트가 보지도 않도록". 함수 main.
+# VERSION: v1.2 — 2026-11-27 — 주제 접두사 키 (<주제>_YOUTUBE_API_KEY · tools/topic_keys.apply — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해").
+# (v1.1) — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)는 시작하지 않음 — 사용자 지시 2026-11-27 "비활성화하면 … 에이전트가 보지도 않도록". 함수 main.
 # (v1.0) — 2026-11-25 — 새로: 주제마다 쓰는 '다음 영상 주제 탐색' (psychology/source/next_topic.py v1.1 의 네 단계를 그대로 —
 #          주제 묶음·주제 채널 낱말·거르기·겹침 후보·트렌드 낱말은 <주제>/next_topic.toml 로 뺌) + suggest(유튜브 자동완성 실시간)
 #   사용자 지시 2026-11-25 "심리 주제에서 했던 것처럼 주제탐색에 필요한 4가지 그대로 수행해서 영상 만들 주제 알려줘 그리고 트렌드 사이트는 왜
@@ -57,7 +58,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://www.googleapis.com/youtube/v3/"
 SUGGEST = "https://suggestqueries.google.com/complete/search"
-VERSION = "v1.1"
+VERSION = "v1.2"
 RECENT_DAYS = 7          # 심리 사용자 지시 2026-11-25 "2번에서 최근 7일 동안으로 변경"
 MAX_COMMENT_PAGES = 5    # 최신 댓글 100개씩 최대 5쪽
 LONG_SEC = 240           # 4분 이상 = 롱폼
@@ -694,6 +695,8 @@ def main(argv=None) -> int:
     a = ap.parse_args(argv)
     import topic_state                                       # v1.1 꺼 둔 주제는 읽지도 탐색하지도 않음
     topic_state.guard(a.topic, "next_topic.py")
+    import topic_keys                                        # v1.2 주제 접두사 키 — 시작할 때 한 번
+    topic_keys.apply(a.topic, say=print)
     logging.basicConfig(level=a.log_level, format="%(message)s")
     t0 = time.time()
     c = Cfg(a.topic)

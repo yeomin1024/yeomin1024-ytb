@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-10-11 — 최초 작성 (사용자 지시: "올린 영상의 통계 자료로 피드백할 수 있는 자료를 만들어 저장소에 올리는 코드")
+# VERSION: v1.0.1 — 2026-11-27 — 주제 접두사 키: 시작할 때 tools/topic_keys.apply(주제) — <주제>_YOUTUBE_API_KEY 등이 있으면 그 주제 키를 씀 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 오류가 나도 다른 키로 바꾸지 않음.
+# (이전) VERSION: v1.0 — 2026-10-11 — 최초 작성 (사용자 지시: "올린 영상의 통계 자료로 피드백할 수 있는 자료를 만들어 저장소에 올리는 코드")
 #          올린 영상(youtube.json)마다 공개 지표·시청 지속·유입 경로·일별 조회·댓글을 모아 stats/<날짜>.json(원자료)과
 #          feedback.md(대본 문장·챕터에 맞춘 자료)를 만들고, 주제별 모음 <주제>/feedback.md, --push 로 main에 올림. 표준 라이브러리만
 r"""
@@ -57,7 +58,7 @@ except Exception:                                   # tzdata 가 없는 환경: 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import srt_tool  # noqa: E402  — 대본 문장·SRT 시간 (같은 문장 번호 규칙)
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 KST = timezone(timedelta(hours=9))
 TOKEN_URL = "https://oauth2.googleapis.com/token"
@@ -791,6 +792,8 @@ def main(argv=None):
     ap.add_argument("--push", action="store_true", help="결과 파일만 main에 커밋·푸시")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
+    import topic_keys                                        # v1.0.1 주제 접두사 키 (<주제>_YOUTUBE_API_KEY …) — 시작할 때 한 번
+    topic_keys.apply(a.topic, say=print)
     logging.basicConfig(level=a.log_level, format="%(message)s", stream=sys.stdout)
     if a.check:
         check(Live.from_env())

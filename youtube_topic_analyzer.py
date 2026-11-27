@@ -4918,6 +4918,7 @@ def key_sources(topic_dir=None):
         if tp.is_file():
             src.append((f"{Path(topic_dir).name}/.env", load_env_file(tp)))
         tag = folder_tag(Path(topic_dir).name).upper()
+        src.append((f"env:{tag}_*", {k: os.environ.get(f"{tag}_{k}", "") for k in ("YOUTUBE_API_KEY", "GITHUB_TOKEN", "YTDLP_PROXY")}))   # 2026-11-27 주제 접두사 (tools/topic_keys.py)
         src.append((f"env:*_{tag}", {k: os.environ.get(f"{k}_{tag}", "") for k in ("YOUTUBE_API_KEY", "GITHUB_TOKEN", "YTDLP_PROXY")}))
     root = BASE_DIR / ENV_FILE
     if root.is_file():

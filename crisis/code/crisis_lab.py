@@ -1,4 +1,5 @@
-# VERSION: v1.2.1 — 2026-11-12 — 폴더 정리: 코드를 crisis/code/ 로 이동 (분석 로직 변경 없음)
+# VERSION: v1.2.2 — 2026-11-27 — 키: CRISIS_YOUTUBE_API_KEY → YOUTUBE_API_KEY_CRISIS → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.2.1 — 2026-11-12 — 폴더 정리: 코드를 crisis/code/ 로 이동 (분석 로직 변경 없음)
 # (이전) v1.2.0 — 2026-11-12 — 묶음 9개 → 제목용 최종 페르소나 4명 합치기 (merge_personas)
 # (이전) v1.1.0 — 2026-11-12 — 주제 필터·채널 쏠림 보정·장르 태그·댓글 사전 확장·선택형 검색어 4개
 # (이전) v1.0.0 — 2026-11-12 — 위기 상황 채널 1차 분석 파이프라인 신규 작성
@@ -42,7 +43,7 @@ import numpy as np
 import pandas as pd
 import requests
 
-VERSION = "v1.2.1"
+VERSION = "v1.2.2"
 SEED = 0  # 무작위 요소 없음 — 재현성 기록용
 
 # ─────────────────────────── 설정 ───────────────────────────
@@ -741,7 +742,7 @@ def main(argv: list[str]) -> int:
     t0 = time.time()
     L("DONE", version=VERSION, mode=mode, as_of=f"{AS_OF:%Y-%m-%d}", seed=SEED,
       note="연구·기획용 — 안전 조언은 공식 지침으로 확인")
-    yt = YT(key=os.environ.get("YOUTUBE_API_KEY"), offline=(mode == "analyze"))
+    yt = YT(key=next((os.environ[k].strip() for k in ("CRISIS_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_CRISIS", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), ""), offline=(mode == "analyze"))
     try:
         vdf = load_videos(yt)
     except RuntimeError as e:

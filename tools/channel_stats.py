@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)만의 채널은 받지 않음 — 사용자 지시 "비활성화하면 … 에이전트가 보지도 않도록". 함수 our_channels.
+# VERSION: v1.2 — 2026-11-27 — 키: YOUTUBE_API_KEY 가 없으면 --topic 의 <주제>_YOUTUBE_API_KEY (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 한 번 정한 키로 끝까지 (오류가 나도 바꾸지 않음). 함수 main.
+# (v1.1) — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)만의 채널은 받지 않음 — 사용자 지시 "비활성화하면 … 에이전트가 보지도 않도록". 함수 our_channels.
 # (v1.0) — 2026-11-27 — 최초: 내 채널 공개 지표 → 제작 판 '채널 분석' (사용자 지시 2026-11-27 "채널 분석 - 유튜브와 연동하여 내 채널 분석 자료 확인 가능").
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
@@ -34,7 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "studio" / "channels" / "channels.json"
 API = "https://www.googleapis.com/youtube/v3"
-VERSION = "v1.1"
+VERSION = "v1.2"
 KST = dt.timezone(dt.timedelta(hours=9))
 LOG = logging.getLogger("channel_stats")
 
@@ -153,10 +154,14 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="내 채널 공개 지표 → studio/channels/channels.json")
     ap.add_argument("--max", type=int, default=50, help="채널마다 최근 영상 수 (최대 50)")
     ap.add_argument("--push", action="store_true", help="결과 파일만 커밋·푸시 (main)")
+    ap.add_argument("--topic", default="", help="v1.2 이 주제의 키(<주제>_YOUTUBE_API_KEY)로 읽기 — 없으면 YOUTUBE_API_KEY")
     ap.add_argument("--log-level", default="INFO")
     a = ap.parse_args(argv)
     logging.basicConfig(level=getattr(logging, a.log_level, logging.INFO), format="%(message)s", stream=sys.stdout)
-    key = os.environ.get("YOUTUBE_API_KEY", "")
+    sys.path.insert(0, str(ROOT / "tools"))
+    import topic_keys                                        # v1.2 주제 접두사 키
+    key, src = topic_keys.get("YOUTUBE_API_KEY", a.topic or None)
+    log("KEYS", source=src, topic=a.topic or "-")
     if not key:
         raise SystemExit("[START] ❌ YOUTUBE_API_KEY 가 없음 — 키가 있는 세션에서 (값은 채팅에 붙이지 않음)")
     data = run(key, a.max)

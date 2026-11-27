@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-25 — 새로: 새 분야 갭 탐색 — 조회수는 잘 나오는데 영상은 적은 분야를 지금 주제 밖까지 찾음
+# VERSION: v1.1 — 2026-11-27 — 주제 접두사 키: 시작할 때 tools/topic_keys.apply(주제) — <주제>_YOUTUBE_API_KEY 등이 있으면 그 주제 키를 씀 (사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 오류가 나도 다른 키로 바꾸지 않음.
+# (이전) VERSION: v1.0 — 2026-11-25 — 새로: 새 분야 갭 탐색 — 조회수는 잘 나오는데 영상은 적은 분야를 지금 주제 밖까지 찾음
 #   사용자 지시 2026-11-25 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은 주제 모두 찾아서 해야 돼" →
 #   "일단 한국만하고 해외, 한국 둘다 할수 있는 주제면 더 좋아" · "롱폼, 쇼츠 둘다하고 못만드는 분야는 알아서 해 4번은 해도 되고 계속 진행해".
 # CHANGELOG
@@ -44,7 +45,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "v1.0"
+VERSION = "v1.1"
 API = "https://www.googleapis.com/youtube/v3/"
 log = logging.getLogger("gap_scan")
 
@@ -872,6 +873,8 @@ def main(argv=None) -> int:
     ap.add_argument("--allow-upload-env", action="store_true", help="supply: 업로드 키 환경에서도 (할당량 주의)")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     a = ap.parse_args(argv)
+    import topic_keys                                        # v1.1 주제 접두사 키 (<주제>_YOUTUBE_API_KEY …) — 시작할 때 한 번
+    topic_keys.apply(a.topic if a.topic != "selftest" else None, say=print)
     logging.basicConfig(level=a.log_level, format="%(message)s")
     if a.topic == "selftest":
         return selftest()

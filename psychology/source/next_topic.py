@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-25 — trends: 사용자 CSV 12묶음 합치기 — "<1" = 0.5 · 최근 4주 · 기준 낱말이 작은 묶음 정밀도 표시 · 묶음 파일 확인 (사용자 지시 "압축풀어서 확인해")
+# VERSION: v1.2 — 2026-11-27 — 키: PSYCHOLOGY_YOUTUBE_API_KEY → YOUTUBE_API_KEY_PSYCHOLOGY → YOUTUBE_API_KEY 순서 (주제 접두사 — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해"). 시작할 때 한 번 정함.
+# (이전) VERSION: v1.1 — 2026-11-25 — trends: 사용자 CSV 12묶음 합치기 — "<1" = 0.5 · 최근 4주 · 기준 낱말이 작은 묶음 정밀도 표시 · 묶음 파일 확인 (사용자 지시 "압축풀어서 확인해")
 # (v1.0) — 2026-11-25 — 신규: 다음 심리 영상 주제 탐색 (많이 본 영상 + 최근 7일 댓글 · 큰 채널 주제 · 성공 대리 지표 · 겹침 · 트렌드 묶음)
 #   사용자 지시 2026-11-25 "1. 관심 높은 키워드 … 2. 시청자 많이 본 영상 탐색 … 3. 구독자 많은 채널이 많이 다루는 주제 … 4. 어떤 주제가 시청자들에게
 #   성공적으로 추천됐는지 …" → "2번에서 최근 7일 동안으로 변경하고 최근 댓글 수로 무게를 주도록 해 그리고 시청자들이 이미 알고 있는 내용, 즉 비슷한
@@ -56,7 +57,7 @@ OUT = PSY / "result" / "next_topic"
 CACHE_TGZ = PSY / "cloud_cache" / "cache.tgz"
 COMPARE = PSY / "result" / "outliers" / "compare.csv"
 API = "https://www.googleapis.com/youtube/v3/"
-VERSION = "v1.1"
+VERSION = "v1.2"
 
 RECENT_DAYS = 7          # 사용자 지시 2026-11-25 "2번에서 최근 7일 동안으로 변경"
 MAX_COMMENT_PAGES = 5    # 최신 댓글 100개씩 최대 5쪽 (7일 안 댓글이 500개 넘으면 '500+')
@@ -190,7 +191,7 @@ def related(vids: dict) -> list[dict]:
 # ─────────── API ───────────
 class Api:
     def __init__(self):
-        self.key = os.environ.get("YOUTUBE_API_KEY", "")
+        self.key = next((os.environ[k].strip() for k in ("PSYCHOLOGY_YOUTUBE_API_KEY", "YOUTUBE_API_KEY_PSYCHOLOGY", "YOUTUBE_API_KEY") if os.environ.get(k, "").strip()), "")
         if not self.key:
             raise SystemExit("[API] YOUTUBE_API_KEY 없음 — 환경 변수로 넣는다 (값은 출력하지 않음)")
         self.units = 0

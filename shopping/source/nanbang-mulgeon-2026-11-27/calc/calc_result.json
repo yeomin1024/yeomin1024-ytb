@@ -128,6 +128,15 @@
   "won": 8400,
   "say": "약 8,400원"
  },
+ "heater_half_breakeven_heating_gas": 219822,
+ "say_heater_half_breakeven_heating_gas": "약 22만 원",
+ "rule_x10": {
+  "watt": 200,
+  "hours": 5,
+  "times": 10.0,
+  "won": 7000,
+  "say": "약 7,000원"
+ },
  "base_jump_3": 6270,
  "say_base_jump_3": "약 6,300원",
  "ratios": {
@@ -135,7 +144,7 @@
   "water_vs_carbon_breakeven": 2.0,
   "heat_vs_us_humid_elec": 10.0
  },
- "version": "v1.5",
+ "version": "v1.6",
  "sources": {
   "elec_tiers": {
    "value": "[(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)]",

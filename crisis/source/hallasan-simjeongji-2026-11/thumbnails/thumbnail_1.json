@@ -1,0 +1,86 @@
+{
+ "size": [
+  1280,
+  720
+ ],
+ "shade": [
+  0.55,
+  0.92
+ ],
+ "images": [
+  {
+   "src": "../images/DOC-05-TURN.jpg",
+   "box": [
+    0,
+    0,
+    1280,
+    720
+   ]
+  }
+ ],
+ "_설명": "본안 — 혼자 내려가는 사람(왼쪽) · 멀리 반대로 가는 일행(오른쪽 가운데) · 큰 글 2줄은 오른쪽 아래 빈 길 위(사람을 가리지 않음) · 보조 꼬리표는 오른쪽 위 나무 · 문구 = package.json thumb_main·thumb_sub (v1.4 — persona_loop title 4회차 ✅) · 그림 = 이 편의 ChatGPT 재연 사진(있는 픽셀만 옮김) · 사람 얼굴 없음 · 결말(심정지)은 숨김 — production_rules 썸네일",
+ "out": "thumbnail_1.jpg",
+ "blocks": [
+  {
+   "kind": "lines",
+   "box": [
+    440,
+    432,
+    816,
+    128
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.04,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "“먼저 내려갈게”",
+      "W"
+     ]
+    ]
+   ]
+  },
+  {
+   "kind": "lines",
+   "box": [
+    440,
+    566,
+    816,
+    128
+   ],
+   "align": "left",
+   "valign": "bottom",
+   "lineHeight": 1.04,
+   "stroke": 16,
+   "lines": [
+    [
+     [
+      "1시간 뒤 ",
+      "R"
+     ],
+     [
+      "발견",
+      "R"
+     ]
+    ]
+   ]
+  },
+  {
+   "kind": "tag",
+   "x": 890,
+   "y": 28,
+   "w": 360,
+   "h": 74,
+   "bg": "Y",
+   "color": "K",
+   "text": "2023년 실제 사건",
+   "radius": 16,
+   "fill": [
+    0.88,
+    0.62
+   ]
+  }
+ ]
+}

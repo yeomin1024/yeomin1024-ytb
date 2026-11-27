@@ -1,0 +1,4 @@
+# 업로드만 하는 주제 폴더 — 한 줄에 하나 (PC 업로드 화면 tools/upload_web.py · 업로드 미리보기 tools/upload_preview.py 탭에만)
+# 분석기 탭(topics.txt)에는 넣지 않는 주제 — 표준 분석기가 그 폴더 결과를 덮지 않게 (예: crisis 는 독립 1차 분석 crisis/code/crisis_lab.py)
+# 2026-11-27 사용자 지시 "꼭 수정 다하면 업로드 준비해" — 위기 상황 채널 첫 업로드
+crisis

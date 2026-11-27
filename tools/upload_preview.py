@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-26 — 대본 전체(챕터별) + 음성·자막이 이 대본으로 만들어졌는지(대본 문장이 지금 SRT 에 있는지) — 사용자 지시 "자꾸 주는 사람 영상 전반적으로 규칙 만족하도록 수정해서 아티팩트에 올려"
+# VERSION: v1.3 — 2026-11-27 — 대상 주제에 upload_topics.txt (업로드만 하는 주제, 예 crisis) — upload_web v1.7 과 같은 규칙. 함수 topics.
+# 이전 v1.2 — 2026-11-26 — 대본 전체(챕터별) + 음성·자막이 이 대본으로 만들어졌는지(대본 문장이 지금 SRT 에 있는지) — 사용자 지시 "자꾸 주는 사람 영상 전반적으로 규칙 만족하도록 수정해서 아티팩트에 올려"
 # 이전 v1.1 — 2026-11-25 — 영상: 업로드 대기 편은 미리보기용 낮은 화질 영상(14MB 아래 — 아티팩트 파일 하나 15MB 한도)을 같이 올려 재생 + 원본 GitHub 링크 ·
 #          올린 편은 유튜브 링크 — 사용자 지시 "영상 재생 안되면 링크 첨부라도 해봐"
 # 이전 v1.0 — 2026-11-25 — 업로드 미리보기 아티팩트 자료 만들기 (PC 업로드 화면 tools/upload_web.py v1.6 의 [미리보기] · 썸네일 내려받기를 claude.ai 아티팩트로)
@@ -8,6 +9,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-27 | upload_topics.txt 도 대상 (업로드만 하는 주제) | topics |
 # | v1.2 | 2026-11-26 | script_of(대본 txt → 챕터·문장·예상 길이 · SRT 와 비교해 음성이 옛 대본인지 stale) · record 에 script·script_text | script_of · record |
 # | v1.1 | 2026-11-25 | preview_video(원본 = out/ mp4 또는 uploads 브랜치 조각 → sha256 확인 → ffmpeg 360p 안팎 · 크기 맞춰 비트레이트 · 원본 sha 로 캐시) · links(원본 GitHub 받기 · uploads 폴더) · --no-video | preview_video · source_mp4 · record · build |
 # | v1.0 | 2026-11-25 | 최초 — 업로드 시트(upload.md)가 있는 롱폼·쇼츠마다 미리보기 자료(제목·설명란(챕터 다시 계산)·태그·설정·자막 앞부분·고정 댓글·실험안·썸네일·자료 점검) → data.json + 아티팩트에 같이 올릴 파일 목록 files.json | build · record · main |
@@ -43,7 +45,7 @@ import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 import upload_web as uw  # noqa: E402   (experiments · srt_cues · cell — 함수만 씀, 서버는 켜지 않음)
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 KST = dt.timezone(dt.timedelta(hours=9))
 TOPIC_KO = {"economic": "재테크", "stock": "주식", "psychology": "심리", "music": "음악", "history": "역사", "test": "시험 채널",
             "crisis": "위기", "math": "수학", "new": "새 분야"}
@@ -67,11 +69,12 @@ def git(*args: str) -> str:
 def topics() -> list[str]:
     """upload_web.topics 와 같은 규칙 — 단 GitHub 대신 이 체크아웃(main 을 받아 둔 것)에서."""
     names = []
-    p = ROOT / "topics.txt"
-    for ln in (p.read_text("utf-8").splitlines() if p.is_file() else []):
-        ln = ln.strip()
-        if ln and not ln.startswith("#") and re.fullmatch(r"[a-z0-9_-]+", ln):
-            names.append(ln)
+    for fname in ("topics.txt", "upload_topics.txt"):      # v1.3 upload_topics.txt = 업로드만 하는 주제 (upload_web v1.7 과 같음)
+        p = ROOT / fname
+        for ln in (p.read_text("utf-8").splitlines() if p.is_file() else []):
+            ln = ln.strip()
+            if ln and not ln.startswith("#") and re.fullmatch(r"[a-z0-9_-]+", ln) and ln not in names:
+                names.append(ln)
     for q in sorted(ROOT.glob("*/youtube_channel.json")):
         if q.parent.name not in names:
             names.append(q.parent.name)

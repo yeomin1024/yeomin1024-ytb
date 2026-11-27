@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-11-21 — 쇼츠도 목록에: GitHub main 의 <주제>/source/<영상ID>/shorts/upload.md → 영상ID '<영상ID>-shorts' 줄
+# VERSION: v1.7 — 2026-11-27 — 주제 탭에 upload_topics.txt (업로드만 하는 주제 — 분석기 탭 topics.txt 에는 없는 폴더, 예 crisis) 도 — 사용자 지시 2026-11-27 "꼭 수정 다하면 업로드 준비해" (위기 상황 채널 첫 업로드 · youtube_channel.json 은 첫 업로드 뒤 화면의 '기억'으로). 함수 topics.
+# (v1.6 — 2026-11-21 — 쇼츠도 목록에: GitHub main 의 <주제>/source/<영상ID>/shorts/upload.md → 영상ID '<영상ID>-shorts' 줄
 #          (시트·자막·썸네일·video.json·youtube.json 은 그 shorts/ 폴더 — youtube_upload.src_dir · upload_pack v1.1 과 같음, 쇼츠는 챕터 없이 준비됨).
 #          사용자 지시 2026-11-21 "이 영상 일단 유튜브 업로드 프로그램으로 올릴 수 있도록 music 폴더에 올려봐" (롱폼 짝 없는 쇼츠).
 # (v1.5 — 2026-11-12 — 썸네일 내려받기: 미리보기 썸네일마다 [내려받기] + [실험안 N장 내려받기] · '올린 영상' 줄에도 실험안 받기
@@ -66,7 +67,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -197,14 +198,15 @@ def gh_put_new(path: str, content: bytes, message: str) -> str:
 
 def topics() -> list[str]:
     names = []
-    try:
-        txt = (gh_raw(MAIN, "topics.txt") or b"").decode("utf-8")
-    except RuntimeError:
-        txt = (ROOT / "topics.txt").read_text("utf-8") if (ROOT / "topics.txt").is_file() else ""
-    for ln in txt.splitlines():
-        ln = ln.strip()
-        if ln and not ln.startswith("#") and re.fullmatch(r"[a-z0-9_-]+", ln):
-            names.append(ln)
+    for fname in ("topics.txt", "upload_topics.txt"):      # v1.7 upload_topics.txt = 업로드만 하는 주제 (분석기 탭에는 없음 — 예 crisis)
+        try:
+            txt = (gh_raw(MAIN, fname) or b"").decode("utf-8")
+        except RuntimeError:
+            txt = (ROOT / fname).read_text("utf-8") if (ROOT / fname).is_file() else ""
+        for ln in txt.splitlines():
+            ln = ln.strip()
+            if ln and not ln.startswith("#") and re.fullmatch(r"[a-z0-9_-]+", ln) and ln not in names:
+                names.append(ln)
     for p in sorted(ROOT.glob("*/youtube_channel.json")):
         if p.parent.name not in names:
             names.append(p.parent.name)

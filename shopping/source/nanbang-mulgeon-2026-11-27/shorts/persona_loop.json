@@ -41,20 +41,44 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 2,
+      "at": "2026-11-27T08:08:43Z",
+      "sha": "a9269b39e40dc550",
+      "reviewers": [
+       {
+        "reviewer": "E2-P1",
+        "persona": "P1",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "2번 줄 — 저도 겨울마다 전기히터 켜는데 '하루 4시간만 켜도 한 달 7만 원 넘게 더'라니 남 얘기가 아니라서 바로 붙잡힘 (7번 줄 '그 시간에 난방비의 절반을 쓴다고 넉넉히 쳐도'는 한 번에 안 들어와 잠깐 멈칫했지만 8번 줄 결론이 바로 와서 끄진 않음)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "통과 — 반론 2회차 반영으로 글이 바뀌어 3회차 다시",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r2_exit_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
     "pending": {
-     "n": 2,
-     "sha": "a9269b39e40dc550",
+     "n": 3,
+     "sha": "f8b7e9c36ab729e7",
      "reviewers": [
-      "E2-P1"
+      "E3-P1"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r2_exit_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_2",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r3_exit_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_3",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:06:07Z"
+     "at": "2026-11-27T08:09:13Z"
     }
    },
    "script_rebuttal": {
@@ -133,20 +157,88 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 2,
+      "at": "2026-11-27T08:08:43Z",
+      "sha": "a9269b39e40dc550",
+      "reviewers": [
+       {
+        "reviewer": "K2-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "중",
+          "k": "K8",
+          "line": 2,
+          "text": "히터 2,000와트로 4시간 내내 최대로 돌리는 사람이 어딨나요? 온도조절 되는 히터는 꺼졌다 켜졌다 해서 7만 원까지 안 나옵니다. 첫 문장은 '켜기만 해도' 7만 원처럼 들려요.",
+          "fix": "2번 줄에 조건을 넣는다 — '2,000와트 히터를 하루 4시간 쉬지 않고 켜면' (4번 줄 '내내'와 같게). 7만 7,200원은 최대로 돌린 기준이라는 걸 첫 문장에서 알 수 있게."
+         },
+         {
+          "level": "중",
+          "k": "K5",
+          "line": 8,
+          "text": "가스비 6만 원 아낀 건 빼야죠. 실제로 더 내는 돈은 1만 7,200원인데 첫 문장은 7만 원 손해처럼 겁을 줍니다.",
+          "fix": "8번 줄에 차이 금액을 숫자로 — '아낀 가스비를 빼도 한 달 1만 7,200원을 더 내는 셈입니다'(calc 출력으로). 그러면 2번 줄 7만 원은 '전기요금이 더 나오는 돈', 8번 줄은 '실제 손해'로 갈려 과장 시비가 줄어든다."
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 7,
+          "text": "난방비 12만 원 집이라서 그런 거 아닌가요? 우리 집처럼 난방비 20만 원 넘게 나오면 절반이 10만 원이라 히터가 오히려 싼데요.",
+          "fix": "8번 줄을 '이 집에서는'으로 묶고, 난방비·평소 전기요금에 따라 결과가 갈린다는 걸 11번 질문과 이어지게 한 마디로(예: '난방비가 큰 집은 달라질 수 있죠 — 그럼 우리 집은?'). 결론을 모든 집으로 일반화하지 않게."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 5,
+          "text": "누진제 탓만은 아니죠. 한 달 240킬로와트시를 더 쓰는 것 자체가 큰 양이라 누진제가 없어도 꽤 나옵니다.",
+          "fix": "'많이 쓰는 데다 많이 쓸수록 값이 뛰는 누진제까지 붙기 때문이죠'처럼 쓰는 양과 누진제를 같이 말한다."
+         },
+         {
+          "level": "하",
+          "k": "K5",
+          "line": 10,
+          "text": "'아홉 배 싸다'는 말이 이상하고, 7만 7,200 ÷ 8,500 = 9.08이라 '약 8,500원'에 '아홉 배 넘게'는 아슬아슬합니다.",
+          "fix": "'히터의 9분의 1 값'처럼 바꾸거나 '약 아홉 배'로. 시간도 매트 8시간·히터 4시간이라 '두 배 오래 켜도'를 붙이면 비교가 더 분명하다."
+         },
+         {
+          "level": "하",
+          "k": "K7",
+          "line": 11,
+          "text": "'우리 집 물건'이 뭔지 애매합니다. 매트는 보일러를 끄는 얘기가 아니었는데 '아낀 가스비보다'로 묶이니 앞뒤가 살짝 안 맞아요.",
+          "fix": "'우리 집 히터·매트는 아낀 가스비보다 전기요금이 더 나오는지'처럼 물건을 밝히거나, 질문을 '우리 집에선 어느 쪽이 싼지'로."
+         }
+        ],
+        "answer_clear": true,
+        "summary": "숫자는 대본 안에서 앞뒤가 맞고(240kWh·9.08배·차이 1만 7,200원) 예시 집 안에서는 '히터로 보일러를 대신하면 손해, 몸만 데울 땐 매트'가 분명하지만, 첫 문장이 최대 가동·평소 사용량 조건 없이 7만 원 손해처럼 들리고 난방비가 큰 집이면 뒤집힐 수 있다는 반박이 나올 만하다 — 상 0 · 중 3 · 하 3.",
+        "pass": false,
+        "why": [
+         "중 3 > 1"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.2 (calc v1.9): 첫 문장 '쉬지 않고' · 순손해 1만 7,200원 · '이 집' + 난방비 큰 집은 달라질 수 · 쓰는 양+누진제 · 두 배 오래 켜도 9분의 1쯤 · 질문 '히터와 매트 중 어느 쪽이 싼지'",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r2_rebuttal_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
     "pending": {
-     "n": 2,
-     "sha": "a9269b39e40dc550",
+     "n": 3,
+     "sha": "f8b7e9c36ab729e7",
      "reviewers": [
-      "K2-반론"
+      "K3-반론"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r2_rebuttal_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_2",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r3_rebuttal_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_3",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:06:07Z"
+     "at": "2026-11-27T08:09:13Z"
     }
    }
   }

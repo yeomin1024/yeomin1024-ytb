@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-27 — 새로 (사용자 지시 2026-11-27 "1번 김장으로 쇼츠 대본 만들어줘" — 후보 shopping/result/next_topic/winter_topics.md 1번).
+# VERSION: v1.1 — 2026-11-27 — 반론 2회차: say.bought_minus_salted_1k = 천 원 단위 (38만 7,890 → '약 38만 8천 원' — 38만 5천 원과 같은 단위). 다른 값 그대로.
+# (v1.0 — 2026-11-27 — 새로 (사용자 지시 2026-11-27 "1번 김장으로 쇼츠 대본 만들어줘" — 후보 shopping/result/next_topic/winter_topics.md 1번).
 #   4인 가족 김장 세 가지 길(직접 담그기 · 절임배추 · 사 먹기)의 값과 차이 — 쇼츠 대본의 숫자는 이 출력만 쓴다 (CLAUDE.md '숫자는 계산 코드 출력만').
 #   출처 = 한국물가협회 2026-11-18 발표 (11월 10~12일 · 전국 6대 도시 전통시장·대형마트·온라인몰 · 김장 재료 15개 품목) — 뉴스1·파이낸셜뉴스 보도 (검색 발췌, ⚠️ 협회 원문 확인 필요).
 #   기준량 = 포기김치 58.2kg · 깍두기 9.9kg · 총각김치 7.4kg (4인 가족). 직접 담그기 = 재료를 전통시장에서 산 값.
@@ -12,7 +13,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.0"
+VERSION = "v1.1"
 LOG = logging.getLogger("kimjang_calc")
 SOURCE = {
     "org": "한국물가협회", "released": "2026-11-18", "surveyed": "2026-11-10~12", "where": "전국 6대 도시 전통시장·대형마트·온라인몰, 김장 재료 15개 품목",
@@ -49,6 +50,7 @@ def compute():
         "bought": say(b, 10000), "direct": say(d, 10000), "salted": say(s, 5000),
         "salted_minus_direct": say(s - d, 1000), "bought_minus_salted": say(b - s, 10000),
         "per_head_diff": say(out["per_head_salted_minus_direct"], 100),
+        "bought_minus_salted_1k": say(b - s, 1000),
     }
     return out
 
@@ -65,7 +67,7 @@ def selftest():
     assert all(abs(v - 16) < 0.1 for v in o["heads"].values()), o["heads"]          # 세 값 모두 배추 16포기 기준으로 맞음
     assert o["direct_share_of_bought"] < 0.5, "직접 담그기 = 사 먹는 값의 절반도 안 됨"
     assert o["say"] == {"bought": "약 77만 원", "direct": "약 34만 원", "salted": "약 38만 5천 원", "salted_minus_direct": "약 4만 5천 원",
-                        "bought_minus_salted": "약 39만 원", "per_head_diff": "약 2,800원"}, o["say"]
+                        "bought_minus_salted": "약 39만 원", "per_head_diff": "약 2,800원", "bought_minus_salted_1k": "약 38만 8천 원"}, o["say"]
     print("[SELFTEST] ok — 포기 수", o["heads"], "· 절임 +", o["salted_minus_direct"], "· 사 먹기 ×", o["bought_ratio"])
 
 

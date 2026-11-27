@@ -1,5 +1,5 @@
 {
- "version": "v1.0",
+ "version": "v1.1",
  "source": {
   "org": "한국물가협회",
   "released": "2026-11-18",
@@ -40,6 +40,7 @@
   "salted": "약 38만 5천 원",
   "salted_minus_direct": "약 4만 5천 원",
   "bought_minus_salted": "약 39만 원",
-  "per_head_diff": "약 2,800원"
+  "per_head_diff": "약 2,800원",
+  "bought_minus_salted_1k": "약 38만 8천 원"
  }
 }

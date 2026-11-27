@@ -137,6 +137,9 @@
   "won": 7000,
   "say": "약 7,000원"
  },
+ "generous_4h": 60000,
+ "say_generous_4h": "6만 원",
+ "say_base_man": "약 5만 원",
  "base_jump_3": 6270,
  "say_base_jump_3": "약 6,300원",
  "ratios": {
@@ -145,7 +148,7 @@
   "heat_vs_us_humid_elec": 10.0,
   "heater_vs_carbon_elec": 9.1
  },
- "version": "v1.7",
+ "version": "v1.8",
  "sources": {
   "elec_tiers": {
    "value": "[(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)]",

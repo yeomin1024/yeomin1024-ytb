@@ -1,0 +1,40 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "kimjang-biyong-2026-11-27-shorts": {
+   "script_exit": {
+    "rounds": [],
+    "path": "shopping/source/kimjang-biyong-2026-11-27/shorts/kimjang-biyong-2026-11-27-shorts.txt",
+    "pending": {
+     "n": 1,
+     "sha": "78f02450822ce072",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r1_exit_prompt.md",
+     "answers": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/answers_kimjang-biyong-2026-11-27-shorts_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-27T08:47:50Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "shopping/source/kimjang-biyong-2026-11-27/shorts/kimjang-biyong-2026-11-27-shorts.txt",
+    "pending": {
+     "n": 1,
+     "sha": "78f02450822ce072",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/r1_rebuttal_prompt.md",
+     "answers": "shopping/source/kimjang-biyong-2026-11-27/shorts/persona/answers_kimjang-biyong-2026-11-27-shorts_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-27T08:47:50Z"
+    }
+   }
+  }
+ }
+}

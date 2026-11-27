@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-11-27 — 주제 탭에 upload_topics.txt (업로드만 하는 주제 — 분석기 탭 topics.txt 에는 없는 폴더, 예 crisis) 도 — 사용자 지시 2026-11-27 "꼭 수정 다하면 업로드 준비해" (위기 상황 채널 첫 업로드 · youtube_channel.json 은 첫 업로드 뒤 화면의 '기억'으로). 함수 topics.
+# VERSION: v1.8 — 2026-11-27 — 처음 여는 탭 = 올릴 영상(video.json 있고 youtube.json 없음)이 있는 주제 · 탭 이름 옆에 올릴 수 있는 편수 · 콘솔에 [READY]·[LIST] 다음 할 일 —
+#          사용자 지시 2026-11-27 "…[LIST] topic=stock scripts=10 ready=0 waiting=3 uploaded=7 여기서 멈추는데 해결해봐" (멈춘 게 아니라 늘 stock 탭부터 열려
+#          '부족' 3편만 보이고 콘솔이 조용했음 — 올릴 영상은 crisis 탭). GitHub 목록 45초 캐시(gh_tree — 탭마다 15MB 두 번 받던 것 줄임). 함수 gh_tree · overview · Handler(/api/topics) · 화면 boot.
+# (v1.7 — 2026-11-27 — 주제 탭에 upload_topics.txt (업로드만 하는 주제 — 분석기 탭 topics.txt 에는 없는 폴더, 예 crisis) 도 — 사용자 지시 2026-11-27 "꼭 수정 다하면 업로드 준비해" (위기 상황 채널 첫 업로드 · youtube_channel.json 은 첫 업로드 뒤 화면의 '기억'으로). 함수 topics.)
 # (v1.6 — 2026-11-21 — 쇼츠도 목록에: GitHub main 의 <주제>/source/<영상ID>/shorts/upload.md → 영상ID '<영상ID>-shorts' 줄
 #          (시트·자막·썸네일·video.json·youtube.json 은 그 shorts/ 폴더 — youtube_upload.src_dir · upload_pack v1.1 과 같음, 쇼츠는 챕터 없이 준비됨).
 #          사용자 지시 2026-11-21 "이 영상 일단 유튜브 업로드 프로그램으로 올릴 수 있도록 music 폴더에 올려봐" (롱폼 짝 없는 쇼츠).
@@ -67,7 +70,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.7"
+VERSION = "v1.8"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -142,7 +145,20 @@ def gh_req(url: str, data=None, method=None, accept="application/vnd.github+json
         return e.code, e.read()
 
 
+_TREE_CACHE: dict[str, tuple[float, set[str]]] = {}
+TREE_TTL = 45.0          # v1.8 같은 가지 목록을 45초 안에 다시 받지 않음 (첫 화면 요약 + 탭 목록이 같은 목록을 씀 · 1시간 60번 한도 아낌)
+
+
 def gh_tree(branch: str) -> set[str]:
+    hit = _TREE_CACHE.get(branch)
+    if hit and time.time() - hit[0] < TREE_TTL:
+        return hit[1]
+    paths = _gh_tree(branch)
+    _TREE_CACHE[branch] = (time.time(), paths)
+    return paths
+
+
+def _gh_tree(branch: str) -> set[str]:
     st, body = gh_req(f"https://api.github.com/repos/{STATE['repo']}/git/trees/{branch}?recursive=1")
     if st == 404:
         return set()
@@ -213,6 +229,26 @@ def topics() -> list[str]:
     return names
 
 
+def overview(names: list[str]) -> dict:
+    """(v1.8) 주제마다 대기(upload.md 있고 youtube.json 없음) · 올릴 수 있음(그중 video.json 있음) 편수 — GitHub main 목록 한 번으로."""
+    main_paths = gh_tree(MAIN)
+    out = {}
+    for t in names:
+        vids = {m.group(1) + ("-shorts" if m.group(2) else "") for p in main_paths
+                for m in [re.match(rf"^{re.escape(t)}/source/([^/]+)/(shorts/)?upload\.md$", p)] if m}
+        wait = [v for v in vids if src_rel(t, v) + "youtube.json" not in main_paths]
+        packed = sorted(v for v in wait if src_rel(t, v) + "video.json" in main_paths)
+        out[t] = {"waiting": len(wait), "packed": len(packed), "vids": packed}
+    return out
+
+
+def first_topic(names: list[str], ov: dict) -> str:
+    for t in names:
+        if ov.get(t, {}).get("packed"):
+            return t
+    return "stock" if "stock" in names else (names[0] if names else "")
+
+
 def channel_of(topic: str) -> dict:
     try:
         body = gh_raw(MAIN, f"{topic}/youtube_channel.json")
@@ -275,7 +311,9 @@ def list_videos(topic: str) -> dict:
         md = (yu.src_dir(topic, vid) / "upload.md").read_text("utf-8")
         ready.append({"vid": vid, "items": items, "ready": all(v[0] for v in items.values()), "titles": r.get("titles", []),
                       "experiments": len(experiments(md)), "downloaded": local.is_file()})
-    log("LIST", topic=topic, scripts=len(vids), ready=sum(1 for v in ready if v["ready"]), waiting=len(ready), uploaded=len(done))
+    n_ready = sum(1 for v in ready if v["ready"])
+    log("LIST", topic=topic, scripts=len(vids), ready=n_ready, waiting=len(ready), uploaded=len(done),
+        next=("화면에서 [미리보기] → [업로드]" if n_ready else "이 탭엔 지금 올릴 영상 없음 — 화면 위 탭 이름 옆 (숫자) 가 있는 탭을 누르세요"))
     return {"videos": ready, "uploaded": done}
 
 
@@ -646,7 +684,7 @@ label.ck{display:flex;gap:8px;align-items:flex-start;font-size:14px;margin:8px 0
 const TOKEN="__TOKEN__";let TOPIC="",PENDING=null,HANDLED=0,PVVID="",VIDS={};const KEYS=["YOUTUBE_CLIENT_ID","YOUTUBE_CLIENT_SECRET","YOUTUBE_REFRESH_TOKEN"];
 const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 async function api(p,body){const r=await fetch(p,body?{method:"POST",headers:{"Content-Type":"application/json","X-Upload-Token":TOKEN},body:JSON.stringify(body)}:{headers:{"X-Upload-Token":TOKEN}});return r.json()}
-async function boot(){const s=await api("/api/topics");const t=document.getElementById("tabs");t.innerHTML="";s.topics.forEach(n=>{const b=document.createElement("button");b.textContent=n;b.onclick=()=>pick(n);b.id="tab_"+n;t.appendChild(b)});pick(s.topics.includes("stock")?"stock":s.topics[0]);setInterval(pollJob,1500);upd()}
+async function boot(){const s=await api("/api/topics");const t=document.getElementById("tabs");t.innerHTML="";const C=s.counts||{};s.topics.forEach(n=>{const b=document.createElement("button");const k=(C[n]||{}).packed||0;b.textContent=k?`${n} (${k})`:n;if(k)b.title=`올릴 수 있는 영상 ${k}편`;b.onclick=()=>pick(n);b.id="tab_"+n;t.appendChild(b)});pick(s.first||(s.topics.includes("stock")?"stock":s.topics[0]));setInterval(pollJob,1500);upd()}
 async function pick(n){TOPIC=n;document.querySelectorAll(".tabs button").forEach(b=>b.classList.toggle("on",b.id==="tab_"+n));document.getElementById("tname").textContent=n;await loadKeys();loadVideos()}
 async function loadKeys(){const s=await api("/api/env?topic="+encodeURIComponent(TOPIC));document.getElementById("chan").textContent=s.channel&&s.channel.channel_id?`(채널 기록 ID: ${s.channel.channel_id})`:"(youtube_channel.json 없음 — 채널 확인 안 함)";
  document.getElementById("keys").innerHTML=KEYS.map(k=>`<div class="row"><span>${k}</span><input id="k_${k}" type="password" autocomplete="off" placeholder="${k==="YOUTUBE_REFRESH_TOKEN"?"비워 두면 [다시 인증]으로 저절로":""}"><span class="muted">${esc(s.status[k]||"없음")}</span></div>`).join("");
@@ -832,7 +870,17 @@ class Handler(http.server.BaseHTTPRequestHandler):
             elif u.path.startswith("/media/"):
                 self._media([urllib.parse.unquote(x) for x in u.path[len("/media/"):].split("/")], q)
             elif u.path == "/api/topics":
-                self._json({"topics": topics()})
+                names = topics()
+                try:
+                    ov = overview(names)
+                except RuntimeError as e:                      # GitHub 목록 실패 — 탭만 (예전처럼 stock 부터)
+                    ov = {}
+                    log("READY", warning=str(e)[:160])
+                first = first_topic(names, ov)
+                todo = " · ".join(f"{t} {ov[t]['packed']}편" for t in names if ov.get(t, {}).get("packed"))
+                log("READY", url=f"http://127.0.0.1:{self.server.server_address[1]}/", upload_now=todo or "없음", open_tab=first,
+                    note="브라우저 화면에서 탭을 고르고 [업로드] — 이 검은 창은 닫지 마세요 (닫으면 화면도 꺼짐)")
+                self._json({"topics": names, "counts": {t: {"waiting": v["waiting"], "packed": v["packed"]} for t, v in ov.items()}, "first": first})
             elif u.path == "/api/env":
                 t = q["topic"]
                 te, re_ = read_env(topic_env_path(t)), read_env(ROOT / ".env")

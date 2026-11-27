@@ -1,18 +1,19 @@
 {
  "tool": "cloud_run.py v1.6",
  "topic": "shopping",
- "saved": "2026-11-27T15:33:58+09:00",
+ "saved": "2026-11-27T17:18:01+09:00",
  "why": "approve",
- "files": 2815,
- "bytes_raw": 8799623,
- "bytes_tgz": 3308016,
- "sha256": "41e7abecf8ca6b0eb4d43cfc0ee701eb17298947a5e8d07ff9f51d9e378217e5",
+ "files": 6560,
+ "bytes_raw": 14764519,
+ "bytes_tgz": 5794374,
+ "sha256": "c1ef7c497120444529f77d76b833e08cdca73b810abdaa65fd9c195c1febbca3",
  "parts": [],
  "kinds": {
   "autocomplete.json": 1,
   "channels.json": 1,
   "search": 86,
-  "video": 2724,
+  "uploads": 96,
+  "video": 6373,
   "web": 3
  }
 }

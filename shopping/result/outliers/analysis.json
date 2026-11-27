@@ -2,7 +2,7 @@
  "tool": "success_analysis.py v1.6",
  "topic": "shopping",
  "name": "쿠팡 추천템 (4050 여성)",
- "generated": "2026-11-27T06:33:43+00:00",
+ "generated": "2026-11-27T08:17:39+00:00",
  "rules": {
   "success": {
    "MAX_AGE_DAYS": 180,
@@ -204,15 +204,15 @@
   }
  },
  "sources": {
-  "case_folders": 316,
+  "case_folders": 322,
   "by_kind": {
-   "웹 승인": 316
+   "웹 승인": 322
   },
-  "pool": 2724,
-  "compare_group": 501,
-  "compare_success": 135,
-  "compare_rate": 0.269,
-  "compare_channel_cut": 40,
+  "pool": 6373,
+  "compare_group": 706,
+  "compare_success": 110,
+  "compare_rate": 0.156,
+  "compare_channel_cut": 667,
   "success_passed": 115,
   "success_excluded": [
    {
@@ -318,11 +318,11 @@
  },
  "limits": [
   "대본(자막·음성인식)이 없는 성공 사례 97개 (#1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #11, #12, #13, #14, #15, #16, #17, #18, #19, #20, #21, #22, #23, #24, #25, #26, #27, #28, #29, #30 …) — 설명란·챕터만 있음. 도입부·구성·말 속도는 대본이 있는 0개로만 셌다 (음성인식이 끝나면 다시 셈)",
-  "비교 집단 501개 = 검색(조회수 순 — 잘된 영상 쪽으로 치우침)·추가한 채널 에서 올린 지 7~365일 영상, 성공 비율 27% — 실제 시장 비율이 아니다. 같은 집단 안의 '있음/없음' 차이로만 보고, '무엇이 먹혔나'는 1-2번(같은 채널 안)을 먼저 보라",
+  "비교 집단 706개 = 검색(조회수 순 — 잘된 영상 쪽으로 치우침)·추가한 채널·성공 사례 채널의 평소 영상 275개 (치우침 없음) 에서 올린 지 7~365일 영상, 성공 비율 16% — 실제 시장 비율이 아니다. 같은 집단 안의 '있음/없음' 차이로만 보고, '무엇이 먹혔나'는 1-2번(같은 채널 안)을 먼저 보라",
   "하루 조회수 상위 묶음(1-3번) 79개는 구독자·올린 날짜 상관없이 골랐다 — 큰 채널(구독자 50,000 넘음) 59개라 채널 힘(구독자·추천)이 섞여 있다. 작은 채널이 따라 할 근거는 1번 성공 사례로 보라. 하루 조회수 = 조회수 ÷ 올린 지 날수라 갓 올린 영상(며칠)은 부풀고 오래된 영상은 낮아진다. 경계는 검색 결과(조회수 순 — 잘된 쪽으로 치우침) 1093개 안의 상위 10%. 자료를 받지 않은 후보 22개 (웹 화면에서 승인하면 들어감)",
   "조회수 상위 묶음(1-4번) 99개는 올린 날짜·구독자 상관없이 조회수만으로 골랐다 — 오래 쌓인 조회수·큰 채널 힘이 섞여 있다 (큰 채널 82개 · 1년 넘은 영상 60개). 모집단 1,725개에서 가장 오래된 영상 3656일 — 기간 없는 검색은 할당량이 남을 때만 하므로 다 못 했으면 과거 영상이 적다. 자료를 받지 않은 후보 16개",
   "성공 사례 몫(가중) = 성공 사례마다 무게 1 + log2(구독자당 하루 조회수 ÷ 기준)로 센 몫 (사용자 지시 2026-10-28 '최근에 조회수가 높을수록 더 많이 반영' — 점수가 기준의 2배면 무게 2, 4배면 3). 이번 무게 중앙값 3.974 · 가장 큰 9.522 — 사례 수가 적은 묶음은 가중 없는 몫·사례 수와 같이 본다",
-  "같은 채널 기준선 없음 — 웹 화면이 승인·켤 때 성공 사례 채널의 최근 영상 50개를 받는다 (채널 하나 약 2단위). 다음 실행부터 1-2번이 채워짐",
+  "같은 채널 기준선이 있는 성공 사례 83/97개 (채널 영상이 5개 미만이거나 아직 못 받음)",
   "수요·공급의 '시장'은 탐색·검색에서 본 최근 90일 영상 529개 — 검색이 조회수 순이라 조회수 적은 영상이 덜 잡힌다. 주제 묶음 사이의 상대 비교(지수)로만 보라",
   "자동완성 말의 '최근 영상 수'는 우리가 본 영상만 셌다 — 실제 공급은 웹 화면 [공급 확인](말 하나에 검색 1번 = 100단위)으로 확인",
   "자동완성 말에는 책·방송·사람·채널 이름도 섞인다 (예: '…를 찾아서'·'…지침서') — 영상 주제가 아닌 말은 건너뛰고 읽어라",
@@ -347,7 +347,7 @@
    "weight": 9.522,
    "like_rate": 0.0029,
    "published": "2026-11-11",
-   "age_days": 16.2,
+   "age_days": 16.3,
    "theme": "4. 다이소·가성비",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_RkipQfEWj5k",
@@ -383,10 +383,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 454.4,
+   "channel_median": 2402,
    "channel_id": "UC--Tyh46JgCDIwS4XEx_dCw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "4-WlgWVaXMc",
+     "title": "수건냄새 완벽하게 없애는 방법",
+     "views": 2402
+    },
+    {
+     "id": "Idr2mVprZN4",
+     "title": "압력솥에 넣기만 하세요! 실패 없는 야들야들 수육 레시피",
+     "views": 2570
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 5,
@@ -466,7 +477,7 @@
    "weight": 9.513,
    "like_rate": 0.0013,
    "published": "2026-10-29",
-   "age_days": 28.4,
+   "age_days": 28.5,
    "theme": "4. 다이소·가성비",
    "format": "살림 브이로그·루틴",
    "folder": "W_dFJIgg7qg2A",
@@ -585,7 +596,7 @@
    "weight": 8.432,
    "like_rate": 0.0058,
    "published": "2026-11-19",
-   "age_days": 7.9,
+   "age_days": 8.0,
    "theme": "6. 4050 패션",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_81Qc8Fyfg9c",
@@ -604,10 +615,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 104.9,
+   "channel_median": 1110,
    "channel_id": "UC0Bnw570idqeZFgFr6CgWmA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "-U2Mtstth8c",
+     "title": "키 작은 60대 늦가을 코디 5가지! 제발 이렇게 입으세요｜굽 없이도 다리가 길어 보이는 비결",
+     "views": 1323
+    },
+    {
+     "id": "_nxL_Oq3uf4",
+     "title": "올겨울 패딩 사기 전에 꼭 보세요! 색 하나·끈 하나로 10살 젊어 보이는 60대 패딩 선택법｜색깔·기장·핏",
+     "views": 896
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -653,7 +675,7 @@
    "weight": 8.316,
    "like_rate": 0.0031,
    "published": "2026-11-13",
-   "age_days": 14.0,
+   "age_days": 14.1,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_AHNj9dOIBsg",
@@ -824,7 +846,7 @@
    "weight": 8.205,
    "like_rate": 0.0034,
    "published": "2026-11-17",
-   "age_days": 9.6,
+   "age_days": 9.7,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_yLZpYX1Cvxo",
@@ -892,10 +914,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 2.7,
+   "channel_median": 201784,
    "channel_id": "UCniTYl98JlclnIx_Bpsn9qg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "8jj7ynrrdKU",
+     "title": "은퇴 후 마을버스 기사, 되는 건 쉬운데 오래 못 하는 이유",
+     "views": 201784
+    },
+    {
+     "id": "OryEkxA684E",
+     "title": "지게차 자격증만 따면 된다더니, 경력 없는 57세가 겪은 첫 직장 | 지게차 현실",
+     "views": 211441
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 9,
@@ -1003,7 +1036,7 @@
    "weight": 8.177,
    "like_rate": 0.0027,
    "published": "2026-10-16",
-   "age_days": 41.3,
+   "age_days": 41.4,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_Ditoq0OLdh8",
@@ -1139,7 +1172,7 @@
    "weight": 8.038,
    "like_rate": 0.0015,
    "published": "2026-10-19",
-   "age_days": 38.6,
+   "age_days": 38.7,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_0O696yvspvM",
@@ -1175,10 +1208,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 42.7,
+   "channel_median": 8343,
    "channel_id": "UCMNqOYPxcz6AzW8YSDyWl6Q",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "cwZEP1XCAJE",
+     "title": "여름등산 햇빛과 땀때문에 힘들때, 이것 챙기세요!",
+     "views": 8343
+    },
+    {
+     "id": "JWskFy5Kd6g",
+     "title": "여름등산 준비물 추천템3",
+     "views": 9172
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -1246,7 +1290,7 @@
    "weight": 7.986,
    "like_rate": 0.0024,
    "published": "2026-10-16",
-   "age_days": 42.2,
+   "age_days": 42.3,
    "theme": "2. 살림·주방",
    "format": "살림 브이로그·루틴",
    "folder": "W_Xiil0Dr4v1c",
@@ -1265,10 +1309,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 90.0,
+   "channel_median": 2396,
    "channel_id": "UCVQTfUwO7zDHAwsOvxFr2yQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "_NV649kpWsc",
+     "title": "🍒 3인가족  40대 주부의 소비기록 시작합니다.",
+     "views": 2975
+    },
+    {
+     "id": "t8D0O1BnmoM",
+     "title": "🍒 고래잇 오픈런 후기 | 같은 장바구니 쿠팡 vs 이마트 가격 비교했더니",
+     "views": 1817
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 7,
@@ -1372,7 +1427,7 @@
    "weight": 7.57,
    "like_rate": 0.0024,
    "published": "2026-08-29",
-   "age_days": 89.6,
+   "age_days": 89.7,
    "theme": "4. 다이소·가성비",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_unM52hap6r8",
@@ -1412,10 +1467,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 1257.9,
+   "channel_median": 921,
    "channel_id": "UCBh_O6mWQxbMiR14bb97zhA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "j8rM5iUv_nM",
+     "title": "청소 인생 바꿔준 신세계 다이소 꿀템, 사면 또 사게됩니다.",
+     "views": 921
+    },
+    {
+     "id": "6HreXyUNVnE",
+     "title": "싱크볼 교체하려다 싱크볼 청소로 교체 안한 이유",
+     "views": 1192
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 2,
@@ -1489,7 +1555,7 @@
    "weight": 7.538,
    "like_rate": 0.0044,
    "published": "2026-11-17",
-   "age_days": 9.9,
+   "age_days": 10.0,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_K6SjlNybF-E",
@@ -1508,10 +1574,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 21.4,
+   "channel_median": 9646,
    "channel_id": "UCJwC331cujnAx7iKnit_x6w",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "95PkKowJICQ",
+     "title": "【안 보면 후회】흰옷 입으면 더 나이 들어 보이는 이유! 40대부터 꼭 알아야 할 아이보리 코디 비밀 5가지",
+     "views": 9646
+    },
+    {
+     "id": "PaIKx3zf9_I",
+     "title": "【안 보면 후회】60세 이후 귀티 나는 여자들의 옷장 비밀! 명품 없이 10년 젊어 보이는 3가지 비법, 지금 확인하세요!",
+     "views": 9103
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -1563,7 +1640,7 @@
    "weight": 7.518,
    "like_rate": 0.0018,
    "published": "2026-08-03",
-   "age_days": 115.6,
+   "age_days": 115.7,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_RKCDp2p52ss",
@@ -1582,10 +1659,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 104.8,
+   "channel_median": 1010,
    "channel_id": "UC1J236GO7nv2KBtL03L0igw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "tOTOqUNefm0",
+     "title": "2만원대로 집에서 더 많이 쓰는 캠핑용 폴딩카트",
+     "views": 1010
+    },
+    {
+     "id": "-Dqcjtr2s8c",
+     "title": "3만원대 자동센서휴지통이 봉투까지 알아서 펴준다고? 직접 써봤습니다",
+     "views": 969
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -1637,7 +1725,7 @@
    "weight": 7.353,
    "like_rate": 0.0025,
    "published": "2026-10-16",
-   "age_days": 41.9,
+   "age_days": 42.0,
    "theme": "6. 4050 패션",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_0kMrCuXCzh4",
@@ -1656,10 +1744,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 79.6,
+   "channel_median": 9646,
    "channel_id": "UCJwC331cujnAx7iKnit_x6w",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "95PkKowJICQ",
+     "title": "【안 보면 후회】흰옷 입으면 더 나이 들어 보이는 이유! 40대부터 꼭 알아야 할 아이보리 코디 비밀 5가지",
+     "views": 9646
+    },
+    {
+     "id": "PaIKx3zf9_I",
+     "title": "【안 보면 후회】60세 이후 귀티 나는 여자들의 옷장 비밀! 명품 없이 10년 젊어 보이는 3가지 비법, 지금 확인하세요!",
+     "views": 9103
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 7,
@@ -1725,7 +1824,7 @@
    "weight": 6.965,
    "like_rate": 0.0039,
    "published": "2026-11-07",
-   "age_days": 19.8,
+   "age_days": 19.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "살림 브이로그·루틴",
    "folder": "W_PTNkB8INsa8",
@@ -1744,10 +1843,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 27.2,
+   "channel_median": 9277,
    "channel_id": "UCD7jkvycNG2et9Dqymx-Eyg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "gztC-ghZIWs",
+     "title": "외벌이 월 200씩 모으는 품위 있는 가성비 살림법 (저녁준비 10분, 학원비 0원)",
+     "views": 9277
+    },
+    {
+     "id": "kcL9boNZysM",
+     "title": "남부럽지 않게 사는 월 200씩 모으는 현실 주부의 푼돈 소비 철학(13년째 유지)",
+     "views": 6561
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 11,
@@ -1863,7 +1973,7 @@
    "weight": 6.889,
    "like_rate": 0.0039,
    "published": "2026-10-25",
-   "age_days": 32.7,
+   "age_days": 32.8,
    "theme": "2. 살림·주방",
    "format": "살림 브이로그·루틴",
    "folder": "W_x2YNHyzSL1Q",
@@ -1882,10 +1992,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 31.3,
+   "channel_median": 9237,
    "channel_id": "UCQMZNtBwkqxcGkXYUZkpFPQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "0sQLHihnEHE",
+     "title": "버리기 너무 힘든 맥시멀리스트의 현실적인 신발장 비우기",
+     "views": 9700
+    },
+    {
+     "id": "mMpXnlfh0Lg",
+     "title": "청소 브이로그 ㅣ 0.7평 안방 베란다 대충 빨리 청소하기",
+     "views": 8774
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -1959,7 +2080,7 @@
    "weight": 6.66,
    "like_rate": 0.0048,
    "published": "2026-10-05",
-   "age_days": 52.4,
+   "age_days": 52.5,
    "theme": "6. 4050 패션",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_opK4bsSaXH4",
@@ -2007,10 +2128,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 17.2,
+   "channel_median": 17715,
    "channel_id": "UCjnlfM9zS2-196s1DOVHDiA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "8Jg3ECQZvPY",
+     "title": "여행갈 때 이렇게만 입으세요ㅣ여행 사진이 유독 예쁜 사람들의 공통점 (의외로 얼굴이 아닙니다)10년 젊어보이는 여행룩ㅣ중년패션ㅣ중년여행룩ㅣ40대패션ㅣ50대패션ㅣ여행코디",
+     "views": 17715
+    },
+    {
+     "id": "D_y8k4-OMtc",
+     "title": "명품없이 귀티나게 입는법ㅣ우아해보이는기준ㅣ고급스러워보이는코디ㅣ세련된코디ㅣ귀티나는코디ㅣ품위있고 우아해보이는방법ㅣ동창회코디ㅣ모임코디ㅣ우아한데일리룩ㅣ부티나는코디",
+     "views": 7771
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 2,
@@ -2090,7 +2222,7 @@
    "weight": 6.637,
    "like_rate": 0.0037,
    "published": "2026-09-27",
-   "age_days": 61.2,
+   "age_days": 61.3,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_HfThekZjkxI",
@@ -2109,10 +2241,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 31.1,
+   "channel_median": 8680,
    "channel_id": "UCvaiM1BJPzZwJyYXzrxrPHg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "W-SkcL6PzFQ",
+     "title": "중년들이 극찬한 우아하고 고급스러운 중년 쇼핑몰 5곳, 77-88사이즈 집중! (명품 빰치는.. 저렴해요!)",
+     "views": 9837
+    },
+    {
+     "id": "gRbvQfpyMFA",
+     "title": "(광고❌)키작은 중년 쇼핑몰 추천 | 욕 먹을 각오하고 비싼 옷 없이 고급져 보이는 쇼핑몰  전부 공개합니다(중년들이 극찬한 곳!!)",
+     "views": 7524
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -2172,7 +2315,7 @@
    "weight": 6.318,
    "like_rate": 0.0053,
    "published": "2026-10-18",
-   "age_days": 39.9,
+   "age_days": 40.0,
    "theme": "5. 4050 뷰티",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_F1npP23Kq1I",
@@ -2244,10 +2387,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 155.3,
+   "channel_median": 27677,
    "channel_id": "UCu6EbAFPhCXhFEJhGdmxvrw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "x2hSuPtc9FA",
+     "title": "매일 하면 피부 정말 좋아지는 스킨케어 루틴!  피부를 위해 꼭 써야 하는 성분들을 17년차 피부과 전문의가 싹 알려드리겠습니다!",
+     "views": 31164
+    },
+    {
+     "id": "VgDth-7r2lI",
+     "title": "\"생각보다 쉽고 간단합니다!\" 연예인처럼 목주름 쫙 펴는 방법을 17년차 피부과 전문의가 솔직하게 싹 알려드리겠습니다.",
+     "views": 31411
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 27,
     "감사·응원 (일반)": 86,
@@ -2376,7 +2530,7 @@
    "weight": 6.222,
    "like_rate": 0.002,
    "published": "2026-09-30",
-   "age_days": 57.8,
+   "age_days": 57.9,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_15PkJrKxx4s",
@@ -2428,10 +2582,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 53.9,
+   "channel_median": 7044,
    "channel_id": "UCaIpmRyhVryWc4mufx8oXBQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "wSVDOitO4Kk",
+     "title": "이렇게 했더니 바로 세련된 중년 여름 패션! 날씬해보이기까지~",
+     "views": 7044
+    },
+    {
+     "id": "77QuHlT4xiM",
+     "title": "진주 목걸이 사기 전에 딱 3가지만 확인하세요 | 스와로브스키 진주 목걸이",
+     "views": 8397
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 3,
@@ -2505,7 +2670,7 @@
    "weight": 6.119,
    "like_rate": 0.0028,
    "published": "2026-10-18",
-   "age_days": 39.9,
+   "age_days": 40.0,
    "theme": "2. 살림·주방",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_PKJLC0s8ZVU",
@@ -2553,10 +2718,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 11.5,
+   "channel_median": 18861,
    "channel_id": "UCG86MEVZbr8Gm5-9UK6txHg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "M4inMOT8mRQ",
+     "title": "냉장고만 열어봐도 노후가 보입니다｜나이 들수록 달라지는 4가지 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학",
+     "views": 18861
+    },
+    {
+     "id": "dkNuvWhpAsU",
+     "title": "앞서가는 엄마가 집에만 있으려는 진짜 이유 (심리학이 밝힌 충격적 반전) 뇌과학 | 심리학 | 자기계발",
+     "views": 18848
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 5,
     "감사·응원 (일반)": 1,
@@ -2803,10 +2979,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 43.4,
+   "channel_median": 7130,
    "channel_id": "UCwju3Vz0wxcX2bFwF016abQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "uaY_csNr3_M",
+     "title": "지금 이 계절에 가면 좋은 혼자만의 힐링 여행지, 원주 뮤지엄 산에서의 사색의 시간",
+     "views": 7130
+    },
+    {
+     "id": "OsnpZjDlL0c",
+     "title": "명동필수코스! 자라,유니클로부터 요즘 핫하다는 약국쇼핑까지 꽉 채운 나들이,주부의 추천코스",
+     "views": 8391
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 5,
     "감사·응원 (일반)": 5,
@@ -2900,7 +3087,7 @@
    "weight": 5.991,
    "like_rate": 0.0022,
    "published": "2026-10-14",
-   "age_days": 43.8,
+   "age_days": 43.9,
    "theme": "6. 4050 패션",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_7hWxm9uR9oY",
@@ -2948,10 +3135,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 34.8,
+   "channel_median": 7044,
    "channel_id": "UCaIpmRyhVryWc4mufx8oXBQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "wSVDOitO4Kk",
+     "title": "이렇게 했더니 바로 세련된 중년 여름 패션! 날씬해보이기까지~",
+     "views": 7044
+    },
+    {
+     "id": "77QuHlT4xiM",
+     "title": "진주 목걸이 사기 전에 딱 3가지만 확인하세요 | 스와로브스키 진주 목걸이",
+     "views": 8397
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -2990,7 +3188,7 @@
    "weight": 5.908,
    "like_rate": 0.0115,
    "published": "2026-09-14",
-   "age_days": 73.6,
+   "age_days": 73.7,
    "theme": "4. 다이소·가성비",
    "format": "정보·해설 (그 밖)",
    "folder": "W_Ych5AXeWk10",
@@ -3009,10 +3207,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 4417.8,
+   "channel_median": 73,
    "channel_id": "UCDun7bq0yaH_UqbEY1ysL1w",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "GfJTXBiwohQ",
+     "title": "도미노·피자헛·파파존스까지… 국내 피자 브랜드 12곳 비교! 주문 전 꼭 확인해야 할 9곳",
+     "views": 79
+    },
+    {
+     "id": "GB43uDhTn6Y",
+     "title": "이마트·홈플러스 블랙앤데커 블프 세일 당장 걸러야 할 최악 vs 최고 6가지 (2026)",
+     "views": 67
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 6,
     "감사·응원 (일반)": 13,
@@ -3134,7 +3343,7 @@
    "weight": 5.883,
    "like_rate": 0.0038,
    "published": "2026-08-20",
-   "age_days": 98.9,
+   "age_days": 99.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_jGoVK7OkI2k",
@@ -3190,10 +3399,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 98.9,
+   "channel_median": 2441,
    "channel_id": "UCESC1bHbDsK4NZTbu-71IiA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "ONx4AxbWbjM",
+     "title": "비행기 좌석 아무 데나 앉지 마세요｜창가·복도·비상구 완벽정리",
+     "views": 2441
+    },
+    {
+     "id": "pAu3Dq9Oj-0",
+     "title": "이태리 여행 전 필수시청! 꼭 알아야 할 도시·일정·숙소 핵심정리 - 이탈리아 여행 , 해외여행 , 유럽여행 , 여행초보자 , 여행 캐리어",
+     "views": 2721
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 2,
@@ -3273,7 +3493,7 @@
    "weight": 5.855,
    "like_rate": 0.0038,
    "published": "2026-08-30",
-   "age_days": 88.5,
+   "age_days": 88.6,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_vSGrvxAWxJc",
@@ -3414,7 +3634,7 @@
    "weight": 5.794,
    "like_rate": 0.0036,
    "published": "2026-11-12",
-   "age_days": 15.2,
+   "age_days": 15.3,
    "theme": "2. 살림·주방",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_8rfLEOvzeLM",
@@ -3466,10 +3686,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 11.4,
+   "channel_median": 16874,
    "channel_id": "UCvN7lBXewxnwoOVWneG9qAQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "L0Vz89ZzYKA",
+     "title": "미니멀라이프 10년, 오히려 알게 된 것",
+     "views": 19141
+    },
+    {
+     "id": "5PVSC7KfJ-U",
+     "title": "남들이 함부로 못 대하는 사람들의 진짜 특징",
+     "views": 19391
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -3536,7 +3767,7 @@
    "weight": 5.728,
    "like_rate": 0.003,
    "published": "2026-08-21",
-   "age_days": 97.8,
+   "age_days": 97.9,
    "theme": "3. 청소·정리·수납",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_NCdTO010qcI",
@@ -3576,10 +3807,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 116.3,
+   "channel_median": 5795,
    "channel_id": "UCmQczz46ssOJoWAru0ERCHQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "x5HXm2DVSBc",
+     "title": "작고 소중한 집순이 인간관계, 손님 맞이 30분 전 청소 | 여름철 집냄새 관리",
+     "views": 5795
+    },
+    {
+     "id": "KyAfqX_Wo2A",
+     "title": "아무도 몰라줘도 하는 폭염 속 겨울옷 정리｜티 안 나는 살림 (아이 옷장 정리)",
+     "views": 5221
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 5,
     "감사·응원 (일반)": 8,
@@ -3912,7 +4154,7 @@
    "weight": 5.698,
    "like_rate": 0.0034,
    "published": "2026-11-19",
-   "age_days": 7.8,
+   "age_days": 7.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "살림 브이로그·루틴",
    "folder": "W_1A3P_3SujiY",
@@ -3972,10 +4214,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 10.9,
+   "channel_median": 37381,
    "channel_id": "UCU3Sj3qF4E2dseN--gWXw3g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "QJOzS3_kVXQ",
+     "title": "다이소 매번 갈 때마다 새로운- 이번 주에도 의외의 꿀템이 한가득 - 하지만 늦으면 또 품절 각 다이소추천템 10가지!!!",
+     "views": 37381
+    },
+    {
+     "id": "xLEwXJdcyXM",
+     "title": "다이소에 드디어 나왔습니다! 보이면 무조건 담아야 할 품절대란 꿀템 25가지",
+     "views": 50895
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -4056,7 +4309,7 @@
    "weight": 5.509,
    "like_rate": 0.0033,
    "published": "2026-10-16",
-   "age_days": 42.0,
+   "age_days": 42.1,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W__oKfP-r8O6k",
@@ -4140,10 +4393,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 5.7,
+   "channel_median": 340900,
    "channel_id": "UCv_QZmpnIemlqwewyS-7azA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "57i5flSFKbM",
+     "title": "“잇몸이 짱짱해집니다” 치과 안가도 되는 소금물 가글 제대로 하는 법을 15년차 치과전문의가 알려드립니다.",
+     "views": 504003
+    },
+    {
+     "id": "gWcOcbAOUKw",
+     "title": "\"녹은잇몸 팍 살아납니다\" 모두 다 알면 치과 망하는 단돈 천원으로 잇몸뼈 재생 시키는 방법!",
+     "views": 177797
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 10,
     "감사·응원 (일반)": 16,
@@ -4251,7 +4515,7 @@
    "weight": 5.473,
    "like_rate": 0.0025,
    "published": "2026-11-12",
-   "age_days": 14.9,
+   "age_days": 15.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_SzFTsC3xeB4",
@@ -4270,10 +4534,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 3.1,
+   "channel_median": 55217,
    "channel_id": "UCmictIo30zp6J45uMesXrDw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "Ilz9naxvIf4",
+     "title": "다이소 보이면  집어야 하는 갓성비 꿀템| 없어지기 전에 당장 사야 할 다이소 추천템",
+     "views": 57597
+    },
+    {
+     "id": "gDRxDyqVaUw",
+     "title": "다이소가 작정하고 만든  백화점 퀼리티 뽐내는 추천템들",
+     "views": 52837
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -4335,7 +4610,7 @@
    "weight": 5.169,
    "like_rate": 0.0061,
    "published": "2026-10-18",
-   "age_days": 39.8,
+   "age_days": 39.9,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_zMeIYvK60Bc",
@@ -4354,10 +4629,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 125.5,
+   "channel_median": 3252,
    "channel_id": "UCfk1658N37SOUkpWQOvOU5A",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "cUswKSH73xQ",
+     "title": "패션 34년차가 골라서 추천하는 멋스럽고 편한 교복같을 가을옷은 뭘까? 구경오세요 ~#패션 #스타일 #오오티디 @Lookupstyle ",
+     "views": 3252
+    },
+    {
+     "id": "HPmSI9BS9HE",
+     "title": "제품 구매하면서 사은품으로 받는 예쁜 희귀템들/구매는 행사때 사야하는 이유 #선물 #명품 #패션 @Lookupstyle ",
+     "views": 3826
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 8,
     "감사·응원 (일반)": 15,
@@ -4444,7 +4730,7 @@
    "weight": 5.108,
    "like_rate": 0.003,
    "published": "2026-07-16",
-   "age_days": 133.7,
+   "age_days": 133.8,
    "theme": "2. 살림·주방",
    "format": "비교 (vs·차이·순위)",
    "folder": "W_V0TZZQx_bBM",
@@ -4492,10 +4778,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 23.8,
+   "channel_median": 11335,
    "channel_id": "UChSEzOC9pbAVNNSsvJlc0Ag",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "TbiRE4_h2bQ",
+     "title": "꽉 막힌 추석 귀경길 차 안이 100배 즐거워지는 비결! 노브랜드 역대급 콜라보 간식템 6가지",
+     "views": 12699
+    },
+    {
+     "id": "H4FLNBb6STQ",
+     "title": "코스트코보다 더 맛있는 트레이더스 가성비 먹거리 추천템 10가지 | 추천+비추천 솔직 후기 | 이 3가지는 절대 사오지 마세요",
+     "views": 9971
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 1,
@@ -4555,7 +4852,7 @@
    "weight": 5.105,
    "like_rate": 0.0015,
    "published": "2026-10-30",
-   "age_days": 28.0,
+   "age_days": 28.1,
    "theme": "4. 다이소·가성비",
    "format": "정보·해설 (그 밖)",
    "folder": "W_LghRoc0B4oI",
@@ -4615,10 +4912,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 8.1,
+   "channel_median": 116702,
    "channel_id": "UCqXAUNt8THwIvAr9rL3-mQw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "zJui3H4sB5Q",
+     "title": "코스트코 부채살 이 영상 한번만 보면 죽을 때까지 저렴하게 맛있는 소고기 먹을 수 있습니다.",
+     "views": 121626
+    },
+    {
+     "id": "_WSDxSplEIM",
+     "title": "코스트코 실패없는 최고의 부위 갈비살 고르는 가장 완벽한 치트키 딱 1분만 보세요.",
+     "views": 111777
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 5,
     "감사·응원 (일반)": 5,
@@ -4700,7 +5008,7 @@
    "weight": 5.02,
    "like_rate": 0.0047,
    "published": "2026-09-25",
-   "age_days": 63.0,
+   "age_days": 63.1,
    "theme": "6. 4050 패션",
    "format": "비교 (vs·차이·순위)",
    "folder": "W_l9CpRE2s1W4",
@@ -4719,10 +5027,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 12.0,
+   "channel_median": 12644,
    "channel_id": "UCwvwala9Gjv4jgy76sAlL8g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "ueF468kHLgc",
+     "title": "옷장에 이것만 남기세요 | 여름 필수템 7 | 일상부터 출근룩 까지",
+     "views": 13166
+    },
+    {
+     "id": "Q9nZVFH5_gQ",
+     "title": "4050 겨울 아우터, 비싸게 사고 후회하지마세요|겨울 아우터 사기전에 보세요",
+     "views": 12123
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 2,
@@ -4804,7 +5123,7 @@
    "weight": 4.951,
    "like_rate": 0.0022,
    "published": "2026-09-19",
-   "age_days": 68.3,
+   "age_days": 68.4,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_u1505iYGJiQ",
@@ -4823,10 +5142,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 21.9,
+   "channel_median": 11602,
    "channel_id": "UC5sCBq6NfSoP_KnI4t8fWfw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "Y4BKbwR3ltw",
+     "title": "신어보니 더 예뻤던 2030대 브랜드!! 50대 강남 아줌마도 pick 📌같이 구경해요  여름신발 | 한남동 쇼핑 브이로그",
+     "views": 11602
+    },
+    {
+     "id": "sy43F5GX6jo",
+     "title": "까다로운 아줌마 COS 쇼핑ㅣ 예쁜 옷은 많은데 왜 내 옷은 없었을까?ㅣ집에 비슷한옷 많음 주의 😂 또 도전하고 싶은 코스ㅣ심플코디의 정석 코스 #코스쇼핑#50대패션#cos",
+     "views": 12552
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 4,
@@ -4887,7 +5217,7 @@
    "weight": 4.853,
    "like_rate": 0.0043,
    "published": "2026-10-14",
-   "age_days": 44.2,
+   "age_days": 44.3,
    "theme": "3. 청소·정리·수납",
    "format": "살림 브이로그·루틴",
    "folder": "W_rbj88FSAoho",
@@ -4939,10 +5269,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 15.1,
+   "channel_median": 76752,
    "channel_id": "UCkuUT1nzPHOS9QVYliKVLEA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "e30oc0r42yg",
+     "title": "※여름 가기전에 꼭 보세요!!※ 2026년 최신 정리 고수들의 주방 정리 BEST 5 (주방 정리 몰아보기)",
+     "views": 76752
+    },
+    {
+     "id": "U0P-tpQ5Vbg",
+     "title": "\"미국에선 워킹맘, 한국에선 전업주부\" 미국식 살림 스타일을 보여줄 47세 주부",
+     "views": 68548
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 27,
     "감사·응원 (일반)": 90,
@@ -5064,7 +5405,7 @@
    "weight": 4.74,
    "like_rate": 0.0059,
    "published": "2026-10-05",
-   "age_days": 53.2,
+   "age_days": 53.3,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_nrplxdHD2uU",
@@ -5112,10 +5453,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 21.6,
+   "channel_median": 5954,
    "channel_id": "UCgZQwlaE2Qq2F6AWu7_3NOg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "NSulYIxV_Hs",
+     "title": "패턴 옷 입을 때 딱 5가지만 기억하세요, 과하지 않고 고급스러워집니다",
+     "views": 8915
+    },
+    {
+     "id": "024tkUJvYVA",
+     "title": "4050이 입으면 좋은 결혼식 하객룩! 아직도 하객룩 뭐입을지 고민이라면 필수시청 코디 추천",
+     "views": 2993
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 3,
@@ -5181,7 +5533,7 @@
    "weight": 4.693,
    "like_rate": 0.0018,
    "published": "2026-09-19",
-   "age_days": 68.9,
+   "age_days": 69.0,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_BiaXzmxlM_c",
@@ -5225,10 +5577,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 10.3,
+   "channel_median": 15298,
    "channel_id": "UCutLSZHz3Zvev2hLSsKnPbg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "fQO0reB9YC0",
+     "title": "자라 가을 신상 추천템 | 키작녀 현실핏 리뷰 | 가을 분위기 넘치는 어른 여자 필수템 8가지 | 자라,키작녀,가을코디",
+     "views": 15298
+    },
+    {
+     "id": "B9M48fUM_78",
+     "title": "올가을 아우터 필수템 5가지! | 2026FW 자켓 트렌드 총정리 | 키작녀 아우터 고르는 꿀팁! | 레더자켓,트렌치코트,캐주얼자켓,블랙자켓",
+     "views": 16066
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -5288,7 +5651,7 @@
    "weight": 4.434,
    "like_rate": 0.013,
    "published": "2026-07-02",
-   "age_days": 147.3,
+   "age_days": 147.4,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "비교 (vs·차이·순위)",
    "folder": "W_zNTgmX92T1U",
@@ -5502,10 +5865,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 6.5,
+   "channel_median": 17909,
    "channel_id": "UC0hJ2MTuHOsZgSjXGhjonhw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "v6p5lAq7Rmk",
+     "title": "【심영순 셰프의 비법 공개】묵은 고춧가루 절대 버리지 마세요! 이것만 넣으면 1년 내내 감칠맛 폭발 초간단 고추장 완성!",
+     "views": 17909
+    },
+    {
+     "id": "v9e2U364dJY",
+     "title": "【심영순 셰프의 비법 공개】생강청에 설탕 넣지 마세요! 생강 쌀 때 잔뜩 쪄서 말리면 1년 내내 든든한 건강 비법!",
+     "views": 17588
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 7,
@@ -5620,10 +5994,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 6.4,
+   "channel_median": 17715,
    "channel_id": "UCjnlfM9zS2-196s1DOVHDiA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "8Jg3ECQZvPY",
+     "title": "여행갈 때 이렇게만 입으세요ㅣ여행 사진이 유독 예쁜 사람들의 공통점 (의외로 얼굴이 아닙니다)10년 젊어보이는 여행룩ㅣ중년패션ㅣ중년여행룩ㅣ40대패션ㅣ50대패션ㅣ여행코디",
+     "views": 17715
+    },
+    {
+     "id": "D_y8k4-OMtc",
+     "title": "명품없이 귀티나게 입는법ㅣ우아해보이는기준ㅣ고급스러워보이는코디ㅣ세련된코디ㅣ귀티나는코디ㅣ품위있고 우아해보이는방법ㅣ동창회코디ㅣ모임코디ㅣ우아한데일리룩ㅣ부티나는코디",
+     "views": 7771
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -5677,7 +6062,7 @@
    "weight": 4.179,
    "like_rate": 0.0036,
    "published": "2026-09-08",
-   "age_days": 79.8,
+   "age_days": 79.9,
    "theme": "5. 4050 뷰티",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_GQjprC7tVXs",
@@ -5797,10 +6182,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 22.6,
+   "channel_median": 80786,
    "channel_id": "UCrsAwsy2NfLOfXBw3qhaRYQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "U7ebAF6wlp0",
+     "title": "너 고생 안 했구나? 소리 듣는 4050 우아한 분위기 연말 메이크업",
+     "views": 26510
+    },
+    {
+     "id": "BeP43MTSiwc",
+     "title": "40대 왓츠인마이백ㅣ메이크업 아티스트ㅣ호텔신라 이부진 사장이 입은 옷이라고?ㅣ추천템 한가득ㅣ가방털기",
+     "views": 26375
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 21,
     "감사·응원 (일반)": 41,
@@ -5916,7 +6312,7 @@
    "weight": 4.093,
    "like_rate": 0.0058,
    "published": "2026-09-06",
-   "age_days": 81.8,
+   "age_days": 81.9,
    "theme": "기타",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_-9YuPmft_gE",
@@ -5935,10 +6331,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 8.2,
+   "channel_median": 12644,
    "channel_id": "UCwvwala9Gjv4jgy76sAlL8g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "ueF468kHLgc",
+     "title": "옷장에 이것만 남기세요 | 여름 필수템 7 | 일상부터 출근룩 까지",
+     "views": 13166
+    },
+    {
+     "id": "Q9nZVFH5_gQ",
+     "title": "4050 겨울 아우터, 비싸게 사고 후회하지마세요|겨울 아우터 사기전에 보세요",
+     "views": 12123
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 1,
@@ -5984,7 +6391,7 @@
    "weight": 4.057,
    "like_rate": 0.0123,
    "published": "2026-08-08",
-   "age_days": 110.8,
+   "age_days": 110.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_2gzaNh1kBBA",
@@ -6244,10 +6651,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 7.6,
+   "channel_median": 116702,
    "channel_id": "UCqXAUNt8THwIvAr9rL3-mQw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "zJui3H4sB5Q",
+     "title": "코스트코 부채살 이 영상 한번만 보면 죽을 때까지 저렴하게 맛있는 소고기 먹을 수 있습니다.",
+     "views": 121626
+    },
+    {
+     "id": "_WSDxSplEIM",
+     "title": "코스트코 실패없는 최고의 부위 갈비살 고르는 가장 완벽한 치트키 딱 1분만 보세요.",
+     "views": 111777
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 2,
@@ -6315,7 +6733,7 @@
    "weight": 4.009,
    "like_rate": 0.0027,
    "published": "2026-08-18",
-   "age_days": 100.8,
+   "age_days": 100.9,
    "theme": "4. 다이소·가성비",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_XDuADpOTiSo",
@@ -6399,7 +6817,7 @@
    "weight": 4.005,
    "like_rate": 0.0026,
    "published": "2026-10-27",
-   "age_days": 31.0,
+   "age_days": 31.1,
    "theme": "4. 다이소·가성비",
    "format": "정보·해설 (그 밖)",
    "folder": "W_RzB3fj5KMC8",
@@ -6499,10 +6917,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 4.8,
+   "channel_median": 43727,
    "channel_id": "UC6Aw3vH4HzRpzUdR81RPXYw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "75tDnszCuyU",
+     "title": "다이소가 작정하고 만든 1%만 아는 꿀템 11가지  이건 진짜 넘사벽 퀼리티! 내돈내산 삶의 질 수직 상승템 | 살림팁 | 최저가 링크 공유 | 다이소 | 추천템 | 살림카페",
+     "views": 43727
+    },
+    {
+     "id": "6LuuIczuHWY",
+     "title": "이걸 이제야 구하다니... 오직 다이소에서만 구할 수 있는 신박템& 실속템 15가지 그리고 두쫀쿠를 곁들인 |내돈내산  | 살림팁 | 쿠팡 | 다이소 | 추천템 | 살림카페",
+     "views": 42726
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -6554,7 +6983,7 @@
    "weight": 3.985,
    "like_rate": 0.0083,
    "published": "2026-07-11",
-   "age_days": 138.8,
+   "age_days": 138.9,
    "theme": "7. 가전",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_65zHLPvWUSc",
@@ -6709,7 +7138,7 @@
    "weight": 3.974,
    "like_rate": 0.0078,
    "published": "2026-07-16",
-   "age_days": 133.3,
+   "age_days": 133.4,
    "theme": "3. 청소·정리·수납",
    "format": "살림 브이로그·루틴",
    "folder": "W_epG_Uz90pAw",
@@ -6777,10 +7206,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 40.9,
+   "channel_median": 12392,
    "channel_id": "UC9CBK_hBpd420TDoqGOClAA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "IDC6sFkAYlE",
+     "title": "미니멀라이프|주방정리, 밀폐용기추천",
+     "views": 13571
+    },
+    {
+     "id": "yLt1piZt3kY",
+     "title": "\"미뤄둔 물건, 오늘 싹 비웁니다. 비움챌린지 시작",
+     "views": 13664
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 12,
     "감사·응원 (일반)": 14,
@@ -6874,7 +7314,7 @@
    "weight": 3.924,
    "like_rate": 0.0057,
    "published": "2026-10-09",
-   "age_days": 48.8,
+   "age_days": 48.9,
    "theme": "3. 청소·정리·수납",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_o_ZW1fgGGIk",
@@ -6893,10 +7333,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 76.0,
+   "channel_median": 2481,
    "channel_id": "UCouJBzNmM8tWLZcZbA26BOQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "NxpFVOtx0C0",
+     "title": "자연스럽게 더 깨끗하고 상쾌해 보이게 만드는 일본식 위생 습관 15가지 — 오늘부터 시작하세요",
+     "views": 2481
+    },
+    {
+     "id": "4vAeS_pkp7Q",
+     "title": "무엇이든 오래 쓰게 만드는 일본의 모타이나이 습관 15가지",
+     "views": 2508
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 2,
@@ -6976,7 +7427,7 @@
    "weight": 3.88,
    "like_rate": 0.0023,
    "published": "2026-09-29",
-   "age_days": 58.8,
+   "age_days": 58.9,
    "theme": "5. 4050 뷰티",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_gkLSuNKUwEw",
@@ -7128,10 +7579,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 13.5,
+   "channel_median": 80786,
    "channel_id": "UCrsAwsy2NfLOfXBw3qhaRYQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "U7ebAF6wlp0",
+     "title": "너 고생 안 했구나? 소리 듣는 4050 우아한 분위기 연말 메이크업",
+     "views": 26510
+    },
+    {
+     "id": "BeP43MTSiwc",
+     "title": "40대 왓츠인마이백ㅣ메이크업 아티스트ㅣ호텔신라 이부진 사장이 입은 옷이라고?ㅣ추천템 한가득ㅣ가방털기",
+     "views": 26375
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 14,
     "감사·응원 (일반)": 18,
@@ -7339,10 +7801,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 19.0,
+   "channel_median": 5954,
    "channel_id": "UCgZQwlaE2Qq2F6AWu7_3NOg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "NSulYIxV_Hs",
+     "title": "패턴 옷 입을 때 딱 5가지만 기억하세요, 과하지 않고 고급스러워집니다",
+     "views": 8915
+    },
+    {
+     "id": "024tkUJvYVA",
+     "title": "4050이 입으면 좋은 결혼식 하객룩! 아직도 하객룩 뭐입을지 고민이라면 필수시청 코디 추천",
+     "views": 2993
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 3,
@@ -7408,7 +7881,7 @@
    "weight": 3.787,
    "like_rate": 0.0064,
    "published": "2026-08-27",
-   "age_days": 91.5,
+   "age_days": 91.6,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "하울·언박싱",
    "folder": "W_PmrXKcM2YMI",
@@ -7468,10 +7941,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 62.9,
+   "channel_median": 22804,
    "channel_id": "UCN820P3PLVl7v0nPdnXTtLQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "NMD25Eh4i6I",
+     "title": "환절기에 피부뒤집어진사람? 클렌징부터 점검하세요  | 민감  여드름 수부지 피부 클렌징추천!!!!!",
+     "views": 23492
+    },
+    {
+     "id": "GG1nkBVg41c",
+     "title": "따라하면 여드름 자국 싹 사라지는 자기 전 루틴",
+     "views": 22115
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 24,
@@ -7730,7 +8214,7 @@
    "weight": 3.689,
    "like_rate": 0.0038,
    "published": "2026-11-18",
-   "age_days": 9.2,
+   "age_days": 9.3,
    "theme": "2. 살림·주방",
    "format": "살림 브이로그·루틴",
    "folder": "W_pdXYWDAYFqA",
@@ -7778,10 +8262,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 1.4,
+   "channel_median": 76752,
    "channel_id": "UCkuUT1nzPHOS9QVYliKVLEA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "e30oc0r42yg",
+     "title": "※여름 가기전에 꼭 보세요!!※ 2026년 최신 정리 고수들의 주방 정리 BEST 5 (주방 정리 몰아보기)",
+     "views": 76752
+    },
+    {
+     "id": "U0P-tpQ5Vbg",
+     "title": "\"미국에선 워킹맘, 한국에선 전업주부\" 미국식 살림 스타일을 보여줄 47세 주부",
+     "views": 68548
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 0,
@@ -7825,7 +8320,7 @@
    "weight": 3.636,
    "like_rate": 0.0029,
    "published": "2026-09-10",
-   "age_days": 77.9,
+   "age_days": 78.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_H4t5HC-mW4o",
@@ -7844,10 +8339,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 4.6,
+   "channel_median": 55217,
    "channel_id": "UCmictIo30zp6J45uMesXrDw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "Ilz9naxvIf4",
+     "title": "다이소 보이면  집어야 하는 갓성비 꿀템| 없어지기 전에 당장 사야 할 다이소 추천템",
+     "views": 57597
+    },
+    {
+     "id": "gDRxDyqVaUw",
+     "title": "다이소가 작정하고 만든  백화점 퀼리티 뽐내는 추천템들",
+     "views": 52837
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -7885,7 +8391,7 @@
    "weight": 3.531,
    "like_rate": 0.0025,
    "published": "2026-08-27",
-   "age_days": 91.8,
+   "age_days": 91.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_vS3O_PweBPE",
@@ -8107,10 +8613,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 319.3,
+   "channel_median": 2186,
    "channel_id": "UCn1ikpgRdjdAEQkAqc8pXrA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "w-Tnp5cRevU",
+     "title": "카센터 말고 집에서 넣으세요",
+     "views": 2186
+    },
+    {
+     "id": "a6CsCcIojPo",
+     "title": "이번 여름 폭염 떙볕 이거 입으면 끝납니다",
+     "views": 2614
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 3,
@@ -8218,7 +8735,7 @@
    "weight": 3.351,
    "like_rate": 0.0049,
    "published": "2026-07-03",
-   "age_days": 146.4,
+   "age_days": 146.5,
    "theme": "4. 다이소·가성비",
    "format": "비교 (vs·차이·순위)",
    "folder": "W_3uJTRqhq80k",
@@ -8278,10 +8795,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 38.3,
+   "channel_median": 9970,
    "channel_id": "UCj_Ay8kD0SVzo1wskji5GTw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "xZZkMWhBLhk",
+     "title": "컴퓨터선정리 종결 가이드 | 다이소 선정리 꿀템으로 10분 컷",
+     "views": 10314
+    },
+    {
+     "id": "0vSk0dayXTA",
+     "title": "s26울트라 초고속충전 3.0인데 60와트 안뜨는 이유? | PPS충전, 60와트충전, 갤럭시s26울트라",
+     "views": 9627
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 8,
@@ -8381,7 +8909,7 @@
    "weight": 3.318,
    "like_rate": 0.0108,
    "published": "2026-07-31",
-   "age_days": 118.3,
+   "age_days": 118.4,
    "theme": "7. 가전",
    "format": "정보·해설 (그 밖)",
    "folder": "W_AaQksKzYIqg",
@@ -8413,10 +8941,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 1702.3,
+   "channel_median": 209,
    "channel_id": "UCu3Mm09Z4AURe_JACkQHABw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "3bUZ20NqoIs",
+     "title": "수육 2시간 삶으셨죠? 전자레인지 '이 버튼' 하나면 15분 만에 식당 수육보다 부드럽게 완성됩니다!! 잡내 제로 황금 비법 공개!!",
+     "views": 209
+    },
+    {
+     "id": "drFbUMrefaY",
+     "title": "대파 뿌리 절대 버리지 마세요! 유리컵에 물만 부으면 평생 대파 공짜로 먹습니다!!",
+     "views": 209
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 6,
@@ -8532,7 +9071,7 @@
    "weight": 3.25,
    "like_rate": 0.0034,
    "published": "2026-11-05",
-   "age_days": 22.0,
+   "age_days": 22.1,
    "theme": "6. 4050 패션",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_FIeEVlz-M6s",
@@ -8551,10 +9090,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 25.2,
+   "channel_median": 7561,
    "channel_id": "UCY6VT9RFRkW9WGUHioqa26w",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "lwzdDDuVw6U",
+     "title": "60대이상 다가오는 한파 추위에 무조건 이런 패딩 입으세요 #한파 #60대패션 #중년패션 #50대패션 #중장년패션",
+     "views": 7561
+    },
+    {
+     "id": "oFpYW0tIf3c",
+     "title": "60대이상 올겨울 검정외투, 이렇게 입으면 귀티나요 #60대패션 #중년패션 #50대패션 #중장년패션",
+     "views": 7299
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 4,
@@ -8628,7 +9178,7 @@
    "weight": 3.192,
    "like_rate": 0.004,
    "published": "2026-09-17",
-   "age_days": 70.9,
+   "age_days": 71.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_BDNnEh5Olmo",
@@ -8647,10 +9197,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 9.5,
+   "channel_median": 12878,
    "channel_id": "UCkzajukeZQ3XHBEiHbtDSSw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "RzwgCnRnMwQ",
+     "title": "EP.15 흑백요리사까지 나갔는데 AI한테 요리로 혼났습니다",
+     "views": 12878
+    },
+    {
+     "id": "dZ-0H5nP4G8",
+     "title": "EP.12 하라는대로 했을 뿐인데 서로 답답한 상황의 연속.. 도대체 누가 잘못한 걸까? | 양따뚜이",
+     "views": 15067
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 0,
@@ -8884,10 +9445,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 19.7,
+   "channel_median": 11057,
    "channel_id": "UC6LoMlzXElas2xqqtV7nmfA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "GSrJ38pKlPs",
+     "title": "다이소에서 발견한 삶의 질 상승템 12가지✨│ 다이소 방문 전 필수시청│ 고퀄리티 다이소 찐추천템💯",
+     "views": 11404
+    },
+    {
+     "id": "NMRg7-XflUg",
+     "title": "보이면 무조건 사세요! 다이소 고퀄리티 품절대란템 13가지  │ 다이소 가기 전 필수시청🛒 │ 다이소 찐꿀템",
+     "views": 10710
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -8947,7 +9519,7 @@
    "weight": 2.998,
    "like_rate": 0.0148,
    "published": "2026-08-31",
-   "age_days": 88.2,
+   "age_days": 88.3,
    "theme": "5. 4050 뷰티",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_kQRPpzNiNjE",
@@ -8966,10 +9538,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 10.6,
+   "channel_median": 37714,
    "channel_id": "UCpVcv8gLglHF5QsC5tPSkxQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "xTbeEbADMeo",
+     "title": "[아일릿] 원희의 수능 응원 | 원희템 정보💫 | 딸기 찹쌀떡이 된 원희...?🍓",
+     "views": 37714
+    },
+    {
+     "id": "R0KvBUdZjK8",
+     "title": "[아일릿] 원희의 생새우 먹🍞 asmr...(?)",
+     "views": 50853
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -9016,7 +9599,7 @@
    "weight": 2.913,
    "like_rate": 0.0026,
    "published": "2026-10-04",
-   "age_days": 54.0,
+   "age_days": 54.1,
    "theme": "4. 다이소·가성비",
    "format": "정보·해설 (그 밖)",
    "folder": "W_f1Ophmy60RQ",
@@ -9076,10 +9659,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 8.4,
+   "channel_median": 51016,
    "channel_id": "UC2fChf3CkDUq11N-esjukqg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "UBfGyONYz0Y",
+     "title": "🇰🇷 국산 펜이 이렇게 좋았어!? 당신이 모르는 K-볼펜 9가지 🇰🇷",
+     "views": 51131
+    },
+    {
+     "id": "4oIgmXGwpVA",
+     "title": "너무 실용적이라 재구매할 수밖에 없었던 10만원대 금닙 만년필",
+     "views": 50902
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 4,
@@ -9208,10 +9802,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 10.6,
+   "channel_median": 37381,
    "channel_id": "UCU3Sj3qF4E2dseN--gWXw3g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "QJOzS3_kVXQ",
+     "title": "다이소 매번 갈 때마다 새로운- 이번 주에도 의외의 꿀템이 한가득 - 하지만 늦으면 또 품절 각 다이소추천템 10가지!!!",
+     "views": 37381
+    },
+    {
+     "id": "xLEwXJdcyXM",
+     "title": "다이소에 드디어 나왔습니다! 보이면 무조건 담아야 할 품절대란 꿀템 25가지",
+     "views": 50895
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 0,
@@ -9242,7 +9847,7 @@
    "weight": 2.792,
    "like_rate": 0.0043,
    "published": "2026-10-28",
-   "age_days": 29.9,
+   "age_days": 30.0,
    "theme": "4. 다이소·가성비",
    "format": "하울·언박싱",
    "folder": "W_t0kum24H-_w",
@@ -9261,10 +9866,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 10.7,
+   "channel_median": 15024,
    "channel_id": "UChmQMtBpu2_a2fIa_nlLZ1w",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "JAMObqM9dL8",
+     "title": "추운 겨울 날 포근한 아침밥 | 한식 3번 & 빵 1번ㅣ등갈비김치찜, 콩나물밥, 계란 김밥, 크라상샌드위치",
+     "views": 15283
+    },
+    {
+     "id": "wnHb5Ngwo1c",
+     "title": "설명절에도 이어가는 집밥 루틴 4일 | 정갈한 주방 브이로그 🍲🌿",
+     "views": 14766
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 12,
@@ -9336,7 +9952,7 @@
    "weight": 2.767,
    "like_rate": 0.0168,
    "published": "2026-10-13",
-   "age_days": 44.9,
+   "age_days": 45.0,
    "theme": "2. 살림·주방",
    "format": "정보·해설 (그 밖)",
    "folder": "W_I9ti02N-n-U",
@@ -9355,10 +9971,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 377.4,
+   "channel_median": 936,
    "channel_id": "UCfq7usLtv9zzoP4eTDmneHQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "camF9JgnkwA",
+     "title": "누렇게 변한 운동화, 버리지 마세요! '이것' 바르고 햇볕에 두면 새 것처럼 하얘집니다",
+     "views": 936
+    },
+    {
+     "id": "Pp89li8Ldzs",
+     "title": "석박지 담글 때 김치통에 꾹꾹 눌러 담지 마세요! '이것' 한 장 덮어두면 1년 내내 아삭합니다 l 국밥집 석박지 황금레시피",
+     "views": 847
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 6,
     "감사·응원 (일반)": 22,
@@ -9446,7 +10073,7 @@
    "weight": 2.663,
    "like_rate": 0.0095,
    "published": "2026-07-12",
-   "age_days": 137.9,
+   "age_days": 138.0,
    "theme": "3. 청소·정리·수납",
    "format": "살림 브이로그·루틴",
    "folder": "W_WRsuTr3iFZ8",
@@ -9514,10 +10141,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 17.1,
+   "channel_median": 12392,
    "channel_id": "UC9CBK_hBpd420TDoqGOClAA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "IDC6sFkAYlE",
+     "title": "미니멀라이프|주방정리, 밀폐용기추천",
+     "views": 13571
+    },
+    {
+     "id": "yLt1piZt3kY",
+     "title": "\"미뤄둔 물건, 오늘 싹 비웁니다. 비움챌린지 시작",
+     "views": 13664
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 4,
@@ -9597,7 +10235,7 @@
    "weight": 2.655,
    "like_rate": 0.0052,
    "published": "2026-11-04",
-   "age_days": 22.7,
+   "age_days": 22.8,
    "theme": "4. 다이소·가성비",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_ParPUHCyiQs",
@@ -9705,10 +10343,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 9.3,
+   "channel_median": 19791,
    "channel_id": "UC9sr1TIpZ0-lZwEPRkn7bZA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "ajaZZcvXKOQ",
+     "title": "\"12kg 빼면서 반년째 먹고있어요\" 일주일이 편한 샐러드 밀프렙 🥗 오래 보관하는 꿀팁까지",
+     "views": 19791
+    },
+    {
+     "id": "MbLZtvLZTmE",
+     "title": "5분컷 무조건 살빠지는 오나오 오버나이트 오트밀 레시피 4가지 [4탄]",
+     "views": 17773
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 1,
@@ -9776,7 +10425,7 @@
    "weight": 2.57,
    "like_rate": 0.0076,
    "published": "2026-11-04",
-   "age_days": 22.8,
+   "age_days": 22.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_tmgiMVbFZAs",
@@ -9904,10 +10553,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 2.3,
+   "channel_median": 58422,
    "channel_id": "UCTRqqynFc7E6joBRKP70fAw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "BZQp3U6Lp-o",
+     "title": "하루 3만보씩 걸으며 쇼핑하는 오사카 여행.. (오사카 여행 코스 l 난바 우메다 l 오사카교토 여행)",
+     "views": 58422
+    },
+    {
+     "id": "Hj3e_-58SLw",
+     "title": "아기 계획 있어요? 남편이랑 통장 합쳤어요? 집안일 솔직히 안하시죠? (신혼생활 Q&A)",
+     "views": 59673
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 10,
     "감사·응원 (일반)": 5,
@@ -10007,7 +10667,7 @@
    "weight": 2.569,
    "like_rate": 0.015,
    "published": "2026-08-19",
-   "age_days": 99.9,
+   "age_days": 100.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_MySM7BxGJJ8",
@@ -10026,10 +10686,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 141.3,
+   "channel_median": 810,
    "channel_id": "UCQ3xKm-VeOxxykS8tBW4wKw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "GDwm-qT1x5o",
+     "title": "코스트코 [살치살 & 갈빗살] 엄청 잘 고르는 법ㅣ우리 엄마는 한식왕",
+     "views": 810
+    },
+    {
+     "id": "u1au0Dg1GlA",
+     "title": "한식왕 4월호 2부 '집밥 레시피 몰아보기'ㅣ우리 엄마는 한식왕",
+     "views": 805
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 23,
@@ -10102,7 +10773,7 @@
    "weight": 2.534,
    "like_rate": 0.0105,
    "published": "2026-06-17",
-   "age_days": 162.6,
+   "age_days": 162.7,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "비교 (vs·차이·순위)",
    "folder": "W_C722KyB3FyU",
@@ -10218,10 +10889,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 21.3,
+   "channel_median": 9186,
    "channel_id": "UClGHbN2020p7xq48QiXqSew",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "EjUQh3JoDcI",
+     "title": "그루브스톤 GV10X 반저소음 4종 전제품 리뷰 / 사무실 사용 가능한 반저소음 스위치 추천",
+     "views": 11651
+    },
+    {
+     "id": "wyUTaqSx-h8",
+     "title": "타건감까지 겸비한 핑크 기계식 키보드 / SPM PL108W 아라 딸기우유 / 반저소음 선셋축이 기대이상입니다",
+     "views": 6720
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 12,
     "감사·응원 (일반)": 24,
@@ -10343,7 +11025,7 @@
    "weight": 2.508,
    "like_rate": 0.0036,
    "published": "2026-08-23",
-   "age_days": 95.8,
+   "age_days": 95.9,
    "theme": "4. 다이소·가성비",
    "format": "살림 브이로그·루틴",
    "folder": "W_uhjmwGfQQZ4",
@@ -10479,10 +11161,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 4.5,
+   "channel_median": 101953,
    "channel_id": "UCn5Rlkv0Obh-OqlQl-G68fQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "FBYqLpdSvkI",
+     "title": "트레이더스 가시면 이건 꼭 담아보세요 추천템 17가지 | PB상품부터 인기 간편식까지 | 코스트코에는 없는 트레이더스 추천템",
+     "views": 101953
+    },
+    {
+     "id": "ttngAFdRaOM",
+     "title": "스타우브 vs 르크루제, 하나만 고른다면?",
+     "views": 107838
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 7,
@@ -10563,7 +11256,7 @@
    "weight": 2.407,
    "like_rate": 0.0059,
    "published": "2026-09-01",
-   "age_days": 87.0,
+   "age_days": 87.1,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_y3kTb3IPbkE",
@@ -10647,10 +11340,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 4.4,
+   "channel_median": 43727,
    "channel_id": "UC6Aw3vH4HzRpzUdR81RPXYw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "75tDnszCuyU",
+     "title": "다이소가 작정하고 만든 1%만 아는 꿀템 11가지  이건 진짜 넘사벽 퀼리티! 내돈내산 삶의 질 수직 상승템 | 살림팁 | 최저가 링크 공유 | 다이소 | 추천템 | 살림카페",
+     "views": 43727
+    },
+    {
+     "id": "6LuuIczuHWY",
+     "title": "이걸 이제야 구하다니... 오직 다이소에서만 구할 수 있는 신박템& 실속템 15가지 그리고 두쫀쿠를 곁들인 |내돈내산  | 살림팁 | 쿠팡 | 다이소 | 추천템 | 살림카페",
+     "views": 42726
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 35,
     "감사·응원 (일반)": 62,
@@ -10769,10 +11473,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 8.4,
+   "channel_median": 23814,
    "channel_id": "UCK8-qBQ61kwBrSr_3M41nvA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "-DuNcsM3XQg",
+     "title": "\"원래 한국엔 관심없었는데\" 이제 한국산은 못 버려, 외국 패널들의 찐 후기 #해외반응 #외국인반응",
+     "views": 24336
+    },
+    {
+     "id": "K3Vs57ThE6k",
+     "title": "\"이거 보면 딱 한국사람!\" 맨발로 들어와 아무데나 앉기, 컵들고 쓰레기통 찾아다니기... #해외반응 #외국인반응",
+     "views": 23292
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 0,
@@ -10801,7 +11516,7 @@
    "weight": 2.197,
    "like_rate": 0.005,
    "published": "2026-10-21",
-   "age_days": 36.7,
+   "age_days": 36.8,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_UecOe4Ni7HE",
@@ -10869,10 +11584,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 5.4,
+   "channel_median": 22859,
    "channel_id": "UCJWoxicv_CApEH5CjOni5hg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "bhDhVKmgAcg",
+     "title": "🍂이번 가을, 겨울 블랙 대신 이 칼라‼️ㅣ2026 FW 컬러 코디 트렌드 | 실패 없는 컬러 공식  | 2026 가을 패션 트렌드",
+     "views": 24381
+    },
+    {
+     "id": "RAIV9LykZAU",
+     "title": "롱스커트에 어울리는 신발 ㅣ 가을에 뜨는 신발 ㅣ 비율 좋아지는 코디 ㅣ 가을 운동화? 메리제인, 블로퍼, 플랫슈즈 추천 ㅣ양말 코디",
+     "views": 21337
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -10910,7 +11636,7 @@
    "weight": 2.125,
    "like_rate": 0.0047,
    "published": "2026-11-13",
-   "age_days": 13.3,
+   "age_days": 13.4,
    "theme": "6. 4050 패션",
    "format": "코디·메이크업 (따라 하기)",
    "folder": "W_cEjULVlt1-Y",
@@ -10950,10 +11676,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 2.3,
+   "channel_median": 51076,
    "channel_id": "UCdNWFh_YgGTvrfqVfA1MqMA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "QKYmmmqFD3Q",
+     "title": "시니어 가을 바지 [필독] 세련되고 고급스러운 바지와 코디 방법 총정리 I 시니어패션 I 중장년패션 I 60대 패션 I 70대 패션",
+     "views": 60992
+    },
+    {
+     "id": "S0vaNoCd6FU",
+     "title": "60대 가을 옷차림 [절대 금지] 10년 늙어 보이기 싫다면 꼭 보세요 I 시니어패션 I 중장년패션 I 60대 패션 I 70대 패션",
+     "views": 41160
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 1,
@@ -11018,10 +11755,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 452.4,
+   "channel_median": 367,
    "channel_id": "UCIfOnT9O4TdGQSrEI8v--bQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "yrTgW-S2H6Y",
+     "title": "새까맣게 탄 냄비 여기에 담가두면 새 것처럼 반짝거립니다 #탄냄비닦는법 #냄비세척 #스테인리스냄비관리 #과탄산소다활용 #베이킹소다청소 #눌어붙은냄비 #냄비광내기 #생활꿀팁",
+     "views": 367
+    },
+    {
+     "id": "NI2S_aKrvBg",
+     "title": "늙은 호박죽 끝맛이 떫으셨죠? 그냥 푹 삶기만 하지 마세요! 삶을 때 '이것' 조금만 넣으면 떫은 맛은 싹 빠지고 죽집보다 부드럽고 달달한 호박죽이 됩니다!",
+     "views": 276
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 3,
@@ -11096,7 +11844,7 @@
    "weight": 2.048,
    "like_rate": 0.0049,
    "published": "2026-08-08",
-   "age_days": 110.8,
+   "age_days": 110.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_Ojy1jmA8OfQ",
@@ -11201,7 +11949,7 @@
    "weight": 2.036,
    "like_rate": 0.0054,
    "published": "2026-09-03",
-   "age_days": 84.9,
+   "age_days": 85.0,
    "theme": "4. 다이소·가성비",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_WRMpQMvB_-k",
@@ -11220,10 +11968,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 3.2,
+   "channel_median": 237603,
    "channel_id": "UCA12yqwan_vhRCpFRW3Bw_g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "A1CwrGsNPyE",
+     "title": "단추 하나도 그냥 못 넘어가🧵동대문시장 핫바, 야채빵, 부자재 쇼핑 | 샵뚱 ep.29 + 구독자 이벤트",
+     "views": 274224
+    },
+    {
+     "id": "cHbj4uGheS0",
+     "title": "샵뚱 장바구니는 가벼울 수 없지🛒일본 마트 장보기부터 돈키호테 리뷰까지 | 샵뚱 ep.31",
+     "views": 200982
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 15,
@@ -11323,7 +12082,7 @@
    "weight": 1.919,
    "like_rate": 0.0117,
    "published": "2026-10-17",
-   "age_days": 40.9,
+   "age_days": 41.0,
    "theme": "2. 살림·주방",
    "format": "정보·해설 (그 밖)",
    "folder": "W_lveGXKkk-Mk",
@@ -11342,10 +12101,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 190.9,
+   "channel_median": 936,
    "channel_id": "UCfq7usLtv9zzoP4eTDmneHQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "camF9JgnkwA",
+     "title": "누렇게 변한 운동화, 버리지 마세요! '이것' 바르고 햇볕에 두면 새 것처럼 하얘집니다",
+     "views": 936
+    },
+    {
+     "id": "Pp89li8Ldzs",
+     "title": "석박지 담글 때 김치통에 꾹꾹 눌러 담지 마세요! '이것' 한 장 덮어두면 1년 내내 아삭합니다 l 국밥집 석박지 황금레시피",
+     "views": 847
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 2,
     "감사·응원 (일반)": 12,
@@ -11452,10 +12222,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 15.3,
+   "channel_median": 20584,
    "channel_id": "UCRvt89lr8VYa1A8ZqiTaJ1g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "Va2yE9XJuHs",
+     "title": "50대 굴곡진 시간을 지나 평범한 하루를 삽니다",
+     "views": 21155
+    },
+    {
+     "id": "xJz_cGnu-0g",
+     "title": "사실 저 괜찮지 않았습니다 | 지친삶에 위로가 필요한 나와 같은 당신에게 꼭 말해주고 싶은 한가지 | 지치고 힘들때 집안 분위기 바꿔주는 가을맞이 이케아 추천템",
+     "views": 20014
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 35,
@@ -11562,10 +12343,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 19.2,
+   "channel_median": 9810,
    "channel_id": "UCGspKhZlRWGjH9q_vwb_0qw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "u_sANtPdvsw",
+     "title": "천천히 정리하고, 결혼 전 마지막 날의 아늑한 하루 🤍 저 결혼해요 💍",
+     "views": 10016
+    },
+    {
+     "id": "w1zVOmJDbQw",
+     "title": "아무것도 안 하고 싶은 날, 퇴근 후 나를 쉬게 하는 시간",
+     "views": 9604
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -11629,10 +12421,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 51.5,
+   "channel_median": 2876,
    "channel_id": "UCKYW68zrznzA7GeO76AVHYg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "MlDqlyD-rr0",
+     "title": "유행 없이 오래 입는 겨울옷 5가지❣ 알파카 코트부터 메리노 울 니트까지💫",
+     "views": 2918
+    },
+    {
+     "id": "Rjrb_OAtzsE",
+     "title": "가격도 만족, 활용도도 최고! 세일 추천템💡 패션 디렉서 세라 언니가 직접 입고 설명합니다.",
+     "views": 2834
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 6,
@@ -11717,10 +12520,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 396.8,
+   "channel_median": 2135,
    "channel_id": "UCzHjBHrHVST53vVZYlJdsAw",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "aKQZMsCwqT8",
+     "title": "앞으로 김장 수육 삶을 때 물 가득 붓고 삶지 마세요! '이것'만 바닥에 깔고 익히면 물 한 방울 없이도 잡내 없이 촉촉하고 부드럽습니다! 줄 서서 먹는 대박집 김장 수육 비법",
+     "views": 2135
+    },
+    {
+     "id": "-1Q5eMAJIJs",
+     "title": "깻잎 잔뜩 썰어서 '이것' 뿌려 볶아보세요! 한 트럭 있어도 순식간에 사라집니다",
+     "views": 2084
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 5,
     "감사·응원 (일반)": 22,
@@ -11808,7 +12622,7 @@
    "weight": 1.659,
    "like_rate": 0.0066,
    "published": "2026-10-15",
-   "age_days": 42.9,
+   "age_days": 43.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_Cdujhqadzcc",
@@ -11827,10 +12641,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 1.5,
+   "channel_median": 200982,
    "channel_id": "UCA12yqwan_vhRCpFRW3Bw_g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "cHbj4uGheS0",
+     "title": "샵뚱 장바구니는 가벼울 수 없지🛒일본 마트 장보기부터 돈키호테 리뷰까지 | 샵뚱 ep.31",
+     "views": 200982
+    },
+    {
+     "id": "Gq_IYbEmxlo",
+     "title": "사랑방도 쉬는 날이 있다🏠 저녁 두 번 먹는 나이트루틴🌙 욕실템, 세안법 공개 | 샵뚱 ep.32",
+     "views": 161971
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 4,
@@ -11938,7 +12763,7 @@
    "weight": 1.653,
    "like_rate": 0.006,
    "published": "2026-09-04",
-   "age_days": 83.9,
+   "age_days": 84.0,
    "theme": "6. 4050 패션",
    "format": "경고형 (사지 마세요·실패템)",
    "folder": "W_NgheS4kRT6o",
@@ -12006,10 +12831,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 19.5,
+   "channel_median": 6681,
    "channel_id": "UCq519bGSR2FP4KRAj-AsA7Q",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "noiTt4X4GBA",
+     "title": "60대 이후, 지금 사서 겨울까지 입는 옷 4가지｜이런 옷부터 고르세요",
+     "views": 6681
+    },
+    {
+     "id": "sXUecOs9kVI",
+     "title": "60대 이후, 추석에 이 옷은 입지 마세요 | 가족모임에서 더 단정해 보이는 옷",
+     "views": 6483
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 4,
     "감사·응원 (일반)": 3,
@@ -12081,7 +12917,7 @@
    "weight": 1.533,
    "like_rate": 0.0113,
    "published": "2026-06-28",
-   "age_days": 151.8,
+   "age_days": 151.9,
    "theme": "4. 다이소·가성비",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_YUuU33pU2GE",
@@ -12157,10 +12993,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 7.2,
+   "channel_median": 19232,
    "channel_id": "UCHguOJUbgc4yEGW9N3442QQ",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "ZHuOJUTz3DE",
+     "title": "백화점 퀄리티인데 2천원? 다이소 보이면 무조건 집어오세요! 삶의 질 수직 상승하는 역대급 꿀템 21가지 (재입고 기다린 품절대란템)",
+     "views": 24765
+    },
+    {
+     "id": "Ru7k33m9gds",
+     "title": "구독자이벤트🎁백화점퀄리티 다이소 품절대란템 vs 삶의질 수직상승템 | BEST17",
+     "views": 13698
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 0,
@@ -12231,10 +13078,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 52.3,
+   "channel_median": 2876,
    "channel_id": "UCKYW68zrznzA7GeO76AVHYg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "MlDqlyD-rr0",
+     "title": "유행 없이 오래 입는 겨울옷 5가지❣ 알파카 코트부터 메리노 울 니트까지💫",
+     "views": 2918
+    },
+    {
+     "id": "Rjrb_OAtzsE",
+     "title": "가격도 만족, 활용도도 최고! 세일 추천템💡 패션 디렉서 세라 언니가 직접 입고 설명합니다.",
+     "views": 2834
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -12302,7 +13160,7 @@
    "weight": 1.397,
    "like_rate": 0.0034,
    "published": "2026-09-04",
-   "age_days": 83.7,
+   "age_days": 83.8,
    "theme": "4. 다이소·가성비",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_wpS0REy9Ybw",
@@ -12374,10 +13232,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 14.3,
+   "channel_median": 11444,
    "channel_id": "UChohCCCKwaZAXrfmdurxdyA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "4t2YUzi2qEI",
+     "title": "맛있어 보인다고 절대 아무거나 사지 마세요!🙅🏻‍♀️ 코스트코 밀키트/즉석식품 32가지 완벽정리 | 델리 신상, 가성비템, 찐추천템",
+     "views": 11691
+    },
+    {
+     "id": "fuGbGqO8dMk",
+     "title": "코스트코 고인물만 아는 꿀템 1위는?🔥 이거 하나로 연회비 뽕 뽑으니, 보이면 당장 구매하세요!",
+     "views": 11197
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 2,
@@ -12437,7 +13306,7 @@
    "weight": 1.331,
    "like_rate": 0.0022,
    "published": "2026-07-09",
-   "age_days": 141.1,
+   "age_days": 141.2,
    "theme": "4. 다이소·가성비",
    "format": "목록형 (N가지 추천템)",
    "folder": "W_uq-QYjS8I5g",
@@ -12456,10 +13325,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 28.7,
+   "channel_median": 18636,
    "channel_id": "UC7yTtbCGtJ5M4jsmKXBi7PA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "o06P43a8LSs",
+     "title": "낡은 싱크볼이 호텔 주방처럼 변했습니다! 리젠스 엠보 싱크볼 직접 교체 설치",
+     "views": 20471
+    },
+    {
+     "id": "lAgSMshz3og",
+     "title": "스크류앙카가 통째로 빠졌다! 2중 천장에 아텍스 전동빨래건조대 설치하기",
+     "views": 16800
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 3,
     "감사·응원 (일반)": 3,
@@ -12539,7 +13419,7 @@
    "weight": 1.219,
    "like_rate": 0.0102,
    "published": "2026-09-23",
-   "age_days": 64.9,
+   "age_days": 65.0,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_VYR011E_9hI",
@@ -12651,10 +13531,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 8.1,
+   "channel_median": 21998,
    "channel_id": "UCjjW9IdqGvDyAxkdcIATf_g",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "SCHpuHJj-ig",
+     "title": "레전드 갓성비 여름옷❤️‍🔥 3만원 이하 반팔, 원피스, 레이스 나시등.. 전부 대성공⌯⁍̴̛ᴗ⁍̴̛⌯ಣ 테무 쇼핑은 이렇게 하는거야~💫",
+     "views": 21998
+    },
+    {
+     "id": "YTMElkvZBNI",
+     "title": "vlog | 한남동 쇼룸 투어 1박 2일..🛍️ (무려 70가지!!) 요즘 핫한 겨울 신상 싹 털기 ☃️ + 영화 최종면접 시사회까지..🧚‍♂️🍿",
+     "views": 24258
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 1,
@@ -12741,7 +13632,7 @@
    "weight": 1.2,
    "like_rate": 0.0007,
    "published": "2026-07-23",
-   "age_days": 126.8,
+   "age_days": 126.9,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
    "folder": "W_zSquD4Wb9ro",
@@ -12789,10 +13680,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 18.6,
+   "channel_median": 16294,
    "channel_id": "UC_CKc1DRrnDpu7I7FSi-BOg",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "YpR3_aUyDwI",
+     "title": "2027년 다이어리 추천 📚 오롤리데이 다이어리 & 캘린더 & 해빗 트래커 ✨이벤트도 있어요✨",
+     "views": 17266
+    },
+    {
+     "id": "H16BuAObxPs",
+     "title": "불렛저널 시작 가이드 📚 ADHD도 가능한 기록법 (책 증정 이벤트)",
+     "views": 15321
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 1,
     "감사·응원 (일반)": 5,
@@ -13005,7 +13907,7 @@
    "weight": 1.11,
    "like_rate": 0.003,
    "published": "2026-10-08",
-   "age_days": 49.7,
+   "age_days": 49.8,
    "theme": "1. 쿠팡·쇼핑 추천",
    "format": "정보·해설 (그 밖)",
    "folder": "W_jj1hn9-IHb8",
@@ -13128,10 +14030,21 @@
    "hook_first": null,
    "hook_types": null,
    "partial_sec": 0,
-   "channel_ratio": null,
-   "channel_median": null,
+   "channel_ratio": 10.0,
+   "channel_median": 10831,
    "channel_id": "UC-NQifO1SL3kRxER1olWyCA",
-   "normal_pairs": [],
+   "normal_pairs": [
+    {
+     "id": "S8JlcBTBWSQ",
+     "title": "여름맞이 집정리 브이로그🌿 옷장정리·침구교체·트롤리 수납까지 | 이케아·다이소·오늘의집 추천템 20가지",
+     "views": 10831
+    },
+    {
+     "id": "Bf3YqF3ZyD4",
+     "title": "뉴욕여행 숙소 총정리🗽 맨해튼 vs 뉴저지 호텔 비교 후기",
+     "views": 6606
+    }
+   ],
    "needs": {
     "좋은 점 — 영상 (도움·설명·정리·공감)": 0,
     "감사·응원 (일반)": 2,
@@ -13187,6 +14100,50 @@
    "theme": "6. 4050 패션"
   },
   {
+   "id": "wYk5tGriHW4",
+   "title": "직장인 사무실 필수템! 비품 볼펜 대신 이거 써보세요",
+   "channel": "펜조이 PenJoy | 아날로그 전도사",
+   "subs": 21100,
+   "views": 735726,
+   "ratio": 34.87,
+   "minutes": 8.0,
+   "published": "2026-11-15",
+   "theme": "1. 쿠팡·쇼핑 추천"
+  },
+  {
+   "id": "K5lYhIoki8w",
+   "title": "육아 탈출! 자유부인 아유미의 도쿄 광란의 밤 [JP]",
+   "channel": "안뇨하떼요 아유미에오",
+   "subs": 10400,
+   "views": 445758,
+   "ratio": 42.86,
+   "minutes": 14.5,
+   "published": "2026-11-10",
+   "theme": "1. 쿠팡·쇼핑 추천"
+  },
+  {
+   "id": "PfhLhdJXvew",
+   "title": "원래도 가성비 미쳤는데 신상까지 터졌습니다｜노브랜드 신상 먹거리템 6가지",
+   "channel": "똑똑살림_마트·살림템 검증",
+   "subs": 1170,
+   "views": 144229,
+   "ratio": 123.27,
+   "minutes": 7.9,
+   "published": "2026-10-07",
+   "theme": "4. 다이소·가성비"
+  },
+  {
+   "id": "7j7GlPqPtZ0",
+   "title": "일반인은 모르는 초간단 아파트 셀프 유리창 청소",
+   "channel": "살림클라스",
+   "subs": 1360,
+   "views": 108883,
+   "ratio": 80.06,
+   "minutes": 7.6,
+   "published": "2026-10-04",
+   "theme": "3. 청소·정리·수납"
+  },
+  {
    "id": "j9BIniO6V_c",
    "title": "피부관리에 진심인 40대가 목숨 걸고 아침에 피부에 바르는 이것...비타민c화장품 앰플 바르는법 사용방법",
    "channel": "피부리셋",
@@ -13231,6 +14188,17 @@
    "theme": "4. 다이소·가성비"
   },
   {
+   "id": "ja8b5pGKacw",
+   "title": "-12kg 감량 🔥 카페보다 맛있는 고단백 다이어트 샌드위치 3가지 레시피 🥪",
+   "channel": "윤이안의 감량키친",
+   "subs": 25600,
+   "views": 699476,
+   "ratio": 27.32,
+   "minutes": 11.7,
+   "published": "2026-10-13",
+   "theme": "2. 살림·주방"
+  },
+  {
    "id": "5VFcbJ5fhTk",
    "title": "[광고❌] 고등학교 절친 가방 털어봤습니다｜40대 현실 왓츠인마이백",
    "channel": "오늘의 관리 예보",
@@ -13242,6 +14210,17 @@
    "theme": "6. 4050 패션"
   },
   {
+   "id": "7-UXGYRBM2s",
+   "title": "박스째 산 고구마 베란다·냉장고에 두지 마세요! 간 망치는 독소 퍼집니다! 겨울 내내 안 썩는 보관법과 밥솥에 '이것' 넣어 군고구마 만드는 비법!",
+   "channel": " 매일매일 살림 꿀팁",
+   "subs": 6030,
+   "views": 113026,
+   "ratio": 18.74,
+   "minutes": 14.3,
+   "published": "2026-10-17",
+   "theme": "2. 살림·주방"
+  },
+  {
    "id": "jYa20tqcX9c",
    "title": "3040 남자, 올가을 유니클로에서는 이 5가지만 보세요",
    "channel": "젠틀맨즈클럽",
@@ -13251,6 +14230,28 @@
    "minutes": 6.3,
    "published": "2026-10-02",
    "theme": "6. 4050 패션"
+  },
+  {
+   "id": "ogKe_yoywos",
+   "title": "여름을 조금 더 오래 기억하는 방법 🍑 | 반찬 만들고 황도 담그는 밤",
+   "channel": "aramimi 아라미미",
+   "subs": 24500,
+   "views": 525833,
+   "ratio": 21.46,
+   "minutes": 17.2,
+   "published": "2026-10-04",
+   "theme": "2. 살림·주방"
+  },
+  {
+   "id": "_xvL6fDz444",
+   "title": "우리집 화장실에서 없앤 물건 6가지ㅣ미니멀라이프",
+   "channel": "현실미니멀연구소",
+   "subs": 4560,
+   "views": 106449,
+   "ratio": 23.34,
+   "minutes": 4.3,
+   "published": "2026-07-15",
+   "theme": "3. 청소·정리·수납"
   },
   {
    "id": "KqSfEHg34zk",
@@ -13297,8 +14298,8 @@
    "theme": "6. 4050 패션"
   }
  ],
- "missing_success_total": 12,
- "missing_success_channel_full": 1,
+ "missing_success_total": 20,
+ "missing_success_channel_full": 14,
  "vpd_top": {
   "pct": 10,
   "threshold": 13131.9,
@@ -13338,7 +14339,7 @@
     "views": 2426631,
     "views_per_day": 143009.0,
     "ratio": 40.04,
-    "age_days": 17.0,
+    "age_days": 17.1,
     "published": "2026-11-10",
     "minutes": 20.1,
     "theme": "4. 다이소·가성비",
@@ -13359,7 +14360,7 @@
     "views": 1039035,
     "views_per_day": 113227.3,
     "ratio": 1.38,
-    "age_days": 9.2,
+    "age_days": 9.3,
     "published": "2026-11-18",
     "minutes": 28.7,
     "theme": "2. 살림·주방",
@@ -13380,7 +14381,7 @@
     "views": 4299059,
     "views_per_day": 107678.6,
     "ratio": 159.22,
-    "age_days": 39.9,
+    "age_days": 40.0,
     "published": "2026-10-18",
     "minutes": 16.2,
     "theme": "5. 4050 뷰티",
@@ -13401,7 +14402,7 @@
     "views": 1734800,
     "views_per_day": 107241.3,
     "ratio": 2.3,
-    "age_days": 16.2,
+    "age_days": 16.3,
     "published": "2026-11-11",
     "minutes": 24.6,
     "theme": "3. 청소·정리·수납",
@@ -13422,7 +14423,7 @@
     "views": 500448,
     "views_per_day": 104199.4,
     "ratio": 1.46,
-    "age_days": 4.8,
+    "age_days": 4.9,
     "published": "2026-11-22",
     "minutes": 9.1,
     "theme": "4. 다이소·가성비",
@@ -13443,7 +14444,7 @@
     "views": 820271,
     "views_per_day": 83068.9,
     "ratio": 5.06,
-    "age_days": 9.9,
+    "age_days": 10.0,
     "published": "2026-11-17",
     "minutes": 18.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13464,7 +14465,7 @@
     "views": 1130114,
     "views_per_day": 80783.8,
     "ratio": 222.9,
-    "age_days": 14.0,
+    "age_days": 14.1,
     "published": "2026-11-13",
     "minutes": 13.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13485,7 +14486,7 @@
     "views": 775898,
     "views_per_day": 78176.8,
     "ratio": 0.28,
-    "age_days": 9.9,
+    "age_days": 10.0,
     "published": "2026-11-17",
     "minutes": 19.3,
     "theme": "4. 다이소·가성비",
@@ -13506,7 +14507,7 @@
     "views": 2693731,
     "views_per_day": 77171.2,
     "ratio": 1.56,
-    "age_days": 34.9,
+    "age_days": 35.0,
     "published": "2026-10-23",
     "minutes": 22.5,
     "theme": "4. 다이소·가성비",
@@ -13527,7 +14528,7 @@
     "views": 2751906,
     "views_per_day": 74607.3,
     "ratio": 7.89,
-    "age_days": 36.9,
+    "age_days": 37.0,
     "published": "2026-10-21",
     "minutes": 27.8,
     "theme": "4. 다이소·가성비",
@@ -13548,7 +14549,7 @@
     "views": 3029082,
     "views_per_day": 73343.6,
     "ratio": 597.45,
-    "age_days": 41.3,
+    "age_days": 41.4,
     "published": "2026-10-16",
     "minutes": 10.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13569,7 +14570,7 @@
     "views": 557926,
     "views_per_day": 71527.8,
     "ratio": 1.84,
-    "age_days": 7.8,
+    "age_days": 7.9,
     "published": "2026-11-19",
     "minutes": 22.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13632,7 +14633,7 @@
     "views": 1091449,
     "views_per_day": 67281.7,
     "ratio": 596.42,
-    "age_days": 16.2,
+    "age_days": 16.3,
     "published": "2026-11-11",
     "minutes": 5.4,
     "theme": "4. 다이소·가성비",
@@ -13653,7 +14654,7 @@
     "views": 546543,
     "views_per_day": 56807.9,
     "ratio": 141.96,
-    "age_days": 9.6,
+    "age_days": 9.7,
     "published": "2026-11-17",
     "minutes": 14.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13674,7 +14675,7 @@
     "views": 406950,
     "views_per_day": 52161.2,
     "ratio": 20.25,
-    "age_days": 7.8,
+    "age_days": 7.9,
     "published": "2026-11-19",
     "minutes": 8.1,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13695,7 +14696,7 @@
     "views": 1116271,
     "views_per_day": 50812.1,
     "ratio": 9.38,
-    "age_days": 22.0,
+    "age_days": 22.1,
     "published": "2026-11-05",
     "minutes": 10.0,
     "theme": "6. 4050 패션",
@@ -13737,7 +14738,7 @@
     "views": 147458,
     "views_per_day": 50563.0,
     "ratio": 173.07,
-    "age_days": 2.9,
+    "age_days": 3.0,
     "published": "2026-11-24",
     "minutes": 16.2,
     "theme": "6. 4050 패션",
@@ -13758,7 +14759,7 @@
     "views": 1959299,
     "views_per_day": 46685.4,
     "ratio": 95.58,
-    "age_days": 42.0,
+    "age_days": 42.1,
     "published": "2026-10-16",
     "minutes": 19.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13779,7 +14780,7 @@
     "views": 368417,
     "views_per_day": 46539.5,
     "ratio": 1.65,
-    "age_days": 7.9,
+    "age_days": 8.0,
     "published": "2026-11-19",
     "minutes": 34.0,
     "theme": "5. 4050 뷰티",
@@ -13800,7 +14801,7 @@
     "views": 677664,
     "views_per_day": 45686.5,
     "ratio": 0.77,
-    "age_days": 14.8,
+    "age_days": 14.9,
     "published": "2026-11-12",
     "minutes": 28.9,
     "theme": "4. 다이소·가성비",
@@ -13821,7 +14822,7 @@
     "views": 2172804,
     "views_per_day": 44258.5,
     "ratio": 1.87,
-    "age_days": 49.1,
+    "age_days": 49.2,
     "published": "2026-10-09",
     "minutes": 13.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13842,7 +14843,7 @@
     "views": 995178,
     "views_per_day": 43486.3,
     "ratio": 2.85,
-    "age_days": 22.9,
+    "age_days": 23.0,
     "published": "2026-11-04",
     "minutes": 24.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13863,7 +14864,7 @@
     "views": 548389,
     "views_per_day": 39709.7,
     "ratio": 6.77,
-    "age_days": 13.8,
+    "age_days": 13.9,
     "published": "2026-11-13",
     "minutes": 28.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13884,7 +14885,7 @@
     "views": 1391224,
     "views_per_day": 38838.3,
     "ratio": 0.71,
-    "age_days": 35.8,
+    "age_days": 35.9,
     "published": "2026-10-22",
     "minutes": 34.1,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13905,7 +14906,7 @@
     "views": 2428228,
     "views_per_day": 35122.9,
     "ratio": 5.7,
-    "age_days": 69.1,
+    "age_days": 69.2,
     "published": "2026-09-19",
     "minutes": 15.6,
     "theme": "3. 청소·정리·수납",
@@ -13926,7 +14927,7 @@
     "views": 2253427,
     "views_per_day": 33738.0,
     "ratio": 1.55,
-    "age_days": 66.8,
+    "age_days": 66.9,
     "published": "2026-09-21",
     "minutes": 5.7,
     "theme": "4. 다이소·가성비",
@@ -13947,7 +14948,7 @@
     "views": 365418,
     "views_per_day": 33732.6,
     "ratio": 0.42,
-    "age_days": 10.8,
+    "age_days": 10.9,
     "published": "2026-11-16",
     "minutes": 50.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -13968,7 +14969,7 @@
     "views": 940417,
     "views_per_day": 33554.1,
     "ratio": 48.23,
-    "age_days": 28.0,
+    "age_days": 28.1,
     "published": "2026-10-30",
     "minutes": 17.9,
     "theme": "4. 다이소·가성비",
@@ -13989,7 +14990,7 @@
     "views": 1130817,
     "views_per_day": 32379.6,
     "ratio": 0.97,
-    "age_days": 34.9,
+    "age_days": 35.0,
     "published": "2026-10-23",
     "minutes": 19.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14010,7 +15011,7 @@
     "views": 154812,
     "views_per_day": 31359.7,
     "ratio": 209.77,
-    "age_days": 4.9,
+    "age_days": 5.0,
     "published": "2026-11-22",
     "minutes": 11.0,
     "theme": "기타",
@@ -14031,7 +15032,7 @@
     "views": 1442634,
     "views_per_day": 28967.6,
     "ratio": 3.02,
-    "age_days": 49.8,
+    "age_days": 49.9,
     "published": "2026-10-08",
     "minutes": 26.0,
     "theme": "4. 다이소·가성비",
@@ -14052,7 +15053,7 @@
     "views": 1550392,
     "views_per_day": 28772.2,
     "ratio": 3.26,
-    "age_days": 53.9,
+    "age_days": 54.0,
     "published": "2026-10-04",
     "minutes": 25.4,
     "theme": "4. 다이소·가성비",
@@ -14073,7 +15074,7 @@
     "views": 223703,
     "views_per_day": 28642.2,
     "ratio": 0.94,
-    "age_days": 7.8,
+    "age_days": 7.9,
     "published": "2026-11-19",
     "minutes": 31.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14094,7 +15095,7 @@
     "views": 1325838,
     "views_per_day": 28265.9,
     "ratio": 13.49,
-    "age_days": 46.9,
+    "age_days": 47.0,
     "published": "2026-10-11",
     "minutes": 20.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14178,7 +15179,7 @@
     "views": 2097129,
     "views_per_day": 27261.3,
     "ratio": 0.74,
-    "age_days": 76.9,
+    "age_days": 77.0,
     "published": "2026-09-11",
     "minutes": 22.4,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14199,7 +15200,7 @@
     "views": 1155283,
     "views_per_day": 26151.3,
     "ratio": 63.83,
-    "age_days": 44.2,
+    "age_days": 44.3,
     "published": "2026-10-14",
     "minutes": 26.7,
     "theme": "3. 청소·정리·수납",
@@ -14283,7 +15284,7 @@
     "views": 484078,
     "views_per_day": 23178.1,
     "ratio": 9.07,
-    "age_days": 20.9,
+    "age_days": 21.0,
     "published": "2026-11-06",
     "minutes": 6.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14304,7 +15305,7 @@
     "views": 224904,
     "views_per_day": 22942.4,
     "ratio": 0.74,
-    "age_days": 9.8,
+    "age_days": 9.9,
     "published": "2026-11-17",
     "minutes": 15.2,
     "theme": "4. 다이소·가성비",
@@ -14325,7 +15326,7 @@
     "views": 1821787,
     "views_per_day": 22829.4,
     "ratio": 72.29,
-    "age_days": 79.8,
+    "age_days": 79.9,
     "published": "2026-09-08",
     "minutes": 8.7,
     "theme": "5. 4050 뷰티",
@@ -14367,7 +15368,7 @@
     "views": 120166,
     "views_per_day": 21478.6,
     "ratio": 1.05,
-    "age_days": 5.6,
+    "age_days": 5.7,
     "published": "2026-11-21",
     "minutes": 18.3,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14388,7 +15389,7 @@
     "views": 206231,
     "views_per_day": 20820.0,
     "ratio": 92.07,
-    "age_days": 9.9,
+    "age_days": 10.0,
     "published": "2026-11-17",
     "minutes": 16.0,
     "theme": "6. 4050 패션",
@@ -14409,7 +15410,7 @@
     "views": 438768,
     "views_per_day": 20058.4,
     "ratio": 0.75,
-    "age_days": 21.9,
+    "age_days": 22.0,
     "published": "2026-11-05",
     "minutes": 23.4,
     "theme": "4. 다이소·가성비",
@@ -14430,7 +15431,7 @@
     "views": 1764617,
     "views_per_day": 19834.6,
     "ratio": 6.76,
-    "age_days": 89.0,
+    "age_days": 89.1,
     "published": "2026-08-30",
     "minutes": 18.4,
     "theme": "5. 4050 뷰티",
@@ -14451,7 +15452,7 @@
     "views": 19600,
     "views_per_day": 19600.0,
     "ratio": 0.13,
-    "age_days": 0.9,
+    "age_days": 1.0,
     "published": "2026-11-26",
     "minutes": 17.2,
     "theme": "5. 4050 뷰티",
@@ -14472,7 +15473,7 @@
     "views": 2030430,
     "views_per_day": 18996.4,
     "ratio": 1.3,
-    "age_days": 106.9,
+    "age_days": 107.0,
     "published": "2026-08-12",
     "minutes": 14.6,
     "theme": "4. 다이소·가성비",
@@ -14514,7 +15515,7 @@
     "views": 280124,
     "views_per_day": 18819.0,
     "ratio": 1.38,
-    "age_days": 14.9,
+    "age_days": 15.0,
     "published": "2026-11-12",
     "minutes": 16.1,
     "theme": "5. 4050 뷰티",
@@ -14556,7 +15557,7 @@
     "views": 1209139,
     "views_per_day": 18635.1,
     "ratio": 5.23,
-    "age_days": 64.9,
+    "age_days": 65.0,
     "published": "2026-09-23",
     "minutes": 20.6,
     "theme": "4. 다이소·가성비",
@@ -14577,7 +15578,7 @@
     "views": 1091158,
     "views_per_day": 18557.2,
     "ratio": 43.3,
-    "age_days": 58.8,
+    "age_days": 58.9,
     "published": "2026-09-29",
     "minutes": 9.8,
     "theme": "5. 4050 뷰티",
@@ -14598,7 +15599,7 @@
     "views": 1475912,
     "views_per_day": 18509.9,
     "ratio": 15.01,
-    "age_days": 79.7,
+    "age_days": 79.8,
     "published": "2026-09-08",
     "minutes": 18.3,
     "theme": "5. 4050 뷰티",
@@ -14640,7 +15641,7 @@
     "views": 767359,
     "views_per_day": 18311.3,
     "ratio": 342.57,
-    "age_days": 41.9,
+    "age_days": 42.0,
     "published": "2026-10-16",
     "minutes": 14.0,
     "theme": "6. 4050 패션",
@@ -14661,7 +15662,7 @@
     "views": 1591551,
     "views_per_day": 18291.5,
     "ratio": 4.31,
-    "age_days": 87.0,
+    "age_days": 87.1,
     "published": "2026-09-01",
     "minutes": 13.4,
     "theme": "4. 다이소·가성비",
@@ -14682,7 +15683,7 @@
     "views": 1057380,
     "views_per_day": 17988.5,
     "ratio": 0.8,
-    "age_days": 58.8,
+    "age_days": 58.9,
     "published": "2026-09-29",
     "minutes": 20.3,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14703,7 +15704,7 @@
     "views": 194555,
     "views_per_day": 17876.7,
     "ratio": 0.84,
-    "age_days": 10.9,
+    "age_days": 11.0,
     "published": "2026-11-16",
     "minutes": 28.4,
     "theme": "2. 살림·주방",
@@ -14724,7 +15725,7 @@
     "views": 1016090,
     "views_per_day": 17273.8,
     "ratio": 14.09,
-    "age_days": 58.8,
+    "age_days": 58.9,
     "published": "2026-09-29",
     "minutes": 8.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14745,7 +15746,7 @@
     "views": 1210995,
     "views_per_day": 16170.8,
     "ratio": 9.04,
-    "age_days": 74.9,
+    "age_days": 75.0,
     "published": "2026-09-13",
     "minutes": 32.1,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14787,7 +15788,7 @@
     "views": 531997,
     "views_per_day": 15708.0,
     "ratio": 6.77,
-    "age_days": 33.9,
+    "age_days": 34.0,
     "published": "2026-10-24",
     "minutes": 19.4,
     "theme": "4. 다이소·가성비",
@@ -14808,7 +15809,7 @@
     "views": 1434411,
     "views_per_day": 15671.0,
     "ratio": 63.19,
-    "age_days": 91.5,
+    "age_days": 91.6,
     "published": "2026-08-27",
     "minutes": 14.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14850,7 +15851,7 @@
     "views": 1321908,
     "views_per_day": 15216.3,
     "ratio": 8.16,
-    "age_days": 86.9,
+    "age_days": 87.0,
     "published": "2026-09-01",
     "minutes": 22.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -14892,7 +15893,7 @@
     "views": 237581,
     "views_per_day": 15100.5,
     "ratio": 0.64,
-    "age_days": 15.7,
+    "age_days": 15.8,
     "published": "2026-11-11",
     "minutes": 23.7,
     "theme": "5. 4050 뷰티",
@@ -14913,7 +15914,7 @@
     "views": 116406,
     "views_per_day": 14708.8,
     "ratio": 136.63,
-    "age_days": 7.9,
+    "age_days": 8.0,
     "published": "2026-11-19",
     "minutes": 17.4,
     "theme": "6. 4050 패션",
@@ -14934,7 +15935,7 @@
     "views": 1119883,
     "views_per_day": 14701.5,
     "ratio": 10.18,
-    "age_days": 76.2,
+    "age_days": 76.3,
     "published": "2026-09-12",
     "minutes": 16.2,
     "theme": "2. 살림·주방",
@@ -16242,7 +17243,7 @@
     "views": 8595832,
     "views_per_day": 4488.7,
     "ratio": 12.77,
-    "age_days": 1915.0,
+    "age_days": 1915.1,
     "published": "2021-08-30",
     "minutes": 12.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16264,7 +17265,7 @@
     "views": 7979926,
     "views_per_day": 6563.1,
     "ratio": 8.67,
-    "age_days": 1215.9,
+    "age_days": 1216.0,
     "published": "2023-07-30",
     "minutes": 5.3,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16286,7 +17287,7 @@
     "views": 6714569,
     "views_per_day": 3631.8,
     "ratio": 169.56,
-    "age_days": 1848.8,
+    "age_days": 1848.9,
     "published": "2021-11-04",
     "minutes": 5.4,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16308,7 +17309,7 @@
     "views": 6384959,
     "views_per_day": 11738.7,
     "ratio": 6.94,
-    "age_days": 543.9,
+    "age_days": 544.0,
     "published": "2025-06-01",
     "minutes": 4.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16352,7 +17353,7 @@
     "views": 5228791,
     "views_per_day": 7701.6,
     "ratio": 1.85,
-    "age_days": 678.9,
+    "age_days": 679.0,
     "published": "2025-01-17",
     "minutes": 15.7,
     "theme": "4. 다이소·가성비",
@@ -16374,7 +17375,7 @@
     "views": 4952073,
     "views_per_day": 2297.4,
     "ratio": 11.18,
-    "age_days": 2155.5,
+    "age_days": 2155.6,
     "published": "2021-01-01",
     "minutes": 12.0,
     "theme": "2. 살림·주방",
@@ -16396,7 +17397,7 @@
     "views": 4894918,
     "views_per_day": 2497.7,
     "ratio": 12.24,
-    "age_days": 1959.8,
+    "age_days": 1959.9,
     "published": "2021-07-16",
     "minutes": 19.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16418,7 +17419,7 @@
     "views": 4597178,
     "views_per_day": 19907.6,
     "ratio": 12.29,
-    "age_days": 230.9,
+    "age_days": 231.0,
     "published": "2026-04-10",
     "minutes": 17.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16440,7 +17441,7 @@
     "views": 4485615,
     "views_per_day": 2823.0,
     "ratio": 1.59,
-    "age_days": 1588.9,
+    "age_days": 1589.0,
     "published": "2022-07-22",
     "minutes": 18.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16462,7 +17463,7 @@
     "views": 4300275,
     "views_per_day": 3078.7,
     "ratio": 62.78,
-    "age_days": 1396.8,
+    "age_days": 1396.9,
     "published": "2023-01-30",
     "minutes": 9.7,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16484,7 +17485,7 @@
     "views": 4299059,
     "views_per_day": 107678.6,
     "ratio": 159.22,
-    "age_days": 39.9,
+    "age_days": 40.0,
     "published": "2026-10-18",
     "minutes": 16.2,
     "theme": "5. 4050 뷰티",
@@ -16528,7 +17529,7 @@
     "views": 3436955,
     "views_per_day": 2683.2,
     "ratio": 2.96,
-    "age_days": 1280.9,
+    "age_days": 1281.0,
     "published": "2023-05-26",
     "minutes": 12.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16550,7 +17551,7 @@
     "views": 3029082,
     "views_per_day": 73343.6,
     "ratio": 597.45,
-    "age_days": 41.3,
+    "age_days": 41.4,
     "published": "2026-10-16",
     "minutes": 10.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16616,7 +17617,7 @@
     "views": 2865261,
     "views_per_day": 1888.5,
     "ratio": 41.83,
-    "age_days": 1517.2,
+    "age_days": 1517.3,
     "published": "2022-10-02",
     "minutes": 9.9,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16638,7 +17639,7 @@
     "views": 2861839,
     "views_per_day": 5525.8,
     "ratio": 1.65,
-    "age_days": 517.9,
+    "age_days": 518.0,
     "published": "2025-06-27",
     "minutes": 23.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16660,7 +17661,7 @@
     "views": 2785772,
     "views_per_day": 1973.2,
     "ratio": 4.14,
-    "age_days": 1411.8,
+    "age_days": 1411.9,
     "published": "2023-01-15",
     "minutes": 14.9,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16682,7 +17683,7 @@
     "views": 2751906,
     "views_per_day": 74607.3,
     "ratio": 7.89,
-    "age_days": 36.9,
+    "age_days": 37.0,
     "published": "2026-10-21",
     "minutes": 27.8,
     "theme": "4. 다이소·가성비",
@@ -16704,7 +17705,7 @@
     "views": 2696041,
     "views_per_day": 2453.4,
     "ratio": 0.62,
-    "age_days": 1098.9,
+    "age_days": 1099.0,
     "published": "2023-11-24",
     "minutes": 11.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16726,7 +17727,7 @@
     "views": 2693731,
     "views_per_day": 77171.2,
     "ratio": 1.56,
-    "age_days": 34.9,
+    "age_days": 35.0,
     "published": "2026-10-23",
     "minutes": 22.5,
     "theme": "4. 다이소·가성비",
@@ -16748,7 +17749,7 @@
     "views": 2625201,
     "views_per_day": 3703.3,
     "ratio": 7.52,
-    "age_days": 708.9,
+    "age_days": 709.0,
     "published": "2024-12-18",
     "minutes": 26.1,
     "theme": "4. 다이소·가성비",
@@ -16770,7 +17771,7 @@
     "views": 2620823,
     "views_per_day": 4108.7,
     "ratio": 12.91,
-    "age_days": 637.9,
+    "age_days": 638.0,
     "published": "2025-02-27",
     "minutes": 13.7,
     "theme": "4. 다이소·가성비",
@@ -16814,7 +17815,7 @@
     "views": 2566192,
     "views_per_day": 1497.3,
     "ratio": 95.04,
-    "age_days": 1713.8,
+    "age_days": 1713.9,
     "published": "2022-03-19",
     "minutes": 10.8,
     "theme": "4. 다이소·가성비",
@@ -16836,7 +17837,7 @@
     "views": 2510904,
     "views_per_day": 8751.0,
     "ratio": 6.71,
-    "age_days": 286.9,
+    "age_days": 287.0,
     "published": "2026-02-13",
     "minutes": 19.0,
     "theme": "4. 다이소·가성비",
@@ -16858,7 +17859,7 @@
     "views": 2469926,
     "views_per_day": 3255.4,
     "ratio": 49.4,
-    "age_days": 758.7,
+    "age_days": 758.8,
     "published": "2024-10-29",
     "minutes": 21.4,
     "theme": "4. 다이소·가성비",
@@ -16880,7 +17881,7 @@
     "views": 2428228,
     "views_per_day": 35122.9,
     "ratio": 5.7,
-    "age_days": 69.1,
+    "age_days": 69.2,
     "published": "2026-09-19",
     "minutes": 15.6,
     "theme": "3. 청소·정리·수납",
@@ -16902,7 +17903,7 @@
     "views": 2426631,
     "views_per_day": 143009.0,
     "ratio": 40.04,
-    "age_days": 17.0,
+    "age_days": 17.1,
     "published": "2026-11-10",
     "minutes": 20.1,
     "theme": "4. 다이소·가성비",
@@ -16924,7 +17925,7 @@
     "views": 2421199,
     "views_per_day": 1695.6,
     "ratio": 2.09,
-    "age_days": 1427.9,
+    "age_days": 1428.0,
     "published": "2022-12-30",
     "minutes": 10.4,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16946,7 +17947,7 @@
     "views": 2315325,
     "views_per_day": 1092.6,
     "ratio": 3.03,
-    "age_days": 2119.1,
+    "age_days": 2119.2,
     "published": "2021-02-07",
     "minutes": 4.7,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -16968,7 +17969,7 @@
     "views": 2294804,
     "views_per_day": 6187.4,
     "ratio": 18.51,
-    "age_days": 370.9,
+    "age_days": 371.0,
     "published": "2025-11-21",
     "minutes": 26.5,
     "theme": "4. 다이소·가성비",
@@ -17012,7 +18013,7 @@
     "views": 2253427,
     "views_per_day": 33738.0,
     "ratio": 1.55,
-    "age_days": 66.8,
+    "age_days": 66.9,
     "published": "2026-09-21",
     "minutes": 5.7,
     "theme": "4. 다이소·가성비",
@@ -17034,7 +18035,7 @@
     "views": 2177298,
     "views_per_day": 2430.2,
     "ratio": 135.24,
-    "age_days": 895.9,
+    "age_days": 896.0,
     "published": "2024-06-14",
     "minutes": 24.9,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17056,7 +18057,7 @@
     "views": 2099376,
     "views_per_day": 1087.1,
     "ratio": 5.25,
-    "age_days": 1931.1,
+    "age_days": 1931.2,
     "published": "2021-08-14",
     "minutes": 14.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17100,7 +18101,7 @@
     "views": 2069354,
     "views_per_day": 7993.3,
     "ratio": 4.93,
-    "age_days": 258.9,
+    "age_days": 259.0,
     "published": "2026-03-13",
     "minutes": 15.7,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17122,7 +18123,7 @@
     "views": 2030430,
     "views_per_day": 18996.4,
     "ratio": 1.3,
-    "age_days": 106.9,
+    "age_days": 107.0,
     "published": "2026-08-12",
     "minutes": 14.6,
     "theme": "4. 다이소·가성비",
@@ -17144,7 +18145,7 @@
     "views": 1959299,
     "views_per_day": 46685.4,
     "ratio": 95.58,
-    "age_days": 42.0,
+    "age_days": 42.1,
     "published": "2026-10-16",
     "minutes": 19.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17166,7 +18167,7 @@
     "views": 1941029,
     "views_per_day": 2206.6,
     "ratio": 11.22,
-    "age_days": 879.6,
+    "age_days": 879.7,
     "published": "2024-06-30",
     "minutes": 17.2,
     "theme": "4. 다이소·가성비",
@@ -17188,7 +18189,7 @@
     "views": 1931457,
     "views_per_day": 3383.3,
     "ratio": 8.36,
-    "age_days": 570.9,
+    "age_days": 571.0,
     "published": "2025-05-05",
     "minutes": 28.4,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17210,7 +18211,7 @@
     "views": 1895077,
     "views_per_day": 2005.9,
     "ratio": 4.14,
-    "age_days": 944.8,
+    "age_days": 944.9,
     "published": "2024-04-26",
     "minutes": 5.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17232,7 +18233,7 @@
     "views": 1875034,
     "views_per_day": 3530.2,
     "ratio": 3.68,
-    "age_days": 531.1,
+    "age_days": 531.2,
     "published": "2025-06-14",
     "minutes": 12.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17254,7 +18255,7 @@
     "views": 1851600,
     "views_per_day": 9361.9,
     "ratio": 51.87,
-    "age_days": 197.8,
+    "age_days": 197.9,
     "published": "2026-05-13",
     "minutes": 15.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17276,7 +18277,7 @@
     "views": 1821787,
     "views_per_day": 22829.4,
     "ratio": 72.29,
-    "age_days": 79.8,
+    "age_days": 79.9,
     "published": "2026-09-08",
     "minutes": 8.7,
     "theme": "5. 4050 뷰티",
@@ -17320,7 +18321,7 @@
     "views": 1808099,
     "views_per_day": 1445.0,
     "ratio": 33.18,
-    "age_days": 1251.3,
+    "age_days": 1251.4,
     "published": "2023-06-24",
     "minutes": 13.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17342,7 +18343,7 @@
     "views": 1770332,
     "views_per_day": 2758.4,
     "ratio": 5.16,
-    "age_days": 641.8,
+    "age_days": 641.9,
     "published": "2025-02-23",
     "minutes": 16.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17364,7 +18365,7 @@
     "views": 1764617,
     "views_per_day": 19834.6,
     "ratio": 6.76,
-    "age_days": 89.0,
+    "age_days": 89.1,
     "published": "2026-08-30",
     "minutes": 18.4,
     "theme": "5. 4050 뷰티",
@@ -17386,7 +18387,7 @@
     "views": 1757195,
     "views_per_day": 1660.7,
     "ratio": 2.27,
-    "age_days": 1058.1,
+    "age_days": 1058.2,
     "published": "2024-01-04",
     "minutes": 20.3,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17430,7 +18431,7 @@
     "views": 1736955,
     "views_per_day": 7092.2,
     "ratio": 5.36,
-    "age_days": 244.9,
+    "age_days": 245.0,
     "published": "2026-03-27",
     "minutes": 15.7,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17452,7 +18453,7 @@
     "views": 1734800,
     "views_per_day": 107241.3,
     "ratio": 2.3,
-    "age_days": 16.2,
+    "age_days": 16.3,
     "published": "2026-11-11",
     "minutes": 24.6,
     "theme": "3. 청소·정리·수납",
@@ -17474,7 +18475,7 @@
     "views": 1728202,
     "views_per_day": 2062.6,
     "ratio": 1.11,
-    "age_days": 837.9,
+    "age_days": 838.0,
     "published": "2024-08-11",
     "minutes": 19.8,
     "theme": "5. 4050 뷰티",
@@ -17496,7 +18497,7 @@
     "views": 1694935,
     "views_per_day": 5712.5,
     "ratio": 3.32,
-    "age_days": 296.7,
+    "age_days": 296.8,
     "published": "2026-02-03",
     "minutes": 17.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17540,7 +18541,7 @@
     "views": 1604783,
     "views_per_day": 11723.6,
     "ratio": 3.26,
-    "age_days": 136.9,
+    "age_days": 137.0,
     "published": "2026-07-13",
     "minutes": 14.6,
     "theme": "2. 살림·주방",
@@ -17562,7 +18563,7 @@
     "views": 1591551,
     "views_per_day": 18291.5,
     "ratio": 4.31,
-    "age_days": 87.0,
+    "age_days": 87.1,
     "published": "2026-09-01",
     "minutes": 13.4,
     "theme": "4. 다이소·가성비",
@@ -17584,7 +18585,7 @@
     "views": 1550392,
     "views_per_day": 28772.2,
     "ratio": 3.26,
-    "age_days": 53.9,
+    "age_days": 54.0,
     "published": "2026-10-04",
     "minutes": 25.4,
     "theme": "4. 다이소·가성비",
@@ -17606,7 +18607,7 @@
     "views": 1489828,
     "views_per_day": 924.9,
     "ratio": 12.73,
-    "age_days": 1610.8,
+    "age_days": 1610.9,
     "published": "2022-06-30",
     "minutes": 15.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17628,7 +18629,7 @@
     "views": 1475912,
     "views_per_day": 18509.9,
     "ratio": 15.01,
-    "age_days": 79.7,
+    "age_days": 79.8,
     "published": "2026-09-08",
     "minutes": 18.3,
     "theme": "5. 4050 뷰티",
@@ -17650,7 +18651,7 @@
     "views": 1455640,
     "views_per_day": 3517.1,
     "ratio": 1.39,
-    "age_days": 413.9,
+    "age_days": 414.0,
     "published": "2025-10-09",
     "minutes": 21.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17694,7 +18695,7 @@
     "views": 1442634,
     "views_per_day": 28967.6,
     "ratio": 3.02,
-    "age_days": 49.8,
+    "age_days": 49.9,
     "published": "2026-10-08",
     "minutes": 26.0,
     "theme": "4. 다이소·가성비",
@@ -17716,7 +18717,7 @@
     "views": 1441246,
     "views_per_day": 1585.4,
     "ratio": 4.45,
-    "age_days": 909.1,
+    "age_days": 909.2,
     "published": "2024-06-01",
     "minutes": 12.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17760,7 +18761,7 @@
     "views": 1434411,
     "views_per_day": 15671.0,
     "ratio": 63.19,
-    "age_days": 91.5,
+    "age_days": 91.6,
     "published": "2026-08-27",
     "minutes": 14.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17804,7 +18805,7 @@
     "views": 1424439,
     "views_per_day": 1046.1,
     "ratio": 10.4,
-    "age_days": 1361.7,
+    "age_days": 1361.8,
     "published": "2023-03-06",
     "minutes": 7.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17826,7 +18827,7 @@
     "views": 1420475,
     "views_per_day": 487.0,
     "ratio": 8.41,
-    "age_days": 2916.7,
+    "age_days": 2916.8,
     "published": "2018-12-02",
     "minutes": 8.6,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17848,7 +18849,7 @@
     "views": 1391224,
     "views_per_day": 38838.3,
     "ratio": 0.71,
-    "age_days": 35.8,
+    "age_days": 35.9,
     "published": "2026-10-22",
     "minutes": 34.1,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17914,7 +18915,7 @@
     "views": 1362662,
     "views_per_day": 2244.4,
     "ratio": 56.78,
-    "age_days": 607.1,
+    "age_days": 607.2,
     "published": "2025-03-30",
     "minutes": 10.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17936,7 +18937,7 @@
     "views": 1357837,
     "views_per_day": 371.4,
     "ratio": 3.35,
-    "age_days": 3655.8,
+    "age_days": 3655.9,
     "published": "2016-11-23",
     "minutes": 45.8,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -17980,7 +18981,7 @@
     "views": 1348258,
     "views_per_day": 567.0,
     "ratio": 1.6,
-    "age_days": 2377.9,
+    "age_days": 2378.0,
     "published": "2020-05-24",
     "minutes": 13.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18002,7 +19003,7 @@
     "views": 1346221,
     "views_per_day": 1587.8,
     "ratio": 1.69,
-    "age_days": 847.9,
+    "age_days": 848.0,
     "published": "2024-08-01",
     "minutes": 16.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18024,7 +19025,7 @@
     "views": 1341064,
     "views_per_day": 2979.0,
     "ratio": 1.78,
-    "age_days": 450.2,
+    "age_days": 450.3,
     "published": "2025-09-03",
     "minutes": 29.4,
     "theme": "2. 살림·주방",
@@ -18046,7 +19047,7 @@
     "views": 1325838,
     "views_per_day": 28265.9,
     "ratio": 13.49,
-    "age_days": 46.9,
+    "age_days": 47.0,
     "published": "2026-10-11",
     "minutes": 20.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18068,7 +19069,7 @@
     "views": 1321908,
     "views_per_day": 15216.3,
     "ratio": 8.16,
-    "age_days": 86.9,
+    "age_days": 87.0,
     "published": "2026-09-01",
     "minutes": 22.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18090,7 +19091,7 @@
     "views": 1318349,
     "views_per_day": 4058.8,
     "ratio": 0.66,
-    "age_days": 324.8,
+    "age_days": 324.9,
     "published": "2026-01-06",
     "minutes": 14.7,
     "theme": "2. 살림·주방",
@@ -18112,7 +19113,7 @@
     "views": 1287345,
     "views_per_day": 855.0,
     "ratio": 286.08,
-    "age_days": 1505.7,
+    "age_days": 1505.8,
     "published": "2022-10-13",
     "minutes": 10.7,
     "theme": "4. 다이소·가성비",
@@ -18134,7 +19135,7 @@
     "views": 1284561,
     "views_per_day": 1362.5,
     "ratio": 1.5,
-    "age_days": 942.8,
+    "age_days": 942.9,
     "published": "2024-04-28",
     "minutes": 13.2,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18222,7 +19223,7 @@
     "views": 1210995,
     "views_per_day": 16170.8,
     "ratio": 9.04,
-    "age_days": 74.9,
+    "age_days": 75.0,
     "published": "2026-09-13",
     "minutes": 32.1,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18244,7 +19245,7 @@
     "views": 1209139,
     "views_per_day": 18635.1,
     "ratio": 5.23,
-    "age_days": 64.9,
+    "age_days": 65.0,
     "published": "2026-09-23",
     "minutes": 20.6,
     "theme": "4. 다이소·가성비",
@@ -18288,7 +19289,7 @@
     "views": 1191636,
     "views_per_day": 507.1,
     "ratio": 1.39,
-    "age_days": 2349.8,
+    "age_days": 2349.9,
     "published": "2020-06-21",
     "minutes": 14.0,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -18332,7 +19333,7 @@
     "views": 1158538,
     "views_per_day": 12925.7,
     "ratio": 851.87,
-    "age_days": 89.6,
+    "age_days": 89.7,
     "published": "2026-08-29",
     "minutes": 6.8,
     "theme": "4. 다이소·가성비",
@@ -18376,7 +19377,7 @@
     "views": 1155283,
     "views_per_day": 26151.3,
     "ratio": 63.83,
-    "age_days": 44.2,
+    "age_days": 44.3,
     "published": "2026-10-14",
     "minutes": 26.7,
     "theme": "3. 청소·정리·수납",
@@ -18398,7 +19399,7 @@
     "views": 1130114,
     "views_per_day": 80783.8,
     "ratio": 222.9,
-    "age_days": 14.0,
+    "age_days": 14.1,
     "published": "2026-11-13",
     "minutes": 13.5,
     "theme": "1. 쿠팡·쇼핑 추천",
@@ -19571,11 +20572,11 @@
  "themes": [
   {
    "theme": "4. 다이소·가성비",
-   "n": 66,
-   "success": 24,
-   "rate": 0.364,
-   "ratio_median": 10.68,
-   "views_median": 84238.0,
+   "n": 91,
+   "success": 21,
+   "rate": 0.231,
+   "ratio_median": 5.16,
+   "views_median": 52905,
    "small_sample": false,
    "success_cases": [
     1,
@@ -19601,44 +20602,12 @@
    "w_success_share": 0.179
   },
   {
-   "theme": "6. 4050 패션",
-   "n": 89,
-   "success": 27,
-   "rate": 0.303,
-   "ratio_median": 23.45,
-   "views_median": 73499,
-   "small_sample": false,
-   "success_cases": [
-    3,
-    10,
-    12,
-    15,
-    18,
-    21,
-    31,
-    34,
-    35,
-    37,
-    38,
-    41,
-    52,
-    61,
-    77,
-    78,
-    85,
-    88,
-    95
-   ],
-   "success_share": 0.196,
-   "w_success_share": 0.212
-  },
-  {
    "theme": "1. 쿠팡·쇼핑 추천",
-   "n": 181,
-   "success": 54,
-   "rate": 0.298,
-   "ratio_median": 9.73,
-   "views_median": 90858,
+   "n": 249,
+   "success": 48,
+   "rate": 0.193,
+   "ratio_median": 6.23,
+   "views_median": 44739,
    "small_sample": false,
    "success_cases": [
     4,
@@ -19681,31 +20650,12 @@
    "w_success_share": 0.36
   },
   {
-   "theme": "3. 청소·정리·수납",
-   "n": 27,
-   "success": 6,
-   "rate": 0.222,
-   "ratio_median": 19.57,
-   "views_median": 43531,
-   "small_sample": false,
-   "success_cases": [
-    26,
-    36,
-    49,
-    50,
-    69,
-    86
-   ],
-   "success_share": 0.062,
-   "w_success_share": 0.056
-  },
-  {
    "theme": "5. 4050 뷰티",
-   "n": 35,
+   "n": 41,
    "success": 7,
-   "rate": 0.2,
-   "ratio_median": 7.67,
-   "views_median": 68170,
+   "rate": 0.171,
+   "ratio_median": 4.52,
+   "views_median": 31411,
    "small_sample": false,
    "success_cases": [
     17,
@@ -19717,12 +20667,44 @@
    "w_success_share": 0.042
   },
   {
+   "theme": "6. 4050 패션",
+   "n": 126,
+   "success": 19,
+   "rate": 0.151,
+   "ratio_median": 7.45,
+   "views_median": 27846.5,
+   "small_sample": false,
+   "success_cases": [
+    3,
+    10,
+    12,
+    15,
+    18,
+    21,
+    31,
+    34,
+    35,
+    37,
+    38,
+    41,
+    52,
+    61,
+    77,
+    78,
+    85,
+    88,
+    95
+   ],
+   "success_share": 0.196,
+   "w_success_share": 0.212
+  },
+  {
    "theme": "2. 살림·주방",
-   "n": 90,
-   "success": 14,
-   "rate": 0.156,
-   "ratio_median": 5.01,
-   "views_median": 20718.0,
+   "n": 113,
+   "success": 10,
+   "rate": 0.088,
+   "ratio_median": 4.04,
+   "views_median": 14166,
    "small_sample": false,
    "success_cases": [
     8,
@@ -19741,12 +20723,46 @@
    "w_success_share": 0.113
   },
   {
+   "theme": "3. 청소·정리·수납",
+   "n": 49,
+   "success": 4,
+   "rate": 0.082,
+   "ratio_median": 4.71,
+   "views_median": 19391,
+   "small_sample": false,
+   "success_cases": [
+    26,
+    36,
+    49,
+    50,
+    69,
+    86
+   ],
+   "success_share": 0.062,
+   "w_success_share": 0.056
+  },
+  {
+   "theme": "기타",
+   "n": 24,
+   "success": 0,
+   "rate": 0.0,
+   "ratio_median": 2.25,
+   "views_median": 6207.0,
+   "small_sample": false,
+   "success_cases": [
+    40,
+    43
+   ],
+   "success_share": 0.021,
+   "w_success_share": 0.021
+  },
+  {
    "theme": "7. 가전",
-   "n": 3,
-   "success": 2,
-   "rate": 0.667,
-   "ratio_median": 59.0,
-   "views_median": 355791,
+   "n": 13,
+   "success": 1,
+   "rate": 0.077,
+   "ratio_median": 0.21,
+   "views_median": 760,
    "small_sample": true,
    "success_cases": [
     48,
@@ -19754,31 +20770,16 @@
    ],
    "success_share": 0.021,
    "w_success_share": 0.018
-  },
-  {
-   "theme": "기타",
-   "n": 10,
-   "success": 1,
-   "rate": 0.1,
-   "ratio_median": 11.49,
-   "views_median": 36149.5,
-   "small_sample": true,
-   "success_cases": [
-    40,
-    43
-   ],
-   "success_share": 0.021,
-   "w_success_share": 0.021
   }
  ],
  "formats": [
   {
    "format": "경고형 (사지 마세요·실패템)",
-   "n": 44,
-   "success": 17,
-   "rate": 0.386,
+   "n": 53,
+   "success": 10,
+   "rate": 0.189,
    "small_sample": false,
-   "ratio_median": 11.13,
+   "ratio_median": 3.56,
    "success_cases": [
     3,
     12,
@@ -19796,16 +20797,16 @@
    "market_videos": 47,
    "market_index": 1.0,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.089,
+   "baseline_normal": 0.076
   },
   {
    "format": "비교 (vs·차이·순위)",
-   "n": 25,
-   "success": 10,
-   "rate": 0.4,
+   "n": 32,
+   "success": 8,
+   "rate": 0.25,
    "small_sample": false,
-   "ratio_median": 13.98,
+   "ratio_median": 6.13,
    "success_cases": [
     32,
     34,
@@ -19820,16 +20821,16 @@
    "market_videos": 25,
    "market_index": 1.53,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.053,
+   "baseline_normal": 0.033
   },
   {
    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
-   "n": 50,
-   "success": 11,
-   "rate": 0.22,
+   "n": 70,
+   "success": 10,
+   "rate": 0.143,
    "small_sample": false,
-   "ratio_median": 7.62,
+   "ratio_median": 6.34,
    "success_cases": [
     11,
     29,
@@ -19845,16 +20846,16 @@
    "market_videos": 56,
    "market_index": 1.25,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.036,
+   "baseline_normal": 0.047
   },
   {
    "format": "하울·언박싱",
-   "n": 34,
-   "success": 7,
-   "rate": 0.206,
+   "n": 45,
+   "success": 6,
+   "rate": 0.133,
    "small_sample": false,
-   "ratio_median": 3.17,
+   "ratio_median": 3.13,
    "success_cases": [
     53,
     58,
@@ -19866,16 +20867,16 @@
    "market_videos": 34,
    "market_index": 1.35,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.032,
+   "baseline_normal": 0.033
   },
   {
    "format": "살림 브이로그·루틴",
-   "n": 81,
-   "success": 18,
-   "rate": 0.222,
+   "n": 119,
+   "success": 13,
+   "rate": 0.109,
    "small_sample": false,
-   "ratio_median": 7.81,
+   "ratio_median": 4.39,
    "success_cases": [
     2,
     8,
@@ -19897,16 +20898,16 @@
    "market_videos": 96,
    "market_index": 1.11,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.178,
+   "baseline_normal": 0.219
   },
   {
    "format": "코디·메이크업 (따라 하기)",
-   "n": 96,
-   "success": 19,
-   "rate": 0.198,
+   "n": 135,
+   "success": 13,
+   "rate": 0.096,
    "small_sample": false,
-   "ratio_median": 17.99,
+   "ratio_median": 6.76,
    "success_cases": [
     7,
     10,
@@ -19930,16 +20931,16 @@
    "market_videos": 97,
    "market_index": 0.56,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.134,
+   "baseline_normal": 0.136
   },
   {
    "format": "목록형 (N가지 추천템)",
-   "n": 115,
-   "success": 39,
-   "rate": 0.339,
+   "n": 156,
+   "success": 42,
+   "rate": 0.269,
    "small_sample": false,
-   "ratio_median": 15.43,
+   "ratio_median": 8.96,
    "success_cases": [
     1,
     4,
@@ -19973,16 +20974,16 @@
    "market_videos": 118,
    "market_index": 1.07,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.223,
+   "baseline_normal": 0.136
   },
   {
    "format": "정보·해설 (그 밖)",
-   "n": 56,
-   "success": 14,
-   "rate": 0.25,
+   "n": 96,
+   "success": 8,
+   "rate": 0.083,
    "small_sample": false,
-   "ratio_median": 5.88,
+   "ratio_median": 2.72,
    "success_cases": [
     20,
     22,
@@ -20002,24 +21003,24 @@
    "market_videos": 56,
    "market_index": 0.73,
    "market_small": false,
-   "baseline_hits": null,
-   "baseline_normal": null
+   "baseline_hits": 0.255,
+   "baseline_normal": 0.319
   }
  ],
  "title_features": [
   {
    "feature": "금액(억·만원)",
    "with": {
-    "n": 17,
-    "success": 9,
-    "rate": 0.529
+    "n": 27,
+    "success": 8,
+    "rate": 0.296
    },
    "without": {
-    "n": 484,
-    "success": 126,
-    "rate": 0.26
+    "n": 679,
+    "success": 102,
+    "rate": 0.15
    },
-   "diff": 0.269,
+   "diff": 0.146,
    "small_sample": false,
    "notable": true,
    "success_case_share": 0.082,
@@ -20028,16 +21029,16 @@
   {
    "feature": "이유",
    "with": {
-    "n": 16,
-    "success": 2,
-    "rate": 0.125
+    "n": 20,
+    "success": 1,
+    "rate": 0.05
    },
    "without": {
-    "n": 485,
-    "success": 133,
-    "rate": 0.274
+    "n": 686,
+    "success": 109,
+    "rate": 0.159
    },
-   "diff": -0.149,
+   "diff": -0.109,
    "small_sample": false,
    "notable": true,
    "success_case_share": 0.021,
@@ -20051,29 +21052,65 @@
     "rate": 0.667
    },
    "without": {
-    "n": 498,
-    "success": 133,
-    "rate": 0.267
+    "n": 703,
+    "success": 108,
+    "rate": 0.154
    },
-   "diff": 0.4,
+   "diff": 0.513,
    "small_sample": true,
    "notable": false,
    "success_case_share": 0.021,
    "w_success_case_share": 0.018
   },
   {
+   "feature": "말줄임 …·...",
+   "with": {
+    "n": 12,
+    "success": 4,
+    "rate": 0.333
+   },
+   "without": {
+    "n": 694,
+    "success": 106,
+    "rate": 0.153
+   },
+   "diff": 0.18,
+   "small_sample": true,
+   "notable": false,
+   "success_case_share": 0.031,
+   "w_success_case_share": 0.027
+  },
+  {
+   "feature": "손실 낱말(망하·날린·잃은·반토막)",
+   "with": {
+    "n": 3,
+    "success": 1,
+    "rate": 0.333
+   },
+   "without": {
+    "n": 703,
+    "success": 109,
+    "rate": 0.155
+   },
+   "diff": 0.178,
+   "small_sample": true,
+   "notable": false,
+   "success_case_share": 0.01,
+   "w_success_case_share": 0.01
+  },
+  {
    "feature": "과정·벌어진 일·결말·결국",
    "with": {
-    "n": 2,
+    "n": 5,
     "success": 0,
     "rate": 0.0
    },
    "without": {
-    "n": 499,
-    "success": 135,
-    "rate": 0.271
+    "n": 701,
+    "success": 110,
+    "rate": 0.157
    },
-   "diff": -0.271,
+   "diff": -0.157,
    "small_sample": true,
    "notable": false,
    "success_case_share": 0.0,
@@ -20082,16 +21119,16 @@
   {
    "feature": "두 금액(반전)",
    "with": {
-    "n": 1,
+    "n": 2,
     "success": 0,
     "rate": 0.0
    },
    "without": {
-    "n": 500,
-    "success": 135,
-    "rate": 0.27
+    "n": 704,
+    "success": 110,
+    "rate": 0.156
    },
-   "diff": -0.27,
+   "diff": -0.156,
    "small_sample": true,
    "notable": false,
    "success_case_share": 0.0,
@@ -20100,446 +21137,474 @@
   {
    "feature": "공통점",
    "with": {
-    "n": 1,
+    "n": 2,
     "success": 0,
     "rate": 0.0
    },
    "without": {
-    "n": 500,
-    "success": 135,
-    "rate": 0.27
+    "n": 704,
+    "success": 110,
+    "rate": 0.156
    },
-   "diff": -0.27,
+   "diff": -0.156,
    "small_sample": true,
    "notable": false,
    "success_case_share": 0.0,
    "w_success_case_share": 0.0
   },
   {
-   "feature": "손실 낱말(망하·날린·잃은·반토막)",
-   "with": {
-    "n": 2,
-    "success": 1,
-    "rate": 0.5
-   },
-   "without": {
-    "n": 499,
-    "success": 134,
-    "rate": 0.269
-   },
-   "diff": 0.231,
-   "small_sample": true,
-   "notable": false,
-   "success_case_share": 0.01,
-   "w_success_case_share": 0.01
-  },
-  {
-   "feature": "말줄임 …·...",
-   "with": {
-    "n": 11,
-    "success": 5,
-    "rate": 0.455
-   },
-   "without": {
-    "n": 490,
-    "success": 130,
-    "rate": 0.265
-   },
-   "diff": 0.19,
-   "small_sample": true,
-   "notable": false,
-   "success_case_share": 0.031,
-   "w_success_case_share": 0.027
-  },
-  {
    "feature": "25자 미만",
    "with": {
-    "n": 12,
-    "success": 5,
-    "rate": 0.417
+    "n": 23,
+    "success": 2,
+    "rate": 0.087
    },
    "without": {
-    "n": 489,
-    "success": 130,
-    "rate": 0.266
+    "n": 683,
+    "success": 108,
+    "rate": 0.158
    },
-   "diff": 0.151,
-   "small_sample": true,
+   "diff": -0.071,
+   "small_sample": false,
    "notable": false,
    "success_case_share": 0.031,
    "w_success_case_share": 0.027
-  },
-  {
-   "feature": "노후·퇴직금·은퇴·50~70대",
-   "with": {
-    "n": 37,
-    "success": 13,
-    "rate": 0.351
-   },
-   "without": {
-    "n": 464,
-    "success": 122,
-    "rate": 0.263
-   },
-   "diff": 0.088,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.113,
-   "w_success_case_share": 0.125
   },
   {
    "feature": "숫자가 들어감",
    "with": {
-    "n": 340,
-    "success": 99,
-    "rate": 0.291
+    "n": 458,
+    "success": 81,
+    "rate": 0.177
    },
    "without": {
-    "n": 161,
-    "success": 36,
-    "rate": 0.224
+    "n": 248,
+    "success": 29,
+    "rate": 0.117
    },
-   "diff": 0.067,
+   "diff": 0.06,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.711,
    "w_success_case_share": 0.727
   },
   {
-   "feature": "따옴표·괄호로 강조",
-   "with": {
-    "n": 85,
-    "success": 26,
-    "rate": 0.306
-   },
-   "without": {
-    "n": 416,
-    "success": 109,
-    "rate": 0.262
-   },
-   "diff": 0.044,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.206,
-   "w_success_case_share": 0.224
-  },
-  {
-   "feature": "직접·해보니·N년 기록",
-   "with": {
-    "n": 26,
-    "success": 8,
-    "rate": 0.308
-   },
-   "without": {
-    "n": 475,
-    "success": 127,
-    "rate": 0.267
-   },
-   "diff": 0.041,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.082,
-   "w_success_case_share": 0.094
-  },
-  {
-   "feature": "N가지",
-   "with": {
-    "n": 145,
-    "success": 43,
-    "rate": 0.297
-   },
-   "without": {
-    "n": 356,
-    "success": 92,
-    "rate": 0.258
-   },
-   "diff": 0.039,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.278,
-   "w_success_case_share": 0.292
-  },
-  {
-   "feature": "패턴형(공통점·특징·이유·N가지·착각·과정)",
-   "with": {
-    "n": 157,
-    "success": 45,
-    "rate": 0.287
-   },
-   "without": {
-    "n": 344,
-    "success": 90,
-    "rate": 0.262
-   },
-   "diff": 0.025,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.299,
-   "w_success_case_share": 0.309
-  },
-  {
-   "feature": "40자 이상",
-   "with": {
-    "n": 360,
-    "success": 95,
-    "rate": 0.264
-   },
-   "without": {
-    "n": 141,
-    "success": 40,
-    "rate": 0.284
-   },
-   "diff": -0.02,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.701,
-   "w_success_case_share": 0.712
-  },
-  {
-   "feature": "느낌표 !",
-   "with": {
-    "n": 140,
-    "success": 36,
-    "rate": 0.257
-   },
-   "without": {
-    "n": 361,
-    "success": 99,
-    "rate": 0.274
-   },
-   "diff": -0.017,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.268,
-   "w_success_case_share": 0.26
-  },
-  {
-   "feature": "물음표 ?",
-   "with": {
-    "n": 46,
-    "success": 13,
-    "rate": 0.283
-   },
-   "without": {
-    "n": 455,
-    "success": 122,
-    "rate": 0.268
-   },
-   "diff": 0.015,
-   "small_sample": false,
-   "notable": false,
-   "success_case_share": 0.124,
-   "w_success_case_share": 0.1
-  },
-  {
    "feature": "vs 비교",
    "with": {
-    "n": 65,
-    "success": 17,
-    "rate": 0.262
+    "n": 104,
+    "success": 11,
+    "rate": 0.106
    },
    "without": {
-    "n": 436,
-    "success": 118,
-    "rate": 0.271
+    "n": 602,
+    "success": 99,
+    "rate": 0.164
    },
-   "diff": -0.009,
+   "diff": -0.058,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.134,
    "w_success_case_share": 0.152
   },
   {
-   "feature": "구분 기호(ㅣ·｜·/)로 나눔",
+   "feature": "N가지",
    "with": {
-    "n": 230,
-    "success": 63,
-    "rate": 0.274
+    "n": 189,
+    "success": 35,
+    "rate": 0.185
    },
    "without": {
-    "n": 271,
-    "success": 72,
-    "rate": 0.266
+    "n": 517,
+    "success": 75,
+    "rate": 0.145
    },
-   "diff": 0.008,
+   "diff": 0.04,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.278,
+   "w_success_case_share": 0.292
+  },
+  {
+   "feature": "직접·해보니·N년 기록",
+   "with": {
+    "n": 46,
+    "success": 6,
+    "rate": 0.13
+   },
+   "without": {
+    "n": 660,
+    "success": 104,
+    "rate": 0.158
+   },
+   "diff": -0.028,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.082,
+   "w_success_case_share": 0.094
+  },
+  {
+   "feature": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+   "with": {
+    "n": 207,
+    "success": 36,
+    "rate": 0.174
+   },
+   "without": {
+    "n": 499,
+    "success": 74,
+    "rate": 0.148
+   },
+   "diff": 0.026,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.299,
+   "w_success_case_share": 0.309
+  },
+  {
+   "feature": "노후·퇴직금·은퇴·50~70대",
+   "with": {
+    "n": 59,
+    "success": 8,
+    "rate": 0.136
+   },
+   "without": {
+    "n": 647,
+    "success": 102,
+    "rate": 0.158
+   },
+   "diff": -0.022,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.113,
+   "w_success_case_share": 0.125
+  },
+  {
+   "feature": "느낌표 !",
+   "with": {
+    "n": 199,
+    "success": 28,
+    "rate": 0.141
+   },
+   "without": {
+    "n": 507,
+    "success": 82,
+    "rate": 0.162
+   },
+   "diff": -0.021,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.268,
+   "w_success_case_share": 0.26
+  },
+  {
+   "feature": "따옴표·괄호로 강조",
+   "with": {
+    "n": 117,
+    "success": 20,
+    "rate": 0.171
+   },
+   "without": {
+    "n": 589,
+    "success": 90,
+    "rate": 0.153
+   },
+   "diff": 0.018,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.206,
+   "w_success_case_share": 0.224
+  },
+  {
+   "feature": "구분 기호(ㅣ·｜·/)로 나눔",
+   "with": {
+    "n": 320,
+    "success": 53,
+    "rate": 0.166
+   },
+   "without": {
+    "n": 386,
+    "success": 57,
+    "rate": 0.148
+   },
+   "diff": 0.018,
    "small_sample": false,
    "notable": false,
    "success_case_share": 0.485,
    "w_success_case_share": 0.504
+  },
+  {
+   "feature": "40자 이상",
+   "with": {
+    "n": 518,
+    "success": 79,
+    "rate": 0.153
+   },
+   "without": {
+    "n": 188,
+    "success": 31,
+    "rate": 0.165
+   },
+   "diff": -0.012,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.701,
+   "w_success_case_share": 0.712
+  },
+  {
+   "feature": "물음표 ?",
+   "with": {
+    "n": 68,
+    "success": 11,
+    "rate": 0.162
+   },
+   "without": {
+    "n": 638,
+    "success": 99,
+    "rate": 0.155
+   },
+   "diff": 0.007,
+   "small_sample": false,
+   "notable": false,
+   "success_case_share": 0.124,
+   "w_success_case_share": 0.1
   }
  ],
  "title_words_up": [
   {
-   "word": "60대",
+   "word": "다이소추천템",
    "with": {
-    "n": 18,
+    "n": 23,
     "success": 8,
-    "rate": 0.444
+    "rate": 0.348
    },
    "without": {
-    "n": 483,
-    "success": 127,
-    "rate": 0.263
+    "n": 683,
+    "success": 102,
+    "rate": 0.149
    },
-   "diff": 0.181,
+   "diff": 0.199,
    "small_sample": false,
    "notable": true
   },
   {
    "word": "다이소",
    "with": {
-    "n": 78,
-    "success": 32,
-    "rate": 0.41
+    "n": 87,
+    "success": 24,
+    "rate": 0.276
    },
    "without": {
-    "n": 423,
-    "success": 103,
-    "rate": 0.243
+    "n": 619,
+    "success": 86,
+    "rate": 0.139
    },
-   "diff": 0.167,
+   "diff": 0.137,
+   "small_sample": false,
+   "notable": true
+  },
+  {
+   "word": "쿠팡",
+   "with": {
+    "n": 30,
+    "success": 8,
+    "rate": 0.267
+   },
+   "without": {
+    "n": 676,
+    "success": 102,
+    "rate": 0.151
+   },
+   "diff": 0.116,
    "small_sample": false,
    "notable": true
   },
   {
    "word": "코스트코",
    "with": {
-    "n": 23,
+    "n": 36,
     "success": 9,
-    "rate": 0.391
+    "rate": 0.25
    },
    "without": {
-    "n": 478,
-    "success": 126,
-    "rate": 0.264
-   },
-   "diff": 0.127,
-   "small_sample": false,
-   "notable": true
-  },
-  {
-   "word": "주부",
-   "with": {
-    "n": 19,
-    "success": 7,
-    "rate": 0.368
-   },
-   "without": {
-    "n": 482,
-    "success": 128,
-    "rate": 0.266
-   },
-   "diff": 0.102,
-   "small_sample": false,
-   "notable": true
-  },
-  {
-   "word": "신상",
-   "with": {
-    "n": 22,
-    "success": 8,
-    "rate": 0.364
-   },
-   "without": {
-    "n": 479,
-    "success": 127,
-    "rate": 0.265
+    "n": 670,
+    "success": 101,
+    "rate": 0.151
    },
    "diff": 0.099,
    "small_sample": false,
    "notable": false
   },
   {
-   "word": "다이소추천템",
-   "with": {
-    "n": 20,
-    "success": 7,
-    "rate": 0.35
-   },
-   "without": {
-    "n": 481,
-    "success": 128,
-    "rate": 0.266
-   },
-   "diff": 0.084,
-   "small_sample": false,
-   "notable": false
-  },
-  {
-   "word": "추천템",
-   "with": {
-    "n": 67,
-    "success": 21,
-    "rate": 0.313
-   },
-   "without": {
-    "n": 434,
-    "success": 114,
-    "rate": 0.263
-   },
-   "diff": 0.05,
-   "small_sample": false,
-   "notable": false
-  },
-  {
    "word": "꿀템",
    "with": {
-    "n": 55,
-    "success": 17,
-    "rate": 0.309
+    "n": 63,
+    "success": 14,
+    "rate": 0.222
    },
    "without": {
-    "n": 446,
-    "success": 118,
-    "rate": 0.265
+    "n": 643,
+    "success": 96,
+    "rate": 0.149
    },
-   "diff": 0.044,
+   "diff": 0.073,
    "small_sample": false,
    "notable": false
   },
   {
-   "word": "쿠팡",
+   "word": "청소",
    "with": {
-    "n": 27,
-    "success": 8,
-    "rate": 0.296
+    "n": 22,
+    "success": 5,
+    "rate": 0.227
    },
    "without": {
-    "n": 474,
-    "success": 127,
-    "rate": 0.268
+    "n": 684,
+    "success": 105,
+    "rate": 0.154
    },
-   "diff": 0.028,
+   "diff": 0.073,
    "small_sample": false,
    "notable": false
   },
   {
    "word": "가성비",
    "with": {
-    "n": 17,
+    "n": 22,
     "success": 5,
-    "rate": 0.294
+    "rate": 0.227
    },
    "without": {
-    "n": 484,
-    "success": 130,
-    "rate": 0.269
+    "n": 684,
+    "success": 105,
+    "rate": 0.154
    },
-   "diff": 0.025,
+   "diff": 0.073,
    "small_sample": false,
    "notable": false
   },
   {
-   "word": "이렇게",
+   "word": "살림템",
    "with": {
-    "n": 32,
-    "success": 9,
-    "rate": 0.281
+    "n": 23,
+    "success": 5,
+    "rate": 0.217
    },
    "without": {
-    "n": 469,
-    "success": 126,
-    "rate": 0.269
+    "n": 683,
+    "success": 105,
+    "rate": 0.154
+   },
+   "diff": 0.063,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "주부",
+   "with": {
+    "n": 28,
+    "success": 6,
+    "rate": 0.214
+   },
+   "without": {
+    "n": 678,
+    "success": 104,
+    "rate": 0.153
+   },
+   "diff": 0.061,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "추천템",
+   "with": {
+    "n": 79,
+    "success": 16,
+    "rate": 0.203
+   },
+   "without": {
+    "n": 627,
+    "success": 94,
+    "rate": 0.15
+   },
+   "diff": 0.053,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "신상",
+   "with": {
+    "n": 25,
+    "success": 5,
+    "rate": 0.2
+   },
+   "without": {
+    "n": 681,
+    "success": 105,
+    "rate": 0.154
+   },
+   "diff": 0.046,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "내돈내산",
+   "with": {
+    "n": 47,
+    "success": 9,
+    "rate": 0.191
+   },
+   "without": {
+    "n": 659,
+    "success": 101,
+    "rate": 0.153
+   },
+   "diff": 0.038,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "방법",
+   "with": {
+    "n": 23,
+    "success": 4,
+    "rate": 0.174
+   },
+   "without": {
+    "n": 683,
+    "success": 106,
+    "rate": 0.155
+   },
+   "diff": 0.019,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "중년",
+   "with": {
+    "n": 41,
+    "success": 7,
+    "rate": 0.171
+   },
+   "without": {
+    "n": 665,
+    "success": 103,
+    "rate": 0.155
+   },
+   "diff": 0.016,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "5가지",
+   "with": {
+    "n": 36,
+    "success": 6,
+    "rate": 0.167
+   },
+   "without": {
+    "n": 670,
+    "success": 104,
+    "rate": 0.155
    },
    "diff": 0.012,
    "small_sample": false,
@@ -20548,162 +21613,162 @@
  ],
  "title_words_down": [
   {
-   "word": "꿀팁",
+   "word": "마세요",
    "with": {
-    "n": 19,
+    "n": 45,
     "success": 2,
-    "rate": 0.105
+    "rate": 0.044
    },
    "without": {
-    "n": 482,
-    "success": 133,
-    "rate": 0.276
+    "n": 661,
+    "success": 108,
+    "rate": 0.163
    },
-   "diff": -0.171,
+   "diff": -0.119,
    "small_sample": false,
    "notable": true
   },
   {
    "word": "살림",
    "with": {
-    "n": 55,
+    "n": 58,
+    "success": 3,
+    "rate": 0.052
+   },
+   "without": {
+    "n": 648,
+    "success": 107,
+    "rate": 0.165
+   },
+   "diff": -0.113,
+   "small_sample": false,
+   "notable": true
+  },
+  {
+   "word": "꿀팁",
+   "with": {
+    "n": 23,
+    "success": 2,
+    "rate": 0.087
+   },
+   "without": {
+    "n": 683,
+    "success": 108,
+    "rate": 0.158
+   },
+   "diff": -0.071,
+   "small_sample": false,
+   "notable": false
+  },
+  {
+   "word": "추천",
+   "with": {
+    "n": 76,
     "success": 7,
-    "rate": 0.127
+    "rate": 0.092
    },
    "without": {
-    "n": 446,
-    "success": 128,
-    "rate": 0.287
+    "n": 630,
+    "success": 103,
+    "rate": 0.163
    },
-   "diff": -0.16,
+   "diff": -0.071,
    "small_sample": false,
-   "notable": true
+   "notable": false
   },
   {
-   "word": "여름",
+   "word": "코디",
    "with": {
-    "n": 17,
-    "success": 2,
-    "rate": 0.118
+    "n": 44,
+    "success": 4,
+    "rate": 0.091
    },
    "without": {
-    "n": 484,
-    "success": 133,
-    "rate": 0.275
+    "n": 662,
+    "success": 106,
+    "rate": 0.16
    },
-   "diff": -0.157,
+   "diff": -0.069,
    "small_sample": false,
-   "notable": true
+   "notable": false
   },
   {
-   "word": "이유",
+   "word": "가을",
    "with": {
-    "n": 16,
-    "success": 2,
-    "rate": 0.125
+    "n": 33,
+    "success": 3,
+    "rate": 0.091
    },
    "without": {
-    "n": 485,
-    "success": 133,
-    "rate": 0.274
+    "n": 673,
+    "success": 107,
+    "rate": 0.159
    },
-   "diff": -0.149,
+   "diff": -0.068,
    "small_sample": false,
-   "notable": true
+   "notable": false
   },
   {
    "word": "주방",
    "with": {
-    "n": 41,
-    "success": 6,
-    "rate": 0.146
+    "n": 49,
+    "success": 5,
+    "rate": 0.102
    },
    "without": {
-    "n": 460,
-    "success": 129,
-    "rate": 0.28
+    "n": 657,
+    "success": 105,
+    "rate": 0.16
    },
-   "diff": -0.134,
+   "diff": -0.058,
    "small_sample": false,
-   "notable": true
+   "notable": false
   },
   {
-   "word": "총정리",
+   "word": "이렇게",
    "with": {
-    "n": 21,
-    "success": 3,
-    "rate": 0.143
+    "n": 39,
+    "success": 4,
+    "rate": 0.103
    },
    "without": {
-    "n": 480,
-    "success": 132,
-    "rate": 0.275
+    "n": 667,
+    "success": 106,
+    "rate": 0.159
    },
-   "diff": -0.132,
-   "small_sample": false,
-   "notable": true
-  },
-  {
-   "word": "주방템",
-   "with": {
-    "n": 19,
-    "success": 3,
-    "rate": 0.158
-   },
-   "without": {
-    "n": 482,
-    "success": 132,
-    "rate": 0.274
-   },
-   "diff": -0.116,
-   "small_sample": false,
-   "notable": true
-  },
-  {
-   "word": "메이크업",
-   "with": {
-    "n": 17,
-    "success": 3,
-    "rate": 0.176
-   },
-   "without": {
-    "n": 484,
-    "success": 132,
-    "rate": 0.273
-   },
-   "diff": -0.097,
+   "diff": -0.056,
    "small_sample": false,
    "notable": false
   },
   {
    "word": "정리",
    "with": {
-    "n": 28,
-    "success": 5,
-    "rate": 0.179
+    "n": 36,
+    "success": 4,
+    "rate": 0.111
    },
    "without": {
-    "n": 473,
-    "success": 130,
-    "rate": 0.275
+    "n": 670,
+    "success": 106,
+    "rate": 0.158
    },
-   "diff": -0.096,
+   "diff": -0.047,
    "small_sample": false,
    "notable": false
   },
   {
-   "word": "10가지",
+   "word": "이것",
    "with": {
-    "n": 22,
+    "n": 34,
     "success": 4,
-    "rate": 0.182
+    "rate": 0.118
    },
    "without": {
-    "n": 479,
-    "success": 131,
-    "rate": 0.273
+    "n": 672,
+    "success": 106,
+    "rate": 0.158
    },
-   "diff": -0.091,
+   "diff": -0.04,
    "small_sample": false,
    "notable": false
   }
@@ -20711,95 +21776,95 @@
  "title_length": [
   {
    "label": "0~24자",
-   "n": 12,
-   "success": 5,
-   "rate": 0.417
+   "n": 23,
+   "success": 2,
+   "rate": 0.087
   },
   {
    "label": "25~34자",
-   "n": 69,
-   "success": 25,
-   "rate": 0.362
+   "n": 78,
+   "success": 20,
+   "rate": 0.256
   },
   {
    "label": "35~44자",
-   "n": 103,
-   "success": 23,
-   "rate": 0.223
+   "n": 150,
+   "success": 21,
+   "rate": 0.14
   },
   {
    "label": "45자 이상",
-   "n": 317,
-   "success": 82,
-   "rate": 0.259
+   "n": 455,
+   "success": 67,
+   "rate": 0.147
   }
  ],
  "minutes": [
   {
    "label": "4~8분",
-   "n": 83,
-   "success": 23,
-   "rate": 0.277,
+   "n": 139,
+   "success": 19,
+   "rate": 0.137,
    "success_cases": 15
   },
   {
    "label": "8~15분",
-   "n": 203,
-   "success": 62,
-   "rate": 0.305,
+   "n": 308,
+   "success": 50,
+   "rate": 0.162,
    "success_cases": 48
   },
   {
    "label": "15~25분",
-   "n": 133,
-   "success": 35,
-   "rate": 0.263,
+   "n": 167,
+   "success": 28,
+   "rate": 0.168,
    "success_cases": 26
   },
   {
    "label": "25~40분",
-   "n": 62,
-   "success": 13,
-   "rate": 0.21,
+   "n": 64,
+   "success": 10,
+   "rate": 0.156,
    "success_cases": 8
   },
   {
    "label": "40분 이상",
-   "n": 20,
-   "success": 2,
-   "rate": 0.1,
+   "n": 28,
+   "success": 3,
+   "rate": 0.107,
    "success_cases": 0
   }
  ],
  "subs": [
   {
    "label": "0~999명",
-   "n": 99,
-   "success": 9,
-   "rate": 0.091
+   "n": 135,
+   "success": 7,
+   "rate": 0.052
   },
   {
    "label": "1,000~4,999명",
-   "n": 122,
-   "success": 42,
-   "rate": 0.344
+   "n": 181,
+   "success": 32,
+   "rate": 0.177
   },
   {
    "label": "5,000~19,999명",
-   "n": 156,
-   "success": 55,
-   "rate": 0.353
+   "n": 224,
+   "success": 42,
+   "rate": 0.188
   },
   {
    "label": "20,000~50,000명",
-   "n": 124,
+   "n": 166,
    "success": 29,
-   "rate": 0.234
+   "rate": 0.175
   }
  ],
  "structure": {
   "minutes_median_success": 11.7,
-  "minutes_median_compare_others": 13.5,
+  "minutes_median_compare_others": 11.85,
   "chapters_share": 0.608,
   "chapters_count_median": 10,
   "transcripts": 0,
@@ -21771,8 +22836,8 @@
     "supply_share": 0.161,
     "index": 1.72,
     "vpd_median": 7464.3,
-    "small_success_rate": 0.364,
-    "small_n": 66,
+    "small_success_rate": 0.231,
+    "small_n": 91,
     "questions": 218,
     "small_sample": false,
     "top_questions": [
@@ -21804,9 +22869,9 @@
     "supply_share": 0.335,
     "index": 1.05,
     "vpd_median": 4412.6,
-    "small_success_rate": 0.298,
-    "small_n": 181,
-    "questions": 487,
+    "small_success_rate": 0.193,
+    "small_n": 249,
+    "questions": 497,
     "small_sample": false,
     "top_questions": [
      {
@@ -21837,8 +22902,8 @@
     "supply_share": 0.047,
     "index": 0.97,
     "vpd_median": 2577.0,
-    "small_success_rate": 0.222,
-    "small_n": 27,
+    "small_success_rate": 0.082,
+    "small_n": 49,
     "questions": 271,
     "small_sample": false,
     "top_questions": [
@@ -21870,9 +22935,9 @@
     "supply_share": 0.093,
     "index": 0.85,
     "vpd_median": 3541.6,
-    "small_success_rate": 0.2,
-    "small_n": 35,
-    "questions": 266,
+    "small_success_rate": 0.171,
+    "small_n": 41,
+    "questions": 271,
     "small_sample": false,
     "top_questions": [
      {
@@ -21903,8 +22968,8 @@
     "supply_share": 0.028,
     "index": 0.85,
     "vpd_median": 2243.0,
-    "small_success_rate": 0.1,
-    "small_n": 10,
+    "small_success_rate": 0.0,
+    "small_n": 24,
     "questions": 0,
     "small_sample": false,
     "top_questions": []
@@ -21917,9 +22982,9 @@
     "supply_share": 0.178,
     "index": 0.66,
     "vpd_median": 2306.6,
-    "small_success_rate": 0.156,
-    "small_n": 90,
-    "questions": 259,
+    "small_success_rate": 0.088,
+    "small_n": 113,
+    "questions": 269,
     "small_sample": false,
     "top_questions": [
      {
@@ -21950,9 +23015,9 @@
     "supply_share": 0.155,
     "index": 0.64,
     "vpd_median": 2364.95,
-    "small_success_rate": 0.303,
-    "small_n": 89,
-    "questions": 87,
+    "small_success_rate": 0.151,
+    "small_n": 126,
+    "questions": 94,
     "small_sample": false,
     "top_questions": [
      {
@@ -21983,8 +23048,8 @@
     "supply_share": 0.004,
     "index": 1.76,
     "vpd_median": 17868.0,
-    "small_success_rate": 0.667,
-    "small_n": 3,
+    "small_success_rate": 0.077,
+    "small_n": 13,
     "questions": 50,
     "small_sample": true,
     "top_questions": [
@@ -22928,7 +23993,7 @@
   ]
  },
  "growth": {
-  "channels": 771,
+  "channels": 773,
   "fast": [
    {
     "channel_id": "UCmdOnmYKm4hijBxwGHtPT8Q",
@@ -22984,7 +24049,7 @@
     "months": 14.8,
     "subs": 162000,
     "videos": 124,
-    "subs_per_month": 10934,
+    "subs_per_month": 10910,
     "uploads_per_month": 8.4,
     "subs_per_day_recent": null,
     "themes": [
@@ -23049,6 +24114,54 @@
     }
    },
    {
+    "channel_id": "UCzHjBHrHVST53vVZYlJdsAw",
+    "channel": "느린살림연구소",
+    "brand_hint": null,
+    "created": "2026-05-21",
+    "months": 6.2,
+    "subs": 43300,
+    "videos": 60,
+    "subs_per_month": 6937,
+    "uploads_per_month": 9.6,
+    "subs_per_day_recent": null,
+    "themes": [
+     "3. 청소·정리·수납",
+     "2. 살림·주방"
+    ],
+    "seen_videos": 5,
+    "minutes_median": 10.7,
+    "best": {
+     "id": "CFIwnuewFMs",
+     "title": "선풍기 청소 망과 날개 분해하지 않고 5분도 안 걸리는 초간단 청소 꿀팁!",
+     "views": 847243,
+     "vpd": 6987.0
+    }
+   },
+   {
+    "channel_id": "UC0hJ2MTuHOsZgSjXGhjonhw",
+    "channel": "매일살림 꿀정보",
+    "brand_hint": null,
+    "created": "2026-10-21",
+    "months": 1.2,
+    "subs": 7230,
+    "videos": 35,
+    "subs_per_month": 6113,
+    "uploads_per_month": 29.6,
+    "subs_per_day_recent": null,
+    "themes": [
+     "3. 청소·정리·수납",
+     "7. 가전"
+    ],
+    "seen_videos": 8,
+    "minutes_median": 18.9,
+    "best": {
+     "id": "atQAK9PqqJs",
+     "title": "【심영순 셰프의 비법 공개】참기름 냉장고에 넣지 마세요! 1년 내내 갓 짠 듯 고소한 참기름·들기름 보관 비법!",
+     "views": 77537,
+     "vpd": 2419.5
+    }
+   },
+   {
     "channel_id": "UCA12yqwan_vhRCpFRW3Bw_g",
     "channel": "샵뚱",
     "brand_hint": null,
@@ -23056,20 +24169,20 @@
     "months": 7.9,
     "subs": 43300,
     "videos": 229,
-    "subs_per_month": 5492,
-    "uploads_per_month": 29.0,
+    "subs_per_month": 5469,
+    "uploads_per_month": 28.9,
     "subs_per_day_recent": null,
     "themes": [
-     "4. 다이소·가성비",
-     "1. 쿠팡·쇼핑 추천"
+     "1. 쿠팡·쇼핑 추천",
+     "4. 다이소·가성비"
     ],
-    "seen_videos": 5,
+    "seen_videos": 7,
     "minutes_median": 27.1,
     "best": {
-     "id": "WRMpQMvB_-k",
-     "title": "(내돈내산) 코스트코 VIP의 트레이더스 첫 방문",
-     "views": 753870,
-     "vpd": 8878.7
+     "id": "cHbj4uGheS0",
+     "title": "샵뚱 장바구니는 가벼울 수 없지🛒일본 마트 장보기부터 돈키호테 리뷰까지 | 샵뚱 ep.31",
+     "views": 200982,
+     "vpd": 13406.8
     }
    },
    {
@@ -23121,6 +24234,29 @@
     }
    },
    {
+    "channel_id": "UCgEw2zJo7DsxwuhjbWE6EVg",
+    "channel": "안뇨하떼요 아유미에오",
+    "brand_hint": null,
+    "created": "2026-08-27",
+    "months": 3.0,
+    "subs": 10400,
+    "videos": 66,
+    "subs_per_month": 3441,
+    "uploads_per_month": 21.8,
+    "subs_per_day_recent": null,
+    "themes": [
+     "1. 쿠팡·쇼핑 추천"
+    ],
+    "seen_videos": 2,
+    "minutes_median": 10.5,
+    "best": {
+     "id": "4_G5g_2bKNk",
+     "title": "아직도 돈키호테 가? 일본 마트 꿀템 (제작진도 삼) [JP]",
+     "views": 270170,
+     "vpd": 27447.3
+    }
+   },
+   {
     "channel_id": "UCfq7usLtv9zzoP4eTDmneHQ",
     "channel": "ZIP살림꿀팁",
     "brand_hint": null,
@@ -23132,11 +24268,11 @@
     "uploads_per_month": 29.0,
     "subs_per_day_recent": null,
     "themes": [
-     "7. 가전",
-     "2. 살림·주방"
+     "3. 청소·정리·수납",
+     "7. 가전"
     ],
-    "seen_videos": 2,
-    "minutes_median": 11.05,
+    "seen_videos": 13,
+    "minutes_median": 11.9,
     "best": {
      "id": "I9ti02N-n-U",
      "title": "무청 시래기 삶지도 말리지도 마세요! '이렇게' 해두면 냉장고 없이 1년 내내 푸르게 먹어요 l 질기지 않게 삶는 법까지",
@@ -23180,15 +24316,16 @@
     "uploads_per_month": 8.0,
     "subs_per_day_recent": null,
     "themes": [
-     "6. 4050 패션"
+     "6. 4050 패션",
+     "1. 쿠팡·쇼핑 추천"
     ],
-    "seen_videos": 9,
-    "minutes_median": 16.1,
+    "seen_videos": 53,
+    "minutes_median": 0.8,
     "best": {
-     "id": "cEjULVlt1-Y",
-     "title": "키작은 50 60대 [필독] 겨울 외투 이렇게 입으면 키 10cm 더 커 보입니다 I 시니어패션 I 중장년패션 I 60대 패션 I 70대 패션",
-     "views": 119520,
-     "vpd": 8985.3
+     "id": "sLk8y1O2z2s",
+     "title": "6070 시니어 패션 [필수] 겨울 외출할 때 훨씬 세련돼 보이는 모자 팁 3가지 I 시니어패션 I 중장년패션 I 60대 패션 I 70대 패션",
+     "views": 137041,
+     "vpd": 25441.4
     }
    },
    {
@@ -23213,6 +24350,30 @@
      "title": "4050 비비크림? 그냥 이거 사세요‼️쿠션, 파데보다 좋은 촉촉한 비비크림 추천👍솔직하게 다 보여드립니다 | 광고❌ | 4050 중년 메이크업",
      "views": 352193,
      "vpd": 1624.2
+    }
+   },
+   {
+    "channel_id": "UCu6EbAFPhCXhFEJhGdmxvrw",
+    "channel": "피부과 김진용",
+    "brand_hint": null,
+    "created": "2025-08-03",
+    "months": 15.8,
+    "subs": 27000,
+    "videos": 185,
+    "subs_per_month": 1712,
+    "uploads_per_month": 11.7,
+    "subs_per_day_recent": null,
+    "themes": [
+     "5. 4050 뷰티",
+     "1. 쿠팡·쇼핑 추천"
+    ],
+    "seen_videos": 15,
+    "minutes_median": 1.0,
+    "best": {
+     "id": "F1npP23Kq1I",
+     "title": "\"거의 바르는 보톡스 입니다\"  주름 지우고 우아하게 늙고싶다면 올리브영에서 이거 5개만 사면 됩니다!  화장품 만든 17년차 피부과 전문의가 얼굴노화 화장품 싹 알려드리겠습니다.",
+     "views": 4299059,
+     "vpd": 107678.6
     }
    },
    {
@@ -23250,10 +24411,11 @@
     "uploads_per_month": 2.6,
     "subs_per_day_recent": null,
     "themes": [
-     "1. 쿠팡·쇼핑 추천"
+     "1. 쿠팡·쇼핑 추천",
+     "4. 다이소·가성비"
     ],
-    "seen_videos": 3,
-    "minutes_median": 10.5,
+    "seen_videos": 5,
+    "minutes_median": 9.5,
     "best": {
      "id": "AHNj9dOIBsg",
      "title": "마켓컬리로 식비 절약 성공했어요ㅣ배달 외식 끊게 만드는 컬리 추천템ㅣ초간단 밀키트, 디저트 레시피",
@@ -23269,14 +24431,14 @@
     "months": 1.4,
     "subs": 2240,
     "videos": 40,
-    "subs_per_month": 1623,
-    "uploads_per_month": 29.0,
+    "subs_per_month": 1586,
+    "uploads_per_month": 28.3,
     "subs_per_day_recent": null,
     "themes": [
      "6. 4050 패션"
     ],
-    "seen_videos": 4,
-    "minutes_median": 17.8,
+    "seen_videos": 24,
+    "minutes_median": 16.2,
     "best": {
      "id": "0kMrCuXCzh4",
      "title": "【안 보면 후회】60대 가을 청바지, 이렇게 입으면 10년 더 늙어 보입니다! 뱃살 싹 가리고 다리 길어 보이는 3가지 황금 코디법",
@@ -23292,20 +24454,44 @@
     "months": 12.0,
     "subs": 18100,
     "videos": 70,
-    "subs_per_month": 1514,
-    "uploads_per_month": 5.9,
+    "subs_per_month": 1509,
+    "uploads_per_month": 5.8,
     "subs_per_day_recent": null,
     "themes": [
      "2. 살림·주방",
      "3. 청소·정리·수납"
     ],
-    "seen_videos": 8,
-    "minutes_median": 24.95,
+    "seen_videos": 42,
+    "minutes_median": 18.05,
     "best": {
      "id": "rbj88FSAoho",
      "title": "\"11평대에서 살려다보니..\" 작은 집에서 미니멀라이프를 시작한 30대 주부",
      "views": 1155283,
      "vpd": 26151.3
+    }
+   },
+   {
+    "channel_id": "UCY6VT9RFRkW9WGUHioqa26w",
+    "channel": "센스쟁이 언니네",
+    "brand_hint": null,
+    "created": "2025-11-19",
+    "months": 12.3,
+    "subs": 18200,
+    "videos": 285,
+    "subs_per_month": 1485,
+    "uploads_per_month": 23.3,
+    "subs_per_day_recent": null,
+    "themes": [
+     "6. 4050 패션",
+     "1. 쿠팡·쇼핑 추천"
+    ],
+    "seen_videos": 48,
+    "minutes_median": 0.7,
+    "best": {
+     "id": "C3aZgjwrHvQ",
+     "title": "나이들수록 패딩 '이런 색' 사면 10년 늙어보여요 #60대패션 #중년패션 #50대패션 #중장년패션",
+     "views": 392252,
+     "vpd": 17587.3
     }
    },
    {
@@ -23316,7 +24502,7 @@
     "months": 16.8,
     "subs": 24800,
     "videos": 299,
-    "subs_per_month": 1477,
+    "subs_per_month": 1474,
     "uploads_per_month": 17.8,
     "subs_per_day_recent": null,
     "themes": [
@@ -23339,8 +24525,8 @@
     "months": 11.8,
     "subs": 17000,
     "videos": 190,
-    "subs_per_month": 1445,
-    "uploads_per_month": 16.2,
+    "subs_per_month": 1441,
+    "uploads_per_month": 16.1,
     "subs_per_day_recent": null,
     "themes": [
      "4. 다이소·가성비",
@@ -23363,7 +24549,7 @@
     "months": 18.6,
     "subs": 22600,
     "videos": 261,
-    "subs_per_month": 1215,
+    "subs_per_month": 1213,
     "uploads_per_month": 14.0,
     "subs_per_day_recent": null,
     "themes": [
@@ -23379,158 +24565,41 @@
     }
    },
    {
-    "channel_id": "UCsS-6rSitIWDQ84Ez636peQ",
-    "channel": "권세이 kwonsay",
+    "channel_id": "UC0ycRO3wLy0jW8bkpGyz_Lw",
+    "channel": "데이원의원 얼굴디자인연구소 面部设计研究所",
     "brand_hint": null,
-    "created": "2026-01-25",
-    "months": 10.0,
-    "subs": 11700,
-    "videos": 100,
-    "subs_per_month": 1168,
-    "uploads_per_month": 10.0,
+    "created": "2025-09-25",
+    "months": 14.1,
+    "subs": 16800,
+    "videos": 232,
+    "subs_per_month": 1195,
+    "uploads_per_month": 16.5,
     "subs_per_day_recent": null,
     "themes": [
-     "1. 쿠팡·쇼핑 추천",
-     "5. 4050 뷰티"
-    ],
-    "seen_videos": 2,
-    "minutes_median": 31.7,
-    "best": {
-     "id": "S_QM401KTKw",
-     "title": "명품 화장품 최고의 파운데이션💄?!✨｜ 유튜브 최초 끌레드뽀보떼 리뷰 최종화 메이크업 편｜백화점 브랜드, 평생 단 하나의 컨실러를 쓴다면?! 청담동 메이크업샵 필수템 추천까지!💅",
-     "views": 101710,
-     "vpd": 454.3
-    }
-   },
-   {
-    "channel_id": "UCj2nCUJhNLZq1B4nEnuz53A",
-    "channel": "trendora",
-    "brand_hint": null,
-    "created": "2026-03-08",
-    "months": 8.6,
-    "subs": 9920,
-    "videos": 241,
-    "subs_per_month": 1148,
-    "uploads_per_month": 27.9,
-    "subs_per_day_recent": null,
-    "themes": [
-     "6. 4050 패션",
+     "5. 4050 뷰티",
      "1. 쿠팡·쇼핑 추천"
     ],
-    "seen_videos": 8,
-    "minutes_median": 9.3,
+    "seen_videos": 9,
+    "minutes_median": 0.9,
     "best": {
-     "id": "efkO0Clah70",
-     "title": "2026 가을 신발 트렌드｜운동화만 신으셨다면 꼭 보세요 #2026가을트렌드 #신발트렌드 #4050트렌드 #신발추천",
-     "views": 24695,
-     "vpd": 605.3
-    }
-   },
-   {
-    "channel_id": "UCouJBzNmM8tWLZcZbA26BOQ",
-    "channel": "일본인의 습관",
-    "brand_hint": null,
-    "created": "2026-07-07",
-    "months": 4.7,
-    "subs": 5090,
-    "videos": 106,
-    "subs_per_month": 1091,
-    "uploads_per_month": 22.7,
-    "subs_per_day_recent": null,
-    "themes": [
-     "3. 청소·정리·수납",
-     "2. 살림·주방"
-    ],
-    "seen_videos": 2,
-    "minutes_median": 30.55,
-    "best": {
-     "id": "o_ZW1fgGGIk",
-     "title": "단 7일 만에 집의 80%를 정리하는 일본식 정리 방법 10가지",
-     "views": 188536,
-     "vpd": 3861.7
-    }
-   },
-   {
-    "channel_id": "UCJq2J5oemht1YOfFpi4atiA",
-    "channel": "살림왕티라노",
-    "brand_hint": null,
-    "created": "2025-02-18",
-    "months": 21.2,
-    "subs": 17200,
-    "videos": 38,
-    "subs_per_month": 810,
-    "uploads_per_month": 1.8,
-    "subs_per_day_recent": null,
-    "themes": [
-     "1. 쿠팡·쇼핑 추천"
-    ],
-    "seen_videos": 2,
-    "minutes_median": 49.15,
-    "best": {
-     "id": "EYyUlYDnJSs",
-     "title": "쿠팡에서 난리난 품절대란 꿀템 71가지 몰아보기 | 내돈내산 | 놓치면 후회하는 삶의 질 수직 상승템 | 안사면 손해인 살림 추천템 | 품절 대란 후 드디어 재입고 되었습니다",
-     "views": 618031,
-     "vpd": 1193.6
-    }
-   },
-   {
-    "channel_id": "UCeq24vJagOUWmSIkokqBBPA",
-    "channel": "사랑보틀 sarangbottle",
-    "brand_hint": null,
-    "created": "2025-11-28",
-    "months": 12.0,
-    "subs": 9130,
-    "videos": 103,
-    "subs_per_month": 764,
-    "uploads_per_month": 8.6,
-    "subs_per_day_recent": null,
-    "themes": [
-     "2. 살림·주방"
-    ],
-    "seen_videos": 3,
-    "minutes_median": 15.0,
-    "best": {
-     "id": "oP_ZRGS_Vhw",
-     "title": "오늘의 살림 | 늘 단정한 집을 유지하는 작은 습관 | 청소루틴 · 주방살림 · 집밥",
-     "views": 38561,
-     "vpd": 364.5
-    }
-   },
-   {
-    "channel_id": "UC9CBK_hBpd420TDoqGOClAA",
-    "channel": "미니멀라이프_심플살림",
-    "brand_hint": null,
-    "created": "2026-04-26",
-    "months": 7.1,
-    "subs": 4840,
-    "videos": 42,
-    "subs_per_month": 685,
-    "uploads_per_month": 5.9,
-    "subs_per_day_recent": null,
-    "themes": [
-     "3. 청소·정리·수납"
-    ],
-    "seen_videos": 4,
-    "minutes_median": 11.7,
-    "best": {
-     "id": "epG_Uz90pAw",
-     "title": "매일매일 조금씩 미니멀리스트의 청소 루틴",
-     "views": 506739,
-     "vpd": 3801.6
+     "id": "Tbukj8O5Hvs",
+     "title": "\"강남 원장도 소름 돋 다이소 화장품 성분?\" 피부 좋아지는 다이소 꿀템 8가지! | 다이소, 다이소추천템, 다이소화장품추천",
+     "views": 1438827,
+     "vpd": 7346.8
     }
    }
   ]
  },
  "engagement": {
   "success": {
-   "likes_per_1k": 4.73,
-   "comments_per_1k": 0.21,
-   "n": 135
+   "likes_per_1k": 4.57,
+   "comments_per_1k": 0.19,
+   "n": 110
   },
   "others": {
-   "likes_per_1k": 7.2,
-   "comments_per_1k": 0.5,
-   "n": 366
+   "likes_per_1k": 6.89,
+   "comments_per_1k": 0.55,
+   "n": 596
   }
  },
  "gap_candidates": [
@@ -23546,32 +24615,868 @@
   "주방정리템"
  ],
  "baseline": {
-  "channels": 0,
-  "compared_channels": 0,
-  "hits": 0,
-  "normal": 0,
-  "small_sample": true,
-  "features": [],
-  "themes": [],
-  "formats": [],
-  "words_up": [],
-  "words_down": [],
+  "channels": 90,
+  "compared_channels": 74,
+  "hits": 247,
+  "normal": 301,
+  "small_sample": false,
+  "features": [
+   {
+    "feature": "N가지",
+    "hits": 0.275,
+    "normal": 0.189,
+    "diff": 0.086,
+    "notable": false
+   },
+   {
+    "feature": "40자 이상",
+    "hits": 0.644,
+    "normal": 0.724,
+    "diff": -0.08,
+    "notable": false
+   },
+   {
+    "feature": "패턴형(공통점·특징·이유·N가지·착각·과정)",
+    "hits": 0.291,
+    "normal": 0.239,
+    "diff": 0.052,
+    "notable": false
+   },
+   {
+    "feature": "따옴표·괄호로 강조",
+    "hits": 0.247,
+    "normal": 0.199,
+    "diff": 0.048,
+    "notable": false
+   },
+   {
+    "feature": "말줄임 …·...",
+    "hits": 0.012,
+    "normal": 0.05,
+    "diff": -0.038,
+    "notable": false
+   },
+   {
+    "feature": "이유",
+    "hits": 0.02,
+    "normal": 0.043,
+    "diff": -0.023,
+    "notable": false
+   },
+   {
+    "feature": "25자 미만",
+    "hits": 0.069,
+    "normal": 0.05,
+    "diff": 0.019,
+    "notable": false
+   },
+   {
+    "feature": "느낌표 !",
+    "hits": 0.291,
+    "normal": 0.309,
+    "diff": -0.018,
+    "notable": false
+   },
+   {
+    "feature": "노후·퇴직금·은퇴·50~70대",
+    "hits": 0.117,
+    "normal": 0.133,
+    "diff": -0.016,
+    "notable": false
+   },
+   {
+    "feature": "금액(억·만원)",
+    "hits": 0.057,
+    "normal": 0.043,
+    "diff": 0.014,
+    "notable": false
+   },
+   {
+    "feature": "직접·해보니·N년 기록",
+    "hits": 0.061,
+    "normal": 0.047,
+    "diff": 0.014,
+    "notable": false
+   },
+   {
+    "feature": "vs 비교",
+    "hits": 0.146,
+    "normal": 0.159,
+    "diff": -0.013,
+    "notable": false
+   },
+   {
+    "feature": "물음표 ?",
+    "hits": 0.101,
+    "normal": 0.093,
+    "diff": 0.008,
+    "notable": false
+   },
+   {
+    "feature": "공통점",
+    "hits": 0.0,
+    "normal": 0.007,
+    "diff": -0.007,
+    "notable": false
+   },
+   {
+    "feature": "과정·벌어진 일·결말·결국",
+    "hits": 0.004,
+    "normal": 0.01,
+    "diff": -0.006,
+    "notable": false
+   },
+   {
+    "feature": "숫자가 들어감",
+    "hits": 0.619,
+    "normal": 0.625,
+    "diff": -0.006,
+    "notable": false
+   },
+   {
+    "feature": "구분 기호(ㅣ·｜·/)로 나눔",
+    "hits": 0.413,
+    "normal": 0.419,
+    "diff": -0.006,
+    "notable": false
+   },
+   {
+    "feature": "두 금액(반전)",
+    "hits": 0.004,
+    "normal": 0.0,
+    "diff": 0.004,
+    "notable": false
+   },
+   {
+    "feature": "사연·오디오북·실화·고백",
+    "hits": 0.016,
+    "normal": 0.02,
+    "diff": -0.004,
+    "notable": false
+   },
+   {
+    "feature": "빚투·신용·미수·레버리지·대출",
+    "hits": 0.004,
+    "normal": 0.0,
+    "diff": 0.004,
+    "notable": false
+   },
+   {
+    "feature": "AI",
+    "hits": 0.0,
+    "normal": 0.003,
+    "diff": -0.003,
+    "notable": false
+   },
+   {
+    "feature": "손실 낱말(망하·날린·잃은·반토막)",
+    "hits": 0.004,
+    "normal": 0.003,
+    "diff": 0.001,
+    "notable": false
+   }
+  ],
+  "themes": [
+   {
+    "theme": "3. 청소·정리·수납",
+    "hits": 0.13,
+    "normal": 0.076,
+    "diff": 0.054
+   },
+   {
+    "theme": "4. 다이소·가성비",
+    "hits": 0.15,
+    "normal": 0.11,
+    "diff": 0.04
+   },
+   {
+    "theme": "5. 4050 뷰티",
+    "hits": 0.036,
+    "normal": 0.017,
+    "diff": 0.019
+   },
+   {
+    "theme": "6. 4050 패션",
+    "hits": 0.17,
+    "normal": 0.159,
+    "diff": 0.011
+   },
+   {
+    "theme": "2. 살림·주방",
+    "hits": 0.134,
+    "normal": 0.126,
+    "diff": 0.008
+   },
+   {
+    "theme": "7. 가전",
+    "hits": 0.004,
+    "normal": 0.017,
+    "diff": -0.013
+   },
+   {
+    "theme": "1. 쿠팡·쇼핑 추천",
+    "hits": 0.182,
+    "normal": 0.216,
+    "diff": -0.034
+   },
+   {
+    "theme": "기타",
+    "hits": 0.194,
+    "normal": 0.279,
+    "diff": -0.085
+   }
+  ],
+  "formats": [
+   {
+    "format": "경고형 (사지 마세요·실패템)",
+    "hits": 0.089,
+    "normal": 0.076,
+    "diff": 0.013
+   },
+   {
+    "format": "비교 (vs·차이·순위)",
+    "hits": 0.053,
+    "normal": 0.033,
+    "diff": 0.02
+   },
+   {
+    "format": "직접 써 본 후기 (내돈내산·N개월 사용)",
+    "hits": 0.036,
+    "normal": 0.047,
+    "diff": -0.011
+   },
+   {
+    "format": "하울·언박싱",
+    "hits": 0.032,
+    "normal": 0.033,
+    "diff": -0.001
+   },
+   {
+    "format": "살림 브이로그·루틴",
+    "hits": 0.178,
+    "normal": 0.219,
+    "diff": -0.041
+   },
+   {
+    "format": "코디·메이크업 (따라 하기)",
+    "hits": 0.134,
+    "normal": 0.136,
+    "diff": -0.002
+   },
+   {
+    "format": "목록형 (N가지 추천템)",
+    "hits": 0.223,
+    "normal": 0.136,
+    "diff": 0.087
+   },
+   {
+    "format": "정보·해설 (그 밖)",
+    "hits": 0.255,
+    "normal": 0.319,
+    "diff": -0.064
+   }
+  ],
+  "words_up": [
+   {
+    "word": "3가지",
+    "hits": 0.049,
+    "normal": 0.017,
+    "diff": 0.032,
+    "n": 17
+   },
+   {
+    "word": "이케아",
+    "hits": 0.036,
+    "normal": 0.007,
+    "diff": 0.03,
+    "n": 11
+   },
+   {
+    "word": "코디법",
+    "hits": 0.028,
+    "normal": 0.0,
+    "diff": 0.028,
+    "n": 7
+   },
+   {
+    "word": "반찬",
+    "hits": 0.032,
+    "normal": 0.007,
+    "diff": 0.026,
+    "n": 10
+   },
+   {
+    "word": "7가지",
+    "hits": 0.028,
+    "normal": 0.003,
+    "diff": 0.025,
+    "n": 8
+   },
+   {
+    "word": "내내",
+    "hits": 0.04,
+    "normal": 0.017,
+    "diff": 0.024,
+    "n": 15
+   },
+   {
+    "word": "중년",
+    "hits": 0.04,
+    "normal": 0.017,
+    "diff": 0.024,
+    "n": 15
+   },
+   {
+    "word": "4가지",
+    "hits": 0.036,
+    "normal": 0.013,
+    "diff": 0.023,
+    "n": 13
+   },
+   {
+    "word": "아우터",
+    "hits": 0.024,
+    "normal": 0.003,
+    "diff": 0.021,
+    "n": 7
+   },
+   {
+    "word": "사세요",
+    "hits": 0.024,
+    "normal": 0.003,
+    "diff": 0.021,
+    "n": 7
+   },
+   {
+    "word": "후회",
+    "hits": 0.045,
+    "normal": 0.023,
+    "diff": 0.021,
+    "n": 18
+   },
+   {
+    "word": "다이소",
+    "hits": 0.101,
+    "normal": 0.08,
+    "diff": 0.021,
+    "n": 49
+   }
+  ],
+  "words_down": [
+   {
+    "word": "보이",
+    "hits": 0.012,
+    "normal": 0.037,
+    "diff": -0.024,
+    "n": 14
+   },
+   {
+    "word": "없이",
+    "hits": 0.012,
+    "normal": 0.037,
+    "diff": -0.024,
+    "n": 14
+   },
+   {
+    "word": "이유",
+    "hits": 0.02,
+    "normal": 0.043,
+    "diff": -0.023,
+    "n": 18
+   },
+   {
+    "word": "명품",
+    "hits": 0.004,
+    "normal": 0.023,
+    "diff": -0.019,
+    "n": 8
+   },
+   {
+    "word": "오래",
+    "hits": 0.004,
+    "normal": 0.023,
+    "diff": -0.019,
+    "n": 8
+   },
+   {
+    "word": "샵뚱",
+    "hits": 0.0,
+    "normal": 0.017,
+    "diff": -0.017,
+    "n": 5
+   },
+   {
+    "word": "ep",
+    "hits": 0.0,
+    "normal": 0.017,
+    "diff": -0.017,
+    "n": 5
+   },
+   {
+    "word": "의외",
+    "hits": 0.0,
+    "normal": 0.017,
+    "diff": -0.017,
+    "n": 5
+   }
+  ],
   "other": {
    "hits": {
-    "minutes_median": null,
-    "title_len_median": null,
-    "chapters_share": null,
-    "n": 0
+    "minutes_median": 11.3,
+    "title_len_median": 45,
+    "chapters_share": 0.51,
+    "n": 247
    },
    "normal": {
-    "minutes_median": null,
-    "title_len_median": null,
-    "chapters_share": null,
-    "n": 0
+    "minutes_median": 11.1,
+    "title_len_median": 50,
+    "chapters_share": 0.472,
+    "n": 301
    }
   },
-  "pairs": [],
-  "success_covered": 0
+  "pairs": [
+   {
+    "no": 1,
+    "title": "갈비탕, 이 방법 알면 밖에서 안 사 먹어요 | 코스트코 갈비살  | 갈비탕끓이는법",
+    "channel": "가치살림",
+    "channel_ratio": 454.4,
+    "views": 1091449,
+    "thumb": "W_RkipQfEWj5k/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "4-WlgWVaXMc",
+      "title": "수건냄새 완벽하게 없애는 방법",
+      "views": 2402,
+      "thumb": ".cache/thumbs/4-WlgWVaXMc.jpg"
+     },
+     {
+      "id": "Idr2mVprZN4",
+      "title": "압력솥에 넣기만 하세요! 실패 없는 야들야들 수육 레시피",
+      "views": 2570,
+      "thumb": ".cache/thumbs/Idr2mVprZN4.jpg"
+     }
+    ]
+   },
+   {
+    "no": 3,
+    "title": "【안 보면 후회】올겨울 바지는 딱 4벌이면 충분! 이 5가지는 지금 당장 피하세요｜60대 겨울패션｜중년 여성 패션 ｜겨울 바지",
+    "channel": "옷차림의 품격",
+    "channel_ratio": 104.9,
+    "views": 116406,
+    "thumb": "W_81Qc8Fyfg9c/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "-U2Mtstth8c",
+      "title": "키 작은 60대 늦가을 코디 5가지! 제발 이렇게 입으세요｜굽 없이도 다리가 길어 보이는 비결",
+      "views": 1323,
+      "thumb": ".cache/thumbs/-U2Mtstth8c.jpg"
+     },
+     {
+      "id": "_nxL_Oq3uf4",
+      "title": "올겨울 패딩 사기 전에 꼭 보세요! 색 하나·끈 하나로 10살 젊어 보이는 60대 패딩 선택법｜색깔·기장·핏",
+      "views": 896,
+      "thumb": ".cache/thumbs/_nxL_Oq3uf4.jpg"
+     }
+    ]
+   },
+   {
+    "no": 5,
+    "title": "하루 일당 8만원 받으려고 쿠팡 간 53세 주부, 물류센터 1년 해 보고 알게 된 것들",
+    "channel": "일해볼까",
+    "channel_ratio": 2.7,
+    "views": 546543,
+    "thumb": "W_yLZpYX1Cvxo/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "8jj7ynrrdKU",
+      "title": "은퇴 후 마을버스 기사, 되는 건 쉬운데 오래 못 하는 이유",
+      "views": 201784,
+      "thumb": ".cache/thumbs/8jj7ynrrdKU.jpg"
+     },
+     {
+      "id": "OryEkxA684E",
+      "title": "지게차 자격증만 따면 된다더니, 경력 없는 57세가 겪은 첫 직장 | 지게차 현실",
+      "views": 211441,
+      "thumb": ".cache/thumbs/OryEkxA684E.jpg"
+     }
+    ]
+   },
+   {
+    "no": 7,
+    "title": "등산복 코디 총정리 | 색상 조합 추천 | 등산 패션",
+    "channel": "액티브중년",
+    "channel_ratio": 42.7,
+    "views": 356544,
+    "thumb": "W_0O696yvspvM/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "cwZEP1XCAJE",
+      "title": "여름등산 햇빛과 땀때문에 힘들때, 이것 챙기세요!",
+      "views": 8343,
+      "thumb": ".cache/thumbs/cwZEP1XCAJE.jpg"
+     },
+     {
+      "id": "JWskFy5Kd6g",
+      "title": "여름등산 준비물 추천템3",
+      "views": 9172,
+      "thumb": ".cache/thumbs/JWskFy5Kd6g.jpg"
+     }
+    ]
+   },
+   {
+    "no": 8,
+    "title": "🍒 매일 보던 동네엄마, 왜 남남이 됐을까 | 40대 전업주부",
+    "channel": "주부 김앵두",
+    "channel_ratio": 90.0,
+    "views": 215635,
+    "thumb": "W_Xiil0Dr4v1c/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "_NV649kpWsc",
+      "title": "🍒 3인가족  40대 주부의 소비기록 시작합니다.",
+      "views": 2975,
+      "thumb": ".cache/thumbs/_NV649kpWsc.jpg"
+     },
+     {
+      "id": "t8D0O1BnmoM",
+      "title": "🍒 고래잇 오픈런 후기 | 같은 장바구니 쿠팡 vs 이마트 가격 비교했더니",
+      "views": 1817,
+      "thumb": ".cache/thumbs/t8D0O1BnmoM.jpg"
+     }
+    ]
+   },
+   {
+    "no": 9,
+    "title": "쓸수록 감탄나오는 다이소 강력 추천 화장실 세제",
+    "channel": "살림클라스",
+    "channel_ratio": 1257.9,
+    "views": 1158538,
+    "thumb": "W_unM52hap6r8/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "j8rM5iUv_nM",
+      "title": "청소 인생 바꿔준 신세계 다이소 꿀템, 사면 또 사게됩니다.",
+      "views": 921,
+      "thumb": ".cache/thumbs/j8rM5iUv_nM.jpg"
+     },
+     {
+      "id": "6HreXyUNVnE",
+      "title": "싱크볼 교체하려다 싱크볼 청소로 교체 안한 이유",
+      "views": 1192,
+      "thumb": ".cache/thumbs/6HreXyUNVnE.jpg"
+     }
+    ]
+   },
+   {
+    "no": 10,
+    "title": "60대 패딩, '이 4가지 색' 입으면 10년 늙어 보입니다!｜얼굴 확 살리는 색은 따로 있어요",
+    "channel": "품격 있는 옷장",
+    "channel_ratio": 21.4,
+    "views": 206231,
+    "thumb": "W_K6SjlNybF-E/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "95PkKowJICQ",
+      "title": "【안 보면 후회】흰옷 입으면 더 나이 들어 보이는 이유! 40대부터 꼭 알아야 할 아이보리 코디 비밀 5가지",
+      "views": 9646,
+      "thumb": ".cache/thumbs/95PkKowJICQ.jpg"
+     },
+     {
+      "id": "PaIKx3zf9_I",
+      "title": "【안 보면 후회】60세 이후 귀티 나는 여자들의 옷장 비밀! 명품 없이 10년 젊어 보이는 3가지 비법, 지금 확인하세요!",
+      "views": 9103,
+      "thumb": ".cache/thumbs/PaIKx3zf9_I.jpg"
+     }
+    ]
+   },
+   {
+    "no": 11,
+    "title": "한 번 쓰면 못 돌아갑니다... 59,900원 올스텐 2단 찜기 실사용 후기",
+    "channel": "적자유튜버, 찐써봄",
+    "channel_ratio": 104.8,
+    "views": 105889,
+    "thumb": "W_RKCDp2p52ss/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "tOTOqUNefm0",
+      "title": "2만원대로 집에서 더 많이 쓰는 캠핑용 폴딩카트",
+      "views": 1010,
+      "thumb": ".cache/thumbs/tOTOqUNefm0.jpg"
+     },
+     {
+      "id": "-Dqcjtr2s8c",
+      "title": "3만원대 자동센서휴지통이 봉투까지 알아서 펴준다고? 직접 써봤습니다",
+      "views": 969,
+      "thumb": ".cache/thumbs/-Dqcjtr2s8c.jpg"
+     }
+    ]
+   },
+   {
+    "no": 12,
+    "title": "【안 보면 후회】60대 가을 청바지, 이렇게 입으면 10년 더 늙어 보입니다! 뱃살 싹 가리고 다리 길어 보이는 3가지 황금 코디법",
+    "channel": "품격 있는 옷장",
+    "channel_ratio": 79.6,
+    "views": 767359,
+    "thumb": "W_0kMrCuXCzh4/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "95PkKowJICQ",
+      "title": "【안 보면 후회】흰옷 입으면 더 나이 들어 보이는 이유! 40대부터 꼭 알아야 할 아이보리 코디 비밀 5가지",
+      "views": 9646,
+      "thumb": ".cache/thumbs/95PkKowJICQ.jpg"
+     },
+     {
+      "id": "PaIKx3zf9_I",
+      "title": "【안 보면 후회】60세 이후 귀티 나는 여자들의 옷장 비밀! 명품 없이 10년 젊어 보이는 3가지 비법, 지금 확인하세요!",
+      "views": 9103,
+      "thumb": ".cache/thumbs/PaIKx3zf9_I.jpg"
+     }
+    ]
+   },
+   {
+    "no": 13,
+    "title": "\"인스타 감성은 갖다 버렸어요\" 100점 살림 포기, 외벌이 월 200 저축 달성한 전업주부 꼼수템 | 꿀템 공개, 생존 살림",
+    "channel": "품격있는 살림학",
+    "channel_ratio": 27.2,
+    "views": 252515,
+    "thumb": "W_PTNkB8INsa8/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "gztC-ghZIWs",
+      "title": "외벌이 월 200씩 모으는 품위 있는 가성비 살림법 (저녁준비 10분, 학원비 0원)",
+      "views": 9277,
+      "thumb": ".cache/thumbs/gztC-ghZIWs.jpg"
+     },
+     {
+      "id": "kcL9boNZysM",
+      "title": "남부럽지 않게 사는 월 200씩 모으는 현실 주부의 푼돈 소비 철학(13년째 유지)",
+      "views": 6561,
+      "thumb": ".cache/thumbs/kcL9boNZysM.jpg"
+     }
+    ]
+   },
+   {
+    "no": 14,
+    "title": "청소 브이로그ㅣ그릇 좋아하는 맥시멀리스트의 2박 3일 주방정리",
+    "channel": "미니멀 다이어리 ",
+    "channel_ratio": 31.3,
+    "views": 288670,
+    "thumb": "W_x2YNHyzSL1Q/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "0sQLHihnEHE",
+      "title": "버리기 너무 힘든 맥시멀리스트의 현실적인 신발장 비우기",
+      "views": 9700,
+      "thumb": ".cache/thumbs/0sQLHihnEHE.jpg"
+     },
+     {
+      "id": "mMpXnlfh0Lg",
+      "title": "청소 브이로그 ㅣ 0.7평 안방 베란다 대충 빨리 청소하기",
+      "views": 8774,
+      "thumb": ".cache/thumbs/mMpXnlfh0Lg.jpg"
+     }
+    ]
+   },
+   {
+    "no": 15,
+    "title": "새 가디건 사지 마세요! 지금 있는 가디건 날씬하게 입는 법 실패없는 가디건 코디법 4050가디건 예쁜것보다 중요한 이것 중년패션고급스러운 가디건 코디 꼭있어야할 기본템",
+    "channel": "우아한 C",
+    "channel_ratio": 17.2,
+    "views": 304815,
+    "thumb": "W_opK4bsSaXH4/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "8Jg3ECQZvPY",
+      "title": "여행갈 때 이렇게만 입으세요ㅣ여행 사진이 유독 예쁜 사람들의 공통점 (의외로 얼굴이 아닙니다)10년 젊어보이는 여행룩ㅣ중년패션ㅣ중년여행룩ㅣ40대패션ㅣ50대패션ㅣ여행코디",
+      "views": 17715,
+      "thumb": ".cache/thumbs/8Jg3ECQZvPY.jpg"
+     },
+     {
+      "id": "D_y8k4-OMtc",
+      "title": "명품없이 귀티나게 입는법ㅣ우아해보이는기준ㅣ고급스러워보이는코디ㅣ세련된코디ㅣ귀티나는코디ㅣ품위있고 우아해보이는방법ㅣ동창회코디ㅣ모임코디ㅣ우아한데일리룩ㅣ부티나는코디",
+      "views": 7771,
+      "thumb": ".cache/thumbs/D_y8k4-OMtc.jpg"
+     }
+    ]
+   },
+   {
+    "no": 16,
+    "title": "명품 핏인데 가격은 부담 없는 중년 쇼핑몰 추천 7곳 (실패 없는 고급스럽고 세련된 중년 코디)",
+    "channel": "40,50대의 격 있는 옷",
+    "channel_ratio": 31.1,
+    "views": 270065,
+    "thumb": "W_HfThekZjkxI/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "W-SkcL6PzFQ",
+      "title": "중년들이 극찬한 우아하고 고급스러운 중년 쇼핑몰 5곳, 77-88사이즈 집중! (명품 빰치는.. 저렴해요!)",
+      "views": 9837,
+      "thumb": ".cache/thumbs/W-SkcL6PzFQ.jpg"
+     },
+     {
+      "id": "gRbvQfpyMFA",
+      "title": "(광고❌)키작은 중년 쇼핑몰 추천 | 욕 먹을 각오하고 비싼 옷 없이 고급져 보이는 쇼핑몰  전부 공개합니다(중년들이 극찬한 곳!!)",
+      "views": 7524,
+      "thumb": ".cache/thumbs/gRbvQfpyMFA.jpg"
+     }
+    ]
+   },
+   {
+    "no": 17,
+    "title": "\"거의 바르는 보톡스 입니다\"  주름 지우고 우아하게 늙고싶다면 올리브영에서 이거 5개만 사면 됩니다!  화장품 만든 17년차 피부과 전문의가 얼굴노화 화장품 싹 알려드리겠습니다.",
+    "channel": "피부과 김진용",
+    "channel_ratio": 155.3,
+    "views": 4299059,
+    "thumb": "W_F1npP23Kq1I/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "x2hSuPtc9FA",
+      "title": "매일 하면 피부 정말 좋아지는 스킨케어 루틴!  피부를 위해 꼭 써야 하는 성분들을 17년차 피부과 전문의가 싹 알려드리겠습니다!",
+      "views": 31164,
+      "thumb": ".cache/thumbs/x2hSuPtc9FA.jpg"
+     },
+     {
+      "id": "VgDth-7r2lI",
+      "title": "\"생각보다 쉽고 간단합니다!\" 연예인처럼 목주름 쫙 펴는 방법을 17년차 피부과 전문의가 솔직하게 싹 알려드리겠습니다.",
+      "views": 31411,
+      "thumb": ".cache/thumbs/VgDth-7r2lI.jpg"
+     }
+    ]
+   },
+   {
+    "no": 18,
+    "title": "중년 운동화, 잘못 신으면 촌스러워요｜편하면서 세련되고 어려보이는 운동화 코디법 #중년패션코디",
+    "channel": "조용한 럭셔리ㅣquiet luxury",
+    "channel_ratio": 53.9,
+    "views": 379812,
+    "thumb": "W_15PkJrKxx4s/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "wSVDOitO4Kk",
+      "title": "이렇게 했더니 바로 세련된 중년 여름 패션! 날씬해보이기까지~",
+      "views": 7044,
+      "thumb": ".cache/thumbs/wSVDOitO4Kk.jpg"
+     },
+     {
+      "id": "77QuHlT4xiM",
+      "title": "진주 목걸이 사기 전에 딱 3가지만 확인하세요 | 스와로브스키 진주 목걸이",
+      "views": 8397,
+      "thumb": ".cache/thumbs/77QuHlT4xiM.jpg"
+     }
+    ]
+   },
+   {
+    "no": 19,
+    "title": "주방에 물건이 없는 사람들의 놀라운 심리 3가지 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학ㅣ",
+    "channel": "가을빛 심리학",
+    "channel_ratio": 11.5,
+    "views": 216184,
+    "thumb": "W_PKJLC0s8ZVU/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "M4inMOT8mRQ",
+      "title": "냉장고만 열어봐도 노후가 보입니다｜나이 들수록 달라지는 4가지 ㅣ시니어ㅣ오디오북ㅣ노후준비ㅣ심리학",
+      "views": 18861,
+      "thumb": ".cache/thumbs/M4inMOT8mRQ.jpg"
+     },
+     {
+      "id": "dkNuvWhpAsU",
+      "title": "앞서가는 엄마가 집에만 있으려는 진짜 이유 (심리학이 밝힌 충격적 반전) 뇌과학 | 심리학 | 자기계발",
+      "views": 18848,
+      "thumb": ".cache/thumbs/dkNuvWhpAsU.jpg"
+     }
+    ]
+   },
+   {
+    "no": 20,
+    "title": "주부 5명이 후쿠오카에 가면 생기는 일! 가방 가득 채 워 온 주부들의 후쿠오카 찐 현실 쇼핑 여행",
+    "channel": "안목주부 제이",
+    "channel_ratio": 43.4,
+    "views": 309607,
+    "thumb": "W_8K5Dk4Gi0kM/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "uaY_csNr3_M",
+      "title": "지금 이 계절에 가면 좋은 혼자만의 힐링 여행지, 원주 뮤지엄 산에서의 사색의 시간",
+      "views": 7130,
+      "thumb": ".cache/thumbs/uaY_csNr3_M.jpg"
+     },
+     {
+      "id": "OsnpZjDlL0c",
+      "title": "명동필수코스! 자라,유니클로부터 요즘 핫하다는 약국쇼핑까지 꽉 채운 나들이,주부의 추천코스",
+      "views": 8391,
+      "thumb": ".cache/thumbs/OsnpZjDlL0c.jpg"
+     }
+    ]
+   },
+   {
+    "no": 21,
+    "title": "중년 진주목걸이, 이렇게 하면 10년 늙어 보여요! 촌스럽지 않게 착용하는 3가지 방법",
+    "channel": "조용한 럭셔리ㅣquiet luxury",
+    "channel_ratio": 34.8,
+    "views": 244973,
+    "thumb": "W_7hWxm9uR9oY/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "wSVDOitO4Kk",
+      "title": "이렇게 했더니 바로 세련된 중년 여름 패션! 날씬해보이기까지~",
+      "views": 7044,
+      "thumb": ".cache/thumbs/wSVDOitO4Kk.jpg"
+     },
+     {
+      "id": "77QuHlT4xiM",
+      "title": "진주 목걸이 사기 전에 딱 3가지만 확인하세요 | 스와로브스키 진주 목걸이",
+      "views": 8397,
+      "thumb": ".cache/thumbs/77QuHlT4xiM.jpg"
+     }
+    ]
+   },
+   {
+    "no": 22,
+    "title": "다이소 다시 가기 전에 이 영상부터 무조건 보십시오",
+    "channel": "한국 식품 진실 탐사",
+    "channel_ratio": 4417.8,
+    "views": 322496,
+    "thumb": "W_Ych5AXeWk10/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "GfJTXBiwohQ",
+      "title": "도미노·피자헛·파파존스까지… 국내 피자 브랜드 12곳 비교! 주문 전 꼭 확인해야 할 9곳",
+      "views": 79,
+      "thumb": ".cache/thumbs/GfJTXBiwohQ.jpg"
+     },
+     {
+      "id": "GB43uDhTn6Y",
+      "title": "이마트·홈플러스 블랙앤데커 블프 세일 당장 걸러야 할 최악 vs 최고 6가지 (2026)",
+      "views": 67,
+      "thumb": ".cache/thumbs/GB43uDhTn6Y.jpg"
+     }
+    ]
+   },
+   {
+    "no": 23,
+    "title": "10시간 장거리 비행이 10배 편해지는 기내 꿀템 7가지",
+    "channel": "출국체크 : 알고 가면 편해지는 여행정보",
+    "channel_ratio": 98.9,
+    "views": 241411,
+    "thumb": "W_jGoVK7OkI2k/thumbnail.jpg",
+    "normal": [
+     {
+      "id": "ONx4AxbWbjM",
+      "title": "비행기 좌석 아무 데나 앉지 마세요｜창가·복도·비상구 완벽정리",
+      "views": 2441,
+      "thumb": ".cache/thumbs/ONx4AxbWbjM.jpg"
+     },
+     {
+      "id": "pAu3Dq9Oj-0",
+      "title": "이태리 여행 전 필수시청! 꼭 알아야 할 도시·일정·숙소 핵심정리 - 이탈리아 여행 , 해외여행 , 유럽여행 , 여행초보자 , 여행 캐리어",
+      "views": 2721,
+      "thumb": ".cache/thumbs/pAu3Dq9Oj-0.jpg"
+     }
+    ]
+   }
+  ],
+  "success_covered": 83
  },
  "transcripts": {
   "full": 0,
@@ -23605,7 +25510,18 @@
    97
   ]
  ],
- "pair_pages": [],
+ "pair_pages": [
+  [
+   "analysis_thumbs_pairs_01.jpg",
+   1,
+   "#13-b"
+  ],
+  [
+   "analysis_thumbs_pairs_02.jpg",
+   14,
+   "#23-b"
+  ]
+ ],
  "others": [
   {
    "k": 1,

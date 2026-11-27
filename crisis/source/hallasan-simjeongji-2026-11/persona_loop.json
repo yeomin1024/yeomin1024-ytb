@@ -376,7 +376,20 @@
       },
       "text": "제목: 일행과 등산 중 몸 상태가 안 좋아진다면? | 한라산 심정지\n썸네일 문구: 등산 중 가슴이 답답할 때 / 나 혼자 먼저 내려가면?\n보조 문구: 2023년 한라산 실제 사고"
      }
-    ]
+    ],
+    "pending": {
+     "n": 9,
+     "sha": "9e9809af3558bab0",
+     "reviewers": [
+      "T9-P3",
+      "T9-반론"
+     ],
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r9.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/answers_hallasan-simjeongji-2026-11_title_9",
+     "ours_idx": 4,
+     "text": "제목: 등산 힘들어서 먼저 내려갔는데... 고작 1시간 만에 심정지로 발견됐다\n썸네일 문구: 등산 힘들어서 먼저 내려갔는데... / 고작 1시간 만에 심정지로 발견됐다\n보조 문구: 2023년 한라산 실제 사고",
+     "at": "2026-11-27T07:49:03Z"
+    }
    },
    "script_exit": {
     "rounds": [

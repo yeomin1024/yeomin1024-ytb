@@ -193,7 +193,20 @@
       },
       "text": "제목: \"먼저 내려갈게\" 신고 1시간 뒤 발견… 한라산 둘레길 심정지\n썸네일 문구: 먼저 내려갈게 / 1시간 뒤 발견\n보조 문구: 2023년 실제 사건"
      }
-    ]
+    ],
+    "pending": {
+     "n": 5,
+     "sha": "3eaeaf9fdcbfd150",
+     "reviewers": [
+      "T5-P3",
+      "T5-반론"
+     ],
+     "prompt": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/title_r5.md",
+     "answers": "/tmp/claude-0/-home-user-yeomin1024-ytb/8185cafd-b7fe-5610-bcb7-e5326073f4d7/scratchpad/answers_hallasan-simjeongji-2026-11_title_5",
+     "ours_idx": 7,
+     "text": "제목: 일행과 등산 중 몸 상태가 안 좋아진다면? | 한라산 심정지\n썸네일 문구: 등산 중 몸이 안 좋을 때 / 먼저 내려가면?\n보조 문구: 한라산 실제 사고",
+     "at": "2026-11-27T07:06:30Z"
+    }
    },
    "script_exit": {
     "rounds": [

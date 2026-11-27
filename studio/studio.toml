@@ -1,0 +1,36 @@
+# 제작 판 설정 — tools/studio_board.py 가 읽음 (사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 …")
+# VERSION: v1.0 — 2026-11-27 — 최초. 주제를 더하려면 TOPICS 에 폴더 이름 한 줄 + 아래 [topic.<이름>] 칸.
+ARTIFACT = "https://claude.ai/artifact/Q5u1feF9sGL2jFBa8D1FPN"   # 제작 판 주소 (2026-11-27 첫 발행) — 다시 올릴 땐 이 주소로
+TOPICS = ["psychology", "crisis"]
+
+[trends]
+# 판에서 검색어를 고치기 전 기본값 — 판에서 고치면 studio/state/trends.json 이 이 값을 덮음
+EVERY_HOURS = 24          # 같은 묶음을 다시 받는 간격 (PC watch 가 이 간격마다 새 결과 폴더 board_<날짜>)
+GEO = "KR"
+GPROP = "youtube"         # 유튜브 검색 기준 (웹 검색은 "")
+TIME = "today 3-m"
+
+[trends.overall]          # 구글 트렌드 전체 탐색 — 주제 없이 분류만 (관련 검색어 인기·급상승) · 결과 폴더 new/result/next_topic/board_*
+TOPIC = "new"
+CATS = [0, 14, 958, 45, 16]   # 모든 카테고리 · 집단·사회 · 직업·교육 · 건강 · 뉴스 (번호 = new/result/gap/discover/batch_000.json)
+TIME = "now 7-d"
+
+[topic.psychology]
+NAME = "심리"
+WORDS = ["심리", "인간관계", "엄마", "말투", "눈치"]
+EXPLORE = ["psychology/result/next_topic/next_topic.md", "psychology/result/next_topic/overlap.md", "psychology/result/next_topic/trends.md", "psychology/source/first_video.md"]
+RELATED_DIR = "psychology/result/related"
+SUCCESS = "analysis_json"          # psychology/result/outliers/analysis.json success_cases
+THUMB_CODES = "psychology/result/outliers/thumb_codes.tsv"
+LEGACY = "studio/legacy/psychology_analysis_board.json"
+NOTE = "연구·교육용이며 의료·심리 상담이 아닙니다."
+
+[topic.crisis]
+NAME = "위기"
+WORDS = ["등산 사고", "심정지", "보이스피싱", "화재 대피", "엘리베이터 사고"]
+EXPLORE = ["crisis/result/demand/topic_demand.md", "crisis/titles.md", "crisis/result/analysis.md", "crisis/result/personas.md"]
+RELATED_DIR = "crisis/result/related"
+SUCCESS = "videos_csv"             # crisis/result/videos.csv group = 성공 사례
+THUMB_CODES = ""
+LEGACY = "studio/legacy/crisis_analysis_board.json"
+NOTE = "안전 수칙은 공식 지침(소방청·경찰청·국민재난안전포털)으로 확인합니다."

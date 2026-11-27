@@ -1,7 +1,9 @@
 ﻿<#
 ================================================================================================
  YouTube 분석 PC 실행기 (Windows PowerShell)
- VERSION: v3.7 — 2026-11-25 — -Trends: 구글 트렌드 묶음 CSV 받기 (사용자 지시: "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가") —
+ VERSION: v3.8 — 2026-11-27 — -TrendsWatch: 제작 판 검색어(GitHub studio/state/trends.json)를 간격마다 받아 올림 (tools/pc_trends.py watch · 기본 60분 · -Once 면 한 번)
+          — 사용자 지시 2026-11-27 "피시에서는 일정 간격으로 단어 가져와서 결과 업로드, 결과도 볼 수 있음". 주제를 정하지 않아도 됨 (판의 주제 전부 + 전체 탐색).
+ (v3.7) — 2026-11-25 — -Trends: 구글 트렌드 묶음 CSV 받기 (사용자 지시: "트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가") —
           tools/pc_trends.py run <주제>: GitHub 의 <주제>/result/next_topic/trends_batches.json 묶음마다 구글 트렌드(유튜브 검색·한국·12개월) CSV 를
           천천히 받아 <주제>/result/next_topic/trends/batch_NN.csv 만 GitHub API 로 main 에 (클라우드는 구글이 HTTP 429 로 막음 — 집 인터넷에서)
  (v3.6 — 2026-10-28 — -Transcribe: 대본만 받기 (사용자 지시: "그럼 대본 받아야하는 목록 정해서 pc 실행하면 저장소에 올리는 코드 알려줘") —
@@ -66,6 +68,7 @@
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -AnalyzerOnly   # 예전처럼 분석기만 한 번
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock            # ★ 대본만 받아 올리기 (목록 순서대로, 멈췄다 다시 하면 이어서)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Transcribe -Folder stock --limit 5  # 시험 삼아 5개만 (그 밖: --korean-only · --no-whisper · --model medium)
+   powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch                          # ★ 제작 판 트렌드 — 켜 두면 60분마다 (v3.8 · --every 30 · -Once 한 번)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder history               # ★ 구글 트렌드 묶음 CSV 받아 올리기 (v3.7 · 시험 삼아 한 묶음: --limit 1)
    powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 --port 8800     # 그 밖의 인자는 웹 화면(tools/web_ui.py)으로 (-Auto 면 pc_analysis.py, -AnalyzerOnly 면 분석기로)
 
@@ -88,6 +91,7 @@ param(
     [switch]$AnalyzerOnly,
     [switch]$Transcribe,
     [switch]$Trends,
+    [switch]$TrendsWatch,
     [switch]$RegisterTask,
     [switch]$UnregisterTask,
     [string]$TaskTime = "17:15",
@@ -228,7 +232,7 @@ if (($Transcribe -or $Trends) -and -not $FolderGiven) {    # v3.6: 대본 받기
     Write-Step "❌ -Transcribe·-Trends 는 주제를 정해 주세요 → 예: -Trends -Folder history"
     exit 1
 }
-if (-not $FolderGiven -and -not ($Auto -or $Once -or $AnalyzerOnly -or $Transcribe -or $Trends)) {
+if (-not $FolderGiven -and -not ($Auto -or $Once -or $AnalyzerOnly -or $Transcribe -or $Trends -or $TrendsWatch)) {
     if (Get-Remote "topics.txt" "topics.txt") {
         $list = @(Get-Content -Path "topics.txt" -Encoding UTF8 | ForEach-Object { $_.Trim() } |
                   Where-Object { $_ -and -not $_.StartsWith("#") -and $_ -match '^[a-z][a-z0-9_-]{1,30}$' })
@@ -317,7 +321,14 @@ if ($ResetCache) {
 }
 
 # ④ 실행
-if ($Trends) {          # v3.7: 구글 트렌드 묶음 CSV 받기 — 웹 화면·분석기를 켜지 않고, 트렌드 CSV 만 GitHub 에 (tools/pc_trends.py)
+if ($TrendsWatch) {     # v3.8: 제작 판 검색어를 간격마다 — GitHub 의 studio/state/trends.json 을 회차마다 다시 읽음 (판에서 고친 뒤 Claude 동기화가 쓰는 파일)
+    $runArgs = @("tools/pc_trends.py", "watch")
+    if ($Once) { $runArgs += "--once" }
+    if ($ExtraArgs) { $runArgs += $ExtraArgs }
+    Write-Step "제작 판 트렌드: python $($runArgs -join ' ') — 켜 둔 채로 두면 간격마다 받아 올림 · 같은 기간에 올린 묶음은 건너뜀 · 멈춤 Ctrl+C"
+    & $pyExe @pyPre @runArgs
+    $code = $LASTEXITCODE
+} elseif ($Trends) {          # v3.7: 구글 트렌드 묶음 CSV 받기 — 웹 화면·분석기를 켜지 않고, 트렌드 CSV 만 GitHub 에 (tools/pc_trends.py)
     $runArgs = @("tools/pc_trends.py", "run") + $Folder
     if ($ExtraArgs) { $runArgs += $ExtraArgs }
     Write-Step "트렌드 받기: python $($runArgs -join ' ') — 묶음 사이 30~60초 쉼 · 멈추려면 Ctrl+C (다시 실행하면 남은 묶음만)"

@@ -1,0 +1,488 @@
+{
+ "tool": "channel_stats.py v1.0",
+ "made": "2026-11-27 20:05",
+ "source": "YouTube Data API v3 공개 지표 (channels · playlistItems · videos)",
+ "channels": [
+  {
+   "id": "UCnhsftCgkPTLrYl8eV4ZjNw",
+   "title": "우물 밖 세상살이",
+   "topics": [
+    "test"
+   ],
+   "subs": 1,
+   "hidden_subs": false,
+   "views": 4250,
+   "videos": 6,
+   "recent": [
+    {
+     "id": "LZIrDGtkfI0",
+     "title": "깨끗한 일본 길거리에 버려진 캐리어, 왜 그냥 두고 갈까?",
+     "published": "2026-11-03T10:00:37Z",
+     "views": 1418,
+     "likes": 7,
+     "comments": 0,
+     "duration": "0:42",
+     "seconds": 42,
+     "shorts": true,
+     "vpd": 59.0,
+     "analytics": null
+    },
+    {
+     "id": "lI0-58Zq55c",
+     "title": "일본 면세 바뀌면 공항에서 2시간, 알면 2분",
+     "published": "2026-10-28T05:32:46Z",
+     "views": 1246,
+     "likes": 5,
+     "comments": 0,
+     "duration": "0:49",
+     "seconds": 49,
+     "shorts": true,
+     "vpd": 41.2,
+     "analytics": null
+    },
+    {
+     "id": "guPG2DI5YCI",
+     "title": "일본 축제, 사망자 나와도 안 멈춘다? 현지 반응이 더 충격",
+     "published": "2026-10-28T05:32:23Z",
+     "views": 1157,
+     "likes": 2,
+     "comments": 0,
+     "duration": "0:44",
+     "seconds": 44,
+     "shorts": true,
+     "vpd": 38.3,
+     "analytics": null
+    },
+    {
+     "id": "pKPXWNwT4uM",
+     "title": "깨끗한 일본 도쿄 한 구에서만 1년에 290개, 캐리어는 왜 버려질까?",
+     "published": "2026-10-28T05:31:11Z",
+     "views": 41,
+     "likes": 1,
+     "comments": 0,
+     "duration": "5:03",
+     "seconds": 303,
+     "shorts": false,
+     "vpd": 1.4,
+     "analytics": null
+    },
+    {
+     "id": "0UAbxu9i6nA",
+     "title": "11월 일본 면세 변경되면 골치 아프다, 가장 빠르게 받는 법",
+     "published": "2026-10-28T05:30:39Z",
+     "views": 346,
+     "likes": 6,
+     "comments": 0,
+     "duration": "6:42",
+     "seconds": 402,
+     "shorts": false,
+     "vpd": 11.4,
+     "analytics": null
+    },
+    {
+     "id": "CJIADr_a3oU",
+     "title": "매년 사망자가 나와도 일본은 왜 축제를 멈추지 않을까?",
+     "published": "2026-10-28T03:45:27Z",
+     "views": 42,
+     "likes": 0,
+     "comments": 0,
+     "duration": "6:01",
+     "seconds": 361,
+     "shorts": false,
+     "vpd": 1.4,
+     "analytics": null
+    }
+   ]
+  },
+  {
+   "id": "UCJ1gjiL7VuAhMQSfAhxAefg",
+   "title": "부자백서",
+   "topics": [
+    "economic"
+   ],
+   "subs": 2,
+   "hidden_subs": false,
+   "views": 3455,
+   "videos": 8,
+   "recent": [
+    {
+     "id": "BHIN9fXJISE",
+     "title": "건보료 고지서대로 낸 부부 3년에 860만 원 날린다",
+     "published": "2026-10-18T10:00:37Z",
+     "views": 12,
+     "likes": 0,
+     "comments": 0,
+     "duration": "0:58",
+     "seconds": 58,
+     "shorts": true,
+     "vpd": 0.3,
+     "analytics": null
+    },
+    {
+     "id": "3yaWAMC5D1E",
+     "title": "은퇴 후 건보료 0원 내는 순서, 모르면 월 30만 원 손해",
+     "published": "2026-10-18T10:00:12Z",
+     "views": 8,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:15",
+     "seconds": 435,
+     "shorts": false,
+     "vpd": 0.2,
+     "analytics": null
+    },
+    {
+     "id": "zrsdf7al2MI",
+     "title": "ISA 만기 돈 연금저축으로 안 옮기면 3년에 96만 원 손해",
+     "published": "2026-10-18T09:00:31Z",
+     "views": 8,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:11",
+     "seconds": 431,
+     "shorts": false,
+     "vpd": 0.2,
+     "analytics": null
+    },
+    {
+     "id": "6cc4Chd8aF0",
+     "title": "ISA 만기 돈 잘못 두면 3년에 세금 96만 원 더 낸다",
+     "published": "2026-10-18T09:00:02Z",
+     "views": 951,
+     "likes": 3,
+     "comments": 0,
+     "duration": "0:56",
+     "seconds": 56,
+     "shorts": true,
+     "vpd": 23.7,
+     "analytics": null
+    },
+    {
+     "id": "PTauP66F9_8",
+     "title": "노후 연금 꺼내는 순서 모르면, 은퇴 부부 평생 2천만 원 손해",
+     "published": "2026-10-18T08:00:35Z",
+     "views": 12,
+     "likes": 1,
+     "comments": 0,
+     "duration": "8:01",
+     "seconds": 481,
+     "shorts": false,
+     "vpd": 0.3,
+     "analytics": null
+    },
+    {
+     "id": "u_yDxIywviw",
+     "title": "연금 꺼내 쓴 부부 첫해에 세금으로 200만 원 날린다",
+     "published": "2026-10-18T08:00:34Z",
+     "views": 1232,
+     "likes": 3,
+     "comments": 0,
+     "duration": "0:51",
+     "seconds": 51,
+     "shorts": true,
+     "vpd": 30.7,
+     "analytics": null
+    },
+    {
+     "id": "3daLEs-D3UY",
+     "title": "기초연금 안 된다고 포기한 부부 1년에 500만 원 날린다",
+     "published": "2026-10-18T07:23:31Z",
+     "views": 1225,
+     "likes": 3,
+     "comments": 0,
+     "duration": "0:50",
+     "seconds": 50,
+     "shorts": true,
+     "vpd": 30.5,
+     "analytics": null
+    },
+    {
+     "id": "xVU2cBNrdlM",
+     "title": "국민연금 받아도 기초연금 신청 안 하면 부부 월 41만 원 손해",
+     "published": "2026-10-17T13:26:46Z",
+     "views": 7,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:20",
+     "seconds": 440,
+     "shorts": false,
+     "vpd": 0.2,
+     "analytics": null
+    }
+   ]
+  },
+  {
+   "id": "UC7Rw5HWgKz5njCCciX8IVJQ",
+   "title": "스톡롱런 Stock Long Run",
+   "topics": [
+    "stock"
+   ],
+   "subs": 1,
+   "hidden_subs": false,
+   "views": 936,
+   "videos": 14,
+   "recent": [
+    {
+     "id": "KRSDKuyKywA",
+     "title": "젠슨 황 불륜으로 하락한 반도체 AI 주식, 매수 기회일까? 다시 폭락할까?",
+     "published": "2026-11-15T04:03:12Z",
+     "views": 13,
+     "likes": 0,
+     "comments": 0,
+     "duration": "4:17",
+     "seconds": 257,
+     "shorts": false,
+     "vpd": 1.1,
+     "analytics": null
+    },
+    {
+     "id": "QXYhigxGXkk",
+     "title": "반등에 팔까 버틸까? 급반등 셋 중 둘은 저점을 또 깼다",
+     "published": "2026-11-14T08:00:01Z",
+     "views": 4,
+     "likes": 0,
+     "comments": 0,
+     "duration": "9:16",
+     "seconds": 556,
+     "shorts": false,
+     "vpd": 0.3,
+     "analytics": null
+    },
+    {
+     "id": "GCRZ4EQrM-E",
+     "title": "코스피 1만 믿었다가 44.5% 하락, 걸러야 할 말 5가지",
+     "published": "2026-11-13T08:00:06Z",
+     "views": 0,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:57",
+     "seconds": 477,
+     "shorts": false,
+     "vpd": 0.0,
+     "analytics": null
+    },
+    {
+     "id": "gTqepOD4vGY",
+     "title": "주식 투자 수익나도 결국엔 손실인 사람들은 0점 맞는 테스트",
+     "published": "2026-11-06T14:16:16Z",
+     "views": 3,
+     "likes": 0,
+     "comments": 0,
+     "duration": "8:08",
+     "seconds": 488,
+     "shorts": false,
+     "vpd": 0.1,
+     "analytics": null
+    },
+    {
+     "id": "RmchNZCLNuk",
+     "title": "'이 생각'으로 주식 투자를 하면 당신은 99% 손해 봅니다.",
+     "published": "2026-11-05T12:17:11Z",
+     "views": 39,
+     "likes": 0,
+     "comments": 0,
+     "duration": "0:51",
+     "seconds": 51,
+     "shorts": true,
+     "vpd": 1.8,
+     "analytics": null
+    },
+    {
+     "id": "2l2FLcM0wfs",
+     "title": "주식 투자 실패하는 사람들은 절대 통과 못하는 테스트",
+     "published": "2026-11-05T12:08:49Z",
+     "views": 29,
+     "likes": 1,
+     "comments": 0,
+     "duration": "7:34",
+     "seconds": 454,
+     "shorts": false,
+     "vpd": 1.3,
+     "analytics": null
+    },
+    {
+     "id": "W_7JvXxcBjk",
+     "title": "레버리지 TQQQ, 27년 매달 모으면 QQQ보다 더 남을까?",
+     "published": "2026-10-22T08:00:39Z",
+     "views": 14,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:56",
+     "seconds": 476,
+     "shorts": false,
+     "vpd": 0.4,
+     "analytics": null
+    },
+    {
+     "id": "xiIGemPkLck",
+     "title": "TQQQ 3배 매달 500달러, QQQ보다 훨씬 남을까?",
+     "published": "2026-10-22T08:00:00Z",
+     "views": 283,
+     "likes": 2,
+     "comments": 0,
+     "duration": "1:02",
+     "seconds": 62,
+     "shorts": false,
+     "vpd": 7.8,
+     "analytics": null
+    },
+    {
+     "id": "pC95I5nH3-I",
+     "title": "배당 ETF, 배당세 15% 떼고도 S&P 500보다 더 남을까?",
+     "published": "2026-10-21T08:00:18Z",
+     "views": 3,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:46",
+     "seconds": 466,
+     "shorts": false,
+     "vpd": 0.1,
+     "analytics": null
+    },
+    {
+     "id": "XGCzkJ6PcPk",
+     "title": "배당 ETF 매달 1,000달러, S&P 500보다 더 남을까?",
+     "published": "2026-10-21T08:00:06Z",
+     "views": 268,
+     "likes": 2,
+     "comments": 0,
+     "duration": "1:01",
+     "seconds": 61,
+     "shorts": false,
+     "vpd": 7.2,
+     "analytics": null
+    },
+    {
+     "id": "0bBHM3EfPng",
+     "title": "커버드콜 분배금, 매달 꺼내 써도 QQQ보다 더 남을까?",
+     "published": "2026-10-20T08:00:38Z",
+     "views": 3,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:54",
+     "seconds": 474,
+     "shorts": false,
+     "vpd": 0.1,
+     "analytics": null
+    },
+    {
+     "id": "tV2awAsLcLU",
+     "title": "커버드콜 10만 달러, 분배금 매달 써도 원금 지켜질까?",
+     "published": "2026-10-20T08:00:01Z",
+     "views": 66,
+     "likes": 1,
+     "comments": 0,
+     "duration": "1:03",
+     "seconds": 63,
+     "shorts": false,
+     "vpd": 1.7,
+     "analytics": null
+    },
+    {
+     "id": "HHJlaT0Qxno",
+     "title": "매수 타이밍, 신호 10가지는 무작위보다 5% 먼저 오를까?",
+     "published": "2026-10-19T08:00:27Z",
+     "views": 10,
+     "likes": 1,
+     "comments": 0,
+     "duration": "10:18",
+     "seconds": 618,
+     "shorts": false,
+     "vpd": 0.3,
+     "analytics": null
+    },
+    {
+     "id": "vZ9QWE9SjC8",
+     "title": "매수 신호 10가지, 무작위 매수보다 성공률 높을까?",
+     "published": "2026-10-19T08:00:11Z",
+     "views": 201,
+     "likes": 1,
+     "comments": 0,
+     "duration": "0:59",
+     "seconds": 59,
+     "shorts": true,
+     "vpd": 5.1,
+     "analytics": null
+    }
+   ]
+  },
+  {
+   "id": "UCPCBL1RvzvoZsNM7kJBUz7w",
+   "title": "심심풀이",
+   "topics": [
+    "psychology"
+   ],
+   "subs": 0,
+   "hidden_subs": false,
+   "views": 0,
+   "videos": 1,
+   "recent": [
+    {
+     "id": "fh-YyBWj_7E",
+     "title": "필요 없다는데 자꾸 선물 주는 사람의 심리 3가지",
+     "published": "2026-11-26T12:30:25Z",
+     "views": 0,
+     "likes": 0,
+     "comments": 0,
+     "duration": "7:57",
+     "seconds": 477,
+     "shorts": false,
+     "vpd": 0.0,
+     "analytics": null
+    }
+   ]
+  },
+  {
+   "id": "UCQYBiVbfVHeLPcwOEci9PtA",
+   "title": "테스트",
+   "topics": [
+    "stock"
+   ],
+   "subs": 0,
+   "hidden_subs": false,
+   "views": 0,
+   "videos": 0,
+   "recent": []
+  },
+  {
+   "id": "UCGe5A2p3fmRBr_5K3E-ZTug",
+   "title": "변우상 | 변화하는 우리들의 일상",
+   "topics": [
+    "music"
+   ],
+   "subs": 1,
+   "hidden_subs": false,
+   "views": 4202,
+   "videos": 2,
+   "recent": [
+    {
+     "id": "aK7agEvYHQg",
+     "title": "AI 안경, 시험뿐만이 아닌 일상생활에서도 문제라고?",
+     "published": "2026-11-22T05:27:10Z",
+     "views": 1276,
+     "likes": 5,
+     "comments": 0,
+     "duration": "0:39",
+     "seconds": 39,
+     "shorts": true,
+     "vpd": 243.8,
+     "analytics": null
+    },
+    {
+     "id": "cME0pRM93cw",
+     "title": "세무냥이 AI 적발 사태 이후 180도 달라질 시험 모습",
+     "published": "2026-11-21T07:09:52Z",
+     "views": 2926,
+     "likes": 14,
+     "comments": 0,
+     "duration": "0:43",
+     "seconds": 43,
+     "shorts": true,
+     "vpd": 474.7,
+     "analytics": null
+    }
+   ]
+  }
+ ],
+ "note": "시청 지속·클릭률·유입 경로는 PC tools/youtube_feedback.py (OAuth) 결과가 있으면 영상 줄에 붙음"
+}

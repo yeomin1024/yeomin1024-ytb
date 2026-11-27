@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.8 — 2026-11-27 — 처음 여는 탭 = 올릴 영상(video.json 있고 youtube.json 없음)이 있는 주제 · 탭 이름 옆에 올릴 수 있는 편수 · 콘솔에 [READY]·[LIST] 다음 할 일 —
+# VERSION: v1.9 — 2026-11-27 — 다시 올리기: '올린 영상' 줄마다 [다시 올리기] (확인 창 뒤) — 옛 youtube.json 은 youtube_history.json 에 쌓고 새로 올림 (업로드 기록) ·
+#          제작 판에서 '다시 올리기 허용'을 체크한 편(main studio/state/reupload.json)은 줄에 표시. 사용자 지시 2026-11-27 "업로드 기록 남기기 · 업로드 해도
+#          재업로드 가능하도록". 함수 list_videos · do_reupload · /api/reupload · 화면 reupload().
+# (v1.8) — 2026-11-27 — 처음 여는 탭 = 올릴 영상(video.json 있고 youtube.json 없음)이 있는 주제 · 탭 이름 옆에 올릴 수 있는 편수 · 콘솔에 [READY]·[LIST] 다음 할 일 —
 #          사용자 지시 2026-11-27 "…[LIST] topic=stock scripts=10 ready=0 waiting=3 uploaded=7 여기서 멈추는데 해결해봐" (멈춘 게 아니라 늘 stock 탭부터 열려
 #          '부족' 3편만 보이고 콘솔이 조용했음 — 올릴 영상은 crisis 탭). GitHub 목록 45초 캐시(gh_tree — 탭마다 15MB 두 번 받던 것 줄임). 함수 gh_tree · overview · Handler(/api/topics) · 화면 boot.
 # (v1.7 — 2026-11-27 — 주제 탭에 upload_topics.txt (업로드만 하는 주제 — 분석기 탭 topics.txt 에는 없는 폴더, 예 crisis) 도 — 사용자 지시 2026-11-27 "꼭 수정 다하면 업로드 준비해" (위기 상황 채널 첫 업로드 · youtube_channel.json 은 첫 업로드 뒤 화면의 '기억'으로). 함수 topics.)
@@ -70,7 +73,7 @@ import youtube_auth as ya  # noqa: E402
 import youtube_upload as yu  # noqa: E402
 import upload_pack as up  # noqa: E402
 
-VERSION = "v1.8"
+VERSION = "v1.9"
 REPO, MAIN, UPL = "yeomin1024/yeomin1024-ytb", "main", "uploads"
 LAST_KEY_CHANNEL: dict[str, dict] = {}     # v1.2 주제 → 마지막으로 '다르다'고 나온 키의 채널 {channel_id, name} ('기억'은 이 값만 씀 — 화면이 보낸 ID 를 믿지 않음)
 
@@ -283,6 +286,10 @@ def list_videos(topic: str) -> dict:
     vids = sorted({m.group(1) + ("-shorts" if m.group(2) else "") for p in main_paths                 # v1.6 쇼츠 시트도
                    for m in [re.match(rf"^{re.escape(topic)}/source/([^/]+)/(shorts/)?upload\.md$", p)] if m})
     ready, done = [], []
+    try:                                                                   # v1.9 제작 판 '다시 올리기 허용'
+        board_re = {x.get("id") for x in json.loads(gh_raw(MAIN, "studio/state/reupload.json") or b"{}").get("items", []) if x.get("topic") == topic}
+    except (RuntimeError, json.JSONDecodeError, AttributeError):
+        board_re = set()
     for vid in vids:
         base = src_rel(topic, vid)
         if base + "youtube.json" in main_paths:
@@ -293,7 +300,8 @@ def list_videos(topic: str) -> dict:
             names = sorted(p.rsplit("/", 1)[-1] for p in main_paths if p.startswith(base + "thumbnails/") and up.THUMB_RE.match(p.rsplit("/", 1)[-1]))
             main_name = f"thumbnail_{yu.paired_thumbnail(topic, vid)}"                # v1.5 titles.md 가 이 PC 에 없으면 1
             thumbs = [{"name": n, "main": n.startswith(main_name + "."), "url": media_url(topic, vid, f"thumb/{n}") + "&dl=1"} for n in names]
-            done.append({"vid": vid, "url": st.get("url", ""), "publishAt": st.get("publishAt", ""), "title": st.get("title", ""), "thumbs": thumbs})
+            done.append({"vid": vid, "url": st.get("url", ""), "publishAt": st.get("publishAt", ""), "title": st.get("title", ""), "thumbs": thumbs,
+                         "board_reupload": vid in board_re, "history": (base + "youtube_history.json") in main_paths})
             continue
         fetch_settings(topic, vid, main_paths)
         r = up.check_one(topic, vid)
@@ -619,6 +627,61 @@ def do_upload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", remem
     return {"ok": True, "url": url, "publishAt": when.isoformat(), "pushed": pushed}
 
 
+def do_reupload(topic: str, vid: str, days: int, hhmm: str, allow: str = "", remember: bool = False) -> dict:
+    """(v1.9) 이미 올린 편을 다시 올림 — main 의 youtube.json 을 youtube_history.json 맨 앞에 쌓고, 새로 올린 기록으로 youtube.json 을 바꿈.
+    옛 영상은 유튜브에 그대로 남음 (스튜디오에서 직접 지우거나 비공개로) — 화면 확인 창에 적음."""
+    t0 = time.time()
+    when = publish_time(days, hhmm)
+    base = src_rel(topic, vid)
+    log("START", tool=f"upload_web.py {VERSION}", mode="reupload", topic=topic, video=vid, publish_kst=when.astimezone(KST).strftime("%Y-%m-%d_%H:%M"))
+    cid, ch = ensure_auth(topic, allow)
+    if remember and allow and cid == allow:
+        remember_channel(topic)
+    main_paths = gh_tree(MAIN)
+    if base + "youtube.json" not in main_paths:
+        raise SystemExit(f"[REUPLOAD] ❌ {vid}: main 에 올린 기록(youtube.json)이 없음 — 보통 [업로드]로")
+    old = json.loads(gh_raw(MAIN, base + "youtube.json") or b"{}")
+    fetch_settings(topic, vid, main_paths)
+    r = up.check_one(topic, vid)
+    bad = [f"{k}: {note}" for k, (ok, note) in r["items"].items() if not ok and k != "올린 적 없음"]
+    vj = yu.src_dir(topic, vid) / "video.json"
+    if not vj.is_file():
+        bad.append("영상: video.json 없음 — Claude 가 tools/upload_pack.py pack")
+    else:
+        rec = json.loads(vj.read_text("utf-8"))
+        upl = gh_tree(UPL)
+        miss = [x["name"] for x in rec["parts"] if f"{rec['dir']}/{x['name']}" not in upl]
+        if miss:
+            bad.append("영상: uploads 브랜치에 없음 — " + ", ".join(miss))
+    if bad:
+        raise SystemExit("[REUPLOAD] ❌ 자료가 덜 됨 — " + " · ".join(bad))
+    hist = {"about": "다시 올리기 전의 업로드 기록 (새것이 위) — tools/upload_web.py v1.9", "history": []}
+    if base + "youtube_history.json" in main_paths:
+        try:
+            hist = json.loads(gh_raw(MAIN, base + "youtube_history.json") or b"{}") or hist
+        except json.JSONDecodeError:
+            pass
+    now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    hist.setdefault("history", []).insert(0, dict(old, replacedAt=now))
+    src = yu.src_dir(topic, vid)
+    (src / "youtube_history.json").write_text(json.dumps(hist, ensure_ascii=False, indent=1) + "\n", "utf-8")
+    loc = src / "youtube.json"
+    if loc.is_file():
+        loc.unlink()                                   # 아래 run 이 새로 씀 (옛 기록은 youtube_history.json 에 있음)
+    path = get_video(topic, vid)
+    log("REUPLOAD", video=vid, old_video_id=old.get("videoId", "-"), old_publish=old.get("publishAt", "-"), history=len(hist["history"]),
+        note="옛 영상은 유튜브에 남음 — 스튜디오에서 지우거나 비공개로")
+    res = yu.run(topic, vid, video=str(path), publish_at=when.strftime("%Y-%m-%dT%H:%M:%SZ"), force=True)
+    pushed_h = gh_put_update(base + "youtube_history.json", (src / "youtube_history.json").read_bytes(),
+                             f"업로드 기록: {vid} 다시 올리기 전 기록 (PC upload_web.py {VERSION})")
+    pushed = gh_put_update(base + "youtube.json", loc.read_bytes(), f"유튜브 다시 올리기: {vid} (공개 {when.astimezone(KST):%Y-%m-%d %H:%M} KST, PC upload_web.py {VERSION})") \
+        if loc.is_file() else "failed:youtube.json 없음"
+    url = (res or {}).get("url", "")
+    log("DONE", mode="reupload", video=vid, url=url or "-", channel=ch, history_push=pushed_h, record_push=pushed, sec=round(time.time() - t0),
+        next="스튜디오에서 옛 영상(" + str(old.get("videoId", "?")) + ") 지우기 또는 비공개 · 새 영상 확인")
+    return {"ok": True, "url": url, "publishAt": when.isoformat(), "pushed": pushed, "history": pushed_h}
+
+
 # ─────────── 웹 ───────────
 PAGE = r"""<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>유튜브 업로드</title><style>
@@ -706,7 +769,10 @@ async function loadVideos(){const box=document.getElementById("videos");box.inne
   h+=`<tr><td><b>${esc(v.vid)}</b><br><span class="${v.ready?"ok":"bad"}">${v.ready?"준비됨":"부족"}</span>${v.downloaded?'<br><span class="muted">영상 받아 둠</span>':""}</td><td>${t}${ex}</td><td><div class="chips">${c}</div></td>
   <td style="white-space:nowrap"><button class="btn sec" onclick="openPv('${esc(v.vid)}')">미리보기</button> <button class="btn sec" onclick="test('${esc(v.vid)}')">시험</button> <button class="btn go" ${v.ready?"":"disabled"} onclick="upload('${esc(v.vid)}')">업로드</button></td></tr>`});
  h+=`</table>`;const kst=iso=>{if(!iso)return"";const d=new Date(iso);if(isNaN(d))return iso;const k=new Date(d.getTime()+(d.getTimezoneOffset()+540)*6e4),p=n=>String(n).padStart(2,"0");return `${k.getFullYear()}-${p(k.getMonth()+1)}-${p(k.getDate())} ${p(k.getHours())}:${p(k.getMinutes())} 공개`};
- if(s.uploaded.length)h+=`<h3>올린 영상</h3>`+s.uploaded.map(u=>{const ex=(u.thumbs||[]).filter(t=>!t.main);return `<p class="muted upl">${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}${ex.length?` · 실험안 썸네일 ${ex.map(t=>`<a class="dlx" href="${esc(t.url)}" download>${esc(t.name)}</a>`).join(" ")} <button class="btn sec" onclick="dlAll(this.closest('p'))">${ex.length}장 모두 받기</button>`:""}</p>`}).join("");box.innerHTML=h}
+ if(s.uploaded.length)h+=`<h3>올린 영상</h3>`+s.uploaded.map(u=>{const ex=(u.thumbs||[]).filter(t=>!t.main);return `<p class="muted upl">${esc(u.vid)} ${u.url?`<a href="${esc(u.url)}" target="_blank">열기</a>`:""} ${esc(kst(u.publishAt))}${ex.length?` · 실험안 썸네일 ${ex.map(t=>`<a class="dlx" href="${esc(t.url)}" download>${esc(t.name)}</a>`).join(" ")} <button class="btn sec" onclick="dlAll(this.closest('p'))">${ex.length}장 모두 받기</button>`:""} ${u.board_reupload?`<b>제작 판에서 다시 올리기 허용</b>`:""} <button class="btn sec" onclick="reupload('${esc(u.vid)}')">다시 올리기</button>${u.history?" · 기록 있음":""}</p>`}).join("");box.innerHTML=h}
+async function reupload(vid,allow,remember){const s=sched();
+ if(!allow&&!confirm(`${vid} 은(는) 이미 올린 영상입니다.\n다시 올리면 옛 기록은 youtube_history.json 에 남기고, 새 영상을 ${s.label} (한국 시간) 공개로 예약합니다.\n옛 영상은 유튜브에 그대로 남으니 스튜디오에서 직접 지우거나 비공개로 바꾸세요.\n다시 올릴까요?`))return;
+ PENDING={vid,d:s.d,h:s.h,re:true};const r=await api("/api/reupload",{topic:TOPIC,vid,days:s.d,hhmm:s.h,allow_channel:allow||"",remember:!!remember});if(!r.ok)alert(r.error)}
 function dlAll(root){const as=[...root.querySelectorAll("a.dlx")];as.forEach((a,i)=>setTimeout(()=>a.click(),i*700))}
 async function test(vid){PENDING=null;const r=await api("/api/test",{topic:TOPIC,vid});if(!r.ok)alert(r.error)}
 async function upload(vid,allow,remember){const s=sched();const v=VIDS[vid]||{};const title=v.titles&&v.titles[0]?v.titles[0].title:"";
@@ -746,13 +812,13 @@ function showChannel(res){const o=document.getElementById("chov"),b=document.get
  <div class="foot"><button class="btn sec" onclick="closeCh()">취소</button><button class="btn sec" onclick="closeCh();reauth()">다른 채널로 다시 인증</button>
  ${up?`<button class="btn go" onclick="chGo('${esc(res.key_channel.channel_id)}')">이 채널에 올림</button>`:`<button class="btn go" onclick="chRemember()">이 채널로 기억</button>`}</div>`;o.classList.add("on")}
 function closeCh(){document.getElementById("chov").classList.remove("on")}
-async function chGo(cid){const rem=document.getElementById("chrem").checked;closeCh();const p=PENDING;if(!p)return;document.getElementById("days").value=p.d;document.getElementById("hhmm").value=p.h;upd();await upload(p.vid,cid,rem)}
+async function chGo(cid){const rem=document.getElementById("chrem").checked;closeCh();const p=PENDING;if(!p)return;document.getElementById("days").value=p.d;document.getElementById("hhmm").value=p.h;upd();await (p.re?reupload:upload)(p.vid,cid,rem)}
 async function chRemember(){const r=await api("/api/channel",{topic:TOPIC,mode:"remember"});closeCh();alert(r.ok?"기억했습니다 — "+r.result:"실패: "+r.error);loadKeys()}
 let wasBusy=false;async function pollJob(){const s=await api("/api/job");const l=document.getElementById("log");const atEnd=l.scrollTop+l.clientHeight>=l.scrollHeight-20;l.textContent=s.lines.join("\n");if(atEnd)l.scrollTop=l.scrollHeight;
  const need=s.result&&s.result.need==="channel";
  document.getElementById("jobname").textContent=s.busy?`— ${s.name} 진행 중…`:(s.name?`— ${s.name} ${need?"멈춤 (채널 확인)":(s.result&&s.result.ok===false?"실패":"끝")}`:"");
  if(!s.busy&&need&&s.seq!==HANDLED){HANDLED=s.seq;showChannel(s.result)}
- if(wasBusy&&!s.busy){loadKeys();if(s.name.startsWith("업로드")&&!need){PENDING=null;loadVideos()}if(s.name.startsWith("영상 받기")&&PVVID)openPv(PVVID)}wasBusy=s.busy}
+ if(wasBusy&&!s.busy){loadKeys();if((s.name.startsWith("업로드")||s.name.startsWith("다시 올리기"))&&!need){PENDING=null;loadVideos()}if(s.name.startsWith("영상 받기")&&PVVID)openPv(PVVID)}wasBusy=s.busy}
 boot();
 </script></body></html>"""
 
@@ -921,7 +987,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
             return self._json({"ok": False, "error": "주제 이름 오류"}, 400)
         vid = str(d.get("vid", ""))
         p = urllib.parse.urlparse(self.path).path
-        if p in ("/api/test", "/api/upload", "/api/fetch_video") and not VID_RE.fullmatch(vid):
+        if p in ("/api/test", "/api/upload", "/api/fetch_video", "/api/reupload") and not VID_RE.fullmatch(vid):
             return self._json({"ok": False, "error": "영상 이름 오류"}, 400)
         if p == "/api/env":
             vals = {k: str(v).strip() for k, v in (d.get("values") or {}).items() if k in YT_KEYS + ("GITHUB_TOKEN",) and str(v).strip()}
@@ -965,7 +1031,7 @@ class Handler(http.server.BaseHTTPRequestHandler):
         if p == "/api/fetch_video":
             ok = run_job(f"영상 받기 {vid}", lambda topic, v: (get_video(topic, v), {"ok": True})[1], t, vid)
             return self._json({"ok": ok, "error": "" if ok else "다른 작업이 진행 중"})
-        if p == "/api/upload":
+        if p in ("/api/upload", "/api/reupload"):
             try:
                 days, hhmm = int(d.get("days", 7)), str(d.get("hhmm", "17:00"))
                 assert 1 <= days <= 60 and re.fullmatch(r"\d{1,2}:\d{2}", hhmm)
@@ -976,7 +1042,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
                 return self._json({"ok": False, "error": "채널 ID 오류"})
             if allow and LAST_KEY_CHANNEL.get(t, {}).get("channel_id") != allow:
                 return self._json({"ok": False, "error": "확인한 채널이 마지막 키 확인 결과와 다름 — [키 확인]부터 다시"})
-            ok = run_job(f"업로드 {vid}", do_upload, t, vid, days, hhmm, allow, bool(d.get("remember")))
+            if p == "/api/reupload":                                           # v1.9
+                ok = run_job(f"다시 올리기 {vid}", do_reupload, t, vid, days, hhmm, allow, bool(d.get("remember")))
+            else:
+                ok = run_job(f"업로드 {vid}", do_upload, t, vid, days, hhmm, allow, bool(d.get("remember")))
             return self._json({"ok": ok, "error": "" if ok else "다른 작업이 진행 중"})
         return self._json({"ok": False, "error": "없음"}, 404)
 

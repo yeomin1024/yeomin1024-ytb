@@ -1,0 +1,765 @@
+{
+ "updated": "2026-11-27T20:12:53+09:00",
+ "stages": [
+  "topic",
+  "title",
+  "thumb",
+  "script",
+  "voice",
+  "codetest",
+  "video",
+  "upload"
+ ],
+ "items": {
+  "psychology/baegeok-gwangye-2026-11-26": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/baegeok-seumul-2026-11-26": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/jakku-juneun-2026-11-25": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/adhd-ab-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/eomma-gibun-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/eomma-hasoyeon-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/geureut-moa-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "psychology/sangcheo-gonggyeok-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/ellibeiteo-gathim-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/eoreum-kkaejim-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/ginae-yeongi-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/hallasan-simjeongji-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/pon-kkaejyeosseo-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/tteoreojin-pon-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "crisis/yongmun-namu-2026-11": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  }
+ }
+}

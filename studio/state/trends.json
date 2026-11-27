@@ -1,0 +1,42 @@
+{
+ "updated": "2026-11-27T20:12:53+09:00",
+ "geo": "KR",
+ "gprop": "youtube",
+ "time": "today 3-m",
+ "topics": {
+  "psychology": {
+   "words": [
+    "심리",
+    "인간관계",
+    "엄마",
+    "말투",
+    "눈치"
+   ],
+   "every_hours": 24,
+   "from": "studio.toml"
+  },
+  "crisis": {
+   "words": [
+    "등산 사고",
+    "심정지",
+    "보이스피싱",
+    "화재 대피",
+    "엘리베이터 사고"
+   ],
+   "every_hours": 24,
+   "from": "studio.toml"
+  }
+ },
+ "overall": {
+  "topic": "new",
+  "cats": [
+   0,
+   14,
+   958,
+   45,
+   16
+  ],
+  "time": "now 7-d",
+  "every_hours": 24
+ }
+}

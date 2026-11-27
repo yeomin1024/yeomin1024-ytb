@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.18.1 — 2026-11-04 — 끊어 읽기 조각의 말소리 크기를 서로 맞춤(가운데값으로, ±6dB) · 보고서 도구 버전 글(VERSION)이 v1.17 로 남던 것 고침.
+# VERSION: v1.19 — 2026-11-27 — all = 제작 판에서 체크한 대본만 (studio/state/tts_queue.json — 사용자 지시 2026-11-27 "음성 생성 체크 가능 ·
+#          음성 생성 코드는 실행하면 체크된것만 생성되도록 수정 · 줄별로 재생성 필요한것 체크 가능하도록"): 줄 파일이 있으면 그 안의 대본만 만들고
+#          (줄에 없는 대본은 건너뜀 — 예전처럼 기다리는 것 전부는 --all-pending), 줄마다 redo = 그 문장만 새 시드로 저장소 오디오에 끼움 ·
+#          full = 있어도 처음부터 · 만든 뒤 메타에 queue_stamp (판이 '체크대로 만들어짐'을 앎 · 같은 체크로 두 번 만들지 않음). 함수 load_queue · discover · cmd_all.
+# (v1.18.1) — 2026-11-04 — 끊어 읽기 조각의 말소리 크기를 서로 맞춤(가운데값으로, ±6dB) · 보고서 도구 버전 글(VERSION)이 v1.17 로 남던 것 고침.
 #          1편 v17 첫 음성의 카운트 '삼·이·일' 이 −20.3 · −26.1 · −21.4 dB ('이'만 약 6dB 작음).
 # (v1.18) — 2026-11-04 — 끊어 읽기: TTS 글(읽는 소리 사전을 거친 글)에 '|' 가 있으면 그 자리에서 조각으로 나눠 따로 만들고
 #          BEAT_GAP(0.6초) 쉼으로 이음 — 사용자 지시 2026-11-04 "그냥 삼. 이. 일. 끊어서 음성 생성하도록 해 다른 대본도 그렇게 하고" (주식 1~4편 선택마다 '3, 2, 1.' → 사전 '삼.|이.|일.').
@@ -166,7 +170,8 @@ ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 import srt_tool  # noqa: E402  (문장·카드 판정을 자막 도구와 똑같이 쓰기 위해)
 
-VERSION = "v1.18.1"
+VERSION = "v1.19"
+QUEUE_DEFAULT = "studio/state/tts_queue.json"   # v1.19 제작 판 음성 줄
 CACHE_VERSION = 1            # 생성 방식이 바뀌면 올린다 → 문장 파일을 모두 다시 만든다 (v1.1은 v1.0 캐시와 같은 키)
 DEFAULT_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"     # 사연자 (화자 + 말투 지시)
 DEFAULT_CLONE_MODEL = "Qwen/Qwen3-TTS-12Hz-1.7B-Base"       # 진행자 (기준 목소리 복제)
@@ -1967,23 +1972,91 @@ def voice_mismatch(meta, topic, vid):
     return [r for r in now if old.get(r) != now[r]]
 
 
+def load_queue(args):
+    """v1.19 제작 판 음성 줄 → {(주제, 영상ID): {stamp, full, redo}} · 줄을 쓰지 않으면 None (예전처럼 기다리는 대본 전부).
+    --all-pending 이면 None · --queue 경로가 없으면 기본 studio/state/tts_queue.json (없으면 None — 판을 쓰기 전 저장소와 같음)."""
+    if getattr(args, "all_pending", False):
+        log("QUEUE", note="--all-pending — 판 체크와 상관없이 기다리는 대본 전부 (예전 방식)")
+        return None
+    path = Path(getattr(args, "queue", None) or (ROOT / QUEUE_DEFAULT))
+    if not path.is_absolute():
+        path = ROOT / path
+    if not path.is_file():
+        log("QUEUE", note=f"판 음성 줄 없음 ({rel(path)}) — 예전처럼 기다리는 대본 전부")
+        return None
+    try:
+        j = json.loads(path.read_text("utf-8"))
+    except (OSError, json.JSONDecodeError) as e:
+        die("QUEUE", f"판 음성 줄을 못 읽음: {rel(path)} ({type(e).__name__})", "Claude 에게 '제작 판 동기화해' 또는 --all-pending")
+    q = {"__topics__": set(j.get("topics") or [])}            # 판에 있는 주제만 줄을 따름 — 판 밖 주제는 예전처럼 (빈 목록 = 줄의 주제들)
+    for it in j.get("items") or []:
+        if not it.get("topic") or not it.get("id"):
+            continue
+        q[(it["topic"], it["id"])] = {"stamp": str(it.get("stamp") or ""), "full": bool(it.get("full")),
+                                     "redo": sorted({int(n) for n in (it.get("redo") or []) if str(n).isdigit() and int(n) > 0})}
+    if not q["__topics__"]:
+        q["__topics__"] = {k[0] for k in q if k != "__topics__"}
+    log("QUEUE", file=rel(path), updated=j.get("updated", "-"), checked=len(q) - 1, board_topics=",".join(sorted(q["__topics__"])) or "-",
+        list=",".join(f"{k[0]}/{k[1]}" for k in q if k != "__topics__") or "-",
+        note="판 주제는 체크한 대본만 · 판 밖 주제는 예전처럼 기다리는 대본 전부")
+    return q
+
+
 def discover(args, root):
-    """저장소의 대본 TXT(<주제>/source/<영상ID>/<영상ID>.txt)를 모두 읽어 할 일을 정한다."""
+    """저장소의 대본 TXT(<주제>/source/<영상ID>/<영상ID>.txt)를 모두 읽어 할 일을 정한다.
+    v1.19: 판 음성 줄(load_queue)이 있으면 줄에 든 대본만 — 줄의 redo 는 그 문장만, full 은 처음부터."""
     want_topics = {t.strip() for t in (args.topics or "").split(",") if t.strip()}
     want_ids = {t.strip() for t in (args.ids or "").split(",") if t.strip()}
     plan = []
+    Q = load_queue(args)
+    skipped_q = 0
     for topic, vid, txt in script_entries():                  # v1.9 롱폼 + 쇼츠
         if (want_topics and topic not in want_topics) or (want_ids and vid not in want_ids):
             continue
+        if Q is not None and topic in Q["__topics__"] and (topic, vid) not in Q:   # v1.19 판 주제인데 체크 안 한 대본 — 읽지도 않음
+            skipped_q += 1
+            continue
         rows, cards = read_script(txt)
         st, note = repo_status(topic, vid, rows, cards)
+        qi = Q.get((topic, vid)) if Q is not None else None
+        if qi:
+            rm = src_dir(topic, vid) / META_NAME
+            try:
+                done_stamp = json.loads(rm.read_text("utf-8")).get("queue_stamp", "") if rm.is_file() else ""
+            except (OSError, json.JSONDecodeError):
+                done_stamp = ""
+            qi["redo"] = [n for n in qi["redo"] if n <= len(rows)]
+            if qi["stamp"] and done_stamp == qi["stamp"]:
+                plan.append({"topic": topic, "video": vid, "action": "skip", "status": st, "why": "판 체크대로 이미 만듦 (queue_stamp 같음)",
+                             "sentences": len(rows), "est_min": 0, "hold": False, "patch": None, "redo": None, "extra": None})
+                log("PLAN", video=vid, topic=topic, action="skip", why="판 체크대로 이미 만듦", stamp=qi["stamp"])
+                continue
+            if st in ("uploaded", "no_tts"):
+                plan.append({"topic": topic, "video": vid, "action": "skip", "status": st, "why": note + " — 판에서 체크했지만 만들지 않음 (v1.12 규칙)",
+                             "sentences": len(rows), "est_min": 0, "hold": False, "patch": None, "redo": None, "extra": None})
+                log("PLAN", logging.WARNING, video=vid, topic=topic, action="skip", why=note + " — 업로드·NO_TTS 는 판 체크여도 만들지 않음")
+                continue
+            if st == "has_audio" and not qi["full"]:
+                if not qi["redo"]:
+                    plan.append({"topic": topic, "video": vid, "action": "skip", "status": st, "why": note + " — 다시 만들려면 판에서 '전부 다시' 또는 줄 '재생성'",
+                                 "sentences": len(rows), "est_min": 0, "hold": False, "patch": None, "redo": None, "extra": None})
+                    log("PLAN", video=vid, topic=topic, action="skip", why="지금 대본 음성 있음 · 판 체크에 재생성 줄 없음")
+                    continue
+                syl = sum(srt_tool.syllables(rows[n - 1][0]) for n in qi["redo"])
+                plan.append({"topic": topic, "video": vid, "action": "make", "status": st, "why": f"판 체크 — 문장 {ranges(qi['redo'])}만 새 시드로 (저장소 오디오에 끼움)",
+                             "sentences": len(rows), "est_min": syl / 4.8 / 60, "hold": False, "patch": None, "redo": qi["redo"], "extra": None,
+                             "queue_stamp": qi["stamp"]})
+                log("PLAN", video=vid, topic=topic, action="make", status=st, mode="redo " + ranges(qi["redo"]), why="판 체크 (줄 재생성)")
+                continue
         hold = topic_on_hold(topic)
         P = episode_paths(root, topic, vid)
         made = False
         if P["meta"].is_file() and P["narration"].is_file():
             om = json.loads(P["meta"].read_text("utf-8"))
             made = om.get("script_sha1") == script_sha(rows, cards) and not voice_mismatch(om, topic, vid)
-        if hold and not args.include_hold:
+        if qi and qi["full"] and st not in ("uploaded", "no_tts"):     # v1.19 판 '전부 다시'
+            action, why = "make", note + " — 판 체크 '전부 다시' (처음부터)"
+        elif hold and not args.include_hold and not qi:
             action, why = "skip", "주제 보류(⏸ README) — --include-hold 로 포함"
         elif st in ("uploaded", "no_tts"):     # v1.12: --force 여도 만들지 않음
             action, why = "skip", note
@@ -2001,11 +2074,11 @@ def discover(args, root):
         syl = sum(srt_tool.syllables(t) for t, _ in rows)
         patch = None
         extra = None
-        if action == "make" and st == "stale":   # v1.8: 글만 조금 바뀌었으면 그 문장만
+        if action == "make" and st == "stale" and not (qi and qi["full"]):   # v1.8: 글만 조금 바뀌었으면 그 문장만
             patch, pwhy = patch_candidate(topic, vid, rows, cards, args)
             why += (f" — 바뀐 문장 {ranges(patch)}만 다시 (나머지는 저장소 오디오 그대로)" if patch else f" — 전부 다시 ({pwhy})")
-            if patch:                            # v1.17: 같은 길에 v1.16 보고서의 검사 못 넘은 문장도 새 시드로
-                extra = [n for n in (auto_redo(topic, vid, args) or []) if n not in patch] or None
+            if patch:                            # v1.17: 같은 길에 v1.16 보고서의 검사 못 넘은 문장도 새 시드로 · v1.19 판 재생성 줄도
+                extra = [n for n in sorted(set(auto_redo(topic, vid, args) or []) | set((qi or {}).get("redo") or [])) if n not in patch] or None
                 if extra:
                     why += f" + 검사 못 넘은 문장 {ranges(extra)}"
             if patch:
@@ -2016,10 +2089,14 @@ def discover(args, root):
         if extra:
             syl += sum(srt_tool.syllables(rows[n - 1][0]) for n in extra)
         plan.append({"topic": topic, "video": vid, "action": action, "status": st, "why": why, "sentences": len(rows),
-                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch, "redo": redo_auto, "extra": extra})
+                     "est_min": syl / 4.8 / 60, "hold": hold, "patch": patch, "redo": redo_auto, "extra": extra,
+                     "queue_stamp": (qi or {}).get("stamp") or None, "full": bool(qi and qi["full"])})
         lvl = logging.WARNING if st == "stale" else logging.INFO
         log("PLAN", level=lvl, video=vid, topic=topic, action=action, status=st, sentences=len(rows),
             mode=("patch " + ranges(patch)) if patch else (("redo " + ranges(redo_auto)) if redo_auto else ("full" if action == "make" else "-")), est_audio_min=syl / 4.8 / 60, why=why)
+    if Q is not None:
+        log("QUEUE", not_checked=skipped_q, checked_found=len(plan), missing=",".join(f"{k[0]}/{k[1]}" for k in Q if k != "__topics__" and not any(p["topic"] == k[0] and p["video"] == k[1] for p in plan)) or "-",
+            note="판 주제에서 체크 안 한 대본은 건너뜀 · 판 밖 주제는 예전처럼 (모두 예전처럼 = --all-pending)")
     return plan
 
 
@@ -2073,7 +2150,10 @@ def cmd_all(args):
     for i, p in enumerate(mine, 1):
         log("BATCH", n=i, of=len(mine), video=p["video"], topic=p["topic"], elapsed_min=(time.time() - t0) / 60)
         try:
-            if p.get("redo"):                                  # v1.17 검사 못 넘은 문장만 (build --redo 와 같은 길)
+            if p.get("full"):                                  # v1.19 판 '전부 다시' — 바뀐 문장만 끼우지 않고 처음부터
+                a2 = argparse.Namespace(**vars(args)); a2.full = True
+                res = build_episode(engine, p["topic"], p["video"], a2, root)
+            elif p.get("redo"):                                # v1.17 검사 못 넘은 문장만 (build --redo 와 같은 길) · v1.19 판 재생성 줄
                 a2 = argparse.Namespace(**vars(args)); a2.redo = ",".join(map(str, p["redo"]))
                 res = build_episode(engine, p["topic"], p["video"], a2, root)
             elif p.get("extra"):                               # v1.17 바뀐 문장 + 검사 못 넘은 문장 (같은 patch 에)
@@ -2081,6 +2161,13 @@ def cmd_all(args):
                 res = build_episode(engine, p["topic"], p["video"], a2, root)
             else:
                 res = build_episode(engine, p["topic"], p["video"], args, root)
+            if p.get("queue_stamp") and res.get("status") == "made":   # v1.19 판이 '체크대로 만들어짐'을 알게 · 같은 체크로 다시 만들지 않게
+                mp = episode_paths(root, p["topic"], p["video"])["meta"]
+                if mp.is_file():
+                    mm = json.loads(mp.read_text("utf-8"))
+                    mm["queue_stamp"] = p["queue_stamp"]
+                    mp.write_text(json.dumps(mm, ensure_ascii=False, indent=1), "utf-8")
+                    log("QUEUE", video=p["video"], stamp=p["queue_stamp"], note="메타에 판 체크 표시")
             if args.push:   # 영상 하나가 끝날 때마다 바로 올린다 (세션이 끊겨도 끝난 영상은 저장소에 남게)
                 try:
                     res["pushed"] = push_results(root, [(p["topic"], p["video"])], token, args)
@@ -3102,6 +3189,8 @@ def main():
     a.add_argument("--split", default="0/1", help="GPU 2개로 영상을 나눠: --gpu 0 --split 0/2 와 --gpu 1 --split 1/2 를 동시에 (--push 는 차례로 올림)")
     a.add_argument("--dry-run", action="store_true", help="무엇을 만들지 목록만 (모델 안 불러옴)")
     a.add_argument("--no-pack", action="store_true", help="--push 없이 돌릴 때 끝나고 zip 만들지 않기")
+    a.add_argument("--queue", default=None, help=f"v1.19 제작 판 음성 줄 파일 (기본 {QUEUE_DEFAULT} — 있으면 그 안의 대본만)")
+    a.add_argument("--all-pending", action="store_true", help="v1.19 판 체크와 상관없이 기다리는 대본 전부 (예전 방식)")
 
     sub.add_parser("push", parents=[common], help="만들어 둔 결과를 대본 폴더마다 GitHub main 에 올리기")
     vo = sub.add_parser("voice", parents=[common], help="진행자 기준 목소리 확인·만들기 (없을 때만. --force 는 다시 만들기 — 모든 영상 목소리가 바뀜)")

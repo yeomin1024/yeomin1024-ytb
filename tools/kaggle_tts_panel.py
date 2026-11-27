@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-10-24 — 사용자 지시 "오디오 코드 경로 선택하면 대본도 선택할 수 있게 수정해": 주제를 고르면 그 주제의
+# VERSION: v1.2 — 2026-11-27 — 기본 = 제작 판에서 체크한 대본만 (tts_narration v1.19 가 studio/state/tts_queue.json 을 읽음) — 사용자 지시 2026-11-27
+#          "음성 생성 코드는 실행하면 체크된것만 생성되도록 수정". 패널 맨 위에 판 체크 목록(대본 · 재생성 줄) · '예전 방식(기다리는 대본 전부)' 체크 = --all-pending.
+# (v1.1) — 2026-10-24 — 사용자 지시 "오디오 코드 경로 선택하면 대본도 선택할 수 있게 수정해": 주제를 고르면 그 주제의
 #          대본(롱폼·쇼츠) 체크 상자가 나오고, 고른 대본만 all --ids 로 만든다 (하나도 안 고르면 그 주제 전체 — 예전과 같음).
 #          대본마다 지금 상태(오디오 없음 → 만듦 · 옛 대본 → 다시 만듦 · 있음/업로드함/NO_TTS → 건너뜀)를 tts_narration 규칙 그대로 보여 줌.
 #          대본 수에 쇼츠도 셈(all 이 쇼츠도 만들므로). 안내 글의 진행자 목소리는 voices/host.json 의 고른 목소리(picked.id)로.
@@ -39,6 +41,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ALL = "전체"
+QUEUE = ROOT / "studio" / "state" / "tts_queue.json"      # v1.2 제작 판 음성 줄 (Claude 가 판 동기화 때 씀)
 LOG_FILE = Path("/kaggle/working/tts_panel.log") if Path("/kaggle/working").is_dir() else ROOT / "output" / "tts_panel.log"
 SHORTS_SUFFIX = "-shorts"
 # tts_narration.repo_status 상태 → (지금 상태, all 이 할 일)
@@ -95,6 +98,24 @@ def scripts(topic, root=ROOT):
         now, todo = STATUS.get(st, ("상태 모름", "all 이 판단"))
         out.append({"id": vid, "kind": kind, "status": st, "label": f"{vid} · {kind} · {now} → {todo}"})
     return out
+
+
+def queue_items(path=QUEUE):
+    """v1.2 판에서 체크한 대본 → [{topic, id, full, redo}] · 파일이 없으면 None (예전처럼 기다리는 대본 전부)."""
+    try:
+        j = json.loads(Path(path).read_text("utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    return [it for it in (j.get("items") or []) if it.get("topic") and it.get("id")]
+
+
+def queue_text(items):
+    if items is None:
+        return "판 음성 줄 없음 — 예전처럼 기다리는 대본 전부"
+    if not items:
+        return "판에서 체크한 대본 없음 — 만들 것 없음 (제작 판 '대본·음성'에서 체크 → Claude 동기화)"
+    return " · ".join(f"{it['topic']}/{it['id']}" + (" 전부 다시" if it.get("full") else "") +
+                      (f" 재생성 {','.join(map(str, it['redo']))}" if it.get("redo") else "") for it in items)
 
 
 def host_voice(root=ROOT):
@@ -155,9 +176,10 @@ def panel(extra=("--push",)):
     go = W.Button(description="오디오 만들기", button_style="success", icon="play", layout=W.Layout(width="200px"))
     dry = W.Button(description="목록만 보기", icon="list", layout=W.Layout(width="140px"))
     out = W.Output(layout=W.Layout(border="1px solid #cfd6e2", max_height="520px", overflow="auto", padding="6px"))
-    note = W.HTML("<b>오디오를 만들 범위</b> — 기본은 <b>전체</b>(모든 주제). 주제 하나만 만들려면 그 버튼을 누른 뒤 "
-                  "<b>오디오 만들기</b>. 주제를 누르면 <b>그 주제의 대본</b>이 나온다 — 하나도 안 고르면 주제 전체, 고르면 고른 대본만. "
-                  f"진행자 목소리({host_voice()}) 하나로 읽고, 영상마다 대본 폴더에 올린다.")
+    q = queue_items()
+    note = W.HTML("<b>기본 = 제작 판에서 '음성 생성'·줄 '재생성'을 체크한 대본만</b> (v1.2) — 지금 체크: " + queue_text(q) + "<br>"
+                  "범위·대본을 고르면 그 안에서만. 진행자 목소리(" + host_voice() + ") 하나로 읽고, 영상마다 대본 폴더에 올린다.")
+    allp = W.Checkbox(value=False, description="판 체크와 상관없이 기다리는 대본 전부 (예전 방식 · --all-pending)", indent=False, layout=W.Layout(width="auto"))
     box = W.VBox(children=[])
 
     def fill(topic):
@@ -177,12 +199,12 @@ def panel(extra=("--push",)):
 
     def start(extra_args):
         def handler(_):
-            ws = [pick, go, dry] + [cb for _, cb in picks]
+            ws = [pick, go, dry, allp] + [cb for _, cb in picks]
             for w in ws:
                 w.disabled = True
             try:
                 with out:
-                    run(pick.value, extra_args, write=print, ids=[v for v, cb in picks if cb.value] or None)
+                    run(pick.value, tuple(extra_args) + (("--all-pending",) if allp.value else ()), write=print, ids=[v for v, cb in picks if cb.value] or None)
             finally:
                 for w in ws:
                     w.disabled = False
@@ -190,7 +212,7 @@ def panel(extra=("--push",)):
 
     go.on_click(start(extra))
     dry.on_click(start(("--dry-run",)))
-    display(W.VBox(children=[note, pick, box, W.HBox(children=[go, dry]), out]))
+    display(W.VBox(children=[note, pick, box, allp, W.HBox(children=[go, dry]), out]))
     return 0
 
 
@@ -200,7 +222,9 @@ def main(argv=None):
     ap.add_argument("--ids", default=None, help="이 대본만 (영상ID 쉼표로 — 쇼츠는 <영상ID>-shorts). 없으면 주제 전체")
     ap.add_argument("--list", action="store_true", help="범위 목록만 (--topic 과 함께면 그 주제의 대본과 상태)")
     ap.add_argument("--dry-run", action="store_true", help="무엇을 만들지 목록만 (all --dry-run)")
+    ap.add_argument("--all-pending", action="store_true", help="v1.2 판 체크와 상관없이 기다리는 대본 전부 (예전 방식)")
     a = ap.parse_args(argv)
+    print(f"[PANEL] board_queue=\"{queue_text(queue_items())}\"" + (" all_pending=yes" if a.all_pending else ""))
     ts = topics()
     if a.topic != ALL and a.topic not in {t for t, _ in ts}:
         print(f"[PANEL] level=error topic={a.topic} reason=대본이 있는 주제 폴더가 아님 next=--list 로 확인 ({', '.join(t for t, _ in ts)})")
@@ -219,7 +243,7 @@ def main(argv=None):
         if bad:
             print(f"[PANEL] level=error ids={','.join(bad)} reason=이 범위에 없는 대본 next=--topic <주제> --list 로 확인")
             return 2
-    return run(a.topic, ("--dry-run",) if a.dry_run else ("--push",), ids=ids or None)
+    return run(a.topic, (("--dry-run",) if a.dry_run else ("--push",)) + (("--all-pending",) if a.all_pending else ()), ids=ids or None)
 
 
 if __name__ == "__main__":

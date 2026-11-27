@@ -1,0 +1,767 @@
+<title>제작 판</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<!-- VERSION: v1.0 — 2026-11-27 — 최초: 심리·위기 분석 판을 하나로 (tools/studio_board.py v1.0 이 BOARD 칸과 data/*.json 을 채움 — 손으로 고치지 않음).
+     사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 아래 내용을 모두 만족하도록 수정해".
+     db 컬렉션: gates · episodes · rules · refs · feedback · tts · trends · skills · uploads · channels (자세히 tools/studio_board.py 머리말).
+     판에서 바꾼 것은 db 에 바로 저장 → Claude 가 '제작 판 동기화' 때 studio/state/*.json 으로 저장소에 (PC·Kaggle 은 저장소를 읽음). 연구·교육용. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
+<style>
+/* 배치: 위 = 판 이름·주제 고르기·동기화 상태 / 단계 띠(공통 → 1 주제 … 6 업로드 → 채널 분석) / 본문 = 왼쪽 일감(편) · 오른쪽 규칙·참고 자료 (좁으면 한 줄) */
+:root{
+  --bg:#F3F5F4; --surface:#FFFFFF; --sunk:#EEF2F0; --ink:#1B2320; --muted:#5C6A65; --line:#DCE3E0;
+  --accent:#0E7466; --accent-ink:#FFFFFF; --accent-soft:#DDF1EC;
+  --ok:#2B7A55; --ok-soft:#E1F2E8; --warn:#8A6A00; --warn-soft:#FBF1D0; --bad:#B83227; --bad-soft:#FBE4E1; --info:#2F5FA8;
+  --shadow:0 10px 30px -18px rgba(20,40,35,.45);
+  --f-body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111614; --surface:#18201D; --sunk:#1F2926; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --ok-soft:#163327; --warn:#E2C15A; --warn-soft:#33290C; --bad:#FF6E5E; --bad-soft:#3A1915; --info:#8DB4F2;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111614; --surface:#18201D; --sunk:#1F2926; --ink:#E6ECE9; --muted:#9AA8A3; --line:#2A3431;
+  --accent:#3FC1AC; --accent-ink:#05221D; --accent-soft:#16352F;
+  --ok:#62C793; --ok-soft:#163327; --warn:#E2C15A; --warn-soft:#33290C; --bad:#FF6E5E; --bad-soft:#3A1915; --info:#8DB4F2;
+  --shadow:0 10px 30px -18px rgba(0,0,0,.8); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.6;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:18px 56px}
+.wrap{max-width:1240px;margin:0 auto;display:grid;gap:16px}
+header.top{display:flex;gap:12px 20px;align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+header.top h1{font-size:clamp(20px,2.4vw,26px);margin:0;text-wrap:balance}
+header.top p{margin:2px 0 0;color:var(--muted);font-size:13.5px;max-width:70ch}
+.topics{display:flex;gap:6px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;font:600 14px var(--f-body);cursor:pointer}
+.pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+.status.ok .dot{background:var(--ok)} .status.bad .dot{background:var(--bad)} .status.warn .dot{background:var(--warn)}
+nav.stages{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:6px;border-bottom:1px solid var(--line);overflow-x:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav.stages ol{list-style:none;margin:0;padding:0;display:flex;gap:4px;min-width:max-content}
+nav.stages a{display:flex;align-items:center;gap:7px;padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:600;font-size:14px;white-space:nowrap}
+nav.stages a .n{font:600 12px var(--f-mono);width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:1px solid currentColor}
+nav.stages a .c{font:600 12px var(--f-mono);color:var(--muted)}
+nav.stages a[aria-current="page"]{background:var(--surface);color:var(--accent);box-shadow:var(--shadow)}
+nav.stages .sep{align-self:center;color:var(--line);font-size:13px}
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:16px;align-items:start}
+.side{display:grid;gap:16px;min-width:0}
+section.box{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:14px 16px;display:grid;gap:10px;min-width:0}
+section.box>h2,section.box>header h2{margin:0;font-size:16px}
+section.box>header{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+h3{margin:0;font-size:15px}
+.small{font-size:13px;color:var(--muted)}
+.empty{font-size:13px;color:var(--muted);padding:6px 0}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:grid;gap:2px;min-width:0}
+.tile .k{font-size:12px;color:var(--muted);letter-spacing:.02em}
+.tile .v{font:600 20px var(--f-mono);font-variant-numeric:tabular-nums}
+.tile .s{font-size:12px;color:var(--muted)}
+.chip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;border:1px solid currentColor;white-space:nowrap;line-height:1.6}
+.chip.ok{color:var(--ok)} .chip.warn{color:var(--warn)} .chip.bad{color:var(--bad)} .chip.acc{color:var(--accent)} .chip.mute{color:var(--muted)} .chip.info{color:var(--info)}
+.btn{border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:6px 13px;font:600 13.5px var(--f-body);cursor:pointer;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--accent)}
+.btn.bad{border-color:var(--bad);background:transparent;color:var(--bad)}
+.btn.sm{padding:3px 9px;font-size:12.5px;border-radius:8px}
+.btn:disabled{opacity:.45;cursor:default}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+textarea,input[type=text],input[type=number],select{width:100%;font:14px var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:7px 10px}
+textarea{min-height:64px;resize:vertical}
+input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);flex:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+a{color:var(--accent)}
+code,.mono{font-family:var(--f-mono);font-size:12.5px}
+pre.cmd{margin:0;background:var(--sunk);border-radius:10px;padding:9px 11px;font:500 12.5px/1.5 var(--f-mono);white-space:pre-wrap;word-break:break-all}
+.cmdbox{display:grid;gap:4px}
+.cmdbox .lab{font-size:12.5px;color:var(--muted);font-weight:600}
+.list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.card{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:8px;background:var(--surface);min-width:0}
+.card.locked{background:var(--sunk);opacity:.85}
+.card h3{font-size:15.5px;text-wrap:balance}
+.ephead{display:flex;justify-content:space-between;gap:8px;align-items:flex-start;flex-wrap:wrap}
+.ephead .id{font:500 12px var(--f-mono);color:var(--muted);word-break:break-all}
+.steps{display:flex;gap:3px;align-items:center;flex-wrap:wrap}
+.steps i{width:16px;height:6px;border-radius:3px;background:var(--line);display:block}
+.steps i.on{background:var(--ok)} .steps i.cur{background:var(--warn)}
+.gate{display:inline-flex;gap:7px;align-items:center;font-weight:700;font-size:14px;border:1px solid var(--line);border-radius:10px;padding:5px 10px;background:var(--surface);cursor:pointer}
+.gate.on{border-color:var(--ok);background:var(--ok-soft);color:var(--ok)}
+.gate.dis{opacity:.5;cursor:not-allowed}
+.gatebar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.rule{display:grid;gap:4px;padding:8px 0;border-top:1px solid var(--line)}
+.rule:first-child{border-top:0}
+.rule .t{font-size:14px}
+.rule .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.scope{font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.02em;margin-top:4px}
+.fb{display:grid;gap:6px}
+.fbitem{background:var(--sunk);border-radius:10px;padding:7px 10px;display:grid;gap:4px;font-size:14px}
+.fbitem .meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.fbitem .reply{font-size:13px;color:var(--ink);border-left:3px solid var(--accent);padding-left:8px}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs figure{margin:0;display:grid;gap:3px;width:min(220px,100%)}
+.thumbs img{width:100%;border-radius:8px;border:1px solid var(--line);display:block;aspect-ratio:16/9;object-fit:cover;background:var(--sunk)}
+.thumbs figcaption{font-size:12px;color:var(--muted)}
+.ref{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px solid var(--line)}
+.ref:first-child{border-top:0}
+.ref img{width:96px;border-radius:6px;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line)}
+.ref .t{font-size:14px;font-weight:600}
+.ref .s{font-size:12.5px;color:var(--muted)}
+.ref.noimg{grid-template-columns:minmax(0,1fr)}
+.words{display:flex;gap:6px;flex-wrap:wrap}
+.word{background:var(--sunk);border-radius:8px;padding:2px 8px;font-size:13px}
+.word b{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-left:4px;font-weight:600}
+.tablebox{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;color:var(--muted);font-weight:700}
+td.num{font-family:var(--f-mono);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.doc{font-size:14px;max-height:520px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:4px 12px;background:var(--surface)}
+.doc h3,.doc h4,.doc h5,.doc h6{margin:12px 0 4px;font-size:14.5px}
+.doc table{font-size:12.5px;min-width:520px}
+.doc pre{background:var(--sunk);padding:8px;border-radius:8px;overflow-x:auto;font-size:12px}
+.doc blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid var(--line);color:var(--muted)}
+.mdpath{font-size:11.5px;color:var(--muted)}
+details>summary{cursor:pointer;font-weight:600;font-size:14px}
+details.doc-d>summary{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.lines{display:grid;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.part{background:var(--sunk);font-size:12.5px;font-weight:700;color:var(--muted);padding:5px 10px;letter-spacing:.02em}
+.ln{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:8px;padding:6px 10px;border-top:1px solid var(--line);align-items:start}
+.ln .n{font:600 12px var(--f-mono);color:var(--muted);padding-top:2px;text-align:right}
+.ln .x{font-size:14.5px}
+.ln.changed .x{background:linear-gradient(transparent 60%,var(--warn-soft) 60%)}
+.ln .acts{display:flex;gap:6px;align-items:center}
+.ln .fbwrap{grid-column:2/4}
+.ln label.rg{display:inline-flex;gap:4px;align-items:center;font-size:12.5px;color:var(--muted)}
+.ln.redo{background:var(--warn-soft)}
+.picker{display:flex;gap:6px;flex-wrap:wrap}
+.picker button{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:5px 10px;font:500 13px var(--f-body);color:var(--ink);cursor:pointer;text-align:left;max-width:100%}
+.picker button[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.picker button .k{display:block;font:500 11px var(--f-mono);color:var(--muted)}
+.checks{display:grid;gap:6px}
+.checks label{display:flex;gap:8px;align-items:flex-start;font-size:14px}
+.item-ok{color:var(--ok)} .item-bad{color:var(--bad)}
+.desc{white-space:pre-wrap;background:var(--sunk);border-radius:10px;padding:8px 10px;font-size:13px;max-height:260px;overflow:auto}
+svg.spark{width:120px;height:28px;display:block}
+svg.spark polyline{fill:none;stroke:var(--accent);stroke-width:1.6}
+svg.spark circle{fill:var(--accent)}
+.persona{border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:grid;gap:6px}
+.persona .who{font-size:12.5px;color:var(--muted)}
+.persona dl{margin:0;display:grid;grid-template-columns:80px minmax(0,1fr);gap:4px 10px;font-size:13.5px}
+.persona dt{font-weight:700;color:var(--muted);font-size:12.5px}
+.persona dd{margin:0}
+.confirm{display:inline-flex;gap:6px;align-items:center;font-size:13px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
+.loading{padding:40px 0;text-align:center;color:var(--muted)}
+@media (max-width:980px){.cols{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:620px){.grid2{grid-template-columns:minmax(0,1fr)}.ln{grid-template-columns:28px minmax(0,1fr)}.ln .acts{grid-column:2}.ln .fbwrap{grid-column:1/3}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>제작 판</h1>
+      <p id="intro">주제 탐색부터 업로드까지 한 판에서 — 단계마다 '통과'를 체크한 편만 다음 단계로 갑니다.</p>
+      <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+    </div>
+    <div class="topics" id="topics" role="group" aria-label="주제"></div>
+  </header>
+  <nav class="stages" aria-label="단계"><ol id="nav"></ol></nav>
+  <main id="view"><div class="loading">판 자료를 불러오는 중…</div></main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
+(() => {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const e = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const B = BOARD || { topics: [{ key: "psychology", name: "심리" }], stages: ["topic", "title", "thumb", "script", "voice", "codetest", "video", "upload"], stage_ko: {}, made: "?" };
+  const STAGES = B.stages;
+  const SK = Object.assign({ topic: "주제", title: "제목", thumb: "썸네일", script: "대본", voice: "음성", codetest: "코드 테스트", video: "영상", upload: "업로드" }, B.stage_ko || {});
+  const VIEWS = [
+    { key: "common", label: "공통", n: "" },
+    { key: "topic", label: "주제 탐색", n: "1", gate: "topic" },
+    { key: "title", label: "제목", n: "2", gate: "title", need: "topic" },
+    { key: "thumb", label: "썸네일", n: "3", gate: "thumb", need: "title" },
+    { key: "script", label: "대본·음성", n: "4", gate: "script", need: "thumb" },
+    { key: "video", label: "영상", n: "5", gate: "video", need: "voice" },
+    { key: "upload", label: "업로드", n: "6", gate: "upload", need: "video" },
+    { key: "channel", label: "채널 분석", n: "" },
+  ];
+  const COLS = ["gates", "episodes", "rules", "refs", "feedback", "tts", "trends", "skills", "uploads", "channels"];
+  const CATS = { 0: "모든 카테고리", 14: "집단·사회", 958: "직업·교육", 45: "건강", 16: "뉴스", 3: "예술·엔터", 7: "금융", 71: "식음료", 65: "취미·레저", 11: "홈·가든", 18: "쇼핑", 44: "미용·건강" };
+  const UPLOAD_CHECKS = ["제목 · 본안 썸네일", "설명란 첫 줄 · 챕터", "태그 · 해시태그", "자막 (지금 대본과 같은지)", "음성 · 영상 끝까지 봄", "합성 콘텐츠 '예' · 카테고리", "올릴 채널 · 공개 시각"];
+  const store = k => { try { return localStorage.getItem("studio." + k); } catch (_) { return null; } };
+  const keep = (k, v) => { try { localStorage.setItem("studio." + k, v); } catch (_) { /* 이 브라우저는 기억 못 함 */ } };
+
+  const S = {
+    topic: (B.topics.find(t => t.key === store("topic")) || B.topics[0]).key,
+    view: "common", data: {}, common: null, db: null, canWrite: true, connected: false,
+    col: Object.fromEntries(COLS.map(c => [c, new Map()])),
+    edit: null, confirm: null, open: new Set(), sel: {}, refq: "", busy: false,
+  };
+  let tt = null;
+  const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2400); };
+  const nowIso = () => new Date().toISOString();
+  const fmtN = n => n == null || n === "" ? "–" : Number(n).toLocaleString("ko-KR");
+  const syncedAt = () => (S.common && S.common.synced_at) || B.synced_at || null;
+  const pendingDoc = d => !!(d && d.at && (!syncedAt() || String(d.at) > String(syncedAt())));
+  const pendChip = d => pendingDoc(d) ? `<span class="chip warn">Claude 반영 전</span>` : (d && d.at ? `<span class="chip ok">반영됨</span>` : "");
+
+  // ───────── 편 · 단계 통과
+  const cands = topic => [...S.col.episodes.values()].filter(c => c.topic === topic && !c.deleted).map(c => ({
+    topic, id: "cand-" + c.id, docId: c.id, kind: "cand", title: c.title || "(제목 없음)", memo: c.memo || "", repo_gates: {}, lines: [], thumbs: [],
+    thumb_main: [], thumb_sub: [], title_alts: [], persona: {}, history: [], audio: { status: "none", note: "판에서 더한 후보 — 대본 없음" }, video: {}, upload: null }));
+  const eps = topic => [...cands(topic), ...((S.data[topic] || {}).episodes || [])];
+  const gid = (ep, s) => `${ep.topic}__${ep.id}__${s}`;
+  function own(ep, s) {
+    const g = S.col.gates.get(gid(ep, s));
+    if (g && typeof g.pass === "boolean") return { v: g.pass, by: "board", doc: g };
+    return { v: !!(ep.repo_gates || {})[s], by: "repo" };
+  }
+  function eff(ep, s) { for (const x of STAGES) { if (!own(ep, x).v) return false; if (x === s) return true; } return false; }
+  function at(ep) { for (const x of STAGES) if (!own(ep, x).v) return x; return "done"; }
+  const kindChip = ep => ep.kind === "shorts" ? `<span class="chip info">쇼츠</span>` : ep.kind === "cand" ? `<span class="chip acc">판 후보</span>` : `<span class="chip mute">롱폼</span>`;
+  function stepsHtml(ep) {
+    const cur = at(ep);
+    return `<span class="steps" title="단계: ${e(STAGES.map(s => SK[s] + (eff(ep, s) ? " ✓" : "")).join(" → "))}">${STAGES.map(s => `<i class="${eff(ep, s) ? "on" : s === cur ? "cur" : ""}"></i>`).join("")}</span>
+      <span class="small">${cur === "done" ? "업로드까지 끝" : "지금 " + e(SK[cur])}</span>`;
+  }
+  function gateHtml(ep, s, label) {
+    const i = STAGES.indexOf(s), prevOk = i === 0 || eff(ep, STAGES[i - 1]);
+    const o = own(ep, s), on = o.v && prevOk;
+    const dis = !prevOk || !S.db || !S.canWrite;
+    const by = o.by === "board" ? `<span class="chip acc">판 체크</span>${pendChip(o.doc)}` : (o.v ? `<span class="chip mute">저장소 기준</span>` : "");
+    const reset = o.by === "board" ? `<button class="btn ghost sm" type="button" data-act="gate-reset" data-topic="${e(ep.topic)}" data-ep="${e(ep.id)}" data-stage="${s}">저장소 기준으로</button>` : "";
+    return `<span class="gatebar"><label class="gate ${on ? "on" : ""} ${dis ? "dis" : ""}" title="${prevOk ? "" : e(SK[STAGES[i - 1]]) + " 통과 뒤 체크할 수 있음"}">
+      <input type="checkbox" data-act="gate" data-topic="${e(ep.topic)}" data-ep="${e(ep.id)}" data-stage="${s}" ${o.v ? "checked" : ""} ${dis ? "disabled" : ""}>
+      ${e(label || SK[s] + " 통과")}</label>${by}${reset}${prevOk ? "" : `<span class="small">${e(SK[STAGES[i - 1]])} 통과 전</span>`}</span>`;
+  }
+  function epHead(ep, extra) {
+    return `<div class="ephead"><div style="min-width:0;display:grid;gap:2px">
+      <div class="row">${kindChip(ep)}<span class="id">${e(ep.id)}</span></div>
+      <h3>${e(ep.title || "(제목 아직 없음)")}</h3>
+      <div class="row">${stepsHtml(ep)}</div></div>${extra || ""}</div>`;
+  }
+
+  // ───────── 규칙
+  function rulesOf(stage) {
+    const R = ((S.common || {}).rules || {}).stages || {};
+    const base = R[stage] || {};
+    const out = [];
+    for (const scope of ["common", S.topic]) {
+      const items = (base[scope] || []).map(r => ({ ...r, stage, scope }));
+      const ids = new Set(items.map(r => r.id));
+      for (const d of S.col.rules.values()) if (d.stage === stage && (d.scope || "common") === scope && !ids.has(d.id)) items.push({ id: d.id, text: d.text, src: "판에서 더함", stage, scope, added: true });
+      for (const r of items) { const d = S.col.rules.get(r.id); if (d) { r.doc = d; if (d.text) r.text = d.text; if (d.deleted) r.deleted = true; } }
+      out.push({ scope, items });
+    }
+    return out;
+  }
+  function rulesBox(stage, title) {
+    const groups = rulesOf(stage);
+    const tname = (S.data[S.topic] || {}).name || S.topic;
+    const body = groups.map(g => `<div class="scope">${g.scope === "common" ? "공통" : e(tname) + " 주제"}</div>` + (g.items.length ? g.items.map(r => {
+      const k = "rule:" + r.id;
+      if (S.edit === k) return `<div class="rule"><textarea id="ed-${e(r.id)}">${e(r.text)}</textarea><div class="row"><button class="btn sm" data-act="rule-save" data-id="${e(r.id)}" data-stage="${stage}" data-scope="${e(g.scope)}">저장</button><button class="btn ghost sm" data-act="cancel">그만</button></div></div>`;
+      return `<div class="rule" ${r.deleted ? 'style="opacity:.55"' : ""}><div class="t">${r.deleted ? "<s>" + e(r.text) + "</s>" : e(r.text)}</div><div class="meta">
+        ${r.src ? `<span>${e(r.src)}</span>` : ""}${r.doc ? pendChip(r.doc) : ""}${r.deleted ? `<span class="chip bad">뺌</span>` : ""}
+        ${S.confirm === k ? `<span class="confirm">이 규칙을 뺄까요?<button class="btn bad sm" data-act="rule-del" data-id="${e(r.id)}" data-stage="${stage}" data-scope="${e(g.scope)}">빼기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>`
+          : r.deleted ? `<button class="btn ghost sm" data-act="rule-undel" data-id="${e(r.id)}" data-stage="${stage}" data-scope="${e(g.scope)}" ${wr()}>되살리기</button>`
+          : `<button class="btn ghost sm" data-act="edit" data-k="${e(k)}" ${wr()}>고치기</button><button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>빼기</button>`}</div></div>`;
+    }).join("") : `<div class="empty">아직 없음</div>`)).join("");
+    return `<section class="box"><header><h2>${e(title || SK[stage] + " 규칙")}</h2><span class="small">고치면 Claude 가 지시사항 문서에도 반영</span></header>${body}
+      <details><summary class="small">규칙 더하기</summary><div class="fb" style="margin-top:6px">
+        <select id="nr-scope-${stage}"><option value="common">공통 (모든 주제)</option><option value="${e(S.topic)}">${e(tname)} 주제만</option></select>
+        <textarea id="nr-text-${stage}" placeholder="한 줄 규칙 — 예: 제목 첫 낱말은 시청자가 겪는 장면으로"></textarea>
+        <div class="row"><button class="btn sm" data-act="rule-add" data-stage="${stage}" ${wr()}>더하기</button></div></div></details></section>`;
+  }
+  const wr = () => (S.db && S.canWrite) ? "" : "disabled";
+
+  // ───────── 피드백 (제목·썸네일·대본 줄·영상)
+  function fbOf(topic, ep, stage, line) {
+    return [...S.col.feedback.values()].filter(f => f.topic === topic && f.ep === ep && f.stage === stage && (line == null ? !f.line : Number(f.line) === Number(line)))
+      .sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+  }
+  function fbBox(ep, stage, line, hint) {
+    const L = fbOf(ep.topic, ep.id, stage, line);
+    const key = `fbnew:${ep.id}:${stage}:${line == null ? "" : line}`;
+    const items = L.map(f => {
+      const k = "fb:" + f.id;
+      if (S.edit === k) return `<div class="fbitem"><textarea id="ed-${e(f.id)}">${e(f.text)}</textarea><div class="row"><button class="btn sm" data-act="fb-save" data-id="${e(f.id)}">저장</button><button class="btn ghost sm" data-act="cancel">그만</button></div></div>`;
+      return `<div class="fbitem"><div>${e(f.text)}</div>${f.reply ? `<div class="reply">Claude: ${e(f.reply)}</div>` : ""}<div class="meta">
+        <span class="chip ${f.status === "done" ? "ok" : "warn"}">${f.status === "done" ? "반영함" : "반영 전"}</span><span>${e(String(f.at || f.createdAt || "").slice(0, 16).replace("T", " "))}</span>
+        ${S.confirm === k ? `<span class="confirm">지울까요?<button class="btn bad sm" data-act="fb-del" data-id="${e(f.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>`
+          : `<button class="btn ghost sm" data-act="edit" data-k="${e(k)}" ${wr()}>고치기</button><button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>지우기</button>`}</div></div>`;
+    }).join("");
+    return `<div class="fb">${items}<textarea id="${e(key)}" placeholder="${e(hint || "피드백 — Claude 가 동기화 때 읽고 반영합니다")}"></textarea>
+      <div class="row"><button class="btn sm" data-act="fb-add" data-topic="${e(ep.topic)}" data-ep="${e(ep.id)}" data-stage="${stage}" data-line="${line == null ? "" : line}" data-k="${e(key)}" ${wr()}>피드백 남기기</button></div></div>`;
+  }
+
+  // ───────── 참고 자료 (분석 성공 사례 — 고치기·빼기·더하기)
+  function refsOf(kind) {
+    const R = (S.data[S.topic] || {}).refs || {};
+    const base = (kind === "title" ? R.titles : R.thumbs) || [];
+    const out = base.map(r => { const d = S.col.refs.get(r.id); return d ? { ...r, text: d.text ?? r.text, sub: d.sub ?? r.sub, note: d.note || "", deleted: !!d.deleted, doc: d } : r; });
+    for (const d of S.col.refs.values()) if (d.topic === S.topic && d.kind === kind && !base.some(r => r.id === d.id)) out.unshift({ id: d.id, text: d.text, sub: d.sub, note: d.note, deleted: !!d.deleted, doc: d, added: true });
+    return out;
+  }
+  function refsBox(kind) {
+    const R = (S.data[S.topic] || {}).refs || {};
+    const all = refsOf(kind);
+    const q = S.refq.trim();
+    const L = all.filter(r => !q || (r.text + " " + (r.sub || "") + " " + (r.channel || "")).includes(q));
+    const shown = L.slice(0, S.open.has("refs-all-" + kind) ? 400 : 30);
+    const item = r => {
+      const k = `ref:${r.id}`;
+      if (S.edit === k) return `<div class="ref noimg"><div class="fb"><input type="text" id="ed-${e(r.id)}" value="${e(r.text)}">${kind === "thumb" ? `<input type="text" id="eds-${e(r.id)}" value="${e(r.sub || "")}" placeholder="보조 문구">` : ""}
+        <input type="text" id="edn-${e(r.id)}" value="${e(r.note || "")}" placeholder="메모 (왜 참고하는지)"><div class="row"><button class="btn sm" data-act="ref-save" data-id="${e(r.id)}" data-kind="${kind}">저장</button><button class="btn ghost sm" data-act="cancel">그만</button></div></div></div>`;
+      const meta = [r.channel, r.views != null ? "조회 " + fmtN(r.views) : "", r.ratio != null ? "구독자 배수 " + r.ratio : "", r.published, r.shorts ? "쇼츠" : "", r.format].filter(Boolean).join(" · ");
+      return `<div class="ref ${r.img ? "" : "noimg"}" ${r.deleted ? 'style="opacity:.5"' : ""}>${r.img ? `<img src="${e(r.img)}" alt="" loading="lazy">` : ""}<div style="min-width:0;display:grid;gap:2px">
+        <div class="t">${r.deleted ? "<s>" + e(r.text) + "</s>" : e(r.text)}</div>${kind === "thumb" && r.sub ? `<div class="s">보조: ${e(r.sub)}</div>` : ""}
+        ${kind === "thumb" && r.title ? `<div class="s">제목: ${e(r.title)}</div>` : ""}<div class="s">${e(meta)}${r.vid ? ` · <a href="https://www.youtube.com/watch?v=${encodeURIComponent(r.vid)}" target="_blank" rel="noopener">영상</a>` : ""}</div>
+        ${r.note ? `<div class="s">메모: ${e(r.note)}</div>` : ""}<div class="row">${r.added ? `<span class="chip acc">판에서 더함</span>` : ""}${r.doc ? pendChip(r.doc) : ""}
+        ${S.confirm === k ? `<span class="confirm">참고 자료에서 뺄까요?<button class="btn bad sm" data-act="ref-del" data-id="${e(r.id)}" data-kind="${kind}">빼기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>`
+          : r.deleted ? `<button class="btn ghost sm" data-act="ref-undel" data-id="${e(r.id)}" data-kind="${kind}" ${wr()}>되살리기</button>`
+          : `<button class="btn ghost sm" data-act="edit" data-k="${e(k)}" ${wr()}>고치기</button><button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>빼기</button>`}</div></div></div>`;
+    };
+    const note = kind === "thumb" && !all.length ? `<p class="empty">${e(R.thumb_note || "성공 사례 썸네일 문구가 아직 없음")}</p>` : "";
+    return `<section class="box"><header><h2>${kind === "title" ? "성공 사례 제목" : "성공 사례 썸네일 문구"}</h2><span class="small">${all.filter(r => !r.deleted).length}개 · 기본 = 분석 결과</span></header>
+      <p class="small">${e(kind === "title" ? R.source || "" : R.thumb_source || R.source || "")} — 고치거나 빼거나 더할 수 있습니다 (분석 원본은 그대로, 판에만 저장).</p>
+      <input type="text" id="refq" placeholder="찾기 — 낱말·채널" value="${e(S.refq)}">${note}
+      <div>${shown.map(item).join("") || `<div class="empty">맞는 것 없음</div>`}</div>
+      ${L.length > shown.length ? `<button class="btn ghost sm" data-act="open" data-k="refs-all-${kind}">${L.length - shown.length}개 더 보기</button>` : ""}
+      <details><summary class="small">참고 자료 더하기</summary><div class="fb" style="margin-top:6px"><input type="text" id="nref-${kind}" placeholder="${kind === "title" ? "제목" : "주요 문구"}">
+        ${kind === "thumb" ? `<input type="text" id="nrefs-${kind}" placeholder="보조 문구 (선택)">` : ""}<input type="text" id="nrefn-${kind}" placeholder="메모 — 어디서 봤는지, 왜 참고하는지">
+        <div class="row"><button class="btn sm" data-act="ref-add" data-kind="${kind}" ${wr()}>더하기</button></div></div></details></section>`;
+  }
+  function wordsBox() {
+    const R = (S.data[S.topic] || {}).refs || {};
+    const chips = (R.freq || []).map(w => `<span class="word">${e(w.word)}<b>${w.n}</b></span>`).join("");
+    const tbl = (L, cap) => L && L.length ? `<div class="tablebox"><table><caption class="small" style="text-align:left">${cap}</caption><thead><tr><th>낱말·꼴</th><th>든 제목</th><th>성공 비율</th><th>차이</th></tr></thead><tbody>${L.map(w => `<tr><td>${e(w.word)}</td><td class="num">${w.n}</td><td class="num">${Math.round(w.rate * 100)}%</td><td class="num">${w.diff > 0 ? "+" : ""}${Math.round(w.diff * 100)}%p</td></tr>`).join("")}</tbody></table></div>` : "";
+    const rel = ((S.data[S.topic] || {}).related || []).map(docHtml).join("");
+    return `<section class="box"><header><h2>자주 쓰는 낱말</h2><span class="small">성공 사례 제목 ${(R.titles || []).length}개에서</span></header>
+      <div class="words">${chips || `<span class="empty">아직 없음</span>`}</div>${tbl(R.features, "제목 꼴 — 있을 때 성공 비율")}${tbl(R.words_up, "있으면 성공 비율이 높은 낱말")}${tbl(R.words_down, "있으면 성공 비율이 낮은 낱말")}
+      ${rel ? `<div class="scope">관련 영상 낱말·형식 (tools/related_titles.py)</div>${rel}` : ""}</section>`;
+  }
+  const docHtml = d => `<details class="doc-d"><summary>${e(d.title)} <span class="chip mute">${e(d.date)}</span></summary><p class="small mono">${e(d.path)}${d.cut ? " · 앞부분만" : ""}</p><div class="doc">${d.html}</div></details>`;
+
+  // ───────── 명령 상자
+  const cmd = (lab, text) => `<div class="cmdbox"><span class="lab">${e(lab)}</span><pre class="cmd">${e(text)}</pre><div class="row"><button class="btn ghost sm" data-act="copy" data-text="${e(text)}">복사</button></div></div>`;
+
+  // ───────── 공통 (트렌드 · 흐름)
+  function spark(series) {
+    if (!series || series.length < 2) return "";
+    const mx = Math.max(1, ...series), w = 120, h = 28, n = series.length;
+    const pts = series.map((v, i) => `${(i / (n - 1) * (w - 4) + 2).toFixed(1)},${(h - 3 - v / mx * (h - 6)).toFixed(1)}`);
+    const last = pts[pts.length - 1].split(",");
+    return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${pts.join(" ")}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.4"/></svg>`;
+  }
+  function trendsResult(tr, label) {
+    if (!tr || !tr.period) return `<p class="empty">${e(label)}: PC 결과 아직 없음 — PC 에서 아래 명령을 켜 두면 간격마다 받아 올립니다.</p>`;
+    const ts = (tr.timeseries || []).flatMap(b => b.words.map(w => ({ ...w, dates: b.dates, file: b.file })));
+    const t1 = ts.length ? `<div class="tablebox"><table><thead><tr><th>낱말</th><th>평균</th><th>최근 4주</th><th>앞 4주 대비</th><th>흐름</th></tr></thead><tbody>${ts.map(w => `<tr><td>${e(w.word)}</td><td class="num">${w.avg}</td><td class="num">${w.last4}</td><td class="num">${w.change == null ? "–" : "×" + w.change}</td><td>${spark(w.series)}</td></tr>`).join("")}</tbody></table></div>` : "";
+    const t2 = (tr.related || []).map(r => `<details><summary>${e(r.keyword || CATS[r.cat] || "분류 " + r.cat)} — 급상승 ${r.rising.length} · 인기 ${r.top.length}</summary>
+      <div class="grid2" style="margin-top:6px"><div><div class="scope">급상승</div><div class="words">${r.rising.map(x => `<span class="word">${e(x[0])}<b>${e(x[1] || "")}</b></span>`).join("") || `<span class="empty">없음</span>`}</div></div>
+      <div><div class="scope">인기</div><div class="words">${r.top.map(x => `<span class="word">${e(x)}</span>`).join("") || `<span class="empty">없음</span>`}</div></div></div></details>`).join("");
+    return `<div class="small">${e(label)} · 결과 ${e(tr.period)} · 올린 때 ${e(String(tr.pushed || "").slice(0, 16).replace("T", " "))} · <span class="mono">${e(tr.dir)}</span></div>${t1}${t2}`;
+  }
+  function trendsSetting(key, label, defaults, isOverall) {
+    const d = S.col.trends.get(key);
+    const st = ((S.common || {}).state || {}).trends || null;
+    const repoCur = isOverall ? (st && st.overall) : (st && st.topics && st.topics[key]);
+    const words = d ? (isOverall ? (d.cats || []).join(", ") : (d.words || []).join("\n")) : (isOverall ? (defaults.cats || []).join(", ") : (defaults.words || []).join("\n"));
+    const hours = (d && d.every_hours) || (repoCur && repoCur.every_hours) || (S.common.trends_defaults || {}).every_hours || 24;
+    return `<div class="card"><div class="ephead"><h3>${e(label)}</h3><div class="row">${d ? pendChip(d) : `<span class="chip mute">기본값 (studio.toml)</span>`}</div></div>
+      <label class="small" for="tw-${e(key)}">${isOverall ? "분류 번호 (쉼표로) — " + Object.entries(CATS).slice(0, 8).map(([k, v]) => k + " " + v).join(" · ") : "검색어 (한 줄에 하나 · 5개씩 한 묶음, 첫 낱말이 기준)"}</label>
+      ${isOverall ? `<input type="text" id="tw-${e(key)}" value="${e(words)}">` : `<textarea id="tw-${e(key)}" rows="5">${e(words)}</textarea>`}
+      <div class="row"><label class="small" for="th-${e(key)}">다시 받는 간격</label><select id="th-${e(key)}" style="width:auto">${[6, 12, 24, 48, 168].map(h => `<option value="${h}" ${Number(hours) === h ? "selected" : ""}>${h < 24 ? h + "시간" : h / 24 + "일"}</option>`).join("")}</select>
+      <button class="btn sm" data-act="trends-save" data-key="${e(key)}" data-overall="${isOverall ? 1 : 0}" ${wr()}>저장</button></div>
+      <p class="small">저장소(PC 가 읽는 곳): ${repoCur ? e((isOverall ? (repoCur.cats || []).join(", ") : (repoCur.words || []).join(" · "))) + " · " + e(repoCur.every_hours) + "시간마다" : "아직 동기화 전"}</p></div>`;
+  }
+  function viewCommon() {
+    const C = S.common || {};
+    const funnel = B.topics.map(t => {
+      const L = eps(t.key), cnt = {};
+      for (const ep of L) { const a = at(ep); cnt[a] = (cnt[a] || 0) + 1; }
+      return `<tr><td>${e(t.name)}</td>${STAGES.map(s => `<td class="num">${cnt[s] || ""}</td>`).join("")}<td class="num">${cnt.done || ""}</td><td class="num">${L.length}</td></tr>`;
+    }).join("");
+    const pend = COLS.map(c => [c, [...S.col[c].values()].filter(pendingDoc).length]).filter(x => x[1]);
+    const D = C.trends_defaults || {};
+    return `<div class="cols"><div class="side" style="gap:16px">
+      <section class="box"><header><h2>편마다 지금 단계</h2><span class="small">통과 체크가 된 편만 다음 단계로</span></header>
+        <div class="tablebox"><table><thead><tr><th>주제</th>${STAGES.map(s => `<th>${e(SK[s])}</th>`).join("")}<th>끝</th><th>모두</th></tr></thead><tbody>${funnel}</tbody></table></div>
+        <p class="small">숫자 = 그 단계에서 기다리는 편. 저장소 기준(이미 만든 것)은 판에서 체크하기 전 기본값이고, 판의 체크가 늘 이깁니다.</p></section>
+      <section class="box"><header><h2>구글 트렌드 — 검색어 설정</h2><span class="small">PC 가 간격마다 받아 올림</span></header>
+        ${trendsSetting("overall", "전체 탐색 (주제 없이 분류만 · 관련 검색어 인기·급상승)", D.overall || {}, true)}
+        ${B.topics.map(t => trendsSetting(t.key, t.name + " 주제", { words: (D.words || {})[t.key] || [] }, false)).join("")}
+      </section>
+      <section class="box"><header><h2>구글 트렌드 — PC 결과</h2></header>
+        ${trendsResult(C.overall_trends, "전체 탐색")}${B.topics.map(t => trendsResult((S.data[t.key] || {}).trends, t.name)).join("")}</section>
+      </div><div class="side">
+      <section class="box"><h2>명령</h2>
+        ${cmd("PC — 트렌드를 간격마다 받아 올리기 (켜 두기 · 멈춤 Ctrl+C)", "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch")}
+        ${cmd("PC — 한 번만 받기", "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch -Once")}
+        ${cmd("Claude 에게 — 판에서 바꾼 것을 저장소로", "제작 판 동기화해")}
+        ${cmd("Kaggle — 음성 (판에서 체크한 대본만)", 'import sys; sys.path.insert(0, "/kaggle/working/yeomin1024-ytb/tools")\nimport importlib, kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()')}
+        ${cmd("PC — 업로드 화면", "유튜브_업로드.bat")}</section>
+      <section class="box"><h2>동기화</h2><p class="small">판에서 고친 것은 바로 판 db 에 저장됩니다. PC·Kaggle·Claude 지시사항은 저장소를 읽으므로, Claude 가 동기화하면 <span class="mono">studio/state/*.json</span> 으로 옮깁니다.</p>
+        <p class="small">마지막 동기화 ${e(String(syncedAt() || "아직").slice(0, 16).replace("T", " "))} · 판 만든 때 ${e(B.made)} · ${e(B.tool || "")}</p>
+        ${pend.length ? `<div class="words">${pend.map(([c, n]) => `<span class="word">${e(c)}<b>${n}</b></span>`).join("")}</div><p class="small">위 ${pend.reduce((a, x) => a + x[1], 0)}건이 아직 저장소에 없음 — Claude 에게 '제작 판 동기화해'.</p>` : `<p class="small">저장소에 안 옮긴 것 없음</p>`}</section>
+      ${rulesBox("trends", "트렌드 규칙")}</div></div>`;
+  }
+
+  // ───────── 1 주제 탐색
+  function personaHtml(p) {
+    const F = [["situation", "상황"], ["curiosity", "호기심"], ["worry", "걱정"], ["anxiety", "불안"], ["wants", "원하는 것"], ["habit", "버릇"]];
+    const rows = F.map(([k, nm]) => { const v = p[k]; const L = Array.isArray(v) ? v : v ? [v] : []; return L.length ? `<dt>${nm}</dt><dd>${L.map(x => e(x.text)).join("<br>")}</dd>` : ""; }).join("");
+    return `<details class="persona"><summary>${e(p.name)} <span class="small">근거 댓글 ${p.n}</span></summary><div class="who">${e(p.who)}</div><dl>${rows}</dl>
+      ${(p.quotes || []).length ? `<details><summary class="small">원문 댓글 ${p.quotes.length}</summary><ul class="small">${p.quotes.map(q => `<li>“${e(q.text)}” (공감 ${q.likes})</li>`).join("")}</ul></details>` : ""}</details>`;
+  }
+  function viewTopic() {
+    const D = S.data[S.topic] || {};
+    const L = eps(S.topic);
+    const lg = D.legacy || {};
+    const chans = [...S.col.channels.values()].filter(c => (c.topic || S.topic) === S.topic).sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
+    const cards = L.map(ep => `<div class="card">${epHead(ep, gateHtml(ep, "topic", "주제 통과"))}
+      ${ep.kind === "cand" ? `${ep.memo ? `<p class="small">메모: ${e(ep.memo)}</p>` : ""}<div class="row">${S.confirm === "cand:" + ep.docId ? `<span class="confirm">이 후보를 지울까요?<button class="btn bad sm" data-act="cand-del" data-id="${e(ep.docId)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="cand:${e(ep.docId)}" ${wr()}>후보 지우기</button>`}</div>` : ""}
+      <details ${S.open.has("fbo:" + ep.id + ":topic") ? "open" : ""} data-k="fbo:${e(ep.id)}:topic"><summary class="small">주제 피드백 ${fbOf(ep.topic, ep.id, "topic").length}</summary>${fbBox(ep, "topic", null)}</details></div>`).join("");
+    const tr = lg.transcript || {};
+    return `<div class="cols"><div class="side">
+      <section class="box"><header><h2>주제 후보</h2><span class="small">통과를 체크한 후보만 제목 단계로</span></header>
+        <div class="fb"><input type="text" id="nc-title" placeholder="새 후보 — 예: 남의 뒷말을 전하는 사람의 심리"><input type="text" id="nc-memo" placeholder="메모 — 근거(탐색 결과 몇 번, 댓글 묶음 등)">
+        <div class="row"><button class="btn sm" data-act="cand-add" ${wr()}>후보 더하기</button></div></div>
+        <div class="list">${cards || `<div class="empty">후보 없음</div>`}</div></section>
+      <section class="box"><header><h2>${e(D.name || "")} 주제 탐색 결과</h2><span class="small">${(D.explore || []).length}개 문서</span></header>${(D.explore || []).map(docHtml).join("") || `<p class="empty">결과 문서 없음 — python3 tools/next_topic.py ${e(S.topic)} report</p>`}</section>
+      <section class="box"><header><h2>시청자 페르소나</h2><span class="small">옛 분석 판에서 옮김 · ${e(lg.made || "")}</span></header>${(lg.personas || []).map(personaHtml).join("") || `<p class="empty">없음</p>`}
+        ${(lg.log || []).length ? `<details><summary class="small">업데이트 내역 ${lg.log.length}</summary><div class="tablebox"><table><thead><tr><th>날짜</th><th>페르소나</th><th>무엇을</th><th>근거</th></tr></thead><tbody>${lg.log.map(x => `<tr><td class="mono">${e(x.date)}</td><td>${e(x.persona_name || x.persona)}</td><td>${e(x.after)}</td><td>${e(x.basis)}</td></tr>`).join("")}</tbody></table></div></details>` : ""}</section>
+      </div><div class="side">${rulesBox("topic")}
+      <section class="box"><h2>탐색할 고정 채널</h2><p class="small">채널 ID(UC…)·주소·@이름 — 여러 개는 줄을 바꿔서. Claude 가 다음 분석 때 탐색 목록에 더하고 결과를 적습니다.</p>
+        <textarea id="ch-in" placeholder="UCxxxxxxxxxxxxxxxxxxxxxx&#10;@채널이름"></textarea><input type="text" id="ch-memo" placeholder="메모 (선택)">
+        <div class="row"><button class="btn sm" data-act="ch-add" ${wr()}>채널 넣기</button></div>
+        <ul class="list">${chans.map(c => `<li class="card"><div class="row"><span class="chip ${c.status === "done" ? "ok" : c.status === "fail" ? "bad" : "warn"}">${c.status === "done" ? "반영됨" : c.status === "fail" ? "못 찾음" : "반영 전"}</span><code>${e(c.input)}</code></div>${c.memo ? `<span class="small">메모: ${e(c.memo)}</span>` : ""}${c.reply ? `<span class="small">Claude: ${e(c.reply)}</span>` : ""}
+          <div class="row">${S.confirm === "ch:" + c.id ? `<span class="confirm">지울까요?<button class="btn bad sm" data-act="ch-del" data-id="${e(c.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="ch:${e(c.id)}" ${wr()}>지우기</button>`}</div></li>`).join("")}</ul></section>
+      ${tr.command ? `<section class="box"><h2>대본 받기 (PC)</h2><p class="small">${e(tr.why || "")} (목록 ${e(tr.made || "")})</p>${cmd("PC 명령", tr.command)}</section>` : ""}
+      </div></div>`;
+  }
+
+  // ───────── 2 제목 · 3 썸네일
+  function eligible(v) { return eps(S.topic).filter(ep => !v.need || eff(ep, v.need)); }
+  function lockedList(v) {
+    const L = eps(S.topic).filter(ep => v.need && !eff(ep, v.need));
+    return L.length ? `<details><summary class="small">앞 단계 통과 전 ${L.length}편 (여기서는 작업하지 않음)</summary><ul class="list" style="margin-top:6px">${L.map(ep => `<li class="card locked"><div class="row">${kindChip(ep)}<span>${e(ep.title || ep.id)}</span><span class="small">지금 ${e(SK[at(ep)] || "")}</span></div></li>`).join("")}</ul></details>` : "";
+  }
+  function viewTitle() {
+    const v = VIEWS.find(x => x.key === "title");
+    const cards = eligible(v).map(ep => `<div class="card">${epHead(ep, gateHtml(ep, "title", "제목 통과"))}
+      ${(ep.title_alts || []).length ? `<details><summary class="small">다른 안 ${ep.title_alts.length}</summary><ul class="small">${ep.title_alts.map(a => `<li>${e(a.title)} <span class="mono">(${e(a.key)})</span></li>`).join("")}</ul></details>` : ""}
+      ${ep.title_why ? `<details><summary class="small">제목 근거</summary><p class="small">${e(ep.title_why)}</p></details>` : ""}
+      <div class="row small">${ep.persona && ep.persona.title ? `<span class="chip ok">페르소나 title ${ep.persona.title}회차</span>` : `<span class="chip warn">페르소나 title 검증 기록 없음</span>`}</div>
+      <div class="scope">제목 피드백</div>${fbBox(ep, "title", null, "제목 피드백 — 예: '심리' 대신 시청자가 겪는 장면으로")}</div>`).join("");
+    return `<div class="cols"><div class="side"><section class="box"><header><h2>제목</h2><span class="small">주제 통과한 편 ${eligible(v).length}</span></header>
+      <div class="list">${cards || `<div class="empty">주제 단계에서 통과를 체크한 편이 없음</div>`}</div>${lockedList(v)}</section>${refsBox("title")}</div>
+      <div class="side">${rulesBox("title")}${wordsBox()}</div></div>`;
+  }
+  function viewThumb() {
+    const v = VIEWS.find(x => x.key === "thumb");
+    const cards = eligible(v).map(ep => `<div class="card">${epHead(ep, gateHtml(ep, "thumb", "썸네일 통과"))}
+      <div class="grid2"><div><div class="scope">주요 문구</div><div>${(ep.thumb_main || []).map(x => `<div style="font-weight:700">${e(x)}</div>`).join("") || `<span class="empty">없음</span>`}</div></div>
+      <div><div class="scope">보조 문구</div><div>${(ep.thumb_sub || []).map(x => `<div>${e(x)}</div>`).join("") || `<span class="empty">없음</span>`}</div></div></div>
+      <div class="thumbs">${(ep.thumbs || []).map(t => t.img ? `<figure><img src="${e(t.img)}" alt="${e(t.name)}" loading="lazy"><figcaption>${e(t.name)}</figcaption></figure>` : "").join("") || `<span class="empty">썸네일 그림 없음 — ChatGPT 요청 파일(thumbnails_chatgpt.md)부터</span>`}</div>
+      <div class="scope">썸네일 피드백 (문구·그림)</div>${fbBox(ep, "thumb", null, "썸네일 피드백 — 예: 말풍선이 얼굴을 가림 · 2줄째를 더 짧게")}</div>`).join("");
+    return `<div class="cols"><div class="side"><section class="box"><header><h2>썸네일 문구 · 이미지</h2><span class="small">제목 통과한 편 ${eligible(v).length}</span></header>
+      <div class="list">${cards || `<div class="empty">제목 단계에서 통과를 체크한 편이 없음</div>`}</div>${lockedList(v)}</section>${refsBox("thumb")}</div>
+      <div class="side">${rulesBox("thumb")}</div></div>`;
+  }
+
+  // ───────── 4 대본 · 음성
+  function picker(v, list) {
+    const cur = S.sel[v.key + ":" + S.topic];
+    const pick = list.find(x => x.id === cur) || list[0];
+    return [pick, `<div class="picker">${list.map(ep => `<button type="button" data-act="pick" data-view="${v.key}" data-id="${e(ep.id)}" aria-pressed="${pick && ep.id === pick.id}"><span class="k">${e(ep.id)}</span>${e((ep.title || "").slice(0, 34) || "(제목 없음)")}</button>`).join("")}</div>`];
+  }
+  function ttsDoc(ep) { return S.col.tts.get(`${ep.topic}__${ep.id}`) || null; }
+  function ttsState(ep) {
+    const d = ttsDoc(ep), q = (((S.common || {}).state || {}).tts_queue || {}).items || [];
+    if (!d || !(d.make || (d.redo || []).length)) return ["mute", "체크 없음 — Kaggle 셀이 이 대본은 만들지 않음"];
+    if (ep.audio && ep.audio.queue_stamp && ep.audio.queue_stamp === d.at) return ["ok", "체크한 대로 만들어짐 (" + String(ep.audio.created || "").slice(0, 16).replace("T", " ") + ")"];
+    if (q.some(x => x.topic === ep.topic && x.id === ep.id && x.stamp === d.at)) return ["acc", "Kaggle 대기 줄에 있음 — 셀을 실행하면 만들어짐"];
+    return ["warn", "Claude 동기화 전 — Claude 에게 '제작 판 동기화해' 뒤 Kaggle"];
+  }
+  function viewScript() {
+    const v = VIEWS.find(x => x.key === "script");
+    const list = eligible(v);
+    const [ep, pk] = picker(v, list);
+    let body = `<div class="empty">썸네일 단계에서 통과를 체크한 편이 없음</div>`;
+    if (ep) {
+      const d = ttsDoc(ep) || {}, redo = new Set((d.redo || []).map(Number));
+      const upl = ep.audio && ep.audio.status === "uploaded";          // 업로드한 편은 tts_narration 이 음성을 다시 만들지 않음 (v1.12 규칙)
+      const scriptOk = eff(ep, "script") && !upl;
+      const hasAudio = ep.audio && ["has_audio", "uploaded", "stale"].includes(ep.audio.status);
+      const [tc, tt2] = ttsState(ep);
+      let part = null;
+      const lines = (ep.lines || []).map(l => {
+        const head = l.part !== part ? `<div class="part">${e(l.part || "—")}</div>` : ""; part = l.part;
+        const n = fbOf(ep.topic, ep.id, "script", l.n).length, k = `ln:${ep.id}:${l.n}`, open = S.open.has(k);
+        return head + `<div class="ln ${l.changed ? "changed" : ""} ${redo.has(l.n) ? "redo" : ""}"><span class="n">${l.n}</span><span class="x">${e(l.text)}</span>
+          <span class="acts"><button class="btn ${n ? "" : "ghost"} sm" data-act="open" data-k="${e(k)}" aria-expanded="${open}">피드백${n ? " " + n : ""}</button>
+          ${hasAudio ? `<label class="rg" title="이 문장만 새로 만들기"><input type="checkbox" data-act="redo" data-ep="${e(ep.id)}" data-n="${l.n}" ${redo.has(l.n) ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>재생성</label>` : ""}</span>
+          ${open ? `<div class="fbwrap">${fbBox(ep, "script", l.n, l.n + "번 문장 피드백")}</div>` : ""}</div>`;
+      }).join("");
+      body = `<div class="card">${epHead(ep, `<div class="row">${gateHtml(ep, "script", "대본 통과")}</div>`)}
+        <div class="row small"><span>${(ep.lines || []).length}문장${ep.est ? " · 어림 " + Math.floor(ep.est / 60) + "분 " + String(ep.est % 60).padStart(2, "0") + "초" : ""}</span>
+          ${ep.persona && (ep.persona.script_exit || ep.persona.script_rebuttal) ? `<span class="chip ok">페르소나 이탈 ${ep.persona.script_exit || 0} · 반론 ${ep.persona.script_rebuttal || 0}회차</span>` : `<span class="chip warn">페르소나 대본 검증 기록 없음</span>`}
+          ${(ep.lines || []).some(l => l.changed) ? `<span class="chip warn">음성 뒤 바뀐 줄 ${(ep.lines || []).filter(l => l.changed).length} (노란 밑줄)</span>` : ""}</div></div>
+        <section class="box"><header><h2>음성</h2><span class="chip ${tc}">${e(tt2)}</span></header>
+          <p class="small">지금 음성: ${e((ep.audio || {}).note || "없음")}${ep.audio && ep.audio.seconds ? " · " + Math.round(ep.audio.seconds) + "초" : ""}</p>
+          <div class="row"><label class="gate ${d.make ? "on" : ""} ${scriptOk ? "" : "dis"}"><input type="checkbox" data-act="tts-make" data-ep="${e(ep.id)}" ${d.make ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>음성 생성</label>
+            <label class="gate ${d.full ? "on" : ""} ${scriptOk ? "" : "dis"}"><input type="checkbox" data-act="tts-full" data-ep="${e(ep.id)}" ${d.full ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>전부 다시</label>
+            <span class="small">재생성 체크 ${redo.size}줄${redo.size ? ": " + [...redo].sort((a, b) => a - b).join(", ") : ""}</span>
+            ${redo.size ? `<button class="btn ghost sm" data-act="redo-clear" data-ep="${e(ep.id)}" ${wr()}>재생성 체크 모두 풀기</button>` : ""}</div>
+          ${upl ? `<p class="small">이미 올린 편이라 음성을 다시 만들지 않습니다 (음성 도구 규칙). 고칠 일이 있으면 업로드 단계에서 '다시 올리기 허용' 뒤 Claude 에게 말해 주세요.</p>` : scriptOk ? "" : `<p class="small">대본 통과를 체크해야 음성을 체크할 수 있습니다.</p>`}
+          <p class="small">'음성 생성' = 음성이 없거나 옛 대본이면 만듦 · '전부 다시' = 있어도 처음부터 · 줄 '재생성' = 그 문장만 새로 만들어 저장소 음성에 끼움. 음성을 듣고 괜찮으면 → </p>
+          <div class="row">${gateHtml(ep, "voice", "음성 통과")}</div></section>
+        <div class="lines">${lines || `<div class="empty" style="padding:10px">대본 줄 없음${ep.kind === "cand" ? " — 판 후보는 Claude 가 대본 폴더를 만든 뒤 보임" : ""}</div>`}</div>
+        <section class="box"><h2>대본 전체 피드백</h2>${fbBox(ep, "script", null, "대본 전체 피드백 — 예: 2장 끝 질문이 3장과 안 이어짐")}</section>`;
+    }
+    return `<div class="cols"><div class="side"><section class="box"><header><h2>대본 · 음성</h2><span class="small">썸네일 통과한 편 ${list.length}</span></header>${pk}${lockedList(v)}</section>${body}</div>
+      <div class="side">${rulesBox("script")}${rulesBox("voice", "음성 규칙")}<section class="box"><h2>음성 만들기</h2>${cmd("Kaggle 셀 (판에서 체크한 대본만 만듦)", 'import sys; sys.path.insert(0, "/kaggle/working/yeomin1024-ytb/tools")\nimport importlib, kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()')}
+      <p class="small">체크 → Claude 동기화(studio/state/tts_queue.json) → Kaggle 셀 실행. 예전처럼 기다리는 대본을 모두 만들려면 패널의 '전부(예전 방식)'.</p></section></div></div>`;
+  }
+
+  // ───────── 5 영상
+  function skillsBox() {
+    const L = [...S.col.skills.values()].sort((a, b) => String(a.createdAt).localeCompare(String(b.createdAt)));
+    return `<section class="box"><header><h2>Claude 스킬 (GitHub 링크)</h2><span class="small">영상 만들 때 Claude 가 읽음</span></header>
+      <ul class="list">${L.map(s => { const k = "sk:" + s.id; return S.edit === k ? `<li class="card"><input type="text" id="sk-n-${e(s.id)}" value="${e(s.name)}" placeholder="이름"><input type="text" id="sk-u-${e(s.id)}" value="${e(s.url)}" placeholder="https://github.com/…"><input type="text" id="sk-m-${e(s.id)}" value="${e(s.memo || "")}" placeholder="메모"><div class="row"><button class="btn sm" data-act="sk-save" data-id="${e(s.id)}">저장</button><button class="btn ghost sm" data-act="cancel">그만</button></div></li>`
+        : `<li class="card"><div class="row"><strong>${e(s.name || "(이름 없음)")}</strong>${pendChip(s)}</div>${/^https:\/\//.test(s.url || "") ? `<a href="${e(s.url)}" target="_blank" rel="noopener" class="mono" style="word-break:break-all">${e(s.url)}</a>` : `<span class="mono small">${e(s.url)}</span>`}${s.memo ? `<span class="small">${e(s.memo)}</span>` : ""}
+          <div class="row">${S.confirm === k ? `<span class="confirm">지울까요?<button class="btn bad sm" data-act="sk-del" data-id="${e(s.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="edit" data-k="${e(k)}" ${wr()}>고치기</button><button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>지우기</button>`}</div></li>`; }).join("") || `<li class="empty">아직 없음</li>`}</ul>
+      <div class="fb"><input type="text" id="nsk-n" placeholder="이름 — 예: 모션그래픽 스킬"><input type="text" id="nsk-u" placeholder="https://github.com/…"><input type="text" id="nsk-m" placeholder="메모 — 어디에 쓰는지">
+      <div class="row"><button class="btn sm" data-act="sk-add" ${wr()}>스킬 등록</button></div></div></section>`;
+  }
+  function viewVideo() {
+    const v = VIEWS.find(x => x.key === "video");
+    const list = eligible(v);
+    const cards = list.map(ep => { const V = ep.video || {}; return `<div class="card">${epHead(ep, "")}
+      <div class="row small"><span class="chip ${V.scene ? "ok" : "warn"}">${V.scene ? "장면 파일 있음" : "장면 파일 없음"}</span><span class="chip ${V.render_md ? "ok" : "mute"}">${V.render_md ? "렌더 기록 있음" : "렌더 기록 없음"}</span>
+        <span class="chip ${V.packed ? "ok" : "mute"}">${V.packed ? "업로드 조각 " + (V.mb || "?") + "MB" + (V.on_branch ? " ✓" : " (브랜치에 없음)") : "업로드 조각 없음"}</span>${V.duration_s ? `<span>${Math.floor(V.duration_s / 60)}분 ${String(Math.round(V.duration_s % 60)).padStart(2, "0")}초</span>` : ""}</div>
+      <div class="gatebar">${gateHtml(ep, "codetest", "① 코드 테스트 통과")}</div>
+      <p class="small">① 대본 내용만 읽고 코드 화면으로만 만든 테스트 영상 (AI 그림·클립 없이) — Claude 가 장면을 직접 본 뒤 체크 → ② AI 장면 넣은 최종 영상.</p>
+      <div class="gatebar">${gateHtml(ep, "video", "② 최종 영상 통과")}</div>
+      <details><summary class="small">명령</summary>${cmd("장면 배치 점검 (문제 0 뒤 렌더)", "node video/scripts/layout-check.mjs " + ep.id)}${cmd("렌더", "node video/render/render.mjs video " + ep.topic + " " + ep.id)}</details>
+      <details ${S.open.has("fbo:" + ep.id + ":video") ? "open" : ""} data-k="fbo:${e(ep.id)}:video"><summary class="small">영상 피드백 ${fbOf(ep.topic, ep.id, "video").length}</summary>${fbBox(ep, "video", null, "영상 피드백 — 예: 2:10 숫자 카드가 자막과 겹침")}</details></div>`; }).join("");
+    return `<div class="cols"><div class="side"><section class="box"><header><h2>영상</h2><span class="small">음성 통과한 편 ${list.length}</span></header>
+      <div class="list">${cards || `<div class="empty">음성 단계에서 통과를 체크한 편이 없음</div>`}</div>${lockedList(v)}</section></div>
+      <div class="side">${rulesBox("video")}${skillsBox()}</div></div>`;
+  }
+
+  // ───────── 6 업로드
+  function upDoc(ep) { return S.col.uploads.get(`${ep.topic}__${ep.id}`) || {}; }
+  function viewUpload() {
+    const v = VIEWS.find(x => x.key === "upload");
+    const list = eps(S.topic).filter(ep => eff(ep, "video") || (ep.history || []).length);
+    const [ep, pk] = picker(v, list);
+    let body = `<div class="empty">영상 단계에서 통과를 체크한 편이 없음</div>`;
+    if (ep) {
+      const U = ep.upload || {}, d = upDoc(ep), checks = d.checks || {};
+      const allMan = UPLOAD_CHECKS.every(c => checks[c]);
+      const items = (U.items || []);
+      const autoOk = items.length ? items.every(x => x[1]) && !(U.problems || []).length : false;
+      const done = (ep.history || []).some(h => h.current);
+      const thumbs = (U.thumbs || []).map(t => `<figure><img src="${e(t.img || "")}" alt="${e(t.name)}" loading="lazy"><figcaption>${t.main ? "<b>본안</b> · " : ""}${e(t.role)}</figcaption></figure>`).join("");
+      body = `<div class="card">${epHead(ep, "")}
+        ${U.status ? "" : `<p class="small">업로드 시트(upload.md)가 아직 없음 — Claude 가 만든 뒤 최종 확인할 수 있습니다.</p>`}
+        ${U.title ? `<div class="scope">제목 (본안)</div><div style="font-weight:700">${e(U.title)} <span class="small">${U.title_chars}자</span></div>` : ""}
+        ${thumbs ? `<div class="scope">썸네일</div><div class="thumbs">${thumbs}</div>` : ""}
+        ${U.description ? `<div class="scope">설명란</div><div class="desc">${e(U.description)}</div>` : ""}
+        ${(U.tags || []).length ? `<div class="scope">태그 ${U.tags.length}개 · ${U.tags_chars}자</div><div class="words">${U.tags.map(t => `<span class="word">${e(t)}</span>`).join("")}</div>` : ""}
+        ${U.settings ? `<div class="tablebox"><table><tbody>${Object.entries(U.settings).map(([k, x]) => `<tr><th>${e(k)}</th><td>${e(x)}</td></tr>`).join("")}</tbody></table></div>` : ""}
+        ${items.length ? `<div class="scope">자동 점검</div><ul class="list small">${items.map(x => `<li class="${x[1] ? "item-ok" : "item-bad"}">${x[1] ? "✓" : "✗"} ${e(x[0])} — ${e(x[2])}</li>`).join("")}</ul>` : ""}
+        ${(U.problems || []).length ? `<ul class="list small">${U.problems.map(p => `<li class="item-bad">✗ ${e(p)}</li>`).join("")}</ul>` : ""}
+        ${U.script_stale ? `<p class="small item-bad">대본 문장 ${U.script_stale}개가 지금 자막에 없음 — 음성·영상이 옛 대본</p>` : ""}</div>
+        <section class="box"><header><h2>최종 확인</h2><span class="chip ${allMan && (autoOk || done) ? "ok" : "warn"}">${allMan ? "모두 봄" : UPLOAD_CHECKS.filter(c => checks[c]).length + "/" + UPLOAD_CHECKS.length}</span></header>
+          <div class="checks">${UPLOAD_CHECKS.map(c => `<label><input type="checkbox" data-act="up-check" data-ep="${e(ep.id)}" data-c="${e(c)}" ${checks[c] ? "checked" : ""} ${wr()}>${e(c)}</label>`).join("")}</div>
+          <div class="row">${gateHtml(ep, "upload", "업로드 승인")}${allMan ? "" : `<span class="small">최종 확인을 모두 체크한 뒤 승인하세요</span>`}</div>
+          <p class="small">승인 뒤 PC '유튜브_업로드.bat' → [미리보기] → [업로드] (7일 뒤 17:00 KST 예약).</p></section>
+        <section class="box"><header><h2>업로드 기록</h2><span class="small">${(ep.history || []).length}건</span></header>
+          ${(ep.history || []).length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>공개 예약</th><th>영상</th><th>제목</th><th>상태</th></tr></thead><tbody>${ep.history.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 16).replace("T", " "))}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td>${e(h.title)}</td><td>${h.current ? `<span class="chip ok">지금</span>` : `<span class="chip mute">옛 업로드 (${e(h.file)})</span>`}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">아직 안 올림</p>`}
+          ${done ? `<label class="gate ${d.reupload ? "on" : ""}"><input type="checkbox" data-act="reupload" data-ep="${e(ep.id)}" ${d.reupload ? "checked" : ""} ${wr()}>다시 올리기 허용</label>
+            <p class="small">체크 → Claude 동기화 → PC 업로드 화면의 '올린 영상'에 [다시 올리기]가 켜짐. 옛 기록은 youtube_history.json 에 남고, 옛 영상은 스튜디오에서 직접 지우지 않으면 그대로 있습니다.</p>${d.reupload ? pendChip(d) : ""}` : ""}</section>`;
+    }
+    const log = eps(S.topic).flatMap(x => (x.history || []).map(h => ({ ...h, ep: x.id }))).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
+    return `<div class="cols"><div class="side"><section class="box"><header><h2>업로드</h2><span class="small">영상 통과·올린 편 ${list.length}</span></header>${pk}</section>${body}
+      <section class="box"><header><h2>${e((S.data[S.topic] || {}).name || "")} 업로드 기록 전체</h2><span class="small">${log.length}건</span></header>${log.length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>편</th><th>영상</th><th>공개 예약</th><th></th></tr></thead><tbody>${log.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 10))}</td><td class="mono">${e(h.ep)}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${h.current ? "지금" : "옛"}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">없음</p>`}</section></div>
+      <div class="side">${rulesBox("upload")}<section class="box"><h2>올리기</h2>${cmd("PC — 업로드 화면 (더블 클릭)", "유튜브_업로드.bat")}<p class="small">미리보기·썸네일 받기는 업로드 미리보기 판에서도 볼 수 있습니다.</p><a href="https://claude.ai/artifact/PCe8WUwr4nSVGyHviy1Uar" target="_blank" rel="noopener">업로드 미리보기 판</a></section></div></div>`;
+  }
+
+  // ───────── 채널 분석
+  function viewChannel() {
+    const C = (S.common || {}).channels || {};
+    const byVid = {};
+    for (const t of B.topics) for (const ep of eps(t.key)) for (const h of ep.history || []) byVid[h.videoId] = ep;
+    const chans = (C.channels || []).map(ch => {
+      const rec = (ch.recent || []);
+      const ours = rec.filter(r => byVid[r.id]).length;
+      return `<section class="box"><header><h2>${e(ch.title)}</h2><span class="small mono">${e(ch.id)}</span></header>
+        <div class="tiles"><div class="tile"><span class="k">구독자</span><span class="v">${ch.hidden_subs ? "숨김" : fmtN(ch.subs)}</span></div><div class="tile"><span class="k">총 조회수</span><span class="v">${fmtN(ch.views)}</span></div>
+        <div class="tile"><span class="k">영상</span><span class="v">${fmtN(ch.videos)}</span><span class="s">공개된 것</span></div><div class="tile"><span class="k">우리 판 편</span><span class="v">${ours}</span><span class="s">최근 목록 안</span></div></div>
+        ${rec.length ? `<div class="tablebox"><table><thead><tr><th>올린 날</th><th>제목</th><th>조회수</th><th>하루 조회수</th><th>좋아요</th><th>댓글</th><th>길이</th><th>판 편</th></tr></thead><tbody>${rec.map(r => `<tr><td class="mono">${e(String(r.published || "").slice(0, 10))}</td><td><a href="https://www.youtube.com/watch?v=${encodeURIComponent(r.id)}" target="_blank" rel="noopener">${e(r.title)}</a>${r.shorts ? ' <span class="chip info">쇼츠</span>' : ""}</td><td class="num">${fmtN(r.views)}</td><td class="num">${r.vpd == null ? "–" : r.vpd}</td><td class="num">${fmtN(r.likes)}</td><td class="num">${fmtN(r.comments)}</td><td class="num">${e(r.duration || "")}</td><td class="mono small">${byVid[r.id] ? e(byVid[r.id].id) : ""}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">공개된 영상 없음 (예약·비공개 영상은 공개 자료로는 안 보임)</p>`}
+        ${(ch.analytics || null) ? `<div class="scope">시청 분석 (OAuth)</div><pre class="cmd">${e(JSON.stringify(ch.analytics, null, 1))}</pre>` : ""}</section>`;
+    }).join("");
+    return `<div class="cols"><div class="side">${chans || `<section class="box"><p class="empty">${e(C.note || "채널 자료 없음")}</p></section>`}</div>
+      <div class="side"><section class="box"><h2>채널 자료</h2><p class="small">받은 때 ${e(C.made || "아직")} · ${e(C.source || "")}</p>
+        <p class="small">공개 지표(구독자·조회수·좋아요·댓글)는 YouTube Data API 로 Claude 세션에서 받습니다. 시청 지속·클릭률·유입 경로는 채널 주인 인증(OAuth)이 필요해 PC 에서 받습니다.</p>
+        ${cmd("Claude 에게", "채널 분석 새로 받아")}${cmd("Claude 세션 (공개 지표)", "python3 tools/channel_stats.py --push")}${cmd("PC (시청 분석 — 채널 키가 든 주제 폴더 .env)", "python tools/youtube_feedback.py psychology --push")}</section></div></div>`;
+  }
+
+  // ───────── 그리기
+  function renderNav() {
+    $("nav").innerHTML = VIEWS.map((v, i) => {
+      const n = v.gate ? eps(S.topic).filter(ep => (!v.need || eff(ep, v.need)) && !eff(ep, v.gate)).length : null;
+      return (i === 1 || i === 7 ? `<li class="sep" aria-hidden="true">|</li>` : "") + `<li><a href="#${v.key}" ${S.view === v.key ? 'aria-current="page"' : ""}>${v.n ? `<span class="n">${v.n}</span>` : ""}${e(v.label)}${n ? `<span class="c" title="이 단계에서 기다리는 편">${n}</span>` : ""}</a></li>`;
+    }).join("");
+    $("topics").innerHTML = B.topics.map(t => `<button class="pill" type="button" data-act="topic" data-key="${e(t.key)}" aria-pressed="${t.key === S.topic}">${e(t.name)}</button>`).join("");
+  }
+  let rq = null;
+  function render() {
+    renderNav();
+    if (!S.common || !S.data[S.topic]) { $("view").innerHTML = `<div class="loading">판 자료를 불러오는 중…</div>`; return; }
+    const keepFocus = document.activeElement && document.activeElement.id;
+    const vals = {};
+    document.querySelectorAll("#view textarea[id], #view input[type=text][id], #view select[id]").forEach(x => { vals[x.id] = x.value; });
+    const sc = window.scrollY;
+    const fn = { common: viewCommon, topic: viewTopic, title: viewTitle, thumb: viewThumb, script: viewScript, video: viewVideo, upload: viewUpload, channel: viewChannel }[S.view] || viewCommon;
+    try { $("view").innerHTML = fn(); } catch (err) { $("view").innerHTML = `<section class="box"><p class="item-bad">이 화면을 그리지 못했습니다: ${e(err && err.message)}</p></section>`; console.error(err); }
+    for (const [id, v] of Object.entries(vals)) { const x = document.getElementById(id); if (x && !id.startsWith("ed") && x.value !== v && id !== "refq") x.value = v; }
+    if (keepFocus) { const x = document.getElementById(keepFocus); if (x) { x.focus(); try { const L = x.value.length; x.setSelectionRange && x.type !== "select-one" && x.setSelectionRange(L, L); } catch (_) {} } }
+    window.scrollTo(0, sc);
+  }
+  const later = () => { clearTimeout(rq); rq = setTimeout(render, 60); };
+
+  // ───────── db 쓰기
+  async function put(col, id, data, merge) {
+    if (!S.db) { toast("저장소에 연결되지 않아 저장할 수 없습니다"); return false; }
+    try {
+      const ref = S.db.collection(col).doc(id);
+      if (merge && S.col[col].has(id)) await ref.update(data); else await ref.set(Object.assign({}, merge ? S.col[col].get(id) || {} : {}, data));
+      return true;
+    } catch (err) { toast(err && err.code === "invalid_argument" ? "이 화면에서는 저장할 권한이 없습니다" : "저장하지 못했습니다. 다시 눌러 주세요"); return false; }
+  }
+  async function del(col, id) {
+    try { await S.db.collection(col).doc(id).delete(); return true; } catch (_) { toast("지우지 못했습니다. 다시 눌러 주세요"); return false; }
+  }
+  const clean = o => { const x = Object.assign({}, o); delete x.id; return x; };
+  const val = id => ((document.getElementById(id) || {}).value || "").trim();
+  const redoTimers = {};
+
+  document.addEventListener("click", async ev => {
+    const b = ev.target.closest("[data-act]");
+    if (!b || b.tagName === "INPUT") return;
+    const a = b.dataset.act, D = b.dataset;
+    if (a === "topic") { S.topic = D.key; keep("topic", S.topic); S.edit = S.confirm = null; await loadTopic(S.topic); render(); return; }
+    if (a === "copy") { try { await navigator.clipboard.writeText(D.text); toast("복사했습니다"); } catch (_) { const pre = b.closest(".cmdbox") && b.closest(".cmdbox").querySelector("pre"); if (pre) { const r = document.createRange(); r.selectNodeContents(pre); const s = getSelection(); s.removeAllRanges(); s.addRange(r); } toast("선택했습니다 — Ctrl+C 로 복사하세요"); } return; }
+    if (a === "edit") { S.edit = D.k; S.confirm = null; render(); const x = document.querySelector(`#view [id^="ed"]`); if (x) x.focus(); return; }
+    if (a === "ask") { S.confirm = D.k; S.edit = null; render(); return; }
+    if (a === "cancel") { S.edit = S.confirm = null; render(); return; }
+    if (a === "open") { S.open.has(D.k) ? S.open.delete(D.k) : S.open.add(D.k); render(); return; }
+    if (a === "pick") { S.sel[D.view + ":" + S.topic] = D.id; S.edit = S.confirm = null; render(); return; }
+    if (S.busy) return;
+    S.busy = true;
+    try {
+      const t = nowIso();
+      if (a === "gate-reset") { if (await del("gates", `${D.topic}__${D.ep}__${D.stage}`)) toast("저장소 기준으로 되돌렸습니다"); }
+      else if (a === "rule-save") { const txt = val("ed-" + D.id); if (txt && await put("rules", D.id, { stage: D.stage, scope: D.scope, text: txt, deleted: false, at: t })) { S.edit = null; toast("규칙을 고쳤습니다 — Claude 반영 전"); } }
+      else if (a === "rule-del") { const r = rulesOf(D.stage).flatMap(g => g.items).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, text: r.text || "", deleted: true, at: t })) { S.confirm = null; toast("규칙을 뺐습니다"); } }
+      else if (a === "rule-undel") { const r = rulesOf(D.stage).flatMap(g => g.items).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, text: r.text || "", deleted: false, at: t })) toast("되살렸습니다"); }
+      else if (a === "rule-add") { const txt = val("nr-text-" + D.stage), scope = val("nr-scope-" + D.stage) || "common"; if (!txt) toast("규칙을 적어 주세요"); else if (await put("rules", `${D.stage}.${scope}.u${Date.now().toString(36)}`, { stage: D.stage, scope, text: txt, deleted: false, at: t })) { document.getElementById("nr-text-" + D.stage).value = ""; toast("규칙을 더했습니다"); } }
+      else if (a === "fb-add") { const txt = val(D.k); if (!txt) toast("피드백을 적어 주세요"); else { try { await S.db.collection("feedback").add({ topic: D.topic, ep: D.ep, stage: D.stage, line: D.line ? Number(D.line) : null, text: txt, status: "new", reply: "", createdAt: t, at: t }); document.getElementById(D.k).value = ""; toast("피드백을 남겼습니다"); } catch (_) { toast("저장하지 못했습니다"); } } }
+      else if (a === "fb-save") { const txt = val("ed-" + D.id); if (txt && await put("feedback", D.id, { text: txt, status: "new", at: t }, true)) { S.edit = null; toast("고쳤습니다"); } }
+      else if (a === "fb-del") { if (await del("feedback", D.id)) { S.confirm = null; toast("지웠습니다"); } }
+      else if (a === "ref-save") { const id = D.id; if (await put("refs", id, { topic: S.topic, kind: D.kind, text: val("ed-" + id), sub: val("eds-" + id), note: val("edn-" + id), deleted: false, at: t })) { S.edit = null; toast("참고 자료를 고쳤습니다"); } }
+      else if (a === "ref-del" || a === "ref-undel") { const r = refsOf(D.kind).find(x => x.id === D.id) || {}; if (await put("refs", D.id, { topic: S.topic, kind: D.kind, text: r.text || "", sub: r.sub || "", note: r.note || "", deleted: a === "ref-del", at: t })) { S.confirm = null; toast(a === "ref-del" ? "참고 자료에서 뺐습니다" : "되살렸습니다"); } }
+      else if (a === "ref-add") { const txt = val("nref-" + D.kind); if (!txt) toast("문구를 적어 주세요"); else if (await put("refs", `${S.topic}.${D.kind}.u${Date.now().toString(36)}`, { topic: S.topic, kind: D.kind, text: txt, sub: val("nrefs-" + D.kind), note: val("nrefn-" + D.kind), deleted: false, at: t })) { ["nref-", "nrefs-", "nrefn-"].forEach(p => { const x = document.getElementById(p + D.kind); if (x) x.value = ""; }); toast("참고 자료를 더했습니다"); } }
+      else if (a === "cand-add") { const title = val("nc-title"); if (!title) toast("후보 제목을 적어 주세요"); else { try { await S.db.collection("episodes").add({ topic: S.topic, title, memo: val("nc-memo"), createdAt: t, at: t }); ["nc-title", "nc-memo"].forEach(i => { document.getElementById(i).value = ""; }); toast("후보를 더했습니다 — 통과를 체크하면 제목 단계로"); } catch (_) { toast("저장하지 못했습니다"); } } }
+      else if (a === "cand-del") { if (await del("episodes", D.id)) { S.confirm = null; toast("후보를 지웠습니다"); } }
+      else if (a === "ch-add") { const raw = val("ch-in"), memo = val("ch-memo"); const items = raw.split(/[\s,]+/).filter(Boolean).slice(0, 30); for (const x of items) await S.db.collection("channels").add({ topic: S.topic, input: x, memo, createdAt: t, at: t, status: "new", reply: "" }); if (items.length) { document.getElementById("ch-in").value = ""; toast(`채널 ${items.length}개를 넣었습니다`); } }
+      else if (a === "ch-del") { if (await del("channels", D.id)) { S.confirm = null; toast("지웠습니다"); } }
+      else if (a === "trends-save") {
+        const raw = val("tw-" + D.key), hours = Number(val("th-" + D.key)) || 24;
+        const data = D.overall === "1" ? { cats: raw.split(/[\s,]+/).map(Number).filter(n => Number.isInteger(n) && n >= 0), every_hours: hours, at: t } : { words: raw.split(/\n+/).map(x => x.trim()).filter(Boolean).slice(0, 25), every_hours: hours, at: t };
+        if (await put("trends", D.key, data)) toast("검색어를 저장했습니다 — Claude 동기화 뒤 PC 가 다음 회차에 받음");
+      }
+      else if (a === "sk-add") { const url = val("nsk-u"); if (!/^https:\/\//.test(url)) toast("https:// 로 시작하는 GitHub 주소를 넣어 주세요"); else { try { await S.db.collection("skills").add({ name: val("nsk-n"), url, memo: val("nsk-m"), createdAt: t, at: t }); ["nsk-n", "nsk-u", "nsk-m"].forEach(i => { document.getElementById(i).value = ""; }); toast("스킬을 등록했습니다"); } catch (_) { toast("저장하지 못했습니다"); } } }
+      else if (a === "sk-save") { const url = val("sk-u-" + D.id); if (!/^https:\/\//.test(url)) toast("https:// 로 시작하는 주소를 넣어 주세요"); else if (await put("skills", D.id, { name: val("sk-n-" + D.id), url, memo: val("sk-m-" + D.id), at: t }, true)) { S.edit = null; toast("고쳤습니다"); } }
+      else if (a === "sk-del") { if (await del("skills", D.id)) { S.confirm = null; toast("지웠습니다"); } }
+      else if (a === "redo-clear") { const ep = eps(S.topic).find(x => x.id === D.ep); const d = ttsDoc(ep) || {}; if (await put("tts", `${S.topic}__${D.ep}`, Object.assign(clean(d), { topic: S.topic, ep: D.ep, redo: [], at: t }))) toast("재생성 체크를 풀었습니다"); }
+    } finally { S.busy = false; render(); }
+  });
+
+  document.addEventListener("change", async ev => {
+    const x = ev.target;
+    if (x.id === "refq") return;
+    if (x.tagName !== "INPUT" || x.type !== "checkbox" || !x.dataset.act) return;
+    const D = x.dataset, t = nowIso();
+    if (D.act === "gate") {
+      const ok = await put("gates", `${D.topic}__${D.ep}__${D.stage}`, { topic: D.topic, ep: D.ep, stage: D.stage, pass: x.checked, at: t });
+      if (ok) toast(x.checked ? `${SK[D.stage]} 통과 — 다음 단계에 나타납니다` : `${SK[D.stage]} 통과를 풀었습니다 — 뒤 단계에서 빠집니다`);
+      render(); return;
+    }
+    const ep = eps(S.topic).find(y => y.id === D.ep);
+    if (D.act === "tts-make" || D.act === "tts-full") {
+      const d = ttsDoc(ep) || {};
+      const patch = D.act === "tts-make" ? { make: x.checked } : { full: x.checked, make: x.checked ? true : !!d.make };
+      if (await put("tts", `${S.topic}__${D.ep}`, Object.assign({ topic: S.topic, ep: D.ep, make: false, full: false, redo: [] }, clean(d), patch, { at: t }))) toast(x.checked ? "음성 생성에 체크했습니다" : "체크를 풀었습니다");
+      render(); return;
+    }
+    if (D.act === "redo") {                       // 줄 체크는 잠깐 모아서 한 번에 씀 (같은 문서에 연달아 쓰지 않게)
+      const key = `${S.topic}__${D.ep}`;
+      const d = ttsDoc(ep) || {};
+      const cur = new Set(((redoTimers[key] && redoTimers[key].set) || d.redo || []).map(Number));
+      x.checked ? cur.add(Number(D.n)) : cur.delete(Number(D.n));
+      clearTimeout((redoTimers[key] || {}).tm);
+      redoTimers[key] = { set: [...cur], tm: setTimeout(async () => { const s = redoTimers[key].set; delete redoTimers[key]; if (await put("tts", key, Object.assign({ topic: S.topic, ep: D.ep, make: false, full: false }, clean(ttsDoc(ep) || {}), { redo: s.sort((a, b) => a - b), at: nowIso() }))) toast(`재생성 ${s.length}줄`); render(); }, 700) };
+      x.closest(".ln") && x.closest(".ln").classList.toggle("redo", x.checked);
+      return;
+    }
+    if (D.act === "up-check") { const d = upDoc(ep); const checks = Object.assign({}, d.checks || {}, { [D.c]: x.checked }); await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { checks, at: t })); render(); return; }
+    if (D.act === "reupload") { const d = upDoc(ep); if (await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { reupload: x.checked, at: t }))) toast(x.checked ? "다시 올리기를 허용했습니다 — Claude 동기화 뒤 PC 에서" : "다시 올리기 허용을 풀었습니다"); render(); return; }
+  });
+  document.addEventListener("input", ev => { if (ev.target.id === "refq") { S.refq = ev.target.value; clearTimeout(rq); rq = setTimeout(render, 250); } });
+  document.addEventListener("toggle", ev => { const d = ev.target; if (d.tagName === "DETAILS" && d.dataset && d.dataset.k) { d.open ? S.open.add(d.dataset.k) : S.open.delete(d.dataset.k); } }, true);
+
+  // ───────── 길 · 자료 · db
+  function route() { const h = (location.hash || "").slice(1); S.view = VIEWS.some(v => v.key === h) ? h : (store("view") || "common"); keep("view", S.view); S.edit = S.confirm = null; render(); }
+  window.addEventListener("hashchange", route);
+  async function getJSON(p) { const r = await fetch(p); if (!r.ok) throw new Error(p + " HTTP " + r.status); return r.json(); }
+  async function loadTopic(t) { if (S.data[t]) return; try { S.data[t] = await getJSON(`data/${t}.json`); } catch (err) { S.data[t] = { name: t, episodes: [], refs: {}, explore: [], legacy: {}, error: String(err) }; toast(`${t} 자료를 못 불러옴`); } }
+  (async () => {
+    try { S.common = await getJSON("data/common.json"); } catch (err) { S.common = { rules: {}, channels: {}, trends_defaults: {}, state: {} }; toast("공통 자료를 못 불러옴"); }
+    await Promise.all(B.topics.map(t => loadTopic(t.key)));
+    route();
+  })();
+  (async () => {
+    const use = window.claude && window.claude.use ? n => window.claude.use(n) : () => Promise.resolve(null);
+    const timer = setTimeout(() => { if (!S.connected) { $("status").className = "status bad"; $("status-t").textContent = "저장소가 응답하지 않습니다 — 자료는 볼 수 있지만 체크·피드백은 저장되지 않습니다."; } }, 10000);
+    let db = null, user = null;
+    try { [db, user] = await Promise.all([use("db"), use("user")]); } catch (_) { db = null; }
+    if (!db) { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = "저장소에 연결하지 못했습니다 — 자료는 볼 수 있지만 체크·피드백은 저장되지 않습니다."; render(); return; }
+    S.db = db;
+    try { if (user && user.can && (await user.can("data.write")) === false) S.canWrite = false; } catch (_) { /* 모름 — 쓰기에서 판단 */ }
+    let first = 0;
+    for (const c of COLS) {
+      db.collection(c).onSnapshot(snap => {
+        const m = new Map(); snap.docs.forEach(d => m.set(d.id, Object.assign({ id: d.id }, d.data())));
+        S.col[c] = m;
+        if (!snap.metadata.fromCache && ++first >= 1) { clearTimeout(timer); S.connected = true; $("status").className = "status " + (S.canWrite ? "ok" : "warn"); $("status-t").textContent = S.canWrite ? `저장소 연결됨 — 체크·피드백은 바로 저장되고 Claude 가 동기화 때 읽습니다 · 판 ${B.made}` : "보기 전용 — 이 화면에서는 저장할 수 없습니다"; }
+        later();
+      }, () => { clearTimeout(timer); $("status").className = "status bad"; $("status-t").textContent = `${c} 목록을 읽지 못했습니다`; });
+    }
+  })();
+})();
+</script>

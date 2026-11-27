@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-25 — 새 분야 갭 탐색용 (사용자 지시 2026-11-25 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은
+# VERSION: v1.3 — 2026-11-27 — watch: 제작 판 검색어(GitHub studio/state/trends.json)를 간격마다 읽어 받고 올림 — 사용자 지시 2026-11-27
+#          "피시에서는 일정 간격으로 단어 가져와서 결과 업로드, 결과도 볼 수 있음". 결과 폴더 <주제>/result/next_topic/board_<기간>/ (기간 = 간격으로 나눈 날짜·시각),
+#          파일 이름에 낱말 묶음 지문(batch_NNN_<6자>.csv|json) — 같은 기간에 검색어를 바꾸면 새 파일. 전체 탐색 = new 주제 폴더(분류만 관련 검색어).
+# 이전 v1.2 — 2026-11-25 — 새 분야 갭 탐색용 (사용자 지시 2026-11-25 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은
 #          주제 모두 찾아서 해야 돼" · "롱폼, 쇼츠 둘다하고 못만드는 분야는 알아서 해 … 계속 진행해"):
 #          ① 묶음 종류 kind — timeseries(지금까지 · CSV) · related(관련 검색어 인기·급상승 — 키워드 없이 분류만도) · categories(분류 번호표) ·
 #             suggest(유튜브 자동완성 — 클라우드는 이 환경 프록시가 막아서 집 인터넷에서) → related·categories·suggest 는 JSON
@@ -12,6 +15,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-27 | watch(--every 분 · --once) · board_specs · period_of · 지문 파일 이름(hash_names) · selftest 4개 더 | board_specs · period_of · batch_path · allowed_trends · cmd_watch · selftest |
 # | v1.2 | 2026-11-25 | kind(related·categories·suggest) · 목록 geo/time/gprop/hl · out_dir · --list · 종류별 쉼 · 429 는 막힌 주소 묶음만 그만(자동완성은 이어서) · selftest 9개 더 | Trends.explore·related·categories·suggest · batch_path · allowed_trends · fetch · run_topic · cmd_run · selftest |
 # | v1.1 | 2026-11-25 | ensure_requests (requests 만 설치) · github_token (분석기와 같은 순서로 .env 직접 읽기 — 분석기 import 뺌) · selftest 2개 더 | ensure_requests · github_token · cmd_run · selftest |
 # | v1.0 | 2026-11-25 | 최초 — run(묶음 목록 trends_batches.json → 묶음마다 explore → 시간 흐름 위젯 CSV → GitHub) · selftest(가짜 구글·가짜 GitHub) | Trends · run_topic · selftest |
@@ -51,7 +55,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import pc_transcribe as pt  # noqa: E402  GitHub 올리기·로그·주제 이름 검사를 그대로
 
-VERSION = "v1.2"
+VERSION = "v1.3"
+BOARD_STATE = "studio/state/trends.json"   # v1.3 제작 판 검색어 (Claude 가 판 동기화 때 씀)
 LOG = logging.getLogger("pc_trends")
 TRENDS = "https://trends.google.com"
 SUGGEST = "https://suggestqueries.google.com/complete/search"
@@ -83,13 +88,15 @@ def batch_path(topic, spec, b):
     if not out:
         return trends_path(topic, b["n"])
     ext = "csv" if b.get("kind", "timeseries") == "timeseries" else "json"
+    if (spec or {}).get("hash_names") and re.fullmatch(r"[0-9a-f]{6}", str(b.get("hash", ""))):      # v1.3 제작 판 묶음 — 낱말 지문
+        return f"{out}/batch_{int(b['n']):03d}_{b['hash']}.{ext}"
     return f"{out}/batch_{int(b['n']):03d}.{ext}"
 
 
 def allowed_trends(topic):
     """올려도 되는 경로 — 이 주제 트렌드 묶음 파일만 (옛 next_topic/trends/batch_NN.csv + v1.2 목록 폴더 batch_NNN.csv|json)."""
     t = re.escape(topic)
-    return re.compile(rf"^{t}/result/(?:next_topic/trends/batch_\d{{2}}\.csv|(?:next_topic|gap)/[a-z0-9_]+/batch_\d{{3}}\.(?:csv|json))$")
+    return re.compile(rf"^{t}/result/(?:next_topic/trends/batch_\d{{2}}\.csv|(?:next_topic|gap)/[a-z0-9_]+/batch_\d{{3}}(?:_[0-9a-f]{{6}})?\.(?:csv|json))$")
 
 
 class Blocked(Exception):
@@ -391,6 +398,98 @@ def cmd_run(opts):
     return 0
 
 
+# ============================================================================ v1.3 제작 판 — 간격마다 받기
+def period_of(every_hours, now=None):
+    """간격 → 결과 폴더 기간 이름. 24시간 이상 = 날짜(YYYYMMDD — 며칠 간격이면 그 날수로 내림) · 그 아래 = 날짜_시(간격으로 내림)."""
+    import datetime as _dt
+    now = now or _dt.datetime.now()
+    eh = max(1, int(every_hours or 24))
+    if eh >= 24:
+        days = eh // 24
+        d = _dt.date.fromordinal(now.date().toordinal() // days * days)
+        return d.strftime("%Y%m%d")
+    return now.strftime("%Y%m%d") + f"_{now.hour // eh * eh:02d}"
+
+
+def _hash(words, extra=""):
+    import hashlib
+    return hashlib.sha1(("|".join(words) + "#" + str(extra)).encode("utf-8")).hexdigest()[:6]
+
+
+def board_specs(state, now=None):
+    """studio/state/trends.json → [(주제, 목록 spec)]. 주제마다 시간 흐름(5개씩 — 첫 낱말이 기준, 묶음마다 같이) + 관련 검색어 · 전체 탐색 = 분류만 관련 검색어."""
+    out = []
+    geo, gprop, time_ = state.get("geo", "KR"), state.get("gprop", "youtube"), state.get("time", "today 3-m")
+    for topic, t in (state.get("topics") or {}).items():
+        words = [w.strip() for w in (t.get("words") or []) if isinstance(w, str) and w.strip()][:25]
+        if not words or not pt.TOPIC_RX.match(topic):
+            continue
+        anchor, rest = words[0], words[1:]
+        groups = [[anchor] + rest[i:i + 4] for i in range(0, len(rest), 4)] or [[anchor]]
+        batches = [{"n": i + 1, "kind": "timeseries", "words": g, "hash": _hash(g, time_)} for i, g in enumerate(groups)]
+        batches += [{"n": 100 + i + 1, "kind": "related", "words": g, "hash": _hash(g, "rel" + time_)} for i, g in enumerate(groups)]
+        out.append((topic, {"topic": topic, "out_dir": f"{topic}/result/next_topic/board_{period_of(t.get('every_hours', 24), now)}",
+                            "geo": geo, "gprop": gprop, "time": time_, "hl": "ko", "hash_names": True, "anchor": anchor,
+                            "batches": batches, "next": "Claude: python3 tools/studio_board.py build → 제작 판 다시 올림"}))
+    ov = state.get("overall") or {}
+    cats = [int(c) for c in (ov.get("cats") or []) if str(c).isdigit()]
+    if cats and pt.TOPIC_RX.match(ov.get("topic", "new")):
+        tm = ov.get("time", "now 7-d")
+        out.append((ov.get("topic", "new"), {"topic": ov.get("topic", "new"), "out_dir": f"{ov.get('topic', 'new')}/result/next_topic/board_{period_of(ov.get('every_hours', 24), now)}",
+                                             "geo": geo, "gprop": gprop, "time": tm, "hl": "ko", "hash_names": True,
+                                             "batches": [{"n": i + 1, "kind": "related", "cat": c, "words": [], "hash": _hash([str(c)], tm)} for i, c in enumerate(cats)],
+                                             "next": "Claude: python3 tools/studio_board.py build → 제작 판 다시 올림"}))
+    return out
+
+
+def cmd_watch(opts, sleep=time.sleep):
+    """간격마다: GitHub 에서 판 검색어를 읽고 → 이번 기간에 아직 없는 묶음만 받아 올림. --once 면 한 번."""
+    work_root = ROOT / ".yt_work"
+    pt.setup_logging(opts.log_level, work_root / "trends_log_board.txt")
+    ensure_requests(install=not opts.skip_install)
+    import requests
+    rounds = 0
+    while True:
+        rounds += 1
+        token, src = github_token("new")
+        log("WATCH", round=rounds, GITHUB_TOKEN="있음" if token else "(없음)", source=src, every_min=opts.every, once=opts.once)
+        if not token and not (opts.no_push or opts.dry_run):
+            raise SystemExit("[SETUP] ❌ GITHUB_TOKEN 이 없음 → 맨 위 .env 에 넣고 다시 (또는 --no-push 로 PC 에만)")
+        try:
+            if opts.list_file:
+                text = Path(opts.list_file).read_text("utf-8-sig")
+            else:
+                r = requests.get(f"https://raw.githubusercontent.com/{opts.repo}/{opts.branch}/{BOARD_STATE}", timeout=60,
+                                 headers={"Authorization": f"token {token}"} if token else {})
+                if r.status_code != 200:
+                    raise RuntimeError(f"HTTP {r.status_code} — 아직 판 동기화 전이면 Claude 에게 '제작 판 동기화해'")
+                text = r.text
+            state = json.loads(text)
+        except Exception as e:
+            log("WATCH", level=logging.WARNING, stage="판 검색어 읽기", error=f"{type(e).__name__}: {str(e)[:160]}", next="다음 회차에 다시")
+            state = None
+        if state:
+            specs = board_specs(state)
+            log("WATCH", updated=state.get("updated", "-"), lists=len(specs), batches=sum(len(s["batches"]) for _, s in specs))
+            tr = Trends(requests.Session(), hl="ko")
+            for topic, spec in specs:
+                gh = None
+                if token and not opts.no_push:
+                    gh = pt.GitHub(opts.repo, opts.branch, token, topic, dry_run=opts.dry_run)
+                    gh.allowed = allowed_trends(topic)
+                if not out_dir_ok(topic, spec["out_dir"]):
+                    log("WATCH", level=logging.WARNING, topic=topic, out_dir=spec["out_dir"], note="결과 폴더가 주제 밖 — 건너뜀")
+                    continue
+                out = run_topic(topic, spec["batches"], tr, gh, work_root / "trends" / topic / Path(spec["out_dir"]).name, opts, spec=spec)
+                if out["blocked"]:
+                    log("WATCH", level=logging.WARNING, topic=topic, note="구글이 막음(429) — 이번 회차는 여기까지, 다음 회차에 남은 것만")
+                    break
+        if opts.once:
+            return 0
+        log("WATCH", next_round_min=opts.every, note="켜 둔 채로 두면 이 간격마다 다시 (멈춤 Ctrl+C) · 같은 기간에 이미 올린 묶음은 건너뜀")
+        sleep(opts.every * 60)
+
+
 # ============================================================================ selftest
 def selftest():
     import types
@@ -546,6 +645,19 @@ def selftest():
           t1 == ("root-fake", ".env") and t2 == ("topic-fake", "demo/.env") and t3 == ("", "-"), got=[t1[1], t2[1], t3[1]])
     calls = []
     check("requests 있으면 설치 안 함", ensure_requests(run=lambda *a, **k: calls.append(a)) and not calls)
+    import datetime as _dt                                                   # v1.3 제작 판 watch
+    st = {"geo": "KR", "gprop": "youtube", "time": "today 3-m", "topics": {"psychology": {"words": ["심리", "엄마", "말투", "눈치", "허세", "뒷담화"], "every_hours": 24}},
+          "overall": {"topic": "new", "cats": [0, 14], "time": "now 7-d", "every_hours": 6}}
+    sp = board_specs(st, now=_dt.datetime(2026, 11, 27, 15, 30))
+    ps = dict(sp)["psychology"]
+    check("v1.3 판 묶음 — 5개씩·첫 낱말이 기준 · 관련 검색어도", [b_["words"] for b_ in ps["batches"] if b_["kind"] == "timeseries"] == [["심리", "엄마", "말투", "눈치", "허세"], ["심리", "뒷담화"]]
+          and sum(1 for b_ in ps["batches"] if b_["kind"] == "related") == 2)
+    check("v1.3 기간 폴더 (24시간 = 날짜 · 6시간 = 날짜_시)", ps["out_dir"] == "psychology/result/next_topic/board_20261127"
+          and dict(sp)["new"]["out_dir"] == "new/result/next_topic/board_20261127_12" and out_dir_ok("psychology", ps["out_dir"]))
+    pth = batch_path("psychology", ps, ps["batches"][0])
+    check("v1.3 지문 파일 이름이 올리기 허용 경로", re.fullmatch(r"psychology/result/next_topic/board_20261127/batch_001_[0-9a-f]{6}\.csv", pth) is not None
+          and bool(allowed_trends("psychology").match(pth)), path=pth)
+    check("v1.3 검색어가 바뀌면 지문도 바뀜", _hash(["심리", "엄마"]) != _hash(["심리", "말투"]) and period_of(48, _dt.datetime(2026, 11, 27)) in ("20261126", "20261127"))
     log("SELFTEST", result="✅ 모두 통과" if ok else "❌ 실패 있음")
     return 0 if ok else 1
 
@@ -567,10 +679,26 @@ def main(argv=None):
     pr.add_argument("--branch", default="main")
     pr.add_argument("--skip-install", action="store_true", help="requests 가 없어도 설치하지 않음")
     pr.add_argument("--log-level", default="INFO")
+    pw = sub.add_parser("watch", help="v1.3 PC: 제작 판 검색어를 간격마다 받아 올리기 (studio/state/trends.json)")
+    pw.add_argument("--every", type=float, default=60, help="회차 사이 (분, 기본 60) — 같은 기간 결과가 이미 있으면 건너뛰므로 자주 돌려도 구글을 다시 부르지 않음")
+    pw.add_argument("--once", action="store_true", help="한 회차만")
+    pw.add_argument("--limit", type=int, default=0)
+    pw.add_argument("--pause", type=float, default=30)
+    pw.add_argument("--push-every", type=int, default=4)
+    pw.add_argument("--force", action="store_true")
+    pw.add_argument("--no-push", action="store_true")
+    pw.add_argument("--dry-run", action="store_true")
+    pw.add_argument("--list-file", default="", help="GitHub 대신 이 trends.json")
+    pw.add_argument("--repo", default="yeomin1024/yeomin1024-ytb")
+    pw.add_argument("--branch", default="main")
+    pw.add_argument("--skip-install", action="store_true")
+    pw.add_argument("--log-level", default="INFO")
     sub.add_parser("selftest", help="가짜 구글·가짜 GitHub 로 시험")
     a = ap.parse_args(argv)
     if a.cmd == "selftest":
         return selftest()
+    if a.cmd == "watch":
+        return cmd_watch(a)
     return cmd_run(a)
 
 

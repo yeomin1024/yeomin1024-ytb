@@ -4,85 +4,62 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>"먼저 내려갈게" 신고 1시간 뒤 발견 — 한라산 둘레길 심정지</title>
-<!-- VERSION: v2.1 — 2026-11-26 — 상태 그림 20장이 옴 → 실루엣 장면 켬: 실루엣 장면의 글(인용·아래 띠·칩)은 위쪽 칸(QTOP·LTOP·CTOP)으로 옮겨 걷는 사람을 가리지 않게 · 경사 배경판 길 선을 그림에 맞춤(PLT-04 · PLT-05 — 요청보다 가파름) · PLT-03·06 길 선을 조금 올림(발이 자막 띠 위) · 들것은 오른쪽으로(시트가 오른쪽을 봄) · 진료실은 앞쪽 큰 실루엣.
-     이전 v2.0 — 2026-11-26 — 대본 v3.2 (111문장) · 새 음성(tts_narration v1.18.1, 488.6초)으로 다시 짬 (사용자 지시 "그냥 지금 음성, 이미지 확인해서 영상 만들어").
-       · 움직이는 실루엣: tools/sil_sheet.py 가 만든 sprites/have.js 의 시트(SIL-*)·배경판(PLT-*)·의학 상태(MED-S) 가 있으면 배경판 위를 실루엣이 걷고 멈추고 돌아섬,
-         없으면 그 자리는 옛 재연 사진(images/DOC-*·MED-*)으로 대신 (그림이 오면 sil_sheet.py → 다시 렌더만).
-       · 화면에 출처(기관·학술지·연도 줄) 없음 (script_guide 0번 22) · 'A씨' → 김 씨 · 화면 글은 핵심 낱말만 (video_guide 1-8).
-     이전 v1.0 — 2026-11-25 — 첫 판 (대본 v2.3 · 106문장 · 492초).
-     꼴 = 뉴스·다큐 설명: 사진 한 장 = 한 장면, 천천히 다가가거나 흐르는 카메라(켄 번스) · 장 표시는 왼쪽 위 이름표 · 날짜·시각 도장 ·
-     아래 정보 띠(로어서드) · 숫자는 어두운 카드 · 재연 화면 오른쪽 위 '재연 화면' · 의학 그림 '그래픽'.
-     색 = 뜻: 빨강 위험·사망 · 청록 살리는 행동 · 노랑 기준·주의. 숨진 분의 몸·얼굴은 화면에 없음. 연구·교육용 — 의학적 진단이 아님. -->
+<!-- VERSION: v3.0 — 2026-11-27 — 대본 v4.1 (104문장, 사용자 구성)에 맞춰 새로 짬 (사용자 지시 "영상도 맘에 안들어 왜 자꾸 불필요한 부분에서 설명 텍스트 박스를 영상에 넣는거야? 인물 대화 같은 건 말풍선 같은 걸로 넣고 최대한 이미지들, 포커스, 화면 효과(빨개지거나), 이펙트 요소들 등 모든 기술 사용해서 애니메이션 처럼 동적으로 만들어 정말 디테일하게 설명이 필요한 부분만 박스 넣어서 해 추가 이미지 더 필요하면 명령 알려주고").
+       · 글 상자 = '산에서 몸이 안 좋을 때 판단' 한 곳만 (자세한 설명이 필요한 자리, 86~89). 나머지는 그림 + 카메라(다가가기·뒤 흐림) + 효과
+         (심장 박동처럼 빨개짐 · 번쩍 · 화면 흔들림 · 의식이 꺼지는 검은 원 · 사이렌 빛 · 심전도(멈추면 평평한 빨간 줄) · 안개·눈·열기·바람 ·
+         땀방울 · 가슴 통증 빛과 팔·턱·등으로 번지는 줄 · 엑스레이 렌즈(혈관 상태) · 전화·신호 고리 · 위치 핀 · 돌아가는 시계 · 사람 아이콘 표) — 화면 글은 낱말 몇 개만, 상자 없이.
+       · 인물 말 = 말풍선: 김 씨는 보도된 말 "몸이 좋지 않아 먼저 내려가겠다" 만 · 일행 = '…'·'?' · 점검·혼자 장의 말풍선은 수칙을 보여 주는 예시 장면(김 씨가 아닌 등산객 실루엣).
+       · 화면에 출처(기관·연구팀·연도 줄) 없음 (script_guide 0번 22) · 자막 띠(y 870 아래)는 비움.
+       · 실루엣·배경판: images/SIL-*·PLT-* → tools/sil_sheet.py → sprites/have.js. 새 그림 SIL-12-SOLO·PLT-09-DROPPED·PLT-10-SIGNPOST(images_chatgpt_states2.md)는 오기 전엔 다른 그림으로 대신.
+     이전 v2.1 — 2026-11-26 — 대본 v3.2 · 움직이는 실루엣 첫 판 (상자·띠 위주).
+     색 = 뜻: 빨강 위험·멈춤 · 청록 살리는 행동 · 노랑 기준. 숨진 분의 몸·얼굴은 화면에 없음 (떨어진 모자·배낭만). 연구·교육용 — 의학적 진단이 아님. -->
 <meta name="end-hold" content="2.5">
 <link rel="stylesheet" href="../../render/kit.css">
 <style>
 #stage{background:#05080F}
-.bgbox{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden}
-.bgbox img{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover;transform-origin:50% 50%}
-.shade{position:absolute;left:0;top:0;width:1920px;height:1080px;background:linear-gradient(180deg,rgba(3,6,14,.55),rgba(3,6,14,.78));opacity:0}
-.vig{position:absolute;left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%)}
-.act{position:absolute;background-repeat:no-repeat;filter:blur(.5px);opacity:.95}
-.mark{position:absolute;display:flex;align-items:center;justify-content:center;gap:12px;border-radius:10px;background:rgba(5,8,15,.72);color:#E9EDF5;font-weight:700;font-size:36px;letter-spacing:.04em}
-.mark i{width:16px;height:16px;border-radius:50%;background:#FF4D4D}
+.bgbox{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:#05080F}
+.lay{position:absolute;left:0;top:0;width:1920px;height:1080px}
+.cam{transform-origin:0 0}
+.wld{transform-origin:50% 50%}
+.wld>img.bg{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover}
+.vig{position:absolute;left:0;top:0;width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 55%,rgba(0,0,0,.55) 100%);pointer-events:none}
+.fxl{position:absolute;left:0;top:0;width:1920px;height:1080px;pointer-events:none}
+.act{position:absolute;background-repeat:no-repeat;filter:blur(.4px);opacity:.96}
+.mark{position:absolute;display:flex;align-items:center;justify-content:center;gap:10px;border-radius:9px;background:rgba(5,8,15,.55);color:#E9EDF5;font-weight:700;font-size:36px;letter-spacing:.04em}
+.mark i{width:13px;height:13px;border-radius:50%;background:#FF4D4D}
 .mark.g i{background:#6FB7FF}
-.tagx{position:absolute;display:flex;align-items:center;gap:22px}
-.tagx .no{flex:none;height:100%;aspect-ratio:1/1;border-radius:14px;background:#FFD400;color:#10131C;font-weight:900;font-size:50px;display:grid;place-items:center}
-.tagx .tx{height:100%;display:flex;align-items:center;padding:0 32px;border-radius:14px;background:rgba(5,8,15,.82);color:#fff;font-weight:900;font-size:50px;white-space:nowrap;border-left:8px solid #FFD400}
-.stampx{position:absolute;display:flex;align-items:center;gap:18px;padding:0 30px;border-radius:14px;background:rgba(5,8,15,.82);color:#fff;font-weight:900;font-size:50px;white-space:nowrap;border-left:8px solid #FF4D4D;box-sizing:border-box}
-.stampx .st{font-family:"Noto Sans KR",sans-serif;color:#FFD400;font-variant-numeric:tabular-nums}
-.lower{position:absolute;box-sizing:border-box;padding:20px 36px;border-radius:16px;background:rgba(5,8,15,.86);border-left:10px solid #FF4D4D;color:#fff}
-.lower.ok{border-left-color:#2ED3BB}
-.lower .la{font-weight:900;font-size:54px;line-height:1.15;white-space:nowrap}
-.lower .lb{font-weight:700;font-size:40px;line-height:1.2;color:#C9D1E0;margin-top:8px;white-space:nowrap}
-.quotex{position:absolute;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:22px;background:rgba(250,250,252,.95);color:#12151F;text-align:center}
-.quotex .q{font-weight:900;font-size:62px;line-height:1.2;word-break:keep-all}
-.quotex .qs{font-weight:700;font-size:38px;color:#5A6378;margin-top:12px}
-.cardx{position:absolute;box-sizing:border-box;border-radius:28px;background:rgba(7,11,22,.9);border:3px solid rgba(255,255,255,.14);box-shadow:0 18px 48px rgba(0,0,0,.5);color:#F2F5FA;overflow:hidden}
-.cardx .hd{position:absolute;left:48px;top:36px;font-weight:800;font-size:40px;color:#AEB8CC;white-space:nowrap}
-.cardx .tt{position:absolute;left:48px;font-weight:900;font-size:56px;line-height:1.2;white-space:nowrap}
+.bub{position:absolute;padding:20px 34px;border-radius:30px;background:#FBFBFD;color:#12151F;font-weight:900;font-size:50px;line-height:1.2;white-space:nowrap;text-align:center;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+.bub::after{content:"";position:absolute;left:50%;bottom:-30px;border:16px solid transparent;border-top:22px solid #FBFBFD;transform:translateX(-50%)}
+.bub.think{border-radius:46px}
+.bub.think::after{border:0;width:24px;height:24px;border-radius:50%;background:#FBFBFD;bottom:-36px}
+.bub.sym{padding:6px 34px;font-size:76px}
+.big{position:absolute;color:#fff;font-weight:900;white-space:nowrap;text-shadow:0 6px 30px rgba(0,0,0,.8),0 2px 6px rgba(0,0,0,.9);text-align:center;line-height:1.1}
+.big small{display:block;font-size:.42em;font-weight:800;color:#DDE3EE;margin-top:10px}
 .rd{color:#FF5A4E}.tl{color:#2ED3BB}.yl{color:#FFD400}.mu{color:#AEB8CC}
-.row{position:absolute;left:48px;right:48px;display:flex;align-items:center;gap:22px;font-weight:800;font-size:46px;line-height:1.15;white-space:nowrap}
-.row .rk{flex:none;width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:40px;color:#10131C;background:#FFD400}
-.row.on .rk{background:#FF5A4E;color:#fff}
-.row.ok .rk{background:#2ED3BB}
-.bar{position:absolute;height:74px;border-radius:12px;transform-origin:0 50%}
-.blab{position:absolute;font-weight:800;font-size:46px;white-space:nowrap}
-.bnum{position:absolute;font-weight:900;font-size:56px;white-space:nowrap}
-.chips{position:absolute;display:flex;flex-wrap:wrap;justify-content:center;align-content:center;gap:20px 22px}
-.chip{padding:16px 34px;border-radius:999px;background:rgba(7,11,22,.88);border:4px solid #FF5A4E;color:#fff;font-weight:900;font-size:48px;white-space:nowrap}
-.chip.yl{border-color:#FFD400}.chip.tl{border-color:#2ED3BB}
-.dot{position:absolute;width:56px;height:56px;margin:-28px 0 0 -28px;border-radius:50%;background:rgba(255,77,77,.9);box-shadow:0 0 0 10px rgba(255,77,77,.28),0 0 34px rgba(255,77,77,.9)}
-.dot.back{background:rgba(255,77,77,.35);border:5px dashed #FF6A5A;box-sizing:border-box}
-.dot b{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#fff;font-weight:900;font-size:36px}
-.lst{position:absolute;box-sizing:border-box}
-.lst .it{position:absolute;left:0;display:flex;align-items:center;gap:18px;font-weight:900;font-size:44px;color:#fff;white-space:nowrap;text-shadow:0 3px 10px rgba(0,0,0,.6)}
-.lst .it b{flex:none;width:58px;height:58px;border-radius:50%;background:#FF4D4D;display:grid;place-items:center;font-size:36px}
-.clock{position:absolute}
-.bigx{position:absolute;box-sizing:border-box;display:flex;align-items:center;justify-content:center;gap:60px}
-.bigx .cell{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:620px;height:100%;border-radius:28px;background:rgba(7,11,22,.88);border:3px solid rgba(255,255,255,.14)}
-.bigx .bn{font-weight:900;font-size:150px;line-height:1}
-.bigx .l{font-weight:800;font-size:46px;color:#C9D1E0;margin-top:20px;white-space:nowrap}
-.words{position:absolute;display:flex;align-items:center;justify-content:center;gap:34px}
-.words .w{padding:26px 46px;border-radius:24px;background:rgba(7,11,22,.88);border:4px solid #2ED3BB;color:#fff;font-weight:900;font-size:66px;white-space:nowrap}
-.tline{position:absolute;box-sizing:border-box}
-.tline .ax{position:absolute;left:60px;right:60px;top:150px;height:10px;border-radius:6px;background:rgba(255,255,255,.35)}
-.tline .pt{position:absolute;top:118px;width:74px;height:74px;margin-left:-37px;border-radius:50%;border:8px solid #fff;box-sizing:border-box;background:#FFD400}
-.tline .pt.rd{background:#FF5A4E}
-.tline .tm{position:absolute;top:10px;transform:translateX(-50%);font-weight:900;font-size:64px;color:#FFD400;white-space:nowrap}
-.tline .ds{position:absolute;top:220px;transform:translateX(-50%);font-weight:800;font-size:44px;color:#fff;white-space:nowrap;text-align:center;line-height:1.2}
-.tline .gap{position:absolute;top:330px;left:50%;transform:translateX(-50%);padding:14px 40px;border-radius:999px;background:#FF5A4E;color:#fff;font-weight:900;font-size:48px;white-space:nowrap}
-.casex{position:absolute;box-sizing:border-box;padding:34px 44px;border-radius:26px;background:rgba(7,11,22,.88);border-left:12px solid #FF5A4E;color:#fff}
-.casex .d{font-weight:900;font-size:54px;color:#FFD400;white-space:nowrap}
-.casex .p{font-weight:900;font-size:58px;margin-top:10px;white-space:nowrap}
-.casex .x{font-weight:700;font-size:42px;color:#D3DAE8;margin-top:14px;line-height:1.3;white-space:nowrap}
-.casex .r{display:inline-block;margin-top:20px;padding:10px 28px;border-radius:12px;background:#FF5A4E;font-weight:900;font-size:44px}
+.stamp{position:absolute;display:flex;align-items:center;gap:18px;color:#fff;font-weight:900;font-size:46px;white-space:nowrap;text-shadow:0 4px 18px rgba(0,0,0,.9)}
+.stamp b{color:#FFD400;font-size:58px;font-variant-numeric:tabular-nums}
+.chtag{position:absolute;display:flex;align-items:center;gap:18px;color:#fff;font-weight:900;font-size:46px;white-space:nowrap;text-shadow:0 4px 16px rgba(0,0,0,.9)}
+.chtag i{display:block;flex:none;width:12px;height:56px;border-radius:6px;background:#FFD400}
+.lbl{position:absolute;color:#fff;font-weight:900;font-size:44px;white-space:nowrap;text-shadow:0 3px 14px rgba(0,0,0,.95),0 0 3px #000}
+.ring{position:absolute;border-radius:50%;border:6px solid currentColor;box-sizing:border-box}
+.glow{position:absolute;border-radius:50%;mix-blend-mode:screen}
+.lens{position:absolute;border-radius:50%;overflow:hidden;border:6px solid rgba(120,220,255,.85);box-shadow:0 0 40px rgba(120,220,255,.6),inset 0 0 40px rgba(0,0,0,.6);background:#000}
+.lens img{position:absolute;left:-20%;top:-20%;width:140%;height:140%;object-fit:cover}
+.drop{position:absolute;width:11px;height:17px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:rgba(190,225,255,.95);box-shadow:0 0 10px rgba(190,225,255,.9)}
+.pt{position:absolute;border-radius:50%;background:rgba(235,242,255,.85);filter:blur(3px)}
+.card{position:absolute;box-sizing:border-box;border-radius:28px;background:rgba(7,11,22,.9);border:3px solid rgba(255,255,255,.14);box-shadow:0 18px 48px rgba(0,0,0,.5);color:#F2F5FA}
+.card .row{position:absolute;left:40px;right:30px;display:flex;align-items:center;gap:22px;font-weight:800;font-size:44px;white-space:nowrap}
+.card .row .k{flex:none;width:60px;height:60px;border-radius:50%;display:grid;place-items:center;font-weight:900;font-size:38px;color:#10131C}
+.card .row .k.r{background:#FF5A4E;color:#fff}.card .row .k.y{background:#FFD400}.card .row .k.t{background:#2ED3BB}
+.card .row em{font-style:normal;color:#FFD400}
+.split{position:absolute;top:0;height:1080px;overflow:hidden}
 </style>
 </head>
 <body>
 <div id="wrap"><div id="stage"></div></div>
 <div id="ctrl"></div>
 <div id="now"></div>
-<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"hallasan-simjeongji-2026-11","topic":"crisis","duration":490.61,"audio":"../../../crisis/source/hallasan-simjeongji-2026-11/narration.mp3","thumb":null,"synced":"2026-11-26T10:41:13Z","tts":"2026-11-26T10:04:06","script_sha1":"6dd76e2a73f1a4f5","sent":[{"n":1,"part":"도입","text":"산에서 몸이 안 좋을 때, 일행에게 \"먼저 내려갈게\" 하고 말한 적 있으시죠?","start":0.3,"end":4.55},{"n":2,"part":"도입","text":"그런데 한라산 둘레길에서 그 한마디를 남긴 사람이, 신고 1시간 뒤 심정지로 발견됐습니다.","start":4.93,"end":11.028},{"n":3,"part":"도입","text":"몸이 안 좋을 때 혼자가 되는 게, 왜 그렇게 위험할 수 있을까요?","start":11.408,"end":15.407},{"n":4,"part":"도입","text":"그날 둘레길에서 있었던 일과, 등산 중 심정지가 일어나는 이유를 차례로 따라가 보겠습니다.","start":15.787,"end":21.127},{"n":5,"part":"도입","text":"그리고 다음 산행 전, 내 심장을 지키려면 무엇을 확인해야 하는지도 짚어 보겠습니다.","start":21.507,"end":26.674},{"n":6,"part":"한라산 둘레길, 그날의 산행","text":"2023년 3월 26일 일요일, 그날 한라산 둘레길에서 있었던 일입니다.","start":27.674,"end":33.018},{"n":7,"part":"한라산 둘레길, 그날의 산행","text":"제주에 사는 54세 김 씨는, 일행과 함께 둘레길 산행에 나섰습니다.","start":33.398,"end":37.807},{"n":8,"part":"한라산 둘레길, 그날의 산행","text":"한라산 둘레길은 정상으로 오르는 길이 아닙니다.","start":38.187,"end":41.066},{"n":9,"part":"한라산 둘레길, 그날의 산행","text":"해발 600에서 800미터 사이, 산 중턱 숲을 따라 걷는 길입니다.","start":41.446,"end":45.386},{"n":10,"part":"한라산 둘레길, 그날의 산행","text":"그래서 많은 사람이 가벼운 산책쯤으로 여깁니다.","start":45.766,"end":48.674},{"n":11,"part":"한라산 둘레길, 그날의 산행","text":"이 가벼운 산행 중에, 김 씨에게는 무슨 일이 있었던 걸까요?","start":49.054,"end":52.602},{"n":12,"part":"먼저 내려가겠다는 결정","text":"둘레길을 걷던 중, 김 씨는 몸 상태가 좋지 않다고 느꼈습니다.","start":53.602,"end":57.542},{"n":13,"part":"먼저 내려가겠다는 결정","text":"그래서 일행에게 먼저 내려가겠다는 결정을 알렸습니다.","start":57.922,"end":60.872},{"n":14,"part":"먼저 내려가겠다는 결정","text":"\"몸이 좋지 않아 먼저 내려가겠다.\"","start":61.252,"end":63.362},{"n":15,"part":"먼저 내려가겠다는 결정","text":"김 씨는 그렇게 말하고, 혼자 왔던 길을 돌아갔습니다.","start":63.742,"end":67.032},{"n":16,"part":"먼저 내려가겠다는 결정","text":"누구나 할 법한 결정입니다.","start":67.412,"end":69.032},{"n":17,"part":"먼저 내려가겠다는 결정","text":"일행의 산행을 망치고 싶지 않고, 내려가서 쉬면 나아질 거라 생각하니까요.","start":69.412,"end":73.641},{"n":18,"part":"먼저 내려가겠다는 결정","text":"혼자 내려간 김 씨는, 무사히 산 아래에 닿았을까요?","start":74.021,"end":77.358},{"n":19,"part":"실종 신고, 1시간 뒤 발견","text":"하지만 먼저 내려갔다던 김 씨는, 어디에서도 보이지 않았습니다.","start":78.358,"end":82.395},{"n":20,"part":"실종 신고, 1시간 뒤 발견","text":"일행은 오후 1시 48분쯤, 119에 실종 신고를 했습니다.","start":82.775,"end":86.915},{"n":21,"part":"실종 신고, 1시간 뒤 발견","text":"119 구조대가 주변을 수색했고, 1시간쯤 뒤에 쓰러진 김 씨를 발견했습니다.","start":87.295,"end":92.305},{"n":22,"part":"실종 신고, 1시간 뒤 발견","text":"발견됐을 때, 김 씨는 이미 심정지 상태였습니다.","start":92.685,"end":95.858},{"n":23,"part":"실종 신고, 1시간 뒤 발견","text":"구급대가 가까운 병원으로 옮겼지만, 김 씨는 오후 3시 28분쯤 숨졌습니다.","start":96.238,"end":101.588},{"n":24,"part":"실종 신고, 1시간 뒤 발견","text":"신고하고 1시간 40분 뒤였습니다.","start":101.968,"end":104.218},{"n":25,"part":"실종 신고, 1시간 뒤 발견","text":"김 씨가 언제 쓰러졌는지는 아무도 모릅니다.","start":104.598,"end":107.408},{"n":26,"part":"실종 신고, 1시간 뒤 발견","text":"쓰러지는 순간, 김 씨 옆에는 아무도 없었기 때문입니다.","start":107.788,"end":111.438},{"n":27,"part":"실종 신고, 1시간 뒤 발견","text":"심장이 왜 멈췄는지, 정확한 원인도 알려지지 않았습니다.","start":111.818,"end":115.658},{"n":28,"part":"실종 신고, 1시간 뒤 발견","text":"정상 코스도 아닌 둘레길에서, 심장은 왜 멈출 수 있을까요?","start":116.038,"end":119.868},{"n":29,"part":"둘레길에서도 심장이 멈추는 이유","text":"김 씨가 걷던 둘레길은, 정상으로 가는 길보다 오르막이 훨씬 적습니다.","start":120.868,"end":125.408},{"n":30,"part":"둘레길에서도 심장이 멈추는 이유","text":"그런데 이런 둘레길에서도 심장이 멈추는 이유가 있습니다.","start":125.788,"end":129.067},{"n":31,"part":"둘레길에서도 심장이 멈추는 이유","text":"나이가 들수록, 심장에 피를 보내는 혈관은 조용히 좁아질 수 있습니다.","start":129.447,"end":133.645},{"n":32,"part":"둘레길에서도 심장이 멈추는 이유","text":"아무 증상이 없어서, 겉으로는 건강해 보이는 사람도 많습니다.","start":134.025,"end":137.972},{"n":33,"part":"둘레길에서도 심장이 멈추는 이유","text":"고혈압과 당뇨, 높은 콜레스테롤, 담배는 이 혈관을 더 좁게 만듭니다.","start":138.352,"end":143.371},{"n":34,"part":"둘레길에서도 심장이 멈추는 이유","text":"이런 심장에는 완만한 숲길을 오래 걷는 것도 부담이 됩니다.","start":143.751,"end":147.556},{"n":35,"part":"둘레길에서도 심장이 멈추는 이유","text":"산 중턱의 찬 공기는 혈관을 더 좁게 만듭니다.","start":147.936,"end":150.942},{"n":36,"part":"둘레길에서도 심장이 멈추는 이유","text":"땀을 흘려 몸에서 물이 빠지면, 피는 더 끈끈해집니다.","start":151.322,"end":154.832},{"n":37,"part":"둘레길에서도 심장이 멈추는 이유","text":"그렇다면 김 씨가 느낀 몸 상태가 좋지 않다는 느낌은, 무엇이었을 수 있을까요?","start":155.212,"end":160.278},{"n":38,"part":"심정지 전 몸이 보내는 신호","text":"심정지가 오기 전, 몸은 신호를 보내기도 합니다.","start":161.278,"end":164.346},{"n":39,"part":"심정지 전 몸이 보내는 신호","text":"가슴이 조이거나 답답해지고, 명치가 체한 것처럼 꽉 막힙니다.","start":164.726,"end":168.636},{"n":40,"part":"심정지 전 몸이 보내는 신호","text":"식은땀이 나거나, 숨이 평소보다 심하게 차기도 합니다.","start":169.016,"end":172.624},{"n":41,"part":"심정지 전 몸이 보내는 신호","text":"팔이나 턱, 등까지 아픈 경우도 있습니다.","start":173.004,"end":175.687},{"n":42,"part":"심정지 전 몸이 보내는 신호","text":"문제는 이 신호를 조금 쉬면 괜찮아질 거라고 넘기기 쉽다는 것입니다.","start":176.067,"end":180.184},{"n":43,"part":"심정지 전 몸이 보내는 신호","text":"2016년 미국 오리건주의 연구팀은, 갑자기 심정지가 온 사람들을 살펴봤습니다.","start":180.564,"end":185.964},{"n":44,"part":"심정지 전 몸이 보내는 신호","text":"35세에서 65세 환자의 절반 정도는, 그 전 4주 안에 신호가 있었습니다.","start":186.344,"end":191.532},{"n":45,"part":"심정지 전 몸이 보내는 신호","text":"가장 많은 신호는 가슴 통증과 숨참이었습니다.","start":191.912,"end":195.043},{"n":46,"part":"심정지 전 몸이 보내는 신호","text":"하지만 신호를 느끼고 구급차를 먼저 부른 사람은, 다섯 명 중 한 명도 안 됐습니다.","start":195.423,"end":200.456},{"n":47,"part":"심정지 전 몸이 보내는 신호","text":"김 씨가 느낀 것이 이런 신호였는지는 알 수 없습니다.","start":200.836,"end":204.06},{"n":48,"part":"심정지 전 몸이 보내는 신호","text":"하지만 이런 신호가 왔을 때, 혼자 먼저 내려가는 것은 왜 위험할까요?","start":204.44,"end":208.643},{"n":49,"part":"혼자 먼저 내려가면 위험한 이유","text":"혼자 먼저 내려가면 위험한 이유는 두 가지입니다.","start":209.643,"end":212.223},{"n":50,"part":"혼자 먼저 내려가면 위험한 이유","text":"첫 번째는, 신호가 와도 멈추지 않고 계속 걷게 된다는 것입니다.","start":212.603,"end":216.773},{"n":51,"part":"혼자 먼저 내려가면 위험한 이유","text":"걷는 동안 심장은 쉬지 못합니다.","start":217.153,"end":219.013},{"n":52,"part":"혼자 먼저 내려가면 위험한 이유","text":"두 번째는, 혼자가 된다는 것입니다.","start":219.393,"end":221.651},{"n":53,"part":"혼자 먼저 내려가면 위험한 이유","text":"심정지가 오면, 쓰러진 사람은 스스로 119를 부를 수 없습니다.","start":222.031,"end":225.951},{"n":54,"part":"혼자 먼저 내려가면 위험한 이유","text":"심장이 멈추면 피가 뇌로 가지 못해, 곧바로 의식을 잃습니다.","start":226.331,"end":230.327},{"n":55,"part":"혼자 먼저 내려가면 위험한 이유","text":"그리고 4분이 지나면, 뇌가 손상되기 시작한다고 알려져 있습니다.","start":230.707,"end":234.537},{"n":56,"part":"혼자 먼저 내려가면 위험한 이유","text":"그래서 옆 사람이 바로 가슴을 눌러 주면, 살릴 기회가 커집니다.","start":234.917,"end":239.014},{"n":57,"part":"혼자 먼저 내려가면 위험한 이유","text":"질병관리청 2024년 조사에서, 옆 사람이 가슴을 눌러 준 환자는 14.4%가 살았습니다.","start":239.394,"end":246.074},{"n":58,"part":"혼자 먼저 내려가면 위험한 이유","text":"그러지 못한 환자는 6.1%로, 두 배 넘게 차이가 났습니다.","start":246.454,"end":250.514},{"n":59,"part":"혼자 먼저 내려가면 위험한 이유","text":"넓은 숲이라, 신고 뒤 김 씨를 찾아내는 데만 1시간쯤 걸렸습니다.","start":250.894,"end":255.214},{"n":60,"part":"혼자 먼저 내려가면 위험한 이유","text":"혼자 걷던 그 숲길에서는, 그 기회를 만들어 줄 사람이 없었습니다.","start":255.594,"end":259.683},{"n":61,"part":"혼자 먼저 내려가면 위험한 이유","text":"그런데 이런 등산 중 심정지가, 김 씨에게만 일어난 일이었을까요?","start":260.063,"end":264.221},{"n":62,"part":"숫자로 본 등산 중 심정지","text":"김 씨뿐만이 아닙니다.","start":265.221,"end":266.416},{"n":63,"part":"숫자로 본 등산 중 심정지","text":"숫자로 보면, 산에서 숨진 원인 가운데 등산 중 심정지가 얼마나 큰지 보입니다.","start":266.796,"end":271.968},{"n":64,"part":"숫자로 본 등산 중 심정지","text":"국립공원공단은 지리산과 설악산, 북한산 같은 국립공원의 사망 사고를 살펴봤습니다.","start":272.348,"end":277.987},{"n":65,"part":"숫자로 본 등산 중 심정지","text":"2014년부터 10년 동안 숨진 사람은 167명이었습니다.","start":278.367,"end":282.409},{"n":66,"part":"숫자로 본 등산 중 심정지","text":"그 가운데 84명은, 심장이 갑자기 멈추는 심장 돌연사였습니다.","start":282.789,"end":287.299},{"n":67,"part":"숫자로 본 등산 중 심정지","text":"떨어져서 숨진 54명보다 30명이 더 많습니다.","start":287.679,"end":290.828},{"n":68,"part":"숫자로 본 등산 중 심정지","text":"국립공원에서 숨진 사람의 절반은, 낙사가 아닌 등산 중 심정지 때문이었습니다.","start":291.208,"end":296.314},{"n":69,"part":"숫자로 본 등산 중 심정지","text":"한라산은 제주도가 따로 관리해서, 김 씨의 사고도 이 숫자에 들어 있지 않습니다.","start":296.694,"end":301.393},{"n":70,"part":"숫자로 본 등산 중 심정지","text":"그렇다면 이 10년이 지난 뒤에는, 등산 중 심정지가 줄었을까요?","start":301.773,"end":305.938},{"n":71,"part":"반복되는 등산 중 심정지","text":"등산 중 심정지는 그 뒤에도 반복됐습니다.","start":306.938,"end":309.618},{"n":72,"part":"반복되는 등산 중 심정지","text":"2025년 3월, 한라산 성판악 코스를 오르던 60대 관광객이 쓰러졌습니다.","start":309.998,"end":315.278},{"n":73,"part":"반복되는 등산 중 심정지","text":"입구에서 5킬로미터쯤 오른 곳에서 심정지가 왔고, 심폐소생술을 받았지만 숨졌습니다.","start":315.658,"end":321.357},{"n":74,"part":"반복되는 등산 중 심정지","text":"2026년 8월, 폭염경보가 내려진 봉화 청량산에서도 50대 등산객이 쓰러졌습니다.","start":321.737,"end":327.279},{"n":75,"part":"반복되는 등산 중 심정지","text":"함께 간 지인이 발견했을 때, 이미 숨과 맥박이 없었습니다.","start":327.659,"end":331.475},{"n":76,"part":"반복되는 등산 중 심정지","text":"같은 해 10월, 한라산 성판악에서도 하산하던 50대 관광객이 심정지로 숨졌습니다.","start":331.855,"end":337.467},{"n":77,"part":"반복되는 등산 중 심정지","text":"오르막에서도, 내리막에서도, 오르막이 적은 둘레길에서도 일어났습니다.","start":337.847,"end":342.757},{"n":78,"part":"반복되는 등산 중 심정지","text":"산에서는 구조대가 닿기까지 오래 걸려, 살리기 어려운 경우가 많습니다.","start":343.137,"end":347.458},{"n":79,"part":"반복되는 등산 중 심정지","text":"그래서 곁에 누군가 있는 것도, 산에 가기 전 내 심장을 아는 것도 중요합니다.","start":347.838,"end":352.118},{"n":80,"part":"반복되는 등산 중 심정지","text":"그렇다면 등산 중 심정지를 막으려면, 산에 가기 전에 무엇을 점검해야 할까요?","start":352.498,"end":357.5},{"n":81,"part":"산에 가기 전 점검 네 가지","text":"산에 가기 전 점검할 것은 네 가지입니다.","start":358.5,"end":360.797},{"n":82,"part":"산에 가기 전 점검 네 가지","text":"첫 번째는 내 심장입니다.","start":361.177,"end":362.857},{"n":83,"part":"산에 가기 전 점검 네 가지","text":"검진에서 혈압이나 혈당, 콜레스테롤이 높다는 말을 들었나요?","start":363.237,"end":367.088},{"n":84,"part":"산에 가기 전 점검 네 가지","text":"담배를 피우거나, 가족 중에 심장병을 앓은 사람이 있나요?","start":367.468,"end":371.174},{"n":85,"part":"산에 가기 전 점검 네 가지","text":"오르막에서 예전보다 가슴이 답답하거나 숨이 쉽게 차나요?","start":371.554,"end":375.105},{"n":86,"part":"산에 가기 전 점검 네 가지","text":"하나라도 그렇다면, 산에 가기 전에 병원에서 심장 검사가 필요한지 물어보세요.","start":375.485,"end":380.48},{"n":87,"part":"산에 가기 전 점검 네 가지","text":"두 번째는 그날의 몸 상태입니다.","start":380.86,"end":382.738},{"n":88,"part":"산에 가기 전 점검 네 가지","text":"전날 술을 마셨거나 잠을 제대로 못 잤다면, 그날 산행은 미룹니다.","start":383.118,"end":387.238},{"n":89,"part":"산에 가기 전 점검 네 가지","text":"산행 중에도 술은 마시지 않습니다.","start":387.618,"end":389.558},{"n":90,"part":"산에 가기 전 점검 네 가지","text":"세 번째는 코스와 날씨입니다.","start":389.938,"end":391.896},{"n":91,"part":"산에 가기 전 점검 네 가지","text":"한파나 폭염, 강풍 특보가 내려진 날에는 산행을 미룹니다.","start":392.276,"end":395.956},{"n":92,"part":"산에 가기 전 점검 네 가지","text":"둘레길처럼 오르막이 적은 길이어도, 같은 점검을 똑같이 합니다.","start":396.336,"end":400.149},{"n":93,"part":"산에 가기 전 점검 네 가지","text":"네 번째는 함께 갈 사람입니다.","start":400.529,"end":402.362},{"n":94,"part":"산에 가기 전 점검 네 가지","text":"되도록 함께 가고, 일행에게 내 지병과 먹는 약을 미리 알려 둡니다.","start":402.742,"end":407.005},{"n":95,"part":"산에 가기 전 점검 네 가지","text":"혼자 가야 한다면, 가족에게 코스와 내려올 시각을 알리고 사람이 다니는 길로 걷습니다.","start":407.385,"end":412.789},{"n":96,"part":"산에 가기 전 점검 네 가지","text":"그리고 산에서 몸이 좋지 않으면, 그 자리에 앉아 쉬면서 일행에게 알립니다.","start":413.169,"end":417.879},{"n":97,"part":"산에 가기 전 점검 네 가지","text":"앞에서 본 신호가 하나라도 있다면, 더 걷지 말고 119에 신고합니다.","start":418.259,"end":422.549},{"n":98,"part":"산에 가기 전 점검 네 가지","text":"가슴이 조이거나 답답하고, 명치가 막히거나, 그 통증이 팔이나 턱, 등으로 번질 때입니다.","start":422.929,"end":428.762},{"n":99,"part":"산에 가기 전 점검 네 가지","text":"앉아 쉬어도 숨이 가라앉지 않거나, 식은땀이 날 때도 마찬가지입니다.","start":429.142,"end":433.448},{"n":100,"part":"산에 가기 전 점검 네 가지","text":"이런 신호 없이 힘들기만 하다면, 일행과 함께 천천히 내려옵니다.","start":433.828,"end":438.062},{"n":101,"part":"산에 가기 전 점검 네 가지","text":"신고할 때 가까운 등산로 위치 표지판의 번호를 불러 주면, 구조대가 빨리 찾습니다.","start":438.442,"end":443.603},{"n":102,"part":"산에 가기 전 점검 네 가지","text":"무엇보다, 혼자 먼저 내려가지 않습니다.","start":443.983,"end":446.663},{"n":103,"part":"산에 가기 전 점검 네 가지","text":"산에 가기 전, 누가 아프면 적어도 한 사람은 곁에 남기로 미리 약속해 두세요.","start":447.043,"end":451.963},{"n":104,"part":"산에 가기 전 점검 네 가지","text":"옆 사람이 쓰러졌다면, 119에 신고하고 안내에 따라 가슴 한가운데를 세게 누릅니다.","start":452.343,"end":457.343},{"n":105,"part":"산에 가기 전 점검 네 가지","text":"자동심장충격기가 가까이 있다면, 다른 사람이 가져와 안내에 따라 씁니다.","start":457.723,"end":462.298},{"n":106,"part":"산에 가기 전 점검 네 가지","text":"그날 한라산 둘레길이 우리에게 남긴 것은, 무엇일까요?","start":462.678,"end":466.349},{"n":107,"part":"마무리","text":"몸이 좋지 않아 먼저 내려가겠다는 말, 누구나 한 번쯤 해 봤을 겁니다.","start":467.349,"end":471.676},{"n":108,"part":"마무리","text":"김 씨도, 일행도 잘못한 것이 아닙니다.","start":472.056,"end":474.557},{"n":109,"part":"마무리","text":"하지만 몸이 신호를 보낼 때는, 누구나 하는 그 사소한 결정도 위험을 키울 수 있습니다.","start":474.937,"end":480.077},{"n":110,"part":"마무리","text":"산에 가기 전 심장을 점검하고, 몸이 이상하면 멈추고, 알리고, 혼자가 되지 마세요.","start":480.457,"end":485.797},{"n":111,"part":"마무리","text":"시청해주셔서 감사합니다.","start":486.177,"end":487.707}],"subs":[[0.2,4.93,"산에서 몸이 안 좋을 때,\n일행에게 \"먼저 내려갈게\" 하고 말한 적 있으시죠?"],[4.93,11.408,"그런데 한라산 둘레길에서 그 한마디를 남긴 사람이,\n신고 1시간 뒤 심정지로 발견됐습니다."],[11.408,15.787,"몸이 안 좋을 때 혼자가 되는 게, 왜 그렇게 위험할 수 있을까요?"],[15.787,21.507,"그날 둘레길에서 있었던 일과,\n등산 중 심정지가 일어나는 이유를 차례로 따라가 보겠습니다."],[21.507,27.674,"그리고 다음 산행 전, 내 심장을 지키려면\n무엇을 확인해야 하는지도 짚어 보겠습니다."],[27.674,33.398,"2023년 3월 26일 일요일, 그날 한라산 둘레길에서 있었던 일입니다."],[33.398,38.187,"제주에 사는 54세 김 씨는, 일행과 함께 둘레길 산행에 나섰습니다."],[38.187,41.446,"한라산 둘레길은 정상으로 오르는 길이 아닙니다."],[41.446,45.766,"해발 600에서 800미터 사이, 산 중턱 숲을 따라 걷는 길입니다."],[45.766,49.054,"그래서 많은 사람이 가벼운 산책쯤으로 여깁니다."],[49.054,53.602,"이 가벼운 산행 중에, 김 씨에게는 무슨 일이 있었던 걸까요?"],[53.602,57.922,"둘레길을 걷던 중, 김 씨는 몸 상태가 좋지 않다고 느꼈습니다."],[57.922,61.252,"그래서 일행에게 먼저 내려가겠다는 결정을 알렸습니다."],[61.252,63.742,"\"몸이 좋지 않아 먼저 내려가겠다.\""],[63.742,67.412,"김 씨는 그렇게 말하고, 혼자 왔던 길을 돌아갔습니다."],[67.412,69.412,"누구나 할 법한 결정입니다."],[69.412,74.021,"일행의 산행을 망치고 싶지 않고,\n내려가서 쉬면 나아질 거라 생각하니까요."],[74.021,78.358,"혼자 내려간 김 씨는, 무사히 산 아래에 닿았을까요?"],[78.358,82.775,"하지만 먼저 내려갔다던 김 씨는, 어디에서도 보이지 않았습니다."],[82.775,87.295,"일행은 오후 1시 48분쯤, 119에 실종 신고를 했습니다."],[87.295,92.685,"119 구조대가 주변을 수색했고,\n1시간쯤 뒤에 쓰러진 김 씨를 발견했습니다."],[92.685,96.238,"발견됐을 때, 김 씨는 이미 심정지 상태였습니다."],[96.238,101.968,"구급대가 가까운 병원으로 옮겼지만,\n김 씨는 오후 3시 28분쯤 숨졌습니다."],[101.968,104.598,"신고하고 1시간 40분 뒤였습니다."],[104.598,107.788,"김 씨가 언제 쓰러졌는지는 아무도 모릅니다."],[107.788,111.818,"쓰러지는 순간, 김 씨 옆에는 아무도 없었기 때문입니다."],[111.818,116.038,"심장이 왜 멈췄는지, 정확한 원인도 알려지지 않았습니다."],[116.038,120.868,"정상 코스도 아닌 둘레길에서, 심장은 왜 멈출 수 있을까요?"],[120.868,125.788,"김 씨가 걷던 둘레길은, 정상으로 가는 길보다 오르막이 훨씬 적습니다."],[125.788,129.447,"그런데 이런 둘레길에서도 심장이 멈추는 이유가 있습니다."],[129.447,134.025,"나이가 들수록, 심장에 피를 보내는 혈관은 조용히 좁아질 수 있습니다."],[134.025,138.352,"아무 증상이 없어서, 겉으로는 건강해 보이는 사람도 많습니다."],[138.352,143.751,"고혈압과 당뇨, 높은 콜레스테롤, 담배는 이 혈관을 더 좁게 만듭니다."],[143.751,147.936,"이런 심장에는 완만한 숲길을 오래 걷는 것도 부담이 됩니다."],[147.936,151.322,"산 중턱의 찬 공기는 혈관을 더 좁게 만듭니다."],[151.322,155.212,"땀을 흘려 몸에서 물이 빠지면, 피는 더 끈끈해집니다."],[155.212,161.278,"그렇다면 김 씨가 느낀 몸 상태가 좋지 않다는 느낌은,\n무엇이었을 수 있을까요?"],[161.278,164.726,"심정지가 오기 전, 몸은 신호를 보내기도 합니다."],[164.726,169.016,"가슴이 조이거나 답답해지고, 명치가 체한 것처럼 꽉 막힙니다."],[169.016,173.004,"식은땀이 나거나, 숨이 평소보다 심하게 차기도 합니다."],[173.004,176.067,"팔이나 턱, 등까지 아픈 경우도 있습니다."],[176.067,180.564,"문제는 이 신호를 조금 쉬면 괜찮아질 거라고 넘기기 쉽다는 것입니다."],[180.564,186.344,"2016년 미국 오리건주의 연구팀은,\n갑자기 심정지가 온 사람들을 살펴봤습니다."],[186.344,191.912,"35세에서 65세 환자의 절반 정도는,\n그 전 4주 안에 신호가 있었습니다."],[191.912,195.423,"가장 많은 신호는 가슴 통증과 숨참이었습니다."],[195.423,200.836,"하지만 신호를 느끼고 구급차를 먼저 부른 사람은,\n다섯 명 중 한 명도 안 됐습니다."],[200.836,204.44,"김 씨가 느낀 것이 이런 신호였는지는 알 수 없습니다."],[204.44,209.643,"하지만 이런 신호가 왔을 때, 혼자 먼저 내려가는 것은 왜 위험할까요?"],[209.643,212.603,"혼자 먼저 내려가면 위험한 이유는 두 가지입니다."],[212.603,217.153,"첫 번째는, 신호가 와도 멈추지 않고 계속 걷게 된다는 것입니다."],[217.153,219.393,"걷는 동안 심장은 쉬지 못합니다."],[219.393,222.031,"두 번째는, 혼자가 된다는 것입니다."],[222.031,226.331,"심정지가 오면, 쓰러진 사람은 스스로 119를 부를 수 없습니다."],[226.331,230.707,"심장이 멈추면 피가 뇌로 가지 못해, 곧바로 의식을 잃습니다."],[230.707,234.917,"그리고 4분이 지나면, 뇌가 손상되기 시작한다고 알려져 있습니다."],[234.917,239.394,"그래서 옆 사람이 바로 가슴을 눌러 주면, 살릴 기회가 커집니다."],[239.394,246.454,"질병관리청 2024년 조사에서,\n옆 사람이 가슴을 눌러 준 환자는 14.4%가 살았습니다."],[246.454,250.894,"그러지 못한 환자는 6.1%로, 두 배 넘게 차이가 났습니다."],[250.894,255.594,"넓은 숲이라, 신고 뒤 김 씨를 찾아내는 데만 1시간쯤 걸렸습니다."],[255.594,260.063,"혼자 걷던 그 숲길에서는, 그 기회를 만들어 줄 사람이 없었습니다."],[260.063,265.221,"그런데 이런 등산 중 심정지가, 김 씨에게만 일어난 일이었을까요?"],[265.221,266.796,"김 씨뿐만이 아닙니다."],[266.796,272.348,"숫자로 보면,\n산에서 숨진 원인 가운데 등산 중 심정지가 얼마나 큰지 보입니다."],[272.348,278.367,"국립공원공단은 지리산과 설악산,\n북한산 같은 국립공원의 사망 사고를 살펴봤습니다."],[278.367,282.789,"2014년부터 10년 동안 숨진 사람은 167명이었습니다."],[282.789,287.679,"그 가운데 84명은, 심장이 갑자기 멈추는 심장 돌연사였습니다."],[287.679,291.208,"떨어져서 숨진 54명보다 30명이 더 많습니다."],[291.208,296.694,"국립공원에서 숨진 사람의 절반은,\n낙사가 아닌 등산 중 심정지 때문이었습니다."],[296.694,301.773,"한라산은 제주도가 따로 관리해서,\n김 씨의 사고도 이 숫자에 들어 있지 않습니다."],[301.773,306.938,"그렇다면 이 10년이 지난 뒤에는, 등산 중 심정지가 줄었을까요?"],[306.938,309.998,"등산 중 심정지는 그 뒤에도 반복됐습니다."],[309.998,315.658,"2025년 3월,\n한라산 성판악 코스를 오르던 60대 관광객이 쓰러졌습니다."],[315.658,321.737,"입구에서 5킬로미터쯤 오른 곳에서 심정지가 왔고,\n심폐소생술을 받았지만 숨졌습니다."],[321.737,327.659,"2026년 8월,\n폭염경보가 내려진 봉화 청량산에서도 50대 등산객이 쓰러졌습니다."],[327.659,331.855,"함께 간 지인이 발견했을 때, 이미 숨과 맥박이 없었습니다."],[331.855,337.847,"같은 해 10월,\n한라산 성판악에서도 하산하던 50대 관광객이 심정지로 숨졌습니다."],[337.847,343.137,"오르막에서도, 내리막에서도,\n오르막이 적은 둘레길에서도 일어났습니다."],[343.137,347.838,"산에서는 구조대가 닿기까지 오래 걸려,\n살리기 어려운 경우가 많습니다."],[347.838,352.498,"그래서 곁에 누군가 있는 것도,\n산에 가기 전 내 심장을 아는 것도 중요합니다."],[352.498,358.5,"그렇다면 등산 중 심정지를 막으려면,\n산에 가기 전에 무엇을 점검해야 할까요?"],[358.5,361.177,"산에 가기 전 점검할 것은 네 가지입니다."],[361.177,363.237,"첫 번째는 내 심장입니다."],[363.237,367.468,"검진에서 혈압이나 혈당, 콜레스테롤이 높다는 말을 들었나요?"],[367.468,371.554,"담배를 피우거나, 가족 중에 심장병을 앓은 사람이 있나요?"],[371.554,375.485,"오르막에서 예전보다 가슴이 답답하거나 숨이 쉽게 차나요?"],[375.485,380.86,"하나라도 그렇다면,\n산에 가기 전에 병원에서 심장 검사가 필요한지 물어보세요."],[380.86,383.118,"두 번째는 그날의 몸 상태입니다."],[383.118,387.618,"전날 술을 마셨거나 잠을 제대로 못 잤다면, 그날 산행은 미룹니다."],[387.618,389.938,"산행 중에도 술은 마시지 않습니다."],[389.938,392.276,"세 번째는 코스와 날씨입니다."],[392.276,396.336,"한파나 폭염, 강풍 특보가 내려진 날에는 산행을 미룹니다."],[396.336,400.529,"둘레길처럼 오르막이 적은 길이어도, 같은 점검을 똑같이 합니다."],[400.529,402.742,"네 번째는 함께 갈 사람입니다."],[402.742,407.385,"되도록 함께 가고, 일행에게 내 지병과 먹는 약을 미리 알려 둡니다."],[407.385,413.169,"혼자 가야 한다면,\n가족에게 코스와 내려올 시각을 알리고 사람이 다니는 길로 걷습니다."],[413.169,418.259,"그리고 산에서 몸이 좋지 않으면,\n그 자리에 앉아 쉬면서 일행에게 알립니다."],[418.259,422.929,"앞에서 본 신호가 하나라도 있다면, 더 걷지 말고 119에 신고합니다."],[422.929,429.142,"가슴이 조이거나 답답하고, 명치가 막히거나,\n그 통증이 팔이나 턱, 등으로 번질 때입니다."],[429.142,433.828,"앉아 쉬어도 숨이 가라앉지 않거나, 식은땀이 날 때도 마찬가지입니다."],[433.828,438.442,"이런 신호 없이 힘들기만 하다면, 일행과 함께 천천히 내려옵니다."],[438.442,443.983,"신고할 때 가까운 등산로 위치 표지판의 번호를 불러 주면,\n구조대가 빨리 찾습니다."],[443.983,447.043,"무엇보다, 혼자 먼저 내려가지 않습니다."],[447.043,452.343,"산에 가기 전,\n누가 아프면 적어도 한 사람은 곁에 남기로 미리 약속해 두세요."],[452.343,457.723,"옆 사람이 쓰러졌다면,\n119에 신고하고 안내에 따라 가슴 한가운데를 세게 누릅니다."],[457.723,462.678,"자동심장충격기가 가까이 있다면,\n다른 사람이 가져와 안내에 따라 씁니다."],[462.678,467.349,"그날 한라산 둘레길이 우리에게 남긴 것은, 무엇일까요?"],[467.349,472.056,"몸이 좋지 않아 먼저 내려가겠다는 말, 누구나 한 번쯤 해 봤을 겁니다."],[472.056,474.937,"김 씨도, 일행도 잘못한 것이 아닙니다."],[474.937,480.457,"하지만 몸이 신호를 보낼 때는,\n누구나 하는 그 사소한 결정도 위험을 키울 수 있습니다."],[480.457,486.177,"산에 가기 전 심장을 점검하고,\n몸이 이상하면 멈추고, 알리고, 혼자가 되지 마세요."],[486.177,488.107,"시청해주셔서 감사합니다."]]};/*EP-DATA:END*/</script>
+<script id="ep-data">/*EP-DATA:BEGIN*/window.EP={"id":"hallasan-simjeongji-2026-11","topic":"crisis","duration":439.58,"audio":null,"thumb":null,"estimated":true,"est_model":{"perSyl":0.151,"comma":0.25,"base":-0.08,"min":0.8,"lead":0.3,"gap":0.45,"part":1,"tail":0.8},"synced":"2026-11-27T05:58:29Z","sent":[{"n":1,"part":"도입","text":"일행과 함께 등산하다가, 몸 상태가 안 좋아진 경험 한 번쯤 있으시죠?","start":0.3,"end":4.547},{"n":2,"part":"도입","text":"그럴 때 당신은 어떻게 하시나요?","start":4.997,"end":6.88},{"n":3,"part":"도입","text":"만약 먼저 내려가겠다고 한다면, 당신은 사고를 당할 위험이 큽니다.","start":7.33,"end":11.577},{"n":4,"part":"도입","text":"왜 그런지, 실제로 사망 사고가 있었던 한라산 사례로 알아보겠습니다.","start":12.027,"end":16.425},{"n":5,"part":"도입","text":"그리고 등산 전에 조심해야 할 것도 같이 알아보겠습니다.","start":16.875,"end":20.268},{"n":6,"part":"한라산 둘레길, 그날 있었던 일","text":"2023년 3월 26일 일요일, 한라산 둘레길에서 있었던 일입니다.","start":21.268,"end":25.968},{"n":7,"part":"한라산 둘레길, 그날 있었던 일","text":"제주에 사는 54세 김 씨는, 일행과 함께 둘레길 산행에 나섰습니다.","start":26.418,"end":30.816},{"n":8,"part":"한라산 둘레길, 그날 있었던 일","text":"한라산 둘레길은 정상으로 오르는 길이 아니라, 해발 600에서 800미터 사이 숲길이죠.","start":31.266,"end":36.721},{"n":9,"part":"한라산 둘레길, 그날 있었던 일","text":"그래서 가벼운 산책쯤으로 여기는 분이 많습니다.","start":37.171,"end":40.111},{"n":10,"part":"한라산 둘레길, 그날 있었던 일","text":"그런데 걷던 중, 김 씨는 몸 상태가 좋지 않다고 느꼈습니다.","start":40.561,"end":44.204},{"n":11,"part":"한라산 둘레길, 그날 있었던 일","text":"그리고 일행에게 이렇게 말했죠.","start":44.654,"end":46.537},{"n":12,"part":"한라산 둘레길, 그날 있었던 일","text":"\"몸이 좋지 않아 먼저 내려가겠다.\"","start":46.987,"end":48.87},{"n":13,"part":"한라산 둘레길, 그날 있었던 일","text":"김 씨는 혼자 왔던 길을 돌아갔습니다.","start":49.32,"end":51.505},{"n":14,"part":"한라산 둘레길, 그날 있었던 일","text":"누구나 할 법한 결정입니다.","start":51.955,"end":53.536},{"n":15,"part":"한라산 둘레길, 그날 있었던 일","text":"일행도 괜찮다는 말을 믿을 수밖에 없죠.","start":53.986,"end":56.322},{"n":16,"part":"한라산 둘레길, 그날 있었던 일","text":"하지만 먼저 내려갔다던 김 씨는, 어디에서도 보이지 않았습니다.","start":56.772,"end":60.868},{"n":17,"part":"한라산 둘레길, 그날 있었던 일","text":"일행은 오후 1시 48분쯤, 119에 실종 신고를 했습니다.","start":61.318,"end":65.263},{"n":18,"part":"한라산 둘레길, 그날 있었던 일","text":"119 구조대가 주변을 수색했고, 1시간쯤 뒤에 쓰러진 김 씨를 찾았습니다.","start":65.713,"end":70.564},{"n":19,"part":"한라산 둘레길, 그날 있었던 일","text":"발견됐을 때, 김 씨는 이미 심장이 멈춘 심정지 상태였습니다.","start":71.014,"end":74.808},{"n":20,"part":"한라산 둘레길, 그날 있었던 일","text":"병원으로 옮겼지만, 김 씨는 오후 3시 28분쯤 숨졌습니다.","start":75.258,"end":79.203},{"n":21,"part":"한라산 둘레길, 그날 있었던 일","text":"신고하고 1시간 40분 뒤였죠.","start":79.653,"end":81.536},{"n":22,"part":"한라산 둘레길, 그날 있었던 일","text":"김 씨가 언제 쓰러졌는지는 아무도 모릅니다.","start":81.986,"end":84.624},{"n":23,"part":"한라산 둘레길, 그날 있었던 일","text":"쓰러지는 순간, 옆에 아무도 없었기 때문입니다.","start":85.074,"end":88.113},{"n":24,"part":"한라산 둘레길, 그날 있었던 일","text":"심장이 왜 멈췄는지, 정확한 원인도 알려지지 않았습니다.","start":88.563,"end":92.206},{"n":25,"part":"한라산 둘레길, 그날 있었던 일","text":"그렇다면 이런 일은, 김 씨에게만 일어난 걸까요?","start":92.656,"end":95.695},{"n":26,"part":"숫자로 본 등산 중 심정지","text":"김 씨뿐만이 아닙니다.","start":96.695,"end":97.974},{"n":27,"part":"숫자로 본 등산 중 심정지","text":"숫자로 보면, 산에서 숨진 원인 가운데 등산 중 심정지가 얼마나 큰지 보입니다.","start":98.424,"end":103.275},{"n":28,"part":"숫자로 본 등산 중 심정지","text":"국립공원공단이 지리산과 설악산, 북한산 같은 국립공원의 사망 사고를 살펴봤습니다.","start":103.725,"end":109.18},{"n":29,"part":"숫자로 본 등산 중 심정지","text":"2014년부터 10년 동안 숨진 사람은 167명이었습니다.","start":109.63,"end":113.476},{"n":30,"part":"숫자로 본 등산 중 심정지","text":"그 가운데 84명은, 심장이 갑자기 멈추는 심장 돌연사였죠.","start":113.926,"end":117.871},{"n":31,"part":"숫자로 본 등산 중 심정지","text":"떨어져서 숨진 54명보다 30명이나 많습니다.","start":118.321,"end":121.261},{"n":32,"part":"숫자로 본 등산 중 심정지","text":"국립공원에서 숨진 사람의 절반은, 낙사가 아닌 등산 중 심정지 때문이었습니다.","start":121.711,"end":126.713},{"n":33,"part":"숫자로 본 등산 중 심정지","text":"한라산은 제주도가 따로 관리해서, 김 씨의 사고는 이 숫자에 들어 있지도 않습니다.","start":127.163,"end":132.316},{"n":34,"part":"숫자로 본 등산 중 심정지","text":"그 뒤에도 비슷한 사고는 이어졌습니다.","start":132.766,"end":135.102},{"n":35,"part":"숫자로 본 등산 중 심정지","text":"2025년 3월, 한라산 성판악 코스를 오르던 60대 관광객이 심정지로 쓰러져 숨졌죠.","start":135.552,"end":141.309},{"n":36,"part":"숫자로 본 등산 중 심정지","text":"같은 해 10월에는 한라산 성판악에서, 하산하던 50대 관광객이 심정지로 숨졌습니다.","start":141.759,"end":147.214},{"n":37,"part":"숫자로 본 등산 중 심정지","text":"그럼 도대체, 이런 사고가 많이 일어나는 이유는 뭘까요?","start":147.664,"end":151.156},{"n":38,"part":"등산 중 심장이 멈추는 이유","text":"등산 중에 심장이 멈추는 데는 이유가 있습니다.","start":152.156,"end":154.945},{"n":39,"part":"등산 중 심장이 멈추는 이유","text":"나이가 들수록, 심장에 피를 보내는 혈관은 조용히 좁아질 수 있습니다.","start":155.395,"end":159.793},{"n":40,"part":"등산 중 심장이 멈추는 이유","text":"아무 증상이 없어서, 겉으로는 건강해 보이는 사람도 많죠.","start":160.243,"end":163.886},{"n":41,"part":"등산 중 심장이 멈추는 이유","text":"고혈압과 당뇨, 높은 콜레스테롤, 담배는 이 혈관을 더 좁게 만듭니다.","start":164.336,"end":168.833},{"n":42,"part":"등산 중 심장이 멈추는 이유","text":"이런 심장에는, 완만한 숲길을 오래 걷는 것도 부담이 됩니다.","start":169.283,"end":173.077},{"n":43,"part":"등산 중 심장이 멈추는 이유","text":"산 중턱의 찬 공기는 혈관을 더 좁게 만들고요.","start":173.527,"end":176.165},{"n":44,"part":"등산 중 심장이 멈추는 이유","text":"땀을 흘려 몸에서 물이 빠지면, 피는 더 끈끈해집니다.","start":176.615,"end":179.956},{"n":45,"part":"등산 중 심장이 멈추는 이유","text":"그렇다면 심장이 멈추기 전에, 우리 몸은 아무 신호도 보내지 않을까요?","start":180.406,"end":184.804},{"n":46,"part":"심정지 전 몸이 보내는 신호","text":"심정지가 오기 전, 몸은 신호를 보내기도 합니다.","start":185.804,"end":188.843},{"n":47,"part":"심정지 전 몸이 보내는 신호","text":"가슴이 조이거나 답답해지고, 명치가 체한 것처럼 꽉 막힙니다.","start":189.293,"end":193.238},{"n":48,"part":"심정지 전 몸이 보내는 신호","text":"식은땀이 나거나, 숨이 평소보다 심하게 차기도 하죠.","start":193.688,"end":197.029},{"n":49,"part":"심정지 전 몸이 보내는 신호","text":"그 통증이 팔이나 턱, 등으로 번지기도 합니다.","start":197.479,"end":200.367},{"n":50,"part":"심정지 전 몸이 보내는 신호","text":"문제는 이 신호를, 조금 쉬면 괜찮아질 거라고 넘기기 쉽다는 겁니다.","start":200.817,"end":205.064},{"n":51,"part":"심정지 전 몸이 보내는 신호","text":"2016년 미국 오리건주의 연구팀이, 갑자기 심정지가 온 사람들을 살펴봤습니다.","start":205.514,"end":210.818},{"n":52,"part":"심정지 전 몸이 보내는 신호","text":"35세에서 65세 환자의 절반 정도는, 그 전 4주 안에 신호가 있었습니다.","start":211.268,"end":216.27},{"n":53,"part":"심정지 전 몸이 보내는 신호","text":"가장 많은 신호는 가슴 통증과 숨참이었죠.","start":216.72,"end":219.207},{"n":54,"part":"심정지 전 몸이 보내는 신호","text":"하지만 신호를 느끼고 구급차를 먼저 부른 사람은, 다섯 명 중 한 명도 안 됐습니다.","start":219.657,"end":224.659},{"n":55,"part":"심정지 전 몸이 보내는 신호","text":"김 씨가 느낀 것이 이런 신호였는지는 알 수 없습니다.","start":225.109,"end":228.2},{"n":56,"part":"심정지 전 몸이 보내는 신호","text":"그런데 이런 신호가 왔을 때, 혼자 먼저 내려가는 건 왜 위험할까요?","start":228.65,"end":232.746},{"n":57,"part":"혼자 먼저 내려가면 위험한 이유","text":"혼자 먼저 내려가면 위험한 이유는 두 가지입니다.","start":233.746,"end":236.686},{"n":58,"part":"혼자 먼저 내려가면 위험한 이유","text":"첫 번째, 신호가 와도 멈추지 않고 계속 걷게 됩니다.","start":237.136,"end":240.326},{"n":59,"part":"혼자 먼저 내려가면 위험한 이유","text":"걷는 동안에는 심장이 쉬지 못하죠.","start":240.776,"end":242.81},{"n":60,"part":"혼자 먼저 내려가면 위험한 이유","text":"두 번째, 혼자가 됩니다.","start":243.26,"end":244.789},{"n":61,"part":"혼자 먼저 내려가면 위험한 이유","text":"심정지가 오면, 쓰러진 사람은 스스로 119를 부를 수 없습니다.","start":245.239,"end":249.335},{"n":62,"part":"혼자 먼저 내려가면 위험한 이유","text":"심장이 멈추면 피가 뇌로 가지 못해, 곧바로 의식을 잃기 때문입니다.","start":249.785,"end":254.032},{"n":63,"part":"혼자 먼저 내려가면 위험한 이유","text":"그리고 4분이 지나면, 뇌가 손상되기 시작한다고 알려져 있습니다.","start":254.482,"end":258.729},{"n":64,"part":"혼자 먼저 내려가면 위험한 이유","text":"그래서 옆 사람이 바로 가슴을 눌러 주면, 살릴 기회가 커지죠.","start":259.179,"end":262.973},{"n":65,"part":"혼자 먼저 내려가면 위험한 이유","text":"질병관리청의 2024년 전국 조사를 보면, 이 차이가 숫자로 나옵니다.","start":263.423,"end":268.123},{"n":66,"part":"혼자 먼저 내려가면 위험한 이유","text":"옆 사람이 가슴을 눌러 준 환자는 14.4%가 살았습니다.","start":268.573,"end":272.419},{"n":67,"part":"혼자 먼저 내려가면 위험한 이유","text":"그러지 못한 환자는 6.1%로, 두 배 넘게 차이가 났습니다.","start":272.869,"end":276.965},{"n":68,"part":"혼자 먼저 내려가면 위험한 이유","text":"구조대가 오기까지 오래 걸리는 산에서는, 옆 사람이 누르는 시간이 더 중요하죠.","start":277.415,"end":282.417},{"n":69,"part":"혼자 먼저 내려가면 위험한 이유","text":"그런데 어디서 쓰러졌는지 몰라, 김 씨를 찾는 데만 1시간쯤 걸렸습니다.","start":282.867,"end":287.416},{"n":70,"part":"혼자 먼저 내려가면 위험한 이유","text":"살았을지는 알 수 없지만, 혼자 걷던 그 숲길에는 그 기회조차 없었던 겁니다.","start":287.866,"end":292.566},{"n":71,"part":"혼자 먼저 내려가면 위험한 이유","text":"그럼 이런 사고를 예방하는 방법은 뭘까요?","start":293.016,"end":295.503},{"n":72,"part":"산에 가기 전 점검 네 가지","text":"산에 가기 전 점검할 것은 네 가지입니다.","start":296.503,"end":298.839},{"n":73,"part":"산에 가기 전 점검 네 가지","text":"첫 번째는 내 심장입니다.","start":299.289,"end":300.719},{"n":74,"part":"산에 가기 전 점검 네 가지","text":"검진에서 혈압이나 혈당, 콜레스테롤이 높다는 말을 들었나요?","start":301.169,"end":305.114},{"n":75,"part":"산에 가기 전 점검 네 가지","text":"담배를 피우거나, 가족 중에 심장병을 앓은 사람이 있나요?","start":305.564,"end":309.207},{"n":76,"part":"산에 가기 전 점검 네 가지","text":"오르막에서 예전보다 가슴이 답답하거나 숨이 쉽게 차나요?","start":309.657,"end":313.201},{"n":77,"part":"산에 가기 전 점검 네 가지","text":"하나라도 그렇다면, 병원에서 심장 검사가 필요한지 먼저 물어보세요.","start":313.651,"end":318.049},{"n":78,"part":"산에 가기 전 점검 네 가지","text":"두 번째는 그날의 몸 상태입니다.","start":318.499,"end":320.382},{"n":79,"part":"산에 가기 전 점검 네 가지","text":"전날 술을 마셨거나 잠을 제대로 못 잤다면, 그날 산행은 미루는 게 좋습니다.","start":320.832,"end":325.532},{"n":80,"part":"산에 가기 전 점검 네 가지","text":"산에서 마시는 술도 피해야 하죠.","start":325.982,"end":327.865},{"n":81,"part":"산에 가기 전 점검 네 가지","text":"세 번째는 날씨입니다.","start":328.315,"end":329.594},{"n":82,"part":"산에 가기 전 점검 네 가지","text":"한파나 폭염, 강풍 특보가 내려진 날에는 산행을 미룹니다.","start":330.044,"end":333.687},{"n":83,"part":"산에 가기 전 점검 네 가지","text":"네 번째는 함께 갈 사람입니다.","start":334.137,"end":335.869},{"n":84,"part":"산에 가기 전 점검 네 가지","text":"일행에게 내 지병과 먹는 약을 미리 알려 두세요.","start":336.319,"end":339.108},{"n":85,"part":"산에 가기 전 점검 네 가지","text":"누가 아프면 적어도 한 사람은 곁에 남기로, 출발 전에 약속해 두는 것도 좋습니다.","start":339.558,"end":344.56},{"n":86,"part":"산에 가기 전 점검 네 가지","text":"그리고 산에서 몸이 안 좋아지면, 그 자리에 앉아서 일행에게 알립니다.","start":345.01,"end":349.408},{"n":87,"part":"산에 가기 전 점검 네 가지","text":"걸으면 심장이 더 힘들어지니, 신호가 하나라도 있다면 그 자리에서 119에 신고하세요.","start":349.858,"end":355.464},{"n":88,"part":"산에 가기 전 점검 네 가지","text":"숨이 차기만 할 때는, 앉아서 쉬어도 가라앉지 않으면 신호로 보면 됩니다.","start":355.914,"end":360.463},{"n":89,"part":"산에 가기 전 점검 네 가지","text":"이런 신호 없이 힘들기만 하다면, 일행과 함께 천천히 내려오면 됩니다.","start":360.913,"end":365.311},{"n":90,"part":"산에 가기 전 점검 네 가지","text":"신고할 때는 가까운 등산로 위치 표지판의 번호를 불러 주면, 구조대가 빨리 찾습니다.","start":365.761,"end":371.065},{"n":91,"part":"산에 가기 전 점검 네 가지","text":"옆 사람이 쓰러졌다면, 119 안내에 따라 가슴 한가운데를 세게 누르세요.","start":371.515,"end":376.215},{"n":92,"part":"산에 가기 전 점검 네 가지","text":"가까이에 자동심장충격기가 있다면, 다른 사람이 가져와 함께 쓰면 됩니다.","start":376.665,"end":381.365},{"n":93,"part":"산에 가기 전 점검 네 가지","text":"그런데 부득이하게 혼자 가야 한다면, 어떻게 해야 할까요?","start":381.815,"end":385.458},{"n":94,"part":"혼자 산에 가야 한다면","text":"혼자 산에 가야 한다면, 길을 잃거나 다쳤을 때 나를 찾아 줄 사람부터 정해 두세요.","start":386.458,"end":391.46},{"n":95,"part":"혼자 산에 가야 한다면","text":"출발 전에 가족에게, 어느 코스로 가서 몇 시에 내려올지 알려 두세요.","start":391.91,"end":396.157},{"n":96,"part":"혼자 산에 가야 한다면","text":"그리고 그 시각까지 연락이 없으면, 대신 119에 신고해 달라고 부탁해 둡니다.","start":396.607,"end":401.609},{"n":97,"part":"혼자 산에 가야 한다면","text":"휴대폰은 충분히 충전하고, 가족과 위치 공유를 켜 두면 좋죠.","start":402.059,"end":405.853},{"n":98,"part":"혼자 산에 가야 한다면","text":"다만 심정지는 몇 분을 다투는 일이라, 이것만으로는 부족합니다.","start":406.303,"end":410.399},{"n":99,"part":"혼자 산에 가야 한다면","text":"그래서 길은 사람이 자주 다니는 큰 등산로를 고릅니다.","start":410.849,"end":414.091},{"n":100,"part":"혼자 산에 가야 한다면","text":"걷다가 앞에서 말한 신호가 오면, 그 자리에 멈추고 바로 119에 신고하세요.","start":414.541,"end":419.392},{"n":101,"part":"혼자 산에 가야 한다면","text":"지나가는 등산객이 있다면, 몸이 안 좋다고 먼저 말을 거는 것도 방법입니다.","start":419.842,"end":424.542},{"n":102,"part":"혼자 산에 가야 한다면","text":"첫 번째 점검에 걸렸는데 아직 병원에서 확인하지 않았다면, 혼자 하는 산행은 피하세요.","start":424.992,"end":430.447},{"n":103,"part":"마무리","text":"산에서는 먼저 내려가기보다, 같이 쉬어 가는 게 서로를 지키는 길이라고 생각합니다.","start":431.447,"end":436.751},{"n":104,"part":"마무리","text":"시청해주셔서 감사합니다.","start":437.201,"end":438.782}],"subs":[[0.3,4.547,"일행과 함께 등산하다가, 몸 상태가 안 좋아진 경험 한 번쯤 있으시죠?"],[4.997,6.88,"그럴 때 당신은 어떻게 하시나요?"],[7.33,11.577,"만약 먼저 내려가겠다고 한다면, 당신은 사고를 당할 위험이 큽니다."],[12.027,16.425,"왜 그런지, 실제로 사망 사고가 있었던 한라산 사례로 알아보겠습니다."],[16.875,20.268,"그리고 등산 전에 조심해야 할 것도 같이 알아보겠습니다."],[21.268,25.968,"2023년 3월 26일 일요일, 한라산 둘레길에서 있었던 일입니다."],[26.418,30.816,"제주에 사는 54세 김 씨는, 일행과 함께 둘레길 산행에 나섰습니다."],[31.266,36.721,"한라산 둘레길은 정상으로 오르는 길이 아니라,\n해발 600에서 800미터 사이 숲길이죠."],[37.171,40.111,"그래서 가벼운 산책쯤으로 여기는 분이 많습니다."],[40.561,44.204,"그런데 걷던 중, 김 씨는 몸 상태가 좋지 않다고 느꼈습니다."],[44.654,46.537,"그리고 일행에게 이렇게 말했죠."],[46.987,48.87,"\"몸이 좋지 않아 먼저 내려가겠다.\""],[49.32,51.505,"김 씨는 혼자 왔던 길을 돌아갔습니다."],[51.955,53.536,"누구나 할 법한 결정입니다."],[53.986,56.322,"일행도 괜찮다는 말을 믿을 수밖에 없죠."],[56.772,60.868,"하지만 먼저 내려갔다던 김 씨는, 어디에서도 보이지 않았습니다."],[61.318,65.263,"일행은 오후 1시 48분쯤, 119에 실종 신고를 했습니다."],[65.713,70.564,"119 구조대가 주변을 수색했고,\n1시간쯤 뒤에 쓰러진 김 씨를 찾았습니다."],[71.014,74.808,"발견됐을 때, 김 씨는 이미 심장이 멈춘 심정지 상태였습니다."],[75.258,79.203,"병원으로 옮겼지만, 김 씨는 오후 3시 28분쯤 숨졌습니다."],[79.653,81.536,"신고하고 1시간 40분 뒤였죠."],[81.986,84.624,"김 씨가 언제 쓰러졌는지는 아무도 모릅니다."],[85.074,88.113,"쓰러지는 순간, 옆에 아무도 없었기 때문입니다."],[88.563,92.206,"심장이 왜 멈췄는지, 정확한 원인도 알려지지 않았습니다."],[92.656,95.695,"그렇다면 이런 일은, 김 씨에게만 일어난 걸까요?"],[96.695,97.974,"김 씨뿐만이 아닙니다."],[98.424,103.275,"숫자로 보면,\n산에서 숨진 원인 가운데 등산 중 심정지가 얼마나 큰지 보입니다."],[103.725,109.18,"국립공원공단이 지리산과 설악산,\n북한산 같은 국립공원의 사망 사고를 살펴봤습니다."],[109.63,113.476,"2014년부터 10년 동안 숨진 사람은 167명이었습니다."],[113.926,117.871,"그 가운데 84명은, 심장이 갑자기 멈추는 심장 돌연사였죠."],[118.321,121.261,"떨어져서 숨진 54명보다 30명이나 많습니다."],[121.711,126.713,"국립공원에서 숨진 사람의 절반은,\n낙사가 아닌 등산 중 심정지 때문이었습니다."],[127.163,132.316,"한라산은 제주도가 따로 관리해서,\n김 씨의 사고는 이 숫자에 들어 있지도 않습니다."],[132.766,135.102,"그 뒤에도 비슷한 사고는 이어졌습니다."],[135.552,141.309,"2025년 3월,\n한라산 성판악 코스를 오르던 60대 관광객이 심정지로 쓰러져 숨졌죠."],[141.759,147.214,"같은 해 10월에는 한라산 성판악에서,\n하산하던 50대 관광객이 심정지로 숨졌습니다."],[147.664,151.156,"그럼 도대체, 이런 사고가 많이 일어나는 이유는 뭘까요?"],[152.156,154.945,"등산 중에 심장이 멈추는 데는 이유가 있습니다."],[155.395,159.793,"나이가 들수록, 심장에 피를 보내는 혈관은 조용히 좁아질 수 있습니다."],[160.243,163.886,"아무 증상이 없어서, 겉으로는 건강해 보이는 사람도 많죠."],[164.336,168.833,"고혈압과 당뇨, 높은 콜레스테롤, 담배는 이 혈관을 더 좁게 만듭니다."],[169.283,173.077,"이런 심장에는, 완만한 숲길을 오래 걷는 것도 부담이 됩니다."],[173.527,176.165,"산 중턱의 찬 공기는 혈관을 더 좁게 만들고요."],[176.615,179.956,"땀을 흘려 몸에서 물이 빠지면, 피는 더 끈끈해집니다."],[180.406,184.804,"그렇다면 심장이 멈추기 전에, 우리 몸은 아무 신호도 보내지 않을까요?"],[185.804,188.843,"심정지가 오기 전, 몸은 신호를 보내기도 합니다."],[189.293,193.238,"가슴이 조이거나 답답해지고, 명치가 체한 것처럼 꽉 막힙니다."],[193.688,197.029,"식은땀이 나거나, 숨이 평소보다 심하게 차기도 하죠."],[197.479,200.367,"그 통증이 팔이나 턱, 등으로 번지기도 합니다."],[200.817,205.064,"문제는 이 신호를, 조금 쉬면 괜찮아질 거라고 넘기기 쉽다는 겁니다."],[205.514,210.818,"2016년 미국 오리건주의 연구팀이,\n갑자기 심정지가 온 사람들을 살펴봤습니다."],[211.268,216.27,"35세에서 65세 환자의 절반 정도는,\n그 전 4주 안에 신호가 있었습니다."],[216.72,219.207,"가장 많은 신호는 가슴 통증과 숨참이었죠."],[219.657,224.659,"하지만 신호를 느끼고 구급차를 먼저 부른 사람은,\n다섯 명 중 한 명도 안 됐습니다."],[225.109,228.2,"김 씨가 느낀 것이 이런 신호였는지는 알 수 없습니다."],[228.65,232.746,"그런데 이런 신호가 왔을 때, 혼자 먼저 내려가는 건 왜 위험할까요?"],[233.746,236.686,"혼자 먼저 내려가면 위험한 이유는 두 가지입니다."],[237.136,240.326,"첫 번째, 신호가 와도 멈추지 않고 계속 걷게 됩니다."],[240.776,242.81,"걷는 동안에는 심장이 쉬지 못하죠."],[243.26,244.789,"두 번째, 혼자가 됩니다."],[245.239,249.335,"심정지가 오면, 쓰러진 사람은 스스로 119를 부를 수 없습니다."],[249.785,254.032,"심장이 멈추면 피가 뇌로 가지 못해, 곧바로 의식을 잃기 때문입니다."],[254.482,258.729,"그리고 4분이 지나면, 뇌가 손상되기 시작한다고 알려져 있습니다."],[259.179,262.973,"그래서 옆 사람이 바로 가슴을 눌러 주면, 살릴 기회가 커지죠."],[263.423,268.123,"질병관리청의 2024년 전국 조사를 보면, 이 차이가 숫자로 나옵니다."],[268.573,272.419,"옆 사람이 가슴을 눌러 준 환자는 14.4%가 살았습니다."],[272.869,276.965,"그러지 못한 환자는 6.1%로, 두 배 넘게 차이가 났습니다."],[277.415,282.417,"구조대가 오기까지 오래 걸리는 산에서는,\n옆 사람이 누르는 시간이 더 중요하죠."],[282.867,287.416,"그런데 어디서 쓰러졌는지 몰라,\n김 씨를 찾는 데만 1시간쯤 걸렸습니다."],[287.866,292.566,"살았을지는 알 수 없지만,\n혼자 걷던 그 숲길에는 그 기회조차 없었던 겁니다."],[293.016,295.503,"그럼 이런 사고를 예방하는 방법은 뭘까요?"],[296.503,298.839,"산에 가기 전 점검할 것은 네 가지입니다."],[299.289,300.719,"첫 번째는 내 심장입니다."],[301.169,305.114,"검진에서 혈압이나 혈당, 콜레스테롤이 높다는 말을 들었나요?"],[305.564,309.207,"담배를 피우거나, 가족 중에 심장병을 앓은 사람이 있나요?"],[309.657,313.201,"오르막에서 예전보다 가슴이 답답하거나 숨이 쉽게 차나요?"],[313.651,318.049,"하나라도 그렇다면, 병원에서 심장 검사가 필요한지 먼저 물어보세요."],[318.499,320.382,"두 번째는 그날의 몸 상태입니다."],[320.832,325.532,"전날 술을 마셨거나 잠을 제대로 못 잤다면,\n그날 산행은 미루는 게 좋습니다."],[325.982,327.865,"산에서 마시는 술도 피해야 하죠."],[328.315,329.594,"세 번째는 날씨입니다."],[330.044,333.687,"한파나 폭염, 강풍 특보가 내려진 날에는 산행을 미룹니다."],[334.137,335.869,"네 번째는 함께 갈 사람입니다."],[336.319,339.108,"일행에게 내 지병과 먹는 약을 미리 알려 두세요."],[339.558,344.56,"누가 아프면 적어도 한 사람은 곁에 남기로,\n출발 전에 약속해 두는 것도 좋습니다."],[345.01,349.408,"그리고 산에서 몸이 안 좋아지면, 그 자리에 앉아서 일행에게 알립니다."],[349.858,355.464,"걸으면 심장이 더 힘들어지니,\n신호가 하나라도 있다면 그 자리에서 119에 신고하세요."],[355.914,360.463,"숨이 차기만 할 때는,\n앉아서 쉬어도 가라앉지 않으면 신호로 보면 됩니다."],[360.913,365.311,"이런 신호 없이 힘들기만 하다면, 일행과 함께 천천히 내려오면 됩니다."],[365.761,371.065,"신고할 때는 가까운 등산로 위치 표지판의 번호를 불러 주면,\n구조대가 빨리 찾습니다."],[371.515,376.215,"옆 사람이 쓰러졌다면,\n119 안내에 따라 가슴 한가운데를 세게 누르세요."],[376.665,381.365,"가까이에 자동심장충격기가 있다면,\n다른 사람이 가져와 함께 쓰면 됩니다."],[381.815,385.458,"그런데 부득이하게 혼자 가야 한다면, 어떻게 해야 할까요?"],[386.458,391.46,"혼자 산에 가야 한다면,\n길을 잃거나 다쳤을 때 나를 찾아 줄 사람부터 정해 두세요."],[391.91,396.157,"출발 전에 가족에게, 어느 코스로 가서 몇 시에 내려올지 알려 두세요."],[396.607,401.609,"그리고 그 시각까지 연락이 없으면,\n대신 119에 신고해 달라고 부탁해 둡니다."],[402.059,405.853,"휴대폰은 충분히 충전하고, 가족과 위치 공유를 켜 두면 좋죠."],[406.303,410.399,"다만 심정지는 몇 분을 다투는 일이라, 이것만으로는 부족합니다."],[410.849,414.091,"그래서 길은 사람이 자주 다니는 큰 등산로를 고릅니다."],[414.541,419.392,"걷다가 앞에서 말한 신호가 오면,\n그 자리에 멈추고 바로 119에 신고하세요."],[419.842,424.542,"지나가는 등산객이 있다면,\n몸이 안 좋다고 먼저 말을 거는 것도 방법입니다."],[424.992,430.447,"첫 번째 점검에 걸렸는데 아직 병원에서 확인하지 않았다면,\n혼자 하는 산행은 피하세요."],[431.447,436.751,"산에서는 먼저 내려가기보다,\n같이 쉬어 가는 게 서로를 지키는 길이라고 생각합니다."],[437.201,438.782,"시청해주셔서 감사합니다."]],"subs_estimated":true};/*EP-DATA:END*/</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="../../render/kit.js"></script>
 <script src="sprites/have.js"></script>
@@ -98,556 +75,780 @@ const END = K.D;
 const SP = window.SPRITES || { sheets: {}, med: {}, plates: [] };
 const has = n => n.startsWith("PLT-") ? (SP.plates || []).includes(n) : n.startsWith("MED-S") ? !!(SP.med || {})[n] : !!(SP.sheets || {})[n];
 const HAS = (...ns) => ns.every(has);
+const MEDS = k => ((SP.med || {})["MED-S-STATES"] || [])[k - 1];
 
-/* ───── 배치 표 [x, y, 가로, 세로] — 자막 띠(y 870 아래)는 비움 ───── */
+/* ───── 배치 표 [x, y, 가로, 세로] — 그림·실루엣·효과·말풍선은 BG/ACT/FX(화면 전체 · 카메라가 움직이면 밖으로도), 글 상자는 CARD 한 곳 · 자막 띠(y 870 아래)는 비움 ───── */
 const LAY = window.LAYOUT = {
-  BG: [0, 0, 1920, 1080], SHADE: [0, 0, 1920, 1080], VIG: [0, 0, 1920, 1080], ACT: [-1600, 0, 5120, 1200],   // ACT = 실루엣 — 화면 밖으로 걸어 나가거나 앞쪽에서 아래가 잘릴 수 있음
-  MARK: [1580, 36, 300, 72],
-  CH: [70, 36, 1180, 104],
-  TIME: [70, 166, 1100, 100],
-  LOWER: [70, 676, 1240, 170],
-  QUOTE: [260, 590, 1400, 230],
-  CARD: [290, 170, 1340, 660],
-  SIDE: [70, 166, 1060, 640],
-  CASE: [70, 166, 1060, 520],
-  TLINE: [120, 240, 1680, 440],
-  CLOCK: [130, 190, 560, 560],
-  BIG: [110, 260, 1700, 400],
-  CHIPS: [110, 650, 1700, 200],
-  DOTS: [580, 40, 640, 840],
-  LLIST: [50, 170, 520, 620],
-  WORDS: [110, 330, 1700, 220],
-  QTOP: [260, 150, 1400, 200], LTOP: [70, 290, 1240, 170], CTOP: [110, 290, 1700, 200],
+  BG: [0, 0, 1920, 1080], VIG: [0, 0, 1920, 1080],
+  ACT: [-3000, -800, 8000, 2800], FX: [-3000, -800, 8000, 2800],
+  MARK: [1650, 28, 240, 58], TAG: [70, 40, 1300, 80], STAMP: [70, 130, 1100, 80],
+  CARD: [70, 170, 1080, 560],
 };
-const FULL = ["BG", "SHADE", "VIG", "ACT"];
 window.LAYOUT_ALLOW = [];
-for (const f of FULL) for (const k of Object.keys(LAY)) if (k !== f) window.LAYOUT_ALLOW.push([f, k]);
+for (const f of ["BG", "VIG", "ACT", "FX"]) for (const k of Object.keys(LAY)) if (k !== f) window.LAYOUT_ALLOW.push([f, k]);
 
-const box = (slot, cls, html, extra) => {
-  const [x, y, w, h] = LAY[slot];
-  return `<div class="${cls}" data-slot="${slot}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px;${extra || ""}">${html || ""}</div>`;
-};
-const show = (n, at, dur) => tl.fromTo(n, { opacity: 0, scale: 0.97 }, { opacity: 1, scale: 1, duration: dur || 0.45, ease: "power2.out" }, at);
-const hide = (n, at) => tl.to(n, { opacity: 0, duration: 0.35, ease: "none" }, at);
-const on = (sc, slot, cls, html, a, b, extra) => {
-  const n = K.el(box(slot, cls, html, extra), sc);
-  gsap.set(n, { opacity: 0 });
-  show(n, a);
-  if (b != null) hide(n, b - 0.35);
+const el = (html, parent) => K.el(html, parent);
+const slotBox = (slot, cls, html) => { const [x, y, w, h] = LAY[slot]; return `<div class="${cls}" data-slot="${slot}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">${html || ""}</div>`; };
+const fadeIn = (n, at, d) => tl.fromTo(n, { opacity: 0 }, { opacity: 1, duration: d || 0.4, ease: "power2.out" }, at);
+const fadeOut = (n, at, d) => tl.to(n, { opacity: 0, duration: d || 0.3, ease: "none" }, at);
+const life = (n, a, b, pop) => {                     // a 에 나타나고 b 에 사라짐 (pop = 튀어나옴)
+  if (pop) tl.fromTo(n, { opacity: 0, scale: 0.55 }, { opacity: 1, scale: 1, duration: 0.45, ease: "back.out(2)" }, a);
+  else fadeIn(n, a);
+  if (b != null) fadeOut(n, b - 0.3);
   return n;
 };
-const reveal = (nodes, at) => { tl.to(nodes, { opacity: 1, duration: 0.35 }, at); };
 
-/* ───── 사진 장면: 켄 번스 ───── */
-const KB = {
-  in: [1.0, 1.09, 0, 0, 0, 0], out: [1.1, 1.0, 0, 0, 0, 0],
-  left: [1.08, 1.08, 2.2, -2.2, 0, 0], right: [1.08, 1.08, -2.2, 2.2, 0, 0],
-  up: [1.08, 1.1, 0, 0, 1.6, -1.6], still: [1.02, 1.04, 0, 0, 0, 0], none: [1, 1, 0, 0, 0, 0],
-};
-function photo(a, b, file, kb, o) {
+/* ───── 장면 = 배경 상자(흔들림 층 > 카메라 층 > 세계 층: 배경 그림·실루엣·말풍선) + 효과 층 ───── */
+const FLAT = { "PLT-01-TRAIL-SIDE": 0.785, "PLT-02-ENTRANCE-SIDE": 0.80, "PLT-03-SEARCH-SIDE": 0.81, "PLT-06-CLEARING": 0.80, "PLT-07-CLINIC": 0.85, "PLT-08-LIVING": 0.85, "PLT-10-SIGNPOST": 0.80 };
+const SLOPES = { "PLT-04-SLOPE-UP": [0.30, 0.76, 0.80, 0.38], "PLT-05-SLOPE-DOWN": [0.40, 0.72, 0.85, 0.40] };   // 그림에서 잰 길 선
+const gy = name => Math.round((FLAT[name] || 0.785) * 1080);
+const slopeFor = name => { const [x0, y0, x1, y1] = SLOPES[name]; return x => Math.round(1080 * (y0 + (y1 - y0) * (x / 1920 - x0) / (x1 - x0))); };
+const TINT = { none: "none", gray: "grayscale(.9) contrast(1.05) brightness(.78)", late: "sepia(.3) saturate(.85) brightness(.8)", cold: "saturate(.6) hue-rotate(-14deg) brightness(.85)",
+  warm: "sepia(.22) saturate(1.15) brightness(1.03)", dark: "brightness(.42) saturate(.6)", red: "sepia(.45) saturate(2.2) hue-rotate(-28deg) brightness(.7)" };
+function shot(a, b, file, o) {
   o = o || {};
   const sc = K.scene(a, b, o.keep ? { keep: true } : undefined);
-  const src = file.startsWith("sprites/") ? file : IMG + file;
-  const bx = K.el(box("BG", "bgbox", `<img src="${src}" alt="">`), sc);
-  const img = bx.querySelector("img");
-  const k = KB[kb || "in"];
-  tl.fromTo(img, { scale: k[0], xPercent: k[2], yPercent: k[4] }, { scale: k[1], xPercent: k[3], yPercent: k[5], duration: Math.max(0.5, b - a), ease: "none" }, a);
-  if (o.gray) gsap.set(img, { filter: "grayscale(.85) contrast(1.05) brightness(.8)" });
-  if (o.late) gsap.set(img, { filter: "sepia(.25) saturate(.85) brightness(.82)" });   // 늦은 오후 빛 (시간이 흐름)
-  K.el(box("VIG", "vig"), sc);
-  const sh = K.el(box("SHADE", "shade"), sc);
-  if (o.shade != null) tl.to(sh, { opacity: o.shade, duration: 0.6 }, o.shadeAt != null ? o.shadeAt : a);
-  const mk = o.mark === false ? null : on(sc, "MARK", "mark" + (o.mark === "g" ? " g" : ""), `<i></i>${o.mark === "g" ? "그래픽" : "재연 화면"}`, a + 0.2);
-  return { sc, bx, img, sh, mk };
+  const bx = el(slotBox("BG", "bgbox", ""), sc);
+  const shk = el(`<div class="lay"></div>`, bx);
+  const cam = el(`<div class="lay cam"></div>`, shk);
+  const world = el(`<div class="lay wld"></div>`, cam);
+  const img = file ? el(`<img class="bg" src="${IMG + file}.jpg" alt="">`, world) : null;
+  if (img && o.tint) gsap.set(img, { filter: TINT[o.tint] });
+  const drift = o.drift == null ? 0.035 : o.drift;
+  if (drift) tl.fromTo(world, { scale: 1 }, { scale: 1 + drift, duration: Math.max(0.5, b - a), ease: "none" }, a);
+  el(slotBox("VIG", "vig"), sc);
+  if (o.mark !== false) life(el(slotBox("MARK", "mark" + (o.mark === "g" ? " g" : ""), `<i></i>${o.mark === "g" ? "그래픽" : "재연"}`), sc), a + 0.2, null);
+  return { sc, bx, shk, cam, world, img, a, b };
 }
-/* 배경판 (사람 없는 옆모습 — 실루엣이 걸을 길 선이 정해짐): 카메라 고정 */
-const plate = (a, b, name, o) => photo(a, b, name + ".jpg", "none", o);
-// 길 선 (무대 px · 그림 높이의 % — 요청 파일 images_chatgpt_states.md 13~20번)
-const FLAT = { "PLT-01-TRAIL-SIDE": 0.785, "PLT-02-ENTRANCE-SIDE": 0.80, "PLT-03-SEARCH-SIDE": 0.81, "PLT-06-CLEARING": 0.80, "PLT-07-CLINIC": 0.85, "PLT-08-LIVING": 0.85 };
-const groundY = name => Math.round(FLAT[name] * 1080);
-// 경사 길 선 — 그림을 재어 정함 (가로 %, 세로 %) 두 점: PLT-04 (30,76)→(80,38) · PLT-05 (40,72)→(85,40)
-const SLOPES = { "PLT-04-SLOPE-UP": [0.30, 0.76, 0.80, 0.38], "PLT-05-SLOPE-DOWN": [0.40, 0.72, 0.85, 0.40] };
-const slopeFor = name => { const [x0, y0, x1, y1] = SLOPES[name]; return x => Math.round(1080 * (y0 + (y1 - y0) * (x / 1920 - x0) / (x1 - x0))); };
+// 카메라: 세계의 (fx, fy) 를 화면 가운데로, z 배 (z ≥ 1 — 가장자리가 비지 않게 잡음)
+function focus(P, t, fx, fy, z, dur, ease) {
+  const x = Math.min(0, Math.max(1920 - 1920 * z, 960 - fx * z)), y = Math.min(0, Math.max(1080 - 1080 * z, 540 - fy * z));
+  tl.to(P.cam, { scale: z, x, y, duration: dur || 1.2, ease: ease || "power2.inOut" }, t);
+}
+const blurBg = (P, t, px, dur) => P.img && tl.to(P.img, { filter: `blur(${px}px) brightness(.8)`, duration: dur || 0.8 }, t);
+const tintTo = (P, t, name, dur) => P.img && tl.to(P.img, { filter: TINT[name], duration: dur || 1 }, t);
 
-/* ───── 실루엣 배우 — segs: [{t0, t1, sheet, frames:[칸 번호…], fps, x, v(px/초), y 또는 yAt(x), h(키 px), flip}] ─────
-   한 요소가 시각에 따라 시트·칸·자리를 바꿈 (걷기 = 칸을 차례로 + 자리 이동). 키 h 는 프레임 안 그림 높이. */
-function actor(sc, segs) {
-  const n = K.el(`<div class="act" data-slot="ACT" style="left:0px;top:0px;width:10px;height:10px"></div>`, sc);
+/* 실루엣 배우 (세계 안) — segs: [{t0,t1,sheet,frames,fps,x,v,y|yAt,h,flip,ghost}] · 시트가 없으면 그 칸은 뺌 */
+function actor(P, segs) {
+  segs = segs.filter(s => has(s.sheet));
+  if (!segs.length) return null;
+  const n = el(`<div class="act" data-slot="ACT" style="left:0;top:0;width:10px;height:10px"></div>`, P.world);
   const t0 = segs[0].t0, t1 = segs[segs.length - 1].t1;
   const upd = t => {
     let g = segs[0];
     for (const s of segs) if (t >= s.t0) g = s;
-    const m = SP.sheets[g.sheet];
-    const k = g.h / (m.fh - 24);
-    const w = m.fw * k, h = m.fh * k;
+    const m = SP.sheets[g.sheet], k = g.h / (m.fh - 24), w = m.fw * k, h = m.fh * k;
     const dt = Math.max(0, Math.min(t, g.t1) - g.t0);
     const fr = g.frames[g.fps ? Math.floor(dt * g.fps) % g.frames.length : 0];
-    const x = g.x + (g.v || 0) * dt;
-    const y = g.yAt ? g.yAt(x) : g.y;
-    n.style.left = `${(x - w / 2).toFixed(1)}px`;
-    n.style.top = `${(y - m.feet * k).toFixed(1)}px`;
-    n.style.width = `${w.toFixed(1)}px`;
-    n.style.height = `${h.toFixed(1)}px`;
-    n.style.backgroundImage = `url(${m.file})`;
-    n.style.backgroundSize = `${(m.n * w).toFixed(1)}px ${h.toFixed(1)}px`;
-    n.style.backgroundPosition = `${(-(fr - 1) * w).toFixed(1)}px 0px`;
-    n.style.transform = g.flip ? "scaleX(-1)" : "none";
+    const x = g.x + (g.v || 0) * dt, y = g.yAt ? g.yAt(x) : g.y;
+    n.style.left = `${(x - w / 2).toFixed(1)}px`; n.style.top = `${(y - m.feet * k).toFixed(1)}px`;
+    n.style.width = `${w.toFixed(1)}px`; n.style.height = `${h.toFixed(1)}px`;
+    n.style.backgroundImage = `url(${m.file})`; n.style.backgroundSize = `${(m.n * w).toFixed(1)}px ${h.toFixed(1)}px`;
+    n.style.backgroundPosition = `${(-(fr - 1) * w).toFixed(1)}px 0px`; n.style.transform = g.flip ? "scaleX(-1)" : "none";
+    n.style.opacity = g.ghost ? "0.4" : "";
   };
   upd(t0);
   const pr = { t: t0 };
   tl.fromTo(pr, { t: t0 }, { t: t1, duration: Math.max(0.05, t1 - t0), ease: "none", onUpdate: () => upd(pr.t) }, t0);
   return n;
 }
-// 걷는 빠르기 (발이 미끄러지지 않게): 키 h 인 사람이 초당 sp 미터 — 키 1.7m 기준
-const pxs = (h, sp) => h / 1.7 * sp;
-/* 의학 상태 그림 차례 (MED-S 칸을 겹쳐 바꿈) — steps: [[시각, 칸 번호], …] */
-function medSeq(a, b, steps, o) {
-  const P = photo(a, b, (SP.med["MED-S-STATES"] || [])[steps[0][1] - 1], "still", Object.assign({ mark: "g" }, o));
-  const imgs = steps.slice(1).map(([t, k]) => {
-    const im = K.el(`<img src="${SP.med["MED-S-STATES"][k - 1]}" alt="" style="position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:contain;opacity:0">`, P.bx);
-    tl.to(im, { opacity: 1, duration: 0.6 }, t);
-    return im;
-  });
-  P.img.style.objectFit = "contain"; P.bx.style.background = "#080E20";
-  return P;
+const pxs = (h, sp) => h / 1.7 * sp;              // 키 h 인 사람이 sp m/s 로 걸을 때 화면 속도
+const at = (x, v, t0, t) => x + v * (t - t0);      // 걷던 사람이 t 에 있는 자리
+
+/* ───── 효과 ───── */
+const fxl = (P, css) => el(`<div class="fxl" data-slot="FX" style="${css || ""}"></div>`, P.sc);
+function bubble(P, x, y, text, a, b, kind) {         // 세계 안 말풍선 — (x, y) = 꼬리 끝 (화면 끝에 닿지 않게 가로 220~1700 안으로)
+  x = Math.min(1700, Math.max(220, x));
+  const n = el(`<div class="bub ${kind || ""}" data-slot="FX" style="left:${x}px;top:${y}px">${text}</div>`, P.world);
+  gsap.set(n, { xPercent: -50, yPercent: -100, y: -30 });
+  tl.fromTo(n, { opacity: 0, scale: 0.4, transformOrigin: "50% 100%" }, { opacity: 1, scale: 1, duration: 0.42, ease: "back.out(2.3)" }, a);
+  if (b != null) fadeOut(n, b - 0.3);
+  return n;
 }
-const tag = (sc, no, text, a, b) => on(sc, "CH", "tagx", `<div class="no">${no}</div><div class="tx">${text}</div>`, a, b);
-const stamp = (sc, html, a, b) => on(sc, "TIME", "stampx", html, a, b);
-const lower = (sc, a1, b1, a, b, ok, slot) => on(sc, slot || "LOWER", "lower" + (ok ? " ok" : ""), `<div class="la">${a1}</div>${b1 ? `<div class="lb">${b1}</div>` : ""}`, a, b);
-const quote = (sc, q, s, a, b, slot) => on(sc, slot || "QUOTE", "quotex", `<div class="q">${q}</div>${s ? `<div class="qs">${s}</div>` : ""}`, a, b);
-const chips = (sc, list, a, b, slot) => {          // list: [[글, 색, 시각], …]
-  const C = on(sc, slot || "CHIPS", "chips", list.map(c => `<div class="chip ${c[1] || ""}">${c[0]}</div>`).join(""), a, b);
-  const cs = C.querySelectorAll(".chip"); gsap.set(cs, { opacity: 0 });
-  list.forEach((c, i) => tl.to(cs[i], { opacity: 1, duration: 0.3 }, c[2]));
+function redPulse(P, a, b, max, bpm) {               // 심장이 뛰듯 화면 가장자리가 빨개짐
+  const n = fxl(P, "background:radial-gradient(ellipse at 50% 50%,rgba(255,30,30,0) 38%,rgba(190,0,0,.9) 100%);opacity:0");
+  const per = 60 / (bpm || 84), m = max || 0.6;
+  for (let t = a; t < b - 0.35; t += per) {
+    tl.to(n, { opacity: m, duration: per * 0.16, ease: "power2.out" }, t);
+    tl.to(n, { opacity: m * 0.2, duration: per * 0.7, ease: "power2.in" }, t + per * 0.16);
+  }
+  tl.to(n, { opacity: 0, duration: 0.3 }, b - 0.35);
+  return n;
+}
+function flash(P, t, color) { const n = fxl(P, `background:${color || "#fff"};opacity:0`); tl.to(n, { opacity: 0.8, duration: 0.06 }, t); tl.to(n, { opacity: 0, duration: 0.55 }, t + 0.06); }
+function shake(P, t, dur, amp) {
+  const o = { k: 0 };
+  tl.to(o, { k: 1, duration: dur || 0.5, ease: "none", onUpdate: () => {
+    const s = (amp || 14) * (1 - o.k);
+    P.shk.style.transform = o.k >= 1 ? "" : `translate(${(Math.sin(o.k * 61) * s).toFixed(1)}px,${(Math.sin(o.k * 47) * s).toFixed(1)}px)`;
+  } }, t);
+}
+function iris(P, t, dur, fx, fy) {                    // 의식이 꺼지듯 검은 원이 닫힘
+  const n = fxl(P, `background:radial-gradient(circle at ${fx || 960}px ${fy || 540}px, rgba(0,0,0,0) var(--r), #000 calc(var(--r) + 140px));--r:1500px`);
+  const o = { r: 1500 };
+  tl.fromTo(o, { r: 1500 }, { r: 0, duration: dur || 2, ease: "power2.in", onUpdate: () => n.style.setProperty("--r", `${o.r.toFixed(0)}px`) }, t);
+}
+function siren(P, a, b) {
+  const n = fxl(P, "opacity:0");
+  for (let t = a, i = 0; t < b - 0.4; t += 0.45, i++)
+    tl.set(n, { opacity: 0.6, background: i % 2 ? "radial-gradient(circle at 82% 18%,rgba(40,90,255,.75),rgba(0,0,0,0) 62%)" : "radial-gradient(circle at 18% 18%,rgba(255,30,30,.75),rgba(0,0,0,0) 62%)" }, t);
+  tl.to(n, { opacity: 0, duration: 0.3 }, b - 0.35);
+}
+function particles(P, a, b, kind, count) {            // 안개(mist) · 눈(snow)
+  const L = fxl(P, "overflow:hidden");
+  for (let i = 0; i < (count || 24); i++) {
+    const snow = kind === "snow", r = snow ? 6 + (i % 4) * 3 : 60 + (i % 5) * 30, x0 = (i * 211) % 1920, y0 = snow ? -40 : 120 + (i * 137) % 700;
+    const p = el(`<div class="pt" style="left:${x0}px;top:${y0}px;width:${r}px;height:${r}px;opacity:${snow ? 0.9 : 0.16}"></div>`, L);
+    if (snow) tl.fromTo(p, { y: -200 - (i % 7) * 140 }, { y: 1300, x: ((i % 3) - 1) * 140, duration: Math.max(1.5, b - a), ease: "none" }, a);
+    else tl.fromTo(p, { x: 0 }, { x: (i % 2 ? 1 : -1) * 280, duration: Math.max(1, b - a), ease: "none" }, a);
+  }
+  life(L, a, b);
+  return L;
+}
+function heat(P, a, b) {
+  const n = fxl(P, "background:linear-gradient(0deg,rgba(255,110,0,.5),rgba(255,170,60,.12) 60%,rgba(0,0,0,0));opacity:0");
+  life(n, a, b);
+  for (let t = a + 0.4; t < b - 0.9; t += 0.8) tl.to(n, { opacity: 0.6, duration: 0.4, yoyo: true, repeat: 1 }, t);
+}
+function wind(P, a, b) {
+  const L = fxl(P, "overflow:hidden");
+  for (let i = 0; i < 18; i++) {
+    const y = 80 + (i * 53) % 760, w = 200 + (i % 4) * 120, d = 0.9 + (i % 3) * 0.3;
+    const s = el(`<div style="position:absolute;left:-500px;top:${y}px;width:${w}px;height:5px;border-radius:3px;background:rgba(255,255,255,.6)"></div>`, L);
+    tl.fromTo(s, { x: 0 }, { x: 2700, duration: d, ease: "none", repeat: Math.max(0, Math.ceil((b - a) / d) - 1) }, a + (i % 5) * 0.15);
+  }
+  life(L, a, b);
+}
+function sweat(P, x, y, a, b) {                       // 세계 안 — 이마에서 떨어지는 땀방울
+  for (let i = 0; i < 3; i++) {
+    const d = el(`<div class="drop" data-slot="FX" style="left:${x + (i - 1) * 22}px;top:${y}px;opacity:0"></div>`, P.world);
+    for (let t = a + i * 0.4; t < b - 1.2; t += 1.3) { tl.fromTo(d, { opacity: 0, y: 0 }, { opacity: 1, y: 26, duration: 0.5, ease: "power1.in", immediateRender: false }, t); tl.to(d, { opacity: 0, y: 44, duration: 0.4 }, t + 0.5); }
+    tl.to(d, { opacity: 0, duration: 0.2 }, b - 0.3);
+  }
+}
+function glow(P, x, y, r, color, a, b, pulse) {       // 세계 안 — 통증·위치 빛
+  const n = el(`<div class="glow" data-slot="FX" style="left:${x - r}px;top:${y - r}px;width:${r * 2}px;height:${r * 2}px;background:radial-gradient(circle,${color} 0%,rgba(0,0,0,0) 70%);opacity:0"></div>`, P.world);
+  tl.to(n, { opacity: 1, duration: 0.3 }, a);
+  if (pulse) { const end = b == null ? P.b : b; for (let t = a + 0.3; t < end - 0.9; t += 0.7) tl.fromTo(n, { scale: 1 }, { scale: 1.35, duration: 0.35, yoyo: true, repeat: 1, ease: "sine.inOut" }, t); }
+  if (b != null) fadeOut(n, b - 0.3);
+  return n;
+}
+function rays(P, x0, y0, pts, b) {                    // 가슴에서 팔·턱·등으로 번지는 빛줄기 [[x1, y1, 시각]]
+  const L = el(`<svg data-slot="FX" style="position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible" viewBox="0 0 1920 1080"></svg>`, P.world);
+  pts.forEach(([x1, y1, t]) => {
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", `M${x0} ${y0} Q ${(x0 + x1) / 2 + 30} ${(y0 + y1) / 2 - 40} ${x1} ${y1}`);
+    p.setAttribute("fill", "none"); p.setAttribute("stroke", "#FF5A4E"); p.setAttribute("stroke-width", "10"); p.setAttribute("stroke-linecap", "round");
+    p.setAttribute("pathLength", "100"); p.setAttribute("stroke-dasharray", "0 100"); p.style.filter = "drop-shadow(0 0 10px #FF3B30)";
+    L.appendChild(p);
+    tl.fromTo(p, { attr: { "stroke-dasharray": "0 100" } }, { attr: { "stroke-dasharray": "100 0" }, duration: 0.6, ease: "power2.out" }, t);
+  });
+  if (b != null) fadeOut(L, b - 0.3);
+  return L;
+}
+function rings(P, x, y, a, b, color, inWorld) {       // 전화·신호가 퍼지는 고리
+  const host = inWorld ? P.world : P.sc;
+  for (let i = 0; i < 3; i++) {
+    const r = el(`<div class="ring" data-slot="FX" style="left:${x - 30}px;top:${y - 30}px;width:60px;height:60px;color:${color || "#2ED3BB"};opacity:0"></div>`, host);
+    for (let t = a + i * 0.4; t < b - 1.1; t += 1.2) tl.fromTo(r, { scale: 0.4, opacity: 0.95 }, { scale: 4, opacity: 0, duration: 1.1, ease: "power1.out", immediateRender: false }, t);
+  }
+}
+function pin(P, x, y, t, color) {                     // 세계 안 — 위치 핀 (끝이 (x, y))
+  const n = el(`<svg data-slot="FX" style="position:absolute;left:${x - 40}px;top:${y - 110}px;width:80px;height:110px;overflow:visible" viewBox="0 0 80 110"><path d="M40 106 C40 106 6 62 6 40 A34 34 0 1 1 74 40 C74 62 40 106 40 106 Z" fill="${color || "#FF5A4E"}" stroke="#fff" stroke-width="5"/><circle cx="40" cy="40" r="13" fill="#fff"/></svg>`, P.world);
+  tl.fromTo(n, { opacity: 0, y: -180 }, { opacity: 1, y: 0, duration: 0.7, ease: "bounce.out" }, t);
+  return n;
+}
+function ecg(P, a, b, o) {                            // 심전도 — 흐르는 박동 · flatAt 부터 평평한 빨간 줄
+  o = o || {};
+  const y = o.y || 160, x0 = o.x || 1080, w = o.w || 720, col = o.color || "#2ED3BB", bw = o.fast ? 80 : 130, T = o.fast ? 0.48 : 0.8;
+  let d = "M0 50";
+  for (let bx = 0; bx < w + bw * 2; bx += bw) d += ` L${bx + bw * 0.2} 50 L${bx + bw * 0.28} 22 L${bx + bw * 0.34} 84 L${bx + bw * 0.42} 4 L${bx + bw * 0.5} 96 L${bx + bw * 0.57} 50 L${bx + bw} 50`;
+  const L = el(`<svg data-slot="FX" style="position:absolute;left:${x0}px;top:${y - 50}px;width:${w}px;height:100px;overflow:hidden" viewBox="0 0 ${w} 100"><path class="b" d="${d}" fill="none" stroke="${col}" stroke-width="6" stroke-linejoin="round" style="filter:drop-shadow(0 0 8px ${col})"/><path class="f" d="M0 50 L${w} 50" fill="none" stroke="#FF3B30" stroke-width="6" opacity="0" style="filter:drop-shadow(0 0 10px #FF3B30)"/></svg>`, P.sc);
+  life(L, a, b);
+  const bp = L.querySelector(".b"), fp = L.querySelector(".f"), stop = o.flatAt || b;
+  tl.fromTo(bp, { x: 0 }, { x: -bw, duration: T, ease: "none", repeat: Math.max(0, Math.ceil((stop - a) / T) - 1) }, a);
+  if (o.flatAt) { tl.to(bp, { opacity: 0, duration: 0.15 }, o.flatAt); tl.to(fp, { opacity: 1, duration: 0.15 }, o.flatAt); }
+  return L;
+}
+function big(P, html, x, y, a, b, size, pop) {        // 큰 글자 (상자 없음) — (x, y) = 가운데
+  const n = el(`<div class="big" data-slot="FX" style="left:${x}px;top:${y}px;font-size:${size || 120}px">${html}</div>`, P.sc);
+  gsap.set(n, { xPercent: -50, yPercent: -50 });
+  return life(n, a, b, pop);
+}
+function lbl(P, html, x, y, a, b, cls, inWorld) {     // 낱말 이름표 (상자 없음)
+  const n = el(`<div class="lbl ${cls || ""}" data-slot="FX" style="left:${x}px;top:${y}px">${html}</div>`, inWorld ? P.world : P.sc);
+  gsap.set(n, { xPercent: -50, yPercent: -50 });
+  return life(n, a, b, true);
+}
+const stamp = (P, h1, h2, a, b) => life(el(slotBox("STAMP", "stamp", `<b>${h1}</b><span>${h2 || ""}</span>`), P.sc), a, b);
+const chtag = (P, text, a, b) => life(el(slotBox("TAG", "chtag", `<i></i><span>${text}</span>`), P.sc), a, b);
+function lens(P, x, y, r, src, a, b, steps) {         // 세계 안 — 엑스레이 렌즈 (몸 안 혈관 상태), steps = [[시각, 다음 그림]]
+  const n = el(`<div class="lens" data-slot="FX" style="left:${x - r}px;top:${y - r}px;width:${r * 2}px;height:${r * 2}px"><img src="${src}" alt=""></div>`, P.world);
+  life(n, a, b, true);
+  (steps || []).forEach(([t, s2]) => { const im = el(`<img src="${s2}" alt="">`, n); tl.fromTo(im, { opacity: 0 }, { opacity: 1, duration: 0.6 }, t); });
+  return n;
+}
+function clock(P, x, y, r, fromMin, toMin, a, t1, t2, b) {   // 바늘이 도는 시계 (분 단위 · 13:48 = 828)
+  const n = el(`<svg data-slot="FX" style="position:absolute;left:${x - r}px;top:${y - r}px;width:${r * 2}px;height:${r * 2}px;overflow:visible" viewBox="-100 -100 200 200"><circle r="92" fill="rgba(7,11,22,.78)" stroke="#fff" stroke-width="6"/>${[...Array(12)].map((_, i) => `<line x1="0" y1="-82" x2="0" y2="-70" stroke="#fff" stroke-width="5" transform="rotate(${i * 30})"/>`).join("")}<line class="h" x1="0" y1="0" x2="0" y2="-44" stroke="#FFD400" stroke-width="9" stroke-linecap="round"/><line class="m" x1="0" y1="0" x2="0" y2="-70" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle r="7" fill="#FFD400"/></svg>`, P.sc);
+  life(n, a, b, true);
+  const hh = n.querySelector(".h"), mm = n.querySelector(".m"), o = { v: fromMin };
+  const set = () => { hh.setAttribute("transform", `rotate(${((o.v / 60) * 30) % 360})`); mm.setAttribute("transform", `rotate(${(o.v % 60) * 6})`); };
+  set();
+  tl.fromTo(o, { v: fromMin }, { v: toMin, duration: Math.max(0.5, t2 - t1), ease: "power1.inOut", onUpdate: set }, t1);
+  return n;
+}
+function people(P, n, cols, x0, y0, size, gap) {      // 사람 아이콘 표 → {L, out:[g…]}
+  const rows = Math.ceil(n / cols), rh = size * 1.3 + gap;
+  const L = el(`<svg data-slot="FX" style="position:absolute;left:${x0}px;top:${y0}px;overflow:visible" width="${cols * (size + gap)}" height="${rows * rh}"></svg>`, P.sc);
+  const out = [];
+  for (let i = 0; i < n; i++) {
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g"), cx = (i % cols) * (size + gap) + size / 2, cy = Math.floor(i / cols) * rh;
+    g.innerHTML = `<circle cx="${cx}" cy="${cy + size * 0.28}" r="${size * 0.24}"/><path d="M${cx - size * 0.42} ${cy + size * 1.25} Q ${cx - size * 0.42} ${cy + size * 0.55} ${cx} ${cy + size * 0.55} Q ${cx + size * 0.42} ${cy + size * 0.55} ${cx + size * 0.42} ${cy + size * 1.25} Z"/>`;
+    g.setAttribute("fill", "#C9D3E3"); g.setAttribute("opacity", "0"); L.appendChild(g); out.push(g);
+  }
+  return { L, out };
+}
+const paint = (gs, color, t, stagger) => tl.to(gs, { attr: { fill: color }, duration: 0.05, stagger: stagger || 0.01 }, t);
+const appear = (gs, t, stagger, op) => tl.fromTo(gs, { opacity: 0 }, { opacity: op == null ? 0.55 : op, duration: 0.05, stagger: stagger || 0.01 }, t);
+function card(P, rows, a, b) {                        // 자세한 설명이 필요한 곳만 — rows = [[색 r|y|t, 기호, 본문, 시각]]
+  const C = el(slotBox("CARD", "card", rows.map((r, i) => `<div class="row" style="top:${50 + i * 124}px"><span class="k ${r[0]}">${r[1]}</span><span>${r[2]}</span></div>`).join("")), P.sc);
+  life(C, a, b);
+  const rs = C.querySelectorAll(".row");
+  rows.forEach((r, i) => tl.fromTo(rs[i], { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.35, ease: "power2.out" }, r[3]));
   return C;
+}
+const ICON = {                                         // 점검 네 가지 아이콘
+  heart: `<path d="M50 84 C16 60 8 40 19 26 C30 12 46 17 50 31 C54 17 70 12 81 26 C92 40 84 60 50 84 Z" fill="#FF5A4E"/>`,
+  moon: `<path d="M62 16 A36 36 0 1 0 86 62 A28 28 0 1 1 62 16 Z" fill="#FFD400"/>`,
+  cloud: `<path d="M28 66 A16 16 0 0 1 30 34 A22 22 0 0 1 70 30 A18 18 0 0 1 74 66 Z" fill="#9FC6FF"/><path d="M36 74 L30 88 M52 74 L46 88 M68 74 L62 88" stroke="#9FC6FF" stroke-width="6" stroke-linecap="round"/>`,
+  two: `<circle cx="37" cy="33" r="12" fill="#2ED3BB"/><path d="M16 80 Q16 52 37 52 Q58 52 58 80 Z" fill="#2ED3BB"/><circle cx="66" cy="37" r="10" fill="#7FE6D5"/><path d="M49 80 Q49 58 66 58 Q84 58 84 80 Z" fill="#7FE6D5"/>`,
 };
+function icon(P, name, x, y, s, a, b) {
+  const n = el(`<svg data-slot="FX" style="position:absolute;left:${x - s / 2}px;top:${y - s / 2}px;width:${s}px;height:${s}px;overflow:visible;filter:drop-shadow(0 6px 18px rgba(0,0,0,.7))" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="rgba(7,11,22,.8)" stroke="rgba(255,255,255,.3)" stroke-width="3"/>${ICON[name]}</svg>`, P.sc);
+  return life(n, a, b, true);
+}
+
+/* 자주 쓰는 배경·사람 */
+const T1 = "PLT-01-TRAIL-SIDE", GY = gy(T1);
+const trail = (a, b, o) => shot(a, b, HAS(T1) ? T1 : "DOC-03-FOREST", o);
+const SOLO = has("SIL-12-SOLO");
+// 혼자 가는 등산객 한 칸 — SIL-12 가 없으면 비슷한 칸으로 대신 (1·2 휴대폰 → SIL-11 4 · 3 걷기 → SIL-08 1 · 4 가슴 → SIL-08 2 · 5 전화 → SIL-11 5 · 6 손 들기 → SIL-08 6)
+const SUB = { 1: ["SIL-11-PREP", 4], 2: ["SIL-11-PREP", 4], 3: ["SIL-08-SIGNS", 1], 4: ["SIL-08-SIGNS", 2], 5: ["SIL-11-PREP", 5], 6: ["SIL-08-SIGNS", 6] };
+const soloSeg = (f, s) => SOLO ? Object.assign({ sheet: "SIL-12-SOLO", frames: [f] }, s) : Object.assign({ sheet: SUB[f][0], frames: [SUB[f][1]] }, s);
 
 /* ═══════════ 도입 (1~5) ═══════════ */
-const T1 = "PLT-01-TRAIL-SIDE", GY1 = HAS(T1) ? groundY(T1) : 0;
-if (HAS(T1, "SIL-04-COMP-WALK", "SIL-01-KIM-WALK", "SIL-02-KIM-STATES")) {
-  const P = plate(0, B(2), T1);
-  const h = 320, v = pxs(h, 1.1);
-  actor(P.sc, [{ t0: 0, t1: B(2), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 4, x: 980, v: v * 0.9, y: GY1, h }]);
-  actor(P.sc, [{ t0: 0, t1: S(1) + 1.2, sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 6, x: 420, v, y: GY1, h },
-               { t0: S(1) + 1.2, t1: W(1, "먼저") - 0.2, sheet: "SIL-02-KIM-STATES", frames: [2], x: 420 + v * (S(1) + 1.2), y: GY1, h },
-               { t0: W(1, "먼저") - 0.2, t1: B(2), sheet: "SIL-02-KIM-STATES", frames: [4], x: 420 + v * (S(1) + 1.2), y: GY1, h }]);
-  quote(P.sc, "“먼저 내려갈게”", null, W(1, "먼저") - 0.1, null, "QTOP");
-  K.cut(W(1, "먼저") + 0.8, "도입 먼저 내려갈게 (실루엣)");
-} else {
-  const P = photo(0, B(2), "DOC-05-TURN.jpg", "right", { shade: 0.25, shadeAt: S(1) });
-  quote(P.sc, "“먼저 내려갈게”", null, W(1, "먼저") - 0.1, null);
-  K.cut(W(1, "먼저") + 0.8, "도입 먼저 내려갈게");
+{ // 1 — 일행과 걷다 김 씨만 멈춤: 카메라가 다가가고 뒤가 흐려지며 빨간 맥
+  const P = trail(0, B(2), { drift: 0 });
+  const h = 330, v = pxs(h, 0.8), stopAt = W(1, "몸") - 0.2, kx = at(380, v, 0, stopAt);
+  actor(P, [{ t0: 0, t1: B(2), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2.8, x: 900, v, y: GY, h }]);
+  actor(P, [{ t0: 0, t1: stopAt, sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 4, x: 380, v, y: GY, h },
+            { t0: stopAt, t1: B(2), sheet: "SIL-08-SIGNS", frames: [2], x: kx, y: GY, h }]);
+  focus(P, stopAt, kx, GY - 180, 1.6, 1.6);
+  blurBg(P, stopAt + 0.3, 4);
+  glow(P, kx + 8, GY - 215, 70, "rgba(255,60,50,.9)", stopAt + 0.5, null, true);
+  sweat(P, kx + 18, GY - 320, stopAt + 0.6, B(2));
+  redPulse(P, stopAt + 0.4, B(2), 0.42, 96);
+  K.cut(E(1) - 0.3, "도입 멈춤·다가감");
 }
-{ const P = photo(B(2), B(3), "DOC-06-EMPTY.jpg", "in", { shade: 0.3, shadeAt: S(2) });
-  stamp(P.sc, `<span class="st">신고 1시간 뒤</span><span>심정지로 발견</span>`, W(2, "신고") - 0.1, null);
-  K.cut(S(2) + 3, "도입 1시간 뒤 발견"); }
-{ const P = photo(B(3), B(6), "DOC-03-FOREST.jpg", "left", { shade: 0.45, shadeAt: S(3) });
-  on(P.sc, "WORDS", "words", `<div class="w" style="border-color:#FF5A4E">혼자가 되면, 왜?</div>`, S(3) + 0.2, B(4) + 0.2);
-  on(P.sc, "BIG", "bigx", `<div class="cell" style="min-width:1300px"><div class="bn" style="font-size:96px">실제 사건 재구성</div><div class="l">2023년 3월 · 한라산 둘레길</div></div>`, S(4) + 0.2, null);
-  K.cut(S(4) + 2, "도입 제목"); }
-
-/* ═══════════ 1장 한라산 둘레길, 그날의 산행 (6~11) ═══════════ */
-if (HAS(T1, "SIL-04-COMP-WALK", "SIL-01-KIM-WALK")) {
-  const P = plate(B(6), B(8), T1);
-  const h = 330, v = pxs(h, 0.75);
-  actor(P.sc, [{ t0: B(6), t1: B(8), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2.7, x: 760, v, y: GY1, h }]);
-  actor(P.sc, [{ t0: B(6), t1: B(8), sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 4, x: 150, v, y: GY1, h }]);
-  tag(P.sc, "1", "한라산 둘레길, 그날의 산행", B(6) + 0.2, null);
-  stamp(P.sc, `<span class="st">2023. 3. 26</span><span>일요일</span>`, S(6), null);
-  lower(P.sc, "김 씨 · 54세 · 제주 도민", "일행과 함께 둘레길 산행", S(7), null, false, "LTOP");
-  K.cut(S(7) + 1.5, "1장 일행과 걷기 (실루엣)");
-} else {
-  const P = photo(B(6), B(8), "DOC-02-ENTRANCE.jpg", "in");
-  tag(P.sc, "1", "한라산 둘레길, 그날의 산행", B(6) + 0.2, null);
-  stamp(P.sc, `<span class="st">2023. 3. 26</span><span>일요일</span>`, S(6), null);
-  lower(P.sc, "김 씨 · 54세 · 제주 도민", "일행과 함께 둘레길 산행", S(7), null);
-  K.cut(S(7) + 1.5, "1장 둘레길 입구");
+{ // 2 — 그럴 때 당신은? 두 갈래 화면: 혼자 먼저(빨강) | 같이 쉬기(따뜻함)
+  const sc = K.scene(B(2), B(3));
+  const half = (left, tint) => {
+    const w = el(`<div class="split" data-slot="FX" style="left:${left}px;width:960px"></div>`, sc);
+    const world = el(`<div class="lay" style="left:${-left}px"></div>`, w);
+    const img = el(`<img class="bg" src="${IMG + (HAS(T1) ? T1 : "DOC-03-FOREST")}.jpg" alt="" style="position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover">`, world);
+    gsap.set(img, { filter: TINT[tint] });
+    return { w, P: { sc, world, img } };
+  };
+  const Lh = half(0, "red"), Rh = half(960, "warm");
+  actor(Lh.P, [{ t0: B(2), t1: B(3), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 4, x: 700, v: -pxs(330, 0.6), y: GY, h: 330 }]);
+  actor(Rh.P, [{ t0: B(2), t1: B(3), sheet: "SIL-08-SIGNS", frames: [6], x: 1250, y: GY, h: 330 }]);
+  actor(Rh.P, [{ t0: B(2), t1: B(3), sheet: "SIL-05-COMP-STATES", frames: [1], x: 1640, y: GY, h: 330 }]);
+  tl.fromTo(Lh.w, { xPercent: -100 }, { xPercent: 0, duration: 0.6, ease: "power3.out" }, B(2));
+  tl.fromTo(Rh.w, { xPercent: 100 }, { xPercent: 0, duration: 0.6, ease: "power3.out" }, B(2));
+  const line = el(`<div data-slot="FX" style="position:absolute;left:954px;top:0;width:12px;height:1080px;background:#fff;box-shadow:0 0 30px #fff"></div>`, sc);
+  tl.fromTo(line, { scaleY: 0 }, { scaleY: 1, duration: 0.5 }, B(2) + 0.3);
+  const P0 = { sc };
+  lbl(P0, "혼자 먼저", 480, 230, B(2) + 0.6, null, "rd");
+  lbl(P0, "같이 쉬기", 1440, 230, B(2) + 0.8, null, "tl");
+  big(P0, "?", 960, 470, W(2, "어떻게") - 0.1, null, 230, true);
+  K.cut(S(2) + 1.3, "도입 두 갈래");
 }
-{ const P = photo(B(8), B(12), "DOC-03-FOREST.jpg", "left", { shade: 0.15, shadeAt: S(11) });
-  lower(P.sc, "한라산 둘레길", "해발 600~800m · 산 중턱 숲길", S(9), null);
-  K.cut(S(9) + 2, "1장 숲길"); }
-
-/* ═══════════ 2장 먼저 내려가겠다는 결정 (12~18) ═══════════ */
-if (HAS(T1, "SIL-04-COMP-WALK", "SIL-05-COMP-STATES", "SIL-01-KIM-WALK", "SIL-02-KIM-STATES", "SIL-03-KIM-WALK-BACK")) {
-  // ① 걷다가 멈춤 → 가슴에 손 → 무릎 짚음 → 손 들어 알림 (일행은 멈춰 돌아봄)
-  { const P = plate(B(12), B(14), T1);
-    const h = 330, v = pxs(h, 1.0), kx = 620;
-    tag(P.sc, "2", "먼저 내려가겠다는 결정", B(12) + 0.2, null);
-    actor(P.sc, [{ t0: B(12), t1: S(13) - 0.2, sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 4, x: 1120, v: v * 0.6, y: GY1, h },
-                 { t0: S(13) - 0.2, t1: B(14), sheet: "SIL-05-COMP-STATES", frames: [1], x: 1120 + v * 0.6 * (S(13) - 0.2 - B(12)), y: GY1, h }]);
-    actor(P.sc, [{ t0: B(12), t1: W(12, "좋지"), sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 6, x: kx - v * (W(12, "좋지") - B(12)), v, y: GY1, h },
-                 { t0: W(12, "좋지"), t1: E(12), sheet: "SIL-02-KIM-STATES", frames: [2], x: kx, y: GY1, h },
-                 { t0: E(12), t1: S(13), sheet: "SIL-02-KIM-STATES", frames: [3], x: kx, y: GY1, h },
-                 { t0: S(13), t1: B(14), sheet: "SIL-02-KIM-STATES", frames: [4], x: kx, y: GY1, h }]);
-    K.cut(S(13) + 1.5, "2장 멈춤·알림 (실루엣)"); }
-  // ② "먼저 내려가겠다" → 돌아섬 → 혼자 왔던 길로 (일행은 앞으로)
-  { const P = plate(B(14), B(16), T1);
-    const h = 330, v = pxs(h, 0.6), kx = 620;
-    quote(P.sc, "“몸이 좋지 않아 먼저 내려가겠다.”", null, S(14) - 0.1, B(15) + 0.2, "QTOP");
-    actor(P.sc, [{ t0: B(14), t1: S(15) + 0.6, sheet: "SIL-05-COMP-STATES", frames: [1], x: 1260, y: GY1, h },
-                 { t0: S(15) + 0.6, t1: B(16), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 4, x: 1260, v: pxs(h, 1.0) * 0.9, y: GY1, h }]);
-    actor(P.sc, [{ t0: B(14), t1: S(15), sheet: "SIL-02-KIM-STATES", frames: [4], x: kx, y: GY1, h },
-                 { t0: S(15), t1: S(15) + 0.7, sheet: "SIL-02-KIM-STATES", frames: [5], x: kx, y: GY1, h },
-                 { t0: S(15) + 0.7, t1: B(16), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 4, x: kx, v: -v, y: GY1, h }]);
-    K.cut(S(15) + 2.2, "2장 돌아섬 (실루엣)"); }
-  // ③ 텅 빈 길 사이 — 멀어지는 김 씨 (작게)
-  { const P = plate(B(16), B(19), T1, { gray: true, shade: 0.2, shadeAt: S(18) });
-    const h = 250, v = pxs(h, 0.6);
-    actor(P.sc, [{ t0: B(16), t1: B(19), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 4, x: 900, v: -v, y: GY1 - 30, h }]);
-    lower(P.sc, "누구나 할 법한 결정", "산행을 망치고 싶지 않아서", S(16), null, false, "LTOP");
-    K.cut(S(17) + 1, "2장 누구나 (실루엣)"); }
-} else {
-  { const P = photo(B(12), B(14), "DOC-04-STOP.jpg", "in");
-    tag(P.sc, "2", "먼저 내려가겠다는 결정", B(12) + 0.2, null);
-    K.cut(S(13) + 1, "2장 멈춤"); }
-  { const P = photo(B(14), B(16), "DOC-05-TURN.jpg", "out", { shade: 0.2, shadeAt: S(14) });
-    quote(P.sc, "“몸이 좋지 않아 먼저 내려가겠다.”", null, S(14) - 0.1, null);
-    K.cut(S(15) + 1, "2장 먼저 내려가겠다"); }
-  { const P = photo(B(16), B(19), "DOC-05-TURN.jpg", "still", { gray: true, shade: 0.35, shadeAt: S(16) });
-    lower(P.sc, "누구나 할 법한 결정", "산행을 망치고 싶지 않아서", S(16), null);
-    K.cut(S(17) + 1, "2장 누구나"); }
+{ // 3 — 먼저 내려가면: 빨갛게 물든 길 · 심전도가 멈추고 번쩍·흔들림
+  const P = trail(B(3), B(4), { tint: "red", drift: 0.06 });
+  const h = 330, v = -pxs(h, 0.55);
+  actor(P, [{ t0: B(3), t1: B(4), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 3.5, x: 1100, v, y: GY, h }]);
+  bubble(P, at(1100, v, B(3), S(3) + 0.2), GY - 350, "먼저 내려갈게", S(3) + 0.2, W(3, "위험이"));
+  ecg(P, B(3), B(4), { y: 170, x: 1100, w: 700, fast: true, flatAt: W(3, "위험이") });
+  flash(P, W(3, "위험이"), "#FF2A2A");
+  shake(P, W(3, "위험이"), 0.6, 16);
+  redPulse(P, W(3, "위험이") + 0.2, B(4), 0.6, 110);
+  K.cut(E(3) - 0.2, "도입 위험이 큽니다");
+}
+{ // 4~5 — 한라산 실제 사건 → 등산 전 조심할 것 (아이콘 넷)
+  const P = shot(B(4), B(6), "DOC-03-FOREST", { drift: 0.08 });
+  particles(P, B(4), B(6), "mist", 20);
+  big(P, "한라산 둘레길<small>2023년 · 실제 사망 사고</small>", 960, 450, S(4) + 0.3, B(5) + 0.3, 110);
+  ["heart", "moon", "cloud", "two"].forEach((k, i) => icon(P, k, 540 + i * 280, 470, 200, S(5) + 0.3 + i * 0.2, null));
+  K.cut(S(4) + 1.6, "도입 한라산"); K.cut(E(5) - 0.4, "도입 등산 전 네 가지");
 }
 
-/* ═══════════ 3장 실종 신고, 1시간 뒤 발견 (19~28) ═══════════ */
-{ const P = photo(B(19), B(20), "DOC-06-EMPTY.jpg", "in");
-  tag(P.sc, "3", "실종 신고, 1시간 뒤 발견", B(19) + 0.2, null);
-  K.cut(S(19) + 2, "3장 빈 숲길"); }
-const T2 = "PLT-02-ENTRANCE-SIDE", T3 = "PLT-03-SEARCH-SIDE";
-if (HAS(T2, "SIL-05-COMP-STATES")) {
-  const P = plate(B(20), B(21), T2, { late: true });
-  actor(P.sc, [{ t0: B(20), t1: W(20, "119"), sheet: "SIL-05-COMP-STATES", frames: [2], x: 1180, y: groundY(T2), h: 330 },
-               { t0: W(20, "119"), t1: B(21), sheet: "SIL-05-COMP-STATES", frames: [3], x: 1180, y: groundY(T2), h: 330 }]);
-  stamp(P.sc, `<span class="st">13:48</span><span>일행이 119에 실종 신고</span>`, W(20, "1시") - 0.2, null);
-  K.cut(S(20) + 3, "3장 신고 (실루엣)");
-} else {
-  const P = photo(B(20), B(21), "DOC-07-CALL.jpg", "left");
-  stamp(P.sc, `<span class="st">13:48</span><span>일행이 119에 실종 신고</span>`, W(20, "1시") - 0.2, null);
-  K.cut(S(20) + 3, "3장 신고");
+/* ═══════════ 1장 한라산 둘레길, 그날 있었던 일 (6~25) ═══════════ */
+{ // 6~7 — 일행과 함께 출발 (김 씨에게 이름표가 따라붙음)
+  const P = trail(B(6), B(8), { drift: 0 });
+  const h = 330, v = pxs(h, 0.7);
+  chtag(P, "한라산 둘레길, 그날 있었던 일", B(6) + 0.2, null);
+  stamp(P, "2023. 3. 26", "일요일", S(6), null);
+  actor(P, [{ t0: B(6), t1: B(8), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2.6, x: 420, v, y: GY, h }]);
+  actor(P, [{ t0: B(6), t1: B(8), sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 3.8, x: -60, v, y: GY, h }]);
+  const nm = lbl(P, "김 씨 · 54세", at(-60, v, B(6), S(7)), GY - 380, S(7), B(8), "yl", true);
+  tl.fromTo(nm, { x: 0 }, { x: v * (B(8) - S(7)), duration: B(8) - S(7), ease: "none", immediateRender: false }, S(7));
+  K.cut(S(7) + 1.5, "1장 일행과 산행");
 }
-if (HAS(T3, "SIL-06-RESCUER", "SIL-07-STRETCHER")) {
-  { const P = plate(B(21), B(22), T3, { late: true });
-    const h = 320, v = pxs(h, 0.9), gy = groundY(T3), tf = W(21, "1시간쯤");
-    actor(P.sc, [{ t0: B(21), t1: tf - 1.2, sheet: "SIL-06-RESCUER", frames: [1, 2, 3, 4], fps: 4, x: 300, v, y: gy, h },
-                 { t0: tf - 1.2, t1: tf, sheet: "SIL-06-RESCUER", frames: [5], x: 300 + v * (tf - 1.2 - B(21)), y: gy, h },
-                 { t0: tf, t1: B(22), sheet: "SIL-06-RESCUER", frames: [6], x: 300 + v * (tf - 1.2 - B(21)), y: gy, h }]);
-    actor(P.sc, [{ t0: B(21), t1: B(22), sheet: "SIL-06-RESCUER", frames: [1, 2, 3, 4], fps: 3, x: -150, v: v * 0.6, y: gy - 30, h: h * 0.82 }]);
-    stamp(P.sc, `<span class="st">13:48 ~</span><span>119 구조대 수색</span>`, B(21) + 0.3, tf - 0.2);
-    stamp(P.sc, `<span class="st">약 1시간 뒤</span><span>쓰러진 김 씨 발견</span>`, tf, null);
-    K.cut(tf + 1, "3장 수색·발견 (실루엣)"); }
-  { const P = plate(B(22), B(23), T3, { late: true, shade: 0.15 });
-    actor(P.sc, [{ t0: B(22), t1: B(23), sheet: "SIL-07-STRETCHER", frames: [1, 2, 3, 4], fps: 4, x: 520, v: pxs(330, 1.4), y: groundY(T3), h: 330 }]);
-    lower(P.sc, "발견 당시 이미 심정지", null, S(22) + 0.2, null, false, "LTOP");
-    K.cut(S(22) + 2, "3장 들것 (실루엣)"); }
-} else {
-  { const P = photo(B(21), W(21, "1시간쯤"), "DOC-08-SEARCH.jpg", "right");
-    stamp(P.sc, `<span class="st">13:48 ~</span><span>119 구조대 수색</span>`, B(21) + 0.3, null);
-    K.cut(S(21) + 1.5, "3장 수색"); }
-  { const P = photo(W(21, "1시간쯤"), B(22), "DOC-09-FOUND.jpg", "in");
-    stamp(P.sc, `<span class="st">약 1시간 뒤</span><span>쓰러진 김 씨 발견</span>`, W(21, "1시간쯤"), null);
-    K.cut(E(21) - 0.3, "3장 발견"); }
-  { const P = photo(B(22), B(23), "DOC-10-STRETCHER.jpg", "out");
-    lower(P.sc, "발견 당시 이미 심정지", null, S(22) + 0.2, null);
-    K.cut(S(22) + 2, "3장 들것"); }
+{ // 8~9 — 해발 600~800m 숲길 · 가벼운 산책 (안개 속으로 다가감)
+  const P = shot(B(8), B(10), "DOC-06-EMPTY", { drift: 0.1, tint: "warm" });
+  particles(P, B(8), B(10), "mist", 16);
+  lbl(P, "해발 600~800m 숲길", 960, 300, W(8, "해발"), B(10));
+  K.cut(S(9) + 1, "1장 숲길");
 }
-{ const P = photo(B(23), B(25), "DOC-11-AMBULANCE.jpg", "in", { shade: 0.72, shadeAt: S(23) - 0.2 });
-  const T = on(P.sc, "TLINE", "tline", `<div class="ax"></div>
-    <div class="pt" style="left:140px"></div><div class="tm" style="left:140px">13:48</div><div class="ds" style="left:140px">실종 신고</div>
-    <div class="pt" style="left:840px"></div><div class="tm" style="left:840px">약 1시간 뒤</div><div class="ds" style="left:840px">심정지로 발견</div>
-    <div class="pt rd" style="left:1540px"></div><div class="tm rd" style="left:1540px">15:28</div><div class="ds" style="left:1540px">숨짐</div>
-    <div class="gap">신고하고 1시간 40분</div>`, S(23), null);
-  const pts = T.querySelectorAll(".pt,.tm,.ds"), gp = T.querySelector(".gap");
-  gsap.set([...pts, gp], { opacity: 0 });
-  reveal([pts[0], pts[1], pts[2], pts[3], pts[4], pts[5]], S(23) + 0.1);
-  reveal([pts[6], pts[7], pts[8]], W(23, "3시") - 0.2);
-  reveal(gp, S(24));
-  K.cut(S(24) + 1.5, "3장 시간선"); }
-{ const P = photo(B(25), B(29), "DOC-06-EMPTY.jpg", "still", { shade: 0.2, shadeAt: S(26) });
-  lower(P.sc, "쓰러지는 순간, 옆에 아무도 없었다", "언제 · 왜 멈췄는지 알려지지 않음", S(26), null);
-  K.cut(S(27) + 1, "3장 아무도 없었다"); }
-
-/* ═══════════ 4장 둘레길에서도 심장이 멈추는 이유 (29~37) ═══════════ */
-{ const P = photo(B(29), B(31), "DOC-03-FOREST.jpg", "in");
-  tag(P.sc, "4", "둘레길에서도 심장이 멈추는 이유", B(29) + 0.2, null);
-  lower(P.sc, "오르막이 적은 길", "정상 가는 길보다 훨씬 완만", S(29) + 0.3, null);
-  K.cut(S(30) + 1, "4장 숲길"); }
-if (HAS("MED-S-STATES")) {
-  { const P = medSeq(B(31), B(33), [[B(31), 1], [W(31, "좁아질") - 0.2, 2]]);
-    lower(P.sc, "심장에 피를 보내는 혈관", "나이 들수록 조용히 좁아짐", S(31) + 0.2, null);
-    K.cut(S(32) + 1, "4장 혈관 좁아짐 (상태)"); }
-  { const P = medSeq(B(33), B(34), [[B(33), 2], [W(33, "담배"), 3]]);
-    chips(P.sc, [["고혈압", "", W(33, "고혈압") - 0.1], ["당뇨", "", W(33, "당뇨") - 0.1], ["높은 콜레스테롤", "", W(33, "높은") - 0.1], ["담배", "", W(33, "담배") - 0.1]], S(33) - 0.2, null);
-    K.cut(E(33) - 0.3, "4장 위험 요인 (상태)"); }
-  { const P = photo(B(34), B(35), "DOC-03-FOREST.jpg", "left", { shade: 0.3, shadeAt: S(34) });
-    chips(P.sc, [["오래 걷기", "yl", W(34, "오래") - 0.1]], S(34), null);
-    K.cut(E(34) - 0.3, "4장 오래 걷기"); }
-  { const P = medSeq(B(35), B(37), [[B(35), 4], [W(35, "혈관") - 0.2, 5], [S(36), 6]]);
-    chips(P.sc, [["찬 공기 → 혈관이 좁아짐", "yl", S(35) + 0.2], ["물이 빠짐 → 피가 끈끈", "yl", W(36, "물이") - 0.1]], S(35), null);
-    K.cut(E(36) - 0.3, "4장 찬 공기·끈끈한 피 (상태)"); }
-} else {
-  { const P = photo(B(31), B(33), "MED-12-HEART.jpg", "in", { mark: "g" });
-    lower(P.sc, "심장에 피를 보내는 혈관", "나이 들수록 조용히 좁아짐", W(31, "심장") , null);
-    K.cut(S(32) + 1, "4장 심장"); }
-  { const P = photo(B(33), B(34), "MED-13-ARTERY.jpg", "right", { mark: "g" });
-    chips(P.sc, [["고혈압", "", W(33, "고혈압") - 0.1], ["당뇨", "", W(33, "당뇨") - 0.1], ["높은 콜레스테롤", "", W(33, "높은") - 0.1], ["담배", "", W(33, "담배") - 0.1]], S(33) - 0.2, null);
-    K.cut(E(33) - 0.3, "4장 위험 요인"); }
-  { const P = photo(B(34), B(37), "DOC-03-FOREST.jpg", "left", { shade: 0.3, shadeAt: S(34) });
-    chips(P.sc, [["오래 걷기", "yl", W(34, "오래") - 0.1], ["찬 공기", "yl", W(35, "찬") - 0.1], ["땀으로 빠진 물", "yl", W(36, "땀") - 0.1]], S(34), null);
-    K.cut(E(36) - 0.3, "4장 산의 부담"); }
+{ // 10~12 — 김 씨가 멈춤(가슴 빛·땀) → 일행이 돌아봄(…?) → 김 씨의 말 = 말풍선
+  const P = trail(B(10), B(13), { drift: 0 });
+  const h = 330, kx = 640, vk = pxs(h, 0.7), tStop = W(10, "몸"), cx0 = 1120, vc = pxs(h, 0.5);
+  actor(P, [{ t0: B(10), t1: S(11), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2.6, x: cx0, v: vc, y: GY, h },
+            { t0: S(11), t1: B(13), sheet: "SIL-05-COMP-STATES", frames: [1], x: at(cx0, vc, B(10), S(11)), y: GY, h }]);
+  actor(P, [{ t0: B(10), t1: tStop, sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 3.8, x: kx - vk * (tStop - B(10)), v: vk, y: GY, h },
+            { t0: tStop, t1: E(10), sheet: "SIL-02-KIM-STATES", frames: [2], x: kx, y: GY, h },
+            { t0: E(10), t1: S(12) - 0.3, sheet: "SIL-02-KIM-STATES", frames: [3], x: kx, y: GY, h },
+            { t0: S(12) - 0.3, t1: B(13), sheet: "SIL-02-KIM-STATES", frames: [4], x: kx, y: GY, h }]);
+  focus(P, tStop, kx, GY - 180, 1.45, 1.2);
+  glow(P, kx + 8, GY - 215, 80, "rgba(255,60,50,.9)", tStop + 0.3, S(11), true);
+  sweat(P, kx + 20, GY - 320, tStop + 0.4, S(11) + 0.4);
+  focus(P, E(10) + 0.1, 980, GY - 200, 1.1, 1.0);
+  bubble(P, at(cx0, vc, B(10), S(11)) - 140, GY - 360, "…?", S(11) + 0.6, B(13), "think sym");
+  bubble(P, kx + 30, GY - 350, "몸이 좋지 않아<br>먼저 내려가겠다", S(12) - 0.1, B(13));
+  K.cut(E(10) - 0.2, "1장 가슴에 손"); K.cut(S(12) + 1, "1장 말풍선");
 }
-if (HAS(T1, "SIL-02-KIM-STATES")) {
-  const P = plate(B(37), B(38), T1, { gray: true });
-  actor(P.sc, [{ t0: B(37), t1: B(38), sheet: "SIL-02-KIM-STATES", frames: [2], x: 860, y: GY1, h: 360 }]);
-  K.cut(S(37) + 2, "4장 끝 질문 (실루엣)");
-} else {
-  const P = photo(B(37), B(38), "DOC-04-STOP.jpg", "in", { gray: true });
-  K.cut(S(37) + 2, "4장 끝 질문");
+{ // 13~15 — 혼자 돌아섬 · 둘 사이가 빨간 점선으로 벌어짐 · 빛이 바램
+  const P = trail(B(13), B(16), { drift: 0 });
+  const h = 330, kx = 640, cx = 1260, tGo = S(13) + 0.6, vl = pxs(h, 0.6), vr = pxs(h, 0.7);
+  actor(P, [{ t0: B(13), t1: tGo, sheet: "SIL-02-KIM-STATES", frames: [5], x: kx, y: GY, h },
+            { t0: tGo, t1: B(16), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 3.6, x: kx, v: -vl, y: GY, h }]);
+  actor(P, [{ t0: B(13), t1: tGo, sheet: "SIL-05-COMP-STATES", frames: [1], x: cx, y: GY, h },
+            { t0: tGo, t1: B(16), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2.6, x: cx, v: vr, y: GY, h }]);
+  const gap = el(`<div data-slot="FX" style="position:absolute;left:${kx + 60}px;top:${GY - 150}px;width:${cx - kx - 300}px;height:0;border-top:8px dashed #FF5A4E;filter:drop-shadow(0 0 8px #FF3B30);transform-origin:0 0;opacity:0"></div>`, P.world);
+  const spread = B(16) - tGo;
+  tl.to(gap, { opacity: 1, duration: 0.3 }, tGo + 0.2);
+  tl.fromTo(gap, { x: 0, width: cx - kx - 300 }, { x: -vl * spread, width: cx - kx - 300 + (vl + vr) * spread, duration: spread, ease: "none" }, tGo);
+  bubble(P, at(cx, vr, tGo, S(15) + 0.2) + 40, GY - 360, "…", S(15) + 0.2, B(16), "think sym");
+  tintTo(P, S(14), "gray", 1.6);
+  K.cut(S(13) + 2, "1장 돌아섬"); K.cut(S(15) + 1, "1장 믿을 수밖에");
 }
-
-/* ═══════════ 5장 심정지 전 몸이 보내는 신호 (38~48) ═══════════ */
-{ const P = photo(B(38), B(42), "MED-14-BODY.jpg", "none", { mark: "g" });
-  tag(P.sc, "5", "심정지 전 몸이 보내는 신호", B(38) + 0.2, B(39));
-  const dots = [ // [x, y (무대 px), 번호, 문장, 낱말, 뒤쪽?]
-    [960, 540, "1", 39, "가슴"], [960, 760, "2", 39, "명치"], [960, 95, "3", 40, "식은땀"],
-    [1090, 480, "4", 40, "숨이"], [625, 700, "5", 41, "팔"], [960, 252, "6", 41, "턱"], [1170, 452, "7", 41, "등", true]];
-  const D = on(P.sc, "DOTS", "lst", "", S(39) - 0.2, null, "");
-  const [dx, dy] = LAY.DOTS;
-  for (const d of dots) {
-    const el = K.el(`<div class="dot${d[5] ? " back" : ""}" style="left:${d[0] - dx}px;top:${d[1] - dy}px"><b>${d[2]}</b></div>`, D);
-    gsap.set(el, { opacity: 0 });
-    tl.fromTo(el, { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.35, ease: "back.out(2)" }, W(d[3], d[4]) - 0.1);
-  }
-  const names = ["가슴 조임·답답", "명치가 꽉 막힘", "식은땀", "심한 숨참", "팔 통증", "턱 통증", "등 통증"];
-  const L = on(P.sc, "LLIST", "lst", names.map((t, i) => `<div class="it" style="top:${i * 84}px"><b>${i + 1}</b>${t}</div>`).join(""), S(39) - 0.2, null);
-  const its = L.querySelectorAll(".it"); gsap.set(its, { opacity: 0 });
-  dots.forEach((d, i) => tl.to(its[i], { opacity: 1, duration: 0.3 }, W(d[3], d[4]) - 0.1));
-  K.cut(S(41) + 1.5, "5장 신호 점"); }
-if (HAS(T1, "SIL-08-SIGNS")) {
-  const P = plate(B(42), B(43), T1);
-  actor(P.sc, [{ t0: B(42), t1: W(42, "넘기기"), sheet: "SIL-08-SIGNS", frames: [2], x: 900, y: GY1, h: 340 },
-               { t0: W(42, "넘기기"), t1: B(43), sheet: "SIL-08-SIGNS", frames: [6], x: 900, y: GY1, h: 340 }]);
-  lower(P.sc, "“조금 쉬면 괜찮겠지”", null, S(42) + 0.3, null, false, "LTOP");
-  K.cut(S(42) + 2.5, "5장 넘기기 (실루엣)");
-} else {
-  const P = photo(B(42), B(43), "DOC-01-INTRO.jpg", "in");
-  lower(P.sc, "“조금 쉬면 괜찮겠지”", null, S(42) + 0.3, null);
-  K.cut(S(42) + 2.5, "5장 넘기기");
+{ // 16 — 아무도 없는 길 · 일행이 두리번 (?)
+  const P = trail(B(16), B(17), { tint: "late", drift: 0 });
+  actor(P, [{ t0: B(16), t1: B(17), sheet: "SIL-05-COMP-STATES", frames: [2], x: 1500, y: GY, h: 330 }]);
+  bubble(P, 1530, GY - 360, "?", S(16) + 0.6, null, "sym");
+  focus(P, S(16), 1100, 640, 1.3, 3, "sine.inOut");
+  particles(P, B(16), B(17), "mist", 18);
+  K.cut(S(16) + 2.2, "1장 보이지 않음");
 }
-{ const P = photo(B(43), B(47), "DOC-01-INTRO.jpg", "still", { shade: 0.8, shadeAt: B(43) });
-  const C = on(P.sc, "CARD", "cardx", `<div class="hd">갑자기 심정지가 온 35~65세</div>
-    <div class="tt yl" style="top:120px;font-size:64px">절반은 4주 안에 신호가 있었다</div>
-    <div class="row" style="top:270px"><span class="rk">!</span>가장 많은 신호 · 가슴 통증 · 숨참</div>
-    <div class="tt rd" style="top:400px;font-size:58px">구급차를 먼저 부른 사람</div>
-    <div class="tt rd" style="top:490px;font-size:58px">다섯 명 중 한 명도 안 됨</div>`, S(43), null);
-  const parts = C.querySelectorAll(".tt,.row"); gsap.set(parts, { opacity: 0 });
-  reveal(parts[0], W(44, "절반"));
-  reveal(parts[1], S(45));
-  reveal([parts[2], parts[3]], S(46) + 0.3);
-  K.cut(S(46) + 3, "5장 신호 카드"); }
-if (HAS(T1, "SIL-03-KIM-WALK-BACK")) {
-  const P = plate(B(47), B(49), T1, { gray: true });
-  actor(P.sc, [{ t0: B(47), t1: B(49), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 4, x: 1100, v: -pxs(330, 0.6), y: GY1, h: 330 }]);
-  K.cut(S(48) + 1, "5장 끝 질문 (실루엣)");
-} else {
-  const P = photo(B(47), B(49), "DOC-05-TURN.jpg", "in", { gray: true });
-  K.cut(S(48) + 1, "5장 끝 질문");
+{ // 17 — 1시 48분 실종 신고 (전화 고리 · 시계가 1시 48분으로)
+  const T2 = "PLT-02-ENTRANCE-SIDE", useS = HAS(T2, "SIL-05-COMP-STATES");
+  const P = shot(B(17), B(18), useS ? T2 : "DOC-07-CALL", { tint: "late" });
+  if (useS) { actor(P, [{ t0: B(17), t1: B(18), sheet: "SIL-05-COMP-STATES", frames: [3], x: 1180, y: gy(T2), h: 330 }]); rings(P, 1250, gy(T2) - 290, W(17, "119") - 0.2, B(18), "#FFD400", true); }
+  stamp(P, "13:48", "실종 신고", W(17, "1시"), null);
+  clock(P, 330, 440, 150, 13 * 60 + 20, 13 * 60 + 48, B(17) + 0.2, B(17) + 0.3, W(17, "1시") + 0.5, B(18));
+  K.cut(S(17) + 3, "1장 신고");
 }
-
-/* ═══════════ 6장 혼자 먼저 내려가면 위험한 이유 (49~61) ═══════════ */
-{ const P = photo(B(49), B(54), "DOC-05-TURN.jpg", "still", { gray: true, shade: 0.78, shadeAt: B(49) });
-  tag(P.sc, "6", "혼자 먼저 내려가면 위험한 이유", B(49) + 0.2, null);
-  const C = on(P.sc, "CARD", "cardx", `<div class="tt rd" style="top:60px">위험 1 · 신호가 와도 계속 걷는다</div>
-    <div class="tt mu" style="top:150px;font-size:46px">걷는 동안 심장은 쉬지 못한다</div>
-    <div class="tt rd" style="top:300px">위험 2 · 혼자가 된다</div>
-    <div class="tt mu" style="top:390px;font-size:46px">쓰러지면 스스로 119를 부를 수 없다</div>`, S(49) + 0.3, null);
-  const ps = C.querySelectorAll(".tt"); gsap.set(ps, { opacity: 0 });
-  reveal(ps[0], S(50)); reveal(ps[1], S(51)); reveal(ps[2], S(52)); reveal(ps[3], S(53));
-  K.cut(S(53) + 2, "6장 두 위험"); }
-{ const P = photo(B(54), B(56), "MED-15-BRAIN.jpg", "none", { mark: "g" });
-  const dim = K.el(`<div style="position:absolute;left:0;top:0;width:1920px;height:1080px;background:radial-gradient(circle at 56% 30%,rgba(5,8,20,.0) 0%,rgba(5,8,20,.82) 42%)"></div>`, P.bx);
-  gsap.set(dim, { opacity: 0 });
-  tl.to(dim, { opacity: 1, duration: 4, ease: "none" }, S(54));
-  const C = on(P.sc, "CLOCK", "clock", `<svg viewBox="0 0 560 560" width="560" height="560" aria-hidden="true">
-      <circle cx="280" cy="250" r="200" fill="rgba(7,11,22,.85)" stroke="rgba(255,255,255,.25)" stroke-width="10"/>
-      <path class="arc" d="M280 50 A200 200 0 1 1 279.9 50" fill="none" stroke="#FF5A4E" stroke-width="22" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/>
-      <text class="num" x="280" y="282" text-anchor="middle" font-size="120" font-weight="900" fill="#fff">0분</text>
-      <text x="280" y="520" text-anchor="middle" font-size="44" font-weight="800" fill="#C9D1E0">뇌 손상이 시작되기까지</text></svg>`, S(55) - 0.4, null);
-  const arc = C.querySelector(".arc"), num = C.querySelector(".num");
-  const st = { v: 0 };
-  tl.to(st, { v: 4, duration: Math.max(1, E(55) - W(55, "4분")), ease: "none",
-    onUpdate: () => { arc.setAttribute("stroke-dasharray", `${st.v * 25} 100`); num.textContent = `${Math.min(4, Math.floor(st.v + 0.001))}분`; } }, W(55, "4분") - 0.4);
-  K.cut(E(55) - 0.2, "6장 4분 시계"); }
-const T6 = "PLT-06-CLEARING";
-if (HAS(T6, "SIL-10-CPR")) {
-  const P = plate(B(56), B(57), T6);
-  actor(P.sc, [{ t0: B(56), t1: B(57), sheet: "SIL-10-CPR", frames: [1, 2], fps: 3.7, x: 960, y: groundY(T6), h: 300 }]);
-  lower(P.sc, "옆 사람이 바로 가슴을 누르면", "살릴 기회가 커진다", S(56) + 0.2, null, true, "LTOP");
-  K.cut(S(56) + 2, "6장 가슴 압박 (실루엣)");
-} else {
-  const P = photo(B(56), B(57), "DOC-23-SIT.jpg", "in", { mark: "재연" });
-  lower(P.sc, "옆 사람이 바로 가슴을 누르면", "살릴 기회가 커진다", S(56) + 0.2, null, true);
-  K.cut(S(56) + 2, "6장 옆 사람");
-}
-{ const P = photo(B(57), B(59), HAS(T6) ? T6 + ".jpg" : "DOC-23-SIT.jpg", "still", { shade: 0.8, shadeAt: B(57), mark: "재연" });
-  const C = on(P.sc, "CARD", "cardx", `<div class="hd">병원에 오기 전, 옆 사람이 가슴을 눌러 줬을 때</div>
-    <div class="blab" style="left:48px;top:170px">눌러 줌</div><div class="bar" style="left:330px;top:166px;width:${14.4 * 46}px;background:#2ED3BB"></div><div class="bnum tl" style="left:${330 + 14.4 * 46 + 24}px;top:164px">14.4%</div>
-    <div class="blab" style="left:48px;top:310px">못 함</div><div class="bar" style="left:330px;top:306px;width:${6.1 * 46}px;background:#FF5A4E"></div><div class="bnum rd" style="left:${330 + 6.1 * 46 + 24}px;top:304px">6.1%</div>
-    <div class="tt yl" style="top:470px;font-size:60px">살아난 사람이 두 배 넘게</div>`, S(57), null);
-  const b1 = C.querySelectorAll(".bar"), n1 = C.querySelectorAll(".bnum,.blab"), t1 = C.querySelector(".tt");
-  gsap.set([...b1, ...n1, t1], { opacity: 0 });
-  reveal([n1[0], b1[0], n1[1]], W(57, "14.4") - 0.3);
-  tl.fromTo(b1[0], { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, W(57, "14.4") - 0.3);
-  reveal([n1[2], b1[1], n1[3]], S(58));
-  tl.fromTo(b1[1], { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, S(58));
-  reveal(t1, W(58, "두"));
-  K.cut(E(58) - 0.2, "6장 생존율 막대"); }
-{ const P = photo(B(59), B(62), "DOC-06-EMPTY.jpg", "out", { shade: 0.55, shadeAt: B(59) });
-  const C = on(P.sc, "BIG", "bigx", `<div class="cell"><div class="bn yl">4분</div><div class="l">뇌가 버티는 시간</div></div><div class="cell"><div class="bn rd">1시간쯤</div><div class="l">신고 뒤 찾기까지</div></div>`, S(59), null);
-  const cells = C.querySelectorAll(".cell"); gsap.set(cells[1], { opacity: 0 });
-  reveal(cells[1], W(59, "1시간쯤") - 0.2);
-  K.cut(S(60) + 1.5, "6장 4분 대 1시간"); }
-
-/* ═══════════ 7장 숫자로 본 등산 중 심정지 (62~70) ═══════════ */
-{ const P = photo(B(62), B(71), "DOC-20-RIDGE.jpg", "in", { mark: false, shade: 0.6, shadeAt: S(63) });
-  tag(P.sc, "7", "숫자로 본 등산 중 심정지", B(62) + 0.2, null);
-  on(P.sc, "WORDS", "words", `<div class="w" style="border-color:#FFD400">김 씨뿐만이 아닙니다</div>`, S(62), B(64) + 0.3);
-  const C = on(P.sc, "CARD", "cardx", `<div class="hd">국립공원 10년 · 숨진 사람 167명</div>
-    <div class="blab" style="left:48px;top:160px">심장 돌연사</div><div class="bar" style="left:360px;top:156px;width:${84 * 8.2}px;background:#FF5A4E"></div><div class="bnum rd" style="left:${360 + 84 * 8.2 + 22}px;top:154px">84명</div>
-    <div class="blab" style="left:48px;top:290px">추락</div><div class="bar" style="left:360px;top:286px;width:${54 * 8.2}px;background:#8A93A8"></div><div class="bnum mu" style="left:${360 + 54 * 8.2 + 22}px;top:284px">54명</div>
-    <div class="tt yl" style="top:410px;font-size:60px">추락보다 30명 더 많다 · 절반</div>
-    <div class="tt mu nt" style="top:520px;font-size:42px;font-weight:800">한라산은 따로 관리 — 이 숫자에 없음</div>`, S(64) + 0.2, null);
-  const bs = C.querySelectorAll(".bar"), ls = C.querySelectorAll(".blab,.bnum"), tt = C.querySelector(".tt"), nt = C.querySelector(".nt");
-  gsap.set([...bs, ...ls, tt, nt], { opacity: 0 });
-  reveal([ls[0], bs[0], ls[1]], S(66));
-  tl.fromTo(bs[0], { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, S(66));
-  reveal([ls[2], bs[1], ls[3]], S(67));
-  tl.fromTo(bs[1], { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, S(67));
-  reveal(tt, W(67, "30명") - 0.1);
-  reveal(nt, S(69));
-  K.cut(S(62) + 0.8, "7장 김 씨뿐만이"); K.cut(S(69) + 2, "7장 막대"); }
-
-/* ═══════════ 8장 반복되는 등산 중 심정지 (71~80) ═══════════ */
-const casec = (sc, d, p, x, r, a, b) => on(sc, "CASE", "casex", `<div class="d">${d}</div><div class="p">${p}</div><div class="x">${x}</div><span class="r">${r}</span>`, a, b);
-if (HAS("PLT-04-SLOPE-UP", "SIL-09-SLOPE")) {
-  const P = plate(B(71), B(74), "PLT-04-SLOPE-UP", { mark: "재연" });
-  const h = 250, v = pxs(h, 0.45) * 0.55, yUp = slopeFor("PLT-04-SLOPE-UP");
-  actor(P.sc, [{ t0: B(71), t1: W(72, "쓰러졌습니다"), sheet: "SIL-09-SLOPE", frames: [1, 2, 3], fps: 3, x: 1300, v, yAt: yUp, h },
-               { t0: W(72, "쓰러졌습니다"), t1: B(74), sheet: "SIL-08-SIGNS", frames: [2], x: 1300 + v * (W(72, "쓰러졌습니다") - B(71)), yAt: yUp, h }].filter(s => has(s.sheet)));
-  tag(P.sc, "8", "반복되는 등산 중 심정지", B(71) + 0.2, null);
-  casec(P.sc, "2025. 3", "한라산 성판악 코스", "60대 관광객 · 오르다 쓰러짐<br>입구에서 5km쯤", "심폐소생술 받았지만 숨짐", S(72), null);
-  K.cut(S(73) + 1.5, "8장 성판악 2025 (실루엣)");
-} else {
-  const P = photo(B(71), B(74), "DOC-16-SEONGPANAK.jpg", "up", { mark: false });
-  tag(P.sc, "8", "반복되는 등산 중 심정지", B(71) + 0.2, null);
-  casec(P.sc, "2025. 3", "한라산 성판악 코스", "60대 관광객 · 오르다 쓰러짐<br>입구에서 5km쯤", "심폐소생술 받았지만 숨짐", S(72), null);
-  K.cut(S(73) + 1.5, "8장 성판악 2025");
-}
-{ const P = photo(B(74), B(76), "DOC-17-SUMMER.jpg", "in", { mark: false });
-  casec(P.sc, "2026. 8", "봉화 청량산", "폭염경보 · 50대 등산객 쓰러짐<br>지인이 발견했을 때 숨·맥박 없음", "심정지", S(74) + 0.2, null);
-  K.cut(S(75) + 1.5, "8장 청량산"); }
-if (HAS("PLT-05-SLOPE-DOWN", "SIL-09-SLOPE")) {
-  const P = plate(B(76), B(77), "PLT-05-SLOPE-DOWN", { mark: "재연" });
-  actor(P.sc, [{ t0: B(76), t1: B(77), sheet: "SIL-09-SLOPE", frames: [4, 5, 6], fps: 3, x: 1560, v: -pxs(250, 0.5) * 0.6, yAt: slopeFor("PLT-05-SLOPE-DOWN"), h: 250 }]);
-  casec(P.sc, "2026. 10", "한라산 성판악", "하산하던 50대 관광객", "심정지로 숨짐", S(76), null);
-  K.cut(S(76) + 2, "8장 성판악 2026 (실루엣)");
-} else {
-  const P = photo(B(76), B(77), "DOC-19-HALLA-AUTUMN.jpg", "in", { mark: false });
-  casec(P.sc, "2026. 10", "한라산 성판악", "하산하던 50대 관광객", "심정지로 숨짐", S(76), null);
-  K.cut(S(76) + 2, "8장 성판악 2026");
-}
-{ const P = photo(B(77), B(81), "DOC-19-HALLA-AUTUMN.jpg", "still", { mark: false, shade: 0.7, shadeAt: B(77) });
-  const C1 = on(P.sc, "WORDS", "words", `<div class="w" style="border-color:#FFD400">오르막</div><div class="w" style="border-color:#FFD400">내리막</div><div class="w" style="border-color:#FFD400">둘레길</div>`, S(77), B(78) + 0.3);
-  const ws = C1.querySelectorAll(".w"); gsap.set(ws, { opacity: 0 });
-  ["오르막", "내리막", "둘레길"].forEach((w, i) => tl.to(ws[i], { opacity: 1, duration: 0.3 }, W(77, w) - 0.1));
-  lower(P.sc, "구조대가 닿기까지 오래 걸리는 산", null, S(78) + 0.2, B(79) + 0.3);
-  chips(P.sc, [["곁에 누군가", "tl", W(79, "곁에") - 0.1], ["내 심장 알기", "tl", W(79, "심장을") - 0.1]], S(79), null);
-  K.cut(S(77) + 2.5, "8장 세 곳"); K.cut(S(79) + 2.5, "8장 곁에·심장"); }
-
-/* ═══════════ 9장 산에 가기 전 점검 네 가지 (81~106) ═══════════ */
-const T7 = "PLT-07-CLINIC", T8 = "PLT-08-LIVING";
-const prepScene = (a, b, plateName, fallback, fr, x, o) => {
-  o = o || {};
-  if (HAS(plateName, "SIL-11-PREP")) {
-    const P = plate(a, b, plateName, { mark: "재연" });
-    const y = o.y || groundY(plateName), h = o.h || 330;
-    actor(P.sc, Array.isArray(fr) ? fr.map(f => Object.assign({ sheet: "SIL-11-PREP", x, y, h }, f)) : [{ t0: a, t1: b, sheet: "SIL-11-PREP", frames: [fr], x, y, h }]);
-    return P;
-  }
-  return photo(a, b, fallback, "in", { shade: 0.35, shadeAt: a });
-};
-{ const P = prepScene(B(81), B(87), T7, "DOC-22-NIGHT-PREP.jpg", [{ t0: B(81), t1: S(83), frames: [2] }, { t0: S(83), t1: B(87), frames: [1] }], 520, { y: 1100, h: 600 });
-  tag(P.sc, "9", "산에 가기 전 점검 네 가지", B(81) + 0.2, S(82) - 0.1);
-  tag(P.sc, "①", "내 심장", S(82), null);
-  chips(P.sc, [["혈압 · 혈당 · 콜레스테롤", "yl", S(83)], ["담배 · 가족 중 심장병", "yl", S(84)], ["오르막 숨참", "yl", S(85)]], S(83) - 0.2, B(86) + 0.3, "CTOP");
-  lower(P.sc, "하나라도 해당되면", "병원에 심장 검사가 필요한지 묻기", S(86), null, true, "LTOP");
-  K.cut(S(85) + 1.5, "9장 ① 내 심장"); K.cut(S(86) + 2, "9장 ① 검사"); }
-{ const P = prepScene(B(87), B(90), T8, "DOC-22-NIGHT-PREP.jpg", 3, 560);
-  tag(P.sc, "②", "그날의 몸 상태", S(87) - 0.1, null);
-  chips(P.sc, [["전날 술 · 잠 부족 → 산행 미루기", "yl", S(88)], ["산행 중 술 ✗", "", S(89)]], S(88) - 0.2, null, "CTOP");
-  K.cut(S(89) + 1, "9장 ② 몸 상태"); }
-{ const P = prepScene(B(90), B(93), T8, "DOC-16-SEONGPANAK.jpg", 4, 560);
-  tag(P.sc, "③", "코스와 날씨", S(90) - 0.1, null);
-  chips(P.sc, [["한파 · 폭염 · 강풍 특보 → 미루기", "yl", S(91)], ["둘레길도 똑같이 점검", "yl", S(92)]], S(91) - 0.2, null, "CTOP");
-  K.cut(S(92) + 1, "9장 ③ 날씨"); }
-{ const P = prepScene(B(93), B(96), T8, "DOC-02-ENTRANCE.jpg", 5, 560);
-  tag(P.sc, "④", "함께 갈 사람", S(93) - 0.1, null);
-  chips(P.sc, [["되도록 함께 · 지병과 약 알리기", "tl", S(94)], ["혼자라면 가족에게 코스 · 시각", "tl", S(95)]], S(94) - 0.2, null, "CTOP");
-  K.cut(S(95) + 1.5, "9장 ④ 함께"); }
-// 산에서 몸이 좋지 않으면 — 왼쪽 카드 · 오른쪽 실루엣
-{ const useS = HAS(T1, "SIL-08-SIGNS", "SIL-05-COMP-STATES");
-  const P = useS ? plate(B(96), B(102), T1, { mark: "재연" }) : photo(B(96), B(102), "DOC-23-SIT.jpg", "in", { mark: "재연", shade: 0.45, shadeAt: S(96) });
+{ // 18 — 구조대 수색 · 시계가 한 시간 돎 · 빛이 기욺 → 찾음
+  const T3 = "PLT-03-SEARCH-SIDE", useS = HAS(T3, "SIL-06-RESCUER");
+  const P = shot(B(18), B(19), useS ? T3 : "DOC-08-SEARCH", { drift: 0 });
+  const tf = W(18, "1시간쯤");
   if (useS) {
-    actor(P.sc, [{ t0: B(96), t1: B(102), sheet: "SIL-08-SIGNS", frames: [6], x: 1330, y: GY1, h: 330 }]);
-    actor(P.sc, [{ t0: B(96), t1: S(97), sheet: "SIL-05-COMP-STATES", frames: [1], x: 1660, y: GY1, h: 330 },
-                 { t0: S(97), t1: B(102), sheet: "SIL-05-COMP-STATES", frames: [3], x: 1660, y: GY1, h: 330 }]);
+    const h = 320, v = pxs(h, 0.9), g3 = gy(T3);
+    actor(P, [{ t0: B(18), t1: tf - 0.4, sheet: "SIL-06-RESCUER", frames: [1, 2, 3, 4], fps: 4, x: 260, v, y: g3, h },
+              { t0: tf - 0.4, t1: B(19), sheet: "SIL-06-RESCUER", frames: [6], x: at(260, v, B(18), tf - 0.4), y: g3, h }]);
+    actor(P, [{ t0: B(18), t1: B(19), sheet: "SIL-06-RESCUER", frames: [1, 2, 3, 4], fps: 3, x: -160, v: v * 0.6, y: g3 - 30, h: h * 0.82 }]);
+    focus(P, tf, at(260, v, B(18), tf) + 250, g3 - 120, 1.3, 1.0);
   }
-  const acts = [["앉아 쉬며 일행에게 알리기", 96, "ok", "✓"], ["신호가 있으면 → 119", 97, "on", "!"], ["가슴 · 명치 · 팔 · 턱 · 등", 98, "on", "·"],
-                ["숨이 안 가라앉음 · 식은땀", 99, "on", "·"], ["신호 없이 힘들면 → 함께 천천히", 100, "ok", "✓"], ["위치 표지판 번호 알리기", 101, "ok", "✓"]];
-  const C = on(P.sc, "SIDE", "cardx", acts.map((a, i) => `<div class="row ${a[2]}" style="top:${36 + i * 98}px;font-size:42px"><span class="rk">${a[3]}</span>${a[0]}</div>`).join(""), S(96), null);
-  const rows = C.querySelectorAll(".row"); gsap.set(rows, { opacity: 0 });
-  acts.forEach((a, i) => reveal(rows[i], S(a[1]) + 0.1));
-  K.cut(S(97) + 2, "9장 산에서 1"); K.cut(S(101) + 2, "9장 산에서 2"); }
-if (HAS(T1, "SIL-04-COMP-WALK", "SIL-01-KIM-WALK")) {
-  const P = plate(B(102), B(104), T1);
-  const h = 330, v = pxs(h, 0.8);
-  actor(P.sc, [{ t0: B(102), t1: B(104), sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 3, x: 780, v, y: GY1, h }]);
-  actor(P.sc, [{ t0: B(102), t1: B(104), sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 4.5, x: 460, v, y: GY1, h }]);
-  on(P.sc, "WORDS", "words", `<div class="w" style="border-color:#FF5A4E">혼자 먼저 내려가지 않기</div>`, S(102), S(103) + 0.1);
-  lower(P.sc, "누가 아프면 한 사람은 곁에", "산에 가기 전 미리 약속", S(103) + 0.1, null, true, "LTOP");
-  K.cut(S(103) + 2, "9장 혼자 먼저 ✗ (실루엣)");
-} else {
-  const P = photo(B(102), B(104), "DOC-24-END.jpg", "in", { mark: "재연" });
-  on(P.sc, "WORDS", "words", `<div class="w" style="border-color:#FF5A4E">혼자 먼저 내려가지 않기</div>`, S(102), null);
-  lower(P.sc, "누가 아프면 한 사람은 곁에", "산에 가기 전 미리 약속", S(103), null, true);
-  K.cut(S(103) + 2, "9장 혼자 먼저 ✗");
+  tintTo(P, B(18) + 0.4, "late", Math.max(1, tf - B(18)));
+  clock(P, 1660, 320, 130, 13 * 60 + 48, 14 * 60 + 48, B(18) + 0.2, B(18) + 0.4, tf, B(19));
+  lbl(P, "약 1시간", 1660, 500, tf - 0.2, null, "yl");
+  K.cut(tf - 0.8, "1장 수색"); K.cut(E(18) - 0.2, "1장 찾음");
 }
-if (HAS(T6, "SIL-10-CPR")) {
-  const P = plate(B(104), B(106), T6, { mark: "재연" });
-  actor(P.sc, [{ t0: B(104), t1: S(105), sheet: "SIL-10-CPR", frames: [3], x: 960, y: groundY(T6), h: 300 },
-               { t0: S(105) - 1.6, t1: S(105), sheet: "SIL-10-CPR", frames: [1, 2], fps: 3.7, x: 960, y: groundY(T6), h: 300 },
-               { t0: S(105), t1: B(106), sheet: "SIL-10-CPR", frames: [4], x: 960, y: groundY(T6), h: 300 }]);
-  chips(P.sc, [["119 신고 → 가슴 한가운데 세게", "tl", S(104)], ["자동심장충격기", "tl", W(105, "자동심장충격기")]], S(104) - 0.2, null, "CTOP");
-  K.cut(S(105) + 1.5, "9장 응급처치 (실루엣)");
-} else {
-  const P = photo(B(104), B(106), "DOC-23-SIT.jpg", "still", { mark: "재연", shade: 0.4, shadeAt: S(104) });
-  chips(P.sc, [["119 신고 → 가슴 한가운데 세게", "tl", S(104)], ["자동심장충격기", "tl", W(105, "자동심장충격기")]], S(104) - 0.2, null);
-  K.cut(S(105) + 1.5, "9장 응급처치");
+{ // 19 — 떨어진 모자·배낭 · 심전도가 평평해짐 (사람 몸은 보이지 않음)
+  const T9 = "PLT-09-DROPPED";
+  const P = shot(B(19), B(20), HAS(T9) ? T9 : "DOC-09-FOUND", { drift: 0.06, tint: "cold" });
+  ecg(P, B(19), B(20), { y: 180, x: 1100, w: 700, flatAt: W(19, "심정지") });
+  flash(P, W(19, "심정지"), "#FF2A2A");
+  redPulse(P, W(19, "심정지") + 0.2, B(20), 0.45, 40);
+  K.cut(E(19) - 0.3, "1장 심정지");
 }
-{ const P = photo(B(106), B(107), "DOC-24-END.jpg", "still", { mark: "재연" });
-  K.cut(S(106) + 1.5, "9장 끝 질문"); }
+{ // 20~21 — 구급차 · 사이렌 · 시계 13:48 → 15:28 = 1시간 40분
+  const P = shot(B(20), B(22), "DOC-11-AMBULANCE", { tint: "dark", drift: 0.05 });
+  siren(P, B(20), B(22));
+  clock(P, 960, 450, 210, 13 * 60 + 48, 15 * 60 + 28, B(20) + 0.2, B(20) + 0.4, W(20, "3시") + 0.6, B(22));
+  big(P, "13:48 → <span class='rd'>15:28</span>", 960, 760, W(20, "3시") - 0.2, null, 80);
+  big(P, "1시간 40분", 960, 170, S(21), null, 104, true);
+  K.cut(S(21) + 1.2, "1장 1시간 40분");
+}
+{ // 22~25 — 아무도 없던 순간: 희미한 김 씨가 안개 속으로 · 원인 '?'
+  const P = trail(B(22), B(26), { tint: "gray", drift: 0 });
+  const h = 330, v = -pxs(h, 0.5);
+  actor(P, [{ t0: B(22), t1: S(24), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 3.4, x: 1050, v, y: GY, h, ghost: true }]);
+  bubble(P, at(1050, v, B(22), S(22) + 0.3), GY - 370, "?", S(22) + 0.3, S(23) + 0.8, "sym");
+  focus(P, S(23), 900, 640, 1.2, 3, "sine.inOut");
+  particles(P, S(23) - 0.5, B(26), "mist", 26);
+  big(P, "<span class='mu'>원인</span> ?", 960, 400, S(24), B(25) + 0.3, 130, true);
+  K.cut(S(23) + 2, "1장 아무도 없었다"); K.cut(S(24) + 1.5, "1장 원인");
+}
 
-/* ═══════════ 마무리 (107~111) ═══════════ */
-{ const useS = HAS(T1, "SIL-04-COMP-WALK", "SIL-01-KIM-WALK");
-  const P = useS ? plate(B(107), END, T1, { shade: 0.3, shadeAt: S(109), keep: true }) : photo(B(107), END, "DOC-24-END.jpg", "out", { mark: "재연", shade: 0.3, shadeAt: S(109), keep: true });
+/* ═══════════ 2장 숫자로 본 등산 중 심정지 (26~37) ═══════════ */
+{ // 26~33 — 산 곳곳에 핀이 떨어짐 → 167명 아이콘 → 84명 빨강 · 54명 회색 → 절반
+  const P = shot(B(26), B(34), "DOC-20-RIDGE", { mark: false, drift: 0.05 });
+  chtag(P, "숫자로 본 등산 중 심정지", S(27), S(29));
+  [[420, 560], [760, 470], [1080, 600], [1330, 430], [1580, 560], [600, 700], [1250, 720]].forEach(([x, y], i) => fadeOut(pin(P, x, y, S(26) + 0.1 + i * 0.18), S(28)));
+  const dim = fxl(P, "background:rgba(3,6,14,.78);opacity:0");
+  tl.to(dim, { opacity: 1, duration: 0.6 }, S(28));
+  const G = people(P, 167, 20, 110, 200, 40, 12);
+  appear(G.out, S(29), 0.008, 0.6);
+  big(P, "167명<small>10년 동안 숨진 사람</small>", 1520, 300, S(29) + 0.3, null, 104);
+  paint(G.out.slice(0, 84), "#FF4D3D", W(30, "84명"), 0.012);
+  tl.to(G.out.slice(0, 84), { opacity: 1, duration: 0.3 }, W(30, "84명"));
+  big(P, "<span class='rd'>84명</span><small>심장 돌연사</small>", 1520, 520, W(30, "84명"), null, 104);
+  paint(G.out.slice(84, 138), "#7F91AD", W(31, "54명"), 0.012);
+  big(P, "<span class='mu'>54명</span><small>추락</small>", 1520, 730, W(31, "54명"), null, 90);
+  tl.to(G.out.slice(84), { opacity: 0.18, duration: 0.5 }, S(32));
+  big(P, "<span class='rd'>절반</span>", 630, 470, W(32, "절반"), B(33), 200, true);
+  lbl(P, "한라산은 이 숫자에 없음", 630, 470, S(33) + 0.2, null, "yl");
+  K.cut(S(26) + 1.5, "2장 핀"); K.cut(S(31) + 2, "2장 84 대 54"); K.cut(S(32) + 1.5, "2장 절반");
+}
+{ // 34~35 — 2025년 3월 성판악 오르막 (오르다 멈춤 · 빨간 번쩍 · 심전도 평평)
+  const useS = HAS("PLT-04-SLOPE-UP", "SIL-09-SLOPE");
+  const P = shot(B(34), B(36), useS ? "PLT-04-SLOPE-UP" : "DOC-16-SEONGPANAK", { drift: 0.04 });
+  const tc = W(35, "심정지");
   if (useS) {
-    const h = 300, v = pxs(h, 0.7);
-    actor(P.sc, [{ t0: B(107), t1: END, sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2, x: 700, v: v * 0.42, y: GY1 - 20, h }]);
-    actor(P.sc, [{ t0: B(107), t1: END, sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 3, x: 200, v: v * 0.42, y: GY1 - 20, h }]);
+    const h = 250, v = pxs(h, 0.45) * 0.55, yUp = slopeFor("PLT-04-SLOPE-UP");
+    actor(P, [{ t0: B(34), t1: tc, sheet: "SIL-09-SLOPE", frames: [1, 2, 3], fps: 3, x: 1150, v, yAt: yUp, h },
+              { t0: tc, t1: B(36), sheet: "SIL-08-SIGNS", frames: [2], x: at(1150, v, B(34), tc), yAt: yUp, h }]);
   }
-  quote(P.sc, "“몸이 좋지 않아, 먼저 내려가겠다”", "누구나 한 번쯤 해 본 말", S(107), B(110) + 0.35, useS ? "QTOP" : "QUOTE");
-  const C = on(P.sc, "WORDS", "words", `<div class="w">심장 점검</div><div class="w">멈추고</div><div class="w">알리고</div><div class="w">혼자가 되지 않기</div>`, S(110) - 0.2, null);
-  const ws = C.querySelectorAll(".w"); gsap.set(ws, { opacity: 0 });
-  ["심장을", "멈추고", "알리고", "혼자가"].forEach((w, i) => tl.to(ws[i], { opacity: 1, duration: 0.3 }, W(110, w) - 0.1));
-  K.cut(S(108) + 1, "마무리 말"); K.cut(S(110) + 4, "마무리 네 낱말"); K.cut(END - 1, "끝 화면"); }
+  stamp(P, "2025. 3", "한라산 성판악", S(35), null);
+  ecg(P, S(35), B(36), { y: 190, x: 1150, w: 650, flatAt: tc });
+  flash(P, tc, "#FF2A2A"); tintTo(P, tc, "gray", 0.8);
+  K.cut(E(35) - 0.3, "2장 성판악 2025");
+}
+{ // 36 — 2026년 10월 성판악 하산길
+  const useS = HAS("PLT-05-SLOPE-DOWN", "SIL-09-SLOPE");
+  const P = shot(B(36), B(37), useS ? "PLT-05-SLOPE-DOWN" : "DOC-19-HALLA-AUTUMN", { drift: 0.04 });
+  if (useS) actor(P, [{ t0: B(36), t1: B(37), sheet: "SIL-09-SLOPE", frames: [4, 5, 6], fps: 3, x: 1560, v: -pxs(250, 0.5) * 0.6, yAt: slopeFor("PLT-05-SLOPE-DOWN"), h: 250 }]);
+  stamp(P, "2026. 10", "한라산 성판악", S(36), null);
+  flash(P, W(36, "심정지"), "#FF2A2A"); tintTo(P, W(36, "심정지"), "gray", 0.8);
+  K.cut(E(36) - 0.3, "2장 성판악 2026");
+}
+{ // 37 — 왜? (몸 그림의 심장으로 파고듦)
+  const P = shot(B(37), B(38), "MED-14-BODY", { mark: "g", drift: 0 });
+  focus(P, S(37), 960, 470, 1.9, Math.max(1, E(37) - S(37)), "power2.in");
+  big(P, "왜?", 960, 760, S(37) + 0.6, null, 150, true);
+  K.cut(E(37) - 0.2, "2장 왜");
+}
+
+/* ═══════════ 3장 등산 중 심장이 멈추는 이유 (38~45) ═══════════ */
+{ // 38~41 — 겉은 멀쩡한 등산객 · 엑스레이 렌즈 속 혈관이 좁아지고 막힘
+  const P = trail(B(38), B(42), { drift: 0 });
+  chtag(P, "등산 중 심장이 멈추는 이유", B(38) + 0.2, S(40));
+  const hx = 760, h = 440, fy = GY + 60;
+  actor(P, [{ t0: B(38), t1: B(42), sheet: "SIL-08-SIGNS", frames: [1], x: hx, y: fy, h }]);
+  if (HAS("MED-S-STATES")) {
+    const cx = hx + 10, cy = fy - h * 0.66, lx = hx + 380, ly = fy - h * 0.86;
+    const ring = el(`<div class="ring" data-slot="FX" style="left:${cx - 40}px;top:${cy - 40}px;width:80px;height:80px;color:rgba(120,220,255,.95);box-shadow:0 0 18px rgba(120,220,255,.8)"></div>`, P.world);
+    life(ring, S(39) - 0.4, null, true);
+    const ln = el(`<svg data-slot="FX" style="position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:visible" viewBox="0 0 1920 1080"><line x1="${cx + 30}" y1="${cy - 25}" x2="${lx - 120}" y2="${ly + 60}" stroke="rgba(120,220,255,.9)" stroke-width="5"/></svg>`, P.world);
+    life(ln, S(39) - 0.3, null);
+    lens(P, lx, ly, 150, MEDS(1), S(39) - 0.2, null, [[W(39, "좁아질") - 0.1, MEDS(2)], [W(41, "담배"), MEDS(3)]]);
+  }
+  lbl(P, "겉으로는 건강", hx - 60, fy - h - 50, S(40), S(41), "tl", true);
+  [["고혈압", "고혈압"], ["당뇨", "당뇨"], ["콜레스테롤", "높은"], ["담배", "담배"]].forEach((r, i) =>
+    lbl(P, r[0], 1330 + (i % 2) * 300, 320 + Math.floor(i / 2) * 110, W(41, r[1]) - 0.1, null, "rd"));
+  K.cut(S(39) + 2, "3장 렌즈 좁아짐"); K.cut(E(41) - 0.3, "3장 위험 요인");
+}
+{ // 42~44 — 오래 걷기(빨라지는 심전도) · 찬 공기(파랗게 · 눈 · 혈관 조임) · 땀(끈끈한 피)
+  const P = trail(B(42), B(45), { drift: 0 });
+  const h = 330, v = pxs(h, 0.45), x0 = 200;
+  actor(P, [{ t0: B(42), t1: B(45), sheet: "SIL-01-KIM-WALK", frames: [1, 2, 3, 4, 5, 6], fps: 3.8, x: x0, v, y: GY, h }]);
+  ecg(P, S(42), S(43), { y: 170, x: 1100, w: 700, fast: true });
+  tintTo(P, S(43), "cold", 0.8);
+  particles(P, S(43), B(45), "snow", 44);
+  if (HAS("MED-S-STATES")) {
+    lens(P, 1560, 330, 160, MEDS(4), S(43) + 0.1, S(44) + 0.2, [[W(43, "혈관") + 0.2, MEDS(5)]]);
+    lens(P, 1560, 330, 160, MEDS(6), S(44) + 0.2, null);
+  }
+  sweat(P, at(x0, v, B(42), S(44)) + 20, GY - 320, S(44), B(45));
+  lbl(P, "찬 공기", 1560, 550, S(43) + 0.2, S(44) + 0.2, "mu");
+  lbl(P, "끈끈한 피", 1560, 550, S(44) + 0.4, null, "rd");
+  K.cut(S(42) + 1.5, "3장 오래 걷기"); K.cut(S(43) + 1.5, "3장 찬 공기"); K.cut(S(44) + 2, "3장 끈끈한 피");
+}
+{ // 45 — 심장이 멈추기 전, 신호는?
+  const P = shot(B(45), B(46), "MED-14-BODY", { mark: "g", drift: 0.05 });
+  glow(P, 960, 470, 160, "rgba(255,70,60,.85)", S(45), null, true);
+  big(P, "신호?", 960, 770, S(45) + 0.8, null, 130, true);
+  K.cut(E(45) - 0.2, "3장 신호?");
+}
+
+/* ═══════════ 4장 심정지 전 몸이 보내는 신호 (46~56) ═══════════ */
+{ // 46~49 — 등산객 몸 위에 신호가 켜짐 (가슴·명치 빛 · 식은땀 · 숨 · 팔·턱·등으로 번지는 줄)
+  const P = trail(B(46), B(50), { drift: 0, tint: "dark" });
+  chtag(P, "심정지 전 몸이 보내는 신호", B(46) + 0.2, S(48));
+  const hx = 820, h = 560, fy = GY + 140;
+  actor(P, [{ t0: B(46), t1: W(47, "명치") - 0.2, sheet: "SIL-08-SIGNS", frames: [2], x: hx, y: fy, h },
+            { t0: W(47, "명치") - 0.2, t1: W(48, "식은땀") - 0.2, sheet: "SIL-08-SIGNS", frames: [3], x: hx, y: fy, h },
+            { t0: W(48, "식은땀") - 0.2, t1: S(49), sheet: "SIL-08-SIGNS", frames: [5], x: hx, y: fy, h },
+            { t0: S(49), t1: B(50), sheet: "SIL-08-SIGNS", frames: [4], x: hx, y: fy, h }]);
+  const cy = fy - h * 0.66, gyy = fy - h * 0.55;
+  glow(P, hx + 10, cy, 70, "rgba(255,60,50,.85)", W(47, "가슴") - 0.1, null, true);
+  glow(P, hx + 10, gyy, 52, "rgba(255,150,50,.8)", W(47, "명치") - 0.1, null, true);
+  sweat(P, hx + 30, fy - h * 0.97, W(48, "식은땀") - 0.1, B(50));
+  rings(P, hx + 90, fy - h * 0.86, W(48, "숨이") - 0.1, S(49) + 0.4, "#CFE6FF", true);
+  rays(P, hx + 10, cy, [[hx + 150, fy - h * 0.44, W(49, "팔")], [hx + 50, fy - h * 0.88, W(49, "턱")], [hx - 120, fy - h * 0.72, W(49, "등으로")]], null);
+  [["가슴 조임", 330, W(47, "가슴")], ["명치 막힘", 430, W(47, "명치")], ["식은땀", 530, W(48, "식은땀")], ["심한 숨참", 630, W(48, "숨이")], ["팔 · 턱 · 등", 730, W(49, "팔")]]
+    .forEach(r => lbl(P, r[0], 1450, r[1], r[2] - 0.1, null, "rd"));
+  K.cut(S(47) + 2.5, "4장 가슴·명치"); K.cut(S(49) + 2.5, "4장 번짐");
+}
+{ // 50 — "조금 쉬면 괜찮겠지" 생각 풍선 (신호를 넘김)
+  const P = trail(B(50), B(51), { drift: 0.04 });
+  actor(P, [{ t0: B(50), t1: B(51), sheet: "SIL-08-SIGNS", frames: [6], x: 900, y: GY, h: 360 }]);
+  glow(P, 910, GY - 230, 60, "rgba(255,60,50,.7)", B(50), null, true);
+  bubble(P, 960, GY - 360, "조금 쉬면 괜찮겠지", S(50) + 0.2, null, "think");
+  K.cut(S(50) + 2, "4장 괜찮겠지");
+}
+{ // 51~54 — 심정지가 온 사람들 · 절반은 4주 안에 신호 · 구급차를 먼저 부른 사람은 5명 중 1명도 안 됨
+  const P = shot(B(51), B(55), "DOC-21-CITY", { mark: false, tint: "dark", drift: 0.04 });
+  const G = people(P, 30, 10, 490, 250, 70, 24);
+  appear(G.out, S(51) + 0.3, 0.03, 0.7);
+  lbl(P, "35~65세", 960, 180, W(52, "35세") - 0.1, B(53));
+  paint(G.out.slice(0, 15), "#FFD400", W(52, "절반"), 0.04);
+  big(P, "<span class='yl'>절반</span> · 4주 안에 신호", 960, 720, W(52, "4주") - 0.1, B(53), 80);
+  tl.to(G.L, { opacity: 0, duration: 0.3 }, B(53));
+  big(P, "가슴 통증 · 숨참", 960, 470, S(53) + 0.1, B(54), 110, true);
+  const F = people(P, 5, 5, 590, 330, 130, 40);
+  appear(F.out, S(54), 0.08, 0.7);
+  lbl(P, "구급차를 먼저 부른 사람", 960, 220, S(54) + 0.3, null);
+  big(P, "<span class='rd'>5명 중 1명도 안 됨</span>", 960, 720, W(54, "다섯") - 0.1, null, 84, true);
+  K.cut(W(52, "4주") + 1, "4장 절반 4주"); K.cut(E(54) - 0.3, "4장 5명 중 1명");
+}
+{ // 55~56 — 김 씨는? (희미하게) → 혼자 먼저 내려가면? (빨갛게)
+  const P = trail(B(55), B(57), { tint: "gray", drift: 0.04 });
+  const v = -pxs(330, 0.55);
+  actor(P, [{ t0: B(55), t1: B(57), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 3.5, x: 1150, v, y: GY, h: 330, ghost: true }]);
+  bubble(P, at(1150, v, B(55), S(55) + 0.2), GY - 370, "?", S(55) + 0.2, S(56), "sym");
+  tintTo(P, S(56), "red", 0.8);
+  K.cut(S(55) + 1.5, "4장 김 씨는?"); K.cut(E(56) - 0.3, "4장 혼자 먼저는");
+}
+
+/* ═══════════ 5장 혼자 먼저 내려가면 위험한 이유 (57~70) ═══════════ */
+{ // 57~59 — ① 계속 걷게 됨: 걸을수록 빨라지는 심전도 · 빨간 맥
+  const P = trail(B(57), B(60), { drift: 0 });
+  chtag(P, "혼자 먼저 내려가면 위험한 이유", B(57) + 0.2, S(59));
+  const h = 330;
+  actor(P, [{ t0: B(57), t1: B(60), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 3.8, x: 1550, v: -pxs(h, 0.6), y: GY, h }]);
+  big(P, "①", 220, 300, S(58), null, 150, true);
+  ecg(P, S(58), B(60), { y: 200, x: 1100, w: 700, fast: true });
+  redPulse(P, S(59), B(60), 0.4, 124);
+  K.cut(S(59) + 1, "5장 계속 걷기");
+}
+{ // 60~62 — ② 혼자: 다가가는 카메라 · 119 ✕ · 번쩍 → 의식이 꺼지는 검은 원
+  const P = trail(B(60), B(63), { tint: "gray", drift: 0 });
+  const h = 330, v = -pxs(h, 0.45);
+  big(P, "②", 220, 300, S(60), null, 150, true);
+  actor(P, [{ t0: B(60), t1: B(63), sheet: "SIL-03-KIM-WALK-BACK", frames: [1, 2, 3, 4, 5, 6], fps: 3, x: 1150, v, y: GY, h }]);
+  focus(P, S(61), at(1150, v, B(60), S(61) + 1), GY - 170, 1.5, 1.6);
+  lbl(P, "119 <span class='rd'>✕</span>", 1450, 330, W(61, "119") - 0.1, null);
+  flash(P, W(62, "의식") - 0.2, "#FF2A2A");
+  shake(P, W(62, "의식") - 0.2, 0.5, 12);
+  iris(P, W(62, "의식"), Math.max(0.8, E(62) - W(62, "의식") + 0.2), 960, 520);
+  K.cut(S(61) + 1.5, "5장 혼자"); K.cut(E(62) - 0.1, "5장 의식 꺼짐");
+}
+{ // 63 — 4분 (뇌 그림이 어두워지고 빨간 고리가 참)
+  const P = shot(B(63), B(64), "MED-15-BRAIN", { mark: "g", drift: 0.04 });
+  const dim = fxl(P, "background:radial-gradient(circle at 56% 34%,rgba(5,8,20,0) 0%,rgba(5,8,20,.88) 44%);opacity:0");
+  tl.to(dim, { opacity: 1, duration: 3, ease: "none" }, S(63));
+  const C = el(`<svg data-slot="FX" style="position:absolute;left:140px;top:230px;width:500px;height:500px" viewBox="0 0 560 560"><circle cx="280" cy="280" r="220" fill="rgba(7,11,22,.75)" stroke="rgba(255,255,255,.25)" stroke-width="12"/><path class="arc" d="M280 60 A220 220 0 1 1 279.9 60" fill="none" stroke="#FF5A4E" stroke-width="26" stroke-linecap="round" pathLength="100" stroke-dasharray="0 100"/><text class="num" x="280" y="325" text-anchor="middle" font-size="140" font-weight="900" fill="#fff">0분</text></svg>`, P.sc);
+  life(C, S(63) - 0.1, null, true);
+  const arc = C.querySelector(".arc"), num = C.querySelector(".num"), st = { v: 0 };
+  tl.fromTo(st, { v: 0 }, { v: 4, duration: Math.max(1, E(63) - W(63, "4분")), ease: "none", onUpdate: () => { arc.setAttribute("stroke-dasharray", `${(st.v * 25).toFixed(1)} 100`); num.textContent = `${Math.min(4, Math.floor(st.v + 0.001))}분`; } }, W(63, "4분") - 0.3);
+  K.cut(E(63) - 0.2, "5장 4분");
+}
+{ // 64 — 옆 사람이 가슴을 누름 (누를 때마다 청록 고리 · 심전도가 돌아옴)
+  const T6 = "PLT-06-CLEARING", useS = HAS(T6, "SIL-10-CPR");
+  const P = shot(B(64), B(65), useS ? T6 : "DOC-23-SIT", { drift: 0.03 });
+  if (useS) { actor(P, [{ t0: B(64), t1: B(65), sheet: "SIL-10-CPR", frames: [1, 2], fps: 3.7, x: 960, y: gy(T6), h: 300 }]); rings(P, 900, gy(T6) - 90, S(64), B(65), "#2ED3BB", true); }
+  ecg(P, W(64, "눌러") + 0.2, B(65), { y: 200, x: 1100, w: 700 });
+  K.cut(S(64) + 2.2, "5장 가슴 압박");
+}
+{ // 65~67 — 100명씩 두 표: 눌러 준 쪽 14.4명 살아남 vs 못 한 쪽 6.1명
+  const P = shot(B(65), B(68), HAS("PLT-06-CLEARING") ? "PLT-06-CLEARING" : "DOC-23-SIT", { tint: "dark", drift: 0.03, mark: false });
+  const L = people(P, 100, 10, 290, 340, 32, 8), R = people(P, 100, 10, 1250, 340, 32, 8);
+  appear(L.out, S(65) + 0.4, 0.006, 0.45); appear(R.out, S(65) + 0.6, 0.006, 0.45);
+  paint(L.out.slice(0, 14), "#2ED3BB", W(66, "14.4"), 0.05); tl.to(L.out.slice(0, 14), { opacity: 1, duration: 0.2 }, W(66, "14.4"));
+  paint(R.out.slice(0, 6), "#FF5A4E", W(67, "6.1"), 0.05); tl.to(R.out.slice(0, 6), { opacity: 1, duration: 0.2 }, W(67, "6.1"));
+  big(P, "<span class='tl'>14.4%</span><small>옆 사람이 눌러 줌</small>", 490, 205, W(66, "14.4") - 0.1, null, 96);
+  big(P, "<span class='rd'>6.1%</span><small>못 함</small>", 1450, 205, W(67, "6.1") - 0.1, null, 96);
+  K.cut(E(67) - 0.3, "5장 14.4 대 6.1");
+}
+{ // 68~70 — 구조가 늦은 산 · 어디서 쓰러졌는지 몰라 1시간 · 기회조차 없던 숲길
+  const T3 = "PLT-03-SEARCH-SIDE", useS = HAS(T3, "SIL-06-RESCUER");
+  const P = shot(B(68), B(71), useS ? T3 : "DOC-08-SEARCH", { drift: 0, tint: "late" });
+  if (useS) actor(P, [{ t0: B(68), t1: B(70), sheet: "SIL-06-RESCUER", frames: [1, 2, 3, 4], fps: 3, x: 160, v: pxs(260, 0.7), y: gy(T3) - 40, h: 260 }]);
+  clock(P, 1620, 330, 120, 13 * 60 + 48, 14 * 60 + 48, S(69) - 0.2, S(69), W(69, "1시간쯤") + 0.4, B(70));
+  rings(P, 960, 480, S(69), B(70), "#FFD400");
+  big(P, "?", 960, 480, S(69) + 0.3, B(70), 180, true);
+  tintTo(P, S(70), "gray", 1.2); focus(P, S(70), 960, 600, 1.2, 3);
+  K.cut(S(69) + 2, "5장 어디서"); K.cut(S(70) + 2, "5장 기회조차");
+}
+
+/* ═══════════ 6장 산에 가기 전 점검 네 가지 (71~93) ═══════════ */
+{ // 71~72 — 예방 · 네 가지 아이콘
+  const P = trail(B(71), B(73), { tint: "warm", drift: 0.05 });
+  big(P, "예방", 960, 300, S(71) + 0.3, B(72), 130, true);
+  ["heart", "moon", "cloud", "two"].forEach((k, i) => icon(P, k, 480 + i * 320, 560, 220, S(72) + 0.2 + i * 0.25, null));
+  K.cut(E(72) - 0.3, "6장 네 가지");
+}
+{ // 73~77 — ① 내 심장 (진료실 · 하나라도 → 심장 검사 묻기)
+  const T7 = "PLT-07-CLINIC", useS = HAS(T7, "SIL-11-PREP");
+  const P = shot(B(73), B(78), useS ? T7 : "DOC-22-NIGHT-PREP", { drift: 0.03 });
+  chtag(P, "① 내 심장", S(73) - 0.1, null);
+  if (useS) actor(P, [{ t0: B(73), t1: S(74), sheet: "SIL-11-PREP", frames: [2], x: 520, y: 1100, h: 600 }, { t0: S(74), t1: B(78), sheet: "SIL-11-PREP", frames: [1], x: 520, y: 1100, h: 600 }]);
+  [["혈압 · 혈당 · 콜레스테롤", W(74, "혈압")], ["담배 · 가족 심장병", S(75)], ["오르막 숨참", S(76)]].forEach((r, i) => lbl(P, r[0], 1380, 300 + i * 110, r[1] - 0.1, S(77), "yl"));
+  icon(P, "heart", 1380, 450, 220, S(77), null);
+  lbl(P, "심장 검사 필요한지 묻기", 1380, 650, S(77) + 0.3, null, "tl");
+  K.cut(S(76) + 1, "6장 ① 심장"); K.cut(S(77) + 2, "6장 ① 검사");
+}
+{ // 78~80 — ② 그날의 몸 상태 (술 · 잠 → 미루기)
+  const T8 = "PLT-08-LIVING", useS = HAS(T8, "SIL-11-PREP");
+  const P = shot(B(78), B(81), useS ? T8 : "DOC-22-NIGHT-PREP", { drift: 0.03 });
+  chtag(P, "② 그날의 몸 상태", S(78) - 0.1, null);
+  if (useS) actor(P, [{ t0: B(78), t1: B(81), sheet: "SIL-11-PREP", frames: [3], x: 560, y: gy(T8), h: 330 }]);
+  icon(P, "moon", 1300, 380, 200, W(79, "잠을") - 0.2, null);
+  lbl(P, "술 · 잠 부족 → 미루기", 1300, 580, W(79, "술을") - 0.1, null, "yl");
+  lbl(P, "산에서 술 <span class='rd'>✕</span>", 1300, 690, S(80), null);
+  K.cut(S(80) + 1, "6장 ② 몸 상태");
+}
+{ // 81~82 — ③ 날씨 (한파 눈 · 폭염 열기 · 강풍 바람)
+  const P = shot(B(81), B(83), HAS("PLT-04-SLOPE-UP") ? "PLT-04-SLOPE-UP" : "DOC-16-SEONGPANAK", { drift: 0.05 });
+  chtag(P, "③ 날씨", S(81) - 0.1, null);
+  particles(P, W(82, "한파") - 0.1, W(82, "폭염") + 0.2, "snow", 50);
+  heat(P, W(82, "폭염") - 0.1, W(82, "강풍") + 0.2);
+  wind(P, W(82, "강풍") - 0.1, B(83));
+  [["한파", W(82, "한파")], ["폭염", W(82, "폭염")], ["강풍", W(82, "강풍")]].forEach((r, i) => lbl(P, r[0], 560 + i * 400, 640, r[1] - 0.1, null, "yl"));
+  lbl(P, "특보 → 미루기", 960, 760, W(82, "미룹니다") - 0.2, null);
+  K.cut(E(82) - 0.3, "6장 ③ 날씨");
+}
+{ // 83~85 — ④ 함께 갈 사람 (예시 장면 말풍선 — 김 씨가 아닌 등산객)
+  const P = trail(B(83), B(86), { tint: "warm", drift: 0 });
+  chtag(P, "④ 함께 갈 사람", S(83) - 0.1, null);
+  const h = 330;
+  actor(P, [{ t0: B(83), t1: B(86), sheet: "SIL-05-COMP-STATES", frames: [1], x: 1250, y: GY, h }]);
+  actor(P, [{ t0: B(83), t1: B(86), sheet: "SIL-08-SIGNS", frames: [6], x: 640, y: GY, h }]);
+  bubble(P, 660, GY - 350, "나 혈압약 먹어", S(84), S(85) + 0.3);
+  bubble(P, 1280, GY - 360, "아프면 한 명은 곁에 남자", S(85) + 0.2, null);
+  focus(P, S(84), 900, GY - 200, 1.15, 1.5);
+  K.cut(S(84) + 1, "6장 ④ 약 알리기"); K.cut(S(85) + 2.5, "6장 ④ 곁에 남기");
+}
+{ // 86~89 — 산에서 몸이 안 좋을 때: 판단 상자 (자세한 설명이 필요한 곳 — 이 영상의 유일한 글 상자)
+  const P = trail(B(86), B(90), { drift: 0 });
+  actor(P, [{ t0: B(86), t1: B(90), sheet: "SIL-08-SIGNS", frames: [6], x: 1360, y: GY, h: 330 }]);
+  actor(P, [{ t0: B(86), t1: S(87), sheet: "SIL-05-COMP-STATES", frames: [1], x: 1690, y: GY, h: 330 },
+            { t0: S(87), t1: B(90), sheet: "SIL-05-COMP-STATES", frames: [3], x: 1690, y: GY, h: 330 }]);
+  rings(P, 1770, GY - 290, S(87) + 0.3, B(90), "#FFD400", true);
+  card(P, [["t", "✓", "앉아서 일행에게 알리기", S(86)],
+           ["r", "!", "신호 하나라도 → <em>그 자리에서 119</em>", W(87, "신호가")],
+           ["y", "?", "숨만 참 → 쉬어도 그대로면 신호", S(88)],
+           ["t", "✓", "신호 없이 힘듦 → 같이 천천히", S(89)]], S(86) - 0.2, null);
+  K.cut(S(87) + 2.5, "6장 판단 1"); K.cut(S(89) + 2, "6장 판단 2");
+}
+{ // 90 — 위치 표지판 번호 (빛 · 핀이 떨어지고 신호 고리)
+  const T10 = "PLT-10-SIGNPOST", hasPost = HAS(T10);
+  const P = shot(B(90), B(91), hasPost ? T10 : (HAS(T1) ? T1 : "DOC-03-FOREST"), { drift: 0 });
+  const px = hasPost ? 1400 : 1300, py = hasPost ? 600 : 640;
+  if (!hasPost) el(`<div data-slot="FX" style="position:absolute;left:${px - 9}px;top:${py - 120}px;width:18px;height:${GY - py + 120}px;background:#2B2F36;border-radius:4px"></div>`, P.world),
+    el(`<div data-slot="FX" style="position:absolute;left:${px - 60}px;top:${py - 170}px;width:120px;height:70px;background:#3A404A;border:4px solid #8D96A6;border-radius:8px"></div>`, P.world);
+  glow(P, px, py - 140, 130, "rgba(255,212,0,.85)", W(90, "위치") - 0.1, null, true);
+  pin(P, px, py - 190, W(90, "위치"));
+  rings(P, px, py - 240, W(90, "번호"), B(91), "#FFD400", true);
+  lbl(P, "위치 표지판 번호", px, py + 60, W(90, "위치") + 0.2, null, "yl", true);
+  focus(P, W(90, "위치") - 0.2, px - 100, py - 120, 1.35, 1.4);
+  K.cut(E(90) - 0.3, "6장 위치 표지판");
+}
+{ // 91~92 — 가슴 압박 · 자동심장충격기
+  const T6 = "PLT-06-CLEARING", useS = HAS(T6, "SIL-10-CPR");
+  const P = shot(B(91), B(93), useS ? T6 : "DOC-23-SIT", { drift: 0.03 });
+  if (useS) {
+    actor(P, [{ t0: B(91), t1: S(92), sheet: "SIL-10-CPR", frames: [1, 2], fps: 3.7, x: 960, y: gy(T6), h: 300 },
+              { t0: S(92), t1: B(93), sheet: "SIL-10-CPR", frames: [4], x: 960, y: gy(T6), h: 300 }]);
+    rings(P, 900, gy(T6) - 90, S(91) + 0.4, S(92) + 0.3, "#2ED3BB", true);
+    glow(P, 1180, gy(T6) - 150, 90, "rgba(46,211,187,.9)", W(92, "자동심장충격기") - 0.1, null, true);
+  }
+  lbl(P, "가슴 한가운데 · 세게", 960, 260, S(91) + 0.5, S(92), "tl");
+  lbl(P, "자동심장충격기", 960, 260, W(92, "자동심장충격기"), null, "tl");
+  K.cut(S(91) + 2, "6장 가슴 압박"); K.cut(S(92) + 2, "6장 자동심장충격기");
+}
+{ // 93 — 혼자 가야 한다면?
+  const P = trail(B(93), B(94), { drift: 0.05 });
+  actor(P, [soloSeg(3, { t0: B(93), t1: B(94), x: 900, v: pxs(330, 0.4), y: GY, h: 330 })]);
+  big(P, "혼자라면?", 960, 300, S(93) + 0.6, null, 120, true);
+  K.cut(E(93) - 0.3, "6장 혼자라면");
+}
+
+/* ═══════════ 7장 혼자 산에 가야 한다면 (94~102) ═══════════ */
+{ // 94~97 — 출발 전: 찾아 줄 사람 · 코스와 시각 → 연락 없으면 대신 119 · 충전 · 위치 공유
+  const T2 = "PLT-02-ENTRANCE-SIDE", gp = HAS(T2) ? gy(T2) : 860;
+  const P = shot(B(94), B(98), HAS(T2) ? T2 : "DOC-02-ENTRANCE", { drift: 0.03 });
+  chtag(P, "혼자 산에 가야 한다면", B(94) + 0.2, null);
+  actor(P, [soloSeg(1, { t0: B(94), t1: B(98), x: 640, y: gp, h: 330 })]);
+  rings(P, 700, gp - 240, S(94) + 0.4, S(96), "#2ED3BB", true);
+  lbl(P, "어느 코스 · 몇 시에", 1380, 300, W(95, "코스") - 0.2, S(96));
+  clock(P, 1380, 470, 120, 15 * 60, 17 * 60, S(96) - 0.1, S(96) + 0.2, W(96, "119"), S(97));
+  lbl(P, "연락 없으면 → 대신 119", 1380, 660, W(96, "119") - 0.2, S(97), "yl");
+  pin(P, 650, gp - 370, W(97, "위치"), "#2ED3BB");
+  rings(P, 650, gp - 420, W(97, "위치") + 0.3, B(98), "#2ED3BB", true);
+  lbl(P, "충전 · 위치 공유", 1380, 470, S(97) + 0.2, null, "tl");
+  K.cut(S(95) + 2, "7장 코스·시각"); K.cut(S(96) + 2, "7장 대신 119"); K.cut(S(97) + 2, "7장 위치 공유");
+}
+{ // 98 — 하지만 심정지는 몇 분 싸움 (빨간 맥)
+  const P = trail(B(98), B(99), { tint: "red", drift: 0.05 });
+  redPulse(P, S(98), B(99), 0.55, 110);
+  big(P, "몇 분", 960, 450, S(98) + 0.4, null, 170, true);
+  K.cut(E(98) - 0.3, "7장 몇 분");
+}
+{ // 99~101 — 사람이 다니는 큰 길 · 신호가 오면 멈추고 119 · 지나가는 등산객에게 말 걸기
+  const P = trail(B(99), B(102), { drift: 0 });
+  const h = 330, v = pxs(h, 0.4), x0 = 420, xs = at(x0, v, B(99), S(100)), tIn = S(100) - 0.5, vp = -pxs(h * 0.9, 0.7);
+  actor(P, [soloSeg(3, { t0: B(99), t1: S(100), x: x0, v, y: GY, h }), soloSeg(4, { t0: S(100), t1: W(100, "119") - 0.3, x: xs, y: GY, h }),
+            soloSeg(5, { t0: W(100, "119") - 0.3, t1: S(101), x: xs, y: GY, h }), soloSeg(6, { t0: S(101), t1: B(102), x: xs, y: GY, h })]);
+  const xp1 = Math.max(1350, at(2200, vp, tIn, S(101) + 0.8));
+  actor(P, [{ t0: tIn, t1: S(101) + 0.8, sheet: "SIL-04-COMP-WALK", frames: [1, 2, 3, 4], fps: 2.6, x: 2200, v: (xp1 - 2200) / (S(101) + 0.8 - tIn), y: GY, h: h * 0.9, flip: true },
+            { t0: S(101) + 0.8, t1: B(102), sheet: "SIL-04-COMP-WALK", frames: [2], x: xp1, y: GY, h: h * 0.9, flip: true }]);
+  lbl(P, "사람이 다니는 큰 길", 1300, 260, S(99) + 0.2, S(100), "tl");
+  glow(P, xs + 8, GY - 215, 70, "rgba(255,60,50,.9)", S(100) + 0.2, S(101), true);
+  rings(P, xs + 60, GY - 300, W(100, "119") - 0.3, S(101), "#FF5A4E", true);
+  lbl(P, "멈추고 바로 119", 1300, 260, S(100) + 0.3, S(101), "rd");
+  bubble(P, xs + 40, GY - 360, "몸이 좀 안 좋아요", W(101, "말을") - 0.4, null);
+  K.cut(S(99) + 1.5, "7장 큰 길"); K.cut(S(100) + 2, "7장 멈춰 119"); K.cut(S(101) + 2.5, "7장 말 걸기");
+}
+{ // 102 — 첫 번째 점검에 걸렸는데 확인 전이면 혼자 산행 ✕
+  const P = trail(B(102), B(103), { tint: "gray", drift: 0.04 });
+  actor(P, [soloSeg(3, { t0: B(102), t1: B(103), x: 900, v: pxs(330, 0.3), y: GY, h: 330 })]);
+  icon(P, "heart", 860, 330, 200, S(102) + 0.3, null);
+  big(P, "<span class='rd'>✕</span>", 1080, 330, W(102, "혼자") - 0.1, null, 150, true);
+  K.cut(E(102) - 0.3, "7장 혼자 산행 ✕");
+}
+
+/* ═══════════ 마무리 (103~104) — 같이 쉬어 가는 길 ═══════════ */
+{ const P = trail(B(103), S(104) - 0.2, { tint: "warm", drift: 0 });
+  actor(P, [{ t0: B(103), t1: S(104), sheet: "SIL-08-SIGNS", frames: [6], x: 820, y: GY, h: 330 }]);
+  actor(P, [{ t0: B(103), t1: S(104), sheet: "SIL-05-COMP-STATES", frames: [1], x: 1180, y: GY, h: 330 }]);
+  const sun = fxl(P, "background:radial-gradient(circle at 75% 10%,rgba(255,210,120,.55),rgba(0,0,0,0) 55%);opacity:0");
+  tl.to(sun, { opacity: 1, duration: 2 }, B(103));
+  focus(P, B(103) + 0.5, 1000, GY - 150, 1.18, 5, "sine.inOut"); }
+{ const P = shot(S(104) - 0.5, END, "DOC-24-END", { keep: true, drift: 0.05 });
+  K.cut(S(103) + 2, "마무리 같이 쉬기"); K.cut(END - 1, "끝 화면"); }
 
 K.done();
 })();

@@ -7,6 +7,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.2 | 2026-11-27 | 새 그림 SIL-12-SOLO · PLT-09-DROPPED · PLT-10-SIGNPOST 목록 (images_chatgpt_states2.md) | SHEETS · PLATES |
 # | v1.1 | 2026-11-26 | ANCHOR (left) | cut_cells · build_strip |
 # | v1.0 | 2026-11-26 | 최초 — 흰 바탕 → 투명 · 칸 자르기 · 몸통 가운데·발바닥 맞춤 · MED 칸 자르기 · have.js | load_alpha · cut_cells · build_strip · main |
 """실루엣 시트를 영상 부품으로 바꾼다 (원본 그림은 고치지 않음).
@@ -29,20 +30,20 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 # 시트 이름 → (칸 가로 수, 칸 세로 수) — 요청 파일의 GRID 와 같게
 SHEETS = {
     "SIL-01-KIM-WALK": (3, 2), "SIL-02-KIM-STATES": (3, 2), "SIL-03-KIM-WALK-BACK": (3, 2),
     "SIL-04-COMP-WALK": (2, 2), "SIL-05-COMP-STATES": (2, 2), "SIL-06-RESCUER": (3, 2),
     "SIL-07-STRETCHER": (2, 2), "SIL-08-SIGNS": (3, 2), "SIL-09-SLOPE": (3, 2),
-    "SIL-10-CPR": (2, 2), "SIL-11-PREP": (3, 2),
+    "SIL-10-CPR": (2, 2), "SIL-11-PREP": (3, 2), "SIL-12-SOLO": (3, 2),
 }
 MED = {"MED-S-STATES": (3, 2)}
 # 칸 맞춤 기준 — 기본 = 몸통 가운데(위 45% 무게 중심) · "left" = 그림 왼쪽 끝 (칸마다 다른 사람·물건이 붙는 시트)
 ANCHOR = {"SIL-10-CPR": "left", "SIL-11-PREP": "left"}
 PLATES = ["PLT-01-TRAIL-SIDE", "PLT-02-ENTRANCE-SIDE", "PLT-03-SEARCH-SIDE", "PLT-04-SLOPE-UP",
-          "PLT-05-SLOPE-DOWN", "PLT-06-CLEARING", "PLT-07-CLINIC", "PLT-08-LIVING"]
+          "PLT-05-SLOPE-DOWN", "PLT-06-CLEARING", "PLT-07-CLINIC", "PLT-08-LIVING", "PLT-09-DROPPED", "PLT-10-SIGNPOST"]
 WHITE, BLACK = 232, 40          # 이 밝기 위는 투명, 아래는 불투명 (사이는 부드러운 가장자리)
 PAD = 12                        # 프레임 둘레 여백 (px)
 

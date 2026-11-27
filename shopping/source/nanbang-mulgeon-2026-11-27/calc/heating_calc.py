@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10 — 2026-11-27 — 쇼츠 반론 3회차: generous_breakeven_heating = 넉넉히 친 가정(4시간에 난방비 절반)에서 히터 전기요금과 아낀 가스비가 같아지는 난방비 (7만 7,200 × 2 = 15만 4,400 → '약 15만 원'). 다른 값 그대로.
+# VERSION: v1.11 — 2026-11-27 — 쇼츠 반론 4회차: ① low_base_example = 평소 150킬로와트시 집에 히터를 더하면 (390 — 400 아래) 더 나오는 전기요금 → 넉넉히 친 가스비 6만 원보다 적어 결과가 달라짐을 확인 ② rule_heater = 어림 700원을 히터에 그대로 쓴 값(80배 5만 6,000원) < 실제 7만 7,200원 — 어림에는 누진이 빠짐을 확인. 다른 값 그대로.
+# (v1.10 — 2026-11-27 — 쇼츠 반론 3회차: generous_breakeven_heating = 넉넉히 친 가정(4시간에 난방비 절반)에서 히터 전기요금과 아낀 가스비가 같아지는 난방비 (7만 7,200 × 2 = 15만 4,400 → '약 15만 원'). 다른 값 그대로.
 # (v1.9 — 2026-11-27 — 쇼츠 반론 2회차: net_generous = 히터 전기요금 − 넉넉히 친 가스비 (1만 7,200원 — 아낀 가스비를 빼도 더 내는 돈). 다른 값 그대로.
 # (v1.8 — 2026-11-27 — 쇼츠 반론 1회차: generous_4h = 히터 켜는 4시간에 한 달 난방비의 절반을 쓴다고 넉넉히 칠 때 보일러를 꺼서 아끼는 최대 (6만 원 — 고르게 쓴다는 가정 없이도 히터 손해가 남는지) · say_base_man (평소 전기요금 약 5만 원). 다른 값 그대로.
 # (v1.7 — 2026-11-27 — 쇼츠 대본용 ratios.heater_vs_carbon_elec (히터 ÷ 탄소매트 한 달 전기요금 = 9.1 — '아홉 배 넘게'). 다른 값 그대로.
@@ -23,7 +24,7 @@ import logging
 import sys
 from datetime import datetime, timezone
 
-VERSION = "v1.10"
+VERSION = "v1.11"
 LOG = logging.getLogger("heating_calc")
 
 SOURCES = {
@@ -145,6 +146,10 @@ def compute(a=None):
     out["say_base_man"] = say_man(base_bill)
     out["net_generous"] = r["heater"]["elec_extra"] - out["generous_4h"]
     out["say_net_generous"] = say(out["net_generous"])
+    low_base = 150
+    out["low_base_example"] = {"base_kwh": low_base, "total_kwh": low_base + r["heater"]["kwh"], "tier_after": tier_of(low_base + r["heater"]["kwh"]),
+                               "elec_extra": elec_bill(low_base + r["heater"]["kwh"]) - elec_bill(low_base)}
+    out["rule_heater"] = {"times": r["heater"]["watt"] / a["rule_watt"] * r["heater"]["hours"], "won": round(700 * r["heater"]["watt"] / a["rule_watt"] * r["heater"]["hours"])}
     out["generous_breakeven_heating"] = r["heater"]["elec_extra"] * 2
     out["say_generous_breakeven_heating"] = say_man(out["generous_breakeven_heating"])
     out["base_jump_3"] = round((t[2][1] - t[1][1]) * vat)
@@ -182,6 +187,8 @@ def selftest():
     assert o["ratios"]["heater_vs_carbon_elec"] == 9.1
     assert o["generous_4h"] == 60000 and o["generous_4h"] < r["heater"]["elec_extra"], "넉넉히 쳐도 히터 전기요금이 더 큼"
     assert o["say_base_man"] == "약 5만 원"
+    assert o["low_base_example"]["tier_after"] == 2 and o["low_base_example"]["elec_extra"] < o["generous_4h"], o["low_base_example"]
+    assert o["rule_heater"]["won"] == 56000 < r["heater"]["elec_extra"], "어림은 누진을 빼서 히터에서 모자람"
     assert o["generous_breakeven_heating"] == 154400 and o["say_generous_breakeven_heating"] == "약 15만 원"
     assert o["net_generous"] == 17200 and o["say_net_generous"] == "1만 7,200원"
     assert o["rule_x10"]["times"] == 10 and o["rule_x10"]["say"] == "약 7,000원"

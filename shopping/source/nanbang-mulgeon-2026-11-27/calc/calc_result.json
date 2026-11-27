@@ -142,6 +142,16 @@
  "say_base_man": "약 5만 원",
  "net_generous": 17200,
  "say_net_generous": "1만 7,200원",
+ "low_base_example": {
+  "base_kwh": 150,
+  "total_kwh": 390.0,
+  "tier_after": 2,
+  "elec_extra": 52210
+ },
+ "rule_heater": {
+  "times": 80.0,
+  "won": 56000
+ },
  "generous_breakeven_heating": 154400,
  "say_generous_breakeven_heating": "약 15만 원",
  "base_jump_3": 6270,
@@ -152,7 +162,7 @@
   "heat_vs_us_humid_elec": 10.0,
   "heater_vs_carbon_elec": 9.1
  },
- "version": "v1.10",
+ "version": "v1.11",
  "sources": {
   "elec_tiers": {
    "value": "[(200, 910, 120.0), (400, 1600, 214.6), (None, 7300, 307.3)]",

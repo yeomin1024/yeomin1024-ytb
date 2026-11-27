@@ -96,20 +96,51 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 4,
+      "at": "2026-11-27T08:15:00Z",
+      "sha": "27490634df08f557",
+      "reviewers": [
+       {
+        "reviewer": "E4-P1",
+        "persona": "P1",
+        "exits": [
+         {
+          "line": 6,
+          "why": "5만·12만·7만7,200원 뒤에 '12만 원의 절반'까지 숫자가 줄줄이 나와 머리가 복잡함 — 왜 절반으로 치는지 풀이가 없어 잠깐 넘길까 싶었음 (7번 줄에서 결론이 나와 다시 붙잡힘)"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "2번 줄 — 난방비 아끼려고 히터 산 게 오히려 한 달 7만 원 넘게 더 나온다니, 딱 우리 집 얘기라 바로 붙잡힘",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [6]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.5: 절반인 까닭 '그 시간에 난방을 몰아 쓴다고 넉넉히 쳐도' · 2·3줄 합침",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r4_exit_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
     "pending": {
-     "n": 4,
-     "sha": "27490634df08f557",
+     "n": 5,
+     "sha": "0aad43d84a777591",
      "reviewers": [
-      "E4-P1"
+      "E5-P1"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r4_exit_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_4",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r5_exit_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_exit_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:12:49Z"
+     "at": "2026-11-27T08:16:08Z"
     }
    },
    "script_rebuttal": {
@@ -317,20 +348,75 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 4,
+      "at": "2026-11-27T08:15:00Z",
+      "sha": "27490634df08f557",
+      "reviewers": [
+       {
+        "reviewer": "K4-반론",
+        "persona": "반론",
+        "findings": [
+         {
+          "level": "상",
+          "k": "K7",
+          "line": 12,
+          "text": "말씀하신 대로 100와트 1시간 한 달 700원이면 2,000와트 4시간은 80배라 5만 6천 원인데, 보일러로 아낀 6만 원을 빼면 오히려 4천 원 이득 아닌가요? 앞의 7만 7,200원과 결론이 반대로 나옵니다.",
+          "fix": "700원 어림은 누진제가 빠진 값이라 많이 쓸수록 더 나온다는 것을 같은 문장에 넣거나(예: '많이 쓰면 이보다 더'), 어림 결과를 아낀 가스비와 어떻게 견주는지까지 말해 예시 집에서도 같은 결론이 나오게"
+         },
+         {
+          "level": "중",
+          "k": "K1",
+          "line": 10,
+          "text": "누진제 때문에 더 나온다면서 결과가 달라지는 조건은 난방비만 말하네요. 평소 전기를 덜 쓰는 집은 누진 구간이 낮아 더 나오는 돈도 7만 7,200원보다 적을 텐데요?",
+          "fix": "조건에 '평소 전기요금'도 넣기 — 예: '난방비가 15만 원을 넘거나 평소 전기요금이 훨씬 적은 집은 결과가 달라질 수 있습니다'"
+         },
+         {
+          "level": "하",
+          "k": "K8",
+          "line": 2,
+          "text": "'한 달 7만 원 넘게 더'는 전기요금 5만 원 집 기준인데 첫 문장은 모든 집이 그런 것처럼 말하네요.",
+          "fix": "첫 문장 끝에 조건을 짧게 붙이기 — 예: '…전기요금 5만 원 집이면 한 달 7만 원 넘게 더 나옵니다'"
+         },
+         {
+          "level": "하",
+          "k": "K3",
+          "line": 9,
+          "text": "히터는 아낀 가스비를 빼 주고 탄소매트는 전기요금만 보네요. 매트 켜고 보일러를 줄여도 가스비는 아낄 텐데 그럼 매트는 얼마 이득인가요?",
+          "fix": "'매트는 보일러를 끄지 않아도 이 정도'처럼 매트 쪽 비교 기준을 한 마디로 밝히기"
+         }
+        ],
+        "answer_clear": false,
+        "summary": "예시 집의 계산(7만 7,200 − 6만 = 1만 7,200, 매트 9분의 1)은 앞뒤가 맞지만, 마지막 700원 어림을 그대로 쓰면 같은 히터가 보일러보다 싸다고 나와 결론이 뒤집힘 — 어림에 누진제 한계를 밝혀야 옳은 선택이 분명해짐",
+        "pass": false,
+        "why": [
+         "상 1 (줄 [12])",
+         "옳은 선택이 분명하지 않음"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "v1.5 (calc v1.11): 700원 어림 + '누진 단계가 오르면 훨씬 더' · 갈림 조건에 '평소 전기를 아주 적게 쓰는 집' (150킬로와트시 집 계산으로 확인) · 첫 문장 '수 있습니다' · 매트 '보일러를 그대로 둬도'",
+      "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r4_rebuttal_prompt.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
     "path": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/nanbang-mulgeon-2026-11-27-shorts.txt",
     "pending": {
-     "n": 4,
-     "sha": "27490634df08f557",
+     "n": 5,
+     "sha": "0aad43d84a777591",
      "reviewers": [
-      "K4-반론"
+      "K5-반론"
      ],
-     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r4_rebuttal_prompt.md",
-     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_4",
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/r5_rebuttal_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/shorts/persona/answers_nanbang-mulgeon-2026-11-27-shorts_script_rebuttal_5",
      "ours_idx": null,
      "text": null,
-     "at": "2026-11-27T08:12:49Z"
+     "at": "2026-11-27T08:16:08Z"
     }
    }
   }

@@ -92,3 +92,20 @@ WORDS = [
 ]
 
 # 겹침 후보 — report·suggest·recent·big 를 읽고 Claude 가 채움 (판단 문서 result/next_topic/next_topic.md)
+
+# v1.0 (같은 날): suggest·report·트렌드(오늘의집 검색량)를 읽고 Claude 가 고른 후보 — 겨울 생활 문제 + 물건 + 이득 각도
+[[overlap]]
+key = "A"
+name = "난방비 아끼려고 산 물건, 한 달에 얼마 남나 (매트·히터·가습기·외풍 막기 — 전기요금까지 뺀 순이득)"
+queries = ["난방비 절약템", "난방비 절약 전기요금"]
+core = "난방비|난방|전기요금|전기세"
+[[overlap]]
+key = "B"
+name = "결로·곰팡이 막는 물건, 무엇이 실제로 돈과 수고를 줄이나"
+queries = ["결로 곰팡이 방지", "결로 제습기"]
+core = "결로|곰팡이"
+[[overlap]]
+key = "C"
+name = "가습기 고르기 — 초음파식·가열식 전기요금과 관리"
+queries = ["가습기 비교", "가열식 가습기 초음파 가습기"]
+core = "가습기"

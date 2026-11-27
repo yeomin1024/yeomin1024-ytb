@@ -1,0 +1,40 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "nanbang-mulgeon-2026-11-27": {
+   "script_exit": {
+    "rounds": [],
+    "path": "shopping/source/nanbang-mulgeon-2026-11-27/nanbang-mulgeon-2026-11-27.txt",
+    "pending": {
+     "n": 1,
+     "sha": "25a82d4f8d001c7b",
+     "reviewers": [
+      "E1-P1"
+     ],
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r1_exit_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/persona/answers_nanbang-mulgeon-2026-11-27_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-27T07:28:20Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "shopping/source/nanbang-mulgeon-2026-11-27/nanbang-mulgeon-2026-11-27.txt",
+    "pending": {
+     "n": 1,
+     "sha": "25a82d4f8d001c7b",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "shopping/source/nanbang-mulgeon-2026-11-27/persona/r1_rebuttal_prompt.md",
+     "answers": "shopping/source/nanbang-mulgeon-2026-11-27/persona/answers_nanbang-mulgeon-2026-11-27_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-27T07:28:20Z"
+    }
+   }
+  }
+ }
+}

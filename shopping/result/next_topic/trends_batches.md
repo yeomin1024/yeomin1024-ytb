@@ -1,0 +1,12 @@
+# 구글 트렌드 묶음 (유튜브 검색 · 한국 · 최근 12개월) — 쇼핑·생활
+
+> `tools/next_topic.py shopping` v1.0 — 클라우드는 trends.google.com 이 막힘 (환경 허용 목록 밖이면 프록시 403 · 허용해도 구글이 서버 주소 자동 요청에 HTTP 429).
+> 받는 방법 둘: ① PC 에서 `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder shopping` (tools/pc_trends.py — 묶음을 차례로 받아 GitHub 에) ② 아래 주소를 브라우저로 열기 → '시간 흐름에 따른 관심도' 오른쪽 위 ⤓(CSV) → 파일 이름을 `batch_NN.csv` 로 → `shopping/result/next_topic/trends/` 에 올리거나 채팅에 붙임.
+> 한 번에 5개까지라 묶음마다 기준 낱말 「살림」를 넣고 4개씩 → 기준 낱말 값으로 묶음끼리 이어 붙인다 (`next_topic.py shopping trends`).
+
+01. 난방비 절약, 외풍 차단, 뽁뽁이, 결로 곰팡이 — https://trends.google.com/trends/explore?date=today%2012-m&geo=KR&gprop=youtube&q=%EC%82%B4%EB%A6%BC%2C%EB%82%9C%EB%B0%A9%EB%B9%84%20%EC%A0%88%EC%95%BD%2C%EC%99%B8%ED%92%8D%20%EC%B0%A8%EB%8B%A8%2C%EB%BD%81%EB%BD%81%EC%9D%B4%2C%EA%B2%B0%EB%A1%9C%20%EA%B3%B0%ED%8C%A1%EC%9D%B4&hl=ko
+02. 가습기, 정전기, 전기요금 절약, 온수매트 — https://trends.google.com/trends/explore?date=today%2012-m&geo=KR&gprop=youtube&q=%EC%82%B4%EB%A6%BC%2C%EA%B0%80%EC%8A%B5%EA%B8%B0%2C%EC%A0%95%EC%A0%84%EA%B8%B0%2C%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88%20%EC%A0%88%EC%95%BD%2C%EC%98%A8%EC%88%98%EB%A7%A4%ED%8A%B8&hl=ko
+03. 빨래 꿀팁, 세탁기 청소, 화장실 청소, 설거지 꿀팁 — https://trends.google.com/trends/explore?date=today%2012-m&geo=KR&gprop=youtube&q=%EC%82%B4%EB%A6%BC%2C%EB%B9%A8%EB%9E%98%20%EA%BF%80%ED%8C%81%2C%EC%84%B8%ED%83%81%EA%B8%B0%20%EC%B2%AD%EC%86%8C%2C%ED%99%94%EC%9E%A5%EC%8B%A4%20%EC%B2%AD%EC%86%8C%2C%EC%84%A4%EA%B1%B0%EC%A7%80%20%EA%BF%80%ED%8C%81&hl=ko
+04. 정리 수납, 냉장고 정리, 음식 보관, 식비 절약 — https://trends.google.com/trends/explore?date=today%2012-m&geo=KR&gprop=youtube&q=%EC%82%B4%EB%A6%BC%2C%EC%A0%95%EB%A6%AC%20%EC%88%98%EB%82%A9%2C%EB%83%89%EC%9E%A5%EA%B3%A0%20%EC%A0%95%EB%A6%AC%2C%EC%9D%8C%EC%8B%9D%20%EB%B3%B4%EA%B4%80%2C%EC%8B%9D%EB%B9%84%20%EC%A0%88%EC%95%BD&hl=ko
+05. 쿠팡 추천템, 살림템, 다이소 꿀템, 겨울 필수템 — https://trends.google.com/trends/explore?date=today%2012-m&geo=KR&gprop=youtube&q=%EC%82%B4%EB%A6%BC%2C%EC%BF%A0%ED%8C%A1%20%EC%B6%94%EC%B2%9C%ED%85%9C%2C%EC%82%B4%EB%A6%BC%ED%85%9C%2C%EB%8B%A4%EC%9D%B4%EC%86%8C%20%EA%BF%80%ED%85%9C%2C%EA%B2%A8%EC%9A%B8%20%ED%95%84%EC%88%98%ED%85%9C&hl=ko
+06. 생활꿀팁, 살림꿀팁, 주방템, 자취템 — https://trends.google.com/trends/explore?date=today%2012-m&geo=KR&gprop=youtube&q=%EC%82%B4%EB%A6%BC%2C%EC%83%9D%ED%99%9C%EA%BF%80%ED%8C%81%2C%EC%82%B4%EB%A6%BC%EA%BF%80%ED%8C%81%2C%EC%A3%BC%EB%B0%A9%ED%85%9C%2C%EC%9E%90%EC%B7%A8%ED%85%9C&hl=ko

@@ -1,5 +1,13 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-28 — PC 트렌드 watch 오류 고침 (`tools/pc_trends.py` v1.3 → v1.3.1)
+
+- 사용자 PC 오류 "에러나는데 해결해": `-TrendsWatch -Once --list-file selfdev_trends.json` → 파일 없음(FileNotFoundError) 경고를 쓰다가 `TypeError: log() got multiple values for argument 'stage'` 로 죽음.
+- 원인: `cmd_watch` 의 경고 로그가 `stage=` 를 넘김 — `log(stage, …)` 의 첫 인자 이름과 겹침. → `step=` 로.
+- `--list-file` 이 없으면 처음에 찾은 절대 경로와 함께 바로 멈춤 (예전: 경고 뒤 '다음 회차에 다시' — 사람이 둘 파일이라 다음 회차에도 안 생김).
+- 시험: `pc_trends.py selftest` ✅ (2개 더 — 없는 파일 → 경로와 함께 멈춤 · 깨진 파일 → 경고만, rc 0). 옛 호출은 같은 TypeError 재현.
+- 같은 꼴(`log(stage, **kv)` 에 `stage=`)이 남은 곳: `tools/script_feedback_board.py:271` · `tools/sns_posts.py:117` (오류 경로 — 이번엔 안 고침).
+
 ## 2026-11-27 — 제작 판에 자기계발(selfdev) 주제 (`studio/studio.toml` v1.2)
 
 - 사용자 지시 "아무것도 없는 30대인 나 자신이 목표를 이뤄나가는 브이로그 형식의 자기계발 유튜브 채널 운영할 건데 타깃은 나와 비슷하고 성장해나가고 싶은 사람이야 아티팩트에 주제 추가하고 구글 트렌드 명령 알려줘".

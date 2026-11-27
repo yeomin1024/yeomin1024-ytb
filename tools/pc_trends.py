@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-27 — watch: 제작 판 검색어(GitHub studio/state/trends.json)를 간격마다 읽어 받고 올림 — 사용자 지시 2026-11-27
+# VERSION: v1.3.1 — 2026-11-28 — watch 오류 고침 (사용자 PC 2026-11-28 "에러나는데 해결해"): 판 검색어를 못 읽었을 때 경고 로그가 log() 의 첫 인자 이름
+#          stage 와 겹쳐 TypeError 로 죽던 것 → step= · --list-file 이 없으면 처음에 찾은 절대 경로와 함께 바로 멈춤 (예전: 경고 뒤 '다음 회차에 다시' — 파일은 안 생김).
+# 이전 v1.3 — 2026-11-27 — watch: 제작 판 검색어(GitHub studio/state/trends.json)를 간격마다 읽어 받고 올림 — 사용자 지시 2026-11-27
 #          "피시에서는 일정 간격으로 단어 가져와서 결과 업로드, 결과도 볼 수 있음". 결과 폴더 <주제>/result/next_topic/board_<기간>/ (기간 = 간격으로 나눈 날짜·시각),
 #          파일 이름에 낱말 묶음 지문(batch_NNN_<6자>.csv|json) — 같은 기간에 검색어를 바꾸면 새 파일. 전체 탐색 = new 주제 폴더(분류만 관련 검색어).
 # 이전 v1.2 — 2026-11-25 — 새 분야 갭 탐색용 (사용자 지시 2026-11-25 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은
@@ -15,6 +17,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3.1 | 2026-11-28 | watch 경고 로그 TypeError(stage 겹침 → step) · --list-file 없으면 경로와 함께 바로 멈춤 · selftest 2개 더 | cmd_watch · selftest |
 # | v1.3 | 2026-11-27 | watch(--every 분 · --once) · board_specs · period_of · 지문 파일 이름(hash_names) · selftest 4개 더 | board_specs · period_of · batch_path · allowed_trends · cmd_watch · selftest |
 # | v1.2 | 2026-11-25 | kind(related·categories·suggest) · 목록 geo/time/gprop/hl · out_dir · --list · 종류별 쉼 · 429 는 막힌 주소 묶음만 그만(자동완성은 이어서) · selftest 9개 더 | Trends.explore·related·categories·suggest · batch_path · allowed_trends · fetch · run_topic · cmd_run · selftest |
 # | v1.1 | 2026-11-25 | ensure_requests (requests 만 설치) · github_token (분석기와 같은 순서로 .env 직접 읽기 — 분석기 import 뺌) · selftest 2개 더 | ensure_requests · github_token · cmd_run · selftest |
@@ -55,7 +58,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import pc_transcribe as pt  # noqa: E402  GitHub 올리기·로그·주제 이름 검사를 그대로
 
-VERSION = "v1.3"
+VERSION = "v1.3.1"
 BOARD_STATE = "studio/state/trends.json"   # v1.3 제작 판 검색어 (Claude 가 판 동기화 때 씀)
 LOG = logging.getLogger("pc_trends")
 TRENDS = "https://trends.google.com"
@@ -444,6 +447,8 @@ def board_specs(state, now=None):
 
 def cmd_watch(opts, sleep=time.sleep):
     """간격마다: GitHub 에서 판 검색어를 읽고 → 이번 기간에 아직 없는 묶음만 받아 올림. --once 면 한 번."""
+    if opts.list_file and not Path(opts.list_file).is_file():          # v1.3.1 사람이 둔 파일 — 다음 회차에도 안 생기니 바로 멈춤
+        raise SystemExit(f"[SETUP] ❌ 검색어 파일이 없음: {Path(opts.list_file).resolve()} → run_analyzer.ps1 과 같은 폴더({Path.cwd()})에 두고 다시")
     work_root = ROOT / ".yt_work"
     pt.setup_logging(opts.log_level, work_root / "trends_log_board.txt")
     ensure_requests(install=not opts.skip_install)
@@ -466,7 +471,7 @@ def cmd_watch(opts, sleep=time.sleep):
                 text = r.text
             state = json.loads(text)
         except Exception as e:
-            log("WATCH", level=logging.WARNING, stage="판 검색어 읽기", error=f"{type(e).__name__}: {str(e)[:160]}", next="다음 회차에 다시")
+            log("WATCH", level=logging.WARNING, step="판 검색어 읽기", error=f"{type(e).__name__}: {str(e)[:160]}", next="다음 회차에 다시")
             state = None
         if state:
             specs = board_specs(state)
@@ -658,6 +663,24 @@ def selftest():
     check("v1.3 지문 파일 이름이 올리기 허용 경로", re.fullmatch(r"psychology/result/next_topic/board_20261127/batch_001_[0-9a-f]{6}\.csv", pth) is not None
           and bool(allowed_trends("psychology").match(pth)), path=pth)
     check("v1.3 검색어가 바뀌면 지문도 바뀜", _hash(["심리", "엄마"]) != _hash(["심리", "말투"]) and period_of(48, _dt.datetime(2026, 11, 27)) in ("20261126", "20261127"))
+    # v1.3.1 watch --list-file: 없으면 경로와 함께 바로 멈춤 · 깨진 파일이면 경고만 (예전엔 경고 로그가 TypeError 로 죽음)
+    wopts = types.SimpleNamespace(list_file=str(base / "없는_파일.json"), log_level="INFO", skip_install=True, no_push=True, dry_run=False,
+                                  once=True, every=60, repo="fake/fake", branch="main", limit=0, pause=0, push_every=4, force=False)
+    try:
+        cmd_watch(wopts, sleep=lambda s: None)
+        msg = ""
+    except SystemExit as e_:
+        msg = str(e_)
+    check("v1.3.1 watch --list-file 없음 → 찾은 경로와 함께 멈춤", "검색어 파일이 없음" in msg and "없는_파일.json" in msg, got=msg[:80])
+    bad = base / "깨진.json"
+    bad.write_text("{깨진 json", "utf-8")
+    wopts.list_file = str(bad)
+    try:
+        rc, err = cmd_watch(wopts, sleep=lambda s: None), ""
+    except Exception as e_:                                                    # noqa: BLE001 — 시험: 어떤 오류든 실패로
+        rc, err = None, f"{type(e_).__name__}: {e_}"
+    pt.setup_logging("INFO")                                                   # cmd_watch 가 바꾼 로그 파일 연결을 되돌림
+    check("v1.3.1 watch 깨진 검색어 파일 → 경고만 하고 끝남 (TypeError 없음)", rc == 0 and not err, got=rc, error=err[:80] or "-")
     log("SELFTEST", result="✅ 모두 통과" if ok else "❌ 실패 있음")
     return 0 if ok else 1
 

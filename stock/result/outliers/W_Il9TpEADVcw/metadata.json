@@ -1,0 +1,121 @@
+{
+ "id": "Il9TpEADVcw",
+ "title": "4천억 천재 트레이더 BNF의 매매법, 그가 매일 본 차트 하나 (이격도, 차트 보는법)",
+ "channel": "손절봇 | 자동매매",
+ "channel_id": "UChOlDX2lZeAyDnn8fBXoJ9w",
+ "subs": 4430,
+ "views": 77788,
+ "ratio": 17.56,
+ "age_days": 18,
+ "views_per_day": 4183.6,
+ "minutes": 17.4,
+ "likes": 661,
+ "comments": 21,
+ "published": "2026-11-09",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=Il9TpEADVcw",
+ "flag": "",
+ "published_at": "2026-11-09T21:00:12Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W_Il9TpEADVcw",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "BNF",
+  "코테가와 타카시",
+  "이격도",
+  "25일선",
+  "이동평균선",
+  "주식 매매법",
+  "차트 보는법",
+  "단타",
+  "스윙",
+  "손절",
+  "전설의 트레이더",
+  "일본 트레이더",
+  "제이콤",
+  "미즈호",
+  "라쿠텐",
+  "닛케이",
+  "주식 공부"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "컵라면 먹던 남자"
+  },
+  {
+   "start": 59,
+   "title": "160만 엔과 무너지는 시장"
+  },
+  {
+   "start": 100,
+   "title": "160만 엔이 130억 엔이 되기까지"
+  },
+  {
+   "start": 163,
+   "title": "16분 만에 20억 엔"
+  },
+  {
+   "start": 267,
+   "title": "그의 하루"
+  },
+  {
+   "start": 340,
+   "title": "그가 매일 본 숫자, 이격도"
+  },
+  {
+   "start": 410,
+   "title": "내 차트에 이격도 띄우기"
+  },
+  {
+   "start": 466,
+   "title": "매일 밤 순위표"
+  },
+  {
+   "start": 535,
+   "title": "바로 사지 않는다"
+  },
+  {
+   "start": 585,
+   "title": "은행주, 2003년 11월"
+  },
+  {
+   "start": 693,
+   "title": "출렁이는 종목, 2001년 1월"
+  },
+  {
+   "start": 764,
+   "title": "틀리면 바로 판다"
+  },
+  {
+   "start": 831,
+   "title": "같이 움직이는 종목"
+  },
+  {
+   "start": 876,
+   "title": "4천억을 번 뒤에도"
+  },
+  {
+   "start": 967,
+   "title": "그의 진짜 무기"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 21,
+ "comments_top_level": 19,
+ "comments_replies": 2,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 21,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:23:45",
+ "approved": "2026-11-28T20:23+09:00"
+}

@@ -1,0 +1,112 @@
+{
+ "id": "emIhuKcHaW4",
+ "title": "홀로서기도 제니처럼? | 회계사가 말아주는 제니의 1인 기획사 재무제표 | OA엔터테인먼트",
+ "channel": "전지적회계사시점",
+ "channel_id": "UCcpS0bWevd14oO-H5_Irz-A",
+ "subs": 961,
+ "views": 83930,
+ "ratio": 87.34,
+ "age_days": 102,
+ "views_per_day": 820.8,
+ "minutes": 21.9,
+ "likes": 389,
+ "comments": 75,
+ "published": "2026-08-18",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=emIhuKcHaW4",
+ "flag": "",
+ "published_at": "2026-08-18T03:59:40Z",
+ "rank": "W8",
+ "set": "web",
+ "folder": "W_emIhuKcHaW4",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "제니",
+  "블랙핑크",
+  "오에이엔터테인먼트",
+  "제니소속사",
+  "제니1인기획사",
+  "OA엔터테인먼트",
+  "YG",
+  "YG엔터테인먼트",
+  "제니법인",
+  "1인법인",
+  "1인기획사",
+  "차은우",
+  "재무제표",
+  "연예인",
+  "전속계약금",
+  "아이돌",
+  "RUBY",
+  "기업분석",
+  "회계사",
+  "전지적회계사시점"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 32,
+   "title": "제니의 1인 기획사, 오에이엔터테인먼트는 어떤 회사인가"
+  },
+  {
+   "start": 111,
+   "title": "매출 238억에 영업이익률 1.6%, 왜 이렇게 안 남을까"
+  },
+  {
+   "start": 159,
+   "title": "특수관계자 주석으로 확인한 '2년 238억'의 정체"
+  },
+  {
+   "start": 284,
+   "title": "2025년 매출원가 구조가 달라진 이유"
+  },
+  {
+   "start": 458,
+   "title": "자산의 60%가 선급비용? 전속계약금 회계의 원리"
+  },
+  {
+   "start": 556,
+   "title": "부채비율 1,000%, 엔터사에서는 위험 신호가 아닌 이유"
+  },
+  {
+   "start": 769,
+   "title": "현금은 4억인데 주주차입금 28억이 잡힌 사정"
+  },
+  {
+   "start": 882,
+   "title": "매출채권 거의 전액이 외화, 유로 비중이 말해주는 것"
+  },
+  {
+   "start": 963,
+   "title": "YG 감사보고서로 역산한 블랙핑크 전속계약금"
+  },
+  {
+   "start": 1160,
+   "title": "차은우 씨 사례와 무엇이 결정적으로 달랐나"
+  },
+  {
+   "start": 1277,
+   "title": "1인 기획사, 핵심은 실질입니다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 75,
+ "comments_top_level": 26,
+ "comments_replies": 49,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 75,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:17",
+ "approved": "2026-11-28T20:13+09:00"
+}

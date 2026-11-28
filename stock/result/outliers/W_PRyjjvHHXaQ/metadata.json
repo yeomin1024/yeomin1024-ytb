@@ -1,0 +1,71 @@
+{
+ "id": "PRyjjvHHXaQ",
+ "title": "주주들은 폭발할지경! 주가 올려달라! 삼성전자 110조 소식에도 폭락한 이유",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 78591,
+ "ratio": 11.77,
+ "age_days": 96,
+ "views_per_day": 818.0,
+ "minutes": 17.6,
+ "likes": 993,
+ "comments": 250,
+ "published": "2026-08-24",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=PRyjjvHHXaQ",
+ "flag": "",
+ "published_at": "2026-08-24T09:19:47Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_PRyjjvHHXaQ",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 & 인트로"
+  },
+  {
+   "start": 33,
+   "title": "삼성전자 주주환원 발표 핵심 요약 (110조 원의 규모)"
+  },
+  {
+   "start": 101,
+   "title": "SK하이닉스와의 결정적 차이와 시장의 실망"
+  },
+  {
+   "start": 183,
+   "title": "투자자들이 분노한 이유: \"자사주 소각은 어디 갔나?\""
+  },
+  {
+   "start": 312,
+   "title": "자사주 소각을 못 하는 진짜 이유 (지배구조와 9.99% 룰)"
+  },
+  {
+   "start": 406,
+   "title": "삼성의 플랜B: 배당으로 지배구조를 푸는 시나리오"
+  },
+  {
+   "start": 510,
+   "title": "10% 폭락은 과도한가? 향후 주가 전망과 투자 포인트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 250,
+ "comments_top_level": 225,
+ "comments_replies": 25,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 250,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:24",
+ "approved": "2026-11-28T20:13+09:00"
+}

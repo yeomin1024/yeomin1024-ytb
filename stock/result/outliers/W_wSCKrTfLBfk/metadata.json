@@ -1,0 +1,71 @@
+{
+ "id": "wSCKrTfLBfk",
+ "title": "삼성전자 3분기 잠정 실적발표 D-1 이대로면 내년 영업이익 몇 백 조?",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 58890,
+ "ratio": 8.82,
+ "age_days": 52,
+ "views_per_day": 1132.2,
+ "minutes": 16.1,
+ "likes": 383,
+ "comments": 44,
+ "published": "2026-10-07",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=wSCKrTfLBfk",
+ "flag": "",
+ "published_at": "2026-10-07T09:40:24Z",
+ "rank": "W46",
+ "set": "web",
+ "folder": "W_wSCKrTfLBfk",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "삼성전자의 시스템 및 범용 반도체 동시 경쟁력"
+  },
+  {
+   "start": 191,
+   "title": "삼성전자 실적 발표 D-1 및 분기 영업이익 100조 시대 전망"
+  },
+  {
+   "start": 405,
+   "title": "HBM 가격 100% 상승 및 주주환원 4배 확대 예상"
+  },
+  {
+   "start": 549,
+   "title": "엔비디아의 생태계(해자) 분석과 한국 반도체의 과제"
+  },
+  {
+   "start": 811,
+   "title": "파운드리 적자 요인(감가상각비) 및 펀더멘털 진단"
+  },
+  {
+   "start": 995,
+   "title": "시장 삼중고 우려 불식 및 수급 점검"
+  },
+  {
+   "start": 1026,
+   "title": "투자자 마인드 및 클로징"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 44,
+ "comments_top_level": 35,
+ "comments_replies": 9,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:18",
+ "approved": "2026-11-28T20:14+09:00"
+}

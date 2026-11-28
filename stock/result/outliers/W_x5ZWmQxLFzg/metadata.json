@@ -1,0 +1,71 @@
+{
+ "id": "x5ZWmQxLFzg",
+ "title": "코스피 1만 가는 진짜 지름길 나왔다 ‘이것’만 되면 한달 안에 코스피1만",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 92172,
+ "ratio": 13.8,
+ "age_days": 15,
+ "views_per_day": 6126.2,
+ "minutes": 14.6,
+ "likes": 757,
+ "comments": 221,
+ "published": "2026-11-13",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=x5ZWmQxLFzg",
+ "flag": "",
+ "published_at": "2026-11-13T08:52:00Z",
+ "rank": "W43",
+ "set": "web",
+ "folder": "W_x5ZWmQxLFzg",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 불화살이 쏟아지는데 농사 타령? 위기감 없는 금융위원장의 발언과 실망 매물로 음전한 코스피"
+  },
+  {
+   "start": 54,
+   "title": "[금감위장 발언 비판] \"증안펀드는 아직 때가 아니다?\" 전 세계 폭락 1위 국가의 장관이 보여주는 안일한 인식"
+  },
+  {
+   "start": 128,
+   "title": "80인 대규모 자금시장 간담회 전격 개최: 대통령 주재 회의의 뉘앙스와 시장이 기대했던 종합 대책의 헛점"
+  },
+  {
+   "start": 300,
+   "title": "[핵심 쟁점] 의무공개매수 50+1 논란의 진실: 대주주 편의용 M&A와 일반 주주를 보호하는 전면 개혁의 충돌"
+  },
+  {
+   "start": 369,
+   "title": "코스피 1만 가는 진짜 지름길 '적대적 M&A': JYP, 한진칼, 지주사 사례로 보는 주가 급등의 메커니즘과 악이 아닌 이유"
+  },
+  {
+   "start": 462,
+   "title": "한국 금융당국의 근본적 한계: 규제기관의 발상이 '무엇을 할까'가 아니라 '무엇을 안 해줄까'에 갇혀 있는 이유"
+  },
+  {
+   "start": 707,
+   "title": "클로징: 최악을 방지하기 위해서 움직여야 할 골든타임, 실망을 넘어 실질적인 행동과 결단이 필요한 때"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 221,
+ "comments_top_level": 204,
+ "comments_replies": 17,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 221,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:11",
+ "approved": "2026-11-28T20:14+09:00"
+}

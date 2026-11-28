@@ -1,0 +1,103 @@
+{
+ "id": "_cYtH3ERfwo",
+ "title": "가장 쉽게 주도주, 대장주를 찾는 방법 | 슈퍼개미 이정윤",
+ "channel": "이정윤의 다정한주식",
+ "channel_id": "UCKREARivkxGuwevC-z1aGKw",
+ "subs": 7840,
+ "views": 140026,
+ "ratio": 17.86,
+ "age_days": 9,
+ "views_per_day": 14163.1,
+ "minutes": 20.1,
+ "likes": 1906,
+ "comments": 115,
+ "published": "2026-11-18",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=_cYtH3ERfwo",
+ "flag": "",
+ "published_at": "2026-11-18T12:40:46Z",
+ "rank": "W10",
+ "set": "web",
+ "folder": "W__cYtH3ERfwo",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "이정윤",
+  "이세무사tv",
+  "주식초보",
+  "주린이",
+  "주식공부",
+  "주식투자",
+  "HTS",
+  "HTS사용법",
+  "주도주",
+  "대장주",
+  "코스피200",
+  "거래대금",
+  "시가총액",
+  "방어주",
+  "SK하이닉스"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오늘의 핵심"
+  },
+  {
+   "start": 25,
+   "title": "주도주 찾기 전 필수 체크! 글로벌 증시 흐름"
+  },
+  {
+   "start": 84,
+   "title": "주도주를 찾는 가장 쉬운 방법 1. 시가총액 상위"
+  },
+  {
+   "start": 243,
+   "title": "시장 지수보다 강해야 진짜 '주도주'다"
+  },
+  {
+   "start": 516,
+   "title": "18배 오른 대장주도 상승 초기에 여기서 잡힌다"
+  },
+  {
+   "start": 598,
+   "title": "각 업종별 1위 대장주 한눈에 확인하는 법"
+  },
+  {
+   "start": 670,
+   "title": "주도주를 찾는 가장 쉬운 방법 2. 거래대금 상위"
+  },
+  {
+   "start": 771,
+   "title": "돈이 몰리는 곳: '처음 상위권에 등장한 종목' 주목"
+  },
+  {
+   "start": 904,
+   "title": "주도주를 찾는 가장 쉬운 방법 3. 상승률 상위"
+  },
+  {
+   "start": 995,
+   "title": "대형주가 쉴 때 달리는 '중소형 테마 대장주' 찾기"
+  },
+  {
+   "start": 1069,
+   "title": "매일 아침 주도주를 찾아내는 HTS 루틴 총정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 115,
+ "comments_top_level": 64,
+ "comments_replies": 51,
+ "comments_by_creator": 49,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:20",
+ "approved": "2026-11-28T20:13+09:00"
+}

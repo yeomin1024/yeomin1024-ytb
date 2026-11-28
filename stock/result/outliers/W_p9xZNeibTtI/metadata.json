@@ -1,0 +1,71 @@
+{
+ "id": "p9xZNeibTtI",
+ "title": "KODEX 200 위클리 타겟 커버드콜, 지금 사도 좋을까? 숫자로 돌려봤습니다",
+ "channel": "옵티쩡",
+ "channel_id": "UC5X_a3ZdnhMUTFWeAWBZJmQ",
+ "subs": 1710,
+ "views": 78298,
+ "ratio": 45.79,
+ "age_days": 15,
+ "views_per_day": 5202.4,
+ "minutes": 7.9,
+ "likes": 349,
+ "comments": 115,
+ "published": "2026-11-13",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=p9xZNeibTtI",
+ "flag": "",
+ "published_at": "2026-11-13T10:00:19Z",
+ "rank": "W9",
+ "set": "web",
+ "folder": "W_p9xZNeibTtI",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "결론 먼저: 코스피200을 90% 넘게 따라간다"
+  },
+  {
+   "start": 49,
+   "title": "무엇을 사는 건가 (바구니 + 위클리 콜옵션)"
+  },
+  {
+   "start": 102,
+   "title": "지금까지 성적 (총수익·내린 장·석 달 구간)"
+  },
+  {
+   "start": 209,
+   "title": "분배금의 정체 (분배율·11월 예상·착시)"
+  },
+  {
+   "start": 287,
+   "title": "세금 (분배금 과세·매매차익)"
+  },
+  {
+   "start": 336,
+   "title": "지금 사면? (시나리오·점검 질문)"
+  },
+  {
+   "start": 412,
+   "title": "정리와 질문"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 115,
+ "comments_top_level": 51,
+ "comments_replies": 64,
+ "comments_by_creator": 8,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 115,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:19",
+ "approved": "2026-11-28T20:13+09:00"
+}

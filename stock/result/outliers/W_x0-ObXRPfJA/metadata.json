@@ -1,0 +1,83 @@
+{
+ "id": "x0-ObXRPfJA",
+ "title": "데드캣 바운스일까 vs 대반등의 신호탄일까 | 1994년 이후 반도체 10% 폭락 열 번이 말해 주는 것 | 개인은 팔았고 기관은 받았다",
+ "channel": "뉴욕대디 다니엘",
+ "channel_id": "UC81Nr5G_JhSn0-5R5WUXwjA",
+ "subs": 15400,
+ "views": 155823,
+ "ratio": 10.12,
+ "age_days": 21,
+ "views_per_day": 7391.3,
+ "minutes": 13.8,
+ "likes": 1850,
+ "comments": 234,
+ "published": "2026-11-07",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=x0-ObXRPfJA",
+ "flag": "",
+ "published_at": "2026-11-07T08:00:22Z",
+ "rank": "W55",
+ "set": "web",
+ "folder": "W_x0-ObXRPfJA",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: −5.5%, 그리고 +1.1%"
+  },
+  {
+   "start": 61,
+   "title": "현장: 금요일의 숫자"
+  },
+  {
+   "start": 176,
+   "title": "역사: 반도체가 하루 10% 빠진 다음엔"
+  },
+  {
+   "start": 268,
+   "title": "왜 애매했나 ① 개인이 안 샀다"
+  },
+  {
+   "start": 382,
+   "title": "왜 애매했나 ② AI를 기다릴 인내심"
+  },
+  {
+   "start": 476,
+   "title": "왜 애매했나 ③ 차트"
+  },
+  {
+   "start": 581,
+   "title": "좋은 소식: 고용은 탄탄했다"
+  },
+  {
+   "start": 675,
+   "title": "한국: 이틀 동안 −11%"
+  },
+  {
+   "start": 727,
+   "title": "반등이 진짜인지 확인할 신호 세 가지"
+  },
+  {
+   "start": 776,
+   "title": "정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 234,
+ "comments_top_level": 148,
+ "comments_replies": 86,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 234,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:30",
+ "approved": "2026-11-28T20:14+09:00"
+}

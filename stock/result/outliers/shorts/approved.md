@@ -6,11 +6,11 @@
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
 | 2026-10-17 | [삼전 들고만 있어도 매년 8% 버는 비법](https://www.youtube.com/shorts/H94_fPv8L_o) | News Issue - … | 38,300 | 224,791 | ×5.87 | ×19.3 | 43초 | 27 |  | 없음 | 155 | [`S_H94_fPv8L_o`](S_H94_fPv8L_o) |
 | 2026-10-16 | [죽음의 십자가… 코스피 계속 떨어진다, 50초 안에 설명하기](https://www.youtube.com/shorts/5MmqpP8SKxo) | 꽉TV | 1,460,000 | 767,823 | ×0.53 | – | 54초 |  |  | 없음 | 983 | [`S_5MmqpP8SKxo`](S_5MmqpP8SKxo) |
-| 2026-10-15 | [전쟁도 안 났는데 서킷브레이커?! 😱 코스피·코스닥 동시 셧다운 #shorts](https://www.youtube.com/shorts/Hx0zAqstrP8) | 1분썰배달 | 25,200 | 465,026 | ×18.45 | ×12.8 | 54초 | 13 |  | 설명 | 191 (덜 받음) | [`S_Hx0zAqstrP8`](S_Hx0zAqstrP8) |
+| 2026-10-15 | [전쟁도 안 났는데 서킷브레이커?! 😱 코스피·코스닥 동시 셧다운 #shorts](https://www.youtube.com/shorts/Hx0zAqstrP8) | 1분썰배달 | 25,200 | 465,026 | ×18.45 | ×12.8 | 54초 | 12 |  | 설명 | 191 (덜 받음) | [`S_Hx0zAqstrP8`](S_Hx0zAqstrP8) |
 | 2026-10-15 | [코스피 주식시장이 폭락하는 숨겨진 이유, 50초 안에 설명하기](https://www.youtube.com/shorts/ZpEmgkhlAe4) | 꽉TV | 1,460,000 | 981,180 | ×0.67 | – | 91초 |  |  | 없음 | 1,604 | [`S_ZpEmgkhlAe4`](S_ZpEmgkhlAe4) |
 | 2026-10-14 | [주식 고수 동주가 오랜만에 맞았습니다 (만쥬x수급단타왕)](https://www.youtube.com/shorts/AVBXUwjpqIk) | 만쥬 | 219,000 | 369,930 | ×1.69 | – | 140초 |  |  | 없음 | 164 | [`S_AVBXUwjpqIk`](S_AVBXUwjpqIk) |
 | 2026-10-13 | [삼전닉스 밀리면 다 빠지는 코스피](https://www.youtube.com/shorts/scBuJNmwUHk) | 시사탐정김민 | 26,300 | 124,486 | ×4.73 | ×9.6 | 47초 | 33 |  | 없음 | 42 | [`S_scBuJNmwUHk`](S_scBuJNmwUHk) |
-| 2026-10-13 | [코스피 장중 6000선 하회, 이동평균선에 주목해야 하는 이유 #코스피 #이동…](https://www.youtube.com/shorts/r26G8V5qGZg) | 박재훈의 투자농장 | 22,300 | 418,676 | ×18.77 | ×45.2 | 67초 | 15 |  | 설명 | 89 | [`S_r26G8V5qGZg`](S_r26G8V5qGZg) |
+| 2026-10-13 | [코스피 장중 6000선 하회, 이동평균선에 주목해야 하는 이유 #코스피 #이동…](https://www.youtube.com/shorts/r26G8V5qGZg) | 박재훈의 투자농장 | 22,500 | 418,676 | ×18.61 | ×45.2 | 67초 | 15 |  | 설명 | 89 | [`S_r26G8V5qGZg`](S_r26G8V5qGZg) |
 | 2026-10-13 | [코스피 하방 어디까지 열려있나요.. 외국인들 미친듯이 파는 이유... #코스피…](https://www.youtube.com/shorts/adnS05irnDw) | 증시각도기TV | 507,000 | 711,301 | ×1.4 | – | 86초 |  |  | 설명 | 648 | [`S_adnS05irnDw`](S_adnS05irnDw) |
 | 2026-10-12 | [코스피 코스닥 폭락의 주범 #코스피 #코스닥 #OpenAI](https://www.youtube.com/shorts/-aQybbK5sCI) | 내일은 투자왕 - 김단테 | 622,000 | 293,032 | ×0.47 | – | 70초 |  |  | 설명 | 392 | [`S_-aQybbK5sCI`](S_-aQybbK5sCI) |
 | 2026-10-12 | [주식 차트보는법이 어려워도 넘쳐나는 캔들 차트 중에 이거 하나는 외우세요](https://www.youtube.com/shorts/rAAtXjvHdFE) | 머니벌크업ㅣ주식PT | 25,900 | 232,744 | ×8.99 | ×6.4 | 29초 | 24 |  | 설명 | 11 | [`S_rAAtXjvHdFE`](S_rAAtXjvHdFE) |
@@ -18,14 +18,14 @@
 | 2026-10-11 | [주식 단타 매수타점 이렇게 잡으면 됩니다](https://www.youtube.com/shorts/aCb02CoUIIM) | 머니벌크업ㅣ주식PT | 25,900 | 85,379 | ×3.3 | ×2.3 | 40초 |  |  | 설명 | 4 | [`S_aCb02CoUIIM`](S_aCb02CoUIIM) |
 | 2026-10-10 | [When Is Money Cheap? ∣ Saurabh Mukherjea - …](https://www.youtube.com/shorts/VD0JN5WS3KQ) | Raj Shamani S… | 1,780,000 | 948,084 | ×0.53 | – | 53초 |  | 외국 영상 | 설명 | 80 | [`S_VD0JN5WS3KQ`](S_VD0JN5WS3KQ) |
 | 2026-10-10 | [한국의 천재 외과의사가 국내주식에서 260배를 불린 방법 (RSI, 볼린저밴드…](https://www.youtube.com/shorts/qZoFFprNl9A) | 머니벌크업ㅣ주식PT | 25,900 | 70,701 | ×2.73 | ×1.9 | 53초 |  |  | 설명 | 21 | [`S_qZoFFprNl9A`](S_qZoFFprNl9A) |
-| 2026-10-10 | [중국 경제 최악인데… 오히려 무서운 이유 (Feat. 김효진 신영증권 박사) …](https://www.youtube.com/shorts/gAt0rGwBIZg) | 핀플 - Finple | 47,100 | 1,220,105 | ×25.9 | ×302.8 | 52초 | 12 |  | 설명 | 173 | [`S_gAt0rGwBIZg`](S_gAt0rGwBIZg) |
+| 2026-10-10 | [중국 경제 최악인데… 오히려 무서운 이유 (Feat. 김효진 신영증권 박사) …](https://www.youtube.com/shorts/gAt0rGwBIZg) | 핀플 - Finple | 48,500 | 1,220,105 | ×25.16 | ×302.8 | 52초 | 14 |  | 설명 | 173 | [`S_gAt0rGwBIZg`](S_gAt0rGwBIZg) |
 | 2026-10-09 | [100조 벌어서 대체 어디 쓰냐고! 삼성전자가 대답 안 하는 이유 😤 #sho…](https://www.youtube.com/shorts/P5LQije8UGk) | 1분썰배달 | 25,200 | 70,369 | ×2.79 | ×1.9 | 35초 |  |  | 설명 | 19 | [`S_P5LQije8UGk`](S_P5LQije8UGk) |
 | 2026-10-08 | [이거 모르고 차트 보고 있었다고? ∣ 캔들 기초 1편](https://www.youtube.com/shorts/8Z4m7f-HrVQ) | 1분 차트독학 | 8,750 | 54,743 | ×6.26 | ×25.1 | 72초 | 35 |  | 설명 | 18 | [`S_8Z4m7f-HrVQ`](S_8Z4m7f-HrVQ) |
 | 2026-10-08 | [[머니숏] 반도체 투톱 적정 주가? "삼전 7만원, 하닉 20만원"](https://www.youtube.com/shorts/Oace6aUlMKk) | SBS Biz 뉴스 | 465,000 | 2,061,524 | ×4.43 | – | 27초 |  |  | 없음 | 5,715 | [`S_Oace6aUlMKk`](S_Oace6aUlMKk) |
 | 2026-10-06 | [Top Dividend Stocks India 2026 ∣ Month-Wise…](https://www.youtube.com/shorts/Yan3tP1oQcE) | Amol Smart Mo… | 16,700 | 54,063 | ×3.24 | ×13.0 | 5초 |  | 외국 영상 | 설명 | 2 | [`S_Yan3tP1oQcE`](S_Yan3tP1oQcE) |
 | 2026-10-06 | [주식초보도 검색기없이 쉽게 단타 매매하는법 *차트보는법 몰라도 이 영상으로 끝…](https://www.youtube.com/shorts/5MZdRAkL3Wg) | 머니벌크업ㅣ주식PT | 25,900 | 109,852 | ×4.24 | ×3.0 | 58초 |  |  | 설명 | 23 | [`S_5MZdRAkL3Wg`](S_5MZdRAkL3Wg) |
 | 2026-10-06 | [삼성전자 하이닉스 주가가 오늘 떨어질 수 밖에 없었던 진짜 이유 (나스닥100…](https://www.youtube.com/shorts/N0OI559clt4) | 머니벌크업ㅣ주식PT | 25,900 | 265,959 | ×10.27 | ×7.3 | 70초 |  |  | 설명 | 38 | [`S_N0OI559clt4`](S_N0OI559clt4) |
-| 2026-10-06 | [신문 광고로 뽑은 초보들이 주식으로 2,350억을 번 방법?! *볼린저밴드 r…](https://www.youtube.com/shorts/vLt9UEu2O1A) | 억대비법노트 | 11,500 | 362,551 | ×31.53 | ×48.6 | 54초 | 14 |  | 설명 | 55 | [`S_vLt9UEu2O1A`](S_vLt9UEu2O1A) |
+| 2026-10-06 | [신문 광고로 뽑은 초보들이 주식으로 2,350억을 번 방법?! *볼린저밴드 r…](https://www.youtube.com/shorts/vLt9UEu2O1A) | 억대비법노트 | 11,500 | 362,551 | ×31.53 | ×48.6 | 54초 | 13 |  | 설명 | 55 | [`S_vLt9UEu2O1A`](S_vLt9UEu2O1A) |
 | 2026-10-05 | [주식 배당금 누가 정할까?](https://www.youtube.com/shorts/oW7j7ZrjP0A) | 김주혜 국어 | 528,000 | 504,319 | ×0.96 | – | 173초 |  |  | 설명 | 163 | [`S_oW7j7ZrjP0A`](S_oW7j7ZrjP0A) |
 | 2026-10-04 | [FIIs Are Buying This 63% Down Market Leader](https://www.youtube.com/shorts/bbl5CUWwKi0) | Groww | 2,480,000 | 627,841 | ×0.25 | – | 68초 |  | 외국 영상 | 설명 | 119 | [`S_bbl5CUWwKi0`](S_bbl5CUWwKi0) |
 | 2026-10-04 | [Tag that Beginner Trader 😂📈 #trading #stock…](https://www.youtube.com/shorts/SzBTfGtB4IM) | ICFM - Stock … | 114,000 | 3,045,226 | ×26.71 | – | 34초 |  | 외국 영상 | 없음 | 0 | [`S_SzBTfGtB4IM`](S_SzBTfGtB4IM) |
@@ -55,7 +55,7 @@
 | 2026-09-24 | [주식초보도 절대 돈을 잃지않는 매매 방법](https://www.youtube.com/shorts/vM7ZGlWA_4E) | 머니벌크업ㅣ주식PT | 25,900 | 298,950 | ×11.54 | ×7.6 | 85초 |  |  | 설명 | 38 | [`S_vM7ZGlWA_4E`](S_vM7ZGlWA_4E) |
 | 2026-09-23 | [주식초보는 이걸 제대로 알아야 주식투자로 수익 나기 시작합니다](https://www.youtube.com/shorts/BNnyRRfZNPI) | 머니벌크업ㅣ주식PT | 25,900 | 400,489 | ×15.46 | ×10.1 | 19초 |  |  | 설명 | 22 | [`S_BNnyRRfZNPI`](S_BNnyRRfZNPI) |
 | 2026-09-23 | [황현희가 먼저 읽으라는 주식 공부 책 두 권](https://www.youtube.com/shorts/m2P-zzfJAAg) | bazuru | 19,800 | 172,611 | ×8.72 | – | 15초 | 32 |  | 설명 | 10 | [`S_m2P-zzfJAAg`](S_m2P-zzfJAAg) |
-| 2026-09-22 | [3분기 배당 받으려면? 삼성전자 '이 날'까지 보유! / #채널A #short…](https://www.youtube.com/shorts/nd0DWCIHXZI) | 경제시그널 | 28,200 | 387,078 | ×13.73 | ×187.4 | 35초 | 30 |  | 설명 | 20 | [`S_nd0DWCIHXZI`](S_nd0DWCIHXZI) |
+| 2026-09-22 | [3분기 배당 받으려면? 삼성전자 '이 날'까지 보유! / #채널A #short…](https://www.youtube.com/shorts/nd0DWCIHXZI) | 경제시그널 | 28,800 | 387,078 | ×13.44 | ×187.4 | 35초 | 31 |  | 설명 | 20 | [`S_nd0DWCIHXZI`](S_nd0DWCIHXZI) |
 | 2026-09-22 | [🚨 삼성전자 배당 D-5 ⏰ 28일 안 사면 30조 원 배당 못 받는다 💰](https://www.youtube.com/shorts/Ck2n5p7ws9I) | 1분썰배달 | 25,200 | 190,532 | ×7.56 | ×5.3 | 37초 |  |  | 설명 | 17 | [`S_Ck2n5p7ws9I`](S_Ck2n5p7ws9I) |
 | 2026-09-22 | [반도체소부장 개별주 투자방법 ETF활용하는법 #박시동 #주식투자 #이광수 #이…](https://www.youtube.com/shorts/cLhFS9PSRZ0) | 어쩔시사 | 1,230 | 90,790 | ×73.81 | ×22.2 | 49초 | 10 |  | 설명 | 8 | [`S_cLhFS9PSRZ0`](S_cLhFS9PSRZ0) |
 | 2026-09-22 | [미국의 한 천재 여성유튜버가 1년만에 100억을 벌어들인 방법 *볼린저밴드 r…](https://www.youtube.com/shorts/eNMgLVBeD54) | 수익탐정사무소 | 21,200 | 1,412,443 | ×66.62 | ×2.5 | 56초 |  |  | 설명 | 327 | [`S_eNMgLVBeD54`](S_eNMgLVBeD54) |
@@ -131,7 +131,7 @@
 | 2026-07-23 | [Why HDFC Bank stock is struggling! 📉🏦 #sanj…](https://www.youtube.com/shorts/y_3v4sTG7_o) | Sanjay Kathur… | 1,440,000 | 1,732,291 | ×1.2 | – | 161초 |  | 외국 영상 | 설명 | 431 | [`S_y_3v4sTG7_o`](S_y_3v4sTG7_o) |
 | 2026-07-22 | [주가 20% 폭락할 때 알아야 할 것 📊 40년 간 6번뿐인 패턴 정리](https://www.youtube.com/shorts/YWOx4AAWKkg) | 1분썰배달 | 25,200 | 532,672 | ×21.14 | ×14.7 | 34초 |  |  | 설명 | 157 | [`S_YWOx4AAWKkg`](S_YWOx4AAWKkg) |
 | 2026-07-20 | [가만히 있어도 30억 된다 딱! 3개만 매수하세요 #매수법칙 #주식매수 #주식…](https://www.youtube.com/shorts/t6esV2xLOQw) | 와이스트릿 - 지식과 자… | 1,010,000 | 2,138,269 | ×2.12 | – | 34초 |  |  | 없음 | 968 | [`S_t6esV2xLOQw`](S_t6esV2xLOQw) |
-| 2026-07-20 | [밈이 돼버렸다는 주식시장의 이 말](https://www.youtube.com/shorts/5IX1wEo5RTc) | 짧주 | 38,900 | 1,482,380 | ×38.11 | ×6.7 | 42초 | 31 |  | 없음 | 900 | [`S_5IX1wEo5RTc`](S_5IX1wEo5RTc) |
+| 2026-07-20 | [밈이 돼버렸다는 주식시장의 이 말](https://www.youtube.com/shorts/5IX1wEo5RTc) | 짧주 | 38,900 | 1,482,380 | ×38.11 | ×6.7 | 42초 | 30 |  | 없음 | 900 | [`S_5IX1wEo5RTc`](S_5IX1wEo5RTc) |
 | 2026-07-20 | [떡볶이로 배우는, ETF](https://www.youtube.com/shorts/QfECjjLLgi0) | 김주혜 국어 | 528,000 | 2,956,008 | ×5.6 | – | 163초 |  |  | 설명 | 1,381 | [`S_QfECjjLLgi0`](S_QfECjjLLgi0) |
 | 2026-07-20 | [지금 시장 별거 아닙니다, 어차피 '이렇게' 되니까요 #코스피 #코스닥 #국내…](https://www.youtube.com/shorts/aRx368RDSFM) | 김선형의 헤세드경제 | 31,400 | 104,121 | ×3.32 | ×5.3 | 110초 |  |  | 설명 | 100 | [`S_aRx368RDSFM`](S_aRx368RDSFM) |
 | 2026-07-18 | [Top 5 Highest Dividend Paying Stocks in Ind…](https://www.youtube.com/shorts/VxfcXn3exP8) | Trading with … | 14,100 | 72,443 | ×5.14 | ×2.8 | 26초 |  | 외국 영상 | 설명 | 10 | [`S_VxfcXn3exP8`](S_VxfcXn3exP8) |
@@ -154,11 +154,11 @@
 | 2026-07-11 | [Best Alcohol Stocks in India #alcohol #stoc…](https://www.youtube.com/shorts/PYUftZ-Rnew) | the bald trad… | 210,000 | 3,759,544 | ×17.9 | – | 58초 |  | 외국 영상 | 설명 | 219 | [`S_PYUftZ-Rnew`](S_PYUftZ-Rnew) |
 | 2026-07-10 | [개미들 주식 살 돈 떨어졌다… 반도체주의 위기, 50초 안에 설명하기](https://www.youtube.com/shorts/VI0vUlrS3P4) | 꽉TV | 1,460,000 | 1,653,262 | ×1.13 | – | 49초 |  |  | 없음 | 757 | [`S_VI0vUlrS3P4`](S_VI0vUlrS3P4) |
 | 2026-07-10 | [부자들은 벌써 돈 뺐다… 도박판 된 주식시장, 50초 안에 설명하기](https://www.youtube.com/shorts/yb_7MNQ0wHY) | 꽉TV | 1,460,000 | 1,947,809 | ×1.33 | – | 60초 |  |  | 없음 | 1,427 | [`S_yb_7MNQ0wHY`](S_yb_7MNQ0wHY) |
-| 2026-07-10 | ["지금은 반도체보다 코스닥입니다!" (Feat. 초아파트너스 신혁승 대표) […](https://www.youtube.com/shorts/0n5P9TL6WPU) | 핀플 - Finple | 47,100 | 267,307 | ×5.68 | ×64.7 | 99초 |  | 뺀 주제(아파트) | 설명 | 352 | [`S_0n5P9TL6WPU`](S_0n5P9TL6WPU) |
+| 2026-07-10 | ["지금은 반도체보다 코스닥입니다!" (Feat. 초아파트너스 신혁승 대표) […](https://www.youtube.com/shorts/0n5P9TL6WPU) | 핀플 - Finple | 48,500 | 267,307 | ×5.51 | ×64.7 | 99초 |  | 뺀 주제(아파트) | 설명 | 352 | [`S_0n5P9TL6WPU`](S_0n5P9TL6WPU) |
 | 2026-07-09 | [국장이 세력들 놀이터로 전락되면서 시장이 비정상으로 흘러간다는데! #레버리지e…](https://www.youtube.com/shorts/ZDLWdXgktHc) | 정치톡tv | 7,660 | 879,112 | ×114.77 | ×25.2 | 74초 | 16 |  | 설명 | 1,404 | [`S_ZDLWdXgktHc`](S_ZDLWdXgktHc) |
 | 2026-07-09 | [박시동 경제평론가 ∣ 삼성전자 주가 전망 ∣ 삼성전자 레버리지 etf ∣ 삼성…](https://www.youtube.com/shorts/ei_NoLWE0Rw) | 정치인사이드 | 70,600 | 3,581,166 | ×50.72 | – | 25초 |  |  | 없음 | 2,812 | [`S_ei_NoLWE0Rw`](S_ei_NoLWE0Rw) |
 | 2026-07-09 | [레버리지 ETF, 결국 상폐 이야기까지 나왔습니다](https://www.youtube.com/shorts/CjDIweMntSo) | 머니눈치 | 2,140 | 891,962 | ×416.8 | ×45.3 | 54초 | 6 |  | 없음 | 1,493 | [`S_CjDIweMntSo`](S_CjDIweMntSo) |
-| 2026-07-09 | [국내 주식시장이 카지노 투기판으로 변해버린 이유 #레버리지ETF #상장폐지 #…](https://www.youtube.com/shorts/AF4ZZmgkT1Y) | 돈에안기자(TV조선경제채… | 29,300 | 630,550 | ×21.52 | ×329.2 | 50초 |  | 뺀 주제(카지노) | 설명 | 1,199 | [`S_AF4ZZmgkT1Y`](S_AF4ZZmgkT1Y) |
+| 2026-07-09 | [국내 주식시장이 카지노 투기판으로 변해버린 이유 #레버리지ETF #상장폐지 #…](https://www.youtube.com/shorts/AF4ZZmgkT1Y) | 돈에안기자(TV조선경제채… | 29,900 | 630,550 | ×21.09 | ×329.2 | 50초 |  | 뺀 주제(카지노) | 설명 | 1,199 | [`S_AF4ZZmgkT1Y`](S_AF4ZZmgkT1Y) |
 | 2026-07-08 | [삼성전자 최대 실적에도 코스피 폭락한 이유, 50초 안에 설명하기](https://www.youtube.com/shorts/0Nxr3UMPo4M) | 꽉TV | 1,460,000 | 1,476,557 | ×1.01 | – | 77초 |  |  | 없음 | 870 | [`S_0Nxr3UMPo4M`](S_0Nxr3UMPo4M) |
 | 2026-07-07 | ["드러누워서라도 막았어야"... 단일종목 레버리지 후폭풍 #뉴스공장 #정준희](https://www.youtube.com/shorts/NHtOVk8Id3I) | 시사탐정김민 | 26,300 | 433,162 | ×16.47 | ×33.3 | 63초 |  |  | 설명 | 361 | [`S_NHtOVk8Id3I`](S_NHtOVk8Id3I) |
 | 2026-07-07 | [연금저축에 당장 담아야 할 필수 ETF 3가지 💼 #etf투자](https://www.youtube.com/shorts/kaXBlnLYI5o) | 빽담화TV | 27,100 | 200,534 | ×7.4 | ×81.7 | 72초 |  |  | 설명 | 101 | [`S_kaXBlnLYI5o`](S_kaXBlnLYI5o) |
@@ -208,10 +208,10 @@
 | 2026-06-04 | [15 लाख करोड़ का हेरफेर? इस कंपनी की कहानी स…](https://www.youtube.com/shorts/-v4kbGynK-k) | Sagar Sinha | 5,350,000 | 5,765,186 | ×1.08 | – | 162초 |  | 외국 영상 | 설명 | 2,031 | [`S_-v4kbGynK-k`](S_-v4kbGynK-k) |
 | 2026-06-04 | [🚀 Quick Money vs Long-Term Wealth – Ek Vyap…](https://www.youtube.com/shorts/V0rvrEOD52Y) | Pushkar Raj T… | 15,500,000 | 2,955,120 | ×0.19 | – | 161초 |  | 외국 영상 | 설명 | 242 | [`S_V0rvrEOD52Y`](S_V0rvrEOD52Y) |
 | 2026-06-04 | [삼성전자, 하이닉스 다음 유망주는 바로 이것⁉️#존리](https://www.youtube.com/shorts/n-MUXVb-ZKA) | 노하우플러스 | 155,000 | 2,022,454 | ×13.05 | – | 54초 |  |  | 설명 | 191 | [`S_n-MUXVb-ZKA`](S_n-MUXVb-ZKA) |
-| 2026-06-04 | [삼성전자 주가 어떻게 될까? 우선 7월 초까지 #잠정실적 #주가전망 #주식](https://www.youtube.com/shorts/U1gdpIIH86g) | 써니의 정치 다이어리 | 2,050 | 2,097,796 | ×1023.32 | ×156.4 | 11초 | 2 |  | 설명 | 261 | [`S_U1gdpIIH86g`](S_U1gdpIIH86g) |
+| 2026-06-04 | [삼성전자 주가 어떻게 될까? 우선 7월 초까지 #잠정실적 #주가전망 #주식](https://www.youtube.com/shorts/U1gdpIIH86g) | 써니의 정치 다이어리 | 2,050 | 2,097,796 | ×1023.32 | ×173.8 | 11초 | 2 |  | 설명 | 261 | [`S_U1gdpIIH86g`](S_U1gdpIIH86g) |
 | 2026-06-03 | [주린이 통장 털리는 마의 30분! "9시 정각엔 사지 마세요"#12시에만나요 …](https://www.youtube.com/shorts/WzYYTTZm5Eo) | 뇌즙 | 21,400 | 141,506 | ×6.61 | ×5.9 | 120초 |  |  | 설명 | 20 | [`S_WzYYTTZm5Eo`](S_WzYYTTZm5Eo) |
 | 2026-06-03 | [삼성전자가 로봇 시장을 통째로 먹는 방법 #삼성전자 #로봇관련주 #피지컬AI …](https://www.youtube.com/shorts/-lkcdwcv7yM) | 뇌즙 | 21,400 | 3,094,613 | ×144.61 | ×128.0 | 77초 | 18 |  | 설명 | 440 | [`S_-lkcdwcv7yM`](S_-lkcdwcv7yM) |
-| 2026-06-01 | [삼성전자, 하이닉스 지금 사도 늦지 않았을까? 🤔 #염승환 #주식 #재테크](https://www.youtube.com/shorts/JCDePyn_0-s) | 돈에안기자(TV조선경제채… | 29,300 | 488,936 | ×16.69 | ×255.3 | 54초 | 46 |  | 설명 | 36 | [`S_JCDePyn_0-s`](S_JCDePyn_0-s) |
+| 2026-06-01 | [삼성전자, 하이닉스 지금 사도 늦지 않았을까? 🤔 #염승환 #주식 #재테크](https://www.youtube.com/shorts/JCDePyn_0-s) | 돈에안기자(TV조선경제채… | 29,900 | 488,936 | ×16.35 | ×255.3 | 54초 | 46 |  | 설명 | 36 | [`S_JCDePyn_0-s`](S_JCDePyn_0-s) |
 | 2026-05-31 | [일반 직장인들은 돈 생길 때마다 주식 사세요 #배당 #배당주 #배당투자 #투자…](https://www.youtube.com/shorts/qwcDb9LAtY4) | 와이스트릿 - 지식과 자… | 1,010,000 | 1,670,346 | ×1.65 | – | 15초 |  |  | 없음 | 368 | [`S_qwcDb9LAtY4`](S_qwcDb9LAtY4) |
 | 2026-05-30 | [주식 일타강사 존마쌤의 기술적 반등이란 !!!! 이 반등 진짜 상승일까????](https://www.youtube.com/shorts/IL-m6aKyA9s) | 차트의 진심 | 4,290 | 325,670 | ×75.91 | ×96.2 | 56초 |  |  | 설명 | 42 | [`S_IL-m6aKyA9s`](S_IL-m6aKyA9s) |
 | 2026-05-30 | [코스닥 마이 아프다..](https://www.youtube.com/shorts/hp2YzxEpkm0) | 이슈바이럴 | 44,600 | 381,425 | ×8.55 | ×31.9 | 59초 |  |  | 없음 | 104 | [`S_hp2YzxEpkm0`](S_hp2YzxEpkm0) |
@@ -237,7 +237,7 @@
 | 2026-05-16 | [[무료강의] 5월 반도체 장세 예측 [훈훈한 주식강의]](https://www.youtube.com/shorts/h7AgcDapO8A) | 훈훈한 경제학교 | 6,490 | 815,968 | ×125.73 | ×189.6 | 45초 |  |  | 설명 | 20 | [`S_h7AgcDapO8A`](S_h7AgcDapO8A) |
 | 2026-05-15 | ["나스닥과 코스피가 폭락한 이유 지금 체크할 투자 포인트 정리" #주식 #투자…](https://www.youtube.com/shorts/C4HZt_dEJ6Y) | 1분 투자 지식 | 16,100 | 329,199 | ×20.45 | ×118.9 | 158초 |  |  | 설명 | 38 | [`S_C4HZt_dEJ6Y`](S_C4HZt_dEJ6Y) |
 | 2026-05-14 | ["많아서 좀 팔아야겠어" 국민연금 리밸런싱?](https://www.youtube.com/shorts/NWzotD91Xb0) | 일개주권자 | 41,100 | 640,382 | ×15.58 | ×55.1 | 25초 |  |  | 설명 | 195 | [`S_NWzotD91Xb0`](S_NWzotD91Xb0) |
-| 2026-05-13 | [[주식기초 제76강] 주식투자를 오래하기 위한 동기 마련 필요!! #주식아가방…](https://www.youtube.com/shorts/vGQB7Q1nhQ4) | 욱이형 정치폭격 | 31,500 | 112,993 | ×3.59 | ×5.9 | 30초 |  |  | 없음 | 12 | [`S_vGQB7Q1nhQ4`](S_vGQB7Q1nhQ4) |
+| 2026-05-13 | [[주식기초 제76강] 주식투자를 오래하기 위한 동기 마련 필요!! #주식아가방…](https://www.youtube.com/shorts/vGQB7Q1nhQ4) | 욱이형 정치폭격 | 31,500 | 112,993 | ×3.59 | ×6.0 | 30초 |  |  | 없음 | 12 | [`S_vGQB7Q1nhQ4`](S_vGQB7Q1nhQ4) |
 | 2026-05-13 | [현재 국장 상태 ㅋㅋㅋㅋ](https://www.youtube.com/shorts/C3O79-142oQ) | 바로가자 | 12,100 | 377,032 | ×31.16 | ×9.2 | 14초 |  |  | 없음 | 107 | [`S_C3O79-142oQ`](S_C3O79-142oQ) |
 | 2026-05-12 | [삼성전자·SK하이닉스 다음은 AI 메모리 시장 휩쓸 핵심 기업들#AI반도체 #…](https://www.youtube.com/shorts/k3JCLJPXHDQ) | 주식투자AtoZ | 9,930 | 133,113 | ×13.41 | – | 6초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 1 | [`S_k3JCLJPXHDQ`](S_k3JCLJPXHDQ) |
 | 2026-05-11 | [요즘 국내주식 근황 ㅋㅋㅋㅋ](https://www.youtube.com/shorts/Etscmzndr2Y) | 바로가자 | 12,100 | 1,456,461 | ×120.37 | ×35.5 | 10초 |  |  | 없음 | 752 | [`S_Etscmzndr2Y`](S_Etscmzndr2Y) |
@@ -257,7 +257,7 @@
 | 2026-05-04 | [1억 있다면 이 시스템부터 복사하세요. QLD와 배당 ETF의 황금 비율](https://www.youtube.com/shorts/QtASlVQkp2Y) | 운동찬_경제근육 | 22,200 | 941,576 | ×42.41 | ×183.7 | 47초 |  |  | 설명 | 354 | [`S_QtASlVQkp2Y`](S_QtASlVQkp2Y) |
 | 2026-05-04 | [Top 5 Alcohol Stocks in India #stockmarket …](https://www.youtube.com/shorts/dIRUhXL5oys) | the bald trad… | 210,000 | 9,298,326 | ×44.28 | – | 51초 |  | 외국 영상 | 설명 | 600 | [`S_dIRUhXL5oys`](S_dIRUhXL5oys) |
 | 2026-05-04 | [주식 차트 보는 법, 딱 1분 만에 이해하기](https://www.youtube.com/shorts/Grr3MnHirc0) | 주식부엉 | 27,600 | 761,021 | ×27.57 | – | 79초 |  |  | 없음 | 65 | [`S_Grr3MnHirc0`](S_Grr3MnHirc0) |
-| 2026-05-04 | [5월에는 주식을 팔라고?!? Sell in May?!? #주식아가방 #12시에…](https://www.youtube.com/shorts/tfVQcwWMqrk) | 욱이형 정치폭격 | 31,500 | 283,498 | ×9.0 | ×14.8 | 37초 |  |  | 없음 | 20 | [`S_tfVQcwWMqrk`](S_tfVQcwWMqrk) |
+| 2026-05-04 | [5월에는 주식을 팔라고?!? Sell in May?!? #주식아가방 #12시에…](https://www.youtube.com/shorts/tfVQcwWMqrk) | 욱이형 정치폭격 | 31,500 | 283,498 | ×9.0 | ×15.0 | 37초 |  |  | 없음 | 20 | [`S_tfVQcwWMqrk`](S_tfVQcwWMqrk) |
 | 2026-05-02 | [미국 주식으로 순자산 34억을 만든 평범한 직장인 서학개미](https://www.youtube.com/shorts/gW83QNxHtmU) | 잼그대 | 4,540 | 296,706 | ×65.35 | – | 34초 |  |  | 설명 | 121 | [`S_gW83QNxHtmU`](S_gW83QNxHtmU) |
 | 2026-05-01 | [하락 끝에서 잡는 법📉➡️📈 매수 타이밍 4가지 신호#주식 #주식투자 #차트분…](https://www.youtube.com/shorts/9Cjy27uaGRE) | 머니레이다 AI ∣ Mo… | 33,200 | 267,193 | ×8.05 | ×248.7 | 51초 |  | 외국 영상 | 설명 | 11 | [`S_9Cjy27uaGRE`](S_9Cjy27uaGRE) |
 | 2026-04-30 | [차트가 보이기 시작하는 캔들 8조합｜매수·매도 신호 한 번에 정리 #캔들패턴 …](https://www.youtube.com/shorts/Q-ycTnppIOg) | 머니레이다 AI ∣ Mo… | 33,200 | 426,553 | ×12.85 | ×397.0 | 47초 |  | 외국 영상 | 설명 | 29 | [`S_Q-ycTnppIOg`](S_Q-ycTnppIOg) |
@@ -268,9 +268,9 @@
 | 2026-04-24 | [2031년까지 장기투자할 양자컴퓨터 관련주 TOP3](https://www.youtube.com/shorts/rcYtOj1O5VE) | 시드업 | 39,300 | 214,908 | ×5.47 | – | 24초 |  |  | 없음 | 17 | [`S_rcYtOj1O5VE`](S_rcYtOj1O5VE) |
 | 2026-04-24 | [내 주식 언제 팔까? 염승환이 짚은 ‘폭락 전 3번의 경고’ #염승환 #주식투…](https://www.youtube.com/shorts/g1EcOfJ3Khs) | 위키타카 | 76,300 | 1,763,300 | ×23.11 | – | 70초 |  |  | 설명 | 102 | [`S_g1EcOfJ3Khs`](S_g1EcOfJ3Khs) |
 | 2026-04-24 | [파란불은 냅두고 빨간불은 팔고](https://www.youtube.com/shorts/7hc98sR5_s8) | 머니코믹스 Money C… | 1,440,000 | 2,448,803 | ×1.7 | – | 52초 |  |  | 없음 | 673 | [`S_7hc98sR5_s8`](S_7hc98sR5_s8) |
-| 2026-04-23 | [[주식기초 제71강] 공매도란 무엇이고, 공매도를 이기는 법은 #주식아가방 #…](https://www.youtube.com/shorts/vY2sLS0akxk) | 욱이형 정치폭격 | 31,500 | 259,823 | ×8.25 | ×13.5 | 60초 |  |  | 없음 | 23 | [`S_vY2sLS0akxk`](S_vY2sLS0akxk) |
-| 2026-04-23 | [[EVENT] 1Q 200액티브 2종 #하나자산운용 #1qetf #…](https://www.youtube.com/shorts/zlTXE0Z50JM) | 하나TV [하나자산운용] | 24,800 | 334,223 | ×13.48 | ×1.4 | 44초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 0 | [`S_zlTXE0Z50JM`](S_zlTXE0Z50JM) |
-| 2026-04-22 | [[주식기초 제70강] 배당주를 선택하기 위해 이건 알아야지!! 시가배당률 #주…](https://www.youtube.com/shorts/v_uGtZMvGPs) | 욱이형 정치폭격 | 31,500 | 155,454 | ×4.94 | ×8.1 | 58초 |  |  | 없음 | 4 | [`S_v_uGtZMvGPs`](S_v_uGtZMvGPs) |
+| 2026-04-23 | [[주식기초 제71강] 공매도란 무엇이고, 공매도를 이기는 법은 #주식아가방 #…](https://www.youtube.com/shorts/vY2sLS0akxk) | 욱이형 정치폭격 | 31,500 | 259,823 | ×8.25 | ×13.8 | 60초 |  |  | 없음 | 23 | [`S_vY2sLS0akxk`](S_vY2sLS0akxk) |
+| 2026-04-23 | [[EVENT] 1Q 200액티브 2종 #하나자산운용 #1qetf #…](https://www.youtube.com/shorts/zlTXE0Z50JM) | 하나TV [하나자산운용] | 29,500 | 334,223 | ×11.33 | ×1.4 | 44초 |  | 조회수 부풀림 의심(좋아요·댓글 거… | 설명 | 0 | [`S_zlTXE0Z50JM`](S_zlTXE0Z50JM) |
+| 2026-04-22 | [[주식기초 제70강] 배당주를 선택하기 위해 이건 알아야지!! 시가배당률 #주…](https://www.youtube.com/shorts/v_uGtZMvGPs) | 욱이형 정치폭격 | 31,500 | 155,454 | ×4.94 | ×8.2 | 58초 |  |  | 없음 | 4 | [`S_v_uGtZMvGPs`](S_v_uGtZMvGPs) |
 | 2026-04-21 | [삼성전자 2배 레버리지 ETF 상장! 이거 들어가도 될까? #박시동 #삼성전자…](https://www.youtube.com/shorts/hpIdr-3VDUY) | 위키타카 | 76,300 | 2,320,932 | ×30.42 | – | 79초 |  |  | 설명 | 440 | [`S_hpIdr-3VDUY`](S_hpIdr-3VDUY) |
 | 2026-04-21 | [반도체 레버리지 ETF 산다? 안 산다!?](https://www.youtube.com/shorts/AReJ1--JNfA) | News Issue - … | 38,300 | 871,876 | ×22.76 | ×74.1 | 95초 |  |  | 없음 | 145 | [`S_AReJ1--JNfA`](S_AReJ1--JNfA) |
 | 2026-04-21 | [40대라면 무조건 소장! 1분 만에 끝내는 핵심 ETF 15선 📈](https://www.youtube.com/shorts/Fa66HkWvFgA) | D P | 15,600 | 525,589 | ×33.69 | ×136.9 | 5초 |  |  | 설명 | 4 | [`S_Fa66HkWvFgA`](S_Fa66HkWvFgA) |

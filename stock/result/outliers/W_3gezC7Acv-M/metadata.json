@@ -1,0 +1,116 @@
+{
+ "id": "3gezC7Acv-M",
+ "title": "손정의의 26년, 닷컴 버블에서 오픈AI까지",
+ "channel": "차트너머",
+ "channel_id": "UC5BwsbgUiimuihlA2sQv7-Q",
+ "subs": 5180,
+ "views": 54988,
+ "ratio": 10.62,
+ "age_days": 24,
+ "views_per_day": 2206.1,
+ "minutes": 15.1,
+ "likes": 182,
+ "comments": 23,
+ "published": "2026-11-03",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=3gezC7Acv-M",
+ "flag": "",
+ "published_at": "2026-11-03T11:44:50Z",
+ "rank": "W60",
+ "set": "web",
+ "folder": "W_3gezC7Acv-M",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "손정의",
+  "소프트뱅크",
+  "오픈AI",
+  "닷컴버블",
+  "비전펀드",
+  "알리바바",
+  "주식다큐",
+  "차트너머"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "일본 시가총액 1위, 그리고 절반"
+  },
+  {
+   "start": 69,
+   "title": "재일 한국인 아이의 첫 밑천"
+  },
+  {
+   "start": 124,
+   "title": "소프트뱅크와 야후"
+  },
+  {
+   "start": 195,
+   "title": "닷컴 버블이 꺼질 때"
+  },
+  {
+   "start": 245,
+   "title": "NTT에 건 싸움, 야후 BB"
+  },
+  {
+   "start": 315,
+   "title": "보다폰 재팬과 아이폰"
+  },
+  {
+   "start": 364,
+   "title": "알리바바에 넣은 2,000만 달러"
+  },
+  {
+   "start": 406,
+   "title": "Arm, 비전펀드, 위워크"
+  },
+  {
+   "start": 461,
+   "title": "엔비디아를 판 대가"
+  },
+  {
+   "start": 497,
+   "title": "코로나와 21년 만의 반전"
+  },
+  {
+   "start": 561,
+   "title": "다시 무너진 비전펀드"
+  },
+  {
+   "start": 592,
+   "title": "수비에서 공격으로"
+  },
+  {
+   "start": 637,
+   "title": "엔비디아를 팔아 오픈AI로"
+  },
+  {
+   "start": 693,
+   "title": "6조 엔의 정체와 빚의 크기"
+  },
+  {
+   "start": 769,
+   "title": "흔들린 10월"
+  },
+  {
+   "start": 807,
+   "title": "2000년의 재방송일까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 23,
+ "comments_top_level": 12,
+ "comments_replies": 11,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 23,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:37",
+ "approved": "2026-11-28T20:14+09:00"
+}

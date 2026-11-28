@@ -1,0 +1,67 @@
+{
+ "id": "CcKFcr_M8uc",
+ "title": "하이닉스에 이어 삼성도 LTA 체결? 애플이 결국 삼성에 무릎 꿇다···",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 107667,
+ "ratio": 16.12,
+ "age_days": 10,
+ "views_per_day": 10694.5,
+ "minutes": 15.1,
+ "likes": 424,
+ "comments": 29,
+ "published": "2026-11-18",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=CcKFcr_M8uc",
+ "flag": "",
+ "published_at": "2026-11-18T08:20:27Z",
+ "rank": "W51",
+ "set": "web",
+ "folder": "W_CcKFcr_M8uc",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 애플이 삼성전자와 4~5년 장기 D램 공급 계약(LTA)을 추진한다? 줄서기 시작한 애플의 다급한 심정"
+  },
+  {
+   "start": 120,
+   "title": "[애플 LTA 분석] 가격 후려치던 애플이 공급 확보를 최우선으로 바꾼 이유와 반도체 쇼티지의 실체 증명"
+  },
+  {
+   "start": 370,
+   "title": "B2C 시장의 반전: 아이폰 가격이 올라도 수요가 꺾이지 않는 이유, IT 기기의 가격 탄력성 민감도 저하와 애플의 자신감"
+  },
+  {
+   "start": 454,
+   "title": "[엔트로픽 상장 카운트다운] 공모가 희망 밴드 상단 돌파 유력, 스페이스X를 뛰어넘는 6~20배 청약 경쟁률의 진실"
+  },
+  {
+   "start": 660,
+   "title": "엔트로픽 상장 후 수급 블랙홀과 리스크: 나스닥 100 편입 일정, 그리고 조기 락업 해제 물량(1억 주)이 던질 단기 충격파"
+  },
+  {
+   "start": 814,
+   "title": "클로징: 흔들리는 노이즈 속에서도 뚜렷해지는 메모리 투톱의 장기 계약 파워와 확실한 펀더멘탈"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 29,
+ "comments_top_level": 29,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 29,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:25",
+ "approved": "2026-11-28T20:14+09:00"
+}

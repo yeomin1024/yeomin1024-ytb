@@ -1,0 +1,75 @@
+{
+ "id": "m3ZRHahRGHU",
+ "title": "현대차 반토막에 숨겨진 진실… 엔비디아 합작 발표 전 무조건 모아야 할 이유 [이권희 대표]",
+ "channel": "경제시그널",
+ "channel_id": "UCdErKhSSwQcVSC4PEp6soZQ",
+ "subs": 28800,
+ "views": 408924,
+ "ratio": 14.2,
+ "age_days": 53,
+ "views_per_day": 7711.2,
+ "minutes": 33.0,
+ "likes": 1839,
+ "comments": 213,
+ "published": "2026-10-06",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=m3ZRHahRGHU",
+ "flag": "",
+ "published_at": "2026-10-06T10:29:50Z",
+ "rank": "W33",
+ "set": "web",
+ "folder": "W_m3ZRHahRGHU",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝"
+  },
+  {
+   "start": 15,
+   "title": "요즘 주식시장"
+  },
+  {
+   "start": 805,
+   "title": "삼성전자 3분기 잠정실적"
+  },
+  {
+   "start": 940,
+   "title": "수급으로 인한 리스크는?"
+  },
+  {
+   "start": 1210,
+   "title": "반도체 소부장 접근법"
+  },
+  {
+   "start": 1350,
+   "title": "전력기기·전선주 투자 포인트"
+  },
+  {
+   "start": 1465,
+   "title": "현대차 언제 전고점가나?"
+  },
+  {
+   "start": 1725,
+   "title": "3분기 어닝시즌 진입... 투자 전략은?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 213,
+ "comments_top_level": 178,
+ "comments_replies": 35,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 213,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:50",
+ "approved": "2026-11-28T20:13+09:00"
+}

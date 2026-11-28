@@ -1,0 +1,131 @@
+{
+ "id": "mJ_80aPKoi8",
+ "title": "삼성전자 진짜 7만원까지 가나요? \"10년간 틀린 적 없다\"는 주장, 정면 반박",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 11400,
+ "views": 136165,
+ "ratio": 11.94,
+ "age_days": 43,
+ "views_per_day": 3133.7,
+ "minutes": 12.7,
+ "likes": 986,
+ "comments": 488,
+ "published": "2026-10-16",
+ "queries": "검색:삼성전자",
+ "url": "https://www.youtube.com/watch?v=mJ_80aPKoi8",
+ "flag": "",
+ "published_at": "2026-10-16T00:30:38Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_mJ_80aPKoi8",
+ "sources": [
+  "검색:삼성전자"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "삼성전자 주가",
+  "삼성전자 7만원",
+  "하이닉스",
+  "SK하이닉스",
+  "적정주가",
+  "감산",
+  "HBM",
+  "최태원",
+  "코스피",
+  "주식",
+  "박시동",
+  "차영주",
+  "매불쇼",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — \"삼성전자가 7만원일 때는 언제냐면요\""
+  },
+  {
+   "start": 23,
+   "title": "[경제야놀자 해설] 삼성전자 7만원 간다?"
+  },
+  {
+   "start": 42,
+   "title": "삼성 21만원 · 하이닉스 126만원 · 화제의 전망"
+  },
+  {
+   "start": 69,
+   "title": "[경제야놀자 해설] 화제가 된 주장"
+  },
+  {
+   "start": 83,
+   "title": "\"10년 동안 예측이 틀린 적이 없다\""
+  },
+  {
+   "start": 109,
+   "title": "같이 토론했던 차영주 소장 — \"그때 사래요\""
+  },
+  {
+   "start": 195,
+   "title": "가장 경계할 것, \"나만 옳다\""
+  },
+  {
+   "start": 222,
+   "title": "\"그들은 속고 있습니다\""
+  },
+  {
+   "start": 276,
+   "title": "[경제야놀자 해설] \"그들은 속고 있다\""
+  },
+  {
+   "start": 300,
+   "title": "박시동 — 하나도 동의 안 한다"
+  },
+  {
+   "start": 329,
+   "title": "7만원 = 법인세도 못 내던 적자 시절"
+  },
+  {
+   "start": 417,
+   "title": "애플 · 머스크도 칩이 없다 · 공장은 풀가동"
+  },
+  {
+   "start": 501,
+   "title": "[경제야놀자 해설] HBM과 중국 비중"
+  },
+  {
+   "start": 522,
+   "title": "중국 비중이 오른 진짜 이유삼성전자 책"
+  },
+  {
+   "start": 584,
+   "title": "속보 \"회장님도 물렸다\""
+  },
+  {
+   "start": 620,
+   "title": "\"싼데 싸구려는 아니다\""
+  },
+  {
+   "start": 641,
+   "title": "최태원 회장은 왜 49억만 샀나"
+  },
+  {
+   "start": 711,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 488,
+ "comments_top_level": 250,
+ "comments_replies": 238,
+ "comments_by_creator": 198,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 488,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:22:14",
+ "approved": "2026-11-28T20:22+09:00"
+}

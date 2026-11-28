@@ -1,0 +1,63 @@
+{
+ "id": "owPJRgosr6M",
+ "title": "이재용 회장이 확인시켜준 ‘바닥’ 어제 삼전 2조원 매수한 이유",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 122995,
+ "ratio": 18.41,
+ "age_days": 45,
+ "views_per_day": 2728.3,
+ "minutes": 14.1,
+ "likes": 608,
+ "comments": 109,
+ "published": "2026-10-14",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=owPJRgosr6M",
+ "flag": "",
+ "published_at": "2026-10-14T08:00:29Z",
+ "rank": "W7",
+ "set": "web",
+ "folder": "W_owPJRgosr6M",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 이재용 모자의 대규모 주식 매수와 증여, 그리고 바닥 시그널"
+  },
+  {
+   "start": 199,
+   "title": "삼성전자 주식 매수·증여 배경 분석 및 내년 1월 이사회 주주환원 기대감"
+  },
+  {
+   "start": 330,
+   "title": "SK 최태원 회장의 재산분할 재원 마련과 지분 매각설 (마이클 델 펀드 연계)"
+  },
+  {
+   "start": 465,
+   "title": "한투증권 PRS(파킹) 계약의 실체: 진짜로 판 게 아니라고요?"
+  },
+  {
+   "start": 656,
+   "title": "지분 행사의 비밀과 공동보유자 리스크, 그리고 마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 109,
+ "comments_top_level": 105,
+ "comments_replies": 4,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 109,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:16",
+ "approved": "2026-11-28T20:13+09:00"
+}

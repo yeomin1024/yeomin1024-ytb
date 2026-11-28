@@ -1,0 +1,83 @@
+{
+ "id": "SdicEcYHg70",
+ "title": "누가 그리고 왜 메모리를 흔드나 | 악재를 '고의'로 만드는 시장 | 헤지펀드 청산 기계적 매도 더 큰 공포를 만든다",
+ "channel": "Just In Timeㅣ저스트인타임",
+ "channel_id": "UCqd9OAUhCn4gXiDT1o49KyQ",
+ "subs": 19800,
+ "views": 154941,
+ "ratio": 7.83,
+ "age_days": 19,
+ "views_per_day": 8091.4,
+ "minutes": 16.6,
+ "likes": 755,
+ "comments": 158,
+ "published": "2026-11-09",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=SdicEcYHg70",
+ "flag": "",
+ "published_at": "2026-11-09T07:00:11Z",
+ "rank": "W36",
+ "set": "web",
+ "folder": "W_SdicEcYHg70",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 누가 메모리를 흔드는가"
+  },
+  {
+   "start": 140,
+   "title": "무엇이 보도됐나"
+  },
+  {
+   "start": 215,
+   "title": "이유 하나: 기술 — 로직과 D램은 다른 물건"
+  },
+  {
+   "start": 314,
+   "title": "3D D램: 3사도 아직 못 연 문"
+  },
+  {
+   "start": 394,
+   "title": "이유 둘: 돈과 시간"
+  },
+  {
+   "start": 474,
+   "title": "중국 CXMT: 나라가 10년을 걸어도"
+  },
+  {
+   "start": 548,
+   "title": "이유 셋: 고객을 적으로 돌린다"
+  },
+  {
+   "start": 696,
+   "title": "그럼 이 소문은 왜 계속 나오나"
+  },
+  {
+   "start": 808,
+   "title": "블루웨이브 폭락, 과했나"
+  },
+  {
+   "start": 928,
+   "title": "정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 158,
+ "comments_top_level": 77,
+ "comments_replies": 81,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 158,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:59",
+ "approved": "2026-11-28T20:14+09:00"
+}

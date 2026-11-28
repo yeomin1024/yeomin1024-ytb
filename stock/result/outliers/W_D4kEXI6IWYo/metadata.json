@@ -1,0 +1,91 @@
+{
+ "id": "D4kEXI6IWYo",
+ "title": "왜 내가 팔면 오르고 버티면 더 떨어질까? 폭락장에서 개미가 알아야 할 3가지",
+ "channel": "오피디의 머니노트",
+ "channel_id": "UCDevts84_zQeE5Ws5B7wOHQ",
+ "subs": 2260,
+ "views": 73373,
+ "ratio": 32.47,
+ "age_days": 22,
+ "views_per_day": 3337.7,
+ "minutes": 17.7,
+ "likes": 381,
+ "comments": 21,
+ "published": "2026-11-06",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=D4kEXI6IWYo",
+ "flag": "",
+ "published_at": "2026-11-06T10:21:45Z",
+ "rank": "W66",
+ "set": "web",
+ "folder": "W_D4kEXI6IWYo",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "폭락장",
+  "폭락장 대처법",
+  "코스피 폭락",
+  "주식 폭락",
+  "주식 폭락 대처",
+  "주식 손절",
+  "주식 손절 기준",
+  "주식 물타기",
+  "물타기 손절",
+  "주식 멘탈",
+  "주식 심리",
+  "삼성전자",
+  "SK하이닉스",
+  "서킷브레이커",
+  "워런 버핏"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주식투자하고 계신 분들, 많이 힘드신가요?"
+  },
+  {
+   "start": 107,
+   "title": "이렇게 폭락했는데 코스피가 1년 전보다 위에 있는 이유"
+  },
+  {
+   "start": 171,
+   "title": "지금 나는 어디쯤일까, 부정·분노·타협·우울·수용"
+  },
+  {
+   "start": 265,
+   "title": "첫 번째, 단기 반등은 반드시 나온다"
+  },
+  {
+   "start": 411,
+   "title": "두 번째, 과도한 물타기는 절대 금물"
+  },
+  {
+   "start": 594,
+   "title": "세 번째, 내가 왜 투자했는지 확인해야 한다"
+  },
+  {
+   "start": 730,
+   "title": "자책하고 계신 분들께"
+  },
+  {
+   "start": 871,
+   "title": "기다릴까, 손절할까? 지금부터 어떻게 해야 할까"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 21,
+ "comments_top_level": 17,
+ "comments_replies": 4,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 21,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:46",
+ "approved": "2026-11-28T20:14+09:00"
+}

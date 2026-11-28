@@ -1,0 +1,130 @@
+{
+ "id": "Phf8TrqtNv4",
+ "title": "나스닥 5% 폭락에 삼성전자 하이닉스 와르르… 그런데 '우리엔 호재'라는 이유",
+ "channel": "경제야! 놀자~",
+ "channel_id": "UCiyTPjrEIUsc26rwb4_fyfw",
+ "subs": 11400,
+ "views": 136067,
+ "ratio": 11.94,
+ "age_days": 22,
+ "views_per_day": 6134.5,
+ "minutes": 11.0,
+ "likes": 659,
+ "comments": 149,
+ "published": "2026-11-06",
+ "queries": "검색:삼성전자",
+ "url": "https://www.youtube.com/watch?v=Phf8TrqtNv4",
+ "flag": "",
+ "published_at": "2026-11-06T07:00:18Z",
+ "rank": "W5",
+ "set": "web",
+ "folder": "W_Phf8TrqtNv4",
+ "sources": [
+  "검색:삼성전자"
+ ],
+ "source": "web",
+ "tags": [
+  "나스닥",
+  "나스닥 폭락",
+  "나스닥 급락",
+  "미국 증시",
+  "삼성전자",
+  "SK하이닉스",
+  "하이닉스",
+  "삼성전자 주가",
+  "하이닉스 주가",
+  "마이크론",
+  "마이크론 증설",
+  "반도체",
+  "반도체 치킨게임",
+  "마이크로소프트",
+  "CAPEX",
+  "아이렌",
+  "엔스케일",
+  "데이터센터",
+  "헤지펀드",
+  "구글 데이터센터",
+  "주식",
+  "박시동",
+  "이광수",
+  "권다영",
+  "12시에 만나요",
+  "경제야놀자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트 — 마이크론 증설 중단, 우리 입장에선 호재"
+  },
+  {
+   "start": 21,
+   "title": "[경제야놀자 해설] 나스닥 하루 5% 급락"
+  },
+  {
+   "start": 37,
+   "title": "나스닥 하루 5% — 2020년대 6~7번뿐"
+  },
+  {
+   "start": 82,
+   "title": "카더라만으론 5% 안 빠진다 · 30분마다 악재"
+  },
+  {
+   "start": 148,
+   "title": "[경제야놀자 해설] 흔치 않은 5% 급락"
+  },
+  {
+   "start": 174,
+   "title": "CAPEX 총액 축소, 처음 나온 자극적 헤드라인"
+  },
+  {
+   "start": 218,
+   "title": "마이크론 대만 신규 건설 중단 · 협상용?"
+  },
+  {
+   "start": 269,
+   "title": "헤지펀드 청산 보도 · 앤스로픽 상장 회의론"
+  },
+  {
+   "start": 349,
+   "title": "[경제야놀자 해설] 시장을 때린 뉴스 4가지"
+  },
+  {
+   "start": 369,
+   "title": "아이렌은 잘된다 · 축소 아닌 관리 강화"
+  },
+  {
+   "start": 462,
+   "title": "치킨게임 앞둔 우리엔 땡큐"
+  },
+  {
+   "start": 541,
+   "title": "[경제야놀자 해설] 걷어내고 보니"
+  },
+  {
+   "start": 561,
+   "title": "좋은 소식도 — 구글 170억불 추가 투자"
+  },
+  {
+   "start": 576,
+   "title": "결론 — 걷어내면 이 정도 충격 아닐 수도"
+  },
+  {
+   "start": 615,
+   "title": "[경제야놀자 해설] 오늘의 세 줄 정리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 149,
+ "comments_top_level": 128,
+ "comments_replies": 21,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 149,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:22:13",
+ "approved": "2026-11-28T20:22+09:00"
+}

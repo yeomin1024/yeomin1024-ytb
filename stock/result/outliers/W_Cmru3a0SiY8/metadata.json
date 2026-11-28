@@ -1,0 +1,113 @@
+{
+ "id": "Cmru3a0SiY8",
+ "title": "나스닥 100에 20년을 넣었더니 벌어진 일 (feat. 83% 폭락) ㅡ VOO vs QQQ 20년 백테스팅",
+ "channel": "머니언박싱",
+ "channel_id": "UCwq22yCnf8XSUHOUWJCo1UQ",
+ "subs": 2780,
+ "views": 61648,
+ "ratio": 22.18,
+ "age_days": 76,
+ "views_per_day": 808.1,
+ "minutes": 8.0,
+ "likes": 222,
+ "comments": 33,
+ "published": "2026-09-13",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=Cmru3a0SiY8",
+ "flag": "",
+ "published_at": "2026-09-13T04:12:36Z",
+ "rank": "W53",
+ "set": "web",
+ "folder": "W_Cmru3a0SiY8",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "VOO",
+  "QQQ",
+  "S&P500",
+  "나스닥100",
+  "ETF투자",
+  "미국주식",
+  "서학개미",
+  "백테스팅",
+  "적립식투자",
+  "인덱스펀드",
+  "워런버핏",
+  "닷컴버블",
+  "금융위기",
+  "배당투자",
+  "자산배분",
+  "포트폴리오",
+  "절세계좌",
+  "ISA계좌",
+  "연금저축",
+  "환율리스크",
+  "머니언박싱"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "워런 버핏의 유언 — 왜 S&P 500인가"
+  },
+  {
+   "start": 40,
+   "title": "VOO vs QQQ 공식 팩트시트"
+  },
+  {
+   "start": 81,
+   "title": "연준 기준금리 20년, 나스닥은 왜 출렁였나"
+  },
+  {
+   "start": 124,
+   "title": "20년 자산 성장 라인 레이스"
+  },
+  {
+   "start": 171,
+   "title": "1억원 일시 거치 시뮬레이션"
+  },
+  {
+   "start": 206,
+   "title": "닷컴버블·금융위기 최대 낙폭 스트레스 테스트"
+  },
+  {
+   "start": 249,
+   "title": "배당수익률 & 재투자 복리 효과"
+  },
+  {
+   "start": 294,
+   "title": "QQQ의 빅테크 집중 리스크"
+  },
+  {
+   "start": 336,
+   "title": "해외직투 양도세 vs ISA·연금저축 절세"
+  },
+  {
+   "start": 380,
+   "title": "70:30 하이브리드 포트폴리오"
+  },
+  {
+   "start": 414,
+   "title": "원달러 환율이라는 숨은 변수"
+  },
+  {
+   "start": 453,
+   "title": "최종 결론 — 2030세대 vs 5060세대 로드맵"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 33,
+ "comments_top_level": 8,
+ "comments_replies": 25,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 33,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:27",
+ "approved": "2026-11-28T20:14+09:00"
+}

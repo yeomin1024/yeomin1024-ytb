@@ -1,0 +1,71 @@
+{
+ "id": "xbFp0FR1N1Q",
+ "title": "반도체 들고있다고 ‘난 안봐도돼’가 아닙니다! 코스피7천 박스권에서 살아남는 법",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 59815,
+ "ratio": 8.95,
+ "age_days": 67,
+ "views_per_day": 892.7,
+ "minutes": 13.2,
+ "likes": 321,
+ "comments": 13,
+ "published": "2026-09-22",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=xbFp0FR1N1Q",
+ "flag": "",
+ "published_at": "2026-09-22T09:50:30Z",
+ "rank": "W57",
+ "set": "web",
+ "folder": "W_xbFp0FR1N1Q",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 지금은 무서워할 때가 아니라 감각을 세울 때"
+  },
+  {
+   "start": 38,
+   "title": "코스피 7천선 돌파와 시장의 변화 (불확실성 해소)"
+  },
+  {
+   "start": 122,
+   "title": "출연진 계좌 공개 및 멘탈 변화 공유"
+  },
+  {
+   "start": 252,
+   "title": "반도체 회의론과 금리 이슈의 실체"
+  },
+  {
+   "start": 365,
+   "title": "추석 전 시장 회복이 중요한 이유"
+  },
+  {
+   "start": 480,
+   "title": "주식 앱을 닫아버린 개미들에게 건네는 조언"
+  },
+  {
+   "start": 740,
+   "title": "박스권 장세, 반도체와 뉴스를 대하는 올바른 자세"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 13,
+ "comments_top_level": 11,
+ "comments_replies": 2,
+ "comments_by_creator": 2,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 13,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:33",
+ "approved": "2026-11-28T20:14+09:00"
+}

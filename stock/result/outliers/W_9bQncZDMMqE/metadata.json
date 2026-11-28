@@ -1,0 +1,109 @@
+{
+ "id": "9bQncZDMMqE",
+ "title": "이거 딱 두 개면 충분하다? 존리 대표의 심플한 투자 공식",
+ "channel": "여의돈스트리트",
+ "channel_id": "UCL10nJjqz3PabTdZX2qiMVQ",
+ "subs": 1430,
+ "views": 158558,
+ "ratio": 110.88,
+ "age_days": 81,
+ "views_per_day": 1954.0,
+ "minutes": 22.4,
+ "likes": 839,
+ "comments": 44,
+ "published": "2026-09-08",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=9bQncZDMMqE",
+ "flag": "",
+ "published_at": "2026-09-08T06:29:40Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_9bQncZDMMqE",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "재태크",
+  "주식투자",
+  "주식 투자",
+  "경제",
+  "ETF",
+  "증시",
+  "여의돈스트리트",
+  "투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 48,
+   "title": "‘존리의 부자학교’, 어떤 곳인가요?"
+  },
+  {
+   "start": 67,
+   "title": "우리나라 금융 수준, 정말 높아졌나요?"
+  },
+  {
+   "start": 158,
+   "title": "빨리 부자가 되는 투자, 가능한가요?"
+  },
+  {
+   "start": 340,
+   "title": "장기 투자, 어떤 ETF를 사야 할까요?"
+  },
+  {
+   "start": 460,
+   "title": "평범한 사람은 어떻게 부자가 되나요?"
+  },
+  {
+   "start": 557,
+   "title": "주식 투자에 전문가가 없다?"
+  },
+  {
+   "start": 671,
+   "title": "레버리지 투자는 왜 위험한가요?"
+  },
+  {
+   "start": 738,
+   "title": "한국주식, 지금도 투자할 만한가요?"
+  },
+  {
+   "start": 783,
+   "title": "투자 뉴스는 어디까지 봐야 할까요?"
+  },
+  {
+   "start": 931,
+   "title": "부동산 비중이 높으면 위험한가요?"
+  },
+  {
+   "start": 1052,
+   "title": "주식 투자의 진짜 목적은 무엇인가요?"
+  },
+  {
+   "start": 1093,
+   "title": "좋은 기업은 어떻게 고르나요?"
+  },
+  {
+   "start": 1266,
+   "title": "장기 투자 중 기업 상황이 나빠진다면?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 44,
+ "comments_top_level": 26,
+ "comments_replies": 18,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 44,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:32",
+ "approved": "2026-11-28T20:13+09:00"
+}

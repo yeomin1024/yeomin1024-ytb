@@ -1,0 +1,113 @@
+{
+ "id": "IOlZ-LDt_Gc",
+ "title": "요즘 나이키 왜 이럴까 | 주가 12년 최저, 회계사가 뜯어본 나이키",
+ "channel": "전지적회계사시점",
+ "channel_id": "UCcpS0bWevd14oO-H5_Irz-A",
+ "subs": 961,
+ "views": 19471,
+ "ratio": 20.26,
+ "age_days": 95,
+ "views_per_day": 204.2,
+ "minutes": 22.9,
+ "likes": 69,
+ "comments": 22,
+ "published": "2026-08-25",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=IOlZ-LDt_Gc",
+ "flag": "",
+ "published_at": "2026-08-25T01:11:11Z",
+ "rank": "W20",
+ "set": "web",
+ "folder": "W_IOlZ-LDt_Gc",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "나이키",
+  "나이키주가",
+  "나이키신발",
+  "나이키러닝",
+  "아디다스",
+  "온러닝",
+  "호카",
+  "러닝화",
+  "NIKE",
+  "조던",
+  "재무제표",
+  "기업분석",
+  "회계사",
+  "전지적회계사시점",
+  "런닝",
+  "런닝화",
+  "러닝"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 38,
+   "title": "주가 80% 하락, 12년 만의 최저치"
+  },
+  {
+   "start": 149,
+   "title": "1984년, 조던이 만든 신화"
+  },
+  {
+   "start": 212,
+   "title": "사라진 슈퍼스타와 멈춰 선 이야기"
+  },
+  {
+   "start": 327,
+   "title": "광고비 53% 증가 vs 매출 4% 증가"
+  },
+  {
+   "start": 420,
+   "title": "4%의 기술력, 그리고 뒤집힌 2시간의 벽"
+  },
+  {
+   "start": 589,
+   "title": "평균 판매가 83달러의 의미"
+  },
+  {
+   "start": 705,
+   "title": "점유율 22.9%, 3년 연속 하락"
+  },
+  {
+   "start": 743,
+   "title": "재무제표에 없는 연구개발비"
+  },
+  {
+   "start": 817,
+   "title": "DTC 전략이 치른 대가"
+  },
+  {
+   "start": 962,
+   "title": "중국에서 무너진 수익성"
+  },
+  {
+   "start": 1152,
+   "title": "매출채권 회전일수가 보낸 신호"
+  },
+  {
+   "start": 1299,
+   "title": "그래도 나이키는 망하지 않는다"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 22,
+ "comments_top_level": 18,
+ "comments_replies": 4,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 22,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:33",
+ "approved": "2026-11-28T20:13+09:00"
+}

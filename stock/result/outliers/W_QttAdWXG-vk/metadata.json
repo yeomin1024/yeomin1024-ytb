@@ -1,0 +1,114 @@
+{
+ "id": "QttAdWXG-vk",
+ "title": "\"소주 6천 원이면 다른 거 할래요\" | 술 27년 만에 최저, 회계사가 뜯어본 참이슬·카스 재무제표",
+ "channel": "전지적회계사시점",
+ "channel_id": "UCcpS0bWevd14oO-H5_Irz-A",
+ "subs": 961,
+ "views": 29246,
+ "ratio": 30.43,
+ "age_days": 63,
+ "views_per_day": 461.2,
+ "minutes": 34.2,
+ "likes": 31,
+ "comments": 19,
+ "published": "2026-09-26",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=QttAdWXG-vk",
+ "flag": "",
+ "published_at": "2026-09-26T00:10:29Z",
+ "rank": "W61",
+ "set": "web",
+ "folder": "W_QttAdWXG-vk",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "술",
+  "테라",
+  "카스",
+  "새로",
+  "참이슬",
+  "소주",
+  "맥주",
+  "소주가격",
+  "맥주가격",
+  "술소비량",
+  "회식",
+  "주류회사",
+  "주류산업",
+  "오비맥주",
+  "하이트진로",
+  "롯데칠성",
+  "새로오미자",
+  "재무제표",
+  "기업분석",
+  "회계사",
+  "스타트업",
+  "전지적회계사시점"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 37,
+   "title": "손흥민·카리나·박재범의 공통점, 술 광고와 광고선전비"
+  },
+  {
+   "start": 107,
+   "title": "27년 만의 최저 출고량과 사라진 회식 문화"
+  },
+  {
+   "start": 267,
+   "title": "주류 3사 8년 치 장부 분석과 국세청 주세 통계"
+  },
+  {
+   "start": 477,
+   "title": "위스키·와인·홈술은 정말 늘었을까?"
+  },
+  {
+   "start": 649,
+   "title": "양은 줄었는데 출고금액은 늘었다"
+  },
+  {
+   "start": 835,
+   "title": "소주 한 병 해부, 세금 47%와 기준판매비율"
+  },
+  {
+   "start": 1080,
+   "title": "오비맥주: 줄어든 이익과 벨기에로 향하는 배당"
+  },
+  {
+   "start": 1333,
+   "title": "하이트진로: 소주로 벌고 맥주로 고전하다"
+  },
+  {
+   "start": 1614,
+   "title": "롯데칠성: 새로의 반전과 맥주의 부진"
+  },
+  {
+   "start": 1854,
+   "title": "4사 합산 성적표, 물가를 반영하면?"
+  },
+  {
+   "start": 1978,
+   "title": "마무리: 데이터로 본 술 소비의 변화"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 19,
+ "comments_top_level": 18,
+ "comments_replies": 1,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 19,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:38",
+ "approved": "2026-11-28T20:14+09:00"
+}

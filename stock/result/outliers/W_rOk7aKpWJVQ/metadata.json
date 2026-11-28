@@ -1,0 +1,67 @@
+{
+ "id": "rOk7aKpWJVQ",
+ "title": "주식 초보를 위한 하루 100만 원 번다는 매매법 리뷰.  단타 고수들의 진짜 매매법.",
+ "channel": "마이크로스콥 ",
+ "channel_id": "UCWJlSoUMhf8PlMp_lyp4b-Q",
+ "subs": 3740,
+ "views": 51610,
+ "ratio": 13.8,
+ "age_days": 20,
+ "views_per_day": 2488.7,
+ "minutes": 18.8,
+ "likes": 938,
+ "comments": 26,
+ "published": "2026-11-07",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=rOk7aKpWJVQ",
+ "flag": "",
+ "published_at": "2026-11-07T16:16:07Z",
+ "rank": "W3",
+ "set": "web",
+ "folder": "W_rOk7aKpWJVQ",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "주식 초보가 반드시 해야 하는 고수의 세가지 원칙"
+  },
+  {
+   "start": 120,
+   "title": "주식 초보가 반드시 지켜야 하는 수익률"
+  },
+  {
+   "start": 209,
+   "title": "주식 초보가 절대 하면 안되는 두가지"
+  },
+  {
+   "start": 535,
+   "title": "주식 초보가 배워야 하는 고수의 매수점"
+  },
+  {
+   "start": 695,
+   "title": "주식 초보는 이 거래시간은 피하세요"
+  },
+  {
+   "start": 915,
+   "title": "주식 초보에게 추천하는 하는 세가지 매매 준비 과정"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 26,
+ "comments_top_level": 18,
+ "comments_replies": 8,
+ "comments_by_creator": 3,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 26,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:09",
+ "approved": "2026-11-28T20:13+09:00"
+}

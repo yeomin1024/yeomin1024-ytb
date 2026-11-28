@@ -1,0 +1,118 @@
+{
+ "id": "zDdi61_JqUg",
+ "title": "80억 날리고 220억 만든 일본 슈퍼 개미가 물타기를 안 하는 이유 [후지모토 시게루 1:2:6 매매법]",
+ "channel": "차트 지니어스",
+ "channel_id": "UCPdZXjphmB5DFmOaCoB2Pgw",
+ "subs": 6800,
+ "views": 986326,
+ "ratio": 145.05,
+ "age_days": 73,
+ "views_per_day": 13502.0,
+ "minutes": 12.4,
+ "likes": 7078,
+ "comments": 629,
+ "published": "2026-09-16",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=zDdi61_JqUg",
+ "flag": "",
+ "published_at": "2026-09-16T10:00:16Z",
+ "rank": "W45",
+ "set": "web",
+ "folder": "W_zDdi61_JqUg",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "후지모토시게루",
+  "분할매수",
+  "물타기",
+  "1대2대6매매법",
+  "후지모토시게루매매법",
+  "물타기분할매수차이",
+  "후지모토",
+  "일본트레이더",
+  "슈퍼개미",
+  "rsi",
+  "macd",
+  "일목균형표",
+  "rsi매매법",
+  "macd골든크로스",
+  "골든크로스",
+  "이치모쿠",
+  "맥디",
+  "매수타점",
+  "자금관리",
+  "보조지표",
+  "무료지표",
+  "차트보는법",
+  "주식매매법",
+  "주식공부",
+  "3분할시그널",
+  "차트지니어스"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "80억을 잃고 220억을 만든 일본 트레이더"
+  },
+  {
+   "start": 52,
+   "title": "가격이 아니라 증거에 돈을 넣는 1:2:6 구조"
+  },
+  {
+   "start": 104,
+   "title": "버블 붕괴 후 후지모토가 바꾼 매매 방식"
+  },
+  {
+   "start": 174,
+   "title": "1단계 RSI 30 회복에서 1 매수"
+  },
+  {
+   "start": 259,
+   "title": "2단계 MACD 골든크로스에서 2 추가"
+  },
+  {
+   "start": 321,
+   "title": "3단계 구름대 돌파 확인 후 6 매수"
+  },
+  {
+   "start": 406,
+   "title": "1:2:6 원칙이 무너지는 두 가지 순간"
+  },
+  {
+   "start": 486,
+   "title": "매도할 때도 1:2:6으로 나눠 정리하기"
+  },
+  {
+   "start": 548,
+   "title": "계좌 2% 손실로 매수 금액 정하기"
+  },
+  {
+   "start": 607,
+   "title": "지표보다 중요한 매매 순서"
+  },
+  {
+   "start": 664,
+   "title": "세 조건이 겹치는 3분할 시그널"
+  },
+  {
+   "start": 694,
+   "title": "결론과 지표 신청 안내"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 629,
+ "comments_top_level": 421,
+ "comments_replies": 208,
+ "comments_by_creator": 107,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 629,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:14",
+ "approved": "2026-11-28T20:14+09:00"
+}

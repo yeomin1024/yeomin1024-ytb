@@ -1,0 +1,75 @@
+{
+ "id": "pHjqldCVCIo",
+ "title": "목표가 삼전 67만·닉스 470만 괴리율 ↑ 인데..  젠슨황 “28년까지 끄떡없다”",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 132024,
+ "ratio": 19.76,
+ "age_days": 82,
+ "views_per_day": 1608.3,
+ "minutes": 22.5,
+ "likes": 606,
+ "comments": 49,
+ "published": "2026-09-07",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=pHjqldCVCIo",
+ "flag": "",
+ "published_at": "2026-09-07T09:06:48Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_pHjqldCVCIo",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영상 하이라이트: 젠슨 황 \"2028년까지 끄떡없다\""
+  },
+  {
+   "start": 371,
+   "title": "오픈AI '아스트라' 공개, 마침내 열린 AGI 시대"
+  },
+  {
+   "start": 480,
+   "title": "AI 하드웨어 투자, 효율성을 완벽히 증명하다"
+  },
+  {
+   "start": 783,
+   "title": "노무라의 충격 리포트: 삼전 67만 원, 하이닉스 470만 원"
+  },
+  {
+   "start": 942,
+   "title": "골드만삭스가 짚어낸 삼성전자의 7가지 핵심 포인트"
+  },
+  {
+   "start": 1200,
+   "title": "메모리+파운드리 시너지, 삼성전자만의 독보적 무기"
+  },
+  {
+   "start": 1402,
+   "title": "끝없는 반도체 피크론, 이제는 멈춰야 할 때"
+  },
+  {
+   "start": 1538,
+   "title": "역대급 저평가 K-반도체, 주가 재평가의 필수 조건"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 49,
+ "comments_top_level": 46,
+ "comments_replies": 3,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 49,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:21",
+ "approved": "2026-11-28T20:13+09:00"
+}

@@ -1,0 +1,93 @@
+{
+ "id": "Bh7U-uOaunQ",
+ "title": "코스피 단기반등 어렵다 | 굳이 사고 싶다면 이때 사라 | 남석관 베스트인컴 회장",
+ "channel": "투벤저스 주간동아",
+ "channel_id": "UC3tQYfj6ZgP1FTVuru2sU3A",
+ "subs": 32700,
+ "views": 190166,
+ "ratio": 5.82,
+ "age_days": 22,
+ "views_per_day": 8588.8,
+ "minutes": 17.6,
+ "likes": 0,
+ "comments": 303,
+ "published": "2026-11-06",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=Bh7U-uOaunQ",
+ "flag": "",
+ "published_at": "2026-11-06T07:49:30Z",
+ "rank": "W35",
+ "set": "web",
+ "folder": "W_Bh7U-uOaunQ",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "코스피",
+  "중간선거",
+  "남석관",
+  "주식",
+  "남석관주식"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 57,
+   "title": "코스피 단기 반등 기대할 상황인가"
+  },
+  {
+   "start": 208,
+   "title": "하락장 저점매수 전략은?"
+  },
+  {
+   "start": 425,
+   "title": "중간선거 끝난 후 단기반등은?"
+  },
+  {
+   "start": 500,
+   "title": "사라진 시대중심주?"
+  },
+  {
+   "start": 605,
+   "title": "새로운 시대중심주 등장 시기"
+  },
+  {
+   "start": 639,
+   "title": "삼전닉스 저가 매수 전략은?"
+  },
+  {
+   "start": 778,
+   "title": "앤트로픽과 오픈AI IPO는 호재?"
+  },
+  {
+   "start": 842,
+   "title": "현재 포트폴리오 현금 비중"
+  },
+  {
+   "start": 878,
+   "title": "슈퍼개미의 상승장 판단법"
+  },
+  {
+   "start": 987,
+   "title": "11, 12월 조심해야 할 포인트"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 303,
+ "comments_top_level": 221,
+ "comments_replies": 82,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 303,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:56",
+ "approved": "2026-11-28T20:13+09:00"
+}

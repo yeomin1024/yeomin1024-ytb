@@ -1,0 +1,63 @@
+{
+ "id": "pNuko2-R9ds",
+ "title": "신흥국인 ‘한국’의 주식 사야한다는 블랙락. 삼성전자·하이닉스 실적 전망치↑",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 54526,
+ "ratio": 8.16,
+ "age_days": 73,
+ "views_per_day": 746.2,
+ "minutes": 8.2,
+ "likes": 359,
+ "comments": 18,
+ "published": "2026-09-16",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=pNuko2-R9ds",
+ "flag": "",
+ "published_at": "2026-09-16T09:28:09Z",
+ "rank": "W5",
+ "set": "web",
+ "folder": "W_pNuko2-R9ds",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로 및 하이라이트 (애플의 굴욕?)"
+  },
+  {
+   "start": 15,
+   "title": "AI 브리핑: 치솟는 삼성전자·하이닉스 실적 전망치"
+  },
+  {
+   "start": 60,
+   "title": "미국 테일러 팹 조기 가동! 가동률 30% 육박한 이유"
+  },
+  {
+   "start": 230,
+   "title": "애플이 삼성에 무릎 꿇고 메모리 가격 30~40% 수용한 내막"
+  },
+  {
+   "start": 420,
+   "title": "파운드리 흑자 전환 가능성과 노근창 센터장 예고"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 18,
+ "comments_top_level": 18,
+ "comments_replies": 0,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 18,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:13:13",
+ "approved": "2026-11-28T20:13+09:00"
+}

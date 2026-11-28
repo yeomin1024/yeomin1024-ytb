@@ -1,0 +1,93 @@
+{
+ "id": "aUUWqaO4wG0",
+ "title": "10년 뒤 무조건 승리하는 개미들의 진짜 투자법",
+ "channel": "여의돈스트리트",
+ "channel_id": "UCL10nJjqz3PabTdZX2qiMVQ",
+ "subs": 1430,
+ "views": 88072,
+ "ratio": 61.59,
+ "age_days": 74,
+ "views_per_day": 1182.9,
+ "minutes": 15.5,
+ "likes": 697,
+ "comments": 59,
+ "published": "2026-09-14",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=aUUWqaO4wG0",
+ "flag": "",
+ "published_at": "2026-09-14T23:00:27Z",
+ "rank": "W41",
+ "set": "web",
+ "folder": "W_aUUWqaO4wG0",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": [
+  "주식",
+  "재태크",
+  "주식투자",
+  "주식 투자",
+  "경제",
+  "ETF",
+  "증시",
+  "여의돈스트리트",
+  "투자"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로"
+  },
+  {
+   "start": 42,
+   "title": "박스권에 갇힌 현재 증시 진단"
+  },
+  {
+   "start": 116,
+   "title": "AI 버블 우려 속 올바른 매수 시기"
+  },
+  {
+   "start": 183,
+   "title": "안전해 보이는 ‘원금 보장’ 상품의 함정"
+  },
+  {
+   "start": 275,
+   "title": "반도체·대형주 쏠림 계좌, 포트폴리오 개선 조언"
+  },
+  {
+   "start": 409,
+   "title": "시황 뉴스·차트·리포트의 올바른 활용법"
+  },
+  {
+   "start": 549,
+   "title": "직장인 월급 대비 적정 투자 비중 및 방법"
+  },
+  {
+   "start": 625,
+   "title": "좌절하는 2030 세대를 위한 투자 마인드셋"
+  },
+  {
+   "start": 735,
+   "title": "은퇴(예정)자를 위한 포트폴리오 비중 조절법"
+  },
+  {
+   "start": 784,
+   "title": "학원비 대신 주식, 자녀를 위한 올바른 금융 교육법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 59,
+ "comments_top_level": 30,
+ "comments_replies": 29,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 59,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:09",
+ "approved": "2026-11-28T20:14+09:00"
+}

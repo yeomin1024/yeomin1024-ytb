@@ -1,16 +1,22 @@
-# 주식 — 승인한 영상 779개 (업로드 최근 순)
+# 주식 — 승인한 영상 864개 (업로드 최근 순)
 
-자동 생성 — `tools/weekly_analysis.py` v1.5.2 (2026-11-28 10:34 UTC). 글 출처 = 분석에 쓴 글: 자막 → 음성인식 → **설명**(자막을 못 받아 영상 설명으로 대신 분석, 음성인식 대본이 생기면 바뀜) → 없음. 사례 폴더(`W_<영상ID>` — 설명·자막·댓글 전부·썸네일)도 GitHub 에 올라감 (폴더 열에서 바로). ※ 연구·교육용 — 투자 권유가 아님.
+자동 생성 — `tools/weekly_analysis.py` v1.5.2 (2026-11-28 11:23 UTC). 글 출처 = 분석에 쓴 글: 자막 → 음성인식 → **설명**(자막을 못 받아 영상 설명으로 대신 분석, 음성인식 대본이 생기면 바뀜) → 없음. 사례 폴더(`W_<영상ID>` — 설명·자막·댓글 전부·썸네일)도 GitHub 에 올라감 (폴더 열에서 바로). ※ 연구·교육용 — 투자 권유가 아님.
 
-글 출처: 자막 24개 · 음성인식 46개 · 설명 672개 · 없음 37개
+글 출처: 자막 24개 · 음성인식 46개 · 설명 756개 · 없음 38개
 
 | 업로드 | 제목 | 채널 | 구독자 | 조회수 | 배수 | 하루 조회수 | 길이(분) | 글 출처 | 댓글 | 썸네일 | 폴더 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | 2026-11-21 | [SOXL -90% 극한의 공포 1조달러 배팅을 꺼냈다 ∣ 반도체 의도된 폭락? 개인은 팔았](https://www.youtube.com/watch?v=pZDTJKVDdxQ) ⭐ | 뉴욕대디 다니엘 | 15,400 | 336,781 | 21.9 | 48,129.2 | 21.2 | 설명 | 510 | ✓ | `W_pZDTJKVDdxQ` |
+| 2026-11-21 | ["반도체 대폭락 위기 찾아왔다" 다음주 월요일 삼전닉스 주가 '이렇게' 될 겁니다](https://www.youtube.com/watch?v=HKHeBCM-RkE) ⭐ | 알기쉬운 경제스쿨 | 47,600 | 244,681 | 5.1 | 34,267.4 | 35.5 | 설명 | 234 | ✓ | `W_HKHeBCM-RkE` |
+| 2026-11-21 | ["AI가 문제가 아니다!" 지금 전 세계 증시가 무너지는 진짜 이유 (Feat. 김효진 신](https://www.youtube.com/watch?v=uuePBzam50g) ⭐ | 핀플 - Finple | 48,500 | 164,378 | 3.4 | 22,258.4 | 46.6 | 설명 | 239 | ✓ | `W_uuePBzam50g` |
 | 2026-11-21 | [“SOXL 개미 다 털렸다”…6.2조 원 걸린 서학개미, 계산해 보니](https://www.youtube.com/watch?v=Pl2RJoUXP_4) ⭐ | 월가의 진실 | 3,650 | 351,786 | 96.4 | 47,621.5 | 10.6 | 설명 | 1,042 | ✓ | `W_Pl2RJoUXP_4` |
 | 2026-11-20 | [반도체지수 하루 -10.73% 폭락, 월요일 코스피는? #엔비디아 #반도체 #코스피](https://www.youtube.com/watch?v=3wbMHT_WF-0) ⭐ | 세계 풍향계 | 1,560 | 260,618 | 167.1 | 35,052.9 | 9.1 | 설명 | 435 | ✓ | `W_3wbMHT_WF-0` |
 | 2026-11-20 | [“TQQQ 0원 된다”…9,600억 원 산 서학개미, 계산해 보니](https://www.youtube.com/watch?v=awseQ2h5wFQ) ⭐ | 월가의 진실 | 3,650 | 101,885 | 27.9 | 12,543.4 | 11.7 | 설명 | 158 | ✓ | `W_awseQ2h5wFQ` |
+| 2026-11-20 | ["아이렌, 냉정하게 버틸 수 있는 기업인가? -2억진행중인 내 계좌는 버틸수 있는가?..f](https://www.youtube.com/watch?v=tM1uNrlIb8w) ⭐ | 아이렌맨 : IREN을 사랑하 | 9,490 | 53,919 | 5.7 | 6,413.1 | 10.5 | 설명 | 1,078 | ✓ | `W_tM1uNrlIb8w` |
 | 2026-11-19 | [“SOXL 4년 묶인다”…5.6조 원 든 서학개미, 계산해 보니](https://www.youtube.com/watch?v=ZxxtE64yX0I) ⭐ | 월가의 진실 | 3,650 | 83,407 | 22.9 | 9,884.9 | 10.6 | 설명 | 308 | ✓ | `W_ZxxtE64yX0I` |
+| 2026-11-19 | [2,800만원으로 930억 번 일본 천재의 가장 쉬운 단타 매매법 (테스타)](https://www.youtube.com/watch?v=O5ua2wyE4hc) ⭐ | 손절봇 ∣ 자동매매 | 4,430 | 67,263 | 15.2 | 7,821.6 | 15.3 | 설명 | 23 | ✓ | `W_O5ua2wyE4hc` |
+| 2026-11-18 | [가장 쉽게 주도주, 대장주를 찾는 방법 ∣ 슈퍼개미 이정윤](https://www.youtube.com/watch?v=_cYtH3ERfwo) ⭐ | 이정윤의 다정한주식 | 7,840 | 140,026 | 17.9 | 14,088.1 | 20.1 | 설명 | 115 | ✓ | `W__cYtH3ERfwo` |
+| 2026-11-18 | [하이닉스에 이어 삼성도 LTA 체결? 애플이 결국 삼성에 무릎 꿇다···](https://www.youtube.com/watch?v=CcKFcr_M8uc) ⭐ | 잘되라대한민국 | 6,680 | 107,667 | 16.1 | 10,638.2 | 15.1 | 설명 | 29 | ✓ | `W_CcKFcr_M8uc` |
 | 2026-11-17 | [젠슨 황의 사임이 불러온, 반도체 주가 폭락](https://www.youtube.com/watch?v=1NuMdHW8lio) | 슈카월드 | 3,740,000 | 805,092 | 0.2 | 805,092.0 | 40.0 | 없음 | 463 | ✗ | `W_1NuMdHW8lio` |
 | 2026-11-17 | [코스피 5,000선 붕괴… 더 빠질 수 있는데도 중장기 기회로 보는 이유](https://www.youtube.com/watch?v=lEKyWzya1xw) | 슈퍼개미 이세무사TV | 274,000 | 39,459 | 0.1 | 39,459.0 | 14.4 | 설명 | 106 | ✗ | `W_lEKyWzya1xw` |
 | 2026-11-17 | [코스피 5,000마저 붕괴, 지금 꼭 '이렇게' 대응하세요 (무극선생 이승조 대표)](https://www.youtube.com/watch?v=JYyoOyLbEdY) | 김작가 TV | 2,730,000 | 192,545 | 0.1 | 192,545.0 | 25.2 | 설명 | 57 | ✗ | `W_JYyoOyLbEdY` |
@@ -18,6 +24,7 @@
 | 2026-11-17 | [테슬라·스페이스X 4,600조 합병 협상…서학개미에게 벌어질 일](https://www.youtube.com/watch?v=oI4Er3-UwPQ) ⭐ | 월가인사이트 | 130 | 80,120 | 616.3 | 7,226.7 | 9.8 | 설명 | 24 | ✓ | `W_oI4Er3-UwPQ` |
 | 2026-11-17 | [코스피 5000 또 깨졌네...](https://www.youtube.com/watch?v=3NuOE4aVEbU) | 기릿의 주식노트 Let's G | 522,000 | 28,527 | 0.1 | 26,436.6 | 4.5 | 설명 | 22 | ✗ | `W_3NuOE4aVEbU` |
 | 2026-11-17 | [5,000p 마저 무너진 코스피... 제 생각은 이렇습니다](https://www.youtube.com/watch?v=goLNUrtvb9Q) | 재테크읽어주는 파일럿 | 1,280,000 | 255,539 | 0.2 | 235,857.0 | 11.8 | 설명 | 387 | ✗ | `W_goLNUrtvb9Q` |
+| 2026-11-17 | [원달러 환율 역설, 10월 주식 26조 유출에도 왜? #원달러환율 #외국인자금](https://www.youtube.com/watch?v=uPaTBL75zVo) ⭐ | 경제 계기판 | 771 | 31,359 | 40.7 | 2,790.5 | 16.8 | 설명 | 8 | ✓ | `W_uPaTBL75zVo` |
 | 2026-11-17 | [“아이온큐 CFO 도망갔다”…3.9조 원 들고 있는 서학개미, 원문 보니](https://www.youtube.com/watch?v=O9W2R_1R7ZE) ⭐ | 월가의 진실 | 3,650 | 53,308 | 14.6 | 4,697.7 | 10.8 | 설명 | 92 | ✓ | `W_O9W2R_1R7ZE` |
 | 2026-11-16 | ["이것만 알면 계좌 지킨다" -50% 계좌 탈출하는 법 ( 김동엽 대표 )](https://www.youtube.com/watch?v=YNz-ogrUOB4) | 경제 원탑 | 555,000 | 68,957 | 0.1 | 49,168.8 | 17.7 | 설명 | 13 | ✗ | `W_YNz-ogrUOB4` |
 | 2026-11-16 | [원금 안 깎이고 건보료 피하는 배당 월급 세팅 황금비율](https://www.youtube.com/watch?v=hV6ExkrohoE) | 하와이 대저택 | 1,060,000 | 139,529 | 0.1 | 92,627.0 | 19.9 | 설명 | 54 | ✗ | `W_hV6ExkrohoE` |
@@ -26,6 +33,8 @@
 | 2026-11-16 | [사상 최초 코스피 추월, ETF 하루 거래 20조 원대](https://www.youtube.com/watch?v=KigB-wyyngc) | 시동위키 | 361,000 | 80,321 | 0.2 | 39,998.7 | 25.3 | 설명 | 72 | ✗ | `W_KigB-wyyngc` |
 | 2026-11-16 | [AI 안경 논란, 수혜주는?](https://www.youtube.com/watch?v=0xg1E-UaZhA) | 기릿의 주식노트 Let's G | 522,000 | 38,678 | 0.1 | 18,981.3 | 13.8 | 설명 | 15 | ✗ | `W_0xg1E-UaZhA` |
 | 2026-11-16 | [겁먹은 코스피, 이번주 두가지 고비가 옵니다](https://www.youtube.com/watch?v=9MXwHlep8wQ) | 전인구경제연구소 | 1,290,000 | 359,342 | 0.3 | 157,866.6 | 10.0 | 설명 | 467 | ✗ | `W_9MXwHlep8wQ` |
+| 2026-11-16 | [12조 상속세 완납 직후 아들에게 4.5조 삼성전자 지분 넘긴 어머니! 아내와 어머니 그 ](https://www.youtube.com/watch?v=5tV7zEpTfCs) ⭐ | 모둠경제 | 14,000 | 265,648 | 19.0 | 21,440.3 | 25.7 | 설명 | 88 | ✓ | `W_5tV7zEpTfCs` |
+| 2026-11-16 | [천재도 경제학자도 주식에 실패한 진짜 이유는 '이걸' 몰랐기 때문입니다](https://www.youtube.com/watch?v=bHp0fIqQesQ) ⭐ | 리채피 richappy | 12,500 | 124,578 | 10.0 | 9,991.7 | 15.0 | 설명 | 90 | ✓ | `W_bHp0fIqQesQ` |
 | 2026-11-15 | [KODEX 200타겟위클리커버드콜 지금 사도 될까?｜1억 투자 백테스트·JEPQ·SCHD ](https://www.youtube.com/watch?v=mgGzzZkOybI) ⭐ | 월급졸업반 | 173 | 29,320 | 169.5 | 2,275.8 | 23.3 | 설명 | 27 | ✓ | `W_mgGzzZkOybI` |
 | 2026-11-15 | [혹시, 주식 하시나요? 연령별 현실 주식 투자 l 마곡역](https://www.youtube.com/watch?v=w3pSiJJt168) | 주식에 미친 사람들 | 159,000 | 52,931 | 0.3 | 16,469.6 | 18.8 | 설명 | 44 | ✗ | `W_w3pSiJJt168` |
 | 2026-11-15 | [코스피 폭락에도 개미들이 2.8조 쓸어 담은 배당 ETF 2개 (ft. 월 175만 원 현](https://www.youtube.com/watch?v=EyHsOY3Hiqo) | 절세미녀 김희연 회계사 | 202,000 | 154,356 | 0.8 | 46,214.9 | 13.0 | 설명 | 99 | ✗ | `W_EyHsOY3Hiqo` |
@@ -35,26 +44,71 @@
 | 2026-11-14 | [뱅가드가 알려준 가성비 최고의 주식투자 방법](https://www.youtube.com/watch?v=tVFWnHL_sM8) | 서대리TV | 243,000 | 96,505 | 0.4 | 22,959.9 | 11.4 | 설명 | 53 | ✗ | `W_tVFWnHL_sM8` |
 | 2026-11-14 | [하루하루 쏟아지는 악재, 진짜 위험한 건 따로 있다 ∣ 존마의 주식 (19)](https://www.youtube.com/watch?v=X2-W3oQc_8c) | 묘하다 | 248,000 | 259,722 | 1.1 | 61,013.2 | 30.6 | 설명 | 194 | ✗ | `W_X2-W3oQc_8c` |
 | 2026-11-14 | [슈퍼개미 이정윤의 HTS 세팅법 ∣ 이세무사](https://www.youtube.com/watch?v=rqdf0xO4PDo) ⭐ | 이정윤의 다정한주식 | 4,980 | 87,170 | 17.5 | 20,311.8 | 19.1 | 설명 | 198 | ✗ | `W_rqdf0xO4PDo` |
+| 2026-11-14 | [폭락장에 혼자사는 40대 남자의 조용한 일상 이야기](https://www.youtube.com/watch?v=ujYBYg4yBH4) ⭐ | 배당아저씨 | 33,900 | 100,640 | 3.0 | 6,996.8 | 9.5 | 설명 | 279 | ✓ | `W_ujYBYg4yBH4` |
+| 2026-11-13 | [KODEX 200 위클리 타겟 커버드콜, 지금 사도 좋을까? 숫자로 돌려봤습니다](https://www.youtube.com/watch?v=p9xZNeibTtI) ⭐ | 옵티쩡 | 1,710 | 78,298 | 45.8 | 5,202.3 | 7.9 | 설명 | 115 | ✓ | `W_p9xZNeibTtI` |
+| 2026-11-13 | [코스피 1만 가는 진짜 지름길 나왔다 ‘이것’만 되면 한달 안에 코스피1만](https://www.youtube.com/watch?v=x5ZWmQxLFzg) ⭐ | 잘되라대한민국 | 6,680 | 92,172 | 13.8 | 6,104.6 | 14.6 | 설명 | 221 | ✓ | `W_x5ZWmQxLFzg` |
 | 2026-11-13 | [[속보] "엔비디아 새 CEO, 얼어붙은 사슴 같았다" 젠슨황 퇴진이 반도체 미치는 파장 ](https://www.youtube.com/watch?v=VJgkA_L5Tnk) | 매경 라이브 | 332,000 | 373,944 | 1.1 | 73,100.5 | 8.0 | 설명 | 450 | ✗ | `W_VJgkA_L5Tnk` |
 | 2026-11-13 | [[현장] "삼성전자·하이닉스 2배 레버리지 개미들 양방향으로 다 터집니다!" 변동성 먹고사](https://www.youtube.com/watch?v=0rjd90XjlXs) | 춘천MBC뉴스 | 266,000 | 1,106,476 | 4.2 | 210,310.4 | 7.8 | 설명 | 4,018 | ✗ | `W_0rjd90XjlXs` |
 | 2026-11-13 | [“SCHD가 월급 된다”…배당률 2.9%, 직접 계산해 보니](https://www.youtube.com/watch?v=G6Gx8B7YtX8) ⭐ | 월가의 진실 | 3,650 | 85,263 | 23.4 | 5,567.5 | 10.2 | 설명 | 74 | ✓ | `W_G6Gx8B7YtX8` |
 | 2026-11-13 | [코스닥 연기금이 들어와야~...알테오젠 손들더니 작심 제안](https://www.youtube.com/watch?v=CIAZqMLmb5Q) | JTV뉴스 | 1,170,000 | 85,563 | 0.1 | 16,186.6 | 6.1 | 없음 | 248 | ✗ | `W_CIAZqMLmb5Q` |
 | 2026-11-12 | [하루 최대 수익 600만 원. 3년간 주식 거래액만 100억 원인 주부｜아내가 도박처럼 단](https://www.youtube.com/watch?v=056mnyfsMWI) | EBSDocumentary ( | 5,480,000 | 2,015,308 | 0.4 | 339,035.0 | 40.8 | 설명 | 0 | ✗ | `W_056mnyfsMWI` |
+| 2026-11-12 | [삼성전자, SK하이닉스.. 반도체 투자 안하면 인생 망할 것처럼 얘기하더니... 주식투자 ](https://www.youtube.com/watch?v=tPFw-5nHmHc) ⭐ | 너와 나의 경제학교 | 40,900 | 116,878 | 2.9 | 7,267.3 | 34.2 | 설명 | 428 | ✓ | `W_tPFw-5nHmHc` |
 | 2026-11-12 | [한국에선 8년 연속 1만 대 팔렸는데… 주가는 87% 폭락? 볼보가 위기에 빠진 이유 ∣ ](https://www.youtube.com/watch?v=Vv_p9YST1mk) | 딥다이브 | 51,700 | 561,422 | 10.9 | 92,813.5 | 8.7 | 설명 | 567 | ✗ | `W_Vv_p9YST1mk` |
 | 2026-11-11 | [코스피 5,000 붕괴, AI 서사는 무너졌는가](https://www.youtube.com/watch?v=QBSm6BJko4A) | 슈카월드 | 3,740,000 | 1,126,010 | 0.3 | 162,984.0 | 43.2 | 없음 | 818 | ✗ | `W_QBSm6BJko4A` |
+| 2026-11-11 | [퇴직연금 전문가들이 말아주는 포트폴리오 꿀조합!🍯ㅣ원큐로 끝내는 ETF🎯](https://www.youtube.com/watch?v=LwkpHtapiJY) ⭐ | 하나TV [하나자산운용] | 29,500 | 114,591 | 3.9 | 6,687.8 | 6.9 | 설명 | 6 | ✓ | `W_LwkpHtapiJY` |
 | 2026-11-11 | [미국 110년 인플레이션 9번, 무엇이 끝냈나](https://www.youtube.com/watch?v=DB_5UlPa3Rk) ⭐ | 차트 너머 | 5,100 | 71,085 | 13.9 | 9,654.4 | 12.2 | 설명 | 37 | ✗ | `W_DB_5UlPa3Rk` |
 | 2026-11-10 | [S&P500, 나스닥100 이렇게 샀다간 세금+건보료 폭탄 맞습니다 ∣ 여운봉 교수 ∣ 연](https://www.youtube.com/watch?v=60zQzH422bk) ⭐ | 연금 받는 형 | 25,700 | 543,059 | 21.1 | 30,243.7 | 28.9 | 설명 | 173 | ✓ | `W_60zQzH422bk` |
+| 2026-11-09 | [4천억 천재 트레이더 BNF의 매매법, 그가 매일 본 차트 하나 (이격도, 차트 보는법)](https://www.youtube.com/watch?v=Il9TpEADVcw) ⭐ | 손절봇 ∣ 자동매매 | 4,430 | 77,788 | 17.6 | 4,182.2 | 17.4 | 설명 | 21 | ✓ | `W_Il9TpEADVcw` |
+| 2026-11-09 | [젠슨황 스캔들이 반도체에 끼칠 최악의 시나리오, 이정도라고?](https://www.youtube.com/watch?v=Cn5vbNSPCEc) ⭐ | 잘되라대한민국 | 6,680 | 52,911 | 7.9 | 2,774.7 | 16.2 | 설명 | 17 | ✓ | `W_Cn5vbNSPCEc` |
+| 2026-11-09 | ["내가 사자마자 파란불 뜨는 이유" 개미 99%의 피를 빨아먹는 세력들의 '악마의 시간' ](https://www.youtube.com/watch?v=LZ7FXZ8dJRY) ⭐ | 너와 나의 경제학교 | 40,900 | 139,435 | 3.4 | 7,306.7 | 10.4 | 설명 | 43 | ✓ | `W_LZ7FXZ8dJRY` |
+| 2026-11-09 | [누가 그리고 왜 메모리를 흔드나 ∣ 악재를 '고의'로 만드는 시장 ∣ 헤지펀드 청산 기계적](https://www.youtube.com/watch?v=SdicEcYHg70) ⭐ | Just In Timeㅣ저스트 | 19,800 | 154,941 | 7.8 | 8,079.8 | 16.6 | 설명 | 158 | ✓ | `W_SdicEcYHg70` |
 | 2026-11-08 | [“SOXL 곧 청산된다”…5.8조 원 넣은 서학개미, 원문 보니](https://www.youtube.com/watch?v=8-osZ5_d3Os) ⭐ | 월가의 진실 | 3,650 | 129,208 | 35.4 | 6,471.1 | 10.7 | 설명 | 318 | ✓ | `W_8-osZ5_d3Os` |
+| 2026-11-08 | [한강뷰 사는 사람도 피할 수 없는 주식 현실을 알려드립니다](https://www.youtube.com/watch?v=PdH2FX8Nz78) ⭐ | 육감 김수용 | 7,730 | 62,943 | 8.1 | 3,129.5 | 14.0 | 설명 | 62 | ✓ | `W_PdH2FX8Nz78` |
+| 2026-11-08 | ["월가에 이미 소문 다 퍼졌다" 월요일 아침 삼성전자 주가 '이렇게' 될 겁니다](https://www.youtube.com/watch?v=jtSxA5pzBuI) ⭐ | 알기쉬운 경제스쿨 | 47,600 | 108,963 | 2.3 | 5,410.2 | 29.5 | 설명 | 107 | ✓ | `W_jtSxA5pzBuI` |
 | 2026-11-08 | [월급없는삶 1억2000증발 결국 #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 #고](https://www.youtube.com/watch?v=tKMTyK8VZ-E) ⭐ | ttobaedang또배당 | 8,380 | 54,583 | 6.5 | 2,718.1 | 13.7 | 없음 | 267 | ✓ | `W_tKMTyK8VZ-E` |
+| 2026-11-07 | [80만원으로 260억 만든 미국 단타 천재의 가장 쉬운 매매법 (로스 카메론)](https://www.youtube.com/watch?v=cW11yJS6Jik) ⭐ | 손절봇 ∣ 자동매매 | 4,430 | 109,759 | 24.8 | 5,330.0 | 16.8 | 설명 | 25 | ✓ | `W_cW11yJS6Jik` |
+| 2026-11-07 | [주식 초보를 위한 하루 100만 원 번다는 매매법 리뷰.  단타 고수들의 진짜 매매법.](https://www.youtube.com/watch?v=rOk7aKpWJVQ) ⭐ | 마이크로스콥  | 3,740 | 51,610 | 13.8 | 2,482.5 | 18.8 | 설명 | 26 | ✓ | `W_rOk7aKpWJVQ` |
+| 2026-11-07 | ["내가 팔자마자 귀신같이 날아가는 이유" 개미 99%의 피를 빨아먹는 세력의 잔인한 함정 ](https://www.youtube.com/watch?v=0qwlXd_gnuQ) ⭐ | 너와 나의 경제학교 | 40,900 | 247,709 | 6.1 | 11,749.5 | 10.7 | 설명 | 148 | ✓ | `W_0qwlXd_gnuQ` |
+| 2026-11-07 | [데드캣 바운스일까 vs 대반등의 신호탄일까 ∣ 1994년 이후 반도체 10% 폭락 열 번이](https://www.youtube.com/watch?v=x0-ObXRPfJA) ⭐ | 뉴욕대디 다니엘 | 15,400 | 155,823 | 10.1 | 7,372.8 | 13.8 | 설명 | 234 | ✓ | `W_x0-ObXRPfJA` |
 | 2026-11-07 | [SOXL 주가 전망, 300달러에서 46달러 ∣ 물타기 해도 될까? 2022년에 한 번 있](https://www.youtube.com/watch?v=L3Y9BkSDNRM) ⭐ | 밸류노트 ValueNote | 1,990 | 50,943 | 25.6 | 2,410.7 | 9.5 | 설명 | 128 | ✓ | `W_L3Y9BkSDNRM` |
+| 2026-11-07 | [코스피 5천선 붕괴에 "개미 살려.." 정부의 긴급 대책은?](https://www.youtube.com/watch?v=UDPq6kqjWhM) ⭐ | 정치시간 | 610 | 12,140 | 19.9 | 566.6 | 29.5 | 설명 | 68 | ✓ | `W_UDPq6kqjWhM` |
+| 2026-11-06 | [왜 내가 팔면 오르고 버티면 더 떨어질까? 폭락장에서 개미가 알아야 할 3가지](https://www.youtube.com/watch?v=D4kEXI6IWYo) ⭐ | 오피디의 머니노트 | 2,260 | 73,373 | 32.5 | 3,329.6 | 17.7 | 설명 | 21 | ✓ | `W_D4kEXI6IWYo` |
+| 2026-11-06 | [삼성전자 앞자리 6이 보인다?! 전주 1등 만신에게  삼성전자 '이재용' 사주만 드렸더니.](https://www.youtube.com/watch?v=r5SabgPIDJw) ⭐ | 만연정사 서연보살 | 1,530 | 163,449 | 106.8 | 7,382.5 | 14.9 | 설명 | 105 | ✓ | `W_r5SabgPIDJw` |
 | 2026-11-06 | [SOXL−40% 하루 만에 2조 5천억 달러 증발 ∣ AI 반도체 왜 하루 늦게 터졌을까 ](https://www.youtube.com/watch?v=XEfn9wjIk40) ⭐ | 뉴욕대디 다니엘 | 15,400 | 129,895 | 8.4 | 5,882.7 | 16.9 | 설명 | 78 | ✓ | `W_XEfn9wjIk40` |
+| 2026-11-06 | [코스피 단기반등 어렵다 ∣ 굳이 사고 싶다면 이때 사라 ∣ 남석관 베스트인컴 회장](https://www.youtube.com/watch?v=Bh7U-uOaunQ) ⭐ | 투벤저스 주간동아 | 32,700 | 190,166 | 5.8 | 8,588.5 | 17.6 | 설명 | 303 | ✓ | `W_Bh7U-uOaunQ` |
+| 2026-11-06 | [나스닥 5% 폭락에 삼성전자 하이닉스 와르르… 그런데 '우리엔 호재'라는 이유](https://www.youtube.com/watch?v=Phf8TrqtNv4) ⭐ | 경제야! 놀자~ | 11,400 | 136,067 | 11.9 | 6,134.1 | 11.0 | 설명 | 149 | ✓ | `W_Phf8TrqtNv4` |
+| 2026-11-05 | [“아이렌, 비상비상.. 20달러도 붕괴직전..”ft.아이렌맨](https://www.youtube.com/watch?v=ZqZXiUzdQRE) ⭐ | 아이렌맨 : IREN을 사랑하 | 9,490 | 53,620 | 5.7 | 2,324.0 | 5.9 | 없음 | 709 | ✓ | `W_ZqZXiUzdQRE` |
+| 2026-11-05 | [삼성전자 하이닉스 고점 대비 30~40% 빠졌다, 지금 팔아야 하나? 버핏의 한마디](https://www.youtube.com/watch?v=3k8pAgOmcF4) ⭐ | 경제야! 놀자~ | 11,400 | 125,743 | 11.0 | 5,419.3 | 11.3 | 설명 | 168 | ✓ | `W_3k8pAgOmcF4` |
+| 2026-11-05 | [[존리 대표 출연] 美민주당 압승에 삼전닉스 폭락 "반도체株 팔아야 할까요?" #존리 _2](https://www.youtube.com/watch?v=Td7NJ7xnuyM) ⭐ | 경제통마늘 | 16,800 | 891,681 | 53.1 | 38,160.8 | 21.6 | 설명 | 692 | ✓ | `W_Td7NJ7xnuyM` |
 | 2026-11-04 | [이번 하락은 어디에 가까울까 ∣ 공포탐욕지수 39번으로 본 금리와 물가](https://www.youtube.com/watch?v=QG40SUfIML8) ⭐ | 차트 너머 | 5,100 | 338,667 | 66.4 | 24,179.2 | 11.1 | 설명 | 209 | ✗ | `W_QG40SUfIML8` |
+| 2026-11-04 | [구글 CEO "과잉 투자? 비싸도 사야만 한다" ∣ 피차이가 직접 꼽은 병목 세 가지](https://www.youtube.com/watch?v=bZ0IG6v-UCA) ⭐ | Just In Timeㅣ저스트 | 19,800 | 127,494 | 6.4 | 5,310.1 | 14.6 | 설명 | 85 | ✓ | `W_bZ0IG6v-UCA` |
+| 2026-11-03 | [손정의의 26년, 닷컴 버블에서 오픈AI까지](https://www.youtube.com/watch?v=3gezC7Acv-M) ⭐ | 차트너머 | 5,180 | 54,988 | 10.6 | 2,201.4 | 15.1 | 설명 | 23 | ✓ | `W_3gezC7Acv-M` |
+| 2026-11-03 | [지금 내주식, 손실중이라면 "물타기, 손절하기, 버티기" 어떻게 해야할까ㅣ슈퍼개미 이정윤](https://www.youtube.com/watch?v=EMA8-Pzpm2s) ⭐ | 이정윤의 다정한주식 | 7,840 | 69,108 | 8.8 | 2,764.8 | 22.4 | 설명 | 185 | ✓ | `W_EMA8-Pzpm2s` |
+| 2026-11-02 | [700만원 → 1,400억 만든 스웨덴 트레이더의 매매법, 한 가지만 하세요 (돌파매매, ](https://www.youtube.com/watch?v=9mhbF8oM8Z8) ⭐ | 손절봇 ∣ 자동매매 | 4,430 | 70,466 | 15.9 | 2,752.6 | 18.6 | 설명 | 16 | ✓ | `W_9mhbF8oM8Z8` |
 | 2026-11-02 | ["보이지 않는 손이 실패하고 있다" 샘 올트먼이 본 메모리시장ㅣ"1년에 1000억 달러씩,](https://www.youtube.com/watch?v=E2Kz9bbb878) ⭐ | Just In Timeㅣ저스트 | 19,800 | 282,624 | 14.3 | 10,791.1 | 8.2 | 설명 | 295 | ✓ | `W_E2Kz9bbb878` |
 | 2026-11-01 | [월요일 어마무시한 일 터질겁니다, 한국 개미들만 모르고 있는 충격적인 상황](https://www.youtube.com/watch?v=tdF_OyN0XZY) ⭐ | 경제사관학교 | 13,200 | 111,840 | 8.5 | 4,136.2 | 18.7 | 설명 | 104 | ✓ | `W_tdF_OyN0XZY` |
+| 2026-10-31 | [삼성전자 배당금 30조 풀었는데 주당 4601원인 이유 #삼성전자배당금 #SK하이닉스](https://www.youtube.com/watch?v=ldNVHUOHnV4) ⭐ | 경제 계기판 | 771 | 492,694 | 639.0 | 17,732.9 | 13.7 | 설명 | 53 | ✓ | `W_ldNVHUOHnV4` |
+| 2026-10-29 | [은퇴 후 절대 하면 안 되는 5가지](https://www.youtube.com/watch?v=aJE9llnpZiI) ⭐ | 돈사냥꾼-TV | 3,490 | 102,031 | 29.2 | 3,362.5 | 23.7 | 설명 | 15 | ✓ | `W_aJE9llnpZiI` |
+| 2026-10-28 | [부자들은 끊임없이 공부합니다  부자 필수 과목 6가지](https://www.youtube.com/watch?v=7cBFkwyzVzM) ⭐ | 돈사냥꾼-TV | 3,490 | 273,782 | 78.5 | 8,841.1 | 22.4 | 설명 | 12 | ✓ | `W_7cBFkwyzVzM` |
+| 2026-10-28 | [전 세계가 주목하는 역대급 어닝콜! 이제 모든 시선은'삼성전자'로···](https://www.youtube.com/watch?v=YP4y4XHrxk8) ⭐ | 잘되라대한민국 | 6,680 | 89,840 | 13.4 | 2,897.6 | 17.9 | 설명 | 24 | ✓ | `W_YP4y4XHrxk8` |
 | 2026-10-28 | ["2억 모았다면 이제 '이렇게' 투자하세요" 손실 없이 돈을 불리는 확실한 투자 전략 ∣ ](https://www.youtube.com/watch?v=-ZozYKj6CxU) ⭐ | 연금 받는 형 | 25,700 | 135,424 | 5.3 | 4,374.7 | 27.8 | 설명 | 31 | ✓ | `W_-ZozYKj6CxU` |
+| 2026-10-28 | [퇴직연금 나머지 30%, 예금 말고 다른 선택지는?💰ㅣ원큐로 끝내는 ETF🎯](https://www.youtube.com/watch?v=FV8Ry9V7IJM) ⭐ | 하나TV [하나자산운용] | 29,500 | 118,138 | 4.0 | 3,794.4 | 7.9 | 설명 | 14 | ✓ | `W_FV8Ry9V7IJM` |
 | 2026-10-27 | ["이 방법" 대로 사면 TQQQ보다 최소 12억은 더 법니다. 진짜입니다.](https://www.youtube.com/watch?v=nD8WGVgUJbY) ⭐ | 레버리지 투자노트 | 4,710 | 51,212 | 10.9 | 1,600.6 | 13.8 | 설명 | 324 | ✓ | `W_nD8WGVgUJbY` |
+| 2026-10-27 | [삼성전자·하이닉스 200조 환원설, 지금 팔면 후회할까? 실적 발표 앞두고](https://www.youtube.com/watch?v=g5n2zmJYedo) ⭐ | 경제야! 놀자~ | 11,400 | 168,904 | 14.8 | 5,235.8 | 11.3 | 설명 | 70 | ✓ | `W_g5n2zmJYedo` |
 | 2026-10-26 | [테슬라·스페이스X 합병되면, 안 팔아도 세금? 22% vs 49.5% 갈리는 '한 줄'](https://www.youtube.com/watch?v=_9okPshQQvU) ⭐ | 임지강 세무사 | 141 | 34,414 | 244.1 | 1,046.2 | 8.5 | 설명 | 45 | ✓ | `W__9okPshQQvU` |
+| 2026-10-26 | [하락장에서 계좌를 지키는 세 가지](https://www.youtube.com/watch?v=AUeEkRnKeM8) ⭐ | 리채피 richappy | 12,500 | 319,206 | 25.5 | 9,537.6 | 16.7 | 설명 | 312 | ✓ | `W_AUeEkRnKeM8` |
+| 2026-10-25 | [친구가 하나둘 사라졌습니다… 결국 제가 인간관계를 정리한 이유](https://www.youtube.com/watch?v=DTTARHT4swk) ⭐ | 어쩌다마흔 | 2,470 | 94,822 | 38.4 | 2,764.4 | 10.4 | 설명 | 223 | ✓ | `W_DTTARHT4swk` |
 | 2026-10-23 | [환율 1300원, 코스피 5000 폭락..!! 한국경제 대위기 터진다..??](https://www.youtube.com/watch?v=uY8bXDJHswg) ⭐ | 경제읽어주는남자 | 1,590 | 143,680 | 90.4 | 3,996.0 | 13.8 | 설명 | 169 | ✓ | `W_uY8bXDJHswg` |
+| 2026-10-23 | [[이선엽X염승환] "싸니까 사라? 지금 중요한 건 '물린 거' 어떻게 해..아닐까요?" #](https://www.youtube.com/watch?v=kO2Rh9UjBQI) ⭐ | 경제통마늘 | 16,800 | 335,474 | 20.0 | 9,232.9 | 16.4 | 설명 | 223 | ✓ | `W_kO2Rh9UjBQI` |
+| 2026-10-22 | [제 주식 노하우 다 풉니다.](https://www.youtube.com/watch?v=PLYpdzY5U-U) ⭐ | 육감 김수용 | 7,730 | 349,127 | 45.2 | 9,422.6 | 16.0 | 설명 | 194 | ✓ | `W_PLYpdzY5U-U` |
+| 2026-10-21 | [반도체 폭락 뒤 찾아온 9배 상승, 이번에도 반복될까?](https://www.youtube.com/watch?v=1b-TwEDV4iM) ⭐ | 테스프레소 | 10,700 | 228,839 | 21.4 | 6,063.8 | 23.4 | 설명 | 217 | ✓ | `W_1b-TwEDV4iM` |
+| 2026-10-21 | [롤드컵 우승 상금 14억, T1의 진짜 수입원은? ∣ 회계사가 뜯어본 롤 구단 재무제표](https://www.youtube.com/watch?v=37BJl0y52xk) ⭐ | 전지적회계사시점 | 961 | 119,376 | 124.2 | 3,137.7 | 19.6 | 설명 | 36 | ✓ | `W_37BJl0y52xk` |
+| 2026-10-21 | [[긴급속보]💥손실 계좌, 혼자힘으론 힘듭니다 ∣ 끌려다니는 매매 이제 그만](https://www.youtube.com/watch?v=t50RkPvL16k) ⭐ | 고래미디어 | 65 | 15,519 | 155.2 | 407.3 | 5.2 | 설명 | 1 | ✓ | `W_t50RkPvL16k` |
+| 2026-10-21 | [개미들은 피눈물 터지는데 국정감사에서 밝혀진 국민연금 운용 논란과 숨겨진 진실 #이재명 #](https://www.youtube.com/watch?v=jwRcg74v_kQ) ⭐ | 정치시간 | 610 | 11,921 | 19.5 | 310.2 | 18.4 | 설명 | 35 | ✓ | `W_jwRcg74v_kQ` |
+| 2026-10-20 | ["지금 실적보다 미래 경쟁력이 진짜 걱정"..'위기'라는 현대차 상황 / 이슈빡 / 뉴스헌](https://www.youtube.com/watch?v=RYJSFU8X2hE) ⭐ | 뉴스헌터스 | 9,920 | 200,293 | 20.2 | 5,141.8 | 18.4 | 설명 | 464 | ✓ | `W_RYJSFU8X2hE` |
+| 2026-10-20 | [하루만에 ‘삼성전자’ HBM 뒤흔든 젠슨황… TSMC ‘3나노’ 돌연 채택 뜻밖의 변수 발](https://www.youtube.com/watch?v=whybLg0YCWg) ⭐ | 경제한잔 | 7,370 | 200,618 | 27.2 | 5,148.4 | 17.2 | 설명 | 78 | ✓ | `W_whybLg0YCWg` |
+| 2026-10-20 | [50대 옥탑방 부부, 흔들리는 아내...](https://www.youtube.com/watch?v=WZEQ4-KSYg4) ⭐ | 반백살, 옥탑방 이야기 | 786 | 17,365 | 22.1 | 445.6 | 7.7 | 설명 | 46 | ✓ | `W_WZEQ4-KSYg4` |
+| 2026-10-20 | [한화오션 3400억 배 탈락, 호주가 일본 고른 이유? #한화오션 #호주호위함](https://www.youtube.com/watch?v=dHw-ur1tzRw) ⭐ | 경제 계기판 | 771 | 65,076 | 84.4 | 1,649.2 | 21.5 | 설명 | 84 | ✓ | `W_dHw-ur1tzRw` |
 | 2026-10-20 | [SCHD's Dividend Growth Just Hit Its Lowest Point i](https://www.youtube.com/watch?v=V5gTH3N_kL0) ⭐ | Tom - Lazy Divid | 2,090 | 10,448 | 5.0 | 7,892.0 | 34.0 | 설명 | 24 | ✓ | `W_V5gTH3N_kL0` |
 | 2026-10-19 | [This Pullback is a Gift. I'm Buying These Stocks N](https://www.youtube.com/watch?v=GQm2sHqU0kg) | Ticker Symbol: Y | 666,000 | 287,396 | 0.4 | 206,525.8 | 20.6 | 설명 | 422 | ✓ | `W_GQm2sHqU0kg` |
 | 2026-10-19 | [This Stock Is Undervalued](https://www.youtube.com/watch?v=4BooxjnAfPY) | Joseph Carlson A | 262,000 | 193,515 | 0.7 | 138,303.9 | 38.5 | 설명 | 339 | ✓ | `W_4BooxjnAfPY` |
@@ -70,6 +124,7 @@
 | 2026-10-19 | [Nirmala Sitharaman సంచలన వ్యాఖ్యలు! 😱 KIDS ఉంటే TE](https://www.youtube.com/watch?v=c0v6rGMdYj8) | DAY TRADER తెలుగ | 2,700,000 | 202,088 | 0.1 | 114,894.5 | 22.2 | 설명 | 456 | ✓ | `W_c0v6rGMdYj8` |
 | 2026-10-19 | [🔴 STOCK MARKET CRASH क्यों ? 😱 अब क्या करें ? ∣ Ni](https://www.youtube.com/watch?v=fbCp0AbHyEY) | Pade Raho ∣ Stoc | 289,000 | 65,973 | 0.2 | 36,564.2 | 21.3 | 설명 | 78 | ✓ | `W_fbCp0AbHyEY` |
 | 2026-10-19 | [This Market Dip is a GIFT (7 Stocks to Buy NOW)](https://www.youtube.com/watch?v=pGa5NivEWy8) | Tom Nash | 698,000 | 267,322 | 0.4 | 147,857.2 | 19.4 | 설명 | 346 | ✓ | `W_pGa5NivEWy8` |
+| 2026-10-19 | [결국 120만원 깨진 하이닉스..삼전 7만•하닉 20만이 정말 바닥? / 이슈빡 / 뉴스헌](https://www.youtube.com/watch?v=LWIQK6aKoYI) ⭐ | 뉴스헌터스 | 9,920 | 172,897 | 17.4 | 4,327.8 | 19.0 | 설명 | 210 | ✓ | `W_LWIQK6aKoYI` |
 | 2026-10-19 | [주식은 하락장에 구매해야 하는 이유](https://www.youtube.com/watch?v=-RE4CcDxPBg) | 경제사냥꾼 | 649,000 | 49,725 | 0.1 | 27,162.9 | 19.5 | 없음 | 96 | ✓ | `W_-RE4CcDxPBg` |
 | 2026-10-19 | [레버리지 ETF 털면 끝난다, 윗선은 두 명 뿐!](https://www.youtube.com/watch?v=CZSZnrkMW84) | 주진우의 이슈해설 | 512,000 | 117,304 | 0.2 | 64,131.8 | 22.2 | 없음 | 618 | ✓ | `W_CZSZnrkMW84` |
 | 2026-10-19 | [FII क्यों बेच रहे हैं INDIA? असली कहानी TAX से भी ](https://www.youtube.com/watch?v=NmYhr8TGtFE) | Art of Option Le | 1,460,000 | 78,224 | 0.1 | 42,273.5 | 7.4 | 설명 | 119 | ✓ | `W_NmYhr8TGtFE` |
@@ -247,6 +302,7 @@
 | 2026-10-16 | [주저앉은 코스피, 넉 달 새 3560p 날아갔다 / 채널A / 김진의 돌직구쇼](https://www.youtube.com/watch?v=7HU00W1aP1o) | 채널A 김진의 돌직구쇼 | 972,000 | 165,835 | 0.2 | 31,395.2 | 17.2 | 설명 | 475 | ✓ | `W_7HU00W1aP1o` |
 | 2026-10-16 | [下がらないS&P500、半導体は7連敗、でもじっと待て！](https://www.youtube.com/watch?v=MXpngU9Acbc) | S&P500最強伝説サブ | 96,200 | 112,295 | 1.2 | 21,181.4 | 10.6 | 설명 | 68 | ✓ | `W_MXpngU9Acbc` |
 | 2026-10-16 | [이렇게 매수벽 얇을 때, 어떻게 해요? ∣ 하창완 하보노의 주식 이야기 대표 [더블 체크]](https://www.youtube.com/watch?v=GpBVwfdJ5AU) | 삼프로TV 3PROTV | 3,040,000 | 156,704 | 0.1 | 29,528.9 | 35.2 | 설명 | 1,339 | ✓ | `W_GpBVwfdJ5AU` |
+| 2026-10-16 | [삼성전자 진짜 7만원까지 가나요? "10년간 틀린 적 없다"는 주장, 정면 반박](https://www.youtube.com/watch?v=mJ_80aPKoi8) ⭐ | 경제야! 놀자~ | 11,400 | 136,165 | 11.9 | 3,133.7 | 12.7 | 설명 | 488 | ✓ | `W_mJ_80aPKoi8` |
 | 2026-10-16 | [“반토막 됐다”…코스피 폭락에 개미들 망연자실 [뉴스플레이리스트] / 채널A](https://www.youtube.com/watch?v=9ZTTPyP2lHQ) | 채널A News | 3,530,000 | 143,674 | 0.0 | 26,906.9 | 5.6 | 설명 | 421 | ✓ | `W_9ZTTPyP2lHQ` |
 | 2026-10-16 | [$250,000 Invested Once: The Fastest Route to $4,00](https://www.youtube.com/watch?v=k8G_Z4Do2vg) ⭐ | Tom - Lazy Divid | 2,090 | 12,921 | 6.2 | 2,427.0 | 32.3 | 설명 | 12 | ✓ | `W_k8G_Z4Do2vg` |
 | 2026-10-15 | [The True Origin of the 1987 Stock Market Crash: Wh](https://www.youtube.com/watch?v=DYqKaCZlR1E) | Markets of the P | 92,700 | 181,950 | 2.0 | 33,941.4 | 23.5 | 설명 | 544 | ✓ | `W_DYqKaCZlR1E` |
@@ -310,6 +366,7 @@
 | 2026-10-15 | [이젠 최태원 회장도 물린자로…외국인 줄줄이 탈출, 더 큰 폭락 오나? [몇층이세요] / Y](https://www.youtube.com/watch?v=aVZWYANh7PE) |  YTN | 5,410,000 | 149,658 | 0.0 | 24,387.0 | 25.1 | 없음 | 201 | ✓ | `W_aVZWYANh7PE` |
 | 2026-10-15 | [“아이렌 긴급 ,30달러 깨질듯한 상황.. 손절각인가??(ft.코어위브/CPI)아이렌맨.](https://www.youtube.com/watch?v=cTlVY95Qzlk) ⭐ | 아이렌맨 : IREN을 사랑하 | 7,940 | 28,672 | 3.6 | 4,691.5 | 8.8 | 음성인식 | 395 | ✓ | `W_cTlVY95Qzlk` |
 | 2026-10-15 | [수상한 매도의 정체! 순식간에 4800까지 밀릴 수 있다...](https://www.youtube.com/watch?v=NFHgiWFq-LE) | 표영호 tv  / 경제적 자유 | 874,000 | 364,873 | 0.4 | 59,557.9 | 14.0 | 설명 | 1,129 | ✓ | `W_NFHgiWFq-LE` |
+| 2026-10-15 | [긴급진단📢 '검은 목요일' 생존법은? 급락장 '줍줍' 기회일까? [염승환 이사]](https://www.youtube.com/watch?v=lXqkrXt2uNs) ⭐ | 경제시그널 | 28,800 | 141,325 | 4.9 | 3,191.0 | 16.5 | 설명 | 127 | ✓ | `W_lXqkrXt2uNs` |
 | 2026-10-15 | [삼전·하이닉스 동반 하락, 지금 주가보다 먼저 확인해야할 것](https://www.youtube.com/watch?v=t3BJqu7-bzk) | 채국장의 코스피2만행 머니버스 | 158,000 | 106,715 | 0.7 | 17,206.6 | 11.9 | 설명 | 265 | ✓ | `W_t3BJqu7-bzk` |
 | 2026-10-15 | [개인 투자자도 투자하기 좋은 시대⁉️ AI를 활용한 초특급 투자 전략 공개✨ #유퀴즈](https://www.youtube.com/watch?v=jk61l5VCSGM) | 디글 클래식 :Diggle C | 3,420,000 | 2,433,812 | 0.7 | 392,473.4 | 18.2 | 설명 | 369 | ✓ | `W_jk61l5VCSGM` |
 | 2026-10-15 | [치솟는 아파트값에 맥 빠진 증시···李 정부 대책은? [티조 Clip]](https://www.youtube.com/watch?v=4Cic7VL9W3M) | 뉴스TVCHOSUN | 3,140,000 | 267,320 | 0.1 | 43,005.9 | 6.8 | 설명 | 960 | ✓ | `W_4Cic7VL9W3M` |
@@ -362,6 +419,7 @@
 | 2026-10-14 | [코스피, 5,030P까지 큰 거 한방(삼전닉스 타점)](https://www.youtube.com/watch?v=qSnNyX7IfqY) ⭐ | 차트도령 | 3,890 | 25,071 | 6.4 | 3,588.0 | 13.6 | 음성인식 | 55 | ✓ | `W_qSnNyX7IfqY` |
 | 2026-10-14 | [(#이벤트) AI 성장에 의심이 시작됐다, 이대로 터지는 걸까 ∣ 금시공 장우진 대표이사 ](https://www.youtube.com/watch?v=SrAToCJlGt0) | 교보증권 머니텐 Money10 | 123,000 | 128,664 | 1.1 | 18,262.0 | 25.4 | 설명 | 115 | ✓ | `W_SrAToCJlGt0` |
 | 2026-10-14 | [남들이 걱정하는 삶을 선택했습니다  #배당투자 #배당은퇴 #경제적자유 #파이어족 #월배당 ](https://www.youtube.com/watch?v=SiE0NjI7Fu0) ⭐ | ttobaedang또배당 | 6,870 | 45,680 | 6.7 | 6,534.8 | 9.1 | 음성인식 | 174 | ✓ | `W_SiE0NjI7Fu0` |
+| 2026-10-14 | [이재용 회장이 확인시켜준 ‘바닥’ 어제 삼전 2조원 매수한 이유](https://www.youtube.com/watch?v=owPJRgosr6M) ⭐ | 잘되라대한민국 | 6,680 | 122,995 | 18.4 | 2,725.1 | 14.1 | 설명 | 109 | ✓ | `W_owPJRgosr6M` |
 | 2026-10-14 | [코스닥 다시 반등할까?📈ㅣ원큐로 끝내는 ETF🎯](https://www.youtube.com/watch?v=jJu0VhNOH-I) ⭐ | 하나TV [하나자산운용] | 13,800 | 55,497 | 4.0 | 7,938.1 | 7.5 | 음성인식 | 3 | ✓ | `W_jJu0VhNOH-I` |
 | 2026-10-14 | [국장은 흔들리는데 미장은 반등 중! 반도체주 다시 올라갈까?](https://www.youtube.com/watch?v=yaFVLxGAuQU) | 미국 주식 채널 - 에디 Ed | 268,000 | 111,605 | 0.4 | 15,844.8 | 12.2 | 없음 | 269 | ✓ | `W_yaFVLxGAuQU` |
 | 2026-10-14 | [3 gefährliche ETF-Fehler, die fast jeder Ü50 macht](https://www.youtube.com/watch?v=RRbMnBg_DMA) | Anna & Eddy • La | 75,900 | 148,453 | 2.0 | 21,027.6 | 10.3 | 설명 | 0 | ✓ | `W_RRbMnBg_DMA` |
@@ -436,11 +494,14 @@
 | 2026-10-12 | ["삼성전자 주가가 곤두박질 치고 있습니다" 김재원이 밝힌 그 이유는? / 국민의힘 최고위원](https://www.youtube.com/watch?v=R2mt-JsrF8I) | KBC 뉴스 | 539,000 | 450,968 | 0.8 | 49,181.5 | 7.8 | 설명 | 695 | ✓ | `W_R2mt-JsrF8I` |
 | 2026-10-12 | [코스피 6500선 무너졌다? 지금은 '이렇게' 대응하세요 (이영훈 iM증권 서울금융센터 이](https://www.youtube.com/watch?v=myoqLt0jMus) | 한국경제TV | 1,400,000 | 166,421 | 0.1 | 17,942.2 | 33.9 | 설명 | 98 | ✓ | `W_myoqLt0jMus` |
 | 2026-10-12 | [삼전닉스 물린 투자자들 '이익의 저점'을 봐야합니다 - 곽상준 대표 (매트릭스투자자문) [](https://www.youtube.com/watch?v=TERduRgYsGo) | KBS 1라디오 | 1,400,000 | 286,755 | 0.2 | 30,957.6 | 43.1 | 설명 | 225 | ✓ | `W_TERduRgYsGo` |
+| 2026-10-12 | [사상 초유의 이틀 연속 서킷브레이커! 폭락장에서 투자자가 절대 해서는 안 될 행동 ∣ 존리](https://www.youtube.com/watch?v=un5SAQlJFcY) ⭐ | 증시직격 | 117 | 19,707 | 168.4 | 415.9 | 23.0 | 설명 | 0 | ✗ | `W_un5SAQlJFcY` |
 | 2026-10-11 | [The UNTHINKABLE is About to Happen to Stocks (but ](https://www.youtube.com/watch?v=6pm5KqQw6RI) | Tom Nash | 698,000 | 355,807 | 0.5 | 37,118.9 | 23.5 | 설명 | 384 | ✓ | `W_6pm5KqQw6RI` |
 | 2026-10-11 | [월요일 국장 하락으로 시작합니다. 이제 슬슬 매수를 시작해야 합니다.](https://www.youtube.com/watch?v=o_IP8LqI0q8) | 미국 주식 채널 - 에디 Ed | 268,000 | 118,316 | 0.4 | 7,087.2 | 7.0 | 없음 | 213 | ✓ | `W_o_IP8LqI0q8` |
 | 2026-10-11 | [These 4 Stocks Pulled Back. The Spring Is Loaded](https://www.youtube.com/watch?v=I3tyDUSTRq4) | BWB - Business W | 446,000 | 455,271 | 1.0 | 46,477.2 | 20.0 | 설명 | 707 | ✓ | `W_I3tyDUSTRq4` |
 | 2026-10-11 | [【必見】50代60代はこの金額になれば積み立てをやめてOK](https://www.youtube.com/watch?v=rR8NdSlupEs) | おーちゃん【元外銀マン】 | 312,000 | 352,930 | 1.1 | 35,576.7 | 27.9 | 설명 | 93 | ✓ | `W_rR8NdSlupEs` |
+| 2026-10-11 | [미국채 6% 경고, 환호하는 뉴욕 증시가 마주할 진짜 역풍 #미국채 #뉴욕증시](https://www.youtube.com/watch?v=oZu34PuNt1Y) ⭐ | 경제 계기판 | 771 | 10,701 | 13.9 | 222.4 | 13.9 | 설명 | 0 | ✓ | `W_oZu34PuNt1Y` |
 | 2026-10-11 | [나이제한X, 소득제한X "5060 무조건 신청해라" 정부가 19.5% 수익 확정적으로 준다](https://www.youtube.com/watch?v=b9qhU1Y8zT4) | 재테크는 두꺼비 세무사 | 290,000 | 495,541 | 1.7 | 48,832.1 | 59.2 | 설명 | 98 | ✓ | `W_b9qhU1Y8zT4` |
+| 2026-10-11 | [13만 8천 원 레깅스의 몰락…룰루레몬은 왜 무너졌나? #룰루레몬 #경제이야기](https://www.youtube.com/watch?v=Q4iwkHxVTZ0) ⭐ | 이슈'S | 840 | 15,343 | 18.3 | 317.3 | 15.6 | 설명 | 7 | ✓ | `W_Q4iwkHxVTZ0` |
 | 2026-10-11 | [100년만에 온 부자될 기회, 스페이스X 테슬라 이렇게 하세요 [정주용 의장 풀버전]](https://www.youtube.com/watch?v=6hSgw_q66b4) | 부읽남TV_내집마련부터건물주까 | 1,840,000 | 283,799 | 0.1 | 27,552.5 | 66.7 | 설명 | 78 | ✓ | `W_6hSgw_q66b4` |
 | 2026-10-11 | [더이상 배당주는 사지 않아요/40대 워킹맘](https://www.youtube.com/watch?v=P0j4XK5PaJY) ⭐ | 마스 심플라이프 MasSimp | 40,800 | 140,684 | 3.5 | 26,628.3 | 10.8 | 자막 | 104 | ✓ | `W_P0j4XK5PaJY` |
 | 2026-10-11 | [미국주식 너무 올랐다고요? 10년 전에도 고점이었습니다 ∣ 포메뽀꼬 김지훈 작가 [얘기좀합](https://www.youtube.com/watch?v=Cx2KhmXJI7k) | 머니인더트랩 | 110,000 | 582,173 | 5.3 | 56,392.2 | 33.6 | 설명 | 478 | ✓ | `W_Cx2KhmXJI7k` |
@@ -470,15 +531,19 @@
 | 2026-10-07 | [The upcoming stock market collapse (& how to prepa](https://www.youtube.com/watch?v=4WvqWxmPynM) | Akshat Shrivasta | 2,270,000 | 723,125 | 0.3 | 52,721.3 | 20.9 | 설명 | 457 | ✓ | `W_4WvqWxmPynM` |
 | 2026-10-07 | [끌로드, 챗GPT가 주식투자도 대신해준다? AI 실생활 침투 가속화의 수혜주들](https://www.youtube.com/watch?v=bL2q1ZfwdJA) | 소수몽키 | 1,160,000 | 271,365 | 0.2 | 19,610.0 | 18.1 | 설명 | 64 | ✓ | `W_bL2q1ZfwdJA` |
 | 2026-10-07 | [【全資産公開】インデックス全力投資で8400万円達成！からの散財！俺は虚無億り人にならない！オルカン](https://www.youtube.com/watch?v=iOiQ1ABs9M8) | がまぐち夫婦の節約チャンネル | 491,000 | 409,701 | 0.8 | 29,474.9 | 26.1 | 설명 | 599 | ✓ | `W_iOiQ1ABs9M8` |
+| 2026-10-07 | [삼성전자 3분기 잠정 실적발표 D-1 이대로면 내년 영업이익 몇 백 조?](https://www.youtube.com/watch?v=wSCKrTfLBfk) ⭐ | 잘되라대한민국 | 6,680 | 58,890 | 8.8 | 1,131.1 | 16.1 | 설명 | 44 | ✓ | `W_wSCKrTfLBfk` |
 | 2026-10-07 | [次の暴落でS&P500は半分になる？平均回帰から考える今後の株価について徹底解説！](https://www.youtube.com/watch?v=u1DEBDpwwMI) | 鳥海翔の騙されない金融学 | 445,000 | 360,656 | 0.8 | 25,829.8 | 11.9 | 설명 | 41 | ✓ | `W_u1DEBDpwwMI` |
 | 2026-10-07 | [47억 자산가 포트폴리오 공개 "5060은 이것만 죽어라 사 모으세요" 가격도 싼데 배당까](https://www.youtube.com/watch?v=UKXh9WlW9QA) | 재테크는 두꺼비 세무사 | 290,000 | 244,493 | 0.8 | 17,510.3 | 18.5 | 설명 | 55 | ✓ | `W_UKXh9WlW9QA` |
+| 2026-10-07 | [내가 일하지 않는 진짜 이유, 배당금으로 생존하기 ⏰[1시간 몰아보기] 2편](https://www.youtube.com/watch?v=lwrrJv3Af0c) ⭐ | 배당아저씨 | 33,900 | 229,688 | 6.8 | 4,384.7 | 61.9 | 설명 | 201 | ✓ | `W_lwrrJv3Af0c` |
 | 2026-10-07 | [(#이벤트있음) 어떤 걸 좋아하실지 몰라 다 준비했습니다🔮 주식 초보 스윙스 X 주식 고수](https://www.youtube.com/watch?v=J1dI8O1aKcc) | 강남역 8번 출구 | 80,700 | 518,269 | 6.4 | 36,368.4 | 30.6 | 설명 | 970 | ✓ | `W_J1dI8O1aKcc` |
 | 2026-10-06 | [第275回【超重要】株式投資に役立つ9月の投資トピック総まとめ【インデックス・高配当】【株式投資](https://www.youtube.com/watch?v=EVVnME5wxuc) | 両学長 リベラルアーツ大学 | 9,650,000 | 552,296 | 0.1 | 38,284.7 | 42.7 | 설명 | 115 | ✓ | `W_EVVnME5wxuc` |
 | 2026-10-06 | [나스닥 연일 신고가의 진짜 이유](https://www.youtube.com/watch?v=ffpwNQMKSv4) | 내일은 투자왕 - 김단테 | 615,000 | 191,567 | 0.3 | 13,104.8 | 7.2 | 설명 | 105 | ✓ | `W_ffpwNQMKSv4` |
 | 2026-10-06 | [실적이고 뭐고, 멈춰버린 국장 버스](https://www.youtube.com/watch?v=izM605Qavok) | 슈카월드 | 3,730,000 | 948,542 | 0.2 | 64,083.4 | 33.0 | 없음 | 540 | ✓ | `W_izM605Qavok` |
 | 2026-10-06 | [Should You Buy Gold in 2026?](https://www.youtube.com/watch?v=PRMgf_IE6VU) | Explore with Epa | 904,000 | 327,085 | 0.4 | 22,033.4 | 17.2 | 설명 | 118 | ✓ | `W_PRMgf_IE6VU` |
 | 2026-10-06 | [[주간증시전망] "삼전닉스, 지금 팔면 안 된다"…문남중이 ‘연말까지 보유’를 말한 이유](https://www.youtube.com/watch?v=ArpyuyqC9cg) | SBS Biz 뉴스 | 459,000 | 262,362 | 0.6 | 17,613.5 | 12.8 | 설명 | 229 | ✓ | `W_ArpyuyqC9cg` |
+| 2026-10-06 | [현대차 반토막에 숨겨진 진실… 엔비디아 합작 발표 전 무조건 모아야 할 이유 [이권희 대표](https://www.youtube.com/watch?v=m3ZRHahRGHU) ⭐ | 경제시그널 | 28,800 | 408,924 | 14.2 | 7,711.1 | 33.0 | 설명 | 213 | ✓ | `W_m3ZRHahRGHU` |
 | 2026-10-06 | [3억원으로 월 300만원 평생 받는 법 (커버드콜 vs 나스닥100)](https://www.youtube.com/watch?v=XbXfph9KUXY) | 수페TV | 839,000 | 316,536 | 0.4 | 21,151.3 | 16.1 | 설명 | 188 | ✓ | `W_XbXfph9KUXY` |
+| 2026-10-06 | [TSMC는 70%인데... 삼성·하이닉스 외국인 지분율이 이 모양인 이유](https://www.youtube.com/watch?v=AfvrofeN3Lc) ⭐ | 잘되라대한민국 | 6,680 | 147,369 | 22.1 | 2,775.4 | 15.1 | 설명 | 101 | ✓ | `W_AfvrofeN3Lc` |
 | 2026-10-05 | [Three Turn-Around Stocks I’m Buying Today](https://www.youtube.com/watch?v=lDJ3befNmS8) | Joseph Carlson A | 262,000 | 272,310 | 1.0 | 17,599.8 | 35.8 | 설명 | 543 | ✓ | `W_lDJ3befNmS8` |
 | 2026-10-05 | [나스닥 엔비디아는 신고가인데 내 주식은 왜? 역대급 기묘한 랠리 이어질까](https://www.youtube.com/watch?v=V3ZQ02Syf5U) | 소수몽키 | 1,160,000 | 479,995 | 0.4 | 30,312.2 | 26.8 | 설명 | 125 | ✓ | `W_V3ZQ02Syf5U` |
 | 2026-10-05 | [【株式投資の勝率を上げるには】大川智宏×ちょる子×佐田志歩×岡村友哉/日経平均暴落時はAI半導体株よ](https://www.youtube.com/watch?v=Wxmxq4W8fFY) | 松井証券マーケットナビ | 210,000 | 204,264 | 1.0 | 12,829.9 | 42.6 | 설명 | 43 | ✓ | `W_Wxmxq4W8fFY` |
@@ -488,6 +553,7 @@
 | 2026-10-04 | [I Just Bought 1,000 Shares Of SCHD: Here's The Div](https://www.youtube.com/watch?v=fPU6Gefdad8) ⭐ | Grounded Life In | 5,350 | 75,997 | 14.2 | 6,602.4 | 10.0 | 설명 | 141 | ✓ | `W_fPU6Gefdad8` |
 | 2026-10-04 | [The Stock Market Is Being Used as a Dumping Ground](https://www.youtube.com/watch?v=roe3SgezmmU) | Casual Finance | 418,000 | 1,432,154 | 3.4 | 86,030.9 | 17.4 | 설명 | 1,779 | ✓ | `W_roe3SgezmmU` |
 | 2026-10-04 | [S&P500 ETF, 매달 이만큼만 사두세요 ∣ 20억 모은 선배의 ETF 추천·적립식투자](https://www.youtube.com/watch?v=x3Be7YHi3Fs) | 부자습관은 래빗해빛 | 108,000 | 303,179 | 2.8 | 18,037.0 | 15.4 | 설명 | 106 | ✓ | `W_x3Be7YHi3Fs` |
+| 2026-10-04 | [상상도 못한 금값 전망 떴다 가진 금 전부 '이렇게' 하세요 (유신익 박사 / 통합본 2부](https://www.youtube.com/watch?v=FnpS27bmW9Y) ⭐ | 웅달책방_투자 | 3,780 | 122,447 | 32.4 | 2,214.2 | 29.6 | 설명 | 29 | ✓ | `W_FnpS27bmW9Y` |
 | 2026-10-04 | [💰나의 순자산, 미래가치, 노후를 계산해보자! (feat. 경제적 자유 계산기 버전 3 대](https://www.youtube.com/watch?v=4uwYUJUpkQc) | 미키피디아 | 377,000 | 561,096 | 1.5 | 32,601.0 | 20.3 | 설명 | 148 | ✓ | `W_4uwYUJUpkQc` |
 | 2026-10-04 | [[홍장원의 불앤베어] 미국 금리가 흔든 세계...프랑스부터 무너지나.](https://www.youtube.com/watch?v=8kVUHmsE3qA) | 매경 라이브 | 323,000 | 529,659 | 1.6 | 30,734.1 | 9.2 | 설명 | 588 | ✓ | `W_8kVUHmsE3qA` |
 | 2026-10-03 | [NVIDIA Made Me Rich. I'm Buying This Stock Next.](https://www.youtube.com/watch?v=CLXV7Cqu33I) | Ticker Symbol: Y | 666,000 | 338,593 | 0.5 | 19,294.6 | 17.1 | 설명 | 605 | ✓ | `W_CLXV7Cqu33I` |
@@ -508,12 +574,14 @@
 | 2026-10-02 | [Markets இன்னும் விழும் ? இப்போ இது தான் Investment](https://www.youtube.com/watch?v=8Uv0BuL_u7A) | Money Pechu | 1,660,000 | 342,733 | 0.2 | 18,256.8 | 16.1 | 설명 | 352 | ✓ | `W_8Uv0BuL_u7A` |
 | 2026-10-02 | [1 Lakh நொட்டிட்டு போயிடுச்சு - Option Trading Loss](https://www.youtube.com/watch?v=8tT15yOuk-4) | A2D Channel | 2,660,000 | 1,041,879 | 0.4 | 55,317.6 | 13.6 | 설명 | 616 | ✓ | `W_8tT15yOuk-4` |
 | 2026-10-02 | [부자가 되려면 빨리 시작하세요](https://www.youtube.com/watch?v=8Ma_UyExF6c) | 머니코믹스 Money Comi | 1,440,000 | 559,634 | 0.4 | 29,508.7 | 16.1 | 설명 | 198 | ✓ | `W_8Ma_UyExF6c` |
+| 2026-10-02 | ["외국인이 비웃고 있습니다" 지금 개미들은 모르고 있다 다음주 더 무서울 겁니다 (유신익 ](https://www.youtube.com/watch?v=gGcjHeY9SnQ) ⭐ | 웅달책방_투자 | 3,780 | 55,520 | 14.7 | 972.5 | 31.9 | 설명 | 43 | ✓ | `W_gGcjHeY9SnQ` |
 | 2026-10-02 | [(친필 싸인 포토북 증정 이벤트 진행중) [EP.03] '상견례 프리패스상' 등극? 프로미](https://www.youtube.com/watch?v=WfEK5IRkpE4) | ACE ETF | 148,000 | 2,304,062 | 15.6 | 170,547.3 | 24.6 | 설명 | 355 | ✓ | `W_WfEK5IRkpE4` |
 | 2026-10-02 | [What happened to the Indian Stock Market?](https://www.youtube.com/watch?v=xEk2do30B1I) | Pranjal Kamra | 6,500,000 | 568,157 | 0.1 | 29,614.5 | 16.6 | 설명 | 539 | ✓ | `W_xEk2do30B1I` |
 | 2026-10-02 | [코스닥 10월부터 대반전! "주도주 '이 순서'로 뜹니다" ∣ 박세익 체슬리투자자문 대표](https://www.youtube.com/watch?v=-cA5INqj_vQ) | 한국경제TV | 1,400,000 | 328,571 | 0.2 | 17,051.1 | 20.1 | 설명 | 71 | ✓ | `W_-cA5INqj_vQ` |
 | 2026-10-01 | [Buy 1 Share of SCHD Every Week—Here’s the Retireme](https://www.youtube.com/watch?v=qFFwr4zsDKQ) ⭐ | Mikey Moran | 11,900 | 145,404 | 12.2 | 10,107.6 | 9.6 | 설명 | 162 | ✓ | `W_qFFwr4zsDKQ` |
 | 2026-10-01 | [Correction FINALLY OVER in Indian Markets? (time t](https://www.youtube.com/watch?v=Bnbq1-9r3w4) | Akshat Shrivasta | 2,270,000 | 673,990 | 0.3 | 34,185.2 | 21.1 | 설명 | 485 | ✓ | `W_Bnbq1-9r3w4` |
 | 2026-10-01 | [2026년 꼭 담아야 할 최고의 배당ETF 조합 ㅣ지식인 클래스 EP.29 (박곰희 작가)](https://www.youtube.com/watch?v=PaN27YpsfIU) | 지식인사이드 | 4,120,000 | 3,819,711 | 0.9 | 257,284.4 | 31.5 | 설명 | 602 | ✓ | `W_PaN27YpsfIU` |
+| 2026-10-01 | [9월 수출1200억달러 사상최고치! 특히 반도체는 단일품목 최초 ‘폭증’](https://www.youtube.com/watch?v=L5Rgu1xlSqc) ⭐ | 잘되라대한민국 | 6,680 | 142,933 | 21.4 | 2,462.4 | 8.1 | 설명 | 55 | ✓ | `W_L5Rgu1xlSqc` |
 | 2026-10-01 | [[10월 1일 목요일 한국시황] 코스닥 폭등! 이유는?](https://www.youtube.com/watch?v=XZyRbBF--OE) | 증시각도기TV | 482,000 | 321,265 | 0.7 | 16,085.9 | 25.5 | 설명 | 254 | ✓ | `W_XZyRbBF--OE` |
 | 2026-10-01 | ["매월 배당금 300만 원 준다?" 커버드콜 ETF를 사면 안 되는 사람 유형](https://www.youtube.com/watch?v=iKEnBXWT6o0) ⭐ | 투자360 | 16,800 | 139,207 | 8.3 | 2,395.9 | 16.4 | 설명 | 77 | ✓ | `W_iKEnBXWT6o0` |
 | 2026-10-01 | [코스피 급락에 "세계 최악"..폭락 원인은? / 친절한 경제 / SBS 모닝와이드 2부](https://www.youtube.com/watch?v=Uuw517jwuRQ) | SBS 뉴스 | 5,300,000 | 1,444,127 | 0.3 | 97,524.4 | 5.9 | 설명 | 1,929 | ✓ | `W_Uuw517jwuRQ` |
@@ -540,10 +608,13 @@
 | 2026-09-26 | [5천만원으로 '이 주식' 담으세요, 내년까지 무섭게 오를 겁니다 (박세익 대표)](https://www.youtube.com/watch?v=w8unj8A0nF4) | 김작가 TV | 2,730,000 | 469,463 | 0.2 | 18,866.4 | 18.1 | 설명 | 113 | ✓ | `W_w8unj8A0nF4` |
 | 2026-09-26 | [역사상 최악의 날에만 주식을 산 사람, 41년 뒤 계좌는? (S&P 500 실제 데이터)](https://www.youtube.com/watch?v=DRvywv-HRmM) ⭐ | 머니언박싱 | 2,780 | 241,296 | 86.8 | 4,542.9 | 8.0 | 설명 | 172 | ✗ | `W_DRvywv-HRmM` |
 | 2026-09-26 | [復活の3ヶ月、ついに始まる！【S&P500, NASDAQ100】](https://www.youtube.com/watch?v=MBsKMEu23iQ) | S&P500最強伝説 | 336,000 | 344,496 | 1.0 | 13,824.0 | 36.8 | 설명 | 168 | ✓ | `W_MBsKMEu23iQ` |
+| 2026-09-26 | ["소주 6천 원이면 다른 거 할래요" ∣ 술 27년 만에 최저, 회계사가 뜯어본 참이슬·카](https://www.youtube.com/watch?v=QttAdWXG-vk) ⭐ | 전지적회계사시점 | 961 | 29,246 | 30.4 | 460.8 | 34.2 | 설명 | 19 | ✓ | `W_QttAdWXG-vk` |
 | 2026-09-25 | [How to Use Liquidity in Trading? ∣∣ Masterclass](https://www.youtube.com/watch?v=IOBoaM71MUA) | Booming Bulls | 4,130,000 | 923,210 | 0.2 | 35,809.3 | 25.9 | 설명 | 1,247 | ✓ | `W_IOBoaM71MUA` |
 | 2026-09-25 | [What Happens When a Country’s Debt Grows Faster Th](https://www.youtube.com/watch?v=PdoVd-uxeHE) | Investing With U | 136,000 | 415,490 | 3.1 | 16,095.8 | 88.5 | 설명 | 349 | ✓ | `W_PdoVd-uxeHE` |
+| 2026-09-25 | [주식투자로 큰 돈 번 듯했는데..  결국 번 돈 다 털리는 소름 돋는 이유 ∣ 교수 정선용](https://www.youtube.com/watch?v=fD3IQvf_T6w) ⭐ | 너와 나의 경제학교 | 40,900 | 330,032 | 8.1 | 5,150.1 | 77.5 | 설명 | 242 | ✓ | `W_fD3IQvf_T6w` |
 | 2026-09-25 | [배당주 투자만으로는 파이어가 어려운 이유 [2026 더라이프스타일 X 싱글파이어 머니쇼]](https://www.youtube.com/watch?v=IDwH4f-xA1g) | 싱글파이어 | 513,000 | 405,961 | 0.8 | 15,636.2 | 16.2 | 설명 | 147 | ✓ | `W_IDwH4f-xA1g` |
 | 2026-09-25 | [찬 바람 불면 배당주](https://www.youtube.com/watch?v=IzKQa_jMpOY) | 머니코믹스 Money Comi | 1,440,000 | 334,321 | 0.2 | 12,875.2 | 12.6 | 설명 | 162 | ✓ | `W_IzKQa_jMpOY` |
+| 2026-09-25 | [[초보자필수시청] 10년을 해도 제자리인 사람들의 공통점 外 l 60분 연속 재생](https://www.youtube.com/watch?v=dC3jWGeJ3E0) ⭐ | 직장인 차트매매 - 추세추종 | 6,210 | 59,035 | 9.5 | 918.7 | 63.6 | 설명 | 244 | ✓ | `W_dC3jWGeJ3E0` |
 | 2026-09-25 | [[9월 25일 금요일 미국시황] 채권 폭락속 주식 선전!](https://www.youtube.com/watch?v=GYk-s8Zj4Hs) | 증시각도기TV | 482,000 | 355,356 | 0.7 | 13,540.5 | 16.6 | 설명 | 265 | ✓ | `W_GYk-s8Zj4Hs` |
 | 2026-09-24 | ['이 ETF 두 가지'만 하면 평생 부자로 살 수 있습니다.  (존리 대표 2부) #존리 ](https://www.youtube.com/watch?v=CI5yWWTjJfc) ⭐ | 자람들 - 자립하는사람들 | 33,600 | 158,602 | 4.7 | 7,312.5 | 16.7 | 설명 | 131 | ✓ | `W_CI5yWWTjJfc` |
 | 2026-09-23 | ["어차피 손절도 못 하면서..." 주식 투자로 매번 망하는 사람들의 치명적 착각 1가지 ∣](https://www.youtube.com/watch?v=yzFcWRov45c) | ETF 아는 형 | 157,000 | 622,722 | 4.0 | 22,747.1 | 95.7 | 설명 | 167 | ✓ | `W_yzFcWRov45c` |
@@ -554,6 +625,7 @@
 | 2026-09-22 | [The 5 Levels of SCHD — What Level Are You?](https://www.youtube.com/watch?v=hasms3By6pA) ⭐ | Mikey Moran | 11,900 | 104,727 | 8.8 | 4,478.2 | 9.6 | 설명 | 484 | ✓ | `W_hasms3By6pA` |
 | 2026-09-22 | [Corporate Slave to Financially Free: The Passive I](https://www.youtube.com/watch?v=knkqhQrQS60) ⭐ | The Retail Rundo | 1,490 | 83,372 | 56.0 | 3,532.8 | 80.0 | 자막 | 134 | ✓ | `W_knkqhQrQS60` |
 | 2026-09-22 | [미장 지금 들어간다면 ‘주가’만 보면 안 되는 이유ㅣ지식인초대석 (곽상준 대표 풀버전)](https://www.youtube.com/watch?v=dXPAXQKYM64) | 지식인사이드 | 4,120,000 | 875,158 | 0.2 | 30,283.3 | 60.3 | 설명 | 210 | ✓ | `W_dXPAXQKYM64` |
+| 2026-09-22 | [반도체 들고있다고 ‘난 안봐도돼’가 아닙니다! 코스피7천 박스권에서 살아남는 법](https://www.youtube.com/watch?v=xbFp0FR1N1Q) ⭐ | 잘되라대한민국 | 6,680 | 59,815 | 8.9 | 892.0 | 13.2 | 설명 | 13 | ✓ | `W_xbFp0FR1N1Q` |
 | 2026-09-22 | [월배당 ETF 1등의 반전 "나스닥 아닌 '이것' 삽니다 ∣ 절세미녀](https://www.youtube.com/watch?v=y-cIp2qsOBQ) | 절세미녀 김희연 회계사 | 188,000 | 370,732 | 2.0 | 12,801.7 | 32.8 | 설명 | 208 | ✓ | `W_y-cIp2qsOBQ` |
 | 2026-09-22 | [Defence Exports Rise After Operation Sindoor ∣ Ind](https://www.youtube.com/watch?v=CzVsjTV_Sm0) | Baaten Bazar Ki  | 1,000,000 | 1,567,780 | 1.6 | 53,932.7 | 21.1 | 설명 | 519 | ✓ | `W_CzVsjTV_Sm0` |
 | 2026-09-21 | [Market has 'all the ingredients for a face ripper'](https://www.youtube.com/watch?v=8-SHuGMdJDA) | CNBC Television | 3,410,000 | 499,224 | 0.1 | 16,893.4 | 5.3 | 설명 | 435 | ✓ | `W_8-SHuGMdJDA` |
@@ -561,6 +633,7 @@
 | 2026-09-21 | [자사주 매입 끝나는데, 추석연휴 전 삼전닉스를 사야 하는 이유 [염승환 이사]](https://www.youtube.com/watch?v=SiYfqWdJ0uw) | 채널A News | 3,530,000 | 1,015,720 | 0.3 | 41,787.4 | 29.8 | 설명 | 187 | ✓ | `W_SiYfqWdJ0uw` |
 | 2026-09-21 | [【米国株】これから上昇相場に突入？／S&P500は最高値更新の連続で火遊び状態／今注目すべきは◯◯株](https://www.youtube.com/watch?v=kNA-XtYY2eI) | 田村亮&鈴木奈々 自腹で米国株は | 160,000 | 746,224 | 4.7 | 24,942.6 | 37.5 | 설명 | 104 | ✓ | `W_kNA-XtYY2eI` |
 | 2026-09-21 | [삼전닉스 배당 나오는데, '28일' 지나면 주가 빠질까ㅣ강관우 더프레미어 대표](https://www.youtube.com/watch?v=LqJadZGm3cA) | 한국경제TV | 1,400,000 | 470,711 | 0.3 | 15,664.5 | 20.5 | 설명 | 68 | ✓ | `W_LqJadZGm3cA` |
+| 2026-09-19 | [8,632원 벌고 낮술 땄습니다... 50대 배달 아내의 눈물겨운 일탈](https://www.youtube.com/watch?v=NPfA82wKn4I) ⭐ | 반백살, 옥탑방 이야기 | 786 | 14,177 | 18.0 | 202.5 | 8.1 | 설명 | 37 | ✓ | `W_NPfA82wKn4I` |
 | 2026-09-19 | [すごい回復、ついに始まる【S&P500, NASDAQ100】](https://www.youtube.com/watch?v=hpdLb4LO4O0) | S&P500最強伝説 | 336,000 | 426,733 | 1.3 | 13,369.0 | 38.0 | 설명 | 243 | ✓ | `W_hpdLb4LO4O0` |
 | 2026-09-19 | ["그냥 이거 사"...트럼프와 미국이 대놓고 밀어주고 찍어주고 부양하는 'ETF 종목' 이](https://www.youtube.com/watch?v=CGuOqtk20Hw) | 이효석아카데미 | 729,000 | 742,214 | 1.0 | 23,043.9 | 12.9 | 설명 | 270 | ✓ | `W_CGuOqtk20Hw` |
 | 2026-09-19 | [배당금으로 혼자 사는 미혼남, 3억 파이어 미니멀라이프](https://www.youtube.com/watch?v=iGI_fzwOyoY) ⭐ | 배당아저씨 | 32,400 | 224,310 | 6.9 | 8,375.3 | 8.6 | 설명 | 612 | ✓ | `W_iGI_fzwOyoY` |
@@ -575,10 +648,14 @@
 | 2026-09-17 | [한국 주식시장을 믿을 수 없는 이유! [코너별 다시보기 - 0917]](https://www.youtube.com/watch?v=jgCAsFr7FIQ) | [팟빵] 최욱의 매불쇼 | 2,810,000 | 539,055 | 0.2 | 15,897.7 | 28.5 | 설명 | 401 | ✓ | `W_jgCAsFr7FIQ` |
 | 2026-09-16 | [BREAKING: The FED Just RAISED Interest Rates - Sto](https://www.youtube.com/watch?v=gEe80Le2ZRU) | Graham Stephan | 5,180,000 | 855,151 | 0.2 | 24,781.0 | 14.9 | 설명 | 912 | ✓ | `W_gEe80Le2ZRU` |
 | 2026-09-16 | [“개미의 90%는 결국 잃는다” 주식으로 돈 버는 10%의 투자법ㅣ돈크라테스 EP.31](https://www.youtube.com/watch?v=kUhfmmGn3pU) | 지식한상  | 1,460,000 | 824,544 | 0.6 | 23,610.5 | 31.5 | 설명 | 241 | ✓ | `W_kUhfmmGn3pU` |
+| 2026-09-16 | [80억 날리고 220억 만든 일본 슈퍼 개미가 물타기를 안 하는 이유 [후지모토 시게루 1](https://www.youtube.com/watch?v=zDdi61_JqUg) ⭐ | 차트 지니어스 | 6,800 | 986,326 | 145.1 | 13,501.8 | 12.4 | 설명 | 629 | ✓ | `W_zDdi61_JqUg` |
+| 2026-09-16 | [신흥국인 ‘한국’의 주식 사야한다는 블랙락. 삼성전자·하이닉스 실적 전망치↑](https://www.youtube.com/watch?v=pNuko2-R9ds) ⭐ | 잘되라대한민국 | 6,680 | 54,526 | 8.2 | 746.2 | 8.2 | 설명 | 18 | ✓ | `W_pNuko2-R9ds` |
 | 2026-09-16 | [악착같이 6억 모아서 배당주 투자로 갑니다 - 조윤진 작가 [성공예감 이대호입니다]｜KBS](https://www.youtube.com/watch?v=pTDvC51fEoY) | KBS 1라디오 | 1,400,000 | 542,913 | 0.4 | 15,396.8 | 38.4 | 설명 | 144 | ✓ | `W_pTDvC51fEoY` |
+| 2026-09-14 | [10년 뒤 무조건 승리하는 개미들의 진짜 투자법](https://www.youtube.com/watch?v=aUUWqaO4wG0) ⭐ | 여의돈스트리트 | 1,430 | 88,072 | 61.6 | 1,182.0 | 15.5 | 설명 | 59 | ✓ | `W_aUUWqaO4wG0` |
 | 2026-09-14 | [오늘부터 오후 8시까지 애프터마켓 오픈!! 주식패턴 ‘이렇게’ 완전히 바뀐다](https://www.youtube.com/watch?v=wwrCztntACs) ⭐ | 잘되라대한민국 | 5,910 | 243,747 | 41.2 | 7,723.3 | 8.2 | 음성인식 | 253 | ✓ | `W_wwrCztntACs` |
 | 2026-09-14 | [ETF 이 '2가지'만 사두면 됩니다. '나머지는 필요없어요' 100억 자산 관리자의 꿀팁](https://www.youtube.com/watch?v=1qlywudP2oY) ⭐ | 자람들 - 자립하는사람들 | 33,600 | 250,018 | 7.4 | 7,892.3 | 69.7 | 설명 | 71 | ✓ | `W_1qlywudP2oY` |
 | 2026-09-13 | [주식 거래시간 밤 8시까지?☑️KRX 애프터마켓 꼭 알아야 할 변화](https://www.youtube.com/watch?v=xXBHBu6hnCc) ⭐ | 주식캐스터 여니 | 42,800 | 472,277 | 11.0 | 14,534.0 | 9.0 | 없음 | 361 | ✓ | `W_xXBHBu6hnCc` |
+| 2026-09-13 | [나스닥 100에 20년을 넣었더니 벌어진 일 (feat. 83% 폭락) ㅡ VOO vs Q](https://www.youtube.com/watch?v=Cmru3a0SiY8) ⭐ | 머니언박싱 | 2,780 | 61,648 | 22.2 | 808.0 | 8.0 | 설명 | 33 | ✓ | `W_Cmru3a0SiY8` |
 | 2026-09-13 | [What Happened in BRICS? 🚨 Impact on Stock Market E](https://www.youtube.com/watch?v=qVYWIRuzP94) | Pushkar Raj Thak | 15,400,000 | 507,124 | 0.0 | 13,276.5 | 13.2 | 설명 | 253 | ✓ | `W_qVYWIRuzP94` |
 | 2026-09-13 | ["환율 완전히 뒤집혔다" 지금부터 봐야할 수혜주ㅣ지식인초대석 EP.170 (곽상준 대표 2](https://www.youtube.com/watch?v=-hF7-OhypMU) | 지식인사이드 | 4,120,000 | 4,035,937 | 1.0 | 121,334.6 | 29.3 | 설명 | 865 | ✓ | `W_-hF7-OhypMU` |
 | 2026-09-12 | [Every Bond Market In The World Is Breaking](https://www.youtube.com/watch?v=PmvQI4CPnDQ) | Mark Tilbury Eco | 601,000 | 974,281 | 1.6 | 25,237.8 | 23.2 | 설명 | 1,035 | ✓ | `W_PmvQI4CPnDQ` |
@@ -601,14 +678,17 @@
 | 2026-09-09 | [#촌집수리#시골집수리#한옥수리#미장#매쉬미장#](https://www.youtube.com/watch?v=Z5vSAOiHkss) ⭐ | 5도3촌 | 566 | 15,467 | 27.3 | 424.4 | 17.9 | 설명 | 13 | ✓ | `W_Z5vSAOiHkss` |
 | 2026-09-08 | [주식 공부부터 하면 지칩니다. 6년 투자 후 깨달은 것) #50대투자 #월배당etf #레버](https://www.youtube.com/watch?v=0cS1EHLkDiQ) ⭐ | 50대 투자 라이프 | 2,560 | 14,105 | 5.5 | 376.6 | 6.9 | 설명 | 20 | ✓ | `W_0cS1EHLkDiQ` |
 | 2026-09-08 | [현금 있다면 미국주식 이렇게 사세요, 앞으로 어마어마하게 오를 겁니다 [테크피드]](https://www.youtube.com/watch?v=TU6md1rvon4) | 부읽남TV_내집마련부터건물주까 | 1,840,000 | 657,060 | 0.4 | 15,277.9 | 55.5 | 설명 | 222 | ✓ | `W_TU6md1rvon4` |
+| 2026-09-08 | [이거 딱 두 개면 충분하다? 존리 대표의 심플한 투자 공식](https://www.youtube.com/watch?v=9bQncZDMMqE) ⭐ | 여의돈스트리트 | 1,430 | 158,558 | 110.9 | 1,952.8 | 22.4 | 설명 | 44 | ✓ | `W_9bQncZDMMqE` |
 | 2026-09-07 | [Michael Burry Just Bet on a $3 Trillion Financial ](https://www.youtube.com/watch?v=5yMj92G9wbA) | Fin Tek | 270,000 | 907,186 | 3.4 | 20,850.8 | 17.2 | 설명 | 638 | ✓ | `W_5yMj92G9wbA` |
 | 2026-09-07 | [Gold, Silver में पैसा लगाया? SEBI ने Share Market ](https://www.youtube.com/watch?v=gMRerOIZn3E) | The Lallantop | 35,100,000 | 726,018 | 0.0 | 16,582.3 | 8.4 | 설명 | 86 | ✓ | `W_gMRerOIZn3E` |
 | 2026-09-07 | [Once Your Portfolio Hits THIS Number, Saving More ](https://www.youtube.com/watch?v=ZvMote2D6eY) | Investing Simpli | 477,000 | 776,727 | 1.6 | 17,736.0 | 16.0 | 설명 | 434 | ✓ | `W_ZvMote2D6eY` |
 | 2026-09-07 | [ETF는 이 '2개'로 충분합니다. 돈 있으면 무조건 여기부터 넣습니다. 노후 준비 끝납니](https://www.youtube.com/watch?v=YdmZDxBcYKE) ⭐ | 자람들 - 자립하는사람들 | 33,600 | 143,617 | 4.3 | 3,746.9 | 19.7 | 설명 | 61 | ✓ | `W_YdmZDxBcYKE` |
 | 2026-09-07 | ["달러 약세라는데.." S&P500 계속 사모아도 되는 걸까?ㅣ돈크라테스 EP. 27](https://www.youtube.com/watch?v=NJtszuRxre8) | 지식한상  | 1,460,000 | 974,705 | 0.7 | 25,376.0 | 21.3 | 설명 | 302 | ✓ | `W_NJtszuRxre8` |
 | 2026-09-07 | [【NASDAQ100vsFANG+】FANG+一択のハセンがブレ始める…／プロが選ぶ攻めの投資信託／](https://www.youtube.com/watch?v=EjUilU0hz9c) | PIVOT 公式チャンネル | 4,090,000 | 740,744 | 0.2 | 16,879.8 | 32.4 | 설명 | 126 | ✓ | `W_EjUilU0hz9c` |
+| 2026-09-07 | [목표가 삼전 67만·닉스 470만 괴리율 ↑ 인데..  젠슨황 “28년까지 끄떡없다”](https://www.youtube.com/watch?v=pHjqldCVCIo) ⭐ | 잘되라대한민국 | 6,680 | 132,024 | 19.8 | 1,608.3 | 22.5 | 설명 | 49 | ✓ | `W_pHjqldCVCIo` |
 | 2026-09-05 | [WTF Is Happening To The Stock Market?](https://www.youtube.com/watch?v=xPjop4OC1XY) | GEN | 815,000 | 1,575,541 | 1.9 | 34,531.3 | 22.6 | 설명 | 1,248 | ✓ | `W_xPjop4OC1XY` |
 | 2026-09-05 | [I'd invest my next ₹10 lakhs in these 3 FAST growi](https://www.youtube.com/watch?v=xx7uM1_bXaU) | Rahul Jain | 1,020,000 | 816,006 | 0.8 | 17,836.0 | 17.6 | 설명 | 407 | ✓ | `W_xx7uM1_bXaU` |
+| 2026-09-05 | ['2억빚' 옥탑방부부 고혈압, 고지혈증, 당뇨 남편과 먹고사는 이야기](https://www.youtube.com/watch?v=wa5zxxVqfk0) ⭐ | 반백살, 옥탑방 이야기 | 786 | 53,652 | 68.3 | 638.6 | 9.0 | 설명 | 105 | ✓ | `W_wa5zxxVqfk0` |
 | 2026-09-05 | ["나스닥100은 매년 상위 100개 종목을 자동으로 갈아 끼웁니다"...제가 나스닥만 고집](https://www.youtube.com/watch?v=IahaFGIdxhE) | 이효석아카데미 | 729,000 | 741,017 | 1.0 | 15,991.8 | 17.3 | 설명 | 363 | ✓ | `W_IahaFGIdxhE` |
 | 2026-09-04 | [208. 국내 커버드콜 액티브 ETF, 최고는 이겁니다](https://www.youtube.com/watch?v=NW_PJ7iDbQI) | 배당머니 : 숫자로 증명하는  | 23,800 | 76,521 | 3.2 | 1,870.5 | 18.2 | 설명 | 73 | ✓ | `W_NW_PJ7iDbQI` |
 | 2026-09-04 | ["이 원칙만 제발 지키세요" 내가 사면 떨어지고 팔면 올라가는 진짜 이유](https://www.youtube.com/watch?v=voZNeHkvkaI) | 정영진의 나쁜질문 | 146,000 | 810,957 | 5.5 | 17,301.4 | 43.0 | 설명 | 494 | ✓ | `W_voZNeHkvkaI` |
@@ -645,6 +725,8 @@
 | 2026-08-26 | [S&P500 ETF 좋다고 투자해도 90%가 망하는 이유 ∣ 최영민 작가](https://www.youtube.com/watch?v=2hEQ_7smoy8) ⭐ | 투자360 | 15,900 | 139,125 | 8.8 | 2,750.9 | 16.3 | 설명 | 111 | ✓ | `W_2hEQ_7smoy8` |
 | 2026-08-25 | [배당 위주로 투자해 배달 기사 그만 두고 월 200만원 받는 3년 차 파이어족  [싱글파이](https://www.youtube.com/watch?v=oGOz1HXeYQM) | 싱글파이어 | 513,000 | 953,045 | 1.9 | 16,731.8 | 11.5 | 설명 | 452 | ✓ | `W_oGOz1HXeYQM` |
 | 2026-08-25 | [3억만 모으면 은퇴할 수 있습니다｜제가 만든 FIRE 시나리오](https://www.youtube.com/watch?v=fRLt1WvUlZ4) | 돈재이 DONJAY | 19,800 | 81,405 | 4.1 | 1,578.4 | 24.1 | 설명 | 211 | ✓ | `W_fRLt1WvUlZ4` |
+| 2026-08-25 | [요즘 나이키 왜 이럴까 ∣ 주가 12년 최저, 회계사가 뜯어본 나이키](https://www.youtube.com/watch?v=IOlZ-LDt_Gc) ⭐ | 전지적회계사시점 | 961 | 19,471 | 20.3 | 204.1 | 22.9 | 설명 | 22 | ✓ | `W_IOlZ-LDt_Gc` |
+| 2026-08-24 | [주주들은 폭발할지경! 주가 올려달라! 삼성전자 110조 소식에도 폭락한 이유](https://www.youtube.com/watch?v=PRyjjvHHXaQ) ⭐ | 잘되라대한민국 | 6,680 | 78,591 | 11.8 | 818.0 | 17.6 | 설명 | 250 | ✓ | `W_PRyjjvHHXaQ` |
 | 2026-08-23 | [Was passiert im WORST CASE mit deinem MSCI World E](https://www.youtube.com/watch?v=dj7U2jIFy08) | Finanzfluss | 1,650,000 | 904,745 | 0.6 | 16,763.4 | 15.2 | 설명 | 630 | ✓ | `W_dj7U2jIFy08` |
 | 2026-08-23 | [마이너스 주식 계좌 가장 쉽게 탈출하는 방법 물타기? 존버? 고민하지 않아도 되는 물린 종](https://www.youtube.com/watch?v=v6rUCbULG2A) ⭐ | 머니스트랩 | 537 | 95,716 | 178.2 | 1,778.4 | 30.5 | 음성인식 | 38 | ✓ | `W_v6rUCbULG2A` |
 | 2026-08-22 | [Gold अभी खरीदे या रुके? ∣ SAGAR SINHA](https://www.youtube.com/watch?v=Fq79o88g9SU) | Sagar Sinha  | 5,190,000 | 858,513 | 0.2 | 14,343.7 | 16.2 | 설명 | 426 | ✓ | `W_Fq79o88g9SU` |
@@ -657,6 +739,7 @@
 | 2026-08-20 | [매일 1조씩 산다! 사상최대규모 주주환원! 그런데, 하이닉스 호재 한발 남았다](https://www.youtube.com/watch?v=vsiHYXqZYw0) ⭐ | 잘되라대한민국 | 5,910 | 109,428 | 18.5 | 1,937.6 | 13.4 | 설명 | 139 | ✓ | `W_vsiHYXqZYw0` |
 | 2026-08-19 | [Here's What Pops This Stock Bubble](https://www.youtube.com/watch?v=_YXDHskRP6Y) | Andrei Jikh | 3,390,000 | 1,213,753 | 0.4 | 19,459.5 | 25.1 | 설명 | 1,849 | ✓ | `W__YXDHskRP6Y` |
 | 2026-08-19 | [Can You Retire With Just SCHD? ∣ SCHD Expert Expla](https://www.youtube.com/watch?v=lRlUmwigNYU) ⭐ | The Mispriced Po | 3,220 | 125,104 | 38.9 | 2,172.5 | 36.6 | 자막 | 343 | ✓ | `W_lRlUmwigNYU` |
+| 2026-08-18 | [홀로서기도 제니처럼? ∣ 회계사가 말아주는 제니의 1인 기획사 재무제표 ∣ OA엔터테인먼트](https://www.youtube.com/watch?v=emIhuKcHaW4) ⭐ | 전지적회계사시점 | 961 | 83,930 | 87.3 | 820.4 | 21.9 | 설명 | 75 | ✓ | `W_emIhuKcHaW4` |
 | 2026-08-17 | [배당으로 사는 은퇴자가 3년 동안 겪게 되는 일 (은퇴 현금흐름 설계)](https://www.youtube.com/watch?v=5HkW_43tZPs) | 은퇴머니 - 은퇴 현금흐름 설 | 30,000 | 104,112 | 3.5 | 1,747.7 | 21.9 | 설명 | 82 | ✓ | `W_5HkW_43tZPs` |
 | 2026-08-16 | [क्या Parag Parikh Flexi Cap Fund से बाहर निकलना ही](https://www.youtube.com/watch?v=uI9c-HnwdQ8) | Sanjay Kathuria  | 1,420,000 | 883,278 | 0.6 | 13,429.9 | 18.2 | 설명 | 731 | ✓ | `W_uI9c-HnwdQ8` |
 | 2026-08-15 | [4200억 단타 일본 천재가 초간단 매매법, 죽어라 이것만하세요](https://www.youtube.com/watch?v=UH4UFmdXXo0) ⭐ | 세력시그널 | 3,510 | 85,769 | 24.4 | 1,393.0 | 20.6 | 설명 | 216 | ✓ | `W_UH4UFmdXXo0` |
@@ -666,6 +749,7 @@
 | 2026-08-12 | [Plot vs Gold vs SIP vs Home Loan — AND the Winner ](https://www.youtube.com/watch?v=LBLJNJ0OY0E) | Rahul Jain | 1,020,000 | 1,996,038 | 2.0 | 30,840.5 | 27.2 | 자막 | 2,065 | ✓ | `W_LBLJNJ0OY0E` |
 | 2026-08-11 | [THIS New 20% Dividend ETF Just Changed Passive Inc](https://www.youtube.com/watch?v=WYnRRC18FIk) | Viktoriya M Fina | 19,500 | 75,648 | 3.9 | 1,155.5 | 11.5 | 자막 | 182 | ✓ | `W_WYnRRC18FIk` |
 | 2026-08-11 | [월 100만원 ETF 투자하면, 60대에 "진짜 부자"가 됩니다](https://www.youtube.com/watch?v=WGkQ7wwHHlQ) ⭐ | 농부의 경제학 | 8,260 | 76,665 | 9.3 | 1,169.5 | 13.4 | 설명 | 82 | ✓ | `W_WGkQ7wwHHlQ` |
+| 2026-08-11 | [월배당금 70만원, 시골에서 사는 배당부부!](https://www.youtube.com/watch?v=vJF30ea4r7Q) ⭐ | 시골사는 배당부부 | 1,930 | 116,341 | 60.3 | 1,064.4 | 5.0 | 설명 | 110 | ✓ | `W_vJF30ea4r7Q` |
 | 2026-08-10 | [배당으로 사는 은퇴자가 법인을 만든 이유 5가지](https://www.youtube.com/watch?v=kidc-Cza18s) | 은퇴머니 - 은퇴 현금흐름 설 | 30,000 | 137,289 | 4.6 | 2,063.0 | 10.7 | 설명 | 70 | ✓ | `W_kidc-Cza18s` |
 | 2026-08-10 | [10 Stocks To Buy Before The Next Bull Run](https://www.youtube.com/watch?v=9bHb6ccr3Fc) ⭐ | Sana Securities  | 49,000 | 372,103 | 7.6 | 5,554.0 | 32.9 | 설명 | 765 | ✓ | `W_9bHb6ccr3Fc` |
 | 2026-08-09 | [단타 5년차가 알려준 ＂잃지 않는 법＂ 딱 3가지 ｜ 코스피 9000시대 생존법](https://www.youtube.com/watch?v=WnuVkKRjcuI) ⭐ | 돈의흐름도 | 1,380 | 153,207 | 111.0 | 2,272.9 | 13.5 | 음성인식 | 96 | ✓ | `W_WnuVkKRjcuI` |
@@ -699,6 +783,7 @@
 | 2026-07-17 | [생활비 한 달 5만원..10년 만에 배당금 월 300만원 받는 이유  (조윤진 1부) #세](https://www.youtube.com/watch?v=Wc52vsC6q4U) ⭐ | 자람들 - 자립하는사람들 | 33,600 | 825,816 | 24.6 | 9,139.4 | 29.3 | 설명 | 613 | ✓ | `W_Wc52vsC6q4U` |
 | 2026-07-17 | [레버리지 ETF 상장폐지 논란🔥도박판 코스피 알고도 레버리지 ETF 상폐 못하는 이유🔥위험](https://www.youtube.com/watch?v=O4-jY0zyhDo) ⭐ | 리얼경제 | 1,340 | 93,654 | 69.9 | 1,035.3 | 15.0 | 음성인식 | 648 | ✓ | `W_O4-jY0zyhDo` |
 | 2026-07-16 | [The $1,000/Month Dividend Myth: Here’s the Real Ma](https://www.youtube.com/watch?v=j1RW4RqYmHc) ⭐ | Mikey Moran | 11,900 | 112,807 | 9.5 | 1,234.4 | 9.1 | 설명 | 222 | ✓ | `W_j1RW4RqYmHc` |
+| 2026-07-15 | [주식 투자 공부 ∣ 주식으로 인생 망하는 사람들의 공통점 #주식투자공부 #주식 #투자공부 ](https://www.youtube.com/watch?v=EqDWhvLTARA) ⭐ | 방구석 금고지기 | 195 | 14,178 | 72.7 | 104.4 | 9.9 | 설명 | 39 | ✓ | `W_EqDWhvLTARA` |
 | 2026-07-14 | [주식 고수들은 폭락장에 '이렇게' 행동합니다ㅣ지식인초대석 EP.151 (김효진 박사 1부)](https://www.youtube.com/watch?v=Va3NC6OxXUI) | 지식인사이드 | 4,120,000 | 1,471,884 | 0.4 | 14,888.9 | 44.4 | 설명 | 1,760 | ✓ | `W_Va3NC6OxXUI` |
 | 2026-07-14 | [' 코스피 폭락 ‘ 삼성전자 & 하이닉스 하반기 X만원 갑니다 ?! 용한 애동 무당이 신점](https://www.youtube.com/watch?v=r6YwLBtCXXQ) ⭐ | 대국신당 임장군 | 5,260 | 119,801 | 22.8 | 1,282.3 | 16.6 | 설명 | 99 | ✓ | `W_r6YwLBtCXXQ` |
 | 2026-07-13 | ["역대급 저평가라던 코스피" 하루 만에 620조 추락.. 그 뒤에 숨겨진 코스피의 잔혹한 ](https://www.youtube.com/watch?v=6VAsPNYeTRQ) ⭐ | 더 리치 - 돈의 흐름을 읽어 | 8,090 | 116,587 | 14.4 | 1,233.9 | 21.2 | 설명 | 294 | ✓ | `W_6VAsPNYeTRQ` |

@@ -1,0 +1,75 @@
+{
+ "id": "AfvrofeN3Lc",
+ "title": "TSMC는 70%인데... 삼성·하이닉스 외국인 지분율이 이 모양인 이유",
+ "channel": "잘되라대한민국",
+ "channel_id": "UC1GeuioIW52kCX-v3mlDx9g",
+ "subs": 6680,
+ "views": 147369,
+ "ratio": 22.06,
+ "age_days": 53,
+ "views_per_day": 2778.2,
+ "minutes": 15.1,
+ "likes": 655,
+ "comments": 101,
+ "published": "2026-10-06",
+ "queries": "주소",
+ "url": "https://www.youtube.com/watch?v=AfvrofeN3Lc",
+ "flag": "",
+ "published_at": "2026-10-06T08:52:28Z",
+ "rank": "W71",
+ "set": "web",
+ "folder": "W_AfvrofeN3Lc",
+ "sources": [
+  "주소"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "인트로: 삼성전자의 압도적인 현금 볼륨과 저평가 논란"
+  },
+  {
+   "start": 150,
+   "title": "엔비디아 사상 최고가 랠리, 과연 거품인가? (싱가포르 DBS 은행 분석)"
+  },
+  {
+   "start": 300,
+   "title": "실적이 좋은데도 한국 반도체 주가가 힘을 못 쓰는 진짜 이유"
+  },
+  {
+   "start": 420,
+   "title": "자사주 매입 기간에 외국인은 왜 오히려 주식을 팔았을까?"
+  },
+  {
+   "start": 552,
+   "title": "삼성전자·하이닉스 자사주 매입 종료 임박, 그 이후의 수급 시나리오"
+  },
+  {
+   "start": 660,
+   "title": "10년 만에 최저 수준으로 떨어진 외국인 지분율, 무엇을 뜻할까?"
+  },
+  {
+   "start": 750,
+   "title": "메모리주 흔드는 노이즈와 해외 바이어들(젠슨황·리사수)의 뜨거운 관심"
+  },
+  {
+   "start": 840,
+   "title": "아웃트로: 삼전·하닉 반등의 트리거, 지루함을 견디는 투자자의 자세"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 101,
+ "comments_top_level": 88,
+ "comments_replies": 13,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 101,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T11:14:50",
+ "approved": "2026-11-28T20:14+09:00"
+}

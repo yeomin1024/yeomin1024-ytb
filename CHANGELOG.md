@@ -1,5 +1,29 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-28 — 지금까지 한 일에서 공통·주식 규칙 정리 (사용자 지시 "일단 지금까지 한 것 중에 공통 규칙에 추가할 거 주식 주제 규칙에 추가할거 있으면 정리해서 반영해")
+
+| 어디 | 규칙 | 근거 문서 (버전) | 판 규칙 id |
+|---|---|---|---|
+| 공통 · 주제 | 근거가 한두 채널에 몰리면 '채널 효과일 수 있음' (채널별로도 셈) | `guides/topic_guide.md` v1.3.1 → v1.4 | topic.c17 |
+| 공통 · 주제 | 낱말 규칙 겹침 거르기 + 바꾸면 전후 수 | `guides/topic_guide.md` v1.4 | topic.c18 |
+| 공통 · 대본 | 과거 사례 = 정한 조건 전부 · '앞으로도' ✗ | `guides/script_rules.md` v1.5 → v1.6 10번 | script.c9 |
+| 공통 · 대본 | 실제로 할 수 있는 가정 · 구조상 당연한 비교 ✗ | 같은 곳 | script.c10 |
+| 공통 · 대본 | 웹 자료 research.md 표 · 계산이 규칙과 부딪히면 알림 | 같은 곳 | script.c11 |
+| 공통 · 대본 | 대본 파일 `#` 줄 ✗ | `script_rules.md` 11번 · `tools/script_rules_check.py` v1.5 → v1.6 (`comment_lines` — ❌) | script.c12 |
+| 공통 · 대본 | 검토가 오가면 결론 = 사용자 주제 방향 + 데이터가 받쳐 주는 행동 하나 | `guides/persona_loop.md` v1.1 → v1.2 4번 | (검증 과정 — 판 규칙 없음) |
+| 공통 · 업로드 | 대본에서 뺀 조건·한계 = 설명란에 빠짐없이 | `guides/production_rules.md` v1.0 → v1.1 4번 | upload.c5 |
+| 주식 · 주제 | 장 마감 뒤 시킬 때 daily_topic · 의도 공통점 · 한 틀 ✗ · 오래가는 주제 가점 | `stock/guides/daily_topic.md` (이미 있음 — 판 목록에 없던 것) | topic.economic.stock3 |
+| 주식 · 주제 | 후보마다 최근 3일 같은 주제 수·각도 → 차별점 | `next_topic.md` A-E | topic.economic.stock4 |
+| 주식 · 대본 | 다섯 가지 확인 → research.md | 새 `stock/guides/timely_script.md` v1.0 1번 | script.economic.stock2 |
+| 주식 · 대본 | 계산 = 일별 OHLC 10년 · 252거래일 고점 · 지정가 주문 모형 · 레버리지는 1배와 같이 | 같은 곳 2번 | script.economic.stock3 |
+| 주식 · 대본 | 결론 '사라·팔라' 단정 ✗ | 같은 곳 3번 | script.economic.stock4 |
+| 주식 · 업로드 | 설명란에 꼭 (달러·마감 기준일·뺀 것·주문 방식·지수 이름·출처) | 같은 곳 4번 | upload.economic.stock2 |
+
+- 판 동작(Claude 점검 통과로 단계가 넘어가지 않음)은 규칙이 아니라 판 설계라 규칙 목록에 넣지 않음 (`guides/studio_board.md` v1.4 원칙).
+- `stock/guides/quick_board.md` 4번 규칙 6('기간이 아니라 가격으로 나눠서')은 고치지 않고 ⚠ 표시만 — 사용자 결정 기다림.
+- `timely_script.md` 5번('시기 숫자는 늦어진다' — 음성 전에 계산 다시)은 이번에 새로 제안한 것 (SOXL 편에서 아직 하지 않음).
+- 시험: `script_rules_check.py` — SOXL 대본 ✅ bad 0 · 같은 대본 + `#` 한 줄 ❌ bad 1 · 모든 편 대본 파일 `#` 줄 0 · `studio_board.py selftest` ✅ · 판 다시 올림.
+
 ## 2026-11-28 — 제작 판 단계 기본값 고침 (`tools/studio_board.py` v1.12.1 → v1.13.0 · `studio/board_template.html` v1.9.1 → v1.9.2)
 
 - 사용자 지시 "야 대본 칸에 안보이잖아 내가 확인할 수 있게 해야지": SOXL 대본이 페르소나 이탈·반론 통과만으로 '대본 통과'가 돼 제목 단계로 넘어가 대본 화면에 안 보였음.

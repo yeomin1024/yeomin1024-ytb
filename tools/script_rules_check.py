@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-27 — 말투·음성 점검(guides/script_rules.md 9번): '~죠' 비율 · '당신'으로 시작 · '…'·'!' · 인용 밖 해라체 (사용자 지시 "~니다, ~하죠 섞어서 쓰고, 음성이 잘 만들어 질 수 있도록 어색한 표현 쓰지 않도록")
+# VERSION: v1.6 — 2026-11-28 — '#' 줄 ❌ (guides/script_rules.md 11번 — 음성 tts_narration.read_script·자막 srt_tool.parse_txt 는 '#' 줄도 문장으로 읽음 · SOXL 편 버전 줄 11개가 판에 문장으로 보였음) — 사용자 지시 2026-11-28 "일단 지금까지 한 것 중에 공통 규칙에 추가할 거 … 정리해서 반영해". 함수 comment_lines · main.
+# 이전 v1.5 — 2026-11-27 — 말투·음성 점검(guides/script_rules.md 9번): '~죠' 비율 · '당신'으로 시작 · '…'·'!' · 인용 밖 해라체 (사용자 지시 "~니다, ~하죠 섞어서 쓰고, 음성이 잘 만들어 질 수 있도록 어색한 표현 쓰지 않도록")
 # 이전 v1.4 — 2026-11-26 — 도입 예고 말끝 '~봅니다' ⚠ ('~보겠습니다'로 — guides/script_rules.md 1번, 사용자 지시 "따라가 봅니다, 짚어봅니다 이렇게 하기말고 ~보겠습니다")
 # 이전 v1.3 — 2026-11-26 — 진행 멘트 점검: '오늘의 ~' ❌ (guides/script_rules.md v1.3 8번 — 사용자 지시 "오늘의 ~ 이런 멘트 넣지마 이건 공통 규칙에 넣고")
 # 이전 v1.2 — 2026-11-26 — 맥락을 끊는 멘트 점검(guides/script_rules.md 7번 — 호칭 선언·'끝까지 보시면'·'얻어 가실'·'이 영상에서는' ❌ · 본문의 짧은 '…보겠습니다.' 넘김 ⚠) · 시청자 이득 = 자연스러운 꼴로만 셈 (사용자 지시 "…쓸모없이 맥락만 망치는 멘트는 쓰지 말라고 공통 규칙에 기록하고 대본 수정해")
@@ -11,6 +12,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.6 | 2026-11-28 | '#' 줄 ❌ (대본 파일엔 문장만) | comment_lines · main |
 # | v1.5 | 2026-11-27 | 말투('~죠' 비율)·음성 꼴 점검 | main |
 # | v1.4 | 2026-11-26 | 도입 '~봅니다' 말끝 ⚠ | main |
 # | v1.3 | 2026-11-26 | HOST_FILLER ('오늘의 ~' 진행 멘트 ❌ — 문장 맨 앞 또는 '오늘의 주제·이야기·게임·영상…' · '오늘의 습관'처럼 내용 낱말은 안 걸림) | main |
@@ -19,7 +21,7 @@
 # | v1.0 | 2026-11-26 | 최초 | parse · intro_checks · chapter_checks · phrase_checks · main |
 """대본 공통 규칙 점검 (읽기만 — 파일을 고치지 않음).
 
-대본 꼴: '-챕터 이름' 줄로 챕터를 나누고, 그 밑에 한 줄에 한 문장 ('#' 줄은 주석). 첫 챕터 = 도입, 마지막 챕터 = 마무리.
+대본 꼴: '-챕터 이름' 줄로 챕터를 나누고, 그 밑에 한 줄에 한 문장. '#' 줄은 점검에서 건너뛰지만 ❌ (v1.6 — 음성·자막 도구는 문장으로 읽음). 첫 챕터 = 도입, 마지막 챕터 = 마무리.
   python3 tools/script_rules_check.py <대본.txt> [--package <package.json>] [--srt <대본.srt>] [--rate 6.3] [--pause 0.35]
 결과: [CHECK] 줄 + 끝에 ❌·⚠ 수. ❌ 가 있으면 끝 코드 1. ※ 연구·교육용 도구.
 """
@@ -32,7 +34,7 @@ import re
 import sys
 from pathlib import Path
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 INTRO_MAX_S = 30.0
 # 직관적이지 않은 표현 (guides/script_rules.md 3번 표 — 새로 찾으면 여기와 그 표에 같이 더함)
 VAGUE = [
@@ -83,6 +85,11 @@ def parse(path: Path) -> list[dict]:
     return parts
 
 
+def comment_lines(path: Path) -> list[int]:
+    """v1.6 '#' 로 시작하는 줄 번호 (파일 줄 번호) — 음성·자막 도구가 문장으로 읽으므로 대본 파일엔 없어야 함 (script_rules.md 11번)."""
+    return [i for i, ln in enumerate(path.read_text("utf-8-sig").splitlines(), 1) if ln.strip().startswith("#")]
+
+
 def syllables(s: str) -> float:
     """말소리 길이 어림: 한글 1 · 숫자 한 자리 1.3(읽으면 길어짐) · 영문 0.5."""
     return sum(1 for ch in s if "가" <= ch <= "힣") + 1.3 * sum(ch.isdigit() for ch in s) + 0.5 * sum(ch.isascii() and ch.isalpha() for ch in s)
@@ -120,7 +127,10 @@ def main(argv=None) -> int:
         log("CHECK", level=level, what=what, **kv)
 
     log("START", tool=f"script_rules_check.py {VERSION}", script=str(path), parts=len(parts),
-        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.5")
+        sentences=sum(len(p["sents"]) for p in parts), rule="guides/script_rules.md v1.6")
+    cl = comment_lines(path)                                     # v1.6
+    report("❌" if cl else "✅", "대본 파일에 '#' 줄", lines=",".join(map(str, cl[:12])) + (" …" if len(cl) > 12 else "") if cl else "-",
+           why="음성·자막 도구가 '#' 줄도 문장으로 읽음 → 버전·메모는 같은 폴더 CHANGELOG.md 로 (guides/script_rules.md 11번)" if cl else "-")
     if len(parts) < 3:
         report("❌", "챕터", why="'-챕터 이름' 줄이 3개 미만 — 도입 · 챕터 · 마무리로 나눔")
         return 1

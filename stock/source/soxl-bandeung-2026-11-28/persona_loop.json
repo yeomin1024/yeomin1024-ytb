@@ -114,21 +114,33 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 4,
+      "at": "2026-11-28T13:56:31Z",
+      "sha": "dd0701859b4ab7de",
+      "reviewers": [
+       {
+        "reviewer": "E4-ALL",
+        "persona": "없음",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "36 — 11월 9일·11일 큰 반등 날 샀다면 45.1%·53.2% 하락했다는 숫자가, 지금 반등 날 사려는 내 상황과 똑같아서 끝까지 보게 됨 (참고: 100~102줄 견준 기준 설명은 각주처럼 이어져 집중이 조금 떨어지고, 105줄은 어느 방법 이야기인지 바로 안 잡히지만 끌 정도는 아님)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "-",
+      "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r4.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
-    "pending": {
-     "n": 4,
-     "sha": "dd0701859b4ab7de",
-     "reviewers": [
-      "E4-ALL"
-     ],
-     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r4.md",
-     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_4",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-28T13:54:43Z"
-    }
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
    },
    "script_rebuttal": {
     "rounds": [

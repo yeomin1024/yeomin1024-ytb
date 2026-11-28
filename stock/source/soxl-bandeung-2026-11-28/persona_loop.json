@@ -1,0 +1,40 @@
+{
+ "tool": "persona_gate.py v1.2",
+ "about": "페르소나 반복 검증 기록 — guides/persona_loop.md",
+ "items": {
+  "soxl-bandeung-2026-11-28": {
+   "script_exit": {
+    "rounds": [],
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
+    "pending": {
+     "n": 1,
+     "sha": "0838722d8c5881b6",
+     "reviewers": [
+      "E1-ALL"
+     ],
+     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r1.md",
+     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-28T13:30:25Z"
+    }
+   },
+   "script_rebuttal": {
+    "rounds": [],
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
+    "pending": {
+     "n": 1,
+     "sha": "0838722d8c5881b6",
+     "reviewers": [
+      "K1-반론"
+     ],
+     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/rebut_r1.md",
+     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_rebuttal_1",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-28T13:30:25Z"
+    }
+   }
+  }
+ }
+}

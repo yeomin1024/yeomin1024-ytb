@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.11.0 — 2026-11-28 — 주제 탐색 ① 결과에 성공 사례 한 편 분석 문서 (STEP_DOCS t0 = result/next_topic/success_why/*.md) · 문서 속 그림 줄
+# VERSION: v1.12.0 — 2026-11-28 — 단계 순서 = 주제 → 대본 → 제목 → 썸네일 → 음성 → 코드 테스트 → 영상 → 업로드 (사용자 지시 2026-11-28 "이거 순서를 주제 탐색 -> 대본 작성으로 가야겠다").
+# 이전 v1.11.0 — 2026-11-28 — 주제 탐색 ① 결과에 성공 사례 한 편 분석 문서 (STEP_DOCS t0 = result/next_topic/success_why/*.md) · 문서 속 그림 줄
 #          '![설명](상대 경로)' = 저장소 안 그림을 작은 JPEG data URI 로 (판 밖 주소를 못 불러와서) — 사용자 지시 2026-11-28 "가장 최근 성공 사례 하나만 왜 성공했는지 … 분석해서 결과에 표시해봐". 함수 md_to_html · doc_entry · selftest.
 # (v1.10.0) — 2026-11-28 — 성공 사례 줄마다 '이번 검색어' = 마지막 탐색(result/web/explore.json)에서 그 영상을 찾은 keywords.txt 낱말 (q — 26주 검색 · qa — 전체 기간 검색) ·
 #          셈 now = 이번 검색어로 찾은 성공 사례 수 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐". 함수 explore_words · success_rows · selftest.
@@ -93,7 +94,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.11.0"
+VERSION = "v1.12.0"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -102,7 +103,7 @@ STATE = STUDIO / "state"
 CFG_PATH = STUDIO / "studio.toml"
 RULES_PATH = STUDIO / "rules.json"
 TEMPLATE = STUDIO / "board_template.html"
-STAGES = ["topic", "title", "thumb", "script", "voice", "codetest", "video", "upload"]
+STAGES = ["topic", "script", "title", "thumb", "voice", "codetest", "video", "upload"]   # v1.12 대본이 주제 바로 뒤 (제목·썸네일은 대본에서)
 STAGE_KO = {"topic": "주제", "title": "제목", "thumb": "썸네일", "script": "대본", "voice": "음성", "codetest": "코드 테스트",
             "video": "영상", "upload": "업로드"}
 VID_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*-\d{4}-\d{2}(?:-\d{2})?")
@@ -1210,6 +1211,7 @@ def selftest() -> int:
         c = load_dump(d)
         check("db 내려받기 두 꼴", c["gates"][0]["pass"] is True and c["gates"][0]["version"] == 3 and c["tts"][0]["id"] == "a")
     check("단계 순서", STAGES.index("codetest") == STAGES.index("voice") + 1 and STAGES[-1] == "upload")
+    check("v1.12 대본 = 주제 바로 뒤 · 제목·썸네일은 대본 뒤", STAGES[:4] == ["topic", "script", "title", "thumb"])
     cfg = {"TOPICS": ["psychology", "stock"], "topic": {}}
     check("v1.1 꺼 둔 주제 = enabled false 문서만", board_disabled(cfg, {"topics": [{"id": "stock", "enabled": False}, {"id": "psychology", "enabled": True}, {"id": "zzz", "enabled": False}]}) == {"stock"})
     check("v1.1 topic_state 글 읽기", topic_state.disabled(text='{"disabled": ["stock"]}') == {"stock"} and topic_state.disabled(text="깨진") == set())

@@ -1,0 +1,632 @@
+{
+ "tool": "soxl_check.py v1.4",
+ "made": "2026-11-28T22:26:01+09:00",
+ "source": "Yahoo Finance chart API 일별 종가 10년",
+ "rules": {
+  "episode_dd": -0.7,
+  "signal_dd": -0.8,
+  "signal_up": 0.14,
+  "split_steps": [
+   0.0,
+   -0.15,
+   -0.3
+  ],
+  "hold_days": 252,
+  "trend": "반도체 지수(^SOX) 종가 ≥ 200일 평균 첫날 한 번에",
+  "split": "첫날 1/3 · 첫 매수가 −15% 에 1/3 · −30% 에 1/3 — 안 닿으면 현금(0%)",
+  "costs": "수수료·세금·환율 없음"
+ },
+ "now": {
+  "date": "2026-11-27",
+  "soxl": 36.57,
+  "soxl_high": 300.77,
+  "soxl_high_date": "2026-06-22",
+  "soxl_from_high": -87.8,
+  "soxl_need_x": 8.2,
+  "soxl_need_pct": 722.5,
+  "sox": 9186.71,
+  "sox_high": 14634.7197,
+  "sox_high_date": "2026-06-22",
+  "sox_from_high": -37.2,
+  "sox_need_pct": 59.3,
+  "sox_from_soxl_high_date": -37.2,
+  "soxl_ma": {
+   "20": 52.08,
+   "50": 97.23,
+   "200": 123.15
+  },
+  "sox_ma": {
+   "20": 9732.7,
+   "50": 11159.4,
+   "200": 10940.1
+  },
+  "soxl_vs_ma": {
+   "20": -29.8,
+   "50": -62.4,
+   "200": -70.3
+  },
+  "sox_vs_ma": {
+   "20": -5.6,
+   "50": -17.7,
+   "200": -16.0
+  },
+  "rsi14_soxl": 36.0,
+  "rsi14_sox": 42.1,
+  "rsi14_soxl_min_20d": 26.2,
+  "sox_days_below_ma200": 20,
+  "recent": [
+   {
+    "date": "2026-11-18",
+    "soxl": 0.4,
+    "sox": 0.1
+   },
+   {
+    "date": "2026-11-19",
+    "soxl": -8.0,
+    "sox": -2.4
+   },
+   {
+    "date": "2026-11-20",
+    "soxl": -31.8,
+    "sox": -10.7
+   },
+   {
+    "date": "2026-11-23",
+    "soxl": 39.9,
+    "sox": 14.0
+   },
+   {
+    "date": "2026-11-24",
+    "soxl": -24.6,
+    "sox": -7.9
+   },
+   {
+    "date": "2026-11-25",
+    "soxl": -1.8,
+    "sox": -0.7
+   },
+   {
+    "date": "2026-11-27",
+    "soxl": 14.2,
+    "sox": 4.7
+   }
+  ],
+  "vix": 23.81,
+  "vix_max_30d": 35.89,
+  "vix_max_30d_date": "2026-11-20"
+ },
+ "summary": {
+  "signals_measured": 7,
+  "signals_past_full_year": 4,
+  "signals_current_episode": 4,
+  "split_worst_better_than_one": 7,
+  "split_end_better_than_one": 5,
+  "past_one_year_positive": 4,
+  "past_min_after_range": [
+   -35.9,
+   -1.2
+  ],
+  "current_new_low_after": 2,
+  "current_measured": 3,
+  "sox_back_soxl_gap": [
+   -40.5,
+   -58.6,
+   -58.3
+  ],
+  "example_down_up_10": {
+   "x1": -1.0,
+   "x3": -9.0
+  },
+  "nvda_1123": 31.5
+ },
+ "episodes": [
+  {
+   "peak": "2020-02-19",
+   "trough": "2020-03-20",
+   "dd": -80.4,
+   "days_to_trough": 22,
+   "recovered": "2020-11-05",
+   "ongoing": false,
+   "sox_back_to_peak_date": "2020-06-05",
+   "soxl_from_peak_that_day": -40.5,
+   "sox_dd_same_trough": -34.4
+  },
+  {
+   "peak": "2021-12-27",
+   "trough": "2022-10-14",
+   "dd": -90.5,
+   "days_to_trough": 202,
+   "recovered": "2023-06-12",
+   "ongoing": false,
+   "sox_back_to_peak_date": "2023-12-14",
+   "soxl_from_peak_that_day": -58.6,
+   "sox_dd_same_trough": -46.5
+  },
+  {
+   "peak": "2024-07-10",
+   "trough": "2025-04-08",
+   "dd": -88.0,
+   "days_to_trough": 187,
+   "recovered": "2025-10-06",
+   "ongoing": false,
+   "sox_back_to_peak_date": "2025-09-10",
+   "soxl_from_peak_that_day": -58.3,
+   "sox_dd_same_trough": -39.7
+  },
+  {
+   "peak": "2026-06-22",
+   "trough": "2026-11-20",
+   "dd": -89.7,
+   "days_to_trough": 107,
+   "recovered": null,
+   "ongoing": true,
+   "sox_back_to_peak_date": null,
+   "soxl_from_peak_that_day": null,
+   "sox_dd_same_trough": -42.5
+  }
+ ],
+ "signals": [
+  {
+   "date": "2022-11-10",
+   "up": 30.7,
+   "close": 12.08,
+   "dd_prev": -87.3,
+   "low_before": 6.93,
+   "so_far": {
+    "to": "2023-11-13",
+    "full_year": true,
+    "ret": 65.7,
+    "min_after": -26.7,
+    "min_after_date": "2022-12-28",
+    "new_low": false,
+    "one": {
+     "end": 65.7,
+     "worst": -26.7
+    },
+    "split": {
+     "end": 56.8,
+     "worst": -12.0,
+     "buys": [
+      "2022-11-10",
+      "2022-12-22"
+     ],
+     "invested": 67
+    },
+    "trend": {
+     "end": 46.9,
+     "worst": -35.0,
+     "buy": "2022-12-13"
+    }
+   },
+   "ret_1y": 65.7,
+   "min_after": -26.7,
+   "new_low_after": false,
+   "ret_3m": 35.9,
+   "ret_6m": 25.1,
+   "one_shot": 65.7,
+   "split": 56.8,
+   "split_buys": [
+    "2022-11-10",
+    "2022-12-22"
+   ],
+   "split_invested": 67,
+   "trend": 46.9,
+   "trend_buy": "2022-12-13",
+   "one_min_value": -26.7,
+   "trend_days": 22
+  },
+  {
+   "date": "2022-11-30",
+   "up": 17.8,
+   "close": 13.82,
+   "dd_prev": -83.9,
+   "low_before": 6.93,
+   "so_far": {
+    "to": "2023-12-01",
+    "full_year": true,
+    "ret": 66.9,
+    "min_after": -35.9,
+    "min_after_date": "2022-12-28",
+    "new_low": false,
+    "one": {
+     "end": 66.9,
+     "worst": -35.9
+    },
+    "split": {
+     "end": 104.2,
+     "worst": -21.6,
+     "buys": [
+      "2022-11-30",
+      "2022-12-06",
+      "2022-12-27"
+     ],
+     "invested": 100
+    },
+    "trend": {
+     "end": 69.3,
+     "worst": -35.0,
+     "buy": "2022-12-13"
+    }
+   },
+   "ret_1y": 66.9,
+   "min_after": -35.9,
+   "new_low_after": false,
+   "ret_3m": 13.5,
+   "ret_6m": 59.3,
+   "one_shot": 66.9,
+   "split": 104.2,
+   "split_buys": [
+    "2022-11-30",
+    "2022-12-06",
+    "2022-12-27"
+   ],
+   "split_invested": 100,
+   "trend": 69.3,
+   "trend_buy": "2022-12-13",
+   "one_min_value": -35.9,
+   "trend_days": 9
+  },
+  {
+   "date": "2025-04-09",
+   "up": 54.8,
+   "close": 12.77,
+   "dd_prev": -88.0,
+   "low_before": 8.25,
+   "so_far": {
+    "to": "2026-04-13",
+    "full_year": true,
+    "ret": 530.9,
+    "min_after": -31.8,
+    "min_after_date": "2025-04-21",
+    "new_low": false,
+    "one": {
+     "end": 530.9,
+     "worst": -31.8
+    },
+    "split": {
+     "end": 697.4,
+     "worst": -13.8,
+     "buys": [
+      "2025-04-09",
+      "2025-04-10",
+      "2025-04-21"
+     ],
+     "invested": 100
+    },
+    "trend": {
+     "end": 333.1,
+     "worst": -15.4,
+     "buy": "2025-05-13"
+    }
+   },
+   "ret_1y": 530.9,
+   "min_after": -31.8,
+   "new_low_after": false,
+   "ret_3m": 113.7,
+   "ret_6m": 230.8,
+   "one_shot": 530.9,
+   "split": 697.4,
+   "split_buys": [
+    "2025-04-09",
+    "2025-04-10",
+    "2025-04-21"
+   ],
+   "split_invested": 100,
+   "trend": 333.1,
+   "trend_buy": "2025-05-13",
+   "one_min_value": -31.8,
+   "trend_days": 23
+  },
+  {
+   "date": "2025-04-24",
+   "up": 16.6,
+   "close": 12.0,
+   "dd_prev": -85.0,
+   "low_before": 8.25,
+   "so_far": {
+    "to": "2026-04-27",
+    "full_year": true,
+    "ret": 928.3,
+    "min_after": -1.2,
+    "min_after_date": "2025-04-29",
+    "new_low": false,
+    "one": {
+     "end": 928.3,
+     "worst": -1.2
+    },
+    "split": {
+     "end": 309.4,
+     "worst": -0.4,
+     "buys": [
+      "2025-04-24"
+     ],
+     "invested": 33
+    },
+    "trend": {
+     "end": 563.4,
+     "worst": -15.4,
+     "buy": "2025-05-13"
+    }
+   },
+   "ret_1y": 928.3,
+   "min_after": -1.2,
+   "new_low_after": false,
+   "ret_3m": 113.3,
+   "ret_6m": 243.1,
+   "one_shot": 928.3,
+   "split": 309.4,
+   "split_buys": [
+    "2025-04-24"
+   ],
+   "split_invested": 33,
+   "trend": 563.4,
+   "trend_buy": "2025-05-13",
+   "one_min_value": -1.2,
+   "trend_days": 13
+  },
+  {
+   "date": "2026-11-09",
+   "up": 22.3,
+   "close": 56.2,
+   "dd_prev": -84.7,
+   "low_before": 40.87,
+   "so_far": {
+    "to": "2026-11-27",
+    "full_year": false,
+    "ret": -34.9,
+    "min_after": -45.1,
+    "min_after_date": "2026-11-20",
+    "new_low": true,
+    "one": {
+     "end": -34.9,
+     "worst": -45.1
+    },
+    "split": {
+     "end": -11.9,
+     "worst": -25.6,
+     "buys": [
+      "2026-11-09",
+      "2026-11-19",
+      "2026-11-20"
+     ],
+     "invested": 100
+    },
+    "trend": {
+     "end": 0.0,
+     "worst": 0.0,
+     "buy": null
+    }
+   },
+   "trend_days": null
+  },
+  {
+   "date": "2026-11-11",
+   "up": 17.8,
+   "close": 66.03,
+   "dd_prev": -81.4,
+   "low_before": 40.87,
+   "so_far": {
+    "to": "2026-11-27",
+    "full_year": false,
+    "ret": -44.6,
+    "min_after": -53.2,
+    "min_after_date": "2026-11-20",
+    "new_low": true,
+    "one": {
+     "end": -44.6,
+     "worst": -53.2
+    },
+    "split": {
+     "end": -29.6,
+     "worst": -40.6,
+     "buys": [
+      "2026-11-11",
+      "2026-11-16",
+      "2026-11-19"
+     ],
+     "invested": 100
+    },
+    "trend": {
+     "end": 0.0,
+     "worst": 0.0,
+     "buy": null
+    }
+   },
+   "trend_days": null
+  },
+  {
+   "date": "2026-11-23",
+   "up": 39.9,
+   "close": 43.21,
+   "dd_prev": -89.7,
+   "low_before": 30.88,
+   "so_far": {
+    "to": "2026-11-27",
+    "full_year": false,
+    "ret": -15.4,
+    "min_after": -25.9,
+    "min_after_date": "2026-11-25",
+    "new_low": false,
+    "one": {
+     "end": -15.4,
+     "worst": -25.9
+    },
+    "split": {
+     "end": -1.1,
+     "worst": -9.2,
+     "buys": [
+      "2026-11-23",
+      "2026-11-24"
+     ],
+     "invested": 67
+    },
+    "trend": {
+     "end": 0.0,
+     "worst": 0.0,
+     "buy": null
+    }
+   },
+   "trend_days": null
+  },
+  {
+   "date": "2026-11-27",
+   "up": 14.2,
+   "close": 36.57,
+   "dd_prev": -89.4,
+   "low_before": 30.88,
+   "trend_days": null
+  }
+ ],
+ "first_per_episode": [
+  {
+   "episode_peak": "2021-12-27",
+   "first_signal": {
+    "date": "2022-11-10",
+    "up": 30.7,
+    "close": 12.08,
+    "dd_prev": -87.3,
+    "low_before": 6.93,
+    "so_far": {
+     "to": "2023-11-13",
+     "full_year": true,
+     "ret": 65.7,
+     "min_after": -26.7,
+     "min_after_date": "2022-12-28",
+     "new_low": false,
+     "one": {
+      "end": 65.7,
+      "worst": -26.7
+     },
+     "split": {
+      "end": 56.8,
+      "worst": -12.0,
+      "buys": [
+       "2022-11-10",
+       "2022-12-22"
+      ],
+      "invested": 67
+     },
+     "trend": {
+      "end": 46.9,
+      "worst": -35.0,
+      "buy": "2022-12-13"
+     }
+    },
+    "ret_1y": 65.7,
+    "min_after": -26.7,
+    "new_low_after": false,
+    "ret_3m": 35.9,
+    "ret_6m": 25.1,
+    "one_shot": 65.7,
+    "split": 56.8,
+    "split_buys": [
+     "2022-11-10",
+     "2022-12-22"
+    ],
+    "split_invested": 67,
+    "trend": 46.9,
+    "trend_buy": "2022-12-13",
+    "one_min_value": -26.7,
+    "trend_days": 22
+   },
+   "signals_in_episode": 2,
+   "later_new_low": 0
+  },
+  {
+   "episode_peak": "2024-07-10",
+   "first_signal": {
+    "date": "2025-04-09",
+    "up": 54.8,
+    "close": 12.77,
+    "dd_prev": -88.0,
+    "low_before": 8.25,
+    "so_far": {
+     "to": "2026-04-13",
+     "full_year": true,
+     "ret": 530.9,
+     "min_after": -31.8,
+     "min_after_date": "2025-04-21",
+     "new_low": false,
+     "one": {
+      "end": 530.9,
+      "worst": -31.8
+     },
+     "split": {
+      "end": 697.4,
+      "worst": -13.8,
+      "buys": [
+       "2025-04-09",
+       "2025-04-10",
+       "2025-04-21"
+      ],
+      "invested": 100
+     },
+     "trend": {
+      "end": 333.1,
+      "worst": -15.4,
+      "buy": "2025-05-13"
+     }
+    },
+    "ret_1y": 530.9,
+    "min_after": -31.8,
+    "new_low_after": false,
+    "ret_3m": 113.7,
+    "ret_6m": 230.8,
+    "one_shot": 530.9,
+    "split": 697.4,
+    "split_buys": [
+     "2025-04-09",
+     "2025-04-10",
+     "2025-04-21"
+    ],
+    "split_invested": 100,
+    "trend": 333.1,
+    "trend_buy": "2025-05-13",
+    "one_min_value": -31.8,
+    "trend_days": 23
+   },
+   "signals_in_episode": 2,
+   "later_new_low": 0
+  },
+  {
+   "episode_peak": "2026-06-22",
+   "first_signal": {
+    "date": "2026-11-09",
+    "up": 22.3,
+    "close": 56.2,
+    "dd_prev": -84.7,
+    "low_before": 40.87,
+    "so_far": {
+     "to": "2026-11-27",
+     "full_year": false,
+     "ret": -34.9,
+     "min_after": -45.1,
+     "min_after_date": "2026-11-20",
+     "new_low": true,
+     "one": {
+      "end": -34.9,
+      "worst": -45.1
+     },
+     "split": {
+      "end": -11.9,
+      "worst": -25.6,
+      "buys": [
+       "2026-11-09",
+       "2026-11-19",
+       "2026-11-20"
+      ],
+      "invested": 100
+     },
+     "trend": {
+      "end": 0.0,
+      "worst": 0.0,
+      "buy": null
+     }
+    },
+    "trend_days": null
+   },
+   "signals_in_episode": 4,
+   "later_new_low": 0
+  }
+ ]
+}

@@ -1,0 +1,95 @@
+{
+ "topic": "stock",
+ "anchor": "S&P500",
+ "geo": "KR",
+ "gprop": "youtube",
+ "time": "today 12-m",
+ "made": "2026-11-28T08:30:53+00:00",
+ "batches": [
+  {
+   "n": 1,
+   "file": "batch_01.csv",
+   "words": [
+    "S&P500",
+    "S&P500",
+    "미국주식",
+    "ETF",
+    "나스닥"
+   ]
+  },
+  {
+   "n": 2,
+   "file": "batch_02.csv",
+   "words": [
+    "S&P500",
+    "엔비디아",
+    "반도체",
+    "환율",
+    "배당주"
+   ]
+  },
+  {
+   "n": 3,
+   "file": "batch_03.csv",
+   "words": [
+    "S&P500",
+    "SCHD",
+    "커버드콜",
+    "월배당",
+    "배당ETF"
+   ]
+  },
+  {
+   "n": 4,
+   "file": "batch_04.csv",
+   "words": [
+    "S&P500",
+    "월배당ETF",
+    "JEPI",
+    "JEPQ",
+    "QQQ"
+   ]
+  },
+  {
+   "n": 5,
+   "file": "batch_05.csv",
+   "words": [
+    "S&P500",
+    "나스닥100",
+    "VOO",
+    "미국ETF",
+    "테슬라"
+   ]
+  },
+  {
+   "n": 6,
+   "file": "batch_06.csv",
+   "words": [
+    "S&P500",
+    "레버리지",
+    "애플",
+    "ISA",
+    "연금저축"
+   ]
+  },
+  {
+   "n": 7,
+   "file": "batch_07.csv",
+   "words": [
+    "S&P500",
+    "연금저축펀드",
+    "ISA계좌",
+    "해외주식",
+    "배당소득세"
+   ]
+  },
+  {
+   "n": 8,
+   "file": "batch_08.csv",
+   "words": [
+    "S&P500",
+    "미국직투"
+   ]
+  }
+ ]
+}

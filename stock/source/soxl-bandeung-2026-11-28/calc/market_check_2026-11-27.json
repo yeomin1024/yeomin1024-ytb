@@ -1,4 +1,39 @@
 {
+ "memory": {
+  "MU": {
+   "name": "마이크론",
+   "base_date": "2026-09-30",
+   "base": 1065.11,
+   "date": "2026-11-27",
+   "close": 646.95,
+   "since_sep30_pct": -39.3,
+   "high_1y": 1213.56,
+   "high_1y_date": "2026-06-25",
+   "from_high_pct": -46.7
+  },
+  "005930.KS": {
+   "name": "삼성전자",
+   "base_date": "2026-09-30",
+   "base": 268500.0,
+   "date": "2026-11-27",
+   "close": 179100.0,
+   "since_sep30_pct": -33.3,
+   "high_1y": 362500.0,
+   "high_1y_date": "2026-06-18",
+   "from_high_pct": -50.6
+  },
+  "000660.KS": {
+   "name": "SK하이닉스",
+   "base_date": "2026-09-30",
+   "base": 1776000.0,
+   "date": "2026-11-27",
+   "close": 1110000.0,
+   "since_sep30_pct": -37.5,
+   "high_1y": 2919000.0,
+   "high_1y_date": "2026-06-22",
+   "from_high_pct": -62.0
+  }
+ },
  "sox_days": {
   "2026-11-05": {
    "date": "2026-11-05",
@@ -29,8 +64,8 @@
    ]
   }
  },
- "tool": "market_check.py v1.1",
- "made": "2026-11-29T03:42:37+09:00",
+ "tool": "market_check.py v1.2",
+ "made": "2026-11-29T03:50:30+09:00",
  "source": "Yahoo Finance chart API 일별 종가 10년 (soxl_check.py 캐시 공유)",
  "last_date": "2026-11-27",
  "rules": {

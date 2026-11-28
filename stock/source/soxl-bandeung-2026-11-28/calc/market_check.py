@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-28 — 실패한 반등마다 꼭대기 뒤 가장 낮은 값까지 하락률(top_to_later_low_pct) · 지표마다 1년 최저보다 몇 % (from_low_pct) · 반도체 지수 하루 하락 순위(sox_days — 11-05 가 2025-04 뒤 가장 큰 하루 하락인지 확인).
+# VERSION: v1.2 — 2026-11-28 — 메모리 회사 주가(마이크론 MU · 삼성전자 005930.KS · SK하이닉스 000660.KS) 9-30 종가 → 마지막 종가 · 1년 최고가보다 (memory) — 트렌드포스 '메모리 3사 45%' 가 다시 확인되지 않아 실제 종가로 (이탈 검토 10회차 '세 곳 이름').
+# 이전 v1.1 — 2026-11-28 — 실패한 반등마다 꼭대기 뒤 가장 낮은 값까지 하락률(top_to_later_low_pct) · 지표마다 1년 최저보다 몇 % (from_low_pct) · 반도체 지수 하루 하락 순위(sox_days — 11-05 가 2025-04 뒤 가장 큰 하루 하락인지 확인).
 # 이전 v1.0 — 2026-11-28 — 최초. 대본 v10(사용자 구성 — 시장 상황 → 호재 → 악재 → 변수 → 비중) 숫자:
 #   ① 시장 전체 지표 (10년 국채 금리 · 브렌트유 · 달러 지수 · S&P500 · 나스닥 · 반도체 지수 · 공포 지수 — 마지막 값 · 1년 최고와 거리 · 1·3개월 변화)
 #   ② 하락 구간 안의 큰 반등 — SOXL 이 그 구간의 그때까지 가장 낮은 값보다 30% 넘게 오른 횟수 · 그 뒤 그 저점을 다시 깼는지(실패) · 진짜 바닥이었는지
 #   사용자 지시 2026-11-28 "여러 폭락 사례를 보면 계속 하락하는게 아니라 반등을 주면서 하락한다 / 심지어 크게 상승한 것 같으면서도 저점을 깨고 다시 하락하는 경우도 있다 …
 #   야 대본 이런식으로 내가 만든 구성대로 다시 수정해봐".
 # CHANGELOG
+#   v1.2 2026-11-28  memory (MU · 삼성전자 · SK하이닉스)
 #   v1.1 2026-11-28  rallies top_to_later_low_pct · macro_row from_low_pct · sox_days
 #   v1.0 2026-11-28  최초 — macro · rallies · selftest   (soxl_check.py v1.7 의 하락 구간·자료 캐시를 그대로 씀)
 # ※ 연구·교육용 — 투자 권유가 아님. 앞날 자료 없음: 반등 판정은 그날까지의 종가만으로 하고, '실패/바닥'은 그 뒤 결과로 따로 셈.
@@ -24,7 +26,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import soxl_check as sc          # noqa: E402  (load · validate · log · 하락 구간 정의)
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 MACRO = {                                    # Yahoo 기호: (이름, 단위)
     "^TNX": ("미국 10년 국채 금리", "%"),
     "BZ=F": ("브렌트유", "달러/배럴"),
@@ -130,7 +132,24 @@ def build(refresh: bool) -> dict:
     sox_days = {d: rank_since(d, "2025-04-10") for d in ("2026-11-05", "2026-11-20", "2026-11-24") if d in dict(sd)}
     for d, x in sox_days.items():
         sc.log("SOXDAY", day=d, chg=x["chg_pct"], worse_since_2025_04_10=x["worse_days_since"])
-    return {"sox_days": sox_days, "tool": f"market_check.py {VERSION}", "made": dt.datetime.now(sc.KST).isoformat(timespec="seconds"),
+    memory = {}                                                                   # v1.2 메모리 회사 주가 (그 나라 통화 종가)
+    for sym, nm in (("MU", "마이크론"), ("005930.KS", "삼성전자"), ("000660.KS", "SK하이닉스")):
+        try:
+            r = load_any(sym, refresh)
+        except SystemExit as ex:
+            sc.log("MEMORY", logging.WARNING, sym=sym, error=str(ex)[:160], next="이 종목은 대본에 쓰지 않음")
+            continue
+        sc.validate(sym, r)
+        dd = {x["date"]: x["close"] for x in r}
+        base_d = max(d for d in dd if d <= "2026-09-30")
+        last_d = r[-1]["date"]
+        yr = [x for x in r if x["date"] > (dt.date.fromisoformat(last_d) - dt.timedelta(days=365)).isoformat()]
+        hi = max(yr, key=lambda x: x["close"])
+        memory[sym] = {"name": nm, "base_date": base_d, "base": round(dd[base_d], 2), "date": last_d, "close": round(dd[last_d], 2),
+                       "since_sep30_pct": round((dd[last_d] / dd[base_d] - 1) * 100, 1),
+                       "high_1y": round(hi["close"], 2), "high_1y_date": hi["date"], "from_high_pct": round((dd[last_d] / hi["close"] - 1) * 100, 1)}
+        sc.log("MEMORY", sym=sym, **{k: memory[sym][k] for k in ("base_date", "date", "since_sep30_pct", "from_high_pct")})
+    return {"memory": memory, "sox_days": sox_days, "tool": f"market_check.py {VERSION}", "made": dt.datetime.now(sc.KST).isoformat(timespec="seconds"),
             "source": "Yahoo Finance chart API 일별 종가 10년 (soxl_check.py 캐시 공유)", "last_date": D[-1],
             "rules": {"rally_up": RALLY_UP, "year_days": YEAR, "episode": "soxl_check.py v1.7 — 1년 최고가보다 70% 넘게 하락한 구간 · 끝 = 새 1년 최고가"},
             "macro": mac, "rally_summary": summ, "episodes": eps}

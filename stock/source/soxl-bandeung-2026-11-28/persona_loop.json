@@ -289,7 +289,19 @@
       }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
+    "pending": {
+     "n": 10,
+     "sha": "ef2efa02fbc0a839",
+     "reviewers": [
+      "E10-P1"
+     ],
+     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r10.md",
+     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_10",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-28T18:47:40Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -1180,7 +1192,19 @@
       }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
+    "pending": {
+     "n": 10,
+     "sha": "ef2efa02fbc0a839",
+     "reviewers": [
+      "K10-반론"
+     ],
+     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/rebut_r10.md",
+     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_rebuttal_10",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-28T18:47:40Z"
+    }
    }
   }
  }

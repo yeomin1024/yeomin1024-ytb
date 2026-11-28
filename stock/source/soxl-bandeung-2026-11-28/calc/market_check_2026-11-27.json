@@ -1,0 +1,367 @@
+{
+ "sox_days": {
+  "2026-11-05": {
+   "date": "2026-11-05",
+   "chg_pct": -12.2,
+   "worse_days_since": 0,
+   "since": "2025-04-10",
+   "worse_list": []
+  },
+  "2026-11-20": {
+   "date": "2026-11-20",
+   "chg_pct": -10.7,
+   "worse_days_since": 1,
+   "since": "2025-04-10",
+   "worse_list": [
+    "2026-11-05"
+   ]
+  },
+  "2026-11-24": {
+   "date": "2026-11-24",
+   "chg_pct": -7.9,
+   "worse_days_since": 4,
+   "since": "2025-04-10",
+   "worse_list": [
+    "2025-04-10",
+    "2026-06-05",
+    "2026-11-05",
+    "2026-11-20"
+   ]
+  }
+ },
+ "tool": "market_check.py v1.1",
+ "made": "2026-11-29T03:42:37+09:00",
+ "source": "Yahoo Finance chart API 일별 종가 10년 (soxl_check.py 캐시 공유)",
+ "last_date": "2026-11-27",
+ "rules": {
+  "rally_up": 0.3,
+  "year_days": 252,
+  "episode": "soxl_check.py v1.7 — 1년 최고가보다 70% 넘게 하락한 구간 · 끝 = 새 1년 최고가"
+ },
+ "macro": {
+  "^TNX": {
+   "name": "미국 10년 국채 금리",
+   "unit": "%",
+   "date": "2026-11-27",
+   "close": 4.94,
+   "high_1y": 5.31,
+   "high_1y_date": "2026-10-05",
+   "from_high_pct": -7.1,
+   "low_1y": 3.96,
+   "low_1y_date": "2026-02-27",
+   "from_low_pct": 24.6,
+   "chg_1m_pct": -2.2,
+   "chg_3m_pct": 4.6,
+   "chg_1m_pt": -0.11,
+   "chg_3m_pt": 0.22
+  },
+  "BZ=F": {
+   "name": "브렌트유",
+   "unit": "달러/배럴",
+   "date": "2026-11-27",
+   "close": 95.44,
+   "high_1y": 118.35,
+   "high_1y_date": "2026-03-30",
+   "from_high_pct": -19.4,
+   "low_1y": 58.92,
+   "low_1y_date": "2025-12-16",
+   "from_low_pct": 62.0,
+   "chg_1m_pct": -17.2,
+   "chg_3m_pct": 6.9
+  },
+  "DX-Y.NYB": {
+   "name": "달러 지수",
+   "unit": "지수",
+   "date": "2026-11-27",
+   "close": 104.01,
+   "high_1y": 104.32,
+   "high_1y_date": "2026-11-23",
+   "from_high_pct": -0.3,
+   "low_1y": 96.22,
+   "low_1y_date": "2026-01-27",
+   "from_low_pct": 8.1,
+   "chg_1m_pct": 1.8,
+   "chg_3m_pct": 4.3
+  },
+  "^GSPC": {
+   "name": "S&P500",
+   "unit": "지수",
+   "date": "2026-11-27",
+   "close": 7297.49,
+   "high_1y": 7818.93,
+   "high_1y_date": "2026-10-06",
+   "from_high_pct": -6.7,
+   "low_1y": 6343.72,
+   "low_1y_date": "2026-03-30",
+   "from_low_pct": 15.0,
+   "chg_1m_pct": -5.8,
+   "chg_3m_pct": -5.4
+  },
+  "^IXIC": {
+   "name": "나스닥",
+   "unit": "지수",
+   "date": "2026-11-27",
+   "close": 24129.5,
+   "high_1y": 27599.79,
+   "high_1y_date": "2026-10-06",
+   "from_high_pct": -12.6,
+   "low_1y": 20794.64,
+   "low_1y_date": "2026-03-30",
+   "from_low_pct": 16.0,
+   "chg_1m_pct": -9.1,
+   "chg_3m_pct": -8.6
+  },
+  "^SOX": {
+   "name": "필라델피아 반도체 지수",
+   "unit": "지수",
+   "date": "2026-11-27",
+   "close": 9186.71,
+   "high_1y": 14634.72,
+   "high_1y_date": "2026-06-22",
+   "from_high_pct": -37.2,
+   "low_1y": 6695.31,
+   "low_1y_date": "2025-12-17",
+   "from_low_pct": 37.2,
+   "chg_1m_pct": -21.4,
+   "chg_3m_pct": -19.9
+  },
+  "^VIX": {
+   "name": "공포 지수(VIX)",
+   "unit": "지수",
+   "date": "2026-11-27",
+   "close": 23.81,
+   "high_1y": 35.89,
+   "high_1y_date": "2026-11-20",
+   "from_high_pct": -33.7,
+   "low_1y": 13.47,
+   "low_1y_date": "2025-12-24",
+   "from_low_pct": 76.8,
+   "chg_1m_pct": 38.4,
+   "chg_3m_pct": 45.7
+  }
+ },
+ "rally_summary": {
+  "past_episodes": 3,
+  "past_rallies": 9,
+  "past_failed": 6,
+  "past_max_failed_gain_pct": 90.3,
+  "now_rallies": 4,
+  "now_failed": 3,
+  "note": "실패 = 그 반등의 시작 저점을 뒤에 종가로 깸 · 과거 구간은 끝(새 1년 최고가)까지 본 결과 · 진행 중 구간의 '안 깸'은 아직 모름"
+ },
+ "episodes": [
+  {
+   "peak": "2020-02-19",
+   "trough": "2020-03-20",
+   "end": "2020-11-05",
+   "ongoing": false,
+   "dd_pct": -80.4,
+   "months_to_trough": 1.0,
+   "rallies": 1,
+   "failed": 0,
+   "held": 1,
+   "max_failed_gain_pct": null,
+   "list": [
+    {
+     "low_date": "2020-03-20",
+     "low": 4.26,
+     "confirm_date": "2020-03-24",
+     "confirm_gain_pct": 46.6,
+     "broken": null,
+     "top_date": "2020-11-05",
+     "top_gain_pct": 424.1,
+     "result": "끝까지 안 깸"
+    }
+   ]
+  },
+  {
+   "peak": "2021-12-27",
+   "trough": "2022-10-14",
+   "end": "2023-06-12",
+   "ongoing": false,
+   "dd_pct": -90.5,
+   "months_to_trough": 9.6,
+   "rallies": 5,
+   "failed": 4,
+   "held": 1,
+   "max_failed_gain_pct": 90.3,
+   "list": [
+    {
+     "low_date": "2022-01-27",
+     "low": 36.36,
+     "confirm_date": "2022-02-02",
+     "confirm_gain_pct": 35.7,
+     "broken": "2022-02-23",
+     "top_date": "2022-02-09",
+     "top_gain_pct": 40.3,
+     "days_to_break": 18,
+     "later_low_date": "2022-10-14",
+     "top_to_later_low_pct": -86.4,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2022-03-14",
+     "low": 27.91,
+     "confirm_date": "2022-03-16",
+     "confirm_gain_pct": 30.1,
+     "broken": "2022-04-11",
+     "top_date": "2022-03-29",
+     "top_gain_pct": 63.3,
+     "days_to_break": 20,
+     "later_low_date": "2022-10-14",
+     "top_to_later_low_pct": -84.8,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2022-05-24",
+     "low": 19.1,
+     "confirm_date": "2022-05-27",
+     "confirm_gain_pct": 32.3,
+     "broken": "2022-06-10",
+     "top_date": "2022-06-02",
+     "top_gain_pct": 37.2,
+     "days_to_break": 12,
+     "later_low_date": "2022-10-14",
+     "top_to_later_low_pct": -73.5,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2022-07-01",
+     "low": 11.6,
+     "confirm_date": "2022-07-15",
+     "confirm_gain_pct": 30.3,
+     "broken": "2022-09-21",
+     "top_date": "2022-08-04",
+     "top_gain_pct": 90.3,
+     "days_to_break": 56,
+     "later_low_date": "2022-10-14",
+     "top_to_later_low_pct": -68.6,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2022-10-14",
+     "low": 6.93,
+     "confirm_date": "2022-10-25",
+     "confirm_gain_pct": 33.6,
+     "broken": null,
+     "top_date": "2023-06-12",
+     "top_gain_pct": 255.0,
+     "result": "끝까지 안 깸"
+    }
+   ]
+  },
+  {
+   "peak": "2024-07-10",
+   "trough": "2025-04-08",
+   "end": "2025-10-06",
+   "ongoing": false,
+   "dd_pct": -88.0,
+   "months_to_trough": 8.9,
+   "rallies": 3,
+   "failed": 2,
+   "held": 1,
+   "max_failed_gain_pct": 59.2,
+   "list": [
+    {
+     "low_date": "2024-08-07",
+     "low": 26.22,
+     "confirm_date": "2024-08-13",
+     "confirm_gain_pct": 34.6,
+     "broken": "2024-09-06",
+     "top_date": "2024-08-21",
+     "top_gain_pct": 59.2,
+     "days_to_break": 21,
+     "later_low_date": "2025-04-08",
+     "top_to_later_low_pct": -80.2,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2024-09-06",
+     "low": 25.96,
+     "confirm_date": "2024-09-19",
+     "confirm_gain_pct": 35.3,
+     "broken": "2025-01-27",
+     "top_date": "2024-10-14",
+     "top_gain_pct": 57.2,
+     "days_to_break": 96,
+     "later_low_date": "2025-04-08",
+     "top_to_later_low_pct": -79.8,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2025-04-08",
+     "low": 8.25,
+     "confirm_date": "2025-04-09",
+     "confirm_gain_pct": 54.8,
+     "broken": null,
+     "top_date": "2025-10-06",
+     "top_gain_pct": 405.6,
+     "result": "끝까지 안 깸"
+    }
+   ]
+  },
+  {
+   "peak": "2026-06-22",
+   "trough": "2026-11-20",
+   "end": "2026-11-27",
+   "ongoing": true,
+   "dd_pct": -89.7,
+   "months_to_trough": 5.0,
+   "rallies": 4,
+   "failed": 3,
+   "held": 1,
+   "max_failed_gain_pct": 78.6,
+   "list": [
+    {
+     "low_date": "2026-07-29",
+     "low": 91.99,
+     "confirm_date": "2026-08-04",
+     "confirm_gain_pct": 52.1,
+     "broken": "2026-10-22",
+     "top_date": "2026-10-05",
+     "top_gain_pct": 78.6,
+     "days_to_break": 60,
+     "later_low_date": "2026-11-20",
+     "top_to_later_low_pct": -81.2,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2026-10-22",
+     "low": 82.11,
+     "confirm_date": "2026-10-28",
+     "confirm_gain_pct": 30.7,
+     "broken": "2026-10-30",
+     "top_date": "2026-10-28",
+     "top_gain_pct": 30.7,
+     "days_to_break": 6,
+     "later_low_date": "2026-11-20",
+     "top_to_later_low_pct": -71.2,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2026-11-05",
+     "low": 40.87,
+     "confirm_date": "2026-11-09",
+     "confirm_gain_pct": 37.5,
+     "broken": "2026-11-20",
+     "top_date": "2026-11-11",
+     "top_gain_pct": 61.6,
+     "days_to_break": 11,
+     "later_low_date": "2026-11-20",
+     "top_to_later_low_pct": -53.2,
+     "result": "실패 (저점 깸)"
+    },
+    {
+     "low_date": "2026-11-20",
+     "low": 30.88,
+     "confirm_date": "2026-11-23",
+     "confirm_gain_pct": 39.9,
+     "broken": null,
+     "top_date": "2026-11-23",
+     "top_gain_pct": 39.9,
+     "result": "끝까지 안 깸"
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 # 구글 트렌드 묶음 (유튜브 검색 · 한국 · 최근 12개월) — 재테크 (미국주식)
 
-> `tools/next_topic.py stock` v1.3 — 클라우드는 trends.google.com 이 막힘 (환경 허용 목록 밖이면 프록시 403 · 허용해도 구글이 서버 주소 자동 요청에 HTTP 429).
+> `tools/next_topic.py stock` v1.3.1 — 클라우드는 trends.google.com 이 막힘 (환경 허용 목록 밖이면 프록시 403 · 허용해도 구글이 서버 주소 자동 요청에 HTTP 429).
 > 받는 방법 둘: ① PC 에서 `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Trends -Folder stock` (tools/pc_trends.py — 묶음을 차례로 받아 GitHub 에) ② 아래 주소를 브라우저로 열기 → '시간 흐름에 따른 관심도' 오른쪽 위 ⤓(CSV) → 파일 이름을 `batch_NN.csv` 로 → `stock/result/next_topic/trends/` 에 올리거나 채팅에 붙임.
 > 한 번에 5개까지라 묶음마다 기준 낱말 「S&P500」를 넣고 4개씩 → 기준 낱말 값으로 묶음끼리 이어 붙인다 (`next_topic.py stock trends`).
 

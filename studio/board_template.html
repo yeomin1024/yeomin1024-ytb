@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.4 — 2026-11-28 — [규칙 · 결과] = 단계별 (studio/rules.json steps — 단계마다 규칙 → 그 단계 결과: 트렌드·next_topic 문서·성공 사례·낱말·
+<!-- VERSION: v1.4.1 — 2026-11-28 — 주제 후보를 더한 순서대로 (Claude 가 넣은 순위 후보가 1순위부터 보이게).
+     (v1.4) — 2026-11-28 — [규칙 · 결과] = 단계별 (studio/rules.json steps — 단계마다 규칙 → 그 단계 결과: 트렌드·next_topic 문서·성공 사례·낱말·
      페르소나 회차·도입 30초·챕터 끝 문장·음성·영상·업로드 상태) · 주식 → 재테크 안 (BOARD merge — 편은 제 폴더 이름으로 저장: stock__… · '주식' 표시) ·
      최신 트렌드 주제 · 판 동작(통과·체크)은 규칙 목록에서 빼고 판 설계로. 사용자 지시 2026-11-28 "제작 판 동기화하고 주식 관련 내용은 재테크에 포함시켜 그리고 규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해 그리고 주식에 관련된 단어들 구글 트렌드에 추가한 후 링크 생성 해놔 주식 주제별 규칙을 빼는걸로 체크했으니까 그건 아예 빼버리고 최신 트렌드 주제 추가해 그리고 주제 후보는 판에서 [통과 → 제목]을 누른 것만 … 이건 공통 규칙이 아니라 아티팩트를 그렇게 설계하라는거야 다른 단계도 똑같이 적용되는거고 수정해".
      (v1.3) — 2026-11-28 — '공통' 칸 없앰 · 주제 탐색에 구글 트렌드(줄마다 단어 8개 → [링크 생성] → 링크 열기 → CSV 올리기 · 모든 링크 CSV 가 오면 '완료'
@@ -251,7 +252,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   const pendChip = d => pendingDoc(d) ? `<span class="chip warn">Claude 반영 전</span>` : (d && d.at ? `<span class="chip ok">반영됨</span>` : "");
 
   // ───────── 편 · 단계 통과
-  const cands = topic => [...S.col.episodes.values()].filter(c => c.topic === topic && !c.deleted).map(c => ({
+  const cands = topic => [...S.col.episodes.values()].filter(c => c.topic === topic && !c.deleted).sort((a, b) => String(a.createdAt || "").localeCompare(String(b.createdAt || ""))).map(c => ({   // v1.4.1 더한 순서대로
     topic, id: "cand-" + c.id, docId: c.id, kind: "cand", title: c.title || "(제목 없음)", memo: c.memo || "", repo_gates: {}, lines: [], thumbs: [],
     thumb_main: [], thumb_sub: [], title_alts: [], persona: {}, history: [], audio: { status: "none", note: "판에서 더한 후보 — 대본 없음" }, video: {}, upload: null }));
   // v1.1 주제 자료를 아직 안 받은 주제는 common.json 편 요약으로 (단계 수·흐름 표용)

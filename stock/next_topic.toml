@@ -1,5 +1,6 @@
 # 다음 재테크(미국주식 위주) 영상 주제 탐색 설정 — tools/next_topic.py v1.3 이 읽음 (economic/next_topic.toml 과 같은 꼴)
-# VERSION: v1.0 — 2026-11-28 — 새로 (사용자 지시 2026-11-28 "일단 재테크 쪽은 미국주식 위주로 영상 만들거니까 단어 다시 설정하고 단계별 분석 다시해서 주제 탐색 결과 내봐").
+# VERSION: v1.1 — 2026-11-28 — KOREAN_ONLY (한국어 영상만 — 첫 결과에 일본·태국·영어 영상이 섞여서)
+# (v1.0) — 2026-11-28 — 새로 (사용자 지시 2026-11-28 "일단 재테크 쪽은 미국주식 위주로 영상 만들거니까 단어 다시 설정하고 단계별 분석 다시해서 주제 탐색 결과 내봐").
 #   자료 = 주식 분석 캐시 stock/cloud_cache (검색어 40개 — 미국주식·ETF·나스닥·S&P500·배당 포함 · 외국·주제 밖은 compare.csv 에서 이미 뺌)
 #   [filter] FOCUS = 제목에 미국주식 낱말이 있는 영상만 (국내주식·코스피만 다룬 영상은 뺌). 판에서 주식은 재테크 안 (studio/studio.toml MERGE) —
 #   결과 stock/result/next_topic/ 는 판 '재테크 › 주제 탐색' 단계 결과 칸에 나옴. 재테크 컨셉(불편한 제도를 꼬집는 정보 — economic/guides/channel.md)은 판단 문서에서.
@@ -18,6 +19,7 @@ DAYS = 365
 NOISE_TITLE = "음악|music|playlist|플레이리스트|노래|bgm|asmr|브이로그|vlog|게임|웹드라마|자장가|백색소음|kpop|리액션"
 NOISE_CHANNEL = "게임|game|music|뮤직|노래|영화|무비|movie"
 BROADCAST = "tvn|jtbc|mbc|sbs|kbs|ebs|채널a|mbn|tv조선|drama|개그|예능"
+KOREAN_ONLY = true           # v1.1 한국어 제목 영상·한국어 큰 채널만 (주식 자료는 외국 영상도 모음 — 외국 사례로 한국 채널 주제를 정하지 않음)
 # v1.3 미국주식만 — 제목에 이 낱말 (미국 지수·ETF·빅테크·티커·미국 계좌·세금)
 FOCUS = "미국 ?주식|미장|미국 ?증시|미국 ?etf|해외 ?주식|미국 ?배당|나스닥|s&p ?500|s&p|다우|빅테크|매그니피센트|엔비디아|테슬라|애플|마이크로소프트|구글|알파벳|아마존|메타|팔란티어|브로드컴|tsmc|schd|qqq|qqqm|voo|spy|ivv|jepi|jepq|tqqq|soxl|soxx|smh|tlt|커버드콜|월배당|서학개미|미국 ?직투|해외 ?직투|양도소득세|양도세"
 STRICT = "미국 ?주식|미장|미국 ?증시|나스닥|s&p ?500|s&p|etf|배당|schd|qqq|voo|jepi|jepq|tqqq|soxl|엔비디아|테슬라|빅테크|해외 ?주식|서학개미"
@@ -63,3 +65,29 @@ WORDS = ["S&P500", "미국주식", "ETF", "나스닥", "엔비디아", "반도�
          "ISA", "연금저축", "연금저축펀드", "ISA계좌", "해외주식", "배당소득세", "미국직투"]
 
 # 겹침 후보 — report 를 읽고 고른 뒤 채움 (key · name · queries · core)
+# 2026-11-28 report(2·3·4번)를 읽고 고른 후보 5개 — 재테크 컨셉(불편한 제도 꼬집기)과 이어지는 것 먼저
+[[overlap]]
+key = "C1"
+name = "미국 ETF 배당 — 세금에 건보료까지 (금융소득 2천만 원 기준)"
+queries = ["미국 ETF 배당 건강보험료", "배당소득 금융소득종합과세 2000만원 ETF"]
+core = "건보료|건강보험료|종합과세|2000만|2천만|피부양자"
+[[overlap]]
+key = "C2"
+name = "해외주식 양도세 — 250만 원 넘으면 22% · 연말 전에 할 일"
+queries = ["해외주식 양도소득세 250만원", "미국주식 양도세 연말 절세"]
+core = "양도소득세|양도세|250만"
+[[overlap]]
+key = "C3"
+name = "ISA 로 미국 ETF — 직접 못 사는 제도 · 만기·한도"
+queries = ["ISA 미국 ETF 직접 투자", "ISA 개편 미국주식"]
+core = "isa|ISA|아이에스에이"
+[[overlap]]
+key = "C4"
+name = "커버드콜·월배당 ETF — 분배금의 함정"
+queries = ["커버드콜 ETF 단점", "JEPQ 월배당 함정"]
+core = "커버드콜|jepq|jepi|JEPQ|JEPI|월배당"
+[[overlap]]
+key = "C5"
+name = "해외 레버리지 ETF 규제 — 사전교육·예탁금"
+queries = ["해외 레버리지 ETF 사전교육", "레버리지 ETF 규제"]
+core = "레버리지|TQQQ|tqqq|SOXL|soxl"

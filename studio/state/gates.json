@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T16:53:49+09:00",
+ "updated": "2026-11-28T17:42:38+09:00",
  "stages": [
   "topic",
   "title",
@@ -315,6 +315,256 @@
    "topic": {
     "pass": true,
     "own": true,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "economic/cand-us-c1-baedang-geonbo-2026-11-28": {
+   "topic": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "economic/cand-us-c2-yangdose-2026-11-28": {
+   "topic": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "economic/cand-us-c3-isa-2026-11-28": {
+   "topic": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "economic/cand-us-c4-coveredcall-2026-11-28": {
+   "topic": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "economic/cand-us-c5-leverage-2026-11-28": {
+   "topic": {
+    "pass": false,
+    "own": false,
     "by": "repo",
     "at": ""
    },

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-28 — [filter] FOCUS (선택): 제목에 이 낱말이 있는 영상만 주제 관련으로 씀 — 한 폴더 자료에서 하위 주제만 탐색
+# VERSION: v1.3.1 — 2026-11-28 — [filter] KOREAN_ONLY (선택, true 면 한글 제목 영상·한글 제목이 절반 넘는 큰 채널만) — 외국 영상도 모은 자료(주식
+#          INCLUDE_FOREIGN)에서 일본·태국·영어 영상이 2·3·4번에 섞이던 것 · 댓글 HTTP 400 processingFailure 는 그 영상만 건너뜀(전에는 전체가 멈춤) (CLAUDE.md "외국 사례의 제목·댓글 낱말 통계로 한국어 규칙을 만들지 않는다"). 함수 Cfg · related · cmd_big · big_tables.
+# 이전 v1.3 — 2026-11-28 — [filter] FOCUS (선택): 제목에 이 낱말이 있는 영상만 주제 관련으로 씀 — 한 폴더 자료에서 하위 주제만 탐색
 #          (주식 자료에서 미국주식만 — 사용자 지시 2026-11-28 "일단 재테크 쪽은 미국주식 위주로 영상 만들거니까 단어 다시 설정하고 단계별 분석 다시해서
 #          주제 탐색 결과 내봐"). 큰 채널(big) 후보 셈의 쇼츠에도 같은 거르기. 함수 Cfg · related · cmd_big.
 # (v1.2) — 2026-11-27 — 주제 접두사 키 (<주제>_YOUTUBE_API_KEY · tools/topic_keys.apply — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해").
@@ -12,6 +14,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3.1 | 2026-11-28 | [filter] KOREAN_ONLY — 한글 제목만 · 한글 큰 채널만 | Cfg · related · cmd_big · big_tables |
 # | v1.3 | 2026-11-28 | [filter] FOCUS — 제목 낱말로 하위 주제만 | Cfg · related · cmd_big |
 # | v1.0 | 2026-11-25 | 최초 — 심리 v1.1 계산 그대로 (recent·big·report·overlap·trends) · 설정 파일 · 캐시 두 조각(.001·.002) 읽기 · suggest · trends_batches.json (PC 트렌드 받기 tools/pc_trends.py 용) | 모두 |
 """다음 영상 주제 탐색 — 숫자와 원문만 만든다 (주제 판단은 이 결과를 읽는 Claude 가 `<주제>/result/next_topic/next_topic.md` 에).
@@ -62,10 +65,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://www.googleapis.com/youtube/v3/"
 SUGGEST = "https://suggestqueries.google.com/complete/search"
-VERSION = "v1.3"
+VERSION = "v1.3.1"
 RECENT_DAYS = 7          # 심리 사용자 지시 2026-11-25 "2번에서 최근 7일 동안으로 변경"
 MAX_COMMENT_PAGES = 5    # 최신 댓글 100개씩 최대 5쪽
 LONG_SEC = 240           # 4분 이상 = 롱폼
+HANGUL = re.compile(r"[가-힣]")   # v1.3.1 한국어 제목
 MEGA_VIEWS = 1_000_000   # 겹침: 100만+ = 이미 많이 본 내용
 log = logging.getLogger("next_topic")
 
@@ -95,6 +99,7 @@ class Cfg:
         self.broadcast = re.compile(f.get("BROADCAST") or r"$^", re.I)
         self.strict = re.compile(f.get("STRICT") or r"$^", re.I)
         self.focus = re.compile(f["FOCUS"], re.I) if f.get("FOCUS") else None        # v1.3 하위 주제만 (제목)
+        self.korean_only = bool(f.get("KOREAN_ONLY", False))                           # v1.3.1 한글 제목만
         b = d.get("big", {})
         self.big_min_subs = int(b.get("MIN_SUBS", 100_000))
         self.big_min_topic_videos = int(b.get("MIN_TOPIC_VIDEOS", 3))
@@ -183,10 +188,14 @@ def related(c: Cfg, vids: dict) -> list[dict]:
     base = [v for v in vids.values() if v["exclude"] == "" and (v.get("duration") or 0) >= LONG_SEC and not v.get("live")]
     keep = [v for v in base if not c.noise_title.search(v["title"]) and not c.noise_channel.search(v.get("channel") or "")]
     n_noise = len(base) - len(keep)
+    n_foreign = 0
+    if c.korean_only:                                              # v1.3.1 외국 영상 뺌 (한글 제목만)
+        k2 = [v for v in keep if HANGUL.search(v["title"] or "")]
+        n_foreign, keep = len(keep) - len(k2), k2
     if c.focus:                                                    # v1.3 하위 주제만
         keep = [v for v in keep if c.focus.search(v["title"] or "")]
     if not getattr(related, "_logged", False):
-        stamp("FILTER", related_long=len(base), kept=len(keep), noise=n_noise, focus_out=len(base) - n_noise - len(keep) if c.focus else 0,
+        stamp("FILTER", related_long=len(base), kept=len(keep), noise=n_noise, foreign_out=n_foreign, focus_out=len(base) - n_noise - n_foreign - len(keep) if c.focus else 0,
               rule="NOISE_TITLE·NOISE_CHANNEL" + (" · FOCUS(제목)" if c.focus else ""))
         related._logged = True
     return keep
@@ -215,7 +224,7 @@ class Api:
                 self.units += cost
                 body = e.read().decode("utf-8", "replace")
                 reason = (re.search(r'"reason":\s*"([^"]+)"', body) or [None, "?"])[1]
-                if reason in ("commentsDisabled", "videoNotFound", "forbidden", "channelNotFound", "playlistNotFound"):
+                if reason in ("commentsDisabled", "videoNotFound", "forbidden", "channelNotFound", "playlistNotFound", "processingFailure"):   # v1.3.1 processingFailure = 그 영상만 건너뜀
                     return {"_error": reason}
                 if reason in ("quotaExceeded", "dailyLimitExceeded"):
                     raise SystemExit(f"[API] 할당량 끝 ({ep}) — 한국 17시 뒤 다시 (지금까지 {self.units}단위 · 받은 것은 저장됨, 다시 실행하면 이어서)")
@@ -302,7 +311,8 @@ def cmd_big(c: Cfg, a) -> int:
     vids, chans, _ = load_cache(c)
     cnt = defaultdict(int)
     for v in related(c, vids) + [v for v in vids.values() if v["exclude"] == "" and (v.get("duration") or 0) < LONG_SEC
-                                 and (not c.focus or c.focus.search(v["title"] or ""))]:          # v1.3 쇼츠도 FOCUS
+                                 and (not c.focus or c.focus.search(v["title"] or ""))
+                                 and (not c.korean_only or HANGUL.search(v["title"] or ""))]:      # v1.3 쇼츠도 FOCUS · v1.3.1 한글
         cnt[v["channel_id"]] += 1
     cands = sorted([ch for ch, n in cnt.items() if n >= c.big_min_topic_videos and ((chans.get(ch) or {}).get("subs") or 0) >= c.big_min_subs],
                    key=lambda ch: -chans[ch]["subs"])
@@ -379,6 +389,8 @@ def big_tables(c: Cfg, big: dict) -> tuple[list[str], dict, list[dict]]:
             continue
         share = sum(1 for v in long if c.strict.search(v["title"])) / len(long)     # 제목만
         if share < c.big_share or c.broadcast.search(d["title"] or ""):
+            continue
+        if c.korean_only and sum(1 for v in long if HANGUL.search(v["title"])) / len(long) < 0.5:   # v1.3.1 한국어 채널만
             continue
         aged = [v for v in long if (now - parse_ts(v["published"])).days >= 14]
         m = med([v["views"] for v in aged]) or 1

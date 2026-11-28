@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.12.0 — 2026-11-28 — 단계 순서 = 주제 → 대본 → 제목 → 썸네일 → 음성 → 코드 테스트 → 영상 → 업로드 (사용자 지시 2026-11-28 "이거 순서를 주제 탐색 -> 대본 작성으로 가야겠다").
+# VERSION: v1.12.1 — 2026-11-28 — 저장소 기준 대본 통과 = 이탈·반론 둘 다 2회차 이상이고 마지막 회차 통과 (v1.12.0 까지는 회차가 하나라도 있으면 통과 — 대본이 주제 바로 뒤로 오며 검증 중인 대본이 제목 단계로 넘어가 보였음).
+# 이전 v1.12.0 — 2026-11-28 — 단계 순서 = 주제 → 대본 → 제목 → 썸네일 → 음성 → 코드 테스트 → 영상 → 업로드 (사용자 지시 2026-11-28 "이거 순서를 주제 탐색 -> 대본 작성으로 가야겠다").
 # 이전 v1.11.0 — 2026-11-28 — 주제 탐색 ① 결과에 성공 사례 한 편 분석 문서 (STEP_DOCS t0 = result/next_topic/success_why/*.md) · 문서 속 그림 줄
 #          '![설명](상대 경로)' = 저장소 안 그림을 작은 JPEG data URI 로 (판 밖 주소를 못 불러와서) — 사용자 지시 2026-11-28 "가장 최근 성공 사례 하나만 왜 성공했는지 … 분석해서 결과에 표시해봐". 함수 md_to_html · doc_entry · selftest.
 # (v1.10.0) — 2026-11-28 — 성공 사례 줄마다 '이번 검색어' = 마지막 탐색(result/web/explore.json)에서 그 영상을 찾은 keywords.txt 낱말 (q — 26주 검색 · qa — 전체 기간 검색) ·
@@ -94,7 +95,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.12.0"
+VERSION = "v1.12.1"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -504,9 +505,18 @@ def read_lines_simple(txt: Path) -> list[tuple[str, str]]:
 
 
 def persona_rounds(src: Path, vid: str) -> dict:
+    """단계마다 회차 수 + v1.12.1 '<단계>_ok' = 마지막 회차 통과 (guides/persona_loop.md — 2회차 이상 · 마지막 회차가 지금 글)."""
     j = read_json(src / "persona_loop.json", {}) or {}
     it = (j.get("items") or {}).get(vid) or {}
-    return {k: len((v or {}).get("rounds", [])) for k, v in it.items() if isinstance(v, dict)}
+    out = {}
+    for k, v in it.items():
+        if not isinstance(v, dict):
+            continue
+        rs = v.get("rounds", []) or []
+        out[k] = len(rs)
+        last = rs[-1] if rs else {}
+        out[k + "_ok"] = len(rs) >= 2 and str(last.get("pass")).lower() in ("true", "1", "통과")
+    return out
 
 
 def upload_history(src: Path) -> list[dict]:
@@ -625,7 +635,7 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
         "topic": True,
         "title": bool(ep["title"]) and (pr.get("title", 0) >= 1 or bool(ep["history"])),
         "thumb": bool(thumbs),
-        "script": bool(lines) and (pr.get("script_exit", 0) >= 1 or pr.get("script_rebuttal", 0) >= 1 or has_audio),
+        "script": bool(lines) and ((pr.get("script_exit_ok") and pr.get("script_rebuttal_ok")) or has_audio),   # v1.12.1 둘 다 통과해야
         "voice": has_audio,
         "codetest": scene.is_file(),
         "video": bool(vj),
@@ -1212,6 +1222,12 @@ def selftest() -> int:
         check("db 내려받기 두 꼴", c["gates"][0]["pass"] is True and c["gates"][0]["version"] == 3 and c["tts"][0]["id"] == "a")
     check("단계 순서", STAGES.index("codetest") == STAGES.index("voice") + 1 and STAGES[-1] == "upload")
     check("v1.12 대본 = 주제 바로 뒤 · 제목·썸네일은 대본 뒤", STAGES[:4] == ["topic", "script", "title", "thumb"])
+    import tempfile as _tf2
+    with _tf2.TemporaryDirectory() as td:
+        (Path(td) / "persona_loop.json").write_text(json.dumps({"items": {"v": {"script_exit": {"rounds": [{"pass": False}, {"pass": True}]},
+                                                                            "script_rebuttal": {"rounds": [{"pass": True}]}}}}), "utf-8")
+        pr_ = persona_rounds(Path(td), "v")
+        check("v1.12.1 대본 통과 = 2회차 이상 · 마지막 통과 (반론 1회차뿐이면 아님)", pr_["script_exit_ok"] is True and pr_["script_rebuttal_ok"] is False and pr_["script_exit"] == 2)
     cfg = {"TOPICS": ["psychology", "stock"], "topic": {}}
     check("v1.1 꺼 둔 주제 = enabled false 문서만", board_disabled(cfg, {"topics": [{"id": "stock", "enabled": False}, {"id": "psychology", "enabled": True}, {"id": "zzz", "enabled": False}]}) == {"stock"})
     check("v1.1 topic_state 글 읽기", topic_state.disabled(text='{"disabled": ["stock"]}') == {"stock"} and topic_state.disabled(text="깨진") == set())

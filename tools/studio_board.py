@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.10.0 — 2026-11-28 — 성공 사례 줄마다 '이번 검색어' = 마지막 탐색(result/web/explore.json)에서 그 영상을 찾은 keywords.txt 낱말 (q — 26주 검색 · qa — 전체 기간 검색) ·
+# VERSION: v1.11.0 — 2026-11-28 — 주제 탐색 ① 결과에 성공 사례 한 편 분석 문서 (STEP_DOCS t0 = result/next_topic/success_why/*.md) · 문서 속 그림 줄
+#          '![설명](상대 경로)' = 저장소 안 그림을 작은 JPEG data URI 로 (판 밖 주소를 못 불러와서) — 사용자 지시 2026-11-28 "가장 최근 성공 사례 하나만 왜 성공했는지 … 분석해서 결과에 표시해봐". 함수 md_to_html · doc_entry · selftest.
+# (v1.10.0) — 2026-11-28 — 성공 사례 줄마다 '이번 검색어' = 마지막 탐색(result/web/explore.json)에서 그 영상을 찾은 keywords.txt 낱말 (q — 26주 검색 · qa — 전체 기간 검색) ·
 #          셈 now = 이번 검색어로 찾은 성공 사례 수 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐". 함수 explore_words · success_rows · selftest.
 # (v1.9.0) — 2026-11-28 — trend_groups = 줄마다 하나 (판 링크가 새 탐색 화면 주소 trends.google.com/explore 로 바뀌어 8개까지 — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐"). 함수 trend_groups · selftest.
 # (v1.8.1) — 2026-11-28 — trend_groups 되돌림: 5개까지 한 링크 · 6~8개 = [앞 5개] + [첫 단어 + 나머지] (판 링크 꼴은 6개 넘으면 구글 트렌드 오류 화면 —
@@ -91,7 +93,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.10.0"
+VERSION = "v1.11.0"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -150,6 +152,7 @@ def off_folders(cfg: dict, off: set[str]) -> set[str]:
 
 
 STEP_DOCS = {                                                   # v1.4 주제 탐색 단계마다 결과 문서 (guides/topic_guide.md 1-0 · tools/next_topic.py)
+    "t0": ["result/next_topic/success_why/*.md"],                 # v1.11 성공 사례 한 편 — 왜 됐나
     "t1": ["result/next_topic/suggest.md", "result/next_topic/keywords.md", "result/next_topic/trends.md", "result/next_topic/trends/*.md"],
     "t2": ["result/next_topic/recent*.md"],
     "t3": ["result/next_topic/big*.md"],
@@ -240,11 +243,35 @@ def _inline_plain(s: str) -> str:
     return s
 
 
-def md_to_html(md: str) -> str:
+IMG_LINE = re.compile(r"^\s*!\[([^\]]*)\]\(([^)\s]+)\)\s*$")
+DOC_IMG_WIDTH = 1000                                            # v1.11 문서 속 그림 너비 (px)
+
+
+def _img_width(p: Path, cap: int) -> int:
+    """그림 원래 너비 (cap 까지 — 작은 그림을 키우지 않음)."""
+    try:
+        from PIL import Image
+        with Image.open(p) as im:
+            return max(1, min(cap, im.width))
+    except Exception:
+        return cap
+
+
+def md_to_html(md: str, base: Path | None = None) -> str:
+    """v1.11 base = 문서 폴더 — '![설명](상대 경로)' 줄은 저장소 안 그림이면 data URI 그림, 아니면 설명 글만."""
     lines = md.replace("\r\n", "\n").split("\n")
     out, i, n = [], 0, len(lines)
     while i < n:
         ln = lines[i]
+        im = IMG_LINE.match(ln)
+        if im:
+            alt, src = im.group(1), im.group(2)
+            q = (base / src).resolve() if base is not None and not re.match(r"^[a-z]+:", src) else None
+            uri = small_jpeg(q, _img_width(q, DOC_IMG_WIDTH)) if q is not None and q.is_file() and ROOT.resolve() in q.parents else None
+            out.append(f'<figure class="docfig"><img src="{uri}" alt="{html.escape(alt)}" loading="lazy"><figcaption>{html.escape(alt)}</figcaption></figure>' if uri
+                       else f"<p class=\"small\">[그림: {html.escape(alt)} — {html.escape(src)}]</p>")
+            i += 1
+            continue
         if ln.startswith("```"):
             j = i + 1
             buf = []
@@ -311,7 +338,7 @@ def doc_entry(path: str) -> dict | None:
         raw = raw.encode()[: MAX_DOC_KB * 1024].decode("utf-8", errors="ignore") + "\n\n…(판에는 앞부분만 — 원문은 저장소 파일)"
     first = next((ln.lstrip("# ").strip() for ln in raw.splitlines() if ln.startswith("#")), p.name)
     mtime = git("log", "-1", "--format=%cs", "--", path) or dt.date.fromtimestamp(p.stat().st_mtime).isoformat()
-    return {"path": path, "title": first[:120], "date": mtime, "html": md_to_html(raw), "cut": cut}
+    return {"path": path, "title": first[:120], "date": mtime, "html": md_to_html(raw, p.parent), "cut": cut}
 
 
 # ─────────────────────────────── 작은 썸네일 (판 안에서 보이게 — 다른 주소 그림은 판이 못 불러옴)
@@ -1157,6 +1184,12 @@ def selftest() -> int:
         nonlocal ok
         print(("PASS " if cond else "FAIL ") + name + ("" if cond or not kw else "  " + " ".join(f"{k}={v}" for k, v in kw.items())))
         ok = ok and bool(cond)
+    import tempfile as _tf
+    with _tf.TemporaryDirectory(dir=ROOT) as td:                     # v1.11 문서 속 그림 = 저장소 안이면 data URI · 밖·없음은 글만
+        from PIL import Image as _Im
+        _Im.new("RGB", (40, 20), "red").save(Path(td) / "a.jpg")
+        hi = md_to_html("![그림 하나](a.jpg)\n![없는 그림](b.jpg)\n![밖](https://x.y/c.jpg)", Path(td))
+    check("v1.11 문서 그림 — 저장소 안 그림만 data URI", hi.count("data:image/jpeg;base64,") == 1 and hi.count("[그림:") == 2)
     h = md_to_html("# 제목\n\n| a | b |\n|---|---|\n| 1 | **2** |\n\n- 하나\n- 둘\n\n```\nx<y\n```\n> 인용\n문단 [링크](https://x.y) [로컬](a/b.md)")
     check("md 표", "<table>" in h and "<strong>2</strong>" in h)
     check("md 목록·코드", "<ul><li>하나</li>" in h and "x&lt;y" in h)

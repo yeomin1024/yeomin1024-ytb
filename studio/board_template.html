@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.8.0 — 2026-11-28 — 성공 사례 목록: '이번 검색어로 찾은 것만' 거르기(기본 켬 — 있을 때) · 줄마다 찾은 검색어 칩 · 검색어 칸 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐".
+<!-- VERSION: v1.8.1 — 2026-11-28 — 문서 속 그림(.docfig — studio_board.py v1.11 data URI) 크기 · 주제 탐색 ① 결과 = 한 편 분석 문서 + 목록 — 사용자 지시 2026-11-28 "가장 최근 성공 사례 하나만 왜 성공했는지 … 분석해서 결과에 표시해봐".
+     (v1.8.0) — 2026-11-28 — 성공 사례 목록: '이번 검색어로 찾은 것만' 거르기(기본 켬 — 있을 때) · 줄마다 찾은 검색어 칩 · 검색어 칸 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐".
      (v1.7.0) — 2026-11-28 — 구글 트렌드 링크 = 새 탐색 화면 주소 trends.google.com/explore (옛 /trends/explore 아님) · 줄마다 하나 (8개까지) — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐".
      (v1.6.1) — 2026-11-28 — 링크 되돌림: 5개까지 한 링크 · 6~8개면 둘 (옛 주소 꼴에 6개 넘게 넣으면 구글 트렌드 오류 화면 — 사용자 알림 2026-11-28 "링크 열면 '죄송합니다. 이 페이지를 표시하는 중에 문제가 발생했습니다'") · 새 화면 CSV 읽기는 그대로.
      (v1.6.0) — 2026-11-28 — 구글 트렌드 링크 = 줄마다 하나 (8개까지 한 번에 비교 — 새 탐색 화면) · CSV 읽기 넓힘(따옴표 칸·날짜/Date 머리) — 사용자 지시 2026-11-28 "야 근데 링크 여는거 단어 8개 동시에 하는게 안돼?" · "사이트에서는 8개 비교 되던데".
@@ -147,6 +148,8 @@ td.num{font-family:var(--f-mono);text-align:right;white-space:nowrap;font-varian
 .doc h3,.doc h4,.doc h5,.doc h6{margin:12px 0 4px;font-size:14.5px}
 .doc table{font-size:12.5px;min-width:520px}
 .doc pre{background:var(--sunk);padding:8px;border-radius:8px;overflow-x:auto;font-size:12px}
+.doc-d,.doc-d summary,.doc-d .mono{min-width:0;overflow-wrap:anywhere}.doc h3{overflow-wrap:anywhere}
+.doc .docfig{margin:8px 0}.doc .docfig img{display:block;max-width:min(100%,760px);height:auto;border-radius:8px;border:1px solid var(--line)}.doc .docfig figcaption{font-size:12px;color:var(--muted);margin-top:3px}
 .doc blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid var(--line);color:var(--muted)}
 .mdpath{font-size:11.5px;color:var(--muted)}
 details>summary{cursor:pointer;font-weight:600;font-size:14px}

@@ -1,8 +1,9 @@
 # 주식 — 날마다 주제 후보 갱신 (미국 장 마감 뒤)
 
-VERSION: v1.0.1 — 2026-11-28 — 2번에 시장 숫자 403 때 동작 한 줄 (market_data v1.0.1).
+VERSION: v1.1 — 2026-11-28 — 예약 작업 없음 · 돌릴 때마다 지난 실행 뒤 흐른 만큼만 (`daily_topic.py` v1.1) — 사용자 지시 2026-11-28 "일단 예약 작업은 하지말고 탐색 시 시간체크해서 지난 만큼 업데이트하도록 하고".
+이전 v1.0.1 — 2026-11-28 — 2번에 시장 숫자 403 때 동작 한 줄 (market_data v1.0.1).
 이전 v1.0 — 2026-11-28 — 최초. 사용자 지시 2026-11-28 "1은 그냥 댓글보면 알 수 있지 않나? 내가 댓글 본것만 봐도 soxl 등 주식 매수 타이밍 예측하는게 많던데 왜 이걸 파악 못해 2는 주제가 제한되니까 하지말고 3은 서두를 필요없이 최대한 많은 정보를 가지고 정확하게 판단하는게 먼저야 4는 근데 모두야 손실 복구할려고 저점, 반등 매수 타이밍에 관심가질거고 그 밖에도 주식 하는 사람이라면 수익을 얻을 수 있는 매수 타이밍에 관심을 가질거야 그러니까 공통점을 찾으면 돼 5는 되도록이면 오래가면 좋은데 딱히 상관없어 6은 미장 끝나고 업데이트되면 해".
-예약 작업 `trig_01DBQnzfwN2gQRLUdAKpfSRE` = 한국 화~토 06:47 (미국 장 마감 뒤 — 겨울 06:00 · 여름 05:00 KST) 새 세션이 이 문서대로. 사용자가 끄라고 하기 전까지 켜 둠.
+**예약 작업 없음** — 사용자가 시킬 때 이 문서대로 (미국 장 마감 = 겨울 06:00 · 여름 05:00 KST 뒤면 그날 장 숫자까지). 옛 예약 작업 `trig_01DBQnzfwN2gQRLUdAKpfSRE` 는 꺼 둠(지우지 않음).
 
 ※ 연구·교육용 — 투자 조언이 아님.
 
@@ -17,18 +18,31 @@ VERSION: v1.0.1 — 2026-11-28 — 2번에 시장 숫자 403 때 동작 한 줄 
 | 오래가는 주제 가점 | 필수 아님 — 같은 관심이 다음 사건 때도 다시 찾힐 주제면 가점 |
 | 성공 사례는 늦은 자료 | 성공 기준에 '올린 지 7일 뒤부터'가 있어 최근 7일 영상은 못 들어옴 → **지금 관심은 새 영상 댓글로**, 성공 사례는 과거 같은 국면에서 무엇이 됐나·제목/썸네일 꼴 근거로 |
 
-## 1. 순서 (새 세션)
+## 1. 순서 (사용자가 시킬 때)
 
 1. `git pull --rebase` → `python3 tools/topic_state.py` (주식이 꺼져 있으면 아무것도 안 함).
-2. **자료**: `python3 tools/daily_topic.py stock run` — 시장 숫자(Yahoo) · 최근 3일 새 영상 검색(검색어 12개 `stock/daily_topic.toml`) · 시간당 조회수 큰 120편 댓글 · 의도 몫 → `stock/result/next_topic/daily/<날짜>.md`·`latest.md` (할당량 약 1,500 · 한도 BUDGET). 시장 숫자가 403(허용 목록에 `query1.finance.yahoo.com` 없는 환경 — 예 '스톡롱런')이면 지난 숫자로 계속하고 `market.json` 은 덮지 않음 (`market_data.py` v1.0.1) — 그날 미국 장 숫자가 새로 필요하면 허용된 환경에서 `python3 tools/market_data.py stock fetch`.
-3. **읽기 (Claude)**: `daily/latest.md` 전부 + `daily/<날짜>.json.gz` 댓글 표본(공감 큰 것·질문·의도 갈래마다)을 **원문으로** 읽는다. 앞 날짜 `daily/*.md` 와 견줘 관심이 어떻게 옮겨 가는지.
+2. **자료**: 먼저 `python3 tools/daily_topic.py stock plan`(할당량 안 씀 — 이번에 찾을 기간·예상 단위) → `python3 tools/daily_topic.py stock run` — **지난 실행 뒤 흐른 만큼만** (아래 1-1) · 시장 숫자(Yahoo) · 새 영상 검색(검색어 12개 `stock/daily_topic.toml`) · 시간당 조회수 큰 120편 댓글 + ↻ 지난 실행의 인기 영상 40편 새 댓글 · 의도 몫 → `stock/result/next_topic/daily/<날짜>_<시각>.md`·`.json.gz`·`latest.md` (하루 한 번이면 할당량 약 1,500 · 한도 BUDGET). 시장 숫자가 403(허용 목록에 `query1.finance.yahoo.com` 없는 환경 — 예 '스톡롱런')이면 지난 숫자로 계속하고 `market.json` 은 덮지 않음 (`market_data.py` v1.0.1) — 그날 미국 장 숫자가 새로 필요하면 허용된 환경에서 `python3 tools/market_data.py stock fetch`.
+3. **읽기 (Claude)**: `daily/latest.md` 전부(0번 표 = 이번에 갱신한 기간 — ⚠️·❌ 줄이 있으면 그 검색어는 덜 찾음) + `daily/<날짜>_<시각>.json.gz` 댓글 표본(공감 큰 것·질문·의도 갈래마다)을 **원문으로** 읽는다. 앞 날짜 `daily/*.md` 와 견줘 관심이 어떻게 옮겨 가는지.
 4. **판단**: 오늘 시장 사건 → 시청자 공통 관심(의도 몫 + 원문) → 그 관심에 답하는 주제 후보. 근거로 더 본다:
    - `stock/result/next_topic/success_why/00_all.md` — 같은 국면(폭락 직후 · **폭락 뒤 반등** · 급등 · 공포 · 조정 · 평온)에서 성공한 영상과 제목·썸네일 꼴 (`python3 tools/success_reasons.py stock` 은 성공 사례가 바뀌었을 때만)
    - 증명할 숫자가 실제 종가로 나오는지 (`stock/result/next_topic/market/` · 더 긴 기간이 필요하면 `python3 tools/market_data.py stock fetch --range 10y`)
 5. **쓰기**: `stock/result/next_topic/next_topic.md` A절 — 날짜 · 시장 사건 · 공통 관심(숫자 + 원문 3~5개) · 후보 순위(근거·증명할 숫자·오래가나) · 어제와 달라진 점. 제목·썸네일 문구는 쓰지 않음(주제 각도만 — 문구는 제작 단계에서 페르소나 반복 검증과 함께).
 6. 판 갱신: `python3 tools/studio_board.py build` → 제작 판 같은 주소로 (`guides/studio_board.md`).
 7. `guides/status.md` 맨 위 버전 줄 · 커밋 · `git push` (main).
-8. 토요일이면 더: `python3 tools/cloud_run.py stock resume`(남은 검색어) → `analyze` → `python3 tools/success_reasons.py stock` (성공 사례 갱신 — 할당량 남을 때).
+8. 성공 사례도 갱신할 때(일주일쯤 지났으면 · 할당량 남을 때): `python3 tools/cloud_run.py stock resume`(남은 검색어) → `analyze` → `python3 tools/success_reasons.py stock`.
+
+### 1-1. 지난 만큼만 갱신 (`daily_topic.py` v1.1 · 기록 `stock/result/next_topic/daily/state.json`)
+
+| 무엇 | 이번에 보는 범위 | 설정 (`stock/daily_topic.toml`) |
+|---|---|---|
+| 새 영상 검색 | 검색어마다 **끝까지 찾은 마지막 시각 − 6시간 ~ 지금** (검색 색인이 늦게 잡는 영상 몫) · 기록 없으면 최근 3일 · 14일 넘게 안 돌렸으면 최근 14일만(건너뛴 기간은 0번 표) · 3일보다 길면 3일 조각으로 오래된 쪽부터 | `OVERLAP_HOURS` · `DAYS` · `MAX_DAYS` · `CHUNK_DAYS` |
+| 할당량이 끊기면 | 끝까지 찾은 조각(영상 정보까지 받은 것)만 기록 → 다음 실행이 끊긴 곳부터 | `BUDGET` |
+| 댓글 | 처음 보는 영상 = 전부 · **앞서 본 영상 = 그때 뒤에 달린 것만**(두 번 안 셈) | — |
+| ↻ 다시 보기 | 지난 실행에서 댓글 받은 영상 중 올린 지 3일 안 · 시간당 조회수 상위 40편의 그 뒤 댓글 (기간이 좁아져도 며칠 된 인기 영상에 오늘 달리는 댓글 = 지금 관심) | `REVISIT_DAYS` · `REVISIT_TOP` |
+| 시장 | 지난 실행의 마지막 거래일 뒤 거래일 = ★ (사건도 ★ 날에서만) + 앞 맥락 5거래일 | — |
+| 비교 | 3번 표 '지난 실행' 칸 = 바로 앞 결과의 의도 몫 | — |
+
+기록을 지우면 처음처럼 최근 3일. 처음 기록은 2026-11-28 다른 세션 실행(검색 약 12:20Z · 297편 · 120편 댓글 9,214개)을 '지난 실행'으로 심음 — 같은 3일·같은 댓글을 다시 세지 않게.
 
 ## 2. 쓰지 않는 것
 

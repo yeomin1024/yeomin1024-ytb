@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-28 — 주제 합치기 studio.toml MERGE (주식 → 재테크: 판 주제 하나에 두 폴더의 편·탐색 문서·성공 사례 — 편은 제 폴더 이름 그대로라
+# VERSION: v1.5 — 2026-11-28 — 판에서 숨긴 편 studio.toml [topic.<폴더>] HIDE (예전 편 — 판·gates.json 에서 뺌, 저장소 폴더·올린 기록은 그대로) —
+#          사용자 지시 2026-11-28 "재테크 쪽에 예전 영상들 있는데 다 삭제해" (고름: 판에서만 빼기). 함수 episodes · topic_data · effective_gates · selftest.
+# (v1.4) — 2026-11-28 — 주제 합치기 studio.toml MERGE (주식 → 재테크: 판 주제 하나에 두 폴더의 편·탐색 문서·성공 사례 — 편은 제 폴더 이름 그대로라
 #          gates·음성·업로드 도구는 그대로 읽음 · 판 주제를 끄면 합친 폴더도 꺼짐) · 규칙 단계별 결과 = 주제마다 step_docs (주제 탐색 ①~⑤ 단계의 결과 문서 —
 #          result/next_topic/suggest·recent·big·overlap·report·next_topic.md) · 최신 트렌드(trend) 주제. 사용자 지시 2026-11-28 "주식 관련 내용은 재테크에 포함시켜
 #          그리고 규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해 … 최신 트렌드 주제 추가해". 함수 board_topics · folders_of · off_folders · step_docs ·
@@ -20,6 +22,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.5 | 2026-11-28 | 판에서 숨긴 편 HIDE | episodes · topic_data · effective_gates · selftest |
 # | v1.4 | 2026-11-28 | 주제 합치기 MERGE · 단계별 결과 문서 step_docs · trend 주제 | board_topics · folders_of · off_folders · step_docs · topic_data · build · effective_gates · sync · selftest |
 # | v1.3 | 2026-11-28 | 판 구글 트렌드 줄·CSV → trends.json groups · board_csv/ | trend_groups · sync_trend_csv · sync · trends_results · selftest |
 # | v1.2 | 2026-11-27 | 재업로드 요청 시각 reupload_at | sync |
@@ -67,7 +70,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -551,11 +554,15 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
     return ep
 
 
-def episodes(topic: str, T, img_dir: Path | None, upl_paths: set) -> list[dict]:
+def episodes(topic: str, T, img_dir: Path | None, upl_paths: set, hide: set | None = None) -> list[dict]:
     out = []
     sdir = ROOT / topic / "source"
+    hidden = 0
     for d in sorted(p for p in sdir.iterdir() if p.is_dir()) if sdir.is_dir() else []:
         if not VID_RE.fullmatch(d.name):
+            continue
+        if hide and d.name in hide:                               # v1.5 판에서 숨긴 예전 편 (짝 쇼츠도)
+            hidden += 1
             continue
         files = {p.name for p in d.iterdir()}
         sh = d / "shorts"
@@ -580,6 +587,8 @@ def episodes(topic: str, T, img_dir: Path | None, upl_paths: set) -> list[dict]:
         return (m.group(1) if m else "", base, e["kind"] != "long")
     out.sort(key=key, reverse=False)
     out.sort(key=lambda e: key(e)[0], reverse=True)          # 최근 편 먼저 (같은 날짜 안은 이름순 · 롱폼 뒤 짝 쇼츠)
+    if hidden:
+        log("EPISODES", topic=topic, shown=len(out), hidden=hidden, note="studio.toml HIDE — 판·gates 에서 뺌 (폴더는 그대로)")
     return out
 
 
@@ -634,7 +643,7 @@ def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
             refs["freq"] = words_of([t["text"] for t in refs["titles"]])
             refs["source"] = " · ".join(x for x in (refs.get("source"), r.get("source")) if x)
             refs["thumb_source"] = " · ".join(x for x in (refs.get("thumb_source"), r.get("thumb_source")) if x)
-        eps += episodes(f, T, img_dir, upl_paths)
+        eps += episodes(f, T, img_dir, upl_paths, set(tf.get("HIDE", [])))
     d = {"topic": topic, "name": tc.get("NAME", topic), "note": tc.get("NOTE", ""), "folders": folders, "explore": explore, "related": related,
          "refs": refs, "episodes": eps, "legacy": legacy(tc.get("LEGACY", "")), "trends": trends_results(topic),
          "step_docs": step_docs(folders, explore), "default_words": tc.get("WORDS", [])}
@@ -730,7 +739,7 @@ def effective_gates(cfg: dict, cols: dict) -> dict:
     db = {(g.get("topic"), g.get("ep"), g.get("stage")): g for g in cols.get("gates", [])}
     out = {}
     for topic in [t for t in cfg["TOPICS"] if t not in off_folders(cfg, board_disabled(cfg, cols))]:     # v1.1 꺼 둔 주제는 뺌 · v1.4 합친 폴더 포함
-        eps = episodes(topic, T, None, set())
+        eps = episodes(topic, T, None, set(), set(topic_cfg(cfg, topic).get("HIDE", [])))   # v1.5 숨긴 편은 단계 목록에서도 뺌
         cands = [{"id": "cand-" + c["id"], "repo_gates": {}} for c in cols.get("episodes", []) if c.get("topic") == topic and not c.get("deleted")]
         for e in eps + cands:
             row, ok_prev = {}, True
@@ -959,6 +968,7 @@ def selftest() -> int:
     mc = {"TOPICS": ["economic", "stock", "crisis"], "MERGE": {"stock": "economic"}, "topic": {}}
     check("v1.4 합치기 — 판 주제 · 폴더 · 끄면 합친 폴더도", board_topics(mc) == ["economic", "crisis"] and folders_of(mc, "economic") == ["economic", "stock"]
           and off_folders(mc, {"economic"}) == {"economic", "stock"} and off_folders(mc, {"crisis"}) == {"crisis"})
+    check("v1.5 숨긴 편 = studio.toml HIDE 폴더 이름 (있는 폴더만)", all((ROOT / f / "source" / x).is_dir() for f in ("economic", "stock") for x in topic_cfg(load_cfg(), f).get("HIDE", [])))
     check("v1.4 studio.toml 주식 → 재테크 · trend 주제", (load_cfg().get("MERGE") or {}).get("stock") == "economic" and "trend" in load_cfg()["TOPICS"])
     W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]
     check("v1.3 트렌드 링크 묶음 8개 = 5 + (첫 단어 + 3)", trend_groups(W8) == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]])

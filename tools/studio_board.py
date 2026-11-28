@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7 — 2026-11-28 — 주제 탐색 ① 성공 사례 목록 = 주제(합친 폴더 포함)의 compare.csv 에서 <폴더>/analysis_rules.toml [success] 기준을 모두 넘는 영상 전부
+# VERSION: v1.7.1 — 2026-11-28 — 지금은 주식만 (사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해"): studio.toml [topic.<판 주제>] SHOW_FOLDERS = 판에 보이는 폴더
+#          (재테크 = stock 만 — 성공 사례 제목·탐색 문서·단계 결과) · 성공 사례 목록은 SUCCESS_FOLDERS 가 있는 판 주제만 만듦 (다른 주제는 건드리지 않음). 함수 topic_data.
+# (v1.7) — 2026-11-28 — 주제 탐색 ① 성공 사례 목록 = 주제(합친 폴더 포함)의 compare.csv 에서 <폴더>/analysis_rules.toml [success] 기준을 모두 넘는 영상 전부
 #          (자료 받은 사례 = analysis.json success_cases 표시·자세히) · 미국주식 낱말(next_topic.toml FOCUS)·한국어 표시 — 사용자 지시 2026-11-28
 #          "맨처음 단계를 성공 사례 찾는거부터 해봐 그리고 모든 성공사례 정보 목록을 볼 수 있게해봐" · "그 일단 주식만 보이게 하고 검색에 사용한 단어 목록도 같이
 #          보여줘" — studio.toml [topic.<판 주제>] SUCCESS_FOLDERS (재테크 = stock 만) · 검색어 목록 = <폴더>/keywords.txt(+ 외국 영상을 켠 주제는
@@ -79,7 +81,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.7"
+VERSION = "v1.7.1"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -786,14 +788,15 @@ def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
     refs = None
     focus, focus_src = _focus_of(folders)                      # v1.7 성공 사례 '미국주식' 표시
     succ, succ_cnt, words = [], {}, {}
-    for f in [x for x in (tc.get("SUCCESS_FOLDERS") or folders) if x in folders]:   # v1.7 성공 사례 목록 — 재테크 = 주식 폴더만 (studio.toml)
+    shown = [x for x in (tc.get("SHOW_FOLDERS") or folders) if x in folders]        # v1.7.1 판에 보이는 폴더 (재테크 = 주식만)
+    for f in [x for x in (tc.get("SUCCESS_FOLDERS") or []) if x in folders]:        # v1.7 성공 사례 목록 — SUCCESS_FOLDERS 가 있는 판 주제만 (지금 주식)
         tf = topic_cfg(cfg, f)
         rr, cc = success_rows(f, focus, _refs_of(f, tf, img_dir) if tf.get("SUCCESS") == "videos_csv" else {})
         seen = {x["id"] for x in succ}
         succ += [x for x in rr if x["id"] not in seen]         # 두 폴더에 같은 영상이면 한 번만
         succ_cnt[f] = cc
         words[f] = search_words(f)
-    for f in folders:                                          # 판 자료 (편·탐색 문서·성공 사례 제목) — 합친 폴더 모두
+    for f in shown:                                            # 판 자료 (편·탐색 문서·성공 사례 제목) — 보이는 폴더만
         tf = topic_cfg(cfg, f)
         explore += [x for x in (doc_entry(p) for p in tf.get("EXPLORE", [])) if x]
         rdir = ROOT / tf.get("RELATED_DIR", "")
@@ -812,10 +815,11 @@ def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
         eps += episodes(f, T, img_dir, upl_paths, set(tf.get("HIDE", [])))
     d = {"topic": topic, "name": tc.get("NAME", topic), "note": tc.get("NOTE", ""), "folders": folders, "explore": explore, "related": related,
          "refs": refs, "episodes": eps, "legacy": legacy(tc.get("LEGACY", "")), "trends": trends_results(topic),
-         "step_docs": step_docs(folders, explore), "default_words": tc.get("WORDS", []),
+         "step_docs": step_docs(shown, explore), "default_words": tc.get("WORDS", []), "shown_folders": shown,
          "success": {"rows": sorted(succ, key=lambda x: -(x.get("vs") or 0)), "by_folder": succ_cnt, "focus": focus_src, "words": words}}
-    log("SUCCESS", topic=topic, rows=len(succ), cases=sum(1 for x in succ if x.get("x")), us=sum(1 for x in succ if x.get("us")),
-        by_folder=",".join(f"{k}:{v['rows']}" for k, v in succ_cnt.items()), focus=focus_src or "-")
+    if succ_cnt:
+        log("SUCCESS", topic=topic, rows=len(succ), cases=sum(1 for x in succ if x.get("x")), us=sum(1 for x in succ if x.get("us")),
+            by_folder=",".join(f"{k}:{v['rows']}" for k, v in succ_cnt.items()), focus=focus_src or "-")
     log("TOPIC", topic=topic, folders="+".join(folders), explore=len(explore), related=len(related), ref_titles=len(refs["titles"]), ref_thumbs=len(refs["thumbs"]),
         episodes=len(eps), step_docs=",".join(f"{k}:{len(v)}" for k, v in d["step_docs"].items()),
         personas=len(d["legacy"].get("personas") or []), trends_period=d["trends"].get("period") or "-")

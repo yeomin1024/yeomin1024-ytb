@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.5 — 2026-11-28 — 주제 탐색 ① = 성공 사례 찾기 · 성공 사례 전체 목록 (찾기 · 폴더·미국주식·한국어·자료 받은 사례 거르기 · 정렬 · 더 보기 ·
+<!-- VERSION: v1.5.1 — 2026-11-28 — ① 성공 사례 단계는 그 단계가 있는 주제만 (rules.json steps[].only — 지금 재테크(주식)만) — 사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해".
+     (v1.5) — 2026-11-28 — 주제 탐색 ① = 성공 사례 찾기 · 성공 사례 전체 목록 (찾기 · 폴더·미국주식·한국어·자료 받은 사례 거르기 · 정렬 · 더 보기 ·
      자료 받은 사례는 형식·좋아요율·댓글 수·첫 20초·댓글 갈래 자세히) · 성공 사례를 찾은 검색어 목록(갈래별 · 태그 쓴 채널 수 · 외국 검색어) — 재테크는 주식 폴더만 —
      사용자 지시 2026-11-28 "맨처음 단계를 성공 사례 찾는거부터 해봐 그리고 모든 성공사례 정보 목록을 볼 수 있게해봐" · "그 일단 주식만 보이게 하고 검색에 사용한 단어 목록도 같이 보여줘".
      (v1.4.1) — 2026-11-28 — 주제 후보를 더한 순서대로 (Claude 가 넣은 순위 후보가 1순위부터 보이게).
@@ -303,7 +304,8 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
 
   // ───────── 규칙
   // ───────── v1.4 규칙 = 단계(steps) · 단계마다 결과 (사용자 지시 2026-11-28 "규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해")
-  const stepsOf = stage => (((S.common || {}).rules || {}).steps || {})[stage] || [{ key: "_", name: SK[stage] || stage, results: [] }];
+  const stepsOf = stage => ((((S.common || {}).rules || {}).steps || {})[stage] || [{ key: "_", name: SK[stage] || stage, results: [] }])
+    .filter(st => !st.only || st.only.includes(S.topic));                       // v1.5.1 한 주제에만 있는 단계 (① 성공 사례 = 지금은 주식만)
   function ruleItems(stage) {                                    // 공통 + 이 주제 · 판에서 고친 것 덮어씀 · 동기화로 이미 뺀 것(db 에만 남은 뺌)은 안 보임
     const base = ((((S.common || {}).rules || {}).stages || {})[stage]) || {}, out = [];
     for (const scope of ["common", S.topic]) {
@@ -678,9 +680,9 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       ${ep.kind === "cand" ? `${ep.memo ? `<p class="small">메모: ${e(ep.memo)}</p>` : ""}<div class="row">${S.confirm === "cand:" + ep.docId ? `<span class="confirm">이 후보를 지울까요?<button class="btn bad sm" data-act="cand-del" data-id="${e(ep.docId)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="cand:${e(ep.docId)}" ${wr()}>후보 지우기</button>`}</div>` : ""}
       <details ${S.open.has("fbo:" + ep.id + ":topic") ? "open" : ""} data-k="fbo:${e(ep.id)}:topic"><summary class="small">주제 피드백 ${fbOf(ep.topic, ep.id, "topic").length}</summary>${fbBox(ep, "topic", null)}</details></div>`).join("");
     const tr = lg.transcript || {};
-    const SC = D.success || { rows: [] };
-    const work = `<section class="box"><header><h2>① 성공 사례</h2><button class="btn ghost sm" data-act="mode" data-m="rules">목록 보기 →</button></header>
-        <p class="small">최근·작은 채널에서 잘된 영상 ${fmtN((SC.rows || []).length)}개 · 자료 받은 사례 ${fmtN((SC.rows || []).filter(r => r.x).length)}개${(SC.rows || []).some(r => r.us) ? " · 미국주식 낱말 " + fmtN((SC.rows || []).filter(r => r.us && r.ko).length) + "개(한국어)" : ""} — [규칙 · 결과] ①에서 전부 볼 수 있습니다.</p></section>
+    const SC = D.success || { rows: [] }, hasSucc = (stepsOf("topic")[0] || {}).key === "t0";
+    const work = `${hasSucc ? "" : "<!--"}<section class="box"><header><h2>① 성공 사례</h2><button class="btn ghost sm" data-act="mode" data-m="rules">목록 보기 →</button></header>
+        <p class="small">최근·작은 채널에서 잘된 영상 ${fmtN((SC.rows || []).length)}개 · 자료 받은 사례 ${fmtN((SC.rows || []).filter(r => r.x).length)}개${(SC.rows || []).some(r => r.us) ? " · 미국주식 낱말 " + fmtN((SC.rows || []).filter(r => r.us && r.ko).length) + "개(한국어)" : ""} — [규칙 · 결과] ①에서 전부 볼 수 있습니다.</p></section>${hasSucc ? "" : "-->"}
       ${trendsBox()}
       <section class="box"><header><h2>주제 후보</h2><span class="small">주제 단계에서 기다리는 편 ${L.length} · [통과]를 누르면 제목 단계로</span></header>
         <div class="fb"><input type="text" id="nc-title" placeholder="새 후보 — 예: 남의 뒷말을 전하는 사람의 심리"><input type="text" id="nc-memo" placeholder="메모 — 근거(탐색 결과 몇 번, 트렌드 줄 등)">

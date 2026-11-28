@@ -1,0 +1,40 @@
+“테슬라가 12월에 합병한다”, “발표되면 서학개미만 세금 폭탄”, “지금 팔면 세금 피한다”… 블룸버그가 11월 12일(현지) 스페이스X·테슬라 합병 협상이 진전됐다고 보도한 뒤 퍼진 말입니다. 우리 투자자가 33조 원 넘게 들고 있는 두 종목, 퍼진 말 다섯 가지를 회사가 미국 증권거래위원회(SEC)에 낸 공시, 미국 세법, 국세청 입장, 한국예탁결제원 숫자로 확인했습니다. 주가·환율은 11월 13일 뉴욕 종가 기준입니다.
+
+[판정 요약]
+“테슬라 12월에 합병한다” — 확인 안 됨 (블룸버그 11/12 소식통 보도는 '이르면 12월 발표, 2027년 초로 밀릴 수도'. 11/14까지 테슬라·스페이스X 모두 합병 계약 공시 없음. 12/3 테슬라 주총 회사 안건에 합병 없음. 발표는 계약 공표일 뿐 합병 완료가 아님)
+“발표되면 바로 세금 폭탄” — 과장 (세금은 주식이 실제로 바뀌는 합병 완료 때 생기고 신고·납부는 다음 해 5월. 증권가 예상은 주총 2027년 하반기·완료 2028년 초. 세금은 이익에만: 100주·평균 300달러면 11/13 종가 기준 약 210만 원)
+“서학개미만 세금 낸다” — 대체로 사실 (미국 세법 354조는 주식만 맞바꾸면 과세를 미룸. 국세청은 외국법인엔 과세이연 특례가 없어 현행법대로 과세한다는 입장. 다만 구조·현금 여부는 아직 미정)
+“지금 팔면 세금 피한다” — 거짓 (팔아도 그해 해외주식 차익에 250만 원 공제 뒤 22%로 같음. 내는 때가 당겨질 뿐. 한 달간 서학개미 테슬라 5억 37만 달러 순매도, 스페이스X 6억 841만 달러 순매수, 같은 기간 스페이스X −12.61%)
+“테슬라 1주 = 스페이스X 2.8주” — 확인 안 됨 (11/13 종가 390.22 ÷ 139.11 = 2.805, 지금 주가를 나눈 값. 교환 비율은 협상 중이고 증권사 보고서 원문은 확인 못 함. 웃돈 20~35% 전망이면 3.4~3.8주 꼴)
+
+[챕터]
+0:00 “테슬라 12월 합병, 세금 폭탄”이라는 말
+0:48 퍼진 말 다섯 가지
+1:08 블룸버그 보도로 시작된 12월설
+1:41 ① 테슬라 12월에 합병한다
+3:14 ② 발표되면 바로 세금 폭탄
+5:00 ③ 서학개미만 세금 낸다
+6:24 중간 정리
+6:33 ④ 지금 팔면 세금 피한다
+7:50 ⑤ 테슬라 1주 = 스페이스X 2.8주
+9:08 판정표
+9:25 직접 확인하는 법
+
+[출처]
+원문 · 테슬라 10-Q(SEC, 2026.10.22) https://www.sec.gov/Archives/edgar/data/1318605/000162828026066775/tsla-20260930.htm · 테슬라 2026 주총 위임장(DEF 14A, 10.19) https://www.sec.gov/Archives/edgar/data/1318605/000110465926116700/tm267596-1_def14a.htm
+원문 · 미국 연방법 26 U.S.C. §354 https://www.law.cornell.edu/uscode/text/26/354 · 주가·환율은 야후 파이낸스 일봉
+기사 · 야후 파이낸스(11.13, 블룸버그 보도 인용) https://finance.yahoo.com/markets/stocks/articles/spacex-tesla-merger-could-announced-120302909.html · 헤럴드경제(11.12·11.13) https://biz.heraldcorp.com/article/10935221 · 전자신문(11.13)
+기사 · 비즈워치(11.13, 삼성증권 일정 전망) https://news.bizwatch.co.kr/article/market/2026/11/12/0001 · 서울경제(11.11, 세이브로 순매수·순매도) https://m.sedaily.com/article/20113162 · 파이낸셜뉴스(11.9, 국세청) https://www.fnnews.com/news/202611091829425514
+퍼진 말 · 유튜브 LA 정교수 TV·도군TV·인생은실전이다·JTBC 영상 제목, 한스경제(11.13)
+인용 영상 · 일론 머스크 스페이스X 실적 발표 통화(10.20, @SawyerMerritt / X · 10.21), 댄 아이브스 CNBC(10.20, @EvasTeslaSPlaid / X · 10.21), 자료 영상 @SpaceX·@Tesla / X
+X 글 · @BitcoinMagazine·@LayeredInvest·@UNICONTSLA / X · 11.13, @ParkDaePyo4680 / X · 11.2
+사진 · Wikimedia Commons — Larry D. Moore(CC BY 4.0), Maurizio Pesce from Milan, Italia(CC BY 2.0), Steve Jurvetson(CC BY 2.0), Alexander Hatley from Spring, Texas, USA(CC BY 2.0), Jenny Hautmann(CC BY-SA 4.0), SpaceX Photos(CC0), Tesla Owners Club Belgium(CC BY 2.0), Cjb8293(CC BY-SA 4.0), Alain Seguin at Flickr, from Ottawa, Canada(CC BY-SA 3.0), Minseong Kim(CC BY-SA 4.0), *Youngjin(CC BY-SA 3.0), Bryan Dorrough(CC BY 2.0), Ox1997cow(CC BY-SA 4.0), NASA Kennedy Space Center / Rocket Lab(퍼블릭 도메인), Alexander Migl(CC BY-SA 4.0), China News Service(CC BY 3.0), Wikideas1(CC0), Daniel Lu (User:dllu)(CC BY-SA 4.0), Amaury Laporte(CC BY 2.0), Arild Vågen(CC BY-SA 4.0), Takipoint123(CC BY-SA 4.0), ajay_suresh(CC BY 2.0), Jared Krahn(CC BY-SA 4.0), Billie Grace Ward(CC0)
+음악 · “Constance”·“Rising Tide”·“Industrial Cinematic”·“Crypto”·“Twisting”·“Impending Boom” — Kevin MacLeod(incompetech.com) / CC BY 4.0
+원화는 1달러 1,333.78원(11/13)으로 한 우리 계산입니다. 세금 예시는 수수료·환율 차이를 뺀 단순 계산이고, 실제 세금은 합병 구조가 공시돼야 정해집니다. ‘2.8주’ 나눗셈과 웃돈 계산은 우리 계산이며 회사 발표가 아닙니다.
+
+[알림]
+- 이 영상은 투자 권유가 아닙니다. 특정 종목을 사거나 팔라는 뜻이 없습니다. 세금은 각자 상황에 따라 다르니 세무 전문가와 확인하세요.
+- 월가의 진실은 유료 종목 추천·리딩방을 운영하지 않습니다. 사칭에 주의하세요.
+- 내레이션은 AI 음성입니다.
+
+#미국주식 #테슬라 #서학개미 #팩트체크

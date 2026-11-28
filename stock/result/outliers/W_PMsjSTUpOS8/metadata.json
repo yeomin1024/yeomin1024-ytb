@@ -1,0 +1,97 @@
+{
+ "id": "PMsjSTUpOS8",
+ "title": "“SOXL 물타도 탈출 못 한다”…7,800억 원 더 산 서학개미, 계산해 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 226807,
+ "ratio": 62.14,
+ "age_days": 13,
+ "views_per_day": 16759.5,
+ "minutes": 10.2,
+ "likes": 845,
+ "comments": 520,
+ "published": "2026-11-14",
+ "queries": "검색:서학개미 | 검색:SOXL",
+ "url": "https://www.youtube.com/watch?v=PMsjSTUpOS8",
+ "flag": "",
+ "published_at": "2026-11-14T21:00:04Z",
+ "rank": "W19",
+ "set": "web",
+ "folder": "W_PMsjSTUpOS8",
+ "sources": [
+  "검색:서학개미",
+  "검색:SOXL"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "SOXL",
+  "속슬",
+  "반도체 3배",
+  "레버리지 ETF",
+  "물타기",
+  "분할매수",
+  "음의 복리"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“SOXL 물타도 탈출 못 한다”는 말"
+  },
+  {
+   "start": 62,
+   "title": "퍼진 말 다섯 가지"
+  },
+  {
+   "start": 88,
+   "title": "① 폭락 뒤 8천억 원 더 샀다"
+  },
+  {
+   "start": 170,
+   "title": "② 2022년에도 있었던 일"
+  },
+  {
+   "start": 239,
+   "title": "③ SOXL은 원금이 녹는다"
+  },
+  {
+   "start": 336,
+   "title": "중간 정리"
+  },
+  {
+   "start": 347,
+   "title": "④ 아무리 물타도 탈출 못 한다"
+  },
+  {
+   "start": 464,
+   "title": "⑤ 반등해도 본전은 어렵다"
+  },
+  {
+   "start": 530,
+   "title": "판정표"
+  },
+  {
+   "start": 567,
+   "title": "직접 계산하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 520,
+ "comments_top_level": 197,
+ "comments_replies": 323,
+ "comments_by_creator": 228,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 520,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:05",
+ "approved": "2026-11-28T18:57+09:00"
+}

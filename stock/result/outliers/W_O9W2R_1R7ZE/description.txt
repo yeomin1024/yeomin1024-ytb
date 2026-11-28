@@ -1,0 +1,42 @@
+“아이온큐 CFO가 도망갔다”… 아이온큐 재무 책임자가 갑자기 물러났다는 공시 뒤 이런 말이 돌았고, 주가는 닷새 만에 25% 빠졌습니다. 서학개미가 들고 있는 아이온큐는 3.9조 원(11/12 보관 29.5억 달러)이 넘습니다. 퍼진 말 다섯 가지를 미국 증권거래위원회 공시(8-K·10-Q·투자설명서 보충), 회사 보도자료, 나스닥 공식 시세, 한국예탁결제원 집계로 확인했습니다. 시세는 11월 16일 뉴욕 종가 기준입니다.
+
+[판정 요약]
+“아이온큐 CFO 도망갔다” — 과장 (인더 싱 CFO·COO는 11/10까지 재임하고 즉시 물러남. 후임 게리 메릴의 입사 제안서는 이틀 앞선 11/8에 맺어졌고, 12/3 합류 전까지 데 마시 회장 겸 CEO가 임시로 재무 책임. 회사는 감사 인사를 냈고 '도망'을 뒷받침할 문서는 없음)
+“공시에 없는 한 문장, 회계 문제다” — 확인 안 됨 (3분기 보고서(11/5)에 9/30 기준 공시 통제가 효과적이지 않았다고 적힘. 까닭은 7월 인수한 스카이워터가 갖고 있던 중대한 약점 둘이며, 이미 낸 재무제표가 크게 틀어지지는 않았다고 적힘. 퇴임과 잇는 문서는 없음. 8-K 서식 5.02(b)는 CFO가 물러난 사실과 날짜만 적게 함)
+“새 CFO에 4,000만 달러” — 대체로 사실 (주식 보상 목표치 700만 + 성과 주식 1,800만(0~200%) + 전 직장 몫을 메워 주는 1,500만 = 4,000만 달러. 성과에 따라 2,200만~5,800만 달러. 연봉 52.5만 달러)
+“3,458만 주 쏟아진다” — 과장 (엘리시티 인수 대가 34,580,646주를 다시 팔 수 있게 등록. 회사가 받는 돈 없음, 언제·얼마나 팔지 모름. 발행 주식 462,881,896주의 7.47%)
+“아이온큐 닷새 −25%” — 사실 (11/9 종가 35.34달러 → 11/16 26.48달러 −25.07%. 2배 상품 IONX −45.52%. 가장 크게 빠진 11/12(−9.40%)는 공시 하루 전, 같은 날 리게티 −7.02%·디웨이브 −7.61%)
+
+[챕터]
+0:00 “아이온큐 CFO 도망갔다”는 말
+0:54 퍼진 말 다섯 가지
+1:11 ① 아이온큐 CFO 도망갔다
+3:14 ② 공시에 없는 한 문장, 회계 문제다
+4:33 ③ 새 CFO에 4,000만 달러
+5:42 중간 정리
+5:53 ④ 3,458만 주 쏟아진다
+7:11 ⑤ 아이온큐 닷새 −25%
+9:04 판정표
+10:03 직접 확인하는 법
+
+[출처]
+원문 · 아이온큐 8-K(2026.11.13)·보도자료 https://www.sec.gov/Archives/edgar/data/1824920/000119312526461016/ionq-20261110.htm
+원문 · 아이온큐 투자설명서 보충 424B7(2026.11.13) https://www.sec.gov/Archives/edgar/data/1824920/000119312526461012/ionq-20261113.htm
+원문 · 아이온큐 3분기 보고서 10-Q(2026.11.5) https://www.sec.gov/Archives/edgar/data/1824920/000119312526449829/ionq-20260930.htm
+원문 · 아이온큐 8-K(2025.9.4) · SEC 8-K 서식 https://www.sec.gov/files/form8-k.pdf
+시세 · 나스닥 과거 시세(IONQ·IONX·RGTI·QBTS) https://www.nasdaq.com/market-activity/stocks/ionq/historical
+서학개미 · 한국예탁결제원 집계 정리(economybloc) https://economybloc.com/article/123483/ · 환율 11.16
+퍼진 말 · 나스닥 패밀리·가을바람 투자노트·한입주식·미국알림장·월스트리트 딥인사이트 등 유튜브 영상 제목(조회수는 11.17 기준)
+X 글 · @InvestorDenis / X · 11.15, 개인 투자자 글 1건(이름 가림) / X · 11.13
+인용 영상 · 아이온큐 3분기 실적 통화(2026.11.5) 클립 — @TechInnovationz / X · 11.6·11.8·11.9
+사진 · Wikimedia Commons — OJB Quantum(CC BY 4.0), Ragsxl(CC BY-SA 4.0), Steve Jurvetson from Menlo Park, USA(CC BY 2.0), National Institute of Standards and Technology(퍼블릭 도메인), Kidfly182(CC BY 4.0), Epicgenius(CC BY-SA 4.0), Kullatan Kin(CC0), Blacktupelo(CC BY-SA 4.0), Anthony Quintano from Mount Laurel, United States(CC BY 2.0), International Gemini Observatory/NOIRLab/NSF/AURA/Manuel Paredes(CC BY 4.0), Aude(CC BY 4.0), Stéphane Magnenat(CC BY-SA 4.0), Eden, Janine and Jim from New York City(CC BY 2.0), U.S. Dept. of Housing and Urban Development (HUD)(퍼블릭 도메인)
+음악 · “Constance”·“Rising Tide”·“Industrial Cinematic”·“Crypto”·“Twisting”·“Impending Boom” — Kevin MacLeod(incompetech.com) / CC BY 4.0
+‘회계를 더 단단히 챙기겠다는 뜻’은 시장의 해석입니다. 등락·비율·원화 금액은 나스닥 공식 시세와 환율로 우리가 계산했습니다.
+썸네일 · 아이온큐 본사 사진(Blacktupelo / 위키미디어 공용, CC BY-SA 4.0)을 어둡게 하고 아이온큐 종가 선과 글씨를 합성했습니다.
+
+[알림]
+- 이 영상은 투자 권유가 아닙니다. 특정 종목을 사거나 팔라는 뜻이 없습니다.
+- 월가의 진실은 유료 종목 추천·리딩방을 운영하지 않습니다. 사칭에 주의하세요.
+- 내레이션은 AI 음성입니다.
+
+#미국주식 #아이온큐 #IONQ #서학개미 #팩트체크

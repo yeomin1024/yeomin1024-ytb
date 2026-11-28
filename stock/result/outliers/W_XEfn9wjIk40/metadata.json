@@ -1,0 +1,95 @@
+{
+ "id": "XEfn9wjIk40",
+ "title": "SOXL−40% 하루 만에 2조 5천억 달러 증발 | AI 반도체 왜 하루 늦게 터졌을까 | 월가는 '쇼핑 리스트'를 꺼냈다",
+ "channel": "뉴욕대디 다니엘",
+ "channel_id": "UC81Nr5G_JhSn0-5R5WUXwjA",
+ "subs": 15400,
+ "views": 129895,
+ "ratio": 8.43,
+ "age_days": 22,
+ "views_per_day": 5884.4,
+ "minutes": 16.9,
+ "likes": 959,
+ "comments": 78,
+ "published": "2026-11-06",
+ "queries": "검색:SOXL",
+ "url": "https://www.youtube.com/watch?v=XEfn9wjIk40",
+ "flag": "",
+ "published_at": "2026-11-06T08:00:27Z",
+ "rank": "W16",
+ "set": "web",
+ "folder": "W_XEfn9wjIk40",
+ "sources": [
+  "검색:SOXL"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "오프닝: 2조 5천억 달러가 사라진 날"
+  },
+  {
+   "start": 81,
+   "title": "현장: 11월 5일의 숫자"
+  },
+  {
+   "start": 150,
+   "title": "첫 번째 단서: 정치"
+  },
+  {
+   "start": 268,
+   "title": "두 번째 단서: 회사들 스스로"
+  },
+  {
+   "start": 379,
+   "title": "세 번째 단서: 헤지펀드"
+  },
+  {
+   "start": 448,
+   "title": "네 번째 단서: 기계"
+  },
+  {
+   "start": 509,
+   "title": "그래서, 누가 설계했나"
+  },
+  {
+   "start": 575,
+   "title": "3배 레버리지의 함정"
+  },
+  {
+   "start": 634,
+   "title": "역사: 이런 날 뒤에 무슨 일이"
+  },
+  {
+   "start": 762,
+   "title": "누가 버티나"
+  },
+  {
+   "start": 907,
+   "title": "반대편 목소리"
+  },
+  {
+   "start": 942,
+   "title": "정리"
+  },
+  {
+   "start": 983,
+   "title": "마무리"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 78,
+ "comments_top_level": 54,
+ "comments_replies": 24,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 78,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:01",
+ "approved": "2026-11-28T18:57+09:00"
+}

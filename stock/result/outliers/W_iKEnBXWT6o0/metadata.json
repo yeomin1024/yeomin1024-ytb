@@ -1,0 +1,89 @@
+{
+ "id": "iKEnBXWT6o0",
+ "title": "\"매월 배당금 300만 원 준다?\" 커버드콜 ETF를 사면 안 되는 사람 유형",
+ "channel": "투자360",
+ "channel_id": "UCEJIw_FUvkxK7ZoiejSj7HA",
+ "subs": 16800,
+ "views": 139207,
+ "ratio": 8.29,
+ "age_days": 58,
+ "views_per_day": 2396.2,
+ "minutes": 16.4,
+ "likes": 549,
+ "comments": 77,
+ "published": "2026-10-01",
+ "queries": "검색:커버드콜ETF",
+ "url": "https://www.youtube.com/watch?v=iKEnBXWT6o0",
+ "flag": "",
+ "published_at": "2026-10-01T07:30:11Z",
+ "rank": "W25",
+ "set": "web",
+ "folder": "W_iKEnBXWT6o0",
+ "sources": [
+  "검색:커버드콜ETF"
+ ],
+ "source": "web",
+ "tags": [
+  "yt:cc=on"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "영상 하이라이트"
+  },
+  {
+   "start": 54,
+   "title": "커버드콜 ETF, 왜 이렇게 인기일까?"
+  },
+  {
+   "start": 104,
+   "title": "커버드콜의 분배금은 어디서 나올까?"
+  },
+  {
+   "start": 287,
+   "title": "분배금을 받으면 정말 원금이 깎일까?"
+  },
+  {
+   "start": 361,
+   "title": "대세 상승장에서 커버드콜의 한계는?"
+  },
+  {
+   "start": 440,
+   "title": "하락장에서도 원금을 지켜줄 수 있을까?"
+  },
+  {
+   "start": 503,
+   "title": "어떤 시장에서 커버드콜이 유리할까?"
+  },
+  {
+   "start": 564,
+   "title": "국내 주식형 커버드콜 ETF가 인기 있는 이유는?"
+  },
+  {
+   "start": 651,
+   "title": "최근 커버드콜 상품은 어떻게 진화하고 있을까?"
+  },
+  {
+   "start": 751,
+   "title": "2030 사회초년생도 커버드콜에 투자해야 할까?"
+  },
+  {
+   "start": 844,
+   "title": "커버드콜 ETF는 어떤 사람에게 적합할까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 77,
+ "comments_top_level": 53,
+ "comments_replies": 24,
+ "comments_by_creator": 1,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 77,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:30",
+ "approved": "2026-11-28T18:57+09:00"
+}

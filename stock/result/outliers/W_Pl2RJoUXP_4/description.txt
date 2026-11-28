@@ -1,0 +1,40 @@
+“SOXL 간 서학개미 오늘 다 털렸다, 대부분 −70~90%.” 11월 20일(현지) SOXL이 하루 −31.74%로 30.92달러까지 빠지자 이런 글이 돌았습니다. 서학개미는 이 상품을 6.2조 원어치(11/18 보관) 들고 있습니다. 퍼진 말 다섯 가지를 나스닥 공식 시세(산 날별 손익은 직접 계산), 한국예탁결제원 집계, 연준 금융안정보고서, 디렉시온 투자설명서(SEC 497K)로 확인했습니다. 시세는 11월 20일 뉴욕 종가 기준입니다.
+
+[판정 요약]
+“SOXL 고점 대비 −90%” — 사실 (6/22 최고 종가 300.77달러 → 11/20 30.92달러, −89.72%. 2016년 이후 2022년 −90.51% 다음으로 깊은 하락)
+“SOXL 서학개미 다 털렸다(대부분 −70~90%)” — 과장 (그날 종가에 샀다면 6/22 −89.72% · 10/1 −79.88% · 10/20 −68.30% · 11/13 −46.98% · 11/5 −24.35%. 한 달 동안 날마다 같은 돈이면 −55.43%. 보관 46.2억 달러를 11/20 종가로 다시 매기면 29.0억 달러, 이틀 새 약 2.3조 원 −37%)
+“SOXL 3분의 1이 한국인” — 대체로 사실 (11/16 57.8억 달러, 약 3분의 1 — 24/7·벤징가. 11/18 보관 46.2억 ÷ 운용 자산 131.8억 달러 = 35%, 날짜가 조금 다름)
+“미 연준, 한국인 SOXL 과매수 경고” — 거짓 (연준 금융안정보고서 2026.11.13 본문에 Korea·SOXL 0번. 레버리지·인버스 상장상품 전체 순자산 1,700억 달러 초과, 매일 리밸런싱이 하락을 키울 수 있다는 두 문장)
+“SOXL 하루 만에 0원” — 대체로 사실 (투자설명서에 '지수가 하루 33% 넘게 빠지면 하루 만에 원금 전부를 잃을 수 있다'. 반도체 지수 역대 최악의 하루는 2020/3/16 −15.90%, 11/20 −10.73%)
+
+[챕터]
+0:00 “SOXL 개미 다 털렸다”는 말
+1:29 퍼진 말 다섯 가지
+1:50 ① SOXL 고점 대비 −90%
+2:40 ② SOXL 서학개미 다 털렸다
+4:57 ③ SOXL 3분의 1이 한국인
+5:43 중간 정리
+5:54 ④ 미 연준, 한국인 SOXL 과매수 경고
+7:48 ⑤ SOXL 하루 만에 0원
+9:24 판정표
+9:50 내 SOXL 손익 재는 법
+
+[출처]
+원문 · 디렉시온 SOXL 요약 투자설명서 497K(2026.2.27) https://www.sec.gov/Archives/edgar/data/1424958/000119312526078540/d50601d497k.htm
+원문 · 연준 금융안정보고서 2026년 11월(2026.11.13) https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf
+시세 · 나스닥 과거 시세(SOXL·필라델피아 반도체 지수 SOX) https://www.nasdaq.com/market-activity/etf/soxl/historical · 손익·비율은 우리 계산
+서학개미 · 한국예탁결제원 집계(결제 11.19·보관 11.18)를 옮긴 이코노미블록 표 https://economybloc.com/article/123483/ · 환율 11.20 1,339원(유럽중앙은행 기준)
+기사 · 24/7 월스트리트(2026.11.20) https://247wallst.com/investing/2026/11/20/soxl-crashes-32-in-its-third-worst-day-ever-and-is-down-90-from-its-june-record-the-chip-index-it-tracks-is-down-43/
+퍼진 말 · X 게시글(11.21, 이름 가림)·유튜브 SOXL 연구소·코인붐·판보는형 영상 제목·에펨코리아 게시글(조회수는 11.21 아침 기준)
+인용 영상 · 키스 매컬로 @Hedgeye / X · 11.6, 랜스 로버츠 @LanceRoberts / X · 11.21
+사진 · Wikimedia Commons — Superbass(CC BY-SA 4.0), Fixedsun(CC0), T Gordon Cheng(CC BY-SA 4.0), Willem van Valkenburg(CC BY 2.0), Syced(CC0), King of Hearts(CC BY-SA 4.0), Suicasmo(CC BY-SA 4.0), Kidfly182(CC BY 4.0), Infrogmation of New Orleans(CC BY-SA 4.0), Rhododendrites(CC BY-SA 4.0), CEphoto, Uwe Aranas(CC BY-SA 3.0)
+음악 · “Volatile Reaction”·“Industrial Cinematic”·“Rising Tide”·“Crypto”·“Twisting”·“Constance”·“Impending Boom” — Kevin MacLeod(incompetech.com) / CC BY 4.0
+투자설명서의 기초지수는 NYSE 반도체 지수이고, 우리 계산은 같은 업종의 필라델피아 반도체 지수로 했습니다. 산 날별 손익·보관 금액 다시 매기기·원화 금액은 나스닥 공식 시세와 환율로 우리가 계산했습니다(수수료·세금·환율 변화 빼고, 보관 기준일 뒤 사고판 것은 없다고 가정).
+썸네일 · 고층 건물 발파 철거 사진(Ebenap / 위키미디어 공용, CC0)에 글씨와 SOXL 종가 선을 합성했습니다.
+
+[알림]
+- 이 영상은 투자 권유가 아닙니다. 특정 종목을 사거나 팔라는 뜻이 없습니다.
+- 월가의 진실은 유료 종목 추천·리딩방을 운영하지 않습니다. 사칭에 주의하세요.
+- 내레이션은 AI 음성입니다.
+
+#미국주식 #SOXL #서학개미 #레버리지ETF #팩트체크

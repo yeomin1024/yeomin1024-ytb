@@ -1,0 +1,38 @@
+“SCHD가 월급 된다”, “7억이면 월 300만 원”, “5만 달러면 본업 소득을 넘는다”… 배당 투자하는 분들 사이에 도는 말입니다. 같은 지수를 따라가는 국내 상품 하나에 올해 개인 돈 1조 원이 넘게 들어온 SCHD(슈왑 미국 배당 ETF). 퍼진 말 네 가지를 운용사가 미국 증권거래위원회(SEC)에 낸 투자설명서와 실제 분배금 내역으로 직접 계산해 봤습니다.
+
+[판정 요약]
+“SCHD 5만 달러면 본업 소득 넘는다” — 과장 (지금 넣으면 세후 한 달 약 14만 원. 분배금만 재투자해 최저임금 월급에 닿으려면 분배금이 해마다 11%씩 늘어도 약 21년)
+“SCHD 7억이면 월급 300만 원” — 거짓 (지금은 세후 한 달 약 145만 원. 지금 바로 300만 원이 나오려면 약 14억 5천만 원. 세전 분배금 약 2,051만 원은 금융소득 종합과세 기준을 넘음)
+“SCHD 배당은 해마다 10% 넘게 큰다” — 과장 (2017→2025 연평균 +11.2%는 맞지만 2023년 +3.8%, 2025년 +5.2%, 최근 1년 +2.0%, 2026년 2분기는 1년 전보다 −2.9%)
+“위기에 빠진 SCHD” — 거짓 (1년 총수익 +37.2%, 52주 최고가 11/4, 원화로도 약 +25%. 다만 5년·10년 총수익은 S&P 500보다 낮음)
+
+[챕터]
+0:00 “SCHD가 월급 된다”는 말
+0:52 퍼진 말 네 가지
+1:06 SCHD는 어떤 상품인가
+1:57 ① 5만 달러면 본업 소득 넘는다
+3:18 ② 7억이면 월급 300만 원
+5:16 ③ 배당은 해마다 10% 넘게 큰다
+6:49 중간 정리
+6:59 ④ 위기에 빠진 SCHD
+8:22 판정표
+9:11 한 달 분배금 직접 계산하는 법
+
+[출처]
+원문 · 찰스 슈왑 SCHD 요약 투자설명서(SEC 497K, 2026.2.27) https://www.sec.gov/Archives/edgar/data/1454889/000110465926020681/tm266454-15_497k.htm
+원문 · SCHD 분배금 내역·배당률(StockAnalysis, 11.13 기준) https://stockanalysis.com/etf/schd/dividend/ · 종가·분배금·환율은 야후 파이낸스 일봉(11.11~11.13)
+원문 · 국세청 금융소득 종합과세(이자·배당 연 2,000만 원 초과), 한미 조세협약 배당 원천징수 15%, 고용노동부 2026년 최저임금(시급 10,320원, 월 2,156,880원)
+기사 · MTN(2026.8.5, 미국배당다우존스 ETF 개인 순매수 1조 22억 원·순자산 4조 1,622억 원) https://news.mtn.co.kr/news-detail/2026080510422475963
+퍼진 말 · 유튜브 Jerry Romine Stocks(한국어 더빙)·경제기상도·수페TV·ttobaedang또배당·경제브리프 영상 제목, X @DevotedDividend(9.3·9.17)
+인용 영상 · @MarcosMillaYT(마커스 밀라, 은퇴 투자자 트레버 인터뷰) / X · 10.24, 자료 영상 @DevotedDividend / X · 9.17, @SCHDETF / X · 9.26
+X 글 · @DevotedDividend / X · 9.3, @USAnt_IDEA / X · 8.21, @bumjun2kim / X · 10.1
+사진 · Wikimedia Commons — Brit in Seoul(CC BY-SA 4.0), Carlos Delgado(CC BY-SA 3.0), kallerna(CC BY-SA 4.0), WiinterU(CC0), Shixart1985(CC BY 2.0), Warren LeMay(CC0), MatthewHoobin(CC0), Texas Instruments(CC BY 3.0), Claudio Elias(퍼블릭 도메인), LERK(CC BY-SA 4.0), 최광모(CC BY-SA 4.0), Maksym Kozlenko(CC BY-SA 4.0), Peter Bond(CC BY-SA 2.0), Garrett(CC BY 2.0), Harrison Keely(CC BY 4.0), Infrogmation(CC BY-SA 4.0), Coolcaesar(CC BY-SA 3.0), JJonahJackalope(CC BY-SA 4.0), Armin Kleiner(CC BY-SA 4.0), Brainulator9(퍼블릭 도메인), Arild Vågen(CC BY-SA 4.0), DarkNight0917(CC BY-SA 4.0), Tdorante10(CC BY-SA 4.0), King of Hearts(CC BY-SA 4.0), Takipoint123(CC BY-SA 4.0), Sangitiana Fararano(CC BY-SA 2.0)
+음악 · “Constance”·“Rising Tide”·“Industrial Cinematic”·“Crypto”·“Twisting”·“Impending Boom” — Kevin MacLeod(incompetech.com) / CC BY 4.0
+계산은 11/13 환율 1달러 1,332원, 최근 1년 분배금 1.054달러 ÷ 11/12 종가 35.93달러(배당률 2.93%), 미국 원천징수 15%로 한 우리 계산이며, 국내 세금·수수료·환율 변화는 넣지 않았습니다. ‘몇 년 걸린다’는 배당률이 그대로이고 분배금이 해마다 같은 비율로 는다고 가정한 어림입니다. 분배금 증가가 둔해진 이유는 운용사 설명이 아니라 시장의 해석입니다. 썸네일은 서울 야경 사진(Takipoint123, CC BY-SA 4.0)에 실제 SCHD 분기 분배금 막대와 글씨를 얹어 합성했습니다.
+
+[알림]
+- 이 영상은 투자 권유가 아닙니다. 특정 상품을 사거나 팔라는 뜻이 없습니다.
+- 월가의 진실은 유료 종목 추천·리딩방을 운영하지 않습니다. 사칭에 주의하세요.
+- 내레이션은 AI 음성입니다.
+
+#미국주식 #SCHD #배당 #팩트체크

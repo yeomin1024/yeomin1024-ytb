@@ -1,0 +1,96 @@
+{
+ "id": "G6Gx8B7YtX8",
+ "title": "“SCHD가 월급 된다”…배당률 2.9%, 직접 계산해 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 85263,
+ "ratio": 23.36,
+ "age_days": 15,
+ "views_per_day": 5570.0,
+ "minutes": 10.2,
+ "likes": 290,
+ "comments": 74,
+ "published": "2026-11-13",
+ "queries": "검색:미국배당다우존스",
+ "url": "https://www.youtube.com/watch?v=G6Gx8B7YtX8",
+ "flag": "",
+ "published_at": "2026-11-13T02:24:45Z",
+ "rank": "W22",
+ "set": "web",
+ "folder": "W_G6Gx8B7YtX8",
+ "sources": [
+  "검색:미국배당다우존스"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "SCHD",
+  "슈드",
+  "배당주",
+  "배당 ETF",
+  "미국배당다우존스",
+  "월배당",
+  "배당 은퇴"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“SCHD가 월급 된다”는 말"
+  },
+  {
+   "start": 52,
+   "title": "퍼진 말 네 가지"
+  },
+  {
+   "start": 66,
+   "title": "SCHD는 어떤 상품인가"
+  },
+  {
+   "start": 117,
+   "title": "① 5만 달러면 본업 소득 넘는다"
+  },
+  {
+   "start": 198,
+   "title": "② 7억이면 월급 300만 원"
+  },
+  {
+   "start": 316,
+   "title": "③ 배당은 해마다 10% 넘게 큰다"
+  },
+  {
+   "start": 409,
+   "title": "중간 정리"
+  },
+  {
+   "start": 419,
+   "title": "④ 위기에 빠진 SCHD"
+  },
+  {
+   "start": 502,
+   "title": "판정표"
+  },
+  {
+   "start": 551,
+   "title": "한 달 분배금 직접 계산하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 74,
+ "comments_top_level": 20,
+ "comments_replies": 54,
+ "comments_by_creator": 30,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 74,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:24",
+ "approved": "2026-11-28T18:57+09:00"
+}

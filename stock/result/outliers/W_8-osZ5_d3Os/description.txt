@@ -1,0 +1,40 @@
+11월 5일(현지 시각) 반도체 3배 ETF ‘SOXL(속슬)’이 하루에 38.7% 빠지자 “SOXL 곧 청산된다”, “33% 빠지면 청산”, “세력이 청산을 유도한다” 같은 말이 퍼졌습니다. 퍼진 말 다섯 가지를 운용사가 미국 증권거래위원회(SEC)에 낸 투자설명서, 나스닥 공식 시세, 한국예탁결제원 숫자, 운용사 보유 내역, 당사자의 실제 발언과 하나씩 맞대어 봤습니다.
+
+[판정 요약]
+“하루 40% 폭락” — 대체로 사실 (11/5 종가 40.87달러, 전날보다 −38.71%, 장중 최저 −39.1%)
+“5.8조 원 넣고 73% 폭락” — 사실 (10/1~11/5 순매수 42억 7,620만 달러 ≈ 5조 7,938억 원, 같은 기간 주가 −73.41%)
+“SOXL 33% 빠지면 청산” — 거짓 (투자설명서의 33%는 SOXL이 아니라 기준 지수의 하루 낙폭. SOXL은 −38.7% 뒤에도 거래 중)
+“SOXL 곧 청산된다” — 과장 (원금 전부를 잃을 위험은 설명서에 있음. 그러나 순자산 약 18조 원으로 운용 중이고 청산 공지 없음)
+“세력이 청산을 유도한다” — 확인 안 됨 (톰 리 본인도 누군지 모른다고 함. 장 마감 재조정은 설명서에 공개된 규칙)
+
+[챕터]
+0:00 “SOXL 곧 청산된다”는 말
+1:00 퍼진 말 다섯 가지
+1:17 ① 하루 40% 폭락
+2:22 ② 5.8조 원 넣고 73% 폭락
+3:55 ③ 33% 빠지면 청산
+5:48 중간 정리
+5:59 ④ SOXL 곧 청산된다
+7:50 ⑤ 세력이 청산을 유도한다
+9:16 판정표
+10:04 직접 확인하는 법
+
+[출처]
+원문 · 디렉시온 SOXL 요약 투자설명서(SEC 497K, 2026.2.27) https://www.sec.gov/Archives/edgar/data/1424958/000119312526078540/d50601d497k.htm
+원문 · 나스닥 공식 과거 데이터(SOXL·필라델피아 반도체지수 종가, 뉴욕 종가 기준) https://www.nasdaq.com/market-activity/etf/soxl/historical
+원문 · 디렉시온 SOXL 일별 보유 내역(11.6 자) https://www.direxion.com/holdings/SOXL.csv
+기사 · 서울경제(11.6, 한국예탁결제원 자료) https://www.sedaily.com/article/20111309 · 매일경제(11.7) https://www.mk.co.kr/news/stock/12201537
+퍼진 말 · 유튜브 영상 제목(Trader Steve 11.4, 개미토끼 11.6, 판교불패, 김훈의 미국투자 11.1~11.3, 올랜도 킴 미국주식), 매일경제·서울경제 기사 제목
+인용 영상 · @EinsteinoWallSt(피터 터크먼) / X · 11.6, @MilkRoadStocks(댄 아이브스) / X · 11.5, @mizkifglobal(미즈키프) / X · 11.5, @NavMarketBuzz(루이스 나벨리어) / X · 11.7, @EricBalchunas(블룸버그 ETF IQ, 샘 허슈코) / X · 9.16, @WOLF_Terminal(톰 리, CNBC 10.30) / X · 11.4
+인용 영상 · @Liathetrader / X · 11.2, @TGLetter / X · 11.6
+X 글 · @KZG6886 / X · 11.6, @KobeissiLetter / X · 11.7, 한국어 글 2건(이름 가림) / X · 11.6
+사진 · Wikimedia Commons — S h y numis(CC BY 4.0), USAGI_POST(CC0), Arild Vågen(CC BY-SA 4.0), Alex Proimos(CC BY 2.0), Brian Wong(CC BY-SA 2.0), 曾 成訓(CC BY 2.0, 2장), U.S. Department of Energy(퍼블릭 도메인), Thingreenline4546(CC BY-SA 4.0), Bryan Dorrough(CC BY 2.0), hyolee2(CC BY-SA 3.0), Ken Lund(CC BY-SA 2.0), Intel in Deutschland(CC BY-SA 2.0), Jakub Hałun(CC BY 4.0), Rob Bulmahn(CC BY 2.0), Coolcaesar(CC BY-SA 4.0, 3장), Tony Webster(CC BY 2.0), Hunter Trick(CC BY-SA 4.0), Olaf2(CC BY-SA 4.0), Peellden(CC BY-SA 3.0), Francisco Gonzalez(CC BY 2.0)
+음악 · “Constance”·“Rising Tide”·“Crypto”·“Industrial Cinematic”·“Twisting”·“Impending Boom” — Kevin MacLeod(incompetech.com) / CC BY 4.0
+환율 2026.11.6 원·달러 1,356.6원 기준. 반도체 급락 원인과 ‘재조정이 하락을 키운다’는 말은 회사가 밝힌 이유가 아니라 시장의 분석입니다. 썸네일은 웨이퍼 사진(Rob Bulmahn, CC BY 2.0)에 SOXL 종가 선을 얹어 합성했습니다.
+
+[알림]
+- 이 영상은 투자 권유가 아닙니다. 특정 상품을 사거나 팔라는 뜻이 없습니다.
+- 월가의 진실은 유료 종목 추천·리딩방을 운영하지 않습니다. 사칭에 주의하세요.
+- 내레이션은 AI 음성입니다.
+
+#미국주식 #SOXL #팩트체크

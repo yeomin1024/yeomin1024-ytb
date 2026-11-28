@@ -1,0 +1,113 @@
+{
+ "id": "60zQzH422bk",
+ "title": "S&P500, 나스닥100 이렇게 샀다간 세금+건보료 폭탄 맞습니다 | 여운봉 교수 | 연금받는형",
+ "channel": "연금 받는 형",
+ "channel_id": "UCT_-hLYlO4rlbvccX1eMD_w",
+ "subs": 25700,
+ "views": 543059,
+ "ratio": 21.13,
+ "age_days": 17,
+ "views_per_day": 30254.6,
+ "minutes": 28.9,
+ "likes": 2947,
+ "comments": 173,
+ "published": "2026-11-10",
+ "queries": "검색:나스닥100 | 검색:커버드콜ETF | 검색(전체 기간):나스닥100",
+ "url": "https://www.youtube.com/watch?v=60zQzH422bk",
+ "flag": "",
+ "published_at": "2026-11-10T11:00:09Z",
+ "rank": "W13",
+ "set": "web",
+ "folder": "W_60zQzH422bk",
+ "sources": [
+  "검색:나스닥100",
+  "검색:커버드콜ETF",
+  "검색(전체 기간):나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "여운봉",
+  "여운봉 교수",
+  "ISA",
+  "ISA 계좌",
+  "연금저축",
+  "연금저축펀드",
+  "irp",
+  "isa 연금저축 irp 순서",
+  "절세 계좌",
+  "연금저축 세액공제",
+  "과세이연",
+  "금융소득종합과세",
+  "은퇴 후 건강보험료",
+  "etf 투자",
+  "etf 리밸런싱",
+  "s&p500 etf",
+  "나스닥100 etf",
+  "배당 etf",
+  "커버드콜 etf",
+  "50대 노후 준비",
+  "은퇴 준비",
+  "국민연금",
+  "연금받는형"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "하이라이트"
+  },
+  {
+   "start": 50,
+   "title": "ISA·연금저축·IRP, 순서를 잘못 잡으면 뭘 놓칠까?"
+  },
+  {
+   "start": 104,
+   "title": "세액공제를 못 받아도 연금저축을 할 이유가 있을까?"
+  },
+  {
+   "start": 351,
+   "title": "은퇴자가 월 125만 원과 연 2,000만 원을 기억해야 하는 이유는?"
+  },
+  {
+   "start": 695,
+   "title": "은퇴 후 피해야 할 가장 위험한 투자법은?"
+  },
+  {
+   "start": 887,
+   "title": "시장이 출렁여도 배당 중심 전략은 여전히 통할까?"
+  },
+  {
+   "start": 1035,
+   "title": "급락장에서 커버드콜 ETF는 얼마나 방어해 줄까?"
+  },
+  {
+   "start": 1076,
+   "title": "오늘 당장 실천할 수 있는 한 가지는?"
+  },
+  {
+   "start": 1148,
+   "title": "ISA에 돈만 넣어뒀다면, 그다음엔 뭘 해야 할까?"
+  },
+  {
+   "start": 1362,
+   "title": "ETF만 열 개 넘게 샀다면, 어디서부터 정리할까?"
+  },
+  {
+   "start": 1445,
+   "title": "50대에 노후 준비를 시작한다면, 뭐부터 해야 할까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 173,
+ "comments_top_level": 98,
+ "comments_replies": 75,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 173,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:56:56",
+ "approved": "2026-11-28T18:56+09:00"
+}

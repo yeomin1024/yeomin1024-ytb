@@ -1,0 +1,71 @@
+{
+ "id": "pZDTJKVDdxQ",
+ "title": "SOXL -90% 극한의 공포 1조달러 배팅을 꺼냈다 | 반도체 의도된 폭락? 개인은 팔았고 월가는 받았다",
+ "channel": "뉴욕대디 다니엘",
+ "channel_id": "UC81Nr5G_JhSn0-5R5WUXwjA",
+ "subs": 15400,
+ "views": 336781,
+ "ratio": 21.87,
+ "age_days": 6,
+ "views_per_day": 48173.1,
+ "minutes": 21.2,
+ "likes": 3629,
+ "comments": 510,
+ "published": "2026-11-21",
+ "queries": "검색:SOXL",
+ "url": "https://www.youtube.com/watch?v=pZDTJKVDdxQ",
+ "flag": "",
+ "published_at": "2026-11-21T10:00:35Z",
+ "rank": "W12",
+ "set": "web",
+ "folder": "W_pZDTJKVDdxQ",
+ "sources": [
+  "검색:SOXL"
+ ],
+ "source": "web",
+ "tags": null,
+ "chapters": [
+  {
+   "start": 0,
+   "title": "훅·오프닝 — 블룸버그 마감 \"반도체 −11%, 고점 대비 −47%\", SOXL −90%"
+  },
+  {
+   "start": 90,
+   "title": "1장. 어제 하루 — 나스닥 주간 −10%, 엔비디아 −23%, 서학개미 21억 달러"
+  },
+  {
+   "start": 233,
+   "title": "2장. 왜 이렇게 심각한가 — SEC 회계 조사·젠슨 공백·구글-브로드컴·금리·CDS"
+  },
+  {
+   "start": 463,
+   "title": "3장. 거품인가, 재평가인가 — PER 70배 vs 21배, 존 그레이, 캐머런 도슨"
+  },
+  {
+   "start": 731,
+   "title": "4장. 전설은 지금 뭘 하나 — 드러켄밀러 vs 손정의, 2020년 3월의 반전, VIX 백워데이션"
+  },
+  {
+   "start": 1012,
+   "title": "5장. 숏은 결국 털린다 — 체크리스트, 한국 월요일"
+  },
+  {
+   "start": 1236,
+   "title": "정리. 지켜야 할 선"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 510,
+ "comments_top_level": 357,
+ "comments_replies": 153,
+ "comments_by_creator": 0,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 510,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:56:53",
+ "approved": "2026-11-28T18:56+09:00"
+}

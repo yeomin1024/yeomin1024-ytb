@@ -1,0 +1,100 @@
+{
+ "id": "UKfr8rnbBOk",
+ "title": "“테슬라 12월 합병, 세금 폭탄”…33조 원 걸린 서학개미, 원문 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 104318,
+ "ratio": 28.58,
+ "age_days": 14,
+ "views_per_day": 7352.3,
+ "minutes": 10.2,
+ "likes": 384,
+ "comments": 138,
+ "published": "2026-11-14",
+ "queries": "검색:서학개미",
+ "url": "https://www.youtube.com/watch?v=UKfr8rnbBOk",
+ "flag": "",
+ "published_at": "2026-11-14T05:16:07Z",
+ "rank": "W21",
+ "set": "web",
+ "folder": "W_UKfr8rnbBOk",
+ "sources": [
+  "검색:서학개미"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "테슬라",
+  "TSLA",
+  "스페이스X",
+  "테슬라 합병",
+  "테슬라 스페이스X 합병",
+  "해외주식 양도세",
+  "과세이연"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“테슬라 12월 합병, 세금 폭탄”이라는 말"
+  },
+  {
+   "start": 48,
+   "title": "퍼진 말 다섯 가지"
+  },
+  {
+   "start": 68,
+   "title": "블룸버그 보도로 시작된 12월설"
+  },
+  {
+   "start": 101,
+   "title": "① 테슬라 12월에 합병한다"
+  },
+  {
+   "start": 194,
+   "title": "② 발표되면 바로 세금 폭탄"
+  },
+  {
+   "start": 300,
+   "title": "③ 서학개미만 세금 낸다"
+  },
+  {
+   "start": 384,
+   "title": "중간 정리"
+  },
+  {
+   "start": 393,
+   "title": "④ 지금 팔면 세금 피한다"
+  },
+  {
+   "start": 470,
+   "title": "⑤ 테슬라 1주 = 스페이스X 2.8주"
+  },
+  {
+   "start": 548,
+   "title": "판정표"
+  },
+  {
+   "start": 565,
+   "title": "직접 확인하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 138,
+ "comments_top_level": 47,
+ "comments_replies": 91,
+ "comments_by_creator": 61,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 138,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:23",
+ "approved": "2026-11-28T18:57+09:00"
+}

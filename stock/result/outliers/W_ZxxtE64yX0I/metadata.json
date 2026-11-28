@@ -1,0 +1,96 @@
+{
+ "id": "ZxxtE64yX0I",
+ "title": "“SOXL 4년 묶인다”…5.6조 원 든 서학개미, 계산해 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 83407,
+ "ratio": 22.85,
+ "age_days": 8,
+ "views_per_day": 9892.4,
+ "minutes": 10.6,
+ "likes": 432,
+ "comments": 308,
+ "published": "2026-11-19",
+ "queries": "검색:서학개미 | 검색:SOXL",
+ "url": "https://www.youtube.com/watch?v=ZxxtE64yX0I",
+ "flag": "",
+ "published_at": "2026-11-19T23:26:21Z",
+ "rank": "W11",
+ "set": "web",
+ "folder": "W_ZxxtE64yX0I",
+ "sources": [
+  "검색:서학개미",
+  "검색:SOXL"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "SOXL",
+  "속슬",
+  "반도체",
+  "레버리지 ETF",
+  "반도체 3배",
+  "필라델피아 반도체지수"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“SOXL 4년 묶인다”는 말"
+  },
+  {
+   "start": 114,
+   "title": "퍼진 말 다섯 가지"
+  },
+  {
+   "start": 134,
+   "title": "① SOXL 고점 대비 −84%"
+  },
+  {
+   "start": 168,
+   "title": "② 한국인이 한 달 7조 부었다"
+  },
+  {
+   "start": 209,
+   "title": "③ 반도체 돌아와도 −39%"
+  },
+  {
+   "start": 356,
+   "title": "중간 정리"
+  },
+  {
+   "start": 365,
+   "title": "④ 지수 2년, SOXL 4년"
+  },
+  {
+   "start": 419,
+   "title": "⑤ SOXL 4년 묶인다"
+  },
+  {
+   "start": 553,
+   "title": "판정표"
+  },
+  {
+   "start": 585,
+   "title": "지수 본전 날 내 SOXL 값 재는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "RequestBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=ZxxtE64yX0I! This is most likely caused b",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 308,
+ "comments_top_level": 108,
+ "comments_replies": 200,
+ "comments_by_creator": 134,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 308,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:56:50",
+ "approved": "2026-11-28T18:56+09:00"
+}

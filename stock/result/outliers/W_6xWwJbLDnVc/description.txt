@@ -1,0 +1,74 @@
+#환율 #원달러환율 #환율전망 #달러예금 #서학개미
+
+두 달 반 만에 1,562원에서 1,392원까지, 178원이 내려왔습니다. 그런데 왜 아무도 웃지 않을까요. 환율이 내려간 진짜 이유와, 지금 여러분이 은행 앱에서 확인해야 할 네 가지를 정리했습니다.
+
+📌 이 영상에서 다루는 내용
+· 사상 최고점은 1,600원이 아니라 1,562.47원이었습니다. 기억이 부풀려진 이유
+· 미국이 금리를 내린 게 아닙니다. 미 정책금리는 3.50~3.75% 그대로, 오히려 한국은행이 7월 16일에 2.50%→2.75%로 올렸습니다
+· 6월 경상수지 497.3억 달러 사상 최대인데 시장엔 달러가 없었던 이유 — 수문이 닫혀 있었습니다
+· 6월 말 거주자 달러예금 978억 달러로 역대 최대. 1,540원에 바꿨다면 1,000만 원당 약 100만 원이 사라진 셈입니다
+· "환차손은 세금과 별개"라는 설명은 사실이 아닙니다. 해외주식 양도세는 환율까지 원화로 환산해 계산합니다
+· 환율이 높을 때 이익이 늘어난 수출기업은 단기 61.8%지만, 장기로는 19.9%뿐이었습니다. 문제는 방향이 아니었습니다
+· 오늘 확인할 네 가지 — 평균 매입 환율 / 나눠서 옮기기 / ETF의 H·UH 확인 / 해외주식 손익통산
+· 2007년 902원이던 환율이 2009년 1,574원이 됐습니다. 6년 연속 내려가던 흐름이 한 해 만에 되돌아간 기록
+· 연말 전망은 1,200원대에서 1,500원대까지 갈립니다. 8월 27일 금통위, 9월 16일 FOMC가 가까운 변곡점입니다
+
+🔗 출처 리스트
+파이낸셜투데이 — 10개월 반 만에 1400원 깨졌다…원·달러 환율 1300원대 진입
+ https://www.ftoday.co.kr/news/articleView.html?idxno=363828
+머니투데이 — 1400원 무너지자 달러 매도 가속…환율, 11개월 만에 최저
+ https://www.mt.co.kr/economy/2026/08/20/2026082016032830389
+나무위키 — 2025-2026년 원화 고환율 사태
+ https://namu.wiki/w/2025-2026년%20원화%20고환율%20사태
+딜로이트 코리아 — 7월 FOMC '매파적 동결'과 정책 불확실성
+ https://www.deloitte.com/kr/ko/our-thinking/global-economic-review/ger-2026-07-5th.html
+디지털애셋 — 9월 연준 금리동결 확률 60%
+ https://www.digitalasset.works/news/articleView.html?idxno=42432
+시사뉴스 — 한국은행 기준금리 연 2.75%로↑…추가 인상 예고
+ https://www.sisa-news.com/news/article.html?no=273112
+시사저널 — 반도체 수출 호조에 날개 단 경상수지…497.3억 달러 역대 최대
+ https://www.sisajournal.com/news/articleView.html?idxno=382551
+파이낸스투데이 — 환율 안정·국장 폭락에… 서학개미 미국 증시 유턴 가속화
+ https://www.fntoday.co.kr/news/articleView.html?idxno=390084
+파이낸셜뉴스 — 환율 1555원 터치 후 1535원 마감…구두개입에 급등세 꺾여
+ https://www.fnnews.com/news/202606081559409122
+디지털타임스 — 6월 외화예금 10.8억달러 증가…기업 달러예금 또 '역대 최대'
+ https://www.dt.co.kr/article/12074954
+파이낸셜뉴스 — 서학개미 부활하나…美 주식 보관액 300조 돌파
+ https://www.fnnews.com/news/202605171103364441
+국세청 질의회신 — 국제세원-229 (해외주식 양도차익의 원화 환산)
+ https://casenote.kr/국세청/국제세원-229-2f375e
+토스뱅크 — 해외주식 양도소득세, 신고 기한부터 납부 방법까지 알아봐요
+ https://www.tossbank.com/articles/overseas-capital-gains-tax
+KPI뉴스 — 환율 하락세, 삼전·닉스 실적·주가 발목잡나
+ https://www.kpinews.kr/newsView/1065598167945050
+한국경제 — 8월 첫 코스피 매도 사이드카…외국인 1.7조 팔자에 개인 방어 역부족
+ https://www.hankyung.com/article/202608068183i
+KDI 경제교육·정보센터 — 환율 변동이 수출기업 수익성에 미치는 영향
+ https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000203557
+아주경제 — 환율·유가 하락에 7월 수입물가 1%↓…교역조건 큰 폭 개선
+ https://www.ajunews.com/view/20260813165026991
+대한민국 정책브리핑 — 2026년 7월 소비자물가동향
+ https://www.korea.kr/briefing/policyBriefingView.do?newsId=156773259
+KB의 생각 — 환헤지 vs 환노출 ETF 원리와 장단점, 투자 전략 살펴봐요
+ https://kbthink.com/etf/hedged-etf.html
+EBC Financial Group — 환헤지 vs 환노출 ETF: 뜻, 원리와 장단점, 투자 전략 총정리
+ https://www.ebc.com/kr/forex/297252.html
+국민연금기금운용본부 — 자산군별 현황(해외 주식) 환헤지 원칙
+ https://fund.nps.or.kr/oprtprcn/ivsmprcn/getOHED0005M0.do
+나무위키 — 대한민국 원/환율
+ https://namu.wiki/w/대한민국%20원/환율
+한국경제 — [2008 환율시장 결산] 원달러 환율 급등…'제2 외환위기' 방불
+ https://www.hankyung.com/article/200812301805g
+서울대 S-Space — 김학렬, 금융강국을 향한 질주와 2008년 한국의 외환위기
+ https://s-space.snu.ac.kr/bitstream/10371/93816/1/05_정책논단_김학렬_OK.pdf
+KB의 생각 — 2026 원·달러 환율 전망
+ https://kbthink.com/investment/issues/2026-krw-usd-outlook.html
+자본시장연구원 — 2026년 하반기 금융시장 전망과 자산배분 전략
+ https://www.kcmi.re.kr/publications/pub_detail_view?syear=2026&zcd=002001016&zno=1920&cno=6790
+조세일보 — 원·달러 환율, 1394.15원…강보합권 등락 전망
+ http://www.joseilbo.com/news/htmls/2026/08/20260821574200.html
+한국경제 — 여름 휴가 해외 가려다 취소했어요…역대급 쇼크에 비명
+ https://www.hankyung.com/article/2026062578427
+
+🔔 복잡한 돈의 규칙을 일상의 비유로 번역해드립니다. 다음 편도 놓치지 않으시려면 구독을 눌러주세요.

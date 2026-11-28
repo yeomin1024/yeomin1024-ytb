@@ -1,0 +1,88 @@
+{
+ "id": "_9okPshQQvU",
+ "title": "테슬라·스페이스X 합병되면, 안 팔아도 세금? 22% vs 49.5% 갈리는 '한 줄'",
+ "channel": "임지강 세무사",
+ "channel_id": "UCxykA52ce82BwPAHhwRX2FA",
+ "subs": 141,
+ "views": 34414,
+ "ratio": 244.07,
+ "age_days": 32,
+ "views_per_day": 1046.4,
+ "minutes": 8.5,
+ "likes": 208,
+ "comments": 45,
+ "published": "2026-10-26",
+ "queries": "검색:해외주식양도소득세",
+ "url": "https://www.youtube.com/watch?v=_9okPshQQvU",
+ "flag": "",
+ "published_at": "2026-10-26T12:26:54Z",
+ "rank": "W2",
+ "set": "web",
+ "folder": "W__9okPshQQvU",
+ "sources": [
+  "검색:해외주식양도소득세"
+ ],
+ "source": "web",
+ "tags": [
+  "테슬라 합병",
+  "스페이스X 합병",
+  "테슬라 스페이스X 합병",
+  "해외주식 양도세",
+  "해외주식 세금",
+  "해외주식 배당소득",
+  "합병 세금",
+  "주식 합병 세금",
+  "금융소득종합과세",
+  "건강보험료",
+  "임지강세무사",
+  "건곤세무회계"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "안 팔아도 세금이 나올 수 있습니다"
+  },
+  {
+   "start": 23,
+   "title": "지금 어디까지 왔나, 그리고 A씨"
+  },
+  {
+   "start": 65,
+   "title": "안 팔았는데 왜 세금인가"
+  },
+  {
+   "start": 124,
+   "title": "22%냐, 49.5%까지냐"
+  },
+  {
+   "start": 254,
+   "title": "계약서에서 볼 '한 줄'"
+  },
+  {
+   "start": 310,
+   "title": "A씨, 세금은 얼마일까"
+  },
+  {
+   "start": 375,
+   "title": "계약서 전에 미리 준비할 4가지"
+  },
+  {
+   "start": 473,
+   "title": "오늘 기억하실 것"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 45,
+ "comments_top_level": 33,
+ "comments_replies": 12,
+ "comments_by_creator": 5,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 45,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:56:20",
+ "approved": "2026-11-28T18:56+09:00"
+}

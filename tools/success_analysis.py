@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6.1 — 2026-11-28 — [success] VIEWS_TIERS 를 읽음 (구독자 구간별 조회수 하한 — orr v2.8) · 기준 글에 구간 — 사용자 지시 2026-11-28 "성공 사례를 구독자 수가 1000미만이면 조회수 1만 이상, 1000~10000미만이면 5만이상, 10000이상이면 10만으로 성공 사례를 잡고 조건 안되는거 제외해 그리고 외국 영상은 다 제외하고 외국 전용 단어 쓰지마". 함수 DEFAULT_RULES · success_rule_text.
+# VERSION: v1.7.0 — 2026-11-28 — [exclude] OFF_TOPIC_IDS = 사용자가 고른 주제 밖 영상 ID (제목 낱말로는 다른 영상까지 걸려서 ID 로) → '뺀 영상(사용자)' — 사용자 지시 2026-11-28 "응 승인하고 댓글 받아 시사 6개는 빼고". 함수 flags.
+# (v1.6.1) — 2026-11-28 — [success] VIEWS_TIERS 를 읽음 (구독자 구간별 조회수 하한 — orr v2.8) · 기준 글에 구간 — 사용자 지시 2026-11-28 "성공 사례를 구독자 수가 1000미만이면 조회수 1만 이상, 1000~10000미만이면 5만이상, 10000이상이면 10만으로 성공 사례를 잡고 조건 안되는거 제외해 그리고 외국 영상은 다 제외하고 외국 전용 단어 쓰지마". 함수 DEFAULT_RULES · success_rule_text.
 # (v1.6) — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
 #          진행하도록 해 나머지는 너가 추천하는 방향으로 하고" (target_check.py v1.0 확인 결과에 대한 답 — 값은 주제 analysis_rules.toml, 없으면 예전대로):
 #          · ① 성공 사례: [success] MIN_VPD_SUBS > 0 이면 '구독자당 하루 조회수'(하루 조회수 ÷ 구독자) ≥ 그 값 (예전 배수 ≥ MIN_RATIO 대신),
@@ -123,7 +124,7 @@ DEFAULT_RULES = {
                  "PER_CHANNEL": 5, "PAIRS": 20},
     "vpd_top": {"TOP_PCT": 10, "MIN_MINUTES": 4.0, "CASES_PER_CHANNEL": 2, "MIN_POOL": 30, "MAX_AGE_DAYS": 0},   # v1.5: 하루 조회수 상위 (1-3번) · v1.6 MAX_AGE_DAYS 0 = 날짜 상관없이
     "views_top": {"TOP_PCT": 0, "MIN_MINUTES": 4.0, "CASES_PER_CHANNEL": 2, "MIN_POOL": 30},    # v1.6: 조회수 상위 (1-4번 — 기간 상관없이, 0 = 끔)
-    "exclude": {"OFF_TOPIC": [], "OFF_TOPIC_THEMES": [], "AD_SUSPECT_MIN_VIEWS": 50000, "AD_SUSPECT_MAX_LIKE_RATE": 0.0025, "AD_SUSPECT_MAX_COMMENT_RATE": 0.00005},
+    "exclude": {"OFF_TOPIC": [], "OFF_TOPIC_THEMES": [], "OFF_TOPIC_IDS": [], "AD_SUSPECT_MIN_VIEWS": 50000, "AD_SUSPECT_MAX_LIKE_RATE": 0.0025, "AD_SUSPECT_MAX_COMMENT_RATE": 0.00005},
 }
 # 형식(포맷) (v1.2) — 제목·채널 이름·태그(없으면 설명 앞부분)의 낱말로, 위에서부터 먼저 맞는 것 하나. analysis_rules.toml [format] 이 덮어씀.
 # 원인이 아니라 '어떤 모양의 영상인가' 묶음 (대본이 없어도 내용 구성을 가늠하려고 — 2026-10-14 성공 사례에 사연 드라마·오디오북 낭독이 많았음)
@@ -450,6 +451,8 @@ def flags(x, rules, rel):
                                 "audio_lang": x.get("audio_lang"), "lang": x.get("lang")}, rules.get("include_foreign", False))
     if why:
         return why
+    if x.get("id") in set(ex.get("OFF_TOPIC_IDS") or []):           # v1.7 사용자가 고른 주제 밖 영상
+        return "뺀 영상(사용자 — 주제 밖)"
     hit = next((w for w in ex["OFF_TOPIC"] if w and w in x["title"]), None)
     if hit:
         return f"뺀 주제({hit})"

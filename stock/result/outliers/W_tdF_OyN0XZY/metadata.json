@@ -1,0 +1,98 @@
+{
+ "id": "tdF_OyN0XZY",
+ "title": "월요일 어마무시한 일 터질겁니다, 한국 개미들만 모르고 있는 충격적인 상황",
+ "channel": "경제사관학교",
+ "channel_id": "UCeS4EL1_A1Y0ztE4n3N9-qQ",
+ "subs": 13200,
+ "views": 111840,
+ "ratio": 8.47,
+ "age_days": 27,
+ "views_per_day": 4137.2,
+ "minutes": 18.7,
+ "likes": 796,
+ "comments": 104,
+ "published": "2026-11-01",
+ "queries": "검색:나스닥100",
+ "url": "https://www.youtube.com/watch?v=tdF_OyN0XZY",
+ "flag": "",
+ "published_at": "2026-11-01T09:00:20Z",
+ "rank": "W15",
+ "set": "web",
+ "folder": "W_tdF_OyN0XZY",
+ "sources": [
+  "검색:나스닥100"
+ ],
+ "source": "web",
+ "tags": [
+  "삼성전자",
+  "SK하이닉스",
+  "하이닉스",
+  "코스피",
+  "나스닥 폭락",
+  "인텔",
+  "메모리",
+  "반도체",
+  "월요일 주식",
+  "매도 사이드카",
+  "외국인 순매도",
+  "수출",
+  "240일선",
+  "경제사관학교"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "월요일 삼성전자, 하이닉스에 큰일 터집니다... 우리 장 끝난 그날 밤 나스닥 폭락, 이런 금요일 뒤 월요일은 여섯 번 모두 빠졌습니다"
+  },
+  {
+   "start": 58,
+   "title": "우리 장이 닫힌 그날 밤, 나스닥은 왜 무너졌을까?"
+  },
+  {
+   "start": 189,
+   "title": "인텔을 무너뜨린 게, 왜 하필 메모리 값일까?"
+  },
+  {
+   "start": 306,
+   "title": "메모리 값이 오르는데, 하이닉스는 왜 7%나 빠졌을까?"
+  },
+  {
+   "start": 435,
+   "title": "미국 반도체가 7% 무너진 다음 날, 한국은 어땠을까?"
+  },
+  {
+   "start": 543,
+   "title": "금요일에 미리 맞은 매, 월요일엔 덜 아플까?"
+  },
+  {
+   "start": 662,
+   "title": "10월 수출 성적표는, 반대편에서 버텨 줄까?"
+  },
+  {
+   "start": 763,
+   "title": "월요일만 넘기면, 정말 끝일까?"
+  },
+  {
+   "start": 845,
+   "title": "제 시각으로, 월요일 아침 가장 먼저 볼 선은 어디일까?"
+  },
+  {
+   "start": 975,
+   "title": "그래서 월요일 아침, 내 계좌는 무엇을 해야 할까?"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 104,
+ "comments_top_level": 68,
+ "comments_replies": 36,
+ "comments_by_creator": 14,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 104,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:00",
+ "approved": "2026-11-28T18:57+09:00"
+}

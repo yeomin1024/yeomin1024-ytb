@@ -1,0 +1,40 @@
+“SOXL은 아무리 물을 타도 탈출하지 못한다”… 하루 −38.7% 폭락 뒤 유튜브에 퍼진 말입니다. 서학개미는 그 직후 한 주(11/6~12)에 SOXL을 7,791억 원어치 더 샀고, 11월 13일 SOXL은 다시 하루 11% 내렸습니다. 퍼진 말 다섯 가지를 운용사 투자설명서(SEC), 나스닥 공식 시세, 한국예탁결제원 숫자로 확인하고, 지난 두 번의 폭락 때 물을 탄 사람이 어떻게 됐는지 직접 계산했습니다. 주가는 11월 13일 뉴욕 종가 기준입니다.
+
+[판정 요약]
+“폭락 뒤 8천억 원 더 샀다” — 사실 (11/6~12 서학개미 SOXL 순매수 5억 8,313만 달러, 약 7,791억 원. 미국 주식 순매수 1위. 한국예탁결제원 집계, 머니스톰 11/14 인용. 그 주 종가는 45.97~66.03달러)
+“2022년에도 있었던 일” — 사실 (2021/12/27 72.99달러 → 2022/10/14 6.93달러, −90.5%. 2024/7/10 → 2025/4/8에도 −88.0%. 이번은 6/22 300.77달러 → 11/5 40.87달러, −86.4%로 세 번째)
+“SOXL은 원금이 녹는다” — 대체로 사실 (투자설명서: 하루 넘게 들면 지수가 올라도 손실이 날 수 있음. 지수 상품이 2021년 고점을 되찾은 2023/12/14에 SOXL은 −58.6%. 11/4→11/12 지수 상품 +3.2%, SOXL −1.7%. 다만 2025년 4월 바닥~2026년 6월은 지수 상품 4.2배, SOXL 36배)
+“아무리 물타도 탈출 못 한다” — 과장 (지난 두 번은 고점 주부터 매주 같은 돈으로 계속 산 사람이 바닥 뒤 110일·77일 만에 평균 단가를 넘음. 그사이 평가 손실은 −66%·−71%. 한 번에 산 사람은 4년 3개월·1년 반. 과거 기록이며 보장이 아님)
+“반등해도 본전은 어렵다” — 확인 안 됨 (11/13 종가 58.32달러에서 본전까지: 6월 고점 한 번에 +416%, 고점부터 매주 +107%, 10/1부터 매주 +62%, 11/6~12에 산 돈은 본전 언저리. 반등 폭은 확인할 수 없음)
+
+[챕터]
+0:00 “SOXL 물타도 탈출 못 한다”는 말
+1:02 퍼진 말 다섯 가지
+1:28 ① 폭락 뒤 8천억 원 더 샀다
+2:50 ② 2022년에도 있었던 일
+3:59 ③ SOXL은 원금이 녹는다
+5:36 중간 정리
+5:47 ④ 아무리 물타도 탈출 못 한다
+7:44 ⑤ 반등해도 본전은 어렵다
+8:50 판정표
+9:27 직접 계산하는 법
+
+[출처]
+원문 · 디렉시온 SOXL 요약 투자설명서(SEC 497K, 2026.2.27) https://www.sec.gov/Archives/edgar/data/1424958/000119312526078540/d50601d497k.htm
+원문 · 나스닥 SOXL 과거 시세 https://www.nasdaq.com/market-activity/etf/soxl/historical · 지수 상품(SOXX) 종가는 야후 파이낸스 일봉
+기사 · 머니스톰(11.14, 한국예탁결제원 세이브로 인용) https://www.moneystorm.kr/news/articleView.html?idxno=8427
+퍼진 말 · 유튜브 TQQQ미친놈·밸류노트·티큐아이·미주은·대구코인 영상 제목(조회수는 11.14 기준)
+인용 영상 · 피터 터크먼 장 마감 정리(@EinsteinoWallSt / X · 11.14), 에릭 발추나스 ‘니니’ 출연 장면(@EricBalchunas / X · 11.9), 블룸버그 ETF IQ(@lucifer5670 / X · 11.10)
+자료 영상 · @intel / X · 11.6, @ASMLcompany / X · 11.9
+X 글 · @dontstopinvest / X · 11.13, @Keymong368774 / X · 11.11, @shmath8218 / X · 11.14
+사진 · Wikimedia Commons — Jebulon(CC0), Jeremy Thompson(CC BY 2.0), Sgroey(CC BY-SA 4.0), Olaf2(CC BY-SA 4.0), Coolcaesar(CC BY-SA 4.0), Intel in Deutschland(CC BY-SA 2.0), hyolee2(CC BY-SA 3.0), Thingreenline4546(CC BY-SA 4.0), Jakub Hałun(CC BY 4.0), Ken Lund from Reno, Nevada, USA(CC BY-SA 2.0), USAGI_POST(CC0), Tony Webster(CC BY 2.0), Francisco Gonzalez(CC BY 2.0), Hunter Trick (TrickHunter)(CC BY-SA 4.0), 曾 成訓(CC BY 2.0), Peellden(CC BY-SA 3.0), U.S. Department of Energy(퍼블릭 도메인), Rob Bulmahn(CC BY 2.0), S h y numis(CC BY 4.0), Bryan Dorrough(CC BY 2.0), Carol M. Highsmith(퍼블릭 도메인), Roman SUZUKI(CC BY 3.0), Dietmar Rabich(CC BY-SA 4.0), Diliff(CC BY 2.5), Arild Vågen(CC BY-SA 4.0), Kevin McCarthy(CC BY 2.0)
+음악 · “Constance”·“Rising Tide”·“Industrial Cinematic”·“Crypto”·“Twisting”·“Impending Boom” — Kevin MacLeod(incompetech.com) / CC BY 4.0
+물타기 계산은 고점이던 주부터 매주 첫 거래일 종가에 같은 돈을 산다고 본 우리 계산입니다. 수수료·환율·세금은 넣지 않았고, 지난 기록이 앞으로를 보장하지 않습니다.
+썸네일 · 롤러코스터 사진(Jeremy Thompson, CC BY 2.0)을 잘라 어둡게 하고 SOXL 종가 선과 글씨를 합성했습니다.
+
+[알림]
+- 이 영상은 투자 권유가 아닙니다. 특정 종목을 사거나 팔라는 뜻이 없습니다.
+- 월가의 진실은 유료 종목 추천·리딩방을 운영하지 않습니다. 사칭에 주의하세요.
+- 내레이션은 AI 음성입니다.
+
+#미국주식 #SOXL #서학개미 #팩트체크

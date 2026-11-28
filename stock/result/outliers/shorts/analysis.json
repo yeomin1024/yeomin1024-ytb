@@ -2,7 +2,7 @@
  "tool": "shorts_analysis.py v1.3",
  "topic": "stock",
  "name": "주식",
- "generated": "2026-11-28T09:49:32+00:00",
+ "generated": "2026-11-28T10:01:19+00:00",
  "rules": {
   "shorts": {
    "MAX_SECONDS": 180,
@@ -71,7 +71,7 @@
     "방송"
    ]
   },
-  "version": "v1.6",
+  "version": "v1.7",
   "file": "stock/analysis_rules.toml",
   "shorts_defaults": false,
   "shorts_vpd_top": {
@@ -2759,7 +2759,7 @@
    "likes_per_1k": 12.09,
    "comments_per_1k": 0.142,
    "published": "2026-06-03T13:00+09:00",
-   "age_days": 178.2,
+   "age_days": 178.3,
    "weekday": "수",
    "hour": 13,
    "theme": "11. 투자 일반",
@@ -5106,7 +5106,7 @@
    "likes_per_1k": 20.64,
    "comments_per_1k": 0.329,
    "published": "2026-10-08T20:03+09:00",
-   "age_days": 50.9,
+   "age_days": 51.0,
    "weekday": "목",
    "hour": 20,
    "theme": "1. 주식 기초·초보",
@@ -7573,7 +7573,7 @@
     "views": 3094613,
     "views_per_day": 21030.4,
     "ratio": 144.61,
-    "age_days": 178.2,
+    "age_days": 178.3,
     "seconds": 77,
     "published": "2026-06-03",
     "theme": "11. 투자 일반",
@@ -9213,7 +9213,7 @@
     "views": 3094613,
     "views_per_day": 21030.4,
     "ratio": 144.61,
-    "age_days": 178.2,
+    "age_days": 178.3,
     "seconds": 77,
     "published": "2026-06-03",
     "theme": "11. 투자 일반",
@@ -9764,7 +9764,7 @@
     "views": 1456461,
     "views_per_day": 8574.7,
     "ratio": 120.37,
-    "age_days": 200.9,
+    "age_days": 201.0,
     "seconds": 10,
     "published": "2026-05-11",
     "theme": "5. 국내주식",
@@ -13689,8 +13689,8 @@
     "videos": 92,
     "shorts_total": 66,
     "shorts_share": 0.72,
-    "subs_per_month": 6075,
-    "uploads_per_month": 12.2,
+    "subs_per_month": 6048,
+    "uploads_per_month": 12.1,
     "seen_shorts": 2,
     "seconds_median": 57.5,
     "themes": [

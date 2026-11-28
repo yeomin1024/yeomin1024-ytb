@@ -1,0 +1,96 @@
+{
+ "id": "awseQ2h5wFQ",
+ "title": "“TQQQ 0원 된다”…9,600억 원 산 서학개미, 계산해 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 101885,
+ "ratio": 27.91,
+ "age_days": 8,
+ "views_per_day": 12553.2,
+ "minutes": 11.7,
+ "likes": 390,
+ "comments": 158,
+ "published": "2026-11-20",
+ "queries": "검색:서학개미 | 검색:TQQQ",
+ "url": "https://www.youtube.com/watch?v=awseQ2h5wFQ",
+ "flag": "",
+ "published_at": "2026-11-20T07:00:12Z",
+ "rank": "W9",
+ "set": "web",
+ "folder": "W_awseQ2h5wFQ",
+ "sources": [
+  "검색:서학개미",
+  "검색:TQQQ"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "TQQQ",
+  "나스닥",
+  "레버리지 ETF",
+  "나스닥 3배",
+  "나스닥100",
+  "서킷브레이커"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“TQQQ 0원 된다”는 말"
+  },
+  {
+   "start": 116,
+   "title": "퍼진 말 다섯 가지"
+  },
+  {
+   "start": 137,
+   "title": "① 나스닥 하루 34% 빠지면 0원"
+  },
+  {
+   "start": 174,
+   "title": "② TQQQ 0원 된다"
+  },
+  {
+   "start": 331,
+   "title": "③ 3배 상품, 실제로 0원 청산됐다"
+  },
+  {
+   "start": 383,
+   "title": "중간 정리"
+  },
+  {
+   "start": 394,
+   "title": "④ 여러 날 나눠 빠져도 0원"
+  },
+  {
+   "start": 543,
+   "title": "⑤ 폭락 오면 TQQQ 상장폐지"
+  },
+  {
+   "start": 633,
+   "title": "판정표"
+  },
+  {
+   "start": 647,
+   "title": "세 배 상품에 남는 돈 재는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ProxyError: HTTPSConnectionPool(host='www.google.com', port=443): Max retries exceeded with url: /sorry/index?continue=https://www.y",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 158,
+ "comments_top_level": 61,
+ "comments_replies": 97,
+ "comments_by_creator": 69,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 158,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:56:43",
+ "approved": "2026-11-28T18:56+09:00"
+}

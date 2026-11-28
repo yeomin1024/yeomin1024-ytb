@@ -1,0 +1,95 @@
+{
+ "id": "O9W2R_1R7ZE",
+ "title": "“아이온큐 CFO 도망갔다”…3.9조 원 들고 있는 서학개미, 원문 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 53308,
+ "ratio": 14.6,
+ "age_days": 11,
+ "views_per_day": 4700.5,
+ "minutes": 10.8,
+ "likes": 291,
+ "comments": 92,
+ "published": "2026-11-17",
+ "queries": "검색:서학개미",
+ "url": "https://www.youtube.com/watch?v=O9W2R_1R7ZE",
+ "flag": "",
+ "published_at": "2026-11-17T01:36:40Z",
+ "rank": "W23",
+ "set": "web",
+ "folder": "W_O9W2R_1R7ZE",
+ "sources": [
+  "검색:서학개미"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "아이온큐",
+  "IONQ",
+  "양자컴퓨터",
+  "CFO",
+  "IONX",
+  "8-K"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“아이온큐 CFO 도망갔다”는 말"
+  },
+  {
+   "start": 54,
+   "title": "퍼진 말 다섯 가지"
+  },
+  {
+   "start": 71,
+   "title": "① 아이온큐 CFO 도망갔다"
+  },
+  {
+   "start": 194,
+   "title": "② 공시에 없는 한 문장, 회계 문제다"
+  },
+  {
+   "start": 273,
+   "title": "③ 새 CFO에 4,000만 달러"
+  },
+  {
+   "start": 342,
+   "title": "중간 정리"
+  },
+  {
+   "start": 353,
+   "title": "④ 3,458만 주 쏟아진다"
+  },
+  {
+   "start": 431,
+   "title": "⑤ 아이온큐 닷새 −25%"
+  },
+  {
+   "start": 544,
+   "title": "판정표"
+  },
+  {
+   "start": 603,
+   "title": "직접 확인하는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "IpBlocked: 자막 서버 차단으로 11-28 15:56까지 자막 요청을 쉼 → 음성인식",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 92,
+ "comments_top_level": 35,
+ "comments_replies": 57,
+ "comments_by_creator": 39,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 92,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:57:25",
+ "approved": "2026-11-28T18:57+09:00"
+}

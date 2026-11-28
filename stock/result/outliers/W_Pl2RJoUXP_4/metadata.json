@@ -1,0 +1,96 @@
+{
+ "id": "Pl2RJoUXP_4",
+ "title": "“SOXL 개미 다 털렸다”…6.2조 원 걸린 서학개미, 계산해 보니",
+ "channel": "월가의 진실",
+ "channel_id": "UC6x493QaSQZciWbcWStQAIg",
+ "subs": 3650,
+ "views": 351786,
+ "ratio": 96.38,
+ "age_days": 7,
+ "views_per_day": 47661.3,
+ "minutes": 10.6,
+ "likes": 1284,
+ "comments": 1042,
+ "published": "2026-11-21",
+ "queries": "검색:서학개미 | 검색:SOXL",
+ "url": "https://www.youtube.com/watch?v=Pl2RJoUXP_4",
+ "flag": "",
+ "published_at": "2026-11-21T00:39:04Z",
+ "rank": "W6",
+ "set": "web",
+ "folder": "W_Pl2RJoUXP_4",
+ "sources": [
+  "검색:서학개미",
+  "검색:SOXL"
+ ],
+ "source": "web",
+ "tags": [
+  "미국주식",
+  "해외주식",
+  "서학개미",
+  "팩트체크",
+  "월가의 진실",
+  "SOXL",
+  "속슬",
+  "반도체",
+  "레버리지 ETF",
+  "반도체 3배",
+  "연준"
+ ],
+ "chapters": [
+  {
+   "start": 0,
+   "title": "“SOXL 개미 다 털렸다”는 말"
+  },
+  {
+   "start": 89,
+   "title": "퍼진 말 다섯 가지"
+  },
+  {
+   "start": 110,
+   "title": "① SOXL 고점 대비 −90%"
+  },
+  {
+   "start": 160,
+   "title": "② SOXL 서학개미 다 털렸다"
+  },
+  {
+   "start": 297,
+   "title": "③ SOXL 3분의 1이 한국인"
+  },
+  {
+   "start": 343,
+   "title": "중간 정리"
+  },
+  {
+   "start": 354,
+   "title": "④ 미 연준, 한국인 SOXL 과매수 경고"
+  },
+  {
+   "start": 468,
+   "title": "⑤ SOXL 하루 만에 0원"
+  },
+  {
+   "start": 564,
+   "title": "판정표"
+  },
+  {
+   "start": 590,
+   "title": "내 SOXL 손익 재는 법"
+  }
+ ],
+ "transcript_lang": "-",
+ "transcript_status": "ModuleNotFoundError: No module named 'youtube_transcript_api'",
+ "video_lang": "ko",
+ "foreign": false,
+ "comments_fetched": 1042,
+ "comments_top_level": 395,
+ "comments_replies": 647,
+ "comments_by_creator": 423,
+ "comments_complete": true,
+ "comments_disabled": false,
+ "comments_reported": 1042,
+ "tool": "outlier_research.py v2.8",
+ "collected": "2026-11-28T09:56:31",
+ "approved": "2026-11-28T18:56+09:00"
+}

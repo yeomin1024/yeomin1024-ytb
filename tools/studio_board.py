@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7.1 — 2026-11-28 — 지금은 주식만 (사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해"): studio.toml [topic.<판 주제>] SHOW_FOLDERS = 판에 보이는 폴더
+# VERSION: v1.7.2 — 2026-11-28 — 성공 사례 목록 = 분석과 같은 판정 (조회수 하한 구독자 구간 VIEWS_TIERS — orr.min_views_for) · 외국 영상을 안 쓰는
+#          주제(INCLUDE_FOREIGN false)는 한글 제목만 — 사용자 지시 2026-11-28 "성공 사례를 구독자 수가 1000미만이면 조회수 1만 이상, 1000~10000미만이면 5만이상, 10000이상이면 10만으로 성공 사례를 잡고 조건 안되는거 제외해 그리고 외국 영상은 다 제외하고 외국 전용 단어 쓰지마". 함수 success_rules · success_rows.
+# (v1.7.1) — 2026-11-28 — 지금은 주식만 (사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해"): studio.toml [topic.<판 주제>] SHOW_FOLDERS = 판에 보이는 폴더
 #          (재테크 = stock 만 — 성공 사례 제목·탐색 문서·단계 결과) · 성공 사례 목록은 SUCCESS_FOLDERS 가 있는 판 주제만 만듦 (다른 주제는 건드리지 않음). 함수 topic_data.
 # (v1.7) — 2026-11-28 — 주제 탐색 ① 성공 사례 목록 = 주제(합친 폴더 포함)의 compare.csv 에서 <폴더>/analysis_rules.toml [success] 기준을 모두 넘는 영상 전부
 #          (자료 받은 사례 = analysis.json success_cases 표시·자세히) · 미국주식 낱말(next_topic.toml FOCUS)·한국어 표시 — 사용자 지시 2026-11-28
@@ -81,8 +83,9 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.7.1"
+VERSION = "v1.7.2"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
+import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
 STATE = STUDIO / "state"
@@ -662,7 +665,7 @@ def empty_refs(topic: str) -> dict:
 
 # ─────────────────────────────── v1.7 ① 성공 사례 — 기준을 넘는 영상 전부
 SUCCESS_DEFAULT = {"MIN_AGE_DAYS": 7, "MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_VPD_SUBS": 0.1, "MIN_RATIO": 3.0, "MIN_VIEWS": 10000, "MIN_MINUTES": 4.0,
-                   "CASES_PER_CHANNEL": 2}
+                   "CASES_PER_CHANNEL": 2, "VIEWS_TIERS": []}
 HANGUL_RE = re.compile(r"[가-힣]")
 
 
@@ -672,7 +675,14 @@ def success_rules(folder: str) -> dict:
         r = (tomllib.loads(p.read_text("utf-8")).get("success") or {}) if p.is_file() else {}
     except tomllib.TOMLDecodeError:
         r = {}
-    return {k: r.get(k, v) for k, v in SUCCESS_DEFAULT.items()} | {"from": rel(p) if p.is_file() else "기본값"}
+    foreign = False
+    cp = ROOT / folder / "analyzer_config.toml"
+    if cp.is_file():
+        try:
+            foreign = bool((tomllib.loads(cp.read_text("utf-8")).get("search") or {}).get("INCLUDE_FOREIGN"))
+        except tomllib.TOMLDecodeError:
+            pass
+    return {k: r.get(k, v) for k, v in SUCCESS_DEFAULT.items()} | {"from": rel(p) if p.is_file() else "기본값", "foreign": foreign}
 
 
 def _focus_of(folders: list[str]):
@@ -714,9 +724,11 @@ def success_rows(folder: str, focus, refs: dict) -> tuple[list[dict], dict]:
                     continue
                 vs = v / max(a, 1) / max(sb, 100)
                 ok_ratio = vs >= R["MIN_VPD_SUBS"] if R["MIN_VPD_SUBS"] else v >= sb * R["MIN_RATIO"]
-                if not (R["MIN_AGE_DAYS"] <= a <= R["MAX_AGE_DAYS"] and sb <= R["MAX_SUBS"] and v >= R["MIN_VIEWS"] and m >= R["MIN_MINUTES"] and ok_ratio):
+                if not (R["MIN_AGE_DAYS"] <= a <= R["MAX_AGE_DAYS"] and sb <= R["MAX_SUBS"] and v >= orr.min_views_for(R, sb) and m >= R["MIN_MINUTES"] and ok_ratio):
                     continue
                 t = r["title"]
+                if not R["foreign"] and not HANGUL_RE.search(t):       # v1.7.2 외국 영상을 안 쓰는 주제 — 한글 제목만
+                    continue
                 row = {"id": r["id"], "t": t, "ch": r.get("channel", ""), "s": int(sb), "v": int(v), "vs": round(vs, 3), "a": round(a), "p": r.get("published", "")[:10],
                        "m": round(m, 1), "th": r.get("theme", ""), "f": folder, "ko": bool(HANGUL_RE.search(t)), "us": bool(focus.search(t)) if focus else None}
                 if r["id"] in cases:

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
+# VERSION: v1.6.1 — 2026-11-28 — [success] VIEWS_TIERS 를 읽음 (구독자 구간별 조회수 하한 — orr v2.8) · 기준 글에 구간 — 사용자 지시 2026-11-28 "성공 사례를 구독자 수가 1000미만이면 조회수 1만 이상, 1000~10000미만이면 5만이상, 10000이상이면 10만으로 성공 사례를 잡고 조건 안되는거 제외해 그리고 외국 영상은 다 제외하고 외국 전용 단어 쓰지마". 함수 DEFAULT_RULES · success_rule_text.
+# (v1.6) — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
 #          진행하도록 해 나머지는 너가 추천하는 방향으로 하고" (target_check.py v1.0 확인 결과에 대한 답 — 값은 주제 analysis_rules.toml, 없으면 예전대로):
 #          · ① 성공 사례: [success] MIN_VPD_SUBS > 0 이면 '구독자당 하루 조회수'(하루 조회수 ÷ 구독자) ≥ 그 값 (예전 배수 ≥ MIN_RATIO 대신),
 #            MIN_AGE_DAYS(올린 지 며칠 뒤부터) · 순서·채널당 고르기 = 그 점수 큰 순 (outlier_research.success_core 한 곳).
@@ -105,13 +106,13 @@ from outlier_stats import TITLE_FEATURES                          # noqa: E402  
 from weekly_analysis import _published, _write_atomic, clean_description   # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v1.6"
+VERSION = "v1.6.1"
 LOG = logging.getLogger("success")
 CASE_DIR_RX = re.compile(r"^(W_|P?\d\d_)")
 NON_VIDEO_CACHE = ("search_", "supply_", "uploads_", "channels.json", "autocomplete.json")   # 영상 정보가 아닌 캐시 파일
 DEFAULT_RULES = {
     "success": {"MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_RATIO": 3.0, "MIN_VIEWS": 10000, "MIN_MINUTES": 4.0, "CASES_PER_CHANNEL": 2,
-                "MIN_AGE_DAYS": 0, "MIN_VPD_SUBS": 0, "WEIGHT": ""},    # v1.6: MIN_VPD_SUBS > 0 = 구독자당 하루 조회수 · WEIGHT "vpd" = 가중 성공 비율
+                "MIN_AGE_DAYS": 0, "MIN_VPD_SUBS": 0, "WEIGHT": "", "VIEWS_TIERS": []},    # v1.6: MIN_VPD_SUBS > 0 = 구독자당 하루 조회수 · WEIGHT "vpd" = 가중 성공 비율 · v1.6.1 VIEWS_TIERS
     "compare": {"MIN_AGE_DAYS": 7, "MAX_AGE_DAYS": 365, "MAX_SUBS": 50000, "MIN_MINUTES": 4.0, "PER_CHANNEL": 5, "MIN_GROUP": 15, "NOTABLE_DIFF": 0.10},
     "demand": {"RECENT_DAYS": 90, "AUTOCOMPLETE_TOP": 30, "GAP_VERIFY_N": 10,
                "AC_EXCLUDE": ["실시간", "라이브", "전망", "시황", "속보", "뉴스", "롤체", "자격증", "운용사", "주가"]},
@@ -1394,7 +1395,17 @@ def success_rule_text(S):
     age = f"{S['MIN_AGE_DAYS']:g}~{S['MAX_AGE_DAYS']}일" if float(S.get("MIN_AGE_DAYS") or 0) > 0 else f"{S['MAX_AGE_DAYS']}일 안"
     score = (f"**구독자당 하루 조회수 ≥ {S['MIN_VPD_SUBS']:g}** (하루 조회수 ÷ 구독자)" if float(S.get("MIN_VPD_SUBS") or 0) > 0
              else f"조회수 ≥ 구독자 × {S['MIN_RATIO']:g}")
-    return f"{age}·구독자 {S['MAX_SUBS']:,} 이하·{score}·{S['MIN_VIEWS']:,}회 이상"
+    tiers = sorted(S.get("VIEWS_TIERS") or [], key=lambda t: (int(t.get("subs_below") or 0) == 0, int(t.get("subs_below") or 0)))
+    if tiers:                                                         # v1.6.1 구독자 구간별 조회수
+        lo, parts = 0, []
+        for t in tiers:
+            b = int(t.get("subs_below") or 0)
+            parts.append((f"구독자 {lo:,}~{b - 1:,}" if b else f"구독자 {lo:,}+") + f" → {int(t.get('min_views') or 0):,}회")
+            lo = b
+        views = "조회수 " + " · ".join(parts)
+    else:
+        views = f"{S['MIN_VIEWS']:,}회 이상"
+    return f"{age}·구독자 {S['MAX_SUBS']:,} 이하·{score}·{views}"
 
 
 def write_md(out, data, success):

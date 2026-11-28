@@ -761,7 +761,7 @@ def ratio_key(r):
 
 
 LONG_SUCCESS_DEFAULT = {"MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_RATIO": 3.0, "MIN_VIEWS": 10000, "MIN_MINUTES": 4.0,
-                        "MIN_AGE_DAYS": 0, "MIN_VPD_SUBS": 0}          # success_analysis DEFAULT_RULES['success'] 와 같은 값
+                        "MIN_AGE_DAYS": 0, "MIN_VPD_SUBS": 0, "VIEWS_TIERS": []}          # success_analysis DEFAULT_RULES['success'] 와 같은 값 (2026-11-28 VIEWS_TIERS)
 
 
 def topic_rules(t, sec, dflt):

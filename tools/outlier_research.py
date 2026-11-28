@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v2.7 — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
+# VERSION: v2.8 — 2026-11-28 — 성공 판정 조회수 하한을 구독자 구간마다 (규칙 [success] VIEWS_TIERS — 없으면 MIN_VIEWS 그대로) — 사용자 지시 2026-11-28 "성공 사례를 구독자 수가 1000미만이면 조회수 1만 이상, 1000~10000미만이면 5만이상, 10000이상이면 10만으로 성공 사례를 잡고 조건 안되는거 제외해 그리고 외국 영상은 다 제외하고 외국 전용 단어 쓰지마".
+#          함수 min_views_for · success_core.
+# (v2.7) — 2026-10-28 — 사용자 지시 2026-10-28 "1은 그렇게하고 최근에 조회수가 높을수록 더 많이 반영되도록 해야해 3은 할당량 남으면
 #          진행하도록 해 나머지는 너가 추천하는 방향으로 하고" (target_check.py 확인 결과 ①~④에 대한 답):
 #          · views_per_day(): 하루 조회수 = 받은 때 조회수 ÷ 올린 날부터 **받은 때**까지 날수 (최소 1일) — 예전엔 ÷ 오늘까지 날수라 자료를 받은 지
 #            오래될수록 최근 영상이 낮게 셈 (2026-10-28 주식: 30일 안 영상 중앙값 ×0.47). build_rows(탐색 목록)·분석·웹 화면 쇼츠 목록이 같이 씀.
@@ -200,7 +202,7 @@ except ModuleNotFoundError:             # Python 3.10 → tomli (분석기가 �
     import tomli as tomllib
 
 ROOT = Path(__file__).resolve().parent.parent
-VERSION = "v2.7"
+VERSION = "v2.8"
 LOG = logging.getLogger("outlier")
 HANGUL = re.compile(r"[가-힣]")
 SEARCH_TTL_HOURS = 168
@@ -613,11 +615,21 @@ def success_metric(x, S):
     return x.get("ratio") or 0
 
 
+def min_views_for(S, subs) -> int:
+    """v2.8: 조회수 하한 — S['VIEWS_TIERS'] = [{subs_below, min_views}, …] (구독자 < subs_below 인 첫 칸 · subs_below 0 = 그 위 모두) · 없으면 MIN_VIEWS."""
+    tiers = S.get("VIEWS_TIERS") or []
+    for t in sorted(tiers, key=lambda t: (int(t.get("subs_below") or 0) == 0, int(t.get("subs_below") or 0))):
+        below = int(t.get("subs_below") or 0)
+        if below == 0 or (subs or 0) < below:
+            return int(t.get("min_views") or 0)
+    return int(S.get("MIN_VIEWS") or 0)
+
+
 def success_core(x, S, with_age=True):
     """v2.7: 성공 판정의 공통 부분 (롱폼·쇼츠·탐색 목록) — 작은 채널(구독자 ≤ MAX_SUBS)·조회수 ≥ MIN_VIEWS·점수(success_metric) ≥ 경계·
     with_age 면 MIN_AGE_DAYS ≤ 올린 지 ≤ MAX_AGE_DAYS. 길이(롱폼 분·쇼츠 초)는 부르는 쪽에서."""
     m = success_metric(x, S)
-    if m is None or x["subs"] > S["MAX_SUBS"] or (x.get("views") or 0) < S["MIN_VIEWS"]:
+    if m is None or x["subs"] > S["MAX_SUBS"] or (x.get("views") or 0) < min_views_for(S, x["subs"]):   # v2.8 구독자 구간별
         return False
     if m < (float(S["MIN_VPD_SUBS"]) if float(S.get("MIN_VPD_SUBS") or 0) > 0 else float(S["MIN_RATIO"])):
         return False

@@ -228,21 +228,44 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 8,
+      "at": "2026-11-28T16:25:18Z",
+      "sha": "8df1b79700444e34",
+      "reviewers": [
+       {
+        "reviewer": "E8-ALL",
+        "persona": "ALL",
+        "exits": [
+         {
+          "line": 34,
+          "why": "헷갈림 — 32줄에서 '그 아래로 다시 내려가지 않았다'고 해 놓고 바로 '35.9%까지 더 하락'이라고 해서 귀로 들으면 앞말과 부딪힘 ('산 값 기준'이라는 게 늦게 들어옴)"
+         },
+         {
+          "line": 100,
+          "why": "지루함 — 가장 궁금한 '사는 방법' 장에서 가격 분할은 왜 비교를 안 하는지 따지는 97~100줄이 이론 설명처럼 들려 결과가 늦게 나옴"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "5줄 — '앞선 세 번 가운데 두 번은 새 저점'이 '지금 사도 될까' 고민에 바로 걸려서 끝까지 확인하고 싶어짐 (38줄 45.1%·53.2% 손해 숫자로 답을 받아 더 붙잡힘)",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [34, 100]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "(대기 — 반론 8회차 뒤 함께)",
+      "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r8.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
-    "pending": {
-     "n": 8,
-     "sha": "8df1b79700444e34",
-     "reviewers": [
-      "E8-ALL"
-     ],
-     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r8.md",
-     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_8",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-28T16:22:45Z"
-    }
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
    },
    "script_rebuttal": {
     "rounds": [

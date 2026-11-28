@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-28 — watch: 판 v1.3 구글 트렌드 줄(studio/state/trends.json 주제마다 groups·time·gprop)을 그대로 받음 — 판 [링크 생성] 링크와 같은 묶음
+# VERSION: v1.5 — 2026-11-28 — 판 링크 묶음이 8개까지 하나가 됨 (판 v1.6 — 새 탐색 화면은 8개 비교) → 이 도구가 쓰는 탐색 API 는 5개까지로 확인된 것만
+#          쓰므로 5개 넘는 묶음은 [앞 5개] + [첫 낱말 + 나머지] 로 나눠 받음 (전에는 [:5] 로 6~8번째 낱말이 빠짐) — 사용자 지시 2026-11-28 "사이트에서는 8개
+#          비교 되던데". 함수 api_groups · board_specs · selftest.
+# (v1.4) — 2026-11-28 — watch: 판 v1.3 구글 트렌드 줄(studio/state/trends.json 주제마다 groups·time·gprop)을 그대로 받음 — 판 [링크 생성] 링크와 같은 묶음
 #          (5개까지 한 링크, 6~8개면 첫 단어를 둘 다에) · 주제마다 기간·대상 · groups 가 없는 옛 파일은 예전처럼 첫 낱말 + 4개씩. 사용자 지시 2026-11-28
 #          "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을 누르면 … 구글 트렌드 링크 생성해". 함수 board_specs · selftest.
 # 이전 v1.3.1 — 2026-11-28 — watch 오류 고침 (사용자 PC 2026-11-28 "에러나는데 해결해"): 판 검색어를 못 읽었을 때 경고 로그가 log() 의 첫 인자 이름
@@ -61,7 +64,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import pc_transcribe as pt  # noqa: E402  GitHub 올리기·로그·주제 이름 검사를 그대로
 
-VERSION = "v1.4"
+VERSION = "v1.5"
 BOARD_STATE = "studio/state/trends.json"   # v1.3 제작 판 검색어 (Claude 가 판 동기화 때 씀)
 LOG = logging.getLogger("pc_trends")
 TRENDS = "https://trends.google.com"
@@ -422,6 +425,17 @@ def _hash(words, extra=""):
     return hashlib.sha1(("|".join(words) + "#" + str(extra)).encode("utf-8")).hexdigest()[:6]
 
 
+API_MAX = 5   # v1.5 탐색 API 한 요청 낱말 수 — 5개까지만 확인됨 (새 화면 8개는 화면에서만 확인)
+
+
+def api_groups(g):
+    """판 링크 묶음 하나 → API 요청 묶음 (5개 넘으면 [앞 5개] + [첫 낱말 + 나머지 4개씩] — 첫 낱말로 크기를 맞춤)."""
+    if len(g) <= API_MAX:
+        return [g]
+    rest = g[API_MAX:]
+    return [g[:API_MAX]] + [[g[0]] + rest[i:i + API_MAX - 1] for i in range(0, len(rest), API_MAX - 1)]
+
+
 def board_specs(state, now=None):
     """studio/state/trends.json → [(주제, 목록 spec)]. 주제마다 시간 흐름(5개씩 — 첫 낱말이 기준, 묶음마다 같이) + 관련 검색어 · 전체 탐색 = 분류만 관련 검색어."""
     out = []
@@ -433,8 +447,8 @@ def board_specs(state, now=None):
         t_time = t.get("time") or time_                                  # v1.4 주제마다 기간·대상 (판 '구글 트렌드' 고르기)
         t_gprop = t.get("gprop") if t.get("gprop") is not None else gprop
         anchor, rest = words[0], words[1:]
-        groups = [[w.strip() for w in g if isinstance(w, str) and w.strip()][:5] for g in (t.get("groups") or [])]   # v1.4 판 링크 묶음 그대로
-        groups = [g for g in groups if g]
+        groups = [[w.strip() for w in g if isinstance(w, str) and w.strip()] for g in (t.get("groups") or [])]   # v1.4 판 링크 묶음 그대로
+        groups = [a for g in groups if g for a in api_groups(g)]         # v1.5 8개 묶음 → API 는 5개씩 (낱말을 빼지 않음)
         if groups:
             anchor = groups[0][0]
         else:
@@ -674,6 +688,9 @@ def selftest():
     s4 = dict(board_specs(st4, now=_dt.datetime(2026, 11, 28, 9)))["selfdev"]
     check("v1.4 판 링크 묶음 그대로 · 주제마다 기간·대상", [b_["words"] for b_ in s4["batches"] if b_["kind"] == "timeseries"] == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]]
           and s4["time"] == "today 12-m" and s4["gprop"] == "" and s4["anchor"] == "자기계발")
+    s5 = dict(board_specs({"topics": {"selfdev": {"words": W8, "groups": [W8]}}}, now=_dt.datetime(2026, 11, 28, 9)))["selfdev"]
+    check("v1.5 판 8개 묶음 → API 5개 + (첫 낱말 + 3) · 낱말 안 빠짐", [b_["words"] for b_ in s5["batches"] if b_["kind"] == "timeseries"] == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]]
+          and api_groups(W8[:3]) == [W8[:3]] and len(api_groups(W8 + ["a", "b"])) == 3)
     check("v1.4 유튜브 기본이면 v1.3 지문 그대로", ps["batches"][0]["hash"] == _hash(["심리", "엄마", "말투", "눈치", "허세"], "today 3-m"))
     check("v1.3 기간 폴더 (24시간 = 날짜 · 6시간 = 날짜_시)", ps["out_dir"] == "psychology/result/next_topic/board_20261127"
           and dict(sp)["new"]["out_dir"] == "new/result/next_topic/board_20261127_12" and out_dir_ok("psychology", ps["out_dir"]))

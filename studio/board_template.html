@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.5.1 — 2026-11-28 — ① 성공 사례 단계는 그 단계가 있는 주제만 (rules.json steps[].only — 지금 재테크(주식)만) — 사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해".
+<!-- VERSION: v1.6.0 — 2026-11-28 — 구글 트렌드 링크 = 줄마다 하나 (8개까지 한 번에 비교 — 새 탐색 화면) · CSV 읽기 넓힘(따옴표 칸·날짜/Date 머리) — 사용자 지시 2026-11-28 "야 근데 링크 여는거 단어 8개 동시에 하는게 안돼?" · "사이트에서는 8개 비교 되던데".
+     (v1.5.1) — 2026-11-28 — ① 성공 사례 단계는 그 단계가 있는 주제만 (rules.json steps[].only — 지금 재테크(주식)만) — 사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해".
      (v1.5) — 2026-11-28 — 주제 탐색 ① = 성공 사례 찾기 · 성공 사례 전체 목록 (찾기 · 폴더·미국주식·한국어·자료 받은 사례 거르기 · 정렬 · 더 보기 ·
      자료 받은 사례는 형식·좋아요율·댓글 수·첫 20초·댓글 갈래 자세히) · 성공 사례를 찾은 검색어 목록(갈래별 · 태그 쓴 채널 수 · 외국 검색어) — 재테크는 주식 폴더만 —
      사용자 지시 2026-11-28 "맨처음 단계를 성공 사례 찾는거부터 해봐 그리고 모든 성공사례 정보 목록을 볼 수 있게해봐" · "그 일단 주식만 보이게 하고 검색에 사용한 단어 목록도 같이 보여줘".
@@ -538,7 +539,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   function trendParts(words, opt) {
     const W = (words || []).map(x => String(x || "").trim()).filter(Boolean).slice(0, 8);
     if (!W.length) return [];
-    const groups = W.length <= 5 ? [W] : [W.slice(0, 5), [W[0], ...W.slice(5)]];      // 구글 트렌드는 한 번에 5개까지 — 6개부터는 첫 낱말을 기준으로 둘로
+    const groups = [W];                                                  // v1.6 구글 트렌드 새 탐색 화면은 한 번에 8개까지 비교 — 줄 하나 = 링크 하나
     return groups.map((q, i) => ({ part: i + 1, q, url: "https://trends.google.com/trends/explore?" + [`date=${encodeURIComponent(opt.time)}`, "geo=KR",
       opt.gprop ? `gprop=${encodeURIComponent(opt.gprop)}` : "", `q=${q.map(encodeURIComponent).join(",")}`, "hl=ko"].filter(Boolean).join("&") }));
   }
@@ -551,13 +552,18 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   }
   function parseTrendsCsv(text) {
     const lines = String(text || "").replace(/^﻿/, "").split(/\r?\n/).filter(x => x.trim());
-    const hi = lines.findIndex(x => /^(주|Week|일|Day|월|Month|시간|Time)\s*,/.test(x));
+    const cells = ln => { const out = []; let cur = "", q = false;   // v1.6 따옴표 칸("a,b")도 — 새 탐색 화면 CSV
+      for (let i = 0; i < ln.length; i++) { const ch = ln[i];
+        if (q) { if (ch === '"' && ln[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+        else if (ch === '"') q = true; else if (ch === ",") { out.push(cur); cur = ""; } else cur += ch; }
+      out.push(cur); return out.map(x => x.trim()); };
+    const hi = lines.findIndex(x => /^"?(주|Week|일|Day|월|Month|시간|Time|날짜|Date|기간)"?\s*,/i.test(x));
     if (hi < 0) return null;
-    const head = lines[hi].split(",");
-    const words = head.slice(1).map(h => h.replace(/:\s*\(.*\)\s*$/, "").trim());
+    const head = cells(lines[hi]);
+    const words = head.slice(1).map(h => h.replace(/:\s*\(.*\)\s*$/, "").replace(/\s*\((대한민국|South Korea|KR)\)\s*$/i, "").trim());
     const series = words.map(() => []), dates = [];
     for (const ln of lines.slice(hi + 1)) {
-      const c = ln.split(",");
+      const c = cells(ln);
       if (c.length < 2) continue;
       dates.push(c[0]);
       words.forEach((_, i) => { const v = (c[i + 1] || "").trim(); series[i].push(v === "<1" ? 0.5 : (Number(v) || 0)); });
@@ -626,7 +632,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       return `<div class="card trow"><div class="ephead"><h3>${ri + 1}번째 줄</h3><div class="row">${r.draft ? `<span class="chip mute">저장 전 — [링크 생성]을 누르면 저장</span>` : rdone ? `<span class="chip ok">완료</span>` : parts.length ? `<span class="chip warn">CSV ${parts.filter(p => { const c = csvFor(r, p, opt); return c && c.same; }).length}/${parts.length}</span>` : ""}
           ${S.confirm === k ? `<span class="confirm">이 줄을 지울까요?<button class="btn bad sm" data-act="tr-del" data-id="${e(r.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : (!r.draft ? `<button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>줄 지우기</button>` : "")}</div></div>
         <div class="tinputs">${inputs}</div>
-        <div class="row"><button class="btn sm" data-act="tr-link" data-id="${e(r.id)}" data-n="${r.n || ri + 1}" ${wr()}>링크 생성</button><span class="small">6~8개면 링크 둘 (구글 트렌드는 한 번에 5개까지 — 첫 단어를 둘 다에 넣어 크기를 맞춤)</span></div>
+        <div class="row"><button class="btn sm" data-act="tr-link" data-id="${e(r.id)}" data-n="${r.n || ri + 1}" ${wr()}>링크 생성</button><span class="small">단어 8개까지 링크 하나 — 열린 화면에 8개가 다 보이는지 확인 (모자라면 알려 주세요)</span></div>
         ${links}</div>`;
     }).join("");
     return `<section class="box"><header><h2>구글 트렌드</h2><span class="chip ${st.done ? "ok" : st.have ? "warn" : "mute"}">${st.done ? "완료 — CSV " + st.have + "/" + st.need : "CSV " + st.have + "/" + st.need}</span></header>
@@ -1002,7 +1008,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
             const n = Math.max(0, ...[...S.col.trend_rows.values()].filter(r => r.topic === S.topic).map(r => r.n || 0)) + 1, id = `${S.topic}.r${Date.now().toString(36)}`;
             const doc = { topic: S.topic, n, words: [], deleted: false, at: t };
             if (await put("trend_rows", id, doc)) { S.col.trend_rows.set(id, Object.assign({ id }, doc)); toast("줄을 더했습니다 — 단어를 넣고 [링크 생성]"); }
-          } else if (ok) { const k = trendParts(words, trendOpt(S.topic)).length; toast(`링크 ${k}개를 만들었습니다${k > 1 ? " (5개가 넘어 둘로 나눔)" : ""} — 열어서 CSV 를 받아 올려 주세요`); }
+          } else if (ok) { const k = trendParts(words, trendOpt(S.topic)).length; toast(`링크 ${k}개를 만들었습니다 — 열어서 CSV 를 받아 올려 주세요`); }
         }
       }
       else if (a === "tr-del") {

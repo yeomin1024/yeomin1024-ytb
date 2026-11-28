@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.7.2 — 2026-11-28 — 성공 사례 목록 = 분석과 같은 판정 (조회수 하한 구독자 구간 VIEWS_TIERS — orr.min_views_for) · 외국 영상을 안 쓰는
+# VERSION: v1.8.0 — 2026-11-28 — 구글 트렌드 링크 = 줄마다 하나 (새 탐색 화면은 8개까지 한 번에 비교 — 전에는 5개 넘으면 둘) · 판 CSV 읽기 넓힘(따옴표 칸 ·
+#          날짜/Date 머리 · "(대한민국)" 꼬리) — 사용자 지시 2026-11-28 "야 근데 링크 여는거 단어 8개 동시에 하는게 안돼?" · "사이트에서는 8개 비교 되던데".
+#          함수 trend_groups · parse_trends_csv · selftest.
+# (v1.7.2) — 2026-11-28 — 성공 사례 목록 = 분석과 같은 판정 (조회수 하한 구독자 구간 VIEWS_TIERS — orr.min_views_for) · 외국 영상을 안 쓰는
 #          주제(INCLUDE_FOREIGN false)는 한글 제목만 — 사용자 지시 2026-11-28 "성공 사례를 구독자 수가 1000미만이면 조회수 1만 이상, 1000~10000미만이면 5만이상, 10000이상이면 10만으로 성공 사례를 잡고 조건 안되는거 제외해 그리고 외국 영상은 다 제외하고 외국 전용 단어 쓰지마". 함수 success_rules · success_rows.
 # (v1.7.1) — 2026-11-28 — 지금은 주식만 (사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해"): studio.toml [topic.<판 주제>] SHOW_FOLDERS = 판에 보이는 폴더
 #          (재테크 = stock 만 — 성공 사례 제목·탐색 문서·단계 결과) · 성공 사례 목록은 SUCCESS_FOLDERS 가 있는 판 주제만 만듦 (다른 주제는 건드리지 않음). 함수 topic_data.
@@ -20,7 +23,7 @@
 #          topic_data · build · effective_gates · sync · selftest.
 # (v1.3) — 2026-11-28 — 판 v1.3 구글 트렌드 (사용자 지시 2026-11-28 "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을
 #          누르면 … 구글 트렌드 링크 생성해 그리고 csv 파일 업로드 할 수 있도록 해 모든 파일이 업로드 되면 완료로 표시하고"): sync 가 db trend_rows(줄마다 단어 8개) →
-#          studio/state/trends.json 주제마다 groups(판 링크와 같은 묶음 — 5개까지 한 링크, 6~8개면 첫 단어를 둘 다에) · rows · csv 완료 수 · 주제마다 기간·대상 ·
+#          studio/state/trends.json 주제마다 groups(판 링크와 같은 묶음 — v1.3 때는 5개까지 한 링크·6~8개면 둘, v1.8 부터 줄마다 하나) · rows · csv 완료 수 · 주제마다 기간·대상 ·
 #          db trend_csv(판에서 올린 CSV) → <주제>/result/next_topic/board_csv/r<줄>_p<링크>.csv + index.json (지금 줄 단어와 다른 옛 CSV 는 빼고 경고) ·
 #          trends_results 는 날짜 폴더 board_<YYYYMMDD…> 만 (board_csv 제외). 함수 trend_groups · sync_trend_csv · sync · trends_results · selftest.
 # (v1.2) — 2026-11-27 — 재업로드 요청 시각 = db uploads reupload_at ([재업로드] 누른 때 — 다른 체크를 바꿔도 다시 요청되지 않게) · 사용자 지시 2026-11-27 "아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해". 함수 sync.
@@ -83,7 +86,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.7.2"
+VERSION = "v1.8.0"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -395,11 +398,11 @@ def refs_videos_csv(topic: str, tc: dict, img_dir) -> dict:
 # ─────────────────────────────── 트렌드 결과 (PC 가 올린 board_<날짜> 폴더)
 def parse_trends_csv(text: str) -> dict:
     lines = [ln for ln in text.splitlines() if ln.strip()]
-    hi = next((i for i, ln in enumerate(lines) if re.match(r"^(주|Week|일|Day|월|Month|시간|Time)\b", ln)), None)
+    hi = next((i for i, ln in enumerate(lines) if re.match(r'^"?(주|Week|일|Day|월|Month|시간|Time|날짜|Date|기간)"?\s*,', ln, re.I)), None)   # v1.8 새 탐색 화면 CSV 도
     if hi is None:
         return {}
-    head = next(csv.reader([lines[hi]]))
-    words = [re.sub(r":\s*\(.*\)$", "", h).strip() for h in head[1:]]
+    head = [h.strip() for h in next(csv.reader([lines[hi]]))]
+    words = [re.sub(r"\s*\((대한민국|South Korea|KR)\)$", "", re.sub(r":\s*\(.*\)$", "", h), flags=re.I).strip() for h in head[1:]]
     series = {w: [] for w in words}
     dates = []
     for row in csv.reader(lines[hi + 1:]):
@@ -407,7 +410,8 @@ def parse_trends_csv(text: str) -> dict:
             continue
         dates.append(row[0])
         for w, v in zip(words, row[1:]):
-            series[w].append(int(v) if v.strip().isdigit() else 0)
+            v = v.strip()
+            series[w].append(0.5 if v == "<1" else (float(v) if re.fullmatch(r"\d+(\.\d+)?", v) else 0))   # v1.8 판과 같게 ("<1" = 0.5)
     out = []
     for w in words:
         s = series[w]
@@ -971,7 +975,7 @@ def apply_rules(cols: dict, now: str) -> list[str]:
 
 
 def trend_groups(words: list) -> list[list[str]]:
-    """판 trendParts 와 같은 규칙 — 구글 트렌드는 한 번에 5개까지: 5개 이하 = 한 링크 · 6~8개 = [앞 5개] + [첫 단어 + 나머지] (첫 단어로 크기를 맞춤)."""
+    """판 trendParts 와 같은 규칙 — v1.8 구글 트렌드 새 탐색 화면은 한 번에 8개까지: 줄 하나(겹친 단어 빼고 8개까지) = 링크 하나."""
     seen, W = set(), []
     for w in words or []:
         w = str(w or "").strip()
@@ -982,7 +986,7 @@ def trend_groups(words: list) -> list[list[str]]:
     W = W[:8]
     if not W:
         return []
-    return [W] if len(W) <= 5 else [W[:5], [W[0]] + W[5:]]
+    return [W]
 
 
 def _normset(ws) -> str:
@@ -1120,10 +1124,10 @@ def sync(dump: Path) -> int:
 def selftest() -> int:
     ok = True
 
-    def check(name, cond):
+    def check(name, cond, **kw):
         nonlocal ok
-        print(("PASS " if cond else "FAIL ") + name)
-        ok = ok and cond
+        print(("PASS " if cond else "FAIL ") + name + ("" if cond or not kw else "  " + " ".join(f"{k}={v}" for k, v in kw.items())))
+        ok = ok and bool(cond)
     h = md_to_html("# 제목\n\n| a | b |\n|---|---|\n| 1 | **2** |\n\n- 하나\n- 둘\n\n```\nx<y\n```\n> 인용\n문단 [링크](https://x.y) [로컬](a/b.md)")
     check("md 표", "<table>" in h and "<strong>2</strong>" in h)
     check("md 목록·코드", "<ul><li>하나</li>" in h and "x&lt;y" in h)
@@ -1162,19 +1166,21 @@ def selftest() -> int:
     check("v1.5 숨긴 편 = studio.toml HIDE 폴더 이름 (있는 폴더만)", all((ROOT / f / "source" / x).is_dir() for f in ("economic", "stock") for x in topic_cfg(load_cfg(), f).get("HIDE", [])))
     check("v1.4 studio.toml 주식 → 재테크 · trend 주제", (load_cfg().get("MERGE") or {}).get("stock") == "economic" and "trend" in load_cfg()["TOPICS"])
     W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]
-    check("v1.3 트렌드 링크 묶음 8개 = 5 + (첫 단어 + 3)", trend_groups(W8) == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]])
+    check("v1.8 트렌드 링크 묶음 8개 = 하나 (새 탐색 화면 8개까지) · 9개째는 뺌", trend_groups(W8) == [W8] and trend_groups(W8 + ["x"]) == [W8])
+    q8 = parse_trends_csv('"날짜","자기계발 (대한민국)","갓생"\n"2026-09-01","50","<1"\n"2026-09-08","55","3"\n')
+    check("v1.8 새 CSV 꼴 읽기 (따옴표 · 날짜 머리 · <1 = 0.5)", [w["word"] for w in q8.get("words", [])] == ["자기계발", "갓생"] and q8["words"][1]["series"] == [0.5, 3.0], got=q8)
     check("v1.3 트렌드 링크 묶음 5개 이하 = 하나 · 겹친 단어 뺌", trend_groups(["a", "b", "a ", " A"]) == [["a", "b"]] and trend_groups([]) == [])
     with tempfile.TemporaryDirectory() as td:
         base = Path(td)
         rows = [{"id": "selfdev.r1", "n": 1, "words": W8}]
         csv1 = "카테고리: 모든 카테고리\n\n일,자기계발: (대한민국),갓생: (대한민국),동기부여: (대한민국),미라클모닝: (대한민국),루틴: (대한민국)\n2026-09-01,50,10,20,5,30\n2026-09-02,55,12,21,4,33\n"
-        docs = [{"id": "selfdev.r1.p1", "q": W8[:5], "time": "today 3-m", "gprop": "youtube", "text": csv1, "file": "multiTimeline.csv"},
-                {"id": "selfdev.r1.p2", "q": ["자기계발", "습관"], "time": "today 3-m", "gprop": "youtube", "text": csv1}]     # 옛 단어 — 빼야 함
+        docs = [{"id": "selfdev.r1.p1", "q": W8, "time": "today 3-m", "gprop": "youtube", "text": csv1, "file": "multiTimeline.csv"},
+                {"id": "selfdev.r1.p2", "q": ["자기계발", "습관"], "time": "today 3-m", "gprop": "youtube", "text": csv1}]     # v1.8 링크가 하나라 p2 는 옛 것 — 안 씀
         (base / "board_csv").mkdir()
         (base / "board_csv" / "r09_p1.csv").write_text("old", "utf-8")
         st = sync_trend_csv("selfdev", rows, docs, {"time": "today 3-m", "gprop": "youtube"}, "2026-11-28T00:00:00+09:00", base=base)
         names = sorted(f.name for f in (base / "board_csv").iterdir())
-        check("v1.3 판 CSV 옮기기 — 같은 것만 · 옛 파일 지움 · 완료 수", st["need"] == 2 and st["have"] == 1 and not st["done"] and names == ["index.json", "r01_p1.csv"])
+        check("v1.8 판 CSV 옮기기 — 줄마다 하나 · 같은 것만 · 옛 파일 지움 · 완료", st["need"] == 1 and st["have"] == 1 and st["done"] and names == ["index.json", "r01_p1.csv"], got=st)
         st2 = sync_trend_csv("selfdev", rows, docs, {"time": "today 12-m", "gprop": "youtube"}, "2026-11-28T00:00:00+09:00", base=base)
         check("v1.3 기간이 바뀌면 CSV 다시", st2["have"] == 0)
     print("selftest:", "OK" if ok else "FAIL")

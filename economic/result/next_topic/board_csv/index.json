@@ -1,0 +1,100 @@
+{
+ "updated": "2026-11-28T18:44:37+09:00",
+ "about": "제작 판 주제 탐색 › 구글 트렌드에서 올린 CSV (값은 같은 파일 안 낱말끼리만 비교 0~100)",
+ "geo": "KR",
+ "time": "today 3-m",
+ "gprop": "youtube",
+ "need": 5,
+ "have": 5,
+ "files": [
+  {
+   "file": "r01_p1.csv",
+   "row": 1,
+   "part": 1,
+   "q": [
+    "S&P500",
+    "미국주식",
+    "나스닥",
+    "엔비디아",
+    "미장",
+    "미국증시",
+    "해외주식",
+    "미국ETF"
+   ],
+   "time": "today 3-m",
+   "gprop": "youtube",
+   "uploaded_file": "time_series_KR_20260828-1841_20261128-1841.csv",
+   "uploadedAt": "2026-11-28T09:43:20.569Z"
+  },
+  {
+   "file": "r02_p1.csv",
+   "row": 2,
+   "part": 1,
+   "q": [
+    "S&P500",
+    "나스닥100",
+    "QQQ",
+    "VOO",
+    "SPY",
+    "S&P500ETF",
+    "미국직투",
+    "서학개미"
+   ],
+   "time": "today 3-m",
+   "gprop": "youtube",
+   "uploaded_file": "time_series_KR_20260828-1842_20261128-1842.csv",
+   "uploadedAt": "2026-11-28T09:43:20.257Z"
+  },
+  {
+   "file": "r03_p1.csv",
+   "row": 3,
+   "part": 1,
+   "q": [
+    "S&P500",
+    "SCHD",
+    "JEPI",
+    "JEPQ",
+    "커버드콜ETF",
+    "월배당ETF",
+    "미국배당다우존스",
+    "미국배당ETF"
+   ],
+   "time": "today 3-m",
+   "gprop": "youtube",
+   "uploaded_file": "time_series_KR_20260828-1842_20261128-1842 (1).csv",
+   "uploadedAt": "2026-11-28T09:43:19.950Z"
+  },
+  {
+   "file": "r04_p1.csv",
+   "row": 4,
+   "part": 1,
+   "q": [
+    "S&P500",
+    "TQQQ",
+    "SOXL",
+    "레버리지ETF",
+    "테슬라",
+    "애플",
+    "팔란티어",
+    "빅테크"
+   ],
+   "time": "today 3-m",
+   "gprop": "youtube",
+   "uploaded_file": "time_series_KR_20260828-1842_20261128-1842 (2).csv",
+   "uploadedAt": "2026-11-28T09:43:19.604Z"
+  },
+  {
+   "file": "r05_p1.csv",
+   "row": 5,
+   "part": 1,
+   "q": [
+    "S&P500",
+    "해외주식양도소득세"
+   ],
+   "time": "today 3-m",
+   "gprop": "youtube",
+   "uploaded_file": "time_series_KR_20260828-1843_20261128-1843.csv",
+   "uploadedAt": "2026-11-28T09:43:19.308Z"
+  }
+ ]
+}

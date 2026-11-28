@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T18:40:07+09:00",
+ "updated": "2026-11-28T18:44:37+09:00",
  "geo": "KR",
  "gprop": "youtube",
  "time": "today 3-m",
@@ -177,8 +177,8 @@
    "every_hours": 24,
    "csv": {
     "need": 5,
-    "have": 0,
-    "done": false,
+    "have": 5,
+    "done": true,
     "dir": "economic/result/next_topic/board_csv"
    },
    "from": "board_rows"

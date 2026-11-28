@@ -138,21 +138,44 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 5,
+      "at": "2026-11-28T14:01:17Z",
+      "sha": "677389d097f42fbd",
+      "reviewers": [
+       {
+        "reviewer": "E5-ALL",
+        "persona": "없음",
+        "exits": [
+         {
+          "line": 100,
+          "why": "지루함 — 99~101줄에 비교 조건(어느 날 일곱 번·과거는 1년·이번은 지금까지·27일 뺌·기준)이 연달아 나와 결과 전에 힘이 빠짐"
+         },
+         {
+          "line": 105,
+          "why": "헷갈림 — 바로 앞 줄이 날짜 나눔 이야기라, 주어 없이 '하루 이틀 만에 다 사게 되기도'가 가격 나눔 말인 줄 못 알아듣고 '다만'이 겹쳐 흐름이 끊김"
+         }
+        ],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "17 — 지수는 1.6배면 되는데 SOXL은 8.2배가 돼야 한다는 대비가 3배 상품의 무서움을 한 번에 보여 줘서",
+        "pass": false,
+        "why": [
+         "끄고 싶은 줄 [100, 105]"
+        ]
+       }
+      ],
+      "pass": false,
+      "fixed_after": "(5회차 — 멈춤 · 사용자 결정 대기)",
+      "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r5.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
-    "pending": {
-     "n": 5,
-     "sha": "677389d097f42fbd",
-     "reviewers": [
-      "E5-ALL"
-     ],
-     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r5.md",
-     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_5",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-28T13:59:32Z"
-    }
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
    },
    "script_rebuttal": {
     "rounds": [

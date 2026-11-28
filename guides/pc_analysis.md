@@ -1,6 +1,7 @@
 # PC에서 분석 돌리기 — 재테크(`economic`)·주식(`stock`) 폴더
 
-버전: v3.30 — 2026-11-27 — **제작 판 트렌드 — PC `run_analyzer.ps1 -TrendsWatch`** (실행기 v3.8 · `tools/pc_trends.py` v1.3 `watch`: GitHub `studio/state/trends.json`(판에서 고친 검색어)을 회차마다 읽어 간격마다 받아 `<주제>/result/next_topic/board_<기간>/` 에 올림 · 전체 탐색 = `new/…` · 기본 60분 · `-Once`) — 사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 아래 내용을 모두 만족하도록 수정해" · '피시에서는 일정 간격으로 단어 가져와서 결과 업로드'.
+버전: v3.31 — 2026-11-28 — **제작 판 v1.3 구글 트렌드 = 손으로 받는 길이 기본**: 판 '주제 탐색 › 구글 트렌드'에서 줄마다 단어 8개 → [링크 생성] → 링크 열어 CSV 받기 → 판에 올림 → Claude 동기화 → `<주제>/result/next_topic/board_csv/` (`guides/studio_board.md` 4-1) · `-TrendsWatch`(`tools/pc_trends.py` v1.4)는 선택 — 판 링크와 같은 묶음(`trends.json` groups)·주제마다 기간·대상을 그대로 받음. 사용자 지시 2026-11-28 "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을 누르면 … 구글 트렌드 링크 생성해 그리고 csv 파일 업로드 할 수 있도록 해".
+이전 v3.30 — 2026-11-27 — **제작 판 트렌드 — PC `run_analyzer.ps1 -TrendsWatch`** (실행기 v3.8 · `tools/pc_trends.py` v1.3 `watch`: GitHub `studio/state/trends.json`(판에서 고친 검색어)을 회차마다 읽어 간격마다 받아 `<주제>/result/next_topic/board_<기간>/` 에 올림 · 전체 탐색 = `new/…` · 기본 60분 · `-Once`) — 사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 아래 내용을 모두 만족하도록 수정해" · '피시에서는 일정 간격으로 단어 가져와서 결과 업로드'.
 이전 v3.29 — 2026-11-25 — **구글 트렌드 받기 v1.2 — 새 분야 갭 탐색** (`tools/pc_trends.py` v1.2: 관련 검색어·분류·자동완성 묶음 · 목록의 나라·기간 · 목록마다 폴더 · `--list`) — 사용자 지시 "여기서 다루고 있는 주제 이외에도 조회수 잘나오고 영상은 별로 없을 것 같은 주제 모두 찾아서 해야 돼".
 이전 v3.28 — 2026-11-25 — **구글 트렌드 받기 — PC** `run_analyzer.ps1 -Trends -Folder <주제>` (`tools/pc_trends.py` v1.0 · 실행기 v3.7) — 클라우드는 허용 목록에 넣어도 구글이 HTTP 429 (사용자 지시 "심리 주제에서 했던 것처럼 주제탐색에 필요한 4가지 그대로 수행해서 영상 만들 주제 알려줘 그리고 트렌드 사이트는 왜 막히는거야 안 막히고 돌리는 방법 없어? 내가 코드를 실행한다던가" · "트렌드 허용했으니 이제 접속될거야 계속해").
 이전 v3.27 — 2026-11-19 — 시청자 공통 생각 9단계 = 페르소나 (`tools/thought_personas.py` · SOURCE=thoughts).
@@ -151,6 +152,8 @@ bash run_analyzer.sh
 - **시간**: 자막을 받으면 영상 하나 몇 초. 사용자 PC 는 2026-10-14 에 자막 26/35 가 막혔고 음성인식이 영상 하나 10분 안팎 → 최대(자막 모두 막힘) 한국어 1차 약 35시간 · 전체 약 155시간 (`transcript_todo.md`). 봇 확인이 반복되면 음성인식을 멈추고 알려 줌 → YouTube 에 로그인한 브라우저에서 `cookies.txt` 를 내보내 실행 폴더에 두면 분석기가 저절로 씀 (`YTDLP_COOKIES_FILE` 이 비면 이 폴더의 `cookies*.txt` — 비밀값이라 GitHub 에 올리지 않음).
 
 ## 구글 트렌드 받기 — PC (`run_analyzer.ps1 -Trends` · `tools/pc_trends.py` v1.2 — 2026-11-25)
+
+> **v1.3 판 (2026-11-28)**: 주제 검색어 비교는 제작 판 '주제 탐색 › 구글 트렌드'에서 손으로 받는 것이 기본 (줄마다 8개 → 링크 → CSV 올리기 → 동기화 `board_csv/`). 아래 PC 명령은 묶음이 많거나 간격마다 저절로 받을 때.
 
 > **v1.3 제작 판 (2026-11-27)**: `powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch` 를 켜 두면 60분마다(`--every 30` 처럼 바꿈) GitHub 의 `studio/state/trends.json` 을 읽고, 이번 기간(간격 24시간 = 날짜 폴더)에 아직 없는 묶음만 받아 올린다 (`batch_NNN_<낱말 지문>` — 같은 날 검색어를 바꾸면 새 파일). 한 번만 = `-Once`. 결과는 Claude 가 `studio_board.py build` 로 제작 판 '공통'에 (`guides/studio_board.md`).
 

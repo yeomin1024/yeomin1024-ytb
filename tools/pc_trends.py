@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3.1 — 2026-11-28 — watch 오류 고침 (사용자 PC 2026-11-28 "에러나는데 해결해"): 판 검색어를 못 읽었을 때 경고 로그가 log() 의 첫 인자 이름
+# VERSION: v1.4 — 2026-11-28 — watch: 판 v1.3 구글 트렌드 줄(studio/state/trends.json 주제마다 groups·time·gprop)을 그대로 받음 — 판 [링크 생성] 링크와 같은 묶음
+#          (5개까지 한 링크, 6~8개면 첫 단어를 둘 다에) · 주제마다 기간·대상 · groups 가 없는 옛 파일은 예전처럼 첫 낱말 + 4개씩. 사용자 지시 2026-11-28
+#          "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을 누르면 … 구글 트렌드 링크 생성해". 함수 board_specs · selftest.
+# 이전 v1.3.1 — 2026-11-28 — watch 오류 고침 (사용자 PC 2026-11-28 "에러나는데 해결해"): 판 검색어를 못 읽었을 때 경고 로그가 log() 의 첫 인자 이름
 #          stage 와 겹쳐 TypeError 로 죽던 것 → step= · --list-file 이 없으면 처음에 찾은 절대 경로와 함께 바로 멈춤 (예전: 경고 뒤 '다음 회차에 다시' — 파일은 안 생김).
 # 이전 v1.3 — 2026-11-27 — watch: 제작 판 검색어(GitHub studio/state/trends.json)를 간격마다 읽어 받고 올림 — 사용자 지시 2026-11-27
 #          "피시에서는 일정 간격으로 단어 가져와서 결과 업로드, 결과도 볼 수 있음". 결과 폴더 <주제>/result/next_topic/board_<기간>/ (기간 = 간격으로 나눈 날짜·시각),
@@ -58,7 +61,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 import pc_transcribe as pt  # noqa: E402  GitHub 올리기·로그·주제 이름 검사를 그대로
 
-VERSION = "v1.3.1"
+VERSION = "v1.4"
 BOARD_STATE = "studio/state/trends.json"   # v1.3 제작 판 검색어 (Claude 가 판 동기화 때 씀)
 LOG = logging.getLogger("pc_trends")
 TRENDS = "https://trends.google.com"
@@ -427,12 +430,20 @@ def board_specs(state, now=None):
         words = [w.strip() for w in (t.get("words") or []) if isinstance(w, str) and w.strip()][:25]
         if not words or not pt.TOPIC_RX.match(topic):
             continue
+        t_time = t.get("time") or time_                                  # v1.4 주제마다 기간·대상 (판 '구글 트렌드' 고르기)
+        t_gprop = t.get("gprop") if t.get("gprop") is not None else gprop
         anchor, rest = words[0], words[1:]
-        groups = [[anchor] + rest[i:i + 4] for i in range(0, len(rest), 4)] or [[anchor]]
-        batches = [{"n": i + 1, "kind": "timeseries", "words": g, "hash": _hash(g, time_)} for i, g in enumerate(groups)]
-        batches += [{"n": 100 + i + 1, "kind": "related", "words": g, "hash": _hash(g, "rel" + time_)} for i, g in enumerate(groups)]
+        groups = [[w.strip() for w in g if isinstance(w, str) and w.strip()][:5] for g in (t.get("groups") or [])]   # v1.4 판 링크 묶음 그대로
+        groups = [g for g in groups if g]
+        if groups:
+            anchor = groups[0][0]
+        else:
+            groups = [[anchor] + rest[i:i + 4] for i in range(0, len(rest), 4)] or [[anchor]]
+        ext = t_time + ("" if t_gprop == "youtube" else "|" + t_gprop)   # 유튜브 검색(기본)이면 v1.3 지문 그대로 (같은 기간에 다시 받지 않게)
+        batches = [{"n": i + 1, "kind": "timeseries", "words": g, "hash": _hash(g, ext)} for i, g in enumerate(groups)]
+        batches += [{"n": 100 + i + 1, "kind": "related", "words": g, "hash": _hash(g, "rel" + ext)} for i, g in enumerate(groups)]
         out.append((topic, {"topic": topic, "out_dir": f"{topic}/result/next_topic/board_{period_of(t.get('every_hours', 24), now)}",
-                            "geo": geo, "gprop": gprop, "time": time_, "hl": "ko", "hash_names": True, "anchor": anchor,
+                            "geo": geo, "gprop": t_gprop, "time": t_time, "hl": "ko", "hash_names": True, "anchor": anchor,
                             "batches": batches, "next": "Claude: python3 tools/studio_board.py build → 제작 판 다시 올림"}))
     ov = state.get("overall") or {}
     cats = [int(c) for c in (ov.get("cats") or []) if str(c).isdigit()]
@@ -657,6 +668,13 @@ def selftest():
     ps = dict(sp)["psychology"]
     check("v1.3 판 묶음 — 5개씩·첫 낱말이 기준 · 관련 검색어도", [b_["words"] for b_ in ps["batches"] if b_["kind"] == "timeseries"] == [["심리", "엄마", "말투", "눈치", "허세"], ["심리", "뒷담화"]]
           and sum(1 for b_ in ps["batches"] if b_["kind"] == "related") == 2)
+    W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]
+    st4 = {"geo": "KR", "gprop": "youtube", "time": "today 3-m", "topics": {"selfdev": {"words": W8, "groups": [W8[:5], ["자기계발", "자기관리", "습관", "독서"]],
+                                                                                       "time": "today 12-m", "gprop": "", "every_hours": 24}}}
+    s4 = dict(board_specs(st4, now=_dt.datetime(2026, 11, 28, 9)))["selfdev"]
+    check("v1.4 판 링크 묶음 그대로 · 주제마다 기간·대상", [b_["words"] for b_ in s4["batches"] if b_["kind"] == "timeseries"] == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]]
+          and s4["time"] == "today 12-m" and s4["gprop"] == "" and s4["anchor"] == "자기계발")
+    check("v1.4 유튜브 기본이면 v1.3 지문 그대로", ps["batches"][0]["hash"] == _hash(["심리", "엄마", "말투", "눈치", "허세"], "today 3-m"))
     check("v1.3 기간 폴더 (24시간 = 날짜 · 6시간 = 날짜_시)", ps["out_dir"] == "psychology/result/next_topic/board_20261127"
           and dict(sp)["new"]["out_dir"] == "new/result/next_topic/board_20261127_12" and out_dir_ok("psychology", ps["out_dir"]))
     pth = batch_path("psychology", ps, ps["batches"][0])

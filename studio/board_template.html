@@ -1,19 +1,25 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.2 — 2026-11-27 — 업로드: 단계 이름 '업로드 준비 완료'(체크 + 동기화한 편만 PC 업로드 화면 '올릴 대본'에) · 올린 편 [재업로드] 단추
+<!-- VERSION: v1.3 — 2026-11-28 — '공통' 칸 없앰 · 주제 탐색에 구글 트렌드(줄마다 단어 8개 → [링크 생성] → 링크 열기 → CSV 올리기 · 모든 링크 CSV 가 오면 '완료'
+     — db trend_rows · trend_csv) · 화면마다 [작업] / [규칙 · 결과] 둘 중 하나를 넓게 (예전 오른쪽 옆 칸) · 편마다 [통과 → 다음 단계] · [← 이전 단계] 단추
+     (체크 상자 대신 — 누르면 편과 함께 그 단계 화면으로) · 주제 켜기·끄기는 머리 띠 단추. 사용자 지시 2026-11-28 "제작 판 동기화하고 공통탭을 없애고 주제 탐색에 구글 트렌드
+     부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을 누르면 바로 해당 단어가 입력되어 있는 구글 트렌드 링크 생성해 그리고 csv 파일 업로드 할 수 있도록 해
+     모든 파일이 업로드 되면 완료로 표시하고 그리고 지금 규칙을 사이드로 보여주는데 규칙, 작업 2가지로 선택해서 화면에 다 보여주도록 해 그리고 규칙에 결과도 같이 표시해"
+     · "그리고 통과 버튼 누르면 다음단계로 넘어가도록 하고 이전 단계 버튼 누르면 다시 이전 단계로 넘어가도록 해".
+     (v1.2) — 2026-11-27 — 업로드: 단계 이름 '업로드 준비 완료'(체크 + 동기화한 편만 PC 업로드 화면 '올릴 대본'에) · 올린 편 [재업로드] 단추
      (db uploads reupload·reupload_at — 동기화 뒤 PC 올릴 목록에 [재업로드] 줄, 다시 올리면 저절로 끝남) — 사용자 지시 2026-11-27 "아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해".
      (v1.1) — 2026-11-27 — 단계마다 그 단계에서 기다리는 편만 (통과한 편은 접힌 '통과한 편' — 되돌릴 때만) · 주제 모두(studio.toml TOPICS) · 주제 켜기·끄기
      (db topics — 끈 주제는 판에 안 보이고 동기화 뒤 studio/state/topics.json 으로 Claude·도구가 읽지 않음) · 주제 자료는 고를 때 받음 (common.json 편 요약으로 단계 수).
      사용자 지시 2026-11-27 "아니 각 단계에 맞는 것만 나오게 해야지 지금은 다 나오잖아 수정하고 주식 이런 주제는 왜 없어? 누락된거 추가하고 주제 비활성화도 할 수 있도록 해".
      (v1.0 — 2026-11-27 — 최초: 심리·위기 분석 판을 하나로 (tools/studio_board.py v1.0 이 BOARD 칸과 data/*.json 을 채움 — 손으로 고치지 않음).
      사용자 지시 2026-11-27 "지금 아티팩트가 심리, 위기 2개 있는데 하나로 통합하고 아래 내용을 모두 만족하도록 수정해".
-     db 컬렉션: gates · episodes · rules · refs · feedback · tts · trends · skills · uploads · channels (자세히 tools/studio_board.py 머리말).
+     db 컬렉션: gates · episodes · rules · refs · feedback · tts · trends · skills · uploads · channels · topics · trend_rows · trend_csv (자세히 tools/studio_board.py 머리말).
      판에서 바꾼 것은 db 에 바로 저장 → Claude 가 '제작 판 동기화' 때 studio/state/*.json 으로 저장소에 (PC·Kaggle 은 저장소를 읽음). 연구·교육용. -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
-/* 배치: 위 = 판 이름·주제 고르기·동기화 상태 / 단계 띠(공통 → 1 주제 … 6 업로드 → 채널 분석) / 본문 = 왼쪽 일감(편) · 오른쪽 규칙·참고 자료 (좁으면 한 줄) */
+/* 배치 (v1.3): 위 = 판 이름·주제 고르기(+ 켜기·끄기)·동기화 상태 / 단계 띠(1 주제 … 6 업로드 | 채널 분석) / 본문 = [작업] · [규칙 · 결과] 중 하나를 넓게 */
 :root{
   --bg:#F3F5F4; --surface:#FFFFFF; --sunk:#EEF2F0; --ink:#1B2320; --muted:#5C6A65; --line:#DCE3E0;
   --accent:#0E7466; --accent-ink:#FFFFFF; --accent-soft:#DDF1EC;
@@ -44,6 +50,7 @@ header.top p{margin:2px 0 0;color:var(--muted);font-size:13.5px;max-width:70ch}
 .pill[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .status{font-size:13px;color:var(--muted);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+#status-t{flex:1 1 0;min-width:0}
 .status.ok .dot{background:var(--ok)} .status.bad .dot{background:var(--bad)} .status.warn .dot{background:var(--warn)}
 nav.stages{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:6px;border-bottom:1px solid var(--line);overflow-x:auto}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
@@ -161,8 +168,20 @@ svg.spark circle{fill:var(--accent)}
 .confirm{display:inline-flex;gap:6px;align-items:center;font-size:13px}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
 .loading{padding:40px 0;text-align:center;color:var(--muted)}
+.one{display:grid;gap:16px;min-width:0}
+.modebar{display:inline-flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:12px;box-shadow:var(--shadow)}
+.modebar button{border:0;background:transparent;color:var(--muted);border-radius:9px;padding:6px 18px;font:600 14px var(--f-body);cursor:pointer}
+.modebar button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.stagebtns{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tinputs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.tlink{display:grid;gap:6px;border-top:1px dashed var(--line);padding-top:8px}
+.filebtn{position:relative;overflow:hidden;display:inline-flex;align-items:center}
+.filebtn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.filebtn:has(input:disabled){opacity:.45}
+.pill.ghostpill{border-style:dashed;color:var(--muted)}
+#panel:empty{display:none}
 @media (max-width:980px){.cols{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:620px){.grid2{grid-template-columns:minmax(0,1fr)}.ln{grid-template-columns:28px minmax(0,1fr)}.ln .acts{grid-column:2}.ln .fbwrap{grid-column:1/3}}
+@media (max-width:620px){.grid2{grid-template-columns:minmax(0,1fr)}.tinputs{grid-template-columns:repeat(2,minmax(0,1fr))}.ln{grid-template-columns:28px minmax(0,1fr)}.ln .acts{grid-column:2}.ln .fbwrap{grid-column:1/3}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
@@ -170,11 +189,13 @@ svg.spark circle{fill:var(--accent)}
   <header class="top">
     <div>
       <h1>제작 판</h1>
-      <p id="intro">주제 탐색부터 업로드까지 한 판에서 — 단계마다 '통과'를 체크한 편만 다음 단계로 갑니다.</p>
+      <p id="intro">주제 탐색부터 업로드까지 한 판에서 — 단계마다 [통과]를 누른 편만 다음 단계로 갑니다.</p>
       <div class="status" id="status"><span class="dot"></span><span id="status-t">저장소에 연결하는 중…</span></div>
+      <div class="status" id="pend"></div>
     </div>
     <div class="topics" id="topics" role="group" aria-label="주제"></div>
   </header>
+  <div id="panel"></div>
   <nav class="stages" aria-label="단계"><ol id="nav"></ol></nav>
   <main id="view"><div class="loading">판 자료를 불러오는 중…</div></main>
 </div>
@@ -190,7 +211,6 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   const STAGES = B.stages;
   const SK = Object.assign({ topic: "주제", title: "제목", thumb: "썸네일", script: "대본", voice: "음성", codetest: "코드 테스트", video: "영상", upload: "업로드" }, B.stage_ko || {});
   const VIEWS = [
-    { key: "common", label: "공통", n: "" },
     { key: "topic", label: "주제 탐색", n: "1", stages: ["topic"] },
     { key: "title", label: "제목", n: "2", stages: ["title"] },
     { key: "thumb", label: "썸네일", n: "3", stages: ["thumb"] },
@@ -199,7 +219,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     { key: "upload", label: "업로드", n: "6", stages: ["upload"] },
     { key: "channel", label: "채널 분석", n: "" },
   ];
-  const COLS = ["gates", "episodes", "rules", "refs", "feedback", "tts", "trends", "skills", "uploads", "channels", "topics"];
+  const COLS = ["gates", "episodes", "rules", "refs", "feedback", "tts", "trends", "skills", "uploads", "channels", "topics", "trend_rows", "trend_csv"];
   const CATS = { 0: "모든 카테고리", 14: "집단·사회", 958: "직업·교육", 45: "건강", 16: "뉴스", 3: "예술·엔터", 7: "금융", 71: "식음료", 65: "취미·레저", 11: "홈·가든", 18: "쇼핑", 44: "미용·건강" };
   const UPLOAD_CHECKS = ["제목 · 본안 썸네일", "설명란 첫 줄 · 챕터", "태그 · 해시태그", "자막 (지금 대본과 같은지)", "음성 · 영상 끝까지 봄", "합성 콘텐츠 '예' · 카테고리", "올릴 채널 · 공개 시각"];
   const store = k => { try { return localStorage.getItem("studio." + k); } catch (_) { return null; } };
@@ -207,7 +227,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
 
   const S = {
     topic: (B.topics.find(t => t.key === store("topic")) || B.topics[0]).key,
-    view: "common", data: {}, common: null, db: null, canWrite: true, connected: false,
+    view: "topic", mode: store("mode") === "rules" ? "rules" : "work", panel: false, data: {}, common: null, db: null, canWrite: true, connected: false,
     col: Object.fromEntries(COLS.map(c => [c, new Map()])),
     edit: null, confirm: null, open: new Set(), sel: {}, refq: "", busy: false,
   };
@@ -366,7 +386,75 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   // ───────── 명령 상자
   const cmd = (lab, text) => `<div class="cmdbox"><span class="lab">${e(lab)}</span><pre class="cmd">${e(text)}</pre><div class="row"><button class="btn ghost sm" data-act="copy" data-text="${e(text)}">복사</button></div></div>`;
 
-  // ───────── 공통 (트렌드 · 흐름)
+  // ───────── v1.3 단계 단추 — [통과 → 다음 단계] · [← 이전 단계]
+  const nextOf = s => STAGES[STAGES.indexOf(s) + 1] || null;
+  const prevOf = s => STAGES[STAGES.indexOf(s) - 1] || null;
+  const uploaded = ep => (ep.history || []).some(h => h.current);
+  function stageBtns(ep) {
+    const cur = at(ep), dis = (!S.db || !S.canWrite) ? "disabled" : "";
+    if (cur === "done") {
+      if (uploaded(ep)) return "";
+      return `<div class="stagebtns"><span class="chip ok">업로드 준비 완료</span><button class="btn ghost" data-act="back" data-topic="${e(ep.topic)}" data-ep="${e(ep.id)}" data-stage="upload" ${dis}>← 준비 취소 (업로드 단계로)</button></div>`;
+    }
+    const nx = nextOf(cur), pv = prevOf(cur);
+    const label = cur === "upload" ? "업로드 준비 완료 → PC 올릴 대본" : `${SK[cur]} 통과 → ${nx ? SK[nx] : "끝"}`;
+    return `<div class="stagebtns"><button class="btn" data-act="pass" data-topic="${e(ep.topic)}" data-ep="${e(ep.id)}" data-stage="${cur}" ${dis}>✓ ${e(label)}</button>${pv
+      ? `<button class="btn ghost" data-act="back" data-topic="${e(ep.topic)}" data-ep="${e(ep.id)}" data-stage="${pv}" ${dis}>← 이전 단계 (${e(SK[pv])})</button>` : ""}</div>`;
+  }
+  function eligible(v) { return eps(S.topic).filter(ep => v.stages.includes(at(ep))); }
+
+  // ───────── v1.3 구글 트렌드 — 줄마다 단어 8개 → 링크 → CSV 올리기
+  const TREND_TIMES = [["now 7-d", "지난 7일"], ["today 1-m", "지난 1개월"], ["today 3-m", "지난 3개월"], ["today 12-m", "지난 12개월"], ["today 5-y", "지난 5년"]];
+  const TREND_PROPS = [["youtube", "유튜브 검색"], ["", "웹 검색"]];
+  const normW = s => String(s || "").replace(/\s+/g, "").toLowerCase();
+  function trendOpt(topic) {
+    const d = S.col.trends.get(topic) || {};
+    const D = (S.common || {}).trends_defaults || {};
+    return { time: d.time || D.time || "today 3-m", gprop: d.gprop != null ? d.gprop : (D.gprop != null ? D.gprop : "youtube"), every_hours: Number(d.every_hours || D.every_hours || 24) };
+  }
+  function trendRows(topic) {
+    const all = [...S.col.trend_rows.values()].filter(r => r.topic === topic);
+    if (all.length) return all.filter(r => !r.deleted).sort((a, b) => (a.n || 0) - (b.n || 0));
+    const C = S.common || {}, st = ((C.state || {}).trends || {}).topics || {};
+    const def = ((st[topic] || {}).words || ((C.trends_defaults || {}).words || {})[topic] || []);   // 아직 저장한 줄이 없으면 기본 검색어로 줄을 채워 보여 줌 ([링크 생성] 때 저장)
+    const rows = [], rest = def.slice(8);                                // 둘째 줄부터도 첫 단어(기준)로 시작 — 줄끼리 크기를 견줄 수 있게
+    if (def.length) rows.push({ id: `${topic}.r1`, topic, n: 1, words: def.slice(0, 8), draft: true });
+    for (let i = 0; i < rest.length; i += 7) rows.push({ id: `${topic}.r${rows.length + 1}`, topic, n: rows.length + 1, words: [def[0], ...rest.slice(i, i + 7)], draft: true });
+    return rows.length ? rows : [{ id: `${topic}.r1`, topic, n: 1, words: [], draft: true }];
+  }
+  function trendParts(words, opt) {
+    const W = (words || []).map(x => String(x || "").trim()).filter(Boolean).slice(0, 8);
+    if (!W.length) return [];
+    const groups = W.length <= 5 ? [W] : [W.slice(0, 5), [W[0], ...W.slice(5)]];      // 구글 트렌드는 한 번에 5개까지 — 6개부터는 첫 낱말을 기준으로 둘로
+    return groups.map((q, i) => ({ part: i + 1, q, url: "https://trends.google.com/trends/explore?" + [`date=${encodeURIComponent(opt.time)}`, "geo=KR",
+      opt.gprop ? `gprop=${encodeURIComponent(opt.gprop)}` : "", `q=${q.map(encodeURIComponent).join(",")}`, "hl=ko"].filter(Boolean).join("&") }));
+  }
+  const csvId = (row, part) => `${row.id}.p${part}`;
+  function csvFor(row, p, opt) {
+    const d = S.col.trend_csv.get(csvId(row, p.part));
+    if (!d) return null;
+    const same = (d.q || []).map(normW).join("|") === p.q.map(normW).join("|") && (d.time || "") === opt.time && (d.gprop ?? "youtube") === opt.gprop;
+    return { doc: d, same };
+  }
+  function parseTrendsCsv(text) {
+    const lines = String(text || "").replace(/^﻿/, "").split(/\r?\n/).filter(x => x.trim());
+    const hi = lines.findIndex(x => /^(주|Week|일|Day|월|Month|시간|Time)\s*,/.test(x));
+    if (hi < 0) return null;
+    const head = lines[hi].split(",");
+    const words = head.slice(1).map(h => h.replace(/:\s*\(.*\)\s*$/, "").trim());
+    const series = words.map(() => []), dates = [];
+    for (const ln of lines.slice(hi + 1)) {
+      const c = ln.split(",");
+      if (c.length < 2) continue;
+      dates.push(c[0]);
+      words.forEach((_, i) => { const v = (c[i + 1] || "").trim(); series[i].push(v === "<1" ? 0.5 : (Number(v) || 0)); });
+    }
+    return { dates: dates.length ? [dates[0], dates[dates.length - 1]] : [], words: words.map((w, i) => {
+      const s = series[i], last = s.slice(-4), prev = s.slice(-8, -4), avg = s.reduce((a, b) => a + b, 0) / (s.length || 1);
+      const l4 = last.reduce((a, b) => a + b, 0) / (last.length || 1), p4 = prev.reduce((a, b) => a + b, 0) / (prev.length || 1);
+      return { word: w, avg: Math.round(avg * 10) / 10, last4: Math.round(l4 * 10) / 10, change: prev.length && p4 ? Math.round(l4 / p4 * 100) / 100 : null, series: s.slice(-26) };
+    }) };
+  }
   function spark(series) {
     if (!series || series.length < 2) return "";
     const mx = Math.max(1, ...series), w = 120, h = 28, n = series.length;
@@ -375,66 +463,90 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><polyline points="${pts.join(" ")}"/><circle cx="${last[0]}" cy="${last[1]}" r="2.4"/></svg>`;
   }
   function trendsResult(tr, label) {
-    if (!tr || !tr.period) return `<p class="empty">${e(label)}: PC 결과 아직 없음 — PC 에서 아래 명령을 켜 두면 간격마다 받아 올립니다.</p>`;
+    if (!tr || !tr.period) return `<p class="empty">${e(label)}: PC 결과 아직 없음 — 아래 PC 명령을 켜 두면 간격마다 받아 올립니다.</p>`;
     const ts = (tr.timeseries || []).flatMap(b => b.words.map(w => ({ ...w, dates: b.dates, file: b.file })));
-    const t1 = ts.length ? `<div class="tablebox"><table><thead><tr><th>낱말</th><th>평균</th><th>최근 4주</th><th>앞 4주 대비</th><th>흐름</th></tr></thead><tbody>${ts.map(w => `<tr><td>${e(w.word)}</td><td class="num">${w.avg}</td><td class="num">${w.last4}</td><td class="num">${w.change == null ? "–" : "×" + w.change}</td><td>${spark(w.series)}</td></tr>`).join("")}</tbody></table></div>` : "";
+    const t1 = ts.length ? `<div class="tablebox"><table><thead><tr><th>낱말</th><th>평균</th><th>최근 4칸</th><th>앞 4칸 대비</th><th>흐름</th></tr></thead><tbody>${ts.map(w => `<tr><td>${e(w.word)}</td><td class="num">${w.avg}</td><td class="num">${w.last4}</td><td class="num">${w.change == null ? "–" : "×" + w.change}</td><td>${spark(w.series)}</td></tr>`).join("")}</tbody></table></div>` : "";
     const t2 = (tr.related || []).map(r => `<details><summary>${e(r.keyword || CATS[r.cat] || "분류 " + r.cat)} — 급상승 ${r.rising.length} · 인기 ${r.top.length}</summary>
       <div class="grid2" style="margin-top:6px"><div><div class="scope">급상승</div><div class="words">${r.rising.map(x => `<span class="word">${e(x[0])}<b>${e(x[1] || "")}</b></span>`).join("") || `<span class="empty">없음</span>`}</div></div>
       <div><div class="scope">인기</div><div class="words">${r.top.map(x => `<span class="word">${e(x)}</span>`).join("") || `<span class="empty">없음</span>`}</div></div></div></details>`).join("");
     return `<div class="small">${e(label)} · 결과 ${e(tr.period)} · 올린 때 ${e(String(tr.pushed || "").slice(0, 16).replace("T", " "))} · <span class="mono">${e(tr.dir)}</span></div>${t1}${t2}`;
   }
-  function trendsSetting(key, label, defaults, isOverall) {
+  function trendsSetting(key, label, defaults) {                       // 전체 탐색(분류 번호) — 새 분야 주제의 주제 탐색에서만
     const d = S.col.trends.get(key);
     const st = ((S.common || {}).state || {}).trends || null;
-    const repoCur = isOverall ? (st && st.overall) : (st && st.topics && st.topics[key]);
-    const words = d ? (isOverall ? (d.cats || []).join(", ") : (d.words || []).join("\n")) : (isOverall ? (defaults.cats || []).join(", ") : (defaults.words || []).join("\n"));
-    const hours = (d && d.every_hours) || (repoCur && repoCur.every_hours) || (S.common.trends_defaults || {}).every_hours || 24;
+    const repoCur = st && st.overall;
+    const words = d ? (d.cats || []).join(", ") : (defaults.cats || []).join(", ");
+    const hours = (d && d.every_hours) || (repoCur && repoCur.every_hours) || ((S.common || {}).trends_defaults || {}).every_hours || 24;
     return `<div class="card"><div class="ephead"><h3>${e(label)}</h3><div class="row">${d ? pendChip(d) : `<span class="chip mute">기본값 (studio.toml)</span>`}</div></div>
-      <label class="small" for="tw-${e(key)}">${isOverall ? "분류 번호 (쉼표로) — " + Object.entries(CATS).slice(0, 8).map(([k, v]) => k + " " + v).join(" · ") : "검색어 (한 줄에 하나 · 5개씩 한 묶음, 첫 낱말이 기준)"}</label>
-      ${isOverall ? `<input type="text" id="tw-${e(key)}" value="${e(words)}">` : `<textarea id="tw-${e(key)}" rows="5">${e(words)}</textarea>`}
+      <label class="small" for="tw-${e(key)}">분류 번호 (쉼표로) — ${Object.entries(CATS).slice(0, 8).map(([k, v]) => k + " " + v).join(" · ")}</label>
+      <input type="text" id="tw-${e(key)}" value="${e(words)}">
       <div class="row"><label class="small" for="th-${e(key)}">다시 받는 간격</label><select id="th-${e(key)}" style="width:auto">${[6, 12, 24, 48, 168].map(h => `<option value="${h}" ${Number(hours) === h ? "selected" : ""}>${h < 24 ? h + "시간" : h / 24 + "일"}</option>`).join("")}</select>
-      <button class="btn sm" data-act="trends-save" data-key="${e(key)}" data-overall="${isOverall ? 1 : 0}" ${wr()}>저장</button></div>
-      <p class="small">저장소(PC 가 읽는 곳): ${repoCur ? e((isOverall ? (repoCur.cats || []).join(", ") : (repoCur.words || []).join(" · "))) + " · " + e(repoCur.every_hours) + "시간마다" : "아직 동기화 전"}</p></div>`;
+      <button class="btn sm" data-act="trends-save" data-key="${e(key)}" data-overall="1" ${wr()}>저장</button></div>
+      <p class="small">저장소(PC 가 읽는 곳): ${repoCur ? e((repoCur.cats || []).join(", ")) + " · " + e(repoCur.every_hours) + "시간마다" : "아직 동기화 전"}</p></div>`;
   }
-  // v1.1 주제 켜기·끄기 — 끈 주제는 판(주제 단추·단계·채널)에서 안 보이고, 동기화 뒤 Claude·도구가 읽지 않음
-  function topicsBox() {
-    return `<section class="box"><header><h2>주제 켜기·끄기</h2><span class="small">끄면 판에 안 보이고 Claude·도구가 보지 않음</span></header>
+  function trendTable(text) {
+    const r = parseTrendsCsv(text);
+    if (!r || !r.words.length) return `<p class="small item-bad">CSV 를 읽지 못했습니다</p>`;
+    return `<div class="tablebox"><table><thead><tr><th>낱말</th><th>평균</th><th>최근 4칸</th><th>앞 4칸 대비</th><th>흐름</th></tr></thead><tbody>${r.words.map(w => `<tr><td>${e(w.word)}</td><td class="num">${w.avg}</td><td class="num">${w.last4}</td><td class="num">${w.change == null ? "–" : "×" + w.change}</td><td>${spark(w.series)}</td></tr>`).join("")}</tbody></table></div>
+      <p class="small">${e(r.dates.join(" ~ "))} · 값은 같은 링크 안 낱말끼리만 비교 (0~100)</p>`;
+  }
+  function trendStatus(topic) {
+    const opt = trendOpt(topic), rows = trendRows(topic);
+    let need = 0, have = 0;
+    for (const r of rows) for (const p of trendParts(r.words, opt)) { need++; const c = csvFor(r, p, opt); if (c && c.same && !r.draft) have++; }
+    return { need, have, done: need > 0 && have === need };
+  }
+  function trendsBox() {
+    const opt = trendOpt(S.topic), rows = trendRows(S.topic), st = trendStatus(S.topic);
+    const body = rows.map((r, ri) => {
+      const parts = r.draft ? [] : trendParts(r.words, opt);
+      const k = "tr:" + r.id;
+      const inputs = Array.from({ length: 8 }, (_, i) => `<input type="text" id="tw-${e(r.id)}-${i}" value="${e((r.words || [])[i] || "")}" placeholder="단어 ${i + 1}" aria-label="${ri + 1}번째 줄 단어 ${i + 1}">`).join("");
+      const links = parts.map(p => {
+        const c = csvFor(r, p, opt);
+        return `<div class="tlink"><div class="row"><a class="btn ghost sm" href="${e(p.url)}" target="_blank" rel="noopener">링크 ${p.part} 열기 ↗</a><span class="small">${e(p.q.join(" · "))}</span>
+            ${c && c.same ? `<span class="chip ok">CSV 올림 ✓</span>` : c ? `<span class="chip warn">CSV 가 지금 단어·기간과 다름 — 다시 올리기</span>` : `<span class="chip mute">CSV 아직</span>`}
+            <label class="btn ghost sm filebtn">CSV 올리기<input type="file" accept=".csv,text/csv" data-act="csv" data-row="${e(r.id)}" data-part="${p.part}" ${wr()}></label></div>
+          ${c && c.same ? `<details><summary class="small">결과 보기 — ${e(c.doc.file || "CSV")} · ${e(String(c.doc.uploadedAt || "").slice(0, 16).replace("T", " "))}</summary>${trendTable(c.doc.text)}</details>` : ""}</div>`;
+      }).join("");
+      const rdone = parts.length && parts.every(p => { const c = csvFor(r, p, opt); return c && c.same; });
+      return `<div class="card trow"><div class="ephead"><h3>${ri + 1}번째 줄</h3><div class="row">${r.draft ? `<span class="chip mute">저장 전 — [링크 생성]을 누르면 저장</span>` : rdone ? `<span class="chip ok">완료</span>` : parts.length ? `<span class="chip warn">CSV ${parts.filter(p => { const c = csvFor(r, p, opt); return c && c.same; }).length}/${parts.length}</span>` : ""}
+          ${S.confirm === k ? `<span class="confirm">이 줄을 지울까요?<button class="btn bad sm" data-act="tr-del" data-id="${e(r.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : (!r.draft ? `<button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>줄 지우기</button>` : "")}</div></div>
+        <div class="tinputs">${inputs}</div>
+        <div class="row"><button class="btn sm" data-act="tr-link" data-id="${e(r.id)}" data-n="${r.n || ri + 1}" ${wr()}>링크 생성</button><span class="small">6~8개면 링크 둘 (구글 트렌드는 한 번에 5개까지 — 첫 단어를 둘 다에 넣어 크기를 맞춤)</span></div>
+        ${links}</div>`;
+    }).join("");
+    return `<section class="box"><header><h2>구글 트렌드</h2><span class="chip ${st.done ? "ok" : st.have ? "warn" : "mute"}">${st.done ? "완료 — CSV " + st.have + "/" + st.need : "CSV " + st.have + "/" + st.need}</span></header>
+      <div class="row"><label class="small" for="tr-time">기간</label><select id="tr-time" data-act="tr-opt" style="width:auto">${TREND_TIMES.map(([v, l]) => `<option value="${v}" ${opt.time === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+        <label class="small" for="tr-gprop">대상</label><select id="tr-gprop" data-act="tr-opt" style="width:auto">${TREND_PROPS.map(([v, l]) => `<option value="${v}" ${opt.gprop === v ? "selected" : ""}>${l}</option>`).join("")}</select>
+        <span class="small">한국 · 바꾸면 링크가 새로 만들어지고 CSV 도 다시 올려야 함</span></div>
+      <p class="small">줄마다 단어 8개까지 → [링크 생성] → 링크 열기 → 구글 트렌드 그래프 오른쪽 위 ⤓(CSV 다운로드) → 그 줄의 [CSV 올리기]. 모든 링크의 CSV 가 올라가면 '완료'. 지금 크게 오르는 검색어 전체는 <a href="https://trends.google.com/trending?geo=KR" target="_blank" rel="noopener">구글 트렌드 인기 급상승 (한국)</a>.</p>
+      ${body}
+      <div class="row"><button class="btn ghost sm" data-act="tr-add" ${wr()}>줄 더하기</button><label class="btn ghost sm filebtn">CSV 여러 개 한 번에 올리기<input type="file" accept=".csv,text/csv" multiple data-act="csv-bulk" ${wr()}></label><span class="small">여러 개는 CSV 안의 단어로 맞는 링크를 찾아 넣음</span></div>
+      <details><summary class="small">PC 가 간격마다 저절로 받기 (선택)</summary><div class="fb" style="margin-top:6px">
+        <div class="row"><label class="small" for="tr-hours">다시 받는 간격</label><select id="tr-hours" data-act="tr-opt" style="width:auto">${[6, 12, 24, 48, 168].map(h => `<option value="${h}" ${opt.every_hours === h ? "selected" : ""}>${h < 24 ? h + "시간" : h / 24 + "일"}</option>`).join("")}</select>
+          <span class="small">PC 는 위 줄의 링크와 같은 단어 묶음을 받습니다 (Claude 동기화 뒤)</span></div>
+        ${cmd("PC — 간격마다 받아 올리기 (켜 두기 · 멈춤 Ctrl+C)", "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch")}
+        ${cmd("PC — 한 번만 받기", "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch -Once")}
+        ${S.topic === (((S.common || {}).trends_defaults || {}).overall || {}).topic ? trendsSetting("overall", "전체 탐색 (주제 없이 분류만 · 관련 검색어 인기·급상승)", ((S.common || {}).trends_defaults || {}).overall || {}, true) : ""}</div></details></section>`;
+  }
+  function trendsResultBox() {
+    const opt = trendOpt(S.topic), out = [];
+    trendRows(S.topic).forEach((r, ri) => trendParts(r.draft ? [] : r.words, opt).forEach(p => { const c = csvFor(r, p, opt); if (c && c.same) out.push(`<div class="scope">${ri + 1}번째 줄 · 링크 ${p.part} — ${e(p.q.join(" · "))}</div>${trendTable(c.doc.text)}`); }));
+    const pc = ((S.common || {}).topic_trends || {})[S.topic];
+    return `<section class="box"><header><h2>구글 트렌드 결과</h2><span class="small">${TREND_TIMES.find(x => x[0] === opt.time)?.[1] || opt.time} · ${opt.gprop ? "유튜브 검색" : "웹 검색"}</span></header>${out.join("") || `<p class="empty">올린 CSV 없음 — 작업 화면의 구글 트렌드에서 링크 → CSV 올리기</p>`}
+      <details><summary class="small">PC 저절로 받기 결과${pc && pc.period ? " (" + e(pc.period) + ")" : " — 없음"}</summary>${trendsResult(pc, tname(S.topic))}${S.topic === (((S.common || {}).trends_defaults || {}).overall || {}).topic ? trendsResult((S.common || {}).overall_trends, "전체 탐색") : ""}</details></section>`;
+  }
+
+  // ───────── 주제 켜기·끄기 (머리 띠에서 여닫음)
+  function topicsPanel() {
+    return `<section class="box"><header><h2>주제 켜기·끄기</h2><button class="btn ghost sm" data-act="panel">닫기</button></header>
       <ul class="list">${B.topics.map(t => { const on = topicOn(t), d = S.col.topics.get(t.key); const sum = (((S.common || {}).summary || {})[t.key] || []).length;
         return `<li class="row" style="justify-content:space-between"><label class="gate ${on ? "on" : ""}"><input type="checkbox" data-act="topic-on" data-key="${e(t.key)}" ${on ? "checked" : ""} ${wr()}>${e(t.name)} <span class="mono small">${e(t.key)}</span></label>
           <span class="row small">${on ? (t.built ? `편 ${sum}` : `<span class="chip warn">다시 켬 — Claude 동기화 뒤 자료</span>`) : `<span class="chip mute">꺼짐</span>`}${d ? pendChip(d) : ""}</span></li>`; }).join("")}</ul>
-      <p class="small">끈 주제: 판에서 바로 사라짐 → Claude 가 동기화하면 <span class="mono">studio/state/topics.json</span> 에 적혀 Claude 세션·음성·업로드·채널 도구가 그 주제를 읽지도 작업하지도 않음 · 다시 켜면 다음 동기화부터.</p></section>`;
-  }
-  function viewCommon() {
-    const C = S.common || {};
-    const funnel = visTopics().map(t => {
-      const L = eps(t.key), cnt = {};
-      for (const ep of L) { const a = at(ep); cnt[a] = (cnt[a] || 0) + 1; }
-      return `<tr><td>${e(t.name)}</td>${STAGES.map(s => `<td class="num">${cnt[s] || ""}</td>`).join("")}<td class="num">${cnt.done || ""}</td><td class="num">${L.length}</td></tr>`;
-    }).join("");
-    const pend = COLS.map(c => [c, [...S.col[c].values()].filter(pendingDoc).length]).filter(x => x[1]);
-    const D = C.trends_defaults || {};
-    return `<div class="cols"><div class="side" style="gap:16px">
-      <section class="box"><header><h2>편마다 지금 단계</h2><span class="small">통과 체크가 된 편만 다음 단계로</span></header>
-        <div class="tablebox"><table><thead><tr><th>주제</th>${STAGES.map(s => `<th>${e(SK[s])}</th>`).join("")}<th>끝</th><th>모두</th></tr></thead><tbody>${funnel}</tbody></table></div>
-        <p class="small">숫자 = 그 단계에서 기다리는 편. 저장소 기준(이미 만든 것)은 판에서 체크하기 전 기본값이고, 판의 체크가 늘 이깁니다.</p></section>
-      <section class="box"><header><h2>구글 트렌드 — 검색어 설정</h2><span class="small">PC 가 간격마다 받아 올림</span></header>
-        ${trendsSetting("overall", "전체 탐색 (주제 없이 분류만 · 관련 검색어 인기·급상승)", D.overall || {}, true)}
-        ${visTopics().filter(t => t.built).map(t => trendsSetting(t.key, t.name + " 주제", { words: (D.words || {})[t.key] || [] }, false)).join("")}
-      </section>
-      <section class="box"><header><h2>구글 트렌드 — PC 결과</h2></header>
-        ${trendsResult(C.overall_trends, "전체 탐색")}${visTopics().map(t => trendsResult((C.topic_trends || {})[t.key], t.name)).join("")}</section>
-      </div><div class="side">
-      ${topicsBox()}
-      <section class="box"><h2>명령</h2>
-        ${cmd("PC — 트렌드를 간격마다 받아 올리기 (켜 두기 · 멈춤 Ctrl+C)", "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch")}
-        ${cmd("PC — 한 번만 받기", "powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -TrendsWatch -Once")}
-        ${cmd("Claude 에게 — 판에서 바꾼 것을 저장소로", "제작 판 동기화해")}
-        ${cmd("Kaggle — 음성 (판에서 체크한 대본만)", 'import sys; sys.path.insert(0, "/kaggle/working/yeomin1024-ytb/tools")\nimport importlib, kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()')}
-        ${cmd("PC — 업로드 화면", "유튜브_업로드.bat")}</section>
-      <section class="box"><h2>동기화</h2><p class="small">판에서 고친 것은 바로 판 db 에 저장됩니다. PC·Kaggle·Claude 지시사항은 저장소를 읽으므로, Claude 가 동기화하면 <span class="mono">studio/state/*.json</span> 으로 옮깁니다.</p>
-        <p class="small">마지막 동기화 ${e(String(syncedAt() || "아직").slice(0, 16).replace("T", " "))} · 판 만든 때 ${e(B.made)} · ${e(B.tool || "")}</p>
-        ${pend.length ? `<div class="words">${pend.map(([c, n]) => `<span class="word">${e(c)}<b>${n}</b></span>`).join("")}</div><p class="small">위 ${pend.reduce((a, x) => a + x[1], 0)}건이 아직 저장소에 없음 — Claude 에게 '제작 판 동기화해'.</p>` : `<p class="small">저장소에 안 옮긴 것 없음</p>`}</section>
-      ${rulesBox("trends", "트렌드 규칙")}</div></div>`;
+      <p class="small">끈 주제는 판에서 바로 사라지고, Claude 가 동기화하면 Claude 세션·음성·업로드·채널 도구도 그 주제를 읽지 않습니다. 다시 켜면 다음 동기화부터.</p>
+      <details><summary class="small">켠 주제마다 단계별 편 수</summary><div class="tablebox"><table><thead><tr><th>주제</th>${STAGES.map(s => `<th>${e(SK[s])}</th>`).join("")}<th>끝</th></tr></thead><tbody>${visTopics().map(t => { const cnt = {}; for (const ep of eps(t.key)) { const a = at(ep); cnt[a] = (cnt[a] || 0) + 1; }
+        return `<tr><td>${e(t.name)}</td>${STAGES.map(s => `<td class="num">${cnt[s] || ""}</td>`).join("")}<td class="num">${cnt.done || ""}</td></tr>`; }).join("")}</tbody></table></div></details></section>`;
   }
 
   // ───────── 1 주제 탐색
@@ -446,72 +558,62 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   }
   function viewTopic() {
     const D = S.data[S.topic] || {};
-    const vT = VIEWS.find(x => x.key === "topic");
-    const L = eligible(vT);
+    const v = VIEWS.find(x => x.key === "topic");
+    const L = eligible(v);
     const lg = D.legacy || {};
     const chans = [...S.col.channels.values()].filter(c => (c.topic || S.topic) === S.topic).sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt)));
-    const cards = L.map(ep => `<div class="card">${epHead(ep, gateHtml(ep, "topic", "주제 통과"))}
+    const cards = L.map(ep => `<div class="card">${epHead(ep, stageBtns(ep))}
       ${ep.kind === "cand" ? `${ep.memo ? `<p class="small">메모: ${e(ep.memo)}</p>` : ""}<div class="row">${S.confirm === "cand:" + ep.docId ? `<span class="confirm">이 후보를 지울까요?<button class="btn bad sm" data-act="cand-del" data-id="${e(ep.docId)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="cand:${e(ep.docId)}" ${wr()}>후보 지우기</button>`}</div>` : ""}
       <details ${S.open.has("fbo:" + ep.id + ":topic") ? "open" : ""} data-k="fbo:${e(ep.id)}:topic"><summary class="small">주제 피드백 ${fbOf(ep.topic, ep.id, "topic").length}</summary>${fbBox(ep, "topic", null)}</details></div>`).join("");
     const tr = lg.transcript || {};
-    return `<div class="cols"><div class="side">
-      <section class="box"><header><h2>주제 후보</h2><span class="small">통과를 체크한 후보만 제목 단계로</span></header>
-        <div class="fb"><input type="text" id="nc-title" placeholder="새 후보 — 예: 남의 뒷말을 전하는 사람의 심리"><input type="text" id="nc-memo" placeholder="메모 — 근거(탐색 결과 몇 번, 댓글 묶음 등)">
+    const work = `${trendsBox()}
+      <section class="box"><header><h2>주제 후보</h2><span class="small">주제 단계에서 기다리는 편 ${L.length} · [통과]를 누르면 제목 단계로</span></header>
+        <div class="fb"><input type="text" id="nc-title" placeholder="새 후보 — 예: 남의 뒷말을 전하는 사람의 심리"><input type="text" id="nc-memo" placeholder="메모 — 근거(탐색 결과 몇 번, 트렌드 줄 등)">
         <div class="row"><button class="btn sm" data-act="cand-add" ${wr()}>후보 더하기</button></div></div>
-        <div class="list">${cards || `<div class="empty">주제 단계에서 기다리는 후보 없음</div>`}</div>${passedList(vT)}</section>
-      <section class="box"><header><h2>${e(D.name || "")} 주제 탐색 결과</h2><span class="small">${(D.explore || []).length}개 문서</span></header>${(D.explore || []).map(docHtml).join("") || `<p class="empty">결과 문서 없음 — python3 tools/next_topic.py ${e(S.topic)} report</p>`}</section>
-      <section class="box"><header><h2>시청자 페르소나</h2><span class="small">옛 분석 판에서 옮김 · ${e(lg.made || "")}</span></header>${(lg.personas || []).map(personaHtml).join("") || `<p class="empty">없음</p>`}
-        ${(lg.log || []).length ? `<details><summary class="small">업데이트 내역 ${lg.log.length}</summary><div class="tablebox"><table><thead><tr><th>날짜</th><th>페르소나</th><th>무엇을</th><th>근거</th></tr></thead><tbody>${lg.log.map(x => `<tr><td class="mono">${e(x.date)}</td><td>${e(x.persona_name || x.persona)}</td><td>${e(x.after)}</td><td>${e(x.basis)}</td></tr>`).join("")}</tbody></table></div></details>` : ""}</section>
-      </div><div class="side">${rulesBox("topic")}
+        <div class="list">${cards || `<div class="empty">주제 단계에서 기다리는 후보 없음</div>`}</div></section>
       <section class="box"><h2>탐색할 고정 채널</h2><p class="small">채널 ID(UC…)·주소·@이름 — 여러 개는 줄을 바꿔서. Claude 가 다음 분석 때 탐색 목록에 더하고 결과를 적습니다.</p>
         <textarea id="ch-in" placeholder="UCxxxxxxxxxxxxxxxxxxxxxx&#10;@채널이름"></textarea><input type="text" id="ch-memo" placeholder="메모 (선택)">
         <div class="row"><button class="btn sm" data-act="ch-add" ${wr()}>채널 넣기</button></div>
         <ul class="list">${chans.map(c => `<li class="card"><div class="row"><span class="chip ${c.status === "done" ? "ok" : c.status === "fail" ? "bad" : "warn"}">${c.status === "done" ? "반영됨" : c.status === "fail" ? "못 찾음" : "반영 전"}</span><code>${e(c.input)}</code></div>${c.memo ? `<span class="small">메모: ${e(c.memo)}</span>` : ""}${c.reply ? `<span class="small">Claude: ${e(c.reply)}</span>` : ""}
           <div class="row">${S.confirm === "ch:" + c.id ? `<span class="confirm">지울까요?<button class="btn bad sm" data-act="ch-del" data-id="${e(c.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="ch:${e(c.id)}" ${wr()}>지우기</button>`}</div></li>`).join("")}</ul></section>
-      ${tr.command ? `<section class="box"><h2>대본 받기 (PC)</h2><p class="small">${e(tr.why || "")} (목록 ${e(tr.made || "")})</p>${cmd("PC 명령", tr.command)}</section>` : ""}
-      </div></div>`;
+      ${tr.command ? `<section class="box"><h2>대본 받기 (PC)</h2><p class="small">${e(tr.why || "")} (목록 ${e(tr.made || "")})</p>${cmd("PC 명령", tr.command)}</section>` : ""}`;
+    const rules = `${rulesBox("topic")}${rulesBox("trends", "구글 트렌드 규칙")}${trendsResultBox()}
+      <section class="box"><header><h2>${e(D.name || "")} 주제 탐색 결과</h2><span class="small">${(D.explore || []).length}개 문서</span></header>${(D.explore || []).map(docHtml).join("") || `<p class="empty">결과 문서 없음 — python3 tools/next_topic.py ${e(S.topic)} report</p>`}</section>
+      ${(lg.personas || []).length ? `<section class="box"><header><h2>시청자 페르소나</h2><span class="small">옛 분석 판에서 옮김 · ${e(lg.made || "")}</span></header>${lg.personas.map(personaHtml).join("")}</section>` : ""}`;
+    return { work, rules };
   }
 
   // ───────── 2 제목 · 3 썸네일
-  // v1.1 이 단계에서 기다리는 편만 (지금 단계 = 아직 통과 안 한 첫 단계가 이 화면의 단계)
-  function eligible(v) { return eps(S.topic).filter(ep => v.stages.includes(at(ep))); }
-  const stageIdx = s => s === "done" ? STAGES.length : STAGES.indexOf(s);
-  function passedList(v) {
-    const last = Math.max(...v.stages.map(s => STAGES.indexOf(s)));
-    const L = eps(S.topic).filter(ep => stageIdx(at(ep)) > last);
-    if (!L.length) return "";
-    const k = "passed:" + v.key;
-    return `<details ${S.open.has(k) ? "open" : ""} data-k="${k}"><summary class="small">이 단계를 통과한 편 ${L.length} — 통과를 풀 때만 펼침</summary><ul class="list" style="margin-top:6px">${L.map(ep => `<li class="card locked"><div class="row">${kindChip(ep)}<span>${e(ep.title || ep.id)}</span><span class="small">지금 ${e(at(ep) === "done" ? "업로드까지 끝" : SK[at(ep)] || "")}</span></div><div class="row">${v.stages.map(s => gateHtml(ep, s)).join("")}</div></li>`).join("")}</ul></details>`;
-  }
-  const lockedList = passedList;
   function viewTitle() {
     const v = VIEWS.find(x => x.key === "title");
-    const cards = eligible(v).map(ep => `<div class="card">${epHead(ep, gateHtml(ep, "title", "제목 통과"))}
+    const L = eligible(v);
+    const cards = L.map(ep => `<div class="card">${epHead(ep, stageBtns(ep))}
       ${(ep.title_alts || []).length ? `<details><summary class="small">다른 안 ${ep.title_alts.length}</summary><ul class="small">${ep.title_alts.map(a => `<li>${e(a.title)} <span class="mono">(${e(a.key)})</span></li>`).join("")}</ul></details>` : ""}
       ${ep.title_why ? `<details><summary class="small">제목 근거</summary><p class="small">${e(ep.title_why)}</p></details>` : ""}
       <div class="row small">${ep.persona && ep.persona.title ? `<span class="chip ok">페르소나 title ${ep.persona.title}회차</span>` : `<span class="chip warn">페르소나 title 검증 기록 없음</span>`}</div>
       <div class="scope">제목 피드백</div>${fbBox(ep, "title", null, "제목 피드백 — 예: '심리' 대신 시청자가 겪는 장면으로")}</div>`).join("");
-    return `<div class="cols"><div class="side"><section class="box"><header><h2>제목</h2><span class="small">제목 단계에서 기다리는 편 ${eligible(v).length}</span></header>
-      <div class="list">${cards || `<div class="empty">제목 단계에서 기다리는 편이 없음 (주제 통과를 체크하면 여기로)</div>`}</div>${lockedList(v)}</section>${refsBox("title")}</div>
-      <div class="side">${rulesBox("title")}${wordsBox()}</div></div>`;
+    return { work: `<section class="box"><header><h2>제목</h2><span class="small">제목 단계에서 기다리는 편 ${L.length}</span></header>
+      <div class="list">${cards || `<div class="empty">제목 단계에서 기다리는 편이 없음 (주제 단계에서 [통과]를 누르면 여기로)</div>`}</div></section>`,
+      rules: `${rulesBox("title")}${wordsBox()}${refsBox("title")}` };
   }
   function viewThumb() {
     const v = VIEWS.find(x => x.key === "thumb");
-    const cards = eligible(v).map(ep => `<div class="card">${epHead(ep, gateHtml(ep, "thumb", "썸네일 통과"))}
+    const L = eligible(v);
+    const cards = L.map(ep => `<div class="card">${epHead(ep, stageBtns(ep))}
       <div class="grid2"><div><div class="scope">주요 문구</div><div>${(ep.thumb_main || []).map(x => `<div style="font-weight:700">${e(x)}</div>`).join("") || `<span class="empty">없음</span>`}</div></div>
       <div><div class="scope">보조 문구</div><div>${(ep.thumb_sub || []).map(x => `<div>${e(x)}</div>`).join("") || `<span class="empty">없음</span>`}</div></div></div>
       <div class="thumbs">${(ep.thumbs || []).map(t => t.img ? `<figure><img src="${e(t.img)}" alt="${e(t.name)}" loading="lazy"><figcaption>${e(t.name)}</figcaption></figure>` : "").join("") || `<span class="empty">썸네일 그림 없음 — ChatGPT 요청 파일(thumbnails_chatgpt.md)부터</span>`}</div>
       <div class="scope">썸네일 피드백 (문구·그림)</div>${fbBox(ep, "thumb", null, "썸네일 피드백 — 예: 말풍선이 얼굴을 가림 · 2줄째를 더 짧게")}</div>`).join("");
-    return `<div class="cols"><div class="side"><section class="box"><header><h2>썸네일 문구 · 이미지</h2><span class="small">썸네일 단계에서 기다리는 편 ${eligible(v).length}</span></header>
-      <div class="list">${cards || `<div class="empty">썸네일 단계에서 기다리는 편이 없음 (제목 통과를 체크하면 여기로)</div>`}</div>${lockedList(v)}</section>${refsBox("thumb")}</div>
-      <div class="side">${rulesBox("thumb")}</div></div>`;
+    return { work: `<section class="box"><header><h2>썸네일 문구 · 이미지</h2><span class="small">썸네일 단계에서 기다리는 편 ${L.length}</span></header>
+      <div class="list">${cards || `<div class="empty">썸네일 단계에서 기다리는 편이 없음 (제목 단계에서 [통과]를 누르면 여기로)</div>`}</div></section>`,
+      rules: `${rulesBox("thumb")}${refsBox("thumb")}` };
   }
 
   // ───────── 4 대본 · 음성
   function picker(v, list) {
     const cur = S.sel[v.key + ":" + S.topic];
     const pick = list.find(x => x.id === cur) || list[0];
-    return [pick, `<div class="picker">${list.map(ep => `<button type="button" data-act="pick" data-view="${v.key}" data-id="${e(ep.id)}" aria-pressed="${pick && ep.id === pick.id}"><span class="k">${e(ep.id)}${at(ep) === "done" ? " · 올림" : " · " + e(SK[at(ep)] || "")}</span>${e((ep.title || "").slice(0, 34) || "(제목 없음)")}</button>`).join("")}</div>`];
+    return [pick, `<div class="picker">${list.map(ep => `<button type="button" data-act="pick" data-view="${v.key}" data-id="${e(ep.id)}" aria-pressed="${pick && ep.id === pick.id}"><span class="k">${e(ep.id)}${at(ep) === "done" ? (uploaded(ep) ? " · 올림" : " · 준비 완료") : " · " + e(SK[at(ep)] || "")}</span>${e((ep.title || "").slice(0, 34) || "(제목 없음)")}</button>`).join("")}</div>`];
   }
   function ttsDoc(ep) { return S.col.tts.get(`${ep.topic}__${ep.id}`) || null; }
   function ttsState(ep) {
@@ -525,7 +627,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     const v = VIEWS.find(x => x.key === "script");
     const list = eligible(v);
     const [ep, pk] = picker(v, list);
-    let body = `<div class="empty">대본·음성 단계에서 기다리는 편이 없음 (썸네일 통과를 체크하면 여기로)</div>`;
+    let body = "";
     if (ep) {
       const d = ttsDoc(ep) || {}, redo = new Set((d.redo || []).map(Number));
       const upl = ep.audio && ep.audio.status === "uploaded";          // 업로드한 편은 tts_narration 이 음성을 다시 만들지 않음 (v1.12 규칙)
@@ -541,25 +643,25 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
           ${hasAudio ? `<label class="rg" title="이 문장만 새로 만들기"><input type="checkbox" data-act="redo" data-ep="${e(ep.id)}" data-n="${l.n}" ${redo.has(l.n) ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>재생성</label>` : ""}</span>
           ${open ? `<div class="fbwrap">${fbBox(ep, "script", l.n, l.n + "번 문장 피드백")}</div>` : ""}</div>`;
       }).join("");
-      body = `<div class="card">${epHead(ep, `<div class="row">${gateHtml(ep, "script", "대본 통과")}</div>`)}
+      body = `<div class="card">${epHead(ep, stageBtns(ep))}
         <div class="row small"><span>${(ep.lines || []).length}문장${ep.est ? " · 어림 " + Math.floor(ep.est / 60) + "분 " + String(ep.est % 60).padStart(2, "0") + "초" : ""}</span>
           ${ep.persona && (ep.persona.script_exit || ep.persona.script_rebuttal) ? `<span class="chip ok">페르소나 이탈 ${ep.persona.script_exit || 0} · 반론 ${ep.persona.script_rebuttal || 0}회차</span>` : `<span class="chip warn">페르소나 대본 검증 기록 없음</span>`}
-          ${(ep.lines || []).some(l => l.changed) ? `<span class="chip warn">음성 뒤 바뀐 줄 ${(ep.lines || []).filter(l => l.changed).length} (노란 밑줄)</span>` : ""}</div></div>
+          ${(ep.lines || []).some(l => l.changed) ? `<span class="chip warn">음성 뒤 바뀐 줄 ${(ep.lines || []).filter(l => l.changed).length} (노란 밑줄)</span>` : ""}</div>
+        <p class="small">${at(ep) === "script" ? "대본을 확인하고 [대본 통과]를 누르면 음성을 체크할 수 있습니다." : "음성을 듣고 괜찮으면 [음성 통과]."}</p></div>
         <section class="box"><header><h2>음성</h2><span class="chip ${tc}">${e(tt2)}</span></header>
           <p class="small">지금 음성: ${e((ep.audio || {}).note || "없음")}${ep.audio && ep.audio.seconds ? " · " + Math.round(ep.audio.seconds) + "초" : ""}</p>
           <div class="row"><label class="gate ${d.make ? "on" : ""} ${scriptOk ? "" : "dis"}"><input type="checkbox" data-act="tts-make" data-ep="${e(ep.id)}" ${d.make ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>음성 생성</label>
             <label class="gate ${d.full ? "on" : ""} ${scriptOk ? "" : "dis"}"><input type="checkbox" data-act="tts-full" data-ep="${e(ep.id)}" ${d.full ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>전부 다시</label>
             <span class="small">재생성 체크 ${redo.size}줄${redo.size ? ": " + [...redo].sort((a, b) => a - b).join(", ") : ""}</span>
             ${redo.size ? `<button class="btn ghost sm" data-act="redo-clear" data-ep="${e(ep.id)}" ${wr()}>재생성 체크 모두 풀기</button>` : ""}</div>
-          ${upl ? `<p class="small">이미 올린 편이라 음성을 다시 만들지 않습니다 (음성 도구 규칙). 고칠 일이 있으면 업로드 단계에서 [재업로드] 뒤 Claude 에게 말해 주세요.</p>` : scriptOk ? "" : `<p class="small">대본 통과를 체크해야 음성을 체크할 수 있습니다.</p>`}
-          <p class="small">'음성 생성' = 음성이 없거나 옛 대본이면 만듦 · '전부 다시' = 있어도 처음부터 · 줄 '재생성' = 그 문장만 새로 만들어 저장소 음성에 끼움. 음성을 듣고 괜찮으면 → </p>
-          <div class="row">${gateHtml(ep, "voice", "음성 통과")}</div></section>
+          ${upl ? `<p class="small">이미 올린 편이라 음성을 다시 만들지 않습니다 (음성 도구 규칙). 고칠 일이 있으면 업로드 단계에서 [재업로드] 뒤 Claude 에게 말해 주세요.</p>` : scriptOk ? "" : `<p class="small">대본 통과 뒤에 음성을 체크할 수 있습니다.</p>`}
+          <p class="small">'음성 생성' = 음성이 없거나 옛 대본이면 만듦 · '전부 다시' = 있어도 처음부터 · 줄 '재생성' = 그 문장만 새로 만들어 저장소 음성에 끼움.</p>
+          ${cmd("Kaggle 셀 (판에서 체크한 대본만 만듦 — 체크 → Claude 동기화 → 실행)", 'import sys; sys.path.insert(0, "/kaggle/working/yeomin1024-ytb/tools")\nimport importlib, kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()')}</section>
         <div class="lines">${lines || `<div class="empty" style="padding:10px">대본 줄 없음${ep.kind === "cand" ? " — 판 후보는 Claude 가 대본 폴더를 만든 뒤 보임" : ""}</div>`}</div>
         <section class="box"><h2>대본 전체 피드백</h2>${fbBox(ep, "script", null, "대본 전체 피드백 — 예: 2장 끝 질문이 3장과 안 이어짐")}</section>`;
     }
-    return `<div class="cols"><div class="side"><section class="box"><header><h2>대본 · 음성</h2><span class="small">대본·음성 단계에서 기다리는 편 ${list.length}</span></header>${pk}${lockedList(v)}</section>${body}</div>
-      <div class="side">${rulesBox("script")}${rulesBox("voice", "음성 규칙")}<section class="box"><h2>음성 만들기</h2>${cmd("Kaggle 셀 (판에서 체크한 대본만 만듦)", 'import sys; sys.path.insert(0, "/kaggle/working/yeomin1024-ytb/tools")\nimport importlib, kaggle_tts_panel; importlib.reload(kaggle_tts_panel).panel()')}
-      <p class="small">체크 → Claude 동기화(studio/state/tts_queue.json) → Kaggle 셀 실행. 예전처럼 기다리는 대본을 모두 만들려면 패널의 '전부(예전 방식)'.</p></section></div></div>`;
+    return { work: `<section class="box"><header><h2>대본 · 음성</h2><span class="small">대본·음성 단계에서 기다리는 편 ${list.length}</span></header>${list.length ? pk : `<div class="empty">대본·음성 단계에서 기다리는 편이 없음 (썸네일 단계에서 [통과]를 누르면 여기로)</div>`}</section>${body}`,
+      rules: `${rulesBox("script")}${rulesBox("voice", "음성 규칙")}` };
   }
 
   // ───────── 5 영상
@@ -575,17 +677,15 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   function viewVideo() {
     const v = VIEWS.find(x => x.key === "video");
     const list = eligible(v);
-    const cards = list.map(ep => { const V = ep.video || {}; return `<div class="card">${epHead(ep, "")}
+    const cards = list.map(ep => { const V = ep.video || {}; return `<div class="card">${epHead(ep, stageBtns(ep))}
       <div class="row small"><span class="chip ${V.scene ? "ok" : "warn"}">${V.scene ? "장면 파일 있음" : "장면 파일 없음"}</span><span class="chip ${V.render_md ? "ok" : "mute"}">${V.render_md ? "렌더 기록 있음" : "렌더 기록 없음"}</span>
         <span class="chip ${V.packed ? "ok" : "mute"}">${V.packed ? "업로드 조각 " + (V.mb || "?") + "MB" + (V.on_branch ? " ✓" : " (브랜치에 없음)") : "업로드 조각 없음"}</span>${V.duration_s ? `<span>${Math.floor(V.duration_s / 60)}분 ${String(Math.round(V.duration_s % 60)).padStart(2, "0")}초</span>` : ""}</div>
-      <div class="gatebar">${gateHtml(ep, "codetest", "① 코드 테스트 통과")}</div>
-      <p class="small">① 대본 내용만 읽고 코드 화면으로만 만든 테스트 영상 (AI 그림·클립 없이) — Claude 가 장면을 직접 본 뒤 체크 → ② AI 장면 넣은 최종 영상.</p>
-      <div class="gatebar">${gateHtml(ep, "video", "② 최종 영상 통과")}</div>
+      <p class="small">${at(ep) === "codetest" ? "① 대본 내용만 읽고 코드 화면으로만 만든 테스트 영상 (AI 그림·클립 없이) — Claude 가 장면을 직접 본 뒤 [코드 테스트 통과]." : "② AI 장면을 넣은 최종 영상 — 끝까지 본 뒤 [영상 통과]."}</p>
       <details><summary class="small">명령</summary>${cmd("장면 배치 점검 (문제 0 뒤 렌더)", "node video/scripts/layout-check.mjs " + ep.id)}${cmd("렌더", "node video/render/render.mjs video " + ep.topic + " " + ep.id)}</details>
       <details ${S.open.has("fbo:" + ep.id + ":video") ? "open" : ""} data-k="fbo:${e(ep.id)}:video"><summary class="small">영상 피드백 ${fbOf(ep.topic, ep.id, "video").length}</summary>${fbBox(ep, "video", null, "영상 피드백 — 예: 2:10 숫자 카드가 자막과 겹침")}</details></div>`; }).join("");
-    return `<div class="cols"><div class="side"><section class="box"><header><h2>영상</h2><span class="small">영상 단계에서 기다리는 편 ${list.length}</span></header>
-      <div class="list">${cards || `<div class="empty">영상 단계에서 기다리는 편이 없음 (음성 통과를 체크하면 여기로)</div>`}</div>${lockedList(v)}</section></div>
-      <div class="side">${rulesBox("video")}${skillsBox()}</div></div>`;
+    return { work: `<section class="box"><header><h2>영상</h2><span class="small">영상 단계에서 기다리는 편 ${list.length}</span></header>
+      <div class="list">${cards || `<div class="empty">영상 단계에서 기다리는 편이 없음 (음성 단계에서 [통과]를 누르면 여기로)</div>`}</div></section>`,
+      rules: `${rulesBox("video")}${skillsBox()}` };
   }
 
   // ───────── 6 업로드
@@ -602,18 +702,21 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   function upDoc(ep) { return S.col.uploads.get(`${ep.topic}__${ep.id}`) || {}; }
   function viewUpload() {
     const v = VIEWS.find(x => x.key === "upload");
-    const waiting = eligible(v), done = eps(S.topic).filter(ep => at(ep) === "done");
-    const list = [...waiting, ...done];
+    const waiting = eligible(v), ready = eps(S.topic).filter(ep => at(ep) === "done" && !uploaded(ep)), done = eps(S.topic).filter(uploaded);
+    const list = [...waiting, ...ready, ...done];
     const [ep, pk] = picker(v, list);
-    let body = `<div class="empty">업로드를 기다리는 편이 없음 (영상 통과 뒤 여기로)</div>`;
+    let body = "";
     if (ep) {
       const U = ep.upload || {}, d = upDoc(ep), checks = d.checks || {};
       const allMan = UPLOAD_CHECKS.every(c => checks[c]);
       const items = (U.items || []);
       const autoOk = items.length ? items.every(x => x[1]) && !(U.problems || []).length : false;
-      const done = (ep.history || []).some(h => h.current);
+      const isDone = uploaded(ep);
+      const gs = ((((S.common || {}).state || {}).gates || {}).items || {})[`${ep.topic}/${ep.id}`] || {};
+      const synced = !!((gs.upload || {}).pass);
       const thumbs = (U.thumbs || []).map(t => `<figure><img src="${e(t.img || "")}" alt="${e(t.name)}" loading="lazy"><figcaption>${t.main ? "<b>본안</b> · " : ""}${e(t.role)}</figcaption></figure>`).join("");
-      body = `<div class="card">${epHead(ep, "")}
+      body = `<div class="card">${epHead(ep, stageBtns(ep))}
+        ${at(ep) === "done" && !isDone ? `<p class="small"><span class="chip ${synced ? "acc" : "warn"}">${synced ? "PC '올릴 대본'에 있음" : "Claude 동기화 전 — PC 에 아직 안 보임"}</span></p>` : ""}
         ${U.status ? "" : `<p class="small">업로드 시트(upload.md)가 아직 없음 — Claude 가 만든 뒤 최종 확인할 수 있습니다.</p>`}
         ${U.title ? `<div class="scope">제목 (본안)</div><div style="font-weight:700">${e(U.title)} <span class="small">${U.title_chars}자</span></div>` : ""}
         ${thumbs ? `<div class="scope">썸네일</div><div class="thumbs">${thumbs}</div>` : ""}
@@ -623,18 +726,17 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         ${items.length ? `<div class="scope">자동 점검</div><ul class="list small">${items.map(x => `<li class="${x[1] ? "item-ok" : "item-bad"}">${x[1] ? "✓" : "✗"} ${e(x[0])} — ${e(x[2])}</li>`).join("")}</ul>` : ""}
         ${(U.problems || []).length ? `<ul class="list small">${U.problems.map(p => `<li class="item-bad">✗ ${e(p)}</li>`).join("")}</ul>` : ""}
         ${U.script_stale ? `<p class="small item-bad">대본 문장 ${U.script_stale}개가 지금 자막에 없음 — 음성·영상이 옛 대본</p>` : ""}</div>
-        <section class="box"><header><h2>최종 확인</h2><span class="chip ${allMan && (autoOk || done) ? "ok" : "warn"}">${allMan ? "모두 봄" : UPLOAD_CHECKS.filter(c => checks[c]).length + "/" + UPLOAD_CHECKS.length}</span></header>
+        ${isDone ? "" : `<section class="box"><header><h2>최종 확인</h2><span class="chip ${allMan && autoOk ? "ok" : "warn"}">${allMan ? "모두 봄" : UPLOAD_CHECKS.filter(c => checks[c]).length + "/" + UPLOAD_CHECKS.length}</span></header>
           <div class="checks">${UPLOAD_CHECKS.map(c => `<label><input type="checkbox" data-act="up-check" data-ep="${e(ep.id)}" data-c="${e(c)}" ${checks[c] ? "checked" : ""} ${wr()}>${e(c)}</label>`).join("")}</div>
-          <div class="row">${gateHtml(ep, "upload", "업로드 준비 완료")}${allMan ? "" : `<span class="small">최종 확인을 모두 체크한 뒤 체크하세요</span>`}</div>
-          <p class="small">체크 → Claude 에게 '제작 판 동기화해' → PC '유튜브_업로드.bat' 의 '올릴 대본'에 이 편이 나타남 (체크 안 한 편은 숨김) → [미리보기] → [업로드] (7일 뒤 17:00 KST 예약).</p></section>
+          <p class="small">최종 확인을 모두 체크한 뒤 위 [업로드 준비 완료] → Claude 에게 '제작 판 동기화해' → PC '유튜브_업로드.bat' 의 '올릴 대본'에 이 편이 나타남 (준비 완료가 아닌 편은 숨김) → [미리보기] → [업로드] (7일 뒤 17:00 KST 예약).</p></section>`}
         <section class="box"><header><h2>업로드 기록</h2><span class="small">${(ep.history || []).length}건</span></header>
           ${(ep.history || []).length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>공개 예약</th><th>영상</th><th>제목</th><th>상태</th></tr></thead><tbody>${ep.history.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 16).replace("T", " "))}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td>${e(h.title)}</td><td>${h.current ? `<span class="chip ok">지금</span>` : `<span class="chip mute">옛 업로드 (${e(h.file)})</span>`}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">아직 안 올림</p>`}
-          ${done ? reuploadHtml(ep, d) : ""}</section>`;
+          ${isDone ? reuploadHtml(ep, d) : ""}</section>`;
     }
     const log = eps(S.topic).flatMap(x => (x.history || []).map(h => ({ ...h, ep: x.id }))).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
-    return `<div class="cols"><div class="side"><section class="box"><header><h2>업로드</h2><span class="small">올릴 편 ${waiting.length} · 올린 편 ${done.length} (기록·다시 올리기)</span></header>${pk}</section>${body}
-      <section class="box"><header><h2>${e((S.data[S.topic] || {}).name || "")} 업로드 기록 전체</h2><span class="small">${log.length}건</span></header>${log.length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>편</th><th>영상</th><th>공개 예약</th><th></th></tr></thead><tbody>${log.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 10))}</td><td class="mono">${e(h.ep)}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${h.current ? "지금" : "옛"}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">없음</p>`}</section></div>
-      <div class="side">${rulesBox("upload")}<section class="box"><h2>올리기</h2>${cmd("PC — 업로드 화면 (더블 클릭)", "유튜브_업로드.bat")}<p class="small">미리보기·썸네일 받기는 업로드 미리보기 판에서도 볼 수 있습니다.</p><a href="https://claude.ai/artifact/PCe8WUwr4nSVGyHviy1Uar" target="_blank" rel="noopener">업로드 미리보기 판</a></section></div></div>`;
+    return { work: `<section class="box"><header><h2>업로드</h2><span class="small">기다림 ${waiting.length} · 준비 완료 ${ready.length} · 올린 편 ${done.length} (기록·재업로드)</span></header>${list.length ? pk : `<div class="empty">업로드 단계 편이 없음 (영상 단계에서 [통과]를 누르면 여기로)</div>`}</section>${body}
+      <section class="box"><h2>올리기</h2>${cmd("PC — 업로드 화면 (더블 클릭)", "유튜브_업로드.bat")}<p class="small">미리보기·썸네일 받기는 <a href="https://claude.ai/artifact/PCe8WUwr4nSVGyHviy1Uar" target="_blank" rel="noopener">업로드 미리보기 판</a>에서도.</p></section>`,
+      rules: `${rulesBox("upload")}<section class="box"><header><h2>${e((S.data[S.topic] || {}).name || "")} 업로드 기록 전체</h2><span class="small">${log.length}건</span></header>${log.length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>편</th><th>영상</th><th>공개 예약</th><th></th></tr></thead><tbody>${log.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 10))}</td><td class="mono">${e(h.ep)}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${h.current ? "지금" : "옛"}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">없음</p>`}</section>` };
   }
 
   // ───────── 채널 분석
@@ -651,35 +753,45 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         ${rec.length ? `<div class="tablebox"><table><thead><tr><th>올린 날</th><th>제목</th><th>조회수</th><th>하루 조회수</th><th>좋아요</th><th>댓글</th><th>길이</th><th>판 편</th></tr></thead><tbody>${rec.map(r => `<tr><td class="mono">${e(String(r.published || "").slice(0, 10))}</td><td><a href="https://www.youtube.com/watch?v=${encodeURIComponent(r.id)}" target="_blank" rel="noopener">${e(r.title)}</a>${r.shorts ? ' <span class="chip info">쇼츠</span>' : ""}</td><td class="num">${fmtN(r.views)}</td><td class="num">${r.vpd == null ? "–" : r.vpd}</td><td class="num">${fmtN(r.likes)}</td><td class="num">${fmtN(r.comments)}</td><td class="num">${e(r.duration || "")}</td><td class="mono small">${byVid[r.id] ? e(byVid[r.id].id) : ""}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">공개된 영상 없음 (예약·비공개 영상은 공개 자료로는 안 보임)</p>`}
         ${(ch.analytics || null) ? `<div class="scope">시청 분석 (OAuth)</div><pre class="cmd">${e(JSON.stringify(ch.analytics, null, 1))}</pre>` : ""}</section>`;
     }).join("");
-    return `<div class="cols"><div class="side">${chans || `<section class="box"><p class="empty">${e(C.note || "채널 자료 없음")}</p></section>`}</div>
-      <div class="side"><section class="box"><h2>채널 자료</h2><p class="small">받은 때 ${e(C.made || "아직")} · ${e(C.source || "")}</p>
-        <p class="small">공개 지표(구독자·조회수·좋아요·댓글)는 YouTube Data API 로 Claude 세션에서 받습니다. 시청 지속·클릭률·유입 경로는 채널 주인 인증(OAuth)이 필요해 PC 에서 받습니다.</p>
-        ${cmd("Claude 에게", "채널 분석 새로 받아")}${cmd("Claude 세션 (공개 지표)", "python3 tools/channel_stats.py --push")}${cmd("PC (시청 분석 — 채널 키가 든 주제 폴더 .env)", "python tools/youtube_feedback.py psychology --push")}</section></div></div>`;
+    return `${chans || `<section class="box"><p class="empty">${e(C.note || "채널 자료 없음")}</p></section>`}
+      <section class="box"><h2>채널 자료</h2><p class="small">받은 때 ${e(C.made || "아직")} · ${e(C.source || "")} — 공개 지표는 YouTube Data API 로 Claude 세션에서, 시청 지속·클릭률·유입 경로는 채널 주인 인증(OAuth)이라 PC 에서 받습니다.</p>
+        ${cmd("Claude 에게", "채널 분석 새로 받아")}</section>`;
   }
 
   // ───────── 그리기
   function renderNav() {
     $("nav").innerHTML = VIEWS.map((v, i) => {
       const n = v.stages ? eps(S.topic).filter(ep => v.stages.includes(at(ep))).length : null;
-      return (i === 1 || i === 7 ? `<li class="sep" aria-hidden="true">|</li>` : "") + `<li><a href="#${v.key}" ${S.view === v.key ? 'aria-current="page"' : ""}>${v.n ? `<span class="n">${v.n}</span>` : ""}${e(v.label)}${n ? `<span class="c" title="이 단계에서 기다리는 편">${n}</span>` : ""}</a></li>`;
+      return (v.key === "channel" ? `<li class="sep" aria-hidden="true">|</li>` : "") + `<li><a href="#${v.key}" ${S.view === v.key ? 'aria-current="page"' : ""}>${v.n ? `<span class="n">${v.n}</span>` : ""}${e(v.label)}${n ? `<span class="c" title="이 단계에서 기다리는 편">${n}</span>` : ""}</a></li>`;
     }).join("");
-    $("topics").innerHTML = visTopics().map(t => `<button class="pill" type="button" data-act="topic" data-key="${e(t.key)}" aria-pressed="${t.key === S.topic}">${e(t.name)}</button>`).join("");
+    $("topics").innerHTML = visTopics().map(t => `<button class="pill" type="button" data-act="topic" data-key="${e(t.key)}" aria-pressed="${t.key === S.topic}">${e(t.name)}</button>`).join("")
+      + `<button class="pill ghostpill" type="button" data-act="panel" aria-expanded="${S.panel}">주제 켜기·끄기</button>`;
+    const pend = COLS.reduce((a, c) => a + [...S.col[c].values()].filter(pendingDoc).length, 0);
+    $("pend").innerHTML = pend ? `판에서 바꾼 것 ${pend}건이 아직 저장소에 없음 — Claude 에게 <b>'제작 판 동기화해'</b>` : `마지막 동기화 ${e(String(syncedAt() || "아직").slice(0, 16).replace("T", " "))}`;
+    $("panel").innerHTML = S.panel ? topicsPanel() : "";
   }
   let rq = null;
   function render() {
     fixTopic();
     renderNav();
     if (!S.common) { $("view").innerHTML = `<div class="loading">판 자료를 불러오는 중…</div>`; return; }
-    const topicView = !["common", "channel"].includes(S.view);
+    const topicView = S.view !== "channel";
     if (topicView && !tinfo(S.topic).built) { $("view").innerHTML = `<section class="box"><h2>${e(tname(S.topic))}</h2><p class="small">이 주제는 꺼져 있던 때 판을 만들어 자료가 없습니다. 판에서 다시 켰다면 Claude 에게 '제작 판 동기화해' — 다음 판에 자료가 들어옵니다.</p></section>`; return; }
     if (topicView && !S.data[S.topic]) { $("view").innerHTML = `<div class="loading">${e(tname(S.topic))} 자료를 불러오는 중…</div>`; loadTopic(S.topic).then(render); return; }
     const keepFocus = document.activeElement && document.activeElement.id;
     const vals = {};
     document.querySelectorAll("#view textarea[id], #view input[type=text][id], #view select[id]").forEach(x => { vals[x.id] = x.value; });
     const sc = window.scrollY;
-    const fn = { common: viewCommon, topic: viewTopic, title: viewTitle, thumb: viewThumb, script: viewScript, video: viewVideo, upload: viewUpload, channel: viewChannel }[S.view] || viewCommon;
-    try { $("view").innerHTML = fn(); } catch (err) { $("view").innerHTML = `<section class="box"><p class="item-bad">이 화면을 그리지 못했습니다: ${e(err && err.message)}</p></section>`; console.error(err); }
-    for (const [id, v] of Object.entries(vals)) { const x = document.getElementById(id); if (x && !id.startsWith("ed") && x.value !== v && id !== "refq") x.value = v; }
+    const fn = { topic: viewTopic, title: viewTitle, thumb: viewThumb, script: viewScript, video: viewVideo, upload: viewUpload, channel: viewChannel }[S.view] || viewTopic;
+    try {
+      const out = fn();
+      if (typeof out === "string") $("view").innerHTML = `<div class="one">${out}</div>`;
+      else {
+        const m = S.mode === "rules" ? "rules" : "work";
+        $("view").innerHTML = `<div class="modebar" role="group" aria-label="보기"><button type="button" data-act="mode" data-m="work" aria-pressed="${m === "work"}">작업</button><button type="button" data-act="mode" data-m="rules" aria-pressed="${m === "rules"}">규칙 · 결과</button></div><div class="one">${out[m]}</div>`;
+      }
+    } catch (err) { $("view").innerHTML = `<section class="box"><p class="item-bad">이 화면을 그리지 못했습니다: ${e(err && err.message)}</p></section>`; console.error(err); }
+    for (const [id, v] of Object.entries(vals)) { const x = document.getElementById(id); if (x && !id.startsWith("ed") && x.value !== v && id !== "refq" && x.tagName !== "SELECT") x.value = v; }
     if (keepFocus) { const x = document.getElementById(keepFocus); if (x) { x.focus(); try { const L = x.value.length; x.setSelectionRange && x.type !== "select-one" && x.setSelectionRange(L, L); } catch (_) {} } }
     window.scrollTo(0, sc);
   }
@@ -701,6 +813,29 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   const val = id => ((document.getElementById(id) || {}).value || "").trim();
   const redoTimers = {};
 
+  // v1.3 구글 트렌드 CSV 올리기 — CSV 안의 단어가 링크 단어와 같아야 저장 (다른 링크의 CSV 를 잘못 올리지 않게) · 문서 한도 256KiB 라 200KB 까지
+  const sameSet = (a, b) => a.map(normW).sort().join("|") === b.map(normW).sort().join("|");
+  async function uploadCsv(x) {
+    const files = [...(x.files || [])], opt = trendOpt(S.topic), rows = trendRows(S.topic).filter(r => !r.draft);
+    const slots = rows.flatMap(r => trendParts(r.words, opt).map(p => ({ r, p })));
+    let saved = 0; const bad = [];
+    for (const f of files) {
+      if (f.size > 200 * 1024) { bad.push(`${f.name}: 200KB 넘음`); continue; }
+      let text = ""; try { text = await f.text(); } catch (_) { bad.push(`${f.name}: 읽지 못함`); continue; }
+      const r = parseTrendsCsv(text);
+      if (!r || !r.words.length) { bad.push(`${f.name}: 구글 트렌드 CSV 가 아님`); continue; }
+      const cw = r.words.map(w => w.word);
+      const slot = x.dataset.act === "csv" ? slots.find(s => s.r.id === x.dataset.row && s.p.part === Number(x.dataset.part)) : slots.find(s => sameSet(s.p.q, cw));
+      if (!slot) { bad.push(`${f.name}: 맞는 링크 없음 (${cw.join("·")})`); continue; }
+      if (!sameSet(slot.p.q, cw)) { bad.push(`${f.name}: CSV 단어(${cw.join("·")})가 이 링크(${slot.p.q.join("·")})와 다름`); continue; }
+      const id = csvId(slot.r, slot.p.part), t = nowIso();
+      const doc = { topic: S.topic, row: slot.r.id, n: slot.r.n, part: slot.p.part, q: slot.p.q, time: opt.time, gprop: opt.gprop, file: f.name, text, uploadedAt: t, at: t };
+      if (await put("trend_csv", id, doc)) { S.col.trend_csv.set(id, Object.assign({ id }, doc)); saved++; }
+    }
+    const st = trendStatus(S.topic);
+    toast(bad.length ? `올림 ${saved} · 못 올림 ${bad.length} — ${bad[0]}` : st.done ? `CSV ${saved}개 올림 — 모든 링크 완료` : `CSV ${saved}개 올림 (${st.have}/${st.need})`);
+  }
+
   document.addEventListener("click", async ev => {
     const b = ev.target.closest("[data-act]");
     if (!b || b.tagName === "INPUT") return;
@@ -712,11 +847,52 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     if (a === "cancel") { S.edit = S.confirm = null; render(); return; }
     if (a === "open") { S.open.has(D.k) ? S.open.delete(D.k) : S.open.add(D.k); render(); return; }
     if (a === "pick") { S.sel[D.view + ":" + S.topic] = D.id; S.edit = S.confirm = null; render(); return; }
+    if (a === "mode") { S.mode = D.m === "rules" ? "rules" : "work"; keep("mode", S.mode); S.edit = S.confirm = null; render(); return; }
+    if (a === "panel") { S.panel = !S.panel; render(); return; }
     if (S.busy) return;
     S.busy = true;
     try {
       const t = nowIso();
-      if (a === "gate-reset") { if (await del("gates", `${D.topic}__${D.ep}__${D.stage}`)) toast("저장소 기준으로 되돌렸습니다"); }
+      if (a === "pass" || a === "back") {                                  // v1.3 [통과 → 다음 단계] · [← 이전 단계]
+        const ep = eps(D.topic).find(x => x.id === D.ep);
+        const cur = ep ? at(ep) : null;
+        if (!ep || (a === "pass" && cur !== D.stage) || (a === "back" && cur !== "done" && prevOf(cur) !== D.stage)) toast("화면이 바뀌었습니다 — 다시 눌러 주세요");
+        else {
+          const id = `${D.topic}__${D.ep}__${D.stage}`, doc = { topic: D.topic, ep: D.ep, stage: D.stage, pass: a === "pass", at: t };
+          if (await put("gates", id, doc)) {
+            S.col.gates.set(id, Object.assign({ id }, doc));                 // 저장 확인 전에도 화면은 바로 옮김 (onSnapshot 이 같은 값으로 덮음)
+            const to = at(ep), v = VIEWS.find(x => (x.stages || []).includes(to === "done" ? "upload" : to));
+            toast(a === "pass" ? (to === "done" ? "업로드 준비 완료 — Claude 동기화 뒤 PC '올릴 대본'에" : `${SK[D.stage]} 통과 → ${SK[to]} 단계로`) : `${SK[to]} 단계로 되돌렸습니다`);
+            if (v) { S.sel[v.key + ":" + S.topic] = D.ep; if (v.key !== S.view) { S.mode = "work"; keep("mode", "work"); location.hash = v.key; window.scrollTo(0, 0); } }
+          }
+        }
+      }
+      else if (a === "tr-link" || a === "tr-add") {                        // v1.3 구글 트렌드 줄 저장 (저장 전 기본 줄은 한꺼번에 저장 — 한 줄만 저장하면 나머지 기본 줄이 사라지므로)
+        const rows = trendRows(S.topic);
+        const readW = r => { const seen = new Set(); return Array.from({ length: 8 }, (_, i) => val(`tw-${r.id}-${i}`)).filter(w => w && !seen.has(normW(w)) && seen.add(normW(w))); };
+        const row = rows.find(r => r.id === D.id);
+        const words = row ? readW(row) : [];
+        if (a === "tr-link" && !words.length) toast("단어를 하나 이상 넣어 주세요");
+        else {
+          let ok = true;
+          for (const r of rows.filter(r => r.draft || (row && r.id === row.id))) {
+            const w = readW(r);
+            if (!w.length && !(row && r.id === row.id)) continue;
+            const doc = { topic: S.topic, n: r.n, words: w, deleted: false, at: t };
+            if (await put("trend_rows", r.id, doc)) S.col.trend_rows.set(r.id, Object.assign({ id: r.id }, doc)); else ok = false;
+          }
+          if (a === "tr-add" && ok) {
+            const n = Math.max(0, ...[...S.col.trend_rows.values()].filter(r => r.topic === S.topic).map(r => r.n || 0)) + 1, id = `${S.topic}.r${Date.now().toString(36)}`;
+            const doc = { topic: S.topic, n, words: [], deleted: false, at: t };
+            if (await put("trend_rows", id, doc)) { S.col.trend_rows.set(id, Object.assign({ id }, doc)); toast("줄을 더했습니다 — 단어를 넣고 [링크 생성]"); }
+          } else if (ok) { const k = trendParts(words, trendOpt(S.topic)).length; toast(`링크 ${k}개를 만들었습니다${k > 1 ? " (5개가 넘어 둘로 나눔)" : ""} — 열어서 CSV 를 받아 올려 주세요`); }
+        }
+      }
+      else if (a === "tr-del") {
+        const r = S.col.trend_rows.get(D.id);
+        if (r && await put("trend_rows", D.id, Object.assign(clean(r), { deleted: true, at: t }))) { for (const p of [1, 2]) if (S.col.trend_csv.has(`${D.id}.p${p}`)) await del("trend_csv", `${D.id}.p${p}`); S.confirm = null; toast("줄을 지웠습니다"); }
+      }
+      else if (a === "gate-reset") { if (await del("gates", `${D.topic}__${D.ep}__${D.stage}`)) toast("저장소 기준으로 되돌렸습니다"); }
       else if (a === "rule-save") { const txt = val("ed-" + D.id); if (txt && await put("rules", D.id, { stage: D.stage, scope: D.scope, text: txt, deleted: false, at: t })) { S.edit = null; toast("규칙을 고쳤습니다 — Claude 반영 전"); } }
       else if (a === "rule-del") { const r = rulesOf(D.stage).flatMap(g => g.items).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, text: r.text || "", deleted: true, at: t })) { S.confirm = null; toast("규칙을 뺐습니다"); } }
       else if (a === "rule-undel") { const r = rulesOf(D.stage).flatMap(g => g.items).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, text: r.text || "", deleted: false, at: t })) toast("되살렸습니다"); }
@@ -751,6 +927,12 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   document.addEventListener("change", async ev => {
     const x = ev.target;
     if (x.id === "refq") return;
+    if (x.dataset && x.dataset.act === "tr-opt") {                         // v1.3 트렌드 기간·대상·간격 (주제마다 db trends)
+      const o = trendOpt(S.topic), v = { time: val("tr-time") || o.time, gprop: x.id === "tr-gprop" ? x.value : o.gprop, every_hours: Number(val("tr-hours")) || o.every_hours };
+      if (await put("trends", S.topic, Object.assign({}, v, { at: nowIso() }), true)) toast(x.id === "tr-hours" ? "간격을 저장했습니다 — Claude 동기화 뒤 PC 에" : "바꿨습니다 — 링크가 새로 만들어졌고 CSV 는 다시 올려야 합니다");
+      render(); return;
+    }
+    if (x.type === "file" && (x.dataset.act === "csv" || x.dataset.act === "csv-bulk")) { await uploadCsv(x); x.value = ""; render(); return; }
     if (x.tagName !== "INPUT" || x.type !== "checkbox" || !x.dataset.act) return;
     const D = x.dataset, t = nowIso();
     if (D.act === "topic-on") {
@@ -787,7 +969,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   document.addEventListener("toggle", ev => { const d = ev.target; if (d.tagName === "DETAILS" && d.dataset && d.dataset.k) { d.open ? S.open.add(d.dataset.k) : S.open.delete(d.dataset.k); } }, true);
 
   // ───────── 길 · 자료 · db
-  function route() { const h = (location.hash || "").slice(1); S.view = VIEWS.some(v => v.key === h) ? h : (store("view") || "common"); keep("view", S.view); S.edit = S.confirm = null; render(); }
+  function route() { const h = (location.hash || "").slice(1); const sv = store("view"); S.view = VIEWS.some(v => v.key === h) ? h : (VIEWS.some(v => v.key === sv) ? sv : "topic"); keep("view", S.view); S.edit = S.confirm = null; render(); }
   window.addEventListener("hashchange", route);
   async function getJSON(p) { const r = await fetch(p); if (!r.ok) throw new Error(p + " HTTP " + r.status); return r.json(); }
   const loading = {};

@@ -1,5 +1,38 @@
 {
- "synced_at": "2026-11-28T00:19:56+09:00",
+ "synced_at": "2026-11-28T14:05:13+09:00",
  "tool": "studio_board.py v1.2",
- "collections": {}
+ "collections": {
+  "topics": [
+   {
+    "at": "2026-11-28T04:04:26.549Z",
+    "enabled": false,
+    "id": "history"
+   },
+   {
+    "at": "2026-11-28T04:04:28.933Z",
+    "enabled": false,
+    "id": "math"
+   },
+   {
+    "at": "2026-11-28T04:04:33.412Z",
+    "enabled": false,
+    "id": "music"
+   },
+   {
+    "at": "2026-11-28T04:04:30.310Z",
+    "enabled": false,
+    "id": "new"
+   },
+   {
+    "at": "2026-11-28T04:04:38.325Z",
+    "enabled": false,
+    "id": "psychology"
+   },
+   {
+    "at": "2026-11-28T04:04:31.046Z",
+    "enabled": false,
+    "id": "test"
+   }
+  ]
+ }
 }

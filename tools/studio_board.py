@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-27 — 재업로드 요청 시각 = db uploads reupload_at ([재업로드] 누른 때 — 다른 체크를 바꿔도 다시 요청되지 않게) · 사용자 지시 2026-11-27 "아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해". 함수 sync.
+# VERSION: v1.3 — 2026-11-28 — 판 v1.3 구글 트렌드 (사용자 지시 2026-11-28 "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을
+#          누르면 … 구글 트렌드 링크 생성해 그리고 csv 파일 업로드 할 수 있도록 해 모든 파일이 업로드 되면 완료로 표시하고"): sync 가 db trend_rows(줄마다 단어 8개) →
+#          studio/state/trends.json 주제마다 groups(판 링크와 같은 묶음 — 5개까지 한 링크, 6~8개면 첫 단어를 둘 다에) · rows · csv 완료 수 · 주제마다 기간·대상 ·
+#          db trend_csv(판에서 올린 CSV) → <주제>/result/next_topic/board_csv/r<줄>_p<링크>.csv + index.json (지금 줄 단어와 다른 옛 CSV 는 빼고 경고) ·
+#          trends_results 는 날짜 폴더 board_<YYYYMMDD…> 만 (board_csv 제외). 함수 trend_groups · sync_trend_csv · sync · trends_results · selftest.
+# (v1.2) — 2026-11-27 — 재업로드 요청 시각 = db uploads reupload_at ([재업로드] 누른 때 — 다른 체크를 바꿔도 다시 요청되지 않게) · 사용자 지시 2026-11-27 "아티팩트에서 업로드 준비 완료 체크된 것만 올릴대본에 표시하도록 해, 그리고 재업로드 버튼도 추가해". 함수 sync.
 # (v1.1) — 2026-11-27 — 주제 모두(studio.toml TOPICS 10개 — 사용자 지시 "주식 이런 주제는 왜 없어? 누락된거 추가하고") · 주제 켜기·끄기
 #          (판 db topics → studio/state/topics.json · 꺼 둔 주제는 판 자료를 만들지 않음 · 동기화 결과에서 뺌 — "비활성화하면 아티팩트에서 보이지 않고 에이전트가
 #          보지도 않도록") · 그림은 파일 대신 자료 안 data URI (아티팩트 한 번에 255개 파일 한도) · 주제 칸 자동 찾기(analysis.json·thumb_codes·related) ·
@@ -10,6 +15,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-28 | 판 구글 트렌드 줄·CSV → trends.json groups · board_csv/ | trend_groups · sync_trend_csv · sync · trends_results · selftest |
 # | v1.2 | 2026-11-27 | 재업로드 요청 시각 reupload_at | sync |
 # | v1.1 | 2026-11-27 | 주제 10개 · 주제 켜기·끄기(topics.json) · data URI 그림 · 칸 자동 찾기 · 편 요약 | small_jpeg · refs_analysis · topic_cfg · build · sync · effective_gates · selftest |
 # | v1.0 | 2026-11-27 | 최초 — build(저장소 → 판 자료·작은 썸네일·페이지) · sync(판 db 내려받은 것 → studio/state/*.json·rules.json) · selftest | 모두 |
@@ -27,7 +33,9 @@
   refs      <주제>.<title|thumb>.<id> {topic, kind, text, sub, note, deleted, at}
   feedback  (자동 id)                 {topic, ep, stage, line, text, status(new|done), reply, createdAt, at}
   tts       <주제>__<영상ID>          {topic, ep, make, full, redo:[문장 번호], at}
-  trends    <주제> | overall          {words:[…], cats:[…], every_hours, at}
+  trends    <주제> | overall          {time, gprop, every_hours, at} · overall {cats:[…], every_hours}   (v1.3 단어는 trend_rows 로 — 옛 words 는 줄이 없을 때만)
+  trend_rows <주제>.r<…>              {topic, n, words:[8개까지], deleted, at}                — v1.3 구글 트렌드 줄 (링크 = trend_groups)
+  trend_csv  <줄 id>.p<1|2>           {topic, row, n, part, q:[링크 단어], time, gprop, file, text, uploadedAt, at} — v1.3 판에서 올린 CSV
   skills    (자동 id)                 {name, url, memo, createdAt, at}
   uploads   <주제>__<영상ID>          {checks:{항목: bool}, reupload, note, at}
   channels  (자동 id)                 {topic, input, memo, status, reply, createdAt}   — 옛 분석 판의 고정 채널 넣기
@@ -53,7 +61,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -317,7 +325,7 @@ def parse_trends_csv(text: str) -> dict:
 
 def trends_results(topic: str) -> dict:
     base = ROOT / topic / "result/next_topic"
-    dirs = sorted((d for d in base.glob("board_*") if d.is_dir()), key=lambda d: d.name) if base.is_dir() else []
+    dirs = sorted((d for d in base.glob("board_[0-9]*") if d.is_dir()), key=lambda d: d.name) if base.is_dir() else []   # v1.3 PC 날짜 폴더만 (board_csv = 판에서 올린 CSV)
     if not dirs:
         return {"period": None, "dirs": [], "timeseries": [], "related": []}
     d = dirs[-1]
@@ -699,6 +707,61 @@ def apply_rules(cols: dict, now: str) -> list[str]:
     return msgs
 
 
+def trend_groups(words: list) -> list[list[str]]:
+    """판 trendParts 와 같은 규칙 — 구글 트렌드는 한 번에 5개까지: 5개 이하 = 한 링크 · 6~8개 = [앞 5개] + [첫 단어 + 나머지] (첫 단어로 크기를 맞춤)."""
+    seen, W = set(), []
+    for w in words or []:
+        w = str(w or "").strip()
+        k = re.sub(r"\s+", "", w).lower()
+        if w and k not in seen:
+            seen.add(k)
+            W.append(w)
+    W = W[:8]
+    if not W:
+        return []
+    return [W] if len(W) <= 5 else [W[:5], [W[0]] + W[5:]]
+
+
+def _normset(ws) -> str:
+    return "|".join(sorted(re.sub(r"\s+", "", str(w)).lower() for w in ws))
+
+
+def sync_trend_csv(topic: str, rows: list, csv_docs: list, opt: dict, now: str, base: Path | None = None) -> dict:
+    """판에서 올린 CSV → <주제>/result/next_topic/board_csv/ (지금 줄·기간·대상과 같은 것만). 반환 {need, have, done, dir}. base = 시험용 폴더."""
+    out = (base or ROOT / topic / "result/next_topic") / "board_csv"
+    by_id = {d.get("id"): d for d in csv_docs}
+    need, files, index = 0, {}, []
+    for r in rows:
+        for i, q in enumerate(trend_groups(r.get("words")), 1):
+            need += 1
+            d = by_id.get(f"{r['id']}.p{i}")
+            if not d:
+                continue
+            if _normset(d.get("q") or []) != _normset(q) or (d.get("time") or "") != opt["time"] or (d.get("gprop") if d.get("gprop") is not None else "youtube") != opt["gprop"]:
+                log("TREND_CSV", logging.WARNING, topic=topic, row=r.get("n"), part=i, note="CSV 가 지금 줄 단어·기간과 다름 — 빼고 판에서 다시 올리기", csv_q="·".join(d.get("q") or []), now_q="·".join(q))
+                continue
+            text = str(d.get("text") or "")
+            if not parse_trends_csv(text):
+                log("TREND_CSV", logging.WARNING, topic=topic, row=r.get("n"), part=i, note="CSV 를 읽지 못함 — 뺌", file=d.get("file", ""))
+                continue
+            name = f"r{int(r.get('n') or 0):02d}_p{i}.csv"
+            files[name] = text if text.endswith(chr(10)) else text + chr(10)
+            index.append({"file": name, "row": r.get("n"), "part": i, "q": q, "time": opt["time"], "gprop": opt["gprop"], "uploaded_file": d.get("file", ""),
+                          "uploadedAt": d.get("uploadedAt", "")})
+    if files or out.is_dir():
+        out.mkdir(parents=True, exist_ok=True)
+        for f in out.glob("r*_p*.csv"):                                  # 이 도구가 만든 이름만 지움 (줄을 지웠거나 단어를 바꾼 옛 CSV)
+            if f.name not in files:
+                f.unlink()
+        for name, text in files.items():
+            (out / name).write_text(text, "utf-8")
+        (out / "index.json").write_text(json.dumps({"updated": now, "about": "제작 판 주제 탐색 › 구글 트렌드에서 올린 CSV (값은 같은 파일 안 낱말끼리만 비교 0~100)",
+                                                    "geo": "KR", "time": opt["time"], "gprop": opt["gprop"], "need": need, "have": len(files), "files": index},
+                                                   ensure_ascii=False, indent=1) + "\n", "utf-8")
+    log("TREND_CSV", topic=topic, rows=len(rows), need=need, have=len(files), done=bool(need and len(files) == need), dir=rel(out))
+    return {"need": need, "have": len(files), "done": bool(need and len(files) == need), "dir": rel(out)}
+
+
 def board_disabled(cfg: dict, cols: dict) -> set[str]:
     """판 db topics (doc id = 주제, enabled) → 꺼 둔 주제. 문서가 없는 주제는 켜짐."""
     return {d["id"] for d in cols.get("topics", []) if d.get("id") in cfg["TOPICS"] and d.get("enabled") is False}
@@ -731,11 +794,26 @@ def sync(dump: Path) -> int:
               "topics": {}, "overall": {"topic": ov.get("TOPIC", "new"), "cats": (tr.get("overall") or {}).get("cats") or ov.get("CATS", [0]),
                                         "time": ov.get("TIME", "now 7-d"),
                                         "every_hours": int((tr.get("overall") or {}).get("every_hours") or tcfg.get("EVERY_HOURS", 24))}}
+    all_rows = [r for r in cols.get("trend_rows", []) if r.get("id")]
     for t in [x for x in cfg["TOPICS"] if x not in off]:
         d = tr.get(t) or {}
-        words = [w.strip() for w in (d.get("words") or topic_cfg(cfg, t).get("WORDS", [])) if isinstance(w, str) and w.strip()][:25]
-        trends["topics"][t] = {"words": words, "every_hours": int(d.get("every_hours") or tcfg.get("EVERY_HOURS", 24)),
-                               "from": "board" if d else "studio.toml"}
+        opt = {"time": d.get("time") or tcfg.get("TIME", "today 3-m"), "gprop": d.get("gprop") if d.get("gprop") is not None else tcfg.get("GPROP", "youtube")}
+        rows = sorted([r for r in all_rows if r.get("topic") == t and not r.get("deleted")], key=lambda r: r.get("n") or 0)
+        if any(r.get("topic") == t for r in all_rows):                   # v1.3 판 줄이 있으면 그 링크 묶음 그대로
+            groups = [g for r in rows for g in trend_groups(r.get("words"))]
+            words = list(dict.fromkeys(w for g in groups for w in g))
+            src = "board_rows"
+        else:
+            words = [w.strip() for w in (d.get("words") or topic_cfg(cfg, t).get("WORDS", [])) if isinstance(w, str) and w.strip()][:25]
+            rows8 = [words[:8]] + [[words[0]] + words[8:][i:i + 7] for i in range(0, len(words[8:]), 7)] if words else []   # 판 기본 줄과 같은 꼴 (8개씩 · 둘째 줄부터 첫 단어로 시작)
+            groups = [g for r8 in rows8 for g in trend_groups(r8)]
+            src = "board" if d else "studio.toml"
+        csvst = sync_trend_csv(t, rows, [c for c in cols.get("trend_csv", []) if c.get("topic") == t], opt, now) if rows else {"need": 0, "have": 0, "done": False}
+        trends["topics"][t] = {"words": words, "groups": groups, "rows": [{"n": r.get("n"), "words": r.get("words") or []} for r in rows],
+                               "time": opt["time"], "gprop": opt["gprop"], "every_hours": int(d.get("every_hours") or tcfg.get("EVERY_HOURS", 24)),
+                               "csv": csvst, "from": src}
+        log("TRENDS", topic=t, source=src, links=len(groups), words="·".join(words) or "-", time=opt["time"], gprop=opt["gprop"] or "web",
+            csv=f"{csvst['have']}/{csvst['need']}", done=csvst["done"])
     (STATE / "trends.json").write_text(json.dumps(trends, ensure_ascii=False, indent=1) + "\n", "utf-8")
     # 음성 생성 줄 (Kaggle 셀의 tts_narration.py all 이 이것만 만듦)
     q = []
@@ -809,6 +887,22 @@ def selftest() -> int:
     check("v1.1 칸 자동 찾기 (심리 = analysis.json · thumb_codes)", topic_cfg(load_cfg(), "psychology")["SUCCESS"] == "analysis_json"
           and topic_cfg(load_cfg(), "psychology").get("THUMB_CODES", "").endswith("thumb_codes.tsv") and topic_cfg(load_cfg(), "crisis")["SUCCESS"] == "videos_csv")
     check("doc id 꼴", bool(DOC_ID_RE.fullmatch("psychology__jakku-juneun-2026-11-25__title")))
+    W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]
+    check("v1.3 트렌드 링크 묶음 8개 = 5 + (첫 단어 + 3)", trend_groups(W8) == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]])
+    check("v1.3 트렌드 링크 묶음 5개 이하 = 하나 · 겹친 단어 뺌", trend_groups(["a", "b", "a ", " A"]) == [["a", "b"]] and trend_groups([]) == [])
+    with tempfile.TemporaryDirectory() as td:
+        base = Path(td)
+        rows = [{"id": "selfdev.r1", "n": 1, "words": W8}]
+        csv1 = "카테고리: 모든 카테고리\n\n일,자기계발: (대한민국),갓생: (대한민국),동기부여: (대한민국),미라클모닝: (대한민국),루틴: (대한민국)\n2026-09-01,50,10,20,5,30\n2026-09-02,55,12,21,4,33\n"
+        docs = [{"id": "selfdev.r1.p1", "q": W8[:5], "time": "today 3-m", "gprop": "youtube", "text": csv1, "file": "multiTimeline.csv"},
+                {"id": "selfdev.r1.p2", "q": ["자기계발", "습관"], "time": "today 3-m", "gprop": "youtube", "text": csv1}]     # 옛 단어 — 빼야 함
+        (base / "board_csv").mkdir()
+        (base / "board_csv" / "r09_p1.csv").write_text("old", "utf-8")
+        st = sync_trend_csv("selfdev", rows, docs, {"time": "today 3-m", "gprop": "youtube"}, "2026-11-28T00:00:00+09:00", base=base)
+        names = sorted(f.name for f in (base / "board_csv").iterdir())
+        check("v1.3 판 CSV 옮기기 — 같은 것만 · 옛 파일 지움 · 완료 수", st["need"] == 2 and st["have"] == 1 and not st["done"] and names == ["index.json", "r01_p1.csv"])
+        st2 = sync_trend_csv("selfdev", rows, docs, {"time": "today 12-m", "gprop": "youtube"}, "2026-11-28T00:00:00+09:00", base=base)
+        check("v1.3 기간이 바뀌면 CSV 다시", st2["have"] == 0)
     print("selftest:", "OK" if ok else "FAIL")
     return 0 if ok else 1
 

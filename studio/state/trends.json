@@ -1,20 +1,9 @@
 {
- "updated": "2026-11-28T00:19:56+09:00",
+ "updated": "2026-11-28T14:05:13+09:00",
  "geo": "KR",
  "gprop": "youtube",
  "time": "today 3-m",
  "topics": {
-  "psychology": {
-   "words": [
-    "심리",
-    "인간관계",
-    "엄마",
-    "말투",
-    "눈치"
-   ],
-   "every_hours": 24,
-   "from": "studio.toml"
-  },
   "crisis": {
    "words": [
     "등산 사고",
@@ -48,17 +37,6 @@
    "every_hours": 24,
    "from": "studio.toml"
   },
-  "history": {
-   "words": [
-    "이불",
-    "겨울옷",
-    "장빙",
-    "겨울나기",
-    "김장"
-   ],
-   "every_hours": 24,
-   "from": "studio.toml"
-  },
   "shopping": {
    "words": [
     "살림",
@@ -67,32 +45,6 @@
     "뽁뽁이",
     "가습기"
    ],
-   "every_hours": 24,
-   "from": "studio.toml"
-  },
-  "music": {
-   "words": [
-    "플레이리스트",
-    "잔잔한 음악",
-    "공부할때 듣는 음악",
-    "카페 음악",
-    "피아노"
-   ],
-   "every_hours": 24,
-   "from": "studio.toml"
-  },
-  "test": {
-   "words": [],
-   "every_hours": 24,
-   "from": "studio.toml"
-  },
-  "new": {
-   "words": [],
-   "every_hours": 24,
-   "from": "studio.toml"
-  },
-  "math": {
-   "words": [],
    "every_hours": 24,
    "from": "studio.toml"
   },

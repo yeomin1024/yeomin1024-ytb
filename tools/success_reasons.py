@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-28 — 비교 집단 성공 비율을 주제 묶음 × 국면 · 제목 꼴 × 국면으로도 (어떤 때 어떤 주제·꼴이 잘 되나 — 표본 15개 이상만) · 판단 문서용.
+# VERSION: v1.2 — 2026-11-28 — 국면 '폭락 뒤 반등' 따로 (마지막 거래일 반도체 ≥ +4% 또는 나스닥 ≥ +2% 이고 앞 5거래일 안 폭락) — 전에는 앞 2일에 폭락이 있으면
+#          반등 날도 '폭락 직후'로 묶여 반등 국면 영상(예 11-07 「데드캣 바운스일까 vs 대반등의 신호탄일까」)을 반등 근거로 못 씀 — 사용자 지시 2026-11-28 "왜 주제를 저렇게 정했어 … 주제를 찾는 과정에 문제가 있지 않은지 점검해".
+# (v1.1) — 2026-11-28 — 비교 집단 성공 비율을 주제 묶음 × 국면 · 제목 꼴 × 국면으로도 (어떤 때 어떤 주제·꼴이 잘 되나 — 표본 15개 이상만) · 판단 문서용.
 # (v1.0) — 2026-11-28 — 최초. 성공 사례 전부의 '왜 됐나' 표 + 시기(시장 국면)별 성공 비율·시청자 심리·제목/썸네일 꼴 —
 #          사용자 지시 2026-11-28 "시기에 맞는 주제를 찾는게 지금 너가 할일이야 매일 변화하는 주식시장이 변화하고 그에 따라 시청자들이 어떤 심리여서
 #          무슨 영상을 찾게되는지 이걸 너가 분석해서 파악해야 한다고 … 권하는 순서 1,2 진행해봐" (2 = 성공 사례 전부 이유 표 + 상위 10편 깊게).
@@ -34,13 +36,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import market_data as md          # noqa: E402
 import outlier_research as orr    # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 KST = dt.timezone(dt.timedelta(hours=9))
 HANGUL = re.compile(r"[가-힣]")
 
 CRASH_SOX, CRASH_NDQ, JUMP_SOX, JUMP_NDQ, FEAR_VIX, CORR_NDQ, KOSPI_DROP = -5.0, -3.0, 5.0, 3.0, 25.0, -5.0, -3.0
-REGIMES = ["폭락 직후", "급등 직후", "공포", "조정", "평온"]
+REGIMES = ["폭락 직후", "폭락 뒤 반등", "급등 직후", "공포", "조정", "평온"]
+REBOUND_SOX, REBOUND_NDQ, REBOUND_LOOKBACK = 4.0, 2.0, 5         # v1.2 폭락 뒤 반등
 
 PSY = {   # 댓글 속 심리 (답글 아닌 댓글 · 영상 주인 댓글 뺌 · 낱말 세기 — 사람 분류 아님)
     "손실·공포": r"물렸|물림|물려|손절|잃었|잃고|털렸|털림|패닉|무섭|무서워|공포|죽고 ?싶|멘붕|반토막|마이너스|깡통|청산|박살|폭락",
@@ -103,7 +106,11 @@ def regime_at(pub: dt.datetime, M: dict) -> dict:
     d0 = days[-1]
     vix = ((M.get("^VIX") or {}).get(d0) or {}).get("close")
     ndq_hi = ((M.get("^IXIC") or {}).get(d0) or {}).get("from_high")
-    if (sox and min(sox) <= CRASH_SOX) or (ndq and min(ndq) <= CRASH_NDQ):
+    last5 = days[-REBOUND_LOOKBACK:]
+    crash5 = any((ch("^SOX", d) or 0) <= CRASH_SOX or (ch("^IXIC", d) or 0) <= CRASH_NDQ for d in last5[:-1])
+    if ((ch("^SOX", days[-1]) or 0) >= REBOUND_SOX or (ch("^IXIC", days[-1]) or 0) >= REBOUND_NDQ) and crash5:
+        reg = "폭락 뒤 반등"                                        # v1.2 마지막 날 반등 + 앞 5일 안 폭락
+    elif (sox and min(sox) <= CRASH_SOX) or (ndq and min(ndq) <= CRASH_NDQ):
         reg = "폭락 직후"
     elif (sox and max(sox) >= JUMP_SOX) or (ndq and max(ndq) >= JUMP_NDQ):
         reg = "급등 직후"
@@ -459,6 +466,10 @@ def selftest() -> int:
     check("11-21 10:00 UTC = 11-20 미국 장 폭락 직후 · 코스피 급락", r["regime"] == "폭락 직후" and r["us_day"] == "2026-11-20" and r["kospi_drop"])
     r2 = regime_at(dt.datetime(2026, 11, 20, 20, tzinfo=dt.timezone.utc), M)
     check("마감 전(20:00 UTC)이면 전날 장", r2["us_day"] == "2026-11-19")
+    M2 = {"^GSPC": {d: {"close": 1, "chg": 0, "from_high": -5} for d in ("2026-11-04", "2026-11-05", "2026-11-06")},
+          "^SOX": {"2026-11-05": {"close": 1, "chg": -12.2, "from_high": -30}, "2026-11-06": {"close": 1, "chg": 4.2, "from_high": -28}},
+          "^IXIC": {"2026-11-05": {"close": 1, "chg": -5.5, "from_high": -10}, "2026-11-06": {"close": 1, "chg": 1.1, "from_high": -9}}}
+    check("v1.2 폭락 다음 날 반도체 +4.2% = 폭락 뒤 반등", regime_at(dt.datetime(2026, 11, 7, 8, tzinfo=dt.timezone.utc), M2)["regime"] == "폭락 뒤 반등")
     cs_ = comment_stats([{"id": "a", "parent": None, "published": "2026-11-21T11:00:00", "text": "물렸다 반등 오나요?", "likes": 3},
                          {"id": "b", "parent": "a", "published": "2026-11-23T11:00:00", "text": "감사", "likes": 0}], dt.datetime(2026, 11, 21, 10, tzinfo=dt.timezone.utc))
     check("댓글 심리·24시간 몫", cs_["손실·공포"] == 100 and cs_["희망·바닥"] == 100 and cs_["궁금·질문"] == 100 and cs_["first24"] == 50 and cs_["top"] == 1)

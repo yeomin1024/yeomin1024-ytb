@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.6.1 — 2026-11-28 — 링크 되돌림: 5개까지 한 링크 · 6~8개면 둘 (옛 주소 꼴에 6개 넘게 넣으면 구글 트렌드 오류 화면 — 사용자 알림 2026-11-28 "링크 열면 '죄송합니다. 이 페이지를 표시하는 중에 문제가 발생했습니다'") · 새 화면 CSV 읽기는 그대로.
+<!-- VERSION: v1.7.0 — 2026-11-28 — 구글 트렌드 링크 = 새 탐색 화면 주소 trends.google.com/explore (옛 /trends/explore 아님) · 줄마다 하나 (8개까지) — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐".
+     (v1.6.1) — 2026-11-28 — 링크 되돌림: 5개까지 한 링크 · 6~8개면 둘 (옛 주소 꼴에 6개 넘게 넣으면 구글 트렌드 오류 화면 — 사용자 알림 2026-11-28 "링크 열면 '죄송합니다. 이 페이지를 표시하는 중에 문제가 발생했습니다'") · 새 화면 CSV 읽기는 그대로.
      (v1.6.0) — 2026-11-28 — 구글 트렌드 링크 = 줄마다 하나 (8개까지 한 번에 비교 — 새 탐색 화면) · CSV 읽기 넓힘(따옴표 칸·날짜/Date 머리) — 사용자 지시 2026-11-28 "야 근데 링크 여는거 단어 8개 동시에 하는게 안돼?" · "사이트에서는 8개 비교 되던데".
      (v1.5.1) — 2026-11-28 — ① 성공 사례 단계는 그 단계가 있는 주제만 (rules.json steps[].only — 지금 재테크(주식)만) — 사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해".
      (v1.5) — 2026-11-28 — 주제 탐색 ① = 성공 사례 찾기 · 성공 사례 전체 목록 (찾기 · 폴더·미국주식·한국어·자료 받은 사례 거르기 · 정렬 · 더 보기 ·
@@ -540,9 +541,9 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   function trendParts(words, opt) {
     const W = (words || []).map(x => String(x || "").trim()).filter(Boolean).slice(0, 8);
     if (!W.length) return [];
-    const groups = W.length <= 5 ? [W] : [W.slice(0, 5), [W[0], ...W.slice(5)]];      // v1.6.1 이 주소 꼴은 5개까지만 열림 (6개부터 오류 화면) — 6개부터는 첫 낱말을 기준으로 둘로
-    return groups.map((q, i) => ({ part: i + 1, q, url: "https://trends.google.com/trends/explore?" + [`date=${encodeURIComponent(opt.time)}`, "geo=KR",
-      opt.gprop ? `gprop=${encodeURIComponent(opt.gprop)}` : "", `q=${q.map(encodeURIComponent).join(",")}`, "hl=ko"].filter(Boolean).join("&") }));
+    const groups = [W];                                                  // v1.7 새 탐색 화면(/explore)은 8개까지 — 줄 하나 = 링크 하나 (옛 /trends/explore 는 5개까지)
+    return groups.map((q, i) => ({ part: i + 1, q, url: "https://trends.google.com/explore?" + [`date=${encodeURIComponent(opt.time)}`, "geo=KR",   // v1.7 사용자가 준 주소 꼴 (date·geo·hl·q — q 는 쉼표로 이음)
+      opt.gprop ? `gprop=${encodeURIComponent(opt.gprop)}` : "", "hl=ko", `q=${q.map(encodeURIComponent).join("%2C")}`].filter(Boolean).join("&") }));
   }
   const csvId = (row, part) => `${row.id}.p${part}`;
   function csvFor(row, p, opt) {
@@ -633,7 +634,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       return `<div class="card trow"><div class="ephead"><h3>${ri + 1}번째 줄</h3><div class="row">${r.draft ? `<span class="chip mute">저장 전 — [링크 생성]을 누르면 저장</span>` : rdone ? `<span class="chip ok">완료</span>` : parts.length ? `<span class="chip warn">CSV ${parts.filter(p => { const c = csvFor(r, p, opt); return c && c.same; }).length}/${parts.length}</span>` : ""}
           ${S.confirm === k ? `<span class="confirm">이 줄을 지울까요?<button class="btn bad sm" data-act="tr-del" data-id="${e(r.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : (!r.draft ? `<button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>줄 지우기</button>` : "")}</div></div>
         <div class="tinputs">${inputs}</div>
-        <div class="row"><button class="btn sm" data-act="tr-link" data-id="${e(r.id)}" data-n="${r.n || ri + 1}" ${wr()}>링크 생성</button><span class="small">6~8개면 링크 둘 (이 링크 꼴은 5개까지만 열림 — 첫 단어를 둘 다에 넣어 크기를 맞춤)</span></div>
+        <div class="row"><button class="btn sm" data-act="tr-link" data-id="${e(r.id)}" data-n="${r.n || ri + 1}" ${wr()}>링크 생성</button><span class="small">단어 8개까지 링크 하나 (구글 트렌드 새 탐색 화면)</span></div>
         ${links}</div>`;
     }).join("");
     return `<section class="box"><header><h2>구글 트렌드</h2><span class="chip ${st.done ? "ok" : st.have ? "warn" : "mute"}">${st.done ? "완료 — CSV " + st.have + "/" + st.need : "CSV " + st.have + "/" + st.need}</span></header>
@@ -1009,7 +1010,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
             const n = Math.max(0, ...[...S.col.trend_rows.values()].filter(r => r.topic === S.topic).map(r => r.n || 0)) + 1, id = `${S.topic}.r${Date.now().toString(36)}`;
             const doc = { topic: S.topic, n, words: [], deleted: false, at: t };
             if (await put("trend_rows", id, doc)) { S.col.trend_rows.set(id, Object.assign({ id }, doc)); toast("줄을 더했습니다 — 단어를 넣고 [링크 생성]"); }
-          } else if (ok) { const k = trendParts(words, trendOpt(S.topic)).length; toast(`링크 ${k}개를 만들었습니다${k > 1 ? " (5개가 넘어 둘로 나눔)" : ""} — 열어서 CSV 를 받아 올려 주세요`); }
+          } else if (ok) { const k = trendParts(words, trendOpt(S.topic)).length; toast(`링크 ${k}개를 만들었습니다 — 열어서 CSV 를 받아 올려 주세요`); }
         }
       }
       else if (a === "tr-del") {

@@ -6,6 +6,8 @@ VERSION: v1.3 — 2026-10-31 — 1번 맨 위에 **목적 한 줄**(리스크는
 채널 STOCK LAB `UC7Rw5HWgKz5njCCciX8IVJQ` (`stock/youtube_channel.json`). 새 편의 주제·요약본·대본·제목·썸네일·쇼츠는 모두 이 설명에 맞춘다.
 **읽히는 곳**: 1번 '한눈에'가 주제 탐색 재료 `stock/topics/material.md` · 요약본 재료 `stock/topics/요약본_material.md` 맨 위 0번에 저절로 들어감 (`tools/topic_ideas.py` v1.1 · `tools/summary_ideas.py` v1.1 — 아래 표시 줄 `channel:start`~`end` 사이를 그대로) · `stock/guides/quick_test.md` 0번 · CLAUDE.md 주식 절.
 
+> **2026-11-28 제작 판에서 뺀 규칙 — 더 따르지 않음** (사용자 지시 "주식 주제별 규칙을 빼는걸로 체크했으니까 그건 아예 빼버리고"): 1번 목적 줄(리스크는 최대한 줄이고 천천히 수익 · 숫자는 '덜 잃었나' · 단타·타이밍·종목 맞히기 ✗). 판에서 주식은 재테크 안 (`studio/studio.toml` MERGE). 아래 본문은 기록으로 남김.
+
 ## 0. 사용자 원문 (그대로 — 이 절이 기준, 1~4번은 Claude 풀이)
 
 > 목적: 장기적으로 지속적인 수익을 내기 위한 정보, 마인드 전달

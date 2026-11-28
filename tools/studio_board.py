@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.3 — 2026-11-28 — 판 v1.3 구글 트렌드 (사용자 지시 2026-11-28 "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을
+# VERSION: v1.4 — 2026-11-28 — 주제 합치기 studio.toml MERGE (주식 → 재테크: 판 주제 하나에 두 폴더의 편·탐색 문서·성공 사례 — 편은 제 폴더 이름 그대로라
+#          gates·음성·업로드 도구는 그대로 읽음 · 판 주제를 끄면 합친 폴더도 꺼짐) · 규칙 단계별 결과 = 주제마다 step_docs (주제 탐색 ①~⑤ 단계의 결과 문서 —
+#          result/next_topic/suggest·recent·big·overlap·report·next_topic.md) · 최신 트렌드(trend) 주제. 사용자 지시 2026-11-28 "주식 관련 내용은 재테크에 포함시켜
+#          그리고 규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해 … 최신 트렌드 주제 추가해". 함수 board_topics · folders_of · off_folders · step_docs ·
+#          topic_data · build · effective_gates · sync · selftest.
+# (v1.3) — 2026-11-28 — 판 v1.3 구글 트렌드 (사용자 지시 2026-11-28 "주제 탐색에 구글 트렌드 부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을
 #          누르면 … 구글 트렌드 링크 생성해 그리고 csv 파일 업로드 할 수 있도록 해 모든 파일이 업로드 되면 완료로 표시하고"): sync 가 db trend_rows(줄마다 단어 8개) →
 #          studio/state/trends.json 주제마다 groups(판 링크와 같은 묶음 — 5개까지 한 링크, 6~8개면 첫 단어를 둘 다에) · rows · csv 완료 수 · 주제마다 기간·대상 ·
 #          db trend_csv(판에서 올린 CSV) → <주제>/result/next_topic/board_csv/r<줄>_p<링크>.csv + index.json (지금 줄 단어와 다른 옛 CSV 는 빼고 경고) ·
@@ -15,6 +20,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.4 | 2026-11-28 | 주제 합치기 MERGE · 단계별 결과 문서 step_docs · trend 주제 | board_topics · folders_of · off_folders · step_docs · topic_data · build · effective_gates · sync · selftest |
 # | v1.3 | 2026-11-28 | 판 구글 트렌드 줄·CSV → trends.json groups · board_csv/ | trend_groups · sync_trend_csv · sync · trends_results · selftest |
 # | v1.2 | 2026-11-27 | 재업로드 요청 시각 reupload_at | sync |
 # | v1.1 | 2026-11-27 | 주제 10개 · 주제 켜기·끄기(topics.json) · data URI 그림 · 칸 자동 찾기 · 편 요약 | small_jpeg · refs_analysis · topic_cfg · build · sync · effective_gates · selftest |
@@ -61,7 +67,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.3"
+VERSION = "v1.4"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -99,6 +105,48 @@ def git(*args: str) -> str:
 
 def load_cfg() -> dict:
     return tomllib.loads(CFG_PATH.read_text("utf-8"))
+
+
+# ─────────────────────────────── v1.4 주제 합치기 (studio.toml MERGE = { 폴더 = "판 주제" })
+def board_topics(cfg: dict) -> list[str]:
+    """판에 단추로 보이는 주제 = TOPICS 에서 다른 주제 안으로 합친 폴더를 뺀 것."""
+    m = cfg.get("MERGE") or {}
+    return [t for t in cfg["TOPICS"] if t not in m]
+
+
+def folders_of(cfg: dict, topic: str) -> list[str]:
+    """판 주제 하나가 보여 주는 저장소 폴더들 (자기 + 합친 폴더)."""
+    return [topic] + [c for c, p in (cfg.get("MERGE") or {}).items() if p == topic and c in cfg["TOPICS"]]
+
+
+def off_folders(cfg: dict, off: set[str]) -> set[str]:
+    """판에서 끈 주제 → 그 안에 합친 폴더도 꺼짐."""
+    return set(off) | {c for c, p in (cfg.get("MERGE") or {}).items() if p in off}
+
+
+STEP_DOCS = {                                                   # v1.4 주제 탐색 단계마다 결과 문서 (guides/topic_guide.md 1-0 · tools/next_topic.py)
+    "t1": ["result/next_topic/suggest.md", "result/next_topic/keywords.md", "result/next_topic/trends.md", "result/next_topic/trends/*.md"],
+    "t2": ["result/next_topic/recent*.md"],
+    "t3": ["result/next_topic/big*.md"],
+    "t4": ["result/next_topic/overlap*.md", "result/next_topic/report*.md", "result/next_topic/next_topic_data.md"],
+    "t5": ["result/next_topic/next_topic.md"],
+}
+
+
+def step_docs(folders: list[str], explore: list[dict]) -> dict:
+    out = {}
+    for k, pats in STEP_DOCS.items():
+        L = []
+        for f in folders:
+            for pat in pats:
+                for q in sorted((ROOT / f).glob(pat)):
+                    if q.is_file() and not q.name.endswith("_batches.md"):
+                        x = doc_entry(rel(q))
+                        if x and all(y["path"] != x["path"] for y in L):
+                            L.append(x)
+        out[k] = L
+    out["t5"] = out["t5"] + [x for x in explore if all(y["path"] != x["path"] for y in out["t5"])]   # 판단 = next_topic.md + studio.toml EXPLORE
+    return out
 
 
 def read_json(p: Path, default=None):
@@ -559,20 +607,40 @@ def empty_refs(topic: str) -> dict:
             "thumb_source": "", "thumb_note": f"{topic} 은(는) 성공 사례 분석 결과가 없음 — 판에서 직접 더할 수 있음"}
 
 
+def _refs_of(f: str, tc: dict, img_dir) -> dict:
+    return (refs_analysis(f, tc, img_dir) if tc.get("SUCCESS") == "analysis_json" else
+            refs_videos_csv(f, tc, img_dir) if tc.get("SUCCESS") == "videos_csv" else empty_refs(f))
+
+
 def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
     tc = topic_cfg(cfg, topic)
     img_dir = out                                              # v1.1 그림은 data URI (img_dir 는 '가볍게 아님' 표시로만)
-    explore = [x for x in (doc_entry(p) for p in tc.get("EXPLORE", [])) if x]
-    rdir = ROOT / tc.get("RELATED_DIR", "")
-    related = [x for x in (doc_entry(rel(p)) for p in sorted(rdir.glob("*.md"))) if x] if tc.get("RELATED_DIR") and rdir.is_dir() else []
-    refs = (refs_analysis(topic, tc, img_dir) if tc.get("SUCCESS") == "analysis_json" else
-            refs_videos_csv(topic, tc, img_dir) if tc.get("SUCCESS") == "videos_csv" else empty_refs(topic))
-    eps = episodes(topic, T, img_dir, upl_paths)
-    d = {"topic": topic, "name": tc.get("NAME", topic), "note": tc.get("NOTE", ""), "explore": explore, "related": related,
+    folders = folders_of(cfg, topic)                           # v1.4 재테크 = economic + stock
+    explore, related, eps = [], [], []
+    refs = None
+    for f in folders:
+        tf = topic_cfg(cfg, f)
+        explore += [x for x in (doc_entry(p) for p in tf.get("EXPLORE", [])) if x]
+        rdir = ROOT / tf.get("RELATED_DIR", "")
+        related += [x for x in (doc_entry(rel(p)) for p in sorted(rdir.glob("*.md"))) if x] if tf.get("RELATED_DIR") and rdir.is_dir() else []
+        r = _refs_of(f, tf, img_dir)
+        if refs is None:
+            refs = r
+        else:                                                  # 합친 폴더의 성공 사례는 뒤에 이어 붙임 (낱말 표는 앞 주제 것 — 없으면 합친 폴더 것)
+            refs["titles"] += r["titles"]
+            refs["thumbs"] += r["thumbs"]
+            for k in ("words_up", "words_down", "features"):
+                refs[k] = refs[k] or r[k]
+            refs["freq"] = words_of([t["text"] for t in refs["titles"]])
+            refs["source"] = " · ".join(x for x in (refs.get("source"), r.get("source")) if x)
+            refs["thumb_source"] = " · ".join(x for x in (refs.get("thumb_source"), r.get("thumb_source")) if x)
+        eps += episodes(f, T, img_dir, upl_paths)
+    d = {"topic": topic, "name": tc.get("NAME", topic), "note": tc.get("NOTE", ""), "folders": folders, "explore": explore, "related": related,
          "refs": refs, "episodes": eps, "legacy": legacy(tc.get("LEGACY", "")), "trends": trends_results(topic),
-         "default_words": tc.get("WORDS", [])}
-    log("TOPIC", topic=topic, explore=len(explore), related=len(related), ref_titles=len(refs["titles"]), ref_thumbs=len(refs["thumbs"]),
-        episodes=len(eps), personas=len(d["legacy"].get("personas") or []), trends_period=d["trends"].get("period") or "-")
+         "step_docs": step_docs(folders, explore), "default_words": tc.get("WORDS", [])}
+    log("TOPIC", topic=topic, folders="+".join(folders), explore=len(explore), related=len(related), ref_titles=len(refs["titles"]), ref_thumbs=len(refs["thumbs"]),
+        episodes=len(eps), step_docs=",".join(f"{k}:{len(v)}" for k, v in d["step_docs"].items()),
+        personas=len(d["legacy"].get("personas") or []), trends_period=d["trends"].get("period") or "-")
     return d
 
 
@@ -585,7 +653,7 @@ def channels_data() -> dict:
 def build(out: Path, topics: list[str] | None = None) -> int:
     t0 = time.time()
     cfg = load_cfg()
-    every = cfg["TOPICS"]
+    every = board_topics(cfg)                                      # v1.4 합친 폴더(주식)는 판 주제(재테크) 안에
     off = topic_state.disabled()
     topics = [t for t in (topics or every) if t not in off]           # v1.1 꺼 둔 주제는 판 자료를 만들지 않음
     if off:
@@ -624,6 +692,7 @@ def build(out: Path, topics: list[str] | None = None) -> int:
     files["data/common.json"] = str(out / "data" / "common.json")
     meta = {"tool": f"studio_board.py {VERSION}", "made": dt.datetime.now(KST).strftime("%Y-%m-%d %H:%M"), "commit": commit,
             "topics": [{"key": t, "name": topic_cfg(cfg, t).get("NAME", t), "built": t in topics, "repo_off": t in off} for t in every],
+            "merge": dict(cfg.get("MERGE") or {}), "names": {t: topic_cfg(cfg, t).get("NAME", t) for t in cfg["TOPICS"]},
             "stages": STAGES, "stage_ko": STAGE_KO,
             "artifact": cfg.get("ARTIFACT", ""), "synced_at": common["synced_at"]}
     page = TEMPLATE.read_text("utf-8")
@@ -660,7 +729,7 @@ def effective_gates(cfg: dict, cols: dict) -> dict:
     T = tts_mod()
     db = {(g.get("topic"), g.get("ep"), g.get("stage")): g for g in cols.get("gates", [])}
     out = {}
-    for topic in [t for t in cfg["TOPICS"] if t not in board_disabled(cfg, cols)]:     # v1.1 꺼 둔 주제는 뺌
+    for topic in [t for t in cfg["TOPICS"] if t not in off_folders(cfg, board_disabled(cfg, cols))]:     # v1.1 꺼 둔 주제는 뺌 · v1.4 합친 폴더 포함
         eps = episodes(topic, T, None, set())
         cands = [{"id": "cand-" + c["id"], "repo_gates": {}} for c in cols.get("episodes", []) if c.get("topic") == topic and not c.get("deleted")]
         for e in eps + cands:
@@ -774,7 +843,7 @@ def sync(dump: Path) -> int:
     now = dt.datetime.now(KST).isoformat(timespec="seconds")
     log("SYNC", dump=rel(dump), collections=",".join(f"{k}:{len(v)}" for k, v in sorted(cols.items())) or "-")
     STATE.mkdir(parents=True, exist_ok=True)
-    off = board_disabled(cfg, cols)                                   # v1.1 주제 켜기·끄기 → 모든 도구·세션이 읽는 파일
+    off = off_folders(cfg, {t for t in board_disabled(cfg, cols) if t in board_topics(cfg)})   # v1.1 주제 켜기·끄기 → 모든 도구·세션이 읽는 파일 · v1.4 합친 폴더는 판 주제를 따름
     was = topic_state.disabled()
     (STATE / "topics.json").write_text(json.dumps({"updated": now, "about": "제작 판 '주제 켜기·끄기' — disabled 주제는 판에 안 보이고 Claude·도구가 읽지도 작업하지도 않음 (tools/topic_state.py)",
                                                    "disabled": sorted(off), "enabled": [t for t in cfg["TOPICS"] if t not in off]},
@@ -795,7 +864,7 @@ def sync(dump: Path) -> int:
                                         "time": ov.get("TIME", "now 7-d"),
                                         "every_hours": int((tr.get("overall") or {}).get("every_hours") or tcfg.get("EVERY_HOURS", 24))}}
     all_rows = [r for r in cols.get("trend_rows", []) if r.get("id")]
-    for t in [x for x in cfg["TOPICS"] if x not in off]:
+    for t in [x for x in board_topics(cfg) if x not in off]:          # v1.4 판 주제마다 (합친 폴더 단어는 그 판 주제 줄에)
         d = tr.get(t) or {}
         opt = {"time": d.get("time") or tcfg.get("TIME", "today 3-m"), "gprop": d.get("gprop") if d.get("gprop") is not None else tcfg.get("GPROP", "youtube")}
         rows = sorted([r for r in all_rows if r.get("topic") == t and not r.get("deleted")], key=lambda r: r.get("n") or 0)
@@ -887,6 +956,10 @@ def selftest() -> int:
     check("v1.1 칸 자동 찾기 (심리 = analysis.json · thumb_codes)", topic_cfg(load_cfg(), "psychology")["SUCCESS"] == "analysis_json"
           and topic_cfg(load_cfg(), "psychology").get("THUMB_CODES", "").endswith("thumb_codes.tsv") and topic_cfg(load_cfg(), "crisis")["SUCCESS"] == "videos_csv")
     check("doc id 꼴", bool(DOC_ID_RE.fullmatch("psychology__jakku-juneun-2026-11-25__title")))
+    mc = {"TOPICS": ["economic", "stock", "crisis"], "MERGE": {"stock": "economic"}, "topic": {}}
+    check("v1.4 합치기 — 판 주제 · 폴더 · 끄면 합친 폴더도", board_topics(mc) == ["economic", "crisis"] and folders_of(mc, "economic") == ["economic", "stock"]
+          and off_folders(mc, {"economic"}) == {"economic", "stock"} and off_folders(mc, {"crisis"}) == {"crisis"})
+    check("v1.4 studio.toml 주식 → 재테크 · trend 주제", (load_cfg().get("MERGE") or {}).get("stock") == "economic" and "trend" in load_cfg()["TOPICS"])
     W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]
     check("v1.3 트렌드 링크 묶음 8개 = 5 + (첫 단어 + 3)", trend_groups(W8) == [W8[:5], ["자기계발", "자기관리", "습관", "독서"]])
     check("v1.3 트렌드 링크 묶음 5개 이하 = 하나 · 겹친 단어 뺌", trend_groups(["a", "b", "a ", " A"]) == [["a", "b"]] and trend_groups([]) == [])

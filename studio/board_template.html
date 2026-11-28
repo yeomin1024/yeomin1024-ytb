@@ -1,6 +1,9 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.3 — 2026-11-28 — '공통' 칸 없앰 · 주제 탐색에 구글 트렌드(줄마다 단어 8개 → [링크 생성] → 링크 열기 → CSV 올리기 · 모든 링크 CSV 가 오면 '완료'
+<!-- VERSION: v1.4 — 2026-11-28 — [규칙 · 결과] = 단계별 (studio/rules.json steps — 단계마다 규칙 → 그 단계 결과: 트렌드·next_topic 문서·성공 사례·낱말·
+     페르소나 회차·도입 30초·챕터 끝 문장·음성·영상·업로드 상태) · 주식 → 재테크 안 (BOARD merge — 편은 제 폴더 이름으로 저장: stock__… · '주식' 표시) ·
+     최신 트렌드 주제 · 판 동작(통과·체크)은 규칙 목록에서 빼고 판 설계로. 사용자 지시 2026-11-28 "제작 판 동기화하고 주식 관련 내용은 재테크에 포함시켜 그리고 규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해 그리고 주식에 관련된 단어들 구글 트렌드에 추가한 후 링크 생성 해놔 주식 주제별 규칙을 빼는걸로 체크했으니까 그건 아예 빼버리고 최신 트렌드 주제 추가해 그리고 주제 후보는 판에서 [통과 → 제목]을 누른 것만 … 이건 공통 규칙이 아니라 아티팩트를 그렇게 설계하라는거야 다른 단계도 똑같이 적용되는거고 수정해".
+     (v1.3) — 2026-11-28 — '공통' 칸 없앰 · 주제 탐색에 구글 트렌드(줄마다 단어 8개 → [링크 생성] → 링크 열기 → CSV 올리기 · 모든 링크 CSV 가 오면 '완료'
      — db trend_rows · trend_csv) · 화면마다 [작업] / [규칙 · 결과] 둘 중 하나를 넓게 (예전 오른쪽 옆 칸) · 편마다 [통과 → 다음 단계] · [← 이전 단계] 단추
      (체크 상자 대신 — 누르면 편과 함께 그 단계 화면으로) · 주제 켜기·끄기는 머리 띠 단추. 사용자 지시 2026-11-28 "제작 판 동기화하고 공통탭을 없애고 주제 탐색에 구글 트렌드
      부분을 넣어 단어는 8개씩하고 줄마다 단어 입력 후 링크 생성 버튼을 누르면 바로 해당 단어가 입력되어 있는 구글 트렌드 링크 생성해 그리고 csv 파일 업로드 할 수 있도록 해
@@ -169,6 +172,14 @@ svg.spark circle{fill:var(--accent)}
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:20;max-width:calc(100% - 32px)}
 .loading{padding:40px 0;text-align:center;color:var(--muted)}
 .one{display:grid;gap:16px;min-width:0}
+.step{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:8px}
+.step:first-of-type{border-top:0;padding-top:0}
+.stephead{display:flex;gap:10px;align-items:center}
+.stephead .sn{font:600 13px var(--f-mono);width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--accent-ink);flex:none}
+.steprules{padding-left:34px}
+.stepres{margin-left:34px;background:var(--sunk);border-radius:12px;padding:8px 12px;display:grid;gap:8px;min-width:0}
+.stepres section.box{box-shadow:none}
+@media (max-width:620px){.steprules{padding-left:0}.stepres{margin-left:0}}
 .modebar{display:inline-flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:12px;box-shadow:var(--shadow)}
 .modebar button{border:0;background:transparent;color:var(--muted);border-radius:9px;padding:6px 18px;font:600 14px var(--f-body);cursor:pointer}
 .modebar button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
@@ -249,7 +260,8 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   const topicOn = t => { const d = S.col.topics.get(t.key); return d && typeof d.enabled === "boolean" ? d.enabled : !t.repo_off; };
   const visTopics = () => B.topics.filter(topicOn);
   function fixTopic() { const v = visTopics(); if (!v.some(t => t.key === S.topic)) S.topic = (v[0] || B.topics[0]).key; }
-  const tname = k => tinfo(k).name || k;
+  const tname = k => (B.names || {})[k] || tinfo(k).name || k;
+  const MERGE = B.merge || {};                                  // v1.4 { 폴더: 판 주제 } — 주식 → 재테크 (사용자 지시 2026-11-28 "주식 관련 내용은 재테크에 포함시켜")
   const gid = (ep, s) => `${ep.topic}__${ep.id}__${s}`;
   function own(ep, s) {
     const g = S.col.gates.get(gid(ep, s));
@@ -276,42 +288,92 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   }
   function epHead(ep, extra) {
     return `<div class="ephead"><div style="min-width:0;display:grid;gap:2px">
-      <div class="row">${kindChip(ep)}<span class="id">${e(ep.id)}</span></div>
+      <div class="row">${kindChip(ep)}${ep.topic !== S.topic ? `<span class="chip info">${e(tname(ep.topic))}</span>` : ""}<span class="id">${e(ep.id)}</span></div>
       <h3>${e(ep.title || (ep.summary_title ? "요약본: " + ep.summary_title : "") || "(제목 아직 없음)")}</h3>
       <div class="row">${stepsHtml(ep)}</div></div>${extra || ""}</div>`;
   }
 
   // ───────── 규칙
-  function rulesOf(stage) {
-    const R = ((S.common || {}).rules || {}).stages || {};
-    const base = R[stage] || {};
-    const out = [];
+  // ───────── v1.4 규칙 = 단계(steps) · 단계마다 결과 (사용자 지시 2026-11-28 "규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해")
+  const stepsOf = stage => (((S.common || {}).rules || {}).steps || {})[stage] || [{ key: "_", name: SK[stage] || stage, results: [] }];
+  function ruleItems(stage) {                                    // 공통 + 이 주제 · 판에서 고친 것 덮어씀 · 동기화로 이미 뺀 것(db 에만 남은 뺌)은 안 보임
+    const base = ((((S.common || {}).rules || {}).stages || {})[stage]) || {}, out = [];
     for (const scope of ["common", S.topic]) {
       const items = (base[scope] || []).map(r => ({ ...r, stage, scope }));
       const ids = new Set(items.map(r => r.id));
-      for (const d of S.col.rules.values()) if (d.stage === stage && (d.scope || "common") === scope && !ids.has(d.id)) items.push({ id: d.id, text: d.text, src: "판에서 더함", stage, scope, added: true });
-      for (const r of items) { const d = S.col.rules.get(r.id); if (d) { r.doc = d; if (d.text) r.text = d.text; if (d.deleted) r.deleted = true; } }
-      out.push({ scope, items });
+      for (const d of S.col.rules.values()) if (d.stage === stage && (d.scope || "common") === scope && !ids.has(d.id) && !d.deleted) items.push({ id: d.id, text: d.text, step: d.step, src: "판에서 더함", stage, scope, added: true });
+      for (const r of items) { const d = S.col.rules.get(r.id); if (d) { r.doc = d; if (d.text) r.text = d.text; if (d.step) r.step = d.step; if (d.deleted) r.deleted = true; } }
+      out.push(...items);
     }
     return out;
   }
-  function rulesBox(stage, title) {
-    const groups = rulesOf(stage);
-    const tname = (S.data[S.topic] || {}).name || S.topic;
-    const body = groups.map(g => `<div class="scope">${g.scope === "common" ? "공통" : e(tname) + " 주제"}</div>` + (g.items.length ? g.items.map(r => {
-      const k = "rule:" + r.id;
-      if (S.edit === k) return `<div class="rule"><textarea id="ed-${e(r.id)}">${e(r.text)}</textarea><div class="row"><button class="btn sm" data-act="rule-save" data-id="${e(r.id)}" data-stage="${stage}" data-scope="${e(g.scope)}">저장</button><button class="btn ghost sm" data-act="cancel">그만</button></div></div>`;
-      return `<div class="rule" ${r.deleted ? 'style="opacity:.55"' : ""}><div class="t">${r.deleted ? "<s>" + e(r.text) + "</s>" : e(r.text)}</div><div class="meta">
-        ${r.src ? `<span>${e(r.src)}</span>` : ""}${r.doc ? pendChip(r.doc) : ""}${r.deleted ? `<span class="chip bad">뺌</span>` : ""}
-        ${S.confirm === k ? `<span class="confirm">이 규칙을 뺄까요?<button class="btn bad sm" data-act="rule-del" data-id="${e(r.id)}" data-stage="${stage}" data-scope="${e(g.scope)}">빼기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>`
-          : r.deleted ? `<button class="btn ghost sm" data-act="rule-undel" data-id="${e(r.id)}" data-stage="${stage}" data-scope="${e(g.scope)}" ${wr()}>되살리기</button>`
-          : `<button class="btn ghost sm" data-act="edit" data-k="${e(k)}" ${wr()}>고치기</button><button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>빼기</button>`}</div></div>`;
-    }).join("") : `<div class="empty">아직 없음</div>`)).join("");
-    return `<section class="box"><header><h2>${e(title || SK[stage] + " 규칙")}</h2><span class="small">고치면 Claude 가 지시사항 문서에도 반영</span></header>${body}
+  const rulesOf = stage => [{ scope: "all", items: ruleItems(stage) }];
+  function ruleHtml(r) {
+    const k = "rule:" + r.id, A = `data-id="${e(r.id)}" data-stage="${e(r.stage)}" data-scope="${e(r.scope)}" data-step="${e(r.step || "")}"`;
+    const sc = r.scope === "common" ? `<span class="chip mute">공통</span>` : `<span class="chip acc">${e(tname(r.scope))}</span>`;
+    if (S.edit === k) return `<div class="rule"><textarea id="ed-${e(r.id)}">${e(r.text)}</textarea><div class="row"><button class="btn sm" data-act="rule-save" ${A}>저장</button><button class="btn ghost sm" data-act="cancel">그만</button></div></div>`;
+    return `<div class="rule" ${r.deleted ? 'style="opacity:.55"' : ""}><div class="t">${r.deleted ? "<s>" + e(r.text) + "</s>" : e(r.text)}</div><div class="meta">${sc}
+      ${r.src ? `<span>${e(r.src)}</span>` : ""}${r.doc ? pendChip(r.doc) : ""}${r.deleted ? `<span class="chip bad">뺌 — 동기화 뒤 사라짐</span>` : ""}
+      ${S.confirm === k ? `<span class="confirm">이 규칙을 뺄까요?<button class="btn bad sm" data-act="rule-del" ${A}>빼기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>`
+        : r.deleted ? `<button class="btn ghost sm" data-act="rule-undel" ${A} ${wr()}>되살리기</button>`
+        : `<button class="btn ghost sm" data-act="edit" data-k="${e(k)}" ${wr()}>고치기</button><button class="btn ghost sm" data-act="ask" data-k="${e(k)}" ${wr()}>빼기</button>`}</div></div>`;
+  }
+  function stepsBox(stage) {
+    const steps = stepsOf(stage), known = new Set(steps.map(x => x.key)), last = steps[steps.length - 1].key, items = ruleItems(stage);
+    const tn = tname(S.topic);
+    return `<section class="box"><header><h2>${e(SK[stage])} — 단계별 규칙 · 결과</h2><span class="small">고치면 Claude 가 지시사항 문서에도 반영</span></header>
+      ${steps.map((st, i) => { const R = items.filter(r => (known.has(r.step) ? r.step : last) === st.key);
+        const res = (st.results || []).map(k => resultHtml(k, stage)).join("");
+        return `<div class="step"><div class="stephead"><span class="sn">${i + 1}</span><h3>${e(st.name)}</h3></div>
+          <div class="steprules">${R.map(ruleHtml).join("") || `<div class="empty">규칙 없음</div>`}</div>
+          <div class="stepres"><div class="scope">결과</div>${res || `<p class="empty">이 단계는 따로 남는 결과 파일이 없음 — 작업 화면에서 규칙대로 됐는지 확인</p>`}</div></div>`; }).join("")}
       <details><summary class="small">규칙 더하기</summary><div class="fb" style="margin-top:6px">
-        <select id="nr-scope-${stage}"><option value="common">공통 (모든 주제)</option><option value="${e(S.topic)}">${e(tname)} 주제만</option></select>
+        <div class="grid2"><select id="nr-step-${stage}" aria-label="단계">${steps.map((x, i) => `<option value="${e(x.key)}">${i + 1}. ${e(x.name)}</option>`).join("")}</select>
+        <select id="nr-scope-${stage}" aria-label="범위"><option value="common">공통 (모든 주제)</option><option value="${e(S.topic)}">${e(tn)} 주제만</option></select></div>
         <textarea id="nr-text-${stage}" placeholder="한 줄 규칙 — 예: 제목 첫 낱말은 시청자가 겪는 장면으로"></textarea>
         <div class="row"><button class="btn sm" data-act="rule-add" data-stage="${stage}" ${wr()}>더하기</button></div></div></details></section>`;
+  }
+  const rulesBox = stage => stepsBox(stage);
+  // 결과 칸 — 단계 정의(studio/rules.json steps[].results)의 이름마다
+  const stageEps = st => eps(S.topic).filter(ep => (Array.isArray(st) ? st : [st]).includes(at(ep)));
+  const STEP_CMD = { t1: "python3 tools/next_topic.py {t} suggest · 트렌드 = 작업 화면 구글 트렌드", t2: "python3 tools/next_topic.py {t} recent --top 300", t3: "python3 tools/next_topic.py {t} big", t4: "python3 tools/next_topic.py {t} report · overlap", t5: "판단 문서 <주제>/result/next_topic/next_topic.md" };
+  const sylSec = x => (String(x).match(/[가-힣]/g) || []).length / 6.3;        // 진행자 H17 약 6.3음절/초
+  const miniTable = (head, rows) => rows.length ? `<div class="tablebox"><table><thead><tr>${head.map(h => `<th>${e(h)}</th>`).join("")}</tr></thead><tbody>${rows.join("")}</tbody></table></div>` : "";
+  function resultHtml(key, stage) {
+    const D = S.data[S.topic] || {};
+    const none = m => `<p class="empty">${e(m)}</p>`;
+    if (key === "trends") return trendsResultBox();
+    if (key.startsWith("docs:")) { const k = key.slice(5), L = (D.step_docs || {})[k] || [];
+      return L.length ? L.map(docHtml).join("") : none(`결과 문서 없음 — ${(STEP_CMD[k] || "").replace("{t}", S.topic)}`); }
+    if (key === "personas") { const P = (D.legacy || {}).personas || []; return P.length ? P.map(personaHtml).join("") : ""; }
+    if (key === "related") return (D.related || []).map(docHtml).join("") || none("관련 영상 낱말·형식 결과 없음 — python3 tools/related_titles.py " + S.topic);
+    if (key === "refs:title") return refsBox("title");
+    if (key === "refs:thumb") return refsBox("thumb");
+    if (key === "words") return wordsBox();
+    const L = stageEps(stage === "voice" ? ["script", "voice"] : stage === "video" ? ["codetest", "video"] : stage);
+    const pre = `<p class="small">지금 ${e(SK[stage])} 단계에서 기다리는 편 ${L.length}</p>`;
+    if (!L.length && !["upload_log", "skills"].includes(key)) return none(`지금 ${SK[stage]} 단계에서 기다리는 편이 없음`);
+    if (key === "ep_titles") return pre + miniTable(["편", "제목", "글자", "다른 안"], L.map(ep => `<tr><td class="mono small">${e(ep.id)}</td><td>${e(ep.title || "(없음)")}</td><td class="num">${(ep.title || "").length}${(ep.title || "").length > 60 ? " ⚠" : ""}</td><td class="num">${(ep.title_alts || []).length}</td></tr>`));
+    if (key === "persona:title" || key === "persona:script") {
+      const sc = key === "persona:title";
+      return pre + miniTable(["편", sc ? "title 회차" : "이탈 회차", sc ? "" : "반론 회차"].filter(Boolean), L.map(ep => { const P = ep.persona || {};
+        const ok = sc ? (P.title || 0) >= 2 : (P.script_exit || 0) >= 2 && (P.script_rebuttal || 0) >= 2;
+        return `<tr><td class="mono small">${e(ep.id)}</td>${sc ? `<td class="num ${ok ? "item-ok" : "item-bad"}">${P.title || 0}</td>` : `<td class="num ${(P.script_exit || 0) >= 2 ? "item-ok" : "item-bad"}">${P.script_exit || 0}</td><td class="num ${(P.script_rebuttal || 0) >= 2 ? "item-ok" : "item-bad"}">${P.script_rebuttal || 0}</td>`}</tr>`; }))
+        + `<p class="small">2회차 이상이어야 통과 (tools/persona_gate.py 기록)</p>`;
+    }
+    if (key === "ep_thumbs") return pre + L.map(ep => `<div class="scope">${e(ep.id)}</div><div class="thumbs">${(ep.thumbs || []).map(t => t.img ? `<figure><img src="${e(t.img)}" alt="${e(t.name)}" loading="lazy"><figcaption>${e(t.name)}</figcaption></figure>` : "").join("") || `<span class="empty">그림 없음</span>`}</div>`).join("");
+    if (key === "ep_thumb_text") return pre + miniTable(["편", "주요 문구", "보조 문구"], L.map(ep => `<tr><td class="mono small">${e(ep.id)}</td><td>${(ep.thumb_main || []).map(e).join("<br>") || "–"}</td><td>${(ep.thumb_sub || []).map(e).join("<br>") || "–"}</td></tr>`));
+    if (key === "intro") return pre + L.map(ep => { let s = 0; const I = []; for (const l of ep.lines || []) { if (s >= 30) break; s += sylSec(l.text); I.push(l); }
+      return `<div class="scope">${e(ep.id)} — 도입 어림 ${Math.round(s)}초 ${s > 32 ? "⚠ 30초 넘음" : ""}</div><ol class="small">${I.map(l => `<li>${e(l.text)}</li>`).join("") || "<li>대본 줄 없음</li>"}</ol>`; }).join("");
+    if (key === "chapters") return pre + L.map(ep => { const parts = []; for (const l of ep.lines || []) { const c = parts[parts.length - 1]; if (!c || c.part !== l.part) parts.push({ part: l.part, last: l.text }); else c.last = l.text; }
+      return `<div class="scope">${e(ep.id)}</div>` + miniTable(["챕터", "끝 문장", "질문?"], parts.map(c => `<tr><td>${e(c.part || "—")}</td><td>${e(c.last)}</td><td class="${/[?？]\s*$/.test(c.last) ? "item-ok" : "item-bad"}">${/[?？]\s*$/.test(c.last) ? "질문" : "–"}</td></tr>`)); }).join("");
+    if (key === "tts_state") return pre + miniTable(["편", "지금 음성", "판 체크"], L.map(ep => { const [c, t2] = ttsState(ep); return `<tr><td class="mono small">${e(ep.id)}</td><td>${e((ep.audio || {}).note || "없음")}</td><td><span class="chip ${c}">${e(t2)}</span></td></tr>`; }));
+    if (key === "ep_video") return pre + miniTable(["편", "장면 파일", "렌더 기록", "업로드 조각", "길이"], L.map(ep => { const V = ep.video || {}; return `<tr><td class="mono small">${e(ep.id)}</td><td>${V.scene ? "✓" : "–"}</td><td>${V.render_md ? "✓" : "–"}</td><td>${V.packed ? (V.mb || "?") + "MB" : "–"}</td><td class="num">${V.duration_s ? Math.floor(V.duration_s / 60) + ":" + String(Math.round(V.duration_s % 60)).padStart(2, "0") : "–"}</td></tr>`; }));
+    if (key === "skills") return skillsBox();
+    if (key === "ep_upload") return pre + miniTable(["편", "제목 글자", "태그", "자동 점검"], L.map(ep => { const U = ep.upload || {}, it = U.items || []; return `<tr><td class="mono small">${e(ep.id)}</td><td class="num">${U.title_chars || "–"}</td><td class="num">${(U.tags || []).length || "–"}</td><td>${it.length ? it.filter(x => x[1]).length + "/" + it.length : "시트 없음"}${(U.problems || []).length ? ` · <span class="item-bad">문제 ${U.problems.length}</span>` : ""}</td></tr>`; }));
+    if (key === "upload_log") { const log = eps(S.topic).flatMap(x => (x.history || []).map(h => ({ ...h, ep: x.id }))).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
+      return miniTable(["올린 때", "편", "영상", "공개 예약", ""], log.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 10))}</td><td class="mono">${e(h.ep)}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${h.current ? "지금" : "옛"}</td></tr>`)) || none("올린 기록 없음"); }
+    return "";
   }
   const wr = () => (S.db && S.canWrite) ? "" : "disabled";
 
@@ -544,6 +606,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       <ul class="list">${B.topics.map(t => { const on = topicOn(t), d = S.col.topics.get(t.key); const sum = (((S.common || {}).summary || {})[t.key] || []).length;
         return `<li class="row" style="justify-content:space-between"><label class="gate ${on ? "on" : ""}"><input type="checkbox" data-act="topic-on" data-key="${e(t.key)}" ${on ? "checked" : ""} ${wr()}>${e(t.name)} <span class="mono small">${e(t.key)}</span></label>
           <span class="row small">${on ? (t.built ? `편 ${sum}` : `<span class="chip warn">다시 켬 — Claude 동기화 뒤 자료</span>`) : `<span class="chip mute">꺼짐</span>`}${d ? pendChip(d) : ""}</span></li>`; }).join("")}</ul>
+      ${Object.keys(MERGE).length ? `<p class="small">합친 주제: ${Object.entries(MERGE).map(([c, p]) => `${e(tname(c))} → ${e(tname(p))} 안에 (편·규칙·결과·트렌드 · 저장소 폴더 <span class="mono">${e(c)}/</span> 는 그대로)`).join(" · ")}</p>` : ""}
       <p class="small">끈 주제는 판에서 바로 사라지고, Claude 가 동기화하면 Claude 세션·음성·업로드·채널 도구도 그 주제를 읽지 않습니다. 다시 켜면 다음 동기화부터.</p>
       <details><summary class="small">켠 주제마다 단계별 편 수</summary><div class="tablebox"><table><thead><tr><th>주제</th>${STAGES.map(s => `<th>${e(SK[s])}</th>`).join("")}<th>끝</th></tr></thead><tbody>${visTopics().map(t => { const cnt = {}; for (const ep of eps(t.key)) { const a = at(ep); cnt[a] = (cnt[a] || 0) + 1; }
         return `<tr><td>${e(t.name)}</td>${STAGES.map(s => `<td class="num">${cnt[s] || ""}</td>`).join("")}<td class="num">${cnt.done || ""}</td></tr>`; }).join("")}</tbody></table></div></details></section>`;
@@ -577,9 +640,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         <ul class="list">${chans.map(c => `<li class="card"><div class="row"><span class="chip ${c.status === "done" ? "ok" : c.status === "fail" ? "bad" : "warn"}">${c.status === "done" ? "반영됨" : c.status === "fail" ? "못 찾음" : "반영 전"}</span><code>${e(c.input)}</code></div>${c.memo ? `<span class="small">메모: ${e(c.memo)}</span>` : ""}${c.reply ? `<span class="small">Claude: ${e(c.reply)}</span>` : ""}
           <div class="row">${S.confirm === "ch:" + c.id ? `<span class="confirm">지울까요?<button class="btn bad sm" data-act="ch-del" data-id="${e(c.id)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="ch:${e(c.id)}" ${wr()}>지우기</button>`}</div></li>`).join("")}</ul></section>
       ${tr.command ? `<section class="box"><h2>대본 받기 (PC)</h2><p class="small">${e(tr.why || "")} (목록 ${e(tr.made || "")})</p>${cmd("PC 명령", tr.command)}</section>` : ""}`;
-    const rules = `${rulesBox("topic")}${rulesBox("trends", "구글 트렌드 규칙")}${trendsResultBox()}
-      <section class="box"><header><h2>${e(D.name || "")} 주제 탐색 결과</h2><span class="small">${(D.explore || []).length}개 문서</span></header>${(D.explore || []).map(docHtml).join("") || `<p class="empty">결과 문서 없음 — python3 tools/next_topic.py ${e(S.topic)} report</p>`}</section>
-      ${(lg.personas || []).length ? `<section class="box"><header><h2>시청자 페르소나</h2><span class="small">옛 분석 판에서 옮김 · ${e(lg.made || "")}</span></header>${lg.personas.map(personaHtml).join("")}</section>` : ""}`;
+    const rules = stepsBox("topic");
     return { work, rules };
   }
 
@@ -594,7 +655,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       <div class="scope">제목 피드백</div>${fbBox(ep, "title", null, "제목 피드백 — 예: '심리' 대신 시청자가 겪는 장면으로")}</div>`).join("");
     return { work: `<section class="box"><header><h2>제목</h2><span class="small">제목 단계에서 기다리는 편 ${L.length}</span></header>
       <div class="list">${cards || `<div class="empty">제목 단계에서 기다리는 편이 없음 (주제 단계에서 [통과]를 누르면 여기로)</div>`}</div></section>`,
-      rules: `${rulesBox("title")}${wordsBox()}${refsBox("title")}` };
+      rules: stepsBox("title") };
   }
   function viewThumb() {
     const v = VIEWS.find(x => x.key === "thumb");
@@ -606,7 +667,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       <div class="scope">썸네일 피드백 (문구·그림)</div>${fbBox(ep, "thumb", null, "썸네일 피드백 — 예: 말풍선이 얼굴을 가림 · 2줄째를 더 짧게")}</div>`).join("");
     return { work: `<section class="box"><header><h2>썸네일 문구 · 이미지</h2><span class="small">썸네일 단계에서 기다리는 편 ${L.length}</span></header>
       <div class="list">${cards || `<div class="empty">썸네일 단계에서 기다리는 편이 없음 (제목 단계에서 [통과]를 누르면 여기로)</div>`}</div></section>`,
-      rules: `${rulesBox("thumb")}${refsBox("thumb")}` };
+      rules: stepsBox("thumb") };
   }
 
   // ───────── 4 대본 · 음성
@@ -661,7 +722,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         <section class="box"><h2>대본 전체 피드백</h2>${fbBox(ep, "script", null, "대본 전체 피드백 — 예: 2장 끝 질문이 3장과 안 이어짐")}</section>`;
     }
     return { work: `<section class="box"><header><h2>대본 · 음성</h2><span class="small">대본·음성 단계에서 기다리는 편 ${list.length}</span></header>${list.length ? pk : `<div class="empty">대본·음성 단계에서 기다리는 편이 없음 (썸네일 단계에서 [통과]를 누르면 여기로)</div>`}</section>${body}`,
-      rules: `${rulesBox("script")}${rulesBox("voice", "음성 규칙")}` };
+      rules: stepsBox("script") + stepsBox("voice") };
   }
 
   // ───────── 5 영상
@@ -685,7 +746,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       <details ${S.open.has("fbo:" + ep.id + ":video") ? "open" : ""} data-k="fbo:${e(ep.id)}:video"><summary class="small">영상 피드백 ${fbOf(ep.topic, ep.id, "video").length}</summary>${fbBox(ep, "video", null, "영상 피드백 — 예: 2:10 숫자 카드가 자막과 겹침")}</details></div>`; }).join("");
     return { work: `<section class="box"><header><h2>영상</h2><span class="small">영상 단계에서 기다리는 편 ${list.length}</span></header>
       <div class="list">${cards || `<div class="empty">영상 단계에서 기다리는 편이 없음 (음성 단계에서 [통과]를 누르면 여기로)</div>`}</div></section>`,
-      rules: `${rulesBox("video")}${skillsBox()}` };
+      rules: stepsBox("video") };
   }
 
   // ───────── 6 업로드
@@ -736,7 +797,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     const log = eps(S.topic).flatMap(x => (x.history || []).map(h => ({ ...h, ep: x.id }))).sort((a, b) => String(b.uploadedAt).localeCompare(String(a.uploadedAt)));
     return { work: `<section class="box"><header><h2>업로드</h2><span class="small">기다림 ${waiting.length} · 준비 완료 ${ready.length} · 올린 편 ${done.length} (기록·재업로드)</span></header>${list.length ? pk : `<div class="empty">업로드 단계 편이 없음 (영상 단계에서 [통과]를 누르면 여기로)</div>`}</section>${body}
       <section class="box"><h2>올리기</h2>${cmd("PC — 업로드 화면 (더블 클릭)", "유튜브_업로드.bat")}<p class="small">미리보기·썸네일 받기는 <a href="https://claude.ai/artifact/PCe8WUwr4nSVGyHviy1Uar" target="_blank" rel="noopener">업로드 미리보기 판</a>에서도.</p></section>`,
-      rules: `${rulesBox("upload")}<section class="box"><header><h2>${e((S.data[S.topic] || {}).name || "")} 업로드 기록 전체</h2><span class="small">${log.length}건</span></header>${log.length ? `<div class="tablebox"><table><thead><tr><th>올린 때</th><th>편</th><th>영상</th><th>공개 예약</th><th></th></tr></thead><tbody>${log.map(h => `<tr><td class="mono">${e(String(h.uploadedAt || "").slice(0, 10))}</td><td class="mono">${e(h.ep)}</td><td>${/^https:\/\//.test(h.url || "") ? `<a href="${e(h.url)}" target="_blank" rel="noopener">${e(h.videoId)}</a>` : e(h.videoId)}</td><td class="mono">${e(String(h.publishAt || "").slice(0, 16).replace("T", " "))}</td><td>${h.current ? "지금" : "옛"}</td></tr>`).join("")}</tbody></table></div>` : `<p class="empty">없음</p>`}</section>` };
+      rules: stepsBox("upload") };
   }
 
   // ───────── 채널 분석
@@ -744,7 +805,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     const C = (S.common || {}).channels || {};
     const byVid = {}, vis = new Set(visTopics().map(t => t.key));
     for (const t of visTopics()) for (const ep of eps(t.key)) for (const h of ep.history || []) byVid[h.videoId] = ep;
-    const chans = (C.channels || []).filter(ch => !(ch.topics || []).length || ch.topics.some(t => vis.has(t))).map(ch => {
+    const chans = (C.channels || []).filter(ch => !(ch.topics || []).length || ch.topics.some(t => vis.has(MERGE[t] || t))).map(ch => {
       const rec = (ch.recent || []);
       const ours = rec.filter(r => byVid[r.id]).length;
       return `<section class="box"><header><h2>${e(ch.title)}</h2><span class="small">${e((ch.topics || []).map(tname).join(" · "))} · <span class="mono">${e(ch.id)}</span></span></header>
@@ -854,7 +915,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     try {
       const t = nowIso();
       if (a === "pass" || a === "back") {                                  // v1.3 [통과 → 다음 단계] · [← 이전 단계]
-        const ep = eps(D.topic).find(x => x.id === D.ep);
+        const ep = eps(S.topic).find(x => x.topic === D.topic && x.id === D.ep);   // v1.4 합친 폴더(재테크 안 주식) 편도
         const cur = ep ? at(ep) : null;
         if (!ep || (a === "pass" && cur !== D.stage) || (a === "back" && cur !== "done" && prevOf(cur) !== D.stage)) toast("화면이 바뀌었습니다 — 다시 눌러 주세요");
         else {
@@ -893,10 +954,10 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         if (r && await put("trend_rows", D.id, Object.assign(clean(r), { deleted: true, at: t }))) { for (const p of [1, 2]) if (S.col.trend_csv.has(`${D.id}.p${p}`)) await del("trend_csv", `${D.id}.p${p}`); S.confirm = null; toast("줄을 지웠습니다"); }
       }
       else if (a === "gate-reset") { if (await del("gates", `${D.topic}__${D.ep}__${D.stage}`)) toast("저장소 기준으로 되돌렸습니다"); }
-      else if (a === "rule-save") { const txt = val("ed-" + D.id); if (txt && await put("rules", D.id, { stage: D.stage, scope: D.scope, text: txt, deleted: false, at: t })) { S.edit = null; toast("규칙을 고쳤습니다 — Claude 반영 전"); } }
-      else if (a === "rule-del") { const r = rulesOf(D.stage).flatMap(g => g.items).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, text: r.text || "", deleted: true, at: t })) { S.confirm = null; toast("규칙을 뺐습니다"); } }
-      else if (a === "rule-undel") { const r = rulesOf(D.stage).flatMap(g => g.items).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, text: r.text || "", deleted: false, at: t })) toast("되살렸습니다"); }
-      else if (a === "rule-add") { const txt = val("nr-text-" + D.stage), scope = val("nr-scope-" + D.stage) || "common"; if (!txt) toast("규칙을 적어 주세요"); else if (await put("rules", `${D.stage}.${scope}.u${Date.now().toString(36)}`, { stage: D.stage, scope, text: txt, deleted: false, at: t })) { document.getElementById("nr-text-" + D.stage).value = ""; toast("규칙을 더했습니다"); } }
+      else if (a === "rule-save") { const txt = val("ed-" + D.id); if (txt && await put("rules", D.id, { stage: D.stage, scope: D.scope, step: D.step || "", text: txt, deleted: false, at: t })) { S.edit = null; toast("규칙을 고쳤습니다 — Claude 반영 전"); } }
+      else if (a === "rule-del") { const r = ruleItems(D.stage).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, step: r.step || D.step || "", text: r.text || "", deleted: true, at: t })) { S.confirm = null; toast("규칙을 뺐습니다"); } }
+      else if (a === "rule-undel") { const r = ruleItems(D.stage).find(x => x.id === D.id) || {}; if (await put("rules", D.id, { stage: D.stage, scope: D.scope, step: r.step || D.step || "", text: r.text || "", deleted: false, at: t })) toast("되살렸습니다"); }
+      else if (a === "rule-add") { const txt = val("nr-text-" + D.stage), scope = val("nr-scope-" + D.stage) || "common"; if (!txt) toast("규칙을 적어 주세요"); else if (await put("rules", `${D.stage}.${scope}.u${Date.now().toString(36)}`, { stage: D.stage, scope, step: val("nr-step-" + D.stage), text: txt, deleted: false, at: t })) { document.getElementById("nr-text-" + D.stage).value = ""; toast("규칙을 더했습니다"); } }
       else if (a === "fb-add") { const txt = val(D.k); if (!txt) toast("피드백을 적어 주세요"); else { try { await S.db.collection("feedback").add({ topic: D.topic, ep: D.ep, stage: D.stage, line: D.line ? Number(D.line) : null, text: txt, status: "new", reply: "", createdAt: t, at: t }); document.getElementById(D.k).value = ""; toast("피드백을 남겼습니다"); } catch (_) { toast("저장하지 못했습니다"); } } }
       else if (a === "fb-save") { const txt = val("ed-" + D.id); if (txt && await put("feedback", D.id, { text: txt, status: "new", at: t }, true)) { S.edit = null; toast("고쳤습니다"); } }
       else if (a === "fb-del") { if (await del("feedback", D.id)) { S.confirm = null; toast("지웠습니다"); } }
@@ -917,10 +978,10 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       else if (a === "sk-del") { if (await del("skills", D.id)) { S.confirm = null; toast("지웠습니다"); } }
       else if (a === "reup-on" || a === "reup-off") {                       // v1.2 재업로드 단추
         const ep = eps(S.topic).find(x => x.id === D.ep), d = upDoc(ep);
-        if (await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { reupload: a === "reup-on", reupload_at: a === "reup-on" ? t : (d.reupload_at || ""), at: t })))
+        if (await put("uploads", `${ep.topic}__${D.ep}`, Object.assign(clean(d), { reupload: a === "reup-on", reupload_at: a === "reup-on" ? t : (d.reupload_at || ""), at: t })))
           toast(a === "reup-on" ? "재업로드를 요청했습니다 — Claude 동기화 뒤 PC '올릴 대본'에" : "재업로드 요청을 취소했습니다");
       }
-      else if (a === "redo-clear") { const ep = eps(S.topic).find(x => x.id === D.ep); const d = ttsDoc(ep) || {}; if (await put("tts", `${S.topic}__${D.ep}`, Object.assign(clean(d), { topic: S.topic, ep: D.ep, redo: [], at: t }))) toast("재생성 체크를 풀었습니다"); }
+      else if (a === "redo-clear") { const ep = eps(S.topic).find(x => x.id === D.ep); const d = ttsDoc(ep) || {}; if (await put("tts", `${ep.topic}__${D.ep}`, Object.assign(clean(d), { topic: ep.topic, ep: D.ep, redo: [], at: t }))) toast("재생성 체크를 풀었습니다"); }
     } finally { S.busy = false; render(); }
   });
 
@@ -949,20 +1010,20 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     if (D.act === "tts-make" || D.act === "tts-full") {
       const d = ttsDoc(ep) || {};
       const patch = D.act === "tts-make" ? { make: x.checked } : { full: x.checked, make: x.checked ? true : !!d.make };
-      if (await put("tts", `${S.topic}__${D.ep}`, Object.assign({ topic: S.topic, ep: D.ep, make: false, full: false, redo: [] }, clean(d), patch, { at: t }))) toast(x.checked ? "음성 생성에 체크했습니다" : "체크를 풀었습니다");
+      if (await put("tts", `${ep.topic}__${D.ep}`, Object.assign({ topic: ep.topic, ep: D.ep, make: false, full: false, redo: [] }, clean(d), patch, { at: t }))) toast(x.checked ? "음성 생성에 체크했습니다" : "체크를 풀었습니다");
       render(); return;
     }
     if (D.act === "redo") {                       // 줄 체크는 잠깐 모아서 한 번에 씀 (같은 문서에 연달아 쓰지 않게)
-      const key = `${S.topic}__${D.ep}`;
+      const key = `${ep.topic}__${D.ep}`;
       const d = ttsDoc(ep) || {};
       const cur = new Set(((redoTimers[key] && redoTimers[key].set) || d.redo || []).map(Number));
       x.checked ? cur.add(Number(D.n)) : cur.delete(Number(D.n));
       clearTimeout((redoTimers[key] || {}).tm);
-      redoTimers[key] = { set: [...cur], tm: setTimeout(async () => { const s = redoTimers[key].set; delete redoTimers[key]; if (await put("tts", key, Object.assign({ topic: S.topic, ep: D.ep, make: false, full: false }, clean(ttsDoc(ep) || {}), { redo: s.sort((a, b) => a - b), at: nowIso() }))) toast(`재생성 ${s.length}줄`); render(); }, 700) };
+      redoTimers[key] = { set: [...cur], tm: setTimeout(async () => { const s = redoTimers[key].set; delete redoTimers[key]; if (await put("tts", key, Object.assign({ topic: ep.topic, ep: D.ep, make: false, full: false }, clean(ttsDoc(ep) || {}), { redo: s.sort((a, b) => a - b), at: nowIso() }))) toast(`재생성 ${s.length}줄`); render(); }, 700) };
       x.closest(".ln") && x.closest(".ln").classList.toggle("redo", x.checked);
       return;
     }
-    if (D.act === "up-check") { const d = upDoc(ep); const checks = Object.assign({}, d.checks || {}, { [D.c]: x.checked }); await put("uploads", `${S.topic}__${D.ep}`, Object.assign(clean(d), { checks, at: t })); render(); return; }
+    if (D.act === "up-check") { const d = upDoc(ep); const checks = Object.assign({}, d.checks || {}, { [D.c]: x.checked }); await put("uploads", `${ep.topic}__${D.ep}`, Object.assign(clean(d), { checks, at: t })); render(); return; }
 
   });
   document.addEventListener("input", ev => { if (ev.target.id === "refq") { S.refq = ev.target.value; clearTimeout(rq); rq = setTimeout(render, 250); } });

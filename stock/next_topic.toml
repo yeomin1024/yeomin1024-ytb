@@ -1,0 +1,65 @@
+# 다음 재테크(미국주식 위주) 영상 주제 탐색 설정 — tools/next_topic.py v1.3 이 읽음 (economic/next_topic.toml 과 같은 꼴)
+# VERSION: v1.0 — 2026-11-28 — 새로 (사용자 지시 2026-11-28 "일단 재테크 쪽은 미국주식 위주로 영상 만들거니까 단어 다시 설정하고 단계별 분석 다시해서 주제 탐색 결과 내봐").
+#   자료 = 주식 분석 캐시 stock/cloud_cache (검색어 40개 — 미국주식·ETF·나스닥·S&P500·배당 포함 · 외국·주제 밖은 compare.csv 에서 이미 뺌)
+#   [filter] FOCUS = 제목에 미국주식 낱말이 있는 영상만 (국내주식·코스피만 다룬 영상은 뺌). 판에서 주식은 재테크 안 (studio/studio.toml MERGE) —
+#   결과 stock/result/next_topic/ 는 판 '재테크 › 주제 탐색' 단계 결과 칸에 나옴. 재테크 컨셉(불편한 제도를 꼬집는 정보 — economic/guides/channel.md)은 판단 문서에서.
+#   주제 묶음 = 제목 낱말 규칙 (형태소 분석 아님 — 한 영상이 여러 묶음에 들 수 있음). 낱말 = 주식 영상 실제 태그(stock/tag_candidates.csv).
+
+name = "재테크 (미국주식)"
+anchor_desc = "미국주식 재테크 채널"
+
+[big]
+MIN_SUBS = 100000            # 3번 '구독자 많은 채널' = 10만 이상 (다른 주제와 같음)
+MIN_TOPIC_VIDEOS = 3         # FOCUS 를 지난 영상 3개 이상
+SHARE = 0.15                 # 최근 1년 롱폼 중 STRICT 낱말 제목 15%+ = '미국주식 큰 채널'
+DAYS = 365
+
+[filter]
+NOISE_TITLE = "음악|music|playlist|플레이리스트|노래|bgm|asmr|브이로그|vlog|게임|웹드라마|자장가|백색소음|kpop|리액션"
+NOISE_CHANNEL = "게임|game|music|뮤직|노래|영화|무비|movie"
+BROADCAST = "tvn|jtbc|mbc|sbs|kbs|ebs|채널a|mbn|tv조선|drama|개그|예능"
+# v1.3 미국주식만 — 제목에 이 낱말 (미국 지수·ETF·빅테크·티커·미국 계좌·세금)
+FOCUS = "미국 ?주식|미장|미국 ?증시|미국 ?etf|해외 ?주식|미국 ?배당|나스닥|s&p ?500|s&p|다우|빅테크|매그니피센트|엔비디아|테슬라|애플|마이크로소프트|구글|알파벳|아마존|메타|팔란티어|브로드컴|tsmc|schd|qqq|qqqm|voo|spy|ivv|jepi|jepq|tqqq|soxl|soxx|smh|tlt|커버드콜|월배당|서학개미|미국 ?직투|해외 ?직투|양도소득세|양도세"
+STRICT = "미국 ?주식|미장|미국 ?증시|나스닥|s&p ?500|s&p|etf|배당|schd|qqq|voo|jepi|jepq|tqqq|soxl|엔비디아|테슬라|빅테크|해외 ?주식|서학개미"
+EXTRA_RELATED = "미국주식|나스닥|s&p500|etf|배당"
+
+# 주제 묶음 — 이름 · 낱말 규칙 (제목, 소문자). 순서 = 표 순서.
+[[topics]]
+name = "지수 ETF (S&P500·나스닥100)"
+rx = "s&p ?500|s&p|나스닥 ?100|voo|spy|ivv|qqq|qqqm|지수 ?etf|인덱스"
+[[topics]]
+name = "배당·월배당·커버드콜"
+rx = "배당|schd|jepi|jepq|커버드콜|월배당|고배당|배당킹|배당귀족"
+[[topics]]
+name = "빅테크·개별 종목"
+rx = "엔비디아|테슬라|애플|마이크로소프트|구글|알파벳|아마존|메타|팔란티어|브로드컴|빅테크|매그니피센트|tsmc|코카콜라|넷플릭스"
+[[topics]]
+name = "반도체·AI"
+rx = "반도체|soxx|smh|soxl|ai ?주|인공지능|엔비디아|tsmc|브로드컴"
+[[topics]]
+name = "레버리지·단타"
+rx = "레버리지|tqqq|soxl|3배|2배|단타|스윙|인버스|sqqq"
+[[topics]]
+name = "장기투자·적립식"
+rx = "장기 ?투자|적립식|매달|매월|10년|20년|30년|복리|존버|dca|평생"
+[[topics]]
+name = "폭락·전망·시황"
+rx = "폭락|급락|하락장|조정|전망|시황|버블|위기|경고|대폭락|베어마켓"
+[[topics]]
+name = "계좌·세금·제도 (ISA·연금저축·양도세)"
+rx = "isa|연금 ?저축|irp|퇴직 ?연금|양도 ?소득세|양도세|배당 ?소득세|세금|절세|건강보험료|건보료|금융 ?소득|환전|수수료|증권사|계좌"
+[[topics]]
+name = "환율·달러"
+rx = "환율|달러|원 ?달러|환차"
+[[topics]]
+name = "초보·시작"
+rx = "초보|주린이|처음|시작|입문|기초|사는 ?법|하는 ?법|방법"
+
+[trends]
+ANCHOR = "S&P500"            # 판 '구글 트렌드' 줄 첫 단어와 같음 (태그 쓴 채널 18곳 — 중간 크기)
+WORDS = ["S&P500", "미국주식", "ETF", "나스닥", "엔비디아", "반도체", "환율", "배당주",
+         "SCHD", "커버드콜", "월배당", "배당ETF", "월배당ETF", "JEPI", "JEPQ",
+         "QQQ", "나스닥100", "VOO", "미국ETF", "테슬라", "레버리지", "애플",
+         "ISA", "연금저축", "연금저축펀드", "ISA계좌", "해외주식", "배당소득세", "미국직투"]
+
+# 겹침 후보 — report 를 읽고 고른 뒤 채움 (key · name · queries · core)

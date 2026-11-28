@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-27 — 주제 접두사 키 (<주제>_YOUTUBE_API_KEY · tools/topic_keys.apply — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해").
+# VERSION: v1.3 — 2026-11-28 — [filter] FOCUS (선택): 제목에 이 낱말이 있는 영상만 주제 관련으로 씀 — 한 폴더 자료에서 하위 주제만 탐색
+#          (주식 자료에서 미국주식만 — 사용자 지시 2026-11-28 "일단 재테크 쪽은 미국주식 위주로 영상 만들거니까 단어 다시 설정하고 단계별 분석 다시해서
+#          주제 탐색 결과 내봐"). 큰 채널(big) 후보 셈의 쇼츠에도 같은 거르기. 함수 Cfg · related · cmd_big.
+# (v1.2) — 2026-11-27 — 주제 접두사 키 (<주제>_YOUTUBE_API_KEY · tools/topic_keys.apply — 사용자 지시 2026-11-27 "주제별 접두사를 변수명에 붙여서 구분되도록해").
 # (v1.1) — 2026-11-27 — 꺼 둔 주제(studio/state/topics.json)는 시작하지 않음 — 사용자 지시 2026-11-27 "비활성화하면 … 에이전트가 보지도 않도록". 함수 main.
 # (v1.0) — 2026-11-25 — 새로: 주제마다 쓰는 '다음 영상 주제 탐색' (psychology/source/next_topic.py v1.1 의 네 단계를 그대로 —
 #          주제 묶음·주제 채널 낱말·거르기·겹침 후보·트렌드 낱말은 <주제>/next_topic.toml 로 뺌) + suggest(유튜브 자동완성 실시간)
@@ -9,6 +12,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.3 | 2026-11-28 | [filter] FOCUS — 제목 낱말로 하위 주제만 | Cfg · related · cmd_big |
 # | v1.0 | 2026-11-25 | 최초 — 심리 v1.1 계산 그대로 (recent·big·report·overlap·trends) · 설정 파일 · 캐시 두 조각(.001·.002) 읽기 · suggest · trends_batches.json (PC 트렌드 받기 tools/pc_trends.py 용) | 모두 |
 """다음 영상 주제 탐색 — 숫자와 원문만 만든다 (주제 판단은 이 결과를 읽는 Claude 가 `<주제>/result/next_topic/next_topic.md` 에).
 
@@ -58,7 +62,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 API = "https://www.googleapis.com/youtube/v3/"
 SUGGEST = "https://suggestqueries.google.com/complete/search"
-VERSION = "v1.2"
+VERSION = "v1.3"
 RECENT_DAYS = 7          # 심리 사용자 지시 2026-11-25 "2번에서 최근 7일 동안으로 변경"
 MAX_COMMENT_PAGES = 5    # 최신 댓글 100개씩 최대 5쪽
 LONG_SEC = 240           # 4분 이상 = 롱폼
@@ -90,6 +94,7 @@ class Cfg:
         self.noise_channel = re.compile(f.get("NOISE_CHANNEL") or r"$^", re.I)
         self.broadcast = re.compile(f.get("BROADCAST") or r"$^", re.I)
         self.strict = re.compile(f.get("STRICT") or r"$^", re.I)
+        self.focus = re.compile(f["FOCUS"], re.I) if f.get("FOCUS") else None        # v1.3 하위 주제만 (제목)
         b = d.get("big", {})
         self.big_min_subs = int(b.get("MIN_SUBS", 100_000))
         self.big_min_topic_videos = int(b.get("MIN_TOPIC_VIDEOS", 3))
@@ -177,8 +182,12 @@ def related(c: Cfg, vids: dict) -> list[dict]:
     """주제 관련 롱폼 — compare.csv 에서 뺀 것(주제 밖·외국·라이브)이 아니고 4분 이상 · 음악·게임·뉴스 등(NOISE_*)이 아님."""
     base = [v for v in vids.values() if v["exclude"] == "" and (v.get("duration") or 0) >= LONG_SEC and not v.get("live")]
     keep = [v for v in base if not c.noise_title.search(v["title"]) and not c.noise_channel.search(v.get("channel") or "")]
+    n_noise = len(base) - len(keep)
+    if c.focus:                                                    # v1.3 하위 주제만
+        keep = [v for v in keep if c.focus.search(v["title"] or "")]
     if not getattr(related, "_logged", False):
-        stamp("FILTER", related_long=len(base), kept=len(keep), noise=len(base) - len(keep), rule="NOISE_TITLE·NOISE_CHANNEL")
+        stamp("FILTER", related_long=len(base), kept=len(keep), noise=n_noise, focus_out=len(base) - n_noise - len(keep) if c.focus else 0,
+              rule="NOISE_TITLE·NOISE_CHANNEL" + (" · FOCUS(제목)" if c.focus else ""))
         related._logged = True
     return keep
 
@@ -292,7 +301,8 @@ def cmd_recent(c: Cfg, a) -> int:
 def cmd_big(c: Cfg, a) -> int:
     vids, chans, _ = load_cache(c)
     cnt = defaultdict(int)
-    for v in related(c, vids) + [v for v in vids.values() if v["exclude"] == "" and (v.get("duration") or 0) < LONG_SEC]:
+    for v in related(c, vids) + [v for v in vids.values() if v["exclude"] == "" and (v.get("duration") or 0) < LONG_SEC
+                                 and (not c.focus or c.focus.search(v["title"] or ""))]:          # v1.3 쇼츠도 FOCUS
         cnt[v["channel_id"]] += 1
     cands = sorted([ch for ch, n in cnt.items() if n >= c.big_min_topic_videos and ((chans.get(ch) or {}).get("subs") or 0) >= c.big_min_subs],
                    key=lambda ch: -chans[ch]["subs"])

@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-28 — 판에서 숨긴 편 studio.toml [topic.<폴더>] HIDE (예전 편 — 판·gates.json 에서 뺌, 저장소 폴더·올린 기록은 그대로) —
+# VERSION: v1.6 — 2026-11-28 — 주제 탐색 단계별 결과: next_topic_data.md 를 절(## 2·3·4·5·6)마다 잘라 ②·③·④·① 단계 결과 칸에 (전에는 ④에 통째로) —
+#          사용자 지시 2026-11-28 "단계별 분석 다시해서 주제 탐색 결과 내봐". 함수 split_sections · step_docs.
+# (v1.5) — 2026-11-28 — 판에서 숨긴 편 studio.toml [topic.<폴더>] HIDE (예전 편 — 판·gates.json 에서 뺌, 저장소 폴더·올린 기록은 그대로) —
 #          사용자 지시 2026-11-28 "재테크 쪽에 예전 영상들 있는데 다 삭제해" (고름: 판에서만 빼기). 함수 episodes · topic_data · effective_gates · selftest.
 # (v1.4) — 2026-11-28 — 주제 합치기 studio.toml MERGE (주식 → 재테크: 판 주제 하나에 두 폴더의 편·탐색 문서·성공 사례 — 편은 제 폴더 이름 그대로라
 #          gates·음성·업로드 도구는 그대로 읽음 · 판 주제를 끄면 합친 폴더도 꺼짐) · 규칙 단계별 결과 = 주제마다 step_docs (주제 탐색 ①~⑤ 단계의 결과 문서 —
@@ -22,6 +24,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.6 | 2026-11-28 | next_topic_data.md 절마다 단계 결과로 | split_sections · step_docs |
 # | v1.5 | 2026-11-28 | 판에서 숨긴 편 HIDE | episodes · topic_data · effective_gates · selftest |
 # | v1.4 | 2026-11-28 | 주제 합치기 MERGE · 단계별 결과 문서 step_docs · trend 주제 | board_topics · folders_of · off_folders · step_docs · topic_data · build · effective_gates · sync · selftest |
 # | v1.3 | 2026-11-28 | 판 구글 트렌드 줄·CSV → trends.json groups · board_csv/ | trend_groups · sync_trend_csv · sync · trends_results · selftest |
@@ -70,7 +73,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.5"
+VERSION = "v1.6"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -131,9 +134,39 @@ STEP_DOCS = {                                                   # v1.4 주제 �
     "t1": ["result/next_topic/suggest.md", "result/next_topic/keywords.md", "result/next_topic/trends.md", "result/next_topic/trends/*.md"],
     "t2": ["result/next_topic/recent*.md"],
     "t3": ["result/next_topic/big*.md"],
-    "t4": ["result/next_topic/overlap*.md", "result/next_topic/report*.md", "result/next_topic/next_topic_data.md"],
+    "t4": ["result/next_topic/overlap*.md", "result/next_topic/report*.md"],
     "t5": ["result/next_topic/next_topic.md"],
 }
+
+
+SECTION_STEP = {"1": "t1", "2": "t2", "3": "t3", "4": "t4", "5": "t4", "6": "t1"}   # next_topic.py report 절 번호 → 단계
+
+
+def split_sections(path: str) -> dict:
+    """v1.6 next_topic_data.md → {단계: [doc]} — '## N.' 절마다 (머리말 한계 줄은 절마다 앞에)."""
+    p = ROOT / path
+    if not p.is_file():
+        return {}
+    raw = p.read_text("utf-8", errors="replace")
+    head, parts, cur = [], [], None
+    for ln in raw.splitlines():
+        m = re.match(r"^##\s+(\d+)\.", ln)
+        if m:
+            cur = [m.group(1), [ln]]
+            parts.append(cur)
+        elif cur:
+            cur[1].append(ln)
+        elif ln.startswith(">"):
+            head.append(ln)
+    mtime = git("log", "-1", "--format=%cs", "--", path) or dt.date.fromtimestamp(p.stat().st_mtime).isoformat()
+    out = {}
+    for n, lines in parts:
+        k = SECTION_STEP.get(n)
+        if not k:
+            continue
+        md = "\n".join(head[-1:] + [""] + lines)
+        out.setdefault(k, []).append({"path": path, "title": lines[0].lstrip("# ").strip()[:120], "date": mtime, "html": md_to_html(md), "cut": False})
+    return out
 
 
 def step_docs(folders: list[str], explore: list[dict]) -> dict:
@@ -148,6 +181,9 @@ def step_docs(folders: list[str], explore: list[dict]) -> dict:
                         if x and all(y["path"] != x["path"] for y in L):
                             L.append(x)
         out[k] = L
+    for f in folders:                                          # v1.6 자료 파일은 절마다 그 단계에
+        for k, L in split_sections(f"{f}/result/next_topic/next_topic_data.md").items():
+            out[k] = out.get(k, []) + L
     out["t5"] = out["t5"] + [x for x in explore if all(y["path"] != x["path"] for y in out["t5"])]   # 판단 = next_topic.md + studio.toml EXPLORE
     return out
 

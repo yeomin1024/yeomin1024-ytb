@@ -1,6 +1,6 @@
 {
- "tool": "soxl_check.py v1.4",
- "made": "2026-11-28T22:26:01+09:00",
+ "tool": "soxl_check.py v1.5",
+ "made": "2026-11-28T22:37:20+09:00",
  "source": "Yahoo Finance chart API 일별 종가 10년",
  "rules": {
   "episode_dd": -0.7,
@@ -101,6 +101,9 @@
   "signals_current_episode": 4,
   "split_worst_better_than_one": 7,
   "split_end_better_than_one": 5,
+  "split_worst_better_than_date": 1,
+  "split_end_better_than_date": 3,
+  "date_worst_better_than_one": 7,
   "past_one_year_positive": 4,
   "past_min_after_range": [
    -35.9,
@@ -113,6 +116,15 @@
    -58.6,
    -58.3
   ],
+  "y2020": {
+   "days_dd80": 2,
+   "dates": [
+    "2020-03-18",
+    "2020-03-20"
+   ],
+   "next_up14": 0
+  },
+  "sox_need_x": 1.6,
   "example_down_up_10": {
    "x1": -1.0,
    "x3": -9.0
@@ -184,18 +196,37 @@
      "worst": -26.7
     },
     "split": {
-     "end": 56.8,
-     "worst": -12.0,
+     "end": 53.7,
+     "worst": -13.4,
      "buys": [
       "2022-11-10",
-      "2022-12-22"
+      "2022-12-20"
      ],
-     "invested": 67
+     "fills": [
+      12.08,
+      10.25
+     ],
+     "invested": 67,
+     "avg_cost_vs_first": 91.8
+    },
+    "date_split": {
+     "end": 58.7,
+     "worst": -19.5,
+     "buys": [
+      "2022-11-10",
+      "2022-12-12",
+      "2023-01-12"
+     ],
+     "invested": 100
     },
     "trend": {
      "end": 46.9,
      "worst": -35.0,
      "buy": "2022-12-13"
+    },
+    "x1": {
+     "end": 33.1,
+     "worst": -8.2
     }
    },
    "ret_1y": 65.7,
@@ -233,12 +264,28 @@
      "worst": -35.9
     },
     "split": {
-     "end": 104.2,
-     "worst": -21.6,
+     "end": 100.6,
+     "worst": -23.0,
      "buys": [
       "2022-11-30",
       "2022-12-06",
-      "2022-12-27"
+      "2022-12-22"
+     ],
+     "fills": [
+      13.82,
+      11.747,
+      9.674
+     ],
+     "invested": 100,
+     "avg_cost_vs_first": 83.2
+    },
+    "date_split": {
+     "end": 80.9,
+     "worst": -12.0,
+     "buys": [
+      "2022-11-30",
+      "2022-12-30",
+      "2023-02-01"
      ],
      "invested": 100
     },
@@ -246,6 +293,10 @@
      "end": 69.3,
      "worst": -35.0,
      "buy": "2022-12-13"
+    },
+    "x1": {
+     "end": 32.2,
+     "worst": -13.2
     }
    },
    "ret_1y": 66.9,
@@ -284,12 +335,28 @@
      "worst": -31.8
     },
     "split": {
-     "end": 697.4,
-     "worst": -13.8,
+     "end": 658.1,
+     "worst": -18.0,
      "buys": [
       "2025-04-09",
       "2025-04-10",
-      "2025-04-21"
+      "2025-04-10"
+     ],
+     "fills": [
+      12.77,
+      10.8545,
+      8.939
+     ],
+     "invested": 100,
+     "avg_cost_vs_first": 83.2
+    },
+    "date_split": {
+     "end": 423.3,
+     "worst": -10.6,
+     "buys": [
+      "2025-04-09",
+      "2025-05-09",
+      "2025-06-10"
      ],
      "invested": 100
     },
@@ -297,6 +364,10 @@
      "end": 333.1,
      "worst": -15.4,
      "buy": "2025-05-13"
+    },
+    "x1": {
+     "end": 113.7,
+     "worst": -11.3
     }
    },
    "ret_1y": 530.9,
@@ -340,12 +411,30 @@
      "buys": [
       "2025-04-24"
      ],
-     "invested": 33
+     "fills": [
+      12.0
+     ],
+     "invested": 33,
+     "avg_cost_vs_first": 100.0
+    },
+    "date_split": {
+     "end": 671.6,
+     "worst": -0.4,
+     "buys": [
+      "2025-04-24",
+      "2025-05-23",
+      "2025-06-25"
+     ],
+     "invested": 100
     },
     "trend": {
      "end": 563.4,
      "worst": -15.4,
      "buy": "2025-05-13"
+    },
+    "x1": {
+     "end": 147.3,
+     "worst": -0.3
     }
    },
    "ret_1y": 928.3,
@@ -382,19 +471,37 @@
      "worst": -45.1
     },
     "split": {
-     "end": -11.9,
-     "worst": -25.6,
+     "end": -21.8,
+     "worst": -34.0,
      "buys": [
       "2026-11-09",
-      "2026-11-19",
+      "2026-11-17",
       "2026-11-20"
      ],
-     "invested": 100
+     "fills": [
+      56.2,
+      47.77,
+      39.34
+     ],
+     "invested": 100,
+     "avg_cost_vs_first": 83.2
+    },
+    "date_split": {
+     "end": -11.6,
+     "worst": -15.0,
+     "buys": [
+      "2026-11-09"
+     ],
+     "invested": 33
     },
     "trend": {
      "end": 0.0,
      "worst": 0.0,
      "buy": null
+    },
+    "x1": {
+     "end": -8.4,
+     "worst": -16.2
     }
    },
    "trend_days": null
@@ -417,19 +524,37 @@
      "worst": -53.2
     },
     "split": {
-     "end": -29.6,
-     "worst": -40.6,
+     "end": -33.4,
+     "worst": -43.8,
      "buys": [
       "2026-11-11",
-      "2026-11-16",
-      "2026-11-19"
+      "2026-11-13",
+      "2026-11-17"
      ],
-     "invested": 100
+     "fills": [
+      66.03,
+      56.1255,
+      46.221
+     ],
+     "invested": 100,
+     "avg_cost_vs_first": 83.2
+    },
+    "date_split": {
+     "end": -14.9,
+     "worst": -17.7,
+     "buys": [
+      "2026-11-11"
+     ],
+     "invested": 33
     },
     "trend": {
      "end": 0.0,
      "worst": 0.0,
      "buy": null
+    },
+    "x1": {
+     "end": -13.0,
+     "worst": -20.4
     }
    },
    "trend_days": null
@@ -452,18 +577,37 @@
      "worst": -25.9
     },
     "split": {
-     "end": -1.1,
-     "worst": -9.2,
+     "end": 1.7,
+     "worst": -11.0,
      "buys": [
       "2026-11-23",
+      "2026-11-24",
       "2026-11-24"
      ],
-     "invested": 67
+     "fills": [
+      43.21,
+      36.7285,
+      30.247
+     ],
+     "invested": 100,
+     "avg_cost_vs_first": 83.2
+    },
+    "date_split": {
+     "end": -5.1,
+     "worst": -8.6,
+     "buys": [
+      "2026-11-23"
+     ],
+     "invested": 33
     },
     "trend": {
      "end": 0.0,
      "worst": 0.0,
      "buy": null
+    },
+    "x1": {
+     "end": -4.2,
+     "worst": -8.5
     }
    },
    "trend_days": null
@@ -498,18 +642,37 @@
       "worst": -26.7
      },
      "split": {
-      "end": 56.8,
-      "worst": -12.0,
+      "end": 53.7,
+      "worst": -13.4,
       "buys": [
        "2022-11-10",
-       "2022-12-22"
+       "2022-12-20"
       ],
-      "invested": 67
+      "fills": [
+       12.08,
+       10.25
+      ],
+      "invested": 67,
+      "avg_cost_vs_first": 91.8
+     },
+     "date_split": {
+      "end": 58.7,
+      "worst": -19.5,
+      "buys": [
+       "2022-11-10",
+       "2022-12-12",
+       "2023-01-12"
+      ],
+      "invested": 100
      },
      "trend": {
       "end": 46.9,
       "worst": -35.0,
       "buy": "2022-12-13"
+     },
+     "x1": {
+      "end": 33.1,
+      "worst": -8.2
      }
     },
     "ret_1y": 65.7,
@@ -552,12 +715,28 @@
       "worst": -31.8
      },
      "split": {
-      "end": 697.4,
-      "worst": -13.8,
+      "end": 658.1,
+      "worst": -18.0,
       "buys": [
        "2025-04-09",
        "2025-04-10",
-       "2025-04-21"
+       "2025-04-10"
+      ],
+      "fills": [
+       12.77,
+       10.8545,
+       8.939
+      ],
+      "invested": 100,
+      "avg_cost_vs_first": 83.2
+     },
+     "date_split": {
+      "end": 423.3,
+      "worst": -10.6,
+      "buys": [
+       "2025-04-09",
+       "2025-05-09",
+       "2025-06-10"
       ],
       "invested": 100
      },
@@ -565,6 +744,10 @@
       "end": 333.1,
       "worst": -15.4,
       "buy": "2025-05-13"
+     },
+     "x1": {
+      "end": 113.7,
+      "worst": -11.3
      }
     },
     "ret_1y": 530.9,
@@ -608,19 +791,37 @@
       "worst": -45.1
      },
      "split": {
-      "end": -11.9,
-      "worst": -25.6,
+      "end": -21.8,
+      "worst": -34.0,
       "buys": [
        "2026-11-09",
-       "2026-11-19",
+       "2026-11-17",
        "2026-11-20"
       ],
-      "invested": 100
+      "fills": [
+       56.2,
+       47.77,
+       39.34
+      ],
+      "invested": 100,
+      "avg_cost_vs_first": 83.2
+     },
+     "date_split": {
+      "end": -11.6,
+      "worst": -15.0,
+      "buys": [
+       "2026-11-09"
+      ],
+      "invested": 33
      },
      "trend": {
       "end": 0.0,
       "worst": 0.0,
       "buy": null
+     },
+     "x1": {
+      "end": -8.4,
+      "worst": -16.2
      }
     },
     "trend_days": null

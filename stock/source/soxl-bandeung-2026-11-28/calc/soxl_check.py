@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.4 — 2026-11-28 — 대본용 예시: 하루 −10% 뒤 +10% (1배·3배) · 엔비디아 11-23 하루 · 큰 반등 날부터 지수 200일선 회복까지 거래일.
+# VERSION: v1.5 — 2026-11-28 — 나눠 사기 = 지정가 주문(시가·저가로 체결 — v1.4 는 종가가 넘어선 날 그 종가에 사서 갭 하락 때 유리하게 나왔음, 반론 검토 K5 지적) · 날짜 기준 나눠 사기 · 반도체 지수 1배 · 2020 빠진 까닭 · 지수 필요 배수.
+# 이전 v1.4 — 2026-11-28 — 대본용 예시: 하루 −10% 뒤 +10% (1배·3배) · 엔비디아 11-23 하루 · 큰 반등 날부터 지수 200일선 회복까지 거래일.
 # 이전 v1.3 — 2026-11-28 — summary: 결과가 있는 큰 반등 날마다 방법 견줌 수(가장 나빴던 때 · 끝 결과) · 이번 구간 큰 반등 뒤 새 저점 수.
 # 이전 v1.2 — 2026-11-28 — 구간 끝 = 새 1년 최고가 (v1.1 은 옛 고점 값을 되찾을 때까지라 2025-04 폭락이 또 합쳐짐) · 이번 구간 큰 반등 날의 '지금까지' 결과 · 방법마다 1년 동안 가장 나빴던 때.
 # 이전 v1.1 — 2026-11-28 — 고점 = 지난 1년(252거래일) 최고 종가 (v1.0 은 10년 누적 최고라 2025-04 폭락이 2022 구간에 합쳐졌음 — 시청자가 말하는 '고점 대비'는 최근 고점).
@@ -15,6 +16,9 @@
 #                    그날 앞 구간 최저가보다 더 내려갔나(new_low) · 지금까지 수익률 · 방법마다 1년 동안 예산 대비 가장 나빴던 값(worst).
 #   v1.3 2026-11-28  summary — 대본 문장 '일곱 번 모두 …'·'세 번 중 두 번' 같은 셈을 손으로 세지 않게.
 #   v1.4 2026-11-28  example(−10% 뒤 +10%: 1배 −1.0% · 3배 −9.0%) · nvda_1123 · signal 마다 trend_days(그날부터 지수 200일선 회복까지 거래일).
+#   v1.5 2026-11-28  (페르소나 반론 1회차) SOXL 시가·고가·저가 받음(calc/data/SOXL_ohlc.csv) → 나눠 사기 = 첫날 종가 3분의 1 + 첫 매수가 −15%·−30% 에
+#                    미리 건 지정가 주문(그날 시가가 그 값 아래면 시가에, 아니면 저가가 닿은 날 그 값에) · date_split(그날·21·42거래일 뒤 종가) ·
+#                    x1(같은 날 반도체 지수 1배) · y2020(80% 넘게 하락한 날 수·다음 날 +14% 넘은 날 수) · sox_need_x.
 # 쓰는 법: python3 calc/soxl_check.py [--refresh] [--log-level DEBUG]  → calc/soxl_check_<마지막 거래일>.json
 # 자료 = Yahoo Finance 차트 API 일별 종가(수정 종가 아님 — 분할 반영 종가) · 10년 · calc/data/*.csv 에 저장해 다시 받지 않음(--refresh 면 다시).
 # ※ 연구·교육용 — 투자 권유가 아님. 과거 결과는 앞으로를 보장하지 않음. 수수료·세금·환율은 넣지 않음.
@@ -32,7 +36,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.4"
+VERSION = "v1.5"
 KST = dt.timezone(dt.timedelta(hours=9))
 SYMS = ["SOXL", "^SOX", "NVDA", "^IXIC", "^GSPC", "^VIX"]
 DD_EPISODE = -0.70      # 하락 구간 = 고점 대비 이보다 깊게
@@ -62,6 +66,39 @@ def load(sym: str, refresh: bool) -> list[dict]:
     with p.open("w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["date", "close"]); w.writeheader(); w.writerows(rows)
     log("LOAD", sym=sym, source="Yahoo 10y daily", rows=len(rows), first=rows[0]["date"], last=rows[-1]["date"])
+    return rows
+
+
+def load_ohlc(sym: str, refresh: bool) -> list[dict]:
+    """시가·고가·저가·종가 (같은 Yahoo 차트 API) — 지정가 주문 체결을 보려고."""
+    p = HERE / "data" / (sym.replace("^", "IDX_") + "_ohlc.csv")
+    if p.is_file() and not refresh:
+        rows = [{k: (r[k] if k == "date" else float(r[k])) for k in ("date", "open", "high", "low", "close")} for r in csv.DictReader(p.open(encoding="utf-8"))]
+        log("LOAD", sym=sym, kind="ohlc", source="cache", rows=len(rows))
+        return rows
+    import urllib.parse, urllib.request
+    import market_data as md
+    url = md.API.format(sym=urllib.parse.quote(sym, safe=""), rng="10y")
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": md.UA}), timeout=30) as r:
+            j = json.loads(r.read().decode("utf-8"))
+    except Exception as e:
+        raise SystemExit(f"[LOAD] {sym} 시가·저가 받기 실패 ({type(e).__name__}: {e}) — 캐시가 있으면 --refresh 없이")
+    res = j["chart"]["result"][0]
+    off = int(res["meta"].get("gmtoffset") or 0)
+    q = res["indicators"]["quote"][0]
+    rows, seen = [], set()
+    for t, o, h, l, c in zip(res["timestamp"], q["open"], q["high"], q["low"], q["close"]):
+        if None in (o, h, l, c):
+            continue
+        d = dt.datetime.fromtimestamp(t + off, dt.timezone.utc).date().isoformat()
+        if d in seen:
+            rows = [x for x in rows if x["date"] != d]
+        seen.add(d)
+        rows.append({"date": d, "open": round(o, 4), "high": round(h, 4), "low": round(l, 4), "close": round(c, 4)})
+    with p.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=["date", "open", "high", "low", "close"]); w.writeheader(); w.writerows(rows)
+    log("LOAD", sym=sym, kind="ohlc", source="Yahoo 10y daily", rows=len(rows), first=rows[0]["date"], last=rows[-1]["date"])
     return rows
 
 
@@ -113,6 +150,14 @@ def main(argv=None):
     soxl = D["SOXL"]
     dates = [r["date"] for r in soxl]
     C = [r["close"] for r in soxl]
+    ohlc = {r["date"]: r for r in load_ohlc("SOXL", a.refresh)}
+    miss = [d for d in dates if d not in ohlc]
+    diff = [d for d in dates if d in ohlc and abs(ohlc[d]["close"] / C[dates.index(d)] - 1) > 0.002]
+    log("VALIDATE", logging.WARNING if (miss or diff) else logging.INFO, sym="SOXL ohlc", missing=len(miss), close_mismatch=len(diff), sample=diff[:3])
+    O = [ohlc[d]["open"] if d in ohlc else C[k] for k, d in enumerate(dates)]
+    LO = [ohlc[d]["low"] if d in ohlc else C[k] for k, d in enumerate(dates)]
+    if any(LO[k] > max(O[k], C[k]) + 1e-6 for k in range(len(C))):
+        raise SystemExit("[VALIDATE] SOXL 저가가 시가·종가보다 높은 날이 있음 — 자료 확인")
     sox_map = {r["date"]: r["close"] for r in D["^SOX"]}
     # SOX 를 SOXL 날짜에 맞춤 (같은 미국 장 — 빠진 날은 앞 값)
     S, last = [], None
@@ -194,22 +239,33 @@ def main(argv=None):
         return min(C[p:i])
 
     def method_paths(i, end):
-        """세 방법의 예산(1) 대비 가치 — 날마다. 반환 (끝 가치, 가장 나쁜 가치, 산 날들, 투자 비율)."""
-        b0, units, cash, buys, hits = C[i], 0.0, 1.0, [], set()
+        """방법마다 예산(1) 대비 가치 — 날마다 (종가로 셈). 반환 dict: one · split(가격·지정가) · date_split · trend · x1."""
+        b0 = C[i]
         one = [C[k] / C[i] for k in range(i, end + 1)]
-        split_v = []
+        # 가격 기준 나눠 사기 — 첫날 종가 3분의 1 + 미리 건 지정가 주문 (시가가 그 값 아래면 시가 · 아니면 저가가 닿으면 그 값)
+        units, cash, buys, fills = (1 / 3) / C[i], 2 / 3, [dates[i]], [C[i]]
+        open_lv = [b0 * (1 + st) for st in SPLIT_STEPS[1:]]
+        sv = [units * C[i] + cash]
+        for k in range(i + 1, end + 1):
+            for lv in list(open_lv):
+                px = O[k] if O[k] <= lv else (lv if LO[k] <= lv else None)
+                if px is not None:
+                    units += (1 / 3) / px; cash -= 1 / 3; buys.append(dates[k]); fills.append(round(px, 4)); open_lv.remove(lv)
+            sv.append(units * C[k] + cash)
+        # 날짜 기준 나눠 사기 — 그날 · 21거래일 뒤 · 42거래일 뒤 종가 (끝날 안에 있을 때만)
+        du, dc, dbuy = 0.0, 1.0, []
+        dv = []
         for k in range(i, end + 1):
-            for j, step in enumerate(SPLIT_STEPS):
-                if j in hits:
-                    continue
-                if (j == 0 and k == i) or (j and C[k] <= b0 * (1 + step)):
-                    units += (1 / 3) / C[k]; cash -= 1 / 3; buys.append(dates[k]); hits.add(j)
-            split_v.append(units * C[k] + cash)
+            if k - i in (0, 21, 42):
+                du += (1 / 3) / C[k]; dc -= 1 / 3; dbuy.append(dates[k])
+            dv.append(du * C[k] + dc)
         kb = next((k for k in range(i, end + 1) if ma200[k] and S[k] >= ma200[k]), None)
-        trend_v = [1.0 if (kb is None or k < kb) else C[k] / C[kb] for k in range(i, end + 1)]
-        return ({"end": one[-1] - 1, "worst": min(one) - 1},
-                {"end": split_v[-1] - 1, "worst": min(split_v) - 1, "buys": buys, "invested": 1 - cash},
-                {"end": trend_v[-1] - 1, "worst": min(trend_v) - 1, "buy": dates[kb] if kb is not None else None})
+        tv = [1.0 if (kb is None or k < kb) else C[k] / C[kb] for k in range(i, end + 1)]
+        xv = [S[k] / S[i] for k in range(i, end + 1)]
+        f = lambda v: {"end": round((v[-1] - 1) * 100, 1), "worst": round((min(v) - 1) * 100, 1)}
+        return {"one": f(one), "split": {**f(sv), "buys": buys, "fills": fills, "invested": round((1 - cash) * 100), "avg_cost_vs_first": round(((1 - cash) / units) / b0 * 100, 1)},
+                "date_split": {**f(dv), "buys": dbuy, "invested": round((1 - dc) * 100)},
+                "trend": {**f(tv), "buy": dates[kb] if kb is not None else None}, "x1": f(xv)}
 
     for i in signals:
         end = i + HOLD
@@ -218,12 +274,9 @@ def main(argv=None):
         e2 = min(end, n)
         if e2 > i:
             seg = C[i + 1:e2 + 1]
-            o, sp, tr = method_paths(i, e2)
+            m = method_paths(i, e2)
             row["so_far"] = {"to": dates[e2], "full_year": end <= n, "ret": pct(C[e2], C[i]), "min_after": pct(min(seg), C[i]),
-                             "min_after_date": dates[i + 1 + seg.index(min(seg))], "new_low": min(seg) < row["low_before"],
-                             "one": {k: round(v * 100, 1) for k, v in o.items()},
-                             "split": {"end": round(sp["end"] * 100, 1), "worst": round(sp["worst"] * 100, 1), "buys": sp["buys"], "invested": round(sp["invested"] * 100)},
-                             "trend": {"end": round(tr["end"] * 100, 1), "worst": round(tr["worst"] * 100, 1), "buy": tr["buy"]}}
+                             "min_after_date": dates[i + 1 + seg.index(min(seg))], "new_low": min(seg) < row["low_before"], **m}
         if end <= n:
             seg = C[i + 1:end + 1]
             row.update(ret_1y=pct(C[end], C[i]), min_after=pct(min(seg), C[i]), new_low_after=min(seg) < min(C[max(0, i - 260):i]),
@@ -260,11 +313,18 @@ def main(argv=None):
         "signals_measured": len(measured), "signals_past_full_year": len(past), "signals_current_episode": len(cur) + sum(1 for r in sig_rows if not r.get("so_far")),
         "split_worst_better_than_one": sum(1 for r in measured if r["so_far"]["split"]["worst"] > r["so_far"]["one"]["worst"]),
         "split_end_better_than_one": sum(1 for r in measured if r["so_far"]["split"]["end"] > r["so_far"]["one"]["end"]),
+        "split_worst_better_than_date": sum(1 for r in measured if r["so_far"]["split"]["worst"] > r["so_far"]["date_split"]["worst"]),
+        "split_end_better_than_date": sum(1 for r in measured if r["so_far"]["split"]["end"] > r["so_far"]["date_split"]["end"]),
+        "date_worst_better_than_one": sum(1 for r in measured if r["so_far"]["date_split"]["worst"] > r["so_far"]["one"]["worst"]),
         "past_one_year_positive": sum(1 for r in past if r["so_far"]["one"]["end"] > 0),
         "past_min_after_range": [min(r["so_far"]["min_after"] for r in past), max(r["so_far"]["min_after"] for r in past)] if past else None,
         "current_new_low_after": sum(1 for r in cur if r["so_far"]["new_low"]), "current_measured": len(cur),
         "sox_back_soxl_gap": [e["soxl_from_peak_that_day"] for e in episodes if e["soxl_from_peak_that_day"] is not None],
     }
+    i20 = [k for k, d in enumerate(dates) if "2020-01-01" <= d <= "2020-12-31"]
+    dd80 = [k for k in i20 if C[k] / C[peak_idx(k)] - 1 <= DD_SIGNAL]
+    summ["y2020"] = {"days_dd80": len(dd80), "dates": [dates[k] for k in dd80], "next_up14": sum(1 for k in dd80 if k + 1 < len(C) and C[k + 1] / C[k] - 1 >= UP_SIGNAL)}
+    summ["sox_need_x"] = round(now["sox_high"] / now["sox"], 1)
     summ["example_down_up_10"] = {"x1": round((0.9 * 1.1 - 1) * 100, 1), "x3": round((0.7 * 1.3 - 1) * 100, 1)}
     nv = {r["date"]: r["close"] for r in D["NVDA"]}
     nd = sorted(nv)

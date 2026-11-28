@@ -1,10 +1,10 @@
 {
- "updated": "2026-11-28T22:08:52+09:00",
+ "updated": "2026-11-29T02:09:15+09:00",
  "stages": [
   "topic",
+  "script",
   "title",
   "thumb",
-  "script",
   "voice",
   "codetest",
   "video",
@@ -18,21 +18,21 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
-    "pass": true,
-    "own": true,
+    "pass": false,
+    "own": false,
     "by": "repo",
     "at": ""
    },
    "thumb": {
     "pass": false,
     "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
-    "pass": false,
-    "own": true,
     "by": "repo",
     "at": ""
    },
@@ -68,21 +68,21 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
-    "pass": true,
-    "own": true,
+    "pass": false,
+    "own": false,
     "by": "repo",
     "at": ""
    },
    "thumb": {
     "pass": false,
     "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
-    "pass": false,
-    "own": true,
     "by": "repo",
     "at": ""
    },
@@ -118,21 +118,21 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
-    "pass": true,
-    "own": true,
+    "pass": false,
+    "own": false,
     "by": "repo",
     "at": ""
    },
    "thumb": {
     "pass": false,
     "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
-    "pass": false,
-    "own": true,
     "by": "repo",
     "at": ""
    },
@@ -168,6 +168,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": true,
     "own": true,
@@ -175,12 +181,6 @@
     "at": ""
    },
    "thumb": {
-    "pass": true,
-    "own": true,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
     "pass": true,
     "own": true,
     "by": "repo",
@@ -218,21 +218,21 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
-    "pass": true,
-    "own": true,
+    "pass": false,
+    "own": false,
     "by": "repo",
     "at": ""
    },
    "thumb": {
     "pass": false,
     "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
-    "pass": false,
-    "own": true,
     "by": "repo",
     "at": ""
    },
@@ -268,21 +268,21 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
-    "pass": true,
-    "own": true,
+    "pass": false,
+    "own": false,
     "by": "repo",
     "at": ""
    },
    "thumb": {
     "pass": false,
     "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
-    "pass": false,
-    "own": true,
     "by": "repo",
     "at": ""
    },
@@ -318,51 +318,7 @@
     "by": "repo",
     "at": ""
    },
-   "title": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "thumb": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
    "script": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "voice": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "codetest": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "video": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "upload": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   }
-  },
-  "economic/cand-stock-t1-soxl-bandeung-2026-11-28": {
-   "topic": {
     "pass": false,
     "own": false,
     "by": "repo",
@@ -375,12 +331,6 @@
     "at": ""
    },
    "thumb": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
     "pass": false,
     "own": false,
     "by": "repo",
@@ -418,6 +368,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": false,
     "own": false,
@@ -425,12 +381,6 @@
     "at": ""
    },
    "thumb": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
     "pass": false,
     "own": false,
     "by": "repo",
@@ -468,6 +418,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": false,
     "own": false,
@@ -475,12 +431,6 @@
     "at": ""
    },
    "thumb": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
     "pass": false,
     "own": false,
     "by": "repo",
@@ -518,6 +468,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": false,
     "own": false,
@@ -530,7 +486,51 @@
     "by": "repo",
     "at": ""
    },
+   "voice": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "codetest": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "video": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "upload": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   }
+  },
+  "stock/soxl-bandeung-2026-11-28": {
+   "topic": {
+    "pass": true,
+    "own": true,
+    "by": "repo",
+    "at": ""
+   },
    "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "title": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
+   "thumb": {
     "pass": false,
     "own": false,
     "by": "repo",
@@ -568,6 +568,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": false,
     "own": false,
@@ -575,12 +581,6 @@
     "at": ""
    },
    "thumb": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
     "pass": false,
     "own": false,
     "by": "repo",
@@ -618,6 +618,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": false,
     "own": false,
@@ -627,12 +633,6 @@
    "thumb": {
     "pass": false,
     "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
-    "pass": false,
-    "own": true,
     "by": "repo",
     "at": ""
    },
@@ -668,6 +668,12 @@
     "by": "repo",
     "at": ""
    },
+   "script": {
+    "pass": false,
+    "own": false,
+    "by": "repo",
+    "at": ""
+   },
    "title": {
     "pass": false,
     "own": false,
@@ -675,12 +681,6 @@
     "at": ""
    },
    "thumb": {
-    "pass": false,
-    "own": false,
-    "by": "repo",
-    "at": ""
-   },
-   "script": {
     "pass": false,
     "own": false,
     "by": "repo",

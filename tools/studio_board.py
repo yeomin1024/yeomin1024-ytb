@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.12.1 — 2026-11-28 — 저장소 기준 대본 통과 = 이탈·반론 둘 다 2회차 이상이고 마지막 회차 통과 (v1.12.0 까지는 회차가 하나라도 있으면 통과 — 대본이 주제 바로 뒤로 오며 검증 중인 대본이 제목 단계로 넘어가 보였음).
+# VERSION: v1.13.0 — 2026-11-28 — 저장소 기준 단계 통과(repo_gates) = 뒤 단계 결과물(음성·장면·영상·올린 기록)이 있는 옛 편만 앞 단계를 채움 · Claude 자기 점검(페르소나 통과·썸네일 파일·제목)으로는 대본·제목·썸네일을 넘기지 않음 — 사용자가 판에서 [통과]를 눌러야 (v1.12.1 은 페르소나 통과면 대본 통과로 쳐서 SOXL 대본이 대본 화면에 안 보이고 제목 단계로 감 — 사용자 지시 2026-11-28 "야 대본 칸에 안보이잖아 내가 확인할 수 있게 해야지"). 함수 repo_gates_of · selftest.
+# 이전 v1.12.1 — 2026-11-28 — 저장소 기준 대본 통과 = 이탈·반론 둘 다 2회차 이상이고 마지막 회차 통과 (v1.12.0 까지는 회차가 하나라도 있으면 통과 — 대본이 주제 바로 뒤로 오며 검증 중인 대본이 제목 단계로 넘어가 보였음).
 # 이전 v1.12.0 — 2026-11-28 — 단계 순서 = 주제 → 대본 → 제목 → 썸네일 → 음성 → 코드 테스트 → 영상 → 업로드 (사용자 지시 2026-11-28 "이거 순서를 주제 탐색 -> 대본 작성으로 가야겠다").
 # 이전 v1.11.0 — 2026-11-28 — 주제 탐색 ① 결과에 성공 사례 한 편 분석 문서 (STEP_DOCS t0 = result/next_topic/success_why/*.md) · 문서 속 그림 줄
 #          '![설명](상대 경로)' = 저장소 안 그림을 작은 JPEG data URI 로 (판 밖 주소를 못 불러와서) — 사용자 지시 2026-11-28 "가장 최근 성공 사례 하나만 왜 성공했는지 … 분석해서 결과에 표시해봐". 함수 md_to_html · doc_entry · selftest.
@@ -95,7 +96,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.12.1"
+VERSION = "v1.13.0"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -631,21 +632,29 @@ def episode(topic: str, src: Path, vid: str, T, img_dir: Path | None, upl_paths:
     # 저장소 기준 단계 (판에서 체크하기 전 기본값 — 판의 체크가 늘 이김)
     pr = ep["persona"]
     has_audio = audio["status"] in ("has_audio", "uploaded")
-    ep["repo_gates"] = {
-        "topic": True,
-        "title": bool(ep["title"]) and (pr.get("title", 0) >= 1 or bool(ep["history"])),
+    ep["repo_gates"] = repo_gates_of(has_audio, scene.is_file(), bool(vj), any(h["current"] for h in ep["history"]))
+    ep["claude_ready"] = {                                     # v1.13 Claude 점검이 끝났는지 (판 표시용 — 단계 통과가 아님)
+        "script": bool(lines) and bool(pr.get("script_exit_ok") and pr.get("script_rebuttal_ok")),
+        "title": bool(ep["title"]) and bool(pr.get("title_ok")),
         "thumb": bool(thumbs),
-        "script": bool(lines) and ((pr.get("script_exit_ok") and pr.get("script_rebuttal_ok")) or has_audio),   # v1.12.1 둘 다 통과해야
-        "voice": has_audio,
-        "codetest": scene.is_file(),
-        "video": bool(vj),
-        "upload": any(h["current"] for h in ep["history"]),
     }
-    later = False                                              # v1.1 음성·장면·영상·업로드가 이미 있으면 앞 단계도 지난 것 (옛 편은 순서가 달랐음)
-    for s_ in reversed(STAGES):                                #      대본 검증 기록만으로는 앞(썸네일)을 채우지 않음 — 썸네일이 실제로 빠진 편이 있음
-        later = later or (ep["repo_gates"][s_] and s_ in ("voice", "codetest", "video", "upload"))
-        ep["repo_gates"][s_] = ep["repo_gates"][s_] or later
     return ep
+
+
+def repo_gates_of(has_audio: bool, has_scene: bool, has_video: bool, uploaded: bool) -> dict:
+    """v1.13 판에서 아직 체크하지 않은 단계의 기본값 (판 체크가 늘 이김).
+    주제 = 편 폴더가 있으면 통과. 그 뒤 단계는 사용자가 판에서 [통과]를 눌러야 넘어감 — 다만 뒤 단계 결과물이 이미 있는 옛 편
+    (판보다 먼저 만든 편)은 그 결과물 앞 단계를 모두 지난 것으로 채움: 음성 → 대본·제목·썸네일 · 장면 → +음성 · 영상 → +코드 테스트 · 올린 기록 → 전부.
+    결과물이 있는 그 단계 자신(음성·장면·영상)은 사용자가 듣고·보고 [통과]를 눌러야."""
+    g = {s: False for s in STAGES}
+    g["topic"] = True
+    if uploaded:
+        return {s: True for s in STAGES}
+    last = max([STAGES.index(s) for s, have in (("voice", has_audio), ("codetest", has_scene), ("video", has_video)) if have], default=None)
+    if last is not None:
+        for s in STAGES[:last]:
+            g[s] = True
+    return g
 
 
 def episodes(topic: str, T, img_dir: Path | None, upl_paths: set, hide: set | None = None) -> list[dict]:
@@ -1228,6 +1237,12 @@ def selftest() -> int:
                                                                             "script_rebuttal": {"rounds": [{"pass": True}]}}}}), "utf-8")
         pr_ = persona_rounds(Path(td), "v")
         check("v1.12.1 대본 통과 = 2회차 이상 · 마지막 통과 (반론 1회차뿐이면 아님)", pr_["script_exit_ok"] is True and pr_["script_rebuttal_ok"] is False and pr_["script_exit"] == 2)
+    at_ = lambda g: next((x for x in STAGES if not g[x]), "done")
+    check("v1.13 새 편(결과물 없음) = 대본 단계에서 기다림 — 페르소나 통과로 넘어가지 않음", at_(repo_gates_of(False, False, False, False)) == "script")
+    check("v1.13 옛 편 음성만 = 음성 단계 (앞은 채움)", at_(repo_gates_of(True, False, False, False)) == "voice")
+    check("v1.13 옛 편 장면까지 = 코드 테스트 단계", at_(repo_gates_of(True, True, False, False)) == "codetest")
+    check("v1.13 옛 편 영상 묶음 = 영상 단계", at_(repo_gates_of(True, True, True, False)) == "video")
+    check("v1.13 올린 편 = 끝", at_(repo_gates_of(False, False, False, True)) == "done")
     cfg = {"TOPICS": ["psychology", "stock"], "topic": {}}
     check("v1.1 꺼 둔 주제 = enabled false 문서만", board_disabled(cfg, {"topics": [{"id": "stock", "enabled": False}, {"id": "psychology", "enabled": True}, {"id": "zzz", "enabled": False}]}) == {"stock"})
     check("v1.1 topic_state 글 읽기", topic_state.disabled(text='{"disabled": ["stock"]}') == {"stock"} and topic_state.disabled(text="깨진") == set())

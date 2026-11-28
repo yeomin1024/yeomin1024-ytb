@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.9.1 — 2026-11-28 — 대본 화면 페르소나 칩 = 통과 여부 (studio_board.py v1.12.1 <단계>_ok — 회차만 있으면 노란 '검증 중').
+<!-- VERSION: v1.9.2 — 2026-11-28 — 대본 화면 안내 줄: Claude 검증이 끝난 대본이면 "Claude 검증 끝 — 읽고 [대본 통과] · 고칠 줄은 [피드백]" (studio_board.py v1.13 claude_ready — 페르소나 통과로는 단계가 넘어가지 않음, 사용자 지시 2026-11-28 "야 대본 칸에 안보이잖아 내가 확인할 수 있게 해야지").
+     이전 v1.9.1 — 2026-11-28 — 대본 화면 페르소나 칩 = 통과 여부 (studio_board.py v1.12.1 <단계>_ok — 회차만 있으면 노란 '검증 중').
      이전 v1.9.0 — 2026-11-28 — 단계·화면 순서 = 주제 → 대본·음성 → 제목 → 썸네일 → 영상 → 업로드 (단계: 주제 → 대본 → 제목 → 썸네일 → 음성 — 음성은 대본 줄 옆이라 대본·음성 화면 그대로) — 사용자 지시 2026-11-28 "이거 순서를 주제 탐색 -> 대본 작성으로 가야겠다".
      이전 v1.8.1 — 2026-11-28 — 문서 속 그림(.docfig — studio_board.py v1.11 data URI) 크기 · 주제 탐색 ① 결과 = 한 편 분석 문서 + 목록 — 사용자 지시 2026-11-28 "가장 최근 성공 사례 하나만 왜 성공했는지 … 분석해서 결과에 표시해봐".
      (v1.8.0) — 2026-11-28 — 성공 사례 목록: '이번 검색어로 찾은 것만' 거르기(기본 켬 — 있을 때) · 줄마다 찾은 검색어 칩 · 검색어 칸 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐".
@@ -778,7 +779,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         <div class="row small"><span>${(ep.lines || []).length}문장${ep.est ? " · 어림 " + Math.floor(ep.est / 60) + "분 " + String(ep.est % 60).padStart(2, "0") + "초" : ""}</span>
           ${ep.persona && (ep.persona.script_exit || ep.persona.script_rebuttal) ? `<span class="chip ${ep.persona.script_exit_ok && ep.persona.script_rebuttal_ok ? "ok" : "warn"}">페르소나 이탈 ${ep.persona.script_exit || 0}회차${ep.persona.script_exit_ok ? " 통과" : ""} · 반론 ${ep.persona.script_rebuttal || 0}회차${ep.persona.script_rebuttal_ok ? " 통과" : " — 검증 중"}</span>` : `<span class="chip warn">페르소나 대본 검증 기록 없음</span>`}
           ${(ep.lines || []).some(l => l.changed) ? `<span class="chip warn">음성 뒤 바뀐 줄 ${(ep.lines || []).filter(l => l.changed).length} (노란 밑줄)</span>` : ""}</div>
-        <p class="small">${at(ep) === "script" ? "대본을 확인하고 [대본 통과]를 누르면 음성을 체크할 수 있습니다." : "음성을 듣고 괜찮으면 [음성 통과]."}</p></div>
+        <p class="small">${at(ep) === "script" ? ((ep.claude_ready || {}).script ? "Claude 검증 끝 (이탈·반론 통과) — 대본을 읽고 괜찮으면 [대본 통과] · 고칠 줄은 그 줄 [피드백]. 통과 뒤 제목 단계로 가고, 음성은 썸네일 뒤에 이 화면에서 체크합니다." : "대본을 확인하고 괜찮으면 [대본 통과] · 고칠 줄은 그 줄 [피드백].") : "음성을 듣고 괜찮으면 [음성 통과]."}</p></div>
         <section class="box"><header><h2>음성</h2><span class="chip ${tc}">${e(tt2)}</span></header>
           <p class="small">지금 음성: ${e((ep.audio || {}).note || "없음")}${ep.audio && ep.audio.seconds ? " · " + Math.round(ep.audio.seconds) + "초" : ""}</p>
           <div class="row"><label class="gate ${d.make ? "on" : ""} ${scriptOk ? "" : "dis"}"><input type="checkbox" data-act="tts-make" data-ep="${e(ep.id)}" ${d.make ? "checked" : ""} ${scriptOk && S.db && S.canWrite ? "" : "disabled"}>음성 생성</label>

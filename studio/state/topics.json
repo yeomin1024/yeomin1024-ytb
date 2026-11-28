@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-28T22:08:52+09:00",
+ "updated": "2026-11-29T02:09:15+09:00",
  "about": "제작 판 '주제 켜기·끄기' — disabled 주제는 판에 안 보이고 Claude·도구가 읽지도 작업하지도 않음 (tools/topic_state.py)",
  "disabled": [
   "history",

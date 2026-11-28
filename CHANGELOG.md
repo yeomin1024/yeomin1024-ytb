@@ -1,5 +1,14 @@
 # CHANGELOG — youtube_topic_analyzer
 
+## 2026-11-28 — 제작 판 단계 기본값 고침 (`tools/studio_board.py` v1.12.1 → v1.13.0 · `studio/board_template.html` v1.9.1 → v1.9.2)
+
+- 사용자 지시 "야 대본 칸에 안보이잖아 내가 확인할 수 있게 해야지": SOXL 대본이 페르소나 이탈·반론 통과만으로 '대본 통과'가 돼 제목 단계로 넘어가 대본 화면에 안 보였음.
+- 원인: 저장소 기준 단계(repo_gates)가 Claude 자기 점검(페르소나 통과 · 썸네일 파일 · 제목+제목 검증)을 통과로 침 — 판 설계 '판에서 [통과]를 누른 편만 다음 단계'와 어긋남.
+- 고침 `repo_gates_of(has_audio, has_scene, has_video, uploaded)`: 주제 = 편 폴더가 있으면 통과 · 그 뒤는 판 체크만 · 판보다 먼저 만든 옛 편은 뒤 단계 결과물로 앞을 채움(음성 → 대본·제목·썸네일 · 장면 → +음성 · 영상 → +코드 테스트 · 올린 기록 → 전부). Claude 점검 결과는 `claude_ready` 로 판 안내 줄에만.
+- 바뀐 편 (판 체크 0건 기준): 재테크(주식) SOXL 반등 제목 → **대본** · 위기 얼음 깨짐·기내 연기·떨어진 폰 썸네일 → **대본** · 나머지 그대로 (한라산 = 끝).
+- SOXL 대본 파일 맨 위 `#` 버전 줄 11개 → `stock/source/soxl-bandeung-2026-11-28/CHANGELOG.md` — `tts_narration.read_script`·`srt_tool.parse_txt` 가 `#` 줄을 문장으로 읽어 내레이션·자막에 들어갈 뻔함. 문장 110개는 그대로 (persona_gate check 이탈 ✅ · 반론 ✅ · script_rules_check ❌ 0).
+- 시험: `studio_board.py selftest` ✅ (v1.13 다섯 개 더 — 새 편 = 대본 · 음성만 = 음성 · 장면 = 코드 테스트 · 영상 = 영상 · 올린 편 = 끝) · 판 Version 29.
+
 ## 2026-11-28 — PC 트렌드 watch 오류 고침 (`tools/pc_trends.py` v1.3 → v1.3.1)
 
 - 사용자 PC 오류 "에러나는데 해결해": `-TrendsWatch -Once --list-file selfdev_trends.json` → 파일 없음(FileNotFoundError) 경고를 쓰다가 `TypeError: log() got multiple values for argument 'stage'` 로 죽음.

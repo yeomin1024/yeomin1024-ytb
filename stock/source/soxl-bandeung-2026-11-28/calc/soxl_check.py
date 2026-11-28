@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-11-28 — summary 에 과거 네 번 끝 결과 견줌 수 (한 번에 > 날짜 나눔 · 한 번에 > 가격 나눔) — 반론 3회차 K3.
+# VERSION: v1.7 — 2026-11-28 — summary: 과거 네 번 날짜 나눔 가장 나쁠 때 견줌 수 · 가격 나눔은 구조상 한 번에보다 손해가 클 수 없음(price_split_structural) — 반론 5회차 K3 중.
+# 이전 v1.6 — 2026-11-28 — summary 에 과거 네 번 끝 결과 견줌 수 (한 번에 > 날짜 나눔 · 한 번에 > 가격 나눔) — 반론 3회차 K3.
 # 이전 v1.5 — 2026-11-28 — 나눠 사기 = 지정가 주문(시가·저가로 체결 — v1.4 는 종가가 넘어선 날 그 종가에 사서 갭 하락 때 유리하게 나왔음, 반론 검토 K5 지적) · 날짜 기준 나눠 사기 · 반도체 지수 1배 · 2020 빠진 까닭 · 지수 필요 배수.
 # 이전 v1.4 — 2026-11-28 — 대본용 예시: 하루 −10% 뒤 +10% (1배·3배) · 엔비디아 11-23 하루 · 큰 반등 날부터 지수 200일선 회복까지 거래일.
 # 이전 v1.3 — 2026-11-28 — summary: 결과가 있는 큰 반등 날마다 방법 견줌 수(가장 나빴던 때 · 끝 결과) · 이번 구간 큰 반등 뒤 새 저점 수.
@@ -37,7 +38,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.6"
+VERSION = "v1.7"
 KST = dt.timezone(dt.timedelta(hours=9))
 SYMS = ["SOXL", "^SOX", "NVDA", "^IXIC", "^GSPC", "^VIX"]
 DD_EPISODE = -0.70      # 하락 구간 = 고점 대비 이보다 깊게
@@ -318,6 +319,10 @@ def main(argv=None):
         "split_end_better_than_date": sum(1 for r in measured if r["so_far"]["split"]["end"] > r["so_far"]["date_split"]["end"]),
         "date_worst_better_than_one": sum(1 for r in measured if r["so_far"]["date_split"]["worst"] > r["so_far"]["one"]["worst"]),
         "past_one_end_better_than_date": sum(1 for r in past if r["so_far"]["one"]["end"] > r["so_far"]["date_split"]["end"]),
+        "past_date_worst_better_than_one": sum(1 for r in past if r["so_far"]["date_split"]["worst"] > r["so_far"]["one"]["worst"]),
+        "past_n": len(past),
+        # 가격 나눔 = 첫 매수가 이하에서만 더 사고 나머지는 현금 → 어느 때든 (가격 ≤ 첫 값이면) 한 번에 산 쪽 가치 이상 · 손해가 더 클 수 없음 (증거가 아니라 구조)
+        "price_split_structural": all(r["so_far"]["split"]["worst"] >= r["so_far"]["one"]["worst"] for r in measured),
         "past_one_end_better_than_split": sum(1 for r in past if r["so_far"]["one"]["end"] > r["so_far"]["split"]["end"]),
         "current_min_after_max": min((r["so_far"]["min_after"] for r in cur), default=None),
         "past_one_year_positive": sum(1 for r in past if r["so_far"]["one"]["end"] > 0),

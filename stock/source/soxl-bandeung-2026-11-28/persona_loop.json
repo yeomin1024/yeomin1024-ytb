@@ -175,7 +175,19 @@
       }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
+    "pending": {
+     "n": 6,
+     "sha": "e5e599614b97d152",
+     "reviewers": [
+      "E6-ALL"
+     ],
+     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r6.md",
+     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-28T16:10:32Z"
+    }
    },
    "script_rebuttal": {
     "rounds": [
@@ -678,7 +690,19 @@
       }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
+    "pending": {
+     "n": 6,
+     "sha": "e5e599614b97d152",
+     "reviewers": [
+      "K6-반론"
+     ],
+     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/rebut_r6.md",
+     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_rebuttal_6",
+     "ours_idx": null,
+     "text": null,
+     "at": "2026-11-28T16:10:32Z"
+    }
    }
   }
  }

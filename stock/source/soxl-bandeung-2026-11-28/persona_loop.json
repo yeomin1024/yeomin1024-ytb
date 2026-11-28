@@ -263,21 +263,33 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 9,
+      "at": "2026-11-28T16:31:44Z",
+      "sha": "51f51cfd4e946f0a",
+      "reviewers": [
+       {
+        "reviewer": "E9-ALL",
+        "persona": "ALL",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "5번 — '앞선 세 번 가운데 두 번은 그 뒤 새 저점'이 바로 지금 사려던 내 고민을 찔러서, 어느 한 번이 바닥이 아니었는지 끝까지 확인하고 싶어짐 (이어지는 17번 '8.2배', 38번 '53.2% 하락'이 그 궁금증을 계속 붙잡음)",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "-",
+      "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r9.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
-    "pending": {
-     "n": 9,
-     "sha": "51f51cfd4e946f0a",
-     "reviewers": [
-      "E9-ALL"
-     ],
-     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r9.md",
-     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_9",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-28T16:29:35Z"
-    }
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
    },
    "script_rebuttal": {
     "rounds": [

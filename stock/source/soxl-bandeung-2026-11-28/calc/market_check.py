@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.2 — 2026-11-28 — 메모리 회사 주가(마이크론 MU · 삼성전자 005930.KS · SK하이닉스 000660.KS) 9-30 종가 → 마지막 종가 · 1년 최고가보다 (memory) — 트렌드포스 '메모리 3사 45%' 가 다시 확인되지 않아 실제 종가로 (이탈 검토 10회차 '세 곳 이름').
+# VERSION: v1.3 — 2026-11-28 — 지표마다 1년 전(252거래일 앞)보다 (chg_1y_pct) · 반등마다 확인일부터 꼭대기까지 (confirm_to_top_pct) · 실패 반등 요약(꼭대기 뒤 80% 넘게 더 빠진 수 · 깨지기까지 날수 범위) — 반론 검토 12회차 (1년 최저와 견줌 · '여러 번' 근거 · 기간).
+# 이전 v1.2 — 2026-11-28 — 메모리 회사 주가(마이크론 MU · 삼성전자 005930.KS · SK하이닉스 000660.KS) 9-30 종가 → 마지막 종가 · 1년 최고가보다 (memory) — 트렌드포스 '메모리 3사 45%' 가 다시 확인되지 않아 실제 종가로 (이탈 검토 10회차 '세 곳 이름').
 # 이전 v1.1 — 2026-11-28 — 실패한 반등마다 꼭대기 뒤 가장 낮은 값까지 하락률(top_to_later_low_pct) · 지표마다 1년 최저보다 몇 % (from_low_pct) · 반도체 지수 하루 하락 순위(sox_days — 11-05 가 2025-04 뒤 가장 큰 하루 하락인지 확인).
 # 이전 v1.0 — 2026-11-28 — 최초. 대본 v10(사용자 구성 — 시장 상황 → 호재 → 악재 → 변수 → 비중) 숫자:
 #   ① 시장 전체 지표 (10년 국채 금리 · 브렌트유 · 달러 지수 · S&P500 · 나스닥 · 반도체 지수 · 공포 지수 — 마지막 값 · 1년 최고와 거리 · 1·3개월 변화)
@@ -8,6 +9,7 @@
 #   사용자 지시 2026-11-28 "여러 폭락 사례를 보면 계속 하락하는게 아니라 반등을 주면서 하락한다 / 심지어 크게 상승한 것 같으면서도 저점을 깨고 다시 하락하는 경우도 있다 …
 #   야 대본 이런식으로 내가 만든 구성대로 다시 수정해봐".
 # CHANGELOG
+#   v1.3 2026-11-28  chg_1y_pct · confirm_to_top_pct · failed_summary
 #   v1.2 2026-11-28  memory (MU · 삼성전자 · SK하이닉스)
 #   v1.1 2026-11-28  rallies top_to_later_low_pct · macro_row from_low_pct · sox_days
 #   v1.0 2026-11-28  최초 — macro · rallies · selftest   (soxl_check.py v1.7 의 하락 구간·자료 캐시를 그대로 씀)
@@ -26,7 +28,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import soxl_check as sc          # noqa: E402  (load · validate · log · 하락 구간 정의)
 
-VERSION = "v1.2"
+VERSION = "v1.3"
 MACRO = {                                    # Yahoo 기호: (이름, 단위)
     "^TNX": ("미국 10년 국채 금리", "%"),
     "BZ=F": ("브렌트유", "달러/배럴"),
@@ -51,7 +53,8 @@ def macro_row(sym: str, rows: list[dict]) -> dict:
     out = {"name": MACRO[sym][0], "unit": MACRO[sym][1], "date": D[i], "close": round(C[i], 2),
            "high_1y": round(C[hi_i], 2), "high_1y_date": D[hi_i], "from_high_pct": round((C[i] / C[hi_i] - 1) * 100, 1),
            "low_1y": round(C[lo_i], 2), "low_1y_date": D[lo_i], "from_low_pct": round((C[i] / C[lo_i] - 1) * 100, 1),
-           "chg_1m_pct": ch(21), "chg_3m_pct": ch(63)}
+           "chg_1m_pct": ch(21), "chg_3m_pct": ch(63), "chg_1y_pct": ch(YEAR), "date_1y_ago": D[i - YEAR] if i - YEAR >= 0 else None,
+           "close_1y_ago": round(C[i - YEAR], 2) if i - YEAR >= 0 else None}
     if sym == "^TNX":                                     # 금리는 % 포인트 차이도
         out["chg_1m_pt"] = round(C[i] - C[i - 21], 2)
         out["chg_3m_pt"] = round(C[i] - C[i - 63], 2)
@@ -83,6 +86,7 @@ def rallies(dates: list[str], C: list[float], start: int, end: int, up: float = 
             r["days_to_break"] = b - r["_low_i"]
             later = min(range(top_i, end + 1), key=lambda k: C[k])          # v1.1 꼭대기 뒤 (구간 끝까지) 가장 낮은 종가
             r["later_low_date"], r["top_to_later_low_pct"] = dates[later], round((C[later] / C[top_i] - 1) * 100, 1)
+        r["confirm_to_top_pct"] = round((C[top_i] / C[r["_k"]] - 1) * 100, 1)          # v1.3 확인일 종가부터 꼭대기까지
         r["result"] = "실패 (저점 깸)" if r["broken"] else "끝까지 안 깸"
         del r["_low_i"], r["_k"]
     return out
@@ -112,7 +116,11 @@ def build(refresh: bool) -> dict:
             "past_max_failed_gain_pct": max((e["max_failed_gain_pct"] or 0) for e in done),
             "now_rallies": eps[-1]["rallies"] if eps and eps[-1]["ongoing"] else None,
             "now_failed": eps[-1]["failed"] if eps and eps[-1]["ongoing"] else None,
-            "note": "실패 = 그 반등의 시작 저점을 뒤에 종가로 깸 · 과거 구간은 끝(새 1년 최고가)까지 본 결과 · 진행 중 구간의 '안 깸'은 아직 모름"}
+            "past_failed_80plus": sum(1 for e in done for r in e["list"] if r["broken"] and r["top_to_later_low_pct"] <= -80),
+            "past_days_to_break": sorted(r["days_to_break"] for e in done for r in e["list"] if r["broken"]),
+            "now_failed_80plus": sum(1 for r in (eps[-1]["list"] if eps and eps[-1]["ongoing"] else []) if r["broken"] and r["top_to_later_low_pct"] <= -80),
+            "now_days_to_break": sorted(r["days_to_break"] for r in (eps[-1]["list"] if eps and eps[-1]["ongoing"] else []) if r["broken"]),
+            "note": "실패 = 그 반등의 시작 저점을 뒤에 종가로 깸 · days_to_break = 저점 날부터 깬 날까지 거래일 · 과거 구간은 끝(새 1년 최고가)까지 본 결과 · 진행 중 구간의 '안 깸'은 아직 모름"}
     mac = {}
     for sym in MACRO:
         try:

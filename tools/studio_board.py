@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.6 — 2026-11-28 — 주제 탐색 단계별 결과: next_topic_data.md 를 절(## 2·3·4·5·6)마다 잘라 ②·③·④·① 단계 결과 칸에 (전에는 ④에 통째로) —
+# VERSION: v1.7 — 2026-11-28 — 주제 탐색 ① 성공 사례 목록 = 주제(합친 폴더 포함)의 compare.csv 에서 <폴더>/analysis_rules.toml [success] 기준을 모두 넘는 영상 전부
+#          (자료 받은 사례 = analysis.json success_cases 표시·자세히) · 미국주식 낱말(next_topic.toml FOCUS)·한국어 표시 — 사용자 지시 2026-11-28
+#          "맨처음 단계를 성공 사례 찾는거부터 해봐 그리고 모든 성공사례 정보 목록을 볼 수 있게해봐" · "그 일단 주식만 보이게 하고 검색에 사용한 단어 목록도 같이
+#          보여줘" — studio.toml [topic.<판 주제>] SUCCESS_FOLDERS (재테크 = stock 만) · 검색어 목록 = <폴더>/keywords.txt(+ 외국 영상을 켠 주제는
+#          keywords_foreign.txt) 갈래별 + tag_candidates 태그 쓴 채널·영상 수. 함수 success_rules · success_rows · search_words · topic_data.
+# (v1.6) — 2026-11-28 — 주제 탐색 단계별 결과: next_topic_data.md 를 절(## 2·3·4·5·6)마다 잘라 ②·③·④·① 단계 결과 칸에 (전에는 ④에 통째로) —
 #          사용자 지시 2026-11-28 "단계별 분석 다시해서 주제 탐색 결과 내봐". 함수 split_sections · step_docs.
 # (v1.5) — 2026-11-28 — 판에서 숨긴 편 studio.toml [topic.<폴더>] HIDE (예전 편 — 판·gates.json 에서 뺌, 저장소 폴더·올린 기록은 그대로) —
 #          사용자 지시 2026-11-28 "재테크 쪽에 예전 영상들 있는데 다 삭제해" (고름: 판에서만 빼기). 함수 episodes · topic_data · effective_gates · selftest.
@@ -24,6 +29,7 @@
 # CHANGELOG
 # | 버전 | 날짜 | 바뀐 것 | 함수 |
 # |---|---|---|---|
+# | v1.7 | 2026-11-28 | ① 성공 사례 전체 목록 (기준 다시 적용 · 자료 받은 사례 자세히) | success_rules · success_rows · topic_data |
 # | v1.6 | 2026-11-28 | next_topic_data.md 절마다 단계 결과로 | split_sections · step_docs |
 # | v1.5 | 2026-11-28 | 판에서 숨긴 편 HIDE | episodes · topic_data · effective_gates · selftest |
 # | v1.4 | 2026-11-28 | 주제 합치기 MERGE · 단계별 결과 문서 step_docs · trend 주제 | board_topics · folders_of · off_folders · step_docs · topic_data · build · effective_gates · sync · selftest |
@@ -73,7 +79,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.6"
+VERSION = "v1.7"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 KST = dt.timezone(dt.timedelta(hours=9))
 STUDIO = ROOT / "studio"
@@ -652,6 +658,121 @@ def empty_refs(topic: str) -> dict:
             "thumb_source": "", "thumb_note": f"{topic} 은(는) 성공 사례 분석 결과가 없음 — 판에서 직접 더할 수 있음"}
 
 
+# ─────────────────────────────── v1.7 ① 성공 사례 — 기준을 넘는 영상 전부
+SUCCESS_DEFAULT = {"MIN_AGE_DAYS": 7, "MAX_AGE_DAYS": 180, "MAX_SUBS": 50000, "MIN_VPD_SUBS": 0.1, "MIN_RATIO": 3.0, "MIN_VIEWS": 10000, "MIN_MINUTES": 4.0,
+                   "CASES_PER_CHANNEL": 2}
+HANGUL_RE = re.compile(r"[가-힣]")
+
+
+def success_rules(folder: str) -> dict:
+    p = ROOT / folder / "analysis_rules.toml"
+    try:
+        r = (tomllib.loads(p.read_text("utf-8")).get("success") or {}) if p.is_file() else {}
+    except tomllib.TOMLDecodeError:
+        r = {}
+    return {k: r.get(k, v) for k, v in SUCCESS_DEFAULT.items()} | {"from": rel(p) if p.is_file() else "기본값"}
+
+
+def _focus_of(folders: list[str]):
+    for f in folders:
+        p = ROOT / f / "next_topic.toml"
+        if p.is_file():
+            try:
+                fx = (tomllib.loads(p.read_text("utf-8")).get("filter") or {}).get("FOCUS")
+            except tomllib.TOMLDecodeError:
+                fx = None
+            if fx:
+                return re.compile(fx, re.I), rel(p)
+    return None, ""
+
+
+def success_rows(folder: str, focus, refs: dict) -> tuple[list[dict], dict]:
+    """compare.csv 에서 [success] 기준을 모두 넘는 영상 (뺀 것·라이브 제외) · 자료 받은 사례(analysis.json)는 자세히. 반환 (줄, 셈)."""
+    R = success_rules(folder)
+    p = ROOT / folder / "result/outliers/compare.csv"
+    cases = {}
+    aj = read_json(ROOT / folder / "result/outliers/analysis.json", {}) or {}
+    for c in aj.get("success_cases") or []:
+        needs = c.get("needs") or {}                            # {댓글 갈래: 수}
+        top = sorted(((k, v) for k, v in needs.items() if v), key=lambda kv: -kv[1])[:4] if isinstance(needs, dict) else []
+        cases[c.get("id")] = {"fmt": c.get("format", ""), "like": c.get("like_rate"), "cm": c.get("comments_total"),
+                              "hook": str(c.get("hook20") or "")[:220], "needs": [f"{k.split(' — ')[0].split(' (')[0]} {v}" for k, v in top],
+                              "src": c.get("text_source", "")}
+    rows, n_all = [], 0
+    if p.is_file():
+        rd = csv.DictReader(p.open(encoding="utf-8-sig"))
+        if "id" in (rd.fieldnames or []):
+            for r in rd:
+                n_all += 1
+                if r.get("exclude"):
+                    continue
+                try:
+                    a, sb, v, m = float(r["age_days"] or 0), float(r["subs"] or 0), float(r["views"] or 0), float(r["minutes"] or 0)
+                except ValueError:
+                    continue
+                vs = v / max(a, 1) / max(sb, 100)
+                ok_ratio = vs >= R["MIN_VPD_SUBS"] if R["MIN_VPD_SUBS"] else v >= sb * R["MIN_RATIO"]
+                if not (R["MIN_AGE_DAYS"] <= a <= R["MAX_AGE_DAYS"] and sb <= R["MAX_SUBS"] and v >= R["MIN_VIEWS"] and m >= R["MIN_MINUTES"] and ok_ratio):
+                    continue
+                t = r["title"]
+                row = {"id": r["id"], "t": t, "ch": r.get("channel", ""), "s": int(sb), "v": int(v), "vs": round(vs, 3), "a": round(a), "p": r.get("published", "")[:10],
+                       "m": round(m, 1), "th": r.get("theme", ""), "f": folder, "ko": bool(HANGUL_RE.search(t)), "us": bool(focus.search(t)) if focus else None}
+                if r["id"] in cases:
+                    row["x"] = cases[r["id"]]
+                rows.append(row)
+    if not rows and refs.get("titles"):                          # 독립 분석(위기) — 분석이 고른 성공 사례 그대로
+        for r in refs["titles"]:
+            t = r.get("text", "")
+            rows.append({"id": r.get("vid", ""), "t": t, "ch": r.get("channel", ""), "s": r.get("subs"), "v": r.get("views"), "vs": None, "a": None,
+                         "p": r.get("published", ""), "m": None, "th": r.get("format", ""), "f": folder, "ko": bool(HANGUL_RE.search(t)),
+                         "us": bool(focus.search(t)) if focus else None, "x": {"fmt": r.get("format", ""), "shorts": r.get("shorts")}})
+        R = R | {"from": refs.get("source", "") + " (독립 분석 — 분석이 고른 성공 사례)"}
+    cnt = {"rows": len(rows), "cases": sum(1 for x in rows if x.get("x")), "compare": n_all, "rules": R,
+           "asof": git("log", "-1", "--format=%cs", "--", rel(p)) if p.is_file() else ""}
+    return rows, cnt
+
+
+def search_words(folder: str) -> dict:
+    """v1.7 성공 사례를 찾은 검색어 — keywords.txt '# ── 갈래 ──' 묶음 그대로 + 태그 쓴 채널·영상 수 (tag_candidates.csv)."""
+    def parse(p: Path) -> list[dict]:
+        groups, cur = [], None
+        if not p.is_file():
+            return groups
+        for ln in p.read_text("utf-8").splitlines():
+            t = ln.strip()
+            m = re.match(r"^#\s*──\s*(.+?)\s*──", t)
+            if m:
+                cur = {"name": m.group(1), "words": []}
+                groups.append(cur)
+            elif t and not t.startswith("#"):
+                if cur is None:
+                    cur = {"name": "", "words": []}
+                    groups.append(cur)
+                cur["words"].append(t)
+        return [g for g in groups if g["words"]]
+    cnt = {}
+    for name in ("tag_candidates.csv", "tag_candidates_foreign.csv"):
+        q = ROOT / folder / name
+        if q.is_file():
+            for r in csv.DictReader(q.open(encoding="utf-8-sig")):
+                cnt[re.sub(r"\s+", "", (r.get("tag") or "")).lower()] = (r.get("channels"), r.get("videos"))
+    def tag(gs):
+        for g in gs:
+            g["words"] = [{"w": w, "ch": (cnt.get(re.sub(r"\s+", "", w).lower()) or (None, None))[0], "v": (cnt.get(re.sub(r"\s+", "", w).lower()) or (None, None))[1]} for w in g["words"]]
+        return gs
+    foreign = False
+    cfgp = ROOT / folder / "analyzer_config.toml"
+    if cfgp.is_file():
+        try:
+            foreign = bool((tomllib.loads(cfgp.read_text("utf-8")).get("search") or {}).get("INCLUDE_FOREIGN"))
+        except tomllib.TOMLDecodeError:
+            pass
+    ko = tag(parse(ROOT / folder / "keywords.txt"))
+    fo = tag(parse(ROOT / folder / "keywords_foreign.txt")) if foreign else []
+    return {"ko": ko, "foreign": fo, "src": rel(ROOT / folder / "keywords.txt"), "foreign_src": rel(ROOT / folder / "keywords_foreign.txt") if foreign else "",
+            "n": sum(len(g["words"]) for g in ko), "n_foreign": sum(len(g["words"]) for g in fo)}
+
+
 def _refs_of(f: str, tc: dict, img_dir) -> dict:
     return (refs_analysis(f, tc, img_dir) if tc.get("SUCCESS") == "analysis_json" else
             refs_videos_csv(f, tc, img_dir) if tc.get("SUCCESS") == "videos_csv" else empty_refs(f))
@@ -663,7 +784,16 @@ def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
     folders = folders_of(cfg, topic)                           # v1.4 재테크 = economic + stock
     explore, related, eps = [], [], []
     refs = None
-    for f in folders:
+    focus, focus_src = _focus_of(folders)                      # v1.7 성공 사례 '미국주식' 표시
+    succ, succ_cnt, words = [], {}, {}
+    for f in [x for x in (tc.get("SUCCESS_FOLDERS") or folders) if x in folders]:   # v1.7 성공 사례 목록 — 재테크 = 주식 폴더만 (studio.toml)
+        tf = topic_cfg(cfg, f)
+        rr, cc = success_rows(f, focus, _refs_of(f, tf, img_dir) if tf.get("SUCCESS") == "videos_csv" else {})
+        seen = {x["id"] for x in succ}
+        succ += [x for x in rr if x["id"] not in seen]         # 두 폴더에 같은 영상이면 한 번만
+        succ_cnt[f] = cc
+        words[f] = search_words(f)
+    for f in folders:                                          # 판 자료 (편·탐색 문서·성공 사례 제목) — 합친 폴더 모두
         tf = topic_cfg(cfg, f)
         explore += [x for x in (doc_entry(p) for p in tf.get("EXPLORE", [])) if x]
         rdir = ROOT / tf.get("RELATED_DIR", "")
@@ -682,7 +812,10 @@ def topic_data(topic: str, cfg: dict, out: Path, T, upl_paths: set) -> dict:
         eps += episodes(f, T, img_dir, upl_paths, set(tf.get("HIDE", [])))
     d = {"topic": topic, "name": tc.get("NAME", topic), "note": tc.get("NOTE", ""), "folders": folders, "explore": explore, "related": related,
          "refs": refs, "episodes": eps, "legacy": legacy(tc.get("LEGACY", "")), "trends": trends_results(topic),
-         "step_docs": step_docs(folders, explore), "default_words": tc.get("WORDS", [])}
+         "step_docs": step_docs(folders, explore), "default_words": tc.get("WORDS", []),
+         "success": {"rows": sorted(succ, key=lambda x: -(x.get("vs") or 0)), "by_folder": succ_cnt, "focus": focus_src, "words": words}}
+    log("SUCCESS", topic=topic, rows=len(succ), cases=sum(1 for x in succ if x.get("x")), us=sum(1 for x in succ if x.get("us")),
+        by_folder=",".join(f"{k}:{v['rows']}" for k, v in succ_cnt.items()), focus=focus_src or "-")
     log("TOPIC", topic=topic, folders="+".join(folders), explore=len(explore), related=len(related), ref_titles=len(refs["titles"]), ref_thumbs=len(refs["thumbs"]),
         episodes=len(eps), step_docs=",".join(f"{k}:{len(v)}" for k, v in d["step_docs"].items()),
         personas=len(d["legacy"].get("personas") or []), trends_period=d["trends"].get("period") or "-")
@@ -1004,6 +1137,12 @@ def selftest() -> int:
     mc = {"TOPICS": ["economic", "stock", "crisis"], "MERGE": {"stock": "economic"}, "topic": {}}
     check("v1.4 합치기 — 판 주제 · 폴더 · 끄면 합친 폴더도", board_topics(mc) == ["economic", "crisis"] and folders_of(mc, "economic") == ["economic", "stock"]
           and off_folders(mc, {"economic"}) == {"economic", "stock"} and off_folders(mc, {"crisis"}) == {"crisis"})
+    sw = search_words("stock")
+    check("v1.7 검색어 목록 = keywords.txt 갈래 + 태그 수 (주식 40 · 외국 15)", sw["n"] >= 30 and sw["ko"][0]["name"] and sw["ko"][0]["words"][0]["w"]
+          and any(w["ch"] for g in sw["ko"] for w in g["words"]) and (sw["n_foreign"] > 0) == bool(sw["foreign_src"]))
+    rs, cs = success_rows("stock", re.compile("나스닥|s&p", re.I), {})
+    check("v1.7 성공 사례 = 기준을 모두 넘는 영상 (구독자 5만 이하 · 7~180일 · 조회수 1만+ · 4분+ · 구독자당 하루 0.1+)",
+          bool(rs) and all(r["s"] <= 50000 and 7 <= r["a"] <= 180 and r["v"] >= 10000 and r["m"] >= 4 and r["vs"] >= 0.1 for r in rs) and cs["cases"] <= len(rs))
     check("v1.5 숨긴 편 = studio.toml HIDE 폴더 이름 (있는 폴더만)", all((ROOT / f / "source" / x).is_dir() for f in ("economic", "stock") for x in topic_cfg(load_cfg(), f).get("HIDE", [])))
     check("v1.4 studio.toml 주식 → 재테크 · trend 주제", (load_cfg().get("MERGE") or {}).get("stock") == "economic" and "trend" in load_cfg()["TOPICS"])
     W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]

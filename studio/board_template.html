@@ -1,6 +1,9 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.4.1 — 2026-11-28 — 주제 후보를 더한 순서대로 (Claude 가 넣은 순위 후보가 1순위부터 보이게).
+<!-- VERSION: v1.5 — 2026-11-28 — 주제 탐색 ① = 성공 사례 찾기 · 성공 사례 전체 목록 (찾기 · 폴더·미국주식·한국어·자료 받은 사례 거르기 · 정렬 · 더 보기 ·
+     자료 받은 사례는 형식·좋아요율·댓글 수·첫 20초·댓글 갈래 자세히) · 성공 사례를 찾은 검색어 목록(갈래별 · 태그 쓴 채널 수 · 외국 검색어) — 재테크는 주식 폴더만 —
+     사용자 지시 2026-11-28 "맨처음 단계를 성공 사례 찾는거부터 해봐 그리고 모든 성공사례 정보 목록을 볼 수 있게해봐" · "그 일단 주식만 보이게 하고 검색에 사용한 단어 목록도 같이 보여줘".
+     (v1.4.1) — 2026-11-28 — 주제 후보를 더한 순서대로 (Claude 가 넣은 순위 후보가 1순위부터 보이게).
      (v1.4) — 2026-11-28 — [규칙 · 결과] = 단계별 (studio/rules.json steps — 단계마다 규칙 → 그 단계 결과: 트렌드·next_topic 문서·성공 사례·낱말·
      페르소나 회차·도입 30초·챕터 끝 문장·음성·영상·업로드 상태) · 주식 → 재테크 안 (BOARD merge — 편은 제 폴더 이름으로 저장: stock__… · '주식' 표시) ·
      최신 트렌드 주제 · 판 동작(통과·체크)은 규칙 목록에서 빼고 판 설계로. 사용자 지시 2026-11-28 "제작 판 동기화하고 주식 관련 내용은 재테크에 포함시켜 그리고 규칙을 단계로 나누고 그 단계에 대한 결과를 각각 표시하도록 해 그리고 주식에 관련된 단어들 구글 트렌드에 추가한 후 링크 생성 해놔 주식 주제별 규칙을 빼는걸로 체크했으니까 그건 아예 빼버리고 최신 트렌드 주제 추가해 그리고 주제 후보는 판에서 [통과 → 제목]을 누른 것만 … 이건 공통 규칙이 아니라 아티팩트를 그렇게 설계하라는거야 다른 단계도 똑같이 적용되는거고 수정해".
@@ -180,6 +183,9 @@ svg.spark circle{fill:var(--accent)}
 .steprules{padding-left:34px}
 .stepres{margin-left:34px;background:var(--sunk);border-radius:12px;padding:8px 12px;display:grid;gap:8px;min-width:0}
 .stepres section.box{box-shadow:none}
+.stable td{vertical-align:top}
+.wgroup{display:grid;gap:3px}
+.sthumb{width:84px;border-radius:6px;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);display:block}
 @media (max-width:620px){.steprules{padding-left:0}.stepres{margin-left:0}}
 .modebar{display:inline-flex;gap:3px;padding:3px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin-bottom:12px;box-shadow:var(--shadow)}
 .modebar button{border:0;background:transparent;color:var(--muted);border-radius:9px;padding:6px 18px;font:600 14px var(--f-body);cursor:pointer}
@@ -242,6 +248,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     view: "topic", mode: store("mode") === "rules" ? "rules" : "work", panel: false, data: {}, common: null, db: null, canWrite: true, connected: false,
     col: Object.fromEntries(COLS.map(c => [c, new Map()])),
     edit: null, confirm: null, open: new Set(), sel: {}, refq: "", busy: false,
+    sf: { q: "", folder: "all", us: false, ko: false, cs: false, sort: "vs", n: 100 },     // v1.5 성공 사례 목록 거르기
   };
   let tt = null;
   const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2400); };
@@ -335,6 +342,46 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
         <div class="row"><button class="btn sm" data-act="rule-add" data-stage="${stage}" ${wr()}>더하기</button></div></div></details></section>`;
   }
   const rulesBox = stage => stepsBox(stage);
+  // v1.5 ① 성공 사례 전체 목록 (studio_board.py v1.7 success_rows — 기준을 넘는 영상 전부 · 자료 받은 사례 자세히)
+  const pct = x => x == null ? "–" : (Math.round(x * 1000) / 10) + "%";
+  function successBox() {
+    const D = S.data[S.topic] || {}, SC = D.success || { rows: [], by_folder: {} }, F = S.sf;
+    const img = {}; for (const t of ((D.refs || {}).thumbs || [])) if (t.vid && t.img) img[t.vid] = t.img;
+    const q = (F.q || "").trim().toLowerCase();
+    const folders = Object.keys(SC.by_folder || {});
+    let L = (SC.rows || []).filter(r => (!q || (r.t + " " + r.ch + " " + (r.th || "")).toLowerCase().includes(q)) && (F.folder === "all" || r.f === F.folder)
+      && (!F.us || r.us) && (!F.ko || r.ko) && (!F.cs || r.x));
+    const K = { vs: r => -(r.vs || 0), v: r => -(r.v || 0), p: r => -(Date.parse(r.p) || 0), s: r => (r.s || 0), m: r => -(r.m || 0) }[F.sort] || (r => -(r.vs || 0));
+    L = L.slice().sort((a, b) => K(a) - K(b));
+    const hasUs = (SC.rows || []).some(r => r.us != null), hasForeign = (SC.rows || []).some(r => !r.ko);
+    const ruleTxt = f => { const c = SC.by_folder[f] || {}, R = c.rules || {};
+      return `<li><b>${e(tname(f))}</b> — 기준 넘은 영상 ${fmtN(c.rows)} · 자료 받은 사례 ${fmtN(c.cases)} (채널당 ${e(R.CASES_PER_CHANNEL)}개) · 비교 집단 ${fmtN(c.compare)} · 자료 ${e(c.asof || "?")}<br><span class="small">올린 지 ${e(R.MIN_AGE_DAYS)}~${e(R.MAX_AGE_DAYS)}일 · 구독자 ${fmtN(R.MAX_SUBS)} 이하 · ${R.MIN_VPD_SUBS ? "구독자당 하루 조회수 " + e(R.MIN_VPD_SUBS) + " 이상" : "조회수 ≥ 구독자 × " + e(R.MIN_RATIO)} · 조회수 ${fmtN(R.MIN_VIEWS)} 이상 · ${e(R.MIN_MINUTES)}분 이상 · 라이브·주제 밖·외국·광고 의심 뺌 — <span class="mono">${e(R.from || "")}</span></span></li>`; };
+    const chip = (k, lab) => `<button type="button" class="pill ${F[k] ? "" : "ghostpill"}" data-act="sf" data-k="${k}" aria-pressed="${!!F[k]}">${e(lab)}</button>`;
+    const W = SC.words || {};
+    const grp = (g, pre) => `<div class="wgroup"><span class="small"><b>${e(pre + (g.name || "갈래 없음"))}</b> ${g.words.length}</span><div class="words">${g.words.map(x => `<span class="word">${e(x.w)}${x.ch ? `<b title="이 낱말을 태그로 쓴 채널 수 · 영상 ${e(x.v)}">${e(x.ch)}</b>` : ""}</span>`).join("")}</div></div>`;
+    const wordsHtml = Object.entries(W).map(([f, w]) => `<details ${S.open.has("sw:" + f) ? "open" : ""} data-k="sw:${e(f)}"><summary class="small">${e(tname(f))} 검색어 ${fmtN(w.n)}개${w.n_foreign ? " · 외국 영상 검색어 " + fmtN(w.n_foreign) + "개" : ""} — 이 낱말로 유튜브를 검색해 모은 영상에서 성공 사례를 골랐습니다</summary>
+      <div style="display:grid;gap:6px;margin-top:6px">${(w.ko || []).map(g => grp(g, "")).join("")}${(w.foreign || []).map(g => grp(g, "외국 · ")).join("")}
+      <p class="small">숫자 = 그 낱말을 태그로 쓴 채널 수 (영상 태그에서 고른 검색어 — <span class="mono">${e(w.src)}</span>${w.foreign_src ? " · <span class=\"mono\">" + e(w.foreign_src) + "</span>" : ""} · 고치면 다음 분석부터).</p></div></details>`).join("");
+    const shown = L.slice(0, F.n);
+    const rows = shown.map((r, i) => { const x = r.x;
+      return `<tr><td class="num">${i + 1}</td><td>${img[r.id] ? `<img class="sthumb" src="${e(img[r.id])}" alt="" loading="lazy">` : ""}</td>
+        <td style="min-width:240px">${/^[\w-]{6,}$/.test(r.id || "") ? `<a href="https://www.youtube.com/watch?v=${encodeURIComponent(r.id)}" target="_blank" rel="noopener">${e(r.t)}</a>` : e(r.t)}
+          <div class="row" style="gap:4px;margin-top:2px">${x ? `<span class="chip ok">자료 받음</span>` : ""}${r.us ? `<span class="chip acc">미국주식</span>` : ""}${r.ko ? "" : `<span class="chip warn">외국</span>`}${folders.length > 1 ? `<span class="chip mute">${e(tname(r.f))}</span>` : ""}</div>
+          ${x ? `<details><summary class="small">자세히</summary><div class="small" style="display:grid;gap:3px;margin-top:4px">${x.fmt ? `<div>형식: ${e(x.fmt)}</div>` : ""}${x.like != null ? `<div>좋아요율 ${pct(x.like)} · 댓글 ${fmtN(x.cm)}개${x.src ? " · 글 출처 " + e(x.src) : ""}</div>` : ""}${x.hook ? `<div>첫 20초: “${e(x.hook)}”</div>` : ""}${(x.needs || []).length ? `<div>댓글 갈래: ${x.needs.map(e).join(" · ")}</div>` : ""}</div></details>` : ""}</td>
+        <td>${e(r.ch)}</td><td class="num">${fmtN(r.s)}</td><td class="num">${fmtN(r.v)}</td><td class="num">${r.vs == null ? "–" : r.vs.toFixed(2)}</td>
+        <td class="mono">${e(r.p)}</td><td class="num">${r.m == null ? "–" : r.m}</td><td class="small">${e(r.th || "")}</td></tr>`; }).join("");
+    return `<section class="box"><header><h2>성공 사례 목록</h2><span class="chip acc">${fmtN(L.length)} / ${fmtN((SC.rows || []).length)}개</span></header>
+      <ul class="small" style="margin:0;padding-left:18px;display:grid;gap:4px">${folders.map(ruleTxt).join("") || "<li>성공 사례 자료 없음 — 이 주제는 아직 분석 전</li>"}</ul>
+      ${wordsHtml}
+      <div class="row"><input type="text" id="sq" value="${e(F.q)}" placeholder="찾기 — 제목·채널·묶음 낱말" style="flex:1 1 220px;width:auto">
+        ${folders.length > 1 ? `<select id="sf-folder" data-act="sf-sel" data-k="folder" style="width:auto"><option value="all">폴더 모두</option>${folders.map(f => `<option value="${e(f)}" ${F.folder === f ? "selected" : ""}>${e(tname(f))}</option>`).join("")}</select>` : ""}
+        <select id="sf-sort" data-act="sf-sel" data-k="sort" style="width:auto">${[["vs", "구독자당 하루 조회수 큰 순"], ["v", "조회수 큰 순"], ["p", "최근 순"], ["s", "구독자 작은 순"], ["m", "긴 영상 순"]].map(([k, l]) => `<option value="${k}" ${F.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>
+      <div class="row">${hasUs ? chip("us", "미국주식 낱말만") : ""}${hasForeign ? chip("ko", "한국어만") : ""}${chip("cs", "자료 받은 사례만")}</div>
+      <div class="tablebox"><table class="stable"><thead><tr><th>#</th><th></th><th>제목</th><th>채널</th><th>구독자</th><th>조회수</th><th>구독자당 하루</th><th>올린 날</th><th>분</th><th>묶음</th></tr></thead><tbody>${rows || `<tr><td colspan="10" class="empty">맞는 영상 없음</td></tr>`}</tbody></table></div>
+      ${L.length > shown.length ? `<div class="row"><button class="btn ghost sm" data-act="sf-more">${fmtN(Math.min(100, L.length - shown.length))}개 더 보기 (남은 ${fmtN(L.length - shown.length)})</button></div>` : ""}
+      <p class="small">'구독자당 하루' = 조회수 ÷ 올린 지 날수 ÷ 구독자 (0.1 = 30일에 구독자 × 3) · 숫자는 분석 때 받은 값 · '자료 받음' = 설명·자막·댓글·썸네일을 받은 사례 (지시사항 근거)${SC.focus ? " · 미국주식 낱말 = <span class=\"mono\">" + e(SC.focus) + "</span> FOCUS" : ""}.</p></section>`;
+  }
+
   // 결과 칸 — 단계 정의(studio/rules.json steps[].results)의 이름마다
   const stageEps = st => eps(S.topic).filter(ep => (Array.isArray(st) ? st : [st]).includes(at(ep)));
   const STEP_CMD = { t1: "python3 tools/next_topic.py {t} suggest · 트렌드 = 작업 화면 구글 트렌드", t2: "python3 tools/next_topic.py {t} recent --top 300", t3: "python3 tools/next_topic.py {t} big", t4: "python3 tools/next_topic.py {t} report · overlap", t5: "판단 문서 <주제>/result/next_topic/next_topic.md" };
@@ -344,6 +391,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     const D = S.data[S.topic] || {};
     const none = m => `<p class="empty">${e(m)}</p>`;
     if (key === "trends") return trendsResultBox();
+    if (key === "success") return successBox();
     if (key.startsWith("docs:")) { const k = key.slice(5), L = (D.step_docs || {})[k] || [];
       return L.length ? L.map(docHtml).join("") : none(`결과 문서 없음 — ${(STEP_CMD[k] || "").replace("{t}", S.topic)}`); }
     if (key === "personas") { const P = (D.legacy || {}).personas || []; return P.length ? P.map(personaHtml).join("") : ""; }
@@ -630,7 +678,10 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       ${ep.kind === "cand" ? `${ep.memo ? `<p class="small">메모: ${e(ep.memo)}</p>` : ""}<div class="row">${S.confirm === "cand:" + ep.docId ? `<span class="confirm">이 후보를 지울까요?<button class="btn bad sm" data-act="cand-del" data-id="${e(ep.docId)}">지우기</button><button class="btn ghost sm" data-act="cancel">그대로</button></span>` : `<button class="btn ghost sm" data-act="ask" data-k="cand:${e(ep.docId)}" ${wr()}>후보 지우기</button>`}</div>` : ""}
       <details ${S.open.has("fbo:" + ep.id + ":topic") ? "open" : ""} data-k="fbo:${e(ep.id)}:topic"><summary class="small">주제 피드백 ${fbOf(ep.topic, ep.id, "topic").length}</summary>${fbBox(ep, "topic", null)}</details></div>`).join("");
     const tr = lg.transcript || {};
-    const work = `${trendsBox()}
+    const SC = D.success || { rows: [] };
+    const work = `<section class="box"><header><h2>① 성공 사례</h2><button class="btn ghost sm" data-act="mode" data-m="rules">목록 보기 →</button></header>
+        <p class="small">최근·작은 채널에서 잘된 영상 ${fmtN((SC.rows || []).length)}개 · 자료 받은 사례 ${fmtN((SC.rows || []).filter(r => r.x).length)}개${(SC.rows || []).some(r => r.us) ? " · 미국주식 낱말 " + fmtN((SC.rows || []).filter(r => r.us && r.ko).length) + "개(한국어)" : ""} — [규칙 · 결과] ①에서 전부 볼 수 있습니다.</p></section>
+      ${trendsBox()}
       <section class="box"><header><h2>주제 후보</h2><span class="small">주제 단계에서 기다리는 편 ${L.length} · [통과]를 누르면 제목 단계로</span></header>
         <div class="fb"><input type="text" id="nc-title" placeholder="새 후보 — 예: 남의 뒷말을 전하는 사람의 심리"><input type="text" id="nc-memo" placeholder="메모 — 근거(탐색 결과 몇 번, 트렌드 줄 등)">
         <div class="row"><button class="btn sm" data-act="cand-add" ${wr()}>후보 더하기</button></div></div>
@@ -911,6 +962,8 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     if (a === "pick") { S.sel[D.view + ":" + S.topic] = D.id; S.edit = S.confirm = null; render(); return; }
     if (a === "mode") { S.mode = D.m === "rules" ? "rules" : "work"; keep("mode", S.mode); S.edit = S.confirm = null; render(); return; }
     if (a === "panel") { S.panel = !S.panel; render(); return; }
+    if (a === "sf") { S.sf[D.k] = !S.sf[D.k]; S.sf.n = 100; render(); return; }                // v1.5 성공 사례 거르기
+    if (a === "sf-more") { S.sf.n += 100; render(); return; }
     if (S.busy) return;
     S.busy = true;
     try {
@@ -989,6 +1042,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
   document.addEventListener("change", async ev => {
     const x = ev.target;
     if (x.id === "refq") return;
+    if (x.dataset && x.dataset.act === "sf-sel") { S.sf[x.dataset.k] = x.value; S.sf.n = 100; render(); return; }
     if (x.dataset && x.dataset.act === "tr-opt") {                         // v1.3 트렌드 기간·대상·간격 (주제마다 db trends)
       const o = trendOpt(S.topic), v = { time: val("tr-time") || o.time, gprop: x.id === "tr-gprop" ? x.value : o.gprop, every_hours: Number(val("tr-hours")) || o.every_hours };
       if (await put("trends", S.topic, Object.assign({}, v, { at: nowIso() }), true)) toast(x.id === "tr-hours" ? "간격을 저장했습니다 — Claude 동기화 뒤 PC 에" : "바꿨습니다 — 링크가 새로 만들어졌고 CSV 는 다시 올려야 합니다");
@@ -1027,7 +1081,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     if (D.act === "up-check") { const d = upDoc(ep); const checks = Object.assign({}, d.checks || {}, { [D.c]: x.checked }); await put("uploads", `${ep.topic}__${D.ep}`, Object.assign(clean(d), { checks, at: t })); render(); return; }
 
   });
-  document.addEventListener("input", ev => { if (ev.target.id === "refq") { S.refq = ev.target.value; clearTimeout(rq); rq = setTimeout(render, 250); } });
+  document.addEventListener("input", ev => { if (ev.target.id === "sq") { S.sf.q = ev.target.value; S.sf.n = 100; clearTimeout(rq); rq = setTimeout(render, 250); return; } if (ev.target.id === "refq") { S.refq = ev.target.value; clearTimeout(rq); rq = setTimeout(render, 250); } });
   document.addEventListener("toggle", ev => { const d = ev.target; if (d.tagName === "DETAILS" && d.dataset && d.dataset.k) { d.open ? S.open.add(d.dataset.k) : S.open.delete(d.dataset.k); } }, true);
 
   // ───────── 길 · 자료 · db

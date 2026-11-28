@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.9.0 — 2026-11-28 — trend_groups = 줄마다 하나 (판 링크가 새 탐색 화면 주소 trends.google.com/explore 로 바뀌어 8개까지 — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐"). 함수 trend_groups · selftest.
+# VERSION: v1.10.0 — 2026-11-28 — 성공 사례 줄마다 '이번 검색어' = 마지막 탐색(result/web/explore.json)에서 그 영상을 찾은 keywords.txt 낱말 (q — 26주 검색 · qa — 전체 기간 검색) ·
+#          셈 now = 이번 검색어로 찾은 성공 사례 수 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐". 함수 explore_words · success_rows · selftest.
+# (v1.9.0) — 2026-11-28 — trend_groups = 줄마다 하나 (판 링크가 새 탐색 화면 주소 trends.google.com/explore 로 바뀌어 8개까지 — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐"). 함수 trend_groups · selftest.
 # (v1.8.1) — 2026-11-28 — trend_groups 되돌림: 5개까지 한 링크 · 6~8개 = [앞 5개] + [첫 단어 + 나머지] (판 링크 꼴은 6개 넘으면 구글 트렌드 오류 화면 —
 #          사용자 알림 2026-11-28 "링크 열면 '죄송합니다. 이 페이지를 표시하는 중에 문제가 발생했습니다'") · 새 CSV 꼴 읽기는 그대로. 함수 trend_groups · selftest.
 # (v1.8.0) — 2026-11-28 — 구글 트렌드 링크 = 줄마다 하나 (새 탐색 화면은 8개까지 한 번에 비교 — 전에는 5개 넘으면 둘) · 판 CSV 읽기 넓힘(따옴표 칸 ·
@@ -89,7 +91,7 @@ TOOLS = Path(__file__).resolve().parent
 ROOT = TOOLS.parent
 sys.path.insert(0, str(TOOLS))
 
-VERSION = "v1.9.0"
+VERSION = "v1.10.0"
 import topic_state  # noqa: E402  v1.1 꺼 둔 주제
 import outlier_research as orr  # noqa: E402  v1.7.2 성공 판정 (조회수 구간 min_views_for)
 KST = dt.timezone(dt.timedelta(hours=9))
@@ -705,6 +707,24 @@ def _focus_of(folders: list[str]):
     return None, ""
 
 
+def explore_words(folder: str) -> tuple[dict, str]:
+    """v1.10 마지막 탐색(result/web/explore.json rows[].sources '검색:<낱말>'·'검색(전체 기간):<낱말>')에서 영상마다 찾은 지금 검색어(keywords.txt).
+    반환 ({영상 ID: {"q": [26주 검색 낱말], "qa": [전체 기간 검색 낱말]}}, 탐색 시각)."""
+    ex = read_json(ROOT / folder / "result/web/explore.json", {}) or {}
+    kp = ROOT / folder / "keywords.txt"
+    now = {re.sub(r"\s+", "", ln).lower() for ln in (kp.read_text("utf-8").splitlines() if kp.is_file() else []) if ln.strip() and not ln.lstrip().startswith("#")}
+    out = {}
+    for r in ex.get("rows") or []:
+        q, qa = [], []
+        for s in r.get("sources") or []:
+            m = re.match(r"^검색(\(전체 기간\))?:(.+)$", str(s))
+            if m and re.sub(r"\s+", "", m.group(2)).lower() in now:
+                (qa if m.group(1) else q).append(m.group(2).strip())
+        if q or qa:
+            out[r.get("id")] = {"q": sorted(set(q)), "qa": sorted(set(qa) - set(q))}
+    return out, str(ex.get("generated") or "")[:16]
+
+
 def success_rows(folder: str, focus, refs: dict) -> tuple[list[dict], dict]:
     """compare.csv 에서 [success] 기준을 모두 넘는 영상 (뺀 것·라이브 제외) · 자료 받은 사례(analysis.json)는 자세히. 반환 (줄, 셈)."""
     R = success_rules(folder)
@@ -718,6 +738,7 @@ def success_rows(folder: str, focus, refs: dict) -> tuple[list[dict], dict]:
                               "hook": str(c.get("hook20") or "")[:220], "needs": [f"{k.split(' — ')[0].split(' (')[0]} {v}" for k, v in top],
                               "src": c.get("text_source", "")}
     rows, n_all = [], 0
+    kw, kw_at = explore_words(folder)                          # v1.10 이번 검색어
     if p.is_file():
         rd = csv.DictReader(p.open(encoding="utf-8-sig"))
         if "id" in (rd.fieldnames or []):
@@ -740,6 +761,10 @@ def success_rows(folder: str, focus, refs: dict) -> tuple[list[dict], dict]:
                        "m": round(m, 1), "th": r.get("theme", ""), "f": folder, "ko": bool(HANGUL_RE.search(t)), "us": bool(focus.search(t)) if focus else None}
                 if r["id"] in cases:
                     row["x"] = cases[r["id"]]
+                if r["id"] in kw:
+                    row["q"] = kw[r["id"]]["q"]
+                    if kw[r["id"]]["qa"]:
+                        row["qa"] = kw[r["id"]]["qa"]
                 rows.append(row)
     if not rows and refs.get("titles"):                          # 독립 분석(위기) — 분석이 고른 성공 사례 그대로
         for r in refs["titles"]:
@@ -749,6 +774,7 @@ def success_rows(folder: str, focus, refs: dict) -> tuple[list[dict], dict]:
                          "us": bool(focus.search(t)) if focus else None, "x": {"fmt": r.get("format", ""), "shorts": r.get("shorts")}})
         R = R | {"from": refs.get("source", "") + " (독립 분석 — 분석이 고른 성공 사례)"}
     cnt = {"rows": len(rows), "cases": sum(1 for x in rows if x.get("x")), "compare": n_all, "rules": R,
+           "now": sum(1 for x in rows if x.get("q") or x.get("qa")), "now_at": kw_at,
            "asof": git("log", "-1", "--format=%cs", "--", rel(p)) if p.is_file() else ""}
     return rows, cnt
 
@@ -1166,6 +1192,9 @@ def selftest() -> int:
     rs, cs = success_rows("stock", re.compile("나스닥|s&p", re.I), {})
     check("v1.7 성공 사례 = 기준을 모두 넘는 영상 (구독자 5만 이하 · 7~180일 · 조회수 1만+ · 4분+ · 구독자당 하루 0.1+)",
           bool(rs) and all(r["s"] <= 50000 and 7 <= r["a"] <= 180 and r["v"] >= 10000 and r["m"] >= 4 and r["vs"] >= 0.1 for r in rs) and cs["cases"] <= len(rs))
+    kw, _ = explore_words("stock")
+    check("v1.10 이번 검색어 = 탐색 sources 의 지금 keywords.txt 낱말만 · 성공 사례 셈 now", all(set(v["q"]) | set(v["qa"]) for v in kw.values())
+          and cs["now"] == sum(1 for r in rs if r.get("q") or r.get("qa")) and all(r["id"] in kw for r in rs if r.get("q")), kw=len(kw), now=cs["now"])
     check("v1.5 숨긴 편 = studio.toml HIDE 폴더 이름 (있는 폴더만)", all((ROOT / f / "source" / x).is_dir() for f in ("economic", "stock") for x in topic_cfg(load_cfg(), f).get("HIDE", [])))
     check("v1.4 studio.toml 주식 → 재테크 · trend 주제", (load_cfg().get("MERGE") or {}).get("stock") == "economic" and "trend" in load_cfg()["TOPICS"])
     W8 = ["자기계발", "갓생", "동기부여", "미라클모닝", "루틴", "자기관리", "습관", "독서"]

@@ -1,6 +1,7 @@
 # 주식 주제 폴더 (`stock/`) — 새로 시작 (2026-10-15)
 
-VERSION: v1.39 — 2026-10-30 — **단계 평가 4회차** (`topics/precheck/round4.py` · `topics/pool/2026-10-30.json` · `topics/packages/2026-10-30_*.json` · `guides/data_insights.md` 5-1) — 사용자 지시 "1, 2단계만 평가 했으니 다시 업데이트 해봐".
+VERSION: v1.40 — 2026-11-28 — **검색어 = 미국주식 30개** (판 트렌드 줄과 같은 낱말 · 관련어 `keywords.toml` v1.3) → 탐색 `cloud_run.py stock explore --weeks 26`(검색 78 · 7,872단위 · 한국어 롱폼 1,455) → `analyze` — 이번 검색어로 찾은 성공 사례 39개 (`result/next_topic/next_topic.md` 0-2 · 판 ① 목록) — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐".
+이전 v1.39 — 2026-10-30 — **단계 평가 4회차** (`topics/precheck/round4.py` · `topics/pool/2026-10-30.json` · `topics/packages/2026-10-30_*.json` · `guides/data_insights.md` 5-1) — 사용자 지시 "1, 2단계만 평가 했으니 다시 업데이트 해봐".
 이전 v1.38 — 2026-10-29 — **1단계 14개를 문제형·테스트형으로** (`topics/packages/2026-10-29_stage1_v2.json` · `topics/precheck/t048_sell_vs_hold.py` · `tools/topic_ideas.py` v1.6.2) — 사용자 지시 "1번 평가판은 사실형으로 하지 말고 문제나 테스트형으로 좀 해봐 왜 다 사실형이야".
 이전 v1.37 — 2026-10-29 — **이전 평가 좋음 9개는 2단계로** (`topics/packages/2026-10-29_s2.json` · `topics/기존편_평가.txt` · `tools/topic_ideas.py` v1.6.1) — 사용자 지시 "아니 내가 이전에 좋다고 한것들은 2번에 넣어야지 다시해봐".
 이전 v1.36 — 2026-10-29 — **단계 평가판 세 장** (`topics/평가판.html`·`평가판_2단계.html`·`평가판_3단계.html` · `topics/단계평가.txt` · `topics/packages/2026-10-29_stage1.json` · `tools/topic_ideas.py` v1.6) — 사용자 지시 "1번. 제목, 전달하고자 하는 내용 / 2번. 썸네일 문구, 보조문구, 대본 도입부(요약) / 3번. 대본 내용(요약) 각각 3가지 평가판을 만들어봐".
@@ -177,7 +178,7 @@ powershell -ExecutionPolicy Bypass -File run_analyzer.ps1 -Folder stock
 | 위치 | 내용 |
 |---|---|
 | `analyzer_config.toml` | 분석기 설정 v3.2 (`FRESH_START` — 아래 '캐시' · **`INCLUDE_FOREIGN = true`**(2026-10-16) — 위 '외국 영상'): 주제 이름 **주식**·폴더 `stock`·할당량 `QUOTA_BUDGET = 6000`·**영상 파일 안 받음**(`DOWNLOAD_VIDEOS = false`) — 값은 `economic/` v1.1 과 같음 |
-| **`keywords.txt`** | **검색어 목록 40개 — 모두 주식 낱말이 든 말** (주식·주가·증시·코스피·코스닥·나스닥·S&P·ETF·배당·미장·국장·주린이·가치투자·장기투자·단타 …). 한 줄에 하나, `#` 줄은 메모. 실제 영상 태그에서 고름(`tools/tag_keywords.py` v1.4). **GitHub 에서 고치면 PC 가 다음 회차에 자동으로 받아 씀** |
+| **`keywords.txt`** | **검색어 목록 30개 — 미국주식** (2026-11-28 — S&P500·미국주식·나스닥·서학개미·티커 QQQ·SCHD·SOXL 등 · 판 재테크 트렌드 줄과 같은 낱말 · 예전 40개 주식 낱말 목록은 git 이력) |
 | **`keywords_foreign.txt`** | **영어 검색어 15개** — 외국 영상을 켰을 때만 검색 (위 '외국 영상'). 표 [`tag_candidates_foreign.md`](tag_candidates_foreign.md) |
 | `keywords.toml` | v1.1 — 주제 관련어 54개(주식·코스피·ETF·배당주·공매도·반대매매·연금저축·ISA … + 영어 stocks·stock market·dividend·nasdaq …) · 약한 관련어 34개(투자·종목·개미·손절·물타기 … + investing·trading·portfolio …) · 제외어(주식회사·(주)·㈜) — 탐색한 영상이 주식 영상인지 가름 |
 | `tag_rules.toml` | 태그 → 검색어 규칙 v1.2 (`[foreign]` = 영어 검색어 규칙): 씨앗 검색어 8개(주식·주식 투자·주식 초보·미국주식·주식 공부·ETF 투자·배당주·국내주식) · 채널 5곳 이상 · 40개 · **주식 낱말 필수**(`TAG_REQUIRE` 33개 — 재테크·투자·연금·노후준비·부자·반도체·2차전지 같은 넓은 태그는 빠짐) · **빼는 말**(뉴스·시황·전망·라이브·쇼츠·경제·금리·환율·정치·**종목 이름**·부동산·코인·자기계발·AI·금융·달러) · 묶음 13개 · 묶음 밖은 '기타 주식' |

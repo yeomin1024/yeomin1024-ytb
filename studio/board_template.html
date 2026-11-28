@@ -1,6 +1,7 @@
 <title>제작 판</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<!-- VERSION: v1.7.0 — 2026-11-28 — 구글 트렌드 링크 = 새 탐색 화면 주소 trends.google.com/explore (옛 /trends/explore 아님) · 줄마다 하나 (8개까지) — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐".
+<!-- VERSION: v1.8.0 — 2026-11-28 — 성공 사례 목록: '이번 검색어로 찾은 것만' 거르기(기본 켬 — 있을 때) · 줄마다 찾은 검색어 칩 · 검색어 칸 — 사용자 지시 2026-11-28 "csv 다 올렸고 그 단어들로 성공 사례 찾아봐".
+     (v1.7.0) — 2026-11-28 — 구글 트렌드 링크 = 새 탐색 화면 주소 trends.google.com/explore (옛 /trends/explore 아님) · 줄마다 하나 (8개까지) — 사용자가 준 새 탐색 화면 주소 2026-11-28 "https://trends.google.com/explore?date=now%201-d&geo=KR&hl=ko&q=… 8개 한 링크로 해봐".
      (v1.6.1) — 2026-11-28 — 링크 되돌림: 5개까지 한 링크 · 6~8개면 둘 (옛 주소 꼴에 6개 넘게 넣으면 구글 트렌드 오류 화면 — 사용자 알림 2026-11-28 "링크 열면 '죄송합니다. 이 페이지를 표시하는 중에 문제가 발생했습니다'") · 새 화면 CSV 읽기는 그대로.
      (v1.6.0) — 2026-11-28 — 구글 트렌드 링크 = 줄마다 하나 (8개까지 한 번에 비교 — 새 탐색 화면) · CSV 읽기 넓힘(따옴표 칸·날짜/Date 머리) — 사용자 지시 2026-11-28 "야 근데 링크 여는거 단어 8개 동시에 하는게 안돼?" · "사이트에서는 8개 비교 되던데".
      (v1.5.1) — 2026-11-28 — ① 성공 사례 단계는 그 단계가 있는 주제만 (rules.json steps[].only — 지금 재테크(주식)만) — 사용자 지시 2026-11-28 "야 내말 못들었냐 지금은 주식 주제만 하라고 계속 진행해".
@@ -252,7 +253,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     view: "topic", mode: store("mode") === "rules" ? "rules" : "work", panel: false, data: {}, common: null, db: null, canWrite: true, connected: false,
     col: Object.fromEntries(COLS.map(c => [c, new Map()])),
     edit: null, confirm: null, open: new Set(), sel: {}, refq: "", busy: false,
-    sf: { q: "", folder: "all", us: false, ko: false, cs: false, sort: "vs", n: 100 },     // v1.5 성공 사례 목록 거르기
+    sf: { q: "", folder: "all", us: false, ko: false, cs: false, kw: true, sort: "vs", n: 100 },     // v1.5 성공 사례 목록 거르기 · v1.8 kw = 이번 검색어로 찾은 것만 (기본)
   };
   let tt = null;
   const toast = m => { const t = $("toast"); t.textContent = m; t.hidden = false; clearTimeout(tt); tt = setTimeout(() => { t.hidden = true; }, 2400); };
@@ -354,13 +355,15 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     const img = {}; for (const t of ((D.refs || {}).thumbs || [])) if (t.vid && t.img) img[t.vid] = t.img;
     const q = (F.q || "").trim().toLowerCase();
     const folders = Object.keys(SC.by_folder || {});
-    let L = (SC.rows || []).filter(r => (!q || (r.t + " " + r.ch + " " + (r.th || "")).toLowerCase().includes(q)) && (F.folder === "all" || r.f === F.folder)
-      && (!F.us || r.us) && (!F.ko || r.ko) && (!F.cs || r.x));
+    const hasKw = (SC.rows || []).some(r => r.q || r.qa), kwOn = hasKw && F.kw;           // v1.8 이번 검색어 (마지막 탐색에서 찾은 낱말)
+    const qs = r => [...(r.q || []), ...(r.qa || [])].join(" ");
+    let L = (SC.rows || []).filter(r => (!q || (r.t + " " + r.ch + " " + (r.th || "") + " " + qs(r)).toLowerCase().includes(q)) && (F.folder === "all" || r.f === F.folder)
+      && (!F.us || r.us) && (!F.ko || r.ko) && (!F.cs || r.x) && (!kwOn || r.q || r.qa));
     const K = { vs: r => -(r.vs || 0), v: r => -(r.v || 0), p: r => -(Date.parse(r.p) || 0), s: r => (r.s || 0), m: r => -(r.m || 0) }[F.sort] || (r => -(r.vs || 0));
     L = L.slice().sort((a, b) => K(a) - K(b));
     const hasUs = (SC.rows || []).some(r => r.us != null), hasForeign = (SC.rows || []).some(r => !r.ko);
     const ruleTxt = f => { const c = SC.by_folder[f] || {}, R = c.rules || {};
-      return `<li><b>${e(tname(f))}</b> — 기준 넘은 영상 ${fmtN(c.rows)} · 자료 받은 사례 ${fmtN(c.cases)} (채널당 ${e(R.CASES_PER_CHANNEL)}개) · 비교 집단 ${fmtN(c.compare)} · 자료 ${e(c.asof || "?")}<br><span class="small">올린 지 ${e(R.MIN_AGE_DAYS)}~${e(R.MAX_AGE_DAYS)}일 · 구독자 ${fmtN(R.MAX_SUBS)} 이하 · ${R.MIN_VPD_SUBS ? "구독자당 하루 조회수 " + e(R.MIN_VPD_SUBS) + " 이상" : "조회수 ≥ 구독자 × " + e(R.MIN_RATIO)} · 조회수 ${fmtN(R.MIN_VIEWS)} 이상 · ${e(R.MIN_MINUTES)}분 이상 · 라이브·주제 밖·외국·광고 의심 뺌 — <span class="mono">${e(R.from || "")}</span></span></li>`; };
+      return `<li><b>${e(tname(f))}</b> — 기준 넘은 영상 ${fmtN(c.rows)}${c.now ? ` (이번 검색어로 찾은 것 <b>${fmtN(c.now)}</b> · 탐색 ${e(c.now_at || "?")})` : ""} · 자료 받은 사례 ${fmtN(c.cases)} (채널당 ${e(R.CASES_PER_CHANNEL)}개) · 비교 집단 ${fmtN(c.compare)} · 자료 ${e(c.asof || "?")}<br><span class="small">올린 지 ${e(R.MIN_AGE_DAYS)}~${e(R.MAX_AGE_DAYS)}일 · 구독자 ${fmtN(R.MAX_SUBS)} 이하 · ${R.MIN_VPD_SUBS ? "구독자당 하루 조회수 " + e(R.MIN_VPD_SUBS) + " 이상" : "조회수 ≥ 구독자 × " + e(R.MIN_RATIO)} · 조회수 ${fmtN(R.MIN_VIEWS)} 이상 · ${e(R.MIN_MINUTES)}분 이상 · 라이브·주제 밖·외국·광고 의심 뺌 — <span class="mono">${e(R.from || "")}</span></span></li>`; };
     const chip = (k, lab) => `<button type="button" class="pill ${F[k] ? "" : "ghostpill"}" data-act="sf" data-k="${k}" aria-pressed="${!!F[k]}">${e(lab)}</button>`;
     const W = SC.words || {};
     const grp = (g, pre) => `<div class="wgroup"><span class="small"><b>${e(pre + (g.name || "갈래 없음"))}</b> ${g.words.length}</span><div class="words">${g.words.map(x => `<span class="word">${e(x.w)}${x.ch ? `<b title="이 낱말을 태그로 쓴 채널 수 · 영상 ${e(x.v)}">${e(x.ch)}</b>` : ""}</span>`).join("")}</div></div>`;
@@ -371,7 +374,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
     const rows = shown.map((r, i) => { const x = r.x;
       return `<tr><td class="num">${i + 1}</td><td>${img[r.id] ? `<img class="sthumb" src="${e(img[r.id])}" alt="" loading="lazy">` : ""}</td>
         <td style="min-width:240px">${/^[\w-]{6,}$/.test(r.id || "") ? `<a href="https://www.youtube.com/watch?v=${encodeURIComponent(r.id)}" target="_blank" rel="noopener">${e(r.t)}</a>` : e(r.t)}
-          <div class="row" style="gap:4px;margin-top:2px">${x ? `<span class="chip ok">자료 받음</span>` : ""}${r.us ? `<span class="chip acc">미국주식</span>` : ""}${r.ko ? "" : `<span class="chip warn">외국</span>`}${folders.length > 1 ? `<span class="chip mute">${e(tname(r.f))}</span>` : ""}</div>
+          <div class="row" style="gap:4px;margin-top:2px">${x ? `<span class="chip ok">자료 받음</span>` : ""}${r.us ? `<span class="chip acc">미국주식</span>` : ""}${(r.q || []).map(w => `<span class="chip mute" title="이번 검색어 (최근 26주 검색)">${e(w)}</span>`).join("")}${(r.qa || []).map(w => `<span class="chip mute" title="이번 검색어 (기간 없는 검색)">${e(w)} · 전체 기간</span>`).join("")}${r.ko ? "" : `<span class="chip warn">외국</span>`}${folders.length > 1 ? `<span class="chip mute">${e(tname(r.f))}</span>` : ""}</div>
           ${x ? `<details><summary class="small">자세히</summary><div class="small" style="display:grid;gap:3px;margin-top:4px">${x.fmt ? `<div>형식: ${e(x.fmt)}</div>` : ""}${x.like != null ? `<div>좋아요율 ${pct(x.like)} · 댓글 ${fmtN(x.cm)}개${x.src ? " · 글 출처 " + e(x.src) : ""}</div>` : ""}${x.hook ? `<div>첫 20초: “${e(x.hook)}”</div>` : ""}${(x.needs || []).length ? `<div>댓글 갈래: ${x.needs.map(e).join(" · ")}</div>` : ""}</div></details>` : ""}</td>
         <td>${e(r.ch)}</td><td class="num">${fmtN(r.s)}</td><td class="num">${fmtN(r.v)}</td><td class="num">${r.vs == null ? "–" : r.vs.toFixed(2)}</td>
         <td class="mono">${e(r.p)}</td><td class="num">${r.m == null ? "–" : r.m}</td><td class="small">${e(r.th || "")}</td></tr>`; }).join("");
@@ -381,7 +384,7 @@ const BOARD = /*BOARD:BEGIN*/null/*BOARD:END*/;
       <div class="row"><input type="text" id="sq" value="${e(F.q)}" placeholder="찾기 — 제목·채널·묶음 낱말" style="flex:1 1 220px;width:auto">
         ${folders.length > 1 ? `<select id="sf-folder" data-act="sf-sel" data-k="folder" style="width:auto"><option value="all">폴더 모두</option>${folders.map(f => `<option value="${e(f)}" ${F.folder === f ? "selected" : ""}>${e(tname(f))}</option>`).join("")}</select>` : ""}
         <select id="sf-sort" data-act="sf-sel" data-k="sort" style="width:auto">${[["vs", "구독자당 하루 조회수 큰 순"], ["v", "조회수 큰 순"], ["p", "최근 순"], ["s", "구독자 작은 순"], ["m", "긴 영상 순"]].map(([k, l]) => `<option value="${k}" ${F.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select></div>
-      <div class="row">${hasUs ? chip("us", "미국주식 낱말만") : ""}${hasForeign ? chip("ko", "한국어만") : ""}${chip("cs", "자료 받은 사례만")}</div>
+      <div class="row">${hasKw ? chip("kw", "이번 검색어로 찾은 것만") : ""}${hasUs ? chip("us", "미국주식 낱말만") : ""}${hasForeign ? chip("ko", "한국어만") : ""}${chip("cs", "자료 받은 사례만")}</div>
       <div class="tablebox"><table class="stable"><thead><tr><th>#</th><th></th><th>제목</th><th>채널</th><th>구독자</th><th>조회수</th><th>구독자당 하루</th><th>올린 날</th><th>분</th><th>묶음</th></tr></thead><tbody>${rows || `<tr><td colspan="10" class="empty">맞는 영상 없음</td></tr>`}</tbody></table></div>
       ${L.length > shown.length ? `<div class="row"><button class="btn ghost sm" data-act="sf-more">${fmtN(Math.min(100, L.length - shown.length))}개 더 보기 (남은 ${fmtN(L.length - shown.length)})</button></div>` : ""}
       <p class="small">'구독자당 하루' = 조회수 ÷ 올린 지 날수 ÷ 구독자 (0.1 = 30일에 구독자 × 3) · 숫자는 분석 때 받은 값 · '자료 받음' = 설명·자막·댓글·썸네일을 받은 사례 (지시사항 근거)${SC.focus ? " · 미국주식 낱말 = <span class=\"mono\">" + e(SC.focus) + "</span> FOCUS" : ""}.</p></section>`;

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.1 — 2026-11-28 — 지난 실행 뒤 흐른 만큼만 갱신 (검색어마다 마지막 시각 · 시장은 지난 거래일 뒤 · 본 영상은 새 댓글만) — 사용자 지시
+# VERSION: v1.2 — 2026-11-28 — recount (의도 낱말 규칙을 바꾼 뒤 저장한 실행을 다시 세어 전후 비교) · '지난 실행' 칸도 지금 규칙으로 다시 셈 — 사용자 지시 2026-11-28 "1~3번 진행해".
+# 이전 v1.1 — 2026-11-28 — 지난 실행 뒤 흐른 만큼만 갱신 (검색어마다 마지막 시각 · 시장은 지난 거래일 뒤 · 본 영상은 새 댓글만) — 사용자 지시
 #          2026-11-28 "일단 예약 작업은 하지말고 탐색 시 시간체크해서 지난 만큼 업데이트하도록 하고".
 # 이전 v1.0.1 — 2026-11-28 — 할당량이 댓글 도중에 끝나도 받은 댓글을 남김 (다른 세션).
 # 이전 v1.0 — 2026-11-28 — 최초. 날마다(미국 장 마감 뒤) 주식 시청자 공통 관심 → 주제 후보 재료 — 사용자 지시 2026-11-28
@@ -26,10 +27,15 @@
 #                    · v1.0.1 의 '할당량이 도중에 끝나도 받은 댓글 남김'도 같은 거르기(_keep)를 거침.
 #                    · ↻ 다시 보기 — 지난 실행에서 댓글 받은 영상 중 올린 지 REVISIT_DAYS 안 · 시간당 조회수 상위 REVISIT_TOP 편은 새 정보를 받아
 #                      그 뒤 달린 댓글만 더함 (기간이 좁아져도 며칠 된 인기 영상에 오늘 달리는 댓글 = 지금 관심을 놓치지 않게).
+#   v1.2 2026-11-28  · recount <날짜[_시각]> — 저장한 json.gz 의 댓글·비교 댓글을 지금 [intent] 규칙으로 다시 세어 전후 표를 로그에 · json 에
+#                      intent_today·intent_base 바꾸고 recount 기록(고치기 전 몫) · md 3~5번만 다시 씀 (0~2번 그대로) · latest.md 가 같은 실행이면 같이.
+#                    · '지난 실행' 칸 = 지난 결과의 댓글을 지금 규칙으로 다시 셈 (v1.1 은 그때 규칙으로 센 몫 — 규칙을 바꾸면 비교가 어긋났음).
+#                    · 3번 제목에 규칙 판 (daily_topic.toml VERSION) · 3~5번을 intent_lines() 하나로 (write·recount 같이 씀).
 #
 # 쓰는 법
 #   python3 tools/daily_topic.py stock run [--budget 2500] [--words 12] [--top 120]
 #   python3 tools/daily_topic.py stock plan        # 할당량 안 쓰고 이번에 찾을 기간·조각·예상 단위만 (읽기만)
+#   python3 tools/daily_topic.py stock recount 2026-11-28   # 규칙을 바꾼 뒤 그 실행을 다시 셈 (할당량 안 씀)
 #   python3 tools/daily_topic.py selftest
 # 연구·교육용 — 투자 조언이 아님. 의도 몫은 낱말 세기 → 판단은 Claude 가 표본 원문을 읽고 (stock/guides/daily_topic.md).
 from __future__ import annotations
@@ -51,7 +57,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import market_data as md          # noqa: E402
 import outlier_research as orr    # noqa: E402
 
-VERSION = "v1.1"
+VERSION = "v1.2"
 ROOT = Path(__file__).resolve().parent.parent
 KST = dt.timezone(dt.timedelta(hours=9))
 HANGUL = re.compile(r"[가-힣]")
@@ -342,8 +348,19 @@ def baseline_texts(folder: str) -> list[str]:
 
 
 # ─────────────────────────────── 문서
-def prev_intent(folder: str, stt: dict) -> tuple[str, dict]:
-    """지난 실행 결과의 의도 몫 (없으면 빈 것)."""
+def rules_version(folder: str) -> str:
+    m = re.search(r"VERSION:\s*(v[\d.]+)", (ROOT / folder / "daily_topic.toml").read_text("utf-8"))
+    return f"daily_topic.toml {m.group(1) if m else '?'}"
+
+
+def pairs(j: dict) -> list[tuple[dict, dict]]:
+    """저장한 실행 → (댓글, 영상) 쌍."""
+    vmap = {v["id"]: v for v in j.get("videos") or []}
+    return [(c, vmap.get(vid, {"id": vid, "title": ""})) for vid, xs in (j.get("comments") or {}).items() for c in xs]
+
+
+def prev_intent(folder: str, stt: dict, intents) -> tuple[str, dict]:
+    """지난 실행 댓글을 지금 규칙으로 다시 센 몫 (v1.2 — 규칙이 바뀌어도 같은 잣대로 비교). 없으면 빈 것."""
     f = stt.get("last_file") or ""
     p = ROOT / folder / "result/next_topic/daily" / f
     if not f or not p.is_file():
@@ -351,10 +368,44 @@ def prev_intent(folder: str, stt: dict) -> tuple[str, dict]:
     try:
         with gzip.open(p, "rt", encoding="utf-8") as fh:
             j = json.load(fh)
-        return j.get("stamp") or j.get("date", ""), j.get("intent_today") or {}
     except (OSError, json.JSONDecodeError) as e:
         log("WRITE", logging.WARNING, note="지난 결과를 읽지 못함 — '지난 실행' 칸 비움", file=f, error=str(e)[:100])
         return "", {}
+    return j.get("stamp") or j.get("date", ""), intent_shares([c["text"] for c, _ in pairs(j)], intents)
+
+
+def intent_lines(folder: str, intents, allc: list, now_sh: dict, base_sh: dict, prev_sh: dict, pstamp: str, nbase: int, note: str = "") -> list[str]:
+    """결과 문서 3~5번 (write·recount 같이 씀)."""
+    L = []
+    A = L.append
+    A(f"## 3. 시청자가 무엇을 하려는지·알고 싶은지 (이번 기간 댓글 {len(allc):,}개 — 앞서 본 영상은 그 뒤 댓글만 · 비교 = 지난 실행({pstamp or '없음'}) · "
+      f"승인 자료(분석 사례) 댓글 전부 {nbase:,}개 · 규칙 {rules_version(folder)} — 모든 칸 같은 규칙)\n")
+    if note:
+        A(note + "\n")
+    A("| 의도 | 이번 | 지난 실행 | 분석 사례 댓글(전체 기간) | 배수 (이번 ÷ 분석 사례) |")
+    A("|---|---|---|---|---|")
+    rows = [("_timing_any", "**매수 타이밍·바닥·하락·가격 예측 (넷 중 하나라도)**")] + [(k, k) for k, _ in intents]
+    pc = lambda x: "–" if x is None else f"{x}%"
+    for key, label in rows:
+        a, b, c = now_sh[key], base_sh[key], prev_sh.get(key) or {}
+        A(f"| {label} | {pc(a['pct'])} ({a['n']:,}) | {pc(c.get('pct'))} | {pc(b['pct'])} | "
+          f"{('%.1f배' % (a['pct'] / b['pct'])) if a['pct'] and b['pct'] else '–'} |")
+    A("")
+    A("## 4. 갈래마다 공감 큰 댓글 (원문 · 작성자 이름 없음)\n")
+    for k, rx in intents:
+        xs = sorted([(c, v) for c, v in allc if rx.search(c["text"])], key=lambda cv: -cv[0]["like"])[:5]
+        if not xs:
+            continue
+        A(f"**{k}**")
+        for c, v in xs:
+            A(f"- ({c['like']}) {c['text'][:160]} — 「{v['title'][:30]}」")
+        A("")
+    A("## 5. 질문만 (공감 순 30)\n")
+    qs = sorted([(c, v) for c, v in allc if QUESTION.search(c["text"])], key=lambda cv: -cv[0]["like"])[:30]
+    for c, v in qs:
+        A(f"- ({c['like']}) {c['text'][:160]} — 「{v['title'][:30]}」")
+    A("")
+    return L
 
 
 def write(folder: str, cfg: dict, mk: dict, vids: list[dict], cms: dict, units: int, t0: float, wins: dict, done: dict, stt: dict) -> Path:
@@ -367,7 +418,7 @@ def write(folder: str, cfg: dict, mk: dict, vids: list[dict], cms: dict, units: 
     texts = [c["text"] for c, _ in allc]
     base = baseline_texts(folder)
     now_sh, base_sh = intent_shares(texts, intents), intent_shares(base, intents)
-    pstamp, prev_sh = prev_intent(folder, stt)
+    pstamp, prev_sh = prev_intent(folder, stt, intents)
     L = []
     A = L.append
     A(f"# 주식 시청자 관심 — {now.strftime('%Y-%m-%d %H:%M')} KST\n")
@@ -400,37 +451,14 @@ def write(folder: str, cfg: dict, mk: dict, vids: list[dict], cms: dict, units: 
     for i, v in enumerate(vids[:30], 1):
         A(f"| {i}{' ↻' if v.get('revisit') else ''} | {v['published'][5:]} | [{v['title'][:55].replace('|', '｜')}](https://www.youtube.com/watch?v={v['id']}) | {v['channel'][:12].replace('|', '｜')} | {v['views']:,} | {v['vph']:,.0f} | {'쇼츠' if v['short'] else str(round(v['sec'] / 60)) + '분'} | {v['comments']:,} |")
     A("")
-    A(f"## 3. 시청자가 무엇을 하려는지·알고 싶은지 (이번 기간 댓글 {len(texts):,}개 — 앞서 본 영상은 그 뒤 댓글만 · 비교 = 지난 실행({pstamp or '없음'}) · 승인 자료(분석 사례) 댓글 전부 {len(base):,}개)\n")
-    A("| 의도 | 이번 | 지난 실행 | 분석 사례 댓글(전체 기간) | 배수 (이번 ÷ 분석 사례) |")
-    A("|---|---|---|---|---|")
-    rows = [("_timing_any", "**매수 타이밍·바닥·하락·가격 예측 (넷 중 하나라도)**")] + [(k, k) for k, _ in intents]
-    for key, label in rows:
-        a, b, c = now_sh[key], base_sh[key], prev_sh.get(key) or {}
-        pc = lambda x: "–" if x is None else f"{x}%"
-        A(f"| {label} | {pc(a['pct'])} ({a['n']:,}) | {pc(c.get('pct'))} | {pc(b['pct'])} | "
-          f"{('%.1f배' % (a['pct'] / b['pct'])) if a['pct'] and b['pct'] else '–'} |")
-    A("")
-    A("## 4. 갈래마다 공감 큰 댓글 (원문 · 작성자 이름 없음)\n")
-    for k, rx in intents:
-        xs = sorted([(c, v) for c, v in allc if rx.search(c["text"])], key=lambda cv: -cv[0]["like"])[:5]
-        if not xs:
-            continue
-        A(f"**{k}**")
-        for c, v in xs:
-            A(f"- ({c['like']}) {c['text'][:160]} — 「{v['title'][:30]}」")
-        A("")
-    A("## 5. 질문만 (공감 순 30)\n")
-    qs = sorted([(c, v) for c, v in allc if QUESTION.search(c["text"])], key=lambda cv: -cv[0]["like"])[:30]
-    for c, v in qs:
-        A(f"- ({c['like']}) {c['text'][:160]} — 「{v['title'][:30]}」")
-    A("")
+    L += intent_lines(folder, intents, allc, now_sh, base_sh, prev_sh, pstamp, len(base))
     p = od / f"{stamp}.md"
     p.write_text("\n".join(L) + "\n", "utf-8")
     (od / "latest.md").write_text("\n".join(L) + "\n", "utf-8")
     with gzip.open(od / f"{stamp}.json.gz", "wt", encoding="utf-8") as f:
         json.dump({"date": today, "stamp": stamp, "tool": f"daily_topic.py {VERSION}", "market": mk, "videos": vids, "comments": cms,
                    "windows": {w: {"start": iso(W["start"]), "done": done.get(w, ""), "skipped": W["skipped"]} for w, W in wins.items()},
-                   "intent_today": now_sh, "intent_base": base_sh}, f, ensure_ascii=False)
+                   "intent_today": now_sh, "intent_base": base_sh, "intent_rules": rules_version(folder)}, f, ensure_ascii=False)
     log("WRITE", md=str(p.relative_to(ROOT)), videos=len(vids), comments=len(texts), timing_any=now_sh["_timing_any"]["pct"], base=base_sh["_timing_any"]["pct"],
         sec=round(time.time() - t0, 1))
     return p
@@ -479,6 +507,65 @@ def run(folder: str, budget: int, nwords: int, top: int) -> int:
     return 0
 
 
+def recount(folder: str, stamp: str) -> int:
+    """규칙을 바꾼 뒤 저장한 실행을 다시 셈 — 할당량 안 씀. 전후 표 로그 · json 의도 몫 바꿈(고치기 전 몫은 recount 기록에) · md 3~5번만 다시."""
+    t0 = time.time()
+    od = ROOT / folder / "result/next_topic/daily"
+    jp, mp = od / f"{stamp}.json.gz", od / f"{stamp}.md"
+    if not jp.is_file() or not mp.is_file():
+        log("RECOUNT", logging.WARNING, note="그 실행 파일이 없음", json=str(jp.relative_to(ROOT)), next="daily/ 의 <날짜>[_시각] 이름으로")
+        return 1
+    cfg = load_cfg(folder)
+    intents = cfg["_intent"]
+    with gzip.open(jp, "rt", encoding="utf-8") as fh:
+        j = json.load(fh)
+    allc = pairs(j)
+    base = baseline_texts(folder)
+    new_today, new_base = intent_shares([c["text"] for c, _ in allc], intents), intent_shares(base, intents)
+    old_today, old_base = j.get("intent_today") or {}, j.get("intent_base") or {}
+    olds = sorted(x.name for x in od.glob("*.json.gz") if x.name < jp.name)       # 바로 앞 실행 — 같은 규칙으로
+    pstamp, prev_sh = prev_intent(folder, {"last_file": olds[-1] if olds else ""}, intents)
+    rv, was = rules_version(folder), j.get("intent_rules") or "daily_topic.toml v1.1 이하"
+    log("RECOUNT", file=jp.name, comments=len(allc), base=len(base), rules_before=was, rules_after=rv)
+    print(f"\n| 의도 | 이번 전 → 후 | 분석 사례 전 → 후 | 배수 전 → 후 |\n|---|---|---|---|")
+    rows = [("_timing_any", "타이밍 넷 중 하나")] + [(k, k) for k, _ in intents]
+    # 갈래 이름이 바뀐 것 (v1.2 '원인·이유 (왜)' → '원인·이유 (왜 오르고 내리나)') — 앞부분이 같으면 같은 갈래로 봄
+    def old_of(d, k):
+        if k in d:
+            return d[k]
+        for kk, vv in d.items():
+            if kk.split(" (")[0] == k.split(" (")[0]:
+                return vv
+        return {}
+    ratio = lambda a, b: f"{a / b:.1f}배" if a and b else "–"
+    for key, label in rows:
+        oa, ob, na, nb = old_of(old_today, key), old_of(old_base, key), new_today[key], new_base[key]
+        print(f"| {label} | {oa.get('pct')}% ({oa.get('n')}) → {na['pct']}% ({na['n']}) | {ob.get('pct')}% → {nb['pct']}% | "
+              f"{ratio(oa.get('pct'), ob.get('pct'))} → {ratio(na['pct'], nb['pct'])} |")
+    now = dt.datetime.now(KST)
+    j.setdefault("recount", []).append({"at": now.isoformat(timespec="seconds"), "rules_before": was, "rules_after": rv,
+                                        "before_today": old_today, "before_base": old_base})
+    j["intent_today"], j["intent_base"], j["intent_rules"] = new_today, new_base, rv
+    with gzip.open(jp, "wt", encoding="utf-8") as fh:
+        json.dump(j, fh, ensure_ascii=False)
+    md_old = mp.read_text("utf-8")
+    cut = md_old.find("\n## 3. ")
+    if cut < 0:
+        log("RECOUNT", logging.WARNING, note="md 에 3번 절이 없음 — json 만 바꿈", md=mp.name)
+        return 1
+    ot, nt_ = old_of(old_today, "_timing_any"), new_today["_timing_any"]
+    note = (f"> {now.strftime('%Y-%m-%d %H:%M')} KST 다시 셈 (`daily_topic.py recount {stamp}`) — 규칙 {was} → {rv}. "
+            f"타이밍 넷 중 하나 {ot.get('pct')}% → {nt_['pct']}% · 고치기 전 몫은 json `recount` 에. 1~2번(시장·영상)은 그대로.")
+    md_new = md_old[:cut + 1] + "\n".join(intent_lines(folder, intents, allc, new_today, new_base, prev_sh, pstamp, len(base), note)) + "\n"
+    mp.write_text(md_new, "utf-8")
+    lt = od / "latest.md"
+    if lt.is_file() and lt.read_text("utf-8") == md_old:
+        lt.write_text(md_new, "utf-8")
+    log("RECOUNT", md=mp.name, latest_updated=lt.is_file() and lt.read_text("utf-8") == md_new, timing_before=ot.get("pct"), timing_after=nt_["pct"],
+        sec=round(time.time() - t0, 1))
+    return 0
+
+
 def plan(folder: str, nwords: int, top: int) -> int:
     """할당량 안 쓰고 이번에 찾을 기간·조각·예상 단위 (읽기만)."""
     cfg = load_cfg(folder)
@@ -508,6 +595,16 @@ def selftest() -> int:
     sh = intent_shares(["지금 SOXL 사도 될까요?", "바닥은 아직 멀었다 더 빠진다", "감사합니다"], cfg["_intent"])
     check("의도 — 매수 타이밍·추가 하락·넷 중 하나", sh["매수 타이밍 (살까·언제·들어가)"]["n"] == 1 and sh["추가 하락 예측"]["n"] == 1 and sh["_timing_any"]["n"] == 2)
     check("길이 읽기", iso_dur("PT1H2M3S") == 3723 and iso_dur("PT45S") == 45)
+    R = dict(cfg["_intent"])
+    neg = {"매도·익절": ["공매도 금지 안 시키냐", "외인매도전환 매도세", "집팔아 주식한 사람", "깔끔하게 정리 잘해 주셔서"],
+           "분노·탓": ["일정부분 만회하는 반등"], "바닥·반등 예측": ["이바닥에서 전문가는", "오른다 내린다 하는 인간들 사기", "기회주의 젓문가들", "전세월세떡상"],
+           "가격·시점 예측 (숫자·날짜)": ["코스피 200 선물지수로는", "9월29일에 샀네"], "추가 하락 예측": ["외국인 천국 개인 지옥"],
+           "계좌·세금": ["계좌 녹아납니다", "깡통계좌"], "종목·상품 고르기 (뭘 살까)": ["OO 추천하고 샀는데 -72%"]}
+    pos = {"매도·익절": ["지금 매도할까요", "익절했습니다", "전량 정리했어요"], "분노·탓": ["정부는 뭐하냐", "공매도 세력"],
+           "바닥·반등 예측": ["4000이 바닥일지는", "저점 매수", "반등 나옵니다", "다시 오르면"], "가격·시점 예측 (숫자·날짜)": ["4500선 지키면", "내년 1분기", "5만원 간다"],
+           "추가 하락 예측": ["더 떨어질 텐데", "하락 지옥"], "계좌·세금": ["ISA 계좌로", "연금저축펀드", "양도세 얼마"]}
+    bad = [(k, t) for k, ts in neg.items() for t in ts if R[k].search(t)] + [(k, t) for k, ts in pos.items() for t in ts if not R[k].search(t)]
+    check(f"의도 규칙 v1.2 — 거짓 걸림 {sum(len(x) for x in neg.values())}개 안 걸림 · 맞는 말 {sum(len(x) for x in pos.values())}개 걸림" + (f" ✗ {bad}" if bad else ""), not bad)
     check("설정 — 검색어·할당량", len(cfg["search"]["WORDS"]) >= 5 and cfg["comments"]["BUDGET"] > 0)
     now = parse_iso("2026-11-28T12:00:00Z")
     c2 = {"search": {"DAYS": 3, "MAX_DAYS": 14, "OVERLAP_HOURS": 6, "CHUNK_DAYS": 3}}
@@ -574,7 +671,8 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description="날마다 주식 시청자 관심 → 주제 후보 재료")
     ap.add_argument("--log-level", default="INFO", choices=["DEBUG", "INFO", "WARNING"])
     ap.add_argument("folder", nargs="?", default="stock")
-    ap.add_argument("cmd", nargs="?", default="run", choices=["run", "plan", "selftest"])
+    ap.add_argument("cmd", nargs="?", default="run", choices=["run", "plan", "recount", "selftest"])
+    ap.add_argument("stamp", nargs="?", default="", help="recount — daily/ 의 <날짜>[_시각] (예 2026-11-28)")
     ap.add_argument("--budget", type=int, default=0, help="할당량 한도 (0 = 설정 BUDGET)")
     ap.add_argument("--words", type=int, default=99, help="검색어 몇 개까지")
     ap.add_argument("--top", type=int, default=0, help="댓글 받을 영상 수 (0 = 설정 TOP_VIDEOS)")
@@ -583,6 +681,8 @@ def main(argv=None) -> int:
     if a.folder == "selftest" or a.cmd == "selftest":
         return selftest()
     cfg = load_cfg(a.folder)
+    if a.cmd == "recount":
+        return recount(a.folder, a.stamp)
     if a.cmd == "plan":
         return plan(a.folder, a.words, a.top or int(cfg["comments"]["TOP_VIDEOS"]))
     return run(a.folder, a.budget or int(cfg["comments"]["BUDGET"]), a.words, a.top or int(cfg["comments"]["TOP_VIDEOS"]))

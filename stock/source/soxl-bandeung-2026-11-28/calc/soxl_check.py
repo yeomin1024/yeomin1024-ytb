@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.5 — 2026-11-28 — 나눠 사기 = 지정가 주문(시가·저가로 체결 — v1.4 는 종가가 넘어선 날 그 종가에 사서 갭 하락 때 유리하게 나왔음, 반론 검토 K5 지적) · 날짜 기준 나눠 사기 · 반도체 지수 1배 · 2020 빠진 까닭 · 지수 필요 배수.
+# VERSION: v1.6 — 2026-11-28 — summary 에 과거 네 번 끝 결과 견줌 수 (한 번에 > 날짜 나눔 · 한 번에 > 가격 나눔) — 반론 3회차 K3.
+# 이전 v1.5 — 2026-11-28 — 나눠 사기 = 지정가 주문(시가·저가로 체결 — v1.4 는 종가가 넘어선 날 그 종가에 사서 갭 하락 때 유리하게 나왔음, 반론 검토 K5 지적) · 날짜 기준 나눠 사기 · 반도체 지수 1배 · 2020 빠진 까닭 · 지수 필요 배수.
 # 이전 v1.4 — 2026-11-28 — 대본용 예시: 하루 −10% 뒤 +10% (1배·3배) · 엔비디아 11-23 하루 · 큰 반등 날부터 지수 200일선 회복까지 거래일.
 # 이전 v1.3 — 2026-11-28 — summary: 결과가 있는 큰 반등 날마다 방법 견줌 수(가장 나빴던 때 · 끝 결과) · 이번 구간 큰 반등 뒤 새 저점 수.
 # 이전 v1.2 — 2026-11-28 — 구간 끝 = 새 1년 최고가 (v1.1 은 옛 고점 값을 되찾을 때까지라 2025-04 폭락이 또 합쳐짐) · 이번 구간 큰 반등 날의 '지금까지' 결과 · 방법마다 1년 동안 가장 나빴던 때.
@@ -36,7 +37,7 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(ROOT / "tools"))
-VERSION = "v1.5"
+VERSION = "v1.6"
 KST = dt.timezone(dt.timedelta(hours=9))
 SYMS = ["SOXL", "^SOX", "NVDA", "^IXIC", "^GSPC", "^VIX"]
 DD_EPISODE = -0.70      # 하락 구간 = 고점 대비 이보다 깊게
@@ -316,6 +317,9 @@ def main(argv=None):
         "split_worst_better_than_date": sum(1 for r in measured if r["so_far"]["split"]["worst"] > r["so_far"]["date_split"]["worst"]),
         "split_end_better_than_date": sum(1 for r in measured if r["so_far"]["split"]["end"] > r["so_far"]["date_split"]["end"]),
         "date_worst_better_than_one": sum(1 for r in measured if r["so_far"]["date_split"]["worst"] > r["so_far"]["one"]["worst"]),
+        "past_one_end_better_than_date": sum(1 for r in past if r["so_far"]["one"]["end"] > r["so_far"]["date_split"]["end"]),
+        "past_one_end_better_than_split": sum(1 for r in past if r["so_far"]["one"]["end"] > r["so_far"]["split"]["end"]),
+        "current_min_after_max": min((r["so_far"]["min_after"] for r in cur), default=None),
         "past_one_year_positive": sum(1 for r in past if r["so_far"]["one"]["end"] > 0),
         "past_min_after_range": [min(r["so_far"]["min_after"] for r in past), max(r["so_far"]["min_after"] for r in past)] if past else None,
         "current_new_low_after": sum(1 for r in cur if r["so_far"]["new_low"]), "current_measured": len(cur),

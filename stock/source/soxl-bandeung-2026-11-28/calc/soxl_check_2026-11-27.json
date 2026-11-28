@@ -1,6 +1,6 @@
 {
- "tool": "soxl_check.py v1.5",
- "made": "2026-11-28T22:37:20+09:00",
+ "tool": "soxl_check.py v1.6",
+ "made": "2026-11-28T22:53:50+09:00",
  "source": "Yahoo Finance chart API 일별 종가 10년",
  "rules": {
   "episode_dd": -0.7,
@@ -104,6 +104,9 @@
   "split_worst_better_than_date": 1,
   "split_end_better_than_date": 3,
   "date_worst_better_than_one": 7,
+  "past_one_end_better_than_date": 3,
+  "past_one_end_better_than_split": 2,
+  "current_min_after_max": -53.2,
   "past_one_year_positive": 4,
   "past_min_after_range": [
    -35.9,

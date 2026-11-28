@@ -204,21 +204,33 @@
        "rebuttal_mid_max": 1,
        "max_rounds": 5
       }
+     },
+     {
+      "n": 7,
+      "at": "2026-11-28T16:19:58Z",
+      "sha": "098607a534bf31fa",
+      "reviewers": [
+       {
+        "reviewer": "E7-ALL",
+        "persona": "ALL",
+        "exits": [],
+        "hard_words": [],
+        "keep_watching": true,
+        "best": "38번 — '11월 9일에 샀다면 45.1%, 11일에 샀다면 53.2% 하락'이 도입의 '지금 사도 될까'에 바로 답하는 숫자라, 내가 하려던 반등 날 사기가 어떻게 됐는지 보여 줘서 끝까지 보게 됨",
+        "pass": true,
+        "why": []
+       }
+      ],
+      "pass": true,
+      "fixed_after": "-",
+      "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r7.md",
+      "rule": {
+       "rebuttal_mid_max": 1,
+       "max_rounds": 5
+      }
      }
     ],
-    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt",
-    "pending": {
-     "n": 7,
-     "sha": "098607a534bf31fa",
-     "reviewers": [
-      "E7-ALL"
-     ],
-     "prompt": "stock/source/soxl-bandeung-2026-11-28/persona/exit_r7.md",
-     "answers": "stock/source/soxl-bandeung-2026-11-28/persona/answers_soxl-bandeung-2026-11-28_script_exit_7",
-     "ours_idx": null,
-     "text": null,
-     "at": "2026-11-28T16:17:55Z"
-    }
+    "path": "stock/source/soxl-bandeung-2026-11-28/soxl-bandeung-2026-11-28.txt"
    },
    "script_rebuttal": {
     "rounds": [

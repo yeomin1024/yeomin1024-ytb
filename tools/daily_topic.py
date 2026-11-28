@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# VERSION: v1.0 — 2026-11-28 — 최초. 날마다(미국 장 마감 뒤) 주식 시청자 공통 관심 → 주제 후보 재료 — 사용자 지시 2026-11-28
+# VERSION: v1.0.1 — 2026-11-28 — 할당량이 댓글 도중에 끝나도 받은 댓글을 남김.
+# 이전 v1.0 — 2026-11-28 — 최초. 날마다(미국 장 마감 뒤) 주식 시청자 공통 관심 → 주제 후보 재료 — 사용자 지시 2026-11-28
 #          "1은 그냥 댓글보면 알 수 있지 않나? 내가 댓글 본것만 봐도 soxl 등 주식 매수 타이밍 예측하는게 많던데 왜 이걸 파악 못해 … 3은 서두를 필요없이
 #          최대한 많은 정보를 가지고 정확하게 판단하는게 먼저야 4는 근데 모두야 … 공통점을 찾으면 돼 … 6은 미장 끝나고 업데이트되면 해".
 #
@@ -9,6 +10,9 @@
 #                    주식 관련·한국어만 ③ 조회수 ÷ 올린 지 시간 큰 순 TOP_VIDEOS 편 댓글(최근 순·공감 순 한 쪽씩 — 작성자 이름·채널 ID 없음)
 #                    ④ 의도(무엇을 하려는지·알고 싶은지) 몫 — 이번 · 전체 성공 사례 댓글과 비교 ⑤ 갈래마다 공감 큰 원문 + Claude 가 읽을 표본.
 #                    결과 = <주제>/result/next_topic/daily/<날짜>.md · <날짜>.json.gz · latest.md. 할당량 BUDGET 넘으면 거기서 멈추고 받은 것만.
+#   v1.0.1 2026-11-28  fetch_comments — API 가 할당량 끝(SystemExit)을 내면 거기서 멈추고 그때까지 받은 영상 댓글을 돌려줌 (v1.0 은
+#                    run() 에서 cms={} 가 되어 받은 댓글을 모두 버렸음 — '받은 것까지만 쓴다'는 설명과 달랐음). 영상마다 진행 줄(DEBUG)·
+#                    20편마다 INFO 한 줄 (댓글 단계가 1분 넘게 조용했음).
 #
 # 쓰는 법
 #   python3 tools/daily_topic.py stock run [--budget 2500] [--words 12] [--top 120]
@@ -33,7 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import market_data as md          # noqa: E402
 import outlier_research as orr    # noqa: E402
 
-VERSION = "v1.0"
+VERSION = "v1.0.1"
 ROOT = Path(__file__).resolve().parent.parent
 KST = dt.timezone(dt.timedelta(hours=9))
 HANGUL = re.compile(r"[가-힣]")
@@ -147,14 +151,24 @@ def fetch_comments(api, vids: list[dict], top: int, budget: int, shorts: bool) -
             break
         got = {}
         for order in ("time", "relevance"):
-            j = api.get("commentThreads", part="snippet", videoId=v["id"], order=order, maxResults=100, textFormat="plainText")
+            try:
+                j = api.get("commentThreads", part="snippet", videoId=v["id"], order=order, maxResults=100, textFormat="plainText")
+            except SystemExit as e:                            # v1.0.1 할당량 끝 — 이 영상 것까지 남기고 멈춤 (받은 것은 버리지 않음)
+                if got:
+                    out[v["id"]] = list(got.values())
+                log("COMMENTS", logging.WARNING, note="API 멈춤 — 받은 것까지만", error=str(e)[:160], done=len(out), units=api.units,
+                    next="한국 17시 할당량 초기화 뒤 다시")
+                log("COMMENTS", videos=len(out), comments=sum(len(x) for x in out.values()), units=api.units)
+                return out
             if j.get("_error"):
+                log("COMMENTS", logging.DEBUG, video=v["id"], skipped=j["_error"])
                 break
             for it in j.get("items", []):
                 s = it["snippet"]["topLevelComment"]["snippet"]
                 got[it["id"]] = {"t": s["publishedAt"][:16], "like": int(s.get("likeCount", 0) or 0), "reply": int(it["snippet"].get("totalReplyCount", 0) or 0),
                                  "text": re.sub(r"\s+", " ", s.get("textDisplay", ""))[:400]}     # 작성자 이름·채널 ID 는 넣지 않음 (CLAUDE.md)
         out[v["id"]] = list(got.values())
+        log("COMMENTS", logging.INFO if len(out) % 20 == 0 else logging.DEBUG, progress=f"{len(out)}/{len(pick)}", video=v["id"], got=len(got), units=api.units)
     log("COMMENTS", videos=len(out), comments=sum(len(x) for x in out.values()), units=api.units)
     return out
 
@@ -285,6 +299,19 @@ def selftest() -> int:
     check("의도 — 매수 타이밍·추가 하락·넷 중 하나", sh["매수 타이밍 (살까·언제·들어가)"]["n"] == 1 and sh["추가 하락 예측"]["n"] == 1 and sh["_timing_any"]["n"] == 2)
     check("길이 읽기", iso_dur("PT1H2M3S") == 3723 and iso_dur("PT45S") == 45)
     check("설정 — 검색어·할당량", len(cfg["search"]["WORDS"]) >= 5 and cfg["comments"]["BUDGET"] > 0)
+
+    class FakeApi:                                             # v1.0.1 — 세 번째 부름에서 할당량 끝
+        units = 0
+
+        def get(self, ep, **kw):
+            self.units += 1
+            if self.units >= 3:
+                raise SystemExit("[API] 할당량 끝 (시험)")
+            return {"items": [{"id": f"c{self.units}", "snippet": {"totalReplyCount": 0, "topLevelComment": {"snippet": {
+                "publishedAt": "2026-11-28T00:00:00Z", "likeCount": 1, "textDisplay": "바닥인가요?"}}}}]}
+    vv = [{"id": "v1", "short": False, "comments": 5}, {"id": "v2", "short": False, "comments": 5}]
+    got = fetch_comments(FakeApi(), vv, 120, 9999, True)
+    check("할당량이 도중에 끝나도 받은 댓글 남김 (v1.0.1)", list(got) == ["v1"] and len(got["v1"]) == 2)
     print("selftest:", "OK" if ok else "FAIL")
     return 0 if ok else 1
 
